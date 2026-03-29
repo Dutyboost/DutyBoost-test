@@ -260,15 +260,24 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-10 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
-              <Plane className="w-3 h-3 text-primary-foreground" />
+        <div className="max-w-6xl mx-auto space-y-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
+                <Plane className="w-3 h-3 text-primary-foreground" />
+              </div>
+              <span className="font-heading font-semibold text-foreground">DutyBoost</span>
+              <span>— Dynamic Airport Incentive Platform</span>
             </div>
-            <span className="font-heading font-semibold text-foreground">DutyBoost</span>
-            <span>— Dynamic Airport Incentive Platform</span>
+            <p>© 2026 DutyBoost. All rights reserved.</p>
           </div>
-          <p>© 2026 DutyBoost. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-muted-foreground border-t border-border pt-4">
+            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service & DPA</Link>
+            <Link to="/refunds" className="hover:text-primary transition-colors">Refund Policy</Link>
+            <Link to="/code-of-conduct" className="hover:text-primary transition-colors">Code of Conduct</Link>
+            <Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>
+          </div>
         </div>
       </footer>
     </div>

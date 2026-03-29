@@ -17,6 +17,11 @@ import TravelerVoucher from './pages/TravelerVoucher';
 import ScanVoucher from './pages/ScanVoucher';
 import TravelerScan from './pages/TravelerScan';
 import GetStarted from './pages/GetStarted';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import RefundPolicy from './pages/RefundPolicy';
+import CodeOfConduct from './pages/CodeOfConduct';
+import CookiePolicy from './pages/CookiePolicy';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -35,7 +40,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -43,6 +48,11 @@ const AuthenticatedApp = () => {
             <Route path="/get-started" element={<GetStarted />} />
             <Route path="/voucher" element={<TravelerVoucher />} />
             <Route path="/scan" element={<TravelerScan />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/refunds" element={<RefundPolicy />} />
+            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+            <Route path="/cookies" element={<CookiePolicy />} />
           </Routes>
         );
       }
@@ -58,6 +68,11 @@ const AuthenticatedApp = () => {
       <Route path="/voucher" element={<TravelerVoucher />} />
       <Route path="/scan" element={<TravelerScan />} />
       <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsOfService />} />
+      <Route path="/refunds" element={<RefundPolicy />} />
+      <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+      <Route path="/cookies" element={<CookiePolicy />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
