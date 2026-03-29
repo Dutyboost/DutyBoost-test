@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -90,14 +91,10 @@ export default function LandingPage() {
             <span className="font-heading font-bold text-lg">DutyBoost</span>
           </div>
           <div className="flex items-center gap-3">
-            <Link to="/dashboard">
-              <Button variant="ghost" size="sm">Sign In</Button>
-            </Link>
-            <Link to="/dashboard">
-              <Button size="sm" className="gap-1">
+            <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
+            <Button size="sm" className="gap-1" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
                 Get Started <ChevronRight className="w-3 h-3" />
-              </Button>
-            </Link>
+            </Button>
           </div>
         </div>
       </nav>
@@ -126,11 +123,9 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-            <Link to="/dashboard">
-              <Button size="lg" className="gap-2 px-8 text-base">
+            <Button size="lg" className="gap-2 px-8 text-base" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
                 Launch Platform <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
+            </Button>
             <a href="#how-it-works">
               <Button size="lg" variant="outline" className="px-8 text-base">
                 See How It Works
@@ -255,11 +250,9 @@ export default function LandingPage() {
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
                 Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer connecting agencies, retailers, and travelers globally.
               </p>
-              <Link to="/dashboard">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
                   Access the Platform <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
