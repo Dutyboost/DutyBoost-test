@@ -13,7 +13,7 @@ const stakeholders = [
     color: "from-violet-500 to-indigo-600",
     bg: "bg-violet-50",
     iconColor: "text-violet-600",
-    description: "Turn every booking into a loyalty asset. Automatically generate personalised discount vouchers for your travelers based on group size, destination, and ticket value — at zero extra effort.",
+    description: "Turn every booking into a loyalty asset. Automatically generate personalised discount vouchers for your travelers based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every voucher redeemed by your travelers at the airport.",
     benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
   {
