@@ -91,7 +91,24 @@ export default function TravelerVoucher() {
 
           <div className="p-6 space-y-4">
             <div className="flex items-center justify-center">
-              <QRCodeDisplay value={voucher.voucher_code} size={180} />
+              <div className="relative">
+                <div className={isExpired || isRedeemed ? "opacity-20 blur-sm pointer-events-none select-none" : ""}>
+                  <QRCodeDisplay value={voucher.voucher_code} size={180} />
+                </div>
+                {(isExpired || isRedeemed) && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <div className="bg-white/90 rounded-xl px-5 py-3 text-center shadow">
+                      <p className="text-2xl">🚫</p>
+                      <p className="font-heading font-bold text-sm mt-1">
+                        {isRedeemed ? "Already Redeemed" : "Expired"}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        This voucher is no longer valid
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <p className="text-center font-mono text-lg font-bold tracking-wider">

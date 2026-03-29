@@ -97,7 +97,22 @@ export default function TravelerScan() {
               </div>
               <div className="p-5 space-y-4">
                 <div className="flex items-center justify-center">
-                  <QRCodeDisplay value={voucher.voucher_code} size={160} />
+                  <div className="relative">
+                    <div className={voucher.status !== 'active' ? "opacity-20 blur-sm pointer-events-none select-none" : ""}>
+                      <QRCodeDisplay value={voucher.voucher_code} size={160} />
+                    </div>
+                    {voucher.status !== 'active' && (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <div className="bg-white/90 rounded-xl px-4 py-3 text-center shadow">
+                          <p className="text-xl">🚫</p>
+                          <p className="font-heading font-bold text-sm mt-1">
+                            {voucher.status === 'redeemed' ? 'Already Redeemed' : 'Expired'}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-0.5">Not valid</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <p className="text-center font-mono font-bold tracking-wider">{voucher.voucher_code}</p>
                 <div className="space-y-2 text-sm">
