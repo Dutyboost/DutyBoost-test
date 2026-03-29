@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DutyBoostLogo from "../components/DutyBoostLogo";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -84,11 +85,8 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Plane className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <span className="font-heading font-bold text-lg">DutyBoost</span>
+          <div className="flex items-center">
+            <DutyBoostLogo height={40} />
           </div>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
@@ -263,11 +261,8 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
-                <Plane className="w-3 h-3 text-primary-foreground" />
-              </div>
-              <span className="font-heading font-semibold text-foreground">DutyBoost</span>
-              <span>— Dynamic Airport Incentive Platform</span>
+              <DutyBoostLogo height={28} />
+              <span className="text-muted-foreground">— Dynamic Airport Incentive Platform</span>
             </div>
             <p>© 2026 DutyBoost. All rights reserved.</p>
           </div>

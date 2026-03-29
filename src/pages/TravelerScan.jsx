@@ -5,6 +5,7 @@ import QRCodeDisplay from "../components/QRCodeDisplay";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScanLine, Plane, MapPin, Clock, TicketPercent, Loader2, ArrowLeft } from "lucide-react";
+import DutyBoostLogo from "../components/DutyBoostLogo";
 import { toast } from "sonner";
 
 export default function TravelerScan() {
@@ -28,11 +29,8 @@ export default function TravelerScan() {
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-md mx-auto space-y-6">
-        <div className="flex items-center gap-3 pt-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Plane className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <span className="font-heading font-bold text-lg">DutyBoost</span>
+        <div className="pt-2">
+          <DutyBoostLogo height={32} />
         </div>
 
         {scanning && (

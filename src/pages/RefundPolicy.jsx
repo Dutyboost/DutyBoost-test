@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
+import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Plane } from "lucide-react";
 
 export default function RefundPolicy() {
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="border-b border-border px-6 h-16 flex items-center">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Plane className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <span className="font-heading font-bold text-lg">DutyBoost</span>
+        <Link to="/">
+          <DutyBoostLogo height={36} />
         </Link>
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import QRCodeDisplay from "../components/QRCodeDisplay";
 import { Plane, MapPin, Clock, TicketPercent, Store, ShoppingBag } from "lucide-react";
+import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
 
 export default function TravelerVoucher() {
@@ -61,11 +62,8 @@ export default function TravelerVoucher() {
       <div className="max-w-md mx-auto space-y-6">
         {/* Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Plane className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <span className="font-heading font-bold text-lg">DutyBoost</span>
+          <div className="inline-flex items-center mb-4">
+            <DutyBoostLogo height={36} />
           </div>
           <h1 className="text-3xl font-heading font-bold">Your Voucher</h1>
         </div>

@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
+import DutyBoostLogo from "./DutyBoostLogo";
 import {
   Plane,
   TicketPercent,
@@ -64,13 +65,8 @@ export default function Layout() {
         }`}
       >
         <div className="p-6 border-b border-border">
-          <Link to="/dashboard" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-              <Plane className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="font-heading font-bold text-xl tracking-tight">
-              DutyBoost
-            </span>
+          <Link to="/dashboard" className="flex items-center">
+            <DutyBoostLogo height={36} />
           </Link>
         </div>
 
@@ -129,7 +125,7 @@ export default function Layout() {
             >
               <Menu className="w-5 h-5" />
             </Button>
-            <span className="font-heading font-bold text-lg">DutyBoost</span>
+            <DutyBoostLogo height={28} />
             <div className="w-10" />
           </div>
         </header>

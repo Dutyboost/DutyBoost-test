@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plane, ArrowRight, Store, Users } from "lucide-react";
+import { ArrowRight, Store, Users } from "lucide-react";
+import DutyBoostLogo from "../components/DutyBoostLogo";
 
 export default function GetStarted() {
   const [businessType, setBusinessType] = useState("");
@@ -26,8 +27,8 @@ export default function GetStarted() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
-        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-          <Plane className="w-8 h-8 text-primary" />
+        <div className="mb-6">
+          <DutyBoostLogo height={48} />
         </div>
         <h1 className="text-3xl font-heading font-bold mb-3">You're on the list!</h1>
         <p className="text-muted-foreground max-w-sm mb-6">
@@ -44,11 +45,8 @@ export default function GetStarted() {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Nav */}
       <nav className="border-b border-border px-6 h-16 flex items-center">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Plane className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <span className="font-heading font-bold text-lg">DutyBoost</span>
+        <Link to="/">
+          <DutyBoostLogo height={36} />
         </Link>
       </nav>
 
