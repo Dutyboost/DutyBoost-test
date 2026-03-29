@@ -98,7 +98,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-24 px-6">
+      <section className="relative overflow-hidden pt-12 pb-14 px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -134,7 +134,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-14 px-6 border-y border-border bg-card/50">
+      <section className="py-8 px-6 border-y border-border bg-card/50">
         <div className="max-w-5xl mx-auto grid grid-cols-3 md:grid-cols-5 gap-6">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
@@ -146,9 +146,9 @@ export default function LandingPage() {
       </section>
 
       {/* Stakeholders */}
-      <section id="how-it-works" className="py-24 px-6">
+      <section id="how-it-works" className="py-14 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Ecosystem</Badge>
             <h2 className="text-4xl font-heading font-bold">One Platform, Three Winners</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
@@ -182,9 +182,9 @@ export default function LandingPage() {
       </section>
 
       {/* How it works flow */}
-      <section className="py-20 px-6 bg-card/30 border-y border-border">
+      <section className="py-12 px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14 space-y-3">
+          <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">The Flow</Badge>
             <h2 className="text-4xl font-heading font-bold">From Booking to Basket</h2>
           </div>
@@ -208,9 +208,9 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section className="py-24 px-6">
+      <section className="py-14 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Platform</Badge>
             <h2 className="text-4xl font-heading font-bold">Built for the Modern Airport</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
@@ -235,7 +235,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6">
+      <section className="py-14 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
