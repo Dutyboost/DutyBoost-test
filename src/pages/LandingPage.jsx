@@ -71,8 +71,9 @@ const features = [
 
 const stats = [
   { value: "25%", label: "Max dynamic discount" },
-  { value: "3", label: "Stakeholder roles served" },
+  { value: "1-scan", label: "Instant QR redemption" },
   { value: "100%", label: "QR-based, paperless" },
+  { value: "€0", label: "Setup cost for agencies" },
 ];
 
 export default function LandingPage() {
