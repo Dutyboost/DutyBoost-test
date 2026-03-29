@@ -35,9 +35,16 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      // Allow public landing page without login
-      if (window.location.pathname === '/') {
-        return <LandingPage />;
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan'];
+      if (publicPaths.includes(window.location.pathname)) {
+        return (
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/get-started" element={<GetStarted />} />
+            <Route path="/voucher" element={<TravelerVoucher />} />
+            <Route path="/scan" element={<TravelerScan />} />
+          </Routes>
+        );
       }
       navigateToLogin();
       return null;
