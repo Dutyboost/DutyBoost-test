@@ -22,7 +22,7 @@ const stakeholders = [
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
     iconColor: "text-amber-600",
-    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised incentive. Our small commission (3%–5%) applies only when a voucher is actually redeemed — you pay nothing unless we deliver a sale.",
+    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised incentive. Our small 5% commission applies only when a voucher is actually redeemed - you pay nothing unless we deliver a sale.",
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
@@ -74,7 +74,7 @@ const stats = [
   { value: "25%", label: "Max dynamic discount" },
   { value: "1-scan", label: "Instant QR redemption" },
   { value: "100%", label: "QR-based, paperless" },
-  { value: "3%–5%", label: "Commission on redeemed sales only" },
+  { value: "5%", label: "Commission on redeemed sales only" },
 ];
 
 export default function LandingPage() {
