@@ -92,7 +92,7 @@ export default function LandingPage() {
           </div>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
-            <Button size="sm" className="gap-1" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
+            <Button size="sm" className="gap-1" onClick={() => window.location.href = '/get-started'}>
                 Get Started <ChevronRight className="w-3 h-3" />
             </Button>
           </div>
@@ -123,7 +123,7 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-            <Button size="lg" className="gap-2 px-8 text-base" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
+            <Button size="lg" className="gap-2 px-8 text-base" onClick={() => window.location.href = '/get-started'}>
                 Launch Platform <ArrowRight className="w-4 h-4" />
             </Button>
             <a href="#how-it-works">
@@ -250,7 +250,7 @@ export default function LandingPage() {
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
                 Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer connecting agencies, retailers, and travelers globally.
               </p>
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
                   Access the Platform <ArrowRight className="w-4 h-4" />
               </Button>
             </div>

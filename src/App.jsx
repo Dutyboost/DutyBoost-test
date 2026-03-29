@@ -16,6 +16,7 @@ import RetailerDashboard from './pages/RetailerDashboard';
 import TravelerVoucher from './pages/TravelerVoucher';
 import ScanVoucher from './pages/ScanVoucher';
 import TravelerScan from './pages/TravelerScan';
+import GetStarted from './pages/GetStarted';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -49,6 +50,7 @@ const AuthenticatedApp = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/voucher" element={<TravelerVoucher />} />
       <Route path="/scan" element={<TravelerScan />} />
+      <Route path="/get-started" element={<GetStarted />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
