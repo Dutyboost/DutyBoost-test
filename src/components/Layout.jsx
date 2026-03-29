@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 
 const roleNavItems = {
   admin: [
-    { label: "Dashboard", path: "/", icon: LayoutDashboard },
+    { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "Vouchers", path: "/vouchers", icon: TicketPercent },
     { label: "Retailers", path: "/retailers", icon: Store },
     { label: "Airports", path: "/airports", icon: Plane },
@@ -25,11 +25,11 @@ const roleNavItems = {
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
   agency: [
-    { label: "Dashboard", path: "/", icon: LayoutDashboard },
+    { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "Vouchers", path: "/vouchers", icon: TicketPercent },
   ],
   retailer: [
-    { label: "Dashboard", path: "/", icon: LayoutDashboard },
+    { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "My Store", path: "/retailer-dashboard", icon: Store },
     { label: "Scan Voucher", path: "/scan-redeem", icon: ScanLine },
   ],
@@ -64,7 +64,7 @@ export default function Layout() {
         }`}
       >
         <div className="p-6 border-b border-border">
-          <Link to="/" className="flex items-center gap-2.5">
+          <Link to="/dashboard" className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
               <Plane className="w-5 h-5 text-primary-foreground" />
             </div>
