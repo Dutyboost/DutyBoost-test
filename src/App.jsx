@@ -13,6 +13,8 @@ import AirportsPage from './pages/AirportsPage';
 import AdminPanel from './pages/AdminPanel';
 import RetailerDashboard from './pages/RetailerDashboard';
 import TravelerVoucher from './pages/TravelerVoucher';
+import ScanVoucher from './pages/ScanVoucher';
+import TravelerScan from './pages/TravelerScan';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -41,6 +43,7 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route path="/voucher" element={<TravelerVoucher />} />
+      <Route path="/scan" element={<TravelerScan />} />
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
@@ -48,6 +51,7 @@ const AuthenticatedApp = () => {
         <Route path="/airports" element={<AirportsPage />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
+        <Route path="/scan-redeem" element={<ScanVoucher />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
