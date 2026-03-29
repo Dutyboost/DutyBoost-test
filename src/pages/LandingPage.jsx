@@ -31,7 +31,7 @@ const stakeholders = [
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
     iconColor: "text-sky-600",
-    description: "Enjoy exclusive discounts at your departure airport — automatically matched to your flight. No apps to download. No sign-ups. Just scan and save.",
+    description: "Enjoy exclusive discounts at your departure airport — automatically matched to your flight. No sign-ups. Just scan and save.",
     benefits: ["Instant mobile voucher", "Relevant, local offers", "Seamless QR experience"],
   },
 ];
@@ -73,7 +73,6 @@ const stats = [
   { value: "25%", label: "Max dynamic discount" },
   { value: "3", label: "Stakeholder roles served" },
   { value: "100%", label: "QR-based, paperless" },
-  { value: "0", label: "Apps to download" },
 ];
 
 export default function LandingPage() {
