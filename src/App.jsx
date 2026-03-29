@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Layout from './components/Layout';
 import Home from './pages/Home';
+import LandingPage from './pages/LandingPage';
 import VouchersPage from './pages/VouchersPage';
 import RetailersPage from './pages/RetailersPage';
 import AirportsPage from './pages/AirportsPage';
@@ -42,10 +43,11 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/voucher" element={<TravelerVoucher />} />
       <Route path="/scan" element={<TravelerScan />} />
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
         <Route path="/retailers" element={<RetailersPage />} />
         <Route path="/airports" element={<AirportsPage />} />
