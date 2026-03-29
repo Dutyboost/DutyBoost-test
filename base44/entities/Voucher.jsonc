@@ -1,0 +1,61 @@
+{
+  "name": "Voucher",
+  "type": "object",
+  "properties": {
+    "voucher_code": {
+      "type": "string",
+      "title": "Voucher Code"
+    },
+    "booking_id": {
+      "type": "string",
+      "title": "Linked Booking ID"
+    },
+    "discount_percentage": {
+      "type": "number",
+      "title": "Discount Percentage"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    },
+    "expiration_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Expiration Date"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "redeemed",
+        "expired"
+      ],
+      "default": "active"
+    },
+    "traveler_count": {
+      "type": "integer",
+      "title": "Traveler Count"
+    },
+    "ticket_price": {
+      "type": "number",
+      "title": "Ticket Price"
+    },
+    "travel_type": {
+      "type": "string",
+      "title": "Travel Type"
+    },
+    "agency_email": {
+      "type": "string",
+      "title": "Agency Email"
+    }
+  },
+  "required": [
+    "voucher_code",
+    "booking_id",
+    "discount_percentage",
+    "airport",
+    "expiration_date",
+    "status"
+  ]
+}

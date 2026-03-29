@@ -1,0 +1,41 @@
+{
+  "name": "Retailer",
+  "type": "object",
+  "properties": {
+    "store_name": {
+      "type": "string",
+      "title": "Store Name"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport Location"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "Duty-free",
+        "Food",
+        "Retail"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "accepts_vouchers": {
+      "type": "boolean",
+      "title": "Accepts Vouchers",
+      "default": true
+    },
+    "owner_email": {
+      "type": "string",
+      "title": "Owner Email"
+    }
+  },
+  "required": [
+    "store_name",
+    "airport",
+    "category"
+  ]
+}

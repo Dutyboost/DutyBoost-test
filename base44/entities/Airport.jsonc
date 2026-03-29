@@ -1,0 +1,28 @@
+{
+  "name": "Airport",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Airport Name"
+    },
+    "code": {
+      "type": "string",
+      "title": "IATA Code"
+    },
+    "city": {
+      "type": "string",
+      "title": "City"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country"
+    }
+  },
+  "required": [
+    "name",
+    "code",
+    "city",
+    "country"
+  ]
+}

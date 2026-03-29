@@ -1,0 +1,45 @@
+{
+  "name": "Transaction",
+  "type": "object",
+  "properties": {
+    "voucher_code": {
+      "type": "string",
+      "title": "Voucher Code"
+    },
+    "retailer_id": {
+      "type": "string",
+      "title": "Retailer ID"
+    },
+    "store_name": {
+      "type": "string",
+      "title": "Store Name"
+    },
+    "transaction_value": {
+      "type": "number",
+      "title": "Transaction Value (EUR)"
+    },
+    "discount_applied": {
+      "type": "number",
+      "title": "Discount Applied (%)"
+    },
+    "discount_amount": {
+      "type": "number",
+      "title": "Discount Amount (EUR)"
+    },
+    "platform_revenue": {
+      "type": "number",
+      "title": "Platform Revenue (EUR)"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    }
+  },
+  "required": [
+    "voucher_code",
+    "retailer_id",
+    "store_name",
+    "transaction_value",
+    "discount_applied"
+  ]
+}

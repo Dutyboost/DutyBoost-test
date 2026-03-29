@@ -1,0 +1,48 @@
+{
+  "name": "Booking",
+  "type": "object",
+  "properties": {
+    "booking_id": {
+      "type": "string",
+      "title": "Booking ID"
+    },
+    "total_ticket_price": {
+      "type": "number",
+      "title": "Total Ticket Price (EUR)"
+    },
+    "number_of_travelers": {
+      "type": "integer",
+      "title": "Number of Travelers",
+      "minimum": 1
+    },
+    "travel_type": {
+      "type": "string",
+      "title": "Travel Type",
+      "enum": [
+        "Short-haul",
+        "Long-haul"
+      ]
+    },
+    "departure_airport": {
+      "type": "string",
+      "title": "Departure Airport"
+    },
+    "travel_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Travel Date"
+    },
+    "agency_email": {
+      "type": "string",
+      "title": "Agency Email"
+    }
+  },
+  "required": [
+    "booking_id",
+    "total_ticket_price",
+    "number_of_travelers",
+    "travel_type",
+    "departure_airport",
+    "travel_date"
+  ]
+}
