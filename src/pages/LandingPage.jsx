@@ -70,10 +70,10 @@ const features = [
 ];
 
 const stats = [
+  { value: "€0", label: "Setup & usage fee" },
   { value: "25%", label: "Max dynamic discount" },
   { value: "1-scan", label: "Instant QR redemption" },
   { value: "100%", label: "QR-based, paperless" },
-  { value: "€0", label: "Setup cost for agencies" },
 ];
 
 export default function LandingPage() {
