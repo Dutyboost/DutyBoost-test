@@ -74,6 +74,7 @@ const stats = [
   { value: "25%", label: "Max dynamic discount" },
   { value: "1-scan", label: "Instant QR redemption" },
   { value: "100%", label: "QR-based, paperless" },
+  { value: "3%–5%", label: "Pay-as-you-go commission" },
 ];
 
 export default function LandingPage() {
