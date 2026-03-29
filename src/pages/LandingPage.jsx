@@ -22,7 +22,7 @@ const stakeholders = [
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
     iconColor: "text-amber-600",
-    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised incentive.",
+    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised incentive. Our small commission (3%–5%) applies only when a voucher is actually redeemed — you pay nothing unless we deliver a sale.",
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
