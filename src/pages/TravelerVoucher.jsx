@@ -46,9 +46,9 @@ export default function TravelerVoucher() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
         <TicketPercent className="w-16 h-16 text-muted-foreground/30 mb-4" />
-        <h1 className="text-2xl font-heading font-bold">Travel Yield Not Found</h1>
+        <h1 className="text-2xl font-heading font-bold">DutyCredit Not Found</h1>
         <p className="text-muted-foreground mt-2 max-w-sm">
-          The Travel Yield code is invalid or has expired. Please check your link and try again.
+          The DutyCredit code is invalid or has expired. Please check your link and try again.
         </p>
       </div>
     );
@@ -65,7 +65,7 @@ export default function TravelerVoucher() {
           <div className="inline-flex items-center mb-4">
             <DutyBoostLogo height={36} />
           </div>
-          <h1 className="text-3xl font-heading font-bold">Your Travel Yield</h1>
+          <h1 className="text-3xl font-heading font-bold">Your DutyCredit</h1>
         </div>
 
         {/* Voucher Card */}
@@ -101,7 +101,7 @@ export default function TravelerVoucher() {
                         {isRedeemed ? "Already Redeemed" : "Expired"}
                       </p>
                       <p className="text-xs text-muted-foreground mt-0.5">
-                        This Travel Yield is no longer valid
+                      This DutyCredit is no longer valid
                       </p>
                     </div>
                   </div>
@@ -152,7 +152,7 @@ export default function TravelerVoucher() {
         )}
 
         <p className="text-center text-xs text-muted-foreground pb-4">
-          Show this QR code at the store to redeem your Travel Yield discount.
+          Show this QR code at the store to redeem your DutyCredit — a discount earned through your booking.
         </p>
       </div>
     </div>

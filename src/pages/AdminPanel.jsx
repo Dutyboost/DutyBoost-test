@@ -45,7 +45,7 @@ export default function AdminPanel() {
     e.preventDefault();
     const voucher = vouchers.find(v => v.voucher_code === redeemForm.voucher_code && v.status === 'active');
     if (!voucher) {
-      toast.error("Travel Yield not found or already used");
+      toast.error("DutyCredit not found or already used");
       return;
     }
     const retailer = retailers.find(r => r.id === redeemForm.retailer_id);
@@ -65,7 +65,7 @@ export default function AdminPanel() {
     });
 
     await base44.entities.Voucher.update(voucher.id, { status: 'redeemed' });
-    toast.success(`Travel Yield redeemed! Platform revenue: €${platformRevenue.toFixed(2)}`);
+    toast.success(`DutyCredit redeemed! Platform revenue: €${platformRevenue.toFixed(2)}`);
     setRedeemOpen(false);
     setRedeemForm({ voucher_code: "", retailer_id: "", transaction_value: "" });
     loadAll();
@@ -82,13 +82,13 @@ export default function AdminPanel() {
         </div>
         <Dialog open={redeemOpen} onOpenChange={setRedeemOpen}>
           <DialogTrigger asChild>
-            <Button className="gap-2"><CreditCard className="w-4 h-4" /> Redeem Travel Yield</Button>
+            <Button className="gap-2"><CreditCard className="w-4 h-4" /> Redeem DutyCredit</Button>
           </DialogTrigger>
           <DialogContent>
-            <DialogHeader><DialogTitle>Redeem Travel Yield</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle>Redeem DutyCredit</DialogTitle></DialogHeader>
             <form onSubmit={handleRedeem} className="space-y-4">
               <div className="space-y-2">
-                <Label>Travel Yield Code</Label>
+                <Label>DutyCredit Code</Label>
                 <Input value={redeemForm.voucher_code} onChange={e => setRedeemForm({...redeemForm, voucher_code: e.target.value.toUpperCase()})} required placeholder="DB-XXXXXXXX" />
               </div>
               <div className="space-y-2">
@@ -115,7 +115,7 @@ export default function AdminPanel() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={DollarSign} />
         <StatsCard title="Transaction Volume" value={`€${totalTransactionValue.toFixed(0)}`} icon={TrendingUp} />
-        <StatsCard title="Active Travel Yields" value={activeVouchers} icon={TicketPercent} />
+        <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
         <StatsCard title="Redeemed" value={redeemedVouchers} icon={CreditCard} />
       </div>
 
@@ -123,12 +123,12 @@ export default function AdminPanel() {
         <StatsCard title="Total Users" value={users.length} icon={Users} />
         <StatsCard title="Retailers" value={retailers.length} icon={Store} />
         <StatsCard title="Airports" value={airports.length} icon={Plane} />
-        <StatsCard title="Total Travel Yields" value={vouchers.length} icon={TicketPercent} />
+        <StatsCard title="Total DutyCredits" value={vouchers.length} icon={TicketPercent} />
       </div>
 
       <Tabs defaultValue="vouchers">
         <TabsList>
-          <TabsTrigger value="vouchers">All Travel Yields</TabsTrigger>
+          <TabsTrigger value="vouchers">All DutyCredits</TabsTrigger>
           <TabsTrigger value="transactions">Transactions</TabsTrigger>
           <TabsTrigger value="users">Users</TabsTrigger>
         </TabsList>
@@ -176,7 +176,7 @@ export default function AdminPanel() {
               <table className="w-full text-sm">
                 <thead className="bg-muted/50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Voucher</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">DutyCredit</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Store</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Value</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Discount</th>

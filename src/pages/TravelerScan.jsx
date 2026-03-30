@@ -20,7 +20,7 @@ export default function TravelerScan() {
     const results = await base44.entities.Voucher.filter({ voucher_code: code.trim().toUpperCase() });
     setLoading(false);
     if (results.length === 0) {
-      toast.error("Travel Yield not found");
+      toast.error("DutyCredit not found");
       return;
     }
     setVoucher(results[0]);
@@ -40,8 +40,8 @@ export default function TravelerScan() {
         {!voucher && (
           <div className="space-y-6 pt-4">
             <div>
-              <h1 className="text-2xl font-heading font-bold">Find Your Travel Yield</h1>
-              <p className="text-muted-foreground mt-1">Scan your Travel Yield QR code or enter the code below.</p>
+              <h1 className="text-2xl font-heading font-bold">Find Your DutyCredit</h1>
+              <p className="text-muted-foreground mt-1">Scan your DutyCredit QR code or enter the code below.</p>
             </div>
 
             <Button className="w-full h-14 text-base gap-3" onClick={() => setScanning(true)}>
@@ -72,7 +72,7 @@ export default function TravelerScan() {
         {loading && !voucher && (
           <div className="flex items-center gap-3 text-muted-foreground py-6 justify-center">
             <Loader2 className="w-5 h-5 animate-spin" />
-            <span>Looking up Travel Yield...</span>
+            <span>Looking up DutyCredit...</span>
           </div>
         )}
 
@@ -125,7 +125,7 @@ export default function TravelerScan() {
             </div>
 
             <Button className="w-full gap-2" variant="outline" onClick={() => setVoucher(null)}>
-              <ScanLine className="w-4 h-4" /> Find Another Travel Yield
+              <ScanLine className="w-4 h-4" /> Find Another DutyCredit
             </Button>
           </div>
         )}

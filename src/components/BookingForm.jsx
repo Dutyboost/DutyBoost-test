@@ -63,7 +63,7 @@ export default function BookingForm({ onVoucherGenerated }) {
     });
 
     setLoading(false);
-    toast.success(`Travel Yield generated: ${discount}% discount!`);
+    toast.success(`DutyCredit generated: ${discount}% discount incentive!`);
     setForm({
       booking_id: "",
       total_ticket_price: "",
@@ -168,7 +168,7 @@ export default function BookingForm({ onVoucherGenerated }) {
 
       <Button type="submit" disabled={loading} className="w-full gap-2 h-11">
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-        Generate Travel Yield
+        Generate DutyCredit
       </Button>
     </form>
   );

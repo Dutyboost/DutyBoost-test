@@ -27,8 +27,8 @@ export default function VouchersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-heading font-bold tracking-tight">Travel Yields</h1>
-        <p className="text-muted-foreground mt-1">Browse and manage all Travel Yields.</p>
+        <h1 className="text-2xl font-heading font-bold tracking-tight">DutyCredits</h1>
+        <p className="text-muted-foreground mt-1">Browse and manage all DutyCredits — booking incentives for your travelers.</p>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3">
@@ -56,7 +56,7 @@ export default function VouchersPage() {
 
       {filtered.length === 0 ? (
         <div className="bg-card rounded-xl border border-border p-12 text-center text-muted-foreground">
-          <p>No Travel Yields found.</p>
+          <p>No DutyCredits found.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

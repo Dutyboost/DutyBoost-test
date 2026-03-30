@@ -15,7 +15,7 @@ const stakeholders = [
     color: "from-violet-500 to-indigo-600",
     bg: "bg-violet-50",
     iconColor: "text-violet-600",
-    description: "Turn every booking into a loyalty asset. Automatically generate personalised Travel Yields for your travelers based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every Travel Yield redeemed by your travelers at the airport.",
+    description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every DutyCredit redeemed by your travelers at the airport.",
     benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
   {
@@ -24,7 +24,7 @@ const stakeholders = [
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
     iconColor: "text-amber-600",
-    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised incentive. Our small 5% commission applies only when a Travel Yield is actually redeemed - you pay nothing unless we deliver a sale.",
+    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised DutyCredit incentive. Our small 5% commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.",
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
@@ -33,8 +33,8 @@ const stakeholders = [
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
     iconColor: "text-sky-600",
-    description: "Enjoy exclusive discounts at your departure airport — automatically matched to your flight. No sign-ups, no paperwork. Just scan your Travel Yield and save.",
-    benefits: ["Instant mobile voucher", "Relevant, local offers", "Seamless QR experience"],
+    description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save.",
+    benefits: ["Instant mobile DutyCredit", "Relevant, local offers", "Seamless QR experience"],
   },
 ];
 
@@ -57,7 +57,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "Single-Use Security",
-    description: "Each voucher is cryptographically unique and invalidated upon redemption — no double dipping, ever.",
+    description: "Each DutyCredit is cryptographically unique and invalidated upon redemption — no double dipping, ever.",
   },
   {
     icon: Globe2,
@@ -117,7 +117,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            DutyBoost is the first <strong className="text-foreground">Travel Retail Conversion Layer</strong> — connecting travel agencies, airport retailers, and travelers through intelligent, dynamic Travel Yields that unlock spending at the gate.
+            DutyBoost is the first <strong className="text-foreground">Travel Retail Conversion Layer</strong> — connecting travel agencies, airport retailers, and travelers through intelligent <strong className="text-foreground">DutyCredits</strong>: booking-earned incentives that unlock spending at the gate.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
@@ -191,7 +191,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-4 gap-6">
             {[
               { step: "01", title: "Agency books a flight", desc: "Travel agency submits booking details — price, travelers, destination." },
-              { step: "02", title: "Travel Yield generated", desc: "Dynamic discount calculated instantly and a unique QR Travel Yield issued." },
+              { step: "02", title: "DutyCredit earned", desc: "A DutyCredit — a booking-earned incentive with a dynamic discount — is instantly calculated and issued as a unique QR code." },
               { step: "03", title: "Traveler shops", desc: "Traveler presents QR at the airport retailer of their choice." },
               { step: "04", title: "All parties win", desc: "Retailer logs the sale, discount applied, platform revenue tracked." },
             ].map((item) => (
@@ -246,7 +246,7 @@ export default function LandingPage() {
                 The Future of Airport Retail Starts Here
               </h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer connecting agencies, retailers, and travelers globally.
+                Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer — where every booking earns a DutyCredit that converts travelers into airport shoppers.
               </p>
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
                   Access the Platform <ArrowRight className="w-4 h-4" />

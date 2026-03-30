@@ -19,20 +19,20 @@ import { Button } from "@/components/ui/button";
 const roleNavItems = {
   admin: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-    { label: "Vouchers", path: "/vouchers", icon: TicketPercent },
+    { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
     { label: "Retailers", path: "/retailers", icon: Store },
     { label: "Airports", path: "/airports", icon: Plane },
-    { label: "Scan Voucher", path: "/scan-redeem", icon: ScanLine },
+    { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
   agency: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-    { label: "Vouchers", path: "/vouchers", icon: TicketPercent },
+    { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
   ],
   retailer: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "My Store", path: "/retailer-dashboard", icon: Store },
-    { label: "Scan Voucher", path: "/scan-redeem", icon: ScanLine },
+    { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
   ],
 };
 
