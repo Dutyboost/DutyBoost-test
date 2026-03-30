@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { Plane } from "lucide-react";
 
 export default function TermsOfService() {
   return (
@@ -12,7 +11,7 @@ export default function TermsOfService() {
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">
         <div>
-          <h1 className="text-4xl font-heading font-bold mb-2">Terms of Service & Data Processing Agreement</h1>
+          <h1 className="text-4xl font-heading font-bold mb-2">Terms of Service</h1>
           <p className="text-muted-foreground text-sm">Last updated: March 2026</p>
         </div>
 
@@ -53,25 +52,12 @@ export default function TermsOfService() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-heading font-semibold">7. Data Processing Agreement (DPA)</h2>
-          <p className="text-muted-foreground leading-relaxed">Where DutyBoost processes personal data on behalf of a business user (data controller), we act as a data processor under GDPR Article 28. We commit to:</p>
-          <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
-            <li>Processing data only on documented instructions from the controller.</li>
-            <li>Ensuring confidentiality of all processed data.</li>
-            <li>Implementing appropriate technical and organisational security measures.</li>
-            <li>Assisting the controller in fulfilling data subject rights requests.</li>
-            <li>Deleting or returning all personal data upon termination of services.</li>
-            <li>Providing all information necessary to demonstrate compliance with GDPR obligations.</li>
-          </ul>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl font-heading font-semibold">8. Governing Law</h2>
+          <h2 className="text-xl font-heading font-semibold">7. Governing Law</h2>
           <p className="text-muted-foreground leading-relaxed">These Terms are governed by the laws of the Netherlands. Any disputes shall be subject to the exclusive jurisdiction of the courts of Amsterdam.</p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-heading font-semibold">9. Contact</h2>
+          <h2 className="text-xl font-heading font-semibold">8. Contact</h2>
           <p className="text-muted-foreground leading-relaxed">Legal enquiries: <a href="mailto:legal@dutyboost.com" className="text-primary underline">legal@dutyboost.com</a></p>
         </section>
       </div>

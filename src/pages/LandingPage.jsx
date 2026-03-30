@@ -269,7 +269,7 @@ export default function LandingPage() {
           <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-muted-foreground border-t border-border pt-4">
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">DPA</Link>
+            <Link to="/dpa" className="hover:text-primary transition-colors">Data Processing Agreement</Link>
             <Link to="/refunds" className="hover:text-primary transition-colors">Refund Policy</Link>
             <Link to="/code-of-conduct" className="hover:text-primary transition-colors">Code of Conduct</Link>
             <Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>

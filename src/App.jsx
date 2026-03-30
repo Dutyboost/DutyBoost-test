@@ -22,6 +22,7 @@ import TermsOfService from './pages/TermsOfService';
 import RefundPolicy from './pages/RefundPolicy';
 import CodeOfConduct from './pages/CodeOfConduct';
 import CookiePolicy from './pages/CookiePolicy';
+import DataProcessingAgreement from './pages/DataProcessingAgreement';
 import CookieConsentBar from './components/CookieConsentBar';
 
 const AuthenticatedApp = () => {
@@ -54,6 +55,7 @@ const AuthenticatedApp = () => {
             <Route path="/refunds" element={<RefundPolicy />} />
             <Route path="/code-of-conduct" element={<CodeOfConduct />} />
             <Route path="/cookies" element={<CookiePolicy />} />
+            <Route path="/dpa" element={<DataProcessingAgreement />} />
           </Routes>
         );
       }
@@ -74,6 +76,7 @@ const AuthenticatedApp = () => {
       <Route path="/refunds" element={<RefundPolicy />} />
       <Route path="/code-of-conduct" element={<CodeOfConduct />} />
       <Route path="/cookies" element={<CookiePolicy />} />
+      <Route path="/dpa" element={<DataProcessingAgreement />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
