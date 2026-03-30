@@ -162,8 +162,8 @@ export default function LandingPage() {
               const Icon = s.icon;
               return (
                 <div key={s.title} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group">
-                  <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
-                    <Icon className={`w-7 h-7 ${s.iconColor}`} />
+                  <div className={`w-20 h-20 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
+                    <Icon className={`w-10 h-10 ${s.iconColor}`} />
                   </div>
                   <h3 className="font-heading font-bold text-xl mb-3">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.description}</p>
