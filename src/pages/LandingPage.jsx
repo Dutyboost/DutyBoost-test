@@ -86,7 +86,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
+      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center">
             <DutyBoostLogo height={200} />
@@ -260,7 +260,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-10 px-6">
+      <footer className="border-t border-border py-10 px-6 bg-transparent">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
