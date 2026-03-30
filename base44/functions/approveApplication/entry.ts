@@ -76,11 +76,14 @@ Deno.serve(async (req) => {
       return Response.json({ success: true, action: 'rejected' });
     }
 
-    // Approve: invite to platform + send branded welcome email with dashboard link
+    // Approve: update status first, then invite & send email
     const appId = Deno.env.get('BASE44_APP_ID');
     const userRole = application.business_type === 'Travel Agency' ? 'agency' : 'retailer';
     const dashboardPath = application.business_type === 'Travel Agency' ? '/dashboard' : '/retailer-dashboard';
     const loginUrl = `https://${appId}.base44.app/login?next=${dashboardPath}`;
+
+    // Update status to invited immediately
+    await base44.asServiceRole.entities.SignupApplication.update(applicationId, { status: 'invited' });
 
     // Invite user via Base44 (sends magic link from the platform)
     await base44.users.inviteUser(application.email, userRole);
@@ -114,9 +117,7 @@ Deno.serve(async (req) => {
           <p style="color: #bbb; font-size: 12px;">© 2026 DutyBoost B.V. All rights reserved.</p>
         </div>
       `
-    });
-
-    await base44.asServiceRole.entities.SignupApplication.update(applicationId, { status: 'invited' });
+    }).catch(err => console.error('Email send failed:', err));
 
     return Response.json({ success: true, action: 'approved' });
   } catch (error) {
