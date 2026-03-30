@@ -210,8 +210,8 @@ export default function AdminPanel() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatsCard title="Actual Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={DollarSign} />
-        <StatsCard title="Forecast Revenue Value" value={`€${avgRevenuePer20Basket}`} subtitle="Per €20 avg basket" icon={DollarSign} />
+        <StatsCard title="Actual Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={TrendingUp} />
+        <StatsCard title="Forecast Revenue Value" value={`€${avgRevenuePer20Basket}`} subtitle="Per €20 avg basket" icon={TrendingUp} />
         <StatsCard title="Transaction Volume" value={`€${totalTransactionValue.toFixed(0)}`} icon={TrendingUp} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={CreditCard} />
       </div>
