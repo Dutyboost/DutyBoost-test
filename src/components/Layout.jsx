@@ -46,6 +46,8 @@ export default function Layout() {
     base44.auth.me().then((u) => {
       setUser(u);
       setLoading(false);
+    }).catch(() => {
+      setLoading(false);
     });
   }, []);
 
