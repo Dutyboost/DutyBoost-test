@@ -66,7 +66,7 @@ export default function Layout() {
       >
         <div className="p-6 border-b border-border">
           <Link to="/dashboard" className="flex items-center">
-            <DutyBoostLogo height={36} />
+            <DutyBoostLogo height={130} />
           </Link>
         </div>
 
