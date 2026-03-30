@@ -13,13 +13,13 @@ import TravelerIcon from "../components/TravelerIcon";
 
 const stakeholders = [
   {
-    icon: TravelAgencyIcon,
-    title: "Travel Agencies",
-    color: "from-violet-500 to-indigo-600",
-    bg: "bg-violet-50",
-    iconColor: "text-violet-600",
-    description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every DutyCredit redeemed by your travelers at the airport.",
-    benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
+    icon: TravelerIcon,
+    title: "Travellers",
+    color: "from-sky-400 to-cyan-500",
+    bg: "bg-sky-50",
+    iconColor: "text-sky-600",
+    description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Please note: DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops.",
+    benefits: ["Instant mobile DutyCredit", "Single-store, full discount", "Seamless QR experience"],
   },
   {
     icon: AirportRetailerIcon,
@@ -31,13 +31,13 @@ const stakeholders = [
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
-    icon: TravelerIcon,
-    title: "Travelers",
-    color: "from-sky-400 to-cyan-500",
-    bg: "bg-sky-50",
-    iconColor: "text-sky-600",
-    description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Please note: DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops.",
-    benefits: ["Instant mobile DutyCredit", "Single-store, full discount", "Seamless QR experience"],
+    icon: TravelAgencyIcon,
+    title: "Travel Agencies",
+    color: "from-violet-500 to-indigo-600",
+    bg: "bg-violet-50",
+    iconColor: "text-violet-600",
+    description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every DutyCredit redeemed by your travelers at the airport.",
+    benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
 ];
 
