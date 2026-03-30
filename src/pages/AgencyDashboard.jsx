@@ -53,7 +53,7 @@ export default function AgencyDashboard() {
             <div className="flex-1">
               <h3 className="font-heading font-semibold text-lg mb-2">Automatic Booking Integration</h3>
               <p className="text-muted-foreground mb-4">
-                DutyCredits are generated automatically from your booking system. Our integration script collects booking data (price, passenger count, destination) and creates incentives in real-time.
+                DutyCredits are generated automatically from your booking system. Our integration script collects booking data (price, passenger count, destination) and creates incentives in real-time generating you a new revenue stream at no cost
               </p>
               <Button variant="outline" onClick={() => window.location.href = '/integration-guide'}>
                 View Integration Setup
