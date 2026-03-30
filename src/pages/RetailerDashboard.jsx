@@ -48,8 +48,9 @@ export default function RetailerDashboard() {
   };
 
   const totalRevenue = transactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
-  const totalDiscountGiven = transactions.reduce((s, t) => s + (t.discount_amount || 0), 0);
-  const avgRevenuePerBasket = (20 * 0.05 * 0.20).toFixed(2);
+  const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
+  const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
+  const revenuePerDay = (totalRevenue / 30).toFixed(2);
 
   return (
     <div className="space-y-8">
@@ -103,9 +104,9 @@ export default function RetailerDashboard() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="My Stores" value={retailers.length} icon={Store} />
-        <StatsCard title="Incoming DutyCredits" value={vouchers.length} icon={TicketPercent} />
-        <StatsCard title="Total Revenue" value={`€${totalRevenue.toFixed(0)}`} icon={CreditCard} />
-        <StatsCard title="Avg. Revenue Value" value={`€${avgRevenuePerBasket}`} subtitle="Per €20 avg basket" icon={TrendingUp} />
+        <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
+        <StatsCard title="Revenue Generated" value={`€${totalRevenue.toFixed(2)}`} icon={CreditCard} />
+        <StatsCard title="DutyBoost Fee (5%)" value={`€${dutyBoostFee}`} subtitle={`Avg €${revenuePerDay}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

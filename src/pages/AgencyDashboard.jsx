@@ -24,7 +24,9 @@ export default function AgencyDashboard() {
   const avgIncentive = vouchers.length
     ? (vouchers.reduce((sum, v) => sum + v.discount_percentage, 0) / vouchers.length).toFixed(1)
     : 0;
-  const avgRevenuePerBasket = (20 * 0.05).toFixed(2);
+  const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
+  const totalBasketValue = totalPassengers * 20;
+  const agencyRevenue = (totalBasketValue * 0.05 * 0.20).toFixed(2);
 
   return (
     <div className="space-y-8">
@@ -34,10 +36,10 @@ export default function AgencyDashboard() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatsCard title="Total DutyCredits" value={vouchers.length} icon={TicketPercent} />
+        <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
         <StatsCard title="Redeemed" value={redeemedVouchers} icon={TicketPercent} />
-        <StatsCard title="Avg. Revenue Value" value={`€${avgRevenuePerBasket}`} subtitle="Per €20 avg basket" icon={TicketPercent} />
+        <StatsCard title="Your Revenue (1%)" value={`€${agencyRevenue}`} subtitle="20% of DutyBoost 5% fee" icon={TicketPercent} />
       </div>
 
       <div className="space-y-8">
