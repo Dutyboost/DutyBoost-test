@@ -24,6 +24,7 @@ import CodeOfConduct from './pages/CodeOfConduct';
 import CookiePolicy from './pages/CookiePolicy';
 import DataProcessingAgreement from './pages/DataProcessingAgreement';
 import CookieConsentBar from './components/CookieConsentBar';
+import FAQ from './pages/FAQ';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -42,7 +43,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -56,6 +57,7 @@ const AuthenticatedApp = () => {
             <Route path="/code-of-conduct" element={<CodeOfConduct />} />
             <Route path="/cookies" element={<CookiePolicy />} />
             <Route path="/dpa" element={<DataProcessingAgreement />} />
+            <Route path="/faq" element={<FAQ />} />
           </Routes>
         );
       }
@@ -77,6 +79,7 @@ const AuthenticatedApp = () => {
       <Route path="/code-of-conduct" element={<CodeOfConduct />} />
       <Route path="/cookies" element={<CookiePolicy />} />
       <Route path="/dpa" element={<DataProcessingAgreement />} />
+      <Route path="/faq" element={<FAQ />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
