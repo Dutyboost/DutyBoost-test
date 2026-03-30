@@ -48,7 +48,7 @@ Deno.serve(async (req) => {
     const loginUrl = `https://dutyboost.base44.app${dashboardPath}`;
 
     await sendEmail({
-      to: application.email,
+      to: 'israelmartis@gmail.com',
       subject: `Welcome to DutyBoost — your account is ready! 🎉`,
       html: `
         <div style="font-family: Inter, sans-serif; max-width: 560px; margin: 0 auto; color: #1a1a2e;">
