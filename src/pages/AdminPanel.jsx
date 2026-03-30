@@ -32,12 +32,15 @@ export default function AdminPanel() {
       try {
         const user = await base44.auth.me();
         if (!user || user.role !== 'admin') {
+          setIsAdmin(false);
           navigate('/');
           return;
         }
         setIsAdmin(true);
         loadAll();
       } catch (error) {
+        console.error('Admin check error:', error);
+        setIsAdmin(false);
         navigate('/');
       }
     };
