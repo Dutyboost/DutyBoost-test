@@ -264,6 +264,14 @@ export default function AdminPanel() {
               <table className="w-full text-sm">
                 <thead className="bg-muted/50">
                   <tr>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">
+                      <input
+                        type="checkbox"
+                        checked={selectedApps.size > 0 && selectedApps.size === applications.length}
+                        onChange={toggleSelectAll}
+                        className="rounded"
+                      />
+                    </th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Name</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Email</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Company</th>
@@ -275,6 +283,14 @@ export default function AdminPanel() {
                 <tbody className="divide-y divide-border">
                   {applications.map(app => (
                     <tr key={app.id} className="hover:bg-muted/30">
+                      <td className="px-4 py-3">
+                        <input
+                          type="checkbox"
+                          checked={selectedApps.has(app.id)}
+                          onChange={() => toggleAppSelection(app.id)}
+                          className="rounded"
+                        />
+                      </td>
                       <td className="px-4 py-3 font-medium">{app.full_name}</td>
                       <td className="px-4 py-3 text-muted-foreground">{app.email}</td>
                       <td className="px-4 py-3">{app.company}</td>
@@ -333,7 +349,7 @@ export default function AdminPanel() {
                     </tr>
                   ))}
                   {applications.length === 0 && (
-                    <tr><td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">No applications yet.</td></tr>
+                    <tr><td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">No applications yet.</td></tr>
                   )}
                 </tbody>
               </table>
