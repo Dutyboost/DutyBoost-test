@@ -60,7 +60,7 @@ const faqs = [
       },
       {
         q: "How do I generate a DutyCredit?",
-        a: "Log into your DutyBoost dashboard and submit a booking with the relevant details — ticket price, number of travelers, travel type, and departure airport. The platform instantly generates a unique DutyCredit and provides a shareable link for your traveler.",
+        a: "Connect your booking system to DutyBoost via our API. Once integrated, DutyCredits are generated and emailed to travelers automatically the moment a booking is confirmed — no manual steps needed.",
       },
       {
         q: "Is there a cost to join DutyBoost as an agency?",
