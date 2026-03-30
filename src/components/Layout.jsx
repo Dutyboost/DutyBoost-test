@@ -48,6 +48,11 @@ export default function Layout() {
   const role = user?.role || "agency";
   const navItems = roleNavItems[role] || roleNavItems.agency;
 
+  const getRoleLabel = (roleValue) => {
+    const roleMap = { agency: "Travel Agency", retailer: "Airport Retailer", admin: "Admin" };
+    return roleMap[roleValue] || roleValue;
+  };
+
   return (
     <div className="min-h-screen bg-background flex">
       {/* Mobile overlay */}
@@ -100,7 +105,7 @@ export default function Layout() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium truncate">{user?.full_name || "User"}</p>
-              <p className="text-xs text-muted-foreground capitalize">{role}</p>
+              <p className="text-xs text-muted-foreground">{getRoleLabel(role)}</p>
             </div>
             <Button
               variant="ghost"
