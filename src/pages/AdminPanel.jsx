@@ -131,6 +131,18 @@ export default function AdminPanel() {
     loadAll();
   };
 
+  if (isAdmin === false) {
+    return null;
+  }
+
+  if (isAdmin === null) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
@@ -175,7 +187,7 @@ export default function AdminPanel() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={DollarSign} />
         <StatsCard title="Transaction Volume" value={`€${totalTransactionValue.toFixed(0)}`} icon={TrendingUp} />
-        <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
+        <StatsCard title="Active DutyCredits" value={activeVouchers} icon={CreditCard} />
         <StatsCard title="Redeemed" value={redeemedVouchers} icon={CreditCard} />
       </div>
 
@@ -183,7 +195,7 @@ export default function AdminPanel() {
         <StatsCard title="Total Users" value={users.length} icon={Users} />
         <StatsCard title="Retailers" value={retailers.length} icon={Store} />
         <StatsCard title="Airports" value={airports.length} icon={Plane} />
-        <StatsCard title="Total DutyCredits" value={vouchers.length} icon={TicketPercent} />
+        <StatsCard title="Total DutyCredits" value={vouchers.length} icon={CreditCard} />
       </div>
 
       <Tabs defaultValue="applications">
