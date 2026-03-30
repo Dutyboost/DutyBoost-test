@@ -74,6 +74,22 @@ export default function AdminPanel() {
   const activeVouchers = vouchers.filter(v => v.status === 'active').length;
   const redeemedVouchers = vouchers.filter(v => v.status === 'redeemed').length;
 
+  const handleSendAgain = async (applicationId) => {
+    setApprovingId(applicationId);
+    try {
+      const res = await base44.functions.invoke('resendWelcomeEmail', { applicationId });
+      if (res.data?.success) {
+        toast.success('Welcome email resent!');
+      } else {
+        toast.error(res.data?.error || 'Failed to resend email');
+      }
+    } catch (error) {
+      toast.error('Failed to resend email');
+    } finally {
+      setApprovingId(null);
+    }
+  };
+
   const handleApplicationAction = async (applicationId, action, reason = null) => {
     setApprovingId(applicationId);
     try {
@@ -278,6 +294,17 @@ export default function AdminPanel() {
                               <XCircle className="w-3 h-3" /> Reject
                             </Button>
                           </div>
+                        )}
+                        {app.status === 'invited' && (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="h-7 text-xs gap-1"
+                            disabled={approvingId === app.id}
+                            onClick={() => handleSendAgain(app.id)}
+                          >
+                            Send Again
+                          </Button>
                         )}
                       </td>
                     </tr>
