@@ -89,7 +89,7 @@ export default function LandingPage() {
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center">
-            <DutyBoostLogo height={60} />
+            <DutyBoostLogo height={200} />
           </div>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
@@ -264,7 +264,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <DutyBoostLogo height={40} />
+              <DutyBoostLogo height={200} />
               <span className="text-muted-foreground">— Dynamic Airport Incentive Platform</span>
             </div>
             <p>© 2026 DutyBoost. All rights reserved.</p>
