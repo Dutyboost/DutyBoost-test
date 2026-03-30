@@ -42,7 +42,7 @@ export default function GetStarted() {
     return (
       <div className="min-h-screen bg-background flex flex-col">
         <nav className="border-b border-border px-6 h-16 flex items-center">
-          <Link to="/"><DutyBoostLogo height={36} /></Link>
+          <Link to="/"><DutyBoostLogo height={130} /></Link>
         </nav>
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="w-full max-w-md text-center space-y-6">
@@ -91,7 +91,7 @@ export default function GetStarted() {
       {/* Nav */}
       <nav className="border-b border-border px-6 h-16 flex items-center">
         <Link to="/">
-          <DutyBoostLogo height={36} />
+          <DutyBoostLogo height={130} />
         </Link>
       </nav>
 

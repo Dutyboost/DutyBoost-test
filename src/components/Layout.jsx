@@ -130,7 +130,7 @@ export default function Layout() {
             >
               <Menu className="w-5 h-5" />
             </Button>
-            <DutyBoostLogo height={28} />
+            <DutyBoostLogo height={130} />
             <div className="w-10" />
           </div>
         </header>
