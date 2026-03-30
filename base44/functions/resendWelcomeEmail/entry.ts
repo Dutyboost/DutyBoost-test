@@ -38,8 +38,7 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing applicationId' }, { status: 400 });
     }
 
-    const apps = await base44.asServiceRole.entities.SignupApplication.filter({ id: applicationId });
-    const application = apps[0];
+    const application = await base44.asServiceRole.entities.SignupApplication.get(applicationId);
 
     if (!application) {
       return Response.json({ error: 'Application not found' }, { status: 404 });
