@@ -6,14 +6,23 @@ import AdminPanel from "./AdminPanel";
 
 export default function Home() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    base44.auth.me().then(setUser);
+    const fetchUser = async () => {
+      try {
+        const userData = await base44.auth.me();
+        setUser(userData);
+      } catch (error) {
+        console.error('Failed to fetch user:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUser();
   }, []);
 
-  const role = user?.role || "agency";
-
-  if (!user) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
@@ -21,7 +30,19 @@ export default function Home() {
     );
   }
 
+  if (!user) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <p className="text-muted-foreground">Unable to load user data</p>
+        </div>
+      </div>
+    );
+  }
+
+  const role = user?.role || "agency";
+
   if (role === "admin") return <AdminPanel />;
   if (role === "retailer") return <RetailerDashboard />;
-  return <AgencyDashboard />;
+  return <AgencyDashboard />
 }
