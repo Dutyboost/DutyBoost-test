@@ -67,7 +67,7 @@ export default function AgencyIntegrationGuide() {
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
           <Link to="/"><DutyBoostLogo height={130} /></Link>
           <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Back to FAQ</Link>
         </div>
