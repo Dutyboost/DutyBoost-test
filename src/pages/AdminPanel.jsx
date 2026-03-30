@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { ShieldCheck, TicketPercent, Store, Plane, CreditCard, Users, DollarSign, TrendingUp } from "lucide-react";
+import { ShieldCheck, TicketPercent, Store, Plane, CreditCard, Users, DollarSign, TrendingUp, CheckCircle, XCircle, Clock } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,22 +16,26 @@ export default function AdminPanel() {
   const [airports, setAirports] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [users, setUsers] = useState([]);
+  const [applications, setApplications] = useState([]);
   const [redeemOpen, setRedeemOpen] = useState(false);
   const [redeemForm, setRedeemForm] = useState({ voucher_code: "", retailer_id: "", transaction_value: "" });
+  const [approvingId, setApprovingId] = useState(null);
 
   const loadAll = async () => {
-    const [v, r, a, t, u] = await Promise.all([
+    const [v, r, a, t, u, ap] = await Promise.all([
       base44.entities.Voucher.list('-created_date', 200),
       base44.entities.Retailer.list(),
       base44.entities.Airport.list(),
       base44.entities.Transaction.list('-created_date', 200),
       base44.entities.User.list(),
+      base44.entities.SignupApplication.list('-created_date', 200),
     ]);
     setVouchers(v);
     setRetailers(r);
     setAirports(a);
     setTransactions(t);
     setUsers(u);
+    setApplications(ap);
   };
 
   useEffect(() => { loadAll(); }, []);
@@ -40,6 +44,21 @@ export default function AdminPanel() {
   const totalTransactionValue = transactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const activeVouchers = vouchers.filter(v => v.status === 'active').length;
   const redeemedVouchers = vouchers.filter(v => v.status === 'redeemed').length;
+
+  const handleApplicationAction = async (applicationId, action) => {
+    setApprovingId(applicationId);
+    try {
+      const res = await base44.functions.invoke('approveApplication', { applicationId, action });
+      if (res.data?.success) {
+        toast.success(action === 'approve' ? 'Application approved — invite sent!' : 'Application rejected.');
+        loadAll();
+      } else {
+        toast.error(res.data?.error || 'Something went wrong');
+      }
+    } finally {
+      setApprovingId(null);
+    }
+  };
 
   const handleRedeem = async (e) => {
     e.preventDefault();
@@ -51,7 +70,7 @@ export default function AdminPanel() {
     const retailer = retailers.find(r => r.id === redeemForm.retailer_id);
     const txnValue = parseFloat(redeemForm.transaction_value);
     const discountAmount = (txnValue * voucher.discount_percentage) / 100;
-    const platformRevenue = txnValue * 0.05; // 5% platform revenue share
+    const platformRevenue = txnValue * 0.05;
 
     await base44.entities.Transaction.create({
       voucher_code: voucher.voucher_code,
@@ -126,12 +145,90 @@ export default function AdminPanel() {
         <StatsCard title="Total DutyCredits" value={vouchers.length} icon={TicketPercent} />
       </div>
 
-      <Tabs defaultValue="vouchers">
+      <Tabs defaultValue="applications">
         <TabsList>
+          <TabsTrigger value="applications">
+            Applications
+            {applications.filter(a => a.status === 'pending').length > 0 && (
+              <span className="ml-2 bg-primary text-primary-foreground text-xs rounded-full px-1.5 py-0.5">{applications.filter(a => a.status === 'pending').length}</span>
+            )}
+          </TabsTrigger>
           <TabsTrigger value="vouchers">All DutyCredits</TabsTrigger>
           <TabsTrigger value="transactions">Transactions</TabsTrigger>
           <TabsTrigger value="users">Users</TabsTrigger>
         </TabsList>
+
+        <TabsContent value="applications" className="mt-4">
+          <div className="bg-card rounded-xl border border-border overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Name</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Email</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Company</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Type</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Status</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {applications.map(app => (
+                    <tr key={app.id} className="hover:bg-muted/30">
+                      <td className="px-4 py-3 font-medium">{app.full_name}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{app.email}</td>
+                      <td className="px-4 py-3">{app.company}</td>
+                      <td className="px-4 py-3">
+                        <span className={`text-xs px-2 py-1 rounded-full ${
+                          app.business_type === 'Travel Agency' ? 'bg-violet-100 text-violet-700' : 'bg-amber-100 text-amber-700'
+                        }`}>{app.business_type}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 w-fit ${
+                          app.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                          app.status === 'invited' ? 'bg-green-100 text-green-700' :
+                          'bg-red-100 text-red-700'
+                        }`}>
+                          {app.status === 'pending' && <Clock className="w-3 h-3" />}
+                          {app.status === 'invited' && <CheckCircle className="w-3 h-3" />}
+                          {app.status === 'rejected' && <XCircle className="w-3 h-3" />}
+                          {app.status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        {app.status === 'pending' && (
+                          <div className="flex gap-2">
+                            <Button
+                              size="sm"
+                              className="h-7 text-xs gap-1"
+                              disabled={approvingId === app.id}
+                              onClick={() => handleApplicationAction(app.id, 'approve')}
+                            >
+                              <CheckCircle className="w-3 h-3" />
+                              {approvingId === app.id ? 'Sending...' : 'Approve'}
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              className="h-7 text-xs gap-1"
+                              disabled={approvingId === app.id}
+                              onClick={() => handleApplicationAction(app.id, 'reject')}
+                            >
+                              <XCircle className="w-3 h-3" /> Reject
+                            </Button>
+                          </div>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  {applications.length === 0 && (
+                    <tr><td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">No applications yet.</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </TabsContent>
 
         <TabsContent value="vouchers" className="mt-4">
           <div className="bg-card rounded-xl border border-border overflow-hidden">
