@@ -87,7 +87,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 h-24 flex items-start justify-between pt-0">
+        <div className="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between pt-0">
           <div className="flex items-center">
             <DutyBoostLogo height={130} />
           </div>
