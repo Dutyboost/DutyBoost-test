@@ -52,20 +52,19 @@ export default function GetStarted() {
               </svg>
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-heading font-bold">Check your inbox!</h1>
+              <h1 className="text-3xl font-heading font-bold">Thank you for applying!</h1>
               <p className="text-muted-foreground">
-                We've sent a confirmation email to
+                We've received your application and our team will review it shortly. You'll receive an email from us once we've completed our review.
               </p>
-              <p className="font-semibold text-foreground text-lg">{email}</p>
             </div>
             <div className="bg-card border border-border rounded-2xl p-6 text-left space-y-4">
               <p className="font-semibold text-sm text-foreground">What happens next?</p>
               <ol className="space-y-3">
-                {[
-                  { step: '1', text: 'Check your inbox (and spam folder) for our confirmation email.' },
-                  { step: '2', text: 'Our team reviews your application within 1 business day.' },
-                  { step: '3', text: 'We send you a platform invite to activate your account.' },
-                  { step: '4', text: 'Your DutyBoost integration is set up — no technical work needed.' },
+               {[
+                 { step: '1', text: 'Our team reviews your application within 1 business day.' },
+                 { step: '2', text: 'We send you an email with your platform activation link.' },
+                 { step: '3', text: 'Click the link to set your password and access your dashboard.' },
+                 { step: '4', text: 'Start using DutyBoost immediately — no additional setup required.' },
                 ].map(({ step, text }) => (
                   <li key={step} className="flex gap-3 items-start">
                     <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">{step}</span>
