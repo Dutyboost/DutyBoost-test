@@ -13,8 +13,17 @@ export default function GetStarted() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
+  const [website, setWebsite] = useState("");
+  const [kvk, setKvk] = useState("");
+  const [vat, setVat] = useState("");
+  const [bookingSystem, setBookingSystem] = useState("");
+  const [airport, setAirport] = useState("");
+  const [storeCategory, setStoreCategory] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const isAgency = businessType === "Travel Agency";
+  const isRetailer = businessType === "Airport Retailer";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +41,7 @@ export default function GetStarted() {
         </div>
         <h1 className="text-3xl font-heading font-bold mb-3">You're on the list!</h1>
         <p className="text-muted-foreground max-w-sm mb-6">
-          We've sent an invite to <strong>{email}</strong>. Check your inbox to set up your account and access the DutyBoost platform.
+          We've sent an invite to <strong>{email}</strong>. Check your inbox to complete your account setup. Our team will reach out within 1 business day to activate your DutyBoost integration — no technical work needed on your end.
         </p>
         <Link to="/">
           <Button variant="outline">Back to Home</Button>
