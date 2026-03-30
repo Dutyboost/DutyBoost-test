@@ -193,7 +193,7 @@ export default function LandingPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { step: "01", title: "Agency books a flight", desc: "Travel agency submits booking details — price, travelers, destination." },
+              { step: "01", title: "Traveler books a flight", desc: "Booking details — price, number of travelers, destination are automatically taken from the booking details." },
               { step: "02", title: "DutyCredit earned", desc: "A DutyCredit — a booking-earned incentive with a dynamic discount — is instantly calculated and issued as a unique QR code." },
               { step: "03", title: "Traveler shops", desc: "Traveler presents QR at the airport retailer of their choice." },
               { step: "04", title: "All parties win", desc: "Retailer logs the sale, discount applied, platform revenue tracked." },
