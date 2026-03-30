@@ -4,49 +4,51 @@ export default function TravelerIcon({ className }) {
       {/* Laptop/Computer */}
       <g>
         {/* Screen bezel */}
-        <rect x="48" y="18" width="70" height="52" rx="2" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="3" />
+        <rect x="50" y="20" width="60" height="45" rx="2" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="2" />
         {/* Screen display - where text appears */}
-        <rect x="54" y="24" width="58" height="40" fill="currentColor" opacity="0.08" stroke="currentColor" strokeWidth="2" />
+        <rect x="55" y="25" width="50" height="35" fill="currentColor" opacity="0.05" stroke="currentColor" strokeWidth="1" />
         {/* DutyCredits text on screen */}
-        <text x="83" y="52" fontSize="14" fontWeight="bold" textAnchor="middle" fill="currentColor">
+        <text x="80" y="48" fontSize="12" fontWeight="bold" textAnchor="middle" fill="currentColor" opacity="0.9">
           DutyCredits
         </text>
         {/* Laptop base/hinge */}
-        <rect x="46" y="70" width="74" height="4" rx="1" fill="currentColor" opacity="0.5" />
+        <rect x="48" y="63" width="64" height="3" rx="1" fill="currentColor" opacity="0.4" />
         {/* Keyboard area */}
-        <rect x="50" y="74" width="66" height="14" rx="1" fill="currentColor" opacity="0.12" stroke="currentColor" strokeWidth="2" />
+        <rect x="52" y="66" width="56" height="12" rx="1" fill="currentColor" opacity="0.08" stroke="currentColor" strokeWidth="1" />
         {/* Keyboard keys pattern */}
-        <circle cx="62" cy="80" r="1.5" fill="currentColor" />
-        <circle cx="75" cy="80" r="1.5" fill="currentColor" />
-        <circle cx="88" cy="80" r="1.5" fill="currentColor" />
-        <circle cx="62" cy="86" r="1.5" fill="currentColor" />
-        <circle cx="75" cy="86" r="1.5" fill="currentColor" />
-        <circle cx="88" cy="86" r="1.5" fill="currentColor" />
+        <circle cx="62" cy="71" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="72" cy="71" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="82" cy="71" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="92" cy="71" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="62" cy="76" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="72" cy="76" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="82" cy="76" r="1" fill="currentColor" opacity="0.3" />
+        <circle cx="92" cy="76" r="1" fill="currentColor" opacity="0.3" />
       </g>
       
       {/* Traveler/Person using laptop */}
       <g>
         {/* Head */}
-        <circle cx="28" cy="32" r="9" fill="currentColor" />
+        <circle cx="30" cy="35" r="7" fill="currentColor" opacity="0.7" />
         {/* Body leaning toward laptop */}
-        <rect x="23" y="43" width="10" height="20" fill="currentColor" />
+        <path d="M 30 42 Q 28 55 32 65" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.7" />
         {/* Left arm on keyboard */}
-        <line x1="23" y1="48" x2="12" y2="58" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+        <path d="M 28 48 Q 20 52 18 60" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
         {/* Right arm on keyboard */}
-        <line x1="33" y1="48" x2="44" y2="58" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+        <path d="M 32 48 Q 38 52 42 60" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
         {/* Legs */}
-        <line x1="25" y1="63" x2="23" y2="78" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-        <line x1="31" y1="63" x2="33" y2="78" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <line x1="30" y1="65" x2="28" y2="78" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
+        <line x1="34" y1="65" x2="36" y2="78" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
       </g>
       
       {/* Decorative elements - flight/travel arrows */}
-      <g>
-        <path d="M 135 28 L 165 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <polygon points="165,14 172,20 163,26" fill="currentColor" />
+      <g opacity="0.3">
+        <path d="M 140 30 L 160 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <polygon points="160,20 165,25 158,28" fill="currentColor" />
       </g>
-      <g>
-        <path d="M 142 55 L 172 42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <polygon points="172,42 179,48 170,56" fill="currentColor" />
+      <g opacity="0.3">
+        <path d="M 145 50 L 165 40" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <polygon points="165,40 170,45 163,48" fill="currentColor" />
       </g>
     </svg>
   );
