@@ -43,6 +43,22 @@ Deno.serve(async (req) => {
     // Update status to invited immediately
     await base44.asServiceRole.entities.SignupApplication.update(applicationId, { status: 'invited' });
 
+    // Auto-assign Airport Retailer to matching airport
+    if (application.business_type === 'Airport Retailer' && application.airport) {
+      const airports = await base44.asServiceRole.entities.Airport.filter({ code: application.airport });
+      const airport = airports[0];
+      
+      if (airport) {
+        await base44.asServiceRole.entities.Retailer.create({
+          store_name: application.company,
+          airport: application.airport,
+          category: application.store_category || 'Retail',
+          description: `${application.company} at ${application.airport}`,
+          owner_email: application.email
+        });
+      }
+    }
+
     // Invite user via Base44 with redirect to their dashboard
     try {
       await base44.asServiceRole.users.inviteUser(application.email, userRole, { nextUrl: dashboardPath });
