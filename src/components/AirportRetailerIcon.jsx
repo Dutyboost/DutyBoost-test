@@ -1,5 +1,5 @@
-import { ShoppingBag } from 'lucide-react';
+import { Store } from 'lucide-react';
 
 export default function AirportRetailerIcon({ className }) {
-  return <ShoppingBag className={className} />;
+  return <Store className={className} />;
 }
