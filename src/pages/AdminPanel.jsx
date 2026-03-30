@@ -217,7 +217,7 @@ export default function AdminPanel() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total Users" value={users.length} icon={Users} />
-        <StatsCard title="Retailers" value={retailers.length} icon={Store} />
+        <StatsCard title="Airport Retailers" value={retailers.length} icon={Store} />
         <StatsCard title="Airports" value={airports.length} icon={Plane} />
         <StatsCard title="Total DutyCredits" value={vouchers.length} icon={CreditCard} />
       </div>

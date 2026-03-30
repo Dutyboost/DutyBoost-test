@@ -19,14 +19,14 @@ export default function RetailersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-heading font-bold tracking-tight">Retailers</h1>
+        <h1 className="text-2xl font-heading font-bold tracking-tight">Airport Retailers</h1>
         <p className="text-muted-foreground mt-1">All participating airport retailers.</p>
       </div>
 
       {retailers.length === 0 ? (
         <div className="bg-card rounded-xl border border-border p-12 text-center text-muted-foreground">
           <Store className="w-10 h-10 mx-auto mb-3 opacity-40" />
-          <p>No retailers registered yet.</p>
+          <p>No airport retailers registered yet.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
