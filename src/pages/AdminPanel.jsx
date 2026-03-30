@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { ShieldCheck, TicketPercent, Store, Plane, CreditCard, Users, DollarSign, TrendingUp, CheckCircle, XCircle, Clock } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { toast } from "sonner";
 
 export default function AdminPanel() {
+  const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(null);
   const [vouchers, setVouchers] = useState([]);
   const [retailers, setRetailers] = useState([]);
   const [airports, setAirports] = useState([]);
@@ -20,6 +15,19 @@ export default function AdminPanel() {
   const [redeemOpen, setRedeemOpen] = useState(false);
   const [redeemForm, setRedeemForm] = useState({ voucher_code: "", retailer_id: "", transaction_value: "" });
   const [approvingId, setApprovingId] = useState(null);
+
+  useEffect(() => {
+    const checkAdmin = async () => {
+      const user = await base44.auth.me();
+      if (!user || user.role !== 'admin') {
+        navigate('/');
+        return;
+      }
+      setIsAdmin(true);
+      loadAll();
+    };
+    checkAdmin();
+  }, [navigate]);
 
   const loadAll = async () => {
     const [v, r, a, t, u, ap] = await Promise.all([
@@ -37,8 +45,6 @@ export default function AdminPanel() {
     setUsers(u);
     setApplications(ap);
   };
-
-  useEffect(() => { loadAll(); }, []);
 
   const totalRevenue = transactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
   const totalTransactionValue = transactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
@@ -89,6 +95,14 @@ export default function AdminPanel() {
     setRedeemForm({ voucher_code: "", retailer_id: "", transaction_value: "" });
     loadAll();
   };
+
+  if (isAdmin === null) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
