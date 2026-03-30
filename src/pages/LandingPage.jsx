@@ -29,6 +29,7 @@ const stakeholders = [
   },
   {
     icon: Plane,
+    image: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/df885801e_ChatGPTImageMar30202602_10_52PM.png",
     title: "Travelers",
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
