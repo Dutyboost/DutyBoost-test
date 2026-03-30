@@ -29,7 +29,7 @@ const stakeholders = [
   },
   {
     icon: Plane,
-    image: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/df885801e_ChatGPTImageMar30202602_10_52PM.png",
+    image: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/05d7f4426_ChatGPTImageMar30202602_21_23PM.png",
     title: "Travelers",
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
@@ -162,9 +162,20 @@ export default function LandingPage() {
               const Icon = s.icon;
               return (
                 <div key={s.title} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group">
-                  <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
-                    <Icon className={`w-7 h-7 ${s.iconColor}`} />
-                  </div>
+                  {s.image ? (
+                    <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5 overflow-hidden`}>
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        className="w-full h-full object-cover"
+                        style={{ filter: 'brightness(0) saturate(100%) invert(37%) sepia(95%) saturate(600%) hue-rotate(175deg) brightness(90%)' }}
+                      />
+                    </div>
+                  ) : (
+                    <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
+                      <Icon className={`w-7 h-7 ${s.iconColor}`} />
+                    </div>
+                  )}
                   <h3 className="font-heading font-bold text-xl mb-3">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.description}</p>
                   <ul className="space-y-2">
