@@ -26,13 +26,9 @@ export default function AgencyDashboard() {
     : 0;
   const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   
-  // Calculate average basket size from actual bookings, minimum €20
-  const avgBasketSize = vouchers.length
-    ? Math.max(20, vouchers.reduce((sum, v) => sum + (v.ticket_price || 0), 0) / vouchers.length)
-    : 20;
-  
-  // Agency earns 20% of DutyBoost's 5% fee on the average basket
-  const forecastRevenuePerBasket = (avgBasketSize * 0.05 * 0.20).toFixed(2);
+  // Agency earns 20% of DutyBoost's 5% fee (€0.20 per €20 basket, scales with transaction value)
+  const commissionPerBasket = 0.20; // €0.20 per €20 baseline
+  const totalForecastRevenue = (totalPassengers * commissionPerBasket).toFixed(2);
 
   return (
     <div className="space-y-8">
@@ -45,7 +41,7 @@ export default function AgencyDashboard() {
         <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
         <StatsCard title="Redeemed" value={redeemedVouchers} icon={TicketPercent} />
-        <StatsCard title="Forecast Revenue" value={`€${forecastRevenuePerBasket}`} subtitle={`Per €${avgBasketSize.toFixed(0)} avg basket`} icon={TicketPercent} />
+        <StatsCard title="Forecast Revenue" value={`€${totalForecastRevenue}`} subtitle={`€${commissionPerBasket} per basket × ${totalPassengers} travelers`} icon={TicketPercent} />
       </div>
 
       <div className="space-y-8">
