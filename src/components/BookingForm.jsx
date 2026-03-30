@@ -63,7 +63,7 @@ export default function BookingForm({ onVoucherGenerated }) {
     });
 
     setLoading(false);
-    toast.success(`DutyCredit generated: ${discount}% discount incentive!`);
+    toast.success(`DutyCredit generated: ${discount}% incentive!`);
     setForm({
       booking_id: "",
       total_ticket_price: "",
@@ -79,8 +79,8 @@ export default function BookingForm({ onVoucherGenerated }) {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label>Booking ID</Label>
-          <Input
+             <Label>Booking ID</Label>
+             <Input
             placeholder="e.g. BK-20240101"
             value={form.booking_id}
             onChange={(e) => setForm({ ...form, booking_id: e.target.value })}
@@ -155,7 +155,7 @@ export default function BookingForm({ onVoucherGenerated }) {
 
       {form.total_ticket_price && (
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-          <p className="text-sm text-muted-foreground">Estimated discount</p>
+          <p className="text-sm text-muted-foreground">Estimated incentive</p>
           <p className="text-3xl font-heading font-bold text-primary">
             {calculateDiscount({
               ticketPrice: parseFloat(form.total_ticket_price) || 0,

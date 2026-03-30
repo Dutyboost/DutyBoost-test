@@ -15,7 +15,7 @@ export default function VoucherCard({ voucher, compact = false }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <TicketPercent className="w-5 h-5" />
-              <span className="font-heading font-bold text-lg">{voucher.discount_percentage}% OFF</span>
+              <span className="font-heading font-bold text-lg">{voucher.discount_percentage}% Incentive</span>
             </div>
             <Badge className={`${statusColors[voucher.status]} border text-xs`}>
               {voucher.status}

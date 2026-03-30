@@ -326,7 +326,7 @@ export default function AdminPanel() {
                   <tr>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Code</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Booking</th>
-                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Discount</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Incentive</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Airport</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Status</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Expires</th>
@@ -364,7 +364,7 @@ export default function AdminPanel() {
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">DutyCredit</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Store</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Value</th>
-                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Discount</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Incentive</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Revenue</th>
                   </tr>
                 </thead>

@@ -44,8 +44,8 @@ const stakeholders = [
 const features = [
   {
     icon: Zap,
-    title: "Dynamic Discount Engine",
-    description: "Discounts calculated in real-time from ticket price, group size, and travel distance. Always fair, always optimal.",
+    title: "Dynamic Incentive Engine",
+    description: "Incentives calculated in real-time from ticket price, group size, and travel distance. Always fair, always optimal.",
   },
   {
     icon: QrCode,
@@ -55,7 +55,7 @@ const features = [
   {
     icon: BarChart3,
     title: "Revenue Share Tracking",
-    description: "Full transaction transparency. Every redemption is logged with platform revenue, retailer share, and discount applied.",
+    description: "Full transaction transparency. Every redemption is logged with platform revenue, retailer share, and incentive applied.",
   },
   {
     icon: ShieldCheck,
@@ -76,7 +76,7 @@ const features = [
 
 const stats = [
   { value: "€0", label: "Setup & usage fee" },
-  { value: "25%", label: "Max dynamic discount" },
+  { value: "25%", label: "Max dynamic incentive" },
   { value: "1-scan", label: "Instant QR redemption" },
   { value: "100%", label: "QR-based, paperless" },
   { value: "5%", label: "Commission on redeemed sales only" },
