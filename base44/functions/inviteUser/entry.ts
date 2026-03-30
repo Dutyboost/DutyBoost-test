@@ -1,5 +1,28 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
+const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+
+async function sendEmail({ to, subject, html }) {
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'DutyBoost <hello@dutyboost.com>',
+      to,
+      subject,
+      html,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Resend error: ${err}`);
+  }
+  return res.json();
+}
+
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
@@ -25,11 +48,10 @@ Deno.serve(async (req) => {
     });
 
     // Send confirmation email to applicant
-    await base44.asServiceRole.integrations.Core.SendEmail({
+    await sendEmail({
       to: email,
-      from_name: "DutyBoost",
       subject: "We've received your DutyBoost application!",
-      body: `
+      html: `
         <div style="font-family: Inter, sans-serif; max-width: 560px; margin: 0 auto; color: #1a1a2e;">
           <div style="padding: 32px 0 16px;">
             <span style="font-size: 24px; font-weight: 800; color: #1a1a2e;">Duty</span><span style="font-size: 24px; font-weight: 800; color: #6c5ce7;">Boost</span>
@@ -56,11 +78,10 @@ Deno.serve(async (req) => {
     });
 
     // Notify DutyBoost team
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: "hello@dutyboost.com",
-      from_name: "DutyBoost Platform",
+    await sendEmail({
+      to: 'hello@dutyboost.com',
       subject: `New ${businessType} application: ${company}`,
-      body: `
+      html: `
         <div style="font-family: Inter, sans-serif; max-width: 560px; margin: 0 auto;">
           <h2>New Partner Application</h2>
           <table style="width: 100%; border-collapse: collapse;">
