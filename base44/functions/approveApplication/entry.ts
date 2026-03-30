@@ -85,8 +85,18 @@ Deno.serve(async (req) => {
     // Update status to invited immediately
     await base44.asServiceRole.entities.SignupApplication.update(applicationId, { status: 'invited' });
 
-    // Invite user via Base44 (sends magic link from the platform)
-    await base44.users.inviteUser(application.email, userRole);
+    // Invite user via Base44 and set role via service role
+    try {
+      await base44.asServiceRole.users.inviteUser(application.email, userRole);
+    } catch (inviteErr) {
+      // User may already exist, try updating the role
+      const existingUsers = await base44.asServiceRole.entities.User.filter({ email: application.email });
+      if (existingUsers.length > 0) {
+        await base44.asServiceRole.entities.User.update(existingUsers[0].id, { role: userRole });
+      } else {
+        throw inviteErr;
+      }
+    }
 
     // Send our branded welcome email with the dashboard link
     await sendEmail({
