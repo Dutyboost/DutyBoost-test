@@ -113,9 +113,9 @@ export default function LandingPage() {
           </Badge>
 
           <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
-            Turn Every Flight Into{" "}
+            Turn every travel booking into{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Airport Revenue
+              airport spending
             </span>
           </h1>
 
