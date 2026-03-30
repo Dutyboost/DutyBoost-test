@@ -4,13 +4,14 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  Plane, Zap, BarChart3, QrCode, Store, Users, TrendingUp,
-  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight
+  Plane, Zap, BarChart3, QrCode, TrendingUp,
+  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight,
+  PlaneTakeoff, ShoppingBag, Luggage
 } from "lucide-react";
 
 const stakeholders = [
   {
-    icon: Users,
+    icon: PlaneTakeoff,
     title: "Travel Agencies",
     color: "from-violet-500 to-indigo-600",
     bg: "bg-violet-50",
@@ -19,7 +20,7 @@ const stakeholders = [
     benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
   {
-    icon: Store,
+    icon: ShoppingBag,
     title: "Airport Retailers",
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
@@ -28,7 +29,7 @@ const stakeholders = [
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
-    icon: Plane,
+    icon: Luggage,
     title: "Travelers",
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
