@@ -10,7 +10,7 @@ import {
 
 const stakeholders = [
   {
-    emoji: "🌍✈️",
+    emoji: "✈️🌍",
     title: "Travel Agencies",
     color: "from-violet-500 to-indigo-600",
     bg: "bg-violet-50",
@@ -18,7 +18,7 @@ const stakeholders = [
     benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
   {
-    emoji: "🗼🛫",
+    emoji: "🏢🛫",
     title: "Airport Retailers",
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
@@ -26,7 +26,7 @@ const stakeholders = [
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
-    emoji: "🚶🧳",
+    emoji: "🙋🧳",
     title: "Travelers",
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
