@@ -10,29 +10,26 @@ import {
 
 const stakeholders = [
   {
-    icon: Users,
+    emoji: "🌍✈️",
     title: "Travel Agencies",
     color: "from-violet-500 to-indigo-600",
     bg: "bg-violet-50",
-    iconColor: "text-violet-600",
     description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every DutyCredit redeemed by your travelers at the airport.",
     benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
   {
-    icon: Store,
+    emoji: "🗼🛫",
     title: "Airport Retailers",
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
-    iconColor: "text-amber-600",
     description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised DutyCredit incentive. Our small 5% commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.",
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
-    icon: Plane,
+    emoji: "🚶🧳",
     title: "Travelers",
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
-    iconColor: "text-sky-600",
     description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Please note: DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops.",
     benefits: ["Instant mobile DutyCredit", "Single-store, full discount", "Seamless QR experience"],
   },
@@ -157,12 +154,10 @@ export default function LandingPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {stakeholders.map((s) => {
-              const Icon = s.icon;
-              return (
+            {stakeholders.map((s) => (
                 <div key={s.title} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group">
-                  <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
-                    <Icon className={`w-7 h-7 ${s.iconColor}`} />
+                  <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5 text-3xl`}>
+                    {s.emoji}
                   </div>
                   <h3 className="font-heading font-bold text-xl mb-3">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.description}</p>
@@ -175,8 +170,7 @@ export default function LandingPage() {
                     ))}
                   </ul>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
