@@ -97,7 +97,13 @@ export default function GetStarted() {
         <div className="w-full max-w-md space-y-8">
           <div className="text-center space-y-2">
             <h1 className="text-4xl font-heading font-bold">Get Started</h1>
-            <p className="text-muted-foreground">Join DutyBoost and start growing your airport revenue.</p>
+            <p className="text-muted-foreground">
+              {businessType === "Travel Agency"
+                ? "Turn every booking into a loyalty asset. Earn a 20% margin on every DutyCredit redeemed by your travelers — at zero effort."
+                : businessType === "Airport Retailer"
+                ? "Join DutyBoost and start growing your airport revenue. Accept DutyCredits and convert pre-qualified travelers into paying customers."
+                : "Join DutyBoost — the Travel Retail Conversion Platform connecting agencies, retailers, and travelers."}
+            </p>
           </div>
 
           {/* Business type cards */}
