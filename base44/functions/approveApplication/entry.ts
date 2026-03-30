@@ -32,7 +32,7 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    const { applicationId, action } = await req.json();
+    const { applicationId, action, rejectionReason } = await req.json();
 
     if (!applicationId || !action) {
       return Response.json({ error: 'Missing applicationId or action' }, { status: 400 });
@@ -60,6 +60,10 @@ Deno.serve(async (req) => {
             <p style="color: #666; line-height: 1.6;">
               Thank you for your interest in DutyBoost. After reviewing your application, we're unable to proceed at this time.
             </p>
+            ${rejectionReason ? `<div style="background: #f8f7ff; border-left: 4px solid #6c5ce7; padding: 16px; margin: 16px 0; border-radius: 4px;">
+              <p style="font-weight: 600; margin: 0 0 8px; color: #1a1a2e;">Reason:</p>
+              <p style="color: #666; margin: 0; line-height: 1.5;">${rejectionReason}</p>
+            </div>` : ''}
             <p style="color: #666; line-height: 1.6;">
               If you have questions or believe this is an error, please reach out at <a href="mailto:hello@dutyboost.com" style="color: #6c5ce7;">hello@dutyboost.com</a>.
             </p>

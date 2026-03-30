@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
+import { toast } from "sonner";
 import StatsCard from "../components/StatsCard";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CheckCircle, Clock, CreditCard, DollarSign, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle } from "lucide-react";
 
 export default function AdminPanel() {
   const navigate = useNavigate();
@@ -15,6 +23,9 @@ export default function AdminPanel() {
   const [redeemOpen, setRedeemOpen] = useState(false);
   const [redeemForm, setRedeemForm] = useState({ voucher_code: "", retailer_id: "", transaction_value: "" });
   const [approvingId, setApprovingId] = useState(null);
+  const [rejectDialogOpen, setRejectDialogOpen] = useState(false);
+  const [rejectingId, setRejectingId] = useState(null);
+  const [rejectionReason, setRejectionReason] = useState("");
 
   useEffect(() => {
     const checkAdmin = async () => {
@@ -51,10 +62,14 @@ export default function AdminPanel() {
   const activeVouchers = vouchers.filter(v => v.status === 'active').length;
   const redeemedVouchers = vouchers.filter(v => v.status === 'redeemed').length;
 
-  const handleApplicationAction = async (applicationId, action) => {
+  const handleApplicationAction = async (applicationId, action, reason = null) => {
     setApprovingId(applicationId);
     try {
-      const res = await base44.functions.invoke('approveApplication', { applicationId, action });
+      const payload = { applicationId, action };
+      if (action === 'reject' && reason) {
+        payload.rejectionReason = reason;
+      }
+      const res = await base44.functions.invoke('approveApplication', payload);
       if (res.data?.success) {
         toast.success(action === 'approve' ? 'Application approved — invite sent!' : 'Application rejected.');
         loadAll();
@@ -64,6 +79,22 @@ export default function AdminPanel() {
     } finally {
       setApprovingId(null);
     }
+  };
+
+  const handleRejectClick = (applicationId) => {
+    setRejectingId(applicationId);
+    setRejectionReason("");
+    setRejectDialogOpen(true);
+  };
+
+  const handleRejectSubmit = async () => {
+    if (!rejectionReason.trim()) {
+      toast.error("Please provide a rejection reason");
+      return;
+    }
+    setRejectDialogOpen(false);
+    await handleApplicationAction(rejectingId, 'reject', rejectionReason);
+    setRejectingId(null);
   };
 
   const handleRedeem = async (e) => {
@@ -226,7 +257,7 @@ export default function AdminPanel() {
                               variant="destructive"
                               className="h-7 text-xs gap-1"
                               disabled={approvingId === app.id}
-                              onClick={() => handleApplicationAction(app.id, 'reject')}
+                              onClick={() => handleRejectClick(app.id)}
                             >
                               <XCircle className="w-3 h-3" /> Reject
                             </Button>
@@ -337,6 +368,29 @@ export default function AdminPanel() {
           </div>
         </TabsContent>
       </Tabs>
+
+      <Dialog open={rejectDialogOpen} onOpenChange={setRejectDialogOpen}>
+        <DialogContent>
+          <DialogHeader><DialogTitle>Reject Application</DialogTitle></DialogHeader>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">Provide a reason for rejecting this application. This will be sent to the applicant.</p>
+            <div className="space-y-2">
+              <Label>Rejection Reason</Label>
+              <textarea
+                className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+                placeholder="e.g., Missing required documentation, Business not eligible, Unable to verify information..."
+                rows={4}
+                value={rejectionReason}
+                onChange={(e) => setRejectionReason(e.target.value)}
+              />
+            </div>
+            <div className="flex gap-2 justify-end">
+              <Button variant="outline" onClick={() => setRejectDialogOpen(false)}>Cancel</Button>
+              <Button variant="destructive" onClick={handleRejectSubmit}>Confirm Rejection</Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
