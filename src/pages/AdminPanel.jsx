@@ -48,20 +48,25 @@ export default function AdminPanel() {
   }, [navigate]);
 
   const loadAll = async () => {
-    const [v, r, a, t, u, ap] = await Promise.all([
-      base44.entities.Voucher.list('-created_date', 200),
-      base44.entities.Retailer.list(),
-      base44.entities.Airport.list(),
-      base44.entities.Transaction.list('-created_date', 200),
-      base44.entities.User.list(),
-      base44.entities.SignupApplication.list('-created_date', 200),
-    ]);
-    setVouchers(v);
-    setRetailers(r);
-    setAirports(a);
-    setTransactions(t);
-    setUsers(u);
-    setApplications(ap);
+    try {
+      const [v, r, a, t, u, ap] = await Promise.all([
+        base44.entities.Voucher.list('-created_date', 200),
+        base44.entities.Retailer.list(),
+        base44.entities.Airport.list(),
+        base44.entities.Transaction.list('-created_date', 200),
+        base44.entities.User.list(),
+        base44.entities.SignupApplication.list('-created_date', 200),
+      ]);
+      setVouchers(v || []);
+      setRetailers(r || []);
+      setAirports(a || []);
+      setTransactions(t || []);
+      setUsers(u || []);
+      setApplications(ap || []);
+    } catch (error) {
+      console.error('Error loading admin data:', error);
+      toast.error('Failed to load admin data');
+    }
   };
 
   const totalRevenue = transactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
