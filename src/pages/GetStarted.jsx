@@ -28,11 +28,14 @@ export default function GetStarted() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.functions.invoke('inviteUser', {
-      email, fullName, company, businessType, website, kvk, vat, bookingSystem, airport, storeCategory
-    });
-    setSubmitted(true);
-    setLoading(false);
+    try {
+      await base44.functions.invoke('inviteUser', {
+        email, fullName, company, businessType, website, kvk, vat, bookingSystem, airport, storeCategory
+      });
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {

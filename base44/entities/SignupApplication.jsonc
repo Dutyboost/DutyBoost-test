@@ -1,0 +1,66 @@
+{
+  "name": "SignupApplication",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "company": {
+      "type": "string",
+      "title": "Company"
+    },
+    "business_type": {
+      "type": "string",
+      "title": "Business Type",
+      "enum": [
+        "Travel Agency",
+        "Airport Retailer"
+      ]
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "kvk": {
+      "type": "string",
+      "title": "KVK Number"
+    },
+    "vat": {
+      "type": "string",
+      "title": "VAT Number"
+    },
+    "booking_system": {
+      "type": "string",
+      "title": "Booking System"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    },
+    "store_category": {
+      "type": "string",
+      "title": "Store Category"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "pending",
+        "invited",
+        "rejected"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "company",
+    "business_type"
+  ]
+}
