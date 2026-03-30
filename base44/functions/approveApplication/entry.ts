@@ -10,7 +10,7 @@ async function sendEmail({ to, subject, html }) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'DutyBoost <hello@dutyboost.com>',
+      from: 'DutyBoost <onboarding@resend.dev>',
       to,
       subject,
       html,
@@ -77,10 +77,9 @@ Deno.serve(async (req) => {
     }
 
     // Approve: update status first, then invite & send email
-    const appId = Deno.env.get('BASE44_APP_ID');
     const userRole = application.business_type === 'Travel Agency' ? 'agency' : 'retailer';
     const dashboardPath = application.business_type === 'Travel Agency' ? '/dashboard' : '/retailer-dashboard';
-    const loginUrl = `https://${appId}.base44.app/login?next=${dashboardPath}`;
+    const loginUrl = `https://dutyboost.base44.app${dashboardPath}`;
 
     // Update status to invited immediately
     await base44.asServiceRole.entities.SignupApplication.update(applicationId, { status: 'invited' });

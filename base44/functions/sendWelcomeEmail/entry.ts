@@ -38,9 +38,8 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const appId = Deno.env.get('BASE44_APP_ID');
     const dashboardPath = businessType === 'Travel Agency' ? '/dashboard' : '/retailer-dashboard';
-    const loginUrl = `https://${appId}.base44.app/login?next=${dashboardPath}`;
+    const loginUrl = `https://dutyboost.base44.app${dashboardPath}`;
 
     await sendEmail({
       to: email,
