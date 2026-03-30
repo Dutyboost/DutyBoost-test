@@ -28,7 +28,7 @@ export default function GetStarted() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.functions.invoke('inviteUser', { email });
+    await base44.users.inviteUser(email, 'user');
     setSubmitted(true);
     setLoading(false);
   };
