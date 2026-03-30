@@ -49,6 +49,7 @@ export default function RetailerDashboard() {
 
   const totalRevenue = transactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const totalDiscountGiven = transactions.reduce((s, t) => s + (t.discount_amount || 0), 0);
+  const avgRevenuePerTransaction = (300 * 0.15).toFixed(2);
 
   return (
     <div className="space-y-8">
@@ -104,7 +105,7 @@ export default function RetailerDashboard() {
         <StatsCard title="My Stores" value={retailers.length} icon={Store} />
         <StatsCard title="Incoming DutyCredits" value={vouchers.length} icon={TicketPercent} />
         <StatsCard title="Total Revenue" value={`€${totalRevenue.toFixed(0)}`} icon={CreditCard} />
-        <StatsCard title="Incentives Given" value={`€${totalDiscountGiven.toFixed(0)}`} icon={TrendingUp} />
+        <StatsCard title="Avg. Revenue Value" value={`€${avgRevenuePerTransaction}`} subtitle="Per €300 transaction" icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
