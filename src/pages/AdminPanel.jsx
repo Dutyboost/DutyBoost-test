@@ -78,9 +78,9 @@ export default function AdminPanel() {
   const handleSendAgain = async (applicationId) => {
     setApprovingId(applicationId);
     try {
-      const res = await base44.functions.invoke('resendWelcomeEmail', { applicationId });
+      const res = await base44.functions.invoke('sendMagicLink', { applicationId });
       if (res.data?.success) {
-        toast.success('Welcome email resent!');
+        toast.success('Magic link email resent!');
       } else {
         toast.error(res.data?.error || 'Failed to resend email');
       }
@@ -100,7 +100,7 @@ export default function AdminPanel() {
       }
       const res = await base44.functions.invoke('approveApplication', payload);
       if (res.data?.success) {
-        toast.success(action === 'approve' ? 'Application approved — invite sent!' : 'Application rejected.');
+        toast.success(action === 'approve' ? 'Application approved — magic link sent!' : 'Application rejected.');
         loadAll();
       } else {
         toast.error(res.data?.error || 'Something went wrong');
@@ -124,6 +124,21 @@ export default function AdminPanel() {
     setRejectDialogOpen(false);
     await handleApplicationAction(rejectingId, 'reject', rejectionReason);
     setRejectingId(null);
+  };
+
+  const handleDeleteAllApplications = async () => {
+    if (!window.confirm('Are you sure? This will delete all applications.')) return;
+    try {
+      const res = await base44.functions.invoke('deleteAllApplications', {});
+      if (res.data?.success) {
+        toast.success(`Deleted ${res.data.deleted} applications`);
+        loadAll();
+      } else {
+        toast.error(res.data?.error || 'Failed to delete applications');
+      }
+    } catch (error) {
+      toast.error('Failed to delete applications');
+    }
   };
 
   const handleRedeem = async (e) => {
@@ -224,17 +239,24 @@ export default function AdminPanel() {
       </div>
 
       <Tabs defaultValue="applications">
-        <TabsList>
-          <TabsTrigger value="applications">
-            Applications
-            {applications.filter(a => a.status === 'pending').length > 0 && (
-              <span className="ml-2 bg-primary text-primary-foreground text-xs rounded-full px-1.5 py-0.5">{applications.filter(a => a.status === 'pending').length}</span>
-            )}
-          </TabsTrigger>
-          <TabsTrigger value="vouchers">All DutyCredits</TabsTrigger>
-          <TabsTrigger value="transactions">Transactions</TabsTrigger>
-          <TabsTrigger value="users">Users</TabsTrigger>
-        </TabsList>
+        <div className="flex items-center justify-between mb-4">
+          <TabsList>
+            <TabsTrigger value="applications">
+              Applications
+              {applications.filter(a => a.status === 'pending').length > 0 && (
+                <span className="ml-2 bg-primary text-primary-foreground text-xs rounded-full px-1.5 py-0.5">{applications.filter(a => a.status === 'pending').length}</span>
+              )}
+            </TabsTrigger>
+            <TabsTrigger value="vouchers">All DutyCredits</TabsTrigger>
+            <TabsTrigger value="transactions">Transactions</TabsTrigger>
+            <TabsTrigger value="users">Users</TabsTrigger>
+          </TabsList>
+          {applications.length > 0 && (
+            <Button variant="destructive" size="sm" className="h-8 text-xs" onClick={handleDeleteAllApplications}>
+              Delete All Applications
+            </Button>
+          )}
+        </div>
 
         <TabsContent value="applications" className="mt-4">
           <div className="bg-card rounded-xl border border-border overflow-hidden">
