@@ -60,7 +60,7 @@ const faqs = [
       },
       {
         q: "How do I generate a DutyCredit?",
-        a: "Connect your booking system to DutyBoost via our API. Once integrated, DutyCredits are generated and emailed to travelers automatically the moment a booking is confirmed — no manual steps needed.",
+        a: "You don't — it happens automatically. The moment a traveler's booking is confirmed in your system, DutyBoost generates a unique DutyCredit in real time. Here's how the process works: (1) Your booking system sends the booking details to DutyBoost via a simple API call — ticket price, number of travelers, travel type, and departure airport. (2) DutyBoost instantly calculates the personalised discount percentage. (3) A co-branded email is sent directly to the traveler's inbox containing their unique QR code and discount details — no manual effort required on your part. Once you integrate the API, the entire flow is fully automated.",
       },
       {
         q: "Is there a cost to join DutyBoost as an agency?",
