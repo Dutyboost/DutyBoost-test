@@ -73,7 +73,7 @@ export default function AdminPanel() {
   const totalTransactionValue = transactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const activeVouchers = vouchers.filter(v => v.status === 'active').length;
   const redeemedVouchers = vouchers.filter(v => v.status === 'redeemed').length;
-  const avgRevenuePer300 = (300 * 0.05).toFixed(2);
+  const avgRevenuePer20Basket = (20 * 0.05).toFixed(2);
 
   const handleSendAgain = async (applicationId) => {
     setApprovingId(applicationId);
@@ -213,7 +213,7 @@ export default function AdminPanel() {
         <StatsCard title="Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={DollarSign} />
         <StatsCard title="Transaction Volume" value={`€${totalTransactionValue.toFixed(0)}`} icon={TrendingUp} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={CreditCard} />
-        <StatsCard title="Avg. Revenue Value" value={`€${avgRevenuePer300}`} subtitle="Per €300 transaction" icon={DollarSign} />
+        <StatsCard title="Avg. Revenue Value" value={`€${avgRevenuePer20Basket}`} subtitle="Per €20 avg basket" icon={DollarSign} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
