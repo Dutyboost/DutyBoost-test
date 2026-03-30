@@ -74,11 +74,12 @@ Deno.serve(async (req) => {
 
     // Approve: invite to platform + send branded welcome email with dashboard link
     const appId = Deno.env.get('BASE44_APP_ID');
+    const userRole = application.business_type === 'Travel Agency' ? 'agency' : 'retailer';
     const dashboardPath = application.business_type === 'Travel Agency' ? '/dashboard' : '/retailer-dashboard';
     const loginUrl = `https://${appId}.base44.app/login?next=${dashboardPath}`;
 
     // Invite user via Base44 (sends magic link from the platform)
-    await base44.users.inviteUser(application.email, 'user');
+    await base44.users.inviteUser(application.email, userRole);
 
     // Send our branded welcome email with the dashboard link
     await sendEmail({
