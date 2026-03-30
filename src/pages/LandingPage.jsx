@@ -33,7 +33,7 @@ const stakeholders = [
     color: "from-sky-400 to-cyan-500",
     bg: "bg-sky-50",
     iconColor: "text-sky-600",
-    description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Please note: DutyCredits are redeemable at one store only. The DutyCredit applies in a single transaction at one point of sale and cannot be split across multiple shops.",
+    description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Please note: DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops.",
     benefits: ["Instant mobile DutyCredit", "Single-store, full discount", "Seamless QR experience"],
   },
 ];
