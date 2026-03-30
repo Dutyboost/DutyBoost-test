@@ -40,13 +40,25 @@ export default function Layout() {
   const location = useLocation();
   const [user, setUser] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    base44.auth.me().then(setUser);
+    base44.auth.me().then((u) => {
+      setUser(u);
+      setLoading(false);
+    });
   }, []);
 
   const role = user?.role || "agency";
   const navItems = roleNavItems[role] || roleNavItems.agency;
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background flex">
