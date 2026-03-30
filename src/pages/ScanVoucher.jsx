@@ -28,7 +28,7 @@ export default function ScanVoucher() {
     const results = await base44.entities.Voucher.filter({ voucher_code: code.trim().toUpperCase() });
     setLoading(false);
     if (results.length === 0) {
-      toast.error("Voucher not found");
+      toast.error("Travel Yield not found");
       return;
     }
     setVoucher(results[0]);
@@ -59,7 +59,7 @@ export default function ScanVoucher() {
 
     setLoading(false);
     setRedeemed(true);
-    toast.success(`Voucher redeemed! Discount: €${discountAmount.toFixed(2)}`);
+    toast.success(`Travel Yield redeemed! Discount: €${discountAmount.toFixed(2)}`);
   };
 
   const reset = () => {
@@ -72,7 +72,7 @@ export default function ScanVoucher() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-heading font-bold tracking-tight">Scan & Redeem Voucher</h1>
+        <h1 className="text-2xl font-heading font-bold tracking-tight">Scan & Redeem Travel Yield</h1>
         <p className="text-muted-foreground mt-1">Scan a traveler's QR code or enter the code manually.</p>
       </div>
 
@@ -116,7 +116,7 @@ export default function ScanVoucher() {
       {loading && !voucher && (
         <div className="flex items-center gap-3 text-muted-foreground">
           <Loader2 className="w-5 h-5 animate-spin" />
-          <span>Looking up voucher...</span>
+          <span>Looking up Travel Yield...</span>
         </div>
       )}
 
@@ -198,7 +198,7 @@ export default function ScanVoucher() {
                   Cancel
                 </Button>
                 <Button type="submit" className="flex-1" disabled={loading || !form.retailer_id || !form.transaction_value}>
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Redeem Voucher"}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Redeem Travel Yield"}
                 </Button>
               </div>
             </form>
@@ -213,10 +213,10 @@ export default function ScanVoucher() {
       {redeemed && (
         <div className="max-w-md text-center space-y-4 py-8">
           <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto" />
-          <h2 className="text-xl font-heading font-bold">Voucher Redeemed!</h2>
+          <h2 className="text-xl font-heading font-bold">Travel Yield Redeemed!</h2>
           <p className="text-muted-foreground">The transaction has been logged successfully.</p>
           <Button className="w-full gap-2" onClick={reset}>
-            <ScanLine className="w-4 h-4" /> Scan Next Voucher
+            <ScanLine className="w-4 h-4" /> Scan Next Travel Yield
           </Button>
         </div>
       )}

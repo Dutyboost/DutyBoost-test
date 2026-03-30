@@ -75,12 +75,12 @@ export default function DataProcessingAgreement() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">2. Scope and Purpose of Processing</h2>
-          <p className="text-muted-foreground leading-relaxed">DutyBoost processes personal data on behalf of the Controller solely for the purpose of providing the DutyBoost platform services, including voucher generation, transaction management, retailer management, and related analytics. Processing is limited to what is strictly necessary to deliver the contracted service.</p>
+          <p className="text-muted-foreground leading-relaxed">DutyBoost processes personal data on behalf of the Controller solely for the purpose of providing the DutyBoost platform services, including Travel Yield generation, transaction management, retailer management, and related analytics. Processing is limited to what is strictly necessary to deliver the contracted service.</p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">3. Nature of the Processing</h2>
-          <p className="text-muted-foreground leading-relaxed">Processing activities include collection, storage, retrieval, organisation, structuring, use, disclosure, and deletion of personal data through the DutyBoost platform. Processing is performed electronically and may include automated decision-making where necessary for voucher discount calculations, subject to the rights of data subjects under GDPR Article 22.</p>
+          <p className="text-muted-foreground leading-relaxed">Processing activities include collection, storage, retrieval, organisation, structuring, use, disclosure, and deletion of personal data through the DutyBoost platform. Processing is performed electronically and may include automated decision-making where necessary for Travel Yield discount calculations, subject to the rights of data subjects under GDPR Article 22.</p>
         </section>
 
         <section className="space-y-3">
@@ -90,7 +90,7 @@ export default function DataProcessingAgreement() {
             <li>Identity data: full name, email address of agency staff and retailer representatives.</li>
             <li>Business data: company name, business address, VAT number.</li>
             <li>Booking data: number of travelers, travel dates, departure airports, ticket prices.</li>
-            <li>Transaction data: voucher codes, redemption records, purchase values.</li>
+            <li>Transaction data: Travel Yield codes, redemption records, purchase values.</li>
             <li>Technical data: IP addresses, browser type, session identifiers, and log data.</li>
           </ul>
         </section>
@@ -192,7 +192,7 @@ export default function DataProcessingAgreement() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">19. Automated Decision-Making</h2>
-          <p className="text-muted-foreground leading-relaxed">DutyBoost's discount calculation engine applies automated logic to booking data to determine voucher discount percentages. This automated processing is based on objective, transparent criteria (ticket price, group size, travel type) and does not produce legal effects or significantly affect data subjects in a manner requiring safeguards under GDPR Article 22. The Controller may request information on the logic applied at any time.</p>
+          <p className="text-muted-foreground leading-relaxed">DutyBoost's discount calculation engine applies automated logic to booking data to determine Travel Yield discount percentages. This automated processing is based on objective, transparent criteria (ticket price, group size, travel type) and does not produce legal effects or significantly affect data subjects in a manner requiring safeguards under GDPR Article 22. The Controller may request information on the logic applied at any time.</p>
         </section>
 
         <section className="space-y-3">

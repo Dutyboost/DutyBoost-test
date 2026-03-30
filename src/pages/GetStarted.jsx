@@ -70,7 +70,7 @@ export default function GetStarted() {
             >
               <Users className={`w-6 h-6 mb-2 ${businessType === "Travel Agency" ? "text-primary" : "text-muted-foreground"}`} />
               <p className="font-semibold text-sm">Travel Agency</p>
-              <p className="text-xs text-muted-foreground mt-1">Generate vouchers for travelers</p>
+              <p className="text-xs text-muted-foreground mt-1">Generate Travel Yields for travelers</p>
             </button>
             <button
               type="button"
@@ -83,7 +83,7 @@ export default function GetStarted() {
             >
               <Store className={`w-6 h-6 mb-2 ${businessType === "Airport Retailer" ? "text-primary" : "text-muted-foreground"}`} />
               <p className="font-semibold text-sm">Airport Retailer</p>
-              <p className="text-xs text-muted-foreground mt-1">Accept vouchers & drive sales</p>
+              <p className="text-xs text-muted-foreground mt-1">Accept Travel Yields & drive sales</p>
             </button>
           </div>
 

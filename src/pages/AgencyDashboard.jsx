@@ -31,12 +31,12 @@ export default function AgencyDashboard() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-heading font-bold tracking-tight">Agency Dashboard</h1>
-        <p className="text-muted-foreground mt-1">Create bookings and generate discount vouchers for your travelers.</p>
+        <p className="text-muted-foreground mt-1">Create bookings and generate Travel Yields for your travelers.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatsCard title="Total Vouchers" value={vouchers.length} icon={TicketPercent} />
-        <StatsCard title="Active Vouchers" value={activeVouchers} icon={CreditCard} />
+        <StatsCard title="Total Travel Yields" value={vouchers.length} icon={TicketPercent} />
+        <StatsCard title="Active Travel Yields" value={activeVouchers} icon={CreditCard} />
         <StatsCard title="Total Travelers" value={totalTravelers} icon={Users} />
         <StatsCard title="Avg. Discount" value={`${avgDiscount}%`} icon={Plane} />
       </div>
@@ -50,11 +50,11 @@ export default function AgencyDashboard() {
         </div>
 
         <div className="lg:col-span-2 space-y-4">
-          <h2 className="font-heading font-semibold text-lg">Recent Vouchers</h2>
+          <h2 className="font-heading font-semibold text-lg">Recent Travel Yields</h2>
           {vouchers.length === 0 ? (
             <div className="bg-card rounded-xl border border-border p-8 text-center text-muted-foreground">
               <TicketPercent className="w-10 h-10 mx-auto mb-3 opacity-40" />
-              <p className="text-sm">No vouchers yet. Create your first booking!</p>
+              <p className="text-sm">No Travel Yields yet. Create your first booking!</p>
             </div>
           ) : (
             vouchers.slice(0, 5).map((v) => <VoucherCard key={v.id} voucher={v} compact />)

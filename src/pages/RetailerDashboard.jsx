@@ -55,7 +55,7 @@ export default function RetailerDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-heading font-bold tracking-tight">Retailer Dashboard</h1>
-          <p className="text-muted-foreground mt-1">Manage your stores and view voucher activity.</p>
+          <p className="text-muted-foreground mt-1">Manage your stores and view Travel Yield activity.</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
@@ -102,7 +102,7 @@ export default function RetailerDashboard() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="My Stores" value={retailers.length} icon={Store} />
-        <StatsCard title="Incoming Vouchers" value={vouchers.length} icon={TicketPercent} />
+        <StatsCard title="Incoming Travel Yields" value={vouchers.length} icon={TicketPercent} />
         <StatsCard title="Total Revenue" value={`€${totalRevenue.toFixed(0)}`} icon={CreditCard} />
         <StatsCard title="Discounts Given" value={`€${totalDiscountGiven.toFixed(0)}`} icon={TrendingUp} />
       </div>
@@ -137,11 +137,11 @@ export default function RetailerDashboard() {
         </div>
 
         <div>
-          <h2 className="font-heading font-semibold text-lg mb-4">Active Vouchers at My Airports</h2>
+          <h2 className="font-heading font-semibold text-lg mb-4">Active Travel Yields at My Airports</h2>
           {vouchers.length === 0 ? (
             <div className="bg-card rounded-xl border border-border p-8 text-center text-muted-foreground">
               <TicketPercent className="w-10 h-10 mx-auto mb-3 opacity-40" />
-              <p className="text-sm">No active vouchers in your area.</p>
+              <p className="text-sm">No active Travel Yields in your area.</p>
             </div>
           ) : (
             <div className="space-y-3">

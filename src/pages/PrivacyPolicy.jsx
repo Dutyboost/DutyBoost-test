@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">1. Introduction</h2>
-          <p className="text-muted-foreground leading-relaxed">DutyBoost ("we", "our", "us") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you provide when using our platform, which connects travel agencies, airport retailers, and travelers through dynamic discount vouchers.</p>
+          <p className="text-muted-foreground leading-relaxed">DutyBoost ("we", "our", "us") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you provide when using our platform, which connects travel agencies, airport retailers, and travelers through dynamic Travel Yields.</p>
         </section>
 
         <section className="space-y-3">
@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
             <li><strong className="text-foreground">Account data:</strong> name, email address, company name, and role (agency/retailer).</li>
             <li><strong className="text-foreground">Booking data:</strong> departure airport, travel date, number of travelers, ticket value.</li>
-            <li><strong className="text-foreground">Transaction data:</strong> voucher codes redeemed, discount amounts, retailer identifiers.</li>
+            <li><strong className="text-foreground">Transaction data:</strong> Travel Yield codes redeemed, discount amounts, retailer identifiers.</li>
             <li><strong className="text-foreground">Usage data:</strong> page views, feature interactions, browser type, and IP address.</li>
           </ul>
         </section>
@@ -34,10 +34,10 @@ export default function PrivacyPolicy() {
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">3. How We Use Your Data</h2>
           <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
-            <li>To generate and validate discount vouchers for travelers.</li>
+            <li>To generate and validate Travel Yields for travelers.</li>
             <li>To process and track redemption transactions between agencies and retailers.</li>
             <li>To calculate and distribute revenue shares accurately.</li>
-            <li>To send transactional emails (account invitations, voucher confirmations).</li>
+            <li>To send transactional emails (account invitations, Travel Yield confirmations).</li>
             <li>To improve platform performance and user experience.</li>
           </ul>
         </section>
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-heading font-semibold">4. Data Sharing</h2>
           <p className="text-muted-foreground leading-relaxed">We do not sell your personal data. We may share data with:</p>
           <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
-            <li>Participating airport retailers (limited to voucher validation data).</li>
+            <li>Participating airport retailers (limited to Travel Yield validation data).</li>
             <li>Our infrastructure and hosting providers who process data on our behalf under strict data processing agreements.</li>
             <li>Regulatory authorities where required by law.</li>
           </ul>
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">7. Security</h2>
-          <p className="text-muted-foreground leading-relaxed">We use industry-standard encryption (TLS) and secure infrastructure to protect your data. Voucher codes are cryptographically unique and single-use.</p>
+          <p className="text-muted-foreground leading-relaxed">We use industry-standard encryption (TLS) and secure infrastructure to protect your data. Travel Yield codes are cryptographically unique and single-use.</p>
         </section>
 
         <section className="space-y-3">

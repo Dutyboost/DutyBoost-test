@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { Plane } from "lucide-react";
 
 export default function RefundPolicy() {
   return (
@@ -18,12 +17,12 @@ export default function RefundPolicy() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">1. Platform Fee Model</h2>
-          <p className="text-muted-foreground leading-relaxed">DutyBoost operates on a performance-based commission model. There are no subscription fees, setup costs, or monthly charges. Commission is only applied when a voucher is successfully redeemed at a participating retailer. Therefore, no upfront payments are collected from travel agencies or retailers.</p>
+          <p className="text-muted-foreground leading-relaxed">DutyBoost operates on a performance-based commission model. There are no subscription fees, setup costs, or monthly charges. Commission is only applied when a Travel Yield is successfully redeemed at a participating retailer. Therefore, no upfront payments are collected from travel agencies or retailers.</p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">2. Retailer Commission Disputes</h2>
-          <p className="text-muted-foreground leading-relaxed">If a retailer believes a commission charge was applied in error (e.g., a voucher was redeemed fraudulently or the transaction was cancelled), they must raise a dispute within 14 days of the transaction date. Disputes can be submitted to <a href="mailto:billing@dutyboost.com" className="text-primary underline">billing@dutyboost.com</a> with transaction details and supporting evidence.</p>
+          <p className="text-muted-foreground leading-relaxed">If a retailer believes a commission charge was applied in error (e.g., a Travel Yield was redeemed fraudulently or the transaction was cancelled), they must raise a dispute within 14 days of the transaction date. Disputes can be submitted to <a href="mailto:billing@dutyboost.com" className="text-primary underline">billing@dutyboost.com</a> with transaction details and supporting evidence.</p>
         </section>
 
         <section className="space-y-3">
@@ -33,12 +32,12 @@ export default function RefundPolicy() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">4. Fraudulent or Invalid Redemptions</h2>
-          <p className="text-muted-foreground leading-relaxed">If a voucher was redeemed due to fraud, technical error, or platform malfunction, DutyBoost will investigate and may issue a full refund of any commission charged in relation to that specific transaction. Each case is reviewed individually.</p>
+          <p className="text-muted-foreground leading-relaxed">If a Travel Yield was redeemed due to fraud, technical error, or platform malfunction, DutyBoost will investigate and may issue a full refund of any commission charged in relation to that specific transaction. Each case is reviewed individually.</p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">5. No Refunds on Valid Transactions</h2>
-          <p className="text-muted-foreground leading-relaxed">Commission charges on valid, correctly processed redemptions are non-refundable. Once a voucher has been redeemed and a transaction confirmed, the associated commission is final.</p>
+          <p className="text-muted-foreground leading-relaxed">Commission charges on valid, correctly processed redemptions are non-refundable. Once a Travel Yield has been redeemed and a transaction confirmed, the associated commission is final.</p>
         </section>
 
         <section className="space-y-3">

@@ -34,17 +34,17 @@ export default function CodeOfConduct() {
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">3. Travel Agencies</h2>
           <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
-            <li>Only submit real, confirmed bookings to generate vouchers.</li>
-            <li>Do not generate vouchers for fictitious or cancelled bookings.</li>
-            <li>Do not share voucher links with individuals unrelated to the associated booking.</li>
+            <li>Only submit real, confirmed bookings to generate Travel Yields.</li>
+            <li>Do not generate Travel Yields for fictitious or cancelled bookings.</li>
+            <li>Do not share Travel Yield links with individuals unrelated to the associated booking.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">4. Airport Retailers</h2>
           <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
-            <li>Honour all valid, active vouchers presented by travelers at your location.</li>
-            <li>Do not refuse voucher redemptions without valid justification.</li>
+            <li>Honour all valid, active Travel Yields presented by travelers at your location.</li>
+            <li>Do not refuse Travel Yield redemptions without valid justification.</li>
             <li>Do not attempt to process false transactions to manipulate revenue figures.</li>
             <li>Keep your store information accurate and up to date on the platform.</li>
           </ul>
@@ -53,7 +53,7 @@ export default function CodeOfConduct() {
         <section className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">5. Prohibited Conduct</h2>
           <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">
-            <li>Attempting to duplicate, forge, or reverse-engineer voucher codes.</li>
+            <li>Attempting to duplicate, forge, or reverse-engineer Travel Yield codes.</li>
             <li>Using the platform for money laundering or fraudulent financial activity.</li>
             <li>Attempting to access other users' accounts or data without authorisation.</li>
             <li>Interfering with the platform's technical infrastructure.</li>
