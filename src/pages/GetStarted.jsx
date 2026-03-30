@@ -28,24 +28,58 @@ export default function GetStarted() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.users.inviteUser(email, 'user');
+    await base44.functions.invoke('inviteUser', {
+      email, fullName, company, businessType, website, kvk, vat, bookingSystem, airport, storeCategory
+    });
     setSubmitted(true);
     setLoading(false);
   };
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
-        <div className="mb-6">
-          <DutyBoostLogo height={48} />
+      <div className="min-h-screen bg-background flex flex-col">
+        <nav className="border-b border-border px-6 h-16 flex items-center">
+          <Link to="/"><DutyBoostLogo height={36} /></Link>
+        </nav>
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="w-full max-w-md text-center space-y-6">
+            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+              <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="space-y-2">
+              <h1 className="text-3xl font-heading font-bold">Check your inbox!</h1>
+              <p className="text-muted-foreground">
+                We've sent a confirmation email to
+              </p>
+              <p className="font-semibold text-foreground text-lg">{email}</p>
+            </div>
+            <div className="bg-card border border-border rounded-2xl p-6 text-left space-y-4">
+              <p className="font-semibold text-sm text-foreground">What happens next?</p>
+              <ol className="space-y-3">
+                {[
+                  { step: '1', text: 'Check your inbox (and spam folder) for our confirmation email.' },
+                  { step: '2', text: 'Our team reviews your application within 1 business day.' },
+                  { step: '3', text: 'We send you a platform invite to activate your account.' },
+                  { step: '4', text: 'Your DutyBoost integration is set up — no technical work needed.' },
+                ].map(({ step, text }) => (
+                  <li key={step} className="flex gap-3 items-start">
+                    <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">{step}</span>
+                    <span className="text-sm text-muted-foreground">{text}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Questions? Email us at{' '}
+              <a href="mailto:hello@dutyboost.com" className="text-primary underline underline-offset-2">hello@dutyboost.com</a>
+            </p>
+            <Link to="/">
+              <Button variant="outline" className="w-full">Back to Home</Button>
+            </Link>
+          </div>
         </div>
-        <h1 className="text-3xl font-heading font-bold mb-3">You're on the list!</h1>
-        <p className="text-muted-foreground max-w-sm mb-6">
-          We've sent an invite to <strong>{email}</strong>. Check your inbox to complete your account setup. Our team will reach out within 1 business day to activate your DutyBoost integration — no technical work needed on your end.
-        </p>
-        <Link to="/">
-          <Button variant="outline">Back to Home</Button>
-        </Link>
       </div>
     );
   }
