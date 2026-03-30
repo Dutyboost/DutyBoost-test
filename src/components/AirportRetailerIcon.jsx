@@ -4,32 +4,34 @@ export default function AirportRetailerIcon({ className }) {
       {/* Left traveler - entering with ticket and suitcase */}
       <g>
         {/* Head */}
-        <circle cx="25" cy="30" r="6" fill="currentColor" />
+        <circle cx="25" cy="28" r="8" fill="currentColor" />
         {/* Body */}
-        <rect x="21" y="38" width="8" height="16" fill="currentColor" />
+        <rect x="20" y="38" width="10" height="18" fill="currentColor" />
         {/* Left arm holding ticket */}
-        <line x1="21" y1="42" x2="12" y2="45" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <rect x="10" y="43" width="4" height="6" fill="currentColor" opacity="0.7" />
+        <line x1="20" y1="42" x2="8" y2="48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <rect x="5" y="46" width="6" height="8" fill="currentColor" />
         {/* Right arm */}
-        <line x1="29" y1="42" x2="38" y2="45" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="30" y1="42" x2="40" y2="48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
         {/* Legs */}
-        <line x1="23" y1="54" x2="22" y2="65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="27" y1="54" x2="28" y2="65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="23" y1="56" x2="21" y2="70" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="27" y1="56" x2="29" y2="70" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
         {/* Suitcase */}
-        <rect x="32" y="55" width="8" height="12" fill="currentColor" opacity="0.6" />
-        <rect x="33" y="56" width="6" height="2" fill="currentColor" opacity="0.4" />
+        <rect x="38" y="56" width="10" height="14" fill="currentColor" />
+        <circle cx="43" cy="72" r="1.5" fill="currentColor" opacity="0.5" />
       </g>
       
       {/* Center - DutyFree shop */}
       <g>
         {/* Shop building */}
-        <rect x="85" y="35" width="30" height="35" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="2" />
+        <rect x="80" y="30" width="40" height="45" fill="currentColor" opacity="0.08" stroke="currentColor" strokeWidth="3" />
         {/* Door */}
-        <rect x="95" y="50" width="10" height="20" fill="currentColor" opacity="0.3" stroke="currentColor" strokeWidth="1" />
+        <rect x="92" y="48" width="16" height="27" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="2" />
+        {/* Door handle */}
+        <circle cx="107" cy="62" r="2" fill="currentColor" />
         {/* Window */}
-        <rect x="120" y="42" width="8" height="8" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="1" />
+        <rect x="115" y="38" width="12" height="12" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="2" />
         {/* Text label */}
-        <text x="100" y="28" fontSize="10" fontWeight="bold" textAnchor="middle" fill="currentColor" opacity="0.8">
+        <text x="100" y="22" fontSize="13" fontWeight="bold" textAnchor="middle" fill="currentColor">
           DutyFree
         </text>
       </g>
@@ -37,21 +39,21 @@ export default function AirportRetailerIcon({ className }) {
       {/* Right traveler - leaving with shopping bags and suitcase */}
       <g>
         {/* Head */}
-        <circle cx="175" cy="30" r="6" fill="currentColor" />
+        <circle cx="175" cy="28" r="8" fill="currentColor" />
         {/* Body */}
-        <rect x="171" y="38" width="8" height="16" fill="currentColor" />
+        <rect x="170" y="38" width="10" height="18" fill="currentColor" />
         {/* Left arm holding shopping bags */}
-        <line x1="171" y1="42" x2="160" y2="50" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M 158 48 Q 155 50 158 55" fill="currentColor" opacity="0.6" />
-        <path d="M 162 48 Q 159 51 162 56" fill="currentColor" opacity="0.5" />
+        <line x1="170" y1="42" x2="155" y2="52" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <rect x="150" y="50" width="8" height="12" fill="currentColor" opacity="0.7" />
+        <rect x="160" y="52" width="8" height="12" fill="currentColor" opacity="0.6" />
         {/* Right arm */}
-        <line x1="179" y1="42" x2="188" y2="45" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="180" y1="42" x2="192" y2="48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
         {/* Legs */}
-        <line x1="173" y1="54" x2="172" y2="65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="177" y1="54" x2="178" y2="65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="173" y1="56" x2="171" y2="70" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="177" y1="56" x2="179" y2="70" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
         {/* Suitcase */}
-        <rect x="182" y="55" width="8" height="12" fill="currentColor" opacity="0.6" />
-        <rect x="183" y="56" width="6" height="2" fill="currentColor" opacity="0.4" />
+        <rect x="186" y="56" width="10" height="14" fill="currentColor" />
+        <circle cx="191" cy="72" r="1.5" fill="currentColor" opacity="0.5" />
       </g>
     </svg>
   );

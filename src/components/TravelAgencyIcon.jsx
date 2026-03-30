@@ -2,31 +2,31 @@ export default function TravelAgencyIcon({ className }) {
   return (
     <svg viewBox="0 0 200 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Runway - dashed lines */}
-      <line x1="10" y1="80" x2="170" y2="80" stroke="currentColor" strokeWidth="2" strokeDasharray="8,6" opacity="0.4" />
-      <line x1="15" y1="90" x2="165" y2="90" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6,4" opacity="0.3" />
+      <line x1="10" y1="80" x2="170" y2="80" stroke="currentColor" strokeWidth="3" strokeDasharray="10,8" />
+      <line x1="15" y1="92" x2="165" y2="92" stroke="currentColor" strokeWidth="2" strokeDasharray="8,6" opacity="0.6" />
       
       {/* Runway markers */}
-      <circle cx="30" cy="85" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="60" cy="85" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="90" cy="85" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="120" cy="85" r="2" fill="currentColor" opacity="0.5" />
-      <circle cx="150" cy="85" r="2" fill="currentColor" opacity="0.5" />
+      <circle cx="30" cy="86" r="3" fill="currentColor" />
+      <circle cx="60" cy="86" r="3" fill="currentColor" />
+      <circle cx="90" cy="86" r="3" fill="currentColor" />
+      <circle cx="120" cy="86" r="3" fill="currentColor" />
+      <circle cx="150" cy="86" r="3" fill="currentColor" />
       
       {/* Plane taking off - simplified from right side going up */}
-      <g transform="translate(155, 50) rotate(-25)">
+      <g transform="translate(155, 45) rotate(-25)">
         {/* Fuselage */}
-        <ellipse cx="0" cy="0" rx="8" ry="3" fill="currentColor" />
+        <ellipse cx="0" cy="0" rx="10" ry="4" fill="currentColor" />
         {/* Wings */}
-        <rect x="-12" y="-1" width="24" height="2" fill="currentColor" />
+        <rect x="-15" y="-2" width="30" height="4" fill="currentColor" />
         {/* Tail */}
-        <polygon points="-8,-2 -12,-2 -10,2" fill="currentColor" opacity="0.8" />
+        <polygon points="-10,-3 -15,-3 -12,3" fill="currentColor" />
         {/* Cockpit */}
-        <circle cx="6" cy="0" r="1.5" fill="currentColor" opacity="0.6" />
+        <circle cx="7" cy="0" r="2.5" fill="currentColor" />
       </g>
       
       {/* Trail/exhaust effect */}
-      <line x1="145" y1="65" x2="140" y2="75" stroke="currentColor" strokeWidth="1.5" opacity="0.3" />
-      <line x1="150" y1="60" x2="145" y2="72" stroke="currentColor" strokeWidth="1" opacity="0.2" />
+      <line x1="140" y1="65" x2="135" y2="78" stroke="currentColor" strokeWidth="2.5" />
+      <line x1="148" y1="58" x2="142" y2="72" stroke="currentColor" strokeWidth="2" opacity="0.7" />
     </svg>
   );
 }
