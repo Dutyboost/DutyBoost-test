@@ -29,13 +29,17 @@ export default function AdminPanel() {
 
   useEffect(() => {
     const checkAdmin = async () => {
-      const user = await base44.auth.me();
-      if (!user || user.role !== 'admin') {
+      try {
+        const user = await base44.auth.me();
+        if (!user || user.role !== 'admin') {
+          navigate('/');
+          return;
+        }
+        setIsAdmin(true);
+        loadAll();
+      } catch (error) {
         navigate('/');
-        return;
       }
-      setIsAdmin(true);
-      loadAll();
     };
     checkAdmin();
   }, [navigate]);
@@ -126,6 +130,10 @@ export default function AdminPanel() {
     setRedeemForm({ voucher_code: "", retailer_id: "", transaction_value: "" });
     loadAll();
   };
+
+  if (isAdmin === false) {
+    return null;
+  }
 
   if (isAdmin === null) {
     return (
