@@ -16,7 +16,7 @@ export default function AdminPanel() {
   const [isAdmin, setIsAdmin] = useState(null);
   const [vouchers, setVouchers] = useState([]);
   const [retailers, setRetailers] = useState([]);
-  const [airports, setAirports] = useState([]);
+  const [travelAgencies, setTravelAgencies] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [users, setUsers] = useState([]);
   const [applications, setApplications] = useState([]);
@@ -52,14 +52,14 @@ export default function AdminPanel() {
       const [v, r, a, t, u, ap] = await Promise.all([
         base44.entities.Voucher.list('-created_date', 200),
         base44.entities.Retailer.list(),
-        base44.entities.Airport.list(),
+        base44.entities.TravelAgency.list(),
         base44.entities.Transaction.list('-created_date', 200),
         base44.entities.User.list(),
         base44.entities.SignupApplication.list('-created_date', 200),
       ]);
       setVouchers(v || []);
       setRetailers(r || []);
-      setAirports(a || []);
+      setTravelAgencies(a || []);
       setTransactions(t || []);
       setUsers(u || []);
       setApplications(ap || []);
@@ -218,7 +218,7 @@ export default function AdminPanel() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total Users" value={users.length} icon={Users} />
         <StatsCard title="Airport Retailers" value={retailers.length} icon={Store} />
-        <StatsCard title="Airports" value={airports.length} icon={Plane} />
+        <StatsCard title="Travel Agencies" value={travelAgencies.length} icon={Plane} />
         <StatsCard title="Total DutyCredits" value={vouchers.length} icon={CreditCard} />
       </div>
 
