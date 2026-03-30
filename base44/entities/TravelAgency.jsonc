@@ -1,0 +1,23 @@
+{
+  "name": "TravelAgency",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Agency Name"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country",
+      "default": "Netherlands"
+    }
+  },
+  "required": [
+    "name",
+    "website"
+  ]
+}

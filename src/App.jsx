@@ -10,7 +10,7 @@ import Home from './pages/Home';
 import LandingPage from './pages/LandingPage';
 import VouchersPage from './pages/VouchersPage';
 import RetailersPage from './pages/RetailersPage';
-import AirportsPage from './pages/AirportsPage';
+import TravelAgenciesPage from './pages/TravelAgenciesPage';
 import AdminPanel from './pages/AdminPanel';
 import RetailerDashboard from './pages/RetailerDashboard';
 import TravelerVoucher from './pages/TravelerVoucher';
@@ -86,7 +86,7 @@ const AuthenticatedApp = () => {
         <Route path="/dashboard" element={<Home />} />
         <Route path="/vouchers" element={<VouchersPage />} />
         <Route path="/retailers" element={<RetailersPage />} />
-        <Route path="/airports" element={<AirportsPage />} />
+        <Route path="/travel-agencies" element={<TravelAgenciesPage />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
         <Route path="/scan-redeem" element={<ScanVoucher />} />
