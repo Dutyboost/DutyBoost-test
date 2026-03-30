@@ -161,14 +161,19 @@ export default function LandingPage() {
             {stakeholders.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group">
-                  {s.image ? (
-                    <img src={s.image} alt={s.title} className="w-14 h-14 rounded-2xl object-cover mb-5" />
-                  ) : (
+                <div key={s.title} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group relative overflow-hidden">
+                  {s.image && (
+                    <div className="absolute inset-x-0 top-0 h-36 pointer-events-none">
+                      <img src={s.image} alt="" className="w-full h-full object-cover object-top opacity-20" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-card" />
+                    </div>
+                  )}
+                  {!s.image && (
                     <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
                       <Icon className={`w-7 h-7 ${s.iconColor}`} />
                     </div>
                   )}
+                  {s.image && <div className="h-16" />}
                   <h3 className="font-heading font-bold text-xl mb-3">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.description}</p>
                   <ul className="space-y-2">
