@@ -3,6 +3,9 @@ import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import VoucherCard from "../components/VoucherCard";
 import { TicketPercent, Settings, AlertCircle } from "lucide-react";
+import {
+  BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+} from "recharts";
 import NotificationPreferences from "../components/NotificationPreferences";
 import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
 import { Button } from "@/components/ui/button";
@@ -30,9 +33,25 @@ export default function AgencyDashboard() {
     : 0;
   const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   
-  // Agency earns 20% of DutyBoost's 5% fee (€0.20 per €20 basket, scales with transaction value)
-  const commissionPerBasket = 0.20; // €0.20 per €20 baseline
+  const commissionPerBasket = 0.20;
   const totalForecastRevenue = (totalPassengers * commissionPerBasket).toFixed(2);
+
+  // Vouchers by airport
+  const airportMap = {};
+  vouchers.forEach(v => {
+    const a = v.airport || "Unknown";
+    if (!airportMap[a]) airportMap[a] = { airport: a, active: 0, redeemed: 0, expired: 0 };
+    airportMap[a][v.status] = (airportMap[a][v.status] || 0) + 1;
+  });
+  const airportData = Object.values(airportMap).sort((a, b) => (b.active + b.redeemed) - (a.active + a.redeemed));
+
+  // Status pie
+  const COLORS = ["#6366f1", "#10b981", "#94a3b8"];
+  const pieData = [
+    { name: "Active", value: activeVouchers },
+    { name: "Redeemed", value: redeemedVouchers },
+    { name: "Expired", value: vouchers.filter(v => v.status === "expired").length },
+  ].filter(d => d.value > 0);
 
   return (
     <div className="space-y-8">
@@ -80,6 +99,38 @@ export default function AgencyDashboard() {
           )}
         </div>
       </div>
+
+      {vouchers.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-card rounded-xl border border-border p-6">
+            <h2 className="font-heading font-semibold mb-4">DutyCredit Status</h2>
+            <ResponsiveContainer width="100%" height={220}>
+              <PieChart>
+                <Pie data={pieData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={3} dataKey="value">
+                  {pieData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                </Pie>
+                <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
+                <Legend wrapperStyle={{ fontSize: 12 }} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="bg-card rounded-xl border border-border p-6">
+            <h2 className="font-heading font-semibold mb-4">DutyCredits by Airport</h2>
+            <ResponsiveContainer width="100%" height={220}>
+              <BarChart data={airportData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="airport" tick={{ fontSize: 10 }} tickLine={false} />
+                <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
+                <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
+                <Legend wrapperStyle={{ fontSize: 12 }} />
+                <Bar dataKey="active" fill="#6366f1" name="Active" radius={[4, 4, 0, 0]} stackId="a" />
+                <Bar dataKey="redeemed" fill="#10b981" name="Redeemed" radius={[4, 4, 0, 0]} stackId="a" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      )}
 
       <NotificationPreferences />
       <AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} />

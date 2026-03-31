@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle } from "lucide-react";
+import {
+  LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
+} from "recharts";
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,6 +57,33 @@ export default function RetailerDashboard() {
   const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
   const revenuePerDay = (totalRevenue / 30).toFixed(2);
+
+  // Daily transaction volume (last 30 days)
+  const today = new Date();
+  const last30 = Array.from({ length: 30 }, (_, i) => {
+    const d = new Date(today);
+    d.setDate(d.getDate() - (29 - i));
+    return d.toISOString().split("T")[0];
+  });
+  const txByDay = {};
+  transactions.forEach(t => {
+    const day = (t.created_date || "").split("T")[0];
+    if (!txByDay[day]) txByDay[day] = { date: day, volume: 0, fee: 0 };
+    txByDay[day].volume += t.transaction_value || 0;
+    txByDay[day].fee += (t.transaction_value || 0) * 0.05;
+  });
+  const dailyData = last30.map(d => ({
+    date: d.slice(5),
+    volume: Math.round(txByDay[d]?.volume || 0),
+    fee: parseFloat((txByDay[d]?.fee || 0).toFixed(2)),
+  }));
+
+  // Revenue per store
+  const storeRevMap = {};
+  transactions.forEach(t => {
+    storeRevMap[t.store_name] = (storeRevMap[t.store_name] || 0) + (t.transaction_value || 0);
+  });
+  const storeData = Object.entries(storeRevMap).map(([store, revenue]) => ({ store, revenue: Math.round(revenue) }));
 
   if (overdueInvoice) {
     return (
@@ -198,6 +228,37 @@ export default function RetailerDashboard() {
           )}
         </div>
       </div>
+
+      {/* Charts */}
+      <div className="bg-card rounded-xl border border-border p-6">
+        <h2 className="font-heading font-semibold mb-4">Daily Transaction Volume (last 30 days)</h2>
+        <ResponsiveContainer width="100%" height={240}>
+          <LineChart data={dailyData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+            <XAxis dataKey="date" tick={{ fontSize: 11 }} tickLine={false} />
+            <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
+            <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [`€${v}`, n]} />
+            <Legend wrapperStyle={{ fontSize: 12 }} />
+            <Line type="monotone" dataKey="volume" stroke="#6366f1" strokeWidth={2} dot={false} name="Volume (€)" />
+            <Line type="monotone" dataKey="fee" stroke="#f59e0b" strokeWidth={2} dot={false} name="DutyBoost Fee (€)" />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      {storeData.length > 0 && (
+        <div className="bg-card rounded-xl border border-border p-6">
+          <h2 className="font-heading font-semibold mb-4">Revenue per Store</h2>
+          <ResponsiveContainer width="100%" height={220}>
+            <BarChart data={storeData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="store" tick={{ fontSize: 11 }} tickLine={false} />
+              <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
+              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [`€${v}`, "Revenue"]} />
+              <Bar dataKey="revenue" fill="#6366f1" radius={[4, 4, 0, 0]} name="Revenue (€)" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       <RetailerInvoiceDownload transactions={transactions} retailers={retailers} />
     </div>
