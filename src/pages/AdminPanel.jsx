@@ -9,7 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText } from "lucide-react";
+import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText, BarChart2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function AdminPanel() {
   const navigate = useNavigate();
@@ -212,6 +213,9 @@ export default function AdminPanel() {
           </h1>
           <p className="text-muted-foreground mt-1">Complete platform overview and management.</p>
         </div>
+        <Link to="/admin-dashboard">
+          <Button variant="outline" className="gap-2"><BarChart2 className="w-4 h-4" /> Analytics</Button>
+        </Link>
         <Dialog open={redeemOpen} onOpenChange={setRedeemOpen}>
           <DialogTrigger asChild>
             <Button className="gap-2"><CreditCard className="w-4 h-4" /> Redeem DutyCredit</Button>

@@ -27,6 +27,7 @@ import CookieConsentBar from './components/CookieConsentBar';
 import FAQ from './pages/FAQ';
 import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
 import UserGuide from './pages/UserGuide';
+import AdminDashboard from './pages/AdminDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -91,6 +92,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailers" element={<RetailersPage />} />
         <Route path="/travel-agencies" element={<TravelAgenciesPage />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
         <Route path="/scan-redeem" element={<ScanVoucher />} />
         <Route path="*" element={<PageNotFound />} />
