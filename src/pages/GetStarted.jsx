@@ -5,11 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, ArrowLeft, Store, Users, CheckCircle2, CreditCard, FileText } from "lucide-react";
+import { ArrowRight, ArrowLeft, Store, Users, CheckCircle2, FileText } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
-const STEPS = ["Business Info", "Payment Method", "Terms & Review"];
+const STEPS = ["Business Info", "Terms & Review"];
 
 export default function GetStarted() {
   const [step, setStep] = useState(0);
@@ -23,7 +22,6 @@ export default function GetStarted() {
   const [bookingSystem, setBookingSystem] = useState("");
   const [airport, setAirport] = useState("");
   const [storeCategory, setStoreCategory] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,7 +34,6 @@ export default function GetStarted() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Save application first
       const app = await base44.entities.SignupApplication.create({
         full_name: fullName,
         email,
@@ -58,38 +55,11 @@ export default function GetStarted() {
     }
   };
 
-  const handleStep2Submit = async () => {
-    if (!paymentMethod) return;
-    setLoading(true);
-    try {
-      await base44.entities.SignupApplication.update(applicationId, { payment_method: paymentMethod });
-      setStep(2);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleFinalSubmit = async () => {
     if (!termsAccepted) return;
     setLoading(true);
     try {
       await base44.entities.SignupApplication.update(applicationId, { terms_accepted: true });
-      // Redirect to Mollie if API key is set, otherwise just complete registration
-      try {
-        const res = await base44.functions.invoke('createMolliePayment', {
-          applicationId,
-          paymentMethod,
-          redirectUrl: window.location.origin + '/get-started/payment-return',
-          email,
-          fullName,
-        });
-        if (res.data?.checkoutUrl) {
-          window.location.href = res.data.checkoutUrl;
-          return;
-        }
-      } catch {
-        // Mollie not configured yet — fall through to success
-      }
       setSubmitted(true);
     } finally {
       setLoading(false);
@@ -164,7 +134,7 @@ export default function GetStarted() {
                   <span className={`text-xs font-medium ${i === step ? 'text-primary' : 'text-muted-foreground'}`}>{label}</span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div className={`w-16 h-0.5 mb-4 mx-1 ${i < step ? 'bg-primary' : 'bg-border'}`} />
+                  <div className={`w-24 h-0.5 mb-4 mx-1 ${i < step ? 'bg-primary' : 'bg-border'}`} />
                 )}
               </div>
             ))}
@@ -184,8 +154,8 @@ export default function GetStarted() {
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { type: "Travel Agency", icon: Users, desc: "Generate Travel Yields for travelers" },
-                  { type: "Airport Retailer", icon: Store, desc: "Accept Travel Yields & drive sales" },
+                  { type: "Travel Agency", icon: Users, desc: "Generate DutyCredits for travelers" },
+                  { type: "Airport Retailer", icon: Store, desc: "Accept DutyCredits & drive sales" },
                 ].map(({ type, icon: Icon, desc }) => (
                   <button key={type} type="button" onClick={() => setBusinessType(type)}
                     className={`p-5 rounded-2xl border-2 text-left transition-all ${
@@ -267,38 +237,8 @@ export default function GetStarted() {
             </>
           )}
 
-          {/* Step 1: Payment Method */}
+          {/* Step 1: Terms & Review */}
           {step === 1 && (
-            <div className="space-y-6">
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
-                  <CreditCard className="w-6 h-6 text-primary" />
-                </div>
-                <h2 className="text-2xl font-heading font-bold">Set up billing</h2>
-                <p className="text-sm text-muted-foreground">
-                  Choose how you'd like to be billed. <strong>No charges now</strong> — payments are only collected after a confirmed DutyCredit sale at the airport.
-                </p>
-              </div>
-
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
-                <strong>How billing works:</strong> A €0.01 verification charge is used to confirm your payment method and set up your billing mandate. This amount is immediately refunded.
-              </div>
-
-              <PaymentMethodSelector value={paymentMethod} onChange={setPaymentMethod} />
-
-              <div className="flex gap-3">
-                <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
-                </Button>
-                <Button className="flex-1 gap-2 h-11" disabled={!paymentMethod || loading} onClick={handleStep2Submit}>
-                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-          )}
-
-          {/* Step 2: Terms & Review */}
-          {step === 2 && (
             <div className="space-y-6">
               <div className="text-center space-y-2">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
@@ -316,7 +256,9 @@ export default function GetStarted() {
                   { label: "Email", value: email },
                   { label: "Company", value: company },
                   { label: "Type", value: businessType },
-                  { label: "Payment method", value: paymentMethod?.toUpperCase() },
+                  { label: "Website", value: website },
+                  { label: "KVK", value: kvk },
+                  { label: "VAT", value: vat },
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>
@@ -333,15 +275,14 @@ export default function GetStarted() {
                   <p>By joining DutyBoost, you agree to the following terms:</p>
                   <p><strong>1. Service Description.</strong> DutyBoost provides a travel retail conversion platform connecting travel agencies, airport retailers, and travelers through DutyCredit incentives.</p>
                   <p><strong>2. Commission & Fees.</strong> A commission is charged per confirmed DutyCredit redemption at participating airport retailers. The applicable rate is communicated in your onboarding documentation.</p>
-                  <p><strong>3. Payment Mandate.</strong> By providing a payment method, you authorise DutyBoost B.V. to collect fees for confirmed redemptions via the selected payment method.</p>
-                  <p><strong>4. Data Processing.</strong> Your business data is processed in accordance with our Privacy Policy and GDPR obligations. We act as a data processor for booking data provided by travel agencies.</p>
-                  <p><strong>5. Acceptable Use.</strong> You agree not to misuse DutyCredits, manipulate redemption data, or violate any applicable laws or regulations.</p>
-                  <p><strong>6. Termination.</strong> Either party may terminate this agreement with 30 days written notice. Outstanding fees remain due upon termination.</p>
-                  <p><strong>7. Governing Law.</strong> This agreement is governed by Dutch law. Disputes shall be submitted to the competent courts of Amsterdam, the Netherlands.</p>
+                  <p><strong>3. Data Processing.</strong> Your business data is processed in accordance with our Privacy Policy and GDPR obligations. We act as a data processor for booking data provided by travel agencies.</p>
+                  <p><strong>4. Acceptable Use.</strong> You agree not to misuse DutyCredits, manipulate redemption data, or violate any applicable laws or regulations.</p>
+                  <p><strong>5. Termination.</strong> Either party may terminate this agreement with 30 days written notice. Outstanding fees remain due upon termination.</p>
+                  <p><strong>6. Governing Law.</strong> This agreement is governed by Dutch law. Disputes shall be submitted to the competent courts of Amsterdam, the Netherlands.</p>
                   <p>For full terms, see our <a href="/terms" target="_blank" className="text-primary underline">Terms of Service</a>, <a href="/privacy" target="_blank" className="text-primary underline">Privacy Policy</a>, and <a href="/dpa" target="_blank" className="text-primary underline">Data Processing Agreement</a>.</p>
                 </div>
 
-                <label className="flex items-start gap-3 cursor-pointer group">
+                <label className="flex items-start gap-3 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={termsAccepted}
@@ -349,13 +290,13 @@ export default function GetStarted() {
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
                   <span className="text-sm text-foreground leading-relaxed">
-                    I have read and agree to the <a href="/terms" target="_blank" className="text-primary underline underline-offset-2">Terms of Service</a>, <a href="/privacy" target="_blank" className="text-primary underline underline-offset-2">Privacy Policy</a>, and <a href="/dpa" target="_blank" className="text-primary underline underline-offset-2">Data Processing Agreement</a> of DutyBoost B.V. I authorise DutyBoost to collect fees for confirmed DutyCredit redemptions via my chosen payment method.
+                    I have read and agree to the <a href="/terms" target="_blank" className="text-primary underline underline-offset-2">Terms of Service</a>, <a href="/privacy" target="_blank" className="text-primary underline underline-offset-2">Privacy Policy</a>, and <a href="/dpa" target="_blank" className="text-primary underline underline-offset-2">Data Processing Agreement</a> of DutyBoost.
                   </span>
                 </label>
               </div>
 
               <div className="flex gap-3">
-                <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
+                <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
                 <Button
