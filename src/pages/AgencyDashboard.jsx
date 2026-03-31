@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import VoucherCard from "../components/VoucherCard";
-import { TicketPercent, Settings, AlertCircle } from "lucide-react";
+import { TicketPercent, AlertCircle } from "lucide-react";
+import AgencyIntegrationSnippet from "../components/AgencyIntegrationSnippet";
 import {
   BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
@@ -68,22 +69,7 @@ export default function AgencyDashboard() {
       </div>
 
       <div className="space-y-8">
-        <div className="bg-card rounded-xl border border-border p-8">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Settings className="w-6 h-6 text-primary" />
-            </div>
-            <div className="flex-1">
-              <h3 className="font-heading font-semibold text-lg mb-2">Automatic Booking Integration</h3>
-              <p className="text-muted-foreground mb-4">
-                DutyCredits are generated automatically from your booking system. Our integration script collects booking data (price, passenger count, destination) and creates incentives in real-time generating you a new revenue stream at no cost
-              </p>
-              <Button variant="outline" onClick={() => window.location.href = '/integration-guide'}>
-                View Integration Setup
-              </Button>
-            </div>
-          </div>
-        </div>
+        <AgencyIntegrationSnippet />
 
         <div className="space-y-4">
           <h2 className="font-heading font-semibold text-lg">Your DutyCredits</h2>
