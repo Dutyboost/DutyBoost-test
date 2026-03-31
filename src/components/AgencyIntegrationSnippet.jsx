@@ -21,6 +21,7 @@ function CopyButton({ text, label = "Copy" }) {
 
 export default function AgencyIntegrationSnippet() {
   const [agencyEmail, setAgencyEmail] = useState("your@agency.com");
+  const [open, setOpen] = useState(false);
   const endpoint = `${window.location.origin}/api/generateDutyCredit`;
 
   useEffect(() => {
@@ -78,14 +79,22 @@ function issueDutyCredit(booking) {
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
           <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Your Integration Snippet</p>
-          <CopyButton text={snippet} label="Copy Snippet" />
+          <Button size="sm" variant="outline" className="gap-1.5 h-7 text-xs" onClick={() => setOpen(v => !v)}>
+            <Code2 className="w-3 h-3" />
+            {open ? "Hide" : "Show Snippet"}
+          </Button>
         </div>
-        <div className="relative rounded-xl overflow-hidden bg-slate-900">
-          <pre className="p-4 text-slate-100 overflow-x-auto text-xs leading-relaxed">{snippet}</pre>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          Your agency email (<code className="bg-muted px-1 py-0.5 rounded">{agencyEmail}</code>) is pre-filled. Map your booking object's fields to the parameter names shown.
-        </p>
+        {open && (
+          <>
+            <div className="relative rounded-xl overflow-hidden bg-slate-900">
+              <pre className="p-4 text-slate-100 overflow-x-auto text-xs leading-relaxed">{snippet}</pre>
+              <div className="absolute top-3 right-3"><CopyButton text={snippet} label="Copy Snippet" /></div>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Your agency email (<code className="bg-muted px-1 py-0.5 rounded">{agencyEmail}</code>) is pre-filled. Map your booking object's fields to the parameter names shown.
+            </p>
+          </>
+        )}
       </div>
 
       <div className="flex items-center gap-3 pt-1">
