@@ -29,7 +29,7 @@ const roleNavItems = {
   agency: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
-    { label: "Booking Integration", path: "/agency-integration", icon: Code2 },
+    { label: "Automatic Booking Integration", path: "/agency-integration", icon: TicketPercent },
   ],
   retailer: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
