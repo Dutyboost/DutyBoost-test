@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,21 @@ export default function GetStarted() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [applicationId, setApplicationId] = useState(null);
+  const [airports, setAirports] = useState([]);
+
+  useEffect(() => {
+    base44.entities.Airport.list().then(data => {
+      // Deduplicate by IATA code
+      const seen = new Set();
+      const unique = (data || []).filter(a => {
+        if (seen.has(a.code)) return false;
+        seen.add(a.code);
+        return true;
+      });
+      unique.sort((a, b) => a.name.localeCompare(b.name));
+      setAirports(unique);
+    });
+  }, []);
 
   const isAgency = businessType === "Travel Agency";
   const isRetailer = businessType === "Airport Retailer";
@@ -243,7 +258,16 @@ export default function GetStarted() {
                   <>
                     <div className="space-y-1.5">
                       <Label>Airport</Label>
-                      <Input placeholder="e.g. AMS, BRU, CDG" value={airport} onChange={e => setAirport(e.target.value)} />
+                      <Select value={airport} onValueChange={setAirport}>
+                        <SelectTrigger><SelectValue placeholder="Select your airport" /></SelectTrigger>
+                        <SelectContent>
+                          {airports.map(a => (
+                            <SelectItem key={a.code} value={a.code}>
+                              {a.name} — {a.city}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
                     <div className="space-y-1.5">
                       <Label>Store Category</Label>
