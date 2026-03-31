@@ -29,7 +29,7 @@ const roleNavItems = {
   agency: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
-    { label: "Automatic Booking Integration", path: "/agency-integration", icon: TicketPercent },
+    { label: "Automatic Booking Integration", path: "/agency-integration", icon: null },
   ],
   retailer: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
@@ -92,7 +92,7 @@ export default function Layout() {
                     : "text-muted-foreground hover:bg-secondary hover:text-foreground"
                 }`}
               >
-                <Icon className="w-4.5 h-4.5" />
+                {Icon && <Icon className="w-4.5 h-4.5" />}
                 {item.label}
                 {isActive && <ChevronRight className="w-4 h-4 ml-auto" />}
               </Link>
