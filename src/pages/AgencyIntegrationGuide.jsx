@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Copy, Check, Zap, Mail, QrCode, Code2 } from "lucide-react";
 
@@ -83,6 +84,24 @@ function CodeBlock({ code, language = "json" }) {
     <div className="relative rounded-xl overflow-hidden bg-slate-900 text-sm">
       <CopyButton text={code} />
       <pre className="p-5 text-slate-100 overflow-x-auto leading-relaxed text-xs">{code}</pre>
+    </div>
+  );
+}
+
+function SnippetToggle({ snippet }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="space-y-3">
+      <Button variant="outline" className="gap-2" onClick={() => setOpen(v => !v)}>
+        <Code2 className="w-4 h-4" />
+        {open ? "Hide Snippet" : "Show Integration Snippet"}
+      </Button>
+      {open && (
+        <>
+          <CodeBlock code={snippet} language="javascript" />
+          <p className="text-sm text-muted-foreground">Replace field names like <code className="bg-muted px-1 py-0.5 rounded text-xs">booking.id</code> with the actual property names from your booking object.</p>
+        </>
+      )}
     </div>
   );
 }
@@ -182,8 +201,7 @@ export default function AgencyIntegrationGuide() {
           <p className="text-sm text-muted-foreground">
             Copy and paste this single <code className="bg-muted px-1 py-0.5 rounded text-xs">&lt;script&gt;</code> block into your booking confirmation page. Call <code className="bg-muted px-1 py-0.5 rounded text-xs">issueDutyCredit(booking)</code> right after a booking is confirmed.
           </p>
-          <CodeBlock code={integrationSnippet} language="javascript" />
-          <p className="text-sm text-muted-foreground">Replace field names like <code className="bg-muted px-1 py-0.5 rounded text-xs">booking.id</code> with the actual property names from your booking object.</p>
+          <SnippetToggle snippet={integrationSnippet} />
         </div>
 
         {/* Example */}
