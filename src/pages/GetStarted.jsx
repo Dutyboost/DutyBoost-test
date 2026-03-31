@@ -251,6 +251,9 @@ export default function GetStarted() {
                 )}
                 <div className="space-y-1.5">
                   <Label>Website</Label>
+                  <Input placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <Label>KVK Number</Label>
                     <Input placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
