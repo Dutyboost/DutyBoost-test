@@ -48,12 +48,25 @@ const PAYMENT_METHODS = [
     icon: "🅿️",
     badge: null,
   },
+  {
+    id: "monthly_invoice",
+    label: "Monthly Invoice (Retailers only)",
+    description: "Receive a monthly invoice with 14-day payment terms",
+    icon: "🧾",
+    badge: "Airport Retailers only",
+    retailerOnly: true,
+  },
 ];
 
-export default function PaymentMethodSelector({ value, onChange }) {
+export default function PaymentMethodSelector({ value, onChange, businessType }) {
+  const filteredMethods = PAYMENT_METHODS.filter(m => {
+    if (m.retailerOnly && businessType !== 'Airport Retailer') return false;
+    return true;
+  });
+
   return (
     <div className="space-y-3">
-      {PAYMENT_METHODS.map((method) => (
+      {filteredMethods.map((method) => (
         <button
           key={method.id}
           type="button"

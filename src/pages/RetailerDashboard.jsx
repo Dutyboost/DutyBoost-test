@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2 } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle } from "lucide-react";
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,22 +18,24 @@ export default function RetailerDashboard() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [form, setForm] = useState({ store_name: "", airport: "", category: "Duty-free", description: "" });
 
+  const [overdueInvoice, setOverdueInvoice] = useState(null);
+
   const loadData = async () => {
     const user = await base44.auth.me();
-    const [rets, txns, vchs, aps] = await Promise.all([
+    const [rets, txns, vchs, aps, invoices] = await Promise.all([
       base44.entities.Retailer.filter({ owner_email: user.email }),
       base44.entities.Transaction.list('-created_date', 50),
       base44.entities.Voucher.list('-created_date', 100),
       base44.entities.Airport.list(),
+      base44.entities.MonthlyInvoice.filter({ retailer_email: user.email, status: 'overdue' }),
     ]);
     setRetailers(rets);
     setAirports(aps);
-    // Filter transactions for this retailer's stores
     const storeNames = rets.map(r => r.store_name);
     setTransactions(txns.filter(t => storeNames.includes(t.store_name)));
-    // Filter vouchers for this retailer's airports
     const retailerAirports = rets.map(r => r.airport);
     setVouchers(vchs.filter(v => retailerAirports.includes(v.airport) && v.status === 'active'));
+    setOverdueInvoice(invoices.length > 0 ? invoices[0] : null);
   };
 
   useEffect(() => { loadData(); }, []);
@@ -52,6 +54,41 @@ export default function RetailerDashboard() {
   const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
   const revenuePerDay = (totalRevenue / 30).toFixed(2);
+
+  if (overdueInvoice) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="max-w-md w-full text-center space-y-6 p-8 bg-card border border-destructive/30 rounded-2xl">
+          <div className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mx-auto">
+            <AlertTriangle className="w-8 h-8 text-destructive" />
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-heading font-bold text-destructive">Account Suspended</h2>
+            <p className="text-muted-foreground text-sm">
+              Your account has been suspended due to an unpaid invoice.
+            </p>
+          </div>
+          <div className="bg-muted rounded-xl p-4 text-sm text-left space-y-2">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Invoice period</span>
+              <span className="font-medium">{overdueInvoice.month_year}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Amount due</span>
+              <span className="font-bold text-destructive">€{overdueInvoice.amount?.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Due date</span>
+              <span className="font-medium">{overdueInvoice.due_date}</span>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Please contact <a href="mailto:hello@dutyboost.com" className="text-primary underline">hello@dutyboost.com</a> to settle your invoice and restore access.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">

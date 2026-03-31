@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle } from "lucide-react";
+import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText } from "lucide-react";
 
 export default function AdminPanel() {
   const navigate = useNavigate();
@@ -27,6 +27,7 @@ export default function AdminPanel() {
   const [rejectingId, setRejectingId] = useState(null);
   const [rejectionReason, setRejectionReason] = useState("");
   const [selectedApps, setSelectedApps] = useState(new Set());
+  const [invoices, setInvoices] = useState([]);
 
   const toggleSelectAll = () => {
     if (selectedApps.size === applications.length) {
@@ -66,13 +67,14 @@ export default function AdminPanel() {
 
   const loadAll = async () => {
     try {
-      const [v, r, a, t, u, ap] = await Promise.all([
+      const [v, r, a, t, u, ap, inv] = await Promise.all([
         base44.entities.Voucher.list('-created_date', 200),
         base44.entities.Retailer.list(),
         base44.entities.TravelAgency.list(),
         base44.entities.Transaction.list('-created_date', 200),
         base44.entities.User.list(),
         base44.entities.SignupApplication.list('-created_date', 200),
+        base44.entities.MonthlyInvoice.list('-created_date', 200),
       ]);
       setVouchers(v || []);
       setRetailers(r || []);
@@ -80,6 +82,7 @@ export default function AdminPanel() {
       setTransactions(t || []);
       setUsers(u || []);
       setApplications(ap || []);
+      setInvoices(inv || []);
     } catch (error) {
       console.error('Error loading admin data:', error);
       toast.error('Failed to load admin data');
@@ -267,6 +270,12 @@ export default function AdminPanel() {
             <TabsTrigger value="vouchers">All DutyCredits</TabsTrigger>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>
+            <TabsTrigger value="invoices">
+              Invoices
+              {invoices.filter(i => i.status === 'overdue').length > 0 && (
+                <span className="ml-2 bg-destructive text-destructive-foreground text-xs rounded-full px-1.5 py-0.5">{invoices.filter(i => i.status === 'overdue').length}</span>
+              )}
+            </TabsTrigger>
           </TabsList>
           {applications.length > 0 && (
             <Button variant="destructive" size="sm" className="h-8 text-xs" onClick={handleDeleteAllApplications}>
@@ -461,6 +470,57 @@ export default function AdminPanel() {
                       </td>
                     </tr>
                   ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="invoices" className="mt-4">
+          <div className="bg-card rounded-xl border border-border overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Retailer</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Period</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Amount</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Due Date</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Status</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {invoices.map(inv => (
+                    <tr key={inv.id} className="hover:bg-muted/30">
+                      <td className="px-4 py-3">
+                        <div className="font-medium">{inv.retailer_name}</div>
+                        <div className="text-xs text-muted-foreground">{inv.retailer_email}</div>
+                      </td>
+                      <td className="px-4 py-3">{inv.month_year}</td>
+                      <td className="px-4 py-3 font-semibold">€{inv.amount?.toFixed(2)}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{inv.due_date}</td>
+                      <td className="px-4 py-3">
+                        <span className={`text-xs px-2 py-1 rounded-full ${
+                          inv.status === 'paid' ? 'bg-green-100 text-green-700' :
+                          inv.status === 'overdue' ? 'bg-red-100 text-red-700' :
+                          'bg-yellow-100 text-yellow-700'
+                        }`}>{inv.status}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        {inv.status !== 'paid' && (
+                          <Button size="sm" className="h-7 text-xs" onClick={async () => {
+                            await base44.entities.MonthlyInvoice.update(inv.id, { status: 'paid' });
+                            toast.success('Invoice marked as paid');
+                            loadAll();
+                          }}>Mark Paid</Button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  {invoices.length === 0 && (
+                    <tr><td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">No invoices yet.</td></tr>
+                  )}
                 </tbody>
               </table>
             </div>

@@ -306,7 +306,7 @@ export default function GetStarted() {
                 <strong>How billing works:</strong> A €0.01 verification charge is used to confirm your payment method and set up your billing mandate. This amount is immediately refunded.
               </div>
 
-              <PaymentMethodSelector value={paymentMethod} onChange={setPaymentMethod} />
+              <PaymentMethodSelector value={paymentMethod} onChange={setPaymentMethod} businessType={businessType} />
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
@@ -356,6 +356,7 @@ export default function GetStarted() {
                   <p><strong>1. Service Description.</strong> DutyBoost provides a travel retail conversion platform connecting travel agencies, airport retailers, and travelers through DutyCredit incentives.</p>
                   <p><strong>2. Commission & Fees.</strong> A commission is charged per confirmed DutyCredit redemption at participating airport retailers. The applicable rate is communicated in your onboarding documentation.</p>
                   <p><strong>3. Payment Mandate.</strong> By providing a payment method, you authorise DutyBoost B.V. to collect fees for confirmed redemptions via the selected payment method.</p>
+                  <p><strong>3a. Monthly Invoice.</strong> Airport Retailers who opt for Monthly Invoice billing will receive an invoice on the 1st of each month for the prior month's platform fees. Payment is due within 14 days of the invoice date. If payment is not received within 14 days, access to the DutyBoost platform will be suspended on day 15 until the outstanding balance is settled.</p>
                   <p><strong>4. Data Processing.</strong> Your business data is processed in accordance with our Privacy Policy and GDPR obligations. We act as a data processor for booking data provided by travel agencies.</p>
                   <p><strong>5. Acceptable Use.</strong> You agree not to misuse DutyCredits, manipulate redemption data, or violate any applicable laws or regulations.</p>
                   <p><strong>6. Termination.</strong> Either party may terminate this agreement with 30 days written notice. Outstanding fees remain due upon termination.</p>

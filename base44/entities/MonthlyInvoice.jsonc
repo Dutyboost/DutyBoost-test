@@ -1,0 +1,50 @@
+{
+  "name": "MonthlyInvoice",
+  "type": "object",
+  "properties": {
+    "retailer_email": {
+      "type": "string",
+      "title": "Retailer Email"
+    },
+    "retailer_name": {
+      "type": "string",
+      "title": "Retailer Name"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount Due (EUR)"
+    },
+    "month_year": {
+      "type": "string",
+      "title": "Month (YYYY-MM)"
+    },
+    "invoice_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Invoice Date"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Due Date"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "pending",
+        "overdue",
+        "paid"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "retailer_email",
+    "amount",
+    "month_year",
+    "invoice_date",
+    "due_date",
+    "status"
+  ]
+}
