@@ -86,7 +86,6 @@ const AuthenticatedApp = () => {
       <Route path="/dpa" element={<DataProcessingAgreement />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/integration-guide" element={<AgencyIntegrationGuide />} />
-      <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
       <Route path="/user-guide" element={<UserGuide />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Home />} />
@@ -96,6 +95,7 @@ const AuthenticatedApp = () => {
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
+        <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
         <Route path="/scan-redeem" element={<ScanVoucher />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
