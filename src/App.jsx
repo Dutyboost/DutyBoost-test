@@ -26,6 +26,7 @@ import DataProcessingAgreement from './pages/DataProcessingAgreement';
 import CookieConsentBar from './components/CookieConsentBar';
 import FAQ from './pages/FAQ';
 import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
+import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
 import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
 
@@ -85,6 +86,7 @@ const AuthenticatedApp = () => {
       <Route path="/dpa" element={<DataProcessingAgreement />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/integration-guide" element={<AgencyIntegrationGuide />} />
+      <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
       <Route path="/user-guide" element={<UserGuide />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Home />} />

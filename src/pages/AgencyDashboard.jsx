@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import VoucherCard from "../components/VoucherCard";
 import { TicketPercent, AlertCircle } from "lucide-react";
-import AgencyIntegrationSnippet from "../components/AgencyIntegrationSnippet";
+
 import {
   BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
@@ -68,22 +68,18 @@ export default function AgencyDashboard() {
         <StatsCard title="Forecast Revenue" value={`€${totalForecastRevenue}`} subtitle={`€${commissionPerBasket} per basket × ${totalPassengers} travelers`} icon={TicketPercent} />
       </div>
 
-      <div className="space-y-8">
-        <AgencyIntegrationSnippet />
-
-        <div className="space-y-4">
-          <h2 className="font-heading font-semibold text-lg">Your DutyCredits</h2>
-          {vouchers.length === 0 ? (
-            <div className="bg-card rounded-xl border border-border p-8 text-center text-muted-foreground">
-              <AlertCircle className="w-10 h-10 mx-auto mb-3 opacity-40" />
-              <p className="text-sm">No DutyCredits yet. Once you install the integration script, bookings will automatically generate DutyCredits.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {vouchers.slice(0, 6).map((v) => <VoucherCard key={v.id} voucher={v} />)}
-            </div>
-          )}
-        </div>
+      <div className="space-y-4">
+        <h2 className="font-heading font-semibold text-lg">Your DutyCredits</h2>
+        {vouchers.length === 0 ? (
+          <div className="bg-card rounded-xl border border-border p-8 text-center text-muted-foreground">
+            <AlertCircle className="w-10 h-10 mx-auto mb-3 opacity-40" />
+            <p className="text-sm">No DutyCredits yet. Once you install the integration script, bookings will automatically generate DutyCredits.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {vouchers.slice(0, 6).map((v) => <VoucherCard key={v.id} voucher={v} />)}
+          </div>
+        )}
       </div>
 
       {vouchers.length > 0 && (

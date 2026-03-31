@@ -12,7 +12,8 @@ import {
   X,
   LogOut,
   ChevronRight,
-  ScanLine
+  ScanLine,
+  Code2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -28,6 +29,7 @@ const roleNavItems = {
   agency: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
+    { label: "Booking Integration", path: "/agency-integration", icon: Code2 },
   ],
   retailer: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
