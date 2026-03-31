@@ -28,6 +28,30 @@ const exampleResponse = `{
   "message": "DutyCredit generated and sent to john.doe@email.com"
 }`;
 
+const integrationSnippet = `<script>
+// DutyBoost Integration — paste this once in your booking confirmation page.
+// Call issueDutyCredit(booking) after every confirmed booking.
+
+function issueDutyCredit(booking) {
+  fetch("${endpoint}", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      booking_id:          booking.id,
+      total_ticket_price:  booking.totalPrice,
+      number_of_travelers: booking.passengers,
+      travel_type:         booking.isLongHaul ? "Long-haul" : "Short-haul",
+      departure_airport:   booking.departureAirport,
+      travel_date:         booking.departureDate,   // "YYYY-MM-DD"
+      traveler_email:      booking.travelerEmail,
+      traveler_name:       booking.travelerName,
+      agency_email:        "your@agency.com",
+      agency_name:         "YOUR AGENCY NAME"
+    })
+  });
+}
+<\/script>`;
+
 const discountTable = [
   { condition: "Base discount", value: "+5%" },
   { condition: "Each additional traveler (beyond 1)", value: "+1% per traveler" },
@@ -150,6 +174,16 @@ export default function AgencyIntegrationGuide() {
               </tbody>
             </table>
           </div>
+        </div>
+
+        {/* Ready-to-paste snippet */}
+        <div className="space-y-3">
+          <h2 className="text-xl font-heading font-semibold">Ready-to-Paste Integration Snippet</h2>
+          <p className="text-sm text-muted-foreground">
+            Copy and paste this single <code className="bg-muted px-1 py-0.5 rounded text-xs">&lt;script&gt;</code> block into your booking confirmation page. Call <code className="bg-muted px-1 py-0.5 rounded text-xs">issueDutyCredit(booking)</code> right after a booking is confirmed.
+          </p>
+          <CodeBlock code={integrationSnippet} language="javascript" />
+          <p className="text-sm text-muted-foreground">Replace field names like <code className="bg-muted px-1 py-0.5 rounded text-xs">booking.id</code> with the actual property names from your booking object.</p>
         </div>
 
         {/* Example */}
