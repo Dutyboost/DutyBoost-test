@@ -27,7 +27,7 @@ const stakeholders = [
     color: "from-amber-400 to-orange-500",
     bg: "bg-amber-50",
     iconColor: "text-amber-600",
-    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised DutyCredit incentive. Our small 5% commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.",
+    description: "Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised DutyCredit incentive. Our commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.",
     benefits: ["Higher basket conversion", "Real-time QR redemption", "Revenue share tracking"],
   },
   {
@@ -36,7 +36,7 @@ const stakeholders = [
     color: "from-violet-500 to-indigo-600",
     bg: "bg-violet-50",
     iconColor: "text-violet-600",
-    description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a 20% margin on every DutyCredit redeemed by your travelers at the airport.",
+    description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a margin on every DutyCredit redeemed by your travelers at the airport.",
     benefits: ["Increase traveler satisfaction", "Zero integration friction", "Boost repeat bookings"],
   },
 ];
