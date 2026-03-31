@@ -3,15 +3,18 @@ import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import VoucherCard from "../components/VoucherCard";
 import { TicketPercent, Settings, AlertCircle } from "lucide-react";
+import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
 import { Button } from "@/components/ui/button";
 
 
 export default function AgencyDashboard() {
   const [vouchers, setVouchers] = useState([]);
+  const [user, setUser] = useState(null);
 
   const loadData = async () => {
-    const user = await base44.auth.me();
-    const allVouchers = await base44.entities.Voucher.filter({ agency_email: user.email }, '-created_date', 50);
+    const u = await base44.auth.me();
+    setUser(u);
+    const allVouchers = await base44.entities.Voucher.filter({ agency_email: u.email }, '-created_date', 50);
     setVouchers(allVouchers);
   };
 
@@ -76,6 +79,8 @@ export default function AgencyDashboard() {
           )}
         </div>
       </div>
+
+      <AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} />
     </div>
   );
 }

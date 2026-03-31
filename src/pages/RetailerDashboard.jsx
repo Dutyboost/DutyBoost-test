@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2 } from "lucide-react";
+import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -160,6 +161,8 @@ export default function RetailerDashboard() {
           )}
         </div>
       </div>
+
+      <RetailerInvoiceDownload transactions={transactions} retailers={retailers} />
     </div>
   );
 }
