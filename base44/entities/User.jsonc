@@ -8,8 +8,13 @@
       "enum": [
         "admin",
         "agency",
-        "retailer"
+        "retailer",
+        "user"
       ]
+    },
+    "notification_prefs": {
+      "type": "string",
+      "title": "Notification Preferences (JSON)"
     }
   }
 }

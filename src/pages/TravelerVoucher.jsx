@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import QRCodeDisplay from "../components/QRCodeDisplay";
-import { Plane, MapPin, Clock, TicketPercent, Store, ShoppingBag } from "lucide-react";
+import { Plane, MapPin, Clock, TicketPercent, Store, ShoppingBag, BellOff } from "lucide-react";
+import { toast } from "sonner";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
 
 export default function TravelerVoucher() {
   const urlParams = new URLSearchParams(window.location.search);
   const voucherCode = urlParams.get("code");
+  const bookingIdParam = urlParams.get("booking_id");
+  const unsubscribeParam = urlParams.get("unsubscribe");
+  const [unsubscribed, setUnsubscribed] = useState(false);
 
   const [voucher, setVoucher] = useState(null);
   const [retailers, setRetailers] = useState([]);
@@ -21,6 +25,23 @@ export default function TravelerVoucher() {
       return;
     }
     async function load() {
+      // Handle unsubscribe via booking_id link
+      if (!voucherCode && bookingIdParam) {
+        const bookings = await base44.entities.Booking.filter({ booking_id: bookingIdParam });
+        if (bookings[0] && unsubscribeParam) {
+          await base44.entities.Booking.update(bookings[0].id, { flight_reminder_disabled: true });
+          setUnsubscribed(true);
+          setLoading(false);
+          return;
+        }
+        const vouchers = await base44.entities.Voucher.filter({ booking_id: bookingIdParam });
+        if (vouchers.length === 0) { setNotFound(true); setLoading(false); return; }
+        setVoucher(vouchers[0]);
+        const rets = await base44.entities.Retailer.filter({ airport: vouchers[0].airport });
+        setRetailers(rets.filter(r => r.accepts_vouchers));
+        setLoading(false);
+        return;
+      }
       const vouchers = await base44.entities.Voucher.filter({ voucher_code: voucherCode });
       if (vouchers.length === 0) {
         setNotFound(true);
@@ -33,6 +54,16 @@ export default function TravelerVoucher() {
     }
     load();
   }, [voucherCode]);
+
+  if (unsubscribed) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center space-y-3">
+        <BellOff className="w-14 h-14 text-muted-foreground/30" />
+        <h1 className="text-2xl font-heading font-bold">Unsubscribed</h1>
+        <p className="text-muted-foreground max-w-xs">You've been removed from flight reminder emails for this booking.</p>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

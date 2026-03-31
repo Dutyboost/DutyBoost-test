@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import VoucherCard from "../components/VoucherCard";
 import { TicketPercent, Settings, AlertCircle } from "lucide-react";
+import NotificationPreferences from "../components/NotificationPreferences";
 import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
 import { Button } from "@/components/ui/button";
 
@@ -80,6 +81,7 @@ export default function AgencyDashboard() {
         </div>
       </div>
 
+      <NotificationPreferences />
       <AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} />
     </div>
   );

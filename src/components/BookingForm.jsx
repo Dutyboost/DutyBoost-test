@@ -18,6 +18,7 @@ export default function BookingForm({ onVoucherGenerated }) {
     travel_type: "Short-haul",
     departure_airport: "",
     travel_date: "",
+    traveler_email: "",
   });
 
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function BookingForm({ onVoucherGenerated }) {
       total_ticket_price: ticketPrice,
       number_of_travelers: travelers,
       agency_email: user.email,
+      traveler_email: form.traveler_email,
     });
 
     const voucherCode = generateVoucherCode();
@@ -71,6 +73,7 @@ export default function BookingForm({ onVoucherGenerated }) {
       travel_type: "Short-haul",
       departure_airport: "",
       travel_date: "",
+      traveler_email: "",
     });
     onVoucherGenerated?.(voucher);
   };
@@ -149,6 +152,15 @@ export default function BookingForm({ onVoucherGenerated }) {
             value={form.travel_date}
             onChange={(e) => setForm({ ...form, travel_date: e.target.value })}
             required
+          />
+        </div>
+        <div className="space-y-2 md:col-span-2">
+          <Label>Traveler Email <span className="text-muted-foreground font-normal">(optional — for flight reminder)</span></Label>
+          <Input
+            type="email"
+            placeholder="traveler@example.com"
+            value={form.traveler_email}
+            onChange={(e) => setForm({ ...form, traveler_email: e.target.value })}
           />
         </div>
       </div>

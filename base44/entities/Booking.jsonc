@@ -35,6 +35,15 @@
     "agency_email": {
       "type": "string",
       "title": "Agency Email"
+    },
+    "traveler_email": {
+      "type": "string",
+      "title": "Traveler Email"
+    },
+    "flight_reminder_disabled": {
+      "type": "boolean",
+      "title": "Flight Reminder Disabled",
+      "default": false
     }
   },
   "required": [
