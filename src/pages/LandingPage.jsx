@@ -277,6 +277,7 @@ export default function LandingPage() {
             <Link to="/code-of-conduct" className="hover:text-primary transition-colors">Code of Conduct</Link>
             <Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>
             <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
+            <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
           </div>
         </div>
       </footer>
