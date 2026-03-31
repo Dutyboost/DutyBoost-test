@@ -234,11 +234,23 @@ export default function GetStarted() {
                   <Label>Company Name</Label>
                   <Input placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
+                {isRetailer && (
+                  <div className="space-y-1.5">
+                    <Label>Airport</Label>
+                    <Select value={airport} onValueChange={setAirport}>
+                      <SelectTrigger><SelectValue placeholder="Select your airport" /></SelectTrigger>
+                      <SelectContent>
+                        {airports.map(a => (
+                          <SelectItem key={a.code} value={a.code}>
+                            {a.name} — {a.city}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
                 <div className="space-y-1.5">
                   <Label>Website</Label>
-                  <Input placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <Label>KVK Number</Label>
                     <Input placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
@@ -255,32 +267,17 @@ export default function GetStarted() {
                   </div>
                 )}
                 {isRetailer && (
-                  <>
-                    <div className="space-y-1.5">
-                      <Label>Airport</Label>
-                      <Select value={airport} onValueChange={setAirport}>
-                        <SelectTrigger><SelectValue placeholder="Select your airport" /></SelectTrigger>
-                        <SelectContent>
-                          {airports.map(a => (
-                            <SelectItem key={a.code} value={a.code}>
-                              {a.name} — {a.city}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label>Store Category</Label>
-                      <Select value={storeCategory} onValueChange={setStoreCategory}>
-                        <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="Duty-free">Duty-free</SelectItem>
-                          <SelectItem value="Food">Food & Beverage</SelectItem>
-                          <SelectItem value="Retail">Retail</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </>
+                  <div className="space-y-1.5">
+                    <Label>Store Category</Label>
+                    <Select value={storeCategory} onValueChange={setStoreCategory}>
+                      <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Duty-free">Duty-free</SelectItem>
+                        <SelectItem value="Food">Food & Beverage</SelectItem>
+                        <SelectItem value="Retail">Retail</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 )}
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!businessType || loading}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
