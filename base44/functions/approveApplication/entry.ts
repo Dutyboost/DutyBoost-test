@@ -61,7 +61,7 @@ Deno.serve(async (req) => {
 
     // Invite user via Base44 with redirect to their dashboard
     try {
-      await base44.asServiceRole.users.inviteUser(application.email, userRole, { nextUrl: dashboardPath });
+      await base44.users.inviteUser(application.email, userRole, { nextUrl: dashboardPath });
     } catch (inviteErr) {
       // User may already exist, try updating the role
       const existingUsers = await base44.asServiceRole.entities.User.filter({ email: application.email });
