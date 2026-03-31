@@ -113,6 +113,32 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     doc.save(`DutyBoost_Invoice_${monthName}_${year}.pdf`);
   };
 
+  const handleDownloadCSV = () => {
+    const monthName = MONTHS[parseInt(month) - 1];
+    const headers = ["Date", "DutyCredit Code", "Store", "Sale (EUR)", "Discount (EUR)", "Platform Fee (EUR)"];
+    const rows = filtered.map(t => [
+      new Date(t.created_date).toLocaleDateString("nl-NL"),
+      t.voucher_code || "",
+      t.store_name || "",
+      (t.transaction_value || 0).toFixed(2),
+      (t.discount_amount || 0).toFixed(2),
+      (t.platform_revenue || 0).toFixed(2)
+    ]);
+    rows.push(["", "", "TOTAL", totalValue.toFixed(2), totalDiscount.toFixed(2), totalFee.toFixed(2)]);
+
+    const csvContent = [headers, ...rows]
+      .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `DutyBoost_Transactions_${monthName}_${year}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="bg-card border border-border rounded-xl p-6 space-y-4">
       <div className="flex items-center gap-3">
@@ -142,6 +168,9 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
         </Select>
         <Button onClick={handleDownload} className="gap-2">
           <Download className="w-4 h-4" /> Download PDF
+        </Button>
+        <Button onClick={handleDownloadCSV} variant="outline" className="gap-2">
+          <FileText className="w-4 h-4" /> Download CSV
         </Button>
       </div>
 
