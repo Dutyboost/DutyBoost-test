@@ -2,7 +2,7 @@ import { useState } from "react";
 import { jsPDF } from "jspdf";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Download, BarChart3 } from "lucide-react";
+import { Download, BarChart3, FileText } from "lucide-react";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -149,6 +149,36 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     doc.save(`DutyBoost_Commission_${periodLabel.replace(/ /g, "_")}.pdf`);
   };
 
+  const handleDownloadCSV = () => {
+    const periodLabel = period === "all"
+      ? `Full Year ${year}`
+      : `${MONTHS[parseInt(period) - 1]} ${year}`;
+
+    const headers = ["Issued Date", "Voucher Code", "Airport", "Travelers", "Travel Type", "Status", "Discount %", "Commission (EUR)"];
+    const rows = filtered.map(v => [
+      new Date(v.created_date).toLocaleDateString("nl-NL"),
+      v.voucher_code || "",
+      v.airport || "",
+      v.traveler_count || 1,
+      v.travel_type || "",
+      v.status || "",
+      v.discount_percentage || "",
+      v.status === "redeemed" ? ((v.traveler_count || 1) * COMMISSION_RATE).toFixed(2) : "0.00"
+    ]);
+
+    const csvContent = [headers, ...rows]
+      .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `DutyBoost_Vouchers_${periodLabel.replace(/ /g, "_")}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="bg-card border border-border rounded-xl p-6 space-y-4">
       <div className="flex items-center gap-3">
@@ -179,6 +209,9 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
         </Select>
         <Button onClick={handleDownload} className="gap-2">
           <Download className="w-4 h-4" /> Download PDF
+        </Button>
+        <Button onClick={handleDownloadCSV} variant="outline" className="gap-2">
+          <FileText className="w-4 h-4" /> Download CSV
         </Button>
       </div>
 
