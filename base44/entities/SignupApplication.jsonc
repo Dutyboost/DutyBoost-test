@@ -55,6 +55,23 @@
         "rejected"
       ],
       "default": "pending"
+    },
+    "mollie_customer_id": {
+      "type": "string",
+      "title": "Mollie Customer ID"
+    },
+    "mollie_payment_id": {
+      "type": "string",
+      "title": "Mollie Payment ID"
+    },
+    "payment_method": {
+      "type": "string",
+      "title": "Payment Method"
+    },
+    "terms_accepted": {
+      "type": "boolean",
+      "title": "Terms Accepted",
+      "default": false
     }
   },
   "required": [
