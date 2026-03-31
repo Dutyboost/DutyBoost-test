@@ -199,7 +199,7 @@ export default function GetStarted() {
               <form onSubmit={handleStep1Submit} className="space-y-4">
                 <div className="space-y-1.5">
                   <Label>Business Type</Label>
-                  <Select value={businessType} onValueChange={setBusinessType} required>
+                  <Select value={businessType} onValueChange={setBusinessType}>
                     <SelectTrigger><SelectValue placeholder="Select your business type" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Travel Agency">Travel Agency</SelectItem>
@@ -209,15 +209,15 @@ export default function GetStarted() {
                 </div>
                 <div className="space-y-1.5">
                   <Label>Full Name</Label>
-                  <Input placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} required />
+                  <Input placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
                   <Label>Work Email</Label>
-                  <Input type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} required />
+                  <Input type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
                   <Label>Company Name</Label>
-                  <Input placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} required />
+                  <Input placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
                   <Label>Website</Label>
@@ -258,7 +258,7 @@ export default function GetStarted() {
                     </div>
                   </>
                 )}
-                <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!businessType || !fullName || !email || !company || loading}>
+                <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!businessType || loading}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
