@@ -26,6 +26,23 @@ export default function AdminPanel() {
   const [rejectDialogOpen, setRejectDialogOpen] = useState(false);
   const [rejectingId, setRejectingId] = useState(null);
   const [rejectionReason, setRejectionReason] = useState("");
+  const [selectedApps, setSelectedApps] = useState(new Set());
+
+  const toggleSelectAll = () => {
+    if (selectedApps.size === applications.length) {
+      setSelectedApps(new Set());
+    } else {
+      setSelectedApps(new Set(applications.map(a => a.id)));
+    }
+  };
+
+  const toggleAppSelection = (id) => {
+    setSelectedApps(prev => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  };
 
   useEffect(() => {
     const checkAdmin = async () => {
