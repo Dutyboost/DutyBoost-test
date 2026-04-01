@@ -7,7 +7,7 @@ export default function DutyBoostLogo({ height = 400, inverted = false }) {
         height: `${height}px`,
         objectFit: 'contain',
         backgroundColor: 'transparent',
-        filter: 'none',
+        filter: 'hue-rotate(-50deg) saturate(1.3) brightness(1.05)',
       }}
     />
   );
