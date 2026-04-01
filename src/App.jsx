@@ -29,6 +29,7 @@ import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
 import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
 import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
+import AirportMap from './pages/AirportMap';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -47,7 +48,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -63,6 +64,7 @@ const AuthenticatedApp = () => {
             <Route path="/dpa" element={<DataProcessingAgreement />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/user-guide" element={<UserGuide />} />
+            <Route path="/airport-map" element={<AirportMap />} />
           </Routes>
         );
       }
@@ -77,6 +79,7 @@ const AuthenticatedApp = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/voucher" element={<TravelerVoucher />} />
       <Route path="/scan" element={<TravelerScan />} />
+      <Route path="/airport-map" element={<AirportMap />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />

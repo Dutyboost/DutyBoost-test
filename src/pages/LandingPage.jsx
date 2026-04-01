@@ -195,7 +195,7 @@ export default function LandingPage() {
             {[
               { step: "01", title: "Traveler books a flight", desc: "Booking details — price, number of travelers, destination are automatically taken from the booking details." },
               { step: "02", title: "DutyCredit earned", desc: "A DutyCredit — a booking-earned incentive with a dynamic discount — is instantly calculated and issued as a unique QR code." },
-              { step: "03", title: "Traveler shops", desc: "Traveler presents QR at the airport retailer of their choice." },
+              { step: "03", title: "Traveler shops", desc: "Traveler presents QR at a participating airport retailer. Browse the store map at dutyboost.com/airport-map to find stores near your gate." },
               { step: "04", title: "All parties win", desc: "Retailer logs the sale, discount applied, platform revenue tracked." },
             ].map((item) => (
               <div key={item.step} className="relative">
