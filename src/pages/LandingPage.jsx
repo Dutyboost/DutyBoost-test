@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Zap, BarChart3, QrCode, TrendingUp,
-  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight
+  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -20,6 +20,7 @@ const stakeholders = [
     iconColor: "text-sky-600",
     description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Valid on purchases of €50 or more at a single point of sale.",
     benefits: ["Instant mobile DutyCredit", "Single-store, full discount", "Seamless QR experience"],
+    mapLink: true,
   },
   {
     icon: AirportRetailerIcon,
@@ -177,6 +178,11 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
+                  {s.mapLink && (
+                    <Link to="/airport-map" className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sky-600 hover:text-sky-700 transition-colors">
+                      <MapPin className="w-3.5 h-3.5" /> Browse airport retailer map →
+                    </Link>
+                  )}
                 </div>
               );
             })}
@@ -278,6 +284,7 @@ export default function LandingPage() {
             <Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>
             <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
             <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
+            <Link to="/airport-map" className="hover:text-primary transition-colors">Airport Map</Link>
           </div>
         </div>
       </footer>
