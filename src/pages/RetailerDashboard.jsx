@@ -221,7 +221,7 @@ export default function RetailerDashboard() {
                     <p className="font-mono text-sm font-medium">{v.voucher_code}</p>
                     <p className="text-sm text-muted-foreground">{v.discount_percentage}% incentive · Expires {v.expiration_date}</p>
                   </div>
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">{v.status}</span>
+                  <span className="text-xs px-2 py-1 rounded-full" style={{background:'#00C48C22',color:'#00A876'}}>{v.status}</span>
                 </div>
               ))}
             </div>
@@ -239,8 +239,8 @@ export default function RetailerDashboard() {
             <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
             <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [`€${v}`, n]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
-            <Line type="monotone" dataKey="volume" stroke="#6366f1" strokeWidth={2} dot={false} name="Volume (€)" />
-            <Line type="monotone" dataKey="fee" stroke="#f59e0b" strokeWidth={2} dot={false} name="DutyBoost Fee (€)" />
+            <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={false} name="Volume (€)" />
+            <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={false} name="DutyBoost Fee (€)" />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -254,7 +254,7 @@ export default function RetailerDashboard() {
               <XAxis dataKey="store" tick={{ fontSize: 11 }} tickLine={false} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
               <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [`€${v}`, "Revenue"]} />
-              <Bar dataKey="revenue" fill="#6366f1" radius={[4, 4, 0, 0]} name="Revenue (€)" />
+              <Bar dataKey="revenue" fill="#1F6FFF" radius={[4, 4, 0, 0]} name="Revenue (€)" />
             </BarChart>
           </ResponsiveContainer>
         </div>

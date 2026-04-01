@@ -47,7 +47,7 @@ export default function AgencyDashboard() {
   const airportData = Object.values(airportMap).sort((a, b) => (b.active + b.redeemed) - (a.active + a.redeemed));
 
   // Status pie
-  const COLORS = ["#6366f1", "#10b981", "#94a3b8"];
+  const COLORS = ["#1F6FFF", "#00C48C", "#94a3b8"];
   const pieData = [
     { name: "Active", value: activeVouchers },
     { name: "Redeemed", value: redeemedVouchers },
@@ -106,8 +106,8 @@ export default function AgencyDashboard() {
                 <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
                 <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Bar dataKey="active" fill="#6366f1" name="Active" radius={[4, 4, 0, 0]} stackId="a" />
-                <Bar dataKey="redeemed" fill="#10b981" name="Redeemed" radius={[4, 4, 0, 0]} stackId="a" />
+                <Bar dataKey="active" fill="#1F6FFF" name="Active" radius={[4, 4, 0, 0]} stackId="a" />
+                <Bar dataKey="redeemed" fill="#00C48C" name="Redeemed" radius={[4, 4, 0, 0]} stackId="a" />
               </BarChart>
             </ResponsiveContainer>
           </div>

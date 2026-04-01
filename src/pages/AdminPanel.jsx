@@ -326,7 +326,7 @@ export default function AdminPanel() {
                       <td className="px-4 py-3">{app.company}</td>
                       <td className="px-4 py-3">
                         <span className={`text-xs px-2 py-1 rounded-full ${
-                          app.business_type === 'Travel Agency' ? 'bg-violet-100 text-violet-700' : 'bg-amber-100 text-amber-700'
+                          app.business_type === 'Travel Agency' ? 'bg-blue-100 text-blue-700' : 'bg-orange-100 text-orange-700'
                         }`}>{app.business_type}</span>
                       </td>
                       <td className="px-4 py-3">
@@ -508,7 +508,7 @@ export default function AdminPanel() {
                         <span className={`text-xs px-2 py-1 rounded-full ${
                           inv.status === 'paid' ? 'bg-green-100 text-green-700' :
                           inv.status === 'overdue' ? 'bg-red-100 text-red-700' :
-                          'bg-yellow-100 text-yellow-700'
+                          'bg-orange-100 text-orange-700'
                         }`}>{inv.status}</span>
                       </td>
                       <td className="px-4 py-3">

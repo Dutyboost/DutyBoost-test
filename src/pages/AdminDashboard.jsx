@@ -8,7 +8,7 @@ import {
 import { BarChart2, TrendingUp, MapPin, CreditCard, Percent } from "lucide-react";
 import StatsCard from "../components/StatsCard";
 
-const COLORS = ["#6366f1", "#f59e0b", "#10b981", "#3b82f6", "#f43f5e", "#8b5cf6"];
+const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e", "#8b5cf6"];
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -127,8 +127,8 @@ export default function AdminDashboard() {
               formatter={(val, name) => [name === "volume" ? `€${val}` : name === "revenue" ? `€${val}` : val, name]}
             />
             <Legend wrapperStyle={{ fontSize: 12 }} />
-            <Line type="monotone" dataKey="volume" stroke="#6366f1" strokeWidth={2} dot={false} name="Volume (€)" />
-            <Line type="monotone" dataKey="revenue" stroke="#f59e0b" strokeWidth={2} dot={false} name="Revenue (€)" />
+            <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={false} name="Volume (€)" />
+            <Line type="monotone" dataKey="revenue" stroke="#FF7A00" strokeWidth={2} dot={false} name="Revenue (€)" />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -150,8 +150,8 @@ export default function AdminDashboard() {
                 contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }}
               />
               <Legend wrapperStyle={{ fontSize: 12 }} />
-              <Bar dataKey="issued" fill="#6366f1" name="Issued" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="redeemed" fill="#10b981" name="Redeemed" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="issued" fill="#1F6FFF" name="Issued" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="redeemed" fill="#00C48C" name="Redeemed" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         )}
