@@ -37,7 +37,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
 
     // Header
     doc.setFontSize(20);
-    doc.setTextColor(28, 28, 60);
+    doc.setTextColor(31, 111, 255);
     doc.text("DutyBoost", 20, 20);
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -46,7 +46,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
 
     // Title
     doc.setFontSize(16);
-    doc.setTextColor(28, 28, 60);
+    doc.setTextColor(31, 111, 255);
     doc.text(`Commission Report — ${periodLabel}`, 20, 50);
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -54,7 +54,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 64);
 
     // Summary box
-    doc.setFillColor(248, 247, 255);
+    doc.setFillColor(235, 242, 255);
     doc.roundedRect(20, 72, 170, 36, 3, 3, "F");
     doc.setFontSize(10);
     doc.setTextColor(80);
@@ -86,7 +86,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     doc.text(`Commission rate: €${COMMISSION_RATE.toFixed(2)} per traveler (on redemption)`, 20, 135);
     doc.text(`Confirmed commission (redeemed): ${redeemedTravelers} travelers × €${COMMISSION_RATE.toFixed(2)}`, 20, 143);
     doc.setFontSize(12);
-    doc.setTextColor(108, 92, 231);
+    doc.setTextColor(0, 196, 140);
     doc.setFont(undefined, "bold");
     doc.text(`= €${totalCommission}`, 160, 143, { align: "right" });
     doc.setFont(undefined, "normal");
@@ -102,7 +102,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     doc.text("DutyCredit Detail", 20, 167);
     doc.line(20, 170, 190, 170);
 
-    doc.setFillColor(248, 247, 255);
+    doc.setFillColor(235, 242, 255);
     doc.rect(20, 173, 170, 8, "F");
     doc.setFontSize(9);
     doc.setTextColor(80);
@@ -118,7 +118,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     filtered.forEach((v, i) => {
       if (y > 270) { doc.addPage(); y = 20; }
       if (i % 2 === 0) {
-        doc.setFillColor(252, 252, 255);
+        doc.setFillColor(245, 249, 255);
         doc.rect(20, y - 5, 170, 8, "F");
       }
       const date = new Date(v.created_date).toLocaleDateString("nl-NL");

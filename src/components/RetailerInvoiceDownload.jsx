@@ -31,7 +31,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
 
     // Header
     doc.setFontSize(20);
-    doc.setTextColor(28, 28, 60);
+    doc.setTextColor(31, 111, 255);
     doc.text("DutyBoost", 20, 20);
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -40,7 +40,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
 
     // Invoice title
     doc.setFontSize(16);
-    doc.setTextColor(28, 28, 60);
+    doc.setTextColor(31, 111, 255);
     doc.text(`Invoice — ${monthName} ${year}`, 20, 50);
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -48,7 +48,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 64);
 
     // Table header
-    doc.setFillColor(248, 247, 255);
+    doc.setFillColor(235, 242, 255);
     doc.rect(20, 74, 170, 8, "F");
     doc.setFontSize(10);
     doc.setTextColor(80);
@@ -65,7 +65,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     filtered.forEach((t, i) => {
       if (y > 265) { doc.addPage(); y = 20; }
       if (i % 2 === 0) {
-        doc.setFillColor(252, 252, 255);
+        doc.setFillColor(245, 249, 255);
         doc.rect(20, y - 5, 170, 8, "F");
       }
       const date = new Date(t.created_date).toLocaleDateString("nl-NL");
@@ -91,7 +91,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     doc.line(20, y, 190, y);
     y += 8;
     doc.setFontSize(10);
-    doc.setTextColor(28, 28, 60);
+    doc.setTextColor(31, 111, 255);
     doc.text("Total Transaction Value:", 110, y);
     doc.text(`€${totalValue.toFixed(2)}`, 170, y, { align: "right" });
     y += 7;
@@ -99,6 +99,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     doc.text(`€${totalDiscount.toFixed(2)}`, 170, y, { align: "right" });
     y += 7;
     doc.setFont(undefined, "bold");
+    doc.setTextColor(255, 122, 0);
     doc.text("DutyBoost Platform Fee (5%):", 110, y);
     doc.text(`€${totalFee.toFixed(2)}`, 170, y, { align: "right" });
     doc.setFont(undefined, "normal");
