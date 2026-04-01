@@ -80,7 +80,6 @@ const stats = [
   { value: "25%", label: "Max dynamic incentive" },
   { value: "1-scan", label: "Instant QR redemption" },
   { value: "100%", label: "QR-based, paperless" },
-  { value: "5%", label: "Commission on redeemed sales only" },
 ];
 
 export default function LandingPage() {
@@ -139,7 +138,7 @@ export default function LandingPage() {
 
       {/* Stats */}
       <section className="py-8 px-6 border-y border-border bg-card/50">
-        <div className="max-w-5xl mx-auto grid grid-cols-3 md:grid-cols-5 gap-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-4xl font-heading font-bold text-primary">{s.value}</p>
