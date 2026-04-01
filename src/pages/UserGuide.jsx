@@ -106,7 +106,7 @@ export default function UserGuide() {
               { step: "1", title: "Sign Up & Get Approved", desc: "Go to dutyboost.com and click 'Get Started'. Select 'Airport Retailer', fill in your store details, choose your billing preference (credit card, iDEAL, or Monthly Invoice), and accept the terms." },
               { step: "2", title: "Access Your Retailer Dashboard", desc: "Once approved, log in at dutyboost.com. Your dashboard shows active vouchers at your airport, transaction history, and revenue reports." },
               { step: "3", title: "Scan Vouchers at Checkout", desc: "When a traveler presents a DutyCredit, navigate to the 'Scan & Redeem' page from your dashboard. Use your device camera to scan the QR code on the traveler's screen, or enter the voucher code manually. The system validates the voucher instantly." },
-              { step: "4", title: "Enter the Purchase Amount", desc: "After scanning, enter the total purchase amount. DutyBoost calculates the discount automatically based on the voucher's percentage. Confirm to complete the redemption." },
+              { step: "4", title: "Enter the Purchase Amount", desc: "After scanning, enter the total purchase amount. Note: DutyCredits can only be redeemed on purchases of €50 or more — the system will block redemption for lower amounts. DutyBoost calculates the discount automatically based on the voucher's percentage. Confirm to complete the redemption." },
               { step: "5", title: "Monthly Billing", desc: "If you chose Monthly Invoice billing, you will receive an invoice on the 1st of each month. Payment is due within 14 days. Your dashboard shows your outstanding and paid invoices at all times." },
             ].map(({ step, title, desc }) => (
               <div key={step} className="flex gap-4 bg-card border border-border rounded-xl p-5">
@@ -135,7 +135,7 @@ export default function UserGuide() {
             {[
               { step: "1", title: "Receive Your DutyCredit", desc: "After booking a flight through a participating travel agency, you'll receive your DutyCredit automatically. Your travel agency will share the link or send it via email." },
               { step: "2", title: "Look Up Your Voucher", desc: "Visit dutyboost.com/voucher and enter your booking ID to retrieve your DutyCredit QR code." },
-              { step: "3", title: "Shop at the Airport", desc: "At a participating DutyBoost retailer, show the QR code on your screen. The cashier will scan it to apply your discount instantly at checkout." },
+              { step: "3", title: "Shop at the Airport", desc: "At a participating DutyBoost retailer, show the QR code on your screen. The cashier will scan it to apply your discount instantly at checkout. Your purchase must be €50 or more for the DutyCredit to be accepted." },
             ].map(({ step, title, desc }) => (
               <div key={step} className="flex gap-4 bg-card border border-border rounded-xl p-5">
                 <div className="w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">{step}</div>

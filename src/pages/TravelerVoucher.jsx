@@ -182,6 +182,10 @@ export default function TravelerVoucher() {
           </div>
         )}
 
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-800">
+          <strong>Minimum spend required:</strong> DutyCredits can only be redeemed on purchases of <strong>€50 or more</strong>.
+        </div>
+
         <p className="text-center text-xs text-muted-foreground pb-4">
           Show this QR code at the store to redeem your DutyCredit — a discount earned through your booking.
         </p>

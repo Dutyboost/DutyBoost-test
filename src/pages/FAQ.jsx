@@ -21,6 +21,10 @@ const faqs = [
         a: "No. DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops. Choose the store where you want to apply the full discount.",
       },
       {
+        q: "Is there a minimum spend to redeem a DutyCredit?",
+        a: "Yes. DutyCredits can only be redeemed on purchases of €50 or more. If your total purchase at the airport retailer is below €50, the cashier will not be able to apply the DutyCredit discount.",
+      },
+      {
         q: "How do I receive my DutyCredit?",
         a: "Your travel agency will share a link with you after your booking is confirmed. Opening the link shows your personal DutyCredit QR code, which you present at the retailer's point of sale.",
       },
