@@ -302,7 +302,7 @@ export default function GetStarted() {
                 </p>
               </div>
 
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 text-sm text-orange-800">
                 <strong>How billing works:</strong> A €0.01 verification charge is used to confirm your payment method and set up your billing mandate. This amount is immediately refunded.
               </div>
 

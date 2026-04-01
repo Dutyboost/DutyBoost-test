@@ -16,7 +16,7 @@ export default function StatsCard({ title, value, subtitle, icon: Icon, trend })
         )}
       </div>
       {trend !== undefined && (
-        <div className={`mt-3 text-xs font-medium ${trend >= 0 ? "text-green-600" : "text-red-500"}`}>
+        <div className={`mt-3 text-xs font-medium`} style={{color: trend >= 0 ? '#00C48C' : '#ef4444'}}>
           {trend >= 0 ? "↑" : "↓"} {Math.abs(trend)}% from last period
         </div>
       )}

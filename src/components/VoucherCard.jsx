@@ -2,9 +2,15 @@ import { TicketPercent, Clock, MapPin, QrCode } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const statusColors = {
-  active: "bg-green-100 text-green-700 border-green-200",
-  redeemed: "bg-blue-100 text-blue-700 border-blue-200",
+  active: "border-transparent text-white",
+  redeemed: "border-transparent text-white",
   expired: "bg-gray-100 text-gray-500 border-gray-200",
+};
+
+const statusBg = {
+  active: "#00C48C",
+  redeemed: "#1F6FFF",
+  expired: undefined,
 };
 
 export default function VoucherCard({ voucher, compact = false }) {
@@ -17,7 +23,7 @@ export default function VoucherCard({ voucher, compact = false }) {
               <TicketPercent className="w-5 h-5" />
               <span className="font-heading font-bold text-lg">{voucher.discount_percentage}% Incentive</span>
             </div>
-            <Badge className={`${statusColors[voucher.status]} border text-xs`}>
+            <Badge className={`${statusColors[voucher.status]} border text-xs`} style={statusBg[voucher.status] ? {background: statusBg[voucher.status]} : {}}>
               {voucher.status}
             </Badge>
           </div>
