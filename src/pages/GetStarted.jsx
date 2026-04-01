@@ -47,6 +47,13 @@ export default function GetStarted() {
   const isAgency = businessType === "Travel Agency";
   const isRetailer = businessType === "Airport Retailer";
 
+  const isStep0Valid = () => {
+    if (!businessType || !fullName || !email || !company || !website || !kvk || !vat) return false;
+    if (isAgency && !bookingSystem) return false;
+    if (isRetailer && (!airport || !storeCategory)) return false;
+    return true;
+  };
+
   const handleStep1Submit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -223,16 +230,16 @@ export default function GetStarted() {
                   </Select>
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Full Name</Label>
-                  <Input placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
+                  <Label>Full Name <span className="text-red-500">*</span></Label>
+                  <Input required placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Work Email</Label>
-                  <Input type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
+                  <Label>Work Email <span className="text-red-500">*</span></Label>
+                  <Input required type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Company Name</Label>
-                  <Input placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
+                  <Label>Company Name <span className="text-red-500">*</span></Label>
+                  <Input required placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
                 {isRetailer && (
                   <div className="space-y-1.5">
@@ -250,23 +257,23 @@ export default function GetStarted() {
                   </div>
                 )}
                 <div className="space-y-1.5">
-                  <Label>Website</Label>
-                  <Input placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
+                  <Label>Website <span className="text-red-500">*</span></Label>
+                  <Input required placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>KVK Number</Label>
-                    <Input placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
+                    <Label>KVK Number <span className="text-red-500">*</span></Label>
+                    <Input required placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>VAT Number</Label>
-                    <Input placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
+                    <Label>VAT Number <span className="text-red-500">*</span></Label>
+                    <Input required placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
                   </div>
                 </div>
                 {isAgency && (
                   <div className="space-y-1.5">
-                    <Label>Booking System</Label>
-                    <Input placeholder="e.g. Amadeus, Sabre, TravelPort" value={bookingSystem} onChange={e => setBookingSystem(e.target.value)} />
+                    <Label>Booking System <span className="text-red-500">*</span></Label>
+                    <Input required placeholder="e.g. Amadeus, Sabre, TravelPort" value={bookingSystem} onChange={e => setBookingSystem(e.target.value)} />
                   </div>
                 )}
                 {isRetailer && (
@@ -282,7 +289,7 @@ export default function GetStarted() {
                     </Select>
                   </div>
                 )}
-                <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!businessType || loading}>
+                <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
