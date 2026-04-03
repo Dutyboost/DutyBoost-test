@@ -10,7 +10,8 @@ import PurchaseOrderDoc from "../components/PurchaseOrderDoc";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
-const STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
+const RETAILER_STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
+const AGENCY_STEPS = ["Business Info", "Purchase Order", "Terms & Review"];
 
 const BOOKING_ENGINES = [
   "Amadeus", "Sabre", "Travelport (Galileo/Apollo/Worldspan)", "Worldline",
@@ -127,6 +128,10 @@ export default function GetStarted() {
 
   const isAgency = businessType === "Travel Agency";
   const isRetailer = businessType === "Airport Retailer";
+  const STEPS = isAgency ? AGENCY_STEPS : RETAILER_STEPS;
+  // For agencies, internal step mapping: 0=info, 2=PO, 3=terms (skip 1)
+  // We use a display step for the indicator
+  const displayStep = isAgency && step >= 2 ? step - 1 : step;
 
   const isStep0Valid = () => {
     if (!businessType || !fullName || !email || !company || !website || !kvk || !vat) return false;
@@ -154,7 +159,7 @@ export default function GetStarted() {
         terms_accepted: false,
       });
       setApplicationId(app.id);
-      setStep(1);
+      setStep(isAgency ? 2 : 1);
     } finally {
       setLoading(false);
     }
@@ -193,20 +198,22 @@ export default function GetStarted() {
     setLoading(true);
     try {
       await base44.entities.SignupApplication.update(applicationId, { terms_accepted: true });
-      try {
-        const res = await base44.functions.invoke('createMolliePayment', {
-          applicationId,
-          paymentMethod,
-          redirectUrl: window.location.origin + '/get-started/payment-return',
-          email,
-          fullName,
-        });
-        if (res.data?.checkoutUrl) {
-          window.location.href = res.data.checkoutUrl;
-          return;
+      if (isRetailer) {
+        try {
+          const res = await base44.functions.invoke('createMolliePayment', {
+            applicationId,
+            paymentMethod,
+            redirectUrl: window.location.origin + '/get-started/payment-return',
+            email,
+            fullName,
+          });
+          if (res.data?.checkoutUrl) {
+            window.location.href = res.data.checkoutUrl;
+            return;
+          }
+        } catch {
+          // Mollie not configured yet — fall through to success
         }
-      } catch {
-        // Mollie not configured yet — fall through to success
       }
       setSubmitted(true);
     } finally {
@@ -273,13 +280,13 @@ export default function GetStarted() {
               <div key={i} className="flex items-center">
                 <div className="flex flex-col items-center gap-1">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                    i < step ? 'bg-primary text-primary-foreground' :
-                    i === step ? 'bg-primary text-primary-foreground ring-4 ring-primary/20' :
+                    i < displayStep ? 'bg-primary text-primary-foreground' :
+                    i === displayStep ? 'bg-primary text-primary-foreground ring-4 ring-primary/20' :
                     'bg-muted text-muted-foreground'
                   }`}>
-                    {i < step ? <CheckCircle2 className="w-4 h-4" /> : i + 1}
+                    {i < displayStep ? <CheckCircle2 className="w-4 h-4" /> : i + 1}
                   </div>
-                  <span className={`text-xs font-medium ${i === step ? 'text-primary' : 'text-muted-foreground'}`}>{label}</span>
+                  <span className={`text-xs font-medium ${i === displayStep ? 'text-primary' : 'text-muted-foreground'}`}>{label}</span>
                 </div>
                 {i < STEPS.length - 1 && (
                   <div className={`w-16 h-0.5 mb-4 mx-1 ${i < step ? 'bg-primary' : 'bg-border'}`} />
@@ -394,8 +401,8 @@ export default function GetStarted() {
             </>
           )}
 
-          {/* Step 1: Payment Method */}
-          {step === 1 && (
+          {/* Step 1: Payment Method — Retailers only */}
+          {step === 1 && isRetailer && (
             <div className="space-y-6">
               <div className="text-center space-y-2">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
@@ -442,7 +449,7 @@ export default function GetStarted() {
               />
 
               <div className="flex gap-3">
-                <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
+                <Button variant="outline" className="gap-2" onClick={() => setStep(isAgency ? 0 : 1)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
                 <Button className="flex-1 gap-2 h-11" disabled={loading} onClick={handleStep3Submit}>
@@ -471,7 +478,7 @@ export default function GetStarted() {
                   { label: "Email", value: email },
                   { label: "Company", value: company },
                   { label: "Type", value: businessType },
-                  { label: "Payment method", value: paymentMethod?.toUpperCase() },
+                  ...(isRetailer ? [{ label: "Payment method", value: paymentMethod?.toUpperCase() }] : []),
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>
@@ -511,7 +518,7 @@ export default function GetStarted() {
               </div>
 
               <div className="flex gap-3">
-                <Button variant="outline" className="gap-2" onClick={() => setStep(2)}>
+                <Button variant="outline" className="gap-2" onClick={() => setStep(isAgency ? 2 : 2)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
                 <Button
