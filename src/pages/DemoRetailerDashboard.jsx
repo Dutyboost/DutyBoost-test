@@ -281,7 +281,7 @@ export default function DemoRetailerDashboard() {
           <p className="font-semibold font-heading text-lg">How DutyCredit Redemption Works for Retailers</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { step: "1", title: "Traveler Arrives", desc: "A traveler walks into your store with a DutyCredit voucher on their phone." },
+              { step: "1", title: "Traveler Arrives", desc: "A traveler walks into your store with a DutyCredit on their phone." },
               { step: "2", title: "Staff Scans QR", desc: "Your staff scans the QR code using the DutyBoost scan tool — takes 5 seconds." },
               { step: "3", title: "Discount Applied", desc: "The system confirms the voucher and you apply the discount at the register." },
               { step: "4", title: "Monthly Invoice", desc: "DutyBoost invoices you 5% of the gross sale value on all confirmed redemptions each month." },

@@ -240,7 +240,7 @@ export default function DemoAgencyDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
               { step: "1", title: "Traveler Books", desc: "Your customer books a flight through your platform." },
-              { step: "2", title: "DutyCredit Issued", desc: "DutyBoost automatically issues a voucher to the traveler's email." },
+              { step: "2", title: "DutyCredit Issued", desc: "DutyBoost automatically issues a DutyCredit to the traveler's email." },
               { step: "3", title: "Traveler Redeems", desc: "At the airport, traveler uses the DutyCredit at a partner retailer." },
               { step: "4", title: "Agency Earns", desc: "DutyBoost collects 5% from the retailer and credits 20% of that to your account monthly." },
             ].map(({ step, title, desc }) => (
