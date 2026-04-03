@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,86 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
 const STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
+
+const BOOKING_ENGINES = [
+  "Amadeus", "Sabre", "Travelport (Galileo/Apollo/Worldspan)", "Worldline",
+  "NDC (IATA)", "Farelogix", "TravelFusion", "Mystifly", "Verteil", "Duffel",
+  "Kiwi.com", "Travix", "Peakwork", "IBS Software", "SITA", "Radixx",
+  "Navitaire", "SkySpeed", "Hitit", "Crane PAX", "Videcom",
+  "TravelSky", "Hahn Air", "AeroCRS", "OpenJaw", "TravelClick",
+  "Rezdy", "Beds24", "BookingKit", "Tours4Fun", "TripCreator",
+  "HotelBeds", "Tourplan", "Lemax", "Travelogics", "Anixe",
+  "Tourwriter", "Travelgate", "Juniper", "Traffics", "Dolphin Dynamics",
+  "Atcore", "GP Travel Enterprise", "TourCMS", "TrekkSoft",
+  "FareHarbor", "Bokun", "Regiondo", "WeTravel", "Checkfront",
+  "Custom / Proprietary", "Other",
+];
+
+function BookingSystemSelect({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const ref = useRef(null);
+
+  const filtered = BOOKING_ENGINES.filter(e =>
+    e.toLowerCase().includes(search.toLowerCase())
+  );
+
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const handleSelect = (engine) => {
+    onChange(engine);
+    setSearch("");
+    setOpen(false);
+  };
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen(o => !o)}
+        className={`flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm text-left ${
+          value ? "text-foreground" : "text-muted-foreground"
+        }`}
+      >
+        <span className="truncate">{value || "Select your booking engine"}</span>
+        <svg className="h-4 w-4 opacity-50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+      </button>
+      {open && (
+        <div className="absolute z-50 mt-1 w-full rounded-md border border-border bg-popover shadow-lg">
+          <div className="p-2 border-b border-border">
+            <input
+              autoFocus
+              className="w-full rounded-sm border border-input px-3 py-1.5 text-sm outline-none bg-transparent placeholder:text-muted-foreground"
+              placeholder="Search booking engine..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+          </div>
+          <div className="max-h-52 overflow-y-auto p-1">
+            {filtered.length === 0 ? (
+              <div className="px-3 py-2 text-sm text-muted-foreground">No results found.</div>
+            ) : filtered.map(engine => (
+              <button
+                key={engine}
+                type="button"
+                onClick={() => handleSelect(engine)}
+                className={`w-full text-left px-3 py-2 text-sm rounded-sm hover:bg-accent hover:text-accent-foreground ${
+                  value === engine ? "bg-accent text-accent-foreground font-medium" : ""
+                }`}
+              >
+                {engine}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function GetStarted() {
   const [step, setStep] = useState(0);
@@ -290,8 +370,8 @@ export default function GetStarted() {
                 </div>
                 {isAgency && (
                   <div className="space-y-1.5">
-                    <Label>Booking System <span className="text-red-500">*</span></Label>
-                    <Input required placeholder="e.g. Amadeus, Sabre, TravelPort" value={bookingSystem} onChange={e => setBookingSystem(e.target.value)} />
+                    <Label>Booking Engine <span className="text-red-500">*</span></Label>
+                    <BookingSystemSelect value={bookingSystem} onChange={setBookingSystem} />
                   </div>
                 )}
                 {isRetailer && (
