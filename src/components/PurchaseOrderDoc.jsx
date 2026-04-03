@@ -95,9 +95,10 @@ export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
         <div className="bg-muted/30 rounded-lg p-4 space-y-1.5 text-muted-foreground">
           {isAgency ? (
             <>
-              <p>• Fees are charged per confirmed DutyCredit redemption only — no upfront or monthly costs.</p>
-              <p>• Invoices are generated monthly and collected automatically via your registered payment method.</p>
-              <p>• A one-time €0.01 mandate verification will be processed upon registration (refunded immediately).</p>
+              <p>• DutyBoost pays your agency 20% of the 5% platform fee collected from airport retailers on each confirmed DutyCredit redemption.</p>
+              <p>• Revenue share payouts are calculated monthly and transferred to your registered bank account by the 15th of the following month.</p>
+              <p>• There are no costs, fees, or charges to the agency — this is a purely additive revenue stream.</p>
+              <p>• A minimum payout threshold of €10 applies; amounts below this are carried over to the next month.</p>
             </>
           ) : (
             <>
