@@ -17,6 +17,7 @@ export const TRAVEL_AGENCIES = [
   { id: "ag8", name: "VakantieXperts", city: "Groningen", bookings: 1420, travelers: 2840, redeemed: 540, commission: 324.00 },
   { id: "ag9", name: "Prijsvrij Vakanties", city: "Maastricht", bookings: 2600, travelers: 5200, redeemed: 1095, commission: 657.00 },
   { id: "ag10", name: "Transavia Holidays", city: "Amsterdam", bookings: 5100, travelers: 10200, redeemed: 2680, commission: 1608.00 },
+  { id: "ag11", name: "Exploreo", city: "Amsterdam", bookings: 2280, travelers: 4560, redeemed: 1035, commission: 621.00 },
 ];
 
 export const RETAILERS = [
