@@ -13,7 +13,8 @@ import {
   LogOut,
   ChevronRight,
   ScanLine,
-  Code2
+  Code2,
+  Eye
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -103,6 +104,14 @@ export default function Layout() {
               </Link>
             );
           })}
+          <Link
+            to="/demo"
+            onClick={() => setSidebarOpen(false)}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-muted-foreground hover:bg-secondary hover:text-foreground mt-2 border border-dashed border-border"
+          >
+            <Eye className="w-4 h-4" />
+            View Demo
+          </Link>
         </nav>
 
         <div className="p-4 border-t border-border">
