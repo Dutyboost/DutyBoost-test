@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar } from "lucide-react";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
 } from "recharts";
@@ -22,6 +22,9 @@ export default function RetailerDashboard() {
   const [form, setForm] = useState({ store_name: "", airport: "", category: "Duty-free", description: "" });
 
   const [overdueInvoice, setOverdueInvoice] = useState(null);
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
+  const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   const loadData = async () => {
     const user = await base44.auth.me();
@@ -53,20 +56,40 @@ export default function RetailerDashboard() {
     loadData();
   };
 
-  const totalRevenue = transactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
+  const { startDate, endDate } = useMemo(() => {
+    const now = new Date();
+    if (period === "daily") {
+      const s = new Date(now); s.setDate(s.getDate() - 7);
+      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    }
+    if (period === "monthly") {
+      const s = new Date(now); s.setDate(s.getDate() - 30);
+      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    }
+    return { startDate: customStart, endDate: customEnd };
+  }, [period, customStart, customEnd]);
+
+  const filteredTransactions = useMemo(() =>
+    transactions.filter(t => { const d = (t.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [transactions, startDate, endDate]
+  );
+
+  const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
-  const revenuePerDay = (totalRevenue / 30).toFixed(2);
+  const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
+  const revenuePerDay = (totalRevenue / periodDays).toFixed(2);
 
-  // Daily transaction volume (last 30 days)
+  // Transaction volume for selected period
   const today = new Date();
-  const last30 = Array.from({ length: 30 }, (_, i) => {
-    const d = new Date(today);
-    d.setDate(d.getDate() - (29 - i));
+  const displayDayCount = Math.min(30, Math.max(1, Math.round((new Date(endDate) - new Date(startDate)) / 86400000)) + 1);
+  const last30 = Array.from({ length: displayDayCount }, (_, i) => {
+    const d = new Date(endDate);
+    d.setDate(d.getDate() - (displayDayCount - 1 - i));
     return d.toISOString().split("T")[0];
   });
   const txByDay = {};
-  transactions.forEach(t => {
+  filteredTransactions.forEach(t => {
     const day = (t.created_date || "").split("T")[0];
     if (!txByDay[day]) txByDay[day] = { date: day, volume: 0, fee: 0 };
     txByDay[day].volume += t.transaction_value || 0;
@@ -80,7 +103,7 @@ export default function RetailerDashboard() {
 
   // Revenue per store
   const storeRevMap = {};
-  transactions.forEach(t => {
+  filteredTransactions.forEach(t => {
     storeRevMap[t.store_name] = (storeRevMap[t.store_name] || 0) + (t.transaction_value || 0);
   });
   const storeData = Object.entries(storeRevMap).map(([store, revenue]) => ({ store, revenue: Math.round(revenue) }));
@@ -122,6 +145,27 @@ export default function RetailerDashboard() {
 
   return (
     <div className="space-y-8">
+      <div className="flex items-center gap-2 flex-wrap mb-2">
+        <Calendar className="w-4 h-4 text-muted-foreground" />
+        <span className="text-sm text-muted-foreground font-medium">Period:</span>
+        {["daily", "monthly", "custom"].map(p => (
+          <button key={p} onClick={() => setPeriod(p)}
+            className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+              period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+            }`}>{p === "daily" ? "Last 7 days" : p === "monthly" ? "Last 30 days" : "Custom"}
+          </button>
+        ))}
+        {period === "custom" && (
+          <div className="flex items-center gap-2 ml-2">
+            <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
+              className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            <span className="text-xs text-muted-foreground">to</span>
+            <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
+              className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+          </div>
+        )}
+      </div>
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-heading font-bold tracking-tight">Retailer Dashboard</h1>
@@ -231,7 +275,7 @@ export default function RetailerDashboard() {
 
       {/* Charts */}
       <div className="bg-card rounded-xl border border-border p-6">
-        <h2 className="font-heading font-semibold mb-4">Daily Transaction Volume (last 30 days)</h2>
+        <h2 className="font-heading font-semibold mb-4">Transaction Volume — {period === "daily" ? "Last 7 days" : period === "monthly" ? "Last 30 days" : `${customStart} – ${customEnd}`}</h2>
         <ResponsiveContainer width="100%" height={240}>
           <LineChart data={dailyData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />

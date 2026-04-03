@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { BarChart2, TrendingUp, MapPin, CreditCard, Percent } from "lucide-react";
+import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar } from "lucide-react";
 import StatsCard from "../components/StatsCard";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e", "#8b5cf6"];
@@ -16,6 +16,9 @@ export default function AdminDashboard() {
   const [vouchers, setVouchers] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
+  const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   useEffect(() => {
     base44.auth.me().then(user => {
@@ -32,9 +35,31 @@ export default function AdminDashboard() {
     });
   }, [navigate]);
 
+  const { startDate, endDate } = useMemo(() => {
+    const now = new Date();
+    if (period === "daily") {
+      const s = new Date(now); s.setDate(s.getDate() - 7);
+      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    }
+    if (period === "monthly") {
+      const s = new Date(now); s.setDate(s.getDate() - 30);
+      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    }
+    return { startDate: customStart, endDate: customEnd };
+  }, [period, customStart, customEnd]);
+
+  const filteredTransactions = useMemo(() =>
+    transactions.filter(t => { const d = (t.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [transactions, startDate, endDate]
+  );
+  const filteredVouchers = useMemo(() =>
+    vouchers.filter(v => { const d = (v.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [vouchers, startDate, endDate]
+  );
+
   // --- Redemption rate per airport ---
   const airportMap = {};
-  vouchers.forEach(v => {
+  filteredVouchers.forEach(v => {
     if (!v.airport) return;
     if (!airportMap[v.airport]) airportMap[v.airport] = { airport: v.airport, issued: 0, redeemed: 0 };
     airportMap[v.airport].issued++;
@@ -45,22 +70,23 @@ export default function AdminDashboard() {
     rate: d.issued > 0 ? Math.round((d.redeemed / d.issued) * 100) : 0,
   })).sort((a, b) => b.issued - a.issued).slice(0, 8);
 
-  // --- Daily transaction volume (last 30 days) ---
+  // --- Transaction volume for selected period ---
   const today = new Date();
-  const last30 = Array.from({ length: 30 }, (_, i) => {
-    const d = new Date(today);
-    d.setDate(d.getDate() - (29 - i));
+  const dayCount = Math.max(1, Math.round((new Date(endDate) - new Date(startDate)) / 86400000)) + 1;
+  const periodDays = Array.from({ length: dayCount }, (_, i) => {
+    const d = new Date(startDate);
+    d.setDate(d.getDate() + i);
     return d.toISOString().split("T")[0];
-  });
+  }).slice(-30);
   const txByDay = {};
-  transactions.forEach(t => {
+  filteredTransactions.forEach(t => {
     const day = (t.created_date || "").split("T")[0];
     if (!txByDay[day]) txByDay[day] = { date: day, volume: 0, revenue: 0, count: 0 };
     txByDay[day].volume += t.transaction_value || 0;
     txByDay[day].revenue += t.platform_revenue || 0;
     txByDay[day].count++;
   });
-  const dailyData = last30.map(d => ({
+  const dailyData = periodDays.map(d => ({
     date: d.slice(5),
     volume: Math.round(txByDay[d]?.volume || 0),
     revenue: parseFloat((txByDay[d]?.revenue || 0).toFixed(2)),
@@ -69,7 +95,7 @@ export default function AdminDashboard() {
 
   // --- Voucher status breakdown (pie) ---
   const statusCounts = { active: 0, redeemed: 0, expired: 0 };
-  vouchers.forEach(v => { if (statusCounts[v.status] !== undefined) statusCounts[v.status]++; });
+  filteredVouchers.forEach(v => { if (statusCounts[v.status] !== undefined) statusCounts[v.status]++; });
   const pieData = [
     { name: "Active", value: statusCounts.active },
     { name: "Redeemed", value: statusCounts.redeemed },
@@ -78,15 +104,15 @@ export default function AdminDashboard() {
 
   // --- Travel type split ---
   const travelTypeCounts = {};
-  vouchers.forEach(v => {
+  filteredVouchers.forEach(v => {
     const t = v.travel_type || "Unknown";
     travelTypeCounts[t] = (travelTypeCounts[t] || 0) + 1;
   });
   const travelTypePie = Object.entries(travelTypeCounts).map(([name, value]) => ({ name, value }));
 
-  const totalRevenue = transactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
-  const redemptionRate = vouchers.length > 0
-    ? Math.round((statusCounts.redeemed / vouchers.length) * 100)
+  const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
+  const redemptionRate = filteredVouchers.length > 0
+    ? Math.round((statusCounts.redeemed / filteredVouchers.length) * 100)
     : 0;
 
   if (!isAdmin || loading) {
@@ -106,9 +132,31 @@ export default function AdminDashboard() {
         <p className="text-muted-foreground mt-1">Platform-wide metrics and performance insights.</p>
       </div>
 
+      {/* Period selector */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <Calendar className="w-4 h-4 text-muted-foreground" />
+        <span className="text-sm text-muted-foreground font-medium">Period:</span>
+        {["daily", "monthly", "custom"].map(p => (
+          <button key={p} onClick={() => setPeriod(p)}
+            className={`text-xs px-3 py-1.5 rounded-full border transition-all capitalize ${
+              period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+            }`}>{p === "daily" ? "Last 7 days" : p === "monthly" ? "Last 30 days" : "Custom"}
+          </button>
+        ))}
+        {period === "custom" && (
+          <div className="flex items-center gap-2 ml-2">
+            <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
+              className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            <span className="text-xs text-muted-foreground">to</span>
+            <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
+              className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+          </div>
+        )}
+      </div>
+
       {/* KPI cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatsCard title="Total DutyCredits" value={vouchers.length} icon={CreditCard} />
+        <StatsCard title="Total DutyCredits" value={filteredVouchers.length} icon={CreditCard} />
         <StatsCard title="Redemption Rate" value={`${redemptionRate}%`} icon={Percent} />
         <StatsCard title="Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={TrendingUp} />
         <StatsCard title="Total Transactions" value={transactions.length} icon={BarChart2} />

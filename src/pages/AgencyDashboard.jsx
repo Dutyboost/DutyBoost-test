@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import VoucherCard from "../components/VoucherCard";
-import { TicketPercent, AlertCircle } from "lucide-react";
+import { TicketPercent, AlertCircle, Calendar } from "lucide-react";
 
 import {
   BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
@@ -15,6 +15,9 @@ import { Button } from "@/components/ui/button";
 export default function AgencyDashboard() {
   const [vouchers, setVouchers] = useState([]);
   const [user, setUser] = useState(null);
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
+  const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   const loadData = async () => {
     const u = await base44.auth.me();
@@ -27,19 +30,37 @@ export default function AgencyDashboard() {
     loadData();
   }, []);
 
-  const activeVouchers = vouchers.filter((v) => v.status === "active").length;
-  const redeemedVouchers = vouchers.filter((v) => v.status === "redeemed").length;
-  const avgIncentive = vouchers.length
-    ? (vouchers.reduce((sum, v) => sum + v.discount_percentage, 0) / vouchers.length).toFixed(1)
+  const { startDate, endDate } = useMemo(() => {
+    const now = new Date();
+    if (period === "daily") {
+      const s = new Date(now); s.setDate(s.getDate() - 7);
+      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    }
+    if (period === "monthly") {
+      const s = new Date(now); s.setDate(s.getDate() - 30);
+      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    }
+    return { startDate: customStart, endDate: customEnd };
+  }, [period, customStart, customEnd]);
+
+  const filteredVouchers = useMemo(() =>
+    vouchers.filter(v => { const d = (v.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [vouchers, startDate, endDate]
+  );
+
+  const activeVouchers = filteredVouchers.filter((v) => v.status === "active").length;
+  const redeemedVouchers = filteredVouchers.filter((v) => v.status === "redeemed").length;
+  const avgIncentive = filteredVouchers.length
+    ? (filteredVouchers.reduce((sum, v) => sum + v.discount_percentage, 0) / filteredVouchers.length).toFixed(1)
     : 0;
-  const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
+  const totalPassengers = filteredVouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   
   const commissionPerBasket = 0.20;
   const totalForecastRevenue = (totalPassengers * commissionPerBasket).toFixed(2);
 
   // Vouchers by airport
   const airportMap = {};
-  vouchers.forEach(v => {
+  filteredVouchers.forEach(v => {
     const a = v.airport || "Unknown";
     if (!airportMap[a]) airportMap[a] = { airport: a, active: 0, redeemed: 0, expired: 0 };
     airportMap[a][v.status] = (airportMap[a][v.status] || 0) + 1;
@@ -51,11 +72,32 @@ export default function AgencyDashboard() {
   const pieData = [
     { name: "Active", value: activeVouchers },
     { name: "Redeemed", value: redeemedVouchers },
-    { name: "Expired", value: vouchers.filter(v => v.status === "expired").length },
+    { name: "Expired", value: filteredVouchers.filter(v => v.status === "expired").length },
   ].filter(d => d.value > 0);
 
   return (
     <div className="space-y-8">
+      <div className="flex items-center gap-2 flex-wrap mb-2">
+        <Calendar className="w-4 h-4 text-muted-foreground" />
+        <span className="text-sm text-muted-foreground font-medium">Period:</span>
+        {["daily", "monthly", "custom"].map(p => (
+          <button key={p} onClick={() => setPeriod(p)}
+            className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+              period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+            }`}>{p === "daily" ? "Last 7 days" : p === "monthly" ? "Last 30 days" : "Custom"}
+          </button>
+        ))}
+        {period === "custom" && (
+          <div className="flex items-center gap-2 ml-2">
+            <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
+              className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            <span className="text-xs text-muted-foreground">to</span>
+            <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
+              className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+          </div>
+        )}
+      </div>
+
       <div>
         <h1 className="text-2xl font-heading font-bold tracking-tight">Agency Dashboard</h1>
         <p className="text-muted-foreground mt-1">Earn commission from airport retail conversions made by travelers who purchased tickets through you.</p>
