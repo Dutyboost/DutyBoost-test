@@ -7,14 +7,16 @@
       "title": "Role",
       "enum": [
         "admin",
-        "agency",
-        "retailer",
         "user"
       ]
     },
-    "notification_prefs": {
+    "bank_account_name": {
       "type": "string",
-      "title": "Notification Preferences (JSON)"
+      "title": "Bank Account Holder Name"
+    },
+    "bank_iban": {
+      "type": "string",
+      "title": "IBAN"
     }
   }
 }
