@@ -26,6 +26,17 @@ export default function DemoRetailerDashboard() {
   const netRevenue = (selectedRetailer.revenue * 0.95).toFixed(2);
   const avgPerRedemption = (selectedRetailer.revenue / selectedRetailer.redemptions).toFixed(0);
 
+  const totalRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
+  const totalRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
+  const redemptionRatio = selectedRetailer.redemptions / totalRedemptions;
+  const revenueRatio = selectedRetailer.revenue / totalRevenue;
+
+  const scaledMonthly = MONTHLY_DATA.map(m => ({
+    ...m,
+    redemptions: Math.round(m.redemptions * redemptionRatio),
+    revenue: Math.round(m.revenue * revenueRatio),
+  }));
+
   const catBreakdown = ["Duty-free", "Food", "Retail"].map(cat => ({
     name: cat,
     value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
@@ -120,7 +131,7 @@ export default function DemoRetailerDashboard() {
               </div>
             </div>
             <ResponsiveContainer width="100%" height={220}>
-              <BarChart data={MONTHLY_DATA}>
+              <BarChart data={scaledMonthly}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="left" tick={{ fontSize: 12 }} />

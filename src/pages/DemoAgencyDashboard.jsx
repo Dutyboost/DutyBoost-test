@@ -17,6 +17,17 @@ export default function DemoAgencyDashboard() {
   const conversionRate = ((selectedAgency.redeemed / selectedAgency.travelers) * 100).toFixed(1);
   const pendingEarnings = (selectedAgency.commission * 0.18).toFixed(2);
 
+  const totalBookings = TRAVEL_AGENCIES.reduce((s, a) => s + a.bookings, 0);
+  const totalRedeemed = TRAVEL_AGENCIES.reduce((s, a) => s + a.redeemed, 0);
+  const bookingRatio = selectedAgency.bookings / totalBookings;
+  const redeemedRatio = selectedAgency.redeemed / totalRedeemed;
+
+  const scaledMonthly = AGENCY_MONTHLY.map(m => ({
+    ...m,
+    bookings: Math.round(m.bookings * bookingRatio),
+    redeemed: Math.round(m.redeemed * redeemedRatio),
+  }));
+
   const airportDist = AIRPORTS.map((a, i) => ({
     name: a.code,
     value: Math.round(selectedAgency.redeemed * [0.48, 0.15, 0.18, 0.09, 0.10][i]),
@@ -132,7 +143,7 @@ export default function DemoAgencyDashboard() {
             <p className="text-xs text-muted-foreground w-full">Oct 2025 – Mar 2026</p>
           </div>
           <ResponsiveContainer width="100%" height={220}>
-            <BarChart data={AGENCY_MONTHLY}>
+            <BarChart data={scaledMonthly}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="month" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
