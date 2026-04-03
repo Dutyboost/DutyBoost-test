@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, ArrowLeft, Store, Users, CheckCircle2, CreditCard, FileText } from "lucide-react";
+import { ArrowRight, ArrowLeft, Store, Users, CheckCircle2, CreditCard, FileText, ClipboardList } from "lucide-react";
+import PurchaseOrderDoc from "../components/PurchaseOrderDoc";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
-const STEPS = ["Business Info", "Payment Method", "Terms & Review"];
+const STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
 
 export default function GetStarted() {
   const [step, setStep] = useState(0);
@@ -79,12 +80,29 @@ export default function GetStarted() {
     }
   };
 
+  const poNumber = applicationId ? applicationId.slice(-8).toUpperCase() : "PENDING";
+
   const handleStep2Submit = async () => {
     if (!paymentMethod) return;
     setLoading(true);
     try {
       await base44.entities.SignupApplication.update(applicationId, { payment_method: paymentMethod });
       setStep(2);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleStep3Submit = async () => {
+    setLoading(true);
+    try {
+      await base44.functions.invoke('sendPurchaseOrderEmail', {
+        applicationId,
+        businessType,
+        formData: { fullName, email, company, kvk, vat },
+        poNumber,
+      });
+      setStep(3);
     } finally {
       setLoading(false);
     }
@@ -326,8 +344,36 @@ export default function GetStarted() {
             </div>
           )}
 
-          {/* Step 2: Terms & Review */}
+          {/* Step 2: Purchase Order */}
           {step === 2 && (
+            <div className="space-y-6">
+              <div className="text-center space-y-2">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
+                  <ClipboardList className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-heading font-bold">Purchase Order</h2>
+                <p className="text-sm text-muted-foreground">Review your service agreement below. A copy will be emailed to <strong>{email}</strong>.</p>
+              </div>
+
+              <PurchaseOrderDoc
+                businessType={businessType}
+                formData={{ fullName, email, company, kvk, vat }}
+                poNumber={poNumber}
+              />
+
+              <div className="flex gap-3">
+                <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
+                  <ArrowLeft className="w-4 h-4" /> Back
+                </Button>
+                <Button className="flex-1 gap-2 h-11" disabled={loading} onClick={handleStep3Submit}>
+                  {loading ? "Sending..." : "Accept & Continue"} <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Terms & Review */}
+          {step === 3 && (
             <div className="space-y-6">
               <div className="text-center space-y-2">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
@@ -385,7 +431,7 @@ export default function GetStarted() {
               </div>
 
               <div className="flex gap-3">
-                <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
+                <Button variant="outline" className="gap-2" onClick={() => setStep(2)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
                 <Button
