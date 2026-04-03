@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star } from "lucide-react";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
 } from "recharts";
@@ -22,18 +22,20 @@ export default function RetailerDashboard() {
   const [form, setForm] = useState({ store_name: "", airport: "", category: "Duty-free", description: "" });
 
   const [overdueInvoice, setOverdueInvoice] = useState(null);
+  const [feedback, setFeedback] = useState([]);
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   const loadData = async () => {
     const user = await base44.auth.me();
-    const [rets, txns, vchs, aps, invoices] = await Promise.all([
+    const [rets, txns, vchs, aps, invoices, fb] = await Promise.all([
       base44.entities.Retailer.filter({ owner_email: user.email }),
       base44.entities.Transaction.list('-created_date', 50),
       base44.entities.Voucher.list('-created_date', 100),
       base44.entities.Airport.list(),
       base44.entities.MonthlyInvoice.filter({ retailer_email: user.email, status: 'overdue' }),
+      base44.entities.RetailerFeedback.list('-created_date', 200),
     ]);
     setRetailers(rets);
     setAirports(aps);
@@ -42,6 +44,7 @@ export default function RetailerDashboard() {
     const retailerAirports = rets.map(r => r.airport);
     setVouchers(vchs.filter(v => retailerAirports.includes(v.airport) && v.status === 'active'));
     setOverdueInvoice(invoices.length > 0 ? invoices[0] : null);
+    setFeedback(fb.filter(f => retailerAirports.includes(f.airport)));
   };
 
   useEffect(() => { loadData(); }, []);
@@ -303,6 +306,54 @@ export default function RetailerDashboard() {
           </ResponsiveContainer>
         </div>
       )}
+
+      {/* Traveler Ratings */}
+      {(() => {
+        if (feedback.length === 0) return null;
+        const avg = feedback.reduce((s, f) => s + f.rating, 0) / feedback.length;
+        const counts = [5,4,3,2,1].map(n => ({ star: n, count: feedback.filter(f => f.rating === n).length }));
+        return (
+          <div className="bg-card rounded-xl border border-border p-6 space-y-4">
+            <h2 className="font-heading font-semibold text-lg">Traveler Ratings</h2>
+            <div className="flex items-center gap-6 flex-wrap">
+              <div className="text-center">
+                <p className="text-5xl font-heading font-bold">{avg.toFixed(1)}</p>
+                <div className="flex gap-0.5 justify-center mt-1">
+                  {[1,2,3,4,5].map(s => (
+                    <Star key={s} className={`w-5 h-5 ${s <= Math.round(avg) ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">{feedback.length} review{feedback.length !== 1 ? 's' : ''}</p>
+              </div>
+              <div className="flex-1 space-y-1.5 min-w-[160px]">
+                {counts.map(({ star, count }) => (
+                  <div key={star} className="flex items-center gap-2 text-xs">
+                    <span className="w-3 text-right text-muted-foreground">{star}</span>
+                    <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
+                      <div className="h-2 bg-amber-400 rounded-full" style={{ width: feedback.length ? `${(count/feedback.length)*100}%` : '0%' }} />
+                    </div>
+                    <span className="text-muted-foreground w-5 text-right">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {feedback.filter(f => f.comment).slice(0, 5).length > 0 && (
+              <div className="space-y-2 pt-2 border-t border-border">
+                <p className="text-sm font-medium">Recent comments</p>
+                {feedback.filter(f => f.comment).slice(0, 5).map(f => (
+                  <div key={f.id} className="bg-muted/40 rounded-lg p-3 text-sm">
+                    <div className="flex gap-0.5 mb-1">
+                      {[1,2,3,4,5].map(s => <Star key={s} className={`w-3 h-3 ${s <= f.rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />)}
+                    </div>
+                    <p className="text-muted-foreground">{f.comment}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       <RetailerInvoiceDownload transactions={transactions} retailers={retailers} />
     </div>

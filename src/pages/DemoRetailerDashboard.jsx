@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar } from "lucide-react";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA } from "../data/demoData";
 
@@ -273,6 +273,49 @@ export default function DemoRetailerDashboard() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+
+        {/* Traveler Ratings */}
+        <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+          <p className="font-semibold">Traveler Ratings — {selectedRetailer.name}</p>
+          <div className="flex items-center gap-6 flex-wrap">
+            <div className="text-center">
+              <p className="text-5xl font-heading font-bold">4.4</p>
+              <div className="flex gap-0.5 justify-center mt-1">
+                {[1,2,3,4,5].map(s => (
+                  <Star key={s} className={`w-5 h-5 ${s <= 4 ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">87 reviews</p>
+            </div>
+            <div className="flex-1 space-y-1.5 min-w-[160px]">
+              {[{star:5,count:41},{star:4,count:28},{star:3,count:11},{star:2,count:5},{star:1,count:2}].map(({ star, count }) => (
+                <div key={star} className="flex items-center gap-2 text-xs">
+                  <span className="w-3 text-right text-muted-foreground">{star}</span>
+                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                  <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
+                    <div className="h-2 bg-amber-400 rounded-full" style={{ width: `${(count/87)*100}%` }} />
+                  </div>
+                  <span className="text-muted-foreground w-5 text-right">{count}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="space-y-2 pt-2 border-t border-border">
+            <p className="text-sm font-medium">Recent comments</p>
+            {[
+              { rating: 5, comment: "Excellent service! The staff was very helpful and the discount process was seamless." },
+              { rating: 4, comment: "Good experience overall. Quick scan and friendly staff." },
+              { rating: 3, comment: "It was fine. Took a bit longer than expected to process the DutyCredit." },
+            ].map((f, i) => (
+              <div key={i} className="bg-muted/40 rounded-lg p-3 text-sm">
+                <div className="flex gap-0.5 mb-1">
+                  {[1,2,3,4,5].map(s => <Star key={s} className={`w-3 h-3 ${s <= f.rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />)}
+                </div>
+                <p className="text-muted-foreground">{f.comment}</p>
+              </div>
+            ))}
           </div>
         </div>
 
