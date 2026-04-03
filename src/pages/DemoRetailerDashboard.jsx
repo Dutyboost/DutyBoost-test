@@ -1,0 +1,230 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Users } from "lucide-react";
+import DutyBoostLogo from "../components/DutyBoostLogo";
+import { RETAILERS, AIRPORTS, MONTHLY_DATA } from "../data/demoData";
+
+const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
+const CAT_COLORS = { "Duty-free": "#2563eb", "Food": "#f97316", "Retail": "#10b981" };
+
+export default function DemoRetailerDashboard() {
+  const [selectedAirport, setSelectedAirport] = useState("AMS");
+  const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
+
+  const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
+
+  const handleAirportChange = (code) => {
+    setSelectedAirport(code);
+    const first = RETAILERS.find(r => r.airport === code);
+    if (first) setSelectedRetailer(first);
+  };
+
+  const platformFee = (selectedRetailer.revenue * 0.05).toFixed(2);
+  const netRevenue = (selectedRetailer.revenue * 0.95).toFixed(2);
+  const avgPerRedemption = (selectedRetailer.revenue / selectedRetailer.redemptions).toFixed(0);
+
+  const catBreakdown = ["Duty-free", "Food", "Retail"].map(cat => ({
+    name: cat,
+    value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
+  })).filter(c => c.value > 0);
+
+  const recentScans = [
+    { code: "DC-AMS-4821", time: "Today, 14:32", discount: "15%", sale: "€ 214", saved: "€ 32" },
+    { code: "DC-AMS-4790", time: "Today, 11:08", discount: "15%", sale: "€ 340", saved: "€ 51" },
+    { code: "DC-AMS-4744", time: "Yesterday, 17:45", discount: "10%", sale: "€ 175", saved: "€ 18" },
+    { code: "DC-AMS-4710", time: "Yesterday, 09:12", discount: "15%", sale: "€ 420", saved: "€ 63" },
+    { code: "DC-AMS-4688", time: "2 Apr, 16:20", discount: "10%", sale: "€ 98", saved: "€ 10" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Top bar */}
+      <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 z-40">
+        <div className="flex items-center gap-4">
+          <Link to="/demo" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
+            <ArrowLeft className="w-4 h-4" /> Demo Home
+          </Link>
+          <span className="text-border">|</span>
+          <DutyBoostLogo height={110} />
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">Demo — Airport Retailer</span>
+          <select
+            className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
+            value={selectedAirport}
+            onChange={e => handleAirportChange(e.target.value)}
+          >
+            {AIRPORTS.map(a => <option key={a.code} value={a.code}>{a.name}</option>)}
+          </select>
+          <select
+            className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
+            value={selectedRetailer.id}
+            onChange={e => setSelectedRetailer(RETAILERS.find(r => r.id === e.target.value))}
+          >
+            {airportRetailers.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
+          </select>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-8">
+        {/* Welcome */}
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-heading font-bold">{selectedRetailer.name}</h1>
+            <p className="text-muted-foreground text-sm mt-1">
+              {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
+            </p>
+          </div>
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">Active Partner</span>
+        </div>
+
+        {/* KPI cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: "Total Redemptions", value: selectedRetailer.redemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
+            { label: "Gross Revenue (DutyBoost)", value: `€ ${selectedRetailer.revenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
+            { label: "Avg. Sale per Voucher", value: `€ ${avgPerRedemption}`, icon: TrendingUp, color: "text-emerald-500" },
+            { label: "Platform Fee (5%)", value: `€ ${parseFloat(platformFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
+          ].map(({ label, value, icon: Icon, color }) => (
+            <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-muted-foreground font-medium">{label}</p>
+                <Icon className={`w-4 h-4 ${color}`} />
+              </div>
+              <p className="text-2xl font-heading font-bold">{value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Net vs fee breakdown */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="md:col-span-2 bg-card border border-border rounded-xl p-6 space-y-4">
+            <p className="font-semibold">Monthly Redemptions & Revenue</p>
+            <ResponsiveContainer width="100%" height={220}>
+              <BarChart data={MONTHLY_DATA}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+                <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
+                <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+                <Tooltip />
+                <Bar yAxisId="left" dataKey="redemptions" name="Redemptions" fill="#dbeafe" radius={[4,4,0,0]} />
+                <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue (€)" stroke="#2563eb" strokeWidth={2} dot={{ r: 4 }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+            <p className="font-semibold">Revenue Breakdown</p>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between items-center">
+                <span className="text-muted-foreground">Gross Sales</span>
+                <span className="font-semibold">€ {selectedRetailer.revenue.toLocaleString("nl-NL")}</span>
+              </div>
+              <div className="flex justify-between items-center text-destructive">
+                <span>Platform Fee (5%)</span>
+                <span className="font-semibold">- € {parseFloat(platformFee).toLocaleString("nl-NL")}</span>
+              </div>
+              <div className="border-t border-border pt-2 flex justify-between items-center">
+                <span className="font-semibold">Your Net Revenue</span>
+                <span className="font-bold text-emerald-600">€ {parseFloat(netRevenue).toLocaleString("nl-NL")}</span>
+              </div>
+            </div>
+            <div className="bg-blue-50 text-blue-700 rounded-lg p-3 text-xs">
+              The 5% fee is only charged on <strong>confirmed DutyCredit redemptions</strong>. No fee without a redemption.
+            </div>
+          </div>
+        </div>
+
+        {/* Airport overview */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+            <p className="font-semibold">All Stores at {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
+            <div className="overflow-y-auto max-h-64 space-y-2">
+              {airportRetailers.map(r => (
+                <div
+                  key={r.id}
+                  onClick={() => setSelectedRetailer(r)}
+                  className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${
+                    r.id === selectedRetailer.id ? "bg-primary/10 border border-primary/30" : "hover:bg-muted/40"
+                  }`}
+                >
+                  <div>
+                    <p className="text-sm font-medium">{r.name}</p>
+                    <p className="text-xs text-muted-foreground">{r.category}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-semibold">{r.redemptions} scans</p>
+                    <p className="text-xs text-muted-foreground">€ {r.avg_sale} avg sale</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+            <p className="font-semibold">Redemptions by Category at {selectedAirport}</p>
+            <ResponsiveContainer width="100%" height={200}>
+              <PieChart>
+                <Pie data={catBreakdown} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={75} label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} fontSize={11}>
+                  {catBreakdown.map((c, i) => <Cell key={i} fill={CAT_COLORS[c.name] || COLORS[i]} />)}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Recent scans */}
+        <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+          <p className="font-semibold">Recent Voucher Scans — {selectedRetailer.name}</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Voucher Code</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Scanned</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Discount</th>
+                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">Sale Value</th>
+                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">Traveler Saved</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentScans.map(s => (
+                  <tr key={s.code} className="border-b border-border last:border-0 hover:bg-muted/30">
+                    <td className="py-2.5 px-3 font-mono text-xs">{s.code}</td>
+                    <td className="py-2.5 px-3 text-muted-foreground">{s.time}</td>
+                    <td className="py-2.5 px-3 font-semibold text-orange-600">{s.discount}</td>
+                    <td className="py-2.5 px-3 text-right font-semibold">{s.sale}</td>
+                    <td className="py-2.5 px-3 text-right text-emerald-600 font-medium">{s.saved}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* How it works */}
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 border border-orange-200 rounded-xl p-6 space-y-4">
+          <p className="font-semibold font-heading text-lg">How DutyCredit Redemption Works for Retailers</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {[
+              { step: "1", title: "Traveler Arrives", desc: "A traveler walks into your store with a DutyCredit voucher on their phone." },
+              { step: "2", title: "Staff Scans QR", desc: "Your staff scans the QR code using the DutyBoost scan tool — takes 5 seconds." },
+              { step: "3", title: "Discount Applied", desc: "The system confirms the voucher and you apply the discount at the register." },
+              { step: "4", title: "Monthly Invoice", desc: "DutyBoost invoices you 5% of the gross sale value on all confirmed redemptions each month." },
+            ].map(({ step, title, desc }) => (
+              <div key={step} className="flex gap-3">
+                <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-sm font-bold flex items-center justify-center shrink-0">{step}</div>
+                <div>
+                  <p className="font-semibold text-sm">{title}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

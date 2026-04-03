@@ -30,6 +30,9 @@ import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
 import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
 import AirportMap from './pages/AirportMap';
+import DemoLanding from './pages/DemoLanding';
+import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
+import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -48,7 +51,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -56,6 +59,9 @@ const AuthenticatedApp = () => {
             <Route path="/get-started" element={<GetStarted />} />
             <Route path="/voucher" element={<TravelerVoucher />} />
             <Route path="/scan" element={<TravelerScan />} />
+            <Route path="/demo" element={<DemoLanding />} />
+            <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
+            <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/refunds" element={<RefundPolicy />} />
@@ -80,6 +86,9 @@ const AuthenticatedApp = () => {
       <Route path="/voucher" element={<TravelerVoucher />} />
       <Route path="/scan" element={<TravelerScan />} />
       <Route path="/airport-map" element={<AirportMap />} />
+      <Route path="/demo" element={<DemoLanding />} />
+      <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
+      <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />
