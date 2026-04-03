@@ -106,7 +106,7 @@ export default function AgencyDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
-        <StatsCard title="Redeemed" value={redeemedVouchers} icon={TicketPercent} />
+        <StatsCard title="DutyCredits Redeemed" value={redeemedVouchers} icon={TicketPercent} />
         <StatsCard title="Forecast Revenue" value={`€${totalForecastRevenue}`} subtitle={`€${commissionPerBasket} per basket × ${totalPassengers} travelers`} icon={TicketPercent} />
       </div>
 

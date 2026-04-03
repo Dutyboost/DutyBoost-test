@@ -118,7 +118,7 @@ export default function DemoAgencyDashboard() {
           {[
             { label: "Total Bookings", value: periodBookings.toLocaleString(), icon: Plane, color: "text-blue-500" },
             { label: "DutyCredits Issued", value: periodTravelers.toLocaleString(), icon: TicketPercent, color: "text-orange-500" },
-            { label: "Vouchers Redeemed", value: periodRedeemed.toLocaleString(), icon: Users, color: "text-emerald-500" },
+            { label: "DutyCredits Redeemed", value: periodRedeemed.toLocaleString(), icon: Users, color: "text-emerald-500" },
             { label: "Commission Earned", value: `€ ${parseFloat(periodCommission).toLocaleString("nl-NL", { minimumFractionDigits: 2 })}`, icon: Euro, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">

@@ -140,7 +140,7 @@ export default function DemoRetailerDashboard() {
           {[
             { label: "Total Redemptions", value: periodRedemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
             { label: "Gross Revenue (DutyBoost)", value: `€ ${periodRevenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
-            { label: "Avg. Sale per Voucher", value: `€ ${periodAvg}`, icon: TrendingUp, color: "text-emerald-500" },
+            { label: "Avg. Sale per DutyCredit", value: `€ ${periodAvg}`, icon: TrendingUp, color: "text-emerald-500" },
             { label: "Platform Fee (5%)", value: `€ ${parseFloat(periodFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
