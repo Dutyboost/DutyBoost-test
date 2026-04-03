@@ -249,12 +249,12 @@ export default function DemoRetailerDashboard() {
 
         {/* Recent scans */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">Recent Voucher Scans — {selectedRetailer.name}</p>
+          <p className="font-semibold">Recent DutyCredit Scans — {selectedRetailer.name}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Voucher Code</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">DutyCredit Code</th>
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Scanned</th>
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Discount</th>
                   <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">Sale Value</th>

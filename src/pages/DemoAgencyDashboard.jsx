@@ -199,7 +199,7 @@ export default function DemoAgencyDashboard() {
 
         {/* Recent vouchers */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">Recent DutyCredit Vouchers</p>
+          <p className="font-semibold">Recent DutyCredits</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>

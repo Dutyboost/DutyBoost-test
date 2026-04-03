@@ -393,7 +393,7 @@ export default function AdminPanel() {
               <table className="w-full text-sm">
                 <thead className="bg-muted/50">
                   <tr>
-                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Code</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">DutyCredit Code</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Booking</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Incentive</th>
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">Airport</th>
