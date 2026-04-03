@@ -1,7 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
 const AGENCY_COMMISSION = "2.5%";
-const RETAILER_COMMISSION = "10%";
+const RETAILER_COMMISSION = "5%–25%";
 
 function generatePOHtml(businessType, formData, poNumber) {
   const isAgency = businessType === "Travel Agency";

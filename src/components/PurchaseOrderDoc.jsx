@@ -2,7 +2,7 @@ import DutyBoostLogo from "./DutyBoostLogo";
 
 // Commission rates
 const AGENCY_COMMISSION = "2.5%";
-const RETAILER_COMMISSION = "10%";
+const RETAILER_COMMISSION = "5%–25%";
 
 export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
   const isAgency = businessType === "Travel Agency";
@@ -75,7 +75,7 @@ export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
                   </tr>
                   <tr className="border-t border-border">
                     <td className="px-4 py-3 font-medium">Voucher Redemption Platform Fee</td>
-                    <td className="px-4 py-3 text-muted-foreground">Platform fee per confirmed DutyCredit voucher redemption in your store, calculated on the total transaction value at point of sale. The discount is funded by DutyBoost — only the platform fee is charged to the retailer.</td>
+                    <td className="px-4 py-3 text-muted-foreground">Platform fee per confirmed DutyCredit voucher redemption in your store, calculated on the total transaction value at point of sale. The exact rate is determined per agreement and falls within the range below. The discount is funded by DutyBoost — only the platform fee is charged to the retailer.</td>
                     <td className="px-4 py-3 text-right font-medium text-primary">{RETAILER_COMMISSION} per redemption</td>
                   </tr>
                 </>
