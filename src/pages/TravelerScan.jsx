@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScanLine, Plane, MapPin, Clock, TicketPercent, Loader2, ArrowLeft } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import RetailerFeedbackForm from "../components/RetailerFeedbackForm";
 import { toast } from "sonner";
 
 export default function TravelerScan() {
@@ -123,6 +124,8 @@ export default function TravelerScan() {
                 </div>
               </div>
             </div>
+
+            <RetailerFeedbackForm voucher={voucher} />
 
             <Button className="w-full gap-2" variant="outline" onClick={() => setVoucher(null)}>
               <ScanLine className="w-4 h-4" /> Find Another DutyCredit

@@ -1,0 +1,33 @@
+{
+  "name": "RetailerFeedback",
+  "type": "object",
+  "properties": {
+    "voucher_code": {
+      "type": "string",
+      "title": "Voucher Code"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    },
+    "store_name": {
+      "type": "string",
+      "title": "Store Name"
+    },
+    "rating": {
+      "type": "integer",
+      "title": "Star Rating",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "comment": {
+      "type": "string",
+      "title": "Comment"
+    }
+  },
+  "required": [
+    "voucher_code",
+    "airport",
+    "rating"
+  ]
+}
