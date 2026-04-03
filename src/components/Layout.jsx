@@ -44,7 +44,12 @@ export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    base44.auth.me().then(setUser);
+    base44.auth.me()
+      .then(u => {
+        if (!u) { base44.auth.redirectToLogin(); return; }
+        setUser(u);
+      })
+      .catch(() => base44.auth.redirectToLogin());
   }, []);
 
   const role = user?.role || "agency";
