@@ -84,3 +84,23 @@ export const AGENCY_MONTHLY = [
   { month: "Feb", bookings: 910, redeemed: 470, earned: 282 },
   { month: "Mar", bookings: 1120, redeemed: 590, earned: 354 },
 ];
+
+export const DAILY_DATA = [
+  { day: "28 Mar", redemptions: 42, revenue: 2100 },
+  { day: "29 Mar", redemptions: 38, revenue: 1900 },
+  { day: "30 Mar", redemptions: 55, revenue: 2750 },
+  { day: "31 Mar", redemptions: 61, revenue: 3050 },
+  { day: "1 Apr", redemptions: 49, revenue: 2450 },
+  { day: "2 Apr", redemptions: 67, revenue: 3350 },
+  { day: "3 Apr", redemptions: 73, revenue: 3650 },
+];
+
+export const AGENCY_DAILY = [
+  { day: "28 Mar", bookings: 34, redeemed: 14 },
+  { day: "29 Mar", bookings: 28, redeemed: 11 },
+  { day: "30 Mar", bookings: 45, redeemed: 19 },
+  { day: "31 Mar", bookings: 52, redeemed: 22 },
+  { day: "1 Apr", bookings: 39, redeemed: 16 },
+  { day: "2 Apr", bookings: 58, redeemed: 25 },
+  { day: "3 Apr", bookings: 63, redeemed: 27 },
+];

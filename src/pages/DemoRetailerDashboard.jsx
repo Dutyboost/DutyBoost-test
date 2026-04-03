@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Users } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { RETAILERS, AIRPORTS, MONTHLY_DATA } from "../data/demoData";
+import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA } from "../data/demoData";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const CAT_COLORS = { "Duty-free": "#2563eb", "Food": "#f97316", "Retail": "#10b981" };
@@ -13,6 +13,9 @@ export default function DemoRetailerDashboard() {
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
   const [showRedemptions, setShowRedemptions] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState("2025-10-01");
+  const [customEnd, setCustomEnd] = useState("2026-03-31");
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 
@@ -31,11 +34,29 @@ export default function DemoRetailerDashboard() {
   const redemptionRatio = selectedRetailer.redemptions / totalRedemptions;
   const revenueRatio = selectedRetailer.revenue / totalRevenue;
 
-  const scaledMonthly = MONTHLY_DATA.map(m => ({
+  const baseData = period === "daily" ? DAILY_DATA : MONTHLY_DATA;
+  const dataKey = period === "daily" ? "day" : "month";
+
+  const scaledMonthly = baseData.map(m => ({
     ...m,
     redemptions: Math.round(m.redemptions * redemptionRatio),
     revenue: Math.round(m.revenue * revenueRatio),
   }));
+
+  const periodMultiplier = useMemo(() => {
+    if (period === "daily") return 7 / (MONTHLY_DATA.length * 30);
+    if (period === "custom") {
+      const days = Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000);
+      return days / (MONTHLY_DATA.length * 30);
+    }
+    return 1;
+  }, [period, customStart, customEnd]);
+
+  const periodRedemptions = Math.round(selectedRetailer.redemptions * periodMultiplier);
+  const periodRevenue = Math.round(selectedRetailer.revenue * periodMultiplier);
+  const periodFee = (periodRevenue * 0.05).toFixed(2);
+  const periodNetRevenue = (periodRevenue * 0.95).toFixed(2);
+  const periodAvg = periodRedemptions > 0 ? (periodRevenue / periodRedemptions).toFixed(0) : avgPerRedemption;
 
   const catBreakdown = ["Duty-free", "Food", "Retail"].map(cat => ({
     name: cat,
@@ -92,13 +113,35 @@ export default function DemoRetailerDashboard() {
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">Active Partner</span>
         </div>
 
+        {/* Period selector */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">Period:</span>
+          {["daily", "monthly", "custom"].map(p => (
+            <button key={p} onClick={() => setPeriod(p)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all capitalize ${
+                period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{p}
+            </button>
+          ))}
+          {period === "custom" && (
+            <div className="flex items-center gap-2 ml-2">
+              <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+              <span className="text-xs text-muted-foreground">to</span>
+              <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            </div>
+          )}
+        </div>
+
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Total Redemptions", value: selectedRetailer.redemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
-            { label: "Gross Revenue (DutyBoost)", value: `€ ${selectedRetailer.revenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
-            { label: "Avg. Sale per Voucher", value: `€ ${avgPerRedemption}`, icon: TrendingUp, color: "text-emerald-500" },
-            { label: "Platform Fee (5%)", value: `€ ${parseFloat(platformFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
+            { label: "Total Redemptions", value: periodRedemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
+            { label: "Gross Revenue (DutyBoost)", value: `€ ${periodRevenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
+            { label: "Avg. Sale per Voucher", value: `€ ${periodAvg}`, icon: TrendingUp, color: "text-emerald-500" },
+            { label: "Platform Fee (5%)", value: `€ ${parseFloat(periodFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -114,7 +157,7 @@ export default function DemoRetailerDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="md:col-span-2 bg-card border border-border rounded-xl p-6 space-y-4">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <p className="font-semibold">Monthly Redemptions & Revenue</p>
+              <p className="font-semibold">{period === "daily" ? "Daily" : period === "custom" ? "Custom Period" : "Monthly"} Redemptions & Revenue</p>
               <div className="flex gap-2">
                 {[
                   { key: "redemptions", label: "Redemptions", color: "#dbeafe", active: showRedemptions, toggle: () => setShowRedemptions(v => !v) },
@@ -133,7 +176,7 @@ export default function DemoRetailerDashboard() {
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={scaledMonthly}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+                <XAxis dataKey={dataKey} tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip />
@@ -148,15 +191,15 @@ export default function DemoRetailerDashboard() {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">Gross Sales</span>
-                <span className="font-semibold">€ {selectedRetailer.revenue.toLocaleString("nl-NL")}</span>
+                <span className="font-semibold">€ {periodRevenue.toLocaleString("nl-NL")}</span>
               </div>
               <div className="flex justify-between items-center text-destructive">
                 <span>Platform Fee (5%)</span>
-                <span className="font-semibold">- € {parseFloat(platformFee).toLocaleString("nl-NL")}</span>
+                <span className="font-semibold">- € {parseFloat(periodFee).toLocaleString("nl-NL")}</span>
               </div>
               <div className="border-t border-border pt-2 flex justify-between items-center">
                 <span className="font-semibold">Your Net Revenue</span>
-                <span className="font-bold text-emerald-600">€ {parseFloat(netRevenue).toLocaleString("nl-NL")}</span>
+                <span className="font-bold text-emerald-600">€ {parseFloat(periodNetRevenue).toLocaleString("nl-NL")}</span>
               </div>
             </div>
             <div className="bg-blue-50 text-blue-700 rounded-lg p-3 text-xs">

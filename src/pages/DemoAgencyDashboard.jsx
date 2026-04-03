@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, ChevronRight } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY } from "../data/demoData";
+import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY } from "../data/demoData";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 
@@ -13,6 +13,9 @@ export default function DemoAgencyDashboard() {
   const [selectedAgency, setSelectedAgency] = useState(TRAVEL_AGENCIES[0]);
   const [showBookings, setShowBookings] = useState(true);
   const [showRedeemed, setShowRedeemed] = useState(true);
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState("2025-10-01");
+  const [customEnd, setCustomEnd] = useState("2026-03-31");
 
   const conversionRate = ((selectedAgency.redeemed / selectedAgency.travelers) * 100).toFixed(1);
   const pendingEarnings = (selectedAgency.commission * 0.18).toFixed(2);
@@ -22,11 +25,28 @@ export default function DemoAgencyDashboard() {
   const bookingRatio = selectedAgency.bookings / totalBookings;
   const redeemedRatio = selectedAgency.redeemed / totalRedeemed;
 
-  const scaledMonthly = AGENCY_MONTHLY.map(m => ({
+  const baseData = period === "daily" ? AGENCY_DAILY : AGENCY_MONTHLY;
+  const dataKey = period === "daily" ? "day" : "month";
+
+  const scaledMonthly = baseData.map(m => ({
     ...m,
     bookings: Math.round(m.bookings * bookingRatio),
     redeemed: Math.round(m.redeemed * redeemedRatio),
   }));
+
+  const periodMultiplier = useMemo(() => {
+    if (period === "daily") return 7 / (AGENCY_MONTHLY.length * 30);
+    if (period === "custom") {
+      const days = Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000);
+      return days / (AGENCY_MONTHLY.length * 30);
+    }
+    return 1;
+  }, [period, customStart, customEnd]);
+
+  const periodBookings = Math.round(selectedAgency.bookings * periodMultiplier);
+  const periodTravelers = Math.round(selectedAgency.travelers * periodMultiplier);
+  const periodRedeemed = Math.round(selectedAgency.redeemed * periodMultiplier);
+  const periodCommission = (selectedAgency.commission * periodMultiplier).toFixed(2);
 
   const airportDist = AIRPORTS.map((a, i) => ({
     name: a.code,
@@ -71,13 +91,35 @@ export default function DemoAgencyDashboard() {
           <p className="text-muted-foreground text-sm mt-1">Your DutyBoost performance overview · {selectedAgency.city}</p>
         </div>
 
+        {/* Period selector */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">Period:</span>
+          {["daily", "monthly", "custom"].map(p => (
+            <button key={p} onClick={() => setPeriod(p)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all capitalize ${
+                period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{p}
+            </button>
+          ))}
+          {period === "custom" && (
+            <div className="flex items-center gap-2 ml-2">
+              <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+              <span className="text-xs text-muted-foreground">to</span>
+              <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            </div>
+          )}
+        </div>
+
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Total Bookings", value: selectedAgency.bookings.toLocaleString(), icon: Plane, color: "text-blue-500" },
-            { label: "DutyCredits Issued", value: selectedAgency.travelers.toLocaleString(), icon: TicketPercent, color: "text-orange-500" },
-            { label: "Vouchers Redeemed", value: selectedAgency.redeemed.toLocaleString(), icon: Users, color: "text-emerald-500" },
-            { label: "Commission Earned", value: `€ ${selectedAgency.commission.toLocaleString("nl-NL", { minimumFractionDigits: 2 })}`, icon: Euro, color: "text-purple-500" },
+            { label: "Total Bookings", value: periodBookings.toLocaleString(), icon: Plane, color: "text-blue-500" },
+            { label: "DutyCredits Issued", value: periodTravelers.toLocaleString(), icon: TicketPercent, color: "text-orange-500" },
+            { label: "Vouchers Redeemed", value: periodRedeemed.toLocaleString(), icon: Users, color: "text-emerald-500" },
+            { label: "Commission Earned", value: `€ ${parseFloat(periodCommission).toLocaleString("nl-NL", { minimumFractionDigits: 2 })}`, icon: Euro, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -125,7 +167,7 @@ export default function DemoAgencyDashboard() {
         {/* Monthly chart */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
           <div className="flex items-center justify-between flex-wrap gap-2">
-            <p className="font-semibold">Monthly Performance</p>
+            <p className="font-semibold">{period === "daily" ? "Daily" : period === "custom" ? "Custom Period" : "Monthly"} Performance</p>
             <div className="flex gap-2">
               {[
                 { label: "Bookings", color: "#dbeafe", active: showBookings, toggle: () => setShowBookings(v => !v) },
@@ -140,12 +182,12 @@ export default function DemoAgencyDashboard() {
                 </button>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground w-full">Oct 2025 – Mar 2026</p>
+            <p className="text-xs text-muted-foreground w-full">{period === "daily" ? "Last 7 days" : period === "custom" ? `${customStart} – ${customEnd}` : "Oct 2025 – Mar 2026"}</p>
           </div>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={scaledMonthly}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+              <XAxis dataKey={dataKey} tick={{ fontSize: 12 }} />
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
               <Tooltip />
