@@ -1,7 +1,7 @@
 import DutyBoostLogo from "./DutyBoostLogo";
 
 // Commission rates
-const AGENCY_COMMISSION = "2.5%";
+const AGENCY_COMMISSION = "5%";
 const RETAILER_COMMISSION = "5%–25%";
 
 export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
