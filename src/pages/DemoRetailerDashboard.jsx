@@ -127,7 +127,7 @@ export default function DemoRetailerDashboard() {
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip />
                 {showRedemptions && <Bar yAxisId="left" dataKey="redemptions" name="Redemptions" fill="#dbeafe" radius={[4,4,0,0]} />}
-                {showRevenue && <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue (€)" stroke="#2563eb" strokeWidth={2} dot={{ r: 4 }} />}
+                {showRevenue && <Bar yAxisId="right" dataKey="revenue" name="Revenue (€)" fill="#2563eb" radius={[4,4,0,0]} />}
               </BarChart>
             </ResponsiveContainer>
           </div>
