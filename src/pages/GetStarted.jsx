@@ -187,12 +187,16 @@ export default function GetStarted() {
   const handleStep3Submit = async () => {
     setLoading(true);
     try {
-      await base44.functions.invoke('sendPurchaseOrderEmail', {
-        applicationId,
-        businessType,
-        formData: { fullName, email, company, kvk, vat },
-        poNumber,
-      });
+      try {
+        await base44.functions.invoke('sendPurchaseOrderEmail', {
+          applicationId,
+          businessType,
+          formData: { fullName, email, company, kvk, vat },
+          poNumber,
+        });
+      } catch {
+        // Email may fail if user not yet registered — continue regardless
+      }
       setStep(3);
     } finally {
       setLoading(false);
