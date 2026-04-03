@@ -11,7 +11,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
 const RETAILER_STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
-const AGENCY_STEPS = ["Business Info", "Purchase Order", "Terms & Review"];
+const AGENCY_STEPS = ["Business Info", "Bank Details", "Purchase Order", "Terms & Review"];
 
 const BOOKING_ENGINES = [
   "Amadeus", "Sabre", "Travelport (Galileo/Apollo/Worldspan)", "Worldline",
@@ -106,6 +106,8 @@ export default function GetStarted() {
   const [airport, setAirport] = useState("");
   const [storeCategory, setStoreCategory] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [bankAccountName, setBankAccountName] = useState("");
+  const [bankIban, setBankIban] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -159,7 +161,7 @@ export default function GetStarted() {
         terms_accepted: false,
       });
       setApplicationId(app.id);
-      setStep(isAgency ? 2 : 1);
+      setStep(1);
     } finally {
       setLoading(false);
     }
@@ -168,10 +170,14 @@ export default function GetStarted() {
   const poNumber = applicationId ? applicationId.slice(-8).toUpperCase() : "PENDING";
 
   const handleStep2Submit = async () => {
-    if (!paymentMethod) return;
+    if (isRetailer && !paymentMethod) return;
     setLoading(true);
     try {
-      await base44.entities.SignupApplication.update(applicationId, { payment_method: paymentMethod });
+      if (isAgency) {
+        await base44.auth.updateMe({ bank_account_name: bankAccountName, bank_iban: bankIban });
+      } else {
+        await base44.entities.SignupApplication.update(applicationId, { payment_method: paymentMethod });
+      }
       setStep(2);
     } finally {
       setLoading(false);
@@ -401,7 +407,59 @@ export default function GetStarted() {
             </>
           )}
 
-          {/* Step 1: Payment Method — Retailers only */}
+          {/* Step 1: Bank Details (Agencies) or Payment Method (Retailers) */}
+          {step === 1 && isAgency && (
+            <div className="space-y-6">
+              <div className="text-center space-y-2">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mx-auto">
+                  <CreditCard className="w-6 h-6 text-emerald-600" />
+                </div>
+                <h2 className="text-2xl font-heading font-bold">Bank Details</h2>
+                <p className="text-sm text-muted-foreground">
+                  Provide your bank account details so DutyBoost can pay your commission share each month.
+                </p>
+              </div>
+
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-800">
+                <strong>How payouts work:</strong> DutyBoost collects a 5% fee from airport retailers on every confirmed DutyCredit redemption. You receive <strong>20% of that fee</strong>, paid directly to this account monthly.
+              </div>
+
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <Label>Account Holder Name <span className="text-red-500">*</span></Label>
+                  <Input
+                    required
+                    placeholder="e.g. Sunweb Group B.V."
+                    value={bankAccountName}
+                    onChange={e => setBankAccountName(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>IBAN <span className="text-red-500">*</span></Label>
+                  <Input
+                    required
+                    placeholder="e.g. NL91ABNA0417164300"
+                    value={bankIban}
+                    onChange={e => setBankIban(e.target.value.toUpperCase())}
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
+                  <ArrowLeft className="w-4 h-4" /> Back
+                </Button>
+                <Button
+                  className="flex-1 gap-2 h-11"
+                  disabled={!bankAccountName || !bankIban || loading}
+                  onClick={handleStep2Submit}
+                >
+                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          )}
+
           {step === 1 && isRetailer && (
             <div className="space-y-6">
               <div className="text-center space-y-2">
