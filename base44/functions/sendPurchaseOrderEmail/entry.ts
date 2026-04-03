@@ -33,10 +33,14 @@ function generatePOHtml(businessType, formData, poNumber) {
   `;
 
   const paymentTerms = isAgency ? `
-    <li>Fees are charged per confirmed DutyCredit redemption only — no upfront or monthly costs.</li>
-    <li>Invoices are generated monthly and collected automatically via your registered payment method.</li>
-    <li>A one-time €0.01 mandate verification will be processed upon registration (refunded immediately).</li>
-  ` : `
+    <li>DutyBoost pays your agency 20% of the 5% platform fee collected from airport retailers on each confirmed DutyCredit redemption.</li>
+    <li>Revenue share payouts are calculated monthly and transferred to your registered bank account by the 15th of the following month.</li>
+    <li>There are no costs, fees, or charges to the agency — this is a purely additive revenue stream.</li>
+    <li>A minimum payout threshold of €10 applies; amounts below this are carried over to the next month.</li>
+    <li><strong>Agency Obligations:</strong> The agency must implement the DutyBoost tracking snippet on their booking platform to enable accurate DutyCredit issuance and redemption tracking.</li>
+    <li>The agency agrees to promote DutyBoost as a platform partner on their website, booking confirmation emails, or other customer-facing properties (e.g. logo, badge, or mention as "Powered by DutyBoost").</li>
+  `
+  : `
     <li>Fees are charged per confirmed voucher redemption only — no upfront or monthly costs (unless opted for Monthly Invoice billing).</li>
     <li>Monthly Invoice customers receive an invoice on the 1st of each month; payment due within 14 days.</li>
     <li>A one-time €0.01 mandate verification will be processed upon registration (refunded immediately).</li>
