@@ -54,11 +54,11 @@ export default function DemoAgencyDashboard() {
   }));
 
   const recentVouchers = [
-    { code: "DC-AMS-4821", airport: "AMS", date: "2 Apr 2026", status: "Redeemed", amount: "€ 214" },
-    { code: "DC-RTM-3102", airport: "RTM", date: "1 Apr 2026", status: "Active", amount: "€ 95" },
-    { code: "DC-AMS-4790", airport: "AMS", date: "1 Apr 2026", status: "Redeemed", amount: "€ 340" },
-    { code: "DC-EIN-2241", airport: "EIN", date: "31 Mar 2026", status: "Active", amount: "€ 180" },
-    { code: "DC-AMS-4755", airport: "AMS", date: "30 Mar 2026", status: "Expired", amount: "€ 120" },
+    { code: "DC-AMS-4821", traveler: "J. van der Berg", airport: "AMS", date: "2 Apr 2026", status: "Redeemed", amount: "€ 214" },
+    { code: "DC-RTM-3102", traveler: "M. Jansen", airport: "RTM", date: "1 Apr 2026", status: "Active", amount: "€ 95" },
+    { code: "DC-AMS-4790", traveler: "S. de Vries", airport: "AMS", date: "1 Apr 2026", status: "Redeemed", amount: "€ 340" },
+    { code: "DC-EIN-2241", traveler: "P. Bakker", airport: "EIN", date: "31 Mar 2026", status: "Active", amount: "€ 180" },
+    { code: "DC-AMS-4755", traveler: "L. Smits", airport: "AMS", date: "30 Mar 2026", status: "Expired", amount: "€ 120" },
   ];
 
   return (
@@ -205,6 +205,7 @@ export default function DemoAgencyDashboard() {
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Code</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Traveler</th>
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Airport</th>
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Date</th>
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Status</th>
@@ -215,6 +216,7 @@ export default function DemoAgencyDashboard() {
                 {recentVouchers.map(v => (
                   <tr key={v.code} className="border-b border-border last:border-0 hover:bg-muted/30">
                     <td className="py-2.5 px-3 font-mono text-xs">{v.code}</td>
+                    <td className="py-2.5 px-3">{v.traveler}</td>
                     <td className="py-2.5 px-3 font-semibold text-primary">{v.airport}</td>
                     <td className="py-2.5 px-3 text-muted-foreground">{v.date}</td>
                     <td className="py-2.5 px-3">
