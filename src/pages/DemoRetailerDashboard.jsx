@@ -13,7 +13,6 @@ export default function DemoRetailerDashboard() {
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
   const [showRedemptions, setShowRedemptions] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
-  const [showCommission, setShowCommission] = useState(false);
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 
@@ -109,7 +108,6 @@ export default function DemoRetailerDashboard() {
                 {[
                   { key: "redemptions", label: "Redemptions", color: "#dbeafe", active: showRedemptions, toggle: () => setShowRedemptions(v => !v) },
                   { key: "revenue", label: "Revenue", color: "#2563eb", active: showRevenue, toggle: () => setShowRevenue(v => !v) },
-                  { key: "commission", label: "Commission", color: "#f97316", active: showCommission, toggle: () => setShowCommission(v => !v) },
                 ].map(({ label, color, active, toggle }) => (
                   <button key={label} onClick={toggle}
                     className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border transition-all ${
@@ -130,7 +128,6 @@ export default function DemoRetailerDashboard() {
                 <Tooltip />
                 {showRedemptions && <Bar yAxisId="left" dataKey="redemptions" name="Redemptions" fill="#dbeafe" radius={[4,4,0,0]} />}
                 {showRevenue && <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue (€)" stroke="#2563eb" strokeWidth={2} dot={{ r: 4 }} />}
-                {showCommission && <Line yAxisId="right" type="monotone" dataKey="commission" name="Commission (€)" stroke="#f97316" strokeWidth={2} dot={{ r: 4 }} strokeDasharray="4 2" />}
               </BarChart>
             </ResponsiveContainer>
           </div>

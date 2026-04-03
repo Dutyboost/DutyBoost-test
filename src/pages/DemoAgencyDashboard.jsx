@@ -13,7 +13,6 @@ export default function DemoAgencyDashboard() {
   const [selectedAgency, setSelectedAgency] = useState(TRAVEL_AGENCIES[0]);
   const [showBookings, setShowBookings] = useState(true);
   const [showRedeemed, setShowRedeemed] = useState(true);
-  const [showEarned, setShowEarned] = useState(true);
 
   const conversionRate = ((selectedAgency.redeemed / selectedAgency.travelers) * 100).toFixed(1);
   const pendingEarnings = (selectedAgency.commission * 0.18).toFixed(2);
@@ -120,7 +119,6 @@ export default function DemoAgencyDashboard() {
               {[
                 { label: "Bookings", color: "#dbeafe", active: showBookings, toggle: () => setShowBookings(v => !v) },
                 { label: "Redeemed", color: "#2563eb", active: showRedeemed, toggle: () => setShowRedeemed(v => !v) },
-                { label: "Earned", color: "#f97316", active: showEarned, toggle: () => setShowEarned(v => !v) },
               ].map(({ label, color, active, toggle }) => (
                 <button key={label} onClick={toggle}
                   className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border transition-all ${
@@ -142,7 +140,6 @@ export default function DemoAgencyDashboard() {
               <Tooltip />
               {showBookings && <Bar yAxisId="left" dataKey="bookings" name="Bookings" fill="#dbeafe" radius={[4,4,0,0]} />}
               {showRedeemed && <Bar yAxisId="left" dataKey="redeemed" name="Redeemed" fill="#2563eb" radius={[4,4,0,0]} />}
-              {showEarned && <Line yAxisId="right" type="monotone" dataKey="earned" name="Earned (€)" stroke="#f97316" strokeWidth={2} dot={{ r: 4 }} />}
             </BarChart>
           </ResponsiveContainer>
         </div>
