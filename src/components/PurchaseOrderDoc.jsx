@@ -99,6 +99,9 @@ export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
               <p>• Revenue share payouts are calculated monthly and transferred to your registered bank account by the 15th of the following month.</p>
               <p>• There are no costs, fees, or charges to the agency — this is a purely additive revenue stream.</p>
               <p>• A minimum payout threshold of €10 applies; amounts below this are carried over to the next month.</p>
+              <p className="pt-1 font-semibold text-foreground">Agency Obligations:</p>
+              <p>• The agency must implement the DutyBoost tracking snippet on their booking platform to enable accurate DutyCredit issuance and redemption tracking. Integration support is provided by DutyBoost at no cost.</p>
+              <p>• The agency agrees to promote DutyBoost as a platform partner on their website, booking confirmation emails, or other customer-facing properties (e.g. logo, badge, or mention as &quot;Powered by DutyBoost&quot;).</p>
             </>
           ) : (
             <>
