@@ -11,6 +11,9 @@ const CAT_COLORS = { "Duty-free": "#2563eb", "Food": "#f97316", "Retail": "#10b9
 export default function DemoRetailerDashboard() {
   const [selectedAirport, setSelectedAirport] = useState("AMS");
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
+  const [showRedemptions, setShowRedemptions] = useState(true);
+  const [showRevenue, setShowRevenue] = useState(true);
+  const [showCommission, setShowCommission] = useState(false);
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 
@@ -100,7 +103,24 @@ export default function DemoRetailerDashboard() {
         {/* Net vs fee breakdown */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="md:col-span-2 bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">Monthly Redemptions & Revenue</p>
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <p className="font-semibold">Monthly Redemptions & Revenue</p>
+              <div className="flex gap-2">
+                {[
+                  { key: "redemptions", label: "Redemptions", color: "#dbeafe", active: showRedemptions, toggle: () => setShowRedemptions(v => !v) },
+                  { key: "revenue", label: "Revenue", color: "#2563eb", active: showRevenue, toggle: () => setShowRevenue(v => !v) },
+                  { key: "commission", label: "Commission", color: "#f97316", active: showCommission, toggle: () => setShowCommission(v => !v) },
+                ].map(({ label, color, active, toggle }) => (
+                  <button key={label} onClick={toggle}
+                    className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border transition-all ${
+                      active ? "bg-card border-border font-semibold" : "bg-muted border-transparent text-muted-foreground"
+                    }`}>
+                    <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: active ? color : "#d1d5db" }} />
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={MONTHLY_DATA}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -108,8 +128,9 @@ export default function DemoRetailerDashboard() {
                 <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip />
-                <Bar yAxisId="left" dataKey="redemptions" name="Redemptions" fill="#dbeafe" radius={[4,4,0,0]} />
-                <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue (€)" stroke="#2563eb" strokeWidth={2} dot={{ r: 4 }} />
+                {showRedemptions && <Bar yAxisId="left" dataKey="redemptions" name="Redemptions" fill="#dbeafe" radius={[4,4,0,0]} />}
+                {showRevenue && <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue (€)" stroke="#2563eb" strokeWidth={2} dot={{ r: 4 }} />}
+                {showCommission && <Line yAxisId="right" type="monotone" dataKey="commission" name="Commission (€)" stroke="#f97316" strokeWidth={2} dot={{ r: 4 }} strokeDasharray="4 2" />}
               </BarChart>
             </ResponsiveContainer>
           </div>

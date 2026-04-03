@@ -11,6 +11,9 @@ const agencyOptions = TRAVEL_AGENCIES;
 
 export default function DemoAgencyDashboard() {
   const [selectedAgency, setSelectedAgency] = useState(TRAVEL_AGENCIES[0]);
+  const [showBookings, setShowBookings] = useState(true);
+  const [showRedeemed, setShowRedeemed] = useState(true);
+  const [showEarned, setShowEarned] = useState(true);
 
   const conversionRate = ((selectedAgency.redeemed / selectedAgency.travelers) * 100).toFixed(1);
   const pendingEarnings = (selectedAgency.commission * 0.18).toFixed(2);
@@ -111,9 +114,24 @@ export default function DemoAgencyDashboard() {
 
         {/* Monthly chart */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <p className="font-semibold">Monthly Performance</p>
-            <p className="text-xs text-muted-foreground">Oct 2025 – Mar 2026</p>
+            <div className="flex gap-2">
+              {[
+                { label: "Bookings", color: "#dbeafe", active: showBookings, toggle: () => setShowBookings(v => !v) },
+                { label: "Redeemed", color: "#2563eb", active: showRedeemed, toggle: () => setShowRedeemed(v => !v) },
+                { label: "Earned", color: "#f97316", active: showEarned, toggle: () => setShowEarned(v => !v) },
+              ].map(({ label, color, active, toggle }) => (
+                <button key={label} onClick={toggle}
+                  className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border transition-all ${
+                    active ? "bg-card border-border font-semibold" : "bg-muted border-transparent text-muted-foreground"
+                  }`}>
+                  <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: active ? color : "#d1d5db" }} />
+                  {label}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground w-full">Oct 2025 – Mar 2026</p>
           </div>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={AGENCY_MONTHLY}>
@@ -122,9 +140,9 @@ export default function DemoAgencyDashboard() {
               <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
               <Tooltip />
-              <Bar yAxisId="left" dataKey="bookings" name="Bookings" fill="#dbeafe" radius={[4,4,0,0]} />
-              <Bar yAxisId="left" dataKey="redeemed" name="Redeemed" fill="#2563eb" radius={[4,4,0,0]} />
-              <Line yAxisId="right" type="monotone" dataKey="earned" name="Earned (€)" stroke="#f97316" strokeWidth={2} dot={{ r: 4 }} />
+              {showBookings && <Bar yAxisId="left" dataKey="bookings" name="Bookings" fill="#dbeafe" radius={[4,4,0,0]} />}
+              {showRedeemed && <Bar yAxisId="left" dataKey="redeemed" name="Redeemed" fill="#2563eb" radius={[4,4,0,0]} />}
+              {showEarned && <Line yAxisId="right" type="monotone" dataKey="earned" name="Earned (€)" stroke="#f97316" strokeWidth={2} dot={{ r: 4 }} />}
             </BarChart>
           </ResponsiveContainer>
         </div>
