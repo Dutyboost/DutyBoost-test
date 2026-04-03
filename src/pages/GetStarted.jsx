@@ -505,7 +505,7 @@ export default function GetStarted() {
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
                   <span className="text-sm text-foreground leading-relaxed">
-                    I have read and agree to the <a href="/terms" target="_blank" className="text-primary underline underline-offset-2">Terms of Service</a>, <a href="/privacy" target="_blank" className="text-primary underline underline-offset-2">Privacy Policy</a>, and <a href="/dpa" target="_blank" className="text-primary underline underline-offset-2">Data Processing Agreement</a> of DutyBoost B.V. I authorise DutyBoost to collect fees for confirmed DutyCredit redemptions via my chosen payment method.
+                    I have read and agree to the <a href="/terms" target="_blank" className="text-primary underline underline-offset-2">Terms of Service</a>, <a href="/privacy" target="_blank" className="text-primary underline underline-offset-2">Privacy Policy</a>, and <a href="/dpa" target="_blank" className="text-primary underline underline-offset-2">Data Processing Agreement</a> of DutyBoost B.V.{isAgency ? " I understand that DutyBoost will pay my agency a revenue share of 20% of the 5% platform fee collected from airport retailers on each confirmed DutyCredit redemption, credited monthly. I agree to implement the DutyBoost tracking snippet and promote DutyBoost on my customer-facing properties." : " I authorise DutyBoost to collect fees for confirmed DutyCredit redemptions via my chosen payment method."}
                   </span>
                 </label>
               </div>
