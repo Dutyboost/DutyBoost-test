@@ -34,6 +34,7 @@ import DemoLanding from './pages/DemoLanding';
 import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
 import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
 import DemoAdminDashboard from './pages/DemoAdminDashboard';
+import RetailerScanQR from './pages/RetailerScanQR';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -112,6 +113,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
         <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
         <Route path="/scan-redeem" element={<ScanVoucher />} />
+        <Route path="/retailer-scan" element={<RetailerScanQR />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
