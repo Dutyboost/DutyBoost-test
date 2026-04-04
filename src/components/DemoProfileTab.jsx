@@ -19,12 +19,45 @@ const RETAILER_PROFILES = {
   default: { company: "Demo Retailer B.V.", kvk: "55566677", vat: "NL777888999B01", address: "Airport Terminal 1", postal_city: "1118 AV Schiphol", website: "www.demoretailer.nl", phone: "+31 20 000 1111", iban: "NL18INGB0001234567", holder: "Demo Retailer B.V.", airport: "AMS" },
 };
 
+// Commission model: transaction value × 5% (DutyBoost fee) × 20% (agency share) = payout
+// So commission per airport = transactionValue × 0.01
 const DEMO_INVOICES = [
-  { month: "March 2026", amount: "€ 312.50", status: "Paid", date: "1 Apr 2026" },
-  { month: "February 2026", amount: "€ 275.00", status: "Paid", date: "1 Mar 2026" },
-  { month: "January 2026", amount: "€ 198.75", status: "Paid", date: "1 Feb 2026" },
-  { month: "December 2025", amount: "€ 410.00", status: "Paid", date: "1 Jan 2026" },
-];
+  {
+    month: "March 2026", status: "Paid", date: "1 Apr 2026",
+    breakdown: [
+      { airport: "Amsterdam Schiphol (AMS)", vouchers: 45, transactionValue: 18750 },
+      { airport: "Rotterdam The Hague (RTM)", vouchers: 30, transactionValue: 7500 },
+      { airport: "Eindhoven Airport (EIN)", vouchers: 25, transactionValue: 5000 },
+    ]
+  },
+  {
+    month: "February 2026", status: "Paid", date: "1 Mar 2026",
+    breakdown: [
+      { airport: "Amsterdam Schiphol (AMS)", vouchers: 39, transactionValue: 16250 },
+      { airport: "Rotterdam The Hague (RTM)", vouchers: 25, transactionValue: 6250 },
+      { airport: "Eindhoven Airport (EIN)", vouchers: 20, transactionValue: 5000 },
+    ]
+  },
+  {
+    month: "January 2026", status: "Paid", date: "1 Feb 2026",
+    breakdown: [
+      { airport: "Amsterdam Schiphol (AMS)", vouchers: 27, transactionValue: 11250 },
+      { airport: "Rotterdam The Hague (RTM)", vouchers: 20, transactionValue: 4375 },
+      { airport: "Eindhoven Airport (EIN)", vouchers: 18, transactionValue: 4250 },
+    ]
+  },
+  {
+    month: "December 2025", status: "Paid", date: "1 Jan 2026",
+    breakdown: [
+      { airport: "Amsterdam Schiphol (AMS)", vouchers: 58, transactionValue: 24500 },
+      { airport: "Rotterdam The Hague (RTM)", vouchers: 36, transactionValue: 9000 },
+      { airport: "Eindhoven Airport (EIN)", vouchers: 30, transactionValue: 7500 },
+    ]
+  },
+].map(inv => {
+  const totalCommission = inv.breakdown.reduce((s, r) => s + r.transactionValue * 0.01, 0);
+  return { ...inv, amount: `€ ${totalCommission.toFixed(2)}` };
+});
 
 function EditableSection({ title, icon: Icon, fields, form, onChange }) {
   const [editing, setEditing] = useState(false);
@@ -104,14 +137,8 @@ function downloadPayoutPDF(inv, entity, profile) {
   ay += 6; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, ay);
   const payoutBoxY = ay + 10;
 
-  // Airport breakdown (demo — use simulated data by airport)
-  const DEMO_AIRPORTS = [
-    { airport: "Amsterdam Schiphol (AMS)", vouchers: 12, travelers: 28 },
-    { airport: "Rotterdam The Hague (RTM)", vouchers: 6, travelers: 14 },
-    { airport: "Eindhoven Airport (EIN)", vouchers: 4, travelers: 9 },
-  ];
-  const COMMISSION_RATE_DEMO = 0.20;
-
+  // Airport breakdown — derived from inv.breakdown, all numbers chain correctly
+  // transactionValue × 5% = DutyBoost fee; fee × 20% = agency commission
   const abSectionY = payoutBoxY;
   doc.setFontSize(12);
   doc.setTextColor(28,28,60);
@@ -119,30 +146,52 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.setDrawColor(200);
   doc.line(20, abSectionY + 3, 190, abSectionY + 3);
 
+  // Column header
   doc.setFillColor(235, 242, 255);
   doc.rect(20, abSectionY + 6, 170, 8, "F");
-  doc.setFontSize(9);
+  doc.setFontSize(8);
   doc.setTextColor(80);
-  doc.text("Airport / Retailer Location", 22, abSectionY + 12);
-  doc.text("Vouchers", 110, abSectionY + 12);
-  doc.text("Travelers", 135, abSectionY + 12);
-  doc.text("Commission (€)", 160, abSectionY + 12);
+  doc.text("Airport", 22, abSectionY + 12);
+  doc.text("Vouchers", 88, abSectionY + 12);
+  doc.text("Trans. Value", 108, abSectionY + 12);
+  doc.text("5% Fee", 140, abSectionY + 12);
+  doc.text("Your 20%", 163, abSectionY + 12);
 
   let abY = abSectionY + 22;
-  DEMO_AIRPORTS.forEach(({ airport, vouchers, travelers }, i) => {
+  (inv.breakdown || []).forEach(({ airport, vouchers, transactionValue }, i) => {
     if (i % 2 === 0) { doc.setFillColor(245,249,255); doc.rect(20, abY - 5, 170, 8, "F"); }
-    doc.setFontSize(9);
+    const fee = transactionValue * 0.05;
+    const commission = fee * 0.20;
+    doc.setFontSize(8);
     doc.setTextColor(28,28,60);
     doc.text(airport, 22, abY);
     doc.setTextColor(80);
-    doc.text(String(vouchers), 110, abY);
-    doc.text(String(travelers), 135, abY);
+    doc.text(String(vouchers), 88, abY);
+    doc.text(`€ ${transactionValue.toLocaleString("nl-NL")}`, 108, abY);
+    doc.text(`€ ${fee.toFixed(2)}`, 140, abY);
     doc.setTextColor(0,140,80);
-    doc.text(`€ ${(travelers * COMMISSION_RATE_DEMO).toFixed(2)}`, 160, abY);
+    doc.text(`€ ${commission.toFixed(2)}`, 163, abY);
     abY += 8;
   });
 
-  const payoutSummaryY = abY + 10;
+  // Totals row
+  const totalTrans = (inv.breakdown || []).reduce((s, r) => s + r.transactionValue, 0);
+  const totalFeeAll = totalTrans * 0.05;
+  const totalCommAll = totalFeeAll * 0.20;
+  doc.setFillColor(220, 235, 255);
+  doc.rect(20, abY - 4, 170, 9, "F");
+  doc.setFontSize(8);
+  doc.setFont(undefined, "bold");
+  doc.setTextColor(28,28,60);
+  doc.text("Total", 22, abY + 2);
+  doc.text(`€ ${totalTrans.toLocaleString("nl-NL")}`, 108, abY + 2);
+  doc.text(`€ ${totalFeeAll.toFixed(2)}`, 140, abY + 2);
+  doc.setTextColor(0,140,80);
+  doc.text(`€ ${totalCommAll.toFixed(2)}`, 163, abY + 2);
+  doc.setFont(undefined, "normal");
+  abY += 14;
+
+  const payoutSummaryY = abY + 2;
   doc.setFillColor(235, 242, 255);
   doc.roundedRect(20, payoutSummaryY, 170, 38, 3, 3, "F");
   doc.setFontSize(10);
@@ -151,7 +200,7 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.setFontSize(14);
   doc.setTextColor(0, 196, 140);
   doc.setFont(undefined, "bold");
-  doc.text(inv.amount, 170, payoutSummaryY + 24, { align: "right" });
+  doc.text(`€ ${totalCommAll.toFixed(2)}`, 170, payoutSummaryY + 24, { align: "right" });
   doc.setFont(undefined, "normal");
   doc.setFontSize(10);
   doc.setTextColor(80);
