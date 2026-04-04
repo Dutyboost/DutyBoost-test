@@ -18,7 +18,7 @@ const stakeholders = [
     color: "from-blue-400 to-blue-600",
     bg: "bg-blue-50",
     iconColor: "text-blue-600",
-    description: "Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Valid on purchases of €50 or more at a single point of sale.",
+    description: "Enjoy exclusive discounts at their departure airport — automatically earned through their booking. No sign-ups, no paperwork. Just scan their DutyCredit and save. Valid on purchases of €50 or more at a single point of sale.",
     benefits: ["Instant mobile DutyCredit", "Single-store, full discount", "Seamless QR experience"],
     mapLink: true,
   },
@@ -162,7 +162,13 @@ export default function LandingPage() {
                     <Icon className={`w-24 h-24 ${s.iconColor}`} />
                   </div>
                   <h3 className="font-heading font-bold text-xl mb-3">{s.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                    {s.title === "Travellers" ? (
+                      <>Enjoy exclusive discounts at their departure airport — automatically earned through their booking. No sign-ups, no paperwork. Just scan their <strong className="text-foreground">DutyCredit</strong> and save. Valid on purchases of €50 or more at a single point of sale.</>
+                    ) : (
+                      s.description
+                    )}
+                  </p>
                   <ul className="space-y-2">
                     {s.benefits.map((b) => (
                       <li key={b} className="flex items-center gap-2 text-sm">
