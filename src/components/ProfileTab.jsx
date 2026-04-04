@@ -159,11 +159,11 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
         )}
       </div>
 
-      {/* Invoices */}
+      {/* Payout History */}
       {invoiceComponent && (
         <div>
           <h3 className="font-heading font-semibold text-base mb-3 flex items-center gap-2">
-            <Download className="w-4 h-4 text-primary" /> Invoices & Reports
+            <Download className="w-4 h-4 text-primary" /> Payout History
           </h3>
           {invoiceComponent}
         </div>

@@ -161,17 +161,17 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
         )}
       </div>
 
-      {/* Invoices */}
+      {/* Payout History */}
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <h3 className="font-heading font-semibold text-base flex items-center gap-2">
-          <FileText className="w-4 h-4 text-primary" /> Invoice History
+          <FileText className="w-4 h-4 text-primary" /> {entityType === "agency" ? "Payout History" : "Invoice History"}
         </h3>
         <div className="space-y-2">
           {DEMO_INVOICES.map(inv => (
             <div key={inv.month} className="flex items-center justify-between p-3 rounded-lg bg-muted/40 hover:bg-muted/60 transition-colors">
               <div>
                 <p className="text-sm font-medium">{inv.month}</p>
-                <p className="text-xs text-muted-foreground">Issued {inv.date}</p>
+                <p className="text-xs text-muted-foreground">{entityType === "agency" ? "Paid out" : "Issued"} {inv.date}</p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-sm font-semibold">{inv.amount}</span>
