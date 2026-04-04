@@ -191,9 +191,9 @@ export default function DemoAdminDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ResponsiveContainer width="100%" height={260}>
               <PieChart>
-                <Pie data={byCategory} dataKey="fee" nameKey="name" cx="50%" cy="50%" outerRadius={75}
-                  label={({ name, percent }) => `${name} ${(percent*100).toFixed(0)}%`}
-                  labelLine={true}>
+                <Pie data={byCategory} dataKey="fee" nameKey="name" cx="50%" cy="50%" outerRadius={90}
+                  label={({ percent }) => `${(percent*100).toFixed(0)}%`}
+                  labelLine={false}>
                   {byCategory.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
                 <Tooltip formatter={(v) => fmt(v)} />
