@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ import {
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
-import GetInTouchForm from "../components/GetInTouchForm";
+import GetInTouchModal from "../components/GetInTouchModal";
 
 const stakeholders = [
   {
@@ -84,6 +85,8 @@ const stats = [
 ];
 
 export default function LandingPage() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
@@ -99,9 +102,11 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
-            <Button size="sm" className="gap-1" onClick={() => window.location.href = '/get-started'}>
+            <GetInTouchModal trigger={(setOpen) => (
+              <Button size="sm" className="gap-1" onClick={() => setOpen(true)}>
                 Get Started <ChevronRight className="w-3 h-3" />
-            </Button>
+              </Button>
+            )} />
           </div>
         </div>
       </nav>
@@ -241,19 +246,6 @@ export default function LandingPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Get in Touch */}
-      <section className="py-14 px-6 bg-card/30 border-y border-border">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-8 space-y-3">
-            <h2 className="text-4xl font-heading font-bold">Ready to Connect?</h2>
-            <p className="text-muted-foreground">Join the DutyBoost ecosystem. Fill out the form below and our team will reach out to discuss partnership opportunities.</p>
-          </div>
-          <div className="bg-card rounded-2xl border border-border p-8 shadow-lg">
-            <GetInTouchForm />
           </div>
         </div>
       </section>

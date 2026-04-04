@@ -6,7 +6,7 @@ import { base44 } from "@/api/base44Client";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
-export default function GetInTouchForm() {
+export default function GetInTouchForm({ onSuccess }) {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     company_name: "",
@@ -47,6 +47,7 @@ export default function GetInTouchForm() {
       
       toast.success("Thank you! We'll be in touch soon.");
       setForm({ company_name: "", website: "", industry: "", email: "", phone: "", full_name: "", position: "", decision_level: "" });
+      if (onSuccess) onSuccess();
     } catch (error) {
       toast.error("Failed to submit. Please try again.");
     } finally {
