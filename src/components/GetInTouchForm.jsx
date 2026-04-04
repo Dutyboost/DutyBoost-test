@@ -85,7 +85,6 @@ export default function GetInTouchForm() {
           required
         >
           <option value="">Airport Retailer</option>
-          <option value="Retail">Airport Retail</option>
           <option value="Agency">Travel Agency</option>
         </select>
       </div>
