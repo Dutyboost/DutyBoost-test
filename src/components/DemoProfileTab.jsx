@@ -214,7 +214,7 @@ function downloadInvoicePDF(inv, entity, profile) {
   doc.setTextColor(31, 111, 255);
   doc.text(`Invoice — ${inv.month}`, 20, 45);
 
-  // Retailer address block
+  // Retailer address block (dynamic Y)
   doc.setFontSize(10);
   doc.setTextColor(60);
   doc.text(`Retailer: ${profile?.company || entity?.name || "Airport Retailer"}`, 20, 55);
@@ -226,43 +226,89 @@ function downloadInvoicePDF(inv, entity, profile) {
   doc.setTextColor(80);
   iy += 7; doc.text(`Issued: ${inv.date}`, 20, iy);
   iy += 6; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, iy);
-  const invoiceBoxY = iy + 10;
+
+  // Breakdown table: vouchers per airport → transaction value → 5% fee
+  const tableY = iy + 12;
+  doc.setFontSize(12);
+  doc.setTextColor(28, 28, 60);
+  doc.text("Redemption Breakdown by Airport", 20, tableY);
+  doc.setDrawColor(200);
+  doc.line(20, tableY + 3, 190, tableY + 3);
 
   doc.setFillColor(235, 242, 255);
-  doc.roundedRect(20, invoiceBoxY, 170, 38, 3, 3, "F");
+  doc.rect(20, tableY + 6, 170, 8, "F");
+  doc.setFontSize(8);
+  doc.setTextColor(80);
+  doc.text("Airport", 22, tableY + 12);
+  doc.text("Vouchers", 100, tableY + 12);
+  doc.text("Trans. Value", 120, tableY + 12);
+  doc.text("5% Platform Fee", 158, tableY + 12);
+
+  let ty = tableY + 22;
+  (inv.breakdown || []).forEach(({ airport, vouchers, transactionValue }, i) => {
+    if (i % 2 === 0) { doc.setFillColor(245, 249, 255); doc.rect(20, ty - 5, 170, 8, "F"); }
+    const fee = transactionValue * 0.05;
+    doc.setFontSize(8);
+    doc.setTextColor(28, 28, 60);
+    doc.text(airport, 22, ty);
+    doc.setTextColor(80);
+    doc.text(String(vouchers), 100, ty);
+    doc.text(`€ ${transactionValue.toLocaleString("nl-NL")}`, 120, ty);
+    doc.setTextColor(31, 111, 255);
+    doc.text(`€ ${fee.toFixed(2)}`, 158, ty);
+    ty += 8;
+  });
+
+  // Totals row
+  const totalTrans = (inv.breakdown || []).reduce((s, r) => s + r.transactionValue, 0);
+  const totalFee = totalTrans * 0.05;
+  const totalVat = totalFee * 0.21;
+  const totalDue = totalFee + totalVat;
+
+  doc.setFillColor(220, 235, 255);
+  doc.rect(20, ty - 4, 170, 9, "F");
+  doc.setFontSize(8);
+  doc.setFont(undefined, "bold");
+  doc.setTextColor(28, 28, 60);
+  doc.text("Total", 22, ty + 2);
+  doc.text(`€ ${totalTrans.toLocaleString("nl-NL")}`, 120, ty + 2);
+  doc.setTextColor(31, 111, 255);
+  doc.text(`€ ${totalFee.toFixed(2)}`, 158, ty + 2);
+  doc.setFont(undefined, "normal");
+  ty += 14;
+
+  // VAT + Total Due summary
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Platform fee (5% of total redemption value processed via DutyBoost):", 25, invoiceBoxY + 10);
-  doc.setFontSize(10);
-  doc.setTextColor(80);
-  doc.text("Platform fee excl. VAT:", 25, invoiceBoxY + 22);
+  doc.text("Platform fee excl. VAT:", 110, ty);
   doc.setTextColor(28, 28, 60);
-  doc.text(inv.amount, 170, invoiceBoxY + 22, { align: "right" });
-  const feeNum = parseFloat(inv.amount.replace(/[^0-9.,]/g, "").replace(",", "."));
-  const feeVat = feeNum * 0.21;
+  doc.text(`€ ${totalFee.toFixed(2)}`, 186, ty, { align: "right" });
+  ty += 8;
   doc.setTextColor(80);
-  doc.text("VAT 21%:", 25, invoiceBoxY + 30);
+  doc.text("VAT 21%:", 110, ty);
   doc.setTextColor(28, 28, 60);
-  doc.text(`€ ${feeVat.toFixed(2)}`, 170, invoiceBoxY + 30, { align: "right" });
-  doc.setFontSize(12);
+  doc.text(`€ ${totalVat.toFixed(2)}`, 186, ty, { align: "right" });
+  ty += 8;
+  doc.setFontSize(11);
   doc.setFont(undefined, "bold");
   doc.setTextColor(31, 111, 255);
-  doc.text("Total Due (incl. VAT):", 25, invoiceBoxY + 40);
-  doc.text(`€ ${(feeNum + feeVat).toFixed(2)}`, 170, invoiceBoxY + 40, { align: "right" });
+  doc.text("Total Due (incl. VAT):", 110, ty);
+  doc.text(`€ ${totalDue.toFixed(2)}`, 186, ty, { align: "right" });
   doc.setFont(undefined, "normal");
+  ty += 8;
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Status:", 25, invoiceBoxY + 50);
+  doc.text("Status:", 110, ty);
   doc.setTextColor(0, 140, 80);
-  doc.text(inv.status, 70, invoiceBoxY + 50);
+  doc.text(inv.status, 135, ty);
+  ty += 12;
 
   doc.setFontSize(9);
   doc.setTextColor(150);
-  const invLineY = invoiceBoxY + 62;
-  doc.line(20, invLineY, 190, invLineY);
-  doc.text("All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.", 20, invLineY + 7);
-  doc.text("This invoice is issued by DutyBoost B.V. for tax and accounting purposes.", 20, invLineY + 13);
-  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, invLineY + 20);
+  doc.line(20, ty, 190, ty);
+  doc.text("All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.", 20, ty + 7);
+  doc.text("This invoice is issued by DutyBoost B.V. for tax and accounting purposes.", 20, ty + 13);
+  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, ty + 20);
 
   doc.save(`DutyBoost_Invoice_${inv.month.replace(/ /g, "_")}.pdf`);
 }
