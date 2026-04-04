@@ -47,29 +47,30 @@ export default function RetailerInvoiceDownload({ transactions, retailers, user 
     doc.setFontSize(10);
     doc.setTextColor(60);
     doc.text(`Retailer: ${user?.company || storeName}`, 20, 60);
-    if (user?.address) doc.text(user.address, 20, 67);
-    if (user?.postal_city) doc.text(user.postal_city, 20, 74);
-    let addrY = (user?.postal_city ? 74 : user?.address ? 67 : 60) + 7;
-    if (user?.kvk) { doc.text(`KVK: ${user.kvk}`, 20, addrY); addrY += 7; }
-    if (user?.vat) { doc.text(`VAT: ${user.vat}`, 20, addrY); addrY += 7; }
+    let addrY = 60;
+    if (user?.address) { addrY += 7; doc.text(user.address, 20, addrY); }
+    if (user?.postal_city) { addrY += 7; doc.text(user.postal_city, 20, addrY); }
+    if (user?.kvk) { addrY += 7; doc.text(`KVK: ${user.kvk}`, 20, addrY); }
+    if (user?.vat) { addrY += 7; doc.text(`VAT: ${user.vat}`, 20, addrY); }
     doc.setTextColor(100);
-    doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, addrY);
+    addrY += 7; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, addrY);
+    const tableHeaderY = addrY + 12;
 
     // Table header
     doc.setFillColor(235, 242, 255);
-    doc.rect(20, 74, 170, 8, "F");
+    doc.rect(20, tableHeaderY, 170, 8, "F");
     doc.setFontSize(10);
     doc.setTextColor(80);
-    doc.text("Date", 22, 80);
-    doc.text("DutyCredit Code", 55, 80);
-    doc.text("Store", 105, 80);
-    doc.text("Sale (€)", 140, 80);
-    doc.text("Discount (€)", 160, 80);
-    doc.text("Fee (€)", 185, 80);
+    doc.text("Date", 22, tableHeaderY + 6);
+    doc.text("DutyCredit Code", 55, tableHeaderY + 6);
+    doc.text("Store", 105, tableHeaderY + 6);
+    doc.text("Sale (€)", 140, tableHeaderY + 6);
+    doc.text("Discount (€)", 160, tableHeaderY + 6);
+    doc.text("Fee (€)", 185, tableHeaderY + 6);
 
     // Rows
     doc.setTextColor(30);
-    let y = 90;
+    let y = tableHeaderY + 16;
     filtered.forEach((t, i) => {
       if (y > 265) { doc.addPage(); y = 20; }
       if (i % 2 === 0) {

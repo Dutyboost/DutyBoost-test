@@ -95,34 +95,36 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.setFontSize(10);
   doc.setTextColor(60);
   doc.text(`Agency: ${profile?.company || entity?.name || "Travel Agency"}`, 20, 55);
-  if (profile?.address) doc.text(profile.address, 20, 62);
-  if (profile?.postal_city) doc.text(profile.postal_city, 20, 69);
-  let ay = (profile?.postal_city ? 69 : profile?.address ? 62 : 55) + 7;
-  if (profile?.kvk) { doc.text(`KVK: ${profile.kvk}`, 20, ay); ay += 7; }
+  let ay = 55;
+  if (profile?.address) { ay += 7; doc.text(profile.address, 20, ay); }
+  if (profile?.postal_city) { ay += 7; doc.text(profile.postal_city, 20, ay); }
+  if (profile?.kvk) { ay += 7; doc.text(`KVK: ${profile.kvk}`, 20, ay); }
   doc.setTextColor(80);
-  doc.text(`Paid out: ${inv.date}`, 20, ay);
-  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, ay + 6);
+  ay += 7; doc.text(`Paid out: ${inv.date}`, 20, ay);
+  ay += 6; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, ay);
+  const payoutBoxY = ay + 10;
 
   doc.setFillColor(235, 242, 255);
-  doc.roundedRect(20, 74, 170, 38, 3, 3, "F");
+  doc.roundedRect(20, payoutBoxY, 170, 38, 3, 3, "F");
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Revenue share from airport retailer commissions (20% of 5% fee):", 25, 84);
+  doc.text("Revenue share from airport retailer commissions (20% of 5% fee):", 25, payoutBoxY + 10);
   doc.setFontSize(14);
   doc.setTextColor(0, 196, 140);
   doc.setFont(undefined, "bold");
-  doc.text(inv.amount, 170, 98, { align: "right" });
+  doc.text(inv.amount, 170, payoutBoxY + 24, { align: "right" });
   doc.setFont(undefined, "normal");
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Status:", 25, 106);
+  doc.text("Status:", 25, payoutBoxY + 32);
   doc.setTextColor(0, 140, 80);
-  doc.text(inv.status, 70, 106);
+  doc.text(inv.status, 70, payoutBoxY + 32);
 
   doc.setFontSize(9);
   doc.setTextColor(150);
-  doc.line(20, 120, 190, 120);
-  doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, 127);
+  const payoutLineY = payoutBoxY + 46;
+  doc.line(20, payoutLineY, 190, payoutLineY);
+  doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
   doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, 133);
 
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
@@ -145,48 +147,50 @@ function downloadInvoicePDF(inv, entity, profile) {
   doc.setFontSize(10);
   doc.setTextColor(60);
   doc.text(`Retailer: ${profile?.company || entity?.name || "Airport Retailer"}`, 20, 55);
-  if (profile?.address) doc.text(profile.address, 20, 62);
-  if (profile?.postal_city) doc.text(profile.postal_city, 20, 69);
-  let iy = (profile?.postal_city ? 69 : profile?.address ? 62 : 55) + 7;
-  if (profile?.kvk) { doc.text(`KVK: ${profile.kvk}`, 20, iy); iy += 7; }
-  if (profile?.vat) { doc.text(`VAT: ${profile.vat}`, 20, iy); iy += 7; }
+  let iy = 55;
+  if (profile?.address) { iy += 7; doc.text(profile.address, 20, iy); }
+  if (profile?.postal_city) { iy += 7; doc.text(profile.postal_city, 20, iy); }
+  if (profile?.kvk) { iy += 7; doc.text(`KVK: ${profile.kvk}`, 20, iy); }
+  if (profile?.vat) { iy += 7; doc.text(`VAT: ${profile.vat}`, 20, iy); }
   doc.setTextColor(80);
-  doc.text(`Issued: ${inv.date}`, 20, iy);
-  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, iy + 6);
+  iy += 7; doc.text(`Issued: ${inv.date}`, 20, iy);
+  iy += 6; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, iy);
+  const invoiceBoxY = iy + 10;
 
   doc.setFillColor(235, 242, 255);
-  doc.roundedRect(20, 74, 170, 38, 3, 3, "F");
+  doc.roundedRect(20, invoiceBoxY, 170, 38, 3, 3, "F");
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Platform fee (5% of total redemption value processed via DutyBoost):", 25, 84);
+  doc.text("Platform fee (5% of total redemption value processed via DutyBoost):", 25, invoiceBoxY + 10);
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Platform fee excl. VAT:", 25, 96);
+  doc.text("Platform fee excl. VAT:", 25, invoiceBoxY + 22);
   doc.setTextColor(28, 28, 60);
-  doc.text(inv.amount, 170, 96, { align: "right" });
+  doc.text(inv.amount, 170, invoiceBoxY + 22, { align: "right" });
   const feeNum = parseFloat(inv.amount.replace(/[^0-9.,]/g, "").replace(",", "."));
   const feeVat = feeNum * 0.21;
   doc.setTextColor(80);
-  doc.text("VAT 21%:", 25, 104);
+  doc.text("VAT 21%:", 25, invoiceBoxY + 30);
   doc.setTextColor(28, 28, 60);
-  doc.text(`€ ${feeVat.toFixed(2)}`, 170, 104, { align: "right" });
+  doc.text(`€ ${feeVat.toFixed(2)}`, 170, invoiceBoxY + 30, { align: "right" });
   doc.setFontSize(12);
   doc.setFont(undefined, "bold");
   doc.setTextColor(31, 111, 255);
-  doc.text("Total Due (incl. VAT):", 25, 113);
-  doc.text(`€ ${(feeNum + feeVat).toFixed(2)}`, 170, 113, { align: "right" });
+  doc.text("Total Due (incl. VAT):", 25, invoiceBoxY + 40);
+  doc.text(`€ ${(feeNum + feeVat).toFixed(2)}`, 170, invoiceBoxY + 40, { align: "right" });
   doc.setFont(undefined, "normal");
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Status:", 25, 121);
+  doc.text("Status:", 25, invoiceBoxY + 50);
   doc.setTextColor(0, 140, 80);
-  doc.text(inv.status, 70, 121);
+  doc.text(inv.status, 70, invoiceBoxY + 50);
 
   doc.setFontSize(9);
   doc.setTextColor(150);
-  doc.line(20, 132, 190, 132);
-  doc.text("All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.", 20, 138);
-  doc.text("This invoice is issued by DutyBoost B.V. for tax and accounting purposes.", 20, 143);
+  const invLineY = invoiceBoxY + 62;
+  doc.line(20, invLineY, 190, invLineY);
+  doc.text("All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.", 20, invLineY + 7);
+  doc.text("This invoice is issued by DutyBoost B.V. for tax and accounting purposes.", 20, invLineY + 13);
   doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, 133);
 
   doc.save(`DutyBoost_Invoice_${inv.month.replace(/ /g, "_")}.pdf`);
