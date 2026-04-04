@@ -105,10 +105,55 @@ export default function AgencyCommissionDownload({ vouchers, agencyName, user })
     doc.setTextColor(150);
     doc.text(`= €${forecastCommission} (pending redemptions)`, 160, breakY + 29, { align: "right" });
 
+    // Airport breakdown
+    const abSectionY = breakY + 45;
+    doc.setFontSize(13);
+    doc.setTextColor(28,28,60);
+    doc.text("Commission by Airport / Retailer", 20, abSectionY);
+    doc.setDrawColor(200);
+    doc.line(20, abSectionY + 3, 190, abSectionY + 3);
 
+    const byAirport = {};
+    redeemed.forEach(v => {
+      const key = v.airport || "Unknown";
+      if (!byAirport[key]) byAirport[key] = { travelers: 0, vouchers: 0 };
+      byAirport[key].travelers += (v.traveler_count || 1);
+      byAirport[key].vouchers += 1;
+    });
+    const airportRows = Object.entries(byAirport).sort((a,b) => b[1].travelers - a[1].travelers);
+
+    doc.setFillColor(235, 242, 255);
+    doc.rect(20, abSectionY + 6, 170, 8, "F");
+    doc.setFontSize(9);
+    doc.setTextColor(80);
+    doc.text("Airport", 22, abSectionY + 12);
+    doc.text("Redeemed Vouchers", 75, abSectionY + 12);
+    doc.text("Travelers", 125, abSectionY + 12);
+    doc.text("Commission (€)", 158, abSectionY + 12);
+
+    let abY = abSectionY + 22;
+    if (airportRows.length === 0) {
+      doc.setTextColor(150);
+      doc.text("No redeemed vouchers for this period.", 22, abY);
+      abY += 8;
+    } else {
+      airportRows.forEach(([airport, data], i) => {
+        if (abY > 270) { doc.addPage(); abY = 20; }
+        if (i % 2 === 0) { doc.setFillColor(245,249,255); doc.rect(20, abY - 5, 170, 8, "F"); }
+        doc.setFontSize(9);
+        doc.setTextColor(28,28,60);
+        doc.text(airport, 22, abY);
+        doc.setTextColor(80);
+        doc.text(String(data.vouchers), 75, abY);
+        doc.text(String(data.travelers), 125, abY);
+        doc.setTextColor(0,140,80);
+        doc.text(`€ ${(data.travelers * COMMISSION_RATE).toFixed(2)}`, 158, abY);
+        abY += 8;
+      });
+    }
 
     // Transaction table
-    const tableY = breakY + 45;
+    const tableY = abY + 8;
     doc.setFontSize(13);
     doc.setTextColor(28,28,60);
     doc.text("DutyCredit Detail", 20, tableY);

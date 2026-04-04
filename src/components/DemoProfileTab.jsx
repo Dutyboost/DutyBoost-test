@@ -104,25 +104,64 @@ function downloadPayoutPDF(inv, entity, profile) {
   ay += 6; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, ay);
   const payoutBoxY = ay + 10;
 
+  // Airport breakdown (demo — use simulated data by airport)
+  const DEMO_AIRPORTS = [
+    { airport: "Amsterdam Schiphol (AMS)", vouchers: 12, travelers: 28 },
+    { airport: "Rotterdam The Hague (RTM)", vouchers: 6, travelers: 14 },
+    { airport: "Eindhoven Airport (EIN)", vouchers: 4, travelers: 9 },
+  ];
+  const COMMISSION_RATE_DEMO = 0.20;
+
+  const abSectionY = payoutBoxY;
+  doc.setFontSize(12);
+  doc.setTextColor(28,28,60);
+  doc.text("Commission by Airport / Retailer", 20, abSectionY);
+  doc.setDrawColor(200);
+  doc.line(20, abSectionY + 3, 190, abSectionY + 3);
+
   doc.setFillColor(235, 242, 255);
-  doc.roundedRect(20, payoutBoxY, 170, 38, 3, 3, "F");
+  doc.rect(20, abSectionY + 6, 170, 8, "F");
+  doc.setFontSize(9);
+  doc.setTextColor(80);
+  doc.text("Airport / Retailer Location", 22, abSectionY + 12);
+  doc.text("Vouchers", 110, abSectionY + 12);
+  doc.text("Travelers", 135, abSectionY + 12);
+  doc.text("Commission (€)", 160, abSectionY + 12);
+
+  let abY = abSectionY + 22;
+  DEMO_AIRPORTS.forEach(({ airport, vouchers, travelers }, i) => {
+    if (i % 2 === 0) { doc.setFillColor(245,249,255); doc.rect(20, abY - 5, 170, 8, "F"); }
+    doc.setFontSize(9);
+    doc.setTextColor(28,28,60);
+    doc.text(airport, 22, abY);
+    doc.setTextColor(80);
+    doc.text(String(vouchers), 110, abY);
+    doc.text(String(travelers), 135, abY);
+    doc.setTextColor(0,140,80);
+    doc.text(`€ ${(travelers * COMMISSION_RATE_DEMO).toFixed(2)}`, 160, abY);
+    abY += 8;
+  });
+
+  const payoutSummaryY = abY + 10;
+  doc.setFillColor(235, 242, 255);
+  doc.roundedRect(20, payoutSummaryY, 170, 38, 3, 3, "F");
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Revenue share from airport retailer commissions (20% of 5% fee):", 25, payoutBoxY + 10);
+  doc.text("Revenue share from airport retailer commissions (20% of 5% fee):", 25, payoutSummaryY + 10);
   doc.setFontSize(14);
   doc.setTextColor(0, 196, 140);
   doc.setFont(undefined, "bold");
-  doc.text(inv.amount, 170, payoutBoxY + 24, { align: "right" });
+  doc.text(inv.amount, 170, payoutSummaryY + 24, { align: "right" });
   doc.setFont(undefined, "normal");
   doc.setFontSize(10);
   doc.setTextColor(80);
-  doc.text("Status:", 25, payoutBoxY + 32);
+  doc.text("Status:", 25, payoutSummaryY + 32);
   doc.setTextColor(0, 140, 80);
-  doc.text(inv.status, 70, payoutBoxY + 32);
+  doc.text(inv.status, 70, payoutSummaryY + 32);
 
   doc.setFontSize(9);
   doc.setTextColor(150);
-  const payoutLineY = payoutBoxY + 46;
+  const payoutLineY = payoutSummaryY + 46;
   doc.line(20, payoutLineY, 190, payoutLineY);
   doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
   doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
