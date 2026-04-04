@@ -165,6 +165,8 @@ export default function LandingPage() {
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                     {s.title === "Travellers" ? (
                       <>Enjoy exclusive discounts at their departure airport — automatically earned through their booking. No sign-ups, no paperwork. Just scan their <strong className="text-foreground">DutyCredit</strong> and save. Valid on purchases of €50 or more at a single point of sale.</>
+                    ) : s.title === "Airport Retailers" ? (
+                      <>Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised <strong className="text-foreground">DutyCredit</strong> incentive. Our commission applies only when a <strong className="text-foreground">DutyCredit</strong> is actually redeemed — you pay nothing unless we deliver a sale.</>
                     ) : (
                       s.description
                     )}
