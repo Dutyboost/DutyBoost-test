@@ -125,7 +125,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            DutyBoost is the <strong className="text-foreground">Travel Retail Conversion Layer</strong> — we unlock a new revenue stream hidden inside every flight booking. By connecting travel agencies, airport retailers, and travelers through intelligent <strong className="text-foreground">DutyCredits</strong>, we convert passive travelers into high-intent buyers before they reach the airport.
+            DutyBoost is the <strong className="text-foreground">Travel Retail Conversion Layer</strong> — we unlock a new revenue stream hidden inside every travel booking. By connecting travel agencies, airport retailers, and travelers through intelligent <strong className="text-foreground">DutyCredits</strong>, we convert passive travelers into high-intent buyers before they reach the airport.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
