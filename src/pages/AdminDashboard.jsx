@@ -71,7 +71,7 @@ export default function AdminDashboard() {
   const airportData = Object.values(airportMap).map(d => ({
     ...d,
     rate: d.issued > 0 ? Math.round((d.redeemed / d.issued) * 100) : 0,
-  })).sort((a, b) => b.issued - a.issued).slice(0, 8);
+  })).sort((a, b) => b.issued - a.issued);
 
   // --- Transaction volume for selected period ---
   const today = new Date();

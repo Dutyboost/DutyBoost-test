@@ -227,9 +227,8 @@ export default function RetailerDashboard() {
                 <Select value={form.category} onValueChange={v => setForm({...form, category: v})}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Duty-free">Duty-free</SelectItem>
-                    <SelectItem value="Food">Food</SelectItem>
                     <SelectItem value="Retail">Retail</SelectItem>
+                    <SelectItem value="Food & Beverage">Food &amp; Beverage</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -288,7 +287,7 @@ export default function RetailerDashboard() {
             </div>
           ) : (
             <div className="space-y-3">
-              {vouchers.slice(0, 10).map(v => (
+              {vouchers.map(v => (
                 <div key={v.id} className="bg-card rounded-xl border border-border p-4 flex items-center justify-between">
                   <div>
                     <p className="font-mono text-sm font-medium">{v.voucher_code}</p>
