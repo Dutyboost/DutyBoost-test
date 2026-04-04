@@ -78,7 +78,7 @@ function EditableSection({ title, icon: Icon, fields, form, onChange }) {
   );
 }
 
-function downloadPayoutPDF(inv, entity) {
+function downloadPayoutPDF(inv, entity, profile) {
   const doc = new jsPDF();
   doc.setFontSize(20);
   doc.setTextColor(31, 111, 255);
@@ -90,11 +90,18 @@ function downloadPayoutPDF(inv, entity) {
   doc.setFontSize(15);
   doc.setTextColor(31, 111, 255);
   doc.text(`Payout Statement — ${inv.month}`, 20, 45);
+
+  // Agency address block
   doc.setFontSize(10);
+  doc.setTextColor(60);
+  doc.text(`Agency: ${profile?.company || entity?.name || "Travel Agency"}`, 20, 55);
+  if (profile?.address) doc.text(profile.address, 20, 62);
+  if (profile?.postal_city) doc.text(profile.postal_city, 20, 69);
+  let ay = (profile?.postal_city ? 69 : profile?.address ? 62 : 55) + 7;
+  if (profile?.kvk) { doc.text(`KVK: ${profile.kvk}`, 20, ay); ay += 7; }
   doc.setTextColor(80);
-  doc.text(`Agency: ${entity?.name || "Travel Agency"}`, 20, 53);
-  doc.text(`Paid out: ${inv.date}`, 20, 59);
-  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 65);
+  doc.text(`Paid out: ${inv.date}`, 20, ay);
+  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, ay + 6);
 
   doc.setFillColor(235, 242, 255);
   doc.roundedRect(20, 74, 170, 38, 3, 3, "F");
@@ -121,7 +128,7 @@ function downloadPayoutPDF(inv, entity) {
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
 }
 
-function downloadInvoicePDF(inv, entity) {
+function downloadInvoicePDF(inv, entity, profile) {
   const doc = new jsPDF();
   doc.setFontSize(20);
   doc.setTextColor(31, 111, 255);
@@ -133,11 +140,19 @@ function downloadInvoicePDF(inv, entity) {
   doc.setFontSize(15);
   doc.setTextColor(31, 111, 255);
   doc.text(`Invoice — ${inv.month}`, 20, 45);
+
+  // Retailer address block
   doc.setFontSize(10);
+  doc.setTextColor(60);
+  doc.text(`Retailer: ${profile?.company || entity?.name || "Airport Retailer"}`, 20, 55);
+  if (profile?.address) doc.text(profile.address, 20, 62);
+  if (profile?.postal_city) doc.text(profile.postal_city, 20, 69);
+  let iy = (profile?.postal_city ? 69 : profile?.address ? 62 : 55) + 7;
+  if (profile?.kvk) { doc.text(`KVK: ${profile.kvk}`, 20, iy); iy += 7; }
+  if (profile?.vat) { doc.text(`VAT: ${profile.vat}`, 20, iy); iy += 7; }
   doc.setTextColor(80);
-  doc.text(`Retailer: ${entity?.name || "Airport Retailer"}`, 20, 53);
-  doc.text(`Issued: ${inv.date}`, 20, 59);
-  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 65);
+  doc.text(`Issued: ${inv.date}`, 20, iy);
+  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, iy + 6);
 
   doc.setFillColor(235, 242, 255);
   doc.roundedRect(20, 74, 170, 38, 3, 3, "F");
@@ -277,7 +292,7 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
                 <span className="text-sm font-semibold">{inv.amount}</span>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold">{inv.status}</span>
                 <button
-                  onClick={() => entityType === "agency" ? downloadPayoutPDF(inv, entity) : downloadInvoicePDF(inv, entity)}
+                  onClick={() => entityType === "agency" ? downloadPayoutPDF(inv, entity, profile) : downloadInvoicePDF(inv, entity, profile)}
                   className="text-xs text-primary hover:underline flex items-center gap-1">
                   <Download className="w-3 h-3" /> PDF
                 </button>

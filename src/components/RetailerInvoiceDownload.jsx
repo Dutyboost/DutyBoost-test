@@ -9,7 +9,7 @@ const MONTHS = [
   "July","August","September","October","November","December"
 ];
 
-export default function RetailerInvoiceDownload({ transactions, retailers }) {
+export default function RetailerInvoiceDownload({ transactions, retailers, user }) {
   const currentYear = new Date().getFullYear();
   const years = [currentYear, currentYear - 1, currentYear - 2];
   const [month, setMonth] = useState(String(new Date().getMonth() + 1));
@@ -42,10 +42,18 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     doc.setFontSize(16);
     doc.setTextColor(31, 111, 255);
     doc.text(`Invoice — ${monthName} ${year}`, 20, 50);
-    doc.setFontSize(11);
+
+    // Retailer address block
+    doc.setFontSize(10);
+    doc.setTextColor(60);
+    doc.text(`Retailer: ${user?.company || storeName}`, 20, 60);
+    if (user?.address) doc.text(user.address, 20, 67);
+    if (user?.postal_city) doc.text(user.postal_city, 20, 74);
+    let addrY = (user?.postal_city ? 74 : user?.address ? 67 : 60) + 7;
+    if (user?.kvk) { doc.text(`KVK: ${user.kvk}`, 20, addrY); addrY += 7; }
+    if (user?.vat) { doc.text(`VAT: ${user.vat}`, 20, addrY); addrY += 7; }
     doc.setTextColor(100);
-    doc.text(`Retailer: ${storeName}`, 20, 58);
-    doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 64);
+    doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, addrY);
 
     // Table header
     doc.setFillColor(235, 242, 255);
