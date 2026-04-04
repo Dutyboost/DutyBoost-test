@@ -8,16 +8,14 @@ export default function WeCallYouModal({ trigger }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && trigger(setOpen)}
-      <DialogContent className="max-w-2xl h-[95vh] flex flex-col">
+      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>We'll Call You</DialogTitle>
         </DialogHeader>
         <p className="text-sm text-muted-foreground">
           Leave your details and we'll give you a call to discuss your needs.
         </p>
-        <div className="mt-4">
-          <WeCallYouForm onSuccess={() => setOpen(false)} />
-        </div>
+        <WeCallYouForm onSuccess={() => setOpen(false)} />
       </DialogContent>
     </Dialog>
   );
