@@ -24,7 +24,7 @@ export default function GetInTouchForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!form.company_name || !form.website || !form.industry) {
+    if (!form.company_name || !form.website || !form.industry || !form.email || !form.phone) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -90,7 +90,7 @@ export default function GetInTouchForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-sm">Email</Label>
+        <Label htmlFor="email" className="text-sm">Email *</Label>
         <Input
           id="email"
           name="email"
@@ -98,17 +98,19 @@ export default function GetInTouchForm() {
           value={form.email}
           onChange={handleChange}
           placeholder="your@email.com"
+          required
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone" className="text-sm">Phone</Label>
+        <Label htmlFor="phone" className="text-sm">Phone *</Label>
         <Input
           id="phone"
           name="phone"
           value={form.phone}
           onChange={handleChange}
           placeholder="+31 6 1234 5678"
+          required
         />
       </div>
 
