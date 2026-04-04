@@ -31,6 +31,7 @@ import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
 import AirportMap from './pages/AirportMap';
 import DemoLanding from './pages/DemoLanding';
+import LeadsAdmin from './pages/LeadsAdmin';
 import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
 import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
 import DemoAdminDashboard from './pages/DemoAdminDashboard';
@@ -114,6 +115,7 @@ const AuthenticatedApp = () => {
         <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
         <Route path="/scan-redeem" element={<ScanVoucher />} />
         <Route path="/retailer-scan" element={<RetailerScanQR />} />
+        <Route path="/leads-admin" element={<LeadsAdmin />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
