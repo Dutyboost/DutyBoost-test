@@ -81,6 +81,9 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     doc.setDrawColor(200);
     doc.line(20, 127, 190, 127);
 
+    doc.setFontSize(9);
+    doc.setTextColor(120);
+    doc.text("All DutyBoost commission payouts are exclusive of VAT. VAT (21%) is added below.", 20, 126);
     doc.setFontSize(10);
     doc.setTextColor(80);
     doc.text(`Commission rate: €${COMMISSION_RATE.toFixed(2)} per traveler (on redemption)`, 20, 135);
@@ -95,6 +98,20 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
     doc.text(`Forecast commission (all issued): ${totalTravelers} travelers × €${COMMISSION_RATE.toFixed(2)}`, 20, 151);
     doc.setTextColor(150);
     doc.text(`= €${forecastCommission} (pending redemptions)`, 160, 151, { align: "right" });
+
+    // VAT breakdown
+    const vatAmount = parseFloat(totalCommission) * 0.21;
+    const totalIncVat = parseFloat(totalCommission) + vatAmount;
+    doc.setTextColor(80);
+    doc.text("VAT 21%:", 20, 161);
+    doc.text(`€${vatAmount.toFixed(2)}`, 160, 161, { align: "right" });
+    doc.setFontSize(12);
+    doc.setFont(undefined, "bold");
+    doc.setTextColor(28, 28, 60);
+    doc.text("Total Payout (incl. VAT):", 20, 170);
+    doc.text(`€${totalIncVat.toFixed(2)}`, 160, 170, { align: "right" });
+    doc.setFont(undefined, "normal");
+    doc.setFontSize(10);
 
     // Transaction table
     doc.setFontSize(13);
@@ -188,6 +205,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
         <div>
           <h3 className="font-heading font-semibold">Download Commission Report</h3>
           <p className="text-sm text-muted-foreground">Commission accumulation statement for tax purposes</p>
+          <p className="text-xs text-amber-600 font-medium mt-0.5">All DutyBoost commissions are exclusive of VAT (21% added separately)</p>
         </div>
       </div>
 
@@ -225,8 +243,9 @@ export default function AgencyCommissionDownload({ vouchers, agencyName }) {
           <p className="font-semibold">{redeemed.length}</p>
         </div>
         <div className="bg-muted/50 rounded-lg p-3">
-          <p className="text-muted-foreground text-xs">Confirmed Commission</p>
+          <p className="text-muted-foreground text-xs">Commission (excl. VAT)</p>
           <p className="font-semibold text-primary">€{totalCommission}</p>
+          <p className="text-xs text-muted-foreground">+21% VAT = €{(parseFloat(totalCommission) * 1.21).toFixed(2)}</p>
         </div>
         <div className="bg-muted/50 rounded-lg p-3">
           <p className="text-muted-foreground text-xs">Forecast</p>

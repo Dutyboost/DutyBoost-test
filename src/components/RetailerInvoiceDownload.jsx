@@ -100,16 +100,29 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
     y += 7;
     doc.setFont(undefined, "bold");
     doc.setTextColor(255, 122, 0);
-    doc.text("DutyBoost Platform Fee (5%):", 110, y);
+    doc.text("DutyBoost Platform Fee (5%, excl. VAT):", 110, y);
     doc.text(`€${totalFee.toFixed(2)}`, 170, y, { align: "right" });
     doc.setFont(undefined, "normal");
+    y += 7;
+    doc.setTextColor(80);
+    doc.text("VAT 21%:", 110, y);
+    const vatAmount = totalFee * 0.21;
+    doc.text(`€${vatAmount.toFixed(2)}`, 170, y, { align: "right" });
+    y += 7;
+    doc.setFontSize(11);
+    doc.setFont(undefined, "bold");
+    doc.setTextColor(28, 28, 60);
+    doc.text("Total Due (incl. VAT):", 110, y);
+    doc.text(`€${(totalFee + vatAmount).toFixed(2)}`, 170, y, { align: "right" });
+    doc.setFont(undefined, "normal");
+    doc.setFontSize(10);
 
     // Footer note
     y += 14;
     doc.setFontSize(8);
     doc.setTextColor(150);
-    doc.text("This document serves as a transaction summary for VAT / tax reporting purposes.", 20, y);
-    doc.text("Retain for your records. Questions? hello@dutyboost.com", 20, y + 5);
+    doc.text("All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.", 20, y);
+    doc.text("This document serves as an invoice for VAT / tax reporting purposes. Questions? hello@dutyboost.com", 20, y + 5);
 
     doc.save(`DutyBoost_Invoice_${monthName}_${year}.pdf`);
   };
@@ -149,6 +162,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
         <div>
           <h3 className="font-heading font-semibold">Download Invoice</h3>
           <p className="text-sm text-muted-foreground">Monthly transaction invoice for tax purposes</p>
+          <p className="text-xs text-amber-600 font-medium mt-0.5">All DutyBoost fees are exclusive of VAT (21% added separately)</p>
         </div>
       </div>
 
@@ -185,8 +199,9 @@ export default function RetailerInvoiceDownload({ transactions, retailers }) {
           <p className="font-semibold">€{totalValue.toFixed(2)}</p>
         </div>
         <div className="bg-muted/50 rounded-lg p-3">
-          <p className="text-muted-foreground text-xs">Platform Fee</p>
+          <p className="text-muted-foreground text-xs">Platform Fee (excl. VAT)</p>
           <p className="font-semibold">€{totalFee.toFixed(2)}</p>
+          <p className="text-xs text-muted-foreground">+21% VAT = €{(totalFee * 1.21).toFixed(2)}</p>
         </div>
       </div>
     </div>
