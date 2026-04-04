@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar, LayoutDashboard, UserCircle, LogOut } from "lucide-react";
 import DemoProfileTab from "../components/DemoProfileTab";
+import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY } from "../data/demoData";
@@ -273,6 +274,7 @@ export default function DemoAgencyDashboard() {
             ))}
           </div>
         </div>
+        <RedemptionHeatmap />
         </> )}
       </div>
     </div>

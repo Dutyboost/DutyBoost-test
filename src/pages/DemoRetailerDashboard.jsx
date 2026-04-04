@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut } from "lucide-react";
 import DemoProfileTab from "../components/DemoProfileTab";
+import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA } from "../data/demoData";
@@ -358,6 +359,7 @@ export default function DemoRetailerDashboard() {
             ))}
           </div>
         </div>
+        <RedemptionHeatmap />
         </> )}
       </div>
     </div>
