@@ -10,6 +10,7 @@ import {
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
+import GetInTouchForm from "../components/GetInTouchForm";
 
 const stakeholders = [
   {
@@ -240,6 +241,19 @@ export default function LandingPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Get in Touch */}
+      <section className="py-14 px-6 bg-card/30 border-y border-border">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-8 space-y-3">
+            <h2 className="text-4xl font-heading font-bold">Ready to Connect?</h2>
+            <p className="text-muted-foreground">Join the DutyBoost ecosystem. Fill out the form below and our team will reach out to discuss partnership opportunities.</p>
+          </div>
+          <div className="bg-card rounded-2xl border border-border p-8 shadow-lg">
+            <GetInTouchForm />
           </div>
         </div>
       </section>

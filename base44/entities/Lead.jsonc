@@ -1,0 +1,35 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "title": "Company Name"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "industry": {
+      "type": "string",
+      "title": "Industry",
+      "enum": [
+        "Retail",
+        "Agency"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    }
+  },
+  "required": [
+    "company_name",
+    "website",
+    "industry"
+  ]
+}
