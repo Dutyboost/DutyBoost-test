@@ -1,16 +1,21 @@
-import { Building2, Mail, Phone, MapPin, CreditCard, Download, Landmark, User, FileText, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { Building2, Download, Landmark, User, FileText, CheckCircle2, Pencil, X, Save } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 const AGENCY_PROFILES = {
-  ag1: { company: "Horizon Travel Group B.V.", kvk: "34156789", vat: "NL123456789B01", address: "Wilhelminaplein 12", city: "Rotterdam", postal: "3072 DE", iban: "NL91ABNA0417164300", holder: "Horizon Travel Group B.V." },
-  ag2: { company: "Skybound Holidays B.V.", kvk: "27384950", vat: "NL987654321B02", address: "Koningskade 8", city: "Rijswijk", postal: "2596 AA", iban: "NL44RABO0123456789", holder: "Skybound Holidays B.V." },
-  ag3: { company: "Compass Reizen B.V.", kvk: "19283746", vat: "NL567891234B01", address: "Barendrechtseweg 5", city: "Barendrecht", postal: "2992 LA", iban: "NL18INGB0001234567", holder: "Compass Reizen B.V." },
-  default: { company: "Demo Travel Agency B.V.", kvk: "12345678", vat: "NL000000000B01", address: "Damrak 1", city: "Amsterdam", postal: "1012 LG", iban: "NL91ABNA0000000000", holder: "Demo Agency B.V." },
+  ag1: { company: "Horizon Travel Group B.V.", kvk: "34156789", vat: "NL123456789B01", address: "Wilhelminaplein 12", postal_city: "3072 DE Rotterdam", website: "www.horizontravel.nl", phone: "+31 10 456 7890", iban: "NL91ABNA0417164300", holder: "Horizon Travel Group B.V.", airport: "" },
+  ag2: { company: "Skybound Holidays B.V.", kvk: "27384950", vat: "NL987654321B02", address: "Koningskade 8", postal_city: "2596 AA Den Haag", website: "www.skyboundholidays.nl", phone: "+31 70 312 5500", iban: "NL44RABO0123456789", holder: "Skybound Holidays B.V.", airport: "" },
+  ag3: { company: "Compass Reizen B.V.", kvk: "19283746", vat: "NL567891234B01", address: "Barendrechtseweg 5", postal_city: "2992 LA Barendrecht", website: "www.compassreizen.nl", phone: "+31 180 643 210", iban: "NL18INGB0001234567", holder: "Compass Reizen B.V.", airport: "" },
+  default: { company: "Demo Travel Agency B.V.", kvk: "12345678", vat: "NL000000000B01", address: "Damrak 1", postal_city: "1012 LG Amsterdam", website: "www.demoagency.nl", phone: "+31 20 000 0000", iban: "NL91ABNA0000000000", holder: "Demo Agency B.V.", airport: "" },
 };
 
 const RETAILER_PROFILES = {
-  r1: { company: "The Style Loft B.V.", kvk: "98765432", vat: "NL111222333B01", address: "Schiphol Plaza, Gate E9", city: "Schiphol", postal: "1118 AV", iban: "NL91ABNA0417164300", holder: "The Style Loft B.V." },
-  r4: { company: "Gateway Duty Free N.V.", kvk: "11223344", vat: "NL444555666B01", address: "Schiphol Central Hall", city: "Schiphol", postal: "1118 AV", iban: "NL44RABO0123456789", holder: "Gateway Duty Free N.V." },
-  default: { company: "Demo Retailer B.V.", kvk: "55566677", vat: "NL777888999B01", address: "Airport Terminal 1", city: "Schiphol", postal: "1118 AV", iban: "NL18INGB0001234567", holder: "Demo Retailer B.V." },
+  r1: { company: "The Style Loft B.V.", kvk: "98765432", vat: "NL111222333B01", address: "Schiphol Plaza, Gate E9", postal_city: "1118 AV Schiphol", website: "www.thestyleloft.nl", phone: "+31 20 601 2345", iban: "NL91ABNA0417164300", holder: "The Style Loft B.V.", airport: "AMS" },
+  r4: { company: "Gateway Duty Free N.V.", kvk: "11223344", vat: "NL444555666B01", address: "Schiphol Central Hall", postal_city: "1118 AV Schiphol", website: "www.gatewaydf.nl", phone: "+31 20 601 9900", iban: "NL44RABO0123456789", holder: "Gateway Duty Free N.V.", airport: "AMS" },
+  default: { company: "Demo Retailer B.V.", kvk: "55566677", vat: "NL777888999B01", address: "Airport Terminal 1", postal_city: "1118 AV Schiphol", website: "www.demoretailer.nl", phone: "+31 20 000 1111", iban: "NL18INGB0001234567", holder: "Demo Retailer B.V.", airport: "AMS" },
 };
 
 const DEMO_INVOICES = [
@@ -20,73 +25,140 @@ const DEMO_INVOICES = [
   { month: "December 2025", amount: "€ 410.00", status: "Paid", date: "1 Jan 2026" },
 ];
 
+function EditableSection({ title, icon: Icon, fields, form, onChange }) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState({ ...form });
+
+  const handleSave = () => {
+    Object.entries(draft).forEach(([k, v]) => onChange(k, v));
+    setEditing(false);
+    toast.success("Saved successfully!");
+  };
+
+  const handleCancel = () => {
+    setDraft({ ...form });
+    setEditing(false);
+  };
+
+  return (
+    <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+      <div className="flex items-center justify-between">
+        <h3 className="font-heading font-semibold text-base flex items-center gap-2">
+          <Icon className="w-4 h-4 text-primary" /> {title}
+        </h3>
+        {!editing ? (
+          <button onClick={() => { setDraft({ ...form }); setEditing(true); }} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+            <Pencil className="w-3 h-3" /> Edit
+          </button>
+        ) : (
+          <div className="flex items-center gap-2">
+            <button onClick={handleCancel} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive transition-colors">
+              <X className="w-3 h-3" /> Cancel
+            </button>
+            <Button size="sm" onClick={handleSave} className="h-7 text-xs gap-1">
+              <Save className="w-3 h-3" /> Save
+            </Button>
+          </div>
+        )}
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {fields.map(({ key, label, readonly }) => (
+          <div key={key} className="space-y-1.5">
+            <Label className="text-xs text-muted-foreground">{label}</Label>
+            {editing && !readonly ? (
+              <Input value={draft[key] || ""} onChange={e => setDraft(d => ({ ...d, [key]: e.target.value }))} className="h-8 text-sm" />
+            ) : (
+              <p className="text-sm font-medium py-1">{form[key] || "—"}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DemoProfileTab({ entity, entityType = "agency" }) {
   const profiles = entityType === "agency" ? AGENCY_PROFILES : RETAILER_PROFILES;
-  const profile = profiles[entity?.id] || profiles.default;
+  const initialProfile = profiles[entity?.id] || profiles.default;
+  const [profile, setProfile] = useState({ ...initialProfile, contactName: "Demo User", email: "demo@dutyboost.com", phone: initialProfile.phone });
+
+  const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
+
+  const [bankEditing, setBankEditing] = useState(false);
+  const [bankDraft, setBankDraft] = useState({ iban: profile.iban, holder: profile.holder });
+
+  const handleSaveBank = (e) => {
+    e.preventDefault();
+    setProfile(p => ({ ...p, iban: bankDraft.iban, holder: bankDraft.holder }));
+    setBankEditing(false);
+    toast.success("Bank details saved!");
+  };
 
   return (
     <div className="space-y-6 max-w-3xl">
-      {/* Account Info */}
-      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-        <h3 className="font-heading font-semibold text-base flex items-center gap-2">
-          <User className="w-4 h-4 text-primary" /> Account Information
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-          {[
-            { label: "Contact Person", value: "Demo User" },
-            { label: "Email", value: "demo@dutyboost.com" },
-            { label: "Company", value: profile.company },
-            { label: "Account Type", value: entityType === "agency" ? "Travel Agency" : "Airport Retailer" },
-            { label: "Status", value: "Active Partner ✓" },
-            { label: "Member Since", value: "October 2025" },
-          ].map(({ label, value }) => (
-            <div key={label} className="space-y-1">
-              <p className="text-xs text-muted-foreground font-medium">{label}</p>
-              <p className="font-medium">{value}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <EditableSection
+        title="Account Information"
+        icon={User}
+        form={{ contactName: profile.contactName, email: profile.email, company: profile.company, phone: profile.phone }}
+        onChange={updateField}
+        fields={[
+          { key: "contactName", label: "Contact Person" },
+          { key: "email", label: "Email", readonly: true },
+          { key: "company", label: "Company" },
+          { key: "phone", label: "Phone Number" },
+        ]}
+      />
 
-      {/* Company Details */}
-      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-        <h3 className="font-heading font-semibold text-base flex items-center gap-2">
-          <Building2 className="w-4 h-4 text-primary" /> Company & Billing Details
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-          {[
-            { label: "Legal Name", value: profile.company },
-            { label: "KVK Number", value: profile.kvk },
-            { label: "VAT Number", value: profile.vat },
-            { label: "Address", value: `${profile.address}, ${profile.postal} ${profile.city}` },
-          ].map(({ label, value }) => (
-            <div key={label} className="space-y-1">
-              <p className="text-xs text-muted-foreground font-medium">{label}</p>
-              <p className="font-medium">{value}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <EditableSection
+        title="Company & Billing Details"
+        icon={Building2}
+        form={{ kvk: profile.kvk, vat: profile.vat, address: profile.address, postal_city: profile.postal_city, website: profile.website, ...(entityType === "retailer" ? { airport: profile.airport } : {}) }}
+        onChange={updateField}
+        fields={[
+          { key: "kvk", label: "KVK Number" },
+          { key: "vat", label: "VAT Number" },
+          { key: "address", label: "Street Address" },
+          { key: "postal_city", label: "Postal Code & City" },
+          { key: "website", label: "Website" },
+          ...(entityType === "retailer" ? [{ key: "airport", label: "Airport Code" }] : []),
+        ]}
+      />
 
       {/* Bank Details */}
-      <div className="bg-card border border-border rounded-xl p-6 space-y-3">
-        <h3 className="font-heading font-semibold text-base flex items-center gap-2">
-          <Landmark className="w-4 h-4 text-emerald-600" /> Bank Account (Payout)
-        </h3>
-        <div className="flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 rounded-lg px-3 py-2">
-          <CheckCircle2 className="w-4 h-4" />
-          Bank details on file: <span className="font-mono font-medium ml-1">{profile.iban}</span>
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="font-heading font-semibold text-base flex items-center gap-2">
+            <Landmark className="w-4 h-4 text-emerald-600" /> Bank Account (Payout)
+          </h3>
+          {!bankEditing && (
+            <button onClick={() => { setBankDraft({ iban: profile.iban, holder: profile.holder }); setBankEditing(true); }} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+              <Pencil className="w-3 h-3" /> Edit
+            </button>
+          )}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-          <div className="space-y-1">
-            <p className="text-xs text-muted-foreground font-medium">Account Holder</p>
-            <p className="font-medium">{profile.holder}</p>
-          </div>
-          <div className="space-y-1">
-            <p className="text-xs text-muted-foreground font-medium">IBAN</p>
-            <p className="font-mono font-medium">{profile.iban}</p>
-          </div>
-        </div>
+        {!bankEditing ? (
+          <>
+            <div className="flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 rounded-lg px-3 py-2">
+              <CheckCircle2 className="w-4 h-4" />
+              Bank details on file: <span className="font-mono font-medium ml-1">{profile.iban}</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div className="space-y-1"><p className="text-xs text-muted-foreground">Account Holder</p><p className="font-medium">{profile.holder}</p></div>
+              <div className="space-y-1"><p className="text-xs text-muted-foreground">IBAN</p><p className="font-mono font-medium">{profile.iban}</p></div>
+            </div>
+          </>
+        ) : (
+          <form onSubmit={handleSaveBank} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2"><Label>Account Holder</Label><Input value={bankDraft.holder} onChange={e => setBankDraft(d => ({ ...d, holder: e.target.value }))} required /></div>
+              <div className="space-y-2"><Label>IBAN</Label><Input value={bankDraft.iban} onChange={e => setBankDraft(d => ({ ...d, iban: e.target.value.toUpperCase() }))} required /></div>
+            </div>
+            <div className="flex gap-2">
+              <Button type="submit" size="sm" className="gap-1"><Save className="w-3 h-3" /> Save</Button>
+              <Button type="button" variant="outline" size="sm" onClick={() => setBankEditing(false)}>Cancel</Button>
+            </div>
+          </form>
+        )}
       </div>
 
       {/* Invoices */}
