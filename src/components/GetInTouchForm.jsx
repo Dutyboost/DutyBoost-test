@@ -84,7 +84,7 @@ export default function GetInTouchForm() {
           className="w-full px-3 py-2 border border-input rounded-md bg-background text-sm focus:outline-none focus:ring-1 focus:ring-ring"
           required
         >
-          <option value="">Select an option</option>
+          <option value="">Airport Retailer</option>
           <option value="Retail">Airport Retail</option>
           <option value="Agency">Travel Agency</option>
         </select>
