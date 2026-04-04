@@ -120,7 +120,7 @@ export default function LandingPage() {
           <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
             Turn every travel booking into{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              airport spending
+              airport earnings
             </span>
           </h1>
 
