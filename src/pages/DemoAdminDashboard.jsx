@@ -99,16 +99,6 @@ export default function DemoAdminDashboard() {
           <StatCard label="Net Platform Profit" value={fmt(totalNetProfit)} sub="80% of platform fee" icon={DollarSign} color="text-emerald-600" bg="bg-emerald-50" />
         </div>
 
-        {/* Profit formula */}
-        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-800 flex flex-wrap gap-2 items-center font-medium">
-          <span>Retailer Revenue {fmt(totalRetailerRevenue)}</span>
-          <span className="text-emerald-400">×5%→</span>
-          <span>Platform Fee {fmt(totalPlatformFee)}</span>
-          <span className="text-emerald-400">−20%→</span>
-          <span>Agency Payouts {fmt(totalAgencyPayout)}</span>
-          <span className="text-emerald-400">=</span>
-          <span className="font-bold text-emerald-700">Net Profit {fmt(totalNetProfit)}</span>
-        </div>
 
         {/* Monthly trend */}
         <Section title="Monthly Platform Financials">
