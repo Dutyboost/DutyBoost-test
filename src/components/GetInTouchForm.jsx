@@ -75,7 +75,7 @@ export default function GetInTouchForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="industry" className="text-sm">Select sector *</Label>
+        <Label htmlFor="industry" className="text-sm">I'm a *</Label>
         <select
           id="industry"
           name="industry"
