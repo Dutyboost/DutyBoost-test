@@ -78,6 +78,36 @@ export const MONTHLY_DATA = [
   { month: "Mar", redemptions: 1380, revenue: 69000, commission: 3450 },
 ];
 
+export const YEARLY_DATA = [
+  { month: "Apr", redemptions: 640, revenue: 32000, commission: 1600 },
+  { month: "May", redemptions: 710, revenue: 35500, commission: 1775 },
+  { month: "Jun", redemptions: 890, revenue: 44500, commission: 2225 },
+  { month: "Jul", redemptions: 1260, revenue: 63000, commission: 3150 },
+  { month: "Aug", redemptions: 1420, revenue: 71000, commission: 3550 },
+  { month: "Sep", redemptions: 980, revenue: 49000, commission: 2450 },
+  { month: "Oct", redemptions: 820, revenue: 41000, commission: 2050 },
+  { month: "Nov", redemptions: 1040, revenue: 52000, commission: 2600 },
+  { month: "Dec", redemptions: 1580, revenue: 79000, commission: 3950 },
+  { month: "Jan", redemptions: 920, revenue: 46000, commission: 2300 },
+  { month: "Feb", redemptions: 1100, revenue: 55000, commission: 2750 },
+  { month: "Mar", redemptions: 1380, revenue: 69000, commission: 3450 },
+];
+
+export const AGENCY_YEARLY = [
+  { month: "Apr", bookings: 530, redeemed: 230, earned: 138 },
+  { month: "May", bookings: 610, redeemed: 275, earned: 165 },
+  { month: "Jun", bookings: 760, redeemed: 360, earned: 216 },
+  { month: "Jul", bookings: 1080, redeemed: 520, earned: 312 },
+  { month: "Aug", bookings: 1210, redeemed: 580, earned: 348 },
+  { month: "Sep", bookings: 830, redeemed: 390, earned: 234 },
+  { month: "Oct", bookings: 720, redeemed: 310, earned: 186 },
+  { month: "Nov", bookings: 890, redeemed: 420, earned: 252 },
+  { month: "Dec", bookings: 1340, redeemed: 680, earned: 408 },
+  { month: "Jan", bookings: 760, redeemed: 350, earned: 210 },
+  { month: "Feb", bookings: 910, redeemed: 470, earned: 282 },
+  { month: "Mar", bookings: 1120, redeemed: 590, earned: 354 },
+];
+
 export const AGENCY_MONTHLY = [
   { month: "Oct", bookings: 720, redeemed: 310, earned: 186 },
   { month: "Nov", bookings: 890, redeemed: 420, earned: 252 },

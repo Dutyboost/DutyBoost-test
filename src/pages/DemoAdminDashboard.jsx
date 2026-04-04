@@ -1,19 +1,14 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
-import { TrendingUp, Store, Plane, ArrowLeft, Receipt, Wallet, DollarSign, ChevronDown, ChevronUp } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { TrendingUp, Store, ArrowLeft, Receipt, Wallet, DollarSign, ChevronDown, ChevronUp, Calendar } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { RETAILERS, TRAVEL_AGENCIES, MONTHLY_DATA, AIRPORTS } from "../data/demoData";
+import { RETAILERS, TRAVEL_AGENCIES, MONTHLY_DATA, YEARLY_DATA, AIRPORTS } from "../data/demoData";
 
-// --- Financials derived from demo data ---
-// Retailer invoices: revenue × 5% = platform fee
-// Agency payouts: revenue × 5% × 20% = agency commission (= platform fee × 20%)
-// Net profit: platform fee − agency commission = platform fee × 80%
-
-const totalRetailerRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
-const totalPlatformFee = totalRetailerRevenue * 0.05;
-const totalAgencyPayout = totalPlatformFee * 0.20;
-const totalNetProfit = totalPlatformFee * 0.80;
+// Base 6-month totals from demo data
+const BASE_RETAILER_REVENUE = RETAILERS.reduce((s, r) => s + r.revenue, 0);
+const BASE_AGENCY_PAYOUT = TRAVEL_AGENCIES.reduce((s, a) => s + a.commission, 0);
+const PERIOD_MULTIPLIERS = { daily: 7 / 180, monthly: 1, yearly: 2 };
 
 const byAirport = AIRPORTS.map(ap => {
   const apRetailers = RETAILERS.filter(r => r.airport === ap.code);
@@ -28,13 +23,6 @@ const byCategory = ["Duty-free", "Retail", "Food"].map(cat => {
   const rev = catRetailers.reduce((s, r) => s + r.revenue, 0);
   return { name: cat, revenue: rev, fee: rev * 0.05 };
 });
-
-const monthlyFinancials = MONTHLY_DATA.map(m => ({
-  month: m.month,
-  fee: m.revenue * 0.05,
-  payout: m.revenue * 0.05 * 0.20,
-  profit: m.revenue * 0.05 * 0.80,
-}));
 
 const topRetailers = [...RETAILERS].sort((a, b) => b.revenue - a.revenue).slice(0, 8);
 const topAgencies = [...TRAVEL_AGENCIES].sort((a, b) => b.commission - a.commission).slice(0, 8);
@@ -72,6 +60,30 @@ function Section({ title, children, defaultOpen = true }) {
 const fmt = (n) => `€ ${n.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 export default function DemoAdminDashboard() {
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState("2025-10-01");
+  const [customEnd, setCustomEnd] = useState("2026-03-31");
+
+  const periodMultiplier = useMemo(() => {
+    if (period === "custom") {
+      const days = Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000);
+      return days / 180;
+    }
+    return PERIOD_MULTIPLIERS[period];
+  }, [period, customStart, customEnd]);
+
+  const periodRevenue = BASE_RETAILER_REVENUE * periodMultiplier;
+  const periodFee = periodRevenue * 0.05;
+  const periodAgencyPayout = BASE_AGENCY_PAYOUT * periodMultiplier;
+  const periodNetProfit = periodFee - periodAgencyPayout;
+
+  const chartData = (period === "yearly" ? YEARLY_DATA : MONTHLY_DATA).map(m => ({
+    month: m.month,
+    fee: m.revenue * 0.05,
+    payout: m.revenue * 0.05 * 0.20,
+    profit: m.revenue * 0.05 * 0.80,
+  }));
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
@@ -91,19 +103,41 @@ export default function DemoAdminDashboard() {
           <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 5% fee; 20% of that is paid out to travel agencies.</p>
         </div>
 
+        {/* Period selector */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">Period:</span>
+          {[{v:"daily",l:"Daily"},{v:"monthly",l:"Monthly"},{v:"yearly",l:"Yearly"},{v:"custom",l:"Custom"}].map(({v,l}) => (
+            <button key={v} onClick={() => setPeriod(v)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{l}
+            </button>
+          ))}
+          {period === "custom" && (
+            <div className="flex items-center gap-2 ml-2">
+              <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+              <span className="text-xs text-muted-foreground">to</span>
+              <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            </div>
+          )}
+        </div>
+
         {/* KPI row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatCard label="Total Retailer Revenue" value={fmt(totalRetailerRevenue)} sub="Across all airports" icon={Store} color="text-primary" bg="bg-primary/10" />
-          <StatCard label="Platform Fees Invoiced" value={fmt(totalPlatformFee)} sub="5% of retailer revenue" icon={Receipt} color="text-amber-600" bg="bg-amber-50" />
-          <StatCard label="Agency Payouts" value={fmt(totalAgencyPayout)} sub="20% of platform fee" icon={Wallet} color="text-indigo-600" bg="bg-indigo-50" />
-          <StatCard label="Net Platform Profit" value={fmt(totalNetProfit)} sub="80% of platform fee" icon={DollarSign} color="text-emerald-600" bg="bg-emerald-50" />
+          <StatCard label="Retailer Revenue" value={fmt(periodRevenue)} sub={`5% fee basis`} icon={Store} color="text-primary" bg="bg-primary/10" />
+          <StatCard label="Platform Fees Invoiced" value={fmt(periodFee)} sub="5% of retailer revenue" icon={Receipt} color="text-amber-600" bg="bg-amber-50" />
+          <StatCard label="Agency Payouts" value={fmt(periodAgencyPayout)} sub="20% of platform fee" icon={Wallet} color="text-indigo-600" bg="bg-indigo-50" />
+          <StatCard label="Net Platform Profit" value={fmt(periodNetProfit)} sub="Fees minus payouts" icon={DollarSign} color="text-emerald-600" bg="bg-emerald-50" />
         </div>
 
 
-        {/* Monthly trend */}
-        <Section title="Monthly Platform Financials">
+        {/* Trend chart */}
+        <Section title={`${period === "yearly" ? "12-Month" : period === "daily" ? "Recent" : "Monthly"} Platform Financials`}>
           <ResponsiveContainer width="100%" height={240}>
-            <BarChart data={monthlyFinancials} barCategoryGap="30%">
+            <BarChart data={chartData} barCategoryGap="30%">
               <XAxis dataKey="month" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `€${(v/1000).toFixed(1)}k`} />
               <Tooltip formatter={(v, n) => [fmt(v), n]} />

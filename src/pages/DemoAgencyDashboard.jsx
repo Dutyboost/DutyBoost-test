@@ -6,7 +6,7 @@ import DemoProfileTab from "../components/DemoProfileTab";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY } from "../data/demoData";
+import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY, AGENCY_YEARLY } from "../data/demoData";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 
@@ -29,7 +29,7 @@ export default function DemoAgencyDashboard() {
   const bookingRatio = selectedAgency.bookings / totalBookings;
   const redeemedRatio = selectedAgency.redeemed / totalRedeemed;
 
-  const baseData = period === "daily" ? AGENCY_DAILY : AGENCY_MONTHLY;
+  const baseData = period === "daily" ? AGENCY_DAILY : period === "yearly" ? AGENCY_YEARLY : AGENCY_MONTHLY;
   const dataKey = period === "daily" ? "day" : "month";
 
   const scaledMonthly = baseData.map(m => ({
@@ -40,6 +40,7 @@ export default function DemoAgencyDashboard() {
 
   const periodMultiplier = useMemo(() => {
     if (period === "daily") return 7 / (AGENCY_MONTHLY.length * 30);
+    if (period === "yearly") return 2;
     if (period === "custom") {
       const days = Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000);
       return days / (AGENCY_MONTHLY.length * 30);
@@ -115,11 +116,11 @@ export default function DemoAgencyDashboard() {
         <div className="flex items-center gap-2 flex-wrap">
           <Calendar className="w-4 h-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground font-medium">Period:</span>
-          {["daily", "monthly", "custom"].map(p => (
-            <button key={p} onClick={() => setPeriod(p)}
-              className={`text-xs px-3 py-1.5 rounded-full border transition-all capitalize ${
-                period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
-              }`}>{p}
+          {[{v:"daily",l:"Daily"},{v:"monthly",l:"Monthly"},{v:"yearly",l:"Yearly"},{v:"custom",l:"Custom"}].map(({v,l}) => (
+            <button key={v} onClick={() => setPeriod(v)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{l}
             </button>
           ))}
           {period === "custom" && (

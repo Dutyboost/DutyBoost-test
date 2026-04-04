@@ -6,7 +6,7 @@ import DemoProfileTab from "../components/DemoProfileTab";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA } from "../data/demoData";
+import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoData";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const CAT_COLORS = { "Duty-free": "#2563eb", "Food": "#f97316", "Retail": "#10b981" };
@@ -38,7 +38,7 @@ export default function DemoRetailerDashboard() {
   const redemptionRatio = selectedRetailer.redemptions / totalRedemptions;
   const revenueRatio = selectedRetailer.revenue / totalRevenue;
 
-  const baseData = period === "daily" ? DAILY_DATA : MONTHLY_DATA;
+  const baseData = period === "daily" ? DAILY_DATA : period === "yearly" ? YEARLY_DATA : MONTHLY_DATA;
   const dataKey = period === "daily" ? "day" : "month";
 
   const scaledMonthly = baseData.map(m => ({
@@ -49,6 +49,7 @@ export default function DemoRetailerDashboard() {
 
   const periodMultiplier = useMemo(() => {
     if (period === "daily") return 7 / (MONTHLY_DATA.length * 30);
+    if (period === "yearly") return 2;
     if (period === "custom") {
       const days = Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000);
       return days / (MONTHLY_DATA.length * 30);
@@ -137,11 +138,11 @@ export default function DemoRetailerDashboard() {
         <div className="flex items-center gap-2 flex-wrap">
           <Calendar className="w-4 h-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground font-medium">Period:</span>
-          {["daily", "monthly", "custom"].map(p => (
-            <button key={p} onClick={() => setPeriod(p)}
-              className={`text-xs px-3 py-1.5 rounded-full border transition-all capitalize ${
-                period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
-              }`}>{p}
+          {[{v:"daily",l:"Daily"},{v:"monthly",l:"Monthly"},{v:"yearly",l:"Yearly"},{v:"custom",l:"Custom"}].map(({v,l}) => (
+            <button key={v} onClick={() => setPeriod(v)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{l}
             </button>
           ))}
           {period === "custom" && (
