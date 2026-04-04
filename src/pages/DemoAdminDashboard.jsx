@@ -176,10 +176,10 @@ export default function DemoAdminDashboard() {
               <tfoot>
                 <tr className="bg-muted/40 font-bold text-sm">
                   <td className="py-2.5">Total</td>
-                  <td className="py-2.5 text-right">{fmt(totalRetailerRevenue)}</td>
-                  <td className="py-2.5 text-right text-amber-700">{fmt(totalPlatformFee)}</td>
-                  <td className="py-2.5 text-right text-indigo-600">{fmt(totalAgencyPayout)}</td>
-                  <td className="py-2.5 text-right text-emerald-600">{fmt(totalNetProfit)}</td>
+                  <td className="py-2.5 text-right">{fmt(BASE_RETAILER_REVENUE)}</td>
+                  <td className="py-2.5 text-right text-amber-700">{fmt(BASE_RETAILER_REVENUE * 0.05)}</td>
+                  <td className="py-2.5 text-right text-indigo-600">{fmt(BASE_AGENCY_PAYOUT)}</td>
+                  <td className="py-2.5 text-right text-emerald-600">{fmt(BASE_RETAILER_REVENUE * 0.05 - BASE_AGENCY_PAYOUT)}</td>
                 </tr>
               </tfoot>
             </table>
@@ -267,7 +267,7 @@ export default function DemoAdminDashboard() {
                     <td className="py-2.5 text-muted-foreground">{ag.city}</td>
                     <td className="py-2.5 text-right">{ag.redeemed.toLocaleString()}</td>
                     <td className="py-2.5 text-right text-indigo-600 font-semibold">{fmt(ag.commission)}</td>
-                    <td className="py-2.5 text-right text-muted-foreground">{((ag.commission / totalAgencyPayout) * 100).toFixed(1)}%</td>
+                    <td className="py-2.5 text-right text-muted-foreground">{((ag.commission / BASE_AGENCY_PAYOUT) * 100).toFixed(1)}%</td>
                   </tr>
                 ))}
               </tbody>
