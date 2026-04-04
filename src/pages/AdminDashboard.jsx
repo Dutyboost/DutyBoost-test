@@ -7,6 +7,7 @@ import {
 } from "recharts";
 import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users } from "lucide-react";
 import AdminAccountsView from "../components/AdminAccountsView";
+import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import StatsCard from "../components/StatsCard";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e", "#8b5cf6"];
@@ -288,6 +289,9 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+
+      {/* Spatial heatmap */}
+      <RedemptionHeatmap vouchers={filteredVouchers} />
       </> )}
     </div>
   );

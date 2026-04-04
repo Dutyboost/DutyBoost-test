@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import ProfileTab from "../components/ProfileTab";
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
+import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import VoucherCard from "../components/VoucherCard";
 import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -194,6 +195,7 @@ export default function AgencyDashboard() {
       )}
 
       <NotificationPreferences />
+      <RedemptionHeatmap vouchers={vouchers} />
       </> )}
     </div>
   );
