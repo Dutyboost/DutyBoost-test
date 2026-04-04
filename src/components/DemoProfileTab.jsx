@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { jsPDF } from "jspdf";
 import { Building2, Download, Landmark, User, FileText, CheckCircle2, Pencil, X, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -75,6 +76,92 @@ function EditableSection({ title, icon: Icon, fields, form, onChange }) {
       </div>
     </div>
   );
+}
+
+function downloadPayoutPDF(inv, entity) {
+  const doc = new jsPDF();
+  doc.setFontSize(20);
+  doc.setTextColor(31, 111, 255);
+  doc.text("DutyBoost", 20, 20);
+  doc.setFontSize(10);
+  doc.setTextColor(100);
+  doc.text("DutyBoost B.V. · hello@dutyboost.com · dutyboost.com", 20, 28);
+
+  doc.setFontSize(15);
+  doc.setTextColor(31, 111, 255);
+  doc.text(`Payout Statement — ${inv.month}`, 20, 45);
+  doc.setFontSize(10);
+  doc.setTextColor(80);
+  doc.text(`Agency: ${entity?.name || "Travel Agency"}`, 20, 53);
+  doc.text(`Paid out: ${inv.date}`, 20, 59);
+  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 65);
+
+  doc.setFillColor(235, 242, 255);
+  doc.roundedRect(20, 74, 170, 38, 3, 3, "F");
+  doc.setFontSize(10);
+  doc.setTextColor(80);
+  doc.text("Revenue share from airport retailer commissions (20% of 5% fee):", 25, 84);
+  doc.setFontSize(14);
+  doc.setTextColor(0, 196, 140);
+  doc.setFont(undefined, "bold");
+  doc.text(inv.amount, 170, 98, { align: "right" });
+  doc.setFont(undefined, "normal");
+  doc.setFontSize(10);
+  doc.setTextColor(80);
+  doc.text("Status:", 25, 106);
+  doc.setTextColor(0, 140, 80);
+  doc.text(inv.status, 70, 106);
+
+  doc.setFontSize(9);
+  doc.setTextColor(150);
+  doc.line(20, 120, 190, 120);
+  doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, 127);
+  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, 133);
+
+  doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
+}
+
+function downloadInvoicePDF(inv, entity) {
+  const doc = new jsPDF();
+  doc.setFontSize(20);
+  doc.setTextColor(31, 111, 255);
+  doc.text("DutyBoost", 20, 20);
+  doc.setFontSize(10);
+  doc.setTextColor(100);
+  doc.text("DutyBoost B.V. · hello@dutyboost.com · dutyboost.com", 20, 28);
+
+  doc.setFontSize(15);
+  doc.setTextColor(31, 111, 255);
+  doc.text(`Invoice — ${inv.month}`, 20, 45);
+  doc.setFontSize(10);
+  doc.setTextColor(80);
+  doc.text(`Retailer: ${entity?.name || "Airport Retailer"}`, 20, 53);
+  doc.text(`Issued: ${inv.date}`, 20, 59);
+  doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, 65);
+
+  doc.setFillColor(235, 242, 255);
+  doc.roundedRect(20, 74, 170, 38, 3, 3, "F");
+  doc.setFontSize(10);
+  doc.setTextColor(80);
+  doc.text("Platform fee (5% of total redemption value processed via DutyBoost):", 25, 84);
+  doc.setFontSize(14);
+  doc.setTextColor(31, 111, 255);
+  doc.setFont(undefined, "bold");
+  doc.text(inv.amount, 170, 98, { align: "right" });
+  doc.setFont(undefined, "normal");
+  doc.setFontSize(10);
+  doc.setTextColor(80);
+  doc.text("Status:", 25, 106);
+  doc.setTextColor(0, 140, 80);
+  doc.text(inv.status, 70, 106);
+
+  doc.setFontSize(9);
+  doc.setTextColor(150);
+  doc.line(20, 120, 190, 120);
+  doc.text("This invoice is issued by DutyBoost B.V. for tax and accounting purposes.", 20, 127);
+  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, 133);
+
+  doc.save(`DutyBoost_Invoice_${inv.month.replace(/ /g, "_")}.pdf`);
 }
 
 export default function DemoProfileTab({ entity, entityType = "agency" }) {
@@ -176,7 +263,9 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
               <div className="flex items-center gap-4">
                 <span className="text-sm font-semibold">{inv.amount}</span>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold">{inv.status}</span>
-                <button className="text-xs text-primary hover:underline flex items-center gap-1">
+                <button
+                  onClick={() => entityType === "agency" ? downloadPayoutPDF(inv, entity) : downloadInvoicePDF(inv, entity)}
+                  className="text-xs text-primary hover:underline flex items-center gap-1">
                   <Download className="w-3 h-3" /> PDF
                 </button>
               </div>
