@@ -5,7 +5,8 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar } from "lucide-react";
+import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users } from "lucide-react";
+import AdminAccountsView from "../components/AdminAccountsView";
 import StatsCard from "../components/StatsCard";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e", "#8b5cf6"];
@@ -16,6 +17,7 @@ export default function AdminDashboard() {
   const [vouchers, setVouchers] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
@@ -123,8 +125,26 @@ export default function AdminDashboard() {
     );
   }
 
+  const tabs = [
+    { id: "dashboard", label: "Analytics", icon: LayoutDashboard },
+    { id: "accounts", label: "All Accounts", icon: Users },
+  ];
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
+      {/* Tab bar */}
+      <div className="flex gap-1 border-b border-border">
+        {tabs.map(({ id, label, icon: Icon }) => (
+          <button key={id} onClick={() => setActiveTab(id)}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
+              activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}>
+            <Icon className="w-4 h-4" /> {label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === "accounts" ? <AdminAccountsView /> : (<>
       <div>
         <h1 className="text-2xl font-heading font-bold tracking-tight flex items-center gap-2">
           <BarChart2 className="w-6 h-6 text-primary" /> Analytics Dashboard
@@ -268,6 +288,7 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+      </> )}
     </div>
   );
 }

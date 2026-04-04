@@ -1,8 +1,10 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
+import ProfileTab from "../components/ProfileTab";
+import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import VoucherCard from "../components/VoucherCard";
-import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2 } from "lucide-react";
+import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,6 +22,7 @@ export default function AgencyDashboard() {
   const [user, setUser] = useState(null);
   const [bankForm, setBankForm] = useState({ bank_account_name: "", bank_iban: "" });
   const [bankSaving, setBankSaving] = useState(false);
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
@@ -89,8 +92,28 @@ export default function AgencyDashboard() {
     { name: "Expired", value: filteredVouchers.filter(v => v.status === "expired").length },
   ].filter(d => d.value > 0);
 
+  const tabs = [
+    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "profile", label: "Profile & Billing", icon: UserCircle },
+  ];
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
+      {/* Tab bar */}
+      <div className="flex gap-1 border-b border-border">
+        {tabs.map(({ id, label, icon: Icon }) => (
+          <button key={id} onClick={() => setActiveTab(id)}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
+              activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}>
+            <Icon className="w-4 h-4" /> {label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === "profile" ? (
+        <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} />} />
+      ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
         <span className="text-sm text-muted-foreground font-medium">Period:</span>
@@ -171,51 +194,7 @@ export default function AgencyDashboard() {
       )}
 
       <NotificationPreferences />
-      <AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} />
-
-      {/* Bank details */}
-      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-            <Landmark className="w-5 h-5 text-emerald-600" />
-          </div>
-          <div>
-            <h3 className="font-heading font-semibold">Bank Details for Commission Payouts</h3>
-            <p className="text-sm text-muted-foreground">DutyBoost will transfer your earned commission directly to this account each month.</p>
-          </div>
-        </div>
-        {user?.bank_iban && (
-          <div className="flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 rounded-lg px-3 py-2">
-            <CheckCircle2 className="w-4 h-4" />
-            Bank details on file: <span className="font-mono font-medium">{user.bank_iban}</span>
-          </div>
-        )}
-        <form onSubmit={handleSaveBank} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Account Holder Name</Label>
-              <Input
-                placeholder="e.g. Sunweb Group B.V."
-                value={bankForm.bank_account_name}
-                onChange={e => setBankForm(f => ({ ...f, bank_account_name: e.target.value }))}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label>IBAN</Label>
-              <Input
-                placeholder="e.g. NL91ABNA0417164300"
-                value={bankForm.bank_iban}
-                onChange={e => setBankForm(f => ({ ...f, bank_iban: e.target.value.toUpperCase() }))}
-                required
-              />
-            </div>
-          </div>
-          <Button type="submit" disabled={bankSaving} className="gap-2">
-            {bankSaving ? "Saving..." : "Save Bank Details"}
-          </Button>
-        </form>
-      </div>
+      </> )}
     </div>
   );
 }

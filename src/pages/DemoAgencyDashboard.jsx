@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar } from "lucide-react";
+import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar, LayoutDashboard, UserCircle } from "lucide-react";
+import DemoProfileTab from "../components/DemoProfileTab";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY } from "../data/demoData";
 
@@ -13,6 +14,7 @@ export default function DemoAgencyDashboard() {
   const [selectedAgency, setSelectedAgency] = useState(TRAVEL_AGENCIES[0]);
   const [showBookings, setShowBookings] = useState(true);
   const [showRedeemed, setShowRedeemed] = useState(true);
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState("2025-10-01");
   const [customEnd, setCustomEnd] = useState("2026-03-31");
@@ -84,7 +86,20 @@ export default function DemoAgencyDashboard() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-8">
+      <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
+        {/* Tabs */}
+        <div className="flex gap-1 border-b border-border">
+          {[{ id: "dashboard", label: "Dashboard", icon: LayoutDashboard }, { id: "profile", label: "Profile & Billing", icon: UserCircle }].map(({ id, label, icon: Icon }) => (
+            <button key={id} onClick={() => setActiveTab(id)}
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
+                activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
+              }`}>
+              <Icon className="w-4 h-4" /> {label}
+            </button>
+          ))}
+        </div>
+
+        {activeTab === "profile" ? <DemoProfileTab entity={selectedAgency} entityType="agency" /> : (<>
         {/* Welcome */}
         <div>
           <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — Agency Dashboard</h1>
@@ -254,6 +269,7 @@ export default function DemoAgencyDashboard() {
             ))}
           </div>
         </div>
+        </> )}
       </div>
     </div>
   );

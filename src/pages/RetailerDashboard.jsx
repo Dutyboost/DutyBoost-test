@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle } from "lucide-react";
+import ProfileTab from "../components/ProfileTab";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
 } from "recharts";
@@ -23,12 +24,16 @@ export default function RetailerDashboard() {
 
   const [overdueInvoice, setOverdueInvoice] = useState(null);
   const [feedback, setFeedback] = useState([]);
+  const [user, setUser] = useState(null);
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   const loadData = async () => {
-    const user = await base44.auth.me();
+    const u = await base44.auth.me();
+    setUser(u);
+    const user = u;
     const [rets, txns, vchs, aps, invoices, fb] = await Promise.all([
       base44.entities.Retailer.filter({ owner_email: user.email }),
       base44.entities.Transaction.list('-created_date', 50),
@@ -146,8 +151,28 @@ export default function RetailerDashboard() {
     );
   }
 
+  const tabs = [
+    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "profile", label: "Profile & Billing", icon: UserCircle },
+  ];
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
+      {/* Tab bar */}
+      <div className="flex gap-1 border-b border-border">
+        {tabs.map(({ id, label, icon: Icon }) => (
+          <button key={id} onClick={() => setActiveTab(id)}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
+              activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}>
+            <Icon className="w-4 h-4" /> {label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === "profile" ? (
+        <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} />} />
+      ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
         <span className="text-sm text-muted-foreground font-medium">Period:</span>
@@ -355,7 +380,7 @@ export default function RetailerDashboard() {
         );
       })()}
 
-      <RetailerInvoiceDownload transactions={transactions} retailers={retailers} />
+      </> )}
     </div>
   );
 }
