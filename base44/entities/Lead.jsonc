@@ -50,8 +50,6 @@
     "industry",
     "email",
     "phone",
-    "full_name",
-    "position",
-    "decision_level"
+    "full_name"
   ]
 }
