@@ -14,6 +14,9 @@ export default function GetInTouchForm() {
     industry: "",
     email: "",
     phone: "",
+    full_name: "",
+    position: "",
+    decision_level: "",
   });
 
   const handleChange = (e) => {
@@ -24,7 +27,7 @@ export default function GetInTouchForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!form.company_name || !form.website || !form.industry || !form.email || !form.phone) {
+    if (!form.company_name || !form.website || !form.industry || !form.email || !form.phone || !form.full_name || !form.position || !form.decision_level) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -35,12 +38,15 @@ export default function GetInTouchForm() {
         company_name: form.company_name,
         website: form.website,
         industry: form.industry,
-        email: form.email || null,
-        phone: form.phone || null,
+        email: form.email,
+        phone: form.phone,
+        full_name: form.full_name,
+        position: form.position,
+        decision_level: form.decision_level,
       });
       
       toast.success("Thank you! We'll be in touch soon.");
-      setForm({ company_name: "", website: "", industry: "", email: "", phone: "" });
+      setForm({ company_name: "", website: "", industry: "", email: "", phone: "", full_name: "", position: "", decision_level: "" });
     } catch (error) {
       toast.error("Failed to submit. Please try again.");
     } finally {
@@ -112,6 +118,47 @@ export default function GetInTouchForm() {
           placeholder="+31 6 1234 5678"
           required
         />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="full_name" className="text-sm">Full Name *</Label>
+        <Input
+          id="full_name"
+          name="full_name"
+          value={form.full_name}
+          onChange={handleChange}
+          placeholder="Your full name"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="position" className="text-sm">Position within the Company *</Label>
+        <Input
+          id="position"
+          name="position"
+          value={form.position}
+          onChange={handleChange}
+          placeholder="e.g., Manager, Director"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="decision_level" className="text-sm">Decision Making Level *</Label>
+        <select
+          id="decision_level"
+          name="decision_level"
+          value={form.decision_level}
+          onChange={handleChange}
+          className="w-full px-3 py-2 border border-input rounded-md bg-background text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+          required
+        >
+          <option value="">Select level</option>
+          <option value="Executive">Executive</option>
+          <option value="Manager">Manager</option>
+          <option value="Staff">Staff</option>
+        </select>
       </div>
 
       <Button type="submit" className="w-full gap-2" disabled={loading}>

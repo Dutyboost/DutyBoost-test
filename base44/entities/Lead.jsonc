@@ -25,11 +25,33 @@
     "phone": {
       "type": "string",
       "title": "Phone"
+    },
+    "full_name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "position": {
+      "type": "string",
+      "title": "Position within the Company"
+    },
+    "decision_level": {
+      "type": "string",
+      "title": "Decision Making Level",
+      "enum": [
+        "Executive",
+        "Manager",
+        "Staff"
+      ]
     }
   },
   "required": [
     "company_name",
     "website",
-    "industry"
+    "industry",
+    "email",
+    "phone",
+    "full_name",
+    "position",
+    "decision_level"
   ]
 }
