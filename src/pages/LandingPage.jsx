@@ -11,7 +11,6 @@ import {
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
-import GetInTouchModal from "../components/GetInTouchModal";
 import WeCallYouModal from "../components/WeCallYouModal";
 
 const stakeholders = [
@@ -103,11 +102,11 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
-            <GetInTouchModal trigger={(setOpen) => (
-              <Button size="sm" className="gap-1" onClick={() => setOpen(true)}>
+            <Link to="/get-started">
+              <Button size="sm" className="gap-1">
                 Get Started <ChevronRight className="w-3 h-3" />
               </Button>
-            )} />
+            </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" onClick={() => setOpen(true)}>
                 We Call You
