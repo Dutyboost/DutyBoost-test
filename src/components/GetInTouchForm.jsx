@@ -96,14 +96,13 @@ export default function GetInTouchForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-sm">Email *</Label>
+        <Label htmlFor="full_name" className="text-sm">Full Name *</Label>
         <Input
-          id="email"
-          name="email"
-          type="email"
-          value={form.email}
+          id="full_name"
+          name="full_name"
+          value={form.full_name}
           onChange={handleChange}
-          placeholder="your@email.com"
+          placeholder="Your full name"
           required
         />
       </div>
@@ -121,13 +120,14 @@ export default function GetInTouchForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="full_name" className="text-sm">Full Name *</Label>
+        <Label htmlFor="email" className="text-sm">Email *</Label>
         <Input
-          id="full_name"
-          name="full_name"
-          value={form.full_name}
+          id="email"
+          name="email"
+          type="email"
+          value={form.email}
           onChange={handleChange}
-          placeholder="Your full name"
+          placeholder="your@email.com"
           required
         />
       </div>
