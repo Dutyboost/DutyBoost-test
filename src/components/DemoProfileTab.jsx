@@ -191,26 +191,9 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.setFont(undefined, "normal");
   abY += 14;
 
-  const payoutSummaryY = abY + 2;
-  doc.setFillColor(235, 242, 255);
-  doc.roundedRect(20, payoutSummaryY, 170, 38, 3, 3, "F");
-  doc.setFontSize(10);
-  doc.setTextColor(80);
-  doc.text("Revenue share from airport retailer commissions (20% of 5% fee):", 25, payoutSummaryY + 10);
-  doc.setFontSize(14);
-  doc.setTextColor(0, 196, 140);
-  doc.setFont(undefined, "bold");
-  doc.text(`€ ${totalCommAll.toFixed(2)}`, 170, payoutSummaryY + 24, { align: "right" });
-  doc.setFont(undefined, "normal");
-  doc.setFontSize(10);
-  doc.setTextColor(80);
-  doc.text("Status:", 25, payoutSummaryY + 32);
-  doc.setTextColor(0, 140, 80);
-  doc.text(inv.status, 70, payoutSummaryY + 32);
-
   doc.setFontSize(9);
   doc.setTextColor(150);
-  const payoutLineY = payoutSummaryY + 46;
+  const payoutLineY = abY + 4;
   doc.line(20, payoutLineY, 190, payoutLineY);
   doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
   doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
