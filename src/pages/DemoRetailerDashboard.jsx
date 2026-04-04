@@ -9,7 +9,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoData";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
-const CAT_COLORS = { "Duty-free": "#2563eb", "Food": "#f97316", "Retail": "#10b981" };
+const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
 
 export default function DemoRetailerDashboard() {
   const [selectedAirport, setSelectedAirport] = useState("AMS");
@@ -63,7 +63,7 @@ export default function DemoRetailerDashboard() {
   const periodNetRevenue = (periodRevenue * 0.95).toFixed(2);
   const periodAvg = periodRedemptions > 0 ? (periodRevenue / periodRedemptions).toFixed(0) : avgPerRedemption;
 
-  const catBreakdown = ["Duty-free", "Food", "Retail"].map(cat => ({
+  const catBreakdown = ["Retail", "Food & Beverage"].map(cat => ({
     name: cat,
     value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
   })).filter(c => c.value > 0);

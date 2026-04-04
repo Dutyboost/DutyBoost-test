@@ -4,9 +4,8 @@ import { Store, MapPin, ShoppingBag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const categoryIcons = {
-  "Duty-free": ShoppingBag,
-  Food: Store,
-  Retail: Store,
+  "Retail": ShoppingBag,
+  "Food & Beverage": Store,
 };
 
 export default function RetailersPage() {

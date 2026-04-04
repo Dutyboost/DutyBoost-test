@@ -18,7 +18,7 @@ const byAirport = AIRPORTS.map(ap => {
   return { airport: ap.name, code: ap.code, revenue: rev, fee, payout, profit: fee * 0.80 };
 });
 
-const byCategory = ["Duty-free", "Retail", "Food"].map(cat => {
+const byCategory = ["Retail", "Food & Beverage"].map(cat => {
   const catRetailers = RETAILERS.filter(r => r.category === cat);
   const rev = catRetailers.reduce((s, r) => s + r.revenue, 0);
   return { name: cat, revenue: rev, fee: rev * 0.05 };

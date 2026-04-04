@@ -397,9 +397,8 @@ export default function GetStarted() {
                     <Select value={storeCategory} onValueChange={setStoreCategory}>
                       <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Duty-free">Duty-free</SelectItem>
-                        <SelectItem value="Food">Food & Beverage</SelectItem>
                         <SelectItem value="Retail">Retail</SelectItem>
+                        <SelectItem value="Food & Beverage">Food & Beverage</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

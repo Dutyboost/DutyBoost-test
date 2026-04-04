@@ -14,9 +14,8 @@
       "type": "string",
       "title": "Category",
       "enum": [
-        "Duty-free",
-        "Food",
-        "Retail"
+        "Retail",
+        "Food & Beverage"
       ]
     },
     "description": {
