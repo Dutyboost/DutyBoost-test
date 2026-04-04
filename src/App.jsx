@@ -33,6 +33,7 @@ import AirportMap from './pages/AirportMap';
 import DemoLanding from './pages/DemoLanding';
 import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
 import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
+import DemoAdminDashboard from './pages/DemoAdminDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -51,7 +52,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -62,6 +63,7 @@ const AuthenticatedApp = () => {
             <Route path="/demo" element={<DemoLanding />} />
             <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
             <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
+            <Route path="/demo/admin" element={<DemoAdminDashboard />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/refunds" element={<RefundPolicy />} />
@@ -89,6 +91,7 @@ const AuthenticatedApp = () => {
       <Route path="/demo" element={<DemoLanding />} />
       <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
       <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
+      <Route path="/demo/admin" element={<DemoAdminDashboard />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />

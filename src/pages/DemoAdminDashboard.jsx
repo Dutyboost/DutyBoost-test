@@ -1,0 +1,258 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { TrendingUp, Store, Plane, ArrowLeft, Receipt, Wallet, DollarSign, ChevronDown, ChevronUp } from "lucide-react";
+import DutyBoostLogo from "../components/DutyBoostLogo";
+import { RETAILERS, TRAVEL_AGENCIES, MONTHLY_DATA, AIRPORTS } from "../data/demoData";
+
+// --- Financials derived from demo data ---
+// Retailer invoices: revenue × 5% = platform fee
+// Agency payouts: revenue × 5% × 20% = agency commission (= platform fee × 20%)
+// Net profit: platform fee − agency commission = platform fee × 80%
+
+const totalRetailerRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
+const totalPlatformFee = totalRetailerRevenue * 0.05;
+const totalAgencyPayout = totalPlatformFee * 0.20;
+const totalNetProfit = totalPlatformFee * 0.80;
+
+const byAirport = AIRPORTS.map(ap => {
+  const apRetailers = RETAILERS.filter(r => r.airport === ap.code);
+  const rev = apRetailers.reduce((s, r) => s + r.revenue, 0);
+  const fee = rev * 0.05;
+  const payout = fee * 0.20;
+  return { airport: ap.name, code: ap.code, revenue: rev, fee, payout, profit: fee * 0.80 };
+});
+
+const byCategory = ["Duty-free", "Retail", "Food"].map(cat => {
+  const catRetailers = RETAILERS.filter(r => r.category === cat);
+  const rev = catRetailers.reduce((s, r) => s + r.revenue, 0);
+  return { name: cat, revenue: rev, fee: rev * 0.05 };
+});
+
+const monthlyFinancials = MONTHLY_DATA.map(m => ({
+  month: m.month,
+  fee: m.revenue * 0.05,
+  payout: m.revenue * 0.05 * 0.20,
+  profit: m.revenue * 0.05 * 0.80,
+}));
+
+const topRetailers = [...RETAILERS].sort((a, b) => b.revenue - a.revenue).slice(0, 8);
+const topAgencies = [...TRAVEL_AGENCIES].sort((a, b) => b.commission - a.commission).slice(0, 8);
+
+const PIE_COLORS = ["#1f6fff", "#ff7a00", "#00c48c", "#9b5de5", "#f15bb5"];
+
+function StatCard({ label, value, sub, icon: Icon, color = "text-primary", bg = "bg-primary/10" }) {
+  return (
+    <div className="bg-card border border-border rounded-xl p-5 flex items-start gap-4">
+      <div className={`w-11 h-11 rounded-lg ${bg} flex items-center justify-center shrink-0`}>
+        <Icon className={`w-5 h-5 ${color}`} />
+      </div>
+      <div>
+        <p className="text-xs text-muted-foreground font-medium">{label}</p>
+        <p className={`text-2xl font-heading font-bold ${color}`}>{value}</p>
+        {sub && <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>}
+      </div>
+    </div>
+  );
+}
+
+function Section({ title, children, defaultOpen = true }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="bg-card border border-border rounded-xl overflow-hidden">
+      <button onClick={() => setOpen(o => !o)} className="w-full flex items-center justify-between px-6 py-4 hover:bg-muted/30 transition-colors">
+        <h2 className="font-heading font-semibold text-base">{title}</h2>
+        {open ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+      </button>
+      {open && <div className="px-6 pb-6">{children}</div>}
+    </div>
+  );
+}
+
+const fmt = (n) => `€ ${n.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+export default function DemoAdminDashboard() {
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <nav className="border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 bg-background/95 backdrop-blur z-10">
+        <Link to="/"><DutyBoostLogo height={130} /></Link>
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">Admin · Demo Mode</span>
+          <Link to="/demo" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <ArrowLeft className="w-4 h-4" /> Back
+          </Link>
+        </div>
+      </nav>
+
+      <div className="max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
+        <div>
+          <h1 className="text-2xl font-heading font-bold">Platform Finance Overview</h1>
+          <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 5% fee; 20% of that is paid out to travel agencies.</p>
+        </div>
+
+        {/* KPI row */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <StatCard label="Total Retailer Revenue" value={fmt(totalRetailerRevenue)} sub="Across all airports" icon={Store} color="text-primary" bg="bg-primary/10" />
+          <StatCard label="Platform Fees Invoiced" value={fmt(totalPlatformFee)} sub="5% of retailer revenue" icon={Receipt} color="text-amber-600" bg="bg-amber-50" />
+          <StatCard label="Agency Payouts" value={fmt(totalAgencyPayout)} sub="20% of platform fee" icon={Wallet} color="text-indigo-600" bg="bg-indigo-50" />
+          <StatCard label="Net Platform Profit" value={fmt(totalNetProfit)} sub="80% of platform fee" icon={DollarSign} color="text-emerald-600" bg="bg-emerald-50" />
+        </div>
+
+        {/* Profit formula */}
+        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-800 flex flex-wrap gap-2 items-center font-medium">
+          <span>Retailer Revenue {fmt(totalRetailerRevenue)}</span>
+          <span className="text-emerald-400">×5%→</span>
+          <span>Platform Fee {fmt(totalPlatformFee)}</span>
+          <span className="text-emerald-400">−20%→</span>
+          <span>Agency Payouts {fmt(totalAgencyPayout)}</span>
+          <span className="text-emerald-400">=</span>
+          <span className="font-bold text-emerald-700">Net Profit {fmt(totalNetProfit)}</span>
+        </div>
+
+        {/* Monthly trend */}
+        <Section title="Monthly Platform Financials">
+          <ResponsiveContainer width="100%" height={240}>
+            <BarChart data={monthlyFinancials} barCategoryGap="30%">
+              <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `€${(v/1000).toFixed(1)}k`} />
+              <Tooltip formatter={(v, n) => [fmt(v), n]} />
+              <Legend />
+              <Bar dataKey="fee" name="Platform Fee" fill="#1f6fff" radius={[3,3,0,0]} />
+              <Bar dataKey="payout" name="Agency Payout" fill="#9b5de5" radius={[3,3,0,0]} />
+              <Bar dataKey="profit" name="Net Profit" fill="#00c48c" radius={[3,3,0,0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </Section>
+
+        {/* By airport */}
+        <Section title="Invoices & Payouts by Airport">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border text-left text-xs text-muted-foreground">
+                  <th className="pb-2 font-medium">Airport</th>
+                  <th className="pb-2 font-medium text-right">Retailer Revenue</th>
+                  <th className="pb-2 font-medium text-right">Platform Fee (5%)</th>
+                  <th className="pb-2 font-medium text-right">Agency Payout (20%)</th>
+                  <th className="pb-2 font-medium text-right">Net Profit (80%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {byAirport.map((row, i) => (
+                  <tr key={row.code} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/20" : ""}`}>
+                    <td className="py-2.5 font-medium">{row.airport} <span className="text-xs text-muted-foreground">({row.code})</span></td>
+                    <td className="py-2.5 text-right">{fmt(row.revenue)}</td>
+                    <td className="py-2.5 text-right text-amber-700 font-semibold">{fmt(row.fee)}</td>
+                    <td className="py-2.5 text-right text-indigo-600">{fmt(row.payout)}</td>
+                    <td className="py-2.5 text-right text-emerald-600 font-semibold">{fmt(row.profit)}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-muted/40 font-bold text-sm">
+                  <td className="py-2.5">Total</td>
+                  <td className="py-2.5 text-right">{fmt(totalRetailerRevenue)}</td>
+                  <td className="py-2.5 text-right text-amber-700">{fmt(totalPlatformFee)}</td>
+                  <td className="py-2.5 text-right text-indigo-600">{fmt(totalAgencyPayout)}</td>
+                  <td className="py-2.5 text-right text-emerald-600">{fmt(totalNetProfit)}</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </Section>
+
+        {/* Category breakdown + pie */}
+        <Section title="Revenue by Retailer Category">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ResponsiveContainer width="100%" height={220}>
+              <PieChart>
+                <Pie data={byCategory} dataKey="fee" nameKey="name" cx="50%" cy="50%" outerRadius={85} label={({ name, percent }) => `${name} ${(percent*100).toFixed(0)}%`}>
+                  {byCategory.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
+                </Pie>
+                <Tooltip formatter={(v) => fmt(v)} />
+              </PieChart>
+            </ResponsiveContainer>
+            <div className="space-y-3 self-center">
+              {byCategory.map((c, i) => (
+                <div key={c.name} className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full" style={{ background: PIE_COLORS[i] }} />
+                    <span>{c.name}</span>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-semibold">{fmt(c.fee)} <span className="text-xs font-normal text-muted-foreground">fee</span></p>
+                    <p className="text-xs text-muted-foreground">{fmt(c.revenue)} revenue</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        {/* Top retailers */}
+        <Section title="Top Retailers — Invoice Overview">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border text-left text-xs text-muted-foreground">
+                  <th className="pb-2 font-medium">Store</th>
+                  <th className="pb-2 font-medium">Airport</th>
+                  <th className="pb-2 font-medium">Category</th>
+                  <th className="pb-2 font-medium text-right">Revenue</th>
+                  <th className="pb-2 font-medium text-right">Invoice (5%)</th>
+                  <th className="pb-2 font-medium text-right">+VAT 21%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topRetailers.map((r, i) => {
+                  const fee = r.revenue * 0.05;
+                  return (
+                    <tr key={r.id} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/20" : ""}`}>
+                      <td className="py-2.5 font-medium">{r.name}</td>
+                      <td className="py-2.5 text-muted-foreground">{r.airport}</td>
+                      <td className="py-2.5"><span className="text-xs px-2 py-0.5 rounded-full bg-muted">{r.category}</span></td>
+                      <td className="py-2.5 text-right">{fmt(r.revenue)}</td>
+                      <td className="py-2.5 text-right text-amber-700 font-semibold">{fmt(fee)}</td>
+                      <td className="py-2.5 text-right text-muted-foreground">{fmt(fee * 1.21)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Section>
+
+        {/* Top agencies */}
+        <Section title="Top Travel Agencies — Payout Overview">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border text-left text-xs text-muted-foreground">
+                  <th className="pb-2 font-medium">Agency</th>
+                  <th className="pb-2 font-medium">City</th>
+                  <th className="pb-2 font-medium text-right">Redemptions</th>
+                  <th className="pb-2 font-medium text-right">Commission Payout</th>
+                  <th className="pb-2 font-medium text-right">% of Total Payout</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topAgencies.map((ag, i) => (
+                  <tr key={ag.id} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/20" : ""}`}>
+                    <td className="py-2.5 font-medium">{ag.name}</td>
+                    <td className="py-2.5 text-muted-foreground">{ag.city}</td>
+                    <td className="py-2.5 text-right">{ag.redeemed.toLocaleString()}</td>
+                    <td className="py-2.5 text-right text-indigo-600 font-semibold">{fmt(ag.commission)}</td>
+                    <td className="py-2.5 text-right text-muted-foreground">{((ag.commission / totalAgencyPayout) * 100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Section>
+
+        <p className="text-center text-xs text-muted-foreground pb-4">Demo data only. No real transactions are represented.</p>
+      </div>
+    </div>
+  );
+}
