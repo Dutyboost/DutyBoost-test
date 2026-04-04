@@ -12,6 +12,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import GetInTouchModal from "../components/GetInTouchModal";
+import WeCallYouModal from "../components/WeCallYouModal";
 
 const stakeholders = [
   {
@@ -105,6 +106,11 @@ export default function LandingPage() {
             <GetInTouchModal trigger={(setOpen) => (
               <Button size="sm" className="gap-1" onClick={() => setOpen(true)}>
                 Get Started <ChevronRight className="w-3 h-3" />
+              </Button>
+            )} />
+            <WeCallYouModal trigger={(setOpen) => (
+              <Button size="sm" variant="outline" onClick={() => setOpen(true)}>
+                We Call You
               </Button>
             )} />
           </div>
