@@ -189,12 +189,15 @@ export default function DemoAdminDashboard() {
         {/* Category breakdown + pie */}
         <Section title="Revenue by Retailer Category">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ResponsiveContainer width="100%" height={220}>
+            <ResponsiveContainer width="100%" height={260}>
               <PieChart>
-                <Pie data={byCategory} dataKey="fee" nameKey="name" cx="50%" cy="50%" outerRadius={85} label={({ name, percent }) => `${name} ${(percent*100).toFixed(0)}%`}>
+                <Pie data={byCategory} dataKey="fee" nameKey="name" cx="50%" cy="50%" outerRadius={75}
+                  label={({ name, percent }) => `${name} ${(percent*100).toFixed(0)}%`}
+                  labelLine={true}>
                   {byCategory.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
                 <Tooltip formatter={(v) => fmt(v)} />
+                <Legend />
               </PieChart>
             </ResponsiveContainer>
             <div className="space-y-3 self-center">
