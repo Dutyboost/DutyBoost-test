@@ -125,7 +125,7 @@ function downloadPayoutPDF(inv, entity, profile) {
   const payoutLineY = payoutBoxY + 46;
   doc.line(20, payoutLineY, 190, payoutLineY);
   doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
-  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, 133);
+  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
 
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
 }
@@ -191,7 +191,7 @@ function downloadInvoicePDF(inv, entity, profile) {
   doc.line(20, invLineY, 190, invLineY);
   doc.text("All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.", 20, invLineY + 7);
   doc.text("This invoice is issued by DutyBoost B.V. for tax and accounting purposes.", 20, invLineY + 13);
-  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, 133);
+  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, invLineY + 20);
 
   doc.save(`DutyBoost_Invoice_${inv.month.replace(/ /g, "_")}.pdf`);
 }
