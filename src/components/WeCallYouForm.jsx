@@ -56,7 +56,7 @@ export default function WeCallYouForm({ onSuccess }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-3 overflow-y-auto flex-1">
       <div className="space-y-2">
         <Label htmlFor="full_name" className="text-sm">Your Name *</Label>
         <Input

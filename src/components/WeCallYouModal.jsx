@@ -8,7 +8,7 @@ export default function WeCallYouModal({ trigger }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && trigger(setOpen)}
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl h-[95vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>We'll Call You</DialogTitle>
         </DialogHeader>
