@@ -24,7 +24,7 @@ const byCategory = ["Retail", "Food & Beverage"].map(cat => {
   return { name: cat, revenue: rev, fee: rev * 0.05 };
 });
 
-const topRetailers = [...RETAILERS].sort((a, b) => b.revenue - a.revenue).slice(0, 8);
+const topRetailers = [...RETAILERS].sort((a, b) => b.revenue - a.revenue);
 const topAgencies = [...TRAVEL_AGENCIES].sort((a, b) => b.commission - a.commission).slice(0, 8);
 
 const PIE_COLORS = ["#1f6fff", "#ff7a00", "#00c48c", "#9b5de5", "#f15bb5"];
@@ -218,7 +218,7 @@ export default function DemoAdminDashboard() {
         </Section>
 
         {/* Top retailers */}
-        <Section title="Top Retailers — Invoice Overview">
+        <Section title="All Retailers — Invoice Overview">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
