@@ -42,6 +42,7 @@ import CorporateTravelAdmin from './pages/CorporateTravelAdmin';
 import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
 import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
+import TravelerApp from './pages/TravelerApp';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -111,6 +112,7 @@ const AuthenticatedApp = () => {
       <Route path="/corporate-dashboard" element={<CorporateTravelDashboard />} />
       <Route path="/demo/corporate" element={<DemoCorporateDashboard />} />
       <Route path="/corporate-budget" element={<CorporateBudgetAllocation />} />
+      <Route path="/traveler" element={<TravelerApp />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />
       <Route path="/refunds" element={<RefundPolicy />} />
