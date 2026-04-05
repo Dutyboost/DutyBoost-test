@@ -5,7 +5,8 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users } from "lucide-react";
+import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users, Contact } from "lucide-react";
+import LeadsAdmin from "./LeadsAdmin";
 import AdminAccountsView from "../components/AdminAccountsView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import StatsCard from "../components/StatsCard";
@@ -129,6 +130,7 @@ export default function AdminDashboard() {
   const tabs = [
     { id: "dashboard", label: "Analytics", icon: LayoutDashboard },
     { id: "accounts", label: "All Accounts", icon: Users },
+    { id: "leads", label: "Leads", icon: Contact },
   ];
 
   return (
@@ -145,7 +147,7 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      {activeTab === "accounts" ? <AdminAccountsView /> : (<>
+      {activeTab === "accounts" ? <AdminAccountsView /> : activeTab === "leads" ? <LeadsAdmin /> : (<>
       <div>
         <h1 className="text-2xl font-heading font-bold tracking-tight flex items-center gap-2">
           <BarChart2 className="w-6 h-6 text-primary" /> Analytics Dashboard
