@@ -97,19 +97,19 @@ export default function LandingPage() {
           </div>
           <div className="flex items-center gap-3">
 {/* Business Travel button hidden - pending business model review */}
-            <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
+            <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
             <Link to="/get-started">
               <Button size="sm" className="gap-1">
                 Get Started <ChevronRight className="w-3 h-3" />
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" onClick={() => setOpen(true)}>
+              <Button size="sm" variant="outline" className="text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => setOpen(true)}>
                 We Call You
               </Button>
             )} />
             <Link to="/demo">
-              <Button variant="outline" size="sm" className="gap-1.5">
+              <Button variant="outline" size="sm" className="gap-1.5 text-accent border-accent hover:text-accent hover:bg-accent/5">
                 <Eye className="w-3.5 h-3.5" /> Live Demo
               </Button>
             </Link>
