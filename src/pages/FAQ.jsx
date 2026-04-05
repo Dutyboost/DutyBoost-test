@@ -90,8 +90,29 @@ const faqs = [
     ],
   },
   {
-    category: "Platform & Security",
-    questions: [
+   category: "Integration & Technical",
+   questions: [
+     {
+       q: "What do airport retailers need to implement to accept DutyCredits?",
+       a: "There are two options: (1) Zero Integration: Use the DutyBoost Retailer Scan app on a tablet/phone at the till — the cashier scans the QR, and DutyBoost returns the discount to apply manually. (2) POS API Integration: Your POS system calls our redemption API directly when scanning a QR, and the discount is applied automatically. Most retailers start with option 1; larger operations integrate with option 2.",
+     },
+     {
+       q: "What do travel agencies need to do to implement DutyBoost on their booking confirmation page?",
+       a: "Your confirmation page should include a simple snippet or widget provided by DutyBoost. This snippet calls our API with booking details (ticket price, airport, traveler email, travel date, number of travelers). DutyBoost generates the QR code and sends it directly to the traveler's email — no manual work required on your end.",
+     },
+     {
+       q: "Is there an API for travel agencies to call?",
+       a: "Not required. DutyBoost connects directly to your booking system (Amadeus, Sabre, Travelport, etc.) during onboarding. From that point on, DutyCredits are generated automatically with zero API work. If you prefer a custom integration or have a bespoke booking engine, contact our sales team to discuss direct API access.",
+     },
+     {
+       q: "What does the retailer API require?",
+       a: "For POS integration, retailers call a single endpoint passing: the QR token, transaction amount, and merchant ID. DutyBoost returns approval/rejection with the discount amount. The retailer's POS handles the rest (receipt, accounting, etc.).",
+     },
+   ],
+  },
+  {
+   category: "Platform & Security",
+   questions: [
       {
         q: "Is DutyBoost secure?",
         a: "Yes. Every DutyCredit is cryptographically unique and single-use. Once redeemed, it is permanently invalidated. Our platform uses industry-standard encryption (TLS 1.2+ in transit, AES-256 at rest) and role-based access controls.",
