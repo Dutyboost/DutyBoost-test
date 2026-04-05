@@ -1,0 +1,74 @@
+{
+  "name": "BudgetAllocation",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "title": "Company Name"
+    },
+    "year": {
+      "type": "integer",
+      "title": "Year"
+    },
+    "total_annual_budget": {
+      "type": "number",
+      "title": "Total Annual Budget (EUR)"
+    },
+    "release_mode": {
+      "type": "string",
+      "title": "Release Mode",
+      "enum": [
+        "monthly",
+        "trip_based",
+        "quarterly"
+      ],
+      "default": "monthly"
+    },
+    "monthly_cap": {
+      "type": "number",
+      "title": "Monthly Release Cap (EUR)"
+    },
+    "saas_fee": {
+      "type": "number",
+      "title": "Annual SaaS Fee (EUR)"
+    },
+    "take_rate_pct": {
+      "type": "number",
+      "title": "Take Rate (%)",
+      "default": 5
+    },
+    "unused_expiry_policy": {
+      "type": "string",
+      "title": "Unused Credit Policy",
+      "enum": [
+        "expire",
+        "rollover"
+      ],
+      "default": "expire"
+    },
+    "allocated_to_departments": {
+      "type": "string",
+      "title": "Department Allocations (JSON)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "draft",
+        "closed"
+      ],
+      "default": "draft"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "company_name",
+    "year",
+    "total_annual_budget",
+    "release_mode"
+  ]
+}

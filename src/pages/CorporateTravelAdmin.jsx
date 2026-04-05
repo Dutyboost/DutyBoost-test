@@ -132,6 +132,9 @@ export default function CorporateTravelAdmin() {
             <span className="text-sm font-medium text-muted-foreground border-l border-border pl-3">Corporate Admin</span>
           </div>
           <div className="flex items-center gap-2">
+            <Link to="/corporate-budget">
+              <Button variant="outline" size="sm">Budget Allocation</Button>
+            </Link>
             <Link to="/corporate-dashboard">
               <Button variant="outline" size="sm">Dashboard</Button>
             </Link>

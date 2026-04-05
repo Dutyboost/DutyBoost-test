@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft, Calendar } from "lucide-react";
+import { Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft, Calendar, Layers } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e"];
@@ -116,10 +116,10 @@ export default function DemoCorporateDashboard() {
         {/* KPIs */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: "Active Travelers", value: "5", icon: Users, color: "text-primary", bg: "bg-primary/10" },
-            { label: "Total F&B Spend", value: `€${totalSpend.toFixed(2)}`, icon: Utensils, color: "text-orange-600", bg: "bg-orange-50" },
-            { label: "Total Discounts Given (15%)", value: `€${(totalSpend * 0.15).toFixed(2)}`, icon: DollarSign, color: "text-green-600", bg: "bg-green-50" },
-            { label: "Est. Annual Fee (10% of discounts)", value: `€${(totalSpend * 0.15 * 0.10).toFixed(2)}`, icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
+            { label: "Annual Budget Allocated", value: "€1,200,000", icon: DollarSign, color: "text-primary", bg: "bg-primary/10" },
+            { label: "Redeemed This Period", value: `€${totalSpend.toFixed(2)}`, icon: Utensils, color: "text-orange-600", bg: "bg-orange-50" },
+            { label: "DutyBoost Take Rate (5%)", value: `€${(totalSpend * 0.05).toFixed(2)}`, icon: TrendingUp, color: "text-green-600", bg: "bg-green-50" },
+            { label: "Est. Annual Revenue (SaaS + Take)", value: "€64,500", icon: Building2, color: "text-purple-600", bg: "bg-purple-50" },
           ].map(({ label, value, icon: Icon, color, bg }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5">
               <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center mb-3`}>
