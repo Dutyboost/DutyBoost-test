@@ -92,7 +92,7 @@ export default function BusinessTravel() {
               </Button>
             </Link>
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
-            <Link to="/get-started">
+            <Link to="/business-travel/get-started">
               <Button size="sm" className="gap-1">
                 Get Started <ChevronRight className="w-3 h-3" />
               </Button>
