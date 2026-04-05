@@ -42,7 +42,6 @@ import CorporateTravelAdmin from './pages/CorporateTravelAdmin';
 import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
 import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
-import TravelerApp from './pages/TravelerApp';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
