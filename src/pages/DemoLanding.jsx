@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Store, Plane, ArrowRight, Eye, LayoutDashboard } from "lucide-react";
+import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 export default function DemoLanding() {
@@ -13,10 +13,10 @@ export default function DemoLanding() {
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-10">
         <div className="space-y-3 max-w-xl">
           <h1 className="text-4xl font-heading font-bold">DutyBoost Platform Demo</h1>
-          <p className="text-muted-foreground text-lg">Explore the platform from the perspective of an Airport Retailer or a Travel Agency. All data is illustrative.</p>
+          <p className="text-muted-foreground text-lg">Explore the platform from every perspective. All data is illustrative.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl">
           <Link to="/demo/agency" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
               <Plane className="w-6 h-6 text-primary" />
@@ -53,6 +53,19 @@ export default function DemoLanding() {
             </div>
             <div className="flex items-center gap-2 text-emerald-600 font-semibold text-sm">
               <Eye className="w-4 h-4" /> View Admin Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link to="/demo/corporate" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-orange-500 hover:bg-orange-50 transition-all text-left space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+              <Briefcase className="w-6 h-6 text-orange-600" />
+            </div>
+            <div>
+              <p className="font-heading font-bold text-xl">Corporate Travel</p>
+              <p className="text-muted-foreground text-sm mt-1">Explore how companies manage F&B budgets, cost centers, and policy-compliant airport spending for business travelers.</p>
+            </div>
+            <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm">
+              <Eye className="w-4 h-4" /> View Corporate Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
         </div>
