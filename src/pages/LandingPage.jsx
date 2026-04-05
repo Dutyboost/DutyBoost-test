@@ -98,11 +98,6 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
 {/* Business Travel button hidden - pending business model review */}
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
-            <Link to="/demo">
-              <Button variant="outline" size="sm" className="gap-1.5">
-                <Eye className="w-3.5 h-3.5" /> Live Demo
-              </Button>
-            </Link>
             <Link to="/get-started">
               <Button size="sm" className="gap-1">
                 Get Started <ChevronRight className="w-3 h-3" />
@@ -113,6 +108,11 @@ export default function LandingPage() {
                 We Call You
               </Button>
             )} />
+            <Link to="/demo">
+              <Button variant="outline" size="sm" className="gap-1.5">
+                <Eye className="w-3.5 h-3.5" /> Live Demo
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
