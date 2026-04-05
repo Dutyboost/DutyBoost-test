@@ -179,7 +179,7 @@ export default function BusinessTravelGetStarted() {
                 </div>
                 <h1 className="text-3xl font-heading font-bold">Get Started</h1>
                 <p className="text-muted-foreground text-sm">
-                  Your travelers get a <strong className="text-foreground">15% F&B discount</strong> at participating airport merchants. Your company pays an annual fee of <strong className="text-foreground">10% of total discounts</strong> received.
+                  Register your company to give your travelers instant F&B DutyCredits at participating airport merchants.
                 </p>
               </div>
 
@@ -310,8 +310,7 @@ export default function BusinessTravelGetStarted() {
                   { label: "Email", value: email },
                   { label: "Company", value: company },
                   { label: "Type", value: "Business Travel — F&B DutyCredits" },
-                   { label: "Traveler discount", value: "15% on all F&B purchases" },
-                   { label: "Annual fee", value: "10% of total discounts given to travelers" },
+
                   { label: "Daily limit", value: `€${dailyLimit}` },
                   { label: "Per transaction limit", value: `€${perTransactionLimit}` },
                   { label: "Airport scope", value: airportScope === "all" ? "All participating airports" : "Departure airport only" },
@@ -331,7 +330,7 @@ export default function BusinessTravelGetStarted() {
                   <p>By registering your corporate travel programme, you agree to the following terms:</p>
                   <p><strong>1. Service Description.</strong> DutyBoost provides F&B-restricted DutyCredits for business travelers, enforced in real time at participating airport F&B merchants.</p>
                   <p><strong>2. Policy Enforcement.</strong> All transactions are validated against your defined corporate policy. DutyBoost enforces daily limits, per-transaction caps, meal-time windows, and merchant category restrictions automatically.</p>
-                  <p><strong>3. Discount & Fee Model.</strong> Enrolled travelers automatically receive a 15% discount on all eligible F&B purchases at participating airport merchants. The annual subscription fee is calculated as 10% of the total cumulative discount amount applied to your travelers' transactions during the calendar year. This fee is invoiced once annually.</p>
+                  <p><strong>3. Service Model.</strong> DutyBoost connects enrolled business travelers with participating airport F&B merchants. The service is provided at no cost to the company. Participating merchants pay a commission on sales generated through the platform.</p>
                   <p><strong>4. F&B Restriction.</strong> Credits issued under the Business Travel programme are strictly restricted to Food & Beverage merchants. Attempts to use credits at non-F&B merchants will be rejected.</p>
                   <p><strong>4. Audit & Reporting.</strong> All transaction data is stored and available for export. You are responsible for maintaining accurate traveler assignments and credit issuances.</p>
                   <p><strong>5. Data Processing.</strong> Traveler and transaction data is processed in accordance with our Privacy Policy and GDPR obligations.</p>
