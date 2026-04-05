@@ -1,0 +1,214 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Download, FileText, FileSpreadsheet, Filter } from "lucide-react";
+import { jsPDF } from "jspdf";
+
+export default function CorporateExpenseExport({ transactions, period }) {
+  const [groupBy, setGroupBy] = useState("cost_center");
+  const [statusFilter, setStatusFilter] = useState("all");
+
+  const filtered = statusFilter === "all" ? transactions : transactions.filter(t => t.status === statusFilter);
+
+  // Group transactions
+  const grouped = filtered.reduce((acc, tx) => {
+    const key = groupBy === "cost_center" ? (tx.cost_center || "CC-100") : tx.dept;
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(tx);
+    return acc;
+  }, {});
+
+  // Augment transactions with cost center if missing
+  const ccMap = {
+    "Sales": "CC-100", "Finance": "CC-200", "Engineering": "CC-300", "HR": "CC-400"
+  };
+  const enriched = filtered.map(tx => ({ ...tx, cost_center: ccMap[tx.dept] || "CC-100" }));
+
+  const groupedEnriched = enriched.reduce((acc, tx) => {
+    const key = groupBy === "cost_center" ? tx.cost_center : tx.dept;
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(tx);
+    return acc;
+  }, {});
+
+  const totalApproved = enriched.filter(t => t.status === "approved").reduce((s, t) => s + t.amount, 0);
+  const totalRejected = enriched.filter(t => t.status === "rejected").reduce((s, t) => s + t.amount, 0);
+
+  const exportCSV = () => {
+    const rows = [
+      ["Date", "Traveler", "Department", "Cost Center", "Merchant", "Airport", "Amount (EUR)", "Policy Check", "Status"],
+    ];
+    enriched.forEach(tx => {
+      rows.push([tx.date, tx.traveler, tx.dept, tx.cost_center, tx.merchant, tx.airport, tx.amount.toFixed(2), tx.limit_check === "pass" ? "Within Limits" : "Exceeded Limit", tx.status]);
+    });
+    const csv = rows.map(r => r.map(v => `"${v}"`).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `acmecorp_fnb_expenses_${period}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const exportPDF = () => {
+    const doc = new jsPDF({ orientation: "landscape" });
+    const pageW = doc.internal.pageSize.getWidth();
+    const margin = 14;
+    const colWidths = [22, 32, 26, 22, 36, 16, 22, 18, 18];
+    const headers = ["Date", "Traveler", "Department", "Cost Center", "Merchant", "Airport", "Amount (€)", "Policy", "Status"];
+    const rowH = 7;
+
+    const drawTableHeader = (y) => {
+      doc.setFillColor(31, 111, 255);
+      doc.rect(margin, y, pageW - margin * 2, rowH, "F");
+      doc.setFontSize(7.5);
+      doc.setTextColor(255, 255, 255);
+      let x = margin + 1;
+      headers.forEach((h, i) => { doc.text(h, x, y + 5); x += colWidths[i]; });
+      doc.setTextColor(30, 30, 30);
+    };
+
+    const drawRow = (tx, y, shade) => {
+      if (shade) { doc.setFillColor(245, 247, 255); doc.rect(margin, y, pageW - margin * 2, rowH, "F"); }
+      if (tx.status === "rejected") doc.setTextColor(200, 38, 38);
+      else doc.setTextColor(30, 30, 30);
+      doc.setFontSize(7);
+      const vals = [tx.date, tx.traveler.split(" ")[0] + " " + (tx.traveler.split(" ")[1]?.[0] || "") + ".", tx.dept, tx.cost_center, tx.merchant.substring(0, 22), tx.airport, `€${tx.amount.toFixed(2)}`, tx.limit_check === "pass" ? "OK" : "Exceeded", tx.status];
+      let x = margin + 1;
+      vals.forEach((v, i) => { doc.text(String(v), x, y + 5); x += colWidths[i]; });
+      doc.setTextColor(30, 30, 30);
+    };
+
+    // Title
+    doc.setFontSize(16); doc.setTextColor(31, 111, 255);
+    doc.text("DutyBoost — Corporate F&B Expense Report", margin, 16);
+    doc.setFontSize(9); doc.setTextColor(100, 100, 100);
+    doc.text(`Company: Acme Corp  |  Period: ${period}  |  Generated: ${new Date().toLocaleDateString("nl-NL")}`, margin, 23);
+    doc.text(`Total Approved: €${totalApproved.toFixed(2)}  |  Total Rejected: €${totalRejected.toFixed(2)}  |  Transactions: ${enriched.length}`, margin, 29);
+
+    let y = 36;
+
+    Object.entries(groupedEnriched).forEach(([group, txns]) => {
+      const groupTotal = txns.filter(t => t.status === "approved").reduce((s, t) => s + t.amount, 0);
+      if (y > 175) { doc.addPage(); y = 16; }
+      doc.setFontSize(10); doc.setTextColor(31, 111, 255);
+      doc.text(`${groupBy === "cost_center" ? "Cost Center" : "Department"}: ${group}  —  Approved: €${groupTotal.toFixed(2)}  |  ${txns.length} transactions`, margin, y);
+      y += 4;
+      drawTableHeader(y); y += rowH;
+      txns.forEach((tx, i) => {
+        if (y > 185) { doc.addPage(); y = 16; drawTableHeader(y); y += rowH; }
+        drawRow(tx, y, i % 2 === 0); y += rowH;
+      });
+      y += 6;
+    });
+
+    doc.setFontSize(8); doc.setTextColor(150, 150, 150);
+    doc.text("Generated by DutyBoost B.V. — dutyboost.com", margin, y + 4);
+    doc.save(`acmecorp_fnb_expense_report_${period}.pdf`);
+  };
+
+  return (
+    <div className="space-y-5">
+      {/* Controls */}
+      <div className="bg-card border border-border rounded-xl p-5 flex flex-wrap items-center gap-4">
+        <div className="flex items-center gap-2">
+          <Filter className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm font-medium">Group by:</span>
+          {[{ id: "cost_center", label: "Cost Center" }, { id: "department", label: "Department" }].map(opt => (
+            <button key={opt.id} onClick={() => setGroupBy(opt.id)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${groupBy === opt.id ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-medium">Status:</span>
+          {[{ id: "all", label: "All" }, { id: "approved", label: "Approved" }, { id: "rejected", label: "Rejected" }].map(opt => (
+            <button key={opt.id} onClick={() => setStatusFilter(opt.id)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${statusFilter === opt.id ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+        <div className="ml-auto flex gap-2">
+          <Button variant="outline" size="sm" className="gap-2" onClick={exportCSV}>
+            <FileSpreadsheet className="w-4 h-4 text-green-600" /> Export CSV
+          </Button>
+          <Button size="sm" className="gap-2" onClick={exportPDF}>
+            <FileText className="w-4 h-4" /> Export PDF
+          </Button>
+        </div>
+      </div>
+
+      {/* Summary cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {[
+          { label: "Total Transactions", value: enriched.length, color: "text-foreground" },
+          { label: "Total Approved", value: `€${totalApproved.toFixed(2)}`, color: "text-green-700" },
+          { label: "Total Rejected", value: `€${totalRejected.toFixed(2)}`, color: "text-red-600" },
+          { label: "Compliance Rate", value: `${Math.round((enriched.filter(t => t.status === "approved").length / Math.max(enriched.length, 1)) * 100)}%`, color: "text-primary" },
+        ].map(({ label, value, color }) => (
+          <div key={label} className="bg-card border border-border rounded-xl p-4 text-center">
+            <p className={`text-2xl font-heading font-bold ${color}`}>{value}</p>
+            <p className="text-xs text-muted-foreground mt-1">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Grouped tables */}
+      {Object.entries(groupedEnriched).map(([group, txns]) => {
+        const groupTotal = txns.filter(t => t.status === "approved").reduce((s, t) => s + t.amount, 0);
+        return (
+          <div key={group} className="bg-card border border-border rounded-xl overflow-hidden">
+            <div className="px-5 py-3 border-b border-border bg-muted/30 flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">{group}</span>
+                <span className="text-sm font-semibold">{groupBy === "cost_center" ? "Cost Center" : "Department"}</span>
+                <Badge variant="outline" className="text-xs">{txns.length} txns</Badge>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <span className="text-green-700 font-semibold">✓ €{groupTotal.toFixed(2)} approved</span>
+                {txns.filter(t => t.status === "rejected").length > 0 && (
+                  <span className="text-red-600 font-semibold">✗ {txns.filter(t => t.status === "rejected").length} rejected</span>
+                )}
+              </div>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/20">
+                  <tr>{["Date", "Traveler", "Department", "Cost Center", "Merchant", "Airport", "Amount", "Policy", "Status"].map(h => (
+                    <th key={h} className="px-4 py-2.5 text-left text-xs font-medium text-muted-foreground">{h}</th>
+                  ))}</tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {txns.map((tx, i) => (
+                    <tr key={i} className={`hover:bg-muted/20 ${tx.status === "rejected" ? "bg-red-50/40" : ""}`}>
+                      <td className="px-4 py-2.5 text-xs text-muted-foreground whitespace-nowrap">{tx.date}</td>
+                      <td className="px-4 py-2.5 font-medium text-sm whitespace-nowrap">{tx.traveler}</td>
+                      <td className="px-4 py-2.5 text-xs text-muted-foreground">{tx.dept}</td>
+                      <td className="px-4 py-2.5 font-mono text-xs font-semibold text-primary">{tx.cost_center}</td>
+                      <td className="px-4 py-2.5 whitespace-nowrap">{tx.merchant}</td>
+                      <td className="px-4 py-2.5">{tx.airport}</td>
+                      <td className="px-4 py-2.5 font-semibold whitespace-nowrap">€{tx.amount.toFixed(2)}</td>
+                      <td className="px-4 py-2.5">
+                        <Badge className={tx.limit_check === "pass" ? "bg-green-100 text-green-700 border-green-200 text-xs" : "bg-red-100 text-red-700 border-red-200 text-xs"}>
+                          {tx.limit_check === "pass" ? "OK" : "Exceeded"}
+                        </Badge>
+                      </td>
+                      <td className="px-4 py-2.5">
+                        <Badge className={tx.status === "approved" ? "bg-green-100 text-green-700 border-green-200 text-xs" : "bg-red-100 text-red-700 border-red-200 text-xs"}>
+                          {tx.status}
+                        </Badge>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}

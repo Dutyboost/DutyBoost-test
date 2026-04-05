@@ -7,8 +7,9 @@ import {
 } from "recharts";
 import {
   Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft, Calendar,
-  ShieldCheck, BarChart3, CheckCircle, XCircle, CreditCard
+  ShieldCheck, BarChart3, CheckCircle, XCircle, CreditCard, Download
 } from "lucide-react";
+import CorporateExpenseExport from "../components/CorporateExpenseExport";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e"];
@@ -132,6 +133,7 @@ const TABS = [
   { id: "budget", label: "Budget & Cost Centers", icon: DollarSign },
   { id: "travelers", label: "Travelers & Policy", icon: Users },
   { id: "transactions", label: "Transactions", icon: CreditCard },
+  { id: "export", label: "Expense Report", icon: Download },
 ];
 
 export default function DemoCorporateDashboard() {
@@ -452,6 +454,11 @@ export default function DemoCorporateDashboard() {
               </div>
             </div>
           </div>
+        )}
+
+        {/* Tab: Expense Report */}
+        {activeTab === "export" && (
+          <CorporateExpenseExport transactions={filteredTxns} period={period} />
         )}
 
         {/* CTA */}
