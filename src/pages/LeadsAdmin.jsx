@@ -3,7 +3,8 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Download, Search, ChevronUp, ChevronDown } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Download, Search, ChevronUp, ChevronDown, X } from "lucide-react";
 import { toast } from "sonner";
 
 export default function LeadsAdmin() {
@@ -12,6 +13,7 @@ export default function LeadsAdmin() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState({ field: "created_date", direction: "desc" });
   const [loading, setLoading] = useState(true);
+  const [selectedLead, setSelectedLead] = useState(null);
 
   // Fetch leads
   useEffect(() => {
@@ -162,7 +164,8 @@ export default function LeadsAdmin() {
                   {filteredLeads.map((lead) => (
                     <tr
                       key={lead.id}
-                      className="border-b border-border hover:bg-muted/50 transition-colors"
+                      onClick={() => setSelectedLead(lead)}
+                      className="border-b border-border hover:bg-muted/50 transition-colors cursor-pointer"
                     >
                       <td className="px-4 py-3">{lead.full_name}</td>
                       <td className="px-4 py-3">
@@ -192,6 +195,39 @@ export default function LeadsAdmin() {
           )}
         </Card>
       </div>
+
+      {/* Lead detail modal */}
+      <Dialog open={!!selectedLead} onOpenChange={() => setSelectedLead(null)}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Lead Details</DialogTitle>
+          </DialogHeader>
+          {selectedLead && (
+            <div className="space-y-3 text-sm">
+              {[
+                { label: "Full Name", value: selectedLead.full_name },
+                { label: "Email", value: selectedLead.email, href: `mailto:${selectedLead.email}` },
+                { label: "Phone", value: selectedLead.phone, href: `tel:${selectedLead.phone}` },
+                { label: "Company", value: selectedLead.company_name },
+                { label: "Website", value: selectedLead.website, href: selectedLead.website },
+                { label: "Industry", value: selectedLead.industry },
+                { label: "Position", value: selectedLead.position },
+                { label: "Decision Level", value: selectedLead.decision_level },
+                { label: "Submitted", value: new Date(selectedLead.created_date).toLocaleString() },
+              ].filter(r => r.value).map(({ label, value, href }) => (
+                <div key={label} className="flex justify-between gap-4 py-2 border-b border-border last:border-0">
+                  <span className="text-muted-foreground font-medium">{label}</span>
+                  {href ? (
+                    <a href={href} className="text-primary hover:underline text-right" target="_blank" rel="noopener noreferrer">{value}</a>
+                  ) : (
+                    <span className="text-right">{value}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
