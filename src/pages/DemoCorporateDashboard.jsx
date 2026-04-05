@@ -1,10 +1,11 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft, CheckCircle } from "lucide-react";
+import { Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft, Calendar } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e"];
@@ -44,15 +45,31 @@ const ccData = [
   { cost_center: "CC-400", travelers: 1, budget: 40 },
 ];
 
-const recentTxns = [
-  { traveler: "e.johnson@acmecorp.com", merchant: "The Kitchen Bar", airport: "AMS", amount: 28.50, status: "approved" },
-  { traveler: "l.bianchi@acmecorp.com", merchant: "Sky Lounge Bistro", airport: "CDG", amount: 41.00, status: "approved" },
-  { traveler: "s.muller@acmecorp.com", merchant: "Gate 7 Café", airport: "FRA", amount: 15.80, status: "approved" },
-  { traveler: "a.alfarsi@acmecorp.com", merchant: "La Piazza AMS", airport: "AMS", amount: 56.20, status: "rejected" },
-  { traveler: "m.lee@acmecorp.com", merchant: "Terminal Grill", airport: "LHR", amount: 22.40, status: "approved" },
+const allTxns = [
+  { traveler: "e.johnson@acmecorp.com", merchant: "The Kitchen Bar", airport: "AMS", amount: 28.50, status: "approved", date: "2026-04-05" },
+  { traveler: "l.bianchi@acmecorp.com", merchant: "Sky Lounge Bistro", airport: "CDG", amount: 41.00, status: "approved", date: "2026-04-04" },
+  { traveler: "s.muller@acmecorp.com", merchant: "Gate 7 Café", airport: "FRA", amount: 15.80, status: "approved", date: "2026-04-03" },
+  { traveler: "a.alfarsi@acmecorp.com", merchant: "La Piazza AMS", airport: "AMS", amount: 56.20, status: "rejected", date: "2026-04-02" },
+  { traveler: "m.lee@acmecorp.com", merchant: "Terminal Grill", airport: "LHR", amount: 22.40, status: "approved", date: "2026-04-01" },
+  { traveler: "e.johnson@acmecorp.com", merchant: "Café Central", airport: "AMS", amount: 19.90, status: "approved", date: "2026-03-28" },
+  { traveler: "l.bianchi@acmecorp.com", merchant: "Brasserie Gate 12", airport: "CDG", amount: 33.50, status: "approved", date: "2026-03-15" },
 ];
 
 export default function DemoCorporateDashboard() {
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
+  const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
+
+  const { startDate, endDate } = useMemo(() => {
+    const now = new Date();
+    if (period === "daily") { const s = new Date(now); s.setDate(s.getDate() - 7); return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] }; }
+    if (period === "monthly") { const s = new Date(now); s.setDate(s.getDate() - 30); return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] }; }
+    if (period === "yearly") { const s = new Date(now); s.setFullYear(s.getFullYear() - 1); return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] }; }
+    return { startDate: customStart, endDate: customEnd };
+  }, [period, customStart, customEnd]);
+
+  const filteredTxns = allTxns.filter(t => t.date >= startDate && t.date <= endDate);
+  const totalSpend = filteredTxns.filter(t => t.status === "approved").reduce((s, t) => s + t.amount, 0);
   return (
     <div className="min-h-screen bg-background">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-card/80">
@@ -78,12 +95,30 @@ export default function DemoCorporateDashboard() {
           <Badge className="bg-amber-50 text-amber-700 border-amber-200 px-3 py-1.5 text-sm">Sample data only — not real transactions</Badge>
         </div>
 
+        <div className="flex items-center gap-2 flex-wrap">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">Period:</span>
+          {[{id:"daily",label:"Last 7 days"},{id:"monthly",label:"Last 30 days"},{id:"yearly",label:"Last year"},{id:"custom",label:"Custom"}].map(p => (
+            <button key={p.id} onClick={() => setPeriod(p.id)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === p.id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{p.label}</button>
+          ))}
+          {period === "custom" && (
+            <div className="flex items-center gap-2 ml-2">
+              <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)} className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+              <span className="text-xs text-muted-foreground">to</span>
+              <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)} className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            </div>
+          )}
+        </div>
+
         {/* KPIs */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { label: "Active Travelers", value: "5", icon: Users, color: "text-primary", bg: "bg-primary/10" },
             { label: "Total Daily Budget", value: "€305", icon: DollarSign, color: "text-green-600", bg: "bg-green-50" },
-            { label: "Total F&B Spend (week)", value: "€1,147", icon: Utensils, color: "text-orange-600", bg: "bg-orange-50" },
+            { label: "Total F&B Spend", value: `€${totalSpend.toFixed(2)}`, icon: Utensils, color: "text-orange-600", bg: "bg-orange-50" },
             { label: "Budget Utilization", value: "75%", icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
           ].map(({ label, value, icon: Icon, color, bg }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5">
@@ -193,7 +228,9 @@ export default function DemoCorporateDashboard() {
                 ))}
               </tr></thead>
               <tbody className="divide-y divide-border">
-                {recentTxns.map((tx, i) => (
+                {filteredTxns.length === 0 ? (
+                  <tr><td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">No transactions in this period.</td></tr>
+                ) : filteredTxns.map((tx, i) => (
                   <tr key={i} className="hover:bg-muted/20">
                     <td className="px-4 py-3 text-xs text-muted-foreground">{tx.traveler}</td>
                     <td className="px-4 py-3">{tx.merchant}</td>

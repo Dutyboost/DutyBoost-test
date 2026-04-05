@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft } from "lucide-react";
+import { Users, Building2, DollarSign, TrendingUp, Utensils, Calendar } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e", "#8b5cf6"];
@@ -16,6 +16,9 @@ export default function CorporateTravelDashboard() {
   const [credits, setCredits] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [period, setPeriod] = useState("monthly");
+  const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
+  const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   useEffect(() => {
     Promise.all([
@@ -30,9 +33,22 @@ export default function CorporateTravelDashboard() {
     });
   }, []);
 
+  const { startDate, endDate } = useMemo(() => {
+    const now = new Date();
+    if (period === "daily") { const s = new Date(now); s.setDate(s.getDate() - 7); return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] }; }
+    if (period === "monthly") { const s = new Date(now); s.setDate(s.getDate() - 30); return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] }; }
+    if (period === "yearly") { const s = new Date(now); s.setFullYear(s.getFullYear() - 1); return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] }; }
+    return { startDate: customStart, endDate: customEnd };
+  }, [period, customStart, customEnd]);
+
+  const filteredTransactions = useMemo(() =>
+    transactions.filter(t => { const d = (t.timestamp || t.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [transactions, startDate, endDate]
+  );
+
   const activeTravelers = travelers.filter(t => t.status === "active").length;
   const totalBudget = travelers.reduce((s, t) => s + (t.daily_fnb_budget || 0), 0);
-  const totalSpend = transactions.filter(t => t.status === "approved").reduce((s, t) => s + (t.amount || 0), 0);
+  const totalSpend = filteredTransactions.filter(t => t.status === "approved").reduce((s, t) => s + (t.amount || 0), 0);
   const utilization = totalBudget > 0 ? Math.round((totalSpend / totalBudget) * 100) : 0;
 
   // Department breakdown
@@ -43,7 +59,7 @@ export default function CorporateTravelDashboard() {
     deptMap[d].travelers++;
     deptMap[d].budget += t.daily_fnb_budget || 0;
   });
-  transactions.filter(t => t.status === "approved").forEach(tx => {
+  filteredTransactions.filter(t => t.status === "approved").forEach(tx => {
     const traveler = travelers.find(t => t.email === tx.traveler_email);
     if (traveler?.department) {
       const d = traveler.department;
@@ -94,6 +110,25 @@ export default function CorporateTravelDashboard() {
         <div>
           <h1 className="text-2xl font-heading font-bold">Corporate F&B Dashboard</h1>
           <p className="text-muted-foreground mt-1">Overview of traveler F&B budgets and airport spending.</p>
+        </div>
+
+        {/* Period selector */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">Period:</span>
+          {[{id:"daily",label:"Last 7 days"},{id:"monthly",label:"Last 30 days"},{id:"yearly",label:"Last year"},{id:"custom",label:"Custom"}].map(p => (
+            <button key={p.id} onClick={() => setPeriod(p.id)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === p.id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{p.label}</button>
+          ))}
+          {period === "custom" && (
+            <div className="flex items-center gap-2 ml-2">
+              <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)} className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+              <span className="text-xs text-muted-foreground">to</span>
+              <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)} className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            </div>
+          )}
         </div>
 
         {/* KPIs */}
@@ -189,9 +224,9 @@ export default function CorporateTravelDashboard() {
                 ))}
               </tr></thead>
               <tbody className="divide-y divide-border">
-                {transactions.length === 0 ? (
-                  <tr><td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">No transactions yet.</td></tr>
-                ) : transactions.slice(0, 20).map(tx => (
+                {filteredTransactions.length === 0 ? (
+                  <tr><td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">No transactions in this period.</td></tr>
+                ) : filteredTransactions.slice(0, 20).map(tx => (
                   <tr key={tx.id} className="hover:bg-muted/20">
                     <td className="px-4 py-3 text-xs text-muted-foreground">{tx.traveler_email || "—"}</td>
                     <td className="px-4 py-3">{tx.merchant_name || "—"}</td>
