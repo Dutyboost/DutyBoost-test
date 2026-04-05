@@ -137,7 +137,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Unlock a new revenue stream <strong className="text-foreground">hidden</strong> inside every travel booking with DutyBoost's <strong className="text-foreground">Travel Retail Conversion Layer</strong>. By connecting travel agencies, airport retailers, and travelers, we turn bookings into high-intent buyers before they even reach the airport of departure.
+            Unlock the revenue stream hidden inside every travel booking with DutyBoost's Travel Retail Conversion Layer. By connecting travels, travel agencies, and airport retailers, we turn travelers into high-intent buyers before they even reach their airport of departure.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
