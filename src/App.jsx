@@ -60,7 +60,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/business-travel', '/business-travel/get-started'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -72,6 +72,8 @@ const AuthenticatedApp = () => {
             <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
             <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
             <Route path="/demo/admin" element={<DemoAdminDashboard />} />
+            <Route path="/business-travel" element={<BusinessTravel />} />
+            <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/refunds" element={<RefundPolicy />} />
