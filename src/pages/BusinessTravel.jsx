@@ -284,6 +284,41 @@ export default function BusinessTravel() {
         </div>
       </section>
 
+      {/* Corporate Travel Section */}
+      <section className="py-14 px-6 bg-card/30 border-y border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10 space-y-4">
+            <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Corporate Travel</Badge>
+            <h2 className="text-4xl font-heading font-bold">Manage F&B budgets, cost centers &amp; policy compliance</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Explore how companies manage F&amp;B budgets, cost centers, and policy-compliant airport spending for business travelers. Full visibility — zero admin overhead.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {[
+              { icon: Building2, title: "Cost Center Tracking", desc: "Assign travelers to cost centers and departments. Every spend is tagged automatically — ready for your finance team.", color: "text-blue-600", bg: "bg-blue-50" },
+              { icon: ShieldCheck, title: "Policy-Compliant Spending", desc: "Set daily limits, per-transaction caps, meal-time windows and airport scope. All enforced at the point of sale — no exceptions.", color: "text-green-600", bg: "bg-green-50" },
+              { icon: BarChart3, title: "Real-Time Budget Dashboard", desc: "See how much has been allocated, spent, and remains across all travelers, departments and cost centers — updated live.", color: "text-purple-600", bg: "bg-purple-50" },
+            ].map(({ icon: Icon, title, desc, color, bg }) => (
+              <div key={title} className="bg-card rounded-2xl border border-border p-7">
+                <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center mb-4`}>
+                  <Icon className={`w-6 h-6 ${color}`} />
+                </div>
+                <h3 className="font-heading font-bold text-lg mb-2">{title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link to="/demo/corporate">
+              <Button size="lg" className="gap-2 px-8 text-base">
+                View Corporate Dashboard <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-14 px-6">
         <div className="max-w-3xl mx-auto text-center">
