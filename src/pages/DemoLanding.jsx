@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase, Smartphone } from "lucide-react";
+import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 export default function DemoLanding() {
@@ -69,19 +69,6 @@ export default function DemoLanding() {
             </div>
           </Link>
         </div>
-
-        <Link to="/traveler-app" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-purple-500 hover:bg-purple-50 transition-all text-left space-y-4 w-full max-w-3xl">
-            <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
-              <Smartphone className="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <p className="font-heading font-bold text-xl">Traveler App</p>
-              <p className="text-muted-foreground text-sm mt-1">Mobile-friendly view for travelers: daily F&B allowance, nearby approved outlets, and transaction history.</p>
-            </div>
-            <div className="flex items-center gap-2 text-purple-600 font-semibold text-sm">
-              <Eye className="w-4 h-4" /> View Traveler App <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
 
         <p className="text-xs text-muted-foreground">This is a live demo environment. No real transactions are processed.</p>
       </div>
