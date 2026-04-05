@@ -1,0 +1,69 @@
+{
+  "name": "FnbDutyCredit",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "user_id": {
+      "type": "string",
+      "title": "User ID"
+    },
+    "credit_type": {
+      "type": "string",
+      "title": "Credit Type",
+      "enum": [
+        "FNB_ONLY"
+      ],
+      "default": "FNB_ONLY"
+    },
+    "balance": {
+      "type": "number",
+      "title": "Balance (EUR)"
+    },
+    "remaining_balance": {
+      "type": "number",
+      "title": "Remaining Balance (EUR)"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport Restriction"
+    },
+    "expiry": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expiry"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "used",
+        "expired",
+        "partially_used"
+      ],
+      "default": "active"
+    },
+    "corporate_policy_id": {
+      "type": "string",
+      "title": "Corporate Policy ID"
+    },
+    "traveler_email": {
+      "type": "string",
+      "title": "Traveler Email"
+    },
+    "traveler_name": {
+      "type": "string",
+      "title": "Traveler Name"
+    }
+  },
+  "required": [
+    "token_id",
+    "credit_type",
+    "balance",
+    "expiry",
+    "status"
+  ]
+}

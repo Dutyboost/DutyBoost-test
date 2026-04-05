@@ -1,0 +1,63 @@
+{
+  "name": "FnbTransaction",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "merchant_id": {
+      "type": "string",
+      "title": "Merchant ID"
+    },
+    "merchant_name": {
+      "type": "string",
+      "title": "Merchant Name"
+    },
+    "user_id": {
+      "type": "string",
+      "title": "User ID"
+    },
+    "traveler_email": {
+      "type": "string",
+      "title": "Traveler Email"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount (EUR)"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "approved",
+        "rejected"
+      ],
+      "default": "approved"
+    },
+    "rejection_reason": {
+      "type": "string",
+      "title": "Rejection Reason"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Timestamp"
+    }
+  },
+  "required": [
+    "token_id",
+    "merchant_id",
+    "amount",
+    "status",
+    "timestamp"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "FnbMerchant",
+  "type": "object",
+  "properties": {
+    "merchant_name": {
+      "type": "string",
+      "title": "Merchant Name"
+    },
+    "airport_code": {
+      "type": "string",
+      "title": "Airport Code"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "F&B",
+        "Retail",
+        "Mixed"
+      ],
+      "default": "F&B"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    },
+    "pos_endpoint": {
+      "type": "string",
+      "title": "POS API Endpoint"
+    },
+    "contact_email": {
+      "type": "string",
+      "title": "Contact Email"
+    }
+  },
+  "required": [
+    "merchant_name",
+    "airport_code",
+    "category",
+    "status"
+  ]
+}

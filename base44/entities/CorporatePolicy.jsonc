@@ -1,0 +1,54 @@
+{
+  "name": "CorporatePolicy",
+  "type": "object",
+  "properties": {
+    "policy_name": {
+      "type": "string",
+      "title": "Policy Name"
+    },
+    "company_name": {
+      "type": "string",
+      "title": "Company Name"
+    },
+    "daily_limit": {
+      "type": "number",
+      "title": "Daily Spend Limit (EUR)"
+    },
+    "per_transaction_limit": {
+      "type": "number",
+      "title": "Per Transaction Limit (EUR)"
+    },
+    "allowed_categories": {
+      "type": "string",
+      "title": "Allowed Categories",
+      "default": "F&B"
+    },
+    "breakfast_window": {
+      "type": "string",
+      "title": "Breakfast Window (e.g. 06:00-10:00)"
+    },
+    "lunch_window": {
+      "type": "string",
+      "title": "Lunch Window (e.g. 11:00-14:00)"
+    },
+    "dinner_window": {
+      "type": "string",
+      "title": "Dinner Window (e.g. 17:00-21:00)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "policy_name",
+    "company_name",
+    "daily_limit",
+    "per_transaction_limit"
+  ]
+}
