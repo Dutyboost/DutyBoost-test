@@ -97,6 +97,8 @@ const AuthenticatedApp = () => {
       <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
       <Route path="/demo/admin" element={<DemoAdminDashboard />} />
       <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/business-travel" element={<BusinessTravel />} />
+      <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />
       <Route path="/refunds" element={<RefundPolicy />} />
@@ -118,8 +120,7 @@ const AuthenticatedApp = () => {
         <Route path="/scan-redeem" element={<ScanVoucher />} />
         <Route path="/retailer-scan" element={<RetailerScanQR />} />
         <Route path="/leads-admin" element={<LeadsAdmin />} />
-        <Route path="/business-travel" element={<BusinessTravel />} />
-        <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
+
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
