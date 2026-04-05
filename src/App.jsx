@@ -43,6 +43,7 @@ import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
 import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
 import TravelerApp from './pages/TravelerApp';
+import RetailerScanOnly from './pages/RetailerScanOnly';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -61,7 +62,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <Routes>
@@ -75,6 +76,7 @@ const AuthenticatedApp = () => {
             <Route path="/demo/admin" element={<DemoAdminDashboard />} />
 {/* Business Travel routes hidden - pending business model review */}
             <Route path="/traveler-app" element={<TravelerApp />} />
+            <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/refunds" element={<RefundPolicy />} />
@@ -106,6 +108,7 @@ const AuthenticatedApp = () => {
       <Route path="/get-started" element={<GetStarted />} />
 {/* Corporate / Business Travel routes hidden - pending business model review */}
       <Route path="/traveler" element={<TravelerApp />} />
+      <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />
       <Route path="/refunds" element={<RefundPolicy />} />
