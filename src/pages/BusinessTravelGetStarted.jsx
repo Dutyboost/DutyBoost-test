@@ -1,4 +1,31 @@
 import { useState } from "react";
+
+const TRAVEL_PARTNERS = {
+  "Global Travel Management Companies (TMCs)": [
+    "American Express Global Business Travel",
+    "BCD Travel",
+    "CWT",
+    "Corporate Travel Management",
+    "Radius Travel",
+    "FCM Travel",
+  ],
+  "Digital Corporate Travel Platforms": [
+    "Navan",
+    "TravelPerk",
+    "Egencia",
+    "TravelBank",
+    "Spotnana",
+  ],
+  "Expense and Spend Management": [
+    "SAP Concur",
+    "Expensify",
+    "Coupa",
+    "Emburse",
+    "Brex",
+    "Ramp",
+    "Rydoo",
+  ],
+};
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -23,6 +50,13 @@ export default function BusinessTravelGetStarted() {
   const [kvk, setKvk] = useState("");
   const [vat, setVat] = useState("");
   const [numTravelers, setNumTravelers] = useState("");
+  const [selectedPartners, setSelectedPartners] = useState([]);
+
+  const togglePartner = (name) => {
+    setSelectedPartners(prev =>
+      prev.includes(name) ? prev.filter(p => p !== name) : [...prev, name]
+    );
+  };
 
   // Step 1 fields
   const [dailyLimit, setDailyLimit] = useState("");
@@ -52,6 +86,7 @@ export default function BusinessTravelGetStarted() {
         website,
         kvk,
         vat,
+        travel_partners: selectedPartners,
         status: "pending",
         terms_accepted: false,
       });
@@ -215,6 +250,33 @@ export default function BusinessTravelGetStarted() {
                   <Input required type="number" min="1" placeholder="e.g. 50" value={numTravelers} onChange={e => setNumTravelers(e.target.value)} />
                 </div>
 
+                <div className="space-y-2">
+                  <Label>Corporate Travel Partner <span className="text-muted-foreground font-normal text-xs">(Select one or more)</span></Label>
+                  <div className="border border-border rounded-xl overflow-hidden divide-y divide-border">
+                    {Object.entries(TRAVEL_PARTNERS).map(([group, partners]) => (
+                      <div key={group} className="p-3 space-y-2">
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{group}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {partners.map(p => (
+                            <button
+                              key={p}
+                              type="button"
+                              onClick={() => togglePartner(p)}
+                              className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${
+                                selectedPartners.includes(p)
+                                  ? "bg-primary text-primary-foreground border-primary"
+                                  : "bg-background text-foreground border-border hover:border-primary/50"
+                              }`}
+                            >
+                              {p}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -314,6 +376,7 @@ export default function BusinessTravelGetStarted() {
                   { label: "Daily limit", value: `€${dailyLimit}` },
                   { label: "Per transaction limit", value: `€${perTransactionLimit}` },
                   { label: "Airport scope", value: airportScope === "all" ? "All participating airports" : "Departure airport only" },
+                  { label: "Travel partners", value: selectedPartners.length > 0 ? selectedPartners.join(", ") : null },
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>

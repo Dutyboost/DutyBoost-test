@@ -46,6 +46,13 @@
       "type": "string",
       "title": "Store Category"
     },
+    "travel_partners": {
+      "type": "array",
+      "title": "Corporate Travel Partners",
+      "items": {
+        "type": "string"
+      }
+    },
     "status": {
       "type": "string",
       "title": "Status",
