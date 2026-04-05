@@ -56,18 +56,6 @@ export default function DemoLanding() {
             </div>
           </Link>
 
-          <Link to="/demo/corporate" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-orange-500 hover:bg-orange-50 transition-all text-left space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-orange-600" />
-            </div>
-            <div>
-              <p className="font-heading font-bold text-xl">Corporate Travel</p>
-              <p className="text-muted-foreground text-sm mt-1">Explore how companies manage F&B budgets, cost centers, and policy-compliant airport spending for business travelers.</p>
-            </div>
-            <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm">
-              <Eye className="w-4 h-4" /> View Corporate Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
         </div>
 
         <p className="text-xs text-muted-foreground">This is a live demo environment. No real transactions are processed.</p>

@@ -73,9 +73,7 @@ const AuthenticatedApp = () => {
             <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
             <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
             <Route path="/demo/admin" element={<DemoAdminDashboard />} />
-            <Route path="/business-travel" element={<BusinessTravel />} />
-            <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
-            <Route path="/demo/corporate" element={<DemoCorporateDashboard />} />
+{/* Business Travel routes hidden - pending business model review */}
             <Route path="/traveler-app" element={<TravelerApp />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
@@ -106,12 +104,7 @@ const AuthenticatedApp = () => {
       <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
       <Route path="/demo/admin" element={<DemoAdminDashboard />} />
       <Route path="/get-started" element={<GetStarted />} />
-      <Route path="/business-travel" element={<BusinessTravel />} />
-      <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
-      <Route path="/corporate-admin" element={<CorporateTravelAdmin />} />
-      <Route path="/corporate-dashboard" element={<CorporateTravelDashboard />} />
-      <Route path="/demo/corporate" element={<DemoCorporateDashboard />} />
-      <Route path="/corporate-budget" element={<CorporateBudgetAllocation />} />
+{/* Corporate / Business Travel routes hidden - pending business model review */}
       <Route path="/traveler" element={<TravelerApp />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />

@@ -96,11 +96,7 @@ export default function LandingPage() {
             <DutyBoostLogo height={130} />
           </div>
           <div className="flex items-center gap-3">
-            <Link to="/business-travel">
-              <Button variant="outline" size="sm" className="gap-1.5">
-                <Briefcase className="w-3.5 h-3.5" /> For Business Travel
-              </Button>
-            </Link>
+{/* Business Travel button hidden - pending business model review */}
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
             <Link to="/demo">
               <Button variant="outline" size="sm" className="gap-1.5">
