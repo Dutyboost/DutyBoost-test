@@ -130,7 +130,7 @@ export default function BusinessTravel() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-            <Link to="/get-started">
+            <Link to="/business-travel/get-started">
               <Button size="lg" className="gap-2 px-8 text-base">
                 Get Started for Business <ArrowRight className="w-4 h-4" />
               </Button>
@@ -299,7 +299,7 @@ export default function BusinessTravel() {
                 Stop chasing expense receipts. Issue F&B DutyCredits to your travelers and let the platform enforce policy automatically — at every airport, at every F&B outlet.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/get-started">
+                <Link to="/business-travel/get-started">
                   <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base">
                     Get Started <ArrowRight className="w-4 h-4" />
                   </Button>

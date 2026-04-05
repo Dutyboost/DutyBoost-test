@@ -37,6 +37,7 @@ import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
 import DemoAdminDashboard from './pages/DemoAdminDashboard';
 import RetailerScanQR from './pages/RetailerScanQR';
 import BusinessTravel from './pages/BusinessTravel';
+import BusinessTravelGetStarted from './pages/BusinessTravelGetStarted';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -118,6 +119,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-scan" element={<RetailerScanQR />} />
         <Route path="/leads-admin" element={<LeadsAdmin />} />
         <Route path="/business-travel" element={<BusinessTravel />} />
+        <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
