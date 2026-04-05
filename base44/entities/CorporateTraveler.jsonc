@@ -1,0 +1,62 @@
+{
+  "name": "CorporateTraveler",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "employee_id": {
+      "type": "string",
+      "title": "Employee ID"
+    },
+    "department": {
+      "type": "string",
+      "title": "Department"
+    },
+    "cost_center": {
+      "type": "string",
+      "title": "Cost Center Code"
+    },
+    "company_name": {
+      "type": "string",
+      "title": "Company Name"
+    },
+    "corporate_policy_id": {
+      "type": "string",
+      "title": "Corporate Policy ID"
+    },
+    "daily_fnb_budget": {
+      "type": "number",
+      "title": "Daily F&B Budget (EUR)"
+    },
+    "per_transaction_limit": {
+      "type": "number",
+      "title": "Per Transaction Limit (EUR)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "suspended"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "department",
+    "cost_center",
+    "company_name"
+  ]
+}

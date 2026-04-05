@@ -38,6 +38,9 @@ import DemoAdminDashboard from './pages/DemoAdminDashboard';
 import RetailerScanQR from './pages/RetailerScanQR';
 import BusinessTravel from './pages/BusinessTravel';
 import BusinessTravelGetStarted from './pages/BusinessTravelGetStarted';
+import CorporateTravelAdmin from './pages/CorporateTravelAdmin';
+import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
+import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -99,6 +102,9 @@ const AuthenticatedApp = () => {
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/business-travel" element={<BusinessTravel />} />
       <Route path="/business-travel/get-started" element={<BusinessTravelGetStarted />} />
+      <Route path="/corporate-admin" element={<CorporateTravelAdmin />} />
+      <Route path="/corporate-dashboard" element={<CorporateTravelDashboard />} />
+      <Route path="/demo/corporate" element={<DemoCorporateDashboard />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />
       <Route path="/refunds" element={<RefundPolicy />} />
