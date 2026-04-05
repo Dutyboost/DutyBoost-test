@@ -142,14 +142,16 @@ export default function AirportMap() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [selectedOutlet, setSelectedOutlet] = useState(null);
+  const [departureOnly, setDepartureOnly] = useState(false);
 
   const filtered = useMemo(() => {
     let list = OUTLETS.filter(o => o.airport === selectedAirport.code);
+    if (departureOnly) list = list.filter(o => o.terminal.toLowerCase().includes("departure"));
     if (selectedTerminal !== "All Terminals") list = list.filter(o => o.terminal === selectedTerminal);
     if (selectedCategory !== "all") list = list.filter(o => o.category === selectedCategory);
     if (search.trim()) list = list.filter(o => o.name.toLowerCase().includes(search.toLowerCase()) || o.description.toLowerCase().includes(search.toLowerCase()));
     return list;
-  }, [selectedAirport, selectedTerminal, selectedCategory, search]);
+  }, [selectedAirport, selectedTerminal, selectedCategory, search, departureOnly]);
 
   const handleAirportSelect = (airport) => {
     setSelectedAirport(airport);
@@ -225,6 +227,16 @@ export default function AirportMap() {
                 </button>
               )}
             </div>
+
+            {/* Departure Only toggle */}
+            <button
+              onClick={() => setDepartureOnly(v => !v)}
+              className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border font-medium transition-all w-full justify-center ${
+                departureOnly ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary/40"
+              }`}
+            >
+              ✈️ Departure Areas Only
+            </button>
 
             {/* Terminal tabs */}
             <div className="flex gap-1.5 flex-wrap">
