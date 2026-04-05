@@ -10,6 +10,7 @@ import {
   ShieldCheck, BarChart3, CheckCircle, XCircle, CreditCard, Download
 } from "lucide-react";
 import CorporateExpenseExport from "../components/CorporateExpenseExport";
+import CorporateAirportSpendMap from "../components/CorporateAirportSpendMap";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const COLORS = ["#1F6FFF", "#FF7A00", "#00C48C", "#6366f1", "#f43f5e"];
@@ -133,6 +134,7 @@ const TABS = [
   { id: "budget", label: "Budget & Cost Centers", icon: DollarSign },
   { id: "travelers", label: "Travelers & Policy", icon: Users },
   { id: "transactions", label: "Transactions", icon: CreditCard },
+  { id: "airport-map", label: "Airport Spend Map", icon: TrendingUp },
   { id: "export", label: "Expense Report", icon: Download },
 ];
 
@@ -454,6 +456,11 @@ export default function DemoCorporateDashboard() {
               </div>
             </div>
           </div>
+        )}
+
+        {/* Tab: Airport Spend Map */}
+        {activeTab === "airport-map" && (
+          <CorporateAirportSpendMap transactions={filteredTxns} />
         )}
 
         {/* Tab: Expense Report */}
