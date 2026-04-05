@@ -112,7 +112,7 @@ export default function DemoRetailerDashboard() {
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {/* Tabs */}
         <div className="flex gap-1 border-b border-border">
-          {[{ id: "dashboard", label: "Dashboard", icon: LayoutDashboard }, { id: "profile", label: "Profile & Billing", icon: UserCircle }].map(({ id, label, icon: Icon }) => (
+          {[{ id: "dashboard", label: "Dashboard", icon: LayoutDashboard }, { id: "profile", label: "Profile & Billing", icon: UserCircle }, { id: "scan", label: "Quick Scan", icon: ScanLine }].map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
@@ -122,7 +122,12 @@ export default function DemoRetailerDashboard() {
           ))}
         </div>
 
-        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : (<>
+        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "scan" ? (
+          <div className="space-y-4">
+            <p className="text-muted-foreground text-sm">Use the dedicated scan interface for quick QR code scanning without the full dashboard.</p>
+            <Link to="/retailer-scan-only" target="_blank" className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all">Open Scan Interface →</Link>
+          </div>
+        ) : (<>
         {/* Welcome */}
         <div className="flex items-start justify-between">
           <div>
