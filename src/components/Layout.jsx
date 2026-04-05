@@ -26,7 +26,6 @@ const roleNavItems = {
     { label: "Airport Retailers", path: "/retailers", icon: Store },
     { label: "Travel Agencies", path: "/travel-agencies", icon: Plane },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
-    { label: "Business Travel", path: "/business-travel", icon: Briefcase },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
   agency: [
