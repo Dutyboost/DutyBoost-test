@@ -117,9 +117,9 @@ export default function DemoCorporateDashboard() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { label: "Active Travelers", value: "5", icon: Users, color: "text-primary", bg: "bg-primary/10" },
-            { label: "Total Daily Budget", value: "€305", icon: DollarSign, color: "text-green-600", bg: "bg-green-50" },
             { label: "Total F&B Spend", value: `€${totalSpend.toFixed(2)}`, icon: Utensils, color: "text-orange-600", bg: "bg-orange-50" },
-            { label: "Budget Utilization", value: "75%", icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
+            { label: "Total Discounts Given (15%)", value: `€${(totalSpend * 0.15).toFixed(2)}`, icon: DollarSign, color: "text-green-600", bg: "bg-green-50" },
+            { label: "Est. Annual Fee (10% of discounts)", value: `€${(totalSpend * 0.15 * 0.10).toFixed(2)}`, icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
           ].map(({ label, value, icon: Icon, color, bg }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5">
               <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center mb-3`}>

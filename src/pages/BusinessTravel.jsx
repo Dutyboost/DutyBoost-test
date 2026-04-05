@@ -45,10 +45,10 @@ const features = [
 ];
 
 const steps = [
-  { step: "01", title: "Corporate Admin Issues Credit", desc: "Define a policy — daily limit, meal windows, airport — and issue an FNB_ONLY DutyCredit to the business traveler before their trip." },
-  { step: "02", title: "Traveler Opens App at Airport", desc: "The traveler views their available F&B DutyCredit and generates a secure, time-limited QR code when ready to pay." },
-  { step: "03", title: "Merchant Scans at POS", desc: "The F&B outlet scans the QR. The system instantly validates merchant category, token validity, balance, and corporate policy." },
-  { step: "04", title: "Approved or Rejected Instantly", desc: "If all checks pass, payment is approved and balance deducted. Non-F&B merchants, expired tokens, or limit breaches are blocked automatically." },
+  { step: "01", title: "Company Enrols Travelers", desc: "The corporate admin registers traveling employees on DutyBoost and sets meal-time windows. Each traveler gets access to their personal F&B DutyCredit." },
+  { step: "02", title: "Traveler Shows QR at Airport", desc: "At any participating airport F&B outlet, the traveler opens the DutyBoost app and presents their unique, time-limited QR code at the point of sale." },
+  { step: "03", title: "15% Discount Applied Instantly", desc: "The merchant scans the QR. The system validates the traveler's eligibility and automatically applies a 15% discount — the merchant receives full settlement from DutyBoost." },
+  { step: "04", title: "Annual Fee Billed at Year-End", desc: "At the end of each year, the company receives a single invoice: 10% of the total discounts all their travelers received. Transparent, predictable, no surprises." },
 ];
 
 const validationRules = [
@@ -70,9 +70,9 @@ const rejectionTriggers = [
 ];
 
 const stats = [
-  { value: "100%", label: "F&B merchant enforcement" },
-  { value: "< 5min", label: "QR token lifetime" },
-  { value: "Real-time", label: "Policy validation" },
+  { value: "15%", label: "Fixed F&B discount for travelers" },
+  { value: "10%", label: "Yearly fee of total discounts given" },
+  { value: "Real-time", label: "Policy & merchant validation" },
   { value: "Full", label: "Audit trail per transaction" },
 ];
 
@@ -126,7 +126,7 @@ export default function BusinessTravel() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Issue <strong className="text-foreground">F&B-only DutyCredits</strong> to your corporate travelers. Guaranteed compliance with travel policy, real-time validation at airport F&B merchants, and full audit transparency — all without friction.
+            Your business travelers get a <strong className="text-foreground">15% discount</strong> on food &amp; beverages at participating airport merchants — automatically. Your company pays a simple <strong className="text-foreground">yearly subscription of 10%</strong> of the total discounts your travelers received. No per-transaction fees. No hidden costs.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
@@ -174,8 +174,8 @@ export default function BusinessTravel() {
                 color: "from-blue-400 to-blue-600",
                 bg: "bg-blue-50",
                 iconColor: "text-blue-600",
-                desc: "Define spending policies, set daily and per-transaction limits, configure meal-time windows, and issue F&B DutyCredits to traveling employees before departure.",
-                benefits: ["Policy-based spend control", "Per-employee credit issuance", "Full audit dashboard"],
+                desc: "Enrol your travelers and set meal-time windows. Your yearly subscription fee is 10% of the total discounts your travelers received — calculated automatically at year-end.",
+                benefits: ["Simple annual billing: 10% of total discounts", "Per-employee enrolment", "Full spend dashboard & reports"],
               },
               {
                 icon: Briefcase,
@@ -183,8 +183,8 @@ export default function BusinessTravel() {
                 color: "from-primary to-primary/70",
                 bg: "bg-primary/10",
                 iconColor: "text-primary",
-                desc: "No expense reports, no reimbursement delays. Open the app, generate a QR code at the airport F&B outlet, and pay instantly within your company's policy.",
-                benefits: ["Zero paperwork", "Instant QR payment", "Policy-compliant by design"],
+                desc: "Show your DutyCredit QR at any participating airport F&B outlet and automatically receive a 15% discount at the point of sale. No paperwork, no reimbursements.",
+                benefits: ["Automatic 15% F&B discount", "Zero paperwork or receipts", "Works at any participating airport"],
               },
               {
                 icon: UtensilsCrossed,
@@ -192,8 +192,8 @@ export default function BusinessTravel() {
                 color: "from-orange-400 to-orange-600",
                 bg: "bg-orange-50",
                 iconColor: "text-orange-600",
-                desc: "Receive a guaranteed stream of pre-approved corporate spenders. Accept DutyCredit QR payments directly at the POS — no contract complexity, no delayed settlements.",
-                benefits: ["Guaranteed conversion", "Real-time QR redemption", "Predictable B2B revenue"],
+                desc: "Attract a guaranteed flow of corporate travelers. Scan the DutyCredit QR, apply the 15% discount at POS, and receive full payment settlement — DutyBoost reimburses the discount.",
+                benefits: ["Full transaction value settled", "Real-time QR redemption", "Predictable B2B volume"],
               },
             ].map(({ icon: Icon, title, color, bg, iconColor, desc, benefits }) => (
               <div key={title} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
@@ -293,10 +293,10 @@ export default function BusinessTravel() {
             <div className="relative space-y-6">
               <Badge className="bg-white/20 text-white border-white/30 text-sm px-4 py-1">Ready to launch?</Badge>
               <h2 className="text-4xl font-heading font-bold">
-                The smarter airport meal wallet for business travel
+                The smarter F&B benefit for business travelers
               </h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                Stop chasing expense receipts. Issue F&B DutyCredits to your travelers and let the platform enforce policy automatically — at every airport, at every F&B outlet.
+                Your travelers get an automatic 15% discount on airport F&B — no receipts, no reimbursements. Your company pays one simple annual fee: 10% of the total discounts given.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/business-travel/get-started">
