@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Zap, BarChart3, QrCode, TrendingUp,
-  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye
+  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye, Briefcase
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -96,12 +96,13 @@ export default function LandingPage() {
             <DutyBoostLogo height={130} />
           </div>
           <div className="flex items-center gap-3">
-            <Link to="/demo">
+            <Link to="/business-travel">
               <Button variant="outline" size="sm" className="gap-1.5">
-                <Eye className="w-3.5 h-3.5" /> Live Demo
+                <Briefcase className="w-3.5 h-3.5" /> For Business Travel
               </Button>
             </Link>
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
+            <Link to="/demo">
             <Link to="/get-started">
               <Button size="sm" className="gap-1">
                 Get Started <ChevronRight className="w-3 h-3" />
