@@ -2,7 +2,9 @@ export default {
   translation: {
     nav: {
       signIn: 'Inloggen',
+      for_agencies: 'Voor reisbureaus',
       for_travelers: 'Voor reizigers',
+      for_retailers: 'Voor luchthavenretailers',
       getStarted: 'Aan de slag',
       weCallYou: 'Wij bellen u',
       liveDemo: 'Live Demo',
