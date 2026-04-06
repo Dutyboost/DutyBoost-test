@@ -65,8 +65,8 @@ export default function RetailerShowcase() {
                 <h4 className="font-heading font-semibold mb-2">{item.title}</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
-            ))
-          </div>
+            ))}
+            </div>
         </div>
       </section>
 
