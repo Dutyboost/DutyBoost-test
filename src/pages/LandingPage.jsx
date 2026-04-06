@@ -69,7 +69,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={90} />
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2">
             <LanguageSwitcher />
             <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.sign_in')}</Button>
             <Link to="/get-started">
@@ -89,7 +89,7 @@ export default function LandingPage() {
             </Link>
           </div>
           {/* Mobile nav toggle */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <LanguageSwitcher />
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -98,7 +98,7 @@ export default function LandingPage() {
         </div>
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
+          <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
             <Button size="sm" onClick={() => { base44.auth.redirectToLogin('/dashboard'); setMobileMenuOpen(false); }}>{t('nav.sign_in')}</Button>
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" className="w-full gap-1">{t('nav.get_started')} <ChevronRight className="w-3 h-3" /></Button>
