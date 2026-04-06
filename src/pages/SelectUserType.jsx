@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
@@ -8,11 +9,12 @@ import { ArrowRight } from "lucide-react";
 
 export default function SelectUserType() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const options = [
     {
-      title: "For Travel Agencies",
-      description: "Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.",
+      titleKey: 'getStarted.agencies.title',
+      descKey: 'getStarted.agencies.description',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
@@ -20,8 +22,8 @@ export default function SelectUserType() {
       path: "/agency-showcase",
     },
     {
-      title: "For Leisure Travelers",
-      description: "Maximize your airport shopping experience with personalized rewards. Enjoy exclusive discounts through your travel bookings all year long.",
+      titleKey: 'getStarted.travelers.title',
+      descKey: 'getStarted.travelers.description',
       icon: TravelerIcon,
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
@@ -29,8 +31,8 @@ export default function SelectUserType() {
       path: "/traveler-showcase",
     },
     {
-      title: "For Airport Retailers",
-      description: "Get pre-qualified customers and increase transaction value through DutyBoost's targeted incentive programs. Grow your revenue while building customer loyalty at your airport.",
+      titleKey: 'getStarted.retailers.title',
+      descKey: 'getStarted.retailers.description',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
@@ -54,9 +56,9 @@ export default function SelectUserType() {
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold">Get Started with DutyBoost</h1>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold">{t('getStarted.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Choose your role to access and start enjoying the benefits of DutyBoost incentive platform.
+              {t('getStarted.subtitle')}
             </p>
           </div>
 
@@ -72,15 +74,15 @@ export default function SelectUserType() {
                   <div className={`w-20 h-20 rounded-2xl ${option.bg} flex items-center justify-center mb-6`}>
                     <Icon className={`w-20 h-20 ${option.iconColor}`} />
                   </div>
-                  <h2 className="font-heading font-bold text-2xl mb-3">{option.title}</h2>
+                  <h2 className="font-heading font-bold text-2xl mb-3">{t(option.titleKey)}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
-                    {option.description}
+                    {t(option.descKey)}
                   </p>
                   <Button
                     size="lg"
                     className={`w-full bg-gradient-to-r ${option.color} text-white hover:opacity-90 gap-2`}
                   >
-                    Get Started <ArrowRight className="w-4 h-4" />
+                    {t('getStarted.agencies.cta')} <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
               );

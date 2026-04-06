@@ -11,10 +11,10 @@ export default function RetailerShowcase() {
   const { t } = useTranslation();
 
   const flowSteps = [
-    { num: '01', title: 'Traveler books a trip', desc: 'Booking details - price, number of travelers in your booking, destination are automatically taken from the confirmed booking details.' },
-    { num: '02', title: 'DutyCredit earned', desc: 'A DutyCredit - a booking-earned incentive with a dynamic discount - is instantly calculated and issued as a unique QR code.' },
-    { num: '03', title: 'Traveler shops', desc: 'Traveler presents QR at a participating airport retailer. Browse the store map at dutyboost.com/airport-map to find stores near your gate.' },
-    { num: '04', title: 'All parties win', desc: 'Retailer logs the sale, discount applied, platform revenue tracked.' },
+    { num: '01', titleKey: 'showcase.retailer.step1', descKey: 'showcase.retailer.step1Desc' },
+    { num: '02', titleKey: 'showcase.retailer.step2', descKey: 'showcase.retailer.step2Desc' },
+    { num: '03', titleKey: 'showcase.retailer.step3', descKey: 'showcase.retailer.step3Desc' },
+    { num: '04', titleKey: 'showcase.retailer.step4', descKey: 'showcase.retailer.step4Desc' },
   ];
 
   const featureKeys = [
@@ -43,10 +43,10 @@ export default function RetailerShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            Boost Sales with <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Traveler Rewards</span>
+            {t('showcase.retailer.title').split(' ').slice(0, -3).join(' ')} <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">{t('showcase.retailer.title').split(' ').slice(-3).join(' ')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Attract more customers by accepting DutyCredits—rewards that travelers earn from their bookings. Convert passing travelers into repeat customers and drive incremental revenue.
+            {t('showcase.retailer.subtitle')}
           </p>
         </div>
       </section>
@@ -56,14 +56,14 @@ export default function RetailerShowcase() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">How It Works</Badge>
-            <h2 className="text-4xl font-heading font-bold">From Booking to Basket</h2>
+            <h2 className="text-4xl font-heading font-bold">{t('showcase.retailer.howItWorks')}</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {flowSteps.map((item) => (
               <div key={item.num} className="bg-card rounded-2xl border border-border p-6 h-full">
                 <p className="text-4xl font-heading font-bold text-primary/20 mb-3">{item.num}</p>
-                <h4 className="font-heading font-semibold mb-2">{item.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                <h4 className="font-heading font-semibold mb-2">{t(item.titleKey)}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t(item.descKey)}</p>
               </div>
             ))}
             </div>
@@ -76,13 +76,13 @@ export default function RetailerShowcase() {
           <div className="bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
-              <h2 className="text-4xl font-heading font-bold">Ready to Grow Your Retail Business?</h2>
+              <h2 className="text-4xl font-heading font-bold">{t('showcase.retailer.ctaTitle')}</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                Join DutyBoost and start capturing incremental retail revenue from travelers with instant QR redemption and transparent revenue tracking.
+                {t('showcase.retailer.ctaDesc')}
               </p>
               <Link to="/retailer-portal">
                 <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  Enter Retailer Portal <ArrowRight className="w-4 h-4" />
+                  {t('showcase.retailer.ctaButton')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

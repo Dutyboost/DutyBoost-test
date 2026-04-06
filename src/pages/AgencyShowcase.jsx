@@ -11,10 +11,10 @@ export default function AgencyShowcase() {
   const { t } = useTranslation();
 
   const flowSteps = [
-    { num: '01', title: 'Traveler books a trip', desc: 'Your booking system automatically sends confirmed booking details — price, number of travelers, destination — to DutyBoost.' },
-    { num: '02', title: 'DutyCredit is generated', desc: 'Our algorithm instantly calculates a personalized DutyCredit based on ticket value, group size, and route, earning you a margin on redemption.' },
-    { num: '03', title: 'Traveler receives incentive', desc: 'Your customer gets a unique QR code and email notification. No additional work—it\'s automatic and seamless for them.' },
-    { num: '04', title: 'Earn revenue on redemption', desc: 'When your traveler redeems at an airport retailer, you earn a commission. Track it all in real-time.' },
+    { num: '01', titleKey: 'showcase.agency.step1', descKey: 'showcase.agency.step1Desc' },
+    { num: '02', titleKey: 'showcase.agency.step2', descKey: 'showcase.agency.step2Desc' },
+    { num: '03', titleKey: 'showcase.agency.step3', descKey: 'showcase.agency.step3Desc' },
+    { num: '04', titleKey: 'showcase.agency.step4', descKey: 'showcase.agency.step4Desc' },
   ];
 
   const featureKeys = [
@@ -43,10 +43,10 @@ export default function AgencyShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            Turn Every Booking Into <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Loyalty Revenue</span>
+            {t('showcase.agency.title').split(' ').slice(0, -4).join(' ')} <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">{t('showcase.agency.title').split(' ').slice(-4).join(' ')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Automatically generate personalized incentives for your travelers. Earn a margin on every redemption while boosting customer satisfaction—with zero integration friction.
+            {t('showcase.agency.subtitle')}
           </p>
         </div>
       </section>
@@ -56,14 +56,14 @@ export default function AgencyShowcase() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">How It Works</Badge>
-            <h2 className="text-4xl font-heading font-bold">From Booking to Commission</h2>
+            <h2 className="text-4xl font-heading font-bold">{t('showcase.agency.howItWorks')}</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {flowSteps.map((item) => (
               <div key={item.num} className="bg-card rounded-2xl border border-border p-6 h-full">
                 <p className="text-4xl font-heading font-bold text-primary/20 mb-3">{item.num}</p>
-                <h4 className="font-heading font-semibold mb-2">{item.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                <h4 className="font-heading font-semibold mb-2">{t(item.titleKey)}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t(item.descKey)}</p>
               </div>
             ))}
           </div>
@@ -76,13 +76,13 @@ export default function AgencyShowcase() {
           <div className="bg-gradient-to-br from-green-400 to-emerald-600 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
-              <h2 className="text-4xl font-heading font-bold">Ready to Boost Traveler Loyalty?</h2>
+              <h2 className="text-4xl font-heading font-bold">{t('showcase.agency.ctaTitle')}</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                Join DutyBoost and start earning commissions on every redemption. Enable your travelers to save at airports while you capture new revenue—automatically.
+                {t('showcase.agency.ctaDesc')}
               </p>
               <Link to="/agency-portal">
                 <Button size="lg" className="bg-white text-green-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  Enter Agency Portal <ArrowRight className="w-4 h-4" />
+                  {t('showcase.agency.ctaButton')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
