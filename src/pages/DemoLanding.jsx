@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase, Ticket } from "lucide-react";
+import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import TravelerIcon from "../components/TravelerIcon";
 import { useTranslation } from "react-i18next";
 
 export default function DemoLanding() {
@@ -47,7 +48,7 @@ export default function DemoLanding() {
 
           <Link to="/demo/traveler" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <Ticket className="w-6 h-6 text-primary" />
+              <TravelerIcon className="w-6 h-6 text-primary" />
             </div>
             <div>
               <p className="font-heading font-bold text-xl">Traveler</p>
