@@ -21,7 +21,7 @@ export default function SelectUserType() {
     },
     {
       title: "For Leisure Travelers",
-      description: "Maximize your airport shopping experience with personalized offers and rewards. Enjoy exclusive discounts that enhance your travels and save money through the travel bookings you book all year long.",
+      description: "Maximize your airport shopping experience with personalized rewards. Enjoy exclusive discounts through your travel bookings all year long.",
       icon: TravelerIcon,
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
