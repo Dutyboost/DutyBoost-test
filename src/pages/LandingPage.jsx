@@ -148,10 +148,10 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
-          <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-1.5 text-sm font-medium">
-            <Star className="w-3 h-3 mr-1.5 inline" />
-            {t('hero.badge')}
-          </Badge>
+          <div className="space-y-2">
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">See How It Works</p>
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Ecosystem</p>
+          </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
             {t('hero.title_1')}{" "}
