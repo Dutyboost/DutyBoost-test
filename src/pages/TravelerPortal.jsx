@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
@@ -8,13 +9,14 @@ import QRCodeDisplay from "../components/QRCodeDisplay";
 import {
   QrCode, History, Store, LogOut, LogIn, MapPin, Clock,
   CheckCircle, RefreshCw, ShoppingBag, Ticket, ChevronRight,
-  Plane, User, AlertCircle
+  Plane, User, AlertCircle, UserPlus
 } from "lucide-react";
 
 
 
 export default function TravelerPortal() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const TABS = [
     { id: "credits", label: t('traveler.tabCredits'), icon: Ticket },
     { id: "stores", label: t('traveler.tabStores'), icon: Store },
@@ -57,6 +59,10 @@ export default function TravelerPortal() {
     base44.auth.redirectToLogin(window.location.pathname);
   }
 
+  function handleSignup() {
+    navigate("/traveler-signup");
+  }
+
   function handleLogout() {
     base44.auth.logout("/traveler-portal");
   }
@@ -87,11 +93,14 @@ export default function TravelerPortal() {
         </div>
 
         <div className="w-full space-y-3">
-          <Button className="w-full gap-2 text-base h-12" onClick={handleLogin}>
+          <Button className="w-full gap-2 text-base h-12" onClick={handleSignup}>
+            <UserPlus className="w-4 h-4" /> Create Account
+          </Button>
+          <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={handleLogin}>
             <LogIn className="w-4 h-4" /> {t('traveler.signInBtn')}
           </Button>
           <p className="text-xs text-muted-foreground">
-            {t('traveler.signInHint')}
+            New to DutyBoost? Create an account to start earning rewards from your bookings.
           </p>
         </div>
 
