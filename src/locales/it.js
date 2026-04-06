@@ -1,0 +1,74 @@
+export default {
+  translation: {
+    nav: {
+      signIn: 'Accedi',
+      getStarted: 'Inizia',
+      weCallYou: 'Ti chiamiamo',
+      liveDemo: 'Demo dal vivo',
+    },
+    hero: {
+      badge: 'La prima piattaforma mondiale di incentivi aeroportuali dinamici',
+      headline1: 'Trasformare ogni prenotazione di viaggio in',
+      headline2: 'guadagni negli aeroporti',
+      sub: "Sblocca il flusso di entrate nascosto in ogni prenotazione con il Travel Retail Conversion Layer di DutyBoost. Collegando viaggiatori, agenzie di viaggio e retailer aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento prima ancora che raggiungano l'aeroporto.",
+      cta: 'Avvia la piattaforma',
+      seeHow: 'Scopri come funziona',
+    },
+    ecosystem: {
+      badge: 'Ecosistema',
+      title: 'Una piattaforma, tre vincitori',
+      sub: 'DutyBoost allinea gli incentivi per tutti gli stakeholder del percorso retail aeroportuale — creando valore in ogni punto di contatto.',
+    },
+    stakeholders: {
+      travellers: {
+        title: 'Viaggiatori',
+        description: 'Goditi sconti esclusivi all\'aeroporto di partenza — guadagnati automaticamente tramite la prenotazione. Nessuna registrazione, nessuna burocrazia. Scansiona il tuo DutyCredit e risparmia. Valido per acquisti di €50 o più in un unico punto vendita.',
+        benefits: ['DutyCredit mobile immediato', 'Sconto completo in un negozio', 'Esperienza QR senza attrito'],
+        mapLink: 'Sfoglia la mappa dei retailer aeroportuali →',
+      },
+      retailers: {
+        title: 'Retailer aeroportuali',
+        description: 'Converti i viaggiatori di passaggio in clienti paganti. Ricevi acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo DutyCredit personalizzato. La nostra commissione si applica solo quando un DutyCredit viene effettivamente riscattato — non paghi nulla a meno che non consegniamo una vendita.',
+        benefits: ['Maggiore conversione del carrello', 'Riscatto QR in tempo reale', 'Tracciamento della condivisione dei ricavi'],
+      },
+      agencies: {
+        title: 'Agenzie di viaggio',
+        description: 'Trasforma ogni prenotazione in un asset di fidelizzazione. Genera automaticamente DutyCredit personalizzati per i tuoi viaggiatori — incentivi esclusivi basati sulla dimensione del gruppo, la destinazione e il valore del biglietto — senza sforzo aggiuntivo. Guadagna un margine su ogni DutyCredit riscattato.',
+        benefits: ['Maggiore soddisfazione del viaggiatore', 'Zero attrito di integrazione', 'Più prenotazioni ripetute'],
+      },
+    },
+    flow: {
+      badge: 'Il flusso',
+      title: 'Dalla prenotazione al carrello',
+      steps: [
+        { step: '01', title: 'Il viaggiatore prenota un viaggio', desc: 'I dettagli della prenotazione — prezzo, numero di viaggiatori, destinazione — vengono presi automaticamente dalla conferma.' },
+        { step: '02', title: 'DutyCredit guadagnato', desc: 'Un DutyCredit — un incentivo con sconto dinamico — viene calcolato istantaneamente ed emesso come QR code unico.' },
+        { step: '03', title: 'Il viaggiatore fa acquisti', desc: 'Il viaggiatore presenta il QR presso un retailer aeroportuale partecipante. Consulta la mappa su dutyboost.com/airport-map.' },
+        { step: '04', title: 'Tutti vincono', desc: 'Il retailer registra la vendita, sconto applicato, entrate della piattaforma tracciate.' },
+      ],
+    },
+    features: {
+      badge: 'Piattaforma',
+      title: 'Costruita per l\'aeroporto moderno',
+      sub: 'Ogni funzionalità progettata per eliminare l\'attrito dal ciclo di conversione retail.',
+      items: [
+        { title: 'Motore di incentivi dinamico', description: 'Incentivi calcolati in tempo reale dal prezzo del biglietto, dalla dimensione del gruppo e dalla distanza. Sempre equo, sempre ottimale.' },
+        { title: 'Riscatto basato su QR', description: 'Scansione QR con un tocco al punto vendita. Validazione immediata, zero attrito.' },
+        { title: 'Tracciamento della condivisione dei ricavi', description: 'Piena trasparenza delle transazioni. Ogni riscatto è registrato con i ricavi della piattaforma, la quota del retailer e l\'incentivo applicato.' },
+        { title: 'Sicurezza monouso', description: 'Ogni DutyCredit è crittograficamente unico e invalidato al riscatto — nessun doppio utilizzo, mai.' },
+        { title: 'Pronto per più aeroporti', description: 'Scala su qualsiasi numero di aeroporti e mercati. Retailer, agenzie e viaggiatori in un\'unica piattaforma unificata.' },
+        { title: 'Intelligenza amministrativa', description: 'Un pannello di amministrazione in tempo reale mostra KPI, cronologia delle transazioni e metriche dei ricavi.' },
+      ],
+    },
+    cta: {
+      badge: 'Pronto per il lancio?',
+      title: 'Il futuro del retail aeroportuale inizia qui',
+      sub: 'Unisciti a DutyBoost e diventa parte del primo Travel Retail Conversion Layer intelligente — dove ogni prenotazione genera un DutyCredit che converte i viaggiatori in acquirenti.',
+      button: 'Accedi alla piattaforma',
+    },
+    footer: {
+      tagline: '— Piattaforma dinamica di incentivi aeroportuali',
+      copy: '© 2026 DutyBoost. Tutti i diritti riservati.',
+    },
+  },
+};
