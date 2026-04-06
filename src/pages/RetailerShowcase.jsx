@@ -37,6 +37,20 @@ export default function RetailerShowcase() {
         </div>
       </nav>
 
+      {/* Hero */}
+      <section className="relative overflow-hidden pt-10 pb-12 px-4 sm:px-6">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-background to-background pointer-events-none" />
+        <div className="absolute top-10 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center space-y-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
+            Grow Your <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Airport Retail Revenue</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Capture incremental sales from travelers with duty-free vouchers. Increase foot traffic, boost customer loyalty, and unlock new revenue streams with DutyBoost.
+          </p>
+        </div>
+      </section>
+
       {/* Flow Section */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
