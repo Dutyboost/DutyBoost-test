@@ -52,7 +52,7 @@ export default {
     },
     features: {
       badge: 'Plateforme',
-      title: 'Conçue pour l\'aéroport moderne',
+      title: 'Conçue pour les détaillants d\'aéroports modernes',
       sub: 'Chaque fonctionnalité conçue pour supprimer la friction de la boucle de conversion commerciale.',
       items: [
         { title: 'Moteur d\'incitations dynamique', description: 'Incitations calculées en temps réel à partir du prix du billet, de la taille du groupe et de la distance. Toujours juste, toujours optimal.' },

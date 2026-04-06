@@ -52,7 +52,7 @@ export default {
     },
     features: {
       badge: 'Platform',
-      title: 'Gebouwd voor de moderne luchthaven',
+      title: 'Gebouwd voor de moderne luchthaven retailers',
       sub: 'Elk onderdeel ontworpen om frictie uit de retailconversielus te verwijderen.',
       items: [
         { title: 'Dynamische incentive-engine', description: 'Incentives berekend in realtime op basis van ticketprijs, groepsgrootte en reisafstand. Altijd eerlijk, altijd optimaal.' },

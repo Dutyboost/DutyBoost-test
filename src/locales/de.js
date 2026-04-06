@@ -52,7 +52,7 @@ export default {
     },
     features: {
       badge: 'Plattform',
-      title: 'Für den modernen Flughafen gebaut',
+      title: 'Für den modernen Flughafen-Einzelhandel gebaut',
       sub: 'Jede Funktion entwickelt, um Reibung aus der Einzelhandels-Konversionsschleife zu entfernen.',
       items: [
         { title: 'Dynamische Anreiz-Engine', description: 'Anreize in Echtzeit aus Ticketpreis, Gruppengröße und Reiseentfernung berechnet. Immer fair, immer optimal.' },
