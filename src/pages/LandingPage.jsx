@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Zap, BarChart3, QrCode, TrendingUp,
-  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye
+  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye, Menu, X
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -18,6 +19,7 @@ const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
 export default function LandingPage() {
   const { t } = useTranslation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const stakeholders = [
     {
@@ -63,10 +65,11 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
-          <DutyBoostLogo height={130} />
-          <div className="flex items-center gap-3">
+      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+          <DutyBoostLogo height={90} />
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-2">
             <LanguageSwitcher />
             <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.sign_in')}</Button>
             <Link to="/get-started">
@@ -85,11 +88,37 @@ export default function LandingPage() {
               </Button>
             </Link>
           </div>
+          {/* Mobile nav toggle */}
+          <div className="flex md:hidden items-center gap-2">
+            <LanguageSwitcher />
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
+            <Button size="sm" onClick={() => { base44.auth.redirectToLogin('/dashboard'); setMobileMenuOpen(false); }}>{t('nav.sign_in')}</Button>
+            <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" className="w-full gap-1">{t('nav.get_started')} <ChevronRight className="w-3 h-3" /></Button>
+            </Link>
+            <WeCallYouModal trigger={(setOpen) => (
+              <Button size="sm" variant="outline" className="w-full text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
+                {t('nav.we_call_you')}
+              </Button>
+            )} />
+            <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-accent border-accent hover:text-accent hover:bg-accent/5">
+                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
+              </Button>
+            </Link>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-12 pb-14 px-6">
+      <section className="relative overflow-hidden pt-10 pb-12 px-4 sm:px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -100,7 +129,7 @@ export default function LandingPage() {
             {t('hero.badge')}
           </Badge>
 
-          <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
             {t('hero.title_1')}{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {t('hero.title_2')}
@@ -124,7 +153,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stakeholders */}
-      <section id="how-it-works" className="py-14 px-6">
+      <section id="how-it-works" className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('ecosystem.badge')}</Badge>
@@ -168,7 +197,7 @@ export default function LandingPage() {
       </section>
 
       {/* How it works flow */}
-      <section className="py-12 px-6 bg-card/30 border-y border-border">
+      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('flow.badge')}</Badge>
@@ -187,7 +216,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section className="py-14 px-6">
+      <section className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('features.badge')}</Badge>
@@ -212,7 +241,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 px-6">
+      <section className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -230,7 +259,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-10 px-6">
+      <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
