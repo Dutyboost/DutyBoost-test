@@ -17,7 +17,7 @@ export default function SelectUserType() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/agency-signup",
+      path: "/agency-showcase",
     },
     {
       title: "For Leisure Travelers",
@@ -26,7 +26,7 @@ export default function SelectUserType() {
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
-      path: "/traveler-signup",
+      path: "/traveler-showcase",
     },
     {
       title: "For Airport Retailers",
