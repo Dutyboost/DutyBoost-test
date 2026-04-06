@@ -29,53 +29,36 @@ export default function BookingForm({ onVoucherGenerated }) {
     e.preventDefault();
     setLoading(true);
 
-    const ticketPrice = parseFloat(form.total_ticket_price);
-    const travelers = parseInt(form.number_of_travelers);
-    const discount = calculateDiscount({
-      ticketPrice,
-      travelers,
-      travelType: form.travel_type,
-    });
-
     const user = await base44.auth.me();
-    const travelDate = new Date(form.travel_date);
-    const expirationDate = new Date(travelDate);
-    expirationDate.setDate(expirationDate.getDate() + 1);
 
-    const booking = await base44.entities.Booking.create({
-      ...form,
-      total_ticket_price: ticketPrice,
-      number_of_travelers: travelers,
-      agency_email: user.email,
-      traveler_email: form.traveler_email,
-    });
-
-    const voucherCode = generateVoucherCode();
-    const voucher = await base44.entities.Voucher.create({
-      voucher_code: voucherCode,
+    const response = await base44.functions.invoke('generateDutyCredit', {
       booking_id: form.booking_id,
-      discount_percentage: discount,
-      airport: form.departure_airport,
-      expiration_date: expirationDate.toISOString().split("T")[0],
-      status: "active",
-      traveler_count: travelers,
-      ticket_price: ticketPrice,
+      total_ticket_price: parseFloat(form.total_ticket_price),
+      number_of_travelers: parseInt(form.number_of_travelers),
       travel_type: form.travel_type,
+      departure_airport: form.departure_airport,
+      travel_date: form.travel_date,
+      traveler_email: form.traveler_email,
       agency_email: user.email,
     });
 
     setLoading(false);
-    toast.success(`DutyCredit generated: ${discount}% incentive!`);
-    setForm({
-      booking_id: "",
-      total_ticket_price: "",
-      number_of_travelers: "1",
-      travel_type: "Short-haul",
-      departure_airport: "",
-      travel_date: "",
-      traveler_email: "",
-    });
-    onVoucherGenerated?.(voucher);
+
+    if (response.data?.success) {
+      toast.success(`DutyCredit generated: ${response.data.discount_percentage}% — sent to ${form.traveler_email}`);
+      setForm({
+        booking_id: "",
+        total_ticket_price: "",
+        number_of_travelers: "1",
+        travel_type: "Short-haul",
+        departure_airport: "",
+        travel_date: "",
+        traveler_email: "",
+      });
+      onVoucherGenerated?.(response.data);
+    } else {
+      toast.error(response.data?.error || 'Failed to generate DutyCredit');
+    }
   };
 
   return (
@@ -155,13 +138,13 @@ export default function BookingForm({ onVoucherGenerated }) {
           />
         </div>
         <div className="space-y-2 md:col-span-2">
-          <Label>Traveler Email <span className="text-muted-foreground font-normal">(optional — for flight reminder)</span></Label>
+          <Label>Traveler Email</Label>
           <Input
             type="email"
             placeholder="traveler@example.com"
             value={form.traveler_email}
             onChange={(e) => setForm({ ...form, traveler_email: e.target.value })}
-          />
+            required
         </div>
       </div>
 

@@ -105,6 +105,7 @@ Deno.serve(async (req) => {
     ticket_price: total_ticket_price,
     travel_type,
     agency_email: agencyEmail,
+    traveler_email,
   });
 
   // Construct the DutyCredit URL
