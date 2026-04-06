@@ -198,8 +198,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How it works flow */}
-      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
+      {/* How it works flow - HIDDEN */}
+      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border hidden">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('flow.badge')}</Badge>
@@ -217,8 +217,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-10 sm:py-14 px-4 sm:px-6">
+      {/* Features - HIDDEN */}
+      <section className="py-10 sm:py-14 px-4 sm:px-6 hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('features.badge')}</Badge>
