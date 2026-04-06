@@ -7,7 +7,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
-export default function RetailerInfoPage() {
+export default function RetailerShowcase() {
   const { t } = useTranslation();
 
   const flowSteps = [
