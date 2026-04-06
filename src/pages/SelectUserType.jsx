@@ -30,7 +30,7 @@ export default function SelectUserType() {
     },
     {
       title: "For Airport Retailers",
-      description: "Attract quality customers and increase transaction value through DutyBoost's targeted incentive programs. Grow your revenue while building customer loyalty in the airport retail space.",
+      description: "Get pre-qualified customers and increase transaction value through DutyBoost's targeted incentive programs. Grow your revenue while building customer loyalty at your airport.",
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
