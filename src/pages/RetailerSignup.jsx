@@ -158,8 +158,9 @@ export default function RetailerSignup() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/"><DutyBoostLogo height={150} /></Link>
         <Link to="/get-started"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> Back</Button></Link>
+        <Link to="/"><DutyBoostLogo height={150} /></Link>
+        <div className="w-24" />
       </nav>
 
       <div className="flex-1 flex items-center justify-center p-6">
