@@ -80,7 +80,7 @@ export default function TravelerShowcase() {
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
                 Access your DutyCredits instantly after your next booking. View your balance, find stores, and save at any participating airport retailer.
               </p>
-              <Link to="/traveler-portal">
+              <Link to="/get-started">
                 <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
                   Enter Traveler Portal <ArrowRight className="w-4 h-4" />
                 </Button>
