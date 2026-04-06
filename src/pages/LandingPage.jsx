@@ -160,9 +160,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* HIDDEN: Stakeholders section - kept for future recovery */}
-      {/* Hidden sections: Stakeholders ("See How The Ecosystem Works") and Flow section ("How it works flow") */}
-      <section id="how-it-works" className="py-10 sm:py-14 px-4 sm:px-6 hidden">
+      {/* Stakeholders */}
+      <section id="how-it-works" className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
             <h2 className="text-4xl font-heading font-bold">See How The Ecosystem Works</h2>
@@ -199,8 +198,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* HIDDEN: How it works flow - kept for future recovery */}
-      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border hidden">
+      {/* How it works flow */}
+      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('flow.badge')}</Badge>
