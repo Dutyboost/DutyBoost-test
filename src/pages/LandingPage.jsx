@@ -107,6 +107,7 @@ export default function LandingPage() {
             </span>
           </h1>
 
+          {/* render subtitle with inline HTML for bold word */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
