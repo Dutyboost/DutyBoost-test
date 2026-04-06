@@ -7,6 +7,7 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Sign In",
+        for_travelers: "For Travelers",
         get_started: "Get Started",
         we_call_you: "We Call You",
         live_demo: "Live Demo",
@@ -294,6 +295,7 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Inloggen",
+        for_travelers: "Voor reizigers",
         get_started: "Aan de slag",
         we_call_you: "Wij bellen u",
         live_demo: "Live Demo",
@@ -581,6 +583,7 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Iniciar sesión",
+        for_travelers: "Para viajeros",
         get_started: "Empezar",
         we_call_you: "Te llamamos",
         live_demo: "Demo en vivo",
@@ -868,6 +871,7 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Se connecter",
+        for_travelers: "Pour les voyageurs",
         get_started: "Commencer",
         we_call_you: "On vous rappelle",
         live_demo: "Démo en direct",
@@ -1155,6 +1159,7 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Accedi",
+        for_travelers: "Per i viaggiatori",
         get_started: "Inizia",
         we_call_you: "Ti chiamiamo",
         live_demo: "Demo dal vivo",
@@ -1442,6 +1447,7 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Anmelden",
+        for_travelers: "Für Reisende",
         get_started: "Loslegen",
         we_call_you: "Wir rufen Sie an",
         live_demo: "Live-Demo",
