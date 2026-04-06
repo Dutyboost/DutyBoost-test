@@ -85,7 +85,7 @@ export default function LandingPage() {
                 For Leisure Travelers
               </Button>
             </Link>
-            <Link to="/retailer-portal">
+            <Link to="/retailer-showcase">
               <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 For Airport Retailers
               </Button>
@@ -122,9 +122,9 @@ export default function LandingPage() {
                For Leisure Travelers
              </Button>
             </Link>
-            <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                For Retailers; For Airport Retailers
+            <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
+             <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
+               For Retailers; For Airport Retailers
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
