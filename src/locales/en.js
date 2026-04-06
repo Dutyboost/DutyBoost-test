@@ -19,8 +19,8 @@ export default {
     },
     ecosystem: {
       badge: 'Ecosystem',
-      title: 'One Platform, Three Winners',
-      sub: 'DutyBoost aligns incentives across every stakeholder in the airport retail journey — creating value at every touchpoint.',
+      title: 'See How The Ecosystem Works',
+      subtitle: 'DutyBoost connects three key stakeholders in a seamless ecosystem where everyone wins.',
     },
     stakeholders: {
       travellers: {
@@ -64,10 +64,9 @@ export default {
       ],
     },
     cta: {
-      badge: 'Ready to launch?',
-      title: 'The Future of Airport Retail Starts Here',
-      sub: 'Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer — where every booking earns a DutyCredit that converts travelers into airport shoppers.',
-      button: 'Access the Platform',
+      title: 'Transform How Travel and Shopping Connect',
+      description: 'Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.',
+      button: 'Get Started Today',
     },
     footer: {
       tagline: '— Dynamic Airport Incentive Platform',

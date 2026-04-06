@@ -77,17 +77,17 @@ export default function LandingPage() {
             <LanguageSwitcher />
             <Link to="/agency-showcase">
               <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                For Travel Agencies
+                {t('nav.for_agencies')}
               </Button>
             </Link>
             <Link to="/traveler-showcase">
               <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                For Leisure Travelers
+                {t('nav.for_travelers')}
               </Button>
             </Link>
             <Link to="/retailer-showcase">
               <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                For Airport Retailers
+                {t('nav.for_retailers')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -114,17 +114,17 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
             <Link to="/agency-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-               For Agencies; For Travel Agencies
+               {t('nav.for_agencies')}
              </Button>
             </Link>
             <Link to="/traveler-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-               For Leisure Travelers
+               {t('nav.for_travelers')}
              </Button>
             </Link>
             <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-               For Retailers; For Airport Retailers
+               {t('nav.for_retailers')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -164,7 +164,7 @@ export default function LandingPage() {
       <section id="how-it-works" className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
-            <h2 className="text-4xl font-heading font-bold">See How The Ecosystem Works</h2>
+            <h2 className="text-4xl font-heading font-bold">{t('ecosystem.title')}</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
 
@@ -182,7 +182,7 @@ export default function LandingPage() {
                     <Icon className={`w-24 h-24 ${s.iconColor}`} />
                   </div>
                   <h3 className="font-heading font-bold text-xl mb-3">
-                    {s.key === 'travelers' ? 'For Leisure Travelers' : s.key === 'agencies' ? 'For Travel Agencies' : 'For Airport Retailers'}
+                   {s.key === 'travelers' ? t('nav.for_travelers') : s.key === 'agencies' ? t('nav.for_agencies') : t('nav.for_retailers')}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{t(`stakeholders.${s.key}.description`)}</p>
                   <ul className="space-y-2">
@@ -251,9 +251,9 @@ export default function LandingPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
-              <h2 className="text-4xl font-heading font-bold">Transform How Travel and Shopping Connect</h2>
+              <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.
+                {t('cta.description')}
               </p>
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
                 {t('cta.button')} <ArrowRight className="w-4 h-4" />
