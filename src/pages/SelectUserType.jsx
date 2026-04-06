@@ -12,7 +12,7 @@ export default function SelectUserType() {
   const options = [
     {
       title: "For Travel Agencies",
-      description: "Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and drive revenue growth.",
+      description: "Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.",
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
