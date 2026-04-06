@@ -86,7 +86,7 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Link to="/retailer-portal">
-              <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
+              <Button size="sm" variant="outline" className="text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50">
                 For Airport Retailers
               </Button>
             </Link>
@@ -123,9 +123,9 @@ export default function LandingPage() {
              </Button>
             </Link>
             <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
-             <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-               For Airport Retailers
-             </Button>
+              <Button size="sm" variant="outline" className="w-full text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50">
+                For Airport Retailers
+              </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="w-full text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
