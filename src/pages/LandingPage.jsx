@@ -80,7 +80,16 @@ export default function LandingPage() {
                 {t('nav.for_travelers')}
               </Button>
             </Link>
-            <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.sign_in')}</Button>
+            <Link to="/agency-portal">
+              <Button size="sm" variant="outline">
+                For Travel Agencies
+              </Button>
+            </Link>
+            <Link to="/retailer-portal">
+              <Button size="sm" variant="outline">
+                For Airport Retailers
+              </Button>
+            </Link>
             <Link to="/get-started">
               <Button size="sm" className="gap-1">
                 {t('nav.get_started')} <ChevronRight className="w-3 h-3" />
@@ -113,7 +122,16 @@ export default function LandingPage() {
                 {t('nav.for_travelers')}
               </Button>
             </Link>
-            <Button size="sm" onClick={() => { base44.auth.redirectToLogin('/dashboard'); setMobileMenuOpen(false); }}>{t('nav.sign_in')}</Button>
+            <Link to="/agency-portal" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full">
+                For Travel Agencies
+              </Button>
+            </Link>
+            <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full">
+                For Airport Retailers
+              </Button>
+            </Link>
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" className="w-full gap-1">{t('nav.get_started')} <ChevronRight className="w-3 h-3" /></Button>
             </Link>

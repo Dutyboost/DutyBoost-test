@@ -48,6 +48,10 @@ import RetailerScanOnly from './pages/RetailerScanOnly';
 import TravelerPortal from './pages/TravelerPortal';
 import DemoTravelerPortal from './pages/DemoTravelerPortal';
 import TravelerSignup from './pages/TravelerSignup';
+import AgencyPortal from './pages/AgencyPortal';
+import AgencySignup from './pages/AgencySignup';
+import RetailerPortal from './pages/RetailerPortal';
+import RetailerSignup from './pages/RetailerSignup';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -115,6 +119,11 @@ const AuthenticatedApp = () => {
         <Route path="/traveler" element={<TravelerApp />} />
         <Route path="/traveler-signup" element={<TravelerSignup />} />
         <Route path="/traveler-portal" element={<TravelerPortal />} />
+        <Route path="/traveler-signup" element={<TravelerSignup />} />
+        <Route path="/agency-portal" element={<AgencyPortal />} />
+        <Route path="/agency-signup" element={<AgencySignup />} />
+        <Route path="/retailer-portal" element={<RetailerPortal />} />
+        <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/demo/traveler" element={<DemoTravelerPortal />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
