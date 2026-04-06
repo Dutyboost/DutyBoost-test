@@ -30,6 +30,7 @@ import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
 import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
 import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
+import SelectUserType from './pages/SelectUserType';
 import AirportMap from './pages/AirportMap';
 import DemoLanding from './pages/DemoLanding';
 import LeadsAdmin from './pages/LeadsAdmin';
@@ -68,14 +69,14 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/traveler-signup', '/retailer-signup'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <>
             <ScrollRestoration />
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/get-started" element={<GetStarted />} />
+              <Route path="/get-started" element={<SelectUserType />} />
               <Route path="/voucher" element={<TravelerVoucher />} />
               <Route path="/scan" element={<TravelerScan />} />
               <Route path="/demo" element={<DemoLanding />} />
@@ -114,7 +115,8 @@ const AuthenticatedApp = () => {
         <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
         <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
-        <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/get-started" element={<SelectUserType />} />
+        <Route path="/registration" element={<GetStarted />} />
 {/* Corporate / Business Travel routes hidden - pending business model review */}
         <Route path="/traveler" element={<TravelerApp />} />
         <Route path="/traveler-signup" element={<TravelerSignup />} />
