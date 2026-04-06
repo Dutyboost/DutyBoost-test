@@ -1,0 +1,74 @@
+export default {
+  translation: {
+    nav: {
+      signIn: 'Sign In',
+      getStarted: 'Get Started',
+      weCallYou: 'We Call You',
+      liveDemo: 'Live Demo',
+    },
+    hero: {
+      badge: "World's First Dynamic Airport Incentive Platform",
+      headline1: 'Turning every travel booking into',
+      headline2: 'earnings at airports',
+      sub: "Unlock the revenue stream <bold>hidden</bold> inside every travel booking with DutyBoost's <bold2>Travel Retail Conversion Layer</bold2>. By connecting travels, travel agencies, and airport retailers, we turn travelers into high-intent buyers before they even reach their airport of departure.",
+      cta: 'Launch Platform',
+      seeHow: 'See How It Works',
+    },
+    ecosystem: {
+      badge: 'Ecosystem',
+      title: 'One Platform, Three Winners',
+      sub: 'DutyBoost aligns incentives across every stakeholder in the airport retail journey — creating value at every touchpoint.',
+    },
+    stakeholders: {
+      travellers: {
+        title: 'Travellers',
+        description: 'Enjoy exclusive discounts at their departure airport — automatically earned through their booking. No sign-ups, no paperwork. Just scan their DutyCredit and save. Valid on purchases of €50 or more at a single point of sale.',
+        benefits: ['Instant mobile DutyCredit', 'Single-store, full discount', 'Seamless QR experience'],
+        mapLink: 'Browse airport retailer map →',
+      },
+      retailers: {
+        title: 'Airport Retailers',
+        description: 'Convert passing travelers into paying customers. Receive targeted, pre-qualified shoppers with buying intent already activated by a personalised DutyCredit incentive. Our commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.',
+        benefits: ['Higher basket conversion', 'Real-time QR redemption', 'Revenue share tracking'],
+      },
+      agencies: {
+        title: 'Travel Agencies',
+        description: 'Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a margin on every DutyCredit redeemed by your travelers at the airport.',
+        benefits: ['Increase traveler satisfaction', 'Zero integration friction', 'Boost repeat bookings'],
+      },
+    },
+    flow: {
+      badge: 'The Flow',
+      title: 'From Booking to Basket',
+      steps: [
+        { step: '01', title: 'Traveler books a trip', desc: 'Booking details — price, number of travelers in your booking, destination are automatically taken from the confirmed booking details.' },
+        { step: '02', title: 'DutyCredit earned', desc: 'A DutyCredit — a booking-earned incentive with a dynamic discount — is instantly calculated and issued as a unique QR code.' },
+        { step: '03', title: 'Traveler shops', desc: 'Traveler presents QR at a participating airport retailer. Browse the store map at dutyboost.com/airport-map to find stores near your gate.' },
+        { step: '04', title: 'All parties win', desc: 'Retailer logs the sale, discount applied, platform revenue tracked.' },
+      ],
+    },
+    features: {
+      badge: 'Platform',
+      title: 'Built for the Modern Airport',
+      sub: 'Every feature engineered to remove friction from the retail conversion loop.',
+      items: [
+        { title: 'Dynamic Incentive Engine', description: 'Incentives calculated in real-time from ticket price, group size, and travel distance. Always fair, always optimal.' },
+        { title: 'QR-Based Redemption', description: 'One-tap QR scan at the point of sale. Instant validation, zero friction for retailer and traveler alike.' },
+        { title: 'Revenue Share Tracking', description: 'Full transaction transparency. Every redemption is logged with platform revenue, retailer share, and incentive applied.' },
+        { title: 'Single-Use Security', description: 'Each DutyCredit is cryptographically unique and invalidated upon redemption — no double dipping, ever.' },
+        { title: 'Multi-Airport Ready', description: 'Scale across any number of airports and markets. Retailers, agencies, and travelers all in one unified platform.' },
+        { title: 'Admin Intelligence', description: 'A real-time admin panel surfaces KPIs, transaction history, and revenue metrics across the full ecosystem.' },
+      ],
+    },
+    cta: {
+      badge: 'Ready to launch?',
+      title: 'The Future of Airport Retail Starts Here',
+      sub: 'Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer — where every booking earns a DutyCredit that converts travelers into airport shoppers.',
+      button: 'Access the Platform',
+    },
+    footer: {
+      tagline: '— Dynamic Airport Incentive Platform',
+      copy: '© 2026 DutyBoost. All rights reserved.',
+    },
+  },
+};

@@ -1,0 +1,74 @@
+export default {
+  translation: {
+    nav: {
+      signIn: 'Inloggen',
+      getStarted: 'Aan de slag',
+      weCallYou: 'Wij bellen u',
+      liveDemo: 'Live Demo',
+    },
+    hero: {
+      badge: 'Eerste dynamische luchthaven-incentiveplatform ter wereld',
+      headline1: 'Elke boeking omzetten in',
+      headline2: 'inkomsten op luchthavens',
+      sub: "Ontgrendel de verborgen omzetstroom in elke boeking met DutyBoost's Travel Retail Conversion Layer. Door reizigers, reisbureaus en luchthavenretailers te verbinden, maken we van reizigers koopklare klanten nog vóór ze de luchthaven bereiken.",
+      cta: 'Platform starten',
+      seeHow: 'Zo werkt het',
+    },
+    ecosystem: {
+      badge: 'Ecosysteem',
+      title: 'Één platform, drie winnaars',
+      sub: 'DutyBoost stemt de prikkels af voor alle stakeholders in de luchthavenretailreis — waarde op elk contactpunt.',
+    },
+    stakeholders: {
+      travellers: {
+        title: 'Reizigers',
+        description: 'Geniet van exclusieve kortingen op de vertrekkende luchthaven — automatisch verdiend via de boeking. Geen aanmeldingen, geen papierwerk. Scan gewoon uw DutyCredit en bespaar. Geldig bij aankopen van €50 of meer bij één verkooppunt.',
+        benefits: ['Directe mobiele DutyCredit', 'Volledige korting bij één winkel', 'Naadloze QR-ervaring'],
+        mapLink: 'Bekijk de luchthaven retailerkaart →',
+      },
+      retailers: {
+        title: 'Luchthavenretailers',
+        description: 'Converteer passerende reizigers naar betalende klanten. Ontvang gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerde DutyCredit-incentive. Onze commissie geldt alleen wanneer een DutyCredit daadwerkelijk wordt ingewisseld — u betaalt niets tenzij wij een verkoop leveren.',
+        benefits: ['Hogere winkelconversie', 'Realtime QR-inwisseling', 'Omzetdeling bijhouden'],
+      },
+      agencies: {
+        title: 'Reisbureaus',
+        description: 'Maak van elke boeking een loyaliteitsmiddel. Genereer automatisch gepersonaliseerde DutyCredits voor uw reizigers — exclusieve incentives verdiend via hun boeking, op basis van groepsgrootte, bestemming en ticketwaarde — zonder extra inspanning. Verdien een marge op elke ingewisselde DutyCredit.',
+        benefits: ['Meer tevredenheid bij reizigers', 'Nul integratiefrictie', 'Meer herhalingboekingen'],
+      },
+    },
+    flow: {
+      badge: 'De flow',
+      title: 'Van boeking tot mandje',
+      steps: [
+        { step: '01', title: 'Reiziger boekt een reis', desc: 'Boekingsgegevens — prijs, aantal reizigers, bestemming worden automatisch overgenomen uit de bevestigde boeking.' },
+        { step: '02', title: 'DutyCredit verdiend', desc: 'Een DutyCredit — een boeking-incentive met dynamische korting — wordt direct berekend en als unieke QR-code uitgegeven.' },
+        { step: '03', title: 'Reiziger winkelt', desc: 'Reiziger toont QR bij een deelnemende luchthavenretailer. Bekijk de kaart op dutyboost.com/airport-map voor winkels bij uw gate.' },
+        { step: '04', title: 'Alle partijen winnen', desc: 'Retailer registreert de verkoop, korting toegepast, platformopbrengst bijgehouden.' },
+      ],
+    },
+    features: {
+      badge: 'Platform',
+      title: 'Gebouwd voor de moderne luchthaven',
+      sub: 'Elk onderdeel ontworpen om frictie uit de retailconversielus te verwijderen.',
+      items: [
+        { title: 'Dynamische incentive-engine', description: 'Incentives berekend in realtime op basis van ticketprijs, groepsgrootte en reisafstand. Altijd eerlijk, altijd optimaal.' },
+        { title: 'QR-gebaseerde inwisseling', description: 'Één tik QR-scan aan de kassa. Directe validatie, nul frictie voor retailer en reiziger.' },
+        { title: 'Omzetdeling bijhouden', description: 'Volledige transactietransparantie. Elke inwisseling is geregistreerd met platformopbrengst, retaileraandeel en toegepaste incentive.' },
+        { title: 'Eenmalige beveiliging', description: 'Elke DutyCredit is cryptografisch uniek en ongeldig na inwisseling — geen dubbel gebruik, ooit.' },
+        { title: 'Meerdere luchthavens', description: 'Schaal naar elk aantal luchthavens en markten. Retailers, bureaus en reizigers in één uniform platform.' },
+        { title: 'Admin-intelligentie', description: 'Een realtime adminpaneel toont KPI\'s, transactiegeschiedenis en omzetstatistieken voor het volledige ecosysteem.' },
+      ],
+    },
+    cta: {
+      badge: 'Klaar om te starten?',
+      title: 'De toekomst van luchthavenretail begint hier',
+      sub: 'Word onderdeel van de eerste intelligente Travel Retail Conversion Layer — waar elke boeking een DutyCredit oplevert die reizigers tot kopers maakt.',
+      button: 'Toegang tot het platform',
+    },
+    footer: {
+      tagline: '— Dynamisch luchthavenincent­iveplatform',
+      copy: '© 2026 DutyBoost. Alle rechten voorbehouden.',
+    },
+  },
+};
