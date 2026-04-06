@@ -1796,10 +1796,11 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    lng: 'en',
     fallbackLng: 'en',
     detection: {
-      order: ['navigator', 'htmlTag'],
-      caches: [],
+      order: ['localStorage'],
+      caches: ['localStorage'],
     },
     interpolation: {
       escapeValue: false,
