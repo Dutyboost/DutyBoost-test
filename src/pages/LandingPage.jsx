@@ -76,17 +76,17 @@ export default function LandingPage() {
           <div className="hidden lg:flex items-center gap-2">
             <LanguageSwitcher />
             <Link to="/agency-portal">
-              <Button size="sm" className="bg-green-100 text-green-700 hover:bg-green-200 border-0">
+              <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 For Travel Agencies
               </Button>
             </Link>
             <Link to="/traveler-portal">
-              <Button size="sm" className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-0">
+              <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 {t('nav.for_travelers')}
               </Button>
             </Link>
             <Link to="/retailer-portal">
-              <Button size="sm" className="bg-orange-100 text-orange-700 hover:bg-orange-200 border-0">
+              <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 For Airport Retailers
               </Button>
             </Link>
@@ -113,19 +113,19 @@ export default function LandingPage() {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
             <Link to="/agency-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" className="w-full bg-green-100 text-green-700 hover:bg-green-200 border-0">
-                For Travel Agencies
-              </Button>
+             <Button size="sm" variant="outline" className="w-full text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
+               For Travel Agencies
+             </Button>
             </Link>
             <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" className="w-full bg-blue-100 text-blue-700 hover:bg-blue-200 border-0">
-                {t('nav.for_travelers')}
-              </Button>
+             <Button size="sm" variant="outline" className="w-full text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
+               {t('nav.for_travelers')}
+             </Button>
             </Link>
             <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" className="w-full bg-orange-100 text-orange-700 hover:bg-orange-200 border-0">
-                For Airport Retailers
-              </Button>
+             <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
+               For Airport Retailers
+             </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="w-full text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
