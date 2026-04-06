@@ -12,7 +12,7 @@ export default function SelectUserType() {
   const options = [
     {
       title: "For Travel Agencies",
-      description: "Register your travel agency and start offering duty-free incentives to your customers.",
+      description: "Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and drive revenue growth.",
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
@@ -21,7 +21,7 @@ export default function SelectUserType() {
     },
     {
       title: "For Leisure Travelers",
-      description: "Sign up as a traveler to unlock exclusive duty-free deals and rewards at airports worldwide.",
+      description: "Maximize your airport shopping experience with personalized offers and rewards. Enjoy exclusive discounts that enhance your travels and save money.",
       icon: TravelerIcon,
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
@@ -30,7 +30,7 @@ export default function SelectUserType() {
     },
     {
       title: "For Airport Retailers",
-      description: "Register your retail store and tap into a new customer base with duty-free incentives.",
+      description: "Attract quality customers and increase transaction value through targeted incentive programs. Grow your revenue while building customer loyalty in the airport retail space.",
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
