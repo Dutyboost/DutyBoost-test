@@ -148,10 +148,6 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
-          <div className="space-y-2">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">See How It Works</p>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
             {t('hero.title_1')}{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
