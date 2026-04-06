@@ -302,7 +302,7 @@ const resources = {
         badge: "'s Werelds eerste dynamische luchthaven-incentiveplatform",
         title_1: "Elke reisboeking omzetten in",
         title_2: "inkomsten op luchthavens",
-        subtitle: "Ontgrendel de <b>verborgen</b> inkomstenstroom in elke reisboeking met DutyBoost's <b>Travel Retail Conversion Layer</b>. Door reizigers, reisbureaus en luchthavenwinkels te verbinden, maken we van reizigers koopklare klanten vóórdat ze hun vertrekluchtplaats bereiken.",
+        subtitle: "Ontgrendel de <b>verborgen</b> inkomstenstroom in elke reisboeking met DutyBoost's <b>Travel Retail Conversion Layer</b>. Door reizigers, reisbureaus en luchthavenwinkels te verbinden, maken we van reizigers koopklare klanten vóórdat ze hun luchthaven van vertrek bereiken.",
         launch: "Platform starten",
         how_it_works: "Bekijk hoe het werkt",
       },
