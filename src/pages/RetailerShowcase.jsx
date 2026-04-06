@@ -70,31 +70,6 @@ export default function RetailerShowcase() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-10 sm:py-14 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 space-y-4">
-            <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('features.badge')}</Badge>
-            <h2 className="text-4xl font-heading font-bold">{t('features.title')}</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">{t('features.subtitle')}</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {featureKeys.map((f, i) => {
-              const Icon = featureIcons[i];
-              return (
-                <div key={f.titleKey} className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h4 className="font-heading font-semibold mb-2">{t(f.titleKey)}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t(f.descKey)}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
