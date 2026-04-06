@@ -84,7 +84,7 @@ function BookingSystemSelect({ value, onChange }) {
 export default function AgencySignup() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
+  const STEPS = [t('signup.agency.steps.0'), t('signup.agency.steps.1'), t('signup.agency.steps.2'), t('signup.agency.steps.3')];
   
   const [step, setStep] = useState(0);
   const [fullName, setFullName] = useState("");
@@ -196,12 +196,12 @@ export default function AgencySignup() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-heading font-bold">Welcome to DutyBoost!</h1>
-              <p className="text-muted-foreground">
-                Your agency account has been created successfully. Our team will review your application and contact you shortly.
-              </p>
+             <h1 className="text-3xl font-heading font-bold">{t('signup.agency.success_title')}</h1>
+             <p className="text-muted-foreground">
+               {t('signup.agency.success_desc')}
+             </p>
             </div>
-            <Link to="/agency-portal"><Button className="w-full">Go to Agency Portal</Button></Link>
+            <Link to="/agency-portal"><Button className="w-full">{t('signup.agency.success_button')}</Button></Link>
           </div>
         </div>
       </div>
@@ -244,9 +244,9 @@ export default function AgencySignup() {
           {step === 0 && (
             <>
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-heading font-bold">Create Your Agency Account</h1>
+                <h1 className="text-3xl font-heading font-bold">{t('signup.agency.step0_title')}</h1>
                 <p className="text-muted-foreground text-sm">
-                  Fill in your business information to get started
+                  {t('signup.agency.subtitle')}
                 </p>
               </div>
 
@@ -295,14 +295,14 @@ export default function AgencySignup() {
                 <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mx-auto">
                   <CreditCard className="w-6 h-6 text-emerald-600" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Bank Details</h2>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.agency.step1_title')}</h2>
                 <p className="text-sm text-muted-foreground">
-                  Provide your bank account for commission payments
+                  {t('signup.agency.step1_desc')}
                 </p>
               </div>
 
               <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-800">
-                <strong>How it works:</strong> We'll transfer your commissions to this account each month.
+                <strong>How it works:</strong> {t('signup.agency.step1_info')}
               </div>
 
               <div className="space-y-4">
@@ -334,8 +334,8 @@ export default function AgencySignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <ClipboardList className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Purchase Order</h2>
-                <p className="text-sm text-muted-foreground">Review your purchase order and we'll email it to <strong>{email}</strong>.</p>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.agency.step2_title')}</h2>
+                <p className="text-sm text-muted-foreground">{t('signup.agency.step2_desc')} <strong>{email}</strong>.</p>
               </div>
 
               <PurchaseOrderDoc
@@ -362,8 +362,8 @@ export default function AgencySignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Terms & Review</h2>
-                <p className="text-sm text-muted-foreground">Review and accept our terms to complete your signup</p>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.agency.step3_title')}</h2>
+                <p className="text-sm text-muted-foreground">{t('signup.agency.step3_desc')}</p>
               </div>
 
               {/* Summary */}

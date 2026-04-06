@@ -14,7 +14,7 @@ import PaymentMethodSelector from "../components/PaymentMethodSelector";
 export default function RetailerSignup() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const STEPS = ["Business Info", "Payment Method", "Purchase Order", "Terms & Review"];
+  const STEPS = [t('signup.retailer.steps.0'), t('signup.retailer.steps.1'), t('signup.retailer.steps.2'), t('signup.retailer.steps.3')];
   
   const [step, setStep] = useState(0);
   const [fullName, setFullName] = useState("");
@@ -143,12 +143,12 @@ export default function RetailerSignup() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-heading font-bold">Welcome to DutyBoost!</h1>
-              <p className="text-muted-foreground">
-                Your retailer account has been created successfully. Our team will review your application and contact you shortly.
-              </p>
+             <h1 className="text-3xl font-heading font-bold">{t('signup.retailer.success_title')}</h1>
+             <p className="text-muted-foreground">
+               {t('signup.retailer.success_desc')}
+             </p>
             </div>
-            <Link to="/retailer-portal"><Button className="w-full">Go to Retailer Portal</Button></Link>
+            <Link to="/retailer-portal"><Button className="w-full">{t('signup.retailer.success_button')}</Button></Link>
           </div>
         </div>
       </div>
@@ -191,9 +191,9 @@ export default function RetailerSignup() {
           {step === 0 && (
             <>
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-heading font-bold">Create Your Retailer Account</h1>
+                <h1 className="text-3xl font-heading font-bold">{t('signup.retailer.step0_title')}</h1>
                 <p className="text-muted-foreground text-sm">
-                  Fill in your store information to get started
+                  {t('signup.retailer.subtitle')}
                 </p>
               </div>
 
@@ -261,14 +261,14 @@ export default function RetailerSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Payment Method</h2>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.retailer.step1_title')}</h2>
                 <p className="text-sm text-muted-foreground">
-                  Choose how you'll be invoiced for your <strong>monthly fees</strong>
+                  {t('signup.retailer.step1_desc')}
                 </p>
               </div>
 
               <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 text-sm text-orange-800">
-                <strong>How it works:</strong> You'll receive a monthly invoice for platform fees based on DutyCredit redemptions at your store.
+                <strong>How it works:</strong> {t('signup.retailer.step1_info')}
               </div>
 
               <PaymentMethodSelector value={paymentMethod} onChange={setPaymentMethod} businessType="Airport Retailer" />
@@ -291,8 +291,8 @@ export default function RetailerSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <ClipboardList className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Purchase Order</h2>
-                <p className="text-sm text-muted-foreground">Review your purchase order and we'll email it to <strong>{email}</strong>.</p>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.retailer.step2_title')}</h2>
+                <p className="text-sm text-muted-foreground">{t('signup.retailer.step2_desc')} <strong>{email}</strong>.</p>
               </div>
 
               <PurchaseOrderDoc
@@ -319,8 +319,8 @@ export default function RetailerSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Terms & Review</h2>
-                <p className="text-sm text-muted-foreground">Review and accept our terms to complete your signup</p>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.retailer.step3_title')}</h2>
+                <p className="text-sm text-muted-foreground">{t('signup.retailer.step3_desc')}</p>
               </div>
 
               {/* Summary */}

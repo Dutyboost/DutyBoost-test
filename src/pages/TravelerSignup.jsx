@@ -46,8 +46,8 @@ export default function TravelerSignup() {
             <Check className="w-8 h-8 text-green-600" />
           </div>
           <div className="space-y-2">
-            <h2 className="text-2xl font-heading font-bold">Welcome!</h2>
-            <p className="text-muted-foreground">Your account is ready. Redirecting...</p>
+           <h2 className="text-2xl font-heading font-bold">{t('signup.traveler.welcome')}</h2>
+           <p className="text-muted-foreground">{t('signup.traveler.redirecting')}</p>
           </div>
         </div>
       </div>
@@ -74,16 +74,16 @@ export default function TravelerSignup() {
       <div className="flex-1 flex items-center justify-center px-6 py-12">
         <div className="max-w-md w-full space-y-8">
           <div className="space-y-3 text-center">
-            <h1 className="text-3xl font-heading font-bold">Create Your Account</h1>
-            <p className="text-muted-foreground">
-              Set up your DutyBoost profile using the email from your travel booking. This email links your bookings to your DutyCredits.
-            </p>
+           <h1 className="text-3xl font-heading font-bold">{t('signup.traveler.title')}</h1>
+           <p className="text-muted-foreground">
+             {t('signup.traveler.subtitle')}
+           </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Full Name */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Full Name</label>
+              <label className="text-sm font-medium">{t('signup.traveler.fullName')}</label>
               <input
                 type="text"
                 value={fullName}
@@ -96,9 +96,9 @@ export default function TravelerSignup() {
 
             {/* Email */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Email Address <span className="text-red-500">*</span></label>
+              <label className="text-sm font-medium">{t('signup.traveler.email')} <span className="text-red-500">*</span></label>
               <p className="text-xs text-muted-foreground">
-                Use the exact email from your travel booking confirmation. This is how we match your DutyCredits to your account.
+                {t('signup.traveler.emailNote')}
               </p>
               <input
                 type="email"
@@ -127,17 +127,17 @@ export default function TravelerSignup() {
               {loading ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Creating account...
+                  {t('signup.traveler.creating')}
                 </>
               ) : (
-                "Create Account"
+                t('signup.traveler.create')
               )}
             </Button>
           </form>
 
           <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 text-xs text-blue-800 text-center">
-            <p className="font-medium mb-1">Important</p>
-            <p>Make sure to use the same email you used when booking your travel. This is the only way we can connect your bookings to your DutyCredits.</p>
+            <p className="font-medium mb-1">{t('signup.traveler.important')}</p>
+            <p>{t('signup.traveler.importantNote')}</p>
           </div>
         </div>
       </div>
