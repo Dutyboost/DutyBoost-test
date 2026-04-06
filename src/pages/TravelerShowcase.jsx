@@ -43,7 +43,7 @@ export default function TravelerShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            {t('showcase.traveler.title').split(' ').slice(0, -3).join(' ')} <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">{t('showcase.traveler.title').split(' ').slice(-3).join(' ')}</span>
+            {t('showcase.traveler.titlePart1')} <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">{t('showcase.traveler.titlePart2')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t('showcase.traveler.subtitle')}

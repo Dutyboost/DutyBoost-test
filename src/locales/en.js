@@ -128,7 +128,8 @@ export default {
     },
     showcase: {
       agency: {
-        title: 'Turn Every Booking Into Loyalty Revenue',
+        titlePart1: 'Turn Every Booking Into',
+        titlePart2: 'Loyalty Revenue',
         subtitle: 'Automatically generate personalized incentives for your travelers. Earn a margin on every redemption while boosting customer satisfaction—with zero integration friction.',
         howItWorks: 'From Booking to Commission',
         step1: 'Traveler books a trip',
@@ -144,7 +145,8 @@ export default {
         ctaButton: 'Enter Agency Portal',
       },
       retailer: {
-        title: 'Boost Sales with Traveler Rewards',
+        titlePart1: 'Boost Sales with',
+        titlePart2: 'Traveler Rewards',
         subtitle: 'Attract more customers by accepting DutyCredits—rewards that travelers earn from their bookings. Convert passing travelers into repeat customers and drive incremental revenue.',
         howItWorks: 'From Booking to Basket',
         step1: 'Traveler books a trip',
@@ -160,7 +162,8 @@ export default {
         ctaButton: 'Enter Retailer Portal',
       },
       traveler: {
-        title: 'Earn Rewards From Every Booking',
+        titlePart1: 'Earn Rewards From',
+        titlePart2: 'Every Booking',
         subtitle: 'Your flight booking automatically earns you a personalized discount at departure airports. No sign-ups, no apps—just scan a QR code and save on what you love.',
         howItWorks: 'From Booking to Savings',
         step1: 'Book your trip',

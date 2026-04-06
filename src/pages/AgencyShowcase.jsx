@@ -43,7 +43,7 @@ export default function AgencyShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            {t('showcase.agency.title').split(' ').slice(0, -4).join(' ')} <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">{t('showcase.agency.title').split(' ').slice(-4).join(' ')}</span>
+            {t('showcase.agency.titlePart1')} <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">{t('showcase.agency.titlePart2')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t('showcase.agency.subtitle')}
