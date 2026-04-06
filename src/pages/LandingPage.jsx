@@ -150,7 +150,6 @@ export default function LandingPage() {
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <div className="space-y-2">
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">See How It Works</p>
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Ecosystem</p>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
