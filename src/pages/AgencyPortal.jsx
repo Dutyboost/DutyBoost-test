@@ -21,12 +21,15 @@ export default function AgencyPortal() {
   }, []);
 
   async function init() {
-    setLoading(false);
-    const isAuth = await base44.auth.isAuthenticated();
-    setAuthed(isAuth);
-    if (isAuth) {
-      const me = await base44.auth.me();
-      setUser(me);
+    try {
+      const isAuth = await base44.auth.isAuthenticated();
+      setAuthed(isAuth);
+      if (isAuth) {
+        const me = await base44.auth.me();
+        setUser(me);
+      }
+    } finally {
+      setLoading(false);
     }
   }
 

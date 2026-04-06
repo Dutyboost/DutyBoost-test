@@ -35,15 +35,17 @@ export default function TravelerPortal() {
   }, []);
 
   async function init() {
-    setLoading(true);
-    const isAuth = await base44.auth.isAuthenticated();
-    setAuthed(isAuth);
-    if (isAuth) {
-      const me = await base44.auth.me();
-      setUser(me);
-      await loadData(me.email);
+    try {
+      const isAuth = await base44.auth.isAuthenticated();
+      setAuthed(isAuth);
+      if (isAuth) {
+        const me = await base44.auth.me();
+        setUser(me);
+        await loadData(me.email);
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   async function loadData(email) {

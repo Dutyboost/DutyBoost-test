@@ -80,7 +80,7 @@ export default function AgencyShowcase() {
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
                 Join DutyBoost and start earning commissions on every redemption. Enable your travelers to save at airports while you capture new revenue—automatically.
               </p>
-              <Link to="/get-started">
+              <Link to="/agency-portal">
                 <Button size="lg" className="bg-white text-green-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
                   Enter Agency Portal <ArrowRight className="w-4 h-4" />
                 </Button>
