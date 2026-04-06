@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle2, CreditCard, FileText, ClipboardList, ArrowLeft, ArrowRight } from "lucide-react";
+import { CheckCircle2, CreditCard, FileText, ClipboardList, ArrowLeft, ArrowRight, ChevronLeft } from "lucide-react";
 import PurchaseOrderDoc from "../components/PurchaseOrderDoc";
 import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
@@ -157,8 +157,9 @@ export default function RetailerSignup() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <nav className="border-b border-border px-6 h-16 flex items-center">
+      <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
         <Link to="/"><DutyBoostLogo height={150} /></Link>
+        <Link to="/get-started"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> Back</Button></Link>
       </nav>
 
       <div className="flex-1 flex items-center justify-center p-6">
