@@ -289,6 +289,11 @@ const resources = {
         revenue: "Revenue",
         platform_fee_5: "Platform Fee (5%)",
       },
+      portal: {
+        tabCredits: "My Credits",
+        tabStores: "Stores",
+        tabHistory: "History",
+      },
     },
   },
   nl: {
@@ -576,6 +581,11 @@ const resources = {
         redemptions: "Inwisselingen",
         revenue: "Omzet",
         platform_fee_5: "Platformkosten (5%)",
+      },
+      portal: {
+        tabCredits: "Mijn Credits",
+        tabStores: "Winkels",
+        tabHistory: "Geschiedenis",
       },
     },
   },
@@ -865,6 +875,11 @@ const resources = {
         revenue: "Ingresos",
         platform_fee_5: "Comisión de plataforma (5%)",
       },
+      portal: {
+        tabCredits: "Mis Créditos",
+        tabStores: "Tiendas",
+        tabHistory: "Historial",
+      },
     },
   },
   fr: {
@@ -1152,6 +1167,11 @@ const resources = {
         redemptions: "Rachats",
         revenue: "Revenus",
         platform_fee_5: "Commission plateforme (5%)",
+      },
+      portal: {
+        tabCredits: "Mes Crédits",
+        tabStores: "Magasins",
+        tabHistory: "Historique",
       },
     },
   },
@@ -1441,6 +1461,11 @@ const resources = {
         revenue: "Ricavi",
         platform_fee_5: "Commissione piattaforma (5%)",
       },
+      portal: {
+        tabCredits: "I Miei Crediti",
+        tabStores: "Negozi",
+        tabHistory: "Cronologia",
+      },
     },
   },
   de: {
@@ -1728,6 +1753,11 @@ const resources = {
         redemptions: "Einlösungen",
         revenue: "Umsatz",
         platform_fee_5: "Plattformgebühr (5%)",
+      },
+      portal: {
+        tabCredits: "Meine Credits",
+        tabStores: "Geschäfte",
+        tabHistory: "Verlauf",
       },
     },
   },
