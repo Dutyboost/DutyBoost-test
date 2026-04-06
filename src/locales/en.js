@@ -2,9 +2,9 @@ export default {
   translation: {
     nav: {
       signIn: 'Sign In',
-      for_agencies: 'For Travel Agencies',
+      for_agencies: 'For Agencies',
       for_travelers: 'For Travelers',
-      for_retailers: 'For Airport Retailers',
+      for_retailers: 'For Retailers',
       getStarted: 'Get Started',
       weCallYou: 'We Call You',
       liveDemo: 'Live Demo',
