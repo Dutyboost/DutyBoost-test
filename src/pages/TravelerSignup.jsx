@@ -59,7 +59,7 @@ export default function TravelerSignup() {
       {/* Header */}
       <div className="border-b border-border px-6 py-6 flex items-center justify-between">
         <button
-          onClick={() => navigate("/traveler-portal")}
+          onClick={() => navigate("/get-started")}
           className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
         >
           <ChevronLeft className="w-4 h-4" /> Back
