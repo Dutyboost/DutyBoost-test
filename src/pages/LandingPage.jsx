@@ -46,8 +46,8 @@ export default function LandingPage() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const { t } = useTranslation();
 
-  const features = t('features.items', { returnObjects: true });
-  const flowSteps = t('flow.steps', { returnObjects: true });
+  const features = t('features.items', { returnObjects: true }) || [];
+  const flowSteps = t('flow.steps', { returnObjects: true }) || [];
 
   return (
     <div className="min-h-screen bg-background font-body">
