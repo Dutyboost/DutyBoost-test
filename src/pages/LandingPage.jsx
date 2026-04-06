@@ -181,7 +181,7 @@ export default function LandingPage() {
                   <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
                     <Icon className={`w-24 h-24 ${s.iconColor}`} />
                   </div>
-                  <h3 className="font-heading font-bold text-xl mb-3">{t(`stakeholders.${s.key}.title`)}</h3>
+                  <h3 className="font-heading font-bold text-xl mb-3">{s.key === 'travelers' ? 'For Leisure Travelers' : t(`stakeholders.${s.key}.title`)}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{t(`stakeholders.${s.key}.description`)}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
