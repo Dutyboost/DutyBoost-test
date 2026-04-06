@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { travelerStrings } from './i18nTraveler';
 
 const resources = {
   en: {
@@ -289,11 +290,7 @@ const resources = {
         revenue: "Revenue",
         platform_fee_5: "Platform Fee (5%)",
       },
-      portal: {
-        tabCredits: "My Credits",
-        tabStores: "Stores",
-        tabHistory: "History",
-      },
+      traveler: travelerStrings.en,
     },
   },
   nl: {
@@ -582,11 +579,7 @@ const resources = {
         revenue: "Omzet",
         platform_fee_5: "Platformkosten (5%)",
       },
-      portal: {
-        tabCredits: "Mijn Credits",
-        tabStores: "Winkels",
-        tabHistory: "Geschiedenis",
-      },
+      traveler: travelerStrings.nl,
     },
   },
   es: {
@@ -875,11 +868,7 @@ const resources = {
         revenue: "Ingresos",
         platform_fee_5: "Comisión de plataforma (5%)",
       },
-      portal: {
-        tabCredits: "Mis Créditos",
-        tabStores: "Tiendas",
-        tabHistory: "Historial",
-      },
+      traveler: travelerStrings.es,
     },
   },
   fr: {
@@ -1168,11 +1157,7 @@ const resources = {
         revenue: "Revenus",
         platform_fee_5: "Commission plateforme (5%)",
       },
-      portal: {
-        tabCredits: "Mes Crédits",
-        tabStores: "Magasins",
-        tabHistory: "Historique",
-      },
+      traveler: travelerStrings.fr,
     },
   },
   it: {
@@ -1461,11 +1446,7 @@ const resources = {
         revenue: "Ricavi",
         platform_fee_5: "Commissione piattaforma (5%)",
       },
-      portal: {
-        tabCredits: "I Miei Crediti",
-        tabStores: "Negozi",
-        tabHistory: "Cronologia",
-      },
+      traveler: travelerStrings.it,
     },
   },
   de: {
@@ -1754,11 +1735,7 @@ const resources = {
         revenue: "Umsatz",
         platform_fee_5: "Plattformgebühr (5%)",
       },
-      portal: {
-        tabCredits: "Meine Credits",
-        tabStores: "Geschäfte",
-        tabHistory: "Verlauf",
-      },
+      traveler: travelerStrings.de,
     },
   },
   zh: {
