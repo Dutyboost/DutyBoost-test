@@ -107,9 +107,7 @@ export default function LandingPage() {
             </span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t('hero.subtitle')}
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <Button size="lg" className="gap-2 px-8 text-base" onClick={() => window.location.href = '/get-started'}>
