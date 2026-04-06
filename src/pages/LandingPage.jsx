@@ -199,7 +199,7 @@ export default function LandingPage() {
       </section>
 
       {/* How it works flow */}
-      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
+      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border hidden">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('flow.badge')}</Badge>
