@@ -89,7 +89,7 @@ export default function TravelerPortal() {
             <ChevronLeft className="w-4 h-4" /> Back
           </button>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={90} />
+            <DutyBoostLogo height={150} />
           </button>
           <div className="w-12" />
         </div>
@@ -151,7 +151,7 @@ export default function TravelerPortal() {
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
         <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-          <DutyBoostLogo height={90} />
+          <DutyBoostLogo height={150} />
         </button>
         <div className="flex items-center gap-2">
           <div className="text-right">

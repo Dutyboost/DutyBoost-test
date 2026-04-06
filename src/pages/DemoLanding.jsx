@@ -9,7 +9,7 @@ export default function DemoLanding() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="hover:opacity-80 transition-opacity"><DutyBoostLogo height={90} /></Link>
+        <Link to="/" className="hover:opacity-80 transition-opacity"><DutyBoostLogo height={150} /></Link>
         <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.mode_badge')}</span>
       </nav>
 

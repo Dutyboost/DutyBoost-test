@@ -70,7 +70,7 @@ export default function LandingPage() {
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <Link to="/" className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={90} />
+            <DutyBoostLogo height={150} />
           </Link>
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-2">
@@ -277,7 +277,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <DutyBoostLogo height={130} />
+              <DutyBoostLogo height={150} />
               <span>{t('footer.tagline')}</span>
             </div>
             <p>{t('footer.rights')}</p>
