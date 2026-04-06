@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import QRCodeDisplay from "../components/QRCodeDisplay";
 import {
   QrCode, History, Store, LogOut, MapPin, Clock,
   CheckCircle, RefreshCw, ShoppingBag, Ticket, ChevronRight,
-  Plane, AlertCircle, Eye
+  Plane, AlertCircle, Eye, ChevronLeft
 } from "lucide-react";
 
 const DEMO_USER = {
@@ -118,7 +119,11 @@ export default function DemoTravelerPortal() {
       </div>
 
       {/* Header */}
-      <header className="bg-card border-b border-border px-5 pt-8 pb-4 flex items-center justify-between sticky top-0 z-10">
+      <header className="bg-card border-b border-border px-5 pt-4 pb-4 flex items-center justify-between sticky top-0 z-10">
+        <Link to="/demo" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <ChevronLeft className="w-4 h-4" />
+          <span className="text-xs font-medium">Back</span>
+        </Link>
         <DutyBoostLogo height={80} />
         <div className="flex items-center gap-2">
           <div className="text-right">
