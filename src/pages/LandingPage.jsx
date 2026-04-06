@@ -75,12 +75,12 @@ export default function LandingPage() {
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-2">
             <LanguageSwitcher />
-            <Link to="/agency-portal">
+            <Link to="/agency-showcase">
               <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 For Travel Agencies
               </Button>
             </Link>
-            <Link to="/traveler-portal">
+            <Link to="/traveler-showcase">
               <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 For Leisure Travelers
               </Button>
@@ -112,12 +112,12 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
-            <Link to="/agency-portal" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/agency-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                For Agencies; For Travel Agencies
              </Button>
             </Link>
-            <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/traveler-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                For Leisure Travelers
              </Button>

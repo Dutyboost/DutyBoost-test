@@ -54,6 +54,8 @@ import AgencySignup from './pages/AgencySignup';
 import RetailerPortal from './pages/RetailerPortal';
 import RetailerSignup from './pages/RetailerSignup';
 import RetailerShowcase from './pages/RetailerShowcase';
+import AgencyShowcase from './pages/AgencyShowcase';
+import TravelerShowcase from './pages/TravelerShowcase';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -126,6 +128,8 @@ const AuthenticatedApp = () => {
         <Route path="/agency-portal" element={<AgencyPortal />} />
         <Route path="/agency-signup" element={<AgencySignup />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
+        <Route path="/agency-showcase" element={<AgencyShowcase />} />
+        <Route path="/traveler-showcase" element={<TravelerShowcase />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/demo/traveler" element={<DemoTravelerPortal />} />
