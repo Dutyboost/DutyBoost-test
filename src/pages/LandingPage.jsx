@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import { ChevronDown } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +15,7 @@ import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import FooterLinks from "../components/FooterLinks";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -268,17 +270,7 @@ export default function LandingPage() {
             </div>
             <p>{t('footer.rights')}</p>
           </div>
-          <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-muted-foreground border-t border-border pt-4">
-            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <Link to="/dpa" className="hover:text-primary transition-colors">Data Processing Agreement</Link>
-            <Link to="/refunds" className="hover:text-primary transition-colors">Refund Policy</Link>
-            <Link to="/code-of-conduct" className="hover:text-primary transition-colors">Code of Conduct</Link>
-            <Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>
-            <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
-            <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
-            <Link to="/airport-map" className="hover:text-primary transition-colors">Airport Map</Link>
-          </div>
+          <FooterLinks />
         </div>
       </footer>
     </div>
