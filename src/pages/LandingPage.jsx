@@ -127,7 +127,8 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {stakeholderConfig.map((s) => {
               const Icon = s.icon;
-              const data = t(`stakeholders.${s.key}`, { returnObjects: true });
+              const data = t(`stakeholders.${s.key}`, { returnObjects: true }) || {};
+              const benefits = data.benefits || [];
               return (
                 <div key={s.key} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group">
                   <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
@@ -136,12 +137,12 @@ export default function LandingPage() {
                   <h3 className="font-heading font-bold text-xl mb-3">{data.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{data.description}</p>
                   <ul className="space-y-2">
-                    {data.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-sm">
-                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
-                        {b}
-                      </li>
-                    ))}
+                    {benefits.map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm">
+                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
+                      {b}
+                    </li>
+                  ))}
                   </ul>
                   {s.mapLink && (
                     <Link to="/airport-map" className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sky-600 hover:text-sky-700 transition-colors">
