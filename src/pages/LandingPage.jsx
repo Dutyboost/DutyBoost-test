@@ -170,7 +170,6 @@ export default function LandingPage() {
       <section id="how-it-works" className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
-            <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('ecosystem.badge')}</Badge>
             <h2 className="text-4xl font-heading font-bold">See How The Ecosystem Works</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
