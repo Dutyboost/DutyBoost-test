@@ -75,18 +75,18 @@ export default function LandingPage() {
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-2">
             <LanguageSwitcher />
-            <Link to="/traveler-portal">
-              <Button size="sm" variant="outline">
-                {t('nav.for_travelers')}
-              </Button>
-            </Link>
             <Link to="/agency-portal">
-              <Button size="sm" variant="outline">
+              <Button size="sm" className="bg-green-100 text-green-700 hover:bg-green-200 border-0">
                 For Travel Agencies
               </Button>
             </Link>
+            <Link to="/traveler-portal">
+              <Button size="sm" className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-0">
+                {t('nav.for_travelers')}
+              </Button>
+            </Link>
             <Link to="/retailer-portal">
-              <Button size="sm" variant="outline">
+              <Button size="sm" className="bg-orange-100 text-orange-700 hover:bg-orange-200 border-0">
                 For Airport Retailers
               </Button>
             </Link>
@@ -112,18 +112,18 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
-            <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full">
-                {t('nav.for_travelers')}
-              </Button>
-            </Link>
             <Link to="/agency-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full">
+              <Button size="sm" className="w-full bg-green-100 text-green-700 hover:bg-green-200 border-0">
                 For Travel Agencies
               </Button>
             </Link>
+            <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" className="w-full bg-blue-100 text-blue-700 hover:bg-blue-200 border-0">
+                {t('nav.for_travelers')}
+              </Button>
+            </Link>
             <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full">
+              <Button size="sm" className="w-full bg-orange-100 text-orange-700 hover:bg-orange-200 border-0">
                 For Airport Retailers
               </Button>
             </Link>
@@ -186,7 +186,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {stakeholders.map((s) => {
+            {[stakeholders[2], stakeholders[0], stakeholders[1]].map((s) => {
               const Icon = s.icon;
               const benefits = [
                 t(`stakeholders.${s.key}.b1`),
