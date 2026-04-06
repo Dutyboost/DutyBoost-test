@@ -66,7 +66,8 @@ export default function SelectUserType() {
               return (
                 <div
                   key={option.path}
-                  className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg hover:border-primary/30 transition-all flex flex-col"
+                  onClick={() => navigate(option.path)}
+                  className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg hover:border-primary/30 transition-all flex flex-col cursor-pointer"
                 >
                   <div className={`w-20 h-20 rounded-2xl ${option.bg} flex items-center justify-center mb-6`}>
                     <Icon className={`w-20 h-20 ${option.iconColor}`} />
@@ -77,7 +78,6 @@ export default function SelectUserType() {
                   </p>
                   <Button
                     size="lg"
-                    onClick={() => navigate(option.path)}
                     className={`w-full bg-gradient-to-r ${option.color} text-white hover:opacity-90 gap-2`}
                   >
                     Get Started <ArrowRight className="w-4 h-4" />
