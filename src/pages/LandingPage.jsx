@@ -157,12 +157,6 @@ export default function LandingPage() {
 
           {/* render subtitle with inline HTML for bold word */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-            <Button size="lg" variant="outline" className="px-8 text-base" disabled>
-              {t('hero.how_it_works')}
-            </Button>
-          </div>
         </div>
       </section>
 
