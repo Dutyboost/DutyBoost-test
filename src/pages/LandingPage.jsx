@@ -149,14 +149,15 @@ export default function LandingPage() {
 
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
-            {t('hero.title_1')}{" "}
+            The Future of Travel Retail{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('hero.title_2')}
+              Starts Here
             </span>
           </h1>
 
-          {/* render subtitle with inline HTML for bold word */}
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer — where travel agencies drive customer loyalty, travelers earn exclusive rewards, and airport retailers convert bookings into sales.
+          </p>
         </div>
       </section>
 
