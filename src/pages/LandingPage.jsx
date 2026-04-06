@@ -17,64 +17,72 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
-const stakeholderConfig = [
-  {
-    key: 'travellers',
-    icon: TravelerIcon,
-    color: "from-blue-400 to-blue-600",
-    bg: "bg-blue-50",
-    iconColor: "text-blue-600",
-    mapLink: true,
-  },
-  {
-    key: 'retailers',
-    icon: AirportRetailerIcon,
-    color: "from-orange-400 to-orange-600",
-    bg: "bg-orange-50",
-    iconColor: "text-orange-600",
-  },
-  {
-    key: 'agencies',
-    icon: TravelAgencyIcon,
-    color: "from-green-400 to-emerald-600",
-    bg: "bg-green-50",
-    iconColor: "text-green-600",
-  },
-];
-
 export default function LandingPage() {
-  const [contactModalOpen, setContactModalOpen] = useState(false);
   const { t } = useTranslation();
 
-  const featuresRaw = t('features.items', { returnObjects: true });
-  const flowStepsRaw = t('flow.steps', { returnObjects: true });
-  const features = Array.isArray(featuresRaw) ? featuresRaw : [];
-  const flowSteps = Array.isArray(flowStepsRaw) ? flowStepsRaw : [];
+  const stakeholders = [
+    {
+      key: 'travelers',
+      icon: TravelerIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
+      mapLink: true,
+    },
+    {
+      key: 'retailers',
+      icon: AirportRetailerIcon,
+      color: "from-orange-400 to-orange-600",
+      bg: "bg-orange-50",
+      iconColor: "text-orange-600",
+    },
+    {
+      key: 'agencies',
+      icon: TravelAgencyIcon,
+      color: "from-green-400 to-emerald-600",
+      bg: "bg-green-50",
+      iconColor: "text-green-600",
+    },
+  ];
+
+  const flowSteps = [
+    { num: '01', titleKey: 'flow.step1_title', descKey: 'flow.step1_desc' },
+    { num: '02', titleKey: 'flow.step2_title', descKey: 'flow.step2_desc' },
+    { num: '03', titleKey: 'flow.step3_title', descKey: 'flow.step3_desc' },
+    { num: '04', titleKey: 'flow.step4_title', descKey: 'flow.step4_desc' },
+  ];
+
+  const featureKeys = [
+    { titleKey: 'features.f1_title', descKey: 'features.f1_desc' },
+    { titleKey: 'features.f2_title', descKey: 'features.f2_desc' },
+    { titleKey: 'features.f3_title', descKey: 'features.f3_desc' },
+    { titleKey: 'features.f4_title', descKey: 'features.f4_desc' },
+    { titleKey: 'features.f5_title', descKey: 'features.f5_desc' },
+    { titleKey: 'features.f6_title', descKey: 'features.f6_desc' },
+  ];
 
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between pt-0">
-          <div className="flex items-center">
-            <DutyBoostLogo height={130} />
-          </div>
+        <div className="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
+          <DutyBoostLogo height={130} />
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
-            <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.signIn')}</Button>
+            <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.sign_in')}</Button>
             <Link to="/get-started">
               <Button size="sm" className="gap-1">
-                {t('nav.getStarted')} <ChevronRight className="w-3 h-3" />
+                {t('nav.get_started')} <ChevronRight className="w-3 h-3" />
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => setOpen(true)}>
-                {t('nav.weCallYou')}
+                {t('nav.we_call_you')}
               </Button>
             )} />
             <Link to="/demo">
               <Button variant="outline" size="sm" className="gap-1.5 text-accent border-accent hover:text-accent hover:bg-accent/5">
-                <Eye className="w-3.5 h-3.5" /> {t('nav.liveDemo')}
+                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
           </div>
@@ -94,23 +102,23 @@ export default function LandingPage() {
           </Badge>
 
           <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
-            {t('hero.headline1')}{" "}
+            {t('hero.title_1')}{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('hero.headline2')}
+              {t('hero.title_2')}
             </span>
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t('hero.sub')}
+            {t('hero.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <Button size="lg" className="gap-2 px-8 text-base" onClick={() => window.location.href = '/get-started'}>
-              {t('hero.cta')} <ArrowRight className="w-4 h-4" />
+              {t('hero.launch')} <ArrowRight className="w-4 h-4" />
             </Button>
             <a href="#how-it-works">
               <Button size="lg" variant="outline" className="px-8 text-base">
-                {t('hero.seeHow')}
+                {t('hero.how_it_works')}
               </Button>
             </a>
           </div>
@@ -123,32 +131,35 @@ export default function LandingPage() {
           <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('ecosystem.badge')}</Badge>
             <h2 className="text-4xl font-heading font-bold">{t('ecosystem.title')}</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.sub')}</p>
+            <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {stakeholderConfig.map((s) => {
+            {stakeholders.map((s) => {
               const Icon = s.icon;
-              const data = t(`stakeholders.${s.key}`, { returnObjects: true }) || {};
-              const benefits = data.benefits || [];
+              const benefits = [
+                t(`stakeholders.${s.key}.b1`),
+                t(`stakeholders.${s.key}.b2`),
+                t(`stakeholders.${s.key}.b3`),
+              ];
               return (
-                <div key={s.key} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow group">
+                <div key={s.key} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
                   <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
                     <Icon className={`w-24 h-24 ${s.iconColor}`} />
                   </div>
-                  <h3 className="font-heading font-bold text-xl mb-3">{data.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{data.description}</p>
+                  <h3 className="font-heading font-bold text-xl mb-3">{t(`stakeholders.${s.key}.title`)}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{t(`stakeholders.${s.key}.description`)}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
-                      {b}
-                    </li>
-                  ))}
+                      <li key={b} className="flex items-center gap-2 text-sm">
+                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
+                        {b}
+                      </li>
+                    ))}
                   </ul>
                   {s.mapLink && (
                     <Link to="/airport-map" className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sky-600 hover:text-sky-700 transition-colors">
-                      <MapPin className="w-3.5 h-3.5" /> {data.mapLink}
+                      <MapPin className="w-3.5 h-3.5" /> {t('stakeholders.travelers.map_link')}
                     </Link>
                   )}
                 </div>
@@ -167,12 +178,10 @@ export default function LandingPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {flowSteps.map((item) => (
-              <div key={item.step} className="relative">
-                <div className="bg-card rounded-2xl border border-border p-6 h-full">
-                  <p className="text-4xl font-heading font-bold text-primary/20 mb-3">{item.step}</p>
-                  <h4 className="font-heading font-semibold mb-2">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
+              <div key={item.num} className="bg-card rounded-2xl border border-border p-6 h-full">
+                <p className="text-4xl font-heading font-bold text-primary/20 mb-3">{item.num}</p>
+                <h4 className="font-heading font-semibold mb-2">{t(item.titleKey)}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t(item.descKey)}</p>
               </div>
             ))}
           </div>
@@ -185,18 +194,18 @@ export default function LandingPage() {
           <div className="text-center mb-10 space-y-4">
             <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('features.badge')}</Badge>
             <h2 className="text-4xl font-heading font-bold">{t('features.title')}</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">{t('features.sub')}</p>
+            <p className="text-muted-foreground max-w-xl mx-auto">{t('features.subtitle')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {features.map((f, i) => {
+            {featureKeys.map((f, i) => {
               const Icon = featureIcons[i];
               return (
-                <div key={f.title} className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all">
+                <div key={f.titleKey} className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h4 className="font-heading font-semibold mb-2">{f.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{f.description}</p>
+                  <h4 className="font-heading font-semibold mb-2">{t(f.titleKey)}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(f.descKey)}</p>
                 </div>
               );
             })}
@@ -213,7 +222,7 @@ export default function LandingPage() {
             <div className="relative space-y-6">
               <Badge className="bg-white/20 text-white border-white/30 text-sm px-4 py-1">{t('cta.badge')}</Badge>
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.sub')}</p>
+              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.subtitle')}</p>
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
                 {t('cta.button')} <ArrowRight className="w-4 h-4" />
               </Button>
@@ -223,14 +232,14 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-10 px-6 bg-transparent">
+      <footer className="border-t border-border py-10 px-6">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <DutyBoostLogo height={130} />
-              <span className="text-muted-foreground">{t('footer.tagline')}</span>
+              <span>{t('footer.tagline')}</span>
             </div>
-            <p>{t('footer.copy')}</p>
+            <p>{t('footer.rights')}</p>
           </div>
           <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-muted-foreground border-t border-border pt-4">
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
