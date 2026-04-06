@@ -5,183 +5,278 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const faqs = [
-  {
-    category: "DutyCredits",
-    questions: [
-      {
-        q: "What is a DutyCredit?",
-        a: "A DutyCredit is a booking-earned incentive — a unique digital discount code automatically generated when a travel agency submits a booking through the DutyBoost platform. Travelers receive it as a QR code and can use it to get a discount at participating airport retailers.",
-      },
-      {
-        q: "How is my DutyCredit discount calculated?",
-        a: "The discount percentage is calculated dynamically by our platform based on the booking parameters: total ticket price, number of travelers, and whether the flight is short-haul or long-haul. The higher the booking value, the greater the potential discount.",
-      },
-      {
-        q: "Can I use my DutyCredit at multiple shops?",
-        a: "No. DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops. Choose the store where you want to apply the full discount.",
-      },
-      {
-        q: "Is there a minimum spend to redeem a DutyCredit?",
-        a: "Yes. DutyCredits can only be redeemed on purchases of €50 or more. If your total purchase at the airport retailer is below €50, the cashier will not be able to apply the DutyCredit discount.",
-      },
-      {
-        q: "How do I receive my DutyCredit?",
-        a: "Your travel agency will share a link with you after your booking is confirmed. Opening the link shows your personal DutyCredit QR code, which you present at the retailer's point of sale.",
-      },
-      {
-        q: "Do DutyCredits expire?",
-        a: "Yes. Every DutyCredit has an expiration date tied to your travel date. Expired DutyCredits cannot be reinstated or reissued. Make sure to use yours before or on your travel day.",
-      },
-      {
-        q: "Can I transfer my DutyCredit to someone else?",
-        a: "No. DutyCredits are unique, single-use, and cryptographically secured. They are intended exclusively for the traveler associated with the booking and cannot be transferred, resold, or duplicated.",
-      },
+const content = {
+  en: {
+    badge: "Help Centre", title: "Frequently Asked Questions", subtitle: "Everything you need to know about DutyBoost and DutyCredits.",
+    back_home: "← Back to Home", footer_rights: "© 2026 DutyBoost.", footer_back: "Back to Home",
+    categories: [
+      { cat: "DutyCredits", qs: [
+        { q: "What is a DutyCredit?", a: "A DutyCredit is a booking-earned incentive — a unique digital discount code automatically generated when a travel agency submits a booking through the DutyBoost platform. Travelers receive it as a QR code and can use it to get a discount at participating airport retailers." },
+        { q: "How is my DutyCredit discount calculated?", a: "The discount percentage is calculated dynamically based on the booking parameters: total ticket price, number of travelers, and whether the flight is short-haul or long-haul. The higher the booking value, the greater the potential discount." },
+        { q: "Can I use my DutyCredit at multiple shops?", a: "No. DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops." },
+        { q: "Is there a minimum spend to redeem a DutyCredit?", a: "Yes. DutyCredits can only be redeemed on purchases of €50 or more." },
+        { q: "How do I receive my DutyCredit?", a: "Your travel agency will share a link with you after your booking is confirmed. Opening the link shows your personal DutyCredit QR code." },
+        { q: "Do DutyCredits expire?", a: "Yes. Every DutyCredit has an expiration date tied to your travel date. Expired DutyCredits cannot be reinstated or reissued." },
+        { q: "Can I transfer my DutyCredit to someone else?", a: "No. DutyCredits are unique, single-use, and cryptographically secured. They cannot be transferred, resold, or duplicated." },
+      ]},
+      { cat: "For Travelers", qs: [
+        { q: "Do I need to sign up to use a DutyCredit?", a: "No sign-up or account is required. Simply open the link shared by your travel agency." },
+        { q: "Where can I redeem my DutyCredit?", a: "DutyCredits can be redeemed at any airport retailer registered on the DutyBoost platform at your departure airport." },
+        { q: "What happens after I scan my DutyCredit?", a: "The retailer scans your QR code, the discount is instantly applied to your purchase, and your DutyCredit is marked as redeemed." },
+      ]},
+      { cat: "For Travel Agencies", qs: [
+        { q: "How does DutyBoost benefit my agency?", a: "Every time one of your travelers redeems a DutyCredit at the airport, your agency earns a 20% revenue margin on the platform's commission." },
+        { q: "How do I generate a DutyCredit?", a: "You don't — it happens automatically. Our team connects your booking system to DutyBoost. From that point on, DutyBoost automatically sends travelers a co-branded email with their unique DutyCredit QR code." },
+        { q: "Is there a cost to join DutyBoost as an agency?", a: "No. There are no setup fees, subscription fees, or usage costs for travel agencies." },
+      ]},
+      { cat: "For Airport Retailers", qs: [
+        { q: "How does DutyBoost benefit my store?", a: "DutyBoost drives pre-qualified, incentivised travelers directly to your store — meaning higher conversion rates and larger basket sizes." },
+        { q: "What commission does DutyBoost charge retailers?", a: "DutyBoost charges a 5% commission on the gross transaction value of sales made through a redeemed DutyCredit." },
+        { q: "How do I redeem a DutyCredit at my store?", a: "Use the DutyBoost retailer dashboard or scan interface to scan the traveler's QR code. The system validates the DutyCredit and logs the transaction automatically." },
+      ]},
+      { cat: "Integration & Technical", qs: [
+        { q: "What do airport retailers need to implement to accept DutyCredits?", a: "Two options: (1) Zero Integration: use the DutyBoost Retailer Scan app on a tablet/phone at the till. (2) POS API Integration: your POS calls our redemption API directly. Most retailers start with option 1." },
+        { q: "Is there an API for travel agencies?", a: "Not required. DutyBoost connects directly to your booking system during onboarding. DutyCredits are generated automatically with zero API work." },
+      ]},
+      { cat: "Platform & Security", qs: [
+        { q: "Is DutyBoost secure?", a: "Yes. Every DutyCredit is cryptographically unique and single-use. Our platform uses industry-standard encryption (TLS 1.2+, AES-256) and role-based access controls." },
+        { q: "Is my data safe with DutyBoost?", a: "Absolutely. DutyBoost is fully GDPR-compliant and never sells your data to third parties." },
+      ]},
     ],
   },
-  {
-    category: "For Travelers",
-    questions: [
-      {
-        q: "Do I need to sign up to use a DutyCredit?",
-        a: "No sign-up or account is required. Simply open the link shared by your travel agency, and your DutyCredit QR code will be ready to scan at any participating retailer.",
-      },
-      {
-        q: "Where can I redeem my DutyCredit?",
-        a: "DutyCredits can be redeemed at any airport retailer registered on the DutyBoost platform at your departure airport. Look for the DutyBoost-accepted sign at the point of sale.",
-      },
-      {
-        q: "What happens after I scan my DutyCredit?",
-        a: "The retailer scans your QR code, the discount is instantly applied to your purchase, and your DutyCredit is marked as redeemed. It can no longer be used after that point.",
-      },
+  nl: {
+    badge: "Helpcentrum", title: "Veelgestelde vragen", subtitle: "Alles wat u moet weten over DutyBoost en DutyCredits.",
+    back_home: "← Terug naar home", footer_rights: "© 2026 DutyBoost.", footer_back: "Terug naar home",
+    categories: [
+      { cat: "DutyCredits", qs: [
+        { q: "Wat is een DutyCredit?", a: "Een DutyCredit is een boeking-gedreven incentive — een unieke digitale kortingscode die automatisch wordt gegenereerd wanneer een reisbureau een boeking indient via DutyBoost. Reizigers ontvangen deze als QR-code." },
+        { q: "Hoe wordt mijn korting berekend?", a: "Het kortingspercentage wordt dynamisch berekend op basis van de ticketprijs, het aantal reizigers en het type vlucht. Hoe hoger de boekingswaarde, hoe groter de korting." },
+        { q: "Kan ik mijn DutyCredit bij meerdere winkels gebruiken?", a: "Nee. DutyCredits zijn inwisselbaar bij één transactie op één verkooppunt." },
+        { q: "Is er een minimumbedrag?", a: "Ja. DutyCredits kunnen alleen worden ingewisseld bij aankopen van €50 of meer." },
+        { q: "Hoe ontvang ik mijn DutyCredit?", a: "Uw reisbureau deelt een link na bevestiging van uw boeking. Via de link ziet u uw persoonlijke DutyCredit QR-code." },
+        { q: "Verlopen DutyCredits?", a: "Ja. Elke DutyCredit heeft een vervaldatum gekoppeld aan uw reisdatum. Verlopen DutyCredits kunnen niet worden hersteld." },
+        { q: "Kan ik mijn DutyCredit overdragen?", a: "Nee. DutyCredits zijn uniek, eenmalig bruikbaar en cryptografisch beveiligd. Ze kunnen niet worden overgedragen of doorverkocht." },
+      ]},
+      { cat: "Voor reizigers", qs: [
+        { q: "Moet ik me aanmelden?", a: "Nee. Open gewoon de link die uw reisbureau heeft gedeeld." },
+        { q: "Waar kan ik mijn DutyCredit inwisselen?", a: "Bij elke luchthavenwinkel die geregistreerd is op DutyBoost op uw luchthaven van vertrek." },
+        { q: "Wat gebeurt er na het scannen?", a: "De winkel scant uw QR-code, de korting wordt direct toegepast en uw DutyCredit wordt als ingewisseld gemarkeerd." },
+      ]},
+      { cat: "Voor reisbureaus", qs: [
+        { q: "Wat levert DutyBoost mijn bureau op?", a: "Elke keer dat een reiziger een DutyCredit inwisselt, verdient uw bureau 20% van de platformcommissie." },
+        { q: "Hoe genereer ik een DutyCredit?", a: "Dat doet u niet — het gebeurt automatisch. Ons team koppelt uw boekingssysteem aan DutyBoost." },
+        { q: "Zijn er kosten?", a: "Nee. Er zijn geen installatie-, abonnements- of gebruikskosten voor reisbureaus." },
+      ]},
+      { cat: "Voor luchthavenwinkels", qs: [
+        { q: "Wat levert DutyBoost mijn winkel op?", a: "DutyBoost brengt vooraf gekwalificeerde reizigers met koopintentie naar uw winkel." },
+        { q: "Welke commissie berekent DutyBoost?", a: "5% op de bruto transactiewaarde van verkopen via een ingewisselde DutyCredit." },
+        { q: "Hoe wissel ik een DutyCredit in?", a: "Scan de QR-code via het DutyBoost-dashboard of de scaninterface. Het systeem valideert en registreert automatisch." },
+      ]},
+      { cat: "Integratie & Techniek", qs: [
+        { q: "Wat moeten luchthavenwinkels implementeren?", a: "Twee opties: (1) Nul integratie: gebruik de Retailer Scan-app. (2) POS API-integratie: uw kassasysteem roept onze API direct aan." },
+        { q: "Is er een API voor reisbureaus?", a: "Niet vereist. DutyBoost verbindt zich rechtstreeks met uw boekingssysteem tijdens de onboarding." },
+      ]},
+      { cat: "Platform & Beveiliging", qs: [
+        { q: "Is DutyBoost veilig?", a: "Ja. Elke DutyCredit is cryptografisch uniek en eenmalig. We gebruiken TLS 1.2+ en AES-256 versleuteling." },
+        { q: "Zijn mijn gegevens veilig?", a: "Absoluut. DutyBoost is AVG-conform en verkoopt uw gegevens nooit aan derden." },
+      ]},
     ],
   },
-  {
-    category: "For Travel Agencies",
-    questions: [
-      {
-        q: "How does DutyBoost benefit my agency?",
-        a: "Every time one of your travelers redeems a DutyCredit at the airport, your agency earns a 20% revenue margin on the platform's commission. It's a zero-effort revenue stream built on top of bookings you're already making.",
-      },
-      {
-        q: "How do I generate a DutyCredit?",
-        a: "You don't — it happens automatically, and there is no technical integration required. When you sign up as a travel agency, we ask for your business details: company website, KVK number, VAT number, and the booking system you use (e.g. Amadeus, Sabre, Travelport). Our team uses this information to connect your booking system to DutyBoost on your behalf. From that point on, every time a traveler books a ticket through your agency, DutyBoost automatically calculates their personalised discount and sends them a co-branded email with their unique QR-code DutyCredit — no manual steps, no API work, nothing to maintain.",
-      },
-      {
-        q: "Is there a cost to join DutyBoost as an agency?",
-        a: "No. There are no setup fees, subscription fees, or usage costs for travel agencies. You only earn — never pay.",
-      },
+  de: {
+    badge: "Hilfecenter", title: "Häufig gestellte Fragen", subtitle: "Alles, was Sie über DutyBoost und DutyCredits wissen müssen.",
+    back_home: "← Zurück zur Startseite", footer_rights: "© 2026 DutyBoost.", footer_back: "Zurück zur Startseite",
+    categories: [
+      { cat: "DutyCredits", qs: [
+        { q: "Was ist ein DutyCredit?", a: "Ein DutyCredit ist ein buchungsbasierter Anreiz — ein einzigartiger digitaler Rabattcode, der automatisch generiert wird, wenn ein Reisebüro eine Buchung über DutyBoost einreicht. Reisende erhalten ihn als QR-Code." },
+        { q: "Wie wird mein Rabatt berechnet?", a: "Der Rabattprozentsatz wird dynamisch anhand von Ticketpreis, Reisendenzahl und Flugart berechnet. Je höher der Buchungswert, desto größer der Rabatt." },
+        { q: "Kann ich meinen DutyCredit in mehreren Geschäften verwenden?", a: "Nein. DutyCredits sind für eine einzige Transaktion an einem Verkaufspunkt einlösbar." },
+        { q: "Gibt es einen Mindestbetrag?", a: "Ja. DutyCredits können nur bei Einkäufen von 50 € oder mehr eingelöst werden." },
+        { q: "Wie erhalte ich meinen DutyCredit?", a: "Ihr Reisebüro teilt Ihnen nach Buchungsbestätigung einen Link mit. Über den Link sehen Sie Ihren DutyCredit QR-Code." },
+        { q: "Verfallen DutyCredits?", a: "Ja. Jeder DutyCredit hat ein Ablaufdatum. Abgelaufene DutyCredits können nicht wiederhergestellt werden." },
+        { q: "Kann ich meinen DutyCredit übertragen?", a: "Nein. DutyCredits sind einzigartig, einmalig verwendbar und kryptografisch gesichert." },
+      ]},
+      { cat: "Für Reisende", qs: [
+        { q: "Muss ich mich anmelden?", a: "Nein. Öffnen Sie einfach den von Ihrem Reisebüro geteilten Link." },
+        { q: "Wo kann ich meinen DutyCredit einlösen?", a: "Bei jedem registrierten Flughafenhändler an Ihrem Abflughafen." },
+        { q: "Was passiert nach dem Scannen?", a: "Der Händler scannt Ihren QR-Code, der Rabatt wird sofort angewendet und Ihr DutyCredit wird als eingelöst markiert." },
+      ]},
+      { cat: "Für Reisebüros", qs: [
+        { q: "Wie profitiert mein Büro?", a: "Jedes Mal, wenn ein Reisender einen DutyCredit einlöst, verdient Ihr Büro 20% der Plattformgebühr." },
+        { q: "Wie generiere ich einen DutyCredit?", a: "Das tun Sie nicht — es geschieht automatisch. Unser Team verbindet Ihr Buchungssystem mit DutyBoost." },
+        { q: "Gibt es Kosten?", a: "Nein. Keine Einrichtungsgebühren, Abonnements oder Nutzungskosten für Reisebüros." },
+      ]},
+      { cat: "Für Flughafenhändler", qs: [
+        { q: "Wie profitiert mein Geschäft?", a: "DutyBoost bringt vorqualifizierte, motivierte Reisende direkt zu Ihrem Geschäft." },
+        { q: "Welche Provision berechnet DutyBoost?", a: "5% auf den Bruttotransaktionswert von Umsätzen über einen eingelösten DutyCredit." },
+        { q: "Wie löse ich einen DutyCredit ein?", a: "Scannen Sie den QR-Code über das Dashboard oder die Scan-Oberfläche. Das System validiert und protokolliert automatisch." },
+      ]},
+      { cat: "Integration & Technik", qs: [
+        { q: "Was müssen Flughafenhändler implementieren?", a: "Zwei Optionen: (1) Keine Integration: nutzen Sie die Retailer Scan App. (2) POS-API-Integration: Ihr System ruft unsere API direkt auf." },
+        { q: "Gibt es eine API für Reisebüros?", a: "Nicht erforderlich. DutyBoost verbindet sich beim Onboarding direkt mit Ihrem Buchungssystem." },
+      ]},
+      { cat: "Plattform & Sicherheit", qs: [
+        { q: "Ist DutyBoost sicher?", a: "Ja. Jeder DutyCredit ist kryptografisch einzigartig. Wir verwenden TLS 1.2+ und AES-256 Verschlüsselung." },
+        { q: "Sind meine Daten sicher?", a: "Absolut. DutyBoost ist vollständig DSGVO-konform und verkauft Ihre Daten niemals an Dritte." },
+      ]},
     ],
   },
-  {
-    category: "For Airport Retailers",
-    questions: [
-      {
-        q: "How does DutyBoost benefit my store?",
-        a: "DutyBoost drives pre-qualified, incentivised travelers directly to your store. These are shoppers who already have a discount waiting — meaning higher conversion rates and larger basket sizes.",
-      },
-      {
-        q: "What commission does DutyBoost charge retailers?",
-        a: "DutyBoost charges a 5% commission on the gross transaction value of sales made through a redeemed DutyCredit. You pay nothing unless a DutyCredit is actually redeemed at your store.",
-      },
-      {
-        q: "How do I redeem a DutyCredit at my store?",
-        a: "Use the DutyBoost retailer dashboard or scan interface to scan the traveler's QR code. The system validates the DutyCredit, displays the discount to apply, and logs the transaction automatically.",
-      },
+  fr: {
+    badge: "Centre d'aide", title: "Foire aux questions", subtitle: "Tout ce que vous devez savoir sur DutyBoost et les DutyCredits.",
+    back_home: "← Retour à l'accueil", footer_rights: "© 2026 DutyBoost.", footer_back: "Retour à l'accueil",
+    categories: [
+      { cat: "DutyCredits", qs: [
+        { q: "Qu'est-ce qu'un DutyCredit ?", a: "Un DutyCredit est un incentive lié à une réservation — un code de réduction numérique unique généré automatiquement lorsqu'une agence soumet une réservation via DutyBoost. Les voyageurs le reçoivent sous forme de QR code." },
+        { q: "Comment mon rabais est-il calculé ?", a: "Le pourcentage est calculé dynamiquement selon le prix du billet, le nombre de voyageurs et le type de vol. Plus la valeur est élevée, plus la réduction est importante." },
+        { q: "Puis-je utiliser mon DutyCredit dans plusieurs magasins ?", a: "Non. Les DutyCredits ne peuvent être échangés qu'en une seule transaction dans un seul point de vente." },
+        { q: "Y a-t-il un montant minimum ?", a: "Oui. Les DutyCredits ne peuvent être échangés que pour des achats de 50 € ou plus." },
+        { q: "Comment est-ce que je reçois mon DutyCredit ?", a: "Votre agence vous partagera un lien après confirmation. En ouvrant le lien, vous verrez votre QR code DutyCredit." },
+        { q: "Les DutyCredits expirent-ils ?", a: "Oui. Chaque DutyCredit a une date d'expiration liée à votre date de voyage. Les DutyCredits expirés ne peuvent pas être réactivés." },
+        { q: "Puis-je transférer mon DutyCredit ?", a: "Non. Les DutyCredits sont uniques, à usage unique et sécurisés cryptographiquement." },
+      ]},
+      { cat: "Pour les voyageurs", qs: [
+        { q: "Dois-je m'inscrire ?", a: "Non. Ouvrez simplement le lien partagé par votre agence." },
+        { q: "Où puis-je échanger mon DutyCredit ?", a: "Chez tout détaillant aéroportuaire enregistré sur DutyBoost à votre aéroport de départ." },
+        { q: "Que se passe-t-il après le scan ?", a: "Le détaillant scanne votre QR code, la réduction est instantanément appliquée et votre DutyCredit est marqué comme utilisé." },
+      ]},
+      { cat: "Pour les agences de voyage", qs: [
+        { q: "Comment DutyBoost profite-t-il à mon agence ?", a: "Chaque fois qu'un voyageur échange un DutyCredit, votre agence gagne 20% de la commission de la plateforme." },
+        { q: "Comment générer un DutyCredit ?", a: "Vous ne le faites pas — cela se passe automatiquement. Notre équipe connecte votre système de réservation à DutyBoost." },
+        { q: "Y a-t-il des frais ?", a: "Non. Aucun frais d'installation, d'abonnement ou d'utilisation pour les agences." },
+      ]},
+      { cat: "Pour les détaillants aéroportuaires", qs: [
+        { q: "Comment DutyBoost profite-t-il à mon magasin ?", a: "DutyBoost dirige des voyageurs pré-qualifiés et motivés directement vers votre magasin." },
+        { q: "Quelle commission DutyBoost facture-t-il ?", a: "5% sur la valeur brute des transactions effectuées via un DutyCredit échangé." },
+        { q: "Comment échanger un DutyCredit ?", a: "Scannez le QR code via le tableau de bord ou l'interface de scan. Le système valide et enregistre automatiquement." },
+      ]},
+      { cat: "Intégration & Technique", qs: [
+        { q: "Que doivent mettre en place les détaillants ?", a: "Deux options : (1) Zéro intégration : utiliser l'app Retailer Scan. (2) Intégration API POS : votre système appelle directement notre API." },
+        { q: "Existe-t-il une API pour les agences ?", a: "Non requise. DutyBoost se connecte directement à votre système de réservation lors de l'onboarding." },
+      ]},
+      { cat: "Plateforme & Sécurité", qs: [
+        { q: "DutyBoost est-il sécurisé ?", a: "Oui. Chaque DutyCredit est cryptographiquement unique. Nous utilisons TLS 1.2+ et AES-256." },
+        { q: "Mes données sont-elles en sécurité ?", a: "Absolument. DutyBoost est conforme au RGPD et ne vend jamais vos données à des tiers." },
+      ]},
     ],
   },
-  {
-   category: "Integration & Technical",
-   questions: [
-     {
-       q: "What do airport retailers need to implement to accept DutyCredits?",
-       a: "There are two options: (1) Zero Integration: Use the DutyBoost Retailer Scan app on a tablet/phone at the till — the cashier scans the QR, and DutyBoost returns the discount to apply manually. (2) POS API Integration: Your POS system calls our redemption API directly when scanning a QR, and the discount is applied automatically. Most retailers start with option 1; larger operations integrate with option 2.",
-     },
-     {
-       q: "What do travel agencies need to do to implement DutyBoost on their booking confirmation page?",
-       a: "Your confirmation page should include a simple snippet or widget provided by DutyBoost. This snippet calls our API with booking details (ticket price, airport, traveler email, travel date, number of travelers). DutyBoost generates the QR code and sends it directly to the traveler's email — no manual work required on your end.",
-     },
-     {
-       q: "Is there an API for travel agencies to call?",
-       a: "Not required. DutyBoost connects directly to your booking system (Amadeus, Sabre, Travelport, etc.) during onboarding. From that point on, DutyCredits are generated automatically with zero API work. If you prefer a custom integration or have a bespoke booking engine, contact our sales team to discuss direct API access.",
-     },
-     {
-       q: "What does the retailer API require?",
-       a: "For POS integration, retailers call a single endpoint passing: the QR token, transaction amount, and merchant ID. DutyBoost returns approval/rejection with the discount amount. The retailer's POS handles the rest (receipt, accounting, etc.).",
-     },
-   ],
-  },
-  {
-   category: "Platform & Security",
-   questions: [
-      {
-        q: "Is DutyBoost secure?",
-        a: "Yes. Every DutyCredit is cryptographically unique and single-use. Once redeemed, it is permanently invalidated. Our platform uses industry-standard encryption (TLS 1.2+ in transit, AES-256 at rest) and role-based access controls.",
-      },
-      {
-        q: "What happens if a DutyCredit is used fraudulently?",
-        a: "DutyBoost monitors for suspicious activity and reserves the right to invalidate any DutyCredit suspected of being generated through fraudulent or manipulated booking data. Violations may result in account suspension.",
-      },
-      {
-        q: "Is my data safe with DutyBoost?",
-        a: "Absolutely. DutyBoost is fully GDPR-compliant and processes personal data only to deliver its services. We never sell your data to third parties. For full details, see our Privacy Policy and Data Processing Agreement.",
-      },
+  es: {
+    badge: "Centro de ayuda", title: "Preguntas frecuentes", subtitle: "Todo lo que necesitas saber sobre DutyBoost y los DutyCredits.",
+    back_home: "← Volver al inicio", footer_rights: "© 2026 DutyBoost.", footer_back: "Volver al inicio",
+    categories: [
+      { cat: "DutyCredits", qs: [
+        { q: "¿Qué es un DutyCredit?", a: "Un DutyCredit es un incentivo vinculado a una reserva — un código de descuento digital único generado automáticamente cuando una agencia envía una reserva a través de DutyBoost. Los viajeros lo reciben como código QR." },
+        { q: "¿Cómo se calcula mi descuento?", a: "El porcentaje se calcula dinámicamente según el precio del billete, el número de viajeros y el tipo de vuelo. Cuanto mayor sea el valor, mayor será el descuento." },
+        { q: "¿Puedo usar mi DutyCredit en varios establecimientos?", a: "No. Los DutyCredits son canjeables en una sola transacción en un único punto de venta." },
+        { q: "¿Hay un gasto mínimo?", a: "Sí. Los DutyCredits solo pueden canjearse en compras de 50 € o más." },
+        { q: "¿Cómo recibo mi DutyCredit?", a: "Tu agencia te compartirá un enlace tras la confirmación. Al abrirlo verás tu código QR DutyCredit." },
+        { q: "¿Caducan los DutyCredits?", a: "Sí. Cada DutyCredit tiene una fecha de caducidad vinculada a tu fecha de viaje. Los caducados no pueden reactivarse." },
+        { q: "¿Puedo transferir mi DutyCredit?", a: "No. Los DutyCredits son únicos, de un solo uso y seguros criptográficamente." },
+      ]},
+      { cat: "Para viajeros", qs: [
+        { q: "¿Necesito registrarme?", a: "No. Simplemente abre el enlace compartido por tu agencia." },
+        { q: "¿Dónde puedo canjear mi DutyCredit?", a: "En cualquier tienda aeroportuaria registrada en DutyBoost en tu aeropuerto de salida." },
+        { q: "¿Qué ocurre después del escaneo?", a: "El comercio escanea tu código QR, el descuento se aplica al instante y tu DutyCredit queda marcado como canjeado." },
+      ]},
+      { cat: "Para agencias de viajes", qs: [
+        { q: "¿Cómo beneficia DutyBoost a mi agencia?", a: "Cada vez que un viajero canjea un DutyCredit, tu agencia gana el 20% de la comisión de la plataforma." },
+        { q: "¿Cómo genero un DutyCredit?", a: "No lo haces tú — ocurre automáticamente. Nuestro equipo conecta tu sistema de reservas a DutyBoost." },
+        { q: "¿Hay algún coste?", a: "No. Sin comisiones de configuración, suscripción ni uso para agencias." },
+      ]},
+      { cat: "Para tiendas aeroportuarias", qs: [
+        { q: "¿Cómo beneficia DutyBoost a mi tienda?", a: "DutyBoost dirige viajeros precalificados e incentivados directamente a tu tienda." },
+        { q: "¿Qué comisión cobra DutyBoost?", a: "El 5% sobre el valor bruto de las transacciones realizadas a través de un DutyCredit canjeado." },
+        { q: "¿Cómo canjeo un DutyCredit?", a: "Escanea el código QR en el panel o la interfaz de escaneo. El sistema valida y registra automáticamente." },
+      ]},
+      { cat: "Integración y Técnica", qs: [
+        { q: "¿Qué deben implementar las tiendas?", a: "Dos opciones: (1) Sin integración: usa la app Retailer Scan. (2) Integración API POS: tu sistema llama directamente a nuestra API." },
+        { q: "¿Existe una API para agencias?", a: "No es necesaria. DutyBoost se conecta directamente a tu sistema de reservas durante el alta." },
+      ]},
+      { cat: "Plataforma y Seguridad", qs: [
+        { q: "¿Es DutyBoost seguro?", a: "Sí. Cada DutyCredit es criptográficamente único. Usamos cifrado TLS 1.2+ y AES-256." },
+        { q: "¿Están seguros mis datos?", a: "Absolutamente. DutyBoost cumple el RGPD y nunca vende tus datos a terceros." },
+      ]},
     ],
   },
-];
+  it: {
+    badge: "Centro assistenza", title: "Domande frequenti", subtitle: "Tutto ciò che devi sapere su DutyBoost e i DutyCredit.",
+    back_home: "← Torna alla home", footer_rights: "© 2026 DutyBoost.", footer_back: "Torna alla home",
+    categories: [
+      { cat: "DutyCredit", qs: [
+        { q: "Cos'è un DutyCredit?", a: "Un DutyCredit è un incentivo legato a una prenotazione — un codice sconto digitale unico generato automaticamente quando un'agenzia invia una prenotazione tramite DutyBoost. I viaggiatori lo ricevono come QR code." },
+        { q: "Come viene calcolato il mio sconto?", a: "La percentuale viene calcolata dinamicamente in base al prezzo del biglietto, al numero di viaggiatori e al tipo di volo. Più alto è il valore, maggiore è lo sconto." },
+        { q: "Posso usare il mio DutyCredit in più negozi?", a: "No. I DutyCredit sono riscattabili in un'unica transazione presso un unico punto vendita." },
+        { q: "C'è una spesa minima?", a: "Sì. I DutyCredit possono essere riscattati solo su acquisti di 50 € o più." },
+        { q: "Come ricevo il mio DutyCredit?", a: "La tua agenzia ti condividerà un link dopo la conferma. Aprendo il link vedrai il tuo QR code DutyCredit." },
+        { q: "I DutyCredit scadono?", a: "Sì. Ogni DutyCredit ha una data di scadenza legata alla tua data di viaggio. I DutyCredit scaduti non possono essere ripristinati." },
+        { q: "Posso trasferire il mio DutyCredit?", a: "No. I DutyCredit sono unici, monouso e sicuri crittograficamente." },
+      ]},
+      { cat: "Per i viaggiatori", qs: [
+        { q: "Devo registrarmi?", a: "No. Basta aprire il link condiviso dalla tua agenzia." },
+        { q: "Dove posso riscattare il mio DutyCredit?", a: "Presso qualsiasi rivenditore aeroportuale registrato su DutyBoost nel tuo aeroporto di partenza." },
+        { q: "Cosa succede dopo la scansione?", a: "Il rivenditore scansiona il tuo QR code, lo sconto viene applicato istantaneamente e il tuo DutyCredit viene contrassegnato come riscattato." },
+      ]},
+      { cat: "Per le agenzie di viaggio", qs: [
+        { q: "Come beneficia la mia agenzia?", a: "Ogni volta che un viaggiatore riscatta un DutyCredit, la tua agenzia guadagna il 20% della commissione della piattaforma." },
+        { q: "Come genero un DutyCredit?", a: "Non lo fai tu — avviene automaticamente. Il nostro team collega il tuo sistema di prenotazione a DutyBoost." },
+        { q: "Ci sono costi?", a: "No. Nessun costo di configurazione, abbonamento o utilizzo per le agenzie." },
+      ]},
+      { cat: "Per i rivenditori aeroportuali", qs: [
+        { q: "Come beneficia il mio negozio?", a: "DutyBoost porta viaggiatori pre-qualificati e incentivati direttamente al tuo negozio." },
+        { q: "Quale commissione applica DutyBoost?", a: "Il 5% sul valore lordo delle transazioni effettuate tramite un DutyCredit riscattato." },
+        { q: "Come riscatto un DutyCredit?", a: "Scansiona il QR code tramite la dashboard o l'interfaccia di scansione. Il sistema valida e registra automaticamente." },
+      ]},
+      { cat: "Integrazione & Tecnica", qs: [
+        { q: "Cosa devono implementare i rivenditori?", a: "Due opzioni: (1) Zero integrazione: usa l'app Retailer Scan. (2) Integrazione API POS: il tuo sistema chiama direttamente la nostra API." },
+        { q: "Esiste un'API per le agenzie?", a: "Non necessaria. DutyBoost si connette direttamente al tuo sistema di prenotazione durante l'onboarding." },
+      ]},
+      { cat: "Piattaforma e Sicurezza", qs: [
+        { q: "DutyBoost è sicuro?", a: "Sì. Ogni DutyCredit è crittograficamente unico. Utilizziamo TLS 1.2+ e AES-256." },
+        { q: "I miei dati sono al sicuro?", a: "Assolutamente. DutyBoost è conforme al GDPR e non vende mai i tuoi dati a terzi." },
+      ]},
+    ],
+  },
+};
 
 function FAQItem({ q, a }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border border-border rounded-xl overflow-hidden">
-      <button
-        className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/40 transition-colors"
-        onClick={() => setOpen(!open)}
-      >
+      <button className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/40 transition-colors" onClick={() => setOpen(!open)}>
         <span className="font-medium text-sm">{q}</span>
         <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
-      {open && (
-        <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed border-t border-border pt-3 bg-muted/20">
-          {a}
-        </div>
-      )}
+      {open && <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed border-t border-border pt-3 bg-muted/20">{a}</div>}
     </div>
   );
 }
 
 export default function FAQ() {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const c = content[i18n.language] || content.en;
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/"><DutyBoostLogo height={36} /></Link>
-          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t('faq.back_home')}</Link>
+          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.back_home}</Link>
         </div>
       </nav>
-
       <div className="max-w-3xl mx-auto px-6 py-14 space-y-12">
         <div className="text-center space-y-3">
-          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('faq.badge')}</Badge>
-          <h1 className="text-4xl font-heading font-bold">{t('faq.title')}</h1>
-          <p className="text-muted-foreground">{t('faq.subtitle')}</p>
+          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{c.badge}</Badge>
+          <h1 className="text-4xl font-heading font-bold">{c.title}</h1>
+          <p className="text-muted-foreground">{c.subtitle}</p>
         </div>
-
-        {faqs.map((section) => (
-          <div key={section.category} className="space-y-3">
-            <h2 className="text-lg font-heading font-semibold text-primary">{section.category}</h2>
+        {c.categories.map((section) => (
+          <div key={section.cat} className="space-y-3">
+            <h2 className="text-lg font-heading font-semibold text-primary">{section.cat}</h2>
             <div className="space-y-2">
-              {section.questions.map((item) => (
-                <FAQItem key={item.q} q={item.q} a={item.a} />
-              ))}
+              {section.qs.map((item) => <FAQItem key={item.q} q={item.q} a={item.a} />)}
             </div>
           </div>
         ))}
       </div>
-
       <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        {t('faq.footer_rights')} <Link to="/" className="text-primary underline">{t('faq.footer_back')}</Link>
+        {c.footer_rights} <Link to="/" className="text-primary underline">{c.footer_back}</Link>
       </footer>
     </div>
   );
