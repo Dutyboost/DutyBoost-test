@@ -77,7 +77,7 @@ export default function LandingPage() {
             <LanguageSwitcher />
             <Link to="/agency-portal">
               <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                For Agencies; For Travel Agencies
+                For Travel Agencies
               </Button>
             </Link>
             <Link to="/traveler-portal">
@@ -87,7 +87,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/retailer-portal">
               <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                For Retailers; For Airport Retailers
+                For Airport Retailers
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
