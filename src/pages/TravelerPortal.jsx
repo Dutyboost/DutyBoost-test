@@ -135,7 +135,9 @@ export default function TravelerPortal() {
         >
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
-        <DutyBoostLogo height={80} />
+        <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
+          <DutyBoostLogo height={90} />
+        </button>
         <div className="flex items-center gap-2">
           <div className="text-right">
             <p className="text-xs font-medium text-foreground">{user?.full_name || t('traveler.traveler')}</p>

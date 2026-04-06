@@ -64,7 +64,9 @@ export default function TravelerSignup() {
         >
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
-        <DutyBoostLogo height={90} />
+        <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
+          <DutyBoostLogo height={90} />
+        </button>
         <div className="w-12" />
       </div>
 
