@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import WeCallYouForm from "./WeCallYouForm";
+import { useTranslation } from "react-i18next";
 
 export default function WeCallYouModal({ trigger }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   return (
@@ -10,10 +12,10 @@ export default function WeCallYouModal({ trigger }) {
       {trigger && trigger(setOpen)}
       <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>We'll Call You</DialogTitle>
+          <DialogTitle>{t('wecallyou.modal_title')}</DialogTitle>
         </DialogHeader>
         <p className="text-sm text-muted-foreground">
-          Leave your details and we'll give you a call to discuss your needs.
+          {t('wecallyou.modal_subtitle')}
         </p>
         <WeCallYouForm onSuccess={() => setOpen(false)} />
       </DialogContent>

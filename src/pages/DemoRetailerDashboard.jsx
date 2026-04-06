@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut } from "lucide-react";
 import DemoProfileTab from "../components/DemoProfileTab";
@@ -12,6 +13,7 @@ const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
 
 export default function DemoRetailerDashboard() {
+  const { t } = useTranslation();
   const [selectedAirport, setSelectedAirport] = useState("AMS");
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
   const [showRedemptions, setShowRedemptions] = useState(true);
@@ -82,13 +84,13 @@ export default function DemoRetailerDashboard() {
       <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-4">
           <Link to="/demo" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
-            <ArrowLeft className="w-4 h-4" /> Demo Home
+            <ArrowLeft className="w-4 h-4" /> {t('demo.demo_home')}
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={110} />
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">Demo — Airport Retailer</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.retailer_badge')}</span>
           <select
             className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
             value={selectedAirport}
@@ -104,7 +106,7 @@ export default function DemoRetailerDashboard() {
             {airportRetailers.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
           </select>
           <button onClick={() => base44.auth.logout('/')} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-destructive transition-colors border border-input rounded-lg px-3 py-1.5 bg-background hover:bg-destructive/5">
-            <LogOut className="w-4 h-4" /> Logout
+            <LogOut className="w-4 h-4" /> {t('demo.logout')}
           </button>
         </div>
       </header>
@@ -112,7 +114,7 @@ export default function DemoRetailerDashboard() {
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {/* Tabs */}
         <div className="flex gap-1 border-b border-border">
-          {[{ id: "dashboard", label: "Dashboard", icon: LayoutDashboard }, { id: "profile", label: "Profile & Billing", icon: UserCircle }, { id: "scan", label: "Quick Scan", icon: ScanLine }].map(({ id, label, icon: Icon }) => (
+          {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }, { id: "scan", label: t('demo.tabs_scan'), icon: ScanLine }].map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
@@ -124,8 +126,8 @@ export default function DemoRetailerDashboard() {
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "scan" ? (
           <div className="space-y-4">
-            <p className="text-muted-foreground text-sm">Use the dedicated scan interface for quick QR code scanning without the full dashboard.</p>
-            <Link to="/retailer-scan-only" target="_blank" className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all">Open Scan Interface →</Link>
+            <p className="text-muted-foreground text-sm">{t('demo.scan_desc')}</p>
+            <Link to="/retailer-scan-only" target="_blank" className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all">{t('demo.open_scan')}</Link>
           </div>
         ) : (<>
         {/* Welcome */}
@@ -136,14 +138,14 @@ export default function DemoRetailerDashboard() {
               {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
             </p>
           </div>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">Active Partner</span>
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">{t('demo.active_partner')}</span>
         </div>
 
         {/* Period selector */}
         <div className="flex items-center gap-2 flex-wrap">
           <Calendar className="w-4 h-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground font-medium">Period:</span>
-          {[{v:"daily",l:"Daily"},{v:"monthly",l:"Monthly"},{v:"yearly",l:"Yearly"},{v:"custom",l:"Custom"}].map(({v,l}) => (
+          <span className="text-sm text-muted-foreground font-medium">{t('demo.period')}</span>
+          {[{v:"daily",l:t('demo.daily')},{v:"monthly",l:t('demo.monthly')},{v:"yearly",l:t('demo.yearly')},{v:"custom",l:t('demo.custom')}].map(({v,l}) => (
             <button key={v} onClick={() => setPeriod(v)}
               className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
                 period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
@@ -154,7 +156,7 @@ export default function DemoRetailerDashboard() {
             <div className="flex items-center gap-2 ml-2">
               <input type="date" value={customStart} onChange={e => setCustomStart(e.target.value)}
                 className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
-              <span className="text-xs text-muted-foreground">to</span>
+              <span className="text-xs text-muted-foreground">{t('demo.to')}</span>
               <input type="date" value={customEnd} onChange={e => setCustomEnd(e.target.value)}
                 className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
             </div>
@@ -164,10 +166,10 @@ export default function DemoRetailerDashboard() {
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Total Redemptions", value: periodRedemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
-            { label: "Gross Revenue (DutyBoost)", value: `€ ${periodRevenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
-            { label: "Avg. Sale per DutyCredit", value: `€ ${periodAvg}`, icon: TrendingUp, color: "text-emerald-500" },
-            { label: "Platform Fee (5%)", value: `€ ${parseFloat(periodFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
+            { label: t('demo.total_redemptions'), value: periodRedemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
+            { label: t('demo.gross_revenue'), value: `€ ${periodRevenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
+            { label: t('demo.avg_sale'), value: `€ ${periodAvg}`, icon: TrendingUp, color: "text-emerald-500" },
+            { label: t('demo.platform_fee'), value: `€ ${parseFloat(periodFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -183,11 +185,11 @@ export default function DemoRetailerDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="md:col-span-2 bg-card border border-border rounded-xl p-6 space-y-4">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <p className="font-semibold">{period === "daily" ? "Daily" : period === "custom" ? "Custom Period" : "Monthly"} Redemptions & Revenue</p>
+              <p className="font-semibold">{period === "daily" ? t('demo.daily_rd') : period === "custom" ? t('demo.performance_custom') : t('demo.monthly_rd')}</p>
               <div className="flex gap-2">
                 {[
-                  { key: "redemptions", label: "Redemptions", color: "#dbeafe", active: showRedemptions, toggle: () => setShowRedemptions(v => !v) },
-                  { key: "revenue", label: "Revenue", color: "#2563eb", active: showRevenue, toggle: () => setShowRevenue(v => !v) },
+                  { key: "redemptions", label: t('demo.redemptions'), color: "#dbeafe", active: showRedemptions, toggle: () => setShowRedemptions(v => !v) },
+                  { key: "revenue", label: t('demo.revenue'), color: "#2563eb", active: showRevenue, toggle: () => setShowRevenue(v => !v) },
                 ].map(({ label, color, active, toggle }) => (
                   <button key={label} onClick={toggle}
                     className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border transition-all ${
@@ -213,23 +215,23 @@ export default function DemoRetailerDashboard() {
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">Revenue Breakdown</p>
+            <p className="font-semibold">{t('demo.revenue_breakdown')}</p>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-center">
-                <span className="text-muted-foreground">Gross Sales</span>
+                <span className="text-muted-foreground">{t('demo.gross_sales')}</span>
                 <span className="font-semibold">€ {periodRevenue.toLocaleString("nl-NL")}</span>
               </div>
               <div className="flex justify-between items-center text-destructive">
-                <span>Platform Fee (5%)</span>
+                <span>{t('demo.platform_fee_5')}</span>
                 <span className="font-semibold">- € {parseFloat(periodFee).toLocaleString("nl-NL")}</span>
               </div>
               <div className="border-t border-border pt-2 flex justify-between items-center">
-                <span className="font-semibold">Your Net Revenue</span>
+                <span className="font-semibold">{t('demo.your_net_revenue')}</span>
                 <span className="font-bold text-emerald-600">€ {parseFloat(periodNetRevenue).toLocaleString("nl-NL")}</span>
               </div>
             </div>
             <div className="bg-blue-50 text-blue-700 rounded-lg p-3 text-xs">
-              The 5% fee is only charged on <strong>confirmed DutyCredit redemptions</strong>. No fee without a redemption.
+              {t('demo.fee_note')}
             </div>
           </div>
         </div>
@@ -237,7 +239,7 @@ export default function DemoRetailerDashboard() {
         {/* Airport overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">All Stores at {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
+            <p className="font-semibold">{t('demo.all_stores_at')} {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
             <div className="overflow-y-auto max-h-64 space-y-2">
               {airportRetailers.map(r => (
                 <div
@@ -252,8 +254,8 @@ export default function DemoRetailerDashboard() {
                     <p className="text-xs text-muted-foreground">{r.category}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-semibold">{r.redemptions} scans</p>
-                    <p className="text-xs text-muted-foreground">€ {r.avg_sale} avg sale</p>
+                    <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
+                    <p className="text-xs text-muted-foreground">€ {r.avg_sale} {t('demo.avg_sale_label')}</p>
                   </div>
                 </div>
               ))}
@@ -261,7 +263,7 @@ export default function DemoRetailerDashboard() {
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">Redemptions by Category at {selectedAirport}</p>
+            <p className="font-semibold">{t('demo.redemptions_by_category')} {selectedAirport}</p>
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie data={catBreakdown} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={75} label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} fontSize={11}>
@@ -275,16 +277,16 @@ export default function DemoRetailerDashboard() {
 
         {/* Recent scans */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">Recent DutyCredit Scans — {selectedRetailer.name}</p>
+          <p className="font-semibold">{t('demo.recent_scans')} — {selectedRetailer.name}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">DutyCredit Code</th>
-                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Scanned</th>
-                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">Discount</th>
-                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">Sale Value</th>
-                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">Traveler Saved</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_code')}</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_scanned')}</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_discount')}</th>
+                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_sale_value')}</th>
+                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_traveler_saved')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -304,7 +306,7 @@ export default function DemoRetailerDashboard() {
 
         {/* Traveler Ratings */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">Traveler Ratings — {selectedRetailer.name}</p>
+          <p className="font-semibold">{t('demo.traveler_ratings')} — {selectedRetailer.name}</p>
           <div className="flex items-center gap-6 flex-wrap">
             <div className="text-center">
               <p className="text-5xl font-heading font-bold">4.4</p>
@@ -313,7 +315,7 @@ export default function DemoRetailerDashboard() {
                   <Star key={s} className={`w-5 h-5 ${s <= 4 ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground mt-1">87 reviews</p>
+              <p className="text-xs text-muted-foreground mt-1">87 {t('demo.reviews')}</p>
             </div>
             <div className="flex-1 space-y-1.5 min-w-[160px]">
               {[{star:5,count:41},{star:4,count:28},{star:3,count:11},{star:2,count:5},{star:1,count:2}].map(({ star, count }) => (
@@ -329,7 +331,7 @@ export default function DemoRetailerDashboard() {
             </div>
           </div>
           <div className="space-y-2 pt-2 border-t border-border">
-            <p className="text-sm font-medium">Recent comments</p>
+            <p className="text-sm font-medium">{t('demo.recent_comments')}</p>
             {[
               { rating: 5, comment: "Excellent service! The staff was very helpful and the discount process was seamless." },
               { rating: 4, comment: "Good experience overall. Quick scan and friendly staff." },
@@ -347,13 +349,13 @@ export default function DemoRetailerDashboard() {
 
         {/* How it works */}
         <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 border border-orange-200 rounded-xl p-6 space-y-4">
-          <p className="font-semibold font-heading text-lg">How DutyCredit Redemption Works for Retailers</p>
+          <p className="font-semibold font-heading text-lg">{t('demo.how_redemption_works')}</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { step: "1", title: "Traveler Arrives", desc: "A traveler walks into your store with a DutyCredit on their phone." },
-              { step: "2", title: "Staff Scans QR", desc: "Your staff scans the QR code using the DutyBoost scan tool — takes 5 seconds." },
-              { step: "3", title: "Discount Applied", desc: "The system confirms the voucher and you apply the discount at the register." },
-              { step: "4", title: "Monthly Invoice", desc: "DutyBoost invoices you 5% of the gross sale value on all confirmed redemptions each month." },
+              { step: "1", title: t('demo.rw_step1_title'), desc: t('demo.rw_step1_desc') },
+              { step: "2", title: t('demo.rw_step2_title'), desc: t('demo.rw_step2_desc') },
+              { step: "3", title: t('demo.rw_step3_title'), desc: t('demo.rw_step3_desc') },
+              { step: "4", title: t('demo.rw_step4_title'), desc: t('demo.rw_step4_desc') },
             ].map(({ step, title, desc }) => (
               <div key={step} className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-sm font-bold flex items-center justify-center shrink-0">{step}</div>

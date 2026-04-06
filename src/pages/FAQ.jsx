@@ -3,6 +3,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const faqs = [
   {
@@ -150,20 +151,21 @@ function FAQItem({ q, a }) {
 }
 
 export default function FAQ() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/"><DutyBoostLogo height={36} /></Link>
-          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Back to Home</Link>
+          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t('faq.back_home')}</Link>
         </div>
       </nav>
 
       <div className="max-w-3xl mx-auto px-6 py-14 space-y-12">
         <div className="text-center space-y-3">
-          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Help Centre</Badge>
-          <h1 className="text-4xl font-heading font-bold">Frequently Asked Questions</h1>
-          <p className="text-muted-foreground">Everything you need to know about DutyBoost and DutyCredits.</p>
+          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('faq.badge')}</Badge>
+          <h1 className="text-4xl font-heading font-bold">{t('faq.title')}</h1>
+          <p className="text-muted-foreground">{t('faq.subtitle')}</p>
         </div>
 
         {faqs.map((section) => (
@@ -179,7 +181,7 @@ export default function FAQ() {
       </div>
 
       <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        © 2026 DutyBoost. <Link to="/" className="text-primary underline">Back to Home</Link>
+        {t('faq.footer_rights')} <Link to="/" className="text-primary underline">{t('faq.footer_back')}</Link>
       </footer>
     </div>
   );

@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import { useTranslation } from "react-i18next";
 
 export default function DemoLanding() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
         <Link to="/"><DutyBoostLogo height={130} /></Link>
-        <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">Demo Mode</span>
+        <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.mode_badge')}</span>
       </nav>
 
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-10">
         <div className="space-y-3 max-w-xl">
-          <h1 className="text-4xl font-heading font-bold">DutyBoost Platform Demo</h1>
-          <p className="text-muted-foreground text-lg">Explore the platform from every perspective. All data is illustrative.</p>
+          <h1 className="text-4xl font-heading font-bold">{t('demo.title')}</h1>
+          <p className="text-muted-foreground text-lg">{t('demo.subtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl">
@@ -22,11 +24,11 @@ export default function DemoLanding() {
               <Plane className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <p className="font-heading font-bold text-xl">Travel Agency</p>
-              <p className="text-muted-foreground text-sm mt-1">See how agencies earn passive commission revenue by issuing DutyCredits to travelers.</p>
+              <p className="font-heading font-bold text-xl">{t('demo.agency_title')}</p>
+              <p className="text-muted-foreground text-sm mt-1">{t('demo.agency_desc')}</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
-              <Eye className="w-4 h-4" /> View Agency Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Eye className="w-4 h-4" /> {t('demo.view_agency')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
@@ -35,17 +37,17 @@ export default function DemoLanding() {
               <Store className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <p className="font-heading font-bold text-xl">Airport Retailer</p>
-              <p className="text-muted-foreground text-sm mt-1">Discover how retailers attract high-spend travelers and track redemptions via the dashboard.</p>
+              <p className="font-heading font-bold text-xl">{t('demo.retailer_title')}</p>
+              <p className="text-muted-foreground text-sm mt-1">{t('demo.retailer_desc')}</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
-              <Eye className="w-4 h-4" /> View Retailer Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Eye className="w-4 h-4" /> {t('demo.view_retailer')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
         </div>
 
-        <p className="text-xs text-muted-foreground">This is a live demo environment. No real transactions are processed.</p>
+        <p className="text-xs text-muted-foreground">{t('demo.disclaimer')}</p>
       </div>
     </div>
   );
