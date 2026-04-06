@@ -6,6 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Layout from './components/Layout';
+import ScrollRestoration from './components/ScrollRestoration';
 import Home from './pages/Home';
 import LandingPage from './pages/LandingPage';
 import VouchersPage from './pages/VouchersPage';
@@ -48,7 +49,6 @@ import RetailerScanOnly from './pages/RetailerScanOnly';
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-  // Show loading spinner while checking app public settings or auth
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
@@ -57,7 +57,6 @@ const AuthenticatedApp = () => {
     );
   }
 
-  // Handle authentication errors
   if (authError) {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
@@ -65,28 +64,30 @@ const AuthenticatedApp = () => {
       const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/get-started" element={<GetStarted />} />
-            <Route path="/voucher" element={<TravelerVoucher />} />
-            <Route path="/scan" element={<TravelerScan />} />
-            <Route path="/demo" element={<DemoLanding />} />
-            <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
-            <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
-            <Route path="/demo/admin" element={<DemoAdminDashboard />} />
-{/* Business Travel routes hidden - pending business model review */}
-            <Route path="/traveler-app" element={<TravelerApp />} />
-            <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/refunds" element={<RefundPolicy />} />
-            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
-            <Route path="/cookies" element={<CookiePolicy />} />
-            <Route path="/dpa" element={<DataProcessingAgreement />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/user-guide" element={<UserGuide />} />
-            <Route path="/airport-map" element={<AirportMap />} />
-          </Routes>
+          <>
+            <ScrollRestoration />
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/get-started" element={<GetStarted />} />
+              <Route path="/voucher" element={<TravelerVoucher />} />
+              <Route path="/scan" element={<TravelerScan />} />
+              <Route path="/demo" element={<DemoLanding />} />
+              <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
+              <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
+              <Route path="/demo/admin" element={<DemoAdminDashboard />} />
+              <Route path="/traveler-app" element={<TravelerApp />} />
+              <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/refunds" element={<RefundPolicy />} />
+              <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+              <Route path="/cookies" element={<CookiePolicy />} />
+              <Route path="/dpa" element={<DataProcessingAgreement />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/user-guide" element={<UserGuide />} />
+              <Route path="/airport-map" element={<AirportMap />} />
+            </Routes>
+          </>
         );
       }
       navigateToLogin();
@@ -94,52 +95,51 @@ const AuthenticatedApp = () => {
     }
   }
 
-  // Render the main app
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/voucher" element={<TravelerVoucher />} />
-      <Route path="/scan" element={<TravelerScan />} />
-      <Route path="/airport-map" element={<AirportMap />} />
-      <Route path="/demo" element={<DemoLanding />} />
-      <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
-      <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
-      <Route path="/demo/admin" element={<DemoAdminDashboard />} />
-      <Route path="/get-started" element={<GetStarted />} />
+    <>
+      <ScrollRestoration />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/voucher" element={<TravelerVoucher />} />
+        <Route path="/scan" element={<TravelerScan />} />
+        <Route path="/airport-map" element={<AirportMap />} />
+        <Route path="/demo" element={<DemoLanding />} />
+        <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
+        <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
+        <Route path="/demo/admin" element={<DemoAdminDashboard />} />
+        <Route path="/get-started" element={<GetStarted />} />
 {/* Corporate / Business Travel routes hidden - pending business model review */}
-      <Route path="/traveler" element={<TravelerApp />} />
-      <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
-      <Route path="/privacy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<TermsOfService />} />
-      <Route path="/refunds" element={<RefundPolicy />} />
-      <Route path="/code-of-conduct" element={<CodeOfConduct />} />
-      <Route path="/cookies" element={<CookiePolicy />} />
-      <Route path="/dpa" element={<DataProcessingAgreement />} />
-      <Route path="/faq" element={<FAQ />} />
-      <Route path="/integration-guide" element={<AgencyIntegrationGuide />} />
-      <Route path="/user-guide" element={<UserGuide />} />
-      <Route element={<Layout />}>
-        <Route path="/dashboard" element={<Home />} />
-        <Route path="/vouchers" element={<VouchersPage />} />
-        <Route path="/retailers" element={<RetailersPage />} />
-        <Route path="/travel-agencies" element={<TravelAgenciesPage />} />
-        <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
-        <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
-        <Route path="/scan-redeem" element={<ScanVoucher />} />
-        <Route path="/retailer-scan" element={<RetailerScanQR />} />
-        <Route path="/leads-admin" element={<LeadsAdmin />} />
-
-        <Route path="*" element={<PageNotFound />} />
-      </Route>
-    </Routes>
+        <Route path="/traveler" element={<TravelerApp />} />
+        <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/refunds" element={<RefundPolicy />} />
+        <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/dpa" element={<DataProcessingAgreement />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/integration-guide" element={<AgencyIntegrationGuide />} />
+        <Route path="/user-guide" element={<UserGuide />} />
+        <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Home />} />
+          <Route path="/vouchers" element={<VouchersPage />} />
+          <Route path="/retailers" element={<RetailersPage />} />
+          <Route path="/travel-agencies" element={<TravelAgenciesPage />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
+          <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
+          <Route path="/scan-redeem" element={<ScanVoucher />} />
+          <Route path="/retailer-scan" element={<RetailerScanQR />} />
+          <Route path="/leads-admin" element={<LeadsAdmin />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
-
 function App() {
-
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
