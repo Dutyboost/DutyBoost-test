@@ -75,7 +75,7 @@ export default function LandingPage() {
             <LanguageSwitcher />
             <Link to="/traveler-portal">
               <Button size="sm" variant="outline" className="gap-1">
-                <Ticket className="w-3.5 h-3.5" /> For Travelers
+                <Ticket className="w-3.5 h-3.5" /> {t('nav.forTravelers')}
               </Button>
             </Link>
             <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.sign_in')}</Button>
@@ -108,7 +108,7 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
             <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1">
-                <Ticket className="w-3.5 h-3.5" /> For Travelers
+                <Ticket className="w-3.5 h-3.5" /> {t('nav.forTravelers')}
               </Button>
             </Link>
             <Button size="sm" onClick={() => { base44.auth.redirectToLogin('/dashboard'); setMobileMenuOpen(false); }}>{t('nav.sign_in')}</Button>

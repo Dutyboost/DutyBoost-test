@@ -2,6 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Inloggen',
+      forTravelers: 'Voor reizigers',
       getStarted: 'Aan de slag',
       weCallYou: 'Wij bellen u',
       liveDemo: 'Live Demo',
