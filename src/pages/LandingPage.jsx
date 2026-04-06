@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Zap, BarChart3, QrCode, TrendingUp,
-  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye, Menu, X
+  ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye, Menu, X, Ticket
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -73,6 +73,11 @@ export default function LandingPage() {
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-2">
             <LanguageSwitcher />
+            <Link to="/traveler-portal">
+              <Button size="sm" variant="outline" className="gap-1">
+                <Ticket className="w-3.5 h-3.5" /> My DutyCredits
+              </Button>
+            </Link>
             <Button size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.sign_in')}</Button>
             <Link to="/get-started">
               <Button size="sm" className="gap-1">
@@ -101,6 +106,11 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
+            <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full gap-1">
+                <Ticket className="w-3.5 h-3.5" /> My DutyCredits
+              </Button>
+            </Link>
             <Button size="sm" onClick={() => { base44.auth.redirectToLogin('/dashboard'); setMobileMenuOpen(false); }}>{t('nav.sign_in')}</Button>
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" className="w-full gap-1">{t('nav.get_started')} <ChevronRight className="w-3 h-3" /></Button>

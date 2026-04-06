@@ -45,6 +45,7 @@ import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
 import TravelerApp from './pages/TravelerApp';
 import RetailerScanOnly from './pages/RetailerScanOnly';
+import TravelerPortal from './pages/TravelerPortal';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -110,6 +111,7 @@ const AuthenticatedApp = () => {
         <Route path="/get-started" element={<GetStarted />} />
 {/* Corporate / Business Travel routes hidden - pending business model review */}
         <Route path="/traveler" element={<TravelerApp />} />
+        <Route path="/traveler-portal" element={<TravelerPortal />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
