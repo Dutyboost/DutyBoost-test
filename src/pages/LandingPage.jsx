@@ -191,11 +191,6 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  {s.mapLink && (
-                    <Link to="/airport-map" className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sky-600 hover:text-sky-700 transition-colors">
-                      <MapPin className="w-3.5 h-3.5" /> {t('stakeholders.travelers.map_link')}
-                    </Link>
-                  )}
                 </div>
               );
             })}
