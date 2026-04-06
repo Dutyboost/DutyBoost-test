@@ -79,42 +79,57 @@ export default function TravelerPortal() {
   // ─── Not logged in ──────────────────────────────────────────────────────────
   if (!authed) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 text-center space-y-8 max-w-md mx-auto">
-        <DutyBoostLogo height={90} />
-
-        <div className="space-y-3">
-          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-            <Ticket className="w-8 h-8 text-primary" />
-          </div>
-          <h1 className="text-3xl font-heading font-bold">{t('traveler.title')}</h1>
-          <p className="text-muted-foreground leading-relaxed">
-            {t('traveler.signInDesc')}
-          </p>
+      <div className="min-h-screen bg-background flex flex-col">
+        {/* Header */}
+        <div className="border-b border-border px-5 py-6 flex items-center justify-between">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" /> Back
+          </button>
+          <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
+            <DutyBoostLogo height={90} />
+          </button>
+          <div className="w-12" />
         </div>
 
-        <div className="w-full space-y-3">
-          <Button className="w-full gap-2 text-base h-12" onClick={handleSignup}>
-            <UserPlus className="w-4 h-4" /> Create Account
-          </Button>
-          <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={handleLogin}>
-            <LogIn className="w-4 h-4" /> {t('traveler.signInBtn')}
-          </Button>
-          <p className="text-xs text-muted-foreground">
-            New to DutyBoost? Create an account to start earning rewards from your bookings.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-3 gap-3 w-full pt-2">
-          {[
-            { icon: QrCode, label: t('traveler.featQR') },
-            { icon: Store, label: t('traveler.featStore') },
-            { icon: History, label: t('traveler.featHistory') },
-          ].map(({ icon: Icon, label }) => (
-            <div key={label} className="bg-card border border-border rounded-xl p-3 flex flex-col items-center gap-1.5">
-              <Icon className="w-5 h-5 text-primary" />
-              <span className="text-xs text-muted-foreground text-center leading-tight">{label}</span>
+        {/* Content */}
+        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center space-y-8 max-w-md mx-auto">
+          <div className="space-y-3">
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+              <Ticket className="w-8 h-8 text-primary" />
             </div>
-          ))}
+            <h1 className="text-3xl font-heading font-bold">{t('traveler.title')}</h1>
+            <p className="text-muted-foreground leading-relaxed">
+              {t('traveler.signInDesc')}
+            </p>
+          </div>
+
+          <div className="w-full space-y-3">
+            <Button className="w-full gap-2 text-base h-12" onClick={handleSignup}>
+              <UserPlus className="w-4 h-4" /> Create Account
+            </Button>
+            <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={handleLogin}>
+              <LogIn className="w-4 h-4" /> {t('traveler.signInBtn')}
+            </Button>
+            <p className="text-xs text-muted-foreground">
+              New to DutyBoost? Create an account to start earning rewards from your bookings.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 w-full pt-2">
+            {[
+              { icon: QrCode, label: t('traveler.featQR') },
+              { icon: Store, label: t('traveler.featStore') },
+              { icon: History, label: t('traveler.featHistory') },
+            ].map(({ icon: Icon, label }) => (
+              <div key={label} className="bg-card border border-border rounded-xl p-3 flex flex-col items-center gap-1.5">
+                <Icon className="w-5 h-5 text-primary" />
+                <span className="text-xs text-muted-foreground text-center leading-tight">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
