@@ -72,7 +72,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/traveler-signup', '/retailer-signup'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/traveler-signup', '/retailer-signup', '/agency-showcase', '/traveler-showcase', '/retailer-showcase'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <>
