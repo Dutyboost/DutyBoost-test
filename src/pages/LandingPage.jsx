@@ -250,9 +250,9 @@ export default function LandingPage() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
               <Badge className="bg-white/20 text-white border-white/30 text-sm px-4 py-1">{t('cta.badge')}</Badge>
-              <h2 className="text-4xl font-heading font-bold">The Future of Airport Retail Starts Here</h2>
+              <h2 className="text-4xl font-heading font-bold">Transform How Travel and Shopping Connect</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer — where every booking earns a DutyCredit that converts travelers into airport shoppers.
+                Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.
               </p>
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
                 {t('cta.button')} <ArrowRight className="w-4 h-4" />
