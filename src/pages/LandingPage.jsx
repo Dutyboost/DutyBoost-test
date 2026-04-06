@@ -86,17 +86,17 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Link to="/retailer-portal">
-              <Button size="sm" variant="outline" className="text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50">
+              <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 For Airport Retailers
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => setOpen(true)}>
+              <Button size="sm" variant="outline" className="text-teal-600 border-teal-600 hover:text-teal-700 hover:bg-teal-50" onClick={() => setOpen(true)}>
                 {t('nav.we_call_you')}
               </Button>
             )} />
             <Link to="/demo">
-              <Button variant="outline" size="sm" className="gap-1.5 text-accent border-accent hover:text-accent hover:bg-accent/5">
+              <Button variant="outline" size="sm" className="gap-1.5 text-indigo-600 border-indigo-600 hover:text-indigo-700 hover:bg-indigo-50">
                 <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
@@ -123,19 +123,19 @@ export default function LandingPage() {
              </Button>
             </Link>
             <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50">
+              <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 For Airport Retailers
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="w-full text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
+             <Button size="sm" variant="outline" className="w-full text-teal-600 border-teal-600 hover:text-teal-700 hover:bg-teal-50" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
                 {t('nav.we_call_you')}
               </Button>
             )} />
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-accent border-accent hover:text-accent hover:bg-accent/5">
-                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
-              </Button>
+             <Button variant="outline" size="sm" className="w-full gap-1.5 text-indigo-600 border-indigo-600 hover:text-indigo-700 hover:bg-indigo-50">
+               <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
+             </Button>
             </Link>
           </div>
         )}
