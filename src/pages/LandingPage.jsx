@@ -164,14 +164,9 @@ export default function LandingPage() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-            <Button size="lg" className="gap-2 px-8 text-base" onClick={() => window.location.href = '/get-started'}>
-              {t('hero.launch')} <ArrowRight className="w-4 h-4" />
+            <Button size="lg" variant="outline" className="px-8 text-base" disabled>
+              {t('hero.how_it_works')}
             </Button>
-            <a href="#how-it-works">
-              <Button size="lg" variant="outline" className="px-8 text-base">
-                {t('hero.how_it_works')}
-              </Button>
-            </a>
           </div>
         </div>
       </section>
