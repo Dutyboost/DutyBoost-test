@@ -8,9 +8,10 @@ const LANGUAGES = [
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'it', label: 'Italiano', flag: '🇮🇹' },
-  { code: 'zh', label: '普通话', flag: '🇨🇳' },
-  { code: 'ko', label: '한국어', flag: '🇰🇷' },
-  { code: 'ja', label: '日本語', flag: '🇯🇵' },
+  // Hidden for now — translations exist in i18n.js, enable by adding back:
+  // { code: 'zh', label: '普通话', flag: '🇨🇳' },
+  // { code: 'ko', label: '한국어', flag: '🇰🇷' },
+  // { code: 'ja', label: '日本語', flag: '🇯🇵' },
 ];
 
 export default function LanguageSwitcher() {
