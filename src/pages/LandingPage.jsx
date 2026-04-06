@@ -77,7 +77,7 @@ export default function LandingPage() {
             <LanguageSwitcher />
             <Link to="/agency-portal">
               <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                {t('nav.for_agencies')}
+                For Agencies
               </Button>
             </Link>
             <Link to="/traveler-portal">
@@ -87,7 +87,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/retailer-portal">
               <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                {t('nav.for_retailers')}
+                For Retailers
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -114,7 +114,7 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
             <Link to="/agency-portal" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-               {t('nav.for_agencies')}
+               For Agencies
              </Button>
             </Link>
             <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
@@ -124,7 +124,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                {t('nav.for_retailers')}
+                For Retailers
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
