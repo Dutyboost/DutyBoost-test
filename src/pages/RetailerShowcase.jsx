@@ -11,10 +11,10 @@ export default function RetailerShowcase() {
   const { t } = useTranslation();
 
   const flowSteps = [
-    { num: '01', titleKey: 'flow.step1_title', descKey: 'flow.step1_desc' },
-    { num: '02', titleKey: 'flow.step2_title', descKey: 'flow.step2_desc' },
-    { num: '03', titleKey: 'flow.step3_title', descKey: 'flow.step3_desc' },
-    { num: '04', titleKey: 'flow.step4_title', descKey: 'flow.step4_desc' },
+    { num: '01', title: 'Traveler books a trip', desc: 'Booking details - price, number of travelers in your booking, destination are automatically taken from the confirmed booking details.' },
+    { num: '02', title: 'DutyCredit earned', desc: 'A DutyCredit - a booking-earned incentive with a dynamic discount - is instantly calculated and issued as a unique QR code.' },
+    { num: '03', title: 'Traveler shops', desc: 'Traveler presents QR at a participating airport retailer. Browse the store map at dutyboost.com/airport-map to find stores near your gate.' },
+    { num: '04', title: 'All parties win', desc: 'Retailer logs the sale, discount applied, platform revenue tracked.' },
   ];
 
   const featureKeys = [
@@ -55,17 +55,17 @@ export default function RetailerShowcase() {
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
-            <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">{t('flow.badge')}</Badge>
-            <h2 className="text-4xl font-heading font-bold">{t('flow.title')}</h2>
+            <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">How It Works</Badge>
+            <h2 className="text-4xl font-heading font-bold">From Booking to Basket</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {flowSteps.map((item) => (
               <div key={item.num} className="bg-card rounded-2xl border border-border p-6 h-full">
                 <p className="text-4xl font-heading font-bold text-primary/20 mb-3">{item.num}</p>
-                <h4 className="font-heading font-semibold mb-2">{t(item.titleKey)}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{t(item.descKey)}</p>
+                <h4 className="font-heading font-semibold mb-2">{item.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
-            ))}
+            ))
           </div>
         </div>
       </section>
