@@ -2,6 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Sign In',
+      for_travelers: 'For Travelers',
       getStarted: 'Get Started',
       weCallYou: 'We Call You',
       liveDemo: 'Live Demo',
