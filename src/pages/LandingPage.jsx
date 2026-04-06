@@ -82,7 +82,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/traveler-portal">
               <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_travelers')}
+                For Leisure Travelers
               </Button>
             </Link>
             <Link to="/retailer-portal">
@@ -119,7 +119,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/traveler-portal" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-               {t('nav.for_travelers')}
+               For Leisure Travelers
              </Button>
             </Link>
             <Link to="/retailer-portal" onClick={() => setMobileMenuOpen(false)}>
