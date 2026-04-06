@@ -52,7 +52,7 @@ export default {
     },
     features: {
       badge: 'Platform',
-      title: 'Built for the Modern Airport',
+      title: 'Built for the Modern Airport Retailers',
       sub: 'Every feature engineered to remove friction from the retail conversion loop.',
       items: [
         { title: 'Dynamic Incentive Engine', description: 'Incentives calculated in real-time from ticket price, group size, and travel distance. Always fair, always optimal.' },
