@@ -198,7 +198,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How it works flow - HIDDEN */}
+      {/* How it works flow - shown on RetailerInfoPage */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border hidden">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">

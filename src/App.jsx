@@ -53,6 +53,7 @@ import AgencyPortal from './pages/AgencyPortal';
 import AgencySignup from './pages/AgencySignup';
 import RetailerPortal from './pages/RetailerPortal';
 import RetailerSignup from './pages/RetailerSignup';
+import RetailerInfoPage from './pages/RetailerInfoPage';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -124,6 +125,7 @@ const AuthenticatedApp = () => {
         <Route path="/traveler-signup" element={<TravelerSignup />} />
         <Route path="/agency-portal" element={<AgencyPortal />} />
         <Route path="/agency-signup" element={<AgencySignup />} />
+        <Route path="/retailer-info" element={<RetailerInfoPage />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/demo/traveler" element={<DemoTravelerPortal />} />

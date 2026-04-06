@@ -35,7 +35,7 @@ export default function SelectUserType() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-      path: "/retailer-signup",
+      path: "/retailer-info",
     },
   ];
 
