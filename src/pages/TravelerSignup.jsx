@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
-import { Check, Loader2, AlertCircle } from "lucide-react";
+import { Check, Loader2, AlertCircle, ChevronLeft } from "lucide-react";
 
 export default function TravelerSignup() {
   const { t } = useTranslation();
@@ -57,8 +57,15 @@ export default function TravelerSignup() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
-      <div className="border-b border-border px-6 py-6 flex items-center justify-center">
+      <div className="border-b border-border px-6 py-6 flex items-center justify-between">
+        <button
+          onClick={() => navigate("/traveler-portal")}
+          className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4" /> Back
+        </button>
         <DutyBoostLogo height={90} />
+        <div className="w-12" />
       </div>
 
       {/* Form */}

@@ -9,7 +9,7 @@ import QRCodeDisplay from "../components/QRCodeDisplay";
 import {
   QrCode, History, Store, LogOut, LogIn, MapPin, Clock,
   CheckCircle, RefreshCw, ShoppingBag, Ticket, ChevronRight,
-  Plane, User, AlertCircle, UserPlus
+  Plane, User, AlertCircle, UserPlus, ChevronLeft
 } from "lucide-react";
 
 
@@ -129,6 +129,12 @@ export default function TravelerPortal() {
     <div className="min-h-screen bg-background flex flex-col max-w-md mx-auto">
       {/* Header */}
       <header className="bg-card border-b border-border px-5 pt-8 pb-4 flex items-center justify-between sticky top-0 z-10">
+        <button
+          onClick={() => navigate("/")}
+          className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4" /> Back
+        </button>
         <DutyBoostLogo height={80} />
         <div className="flex items-center gap-2">
           <div className="text-right">
