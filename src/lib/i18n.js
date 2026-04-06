@@ -314,7 +314,7 @@ const resources = {
       stakeholders: {
         travelers: {
           title: "Reizigers",
-          description: "Geniet van exclusieve kortingen op uw vertrekluchtplaats — automatisch verdiend via uw boeking. Geen aanmeldingen, geen papierwerk. Scan gewoon uw DutyCredit en bespaar. Geldig bij aankopen van €50 of meer bij één verkooppunt.",
+          description: "Geniet van exclusieve kortingen op uw luchthaven van vertrek — automatisch verdiend via uw boeking. Geen aanmeldingen, geen papierwerk. Scan gewoon uw DutyCredit en bespaar. Geldig bij aankopen van €50 of meer bij één verkooppunt.",
           b1: "Directe mobiele DutyCredit",
           b2: "Volledige korting bij één winkel",
           b3: "Naadloze QR-ervaring",
