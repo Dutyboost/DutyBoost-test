@@ -67,7 +67,7 @@ export default function TravelerSignup() {
           <div className="space-y-3 text-center">
             <h1 className="text-3xl font-heading font-bold">Create Your Account</h1>
             <p className="text-muted-foreground">
-              Set up your DutyBoost profile to start earning rewards from your bookings.
+              Set up your DutyBoost profile using the email from your travel booking. This email links your bookings to your DutyCredits.
             </p>
           </div>
 
@@ -87,9 +87,9 @@ export default function TravelerSignup() {
 
             {/* Email */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Email Address</label>
+              <label className="text-sm font-medium">Email Address <span className="text-red-500">*</span></label>
               <p className="text-xs text-muted-foreground">
-                This is the email from your travel booking confirmation.
+                Use the exact email from your travel booking confirmation. This is how we match your DutyCredits to your account.
               </p>
               <input
                 type="email"
@@ -126,9 +126,10 @@ export default function TravelerSignup() {
             </Button>
           </form>
 
-          <p className="text-xs text-center text-muted-foreground">
-            We'll use this email to match your DutyCredits from your travel bookings.
-          </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 text-xs text-blue-800 text-center">
+            <p className="font-medium mb-1">Important</p>
+            <p>Make sure to use the same email you used when booking your travel. This is the only way we can connect your bookings to your DutyCredits.</p>
+          </div>
         </div>
       </div>
     </div>
