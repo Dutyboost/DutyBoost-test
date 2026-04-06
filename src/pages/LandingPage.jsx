@@ -220,7 +220,7 @@ export default function LandingPage() {
             <div className="relative space-y-6">
               <Badge className="bg-white/20 text-white border-white/30 text-sm px-4 py-1">{t('cta.badge')}</Badge>
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.subtitle')}</p>
+              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('cta.subtitle') }} />
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
                 {t('cta.button')} <ArrowRight className="w-4 h-4" />
               </Button>

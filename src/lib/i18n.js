@@ -15,7 +15,7 @@ const resources = {
         badge: "World's First Dynamic Airport Incentive Platform",
         title_1: "Turning every travel booking into",
         title_2: "earnings at airports",
-        subtitle: "Unlock the revenue stream <b>hidden</b> inside every travel booking with DutyBoost's Travel Retail Conversion Layer. By connecting travels, travel agencies, and airport retailers, we turn travelers into high-intent buyers before they even reach their airport of departure.",
+        subtitle: "Unlock the revenue stream <b>hidden</b> inside every travel booking with DutyBoost's <b>Travel Retail Conversion Layer</b>. By connecting travels, travel agencies, and airport retailers, we turn travelers into high-intent buyers before they even reach their airport of departure.",
         launch: "Launch Platform",
         how_it_works: "See How It Works",
       },
@@ -80,7 +80,7 @@ const resources = {
       cta: {
         badge: "Ready to launch?",
         title: "The Future of Airport Retail Starts Here",
-        subtitle: "Join DutyBoost and become part of the first intelligent Travel Retail Conversion Layer — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
+        subtitle: "Join DutyBoost and become part of the first intelligent <b>Travel Retail Conversion Layer</b> — where every booking earns a DutyCredit that converts travelers into airport shoppers.", — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
         button: "Access the Platform",
       },
       footer: {
@@ -101,7 +101,7 @@ const resources = {
         badge: "'s Werelds eerste dynamische luchthaven-incentiveplatform",
         title_1: "Elke reisboeking omzetten in",
         title_2: "inkomsten op luchthavens",
-        subtitle: "Ontgrendel de <b>verborgen</b> inkomstenstroom in elke reisboeking met DutyBoost's Travel Retail Conversion Layer. Door reizigers, reisbureaus en luchthavenwinkels te verbinden, maken we van reizigers koopklare klanten vóórdat ze hun vertrekluchtplaats bereiken.",
+        subtitle: "Ontgrendel de <b>verborgen</b> inkomstenstroom in elke reisboeking met DutyBoost's <b>Travel Retail Conversion Layer</b>. Door reizigers, reisbureaus en luchthavenwinkels te verbinden, maken we van reizigers koopklare klanten vóórdat ze hun vertrekluchtplaats bereiken.", Door reizigers, reisbureaus en luchthavenwinkels te verbinden, maken we van reizigers koopklare klanten vóórdat ze hun vertrekluchtplaats bereiken.",
         launch: "Platform starten",
         how_it_works: "Bekijk hoe het werkt",
       },
@@ -166,7 +166,7 @@ const resources = {
       cta: {
         badge: "Klaar om te starten?",
         title: "De toekomst van luchthaven-retail begint hier",
-        subtitle: "Sluit u aan bij DutyBoost en maak deel uit van de eerste intelligente Travel Retail Conversion Layer.",
+        subtitle: "Sluit u aan bij DutyBoost en maak deel uit van de eerste intelligente <b>Travel Retail Conversion Layer</b>.",",
         button: "Toegang tot het platform",
       },
       footer: {
@@ -187,7 +187,7 @@ const resources = {
         badge: "La primera plataforma dinámica de incentivos aeroportuarios del mundo",
         title_1: "Convirtiendo cada reserva de viaje en",
         title_2: "ingresos en aeropuertos",
-        subtitle: "Desbloquea el flujo de ingresos <b>oculto</b> en cada reserva de viaje con la Travel Retail Conversion Layer de DutyBoost. Al conectar viajeros, agencias de viaje y minoristas aeroportuarios, convertimos a los viajeros en compradores de alta intención antes de llegar al aeropuerto.",
+        subtitle: "Desbloquea el flujo de ingresos <b>oculto</b> en cada reserva de viaje con la <b>Travel Retail Conversion Layer</b> de DutyBoost. Al conectar viajeros, agencias de viaje y minoristas aeroportuarios, convertimos a los viajeros en compradores de alta intención antes de llegar al aeropuerto.", Al conectar viajeros, agencias de viaje y minoristas aeroportuarios, convertimos a los viajeros en compradores de alta intención antes de llegar al aeropuerto.",
         launch: "Lanzar plataforma",
         how_it_works: "Ver cómo funciona",
       },
@@ -252,7 +252,7 @@ const resources = {
       cta: {
         badge: "¿Listo para lanzar?",
         title: "El futuro del retail aeroportuario empieza aquí",
-        subtitle: "Únete a DutyBoost y sé parte de la primera Travel Retail Conversion Layer inteligente.",
+        subtitle: "Únete a DutyBoost y sé parte de la primera <b>Travel Retail Conversion Layer</b> inteligente.",",
         button: "Acceder a la plataforma",
       },
       footer: {
@@ -273,7 +273,7 @@ const resources = {
         badge: "La première plateforme mondiale d'incentives aéroportuaires dynamiques",
         title_1: "Transformer chaque réservation de voyage en",
         title_2: "revenus dans les aéroports",
-        subtitle: "Débloquez le flux de revenus <b>caché</b> dans chaque réservation grâce à la Travel Retail Conversion Layer de DutyBoost. En connectant voyageurs, agences de voyage et commerces aéroportuaires, nous transformons les voyageurs en acheteurs à forte intention.",
+        subtitle: "Débloquez le flux de revenus <b>caché</b> dans chaque réservation grâce à la <b>Travel Retail Conversion Layer</b> de DutyBoost. En connectant voyageurs, agences de voyage et commerces aéroportuaires, nous transformons les voyageurs en acheteurs à forte intention.", En connectant voyageurs, agences de voyage et commerces aéroportuaires, nous transformons les voyageurs en acheteurs à forte intention.",
         launch: "Lancer la plateforme",
         how_it_works: "Voir comment ça fonctionne",
       },
@@ -338,7 +338,7 @@ const resources = {
       cta: {
         badge: "Prêt à lancer ?",
         title: "L'avenir du retail aéroportuaire commence ici",
-        subtitle: "Rejoignez DutyBoost et faites partie de la première Travel Retail Conversion Layer intelligente.",
+        subtitle: "Rejoignez DutyBoost et faites partie de la première <b>Travel Retail Conversion Layer</b> intelligente.",",
         button: "Accéder à la plateforme",
       },
       footer: {
@@ -359,7 +359,7 @@ const resources = {
         badge: "La prima piattaforma mondiale di incentivi aeroportuali dinamici",
         title_1: "Trasformare ogni prenotazione di viaggio in",
         title_2: "guadagni negli aeroporti",
-        subtitle: "Sblocca il flusso di ricavi <b>nascosto</b> in ogni prenotazione con il Travel Retail Conversion Layer di DutyBoost. Collegando viaggiatori, agenzie di viaggio e rivenditori aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento.",
+        subtitle: "Sblocca il flusso di ricavi <b>nascosto</b> in ogni prenotazione con il <b>Travel Retail Conversion Layer</b> di DutyBoost. Collegando viaggiatori, agenzie di viaggio e rivenditori aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento.", Collegando viaggiatori, agenzie di viaggio e rivenditori aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento.",
         launch: "Lancia la piattaforma",
         how_it_works: "Scopri come funziona",
       },
@@ -424,7 +424,7 @@ const resources = {
       cta: {
         badge: "Pronto al lancio?",
         title: "Il futuro del retail aeroportuale inizia qui",
-        subtitle: "Unisciti a DutyBoost e fai parte del primo Travel Retail Conversion Layer intelligente.",
+        subtitle: "Unisciti a DutyBoost e fai parte del primo <b>Travel Retail Conversion Layer</b> intelligente.",",
         button: "Accedi alla piattaforma",
       },
       footer: {
@@ -445,7 +445,7 @@ const resources = {
         badge: "Die weltweit erste dynamische Flughafen-Incentive-Plattform",
         title_1: "Jede Reisebuchung in",
         title_2: "Einnahmen am Flughafen verwandeln",
-        subtitle: "Erschließen Sie den <b>verborgenen</b> Einnahmestrom in jeder Reisebuchung mit DutyBoosts Travel Retail Conversion Layer. Durch die Verbindung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Kunden.",
+        subtitle: "Erschließen Sie den <b>verborgenen</b> Einnahmestrom in jeder Reisebuchung mit DutyBoosts <b>Travel Retail Conversion Layer</b>. Durch die Verbindung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Kunden.", Durch die Verbindung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Kunden.",
         launch: "Plattform starten",
         how_it_works: "So funktioniert es",
       },
@@ -510,7 +510,7 @@ const resources = {
       cta: {
         badge: "Bereit zum Start?",
         title: "Die Zukunft des Flughafen-Einzelhandels beginnt hier",
-        subtitle: "Werden Sie Teil des ersten intelligenten Travel Retail Conversion Layer.",
+        subtitle: "Werden Sie Teil des ersten intelligenten <b>Travel Retail Conversion Layer</b>.",",
         button: "Zur Plattform",
       },
       footer: {
@@ -531,7 +531,7 @@ const resources = {
         badge: "全球首个动态机场激励平台",
         title_1: "将每一次旅行预订转化为",
         title_2: "机场收益",
-        subtitle: "通过DutyBoost的旅游零售转化层，解锁每次旅行预订中<b>隐藏</b>的收入来源。通过连接旅行者、旅行社和机场零售商，我们在旅行者抵达机场前就将其转化为高意向买家。",
+        subtitle: "通过DutyBoost的<b>旅游零售转化层</b>，解锁每次旅行预订中<b>隐藏</b>的收入来源。通过连接旅行者、旅行社和机场零售商，我们在旅行者抵达机场前就将其转化为高意向买家。",通过连接旅行者、旅行社和机场零售商，我们在旅行者抵达机场前就将其转化为高意向买家。",
         launch: "启动平台",
         how_it_works: "了解运作方式",
       },
@@ -596,7 +596,7 @@ const resources = {
       cta: {
         badge: "准备好启动了吗？",
         title: "机场零售的未来从这里开始",
-        subtitle: "加入DutyBoost，成为首个智能旅游零售转化层的一部分。",
+        subtitle: "加入DutyBoost，成为首个智能<b>旅游零售转化层</b>的一部分。",",
         button: "进入平台",
       },
       footer: {
@@ -617,7 +617,7 @@ const resources = {
         badge: "세계 최초 동적 공항 인센티브 플랫폼",
         title_1: "모든 여행 예약을",
         title_2: "공항에서의 수익으로 전환",
-        subtitle: "DutyBoost의 여행 소매 전환 레이어를 통해 모든 여행 예약에 <b>숨겨진</b> 수익 흐름을 열어보세요. 여행자, 여행사, 공항 소매상을 연결하여 여행자가 공항에 도착하기 전에 구매 의향이 높은 고객으로 전환합니다.",
+        subtitle: "DutyBoost의 <b>여행 소매 전환 레이어</b>를 통해 모든 여행 예약에 <b>숨겨진</b> 수익 흐름을 열어보세요. 여행자, 여행사, 공항 소매상을 연결하여 여행자가 공항에 도착하기 전에 구매 의향이 높은 고객으로 전환합니다.", 여행자, 여행사, 공항 소매상을 연결하여 여행자가 공항에 도착하기 전에 구매 의향이 높은 고객으로 전환합니다.",
         launch: "플랫폼 시작",
         how_it_works: "작동 방식 보기",
       },
@@ -682,7 +682,7 @@ const resources = {
       cta: {
         badge: "시작할 준비가 되셨나요?",
         title: "공항 소매의 미래가 여기서 시작됩니다",
-        subtitle: "DutyBoost에 참여하여 최초의 지능형 여행 소매 전환 레이어의 일부가 되세요.",
+        subtitle: "DutyBoost에 참여하여 최초의 지능형 <b>여행 소매 전환 레이어</b>의 일부가 되세요.",",
         button: "플랫폼 접근",
       },
       footer: {
@@ -703,7 +703,7 @@ const resources = {
         badge: "世界初のダイナミック空港インセンティブプラットフォーム",
         title_1: "すべての旅行予約を",
         title_2: "空港での収益に変える",
-        subtitle: "DutyBoostのトラベルリテールコンバージョンレイヤーで、すべての旅行予約に<b>隠された</b>収益ストリームを解放しましょう。旅行者、旅行代理店、空港小売業者をつなぐことで、出発空港に到着する前から旅行者を高意向の購買者に変えます。",
+        subtitle: "DutyBoostの<b>トラベルリテールコンバージョンレイヤー</b>で、すべての旅行予約に<b>隠された</b>収益ストリームを解放しましょう。旅行者、旅行代理店、空港小売業者をつなぐことで、出発空港に到着する前から旅行者を高意向の購買者に変えます。",旅行者、旅行代理店、空港小売業者をつなぐことで、出発空港に到着する前から旅行者を高意向の購買者に変えます。",
         launch: "プラットフォームを起動",
         how_it_works: "仕組みを見る",
       },
@@ -768,7 +768,7 @@ const resources = {
       cta: {
         badge: "ローンチの準備はできていますか？",
         title: "空港小売の未来はここから始まります",
-        subtitle: "DutyBoostに参加し、初の知的なトラベルリテールコンバージョンレイヤーの一部になりましょう。",
+        subtitle: "DutyBoostに参加し、初の知的な<b>トラベルリテールコンバージョンレイヤー</b>の一部になりましょう。",",
         button: "プラットフォームにアクセス",
       },
       footer: {
