@@ -56,7 +56,7 @@ export default function SelectUserType() {
           <div className="text-center mb-16 space-y-4">
             <h1 className="text-4xl sm:text-5xl font-heading font-bold">Get Started with DutyBoost</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Choose your role to access the platform and start enjoying the benefits of duty-free incentives.
+              Choose your role to access and start enjoying the benefits of DutyBoost incentive platform.
             </p>
           </div>
 
