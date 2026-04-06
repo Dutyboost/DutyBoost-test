@@ -90,11 +90,6 @@ export default function LandingPage() {
                 For Airport Retailers
               </Button>
             </Link>
-            <Link to="/get-started">
-              <Button size="sm" className="gap-1">
-                {t('nav.get_started')} <ChevronRight className="w-3 h-3" />
-              </Button>
-            </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => setOpen(true)}>
                 {t('nav.we_call_you')}
@@ -131,9 +126,6 @@ export default function LandingPage() {
               <Button size="sm" variant="outline" className="w-full">
                 For Airport Retailers
               </Button>
-            </Link>
-            <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" className="w-full gap-1">{t('nav.get_started')} <ChevronRight className="w-3 h-3" /></Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="w-full text-accent border-accent hover:text-accent hover:bg-accent/5" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
