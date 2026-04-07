@@ -9,10 +9,8 @@ import QRCodeDisplay from "../components/QRCodeDisplay";
 import {
   QrCode, History, Store, LogOut, LogIn, MapPin, Clock,
   CheckCircle, RefreshCw, ShoppingBag, Ticket, ChevronRight,
-  Plane, User, AlertCircle, UserPlus, ChevronLeft
+  Plane, AlertCircle, UserPlus, ChevronLeft
 } from "lucide-react";
-
-
 
 export default function TravelerPortal() {
   const { t } = useTranslation();
@@ -28,48 +26,25 @@ export default function TravelerPortal() {
   const [vouchers, setVouchers] = useState([]);
   const [retailers, setRetailers] = useState([]);
   const [tab, setTab] = useState("credits");
-  const [activeQR, setActiveQR] = useState(null); // voucher_code
+  const [activeQR, setActiveQR] = useState(null);
 
   useEffect(() => {
-    init();
-  }, []);
-
-  async function init() {
-    try {
-      const isAuth = await base44.auth.isAuthenticated();
+    base44.auth.isAuthenticated().then(async (isAuth) => {
       setAuthed(isAuth);
       if (isAuth) {
         const me = await base44.auth.me();
         setUser(me);
-        await loadData(me.email);
+        const [voucs, rets] = await Promise.all([
+          base44.entities.Voucher.filter({ traveler_email: me.email }, "-created_date", 50),
+          base44.entities.Retailer.filter({ accepts_vouchers: true }, "store_name", 100),
+        ]);
+        setVouchers(voucs);
+        setRetailers(rets);
       }
-    } finally {
       setLoading(false);
-    }
-  }
+    });
+  }, []);
 
-  async function loadData(email) {
-    const [voucs, rets] = await Promise.all([
-      base44.entities.Voucher.filter({ traveler_email: email }, "-created_date", 50),
-      base44.entities.Retailer.filter({ accepts_vouchers: true }, "store_name", 100),
-    ]);
-    setVouchers(voucs);
-    setRetailers(rets);
-  }
-
-  function handleLogin() {
-    base44.auth.redirectToLogin(window.location.pathname);
-  }
-
-  function handleSignup() {
-    navigate("/traveler-signup");
-  }
-
-  function handleLogout() {
-    base44.auth.logout("/traveler-portal");
-  }
-
-  // ─── Loading ───────────────────────────────────────────────────────────────
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -78,16 +53,12 @@ export default function TravelerPortal() {
     );
   }
 
-  // ─── Not logged in ──────────────────────────────────────────────────────────
+  // ─── Entry screen (always shown, with context-aware buttons) ───────────────
   if (!authed) {
     return (
       <div className="min-h-screen bg-background flex flex-col">
-        {/* Header */}
         <div className="border-b border-border px-5 py-6 flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
+          <button onClick={() => navigate("/traveler-showcase")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             <ChevronLeft className="w-4 h-4" /> Back
           </button>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
@@ -96,28 +67,23 @@ export default function TravelerPortal() {
           <div className="w-12" />
         </div>
 
-        {/* Content */}
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center space-y-8 max-w-md mx-auto">
           <div className="space-y-3">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
               <Ticket className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-3xl font-heading font-bold">{t('traveler.title')}</h1>
-            <p className="text-muted-foreground leading-relaxed">
-              {t('traveler.signInDesc')}
-            </p>
+            <p className="text-muted-foreground leading-relaxed">{t('traveler.signInDesc')}</p>
           </div>
 
           <div className="w-full space-y-3">
-            <Button className="w-full gap-2 text-base h-12" onClick={handleSignup}>
+            <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/traveler-signup")}>
               <UserPlus className="w-4 h-4" /> Create Account
             </Button>
-            <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={handleLogin}>
+            <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>
               <LogIn className="w-4 h-4" /> {t('traveler.signInBtn')}
             </Button>
-            <p className="text-xs text-muted-foreground">
-              New to DutyBoost? Create an account to start earning rewards from your bookings.
-            </p>
+            <p className="text-xs text-muted-foreground">New to DutyBoost? Create an account to start earning rewards from your bookings.</p>
           </div>
 
           <div className="grid grid-cols-3 gap-3 w-full pt-2">
@@ -137,19 +103,15 @@ export default function TravelerPortal() {
     );
   }
 
-  // ─── Logged in ─────────────────────────────────────────────────────────────
+  // ─── Logged in dashboard ───────────────────────────────────────────────────
   const activeVouchers = vouchers.filter(v => v.status === "active" && new Date(v.expiration_date) >= new Date());
   const redeemedVouchers = vouchers.filter(v => v.status === "redeemed");
   const expiredVouchers = vouchers.filter(v => v.status === "expired" || new Date(v.expiration_date) < new Date());
 
   return (
     <div className="min-h-screen bg-background flex flex-col max-w-md mx-auto">
-      {/* Header */}
       <header className="bg-card border-b border-border px-5 pt-8 pb-4 flex items-center justify-between sticky top-0 z-10">
-        <button
-          onClick={() => navigate("/")}
-          className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
+        <button onClick={() => navigate("/")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
         <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
@@ -160,13 +122,12 @@ export default function TravelerPortal() {
             <p className="text-xs font-medium text-foreground">{user?.full_name || t('traveler.traveler')}</p>
             <p className="text-xs text-muted-foreground">{user?.email}</p>
           </div>
-          <button onClick={handleLogout} className="p-1.5 rounded-lg hover:bg-muted transition-colors ml-1">
+          <button onClick={() => base44.auth.logout("/traveler-portal")} className="p-1.5 rounded-lg hover:bg-muted transition-colors ml-1">
             <LogOut className="w-4 h-4 text-muted-foreground" />
           </button>
         </div>
       </header>
 
-      {/* Tab nav */}
       <div className="flex border-b border-border bg-card px-4">
         {TABS.map(({ id, label, icon: Icon }) => (
           <button
@@ -182,13 +143,9 @@ export default function TravelerPortal() {
         ))}
       </div>
 
-      {/* Content */}
       <main className="flex-1 overflow-y-auto pb-6">
-
-        {/* ── MY DUTYCREDITS TAB ── */}
         {tab === "credits" && (
           <div className="px-5 py-6 space-y-5">
-            {/* Summary */}
             <div className="bg-gradient-to-br from-primary to-primary/70 rounded-3xl p-5 text-primary-foreground shadow-lg">
               <p className="text-xs opacity-70 uppercase tracking-wider mb-1">{t('traveler.yourCredits')}</p>
               <div className="flex items-end gap-3 mt-2">
@@ -201,19 +158,13 @@ export default function TravelerPortal() {
               </div>
             </div>
 
-            {/* Active vouchers */}
             {activeVouchers.length === 0 ? (
               <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-3">
                 <div className="w-14 h-14 bg-muted rounded-2xl flex items-center justify-center mx-auto">
                   <Plane className="w-7 h-7 text-muted-foreground" />
                 </div>
                 <h3 className="font-heading font-semibold">{t('traveler.emptyTitle')}</h3>
-                <p className="text-sm text-muted-foreground">
-                   {t('traveler.emptyDesc')}
-                </p>
-                <Button variant="outline" size="sm" onClick={() => init()} className="gap-2">
-                  <RefreshCw className="w-3.5 h-3.5" /> {t('traveler.refresh')}
-                </Button>
+                <p className="text-sm text-muted-foreground">{t('traveler.emptyDesc')}</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -229,7 +180,6 @@ export default function TravelerPortal() {
               </div>
             )}
 
-            {/* Past vouchers */}
             {(redeemedVouchers.length > 0 || expiredVouchers.length > 0) && (
               <div className="space-y-3">
                 <h2 className="font-heading font-semibold text-sm text-muted-foreground uppercase tracking-wider">{t('traveler.pastLabel')}</h2>
@@ -241,14 +191,12 @@ export default function TravelerPortal() {
           </div>
         )}
 
-        {/* ── STORES TAB ── */}
         {tab === "stores" && (
           <div className="px-5 py-6 space-y-4">
             <div>
               <h2 className="font-heading font-bold text-lg">{t('traveler.storesTitle')}</h2>
               <p className="text-sm text-muted-foreground mt-1">{t('traveler.storesSub')}</p>
             </div>
-
             {retailers.length === 0 ? (
               <div className="bg-card border border-border rounded-2xl p-8 text-center">
                 <Store className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
@@ -259,9 +207,7 @@ export default function TravelerPortal() {
                 {retailers.map((r) => (
                   <div key={r.id} className="bg-card border border-border rounded-2xl px-4 py-3.5 flex items-center gap-3">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${r.category === "Food & Beverage" ? "bg-orange-50" : "bg-blue-50"}`}>
-                      {r.category === "Food & Beverage"
-                        ? <ShoppingBag className="w-4 h-4 text-orange-600" />
-                        : <ShoppingBag className="w-4 h-4 text-blue-600" />}
+                      <ShoppingBag className={`w-4 h-4 ${r.category === "Food & Beverage" ? "text-orange-600" : "text-blue-600"}`} />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium">{r.store_name}</p>
@@ -272,12 +218,10 @@ export default function TravelerPortal() {
                 ))}
               </div>
             )}
-
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-800" dangerouslySetInnerHTML={{ __html: t('traveler.minSpend') }} />
           </div>
         )}
 
-        {/* ── HISTORY TAB ── */}
         {tab === "history" && (
           <div className="px-5 py-6 space-y-4">
             <h2 className="font-heading font-bold text-lg">{t('traveler.historyTitle')}</h2>
@@ -318,7 +262,6 @@ function VoucherCard({ voucher, isQROpen, onToggleQR }) {
   const { t } = useTranslation();
   return (
     <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
-      {/* Card header */}
       <div className="bg-gradient-to-r from-primary to-primary/80 p-5 text-primary-foreground">
         <div className="flex items-start justify-between">
           <div>
@@ -335,14 +278,9 @@ function VoucherCard({ voucher, isQROpen, onToggleQR }) {
           <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{t('traveler.expires')} {voucher.expiration_date}</span>
         </div>
       </div>
-
-      {/* QR toggle */}
       <div className="p-4">
         {!isQROpen ? (
-          <button
-            onClick={onToggleQR}
-            className="w-full flex items-center justify-between bg-primary/5 hover:bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 transition-colors"
-          >
+          <button onClick={onToggleQR} className="w-full flex items-center justify-between bg-primary/5 hover:bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 transition-colors">
             <div className="flex items-center gap-2 text-primary font-medium text-sm">
               <QrCode className="w-4 h-4" />
               {t('traveler.showQR')}
@@ -363,8 +301,6 @@ function VoucherCard({ voucher, isQROpen, onToggleQR }) {
             </Button>
           </div>
         )}
-
-        {/* Voucher code */}
         <p className="text-xs text-muted-foreground text-center mt-3 font-mono">{voucher.voucher_code}</p>
       </div>
     </div>
@@ -378,9 +314,7 @@ function PastVoucherRow({ voucher }) {
     <div className="bg-card border border-border rounded-2xl px-4 py-3.5 flex items-center justify-between opacity-70">
       <div className="flex items-center gap-3">
         <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${isRedeemed ? "bg-green-50" : "bg-muted"}`}>
-          {isRedeemed
-            ? <CheckCircle className="w-4 h-4 text-green-600" />
-            : <AlertCircle className="w-4 h-4 text-muted-foreground" />}
+          {isRedeemed ? <CheckCircle className="w-4 h-4 text-green-600" /> : <AlertCircle className="w-4 h-4 text-muted-foreground" />}
         </div>
         <div>
           <p className="text-sm font-medium">{voucher.airport} · {voucher.discount_percentage}% off</p>
