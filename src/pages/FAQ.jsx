@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import PageFooter from "../components/PageFooter";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
@@ -275,9 +276,7 @@ export default function FAQ() {
           </div>
         ))}
       </div>
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        {c.footer_rights} <Link to="/" className="text-primary underline">{c.footer_back}</Link>
-      </footer>
+      <PageFooter />
     </div>
   );
 }

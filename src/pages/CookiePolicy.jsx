@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import PageFooter from "../components/PageFooter";
 import { useTranslation } from "react-i18next";
 
 const content = {
@@ -99,9 +100,7 @@ export default function CookiePolicy() {
           </section>
         ))}
       </div>
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        © 2026 DutyBoost. <Link to="/" className="text-primary underline">{c.back}</Link>
-      </footer>
+      <PageFooter />
     </div>
   );
 }
