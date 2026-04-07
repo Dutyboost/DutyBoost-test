@@ -10,9 +10,9 @@ export default {
       liveDemo: 'Live Demo',
     },
     hero: {
-      title_1: 'Turning every travel booking into',
-      title_2: 'earnings at airports',
-      subtitle: 'Unlock the revenue stream <bold>hidden</bold> inside every travel booking with DutyBoost\'s <bold2>Travel Retail Conversion Layer</bold2>. By connecting travels, travel agencies, and airport retailers, we turn travelers into high-intent buyers before they even reach their airport of departure.',
+      title_1: 'Unlock the revenue hidden inside every',
+      title_2: 'travel booking',
+      subtitle: 'DutyBoost\'s <bold>Travel Retail Conversion Layer</bold> connects travel agencies and airport retailers to turn leisure travelers — with a reward due to their booking — into <bold2>high-intent buyers</bold2> before they even reach their airport of departure.',
     },
     ecosystem: {
       title: 'See How The Ecosystem Works',
