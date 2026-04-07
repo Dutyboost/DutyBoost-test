@@ -19,7 +19,7 @@ const resources = {
         badge: "World's First Dynamic Airport Reward Platform",
         title_1: "Turning every travel booking into",
         title_2: "earnings at airports — for everyone",
-        subtitle: "Unlock the revenue <b>hidden</b> inside every travel booking with DutyBoost's <b>Travel Retail Conversion Layer</b>. By connecting travel agencies and airport retailers, we turn leisure travelers, with an incentive on their booking, into high-intent buyers before they even reach their airport of departure.",
+        subtitle: "Unlock the revenue <b>hidden</b> inside every travel booking with DutyBoost's <b>Travel Retail Conversion Layer</b>. By connecting travel agencies and airport retailers, we turn leisure travelers, with a reward on their booking, into high-intent buyers before they even reach their airport of departure.",
         launch: "Launch Platform",
         how_it_works: "See How It Works",
       },
