@@ -75,6 +75,14 @@
       "type": "string",
       "title": "Payment Method"
     },
+    "bank_account_name": {
+      "type": "string",
+      "title": "Bank Account Holder Name"
+    },
+    "bank_iban": {
+      "type": "string",
+      "title": "Bank IBAN"
+    },
     "terms_accepted": {
       "type": "boolean",
       "title": "Terms Accepted",
