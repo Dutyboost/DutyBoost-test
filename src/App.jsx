@@ -72,7 +72,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/traveler-signup', '/retailer-signup', '/agency-showcase', '/traveler-showcase', '/retailer-showcase'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/traveler-signup', '/retailer-signup', '/agency-showcase', '/traveler-showcase', '/retailer-showcase', '/agency-portal', '/retailer-portal', '/traveler-portal'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <>
@@ -88,6 +88,9 @@ const AuthenticatedApp = () => {
               <Route path="/demo/admin" element={<DemoAdminDashboard />} />
               <Route path="/traveler-app" element={<TravelerApp />} />
               <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
+              <Route path="/agency-portal" element={<AgencyPortal />} />
+              <Route path="/retailer-portal" element={<RetailerPortal />} />
+              <Route path="/traveler-portal" element={<TravelerPortal />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/refunds" element={<RefundPolicy />} />
