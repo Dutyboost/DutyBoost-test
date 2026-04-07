@@ -26,6 +26,10 @@ export default function RetailerSignup() {
   const [airport, setAirport] = useState("");
   const [storeCategory, setStoreCategory] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvv, setCvv] = useState("");
   const [bankAccountName, setBankAccountName] = useState("");
   const [bankIban, setBankIban] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -79,6 +83,9 @@ export default function RetailerSignup() {
 
   const isStep1Valid = () => {
     if (!paymentMethod) return false;
+    if (paymentMethod === "creditcard") {
+      return cardNumber.trim() && cardName.trim() && expiryDate.trim() && cvv.trim();
+    }
     if (paymentMethod === "monthly_invoice") {
       return bankAccountName.trim() && bankIban.trim();
     }
@@ -90,7 +97,11 @@ export default function RetailerSignup() {
     setLoading(true);
     try {
       const updateData = { payment_method: paymentMethod };
-      if (paymentMethod === "monthly_invoice") {
+      if (paymentMethod === "creditcard") {
+        updateData.card_number = cardNumber;
+        updateData.card_name = cardName;
+        updateData.card_expiry = expiryDate;
+      } else if (paymentMethod === "monthly_invoice") {
         updateData.bank_account_name = bankAccountName;
         updateData.bank_iban = bankIban;
       }
@@ -307,6 +318,14 @@ export default function RetailerSignup() {
               <PaymentMethodSelector
                 value={paymentMethod}
                 onChange={setPaymentMethod}
+                cardNumber={cardNumber}
+                onCardNumberChange={setCardNumber}
+                cardName={cardName}
+                onCardNameChange={setCardName}
+                expiryDate={expiryDate}
+                onExpiryDateChange={setExpiryDate}
+                cvv={cvv}
+                onCvvChange={setCvv}
                 bankAccountName={bankAccountName}
                 onBankAccountNameChange={setBankAccountName}
                 bankIban={bankIban}
@@ -372,7 +391,10 @@ export default function RetailerSignup() {
                   { label: "Store", value: company },
                   { label: "Type", value: "Airport Retailer" },
                   { label: "Payment Method", value: paymentMethod === "creditcard" ? "CREDIT CARD" : "MONTHLY INVOICE" },
-                  ...(paymentMethod === "monthly_invoice" ? [
+                  ...(paymentMethod === "creditcard" ? [
+                    { label: "Cardholder", value: cardName },
+                    { label: "Card Number", value: `****-****-****-${cardNumber.slice(-4)}` },
+                  ] : paymentMethod === "monthly_invoice" ? [
                     { label: "Account Holder", value: bankAccountName },
                     { label: "IBAN", value: bankIban },
                   ] : []),
