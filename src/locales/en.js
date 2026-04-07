@@ -12,7 +12,7 @@ export default {
     hero: {
       title_1: 'Unlock the revenue hidden inside every',
       title_2: 'travel booking',
-      subtitle: 'DutyBoost\'s <bold>Travel Retail Conversion Layer</bold> connects travel agencies and airport retailers to turn leisure travelers — with a reward due to their booking — into <bold2>high-intent buyers</bold2> before they even reach their airport of departure.',
+      subtitle: 'DutyBoost\'s <strong>Travel Retail Conversion Layer</strong> connects travel agencies and airport retailers to turn leisure travelers — with a reward due to their booking — into <strong>high-intent buyers</strong> before they even reach their airport of departure.',
     },
     ecosystem: {
       title: 'See How The Ecosystem Works',
