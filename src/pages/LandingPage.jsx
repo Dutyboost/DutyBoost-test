@@ -77,17 +77,17 @@ export default function LandingPage() {
             <LanguageSwitcher />
             <Link to="/agency-showcase">
               <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                For Travel Agencies
+                {t('nav.for_agencies')}
               </Button>
             </Link>
             <Link to="/traveler-showcase">
               <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                For Leisure Travelers
+                {t('nav.for_travelers')}
               </Button>
             </Link>
             <Link to="/retailer-showcase">
               <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                For Airport Retailers
+                {t('nav.for_retailers')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -114,17 +114,17 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-2">
             <Link to="/agency-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-               For Travel Agencies
+               {t('nav.for_agencies')}
              </Button>
             </Link>
             <Link to="/traveler-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-               For Leisure Travelers
+               {t('nav.for_travelers')}
              </Button>
             </Link>
             <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
              <Button size="sm" variant="outline" className="w-full text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-               For Airport Retailers
+               {t('nav.for_retailers')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
