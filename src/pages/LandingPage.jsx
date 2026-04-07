@@ -154,7 +154,7 @@ export default function LandingPage() {
           </h1>
 
           {/* render subtitle with inline HTML for bold word */}
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Unlock the revenue hidden inside every travel booking with DutyBoost's <strong>Travel Retail Conversion Layer</strong>. By connecting travel agencies and airport retailers, we turn leisure travelers, that got a reward on their booking through DutyBoost, into <strong>high-intent buyers</strong> before they even reach their airport of departure.</p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Unlock the revenue <strong>hidden</strong> inside every travel booking with DutyBoost's <strong>Travel Retail Conversion Layer</strong>. By connecting travel agencies and airport retailers, we turn leisure travelers, that got a reward on their booking through DutyBoost, into <strong>high-intent buyers</strong> before they even reach their airport of departure.</p>
         </div>
       </section>
 
