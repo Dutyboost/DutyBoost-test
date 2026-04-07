@@ -80,6 +80,24 @@ export default function RetailerSignup() {
     setLoading(true);
     try {
       await base44.entities.SignupApplication.update(applicationId, { payment_method: paymentMethod });
+      
+      // Initiate Mollie payment for verification charge
+      try {
+        const res = await base44.functions.invoke('createMolliePayment', {
+          applicationId,
+          paymentMethod,
+          redirectUrl: window.location.origin + '/retailer-signup',
+          email,
+          fullName,
+        });
+        if (res.data?.checkoutUrl) {
+          window.location.href = res.data.checkoutUrl;
+          return;
+        }
+      } catch {
+        // Continue to step 2 if Mollie fails
+      }
+      
       setStep(2);
     } finally {
       setLoading(false);

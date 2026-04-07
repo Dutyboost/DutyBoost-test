@@ -177,7 +177,22 @@ export default function AgencySignup() {
     if (!termsAccepted) return;
     setLoading(true);
     try {
-      await base44.entities.SignupApplication.update(applicationId, { terms_accepted: true });
+      await base44.entities.SignupApplication.update(applicationId, { 
+        terms_accepted: true,
+        status: "invited"
+      });
+      
+      // Trigger initial payout setup
+      try {
+        await base44.functions.invoke('setupAgencyPayout', {
+          applicationId,
+          bankAccountName,
+          bankIban,
+        });
+      } catch {
+        // Continue regardless of payout setup
+      }
+      
       setSubmitted(true);
     } finally {
       setLoading(false);
