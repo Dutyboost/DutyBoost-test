@@ -49,7 +49,6 @@ import TravelerApp from './pages/TravelerApp';
 import RetailerScanOnly from './pages/RetailerScanOnly';
 import TravelerPortal from './pages/TravelerPortal';
 import DemoTravelerPortal from './pages/DemoTravelerPortal';
-import AuthRedirect from './pages/AuthRedirect';
 
 import AgencyPortal from './pages/AgencyPortal';
 import AgencySignup from './pages/AgencySignup';
@@ -116,7 +115,6 @@ const AuthenticatedApp = () => {
       <ScrollRestoration />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/auth-redirect" element={<AuthRedirect />} />
         <Route path="/voucher" element={<TravelerVoucher />} />
         <Route path="/scan" element={<TravelerScan />} />
         <Route path="/airport-map" element={<AirportMap />} />
