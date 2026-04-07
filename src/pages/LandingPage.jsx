@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { ChevronDown } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -23,10 +22,6 @@ const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleSignIn = () => {
-    base44.auth.redirectToLogin('/auth-redirect');
-  };
 
   const stakeholders = [
     {
@@ -103,10 +98,6 @@ export default function LandingPage() {
                 <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
-            <Button size="sm" onClick={handleSignIn}>
-              Sign In
-            </Button>
-
           </div>
           {/* Mobile nav toggle */}
           <div className="flex lg:hidden items-center gap-2">
@@ -144,11 +135,7 @@ export default function LandingPage() {
                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
              </Button>
             </Link>
-            <Button size="sm" onClick={() => { handleSignIn(); setMobileMenuOpen(false); }} className="w-full">
-              Sign In
-            </Button>
-
-          </div>
+            </div>
         )}
       </nav>
 
