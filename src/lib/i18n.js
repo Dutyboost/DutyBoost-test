@@ -85,7 +85,7 @@ const resources = {
         badge: "Ready to launch?",
         title: "Where Travel Meets Reward — For Everyone.",
         subtitle: "Join DutyBoost and become part of the first intelligent <b>Travel Retail Conversion Layer</b> — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
-        description: "By connecting travel agencies directly with airport retailers, DutyBoost creates a pre-activated buying intent in leisure travelers before they ever reach the gate. When a traveler receives a personalised DutyCredit tied to their booking, they arrive at the airport already motivated to shop — turning a passive journey into a high-conversion retail opportunity.",
+        description: "By connecting travel agencies directly with airport retailers, DutyBoost pre-activates buying intent in leisure travelers before they reach the gate — turning every booking into a high-conversion retail opportunity.",
         button: "Access the Platform",
       },
       footer: {
