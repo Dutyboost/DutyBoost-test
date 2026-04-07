@@ -46,7 +46,7 @@ const resources = {
         },
         agencies: {
           title: "Travel Agencies",
-          description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero extra effort. Earn a margin on every DutyCredit redeemed by your travelers at the airport.",
+          description: "Turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your leisure travelers — exclusive incentives earned through their booking, based on group size, destination, and ticket value — at zero cost. Earn a margin on every DutyCredit redeemed by your leisure travelers at the airport.",
           b1: "Increase traveler satisfaction",
           b2: "Zero integration friction",
           b3: "Boost repeat bookings",
