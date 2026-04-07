@@ -161,20 +161,26 @@ export default function RetailerDashboard() {
   ];
 
   return (
-    <div className="space-y-6">
-      {/* Tab bar */}
-      <div className="flex gap-1 border-b border-border">
-        {tabs.map(({ id, label, icon: Icon }) => (
-          <button key={id} onClick={() => setActiveTab(id)}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
-              activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
-            }`}>
-            <Icon className="w-4 h-4" /> {label}
-          </button>
-        ))}
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 min-h-[calc(100vh-200px)]">
+      {/* Sidebar */}
+      <div className="lg:col-span-1">
+        <div className="space-y-2 sticky top-6">
+          {tabs.map(({ id, label, icon: Icon }) => (
+            <button key={id} onClick={() => setActiveTab(id)}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all text-left ${
+                activeTab === id
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-muted"
+              }`}>
+              <Icon className="w-4 h-4 shrink-0" /> {label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {activeTab === "profile" ? (
+      {/* Main Content */}
+      <div className="lg:col-span-3">
+        {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
       ) : activeTab === "strategy" ? (
         <RetailerStrategyTab vouchers={vouchers} user={user} />
@@ -385,8 +391,9 @@ export default function RetailerDashboard() {
         );
       })()}
 
-      <RedemptionHeatmap vouchers={vouchers} />
-      </> )}
+        <RedemptionHeatmap vouchers={vouchers} />
+        </> )}
+      </div>
     </div>
   );
 }
