@@ -61,7 +61,6 @@ export default function RetailerShowcase() {
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
-            <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">How It Works</Badge>
             <h2 className="text-4xl font-heading font-bold">{t('showcase.retailer.howItWorks')}</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
