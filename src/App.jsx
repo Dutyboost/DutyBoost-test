@@ -57,7 +57,6 @@ import RetailerSignup from './pages/RetailerSignup';
 import RetailerShowcase from './pages/RetailerShowcase';
 import AgencyShowcase from './pages/AgencyShowcase';
 import TravelerShowcase from './pages/TravelerShowcase';
-import AuthRedirect from './pages/AuthRedirect';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -139,7 +138,6 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/demo/traveler" element={<DemoTravelerPortal />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
-        <Route path="/auth-redirect" element={<AuthRedirect />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
