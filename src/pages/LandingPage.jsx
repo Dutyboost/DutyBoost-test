@@ -24,6 +24,10 @@ export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleSignIn = () => {
+    base44.auth.redirectToLogin('/auth-redirect');
+  };
+
   const stakeholders = [
     {
       key: 'travelers',
@@ -99,6 +103,9 @@ export default function LandingPage() {
                 <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
+            <Button size="sm" onClick={handleSignIn}>
+              Sign In
+            </Button>
 
           </div>
           {/* Mobile nav toggle */}
@@ -137,6 +144,9 @@ export default function LandingPage() {
                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
              </Button>
             </Link>
+            <Button size="sm" onClick={() => { handleSignIn(); setMobileMenuOpen(false); }} className="w-full">
+              Sign In
+            </Button>
 
           </div>
         )}
