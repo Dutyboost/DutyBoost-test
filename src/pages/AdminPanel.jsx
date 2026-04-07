@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText, BarChart2, EyeOff } from "lucide-react";
 import HiddenFeaturesPanel from "../components/HiddenFeaturesPanel";
+import BatchPayoutApproval from "../components/BatchPayoutApproval";
 import { Link } from "react-router-dom";
 
 export default function AdminPanel() {
@@ -281,6 +282,7 @@ export default function AdminPanel() {
                 <span className="ml-2 bg-destructive text-destructive-foreground text-xs rounded-full px-1.5 py-0.5">{invoices.filter(i => i.status === 'overdue').length}</span>
               )}
             </TabsTrigger>
+            <TabsTrigger value="batch-payouts">Batch Payouts</TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
             </TabsTrigger>
@@ -533,6 +535,9 @@ export default function AdminPanel() {
               </table>
             </div>
           </div>
+        </TabsContent>
+        <TabsContent value="batch-payouts" className="mt-4">
+          <BatchPayoutApproval user={user} />
         </TabsContent>
         <TabsContent value="hidden-features" className="mt-4">
           <HiddenFeaturesPanel />

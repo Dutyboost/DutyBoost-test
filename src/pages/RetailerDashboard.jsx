@@ -9,7 +9,6 @@ import {
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import RetailerStrategyTab from "../components/RetailerStrategyTab";
-import BillingAndPayouts from "../components/BillingAndPayouts";
 import { Button } from "@/components/ui/button";
 import { Compass } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -199,7 +198,7 @@ export default function RetailerDashboard() {
       </div>
 
       {activeTab === "profile" ? (
-        <><ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} /><BillingAndPayouts user={user} /></>
+        <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
       ) : activeTab === "strategy" ? (
         <RetailerStrategyTab vouchers={vouchers} user={user} />
       ) : (<>
