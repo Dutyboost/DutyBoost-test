@@ -92,6 +92,11 @@ export default function RedemptionHeatmap({ vouchers = [], compact = false }) {
 
   const airports = Object.keys(TERMINAL_LAYOUTS);
 
+  // Only show heatmap if there are redeemed vouchers
+  const hasRedemptions = useMemo(() => {
+    return vouchers.some(v => v.status === "redeemed");
+  }, [vouchers]);
+
   // Merge real voucher data with simulated if available
   const liveRedemptionsByZone = useMemo(() => {
     if (!vouchers.length) return null;
@@ -124,6 +129,24 @@ export default function RedemptionHeatmap({ vouchers = [], compact = false }) {
     .map(t => ({ ...t, count: redemptions[t.id] || 0 }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 3);
+
+  // Show empty state if no redemptions
+  if (!hasRedemptions) {
+    return (
+      <div className="bg-card border border-border rounded-xl p-6 space-y-5">
+        <div>
+          <h2 className="font-heading font-semibold text-base flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-primary" /> Redemption Heatmap by Terminal Zone
+          </h2>
+          <p className="text-xs text-muted-foreground mt-0.5">Color intensity reflects relative redemption volume per zone</p>
+        </div>
+        <div className="py-12 text-center space-y-3">
+          <p className="text-sm text-muted-foreground">No redemption data available yet.</p>
+          <p className="text-xs text-muted-foreground max-w-sm mx-auto">Once DutyCredits are redeemed at airport retailers, the heatmap will show traffic patterns across terminals and zones.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-card border border-border rounded-xl p-6 space-y-5">
