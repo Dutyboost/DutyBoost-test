@@ -31,6 +31,7 @@ export default function AdminPanel() {
   const [rejectionReason, setRejectionReason] = useState("");
   const [selectedApps, setSelectedApps] = useState(new Set());
   const [invoices, setInvoices] = useState([]);
+  const [user, setUser] = useState(null);
 
   const toggleSelectAll = () => {
     if (selectedApps.size === applications.length) {
@@ -86,6 +87,8 @@ export default function AdminPanel() {
       setUsers(u || []);
       setApplications(ap || []);
       setInvoices(inv || []);
+      const currentUser = await base44.auth.me();
+      setUser(currentUser);
     } catch (error) {
       console.error('Error loading admin data:', error);
       toast.error('Failed to load admin data');
@@ -537,7 +540,7 @@ export default function AdminPanel() {
           </div>
         </TabsContent>
         <TabsContent value="batch-payouts" className="mt-4">
-          <BatchPayoutApproval user={user} />
+          {isAdmin && <BatchPayoutApproval user={user} />}
         </TabsContent>
         <TabsContent value="hidden-features" className="mt-4">
           <HiddenFeaturesPanel />
