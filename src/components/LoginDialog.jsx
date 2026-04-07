@@ -19,29 +19,29 @@ export default function LoginDialog({ open, onOpenChange }) {
     setLoading(true);
     try {
       // Check if user exists and get their profile type
-      const users = await base44.entities.User.filter({});
+      const users = await base44.entities.User.list();
       const userExists = users.find(u => u.email === email);
       
       if (userExists) {
         // Get their signup application to find profile type
-        const apps = await base44.entities.SignupApplication.filter({ email });
-        if (apps && apps.length > 0) {
-          const app = apps[0];
-          const type = app.business_type === 'Travel Agency' ? 'agency' : app.business_type === 'Airport Retailer' ? 'retailer' : 'traveler';
+        const apps = await base44.entities.SignupApplication.list();
+        const userApp = apps.find(a => a.email === email);
+        
+        if (userApp) {
+          const type = userApp.business_type === 'Travel Agency' ? 'agency' : userApp.business_type === 'Airport Retailer' ? 'retailer' : 'traveler';
           setProfileType(type);
-          setUserFound(true);
-          setStep("type");
         } else {
           // Default to traveler if no signup app found
           setProfileType('traveler');
-          setUserFound(true);
-          setStep("type");
         }
+        setUserFound(true);
+        setStep("type");
       } else {
         // Redirect to Get Started
         window.location.href = "/get-started";
       }
     } catch (e) {
+      console.error('Login error:', e);
       toast.error("Error checking account");
     } finally {
       setLoading(false);
