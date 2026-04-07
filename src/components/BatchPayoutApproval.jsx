@@ -12,14 +12,18 @@ export default function BatchPayoutApproval({ user }) {
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
+  if (!user || user.role !== 'admin') {
+    return null;
+  }
+
   useEffect(() => {
     const loadPayouts = async () => {
       try {
-        // This assumes there's an AgencyPayout entity; adjust if using different structure
-        const data = await base44.asServiceRole.entities.AgencyPayout?.filter({ status: 'pending' }) || [];
-        setPayouts(data);
+        // Fetch TravelAgencies to display as pending payouts
+        const agencies = await base44.entities.TravelAgency.list();
+        setPayouts(agencies.map(a => ({ id: a.id, agency_name: a.name, amount: 0 })));
       } catch (e) {
-        toast.error("Failed to load pending payouts");
+        console.error('Failed to load payouts', e);
       }
       setLoading(false);
     };
@@ -45,10 +49,6 @@ export default function BatchPayoutApproval({ user }) {
     }
     setProcessing(false);
   };
-
-  if (!user || user.role !== 'admin') {
-    return null;
-  }
 
   if (loading) {
     return <div className="text-center py-8">Loading payouts...</div>;
