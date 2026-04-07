@@ -26,6 +26,8 @@ export default function RetailerSignup() {
   const [airport, setAirport] = useState("");
   const [storeCategory, setStoreCategory] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [bankAccountName, setBankAccountName] = useState("");
+  const [bankIban, setBankIban] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -75,11 +77,24 @@ export default function RetailerSignup() {
 
   const poNumber = applicationId ? applicationId.slice(-8).toUpperCase() : "PENDING";
 
+  const isStep1Valid = () => {
+    if (!paymentMethod) return false;
+    if (paymentMethod === "monthly_invoice") {
+      return bankAccountName.trim() && bankIban.trim();
+    }
+    return true;
+  };
+
   const handleStep1Submit = async () => {
-    if (!paymentMethod) return;
+    if (!isStep1Valid()) return;
     setLoading(true);
     try {
-      await base44.entities.SignupApplication.update(applicationId, { payment_method: paymentMethod });
+      const updateData = { payment_method: paymentMethod };
+      if (paymentMethod === "monthly_invoice") {
+        updateData.bank_account_name = bankAccountName;
+        updateData.bank_iban = bankIban;
+      }
+      await base44.entities.SignupApplication.update(applicationId, updateData);
       
       // Initiate Mollie payment for verification charge
       try {
@@ -289,13 +304,20 @@ export default function RetailerSignup() {
                 <strong>How it works:</strong> {t('signup.retailer.step1_info')}
               </div>
 
-              <PaymentMethodSelector value={paymentMethod} onChange={setPaymentMethod} businessType="Airport Retailer" />
+              <PaymentMethodSelector
+                value={paymentMethod}
+                onChange={setPaymentMethod}
+                bankAccountName={bankAccountName}
+                onBankAccountNameChange={setBankAccountName}
+                bankIban={bankIban}
+                onBankIbanChange={setBankIban}
+              />
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
-                <Button className="flex-1 gap-2 h-11" disabled={!paymentMethod || loading} onClick={handleStep1Submit}>
+                <Button className="flex-1 gap-2 h-11" disabled={!isStep1Valid() || loading} onClick={handleStep1Submit}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -349,7 +371,11 @@ export default function RetailerSignup() {
                   { label: "Email", value: email },
                   { label: "Store", value: company },
                   { label: "Type", value: "Airport Retailer" },
-                  { label: "Payment Method", value: paymentMethod?.toUpperCase() },
+                  { label: "Payment Method", value: paymentMethod === "creditcard" ? "CREDIT CARD" : "MONTHLY INVOICE" },
+                  ...(paymentMethod === "monthly_invoice" ? [
+                    { label: "Account Holder", value: bankAccountName },
+                    { label: "IBAN", value: bankIban },
+                  ] : []),
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>
