@@ -92,6 +92,16 @@ export const AuthProvider = ({ children }) => {
       // Now check if the user is authenticated
       setIsLoadingAuth(true);
       const currentUser = await base44.auth.me();
+      
+      // Verify user still exists in the User entity
+      const userExists = await base44.entities.User.list();
+      const userRecord = userExists.find(u => u.email === currentUser.email);
+      
+      if (!userRecord) {
+        // User was deleted from the system
+        throw new Error('User account has been deleted');
+      }
+      
       setUser(currentUser);
       setIsAuthenticated(true);
       setIsLoadingAuth(false);
@@ -100,8 +110,13 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingAuth(false);
       setIsAuthenticated(false);
       
-      // If user auth fails, it might be an expired token
-      if (error.status === 401 || error.status === 403) {
+      // Log out the user if they don't exist in the database
+      if (appParams.token) {
+        base44.auth.logout();
+      }
+      
+      // If user auth fails, it might be an expired token or deleted user
+      if (error.status === 401 || error.status === 403 || error.message === 'User account has been deleted') {
         setAuthError({
           type: 'auth_required',
           message: 'Authentication required'
