@@ -89,7 +89,6 @@ export const AuthProvider = ({ children }) => {
 
   const checkUserAuth = async () => {
     try {
-      // Now check if the user is authenticated
       setIsLoadingAuth(true);
       const currentUser = await base44.auth.me();
       
@@ -98,8 +97,16 @@ export const AuthProvider = ({ children }) => {
       const userRecord = userExists.find(u => u.email === currentUser.email);
       
       if (!userRecord) {
-        // User was deleted from the system
-        throw new Error('User account has been deleted');
+        // User was deleted - immediately logout and block access
+        setUser(null);
+        setIsAuthenticated(false);
+        setIsLoadingAuth(false);
+        base44.auth.logout();
+        setAuthError({
+          type: 'auth_required',
+          message: 'Your account no longer exists'
+        });
+        return;
       }
       
       setUser(currentUser);
@@ -107,21 +114,14 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingAuth(false);
     } catch (error) {
       console.error('User auth check failed:', error);
+      setUser(null);
       setIsLoadingAuth(false);
       setIsAuthenticated(false);
-      
-      // Log out the user if they don't exist in the database
-      if (appParams.token) {
-        base44.auth.logout();
-      }
-      
-      // If user auth fails, it might be an expired token or deleted user
-      if (error.status === 401 || error.status === 403 || error.message === 'User account has been deleted') {
-        setAuthError({
-          type: 'auth_required',
-          message: 'Authentication required'
-        });
-      }
+      base44.auth.logout();
+      setAuthError({
+        type: 'auth_required',
+        message: 'Authentication required'
+      });
     }
   };
 
