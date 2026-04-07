@@ -16,8 +16,7 @@ import {
 } from "recharts";
 import NotificationPreferences from "../components/NotificationPreferences";
 import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
-import AgencyStrategyTab from "../components/AgencyStrategyTab";
-import { Compass } from "lucide-react";
+
 
 
 export default function AgencyDashboard() {
@@ -97,7 +96,6 @@ export default function AgencyDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { id: "strategy", label: "Define your agency strategy", icon: Compass },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
@@ -117,8 +115,6 @@ export default function AgencyDashboard() {
 
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} user={user} />} />
-      ) : activeTab === "strategy" ? (
-        <AgencyStrategyTab vouchers={vouchers} user={user} />
       ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
@@ -201,7 +197,7 @@ export default function AgencyDashboard() {
 
       <NotificationPreferences />
       <RedemptionHeatmap vouchers={vouchers} />
-      </> )}
+      </>)}
     </div>
   );
 }
