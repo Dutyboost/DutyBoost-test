@@ -36,31 +36,22 @@ export default function RetailerDashboard() {
   const loadData = async () => {
     const u = await base44.auth.me();
     
-    // Try to fetch SignupApplication with card/bank details
+    // Merge SignupApplication data into user object
     try {
-      const apps = await base44.entities.SignupApplication.list('-created_date', 100);
-      const app = apps.find(a => a.email === u.email);
-      if (app) {
-        u.card_name = app.card_name;
-        u.card_number = app.card_number;
-        u.card_expiry = app.card_expiry;
-        u.bank_account_name = app.bank_account_name;
-        u.bank_iban = app.bank_iban;
+      const apps = await base44.entities.SignupApplication.filter({ email: u.email });
+      if (apps && apps.length > 0) {
+        const app = apps[0]; // Get most recent
+        if (app.card_name) u.card_name = app.card_name;
+        if (app.card_number) u.card_number = app.card_number;
+        if (app.card_expiry) u.card_expiry = app.card_expiry;
+        if (app.bank_account_name) u.bank_account_name = app.bank_account_name;
+        if (app.bank_iban) u.bank_iban = app.bank_iban;
       }
     } catch (e) {
-      console.log('SignupApplication fetch failed');
+      // SignupApplication not available
     }
     
     setUser(u);
-    const [rets, txns, vchs, aps, invoices, fb] = await Promise.all([
-      base44.entities.Retailer.filter({ owner_email: user.email }),
-      base44.entities.TransactionAggregate.list('-date', 90),
-      base44.entities.Voucher.list('-created_date', 100),
-      base44.entities.Airport.list(),
-      base44.entities.MonthlyInvoice.filter({ retailer_email: user.email, status: 'overdue' }),
-      base44.entities.RetailerFeedback.list('-created_date', 200),
-    ]);
-    setRetailers(rets);
     setAirports(aps);
     const storeNames = rets.map(r => r.store_name);
     // TransactionAggregate already has store_name so direct filter works
