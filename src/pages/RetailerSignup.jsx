@@ -101,29 +101,33 @@ export default function RetailerSignup() {
         updateData.card_number = cardNumber;
         updateData.card_name = cardName;
         updateData.card_expiry = expiryDate;
+        
+        // Process €0.01 card verification charge
+        try {
+          const res = await base44.functions.invoke('processRetailerCardPayment', {
+            cardNumber,
+            cardName,
+            expiryDate,
+            cvv,
+            applicationId,
+            redirectUrl: window.location.origin + '/retailer-signup',
+          });
+          if (!res.data?.success) {
+            toast.error('Card verification failed. Please check your card details.');
+            setLoading(false);
+            return;
+          }
+          toast.success('Card verified! €0.01 charge processed.');
+        } catch (err) {
+          toast.error('Payment processing error: ' + (err.message || 'Unknown error'));
+          setLoading(false);
+          return;
+        }
       } else if (paymentMethod === "monthly_invoice") {
         updateData.bank_account_name = bankAccountName;
         updateData.bank_iban = bankIban;
       }
       await base44.entities.SignupApplication.update(applicationId, updateData);
-      
-      // Initiate Mollie payment for verification charge
-      try {
-        const res = await base44.functions.invoke('createMolliePayment', {
-          applicationId,
-          paymentMethod,
-          redirectUrl: window.location.origin + '/retailer-signup',
-          email,
-          fullName,
-        });
-        if (res.data?.checkoutUrl) {
-          window.location.href = res.data.checkoutUrl;
-          return;
-        }
-      } catch {
-        // Continue to step 2 if Mollie fails
-      }
-      
       setStep(2);
     } finally {
       setLoading(false);
