@@ -83,7 +83,7 @@ const resources = {
       },
       cta: {
         badge: "Ready to launch?",
-        title: "The Future of Airport Retail Starts Here",
+        title: "One Platform. Three Winners. Endless Opportunity.",
         subtitle: "Join DutyBoost and become part of the first intelligent <b>Travel Retail Conversion Layer</b> — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
         description: "Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.",
         button: "Access the Platform",
