@@ -124,8 +124,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const navigateToLogin = () => {
-    // Redirect to login, then to dashboard after auth
-    base44.auth.redirectToLogin('/dashboard');
+    // Redirect to login, then to home after auth
+    base44.auth.redirectToLogin('/');
   };
 
   return (
