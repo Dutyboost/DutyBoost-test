@@ -147,7 +147,10 @@ export default function AgencySignup() {
   const handleStep1Submit = async () => {
     setLoading(true);
     try {
-      await base44.auth.updateMe({ bank_account_name: bankAccountName, bank_iban: bankIban });
+      await base44.entities.SignupApplication.update(applicationId, {
+        bank_account_name: bankAccountName,
+        bank_iban: bankIban,
+      });
       setStep(2);
     } finally {
       setLoading(false);
