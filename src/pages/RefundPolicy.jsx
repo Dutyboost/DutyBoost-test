@@ -58,7 +58,7 @@ export default function RefundPolicy() {
   const c = content[i18n.language] || content.en;
   return (
     <div className="min-h-screen bg-background font-body">
-      <nav className="border-b border-border px-6 h-16 flex items-center"><Link to="/"><DutyBoostLogo height={36} /></Link></nav>
+      <nav className="border-b border-border px-6 h-16 flex items-center"><Link to="/"><DutyBoostLogo height={150} /></Link></nav>
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">
         <div><h1 className="text-4xl font-heading font-bold mb-2">{c.title}</h1><p className="text-muted-foreground text-sm">{c.updated}</p></div>
         {c.sections.map((s) => (

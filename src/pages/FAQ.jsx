@@ -256,7 +256,7 @@ export default function FAQ() {
     <div className="min-h-screen bg-background font-body">
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={36} /></Link>
+          <Link to="/"><DutyBoostLogo height={150} /></Link>
           <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.back_home}</Link>
         </div>
       </nav>
