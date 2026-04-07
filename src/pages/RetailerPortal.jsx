@@ -43,7 +43,6 @@ export default function RetailerPortal() {
 
       {authed ? (
         <div className="flex-1 flex flex-col px-6 max-w-4xl mx-auto py-8">
-          {/* Tab Navigation */}
           <div className="flex gap-1 border-b border-border mb-8">
             {[{ id: "overview", label: "Dashboard", icon: LayoutDashboard }, { id: "billing", label: "Billing & Payouts", icon: CreditCard }].map(({ id, label, icon: Icon }) => (
               <button
@@ -58,7 +57,6 @@ export default function RetailerPortal() {
             ))}
           </div>
 
-          {/* Tab Content */}
           {activeTab === "billing" ? (
             <BillingAndPayouts userEmail={user?.email} />
           ) : (
@@ -84,27 +82,27 @@ export default function RetailerPortal() {
           )}
         </div>
       ) : (
-      <div className="flex-1 flex flex-col items-center justify-center px-6 text-center space-y-8 max-w-md mx-auto">
-        <div className="space-y-3">
-          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-            <Store className="w-8 h-8 text-primary" />
+        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center space-y-8 max-w-md mx-auto">
+          <div className="space-y-3">
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+              <Store className="w-8 h-8 text-primary" />
+            </div>
+            <h1 className="text-3xl font-heading font-bold">Airport Retailer Portal</h1>
+            <p className="text-muted-foreground leading-relaxed">
+              Redeem vouchers and manage your store's participation in the DutyBoost program.
+            </p>
           </div>
-          <h1 className="text-3xl font-heading font-bold">Airport Retailer Portal</h1>
-          <p className="text-muted-foreground leading-relaxed">
-            Redeem vouchers and manage your store's participation in the DutyBoost program.
-          </p>
-        </div>
 
-        <div className="w-full space-y-3">
-          <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/retailer-signup")}>
-            <UserPlus className="w-4 h-4" /> Create Retailer Account
-          </Button>
-          <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>
-            <LogIn className="w-4 h-4" /> Sign In
-          </Button>
-          <p className="text-xs text-muted-foreground">New to DutyBoost? Create an account to start redeeming DutyCredits at your store.</p>
+          <div className="w-full space-y-3">
+            <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/retailer-signup")}>
+              <UserPlus className="w-4 h-4" /> Create Retailer Account
+            </Button>
+            <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>
+              <LogIn className="w-4 h-4" /> Sign In
+            </Button>
+            <p className="text-xs text-muted-foreground">New to DutyBoost? Create an account to start redeeming DutyCredits at your store.</p>
+          </div>
         </div>
-      </div>
       )}
     </div>
   );
