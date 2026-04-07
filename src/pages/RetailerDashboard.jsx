@@ -35,8 +35,22 @@ export default function RetailerDashboard() {
 
   const loadData = async () => {
     const u = await base44.auth.me();
-    setUser(u);
     const user = u;
+    
+    // Fetch SignupApplication to get card info
+    try {
+      const apps = await base44.entities.SignupApplication.filter({ email: user.email });
+      if (apps.length > 0) {
+        const app = apps[0];
+        u.card_name = app.card_name || u.card_name;
+        u.card_number = app.card_number || u.card_number;
+        u.card_expiry = app.card_expiry || u.card_expiry;
+      }
+    } catch (err) {
+      // SignupApplication fetch failed, continue with user data only
+    }
+    
+    setUser(u);
     const [rets, txns, vchs, aps, invoices, fb] = await Promise.all([
       base44.entities.Retailer.filter({ owner_email: user.email }),
       base44.entities.Transaction.list('-created_date', 50),
