@@ -40,7 +40,7 @@ export default function RetailerDashboard() {
     try {
       const apps = await base44.entities.SignupApplication.filter({ email: u.email });
       if (apps && apps.length > 0) {
-        const app = apps[0]; // Get most recent
+        const app = apps[0];
         if (app.card_name) u.card_name = app.card_name;
         if (app.card_number) u.card_number = app.card_number;
         if (app.card_expiry) u.card_expiry = app.card_expiry;
@@ -52,12 +52,19 @@ export default function RetailerDashboard() {
     }
     
     setUser(u);
+    
+    const aps = await base44.entities.Airport.list();
+    const rets = await base44.entities.Retailer.filter({ owner_email: u.email });
+    const txns = await base44.entities.TransactionAggregate.list();
+    const invoices = await base44.entities.MonthlyInvoice.filter({ retailer_email: u.email, status: 'overdue' });
+    const fb = await base44.entities.RetailerFeedback.list();
+    
     setAirports(aps);
     const storeNames = rets.map(r => r.store_name);
-    // TransactionAggregate already has store_name so direct filter works
     setTransactions(txns.filter(t => storeNames.includes(t.store_name)));
     const retailerAirports = rets.map(r => r.airport);
-    setVouchers(vchs.filter(v => retailerAirports.includes(v.airport) && v.status === 'active'));
+    const vchs = await base44.entities.Voucher.filter({ airport: { $in: retailerAirports }, status: 'active' });
+    setVouchers(vchs);
     setOverdueInvoice(invoices.length > 0 ? invoices[0] : null);
     setFeedback(fb.filter(f => retailerAirports.includes(f.airport)));
   };
