@@ -9,9 +9,9 @@ Deno.serve(async (req) => {
       return Response.json({ success: true });
     }
 
-    const resendApiKey = Deno.env.get('RESEND_API_KEY');
-    if (!resendApiKey) {
-      return Response.json({ error: 'Resend API key not configured' }, { status: 500 });
+    const postmarkToken = Deno.env.get('POSTMARK_API_KEY');
+    if (!postmarkToken) {
+      return Response.json({ error: 'Postmark API key not configured' }, { status: 500 });
     }
 
     // Only notify on status change to 'redeemed'
@@ -30,17 +30,17 @@ Deno.serve(async (req) => {
       <p>Best regards,<br/>The DutyBoost Team</p>
     `;
 
-    const response = await fetch('https://api.resend.com/emails', {
+    const response = await fetch('https://api.postmarkapp.com/email', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
+        'X-Postmark-Server-Token': postmarkToken,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'hello@dutyboost.com',
-        to: traveler_email,
-        subject: `Your DutyCredit Has Been Redeemed!`,
-        html: emailBody,
+        From: 'hello@dutyboost.com',
+        To: traveler_email,
+        Subject: `Your DutyCredit Has Been Redeemed!`,
+        HtmlBody: emailBody,
       }),
     });
 

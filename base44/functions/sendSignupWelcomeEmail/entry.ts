@@ -9,9 +9,9 @@ Deno.serve(async (req) => {
       return Response.json({ success: true });
     }
 
-    const resendApiKey = Deno.env.get('RESEND_API_KEY');
-    if (!resendApiKey) {
-      return Response.json({ error: 'Resend API key not configured' }, { status: 500 });
+    const postmarkToken = Deno.env.get('POSTMARK_API_KEY');
+    if (!postmarkToken) {
+      return Response.json({ error: 'Postmark API key not configured' }, { status: 500 });
     }
 
     const { full_name, email, company, business_type } = data;
@@ -25,17 +25,17 @@ Deno.serve(async (req) => {
       <p>Best regards,<br/>The DutyBoost Team</p>
     `;
 
-    const response = await fetch('https://api.resend.com/emails', {
+    const response = await fetch('https://api.postmarkapp.com/email', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
+        'X-Postmark-Server-Token': postmarkToken,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'hello@dutyboost.com',
-        to: email,
-        subject: `Welcome to DutyBoost, ${full_name}!`,
-        html: emailBody,
+        From: 'hello@dutyboost.com',
+        To: email,
+        Subject: `Welcome to DutyBoost, ${full_name}!`,
+        HtmlBody: emailBody,
       }),
     });
 
