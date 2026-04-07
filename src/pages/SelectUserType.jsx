@@ -56,9 +56,9 @@ export default function SelectUserType() {
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold">{t('getStarted.title')}</h1>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold">{t('getstarted.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {t('getStarted.subtitle')}
+              {t('getstarted.subtitle_default')}
             </p>
           </div>
 
