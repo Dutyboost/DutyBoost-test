@@ -18,7 +18,10 @@ export default function LoginDialog({ open, onOpenChange }) {
             Sign in with the email address associated with your account.
           </p>
           <Button 
-            onClick={() => base44.auth.redirectToLogin()} 
+            onClick={() => {
+              onOpenChange(false);
+              base44.auth.redirectToLogin();
+            }} 
             className="w-full"
           >
             Continue to Sign In
