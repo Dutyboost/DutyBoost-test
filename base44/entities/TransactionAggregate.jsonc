@@ -1,0 +1,47 @@
+{
+  "name": "TransactionAggregate",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date (YYYY-MM-DD)"
+    },
+    "retailer_id": {
+      "type": "string",
+      "title": "Retailer ID"
+    },
+    "store_name": {
+      "type": "string",
+      "title": "Store Name"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    },
+    "transaction_count": {
+      "type": "integer",
+      "title": "Number of Transactions"
+    },
+    "total_volume": {
+      "type": "number",
+      "title": "Total Transaction Volume (EUR)"
+    },
+    "total_discount": {
+      "type": "number",
+      "title": "Total Discount Amount (EUR)"
+    },
+    "platform_revenue": {
+      "type": "number",
+      "title": "Platform Revenue (EUR)"
+    }
+  },
+  "required": [
+    "date",
+    "store_name",
+    "airport",
+    "transaction_count",
+    "total_volume",
+    "platform_revenue"
+  ]
+}

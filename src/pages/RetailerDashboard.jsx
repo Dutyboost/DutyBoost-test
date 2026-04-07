@@ -54,7 +54,7 @@ export default function RetailerDashboard() {
     setUser(u);
     const [rets, txns, vchs, aps, invoices, fb] = await Promise.all([
       base44.entities.Retailer.filter({ owner_email: user.email }),
-      base44.entities.Transaction.list('-created_date', 50),
+      base44.entities.TransactionAggregate.list('-date', 90),
       base44.entities.Voucher.list('-created_date', 100),
       base44.entities.Airport.list(),
       base44.entities.MonthlyInvoice.filter({ retailer_email: user.email, status: 'overdue' }),
@@ -63,6 +63,7 @@ export default function RetailerDashboard() {
     setRetailers(rets);
     setAirports(aps);
     const storeNames = rets.map(r => r.store_name);
+    // TransactionAggregate already has store_name so direct filter works
     setTransactions(txns.filter(t => storeNames.includes(t.store_name)));
     const retailerAirports = rets.map(r => r.airport);
     setVouchers(vchs.filter(v => retailerAirports.includes(v.airport) && v.status === 'active'));
@@ -96,12 +97,14 @@ export default function RetailerDashboard() {
   }, [period, customStart, customEnd]);
 
   const filteredTransactions = useMemo(() =>
-    transactions.filter(t => { const d = (t.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    transactions.filter(t => {
+      const d = t.date || (t.created_date || "").split("T")[0];
+      return d >= startDate && d <= endDate;
+    }),
     [transactions, startDate, endDate]
   );
 
-  const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
-  const totalPassengers = vouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
+  const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.total_volume || 0), 0);
   const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
   const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
   const revenuePerDay = (totalRevenue / periodDays).toFixed(2);
