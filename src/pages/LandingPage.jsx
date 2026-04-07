@@ -103,7 +103,7 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Button size="sm" onClick={() => setLoginOpen(true)} className="gap-1.5">
-              Log In
+              Sign In
             </Button>
           </div>
           {/* Mobile nav toggle */}
@@ -143,7 +143,7 @@ export default function LandingPage() {
              </Button>
             </Link>
             <Button size="sm" onClick={() => { setLoginOpen(true); setMobileMenuOpen(false); }} className="w-full gap-1.5">
-              Log In
+              Sign In
             </Button>
           </div>
         )}
