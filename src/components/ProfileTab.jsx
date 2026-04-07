@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -71,6 +71,19 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
   });
   const [cardEditing, setCardEditing] = useState(false);
   const [cardSaving, setCardSaving] = useState(false);
+
+  // Sync form states when user prop changes
+  useEffect(() => {
+    setBankForm({
+      bank_account_name: user?.bank_account_name || "",
+      bank_iban: user?.bank_iban || "",
+    });
+    setCardForm({
+      card_name: user?.card_name || "",
+      card_number: user?.card_number || "",
+      card_expiry: user?.card_expiry || "",
+    });
+  }, [user]);
 
   const saveFields = async (data) => {
     await base44.auth.updateMe(data);
@@ -150,8 +163,32 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
               <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{user?.card_expiry || "—"}</p></div>
             </div>
           )}
-        </div>
-      )}
+          </div>
+          </div>
+
+          {/* User Information */}
+      <EditableSection
+        title="User Information"
+        icon={User}
+        fields={[
+          { key: "full_name", label: "Full Name", value: user?.full_name || "" },
+          { key: "email", label: "Email", value: user?.email || "", readonly: true },
+        ]}
+        onSave={saveFields}
+      />
+
+      {/* Company Information */}
+      <EditableSection
+        title="Company Information"
+        icon={Building2}
+        fields={[
+          { key: "company", label: "Company Name", value: user?.company || "" },
+          { key: "website", label: "Website", value: user?.website || "" },
+          { key: "kvk", label: "KVK Number", value: user?.kvk || "" },
+          { key: "vat", label: "VAT Number", value: user?.vat || "" },
+        ]}
+        onSave={saveFields}
+      />
 
       {/* Bank Details */}
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
