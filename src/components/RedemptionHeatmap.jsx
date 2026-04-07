@@ -66,12 +66,12 @@ const ZONE_BASE_COLORS = {
   Arrivals: [139, 92, 246],
 };
 
-// Simulated store-level redemption data per airport terminal zone
+// Empty redemption data—only show real voucher data
 const STORE_REDEMPTIONS = {
-  AMS: { "T1-D": 420, "T1-E": 680, "T1-F": 310, "T1-C": 180, "PLAZA": 890, "T1-B": 540, "ARR-1": 220, "ARR-2": 150 },
-  RTM: { "DEP-A": 180, "DEP-B": 290, "DEP-C": 140, "MAIN-SHOPS": 510, "GATE-LOUNGE": 220 },
-  EIN: { "T1": 340, "T2": 210, "DUTY": 480, "FOOD": 190, "RETAIL": 320 },
-  BRU: { "PIER-A": 160, "PIER-B": 280, "PIER-C": 390, "PIER-D": 220, "DEP-SHOPS": 560, "LOUNGE": 310, "ARR": 120 },
+  AMS: {},
+  RTM: {},
+  EIN: {},
+  BRU: {},
 };
 
 function getHeatColor(value, max, baseRGB) {
