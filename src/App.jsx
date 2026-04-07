@@ -48,7 +48,7 @@ import TravelerApp from './pages/TravelerApp';
 import RetailerScanOnly from './pages/RetailerScanOnly';
 import TravelerPortal from './pages/TravelerPortal';
 import DemoTravelerPortal from './pages/DemoTravelerPortal';
-import TravelerSignup from './pages/TravelerSignup';
+
 import AgencyPortal from './pages/AgencyPortal';
 import AgencySignup from './pages/AgencySignup';
 import RetailerPortal from './pages/RetailerPortal';
@@ -72,7 +72,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/traveler-signup', '/retailer-signup', '/agency-showcase', '/traveler-showcase', '/retailer-showcase', '/agency-portal', '/retailer-portal', '/traveler-portal'];
+      const publicPaths = ['/', '/get-started', '/voucher', '/scan', '/privacy', '/terms', '/refunds', '/code-of-conduct', '/cookies', '/faq', '/dpa', '/integration-guide', '/user-guide', '/airport-map', '/demo', '/demo/agency', '/demo/retailer', '/demo/admin', '/demo/corporate', '/business-travel', '/business-travel/get-started', '/traveler-app', '/retailer-scan-only', '/agency-signup', '/retailer-signup', '/agency-showcase', '/traveler-showcase', '/retailer-showcase', '/agency-portal', '/retailer-portal', '/traveler-portal'];
       if (publicPaths.includes(window.location.pathname)) {
         return (
           <>
@@ -125,9 +125,7 @@ const AuthenticatedApp = () => {
         <Route path="/registration" element={<GetStarted />} />
 {/* Corporate / Business Travel routes hidden - pending business model review */}
         <Route path="/traveler" element={<TravelerApp />} />
-        <Route path="/traveler-signup" element={<TravelerSignup />} />
         <Route path="/traveler-portal" element={<TravelerPortal />} />
-        <Route path="/traveler-signup" element={<TravelerSignup />} />
         <Route path="/agency-portal" element={<AgencyPortal />} />
         <Route path="/agency-signup" element={<AgencySignup />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
