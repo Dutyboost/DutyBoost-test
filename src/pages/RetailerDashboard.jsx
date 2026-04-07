@@ -8,7 +8,9 @@ import {
 } from "recharts";
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
+import RetailerStrategyTab from "../components/RetailerStrategyTab";
 import { Button } from "@/components/ui/button";
+import { Compass } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -154,6 +156,7 @@ export default function RetailerDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "strategy", label: "Define your Airport Retail strategy", icon: Compass },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
@@ -173,6 +176,8 @@ export default function RetailerDashboard() {
 
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
+      ) : activeTab === "strategy" ? (
+        <RetailerStrategyTab vouchers={vouchers} />
       ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
