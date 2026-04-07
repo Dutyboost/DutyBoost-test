@@ -62,7 +62,9 @@ export default function RetailerDashboard() {
     setFeedback(fb.filter(f => retailerAirports.includes(f.airport)));
   };
 
-  useEffect(() => { loadData(); }, [user]);
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const handleCreateStore = async (e) => {
     e.preventDefault();
