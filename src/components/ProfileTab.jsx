@@ -99,36 +99,6 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
 
   return (
     <div className="space-y-6 max-w-3xl">
-      {/* Account Info - name & email are read-only built-ins */}
-      <EditableSection
-        title="Account Information"
-        icon={User}
-        fields={[
-          { key: "full_name", label: "Full Name", value: user?.full_name, readonly: true },
-          { key: "email", label: "Email", value: user?.email, readonly: true },
-          { key: "company", label: "Company", value: user?.company },
-          { key: "phone", label: "Phone Number", value: user?.phone },
-        ]}
-        onSave={saveFields}
-      />
-
-      {/* Company Details */}
-      <EditableSection
-        title="Company Details"
-        icon={Building2}
-        fields={[
-          { key: "kvk", label: "KVK Number", value: user?.kvk },
-          { key: "vat", label: "VAT Number", value: user?.vat },
-          { key: "website", label: "Website", value: user?.website },
-          { key: "airport", label: "Airport / Location", value: user?.airport },
-          { key: "address", label: "Street Address", value: user?.address },
-          { key: "postal_city", label: "Postal Code & City", value: user?.postal_city },
-        ]}
-        onSave={saveFields}
-      />
-
-      {/* Credit Card (if available) */}
-      {user?.card_number && (
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -146,7 +116,7 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
               </button>
             )}
           </div>
-          {!cardEditing && (
+          {user?.card_number && !cardEditing && (
             <div className="flex items-center gap-2 text-sm text-blue-700 bg-blue-50 rounded-lg px-3 py-2">
               <CheckCircle2 className="w-4 h-4" />
               Card ending in <span className="font-mono font-medium ml-1">****{user.card_number.slice(-4)}</span>
@@ -176,7 +146,7 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1"><p className="text-xs text-muted-foreground">Cardholder</p><p className="text-sm font-medium">{user?.card_name || "—"}</p></div>
-              <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">****{user.card_number.slice(-4)}</p></div>
+              {user?.card_number && <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">****{user.card_number.slice(-4)}</p></div>}
               <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{user?.card_expiry || "—"}</p></div>
             </div>
           )}
