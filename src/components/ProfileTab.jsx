@@ -66,11 +66,10 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
   const [bankSaving, setBankSaving] = useState(false);
   const [cardForm, setCardForm] = useState({
     card_name: user?.card_name || "",
-    card_number: user?.card_number || "",
-    card_expiry: user?.card_expiry || "",
   });
   const [cardEditing, setCardEditing] = useState(false);
   const [cardSaving, setCardSaving] = useState(false);
+  const [cardData, setCardData] = useState(null);
 
   useEffect(() => {
     setBankForm({
@@ -79,10 +78,25 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
     });
     setCardForm({
       card_name: user?.card_name || "",
-      card_number: user?.card_number || "",
-      card_expiry: user?.card_expiry || "",
     });
+    if (user?.mollie_customer_id) {
+      fetchMollieCard();
+    }
   }, [user]);
+
+  const fetchMollieCard = async () => {
+    try {
+      const res = await base44.functions.invoke('mollieCardManager', {
+        action: 'get_card',
+        mollie_customer_id: user.mollie_customer_id,
+      });
+      if (res.data?.card) {
+        setCardData(res.data.card);
+      }
+    } catch (e) {
+      console.log('Card not found');
+    }
+  };
 
   const saveFields = async (data) => {
     await base44.auth.updateMe(data);
@@ -102,11 +116,16 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
   const handleSaveCard = async (e) => {
     e.preventDefault();
     setCardSaving(true);
-    await base44.auth.updateMe(cardForm);
-    if (onUserUpdate) onUserUpdate({ ...user, ...cardForm });
-    setCardSaving(false);
-    setCardEditing(false);
-    toast.success("Card details saved!");
+    try {
+      await base44.auth.updateMe({
+        card_name: cardForm.card_name,
+      });
+      setCardData(prev => prev ? { ...prev, holder_name: cardForm.card_name } : null);
+      setCardEditing(false);
+      toast.success("Cardholder name saved!");
+    } finally {
+      setCardSaving(false);
+    }
   };
 
   return (
@@ -128,41 +147,34 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
             </button>
           )}
         </div>
-        {user?.card_number && !cardEditing && (
+        {cardData && !cardEditing && (
           <div className="flex items-center gap-2 text-sm text-blue-700 bg-blue-50 rounded-lg px-3 py-2">
             <CheckCircle2 className="w-4 h-4" />
-            Card ending in <span className="font-mono font-medium ml-1">****{user.card_number.slice(-4)}</span>
+            Card ending in <span className="font-mono font-medium ml-1">••••{cardData.last_four}</span>
           </div>
         )}
         {cardEditing ? (
           <form onSubmit={handleSaveCard} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label>Cardholder Name</Label>
-                <Input value={cardForm.card_name} onChange={e => setCardForm(f => ({ ...f, card_name: e.target.value }))} required />
-              </div>
-              <div className="space-y-2">
-                <Label>Card Number</Label>
-                <Input value={cardForm.card_number} onChange={e => setCardForm(f => ({ ...f, card_number: e.target.value }))} required />
-              </div>
-              <div className="space-y-2">
-                <Label>Expiry Date (MM/YY)</Label>
-                <Input value={cardForm.card_expiry} onChange={e => setCardForm(f => ({ ...f, card_expiry: e.target.value }))} placeholder="MM/YY" required />
-              </div>
+            <div className="space-y-2">
+              <Label>Cardholder Name</Label>
+              <Input value={cardForm.card_name} onChange={e => setCardForm(f => ({ ...f, card_name: e.target.value }))} required />
             </div>
+            <p className="text-xs text-muted-foreground">Card details are securely managed by Mollie and cannot be edited here.</p>
             <div className="flex gap-2">
               <Button type="submit" disabled={cardSaving} size="sm" className="gap-1"><Save className="w-3 h-3" /> {cardSaving ? "Saving..." : "Save"}</Button>
               <Button type="button" variant="outline" size="sm" onClick={() => setCardEditing(false)}>Cancel</Button>
             </div>
           </form>
-        ) : (
+        ) : cardData ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">Cardholder</p><p className="text-sm font-medium">{user?.card_name || "—"}</p></div>
-            {user?.card_number && <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">****{user.card_number.slice(-4)}</p></div>}
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{user?.card_expiry || "—"}</p></div>
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">Cardholder</p><p className="text-sm font-medium">{cardForm.card_name || cardData.holder_name}</p></div>
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">••••{cardData.last_four}</p></div>
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{cardData.expiry}</p></div>
           </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">No card on file</p>
         )}
-      </div>
+        </div>
 
       <EditableSection
         title="User Information"
