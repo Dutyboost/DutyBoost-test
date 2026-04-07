@@ -85,7 +85,7 @@ const resources = {
         badge: "Ready to launch?",
         title: "Where Travel Meets Reward — For Everyone.",
         subtitle: "Join DutyBoost and become part of the first intelligent <b>Travel Retail Conversion Layer</b> — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
-        description: "Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.",
+        description: "Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers earn exclusive airport incentives from their bookings, and retailers grow revenue — all through one intelligent platform.",
         button: "Access the Platform",
       },
       footer: {
