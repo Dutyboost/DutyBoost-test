@@ -72,7 +72,6 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
   const [cardEditing, setCardEditing] = useState(false);
   const [cardSaving, setCardSaving] = useState(false);
 
-  // Sync form states when user prop changes
   useEffect(() => {
     setBankForm({
       bank_account_name: user?.bank_account_name || "",
@@ -112,61 +111,59 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
 
   return (
     <div className="space-y-6 max-w-3xl">
-        <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                <CreditCard className="w-5 h-5 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="font-heading font-semibold">Credit Card</h3>
-                <p className="text-sm text-muted-foreground">Payment method on file.</p>
-              </div>
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+              <CreditCard className="w-5 h-5 text-blue-600" />
             </div>
-            {!cardEditing && (
-              <button onClick={() => setCardEditing(true)} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-                <Pencil className="w-3 h-3" /> Edit
-              </button>
-            )}
+            <div>
+              <h3 className="font-heading font-semibold">Credit Card</h3>
+              <p className="text-sm text-muted-foreground">Payment method on file.</p>
+            </div>
           </div>
-          {user?.card_number && !cardEditing && (
-            <div className="flex items-center gap-2 text-sm text-blue-700 bg-blue-50 rounded-lg px-3 py-2">
-              <CheckCircle2 className="w-4 h-4" />
-              Card ending in <span className="font-mono font-medium ml-1">****{user.card_number.slice(-4)}</span>
-            </div>
+          {!cardEditing && (
+            <button onClick={() => setCardEditing(true)} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+              <Pencil className="w-3 h-3" /> Edit
+            </button>
           )}
-          {cardEditing ? (
-            <form onSubmit={handleSaveCard} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label>Cardholder Name</Label>
-                  <Input value={cardForm.card_name} onChange={e => setCardForm(f => ({ ...f, card_name: e.target.value }))} required />
-                </div>
-                <div className="space-y-2">
-                  <Label>Card Number</Label>
-                  <Input value={cardForm.card_number} onChange={e => setCardForm(f => ({ ...f, card_number: e.target.value }))} required />
-                </div>
-                <div className="space-y-2">
-                  <Label>Expiry Date (MM/YY)</Label>
-                  <Input value={cardForm.card_expiry} onChange={e => setCardForm(f => ({ ...f, card_expiry: e.target.value }))} placeholder="MM/YY" required />
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <Button type="submit" disabled={cardSaving} size="sm" className="gap-1"><Save className="w-3 h-3" /> {cardSaving ? "Saving..." : "Save"}</Button>
-                <Button type="button" variant="outline" size="sm" onClick={() => setCardEditing(false)}>Cancel</Button>
-              </div>
-            </form>
-          ) : (
+        </div>
+        {user?.card_number && !cardEditing && (
+          <div className="flex items-center gap-2 text-sm text-blue-700 bg-blue-50 rounded-lg px-3 py-2">
+            <CheckCircle2 className="w-4 h-4" />
+            Card ending in <span className="font-mono font-medium ml-1">****{user.card_number.slice(-4)}</span>
+          </div>
+        )}
+        {cardEditing ? (
+          <form onSubmit={handleSaveCard} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1"><p className="text-xs text-muted-foreground">Cardholder</p><p className="text-sm font-medium">{user?.card_name || "—"}</p></div>
-              {user?.card_number && <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">****{user.card_number.slice(-4)}</p></div>}
-              <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{user?.card_expiry || "—"}</p></div>
+              <div className="space-y-2">
+                <Label>Cardholder Name</Label>
+                <Input value={cardForm.card_name} onChange={e => setCardForm(f => ({ ...f, card_name: e.target.value }))} required />
+              </div>
+              <div className="space-y-2">
+                <Label>Card Number</Label>
+                <Input value={cardForm.card_number} onChange={e => setCardForm(f => ({ ...f, card_number: e.target.value }))} required />
+              </div>
+              <div className="space-y-2">
+                <Label>Expiry Date (MM/YY)</Label>
+                <Input value={cardForm.card_expiry} onChange={e => setCardForm(f => ({ ...f, card_expiry: e.target.value }))} placeholder="MM/YY" required />
+              </div>
             </div>
-          )}
+            <div className="flex gap-2">
+              <Button type="submit" disabled={cardSaving} size="sm" className="gap-1"><Save className="w-3 h-3" /> {cardSaving ? "Saving..." : "Save"}</Button>
+              <Button type="button" variant="outline" size="sm" onClick={() => setCardEditing(false)}>Cancel</Button>
+            </div>
+          </form>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">Cardholder</p><p className="text-sm font-medium">{user?.card_name || "—"}</p></div>
+            {user?.card_number && <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">****{user.card_number.slice(-4)}</p></div>}
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{user?.card_expiry || "—"}</p></div>
           </div>
-          </div>
+        )}
+      </div>
 
-          {/* User Information */}
       <EditableSection
         title="User Information"
         icon={User}
@@ -177,7 +174,6 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
         onSave={saveFields}
       />
 
-      {/* Company Information */}
       <EditableSection
         title="Company Information"
         icon={Building2}
@@ -190,7 +186,6 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
         onSave={saveFields}
       />
 
-      {/* Bank Details */}
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -239,7 +234,6 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
         )}
       </div>
 
-      {/* Payout History */}
       {invoiceComponent && (
         <div>
           <h3 className="font-heading font-semibold text-base mb-3 flex items-center gap-2">
