@@ -177,7 +177,7 @@ export default function RetailerDashboard() {
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
       ) : activeTab === "strategy" ? (
-        <RetailerStrategyTab vouchers={vouchers} />
+        <RetailerStrategyTab vouchers={vouchers} user={user} />
       ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />

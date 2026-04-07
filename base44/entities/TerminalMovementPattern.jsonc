@@ -1,0 +1,69 @@
+{
+  "name": "TerminalMovementPattern",
+  "type": "object",
+  "properties": {
+    "airport": {
+      "type": "string",
+      "title": "Airport Code"
+    },
+    "terminal": {
+      "type": "string",
+      "title": "Terminal/Zone"
+    },
+    "time_window": {
+      "type": "string",
+      "title": "Time Window",
+      "enum": [
+        "6:00-9:00 (Early Morning)",
+        "9:00-12:00 (Morning)",
+        "12:00-15:00 (Midday)",
+        "15:00-18:00 (Afternoon)",
+        "18:00-21:00 (Evening)",
+        "21:00-24:00 (Night)"
+      ]
+    },
+    "season": {
+      "type": "string",
+      "title": "Season/Period",
+      "enum": [
+        "Spring",
+        "Summer",
+        "Fall",
+        "Winter",
+        "Holiday Peak",
+        "Low Season"
+      ]
+    },
+    "traffic_level": {
+      "type": "integer",
+      "title": "Traffic Level (1-10)",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "estimated_travelers": {
+      "type": "integer",
+      "title": "Estimated Travelers per Hour"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Observations & Notes"
+    },
+    "submitted_by_email": {
+      "type": "string",
+      "title": "Submitted By (Email)"
+    },
+    "is_agency": {
+      "type": "boolean",
+      "title": "Submitted by Travel Agency",
+      "default": false
+    }
+  },
+  "required": [
+    "airport",
+    "terminal",
+    "time_window",
+    "season",
+    "traffic_level",
+    "submitted_by_email"
+  ]
+}

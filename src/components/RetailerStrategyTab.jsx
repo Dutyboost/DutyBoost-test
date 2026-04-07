@@ -1,7 +1,9 @@
 import { MapPin, TrendingUp } from "lucide-react";
 import RedemptionHeatmap from "./RedemptionHeatmap";
+import TerminalMovementForm from "./TerminalMovementForm";
+import MovementPatternInsights from "./MovementPatternInsights";
 
-export default function RetailerStrategyTab({ vouchers = [] }) {
+export default function RetailerStrategyTab({ vouchers = [], user }) {
   return (
     <div className="space-y-6">
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
@@ -51,6 +53,20 @@ export default function RetailerStrategyTab({ vouchers = [] }) {
           </div>
         </div>
       </div>
+
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <h2 className="font-heading font-semibold text-lg">Share Your Store Traffic Data</h2>
+        <p className="text-sm text-muted-foreground">Record passenger movement patterns at your terminals to help optimize DutyCredit placement.</p>
+      </div>
+
+      <TerminalMovementForm user={user} />
+
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <h2 className="font-heading font-semibold text-lg">Market Intelligence Dashboard</h2>
+        <p className="text-sm text-muted-foreground">View aggregated traffic patterns across all airports to inform your retail strategy.</p>
+      </div>
+
+      <MovementPatternInsights />
 
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <h3 className="font-semibold">Next Steps</h3>

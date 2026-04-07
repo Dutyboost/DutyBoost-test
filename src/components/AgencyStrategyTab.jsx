@@ -1,8 +1,10 @@
 import { MapPin, TrendingUp, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RedemptionHeatmap from "./RedemptionHeatmap";
+import TerminalMovementForm from "./TerminalMovementForm";
+import MovementPatternInsights from "./MovementPatternInsights";
 
-export default function AgencyStrategyTab({ vouchers = [] }) {
+export default function AgencyStrategyTab({ vouchers = [], user }) {
   return (
     <div className="space-y-6">
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
@@ -46,6 +48,20 @@ export default function AgencyStrategyTab({ vouchers = [] }) {
           </div>
         </div>
       </div>
+
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <h2 className="font-heading font-semibold text-lg">Contribute Movement Intelligence</h2>
+        <p className="text-sm text-muted-foreground">Help us understand traveler flow. Share when and where your travelers move through airports.</p>
+      </div>
+
+      <TerminalMovementForm user={user} />
+
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <h2 className="font-heading font-semibold text-lg">Market Intelligence Dashboard</h2>
+        <p className="text-sm text-muted-foreground">Real-time insights from reported traveler movement patterns across airports.</p>
+      </div>
+
+      <MovementPatternInsights />
 
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <h3 className="font-semibold">Next Steps</h3>

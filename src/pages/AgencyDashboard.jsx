@@ -118,7 +118,7 @@ export default function AgencyDashboard() {
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} user={user} />} />
       ) : activeTab === "strategy" ? (
-        <AgencyStrategyTab vouchers={vouchers} />
+        <AgencyStrategyTab vouchers={vouchers} user={user} />
       ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
