@@ -5,13 +5,12 @@ import { base44 } from "@/api/base44Client";
 
 export default function LoginDialog({ open, onOpenChange }) {
   const handleSignIn = () => {
-    onOpenChange(false);
     base44.auth.redirectToLogin();
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md" onOpenAutoFocus={(e) => e.preventDefault()}>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <LogIn className="w-5 h-5" />
