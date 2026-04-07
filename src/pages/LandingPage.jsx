@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import LoginDialog from "../components/LoginDialog";
 import {
   Zap, BarChart3, QrCode, TrendingUp,
   ShieldCheck, Globe2, ChevronRight, Star, ArrowRight, MapPin, Eye, Menu, X, Ticket
@@ -22,6 +23,7 @@ const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   const stakeholders = [
     {
@@ -100,6 +102,9 @@ export default function LandingPage() {
                 <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
+            <Button size="sm" onClick={() => setLoginOpen(true)} className="gap-1.5">
+              Log In
+            </Button>
           </div>
           {/* Mobile nav toggle */}
           <div className="flex lg:hidden items-center gap-2">
@@ -137,6 +142,9 @@ export default function LandingPage() {
                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
              </Button>
             </Link>
+            <Button size="sm" onClick={() => { setLoginOpen(true); setMobileMenuOpen(false); }} className="w-full gap-1.5">
+              Log In
+            </Button>
           </div>
         )}
       </nav>
@@ -262,6 +270,8 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      <LoginDialog open={loginOpen} onOpenChange={setLoginOpen} />
 
       {/* Footer */}
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
