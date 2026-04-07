@@ -104,6 +104,11 @@ export default function RetailerDashboard() {
     [transactions, startDate, endDate]
   );
 
+  const totalPassengers = useMemo(() =>
+    filteredTransactions.reduce((s, t) => s + (t.number_of_travelers || 0), 0),
+    [filteredTransactions]
+  );
+
   const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.total_volume || 0), 0);
   const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
   const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
@@ -266,8 +271,8 @@ export default function RetailerDashboard() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatsCard title="My Stores" value={retailers.length} icon={Store} />
-        <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
+         <StatsCard title="My Stores" value={retailers.length} icon={Store} />
+         <StatsCard title="Active DutyCredits" value={vouchers.length} icon={TicketPercent} />
         <StatsCard title="Revenue Generated" value={`€${totalRevenue.toFixed(2)}`} icon={CreditCard} />
         <StatsCard title="DutyBoost Fee (5%)" value={`€${dutyBoostFee}`} subtitle={`Avg €${revenuePerDay}/day`} icon={TrendingUp} />
       </div>
