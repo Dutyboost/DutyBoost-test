@@ -152,16 +152,22 @@ export default function AdminPanel() {
     setRejectingId(null);
   };
 
-  const handleDeleteAllApplications = async () => {
-    if (!window.confirm('Are you sure? This will delete all applications.')) return;
+  const handleDeleteSelectedApplications = async () => {
+    if (selectedApps.size === 0) {
+      toast.error('No applications selected');
+      return;
+    }
+    if (!window.confirm(`Delete ${selectedApps.size} application${selectedApps.size !== 1 ? 's' : ''}?`)) return;
     try {
-      const res = await base44.functions.invoke('deleteAllApplications', {});
-      if (res.data?.success) {
-        toast.success(`Deleted ${res.data.deleted} applications`);
-        loadAll();
-      } else {
-        toast.error(res.data?.error || 'Failed to delete applications');
+      const appsToDelete = Array.from(selectedApps);
+      let deleted = 0;
+      for (const appId of appsToDelete) {
+        await base44.entities.SignupApplication.delete(appId);
+        deleted++;
       }
+      toast.success(`Deleted ${deleted} application${deleted !== 1 ? 's' : ''}`);
+      setSelectedApps(new Set());
+      loadAll();
     } catch (error) {
       toast.error('Failed to delete applications');
     }
@@ -290,9 +296,9 @@ export default function AdminPanel() {
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
             </TabsTrigger>
           </TabsList>
-          {applications.length > 0 && (
-            <Button variant="destructive" size="sm" className="h-8 text-xs" onClick={handleDeleteAllApplications}>
-              Delete All Applications
+          {selectedApps.size > 0 && (
+            <Button variant="destructive" size="sm" className="h-8 text-xs" onClick={handleDeleteSelectedApplications}>
+              Delete {selectedApps.size} Selected
             </Button>
           )}
         </div>
@@ -306,7 +312,8 @@ export default function AdminPanel() {
                     <th className="px-4 py-3 text-left font-medium text-muted-foreground">
                       <input
                         type="checkbox"
-                        checked={selectedApps.size > 0 && selectedApps.size === applications.length}
+                        checked={applications.length > 0 && selectedApps.size === applications.length}
+                        indeterminate={selectedApps.size > 0 && selectedApps.size < applications.length}
                         onChange={toggleSelectAll}
                         className="rounded"
                       />
