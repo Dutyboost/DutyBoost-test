@@ -9,7 +9,7 @@ Deno.serve(async (req) => {
       return Response.json({ success: true });
     }
 
-    const postmarkToken = Deno.env.get('POSTMARK_API_KEY');
+    const postmarkToken = Deno.env.get('PostMark');
     if (!postmarkToken) {
       return Response.json({ error: 'Postmark API key not configured' }, { status: 500 });
     }
