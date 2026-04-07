@@ -6,6 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import { ArrowRight } from "lucide-react";
+import PageFooter from "../components/PageFooter";
 
 export default function SelectUserType() {
   const navigate = useNavigate();
@@ -90,6 +91,7 @@ export default function SelectUserType() {
           </div>
         </div>
       </section>
+      <PageFooter />
     </div>
   );
 }

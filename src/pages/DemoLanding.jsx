@@ -3,6 +3,7 @@ import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase } from "lucid
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import TravelerIcon from "../components/TravelerIcon";
 import { useTranslation } from "react-i18next";
+import PageFooter from "../components/PageFooter";
 
 export default function DemoLanding() {
   const { t } = useTranslation();
@@ -63,6 +64,7 @@ export default function DemoLanding() {
 
         <p className="text-xs text-muted-foreground">{t('demo.disclaimer')}</p>
       </div>
+      <PageFooter />
     </div>
   );
 }

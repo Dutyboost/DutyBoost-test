@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import PageFooter from "../components/PageFooter";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -89,6 +90,7 @@ export default function AgencyShowcase() {
           </div>
         </div>
       </section>
+      <PageFooter />
     </div>
   );
 }
