@@ -45,8 +45,8 @@ Deno.serve(async (req) => {
           continue;
         }
 
-        // Create payout via Mollie
-        const payoutRes = await fetch('https://api.mollie.com/v2/payments', {
+        // Create payout via Mollie Payouts API
+        const payoutRes = await fetch('https://api.mollie.com/v2/payouts', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${mollieApiKey}`,
@@ -55,21 +55,24 @@ Deno.serve(async (req) => {
           body: JSON.stringify({
             amount: { currency: 'EUR', value: invoice.amount.toFixed(2) },
             description: `DutyCredit Commission - ${invoice.month_year}`,
-            redirectUrl: 'https://dutyboost.com/agency-portal',
-            method: 'banktransfer',
-            sequenceType: 'recurring',
-            metadata: { invoiceId: invoice.id, agencyEmail: invoice.retailer_email },
+            destination: {
+              type: 'bank-account',
+              beneficiary_name: agencyInfo.name,
+              country: 'NL',
+              iban: agencyInfo.iban,
+            },
+            reference: `DUTY-${invoice.id}`,
           }),
         });
 
         const payout = await payoutRes.json();
 
         if (payoutRes.ok && payout.id) {
-          // Mark invoice as processed
+          // Mark invoice as paid
           await base44.asServiceRole.entities.MonthlyInvoice.update(invoice.id, {
             status: 'paid',
           });
-          results.push({ email: invoice.retailer_email, status: 'success', payoutId: payout.id });
+          results.push({ email: invoice.retailer_email, status: 'success', payoutId: payout.id, amount: invoice.amount });
         } else {
           results.push({ email: invoice.retailer_email, status: 'failed', reason: payout.detail || 'Mollie error' });
         }
