@@ -35,22 +35,20 @@ export default function RetailerDashboard() {
 
   const loadData = async () => {
     const u = await base44.auth.me();
-    const user = u;
     
-    // Fetch SignupApplication to get card/bank info
+    // Try to fetch SignupApplication with card/bank details
     try {
-      const apps = await base44.entities.SignupApplication.filter({ email: user.email });
-      if (apps.length > 0) {
-        const app = apps[0];
-        // Merge all payment-related fields from SignupApplication
-        if (app.card_name) u.card_name = app.card_name;
-        if (app.card_number) u.card_number = app.card_number;
-        if (app.card_expiry) u.card_expiry = app.card_expiry;
-        if (app.bank_account_name) u.bank_account_name = app.bank_account_name;
-        if (app.bank_iban) u.bank_iban = app.bank_iban;
+      const apps = await base44.entities.SignupApplication.list('-created_date', 100);
+      const app = apps.find(a => a.email === u.email);
+      if (app) {
+        u.card_name = app.card_name;
+        u.card_number = app.card_number;
+        u.card_expiry = app.card_expiry;
+        u.bank_account_name = app.bank_account_name;
+        u.bank_iban = app.bank_iban;
       }
-    } catch (err) {
-      console.log('Could not fetch SignupApplication');
+    } catch (e) {
+      console.log('SignupApplication fetch failed');
     }
     
     setUser(u);
