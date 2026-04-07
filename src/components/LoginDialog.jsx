@@ -16,34 +16,26 @@ export default function LoginDialog({ open, onOpenChange }) {
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
+    if (!email.trim()) return;
+    
     setLoading(true);
     try {
-      // Check if user exists and get their profile type
+      // Check if user exists
       const users = await base44.entities.User.list();
-      const userExists = users.find(u => u.email === email);
+      const userExists = users.some(u => u.email.toLowerCase() === email.toLowerCase());
       
       if (userExists) {
-        // Get their signup application to find profile type
-        const apps = await base44.entities.SignupApplication.list();
-        const userApp = apps.find(a => a.email === email);
-        
-        if (userApp) {
-          const type = userApp.business_type === 'Travel Agency' ? 'agency' : userApp.business_type === 'Airport Retailer' ? 'retailer' : 'traveler';
-          setProfileType(type);
-        } else {
-          // Default to traveler if no signup app found
-          setProfileType('traveler');
-        }
         setUserFound(true);
         setStep("type");
+        setLoading(false);
       } else {
-        // Redirect to Get Started
+        // User doesn't exist, redirect to signup
+        setLoading(false);
         window.location.href = "/get-started";
       }
-    } catch (e) {
-      console.error('Login error:', e);
+    } catch (error) {
+      console.error('Error:', error);
       toast.error("Error checking account");
-    } finally {
       setLoading(false);
     }
   };
@@ -96,44 +88,38 @@ export default function LoginDialog({ open, onOpenChange }) {
               Continuing with {email}
             </p>
             
-            {profileType === "traveler" && (
-              <button
-                onClick={() => handleTypeSelect("traveler")}
-                className="w-full p-4 rounded-lg border border-blue-500 bg-blue-50 transition-all text-left space-y-1 group"
-              >
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium">I'm a Traveler</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Access your travel credits and bookings</p>
-              </button>
-            )}
+            <button
+              onClick={() => handleTypeSelect("traveler")}
+              className="w-full p-4 rounded-lg border border-border hover:border-blue-500 hover:bg-blue-50 transition-all text-left space-y-1 group"
+            >
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">I'm a Traveler</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Access your travel credits and bookings</p>
+            </button>
 
-            {profileType === "agency" && (
-              <button
-                onClick={() => handleTypeSelect("agency")}
-                className="w-full p-4 rounded-lg border border-green-500 bg-green-50 transition-all text-left space-y-1 group"
-              >
-                <div className="flex items-center gap-2">
-                  <Plane className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium">I'm a Travel Agency</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Manage bookings and commissions</p>
-              </button>
-            )}
+            <button
+              onClick={() => handleTypeSelect("agency")}
+              className="w-full p-4 rounded-lg border border-border hover:border-green-500 hover:bg-green-50 transition-all text-left space-y-1 group"
+            >
+              <div className="flex items-center gap-2">
+                <Plane className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">I'm a Travel Agency</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Manage bookings and commissions</p>
+            </button>
 
-            {profileType === "retailer" && (
-              <button
-                onClick={() => handleTypeSelect("retailer")}
-                className="w-full p-4 rounded-lg border border-orange-500 bg-orange-50 transition-all text-left space-y-1 group"
-              >
-                <div className="flex items-center gap-2">
-                  <Store className="w-5 h-5 text-orange-600 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium">I'm an Airport Retailer</span>
-                </div>
-                <p className="text-xs text-muted-foreground">View transactions and analytics</p>
-              </button>
-            )}
+            <button
+              onClick={() => handleTypeSelect("retailer")}
+              className="w-full p-4 rounded-lg border border-border hover:border-orange-500 hover:bg-orange-50 transition-all text-left space-y-1 group"
+            >
+              <div className="flex items-center gap-2">
+                <Store className="w-5 h-5 text-orange-600 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">I'm an Airport Retailer</span>
+              </div>
+              <p className="text-xs text-muted-foreground">View transactions and analytics</p>
+            </button>
 
             <Button
               type="button"
