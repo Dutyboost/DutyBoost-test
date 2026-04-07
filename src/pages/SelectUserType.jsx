@@ -13,7 +13,7 @@ export default function SelectUserType() {
 
   const options = [
     {
-      titleKey: 'getStarted.agencies.title',
+      titleKey: 'nav.for_agencies',
       descKey: 'getStarted.agencies.description',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
@@ -22,7 +22,7 @@ export default function SelectUserType() {
       path: "/agency-showcase",
     },
     {
-      titleKey: 'getStarted.travelers.title',
+      titleKey: 'nav.for_travelers',
       descKey: 'getStarted.travelers.description',
       icon: TravelerIcon,
       color: "from-blue-400 to-blue-600",
@@ -31,7 +31,7 @@ export default function SelectUserType() {
       path: "/traveler-showcase",
     },
     {
-      titleKey: 'getStarted.retailers.title',
+      titleKey: 'nav.for_retailers',
       descKey: 'getStarted.retailers.description',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
