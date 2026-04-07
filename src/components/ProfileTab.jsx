@@ -171,6 +171,8 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
             <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">••••{cardData.last_four}</p></div>
             <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{cardData.expiry}</p></div>
           </div>
+        ) : cardForm.card_name ? (
+          <p className="text-sm text-muted-foreground">1 Credit Card on file • {cardForm.card_name}</p>
         ) : (
           <p className="text-sm text-muted-foreground">No card on file</p>
         )}
