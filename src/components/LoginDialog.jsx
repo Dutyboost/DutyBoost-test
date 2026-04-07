@@ -5,6 +5,7 @@ import { base44 } from "@/api/base44Client";
 
 export default function LoginDialog({ open, onOpenChange }) {
   const handleSignIn = () => {
+    onOpenChange(false);
     base44.auth.redirectToLogin();
   };
 
