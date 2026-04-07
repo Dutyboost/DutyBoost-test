@@ -8,7 +8,9 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Sign In",
-        for_travelers: "For Travelers",
+        for_travelers: "For Leisure Travelers",
+        for_agencies: "For Travel Agencies",
+        for_retailers: "For Airport Retailers",
         get_started: "Get Started",
         we_call_you: "We Call You",
         live_demo: "Live Demo",
@@ -298,7 +300,9 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Inloggen",
-        for_travelers: "Voor reizigers",
+        for_travelers: "Voor vrijetijdsreizigers",
+        for_agencies: "Voor reisbureaus",
+        for_retailers: "Voor luchthavenwinkels",
         get_started: "Aan de slag",
         we_call_you: "Wij bellen u",
         live_demo: "Live Demo",
@@ -588,7 +592,9 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Iniciar sesión",
-        for_travelers: "Para viajeros",
+        for_travelers: "Para viajeros de ocio",
+        for_agencies: "Para agencias de viaje",
+        for_retailers: "Para minoristas aeroportuarios",
         get_started: "Empezar",
         we_call_you: "Te llamamos",
         live_demo: "Demo en vivo",
@@ -878,7 +884,9 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Se connecter",
-        for_travelers: "Pour les voyageurs",
+        for_travelers: "Pour les voyageurs loisirs",
+        for_agencies: "Pour les agences de voyage",
+        for_retailers: "Pour les commerces aéroportuaires",
         get_started: "Commencer",
         we_call_you: "On vous rappelle",
         live_demo: "Démo en direct",
@@ -1168,7 +1176,9 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Accedi",
-        for_travelers: "Per i viaggiatori",
+        for_travelers: "Per i viaggiatori leisure",
+        for_agencies: "Per le agenzie di viaggio",
+        for_retailers: "Per i rivenditori aeroportuali",
         get_started: "Inizia",
         we_call_you: "Ti chiamiamo",
         live_demo: "Demo dal vivo",
@@ -1458,7 +1468,9 @@ const resources = {
     translation: {
       nav: {
         sign_in: "Anmelden",
-        for_travelers: "Für Reisende",
+        for_travelers: "Für Freizeitreisende",
+        for_agencies: "Für Reisebüros",
+        for_retailers: "Für Flughafenhändler",
         get_started: "Loslegen",
         we_call_you: "Wir rufen Sie an",
         live_demo: "Live-Demo",
@@ -1746,7 +1758,7 @@ const resources = {
   },
   zh: {
     translation: {
-      nav: { sign_in: "登录", get_started: "立即开始", we_call_you: "我们致电您", live_demo: "现场演示" },
+      nav: { sign_in: "登录", for_travelers: "休闲旅行者", for_agencies: "旅行社", for_retailers: "机场零售商", get_started: "立即开始", we_call_you: "我们致电您", live_demo: "现场演示" },
       hero: {
         badge: "全球首个动态机场激励平台",
         title_1: "将每一次旅行预订转化为",
@@ -1772,7 +1784,7 @@ const resources = {
   },
   ko: {
     translation: {
-      nav: { sign_in: "로그인", get_started: "시작하기", we_call_you: "전화 드립니다", live_demo: "라이브 데모" },
+      nav: { sign_in: "로그인", for_travelers: "레저 여행자", for_agencies: "여행사", for_retailers: "공항 소매상", get_started: "시작하기", we_call_you: "전화 드립니다", live_demo: "라이브 데모" },
       hero: { badge: "세계 최초 동적 공항 인센티브 플랫폼", title_1: "모든 여행 예약을", title_2: "공항에서의 수익으로 전환", subtitle: "DutyBoost의 <b>여행 소매 전환 레이어</b>를 통해 모든 여행 예약에 <b>숨겨진</b> 수익 흐름을 열어보세요.", launch: "플랫폼 시작", how_it_works: "작동 방식 보기" },
       ecosystem: { badge: "생태계", title: "하나의 플랫폼, 세 명의 승자", subtitle: "DutyBoost는 공항 소매 여정의 모든 이해관계자에 걸쳐 인센티브를 조정합니다." },
       stakeholders: { travelers: { title: "여행자", description: "출발 공항의 독점 할인을 즐기세요.", b1: "즉시 모바일 DutyCredit", b2: "단일 매장 전액 할인", b3: "완벽한 QR 경험", map_link: "공항 소매 지도 →" }, retailers: { title: "공항 소매상", description: "지나가는 여행자를 구매 고객으로 전환하세요.", b1: "높은 장바구니 전환율", b2: "실시간 QR 사용", b3: "수익 분배 추적" }, agencies: { title: "여행사", description: "모든 예약을 충성도 자산으로 전환하세요.", b1: "여행자 만족도 향상", b2: "통합 마찰 제로", b3: "반복 예약 증가" } },
@@ -1788,7 +1800,7 @@ const resources = {
   },
   ja: {
     translation: {
-      nav: { sign_in: "ログイン", get_started: "始める", we_call_you: "折り返しお電話します", live_demo: "ライブデモ" },
+      nav: { sign_in: "ログイン", for_travelers: "レジャー旅行者", for_agencies: "旅行代理店", for_retailers: "空港小売業者", get_started: "始める", we_call_you: "折り返しお電話します", live_demo: "ライブデモ" },
       hero: { badge: "世界初のダイナミック空港インセンティブプラットフォーム", title_1: "すべての旅行予約を", title_2: "空港での収益に変える", subtitle: "DutyBoostの<b>トラベルリテールコンバージョンレイヤー</b>で、すべての旅行予約に<b>隠された</b>収益ストリームを解放しましょう。", launch: "プラットフォームを起動", how_it_works: "仕組みを見る" },
       ecosystem: { badge: "エコシステム", title: "一つのプラットフォーム、三者の勝利", subtitle: "DutyBoostは空港小売の旅程に関わるすべてのステークホルダーのインセンティブを調整します。" },
       stakeholders: { travelers: { title: "旅行者", description: "出発空港での限定割引をお楽しみください。", b1: "即時モバイルDutyCredit", b2: "1店舗で全額割引", b3: "シームレスなQR体験", map_link: "空港小売マップを見る →" }, retailers: { title: "空港小売業者", description: "通過する旅行者を購買顧客に変えましょう。", b1: "カート転換率の向上", b2: "リアルタイムQR引き換え", b3: "収益分配のトラッキング" }, agencies: { title: "旅行代理店", description: "すべての予約をロイヤルティ資産に変えましょう。", b1: "旅行者満足度の向上", b2: "ゼロ統合摩擦", b3: "リピート予約の増加" } },
