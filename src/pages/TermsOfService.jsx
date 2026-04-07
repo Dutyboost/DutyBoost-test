@@ -136,7 +136,7 @@ export default function TermsOfService() {
   const c = content[i18n.language] || content.en;
   return (
     <div className="min-h-screen bg-background font-body">
-      <nav className="border-b border-border px-6 h-16 flex items-center justify-between"><Link to="/"><DutyBoostLogo height={150} /></Link><button onClick={() => window.history.back()} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.back}</button></nav>
+      <nav className="border-b border-border px-6 h-16 flex items-center justify-between"><Link to="/"><DutyBoostLogo height={150} /></Link><button onClick={() => window.history.back()} className="text-sm text-muted-foreground hover:text-primary transition-colors">← Back</button></nav>
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">
         <div><h1 className="text-4xl font-heading font-bold mb-2">{c.title}</h1><p className="text-muted-foreground text-sm">{c.updated}</p></div>
         {c.intro && <p className="text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-4 bg-card rounded-r-xl py-3 pr-4">{c.intro}</p>}
