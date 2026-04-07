@@ -124,8 +124,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const navigateToLogin = () => {
-    // Redirect to login, then to home after auth
-    base44.auth.redirectToLogin('/');
+    // Redirect to login, then to auth redirect page which routes based on role
+    base44.auth.redirectToLogin('/auth-redirect');
   };
 
   return (
