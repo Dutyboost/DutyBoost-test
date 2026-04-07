@@ -20,7 +20,7 @@ export default function LoginDialog({ open, onOpenChange }) {
           <Button 
             onClick={() => {
               onOpenChange(false);
-              base44.auth.redirectToLogin();
+              base44.auth.redirectToLogin(window.location.href);
             }} 
             className="w-full"
           >
