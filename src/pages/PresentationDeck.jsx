@@ -142,8 +142,8 @@ function ProblemSlide() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mt-8">
           {[
             { icon: Building2, title: "Agencies / Airlines", text: "Send travelers to airports but earn nothing from what happens there." },
-            { icon: Store, title: "Retailers", text: "Have thousands of travelers walk by but struggle to convert them." },
-            { icon: Users, title: "Travelers", text: "Get generic ads instead of personalized, relevant incentives." },
+            { icon: Store, title: "Airport Retailers", text: "Have thousands of travelers walk by but struggle to convert them." },
+            { icon: Users, title: "Leisure Travelers", text: "Get generic ads instead of personalized, relevant incentives." },
           ].map(({ icon: Icon, title, text }) => (
             <div key={title} className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-3">
               <Icon className="w-6 h-6 text-slate-400" />
