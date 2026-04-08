@@ -134,7 +134,7 @@ function ProblemSlide() {
   return (
     <SlideWrapper dark>
       <div className="max-w-3xl w-full space-y-8 text-center">
-        <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">The Problem</p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">The Challenge</p>
         <h2 className="text-3xl sm:text-5xl font-heading font-bold leading-tight">
           €14B in airport retail revenue. 100M+ tickets booked per year.<br />
           <span className="text-slate-400">Almost none of it is coordinated.</span>
