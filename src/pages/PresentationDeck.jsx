@@ -326,7 +326,7 @@ function ThankyouSlide() {
         </div>
         <p className="text-sm font-semibold uppercase tracking-widest text-white/80">The Journey Begins</p>
         <h2 className="text-4xl sm:text-5xl font-heading font-bold leading-tight">
-          Thank you for choosing DutyBoost
+          Thank you for conversaton with DutyBoost
         </h2>
         <p className="text-xl text-white/90 max-w-xl mx-auto leading-relaxed">
           <span className="font-semibold">"From Booking to Loyalty, We Connect Them All"</span>
