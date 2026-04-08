@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { exportToPptx } from "../utils/exportToPptx";
-import { ChevronLeft, ChevronRight, Download, Plane, Store, Building2, Users, TrendingUp, Gift, BarChart3, Zap, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Plane, Store, Building2, Users, TrendingUp, Gift, BarChart3, Zap, CheckCircle2, RefreshCw } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const SLIDES = [
@@ -90,10 +90,19 @@ const SLIDES = [
   },
 ];
 
+function SlideWatermark() {
+  return (
+    <div className="absolute bottom-3 right-4 opacity-40 pointer-events-none">
+      <DutyBoostLogo height={48} />
+    </div>
+  );
+}
+
 function SlideWrapper({ children, dark = false }) {
   return (
-    <div className={`w-full h-full flex flex-col items-center justify-center px-8 sm:px-16 py-12 ${dark ? "bg-slate-900 text-white" : "bg-white text-slate-900"}`}>
+    <div className={`relative w-full h-full flex flex-col items-center justify-center px-8 sm:px-16 py-12 ${dark ? "bg-slate-900 text-white" : "bg-white text-slate-900"}`}>
       {children}
+      <SlideWatermark />
     </div>
   );
 }
@@ -159,35 +168,40 @@ function ProblemSlide() {
 
 function SolutionSlide() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white px-8 sm:px-16 py-12">
-      <div className="max-w-3xl w-full space-y-6 text-center">
+    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white px-8 sm:px-16 py-12">
+      <div className="max-w-3xl w-full space-y-4 text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-blue-200">The Solution</p>
-        <h2 className="text-3xl sm:text-5xl font-heading font-bold leading-tight">
-          DutyBoost connects the dots.
-        </h2>
-        <p className="text-blue-100 text-lg max-w-xl mx-auto">
+        <h2 className="text-3xl sm:text-5xl font-heading font-bold leading-tight">DutyBoost connects the dots.</h2>
+        <p className="text-blue-100 text-base max-w-xl mx-auto">
           A closed-loop incentive engine that turns booking data into targeted, redeemable vouchers — creating value for every player in the ecosystem.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 flex-wrap">
-          {[
-            { label: "Agency / Airline books trip", color: "bg-white/20" },
-            { arrow: true },
-            { label: "Traveler gets DutyCredit", color: "bg-white/20" },
-            { arrow: true },
-            { label: "Redeemed at Airport Retailer", color: "bg-white/20" },
-            { arrow: true },
-            { label: "Everyone earns", color: "bg-orange-400/80" },
-          ].map((item, i) =>
-            item.arrow ? (
-              <ArrowRight key={i} className="w-5 h-5 text-blue-200 hidden sm:block" />
-            ) : (
-              <div key={i} className={`${item.color} rounded-xl px-4 py-2.5 text-sm font-semibold text-white`}>
-                {item.label}
-              </div>
-            )
-          )}
+        {/* Circular flow */}
+        <div className="relative mx-auto mt-2" style={{ width: 340, height: 230 }}>
+          {/* Faint circle */}
+          <div className="absolute rounded-full border-2 border-white/20" style={{ top: 15, left: 15, right: 15, bottom: 15 }} />
+          {/* Center */}
+          <div className="absolute flex items-center justify-center" style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
+            <div className="bg-orange-400 rounded-2xl px-4 py-2 text-sm font-bold text-white shadow-lg whitespace-nowrap">🏆 Everyone earns</div>
+          </div>
+          {/* Top */}
+          <div className="absolute flex justify-center" style={{ top: 0, left: 0, right: 0 }}>
+            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white whitespace-nowrap">Agency / Airline books trip</div>
+          </div>
+          {/* Right */}
+          <div className="absolute flex items-center" style={{ top: "50%", right: 0, transform: "translateY(-50%)" }}>
+            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white text-center">Traveler gets<br />DutyCredit</div>
+          </div>
+          {/* Bottom */}
+          <div className="absolute flex justify-center" style={{ bottom: 0, left: 0, right: 0 }}>
+            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white whitespace-nowrap">Redeemed at Airport Retailer</div>
+          </div>
+          {/* Left */}
+          <div className="absolute flex items-center" style={{ top: "50%", left: 0, transform: "translateY(-50%)" }}>
+            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white text-center">Travelers<br />book again ↩</div>
+          </div>
         </div>
       </div>
+      <SlideWatermark />
     </div>
   );
 }
@@ -228,7 +242,7 @@ function StakeholderSlide({ slide }) {
 
 function TravelerSlide() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-600 text-white px-8 sm:px-16 py-12">
+    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-600 text-white px-8 sm:px-16 py-12">
       <div className="max-w-3xl w-full space-y-6 text-center">
         <div className="flex justify-center">
           <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
@@ -253,6 +267,7 @@ function TravelerSlide() {
           ))}
         </div>
       </div>
+      <SlideWatermark />
     </div>
   );
 }
@@ -293,10 +308,13 @@ function CtaSlide() {
     <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-orange-50 text-slate-900 px-8 sm:px-16 py-12 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative text-center space-y-6 max-w-2xl">
+      <div className="relative text-center space-y-4 max-w-2xl">
         <div className="flex justify-center">
           <DutyBoostLogo height={150} />
         </div>
+        <p className="text-xl sm:text-2xl font-heading font-bold tracking-wide bg-gradient-to-r from-blue-500 to-orange-400 bg-clip-text text-transparent">
+          The Travel Retail Conversion Layer
+        </p>
         <h2 className="text-3xl sm:text-5xl font-heading font-bold text-slate-900">Ready to boost?</h2>
         <p className="text-slate-600 text-lg leading-relaxed">
           Whether you're a travel agency, airline company, or airport retailer — DutyBoost is built for you. Let's talk.
@@ -306,8 +324,8 @@ function CtaSlide() {
             Visit DutyBoost.com
           </a>
         </div>
-        <p className="text-slate-400 text-xs pt-4">© {new Date().getFullYear()} DutyBoost · The Travel Retail Conversion Layer</p>
       </div>
+      <p className="absolute bottom-4 left-6 text-slate-400 text-xs">© {new Date().getFullYear()} DutyBoost</p>
     </div>
   );
 }
