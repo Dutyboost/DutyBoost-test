@@ -32,6 +32,7 @@ export default function RetailerSignup() {
   const [cvv, setCvv] = useState("");
   const [bankAccountName, setBankAccountName] = useState("");
   const [bankIban, setBankIban] = useState("");
+  const [invoiceEmail, setInvoiceEmail] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -89,6 +90,9 @@ export default function RetailerSignup() {
     if (paymentMethod === "monthly_invoice") {
       return bankAccountName.trim() && bankIban.trim();
     }
+    if (paymentMethod === "self_pay_invoice") {
+      return invoiceEmail.trim();
+    }
     return true;
   };
 
@@ -126,6 +130,8 @@ export default function RetailerSignup() {
       } else if (paymentMethod === "monthly_invoice") {
         updateData.bank_account_name = bankAccountName;
         updateData.bank_iban = bankIban;
+      } else if (paymentMethod === "self_pay_invoice") {
+        updateData.bank_account_name = invoiceEmail; // store invoice email in bank_account_name field
       }
       await base44.entities.SignupApplication.update(applicationId, updateData);
       setStep(2);
@@ -334,6 +340,8 @@ export default function RetailerSignup() {
                 onBankAccountNameChange={setBankAccountName}
                 bankIban={bankIban}
                 onBankIbanChange={setBankIban}
+                invoiceEmail={invoiceEmail}
+                onInvoiceEmailChange={setInvoiceEmail}
               />
 
               <div className="flex gap-3">
@@ -394,13 +402,15 @@ export default function RetailerSignup() {
                   { label: "Email", value: email },
                   { label: "Store", value: company },
                   { label: "Type", value: "Airport Retailer" },
-                  { label: "Payment Method", value: paymentMethod === "creditcard" ? "CREDIT CARD" : "MONTHLY INVOICE" },
+                  { label: "Payment Method", value: paymentMethod === "creditcard" ? "CREDIT CARD" : paymentMethod === "monthly_invoice" ? "MONTHLY INVOICE (SEPA)" : "MONTHLY INVOICE — SELF PAY" },
                   ...(paymentMethod === "creditcard" ? [
                     { label: "Cardholder", value: cardName },
                     { label: "Card Number", value: `****-****-****-${cardNumber.slice(-4)}` },
                   ] : paymentMethod === "monthly_invoice" ? [
-                    { label: "Account Holder", value: bankAccountName },
-                    { label: "IBAN", value: bankIban },
+                   { label: "Account Holder", value: bankAccountName },
+                   { label: "IBAN", value: bankIban },
+                  ] : paymentMethod === "self_pay_invoice" ? [
+                   { label: "Invoice Email", value: invoiceEmail },
                   ] : []),
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
