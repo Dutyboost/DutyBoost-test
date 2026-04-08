@@ -104,7 +104,9 @@ function CoverSlide() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="relative text-center space-y-6 max-w-3xl">
         <div className="flex justify-center">
-          <DutyBoostLogo height={120} />
+          <div className="bg-white rounded-2xl px-6 py-3">
+            <DutyBoostLogo height={80} />
+          </div>
         </div>
         <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-orange-400 mx-auto" />
         <h1 className="text-3xl sm:text-5xl font-heading font-bold leading-tight">
@@ -294,7 +296,9 @@ function CtaSlide() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="relative text-center space-y-6 max-w-2xl">
         <div className="flex justify-center">
-          <DutyBoostLogo height={100} />
+          <div className="bg-white rounded-2xl px-6 py-3">
+            <DutyBoostLogo height={70} />
+          </div>
         </div>
         <h2 className="text-3xl sm:text-5xl font-heading font-bold">Ready to boost?</h2>
         <p className="text-slate-300 text-lg leading-relaxed">
