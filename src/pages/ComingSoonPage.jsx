@@ -16,7 +16,7 @@ export default function ComingSoonPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center">
-          <DutyBoostLogo height={150} />
+          <DutyBoostLogo height={175} />
         </div>
       </nav>
 
