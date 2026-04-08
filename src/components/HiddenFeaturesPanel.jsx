@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Trophy, Smartphone } from "lucide-react";
+import { EyeOff, Briefcase, Trophy, Smartphone, Hotel } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -51,6 +51,23 @@ const HIDDEN_FEATURES = [
     files: [
       "components/TravelerStatusTiers.jsx",
     ],
+  },
+  {
+    id: "hotels",
+    icon: Hotel,
+    title: "DutyBoost for Hotels",
+    status: "hidden",
+    reason: "Future product line — pending business model definition",
+    description: "Extend the DutyBoost Travel Retail Conversion Layer to hotel partners. Guests checking in or out of partner hotels receive DutyBoost vouchers redeemable at airport retailers before departure. Hotels earn a referral commission; retailers gain incremental footfall from hotel guests. Includes hotel partner onboarding, guest voucher delivery, and dashboard analytics.",
+    pages: [],
+    howToRestore: [
+      "Design and create pages/HotelPartnerOnboarding.jsx for hotel signup flow.",
+      "Create pages/HotelDashboard.jsx for hotel analytics and voucher issuance management.",
+      "Add hotel partner entity and commission model to backend.",
+      "Add a 'For Hotels' showcase page and link it from the LandingPage nav.",
+      "Register routes in App.jsx and expose public paths.",
+    ],
+    files: [],
   },
   {
     id: "traveler-app",
