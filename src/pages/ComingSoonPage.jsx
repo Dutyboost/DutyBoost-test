@@ -1,6 +1,16 @@
+import { useState } from "react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import WeCallYouForm from "../components/WeCallYouForm";
+import { CheckCircle2 } from "lucide-react";
 
 export default function ComingSoonPage() {
+  const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSuccess = () => {
+    setSubmitted(true);
+  };
   return (
     <div className="min-h-screen bg-background font-body flex flex-col">
       {/* Nav */}
@@ -35,14 +45,37 @@ export default function ComingSoonPage() {
               Are you a travel agency or airport retailer interested in partnering with us? We'd love to hear from you.
             </p>
             <p className="text-sm font-medium">
-              Reach out at{" "}
-              <a href="mailto:hello@dutyboost.com" className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
-                hello@dutyboost.com
-              </a>
+              Reach out via{" "}
+              <button onClick={() => { setOpen(true); setSubmitted(false); }} className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
+                our contact form
+              </button>
             </p>
           </div>
         </div>
       </section>
+
+      {/* Contact Modal */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+          {submitted ? (
+            <div className="flex flex-col items-center text-center py-8 space-y-4">
+              <CheckCircle2 className="w-14 h-14 text-green-500" />
+              <h2 className="text-2xl font-heading font-bold">Thank you!</h2>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                We've received your details and will be in touch with you soon.
+              </p>
+            </div>
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle>Get in touch</DialogTitle>
+              </DialogHeader>
+              <p className="text-sm text-muted-foreground">Leave your details and we'll reach out to discuss how DutyBoost can work for you.</p>
+              <WeCallYouForm onSuccess={handleSuccess} />
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Footer */}
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
