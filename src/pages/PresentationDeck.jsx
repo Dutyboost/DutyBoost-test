@@ -319,7 +319,9 @@ function CtaSlide() {
 
 function ThankyouSlide() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-orange-400 to-orange-500 text-white px-8 sm:px-16 py-12">
+    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-orange-300 via-orange-400 to-orange-600 text-white px-8 sm:px-16 py-12">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full blur-3xl pointer-events-none" />
       <div className="relative max-w-3xl w-full space-y-6 text-center">
         <div className="flex justify-center">
           <DutyBoostLogo height={140} />
