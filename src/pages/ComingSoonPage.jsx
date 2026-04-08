@@ -1,5 +1,4 @@
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import FooterLinks from "../components/FooterLinks";
 
 export default function ComingSoonPage() {
   return (
@@ -47,15 +46,14 @@ export default function ComingSoonPage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto space-y-4">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 pointer-events-none select-none">
               <DutyBoostLogo height={150} />
               <span>The Travel Retail Conversion Layer</span>
             </div>
-            <p>© {new Date().getFullYear()} DutyBoost B.V. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} DutyBoost. All rights reserved.</p>
           </div>
-          <FooterLinks />
         </div>
       </footer>
     </div>
