@@ -27,6 +27,12 @@ export default function PaymentMethodSelector({
       description: "SEPA Direct Debit with 14-day payment terms",
       icon: "🏦",
     },
+    {
+      id: "self_pay_invoice",
+      label: "Monthly Invoice — Self Pay",
+      description: "Receive a monthly invoice and pay yourself within 14 days",
+      icon: "📄",
+    },
   ];
 
   return (
@@ -151,6 +157,15 @@ export default function PaymentMethodSelector({
               />
             </div>
           </div>
+        </div>
+      )}
+
+      {value === "self_pay_invoice" && (
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+          <p className="text-sm text-green-900 font-semibold mb-1">📄 Monthly Invoice — 14-Day Payment Terms</p>
+          <p className="text-sm text-green-800 leading-relaxed">
+            At the end of each month, you will receive an invoice by email. You have <strong>14 days</strong> to pay it via your preferred method — bank transfer, card, or any other means. No automatic deductions.
+          </p>
         </div>
       )}
     </div>
