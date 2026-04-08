@@ -99,30 +99,28 @@ function SlideWrapper({ children, dark = false }) {
 
 function CoverSlide() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white px-8 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-orange-50 text-slate-900 px-8 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
       <div className="relative text-center space-y-6 max-w-3xl">
         <div className="flex justify-center">
-          <div className="bg-white rounded-2xl px-6 py-3">
-            <DutyBoostLogo height={80} />
-          </div>
+          <DutyBoostLogo height={100} />
         </div>
         <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-orange-400 mx-auto" />
         <h1 className="text-3xl sm:text-5xl font-heading font-bold leading-tight">
           The Travel Retail<br />
           <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Conversion Layer</span>
         </h1>
-        <p className="text-slate-300 text-lg sm:text-xl max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-lg sm:text-xl max-w-xl mx-auto leading-relaxed">
           A platform where travel agencies, airlines, airport retailers, and travelers all win.
         </p>
         <div className="flex items-center justify-center gap-6 pt-4 flex-wrap">
           {[{ icon: Building2, label: "Travel Agencies" }, { icon: Plane, label: "Airlines" }, { icon: Store, label: "Retailers" }, { icon: Users, label: "Travelers" }].map(({ icon: Icon, label }) => (
             <div key={label} className="flex flex-col items-center gap-1.5">
-              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-                <Icon className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center">
+                <Icon className="w-5 h-5 text-slate-700" />
               </div>
-              <span className="text-xs text-slate-400">{label}</span>
+              <span className="text-xs text-slate-500">{label}</span>
             </div>
           ))}
         </div>
@@ -291,25 +289,23 @@ function ModelSlide() {
 
 function CtaSlide() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white px-8 sm:px-16 py-12 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="relative text-center space-y-6 max-w-2xl">
+    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-orange-50 text-slate-900 px-8 sm:px-16 py-12 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative text-center space-y-6 max-w-2xl">
         <div className="flex justify-center">
-          <div className="bg-white rounded-2xl px-6 py-3">
-            <DutyBoostLogo height={70} />
-          </div>
+          <DutyBoostLogo height={90} />
         </div>
-        <h2 className="text-3xl sm:text-5xl font-heading font-bold">Ready to boost?</h2>
-        <p className="text-slate-300 text-lg leading-relaxed">
+        <h2 className="text-3xl sm:text-5xl font-heading font-bold text-slate-900">Ready to boost?</h2>
+        <p className="text-slate-600 text-lg leading-relaxed">
           Whether you're a travel agency, airline, or airport retailer — DutyBoost is built for you. Let's talk.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-          <a href="/" className="bg-white text-slate-900 font-semibold px-6 py-3 rounded-xl hover:bg-slate-100 transition-colors text-sm">
+          <a href="/" className="bg-slate-900 text-white font-semibold px-6 py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm">
             Visit DutyBoost.com
           </a>
         </div>
-        <p className="text-slate-500 text-xs pt-4">© {new Date().getFullYear()} DutyBoost · The Travel Retail Conversion Layer</p>
+        <p className="text-slate-400 text-xs pt-4">© {new Date().getFullYear()} DutyBoost · The Travel Retail Conversion Layer</p>
       </div>
     </div>
   );
