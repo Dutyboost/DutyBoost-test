@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Plane, Store, Building2, Users, TrendingUp, Gift, BarChart3, Zap, ArrowRight, CheckCircle2 } from "lucide-react";
+import { exportToPptx } from "../utils/exportToPptx";
+import { ChevronLeft, ChevronRight, Download, Plane, Store, Building2, Users, TrendingUp, Gift, BarChart3, Zap, ArrowRight, CheckCircle2 } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const SLIDES = [
@@ -326,9 +327,16 @@ function renderSlide(slide) {
 
 export default function PresentationDeck() {
   const [current, setCurrent] = useState(0);
+  const [exporting, setExporting] = useState(false);
 
   const prev = () => setCurrent(i => Math.max(0, i - 1));
   const next = () => setCurrent(i => Math.min(SLIDES.length - 1, i + 1));
+
+  const handleExport = async () => {
+    setExporting(true);
+    await exportToPptx();
+    setExporting(false);
+  };
 
   const handleKey = (e) => {
     if (e.key === "ArrowRight" || e.key === "ArrowDown") next();
@@ -372,6 +380,15 @@ export default function PresentationDeck() {
       </div>
 
       <p className="text-slate-600 text-xs mt-3">{current + 1} / {SLIDES.length} · Use arrow keys to navigate</p>
+
+      <button
+        onClick={handleExport}
+        disabled={exporting}
+        className="mt-4 flex items-center gap-2 bg-white/10 hover:bg-white/20 disabled:opacity-50 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors border border-white/20"
+      >
+        <Download className="w-4 h-4" />
+        {exporting ? "Exporting..." : "Export to PowerPoint"}
+      </button>
     </div>
   );
 }
