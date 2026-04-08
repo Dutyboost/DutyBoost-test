@@ -36,7 +36,7 @@ export default function ComingSoonPage() {
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We're putting the finishing touches on <strong>DutyBoost</strong> — the Travel Retail Conversion Layer connecting travel agencies, airport retailers, and leisure travelers like never before. Agencies earn commissions, retailers gain high-intent footfall, and travelers unlock exclusive airport rewards. <strong>Everyone wins.</strong>
+            We're putting the finishing touches on <strong>DutyBoost</strong> — the Travel Retail Conversion Layer connecting travel agencies, airport retailers, and leisure travelers like never before. <strong>🎉 Everybody wins!</strong>
           </p>
 
           <div className="bg-card border border-border rounded-2xl p-8 shadow-sm max-w-md mx-auto space-y-3">
