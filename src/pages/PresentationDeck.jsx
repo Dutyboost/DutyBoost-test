@@ -319,17 +319,16 @@ function CtaSlide() {
 
 function ThankyouSlide() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-orange-50 text-slate-900 px-8 sm:px-16 py-12">
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent pointer-events-none" />
+    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-orange-400 to-orange-500 text-white px-8 sm:px-16 py-12">
       <div className="relative max-w-3xl w-full space-y-6 text-center">
         <div className="flex justify-center">
           <DutyBoostLogo height={140} />
         </div>
-        <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">The Journey Begins</p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-white/80">The Journey Begins</p>
         <h2 className="text-4xl sm:text-5xl font-heading font-bold leading-tight">
           Thank you for choosing DutyBoost
         </h2>
-        <p className="text-xl text-blue-100 max-w-xl mx-auto leading-relaxed">
+        <p className="text-xl text-white/90 max-w-xl mx-auto leading-relaxed">
           <span className="font-semibold">"From Booking to Loyalty, We Connect Them All"</span>
           <br />
           <br />
