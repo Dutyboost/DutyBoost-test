@@ -40,7 +40,11 @@ Deno.serve(async (req) => {
     });
 
     const result = await response.json();
-    return Response.json({ success: true, emailId: result.id });
+    if (!response.ok) {
+      console.error('Postmark error:', JSON.stringify(result));
+      return Response.json({ error: 'Postmark failed', details: result }, { status: 500 });
+    }
+    return Response.json({ success: true, emailId: result.MessageID });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
