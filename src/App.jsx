@@ -51,6 +51,7 @@ import TravelerPortal from './pages/TravelerPortal';
 import DemoTravelerPortal from './pages/DemoTravelerPortal';
 
 import AgencyPortal from './pages/AgencyPortal';
+import ComingSoonPage from './pages/ComingSoonPage';
 import AgencySignup from './pages/AgencySignup';
 import RetailerPortal from './pages/RetailerPortal';
 import RetailerSignup from './pages/RetailerSignup';
@@ -79,7 +80,8 @@ const AuthenticatedApp = () => {
           <>
             <ScrollRestoration />
             <Routes>
-              <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<ComingSoonPage />} />
+              <Route path="/landing" element={<LandingPage />} />
               <Route path="/get-started" element={<SelectUserType />} />
               <Route path="/voucher" element={<TravelerVoucher />} />
               <Route path="/scan" element={<TravelerScan />} />
@@ -114,7 +116,8 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<ComingSoonPage />} />
+        <Route path="/landing" element={<LandingPage />} />
         <Route path="/voucher" element={<TravelerVoucher />} />
         <Route path="/scan" element={<TravelerScan />} />
         <Route path="/airport-map" element={<AirportMap />} />
