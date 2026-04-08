@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { base44 } from "@/api/base44Client";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { ChevronDown } from "lucide-react";
@@ -22,6 +23,16 @@ const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [authedUser, setAuthedUser] = useState(null);
+
+  useEffect(() => {
+    base44.auth.isAuthenticated().then(async (authed) => {
+      if (authed) {
+        const me = await base44.auth.me();
+        setAuthedUser(me);
+      }
+    });
+  }, []);
 
   const stakeholders = [
     {
@@ -72,27 +83,13 @@ export default function LandingPage() {
           <DutyBoostLogo height={150} />
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-2">
-            <LanguageSwitcher />
-            <Link to="/agency-showcase">
-              <Button size="sm" variant="outline" className="text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                {t('nav.for_agencies')}
-              </Button>
-            </Link>
-            <Link to="/traveler-showcase">
-              <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_travelers')}
-              </Button>
-            </Link>
-            <Link to="/retailer-showcase">
-              <Button size="sm" variant="outline" className="text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                {t('nav.for_retailers')}
-              </Button>
-            </Link>
-            <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                {t('nav.we_call_you')}
-              </Button>
-            )} />
+            {authedUser && (
+              <Link to="/dashboard">
+                <Button size="sm" className="gap-1.5">
+                  Go to Dashboard →
+                </Button>
+              </Link>
+            )}
             <Link to="/demo">
               <Button variant="outline" size="sm" className="gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
                 <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
@@ -101,7 +98,11 @@ export default function LandingPage() {
           </div>
           {/* Mobile nav toggle */}
           <div className="flex lg:hidden items-center gap-2">
-            <LanguageSwitcher />
+            {authedUser && (
+              <Link to="/dashboard">
+                <Button size="sm" className="gap-1.5">Dashboard →</Button>
+              </Link>
+            )}
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
