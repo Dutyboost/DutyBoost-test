@@ -39,16 +39,6 @@ export default function ComingSoonPage() {
             We're putting the finishing touches on <strong>DutyBoost</strong> — the Travel Retail Conversion Layer connecting travel agencies, airport retailers, and leisure travelers like never before. 🎉 <strong>A model where everybody wins!</strong>
           </p>
 
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-sm max-w-md mx-auto space-y-3">
-            <p className="font-heading font-semibold text-lg text-foreground">Want to be the first to know?</p>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Are you a travel agency/ airline or airport retailer interested in partnering with us to boost your overall conversions and customer loyalty? Then reach out via{" "}
-              <button onClick={() => { setOpen(true); setSubmitted(false); }} className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
-                our contact form
-              </button>
-              {" "}and we will get in touch with you.
-            </p>
-          </div>
         </div>
       </section>
 
