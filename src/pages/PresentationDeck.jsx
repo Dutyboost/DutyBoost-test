@@ -136,12 +136,12 @@ function ProblemSlide() {
       <div className="max-w-3xl w-full space-y-8 text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">The Problem</p>
         <h2 className="text-3xl sm:text-5xl font-heading font-bold leading-tight">
-          €14B in airport retail revenue.<br />
+          €14B in airport retail revenue. 100M+ tickets booked per year.<br />
           <span className="text-slate-400">Almost none of it is coordinated.</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mt-8">
           {[
-            { icon: Building2, title: "Agencies", text: "Send travelers to airports but earn nothing from what happens there." },
+            { icon: Building2, title: "Agencies / Airlines", text: "Send travelers to airports but earn nothing from what happens there." },
             { icon: Store, title: "Retailers", text: "Have thousands of travelers walk by but struggle to convert them." },
             { icon: Users, title: "Travelers", text: "Get generic ads instead of personalized, relevant incentives." },
           ].map(({ icon: Icon, title, text }) => (
@@ -170,11 +170,11 @@ function SolutionSlide() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 flex-wrap">
           {[
-            { label: "Agency books trip", color: "bg-white/20" },
+            { label: "Agency / Airline books trip", color: "bg-white/20" },
             { arrow: true },
             { label: "Traveler gets DutyCredit", color: "bg-white/20" },
             { arrow: true },
-            { label: "Redeemed at retailer", color: "bg-white/20" },
+            { label: "Redeemed at Airport Retailer", color: "bg-white/20" },
             { arrow: true },
             { label: "Everyone earns", color: "bg-orange-400/80" },
           ].map((item, i) =>
@@ -243,7 +243,7 @@ function TravelerSlide() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mt-4">
           {[
             { title: "Personalised", text: "Vouchers matched to their travel profile, departure airport, and timing." },
-            { title: "Effortless", text: "One QR code at checkout. No app required. No loyalty card to carry." },
+            { title: "Effortless", text: "One QR code at checkout. No app required. No loyalty card needed — just the mobile you already have." },
             { title: "Real value", text: "Genuine discounts at stores they were already walking past." },
           ].map(({ title, text }) => (
             <div key={title} className="bg-white/10 border border-white/20 rounded-2xl p-4 space-y-2">
@@ -268,10 +268,10 @@ function ModelSlide() {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
           {[
-            { icon: Building2, label: "Travel Agency", earn: "Commission per redemption", color: "text-blue-600", bg: "bg-blue-50", border: "border-blue-200" },
-            { icon: Plane, label: "Airline", earn: "Loyalty uplift + ancillary share", color: "text-sky-600", bg: "bg-sky-50", border: "border-sky-200" },
-            { icon: Store, label: "Retailer", earn: "Incremental footfall & sales", color: "text-orange-600", bg: "bg-orange-50", border: "border-orange-200" },
-            { icon: Users, label: "Traveler", earn: "Real discounts at departure", color: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200" },
+            { icon: Building2, label: "Travel Agencies", earn: "Commission per redemption", color: "text-blue-600", bg: "bg-blue-50", border: "border-blue-200" },
+            { icon: Plane, label: "Airline Companies", earn: "Loyalty uplift + ancillary share", color: "text-sky-600", bg: "bg-sky-50", border: "border-sky-200" },
+            { icon: Store, label: "Airport Retailers", earn: "Incremental footfall & sales", color: "text-orange-600", bg: "bg-orange-50", border: "border-orange-200" },
+            { icon: Users, label: "Leisure Travelers", earn: "Real discounts at departure", color: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200" },
           ].map(({ icon: Icon, label, earn, color, bg, border }) => (
             <div key={label} className={`${bg} ${border} border rounded-2xl p-4 space-y-2 text-left`}>
               <Icon className={`w-5 h-5 ${color}`} />
@@ -299,7 +299,7 @@ function CtaSlide() {
         </div>
         <h2 className="text-3xl sm:text-5xl font-heading font-bold text-slate-900">Ready to boost?</h2>
         <p className="text-slate-600 text-lg leading-relaxed">
-          Whether you're a travel agency, airline, or airport retailer — DutyBoost is built for you. Let's talk.
+          Whether you're a travel agency, airline company, or airport retailer — DutyBoost is built for you. Let's talk.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
           <a href="/" className="bg-slate-900 text-white font-semibold px-6 py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm">
