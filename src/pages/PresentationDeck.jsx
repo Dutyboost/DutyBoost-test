@@ -116,7 +116,7 @@ function CoverSlide() {
           A platform where travel agencies, airlines, airport retailers, and travelers all win.
         </p>
         <div className="flex items-center justify-center gap-6 pt-4 flex-wrap">
-          {[{ icon: Building2, label: "Travel Agencies" }, { icon: Plane, label: "Airlines" }, { icon: Store, label: "Retailers" }, { icon: Users, label: "Travelers" }].map(({ icon: Icon, label }) => (
+          {[{ icon: Building2, label: "Travel Agencies" }, { icon: Plane, label: "Airline Companies" }, { icon: Store, label: "Airport Retailers" }, { icon: Users, label: "Leisure Travelers" }].map(({ icon: Icon, label }) => (
             <div key={label} className="flex flex-col items-center gap-1.5">
               <div className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center">
                 <Icon className="w-5 h-5 text-slate-700" />
