@@ -88,6 +88,10 @@ const SLIDES = [
     id: "cta",
     type: "cta",
   },
+  {
+    id: "thankyou",
+    type: "thankyou",
+  },
 ];
 
 function SlideWrapper({ children, dark = false }) {
@@ -313,6 +317,37 @@ function CtaSlide() {
   );
 }
 
+function ThankyouSlide() {
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white px-8 sm:px-16 py-12">
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent pointer-events-none" />
+      <div className="relative max-w-3xl w-full space-y-6 text-center">
+        <div className="flex justify-center">
+          <DutyBoostLogo height={140} />
+        </div>
+        <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">The Journey Begins</p>
+        <h2 className="text-4xl sm:text-5xl font-heading font-bold leading-tight">
+          Thank you for choosing DutyBoost
+        </h2>
+        <p className="text-xl text-blue-100 max-w-xl mx-auto leading-relaxed">
+          <span className="font-semibold">"From Booking to Loyalty, We Connect Them All"</span>
+          <br />
+          <br />
+          Let's transform how travelers shop at airports. Together.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+          <a href="/" className="bg-white text-slate-900 font-semibold px-8 py-3 rounded-xl hover:bg-blue-50 transition-colors">
+            Back Home
+          </a>
+          <a href="mailto:hello@dutyboost.com" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-xl hover:bg-white/10 transition-colors">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function renderSlide(slide) {
   switch (slide.type) {
     case "cover": return <CoverSlide />;
@@ -322,6 +357,7 @@ function renderSlide(slide) {
     case "traveler": return <TravelerSlide />;
     case "model": return <ModelSlide />;
     case "cta": return <CtaSlide />;
+    case "thankyou": return <ThankyouSlide />;
     default: return null;
   }
 }
