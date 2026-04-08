@@ -90,19 +90,10 @@ const SLIDES = [
   },
 ];
 
-function SlideWatermark() {
-  return (
-    <div className="absolute bottom-3 right-4 opacity-40 pointer-events-none">
-      <DutyBoostLogo height={48} />
-    </div>
-  );
-}
-
 function SlideWrapper({ children, dark = false }) {
   return (
     <div className={`relative w-full h-full flex flex-col items-center justify-center px-8 sm:px-16 py-12 ${dark ? "bg-slate-900 text-white" : "bg-white text-slate-900"}`}>
       {children}
-      <SlideWatermark />
     </div>
   );
 }
@@ -195,7 +186,6 @@ function SolutionSlide() {
           )}
         </div>
       </div>
-      <SlideWatermark />
     </div>
   );
 }
@@ -261,7 +251,6 @@ function TravelerSlide() {
           ))}
         </div>
       </div>
-      <SlideWatermark />
     </div>
   );
 }
