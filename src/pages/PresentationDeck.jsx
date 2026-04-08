@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { exportToPptx } from "../utils/exportToPptx";
-import { ChevronLeft, ChevronRight, Download, Plane, Store, Building2, Users, TrendingUp, Gift, BarChart3, Zap, CheckCircle2, RefreshCw } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Plane, Store, Building2, Users, TrendingUp, Gift, BarChart3, Zap, CheckCircle2, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const SLIDES = [
@@ -175,30 +175,24 @@ function SolutionSlide() {
         <p className="text-blue-100 text-base max-w-xl mx-auto">
           A closed-loop incentive engine that turns booking data into targeted, redeemable vouchers — creating value for every player in the ecosystem.
         </p>
-        {/* Circular flow */}
-        <div className="relative mx-auto mt-2" style={{ width: 340, height: 230 }}>
-          {/* Faint circle */}
-          <div className="absolute rounded-full border-2 border-white/20" style={{ top: 15, left: 15, right: 15, bottom: 15 }} />
-          {/* Center */}
-          <div className="absolute flex items-center justify-center" style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
-            <div className="bg-orange-400 rounded-2xl px-4 py-2 text-sm font-bold text-white shadow-lg whitespace-nowrap">🏆 Everyone earns</div>
-          </div>
-          {/* Top */}
-          <div className="absolute flex justify-center" style={{ top: 0, left: 0, right: 0 }}>
-            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white whitespace-nowrap">Agency / Airline books trip</div>
-          </div>
-          {/* Right */}
-          <div className="absolute flex items-center" style={{ top: "50%", right: 0, transform: "translateY(-50%)" }}>
-            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white text-center">Traveler gets<br />DutyCredit</div>
-          </div>
-          {/* Bottom */}
-          <div className="absolute flex justify-center" style={{ bottom: 0, left: 0, right: 0 }}>
-            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white whitespace-nowrap">Redeemed at Airport Retailer</div>
-          </div>
-          {/* Left */}
-          <div className="absolute flex items-center" style={{ top: "50%", left: 0, transform: "translateY(-50%)" }}>
-            <div className="bg-white/20 rounded-xl px-3 py-1.5 text-xs font-semibold text-white text-center">Travelers<br />book again ↩</div>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 flex-wrap">
+          {[
+            { label: "Agency / Airline books trip", color: "bg-white/20" },
+            { arrow: true },
+            { label: "Traveler gets DutyCredit", color: "bg-white/20" },
+            { arrow: true },
+            { label: "Redeemed at Airport Retailer", color: "bg-white/20" },
+            { arrow: true },
+            { label: "Everyone earns", color: "bg-orange-400/80" },
+          ].map((item, i) =>
+            item.arrow ? (
+              <ArrowRight key={i} className="w-5 h-5 text-blue-200 hidden sm:block" />
+            ) : (
+              <div key={i} className={`${item.color} rounded-xl px-4 py-2.5 text-sm font-semibold text-white`}>
+                {item.label}
+              </div>
+            )
+          )}
         </div>
       </div>
       <SlideWatermark />
