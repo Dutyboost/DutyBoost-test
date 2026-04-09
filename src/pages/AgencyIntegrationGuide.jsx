@@ -26,6 +26,8 @@ const exampleResponse = `{
   "discount_percentage": 16,
   "expiration_date": "2024-06-16",
   "duty_credit_url": "https://yourapp.com/voucher?code=DB-X7K2M4NP",
+  "qr_image_url": "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=...",
+  "html_snippet": "<!-- DutyBoost DutyCredit Block — paste inside your confirmation email template -->...",
   "message": "DutyCredit generated and sent to john.doe@email.com"
 }`;
 
@@ -239,6 +241,51 @@ export default function AgencyIntegrationGuide() {
           </div>
         </div>
 
+        {/* Email Embed Section */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-heading font-semibold">Embed the DutyCredit in Your Confirmation Email</h2>
+          <p className="text-sm text-muted-foreground">
+            The API response includes a ready-made <code className="bg-muted px-1 py-0.5 rounded text-xs">html_snippet</code> field — a self-contained HTML block you can paste directly into your booking confirmation email template. It contains the QR code image, discount details, voucher code, and a link button.
+          </p>
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 space-y-1">
+            <p className="font-semibold">How to use it</p>
+            <ol className="list-decimal list-inside space-y-1 text-sm leading-relaxed">
+              <li>Call the DutyBoost API after a booking is confirmed (see snippet above).</li>
+              <li>Read the <code className="bg-amber-100 px-1 rounded font-mono text-xs">html_snippet</code> field from the JSON response.</li>
+              <li>Inject it into your email template — right below your booking summary block.</li>
+              <li>Send your confirmation email as usual. The DutyCredit block renders in all major email clients.</li>
+            </ol>
+          </div>
+          <div className="bg-slate-900 rounded-xl overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-2 border-b border-white/10">
+              <span className="text-xs text-slate-400 font-mono">Server-side example (Node.js)</span>
+            </div>
+            <pre className="p-5 text-slate-100 text-xs overflow-x-auto leading-relaxed">{`const dutyRes = await fetch('https://YOUR_APP_DOMAIN/api/generateDutyCredit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ ...bookingData })
+});
+const duty = await dutyRes.json();
+
+// Inject into your email HTML
+const confirmationEmailHtml = \`
+  <h2>Your booking is confirmed!</h2>
+  ... your booking details ...
+
+  \${duty.html_snippet}   <!-- DutyCredit block goes here -->
+
+  <p>Safe travels!</p>
+\`;`}</pre>
+          </div>
+          <div className="bg-card border border-border rounded-xl p-4 flex items-start gap-3">
+            <QrCode className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+            <div>
+              <p className="text-sm font-medium">QR image hosted by DutyBoost</p>
+              <p className="text-sm text-muted-foreground">The <code className="bg-muted px-1 py-0.5 rounded text-xs">qr_image_url</code> field gives you a standalone QR image URL you can also use independently in custom email designs.</p>
+            </div>
+          </div>
+        </div>
+
         {/* What the traveler receives */}
         <div className="space-y-3">
           <h2 className="text-xl font-heading font-semibold">What the traveler receives</h2>
@@ -246,15 +293,22 @@ export default function AgencyIntegrationGuide() {
             <div className="flex items-start gap-3">
               <Mail className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="text-sm font-medium">Co-branded email</p>
-                <p className="text-sm text-muted-foreground">A beautifully formatted email from your agency name and DutyBoost, containing the discount percentage, travel details, and a prominent CTA button.</p>
+                <p className="text-sm font-medium">DutyCredit block embedded in your confirmation email</p>
+                <p className="text-sm text-muted-foreground">Using the <code className="bg-muted px-1 py-0.5 rounded text-xs">html_snippet</code>, the QR code and explanation appear right inside your own booking confirmation — no separate email needed.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <Mail className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <div>
+                <p className="text-sm font-medium">Separate co-branded DutyBoost email <span className="text-xs text-muted-foreground">(always sent)</span></p>
+                <p className="text-sm text-muted-foreground">A beautifully formatted email from your agency name × DutyBoost is also sent automatically — a great fallback and reminder.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <QrCode className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <div>
                 <p className="text-sm font-medium">Personal QR code page</p>
-                <p className="text-sm text-muted-foreground">Clicking the email CTA opens a mobile-optimised page showing the unique QR code, valid stores, and expiry — ready to present at the retailer's till.</p>
+                <p className="text-sm text-muted-foreground">Tapping the link opens a mobile-optimised page with the QR code, valid stores, and expiry — ready to present at the retailer's till.</p>
               </div>
             </div>
           </div>

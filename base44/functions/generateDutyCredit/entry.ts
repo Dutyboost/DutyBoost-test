@@ -241,6 +241,25 @@ Deno.serve(async (req) => {
     discount_percentage: discountPercentage,
     expiration_date: expirationDate,
     duty_credit_url: dutyCreditUrl,
+    qr_image_url: qrImageUrl,
+    html_snippet: `<!-- DutyBoost DutyCredit Block — paste inside your confirmation email template -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;">
+  <tr>
+    <td style="background:#f0eeff;border-radius:14px;padding:28px 24px;text-align:center;border:1px solid #ddd6fe;">
+      <p style="margin:0 0 4px;color:#5b4fcf;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">&#x2726; Your DutyCredit — Exclusive Airport Perk</p>
+      <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;max-width:400px;display:inline-block;">
+        As part of your booking, you've earned a <strong>${discountPercentage}% DutyCredit</strong> redeemable at participating shops at <strong>${departure_airport}</strong> on your day of departure. Just scan the QR code below at the till.
+      </p>
+      <div style="margin:0 0 16px;">
+        <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="160" height="160" style="display:block;margin:0 auto;border-radius:8px;border:1px solid #e5e7eb;" />
+      </div>
+      <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Voucher code: <strong style="font-family:monospace;letter-spacing:2px;">${voucherCode}</strong></p>
+      <p style="margin:0 0 16px;color:#9ca3af;font-size:11px;">Valid until ${formattedExpiry} &bull; Single-use &bull; Non-transferable</p>
+      <a href="${dutyCreditUrl}" style="display:inline-block;background:#5b4fcf;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:11px 28px;border-radius:8px;">View My DutyCredit &rarr;</a>
+    </td>
+  </tr>
+</table>
+<!-- End DutyBoost Block -->`,
     message: `DutyCredit generated and sent to ${traveler_email}`,
   });
 });
