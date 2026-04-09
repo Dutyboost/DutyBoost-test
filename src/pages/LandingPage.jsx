@@ -108,6 +108,15 @@ export default function LandingPage() {
                 <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
+            {authedUser ? (
+              <Link to="/dashboard">
+                <Button size="sm" className="gap-1.5">
+                  Dashboard
+                </Button>
+              </Link>
+            ) : (
+              <Button size="sm" className="gap-1.5" onClick={() => base44.auth.redirectToLogin()}>Sign In</Button>
+            )}
           </div>
           {/* Mobile nav toggle */}
           <div className="flex lg:hidden items-center gap-2">
