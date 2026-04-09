@@ -16,7 +16,12 @@ export default function ScanVoucher() {
   const [loading, setLoading] = useState(false);
   const [redeemed, setRedeemed] = useState(false);
   const [manualCode, setManualCode] = useState("");
-  const [form, setForm] = useState({ retailer_id: "", transaction_value: "" });
+  const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
+
+  const calcEffectiveDiscount = (baseDiscount, numItems) => {
+    const n = Math.max(1, parseInt(numItems) || 1);
+    return Math.max(5, Math.min(25, baseDiscount / n));
+  };
 
   useEffect(() => {
     base44.entities.Retailer.list().then(setRetailers);
@@ -42,7 +47,8 @@ export default function ScanVoucher() {
 
     const retailer = retailers.find((r) => r.id === form.retailer_id);
     const txnValue = parseFloat(form.transaction_value);
-    const discountAmount = (txnValue * voucher.discount_percentage) / 100;
+    const effectiveDiscount = calcEffectiveDiscount(voucher.discount_percentage, form.num_items);
+    const discountAmount = (txnValue * effectiveDiscount) / 100;
     const platformRevenue = txnValue * 0.05;
 
     await base44.entities.Transaction.create({
@@ -50,7 +56,7 @@ export default function ScanVoucher() {
       retailer_id: form.retailer_id,
       store_name: retailer?.store_name || "Unknown",
       transaction_value: txnValue,
-      discount_applied: voucher.discount_percentage,
+      discount_applied: effectiveDiscount,
       discount_amount: discountAmount,
       platform_revenue: platformRevenue,
       airport: voucher.airport,
@@ -59,7 +65,7 @@ export default function ScanVoucher() {
 
     setLoading(false);
     setRedeemed(true);
-    toast.success(`Travel Yield redeemed! Discount: €${discountAmount.toFixed(2)}`);
+    toast.success(`Travel Yield redeemed! ${effectiveDiscount.toFixed(1)}% discount applied — €${discountAmount.toFixed(2)} saved`);
   };
 
   const reset = () => {
@@ -175,6 +181,24 @@ export default function ScanVoucher() {
                 </Select>
               </div>
               <div className="space-y-2">
+                <Label>Number of Items</Label>
+                <Input
+                  type="number"
+                  min="1"
+                  step="1"
+                  placeholder="e.g. 3"
+                  value={form.num_items}
+                  onChange={(e) => setForm({ ...form, num_items: e.target.value })}
+                  required
+                />
+                {voucher && form.num_items && (
+                  <p className="text-xs text-muted-foreground">
+                    Effective discount per item split: <span className="font-semibold text-primary">{calcEffectiveDiscount(voucher.discount_percentage, form.num_items).toFixed(1)}%</span>
+                    <span className="ml-1 text-muted-foreground">(base {voucher.discount_percentage}% ÷ {form.num_items} item{parseInt(form.num_items) !== 1 ? 's' : ''}, capped 5–25%)</span>
+                  </p>
+                )}
+              </div>
+              <div className="space-y-2">
                 <Label>Transaction Value (EUR)</Label>
                 <Input
                   type="number"
@@ -188,8 +212,9 @@ export default function ScanVoucher() {
                 {form.transaction_value && (
                   <p className="text-sm text-muted-foreground">
                     Traveler saves: <span className="font-semibold text-green-600">
-                      €{((parseFloat(form.transaction_value) * voucher.discount_percentage) / 100).toFixed(2)}
+                      €{((parseFloat(form.transaction_value) * calcEffectiveDiscount(voucher.discount_percentage, form.num_items)) / 100).toFixed(2)}
                     </span>
+                    {` (${calcEffectiveDiscount(voucher.discount_percentage, form.num_items).toFixed(1)}% effective rate)`}
                   </p>
                 )}
               </div>
