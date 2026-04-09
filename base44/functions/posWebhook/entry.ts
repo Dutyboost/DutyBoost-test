@@ -1,0 +1,103 @@
+/**
+ * posWebhook — Real POS Integration Endpoint
+ *
+ * Called automatically by a retailer's POS system when a traveler presents a QR code.
+ * The POS sends the voucher code + basket data. This function validates, calculates,
+ * logs the transaction, marks the voucher redeemed, and returns the result — all automatically.
+ *
+ * POST /posWebhook
+ * Body: { voucher_code, transaction_value, num_items, retailer_id, store_name, airport, pos_secret }
+ */
+
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+
+const PLATFORM_FEE_PCT = 0.05;
+const AGENCY_COMMISSION_PCT = 0.01;
+
+function calcEffectiveDiscount(baseDiscount, numItems) {
+  const n = Math.max(1, parseInt(numItems) || 1);
+  return Math.max(5, Math.min(25, baseDiscount / n));
+}
+
+Deno.serve(async (req) => {
+  try {
+    // Validate POS shared secret (retailers get this during onboarding)
+    const posSecret = req.headers.get('X-POS-Secret') || (await req.clone().json().catch(() => ({}))).pos_secret;
+    const expectedSecret = Deno.env.get('POS_WEBHOOK_SECRET');
+    if (expectedSecret && posSecret !== expectedSecret) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const body = await req.json();
+    const { voucher_code, transaction_value, num_items, retailer_id, store_name, airport } = body;
+
+    if (!voucher_code || !transaction_value || !retailer_id) {
+      return Response.json({ error: 'Missing required fields: voucher_code, transaction_value, retailer_id' }, { status: 400 });
+    }
+
+    const base44 = createClientFromRequest(req);
+
+    // 1. Validate voucher
+    const vouchers = await base44.asServiceRole.entities.Voucher.filter({ voucher_code: voucher_code.trim().toUpperCase() });
+    if (vouchers.length === 0) {
+      return Response.json({ error: 'Voucher not found', voucher_code }, { status: 404 });
+    }
+
+    const voucher = vouchers[0];
+    if (voucher.status !== 'active') {
+      return Response.json({ error: `Voucher is ${voucher.status}`, voucher_code }, { status: 409 });
+    }
+
+    // Check expiry
+    if (voucher.expiration_date && new Date(voucher.expiration_date) < new Date()) {
+      await base44.asServiceRole.entities.Voucher.update(voucher.id, { status: 'expired' });
+      return Response.json({ error: 'Voucher has expired', voucher_code }, { status: 409 });
+    }
+
+    // 2. Calculate financials
+    const txnValue = parseFloat(transaction_value);
+    const numItemsInt = Math.max(1, parseInt(num_items) || 1);
+    const effectiveDiscount = calcEffectiveDiscount(voucher.discount_percentage, numItemsInt);
+    const discountAmount = parseFloat((txnValue * effectiveDiscount / 100).toFixed(2));
+    const platformRevenue = parseFloat((txnValue * PLATFORM_FEE_PCT).toFixed(2));
+    const agencyCommission = parseFloat((txnValue * AGENCY_COMMISSION_PCT).toFixed(2));
+    const amountDue = parseFloat((txnValue - discountAmount).toFixed(2));
+
+    // 3. Log transaction
+    const transaction = await base44.asServiceRole.entities.Transaction.create({
+      voucher_code: voucher.voucher_code,
+      retailer_id,
+      store_name: store_name || 'POS Terminal',
+      transaction_value: txnValue,
+      num_items: numItemsInt,
+      base_discount: voucher.discount_percentage,
+      discount_applied: effectiveDiscount,
+      discount_amount: discountAmount,
+      platform_revenue: platformRevenue,
+      agency_commission: agencyCommission,
+      agency_email: voucher.agency_email || null,
+      airport: airport || voucher.airport,
+    });
+
+    // 4. Mark voucher redeemed
+    await base44.asServiceRole.entities.Voucher.update(voucher.id, { status: 'redeemed' });
+
+    // 5. Return full breakdown to POS so it can print receipt
+    return Response.json({
+      success: true,
+      transaction_id: transaction.id,
+      voucher_code,
+      gross_value: txnValue,
+      effective_discount_pct: effectiveDiscount,
+      discount_amount: discountAmount,
+      amount_due: amountDue,
+      platform_fee: platformRevenue,
+      agency_commission: agencyCommission,
+      message: `DutyCredit applied. Traveler saves €${discountAmount.toFixed(2)}.`,
+    });
+
+  } catch (error) {
+    console.error('posWebhook error:', error.message);
+    return Response.json({ error: error.message }, { status: 500 });
+  }
+});

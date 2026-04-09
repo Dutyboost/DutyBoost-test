@@ -154,8 +154,8 @@ function AccountSlide() {
         <p className="text-slate-500 text-center text-base max-w-xl mx-auto">Sign up in minutes. No legal complexity. No technical barriers.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
           {[
-            { icon: UserPlus, step: "1", title: "Apply online", desc: "Go to dutyboost.com/retailer-signup. Fill in your store name, airport location, category, and business details (KVK, VAT). Takes under 5 minutes.", color: "bg-orange-500" },
-            { icon: Shield, step: "2", title: "Account review", desc: "Our team verifies your store details and activates your account — typically within 1 business day.", color: "bg-amber-600" },
+            { icon: UserPlus, step: "1", title: "Apply online", desc: "Go to dutyboost.com/retailer-signup. Fill in your store name, airport location, KVK, VAT, and bank details. Takes under 5 minutes.", color: "bg-orange-500" },
+            { icon: Zap, step: "2", title: "Instant auto-approval", desc: "Complete applications are approved automatically in seconds. No waiting for human review. A welcome email and login link are sent immediately.", color: "bg-amber-600" },
             { icon: Receipt, step: "3", title: "Purchase Order sent", desc: "You receive a signed digital Purchase Order confirming the 5% performance fee model and all service terms.", color: "bg-rose-500" },
             { icon: Settings, step: "4", title: "Dashboard access", desc: "Log in to your Retailer Dashboard. View live transactions, revenue stats, monthly invoices, and traveler insights.", color: "bg-red-600" },
           ].map(({ icon: Icon, step, title, desc, color }) => (
@@ -471,7 +471,7 @@ function CtaSlide() {
           {[
             { v: "5%", l: "fee only on redemptions" },
             { v: "0€", l: "upfront or monthly cost" },
-            { v: "24h", l: "account activation" },
+            { v: "Auto", l: "instant account activation" },
           ].map(({ v, l }) => (
             <div key={l} className="bg-white/10 border border-white/20 rounded-2xl p-3 text-center">
               <p className="text-2xl font-bold">{v}</p>

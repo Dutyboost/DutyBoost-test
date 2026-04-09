@@ -3,12 +3,7 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
-
-    // Admin-only function
-    if (user?.role !== 'admin') {
-      return Response.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
-    }
+    // Runs as scheduled automation — no user auth required
 
     // Get all confirmed redemptions from the previous month
     const now = new Date();
@@ -23,16 +18,15 @@ Deno.serve(async (req) => {
       return txDate >= startOfMonth && txDate <= endOfMonth;
     });
 
-    // Group by agency email and calculate commission
+    // Group by agency_email and calculate commission (1% of transaction value)
     const agencyCommissions = {};
     lastMonthTransactions.forEach(tx => {
-      // Assuming SignupApplication links bookings to agencies
-      if (!agencyCommissions[tx.voucher_code]) {
-        agencyCommissions[tx.voucher_code] = { amount: 0, count: 0 };
+      if (!tx.agency_email) return;
+      if (!agencyCommissions[tx.agency_email]) {
+        agencyCommissions[tx.agency_email] = { amount: 0, count: 0 };
       }
-      // 20% of 5% platform fee = 1% of transaction value
-      agencyCommissions[tx.voucher_code].amount += tx.transaction_value * 0.01;
-      agencyCommissions[tx.voucher_code].count += 1;
+      agencyCommissions[tx.agency_email].amount += tx.transaction_value * 0.01;
+      agencyCommissions[tx.agency_email].count += 1;
     });
 
     // Get all approved agencies
@@ -47,7 +41,7 @@ Deno.serve(async (req) => {
 
     // Create monthly invoices (commission statements)
     const invoices = agencies
-      .filter(a => a.email && a.email in agencyCommissions)
+      .filter(a => a.email && agencyCommissions[a.email])
       .map(a => ({
         retailer_email: a.email, // Reusing field for agency email
         retailer_name: a.company,

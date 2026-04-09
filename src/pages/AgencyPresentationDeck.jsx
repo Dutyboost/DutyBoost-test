@@ -174,10 +174,10 @@ function AccountSlide() {
         <p className="text-slate-500 text-center text-base max-w-xl mx-auto">Sign up in minutes. No technical knowledge required to get started.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
           {[
-            { icon: UserPlus, step: "1", title: "Apply online", desc: "Go to dutyboost.com/agency-signup. Fill in your agency name, KVK, VAT, and booking system. Takes under 5 minutes.", color: "bg-blue-600" },
-            { icon: Shield, step: "2", title: "Account review", desc: "Our team verifies your details and approves your application — typically within 1 business day.", color: "bg-indigo-600" },
-            { icon: Send, step: "3", title: "Welcome email", desc: "You receive login credentials and a Purchase Order with full service terms and commission structure.", color: "bg-violet-600" },
-            { icon: Settings, step: "4", title: "Dashboard access", desc: "Log in to your Agency Dashboard. View your vouchers, bookings, analytics, and commission reports.", color: "bg-purple-600" },
+            { icon: UserPlus, step: "1", title: "Apply online", desc: "Go to dutyboost.com/agency-signup. Fill in your agency name, KVK, VAT, IBAN, and booking system. Takes under 5 minutes.", color: "bg-blue-600" },
+            { icon: Zap, step: "2", title: "Instant auto-approval", desc: "If your application is complete, the platform approves it automatically in seconds. No waiting. A welcome email is sent immediately.", color: "bg-indigo-600" },
+            { icon: Send, step: "3", title: "Login link & Purchase Order", desc: "You receive a login invitation and a Purchase Order confirming the 1% commission model and all service terms.", color: "bg-violet-600" },
+            { icon: Settings, step: "4", title: "Dashboard access", desc: "Log in to your Agency Dashboard. View your vouchers, bookings, analytics, and real-time commission reports.", color: "bg-purple-600" },
           ].map(({ icon: Icon, step, title, desc, color }) => (
             <div key={step} className="flex gap-4 bg-slate-50 border border-slate-200 rounded-2xl p-5">
               <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center shrink-0`}>
@@ -494,7 +494,7 @@ function CtaSlide() {
           {[
             { v: "1%", l: "Commission per redemption" },
             { v: "0€", l: "Upfront or monthly cost" },
-            { v: "24h", l: "Account approval time" },
+            { v: "Auto", l: "Instant account approval" },
           ].map(({ v, l }) => (
             <div key={l} className="bg-white/10 border border-white/20 rounded-2xl p-3 text-center">
               <p className="text-2xl font-bold">{v}</p>

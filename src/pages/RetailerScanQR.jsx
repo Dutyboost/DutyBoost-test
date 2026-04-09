@@ -21,12 +21,19 @@ export default function RetailerScanQR() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
+  // POS systems can pre-fill basket data via URL params:
+  // ?value=200.00&items=3
+  // This simulates what happens automatically when a POS integration calls the scan page.
+  const urlParams = new URLSearchParams(window.location.search);
+  const posValue = urlParams.get('value') || '';
+  const posItems = urlParams.get('items') || '1';
+
   const [scanning, setScanning] = useState(false);
   const [voucher, setVoucher] = useState(null);
   const [retailers, setRetailers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [redeemed, setRedeemed] = useState(null); // holds final transaction summary
-  const [form, setForm] = useState({ retailer_id: "", num_items: "1", transaction_value: "" });
+  const [redeemed, setRedeemed] = useState(null);
+  const [form, setForm] = useState({ retailer_id: "", num_items: posItems, transaction_value: posValue });
 
   // Load this retailer's stores
   useEffect(() => {
@@ -160,8 +167,14 @@ export default function RetailerScanQR() {
 
   // ── Redemption form (after scan) ────────────────────────────────────
   if (voucher) {
+    const isPosAutoFilled = !!posValue;
     return (
       <div className="max-w-md mx-auto p-4 space-y-4">
+        {isPosAutoFilled && (
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 flex items-center gap-2 text-xs text-blue-700">
+            <span className="font-bold">🔗 POS Connected:</span> Basket value pre-filled automatically from your POS system.
+          </div>
+        )}
         {/* Voucher status badge */}
         <div className={`rounded-xl border p-4 ${voucher.status === "active" ? "bg-green-50 border-green-200" : "bg-red-50 border-red-200"}`}>
           <div className="flex items-center gap-3">
