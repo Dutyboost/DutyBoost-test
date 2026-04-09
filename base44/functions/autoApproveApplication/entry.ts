@@ -68,17 +68,38 @@ Deno.serve(async (req) => {
       console.log('Role update error:', e.message);
     }
 
-    // Send welcome email
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: app.email,
-      subject: `Welcome to DutyBoost — Your account is ready`,
-      body: `
-        <h2>Welcome to DutyBoost, ${app.full_name}!</h2>
-        <p>Your application for <strong>${app.company}</strong> has been automatically approved.</p>
-        <p>You'll receive a separate email with your login link shortly. Once logged in, your dashboard will be ready to use.</p>
-        <p>If you have any questions, reply to this email.</p>
-        <br/><p>— The DutyBoost Team</p>
-      `,
+    // Send welcome email via Postmark
+    const postmarkToken = Deno.env.get('PostMark');
+    const businessTypeLabel = app.business_type === 'Travel Agency' ? 'agency' : 'retailer';
+    const dashboardUrl = app.business_type === 'Travel Agency'
+      ? 'https://dutyboost.com/agency-portal'
+      : 'https://dutyboost.com/retailer-portal';
+
+    await fetch('https://api.postmarkapp.com/email', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-Postmark-Server-Token': postmarkToken,
+      },
+      body: JSON.stringify({
+        From: 'hello@dutyboost.com',
+        To: app.email,
+        Subject: `Welcome to DutyBoost — Your ${businessTypeLabel} account is ready`,
+        HtmlBody: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #1e40af;">Welcome to DutyBoost, ${app.full_name}!</h2>
+            <p>Your application for <strong>${app.company}</strong> has been approved.</p>
+            <p>You'll receive a separate email with your login link shortly. Once logged in, your ${businessTypeLabel} dashboard will be ready to use.</p>
+            <p style="margin-top: 24px;">
+              <a href="${dashboardUrl}" style="background: #1e40af; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Go to Dashboard</a>
+            </p>
+            <p style="color: #6b7280; margin-top: 32px;">If you have any questions, reply to this email.</p>
+            <p style="color: #6b7280;">— The DutyBoost Team</p>
+          </div>
+        `,
+        MessageStream: 'outbound',
+      }),
     });
 
     console.log(`Auto-approved application for ${app.email} (${app.business_type})`);
