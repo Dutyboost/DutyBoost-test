@@ -112,6 +112,9 @@ Deno.serve(async (req) => {
   const appUrl = `https://${req.headers.get('host')}`;
   const dutyCreditUrl = `${appUrl}/voucher?code=${voucherCode}`;
 
+  // QR code image URL (hosted service — renders inline in all email clients)
+  const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=${encodeURIComponent(dutyCreditUrl)}`;
+
   // Send co-branded email to traveler
   const agencyLabel = agency_name || 'Your Travel Agency';
   const travelerLabel = traveler_name || 'Traveler';
@@ -131,7 +134,7 @@ Deno.serve(async (req) => {
         <tr>
           <td style="background:linear-gradient(135deg,#5b4fcf,#7c6be0);padding:36px 40px;text-align:center;">
             <p style="margin:0 0 4px 0;color:rgba(255,255,255,0.75);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Presented by ${agencyLabel} × DutyBoost</p>
-            <h1 style="margin:0;color:#ffffff;font-size:28px;font-weight:700;letter-spacing:-0.5px;">Your DutyCredit is Ready</h1>
+            <h1 style="margin:0;color:#ffffff;font-size:28px;font-weight:700;letter-spacing:-0.5px;">Your DutyCredit is Ready 🎁</h1>
           </td>
         </tr>
 
@@ -140,55 +143,73 @@ Deno.serve(async (req) => {
           <td style="padding:36px 40px;">
             <p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.6;">Hi ${travelerLabel},</p>
             <p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.6;">
-              As part of your upcoming trip on <strong>${formattedDate}</strong> from <strong>${departure_airport}</strong>, 
-              you've earned a <strong style="color:#5b4fcf;">${discountPercentage}% DutyCredit</strong> — redeemable at participating airport retailers.
+              Your booking for <strong>${formattedDate}</strong> from <strong>${departure_airport}</strong> has been confirmed.
+              As a thank-you from <strong>${agencyLabel}</strong>, we've included a <strong style="color:#5b4fcf;">${discountPercentage}% DutyCredit</strong> — an exclusive airport shopping discount, just for you.
             </p>
 
-            <!-- Discount badge -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0;">
+            <!-- What is DutyCredit? -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0eeff;border-radius:12px;padding:0;margin:0 0 28px 0;">
               <tr>
-                <td align="center" style="background:#f0eeff;border-radius:12px;padding:24px;">
-                  <p style="margin:0 0 4px;color:#5b4fcf;font-size:48px;font-weight:800;line-height:1;">${discountPercentage}%</p>
-                  <p style="margin:0;color:#6b7280;font-size:14px;">Airport Retail Discount</p>
-                  <p style="margin:8px 0 0;color:#374151;font-size:13px;font-family:monospace;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:6px 14px;display:inline-block;letter-spacing:2px;">${voucherCode}</p>
+                <td style="padding:20px 24px;">
+                  <p style="margin:0 0 8px;color:#5b4fcf;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">✦ What is a DutyCredit?</p>
+                  <p style="margin:0;color:#374151;font-size:14px;line-height:1.7;">
+                    A DutyCredit is a personalised discount you can spend at participating shops, restaurants, and duty-free stores at the airport on your day of departure. 
+                    Simply scan the QR code below at the checkout — no app, no loyalty card, no hassle.
+                  </p>
+                  <p style="margin:10px 0 0;color:#374151;font-size:14px;line-height:1.7;">
+                    <strong>${agencyLabel}</strong> partnered with <strong>DutyBoost</strong> to reward travellers like you with real value — right where your journey begins.
+                  </p>
                 </td>
               </tr>
             </table>
 
-            <p style="margin:0 0 8px;color:#374151;font-size:15px;line-height:1.6;">To redeem your DutyCredit, tap the button below to open your personal QR code and present it at the retailer's till:</p>
-
-            <!-- CTA -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+            <!-- QR Code + Code -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px 0;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
               <tr>
-                <td align="center">
-                  <a href="${dutyCreditUrl}" style="display:inline-block;background:#5b4fcf;color:#ffffff;font-size:16px;font-weight:600;text-decoration:none;padding:14px 36px;border-radius:10px;">View My DutyCredit →</a>
+                <td align="center" style="padding:28px 20px;">
+                  <p style="margin:0 0 16px;color:#5b4fcf;font-size:48px;font-weight:800;line-height:1;">${discountPercentage}%</p>
+                  <p style="margin:0 0 20px;color:#6b7280;font-size:14px;">Airport Retail Discount</p>
+                  <!-- QR Code -->
+                  <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="180" height="180" style="display:block;margin:0 auto 16px;border-radius:8px;border:1px solid #e5e7eb;" />
+                  <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Scan this QR code at the till</p>
+                  <p style="margin:0;color:#374151;font-size:14px;font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:6px 14px;display:inline-block;letter-spacing:2px;font-weight:600;">${voucherCode}</p>
                 </td>
               </tr>
             </table>
 
             <!-- Details -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;margin:24px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;margin:0 0 24px 0;">
               <tr style="background:#f9fafb;">
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">Travel Date</td>
                 <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">${formattedDate}</td>
               </tr>
               <tr>
-                <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">Airport</td>
+                <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">Departure Airport</td>
                 <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">${departure_airport}</td>
               </tr>
               <tr style="background:#f9fafb;">
-                <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">Discount</td>
+                <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">Your Discount</td>
                 <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">${discountPercentage}% off at participating stores</td>
               </tr>
               <tr>
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;">Valid Until</td>
-                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;">${formattedExpiry}</td>
+                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;">${formattedExpiry} (day of travel only)</td>
+              </tr>
+            </table>
+
+            <!-- Fallback link -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px 0;">
+              <tr>
+                <td align="center">
+                  <a href="${dutyCreditUrl}" style="display:inline-block;background:#5b4fcf;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:13px 32px;border-radius:10px;">Open My DutyCredit →</a>
+                </td>
               </tr>
             </table>
 
             <p style="margin:0;color:#9ca3af;font-size:12px;line-height:1.6;border-top:1px solid #e5e7eb;padding-top:16px;">
-              Your DutyCredit is redeemable in a single transaction at one point of sale and cannot be split across multiple shops. 
-              This DutyCredit is personal, non-transferable, and expires on ${formattedExpiry}.
+              Your DutyCredit is redeemable in a single transaction at one participating point of sale. 
+              It is personal, non-transferable, and expires on <strong>${formattedExpiry}</strong>.
+              Having trouble with the QR code? Use voucher code <strong>${voucherCode}</strong> at the till.
             </p>
           </td>
         </tr>
@@ -197,7 +218,7 @@ Deno.serve(async (req) => {
         <tr>
           <td style="background:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb;">
             <p style="margin:0;color:#9ca3af;font-size:12px;">Powered by <strong style="color:#5b4fcf;">DutyBoost</strong> — Dynamic Airport Incentive Platform</p>
-            <p style="margin:4px 0 0;color:#9ca3af;font-size:11px;">© 2026 DutyBoost B.V., Amsterdam, the Netherlands</p>
+            <p style="margin:4px 0 0;color:#9ca3af;font-size:11px;">© ${new Date().getFullYear()} DutyBoost B.V., Amsterdam, the Netherlands</p>
           </td>
         </tr>
 
