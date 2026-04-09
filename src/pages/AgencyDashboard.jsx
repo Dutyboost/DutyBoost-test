@@ -20,6 +20,7 @@ import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
 
 export default function AgencyDashboard() {
   const [vouchers, setVouchers] = useState([]);
+  const [transactions, setTransactions] = useState([]);
   const [user, setUser] = useState(null);
   const [bankForm, setBankForm] = useState({ bank_account_name: "", bank_iban: "" });
   const [bankSaving, setBankSaving] = useState(false);
@@ -32,8 +33,12 @@ export default function AgencyDashboard() {
     const u = await base44.auth.me();
     setUser(u);
     setBankForm({ bank_account_name: u.bank_account_name || "", bank_iban: u.bank_iban || "" });
-    const allVouchers = await base44.entities.Voucher.filter({ agency_email: u.email }, '-created_date', 50);
+    const [allVouchers, allTxns] = await Promise.all([
+      base44.entities.Voucher.filter({ agency_email: u.email }, '-created_date', 100),
+      base44.entities.Transaction.filter({ agency_email: u.email }, '-created_date', 200),
+    ]);
     setVouchers(allVouchers);
+    setTransactions(allTxns);
   };
 
   const handleSaveBank = async (e) => {
@@ -73,8 +78,13 @@ export default function AgencyDashboard() {
     : 0;
   const totalPassengers = filteredVouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   
-  const commissionPerBasket = 0.20;
-  const totalForecastRevenue = (totalPassengers * commissionPerBasket).toFixed(2);
+  // Real commission earned from redeemed transactions
+  const filteredTxns = useMemo(() =>
+    transactions.filter(t => { const d = (t.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [transactions, startDate, endDate]
+  );
+  const totalCommissionEarned = filteredTxns.reduce((s, t) => s + (t.agency_commission || 0), 0);
+  const totalGrossVolume = filteredTxns.reduce((s, t) => s + (t.transaction_value || 0), 0);
 
   // Vouchers by airport
   const airportMap = {};
@@ -145,7 +155,7 @@ export default function AgencyDashboard() {
         <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
         <StatsCard title="DutyCredits Redeemed" value={redeemedVouchers} icon={TicketPercent} />
-        <StatsCard title="Forecast Revenue" value={`€${totalForecastRevenue}`} subtitle={`€${commissionPerBasket} per basket × ${totalPassengers} travelers`} icon={TicketPercent} />
+        <StatsCard title="Commission Earned" value={`€${totalCommissionEarned.toFixed(2)}`} subtitle={`2% of €${totalGrossVolume.toFixed(2)} gross sales`} icon={Landmark} />
       </div>
 
       <div className="space-y-4">

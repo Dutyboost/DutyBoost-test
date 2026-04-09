@@ -55,13 +55,17 @@ export default function RetailerDashboard() {
     
     const aps = await base44.entities.Airport.list();
     const rets = await base44.entities.Retailer.filter({ owner_email: u.email });
-    const txns = await base44.entities.TransactionAggregate.list();
     const invoices = await base44.entities.MonthlyInvoice.filter({ retailer_email: u.email, status: 'overdue' });
     const fb = await base44.entities.RetailerFeedback.list();
     
     setAirports(aps);
+    setRetailers(rets);
     const storeNames = rets.map(r => r.store_name);
-    setTransactions(txns.filter(t => storeNames.includes(t.store_name)));
+    // Use live Transaction records for accurate real-time stats
+    const rawTxns = storeNames.length > 0
+      ? await base44.entities.Transaction.filter({ store_name: { $in: storeNames } }, '-created_date', 500)
+      : [];
+    setTransactions(rawTxns);
     const retailerAirports = rets.map(r => r.airport);
     const vchs = await base44.entities.Voucher.filter({ airport: { $in: retailerAirports }, status: 'active' });
     setVouchers(vchs);
@@ -109,8 +113,8 @@ export default function RetailerDashboard() {
     [filteredTransactions]
   );
 
-  const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.total_volume || 0), 0);
-  const dutyBoostFee = (totalRevenue * 0.05).toFixed(2);
+  const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
+  const dutyBoostFee = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0).toFixed(2);
   const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
   const revenuePerDay = (totalRevenue / periodDays).toFixed(2);
 
@@ -127,7 +131,7 @@ export default function RetailerDashboard() {
     const day = (t.created_date || "").split("T")[0];
     if (!txByDay[day]) txByDay[day] = { date: day, volume: 0, fee: 0 };
     txByDay[day].volume += t.transaction_value || 0;
-    txByDay[day].fee += (t.transaction_value || 0) * 0.05;
+    txByDay[day].fee += t.platform_revenue || 0;
   });
   const dailyData = last30.map(d => ({
     date: d.slice(5),

@@ -18,9 +18,17 @@
       "type": "number",
       "title": "Transaction Value (EUR)"
     },
+    "num_items": {
+      "type": "integer",
+      "title": "Number of Items Scanned"
+    },
     "discount_applied": {
       "type": "number",
-      "title": "Discount Applied (%)"
+      "title": "Effective Discount Applied (%)"
+    },
+    "base_discount": {
+      "type": "number",
+      "title": "Base Discount Percentage (%)"
     },
     "discount_amount": {
       "type": "number",
@@ -28,7 +36,15 @@
     },
     "platform_revenue": {
       "type": "number",
-      "title": "Platform Revenue (EUR)"
+      "title": "Platform Revenue / DutyBoost Fee (EUR)"
+    },
+    "agency_commission": {
+      "type": "number",
+      "title": "Agency Commission (EUR)"
+    },
+    "agency_email": {
+      "type": "string",
+      "title": "Agency Email"
     },
     "airport": {
       "type": "string",
@@ -40,6 +56,7 @@
     "retailer_id",
     "store_name",
     "transaction_value",
-    "discount_applied"
+    "discount_applied",
+    "platform_revenue"
   ]
 }
