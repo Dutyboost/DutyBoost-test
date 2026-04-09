@@ -58,6 +58,8 @@ import RetailerSignup from './pages/RetailerSignup';
 import RetailerShowcase from './pages/RetailerShowcase';
 import PresentationDeck from './pages/PresentationDeck';
 import AgencyShowcase from './pages/AgencyShowcase';
+import AgencyPresentationDeck from './pages/AgencyPresentationDeck';
+import RetailerPresentationDeck from './pages/RetailerPresentationDeck';
 import TravelerShowcase from './pages/TravelerShowcase';
 
 const AuthenticatedApp = () => {
@@ -137,6 +139,8 @@ const AuthenticatedApp = () => {
         <Route path="/agency-signup" element={<AgencySignup />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
         <Route path="/deck" element={<PresentationDeck />} />
+        <Route path="/agency-deck" element={<AgencyPresentationDeck />} />
+        <Route path="/retailer-deck" element={<RetailerPresentationDeck />} />
         <Route path="/agency-showcase" element={<AgencyShowcase />} />
         <Route path="/traveler-showcase" element={<TravelerShowcase />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
