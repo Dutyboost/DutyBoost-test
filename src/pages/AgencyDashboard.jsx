@@ -155,7 +155,7 @@ export default function AgencyDashboard() {
         <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
         <StatsCard title="DutyCredits Redeemed" value={redeemedVouchers} icon={TicketPercent} />
-        <StatsCard title="Commission Earned" value={`€${totalCommissionEarned.toFixed(2)}`} subtitle={`2% of €${totalGrossVolume.toFixed(2)} gross sales`} icon={Landmark} />
+        <StatsCard title="Commission Earned" value={`€${totalCommissionEarned.toFixed(2)}`} subtitle={`1% of €${totalGrossVolume.toFixed(2)} gross sales`} icon={Landmark} />
       </div>
 
       <div className="space-y-4">
