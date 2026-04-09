@@ -114,6 +114,13 @@ function generatePOHtml(businessType, formData, poNumber) {
           </div>
         </div>
 
+        <!-- Sign In CTA -->
+        <div style="margin-bottom:24px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:20px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;color:#1e40af;margin-bottom:6px;">Ready to get started?</div>
+          <div style="font-size:13px;color:#3b82f6;margin-bottom:14px;">Sign in to your DutyBoost account using the email address you registered with (${formData.email}).</div>
+          <a href="https://app.base44.com/apps/69c97dcd1c1950fa88424690/login" style="display:inline-block;background:#1e40af;color:#fff;font-weight:600;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;">Sign In to DutyBoost →</a>
+        </div>
+
         <!-- Footer -->
         <div style="padding-top:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#9ca3af;text-align:center;">
           DutyBoost B.V. · Amsterdam, The Netherlands · hello@dutyboost.com · dutyboost.com
