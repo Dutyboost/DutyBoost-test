@@ -18,6 +18,7 @@ const SLIDES = [
   { id: "financials", type: "financials" },
   { id: "dashboard", type: "dashboard" },
   { id: "retailers_need_you", type: "retailers_need_you" },
+  { id: "live_data", type: "live_data" },
   { id: "cta", type: "cta" },
 ];
 
@@ -319,6 +320,107 @@ function DashboardSlide() {
   );
 }
 
+function LiveDataSlide() {
+  const recentVouchers = [
+    { code: "DC-AMS-4821", traveler: "J. van der Berg", airport: "AMS", date: "2 Apr 2026", status: "Redeemed", amount: "€ 214", commission: "€ 2.14" },
+    { code: "DC-RTM-3102", traveler: "M. Jansen", airport: "RTM", date: "1 Apr 2026", status: "Active", amount: "€ 95", commission: "pending" },
+    { code: "DC-AMS-4790", traveler: "S. de Vries", airport: "AMS", date: "1 Apr 2026", status: "Redeemed", amount: "€ 340", commission: "€ 3.40" },
+    { code: "DC-EIN-2241", traveler: "P. Bakker", airport: "EIN", date: "31 Mar 2026", status: "Active", amount: "€ 180", commission: "pending" },
+    { code: "DC-AMS-4755", traveler: "L. Smits", airport: "AMS", date: "30 Mar 2026", status: "Expired", amount: "€ 120", commission: "—" },
+  ];
+
+  return (
+    <Slide bg="bg-slate-50">
+      <div className="max-w-4xl w-full space-y-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="flex justify-center mb-1"><Tag label="Live Dashboard Example" color="text-blue-600 bg-blue-50 border-blue-200" /></div>
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-slate-900 text-center">What You See in Your Dashboard</h2>
+            <p className="text-slate-500 text-center text-sm mt-1">Example based on BCD Travel Nederland — Last 30 days</p>
+          </div>
+        </div>
+
+        {/* KPI strip */}
+        <div className="grid grid-cols-4 gap-3">
+          {[
+            { label: "Total Bookings", value: "1,847", sub: "this period", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" },
+            { label: "DutyCredits Issued", value: "1,234", sub: "to travelers", color: "text-orange-600", bg: "bg-orange-50 border-orange-200" },
+            { label: "Vouchers Redeemed", value: "523", sub: "42.4% conversion", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" },
+            { label: "Commission Earned", value: "€ 3,218", sub: "1% of €321,800 gross", color: "text-purple-600", bg: "bg-purple-50 border-purple-200" },
+          ].map(({ label, value, sub, color, bg }) => (
+            <div key={label} className={`border rounded-xl p-3 ${bg}`}>
+              <p className="text-xs text-slate-500 font-medium">{label}</p>
+              <p className={`text-2xl font-bold font-heading ${color}`}>{value}</p>
+              <p className="text-xs text-slate-400 mt-0.5">{sub}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Commission breakdown + table side by side */}
+        <div className="grid grid-cols-5 gap-3">
+          {/* Breakdown */}
+          <div className="col-span-2 bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <p className="font-semibold text-slate-800 text-sm">Monthly Commission Statement</p>
+            <p className="text-xs text-slate-400">April 2026 — BCD Travel Nederland</p>
+            <div className="space-y-2 text-sm">
+              {[
+                { label: "Gross retail sales", value: "€ 321,800", color: "text-slate-800" },
+                { label: "Vouchers redeemed", value: "523", color: "text-slate-800" },
+                { label: "Avg. basket size", value: "€ 615", color: "text-slate-800" },
+                { label: "Your commission (1%)", value: "€ 3,218.00", color: "text-emerald-600 font-bold" },
+                { label: "Pending (unconfirmed)", value: "€ 579.24", color: "text-amber-600" },
+                { label: "Paid out (15 Apr)", value: "€ 2,638.76", color: "text-blue-600 font-semibold" },
+              ].map(({ label, value, color }) => (
+                <div key={label} className="flex justify-between items-center border-b border-slate-100 pb-1.5 last:border-0">
+                  <span className="text-slate-500 text-xs">{label}</span>
+                  <span className={`text-xs font-semibold ${color}`}>{value}</span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-2.5 text-xs text-blue-700">
+              💳 Paid monthly by bank transfer to your registered IBAN.
+            </div>
+          </div>
+
+          {/* Voucher table */}
+          <div className="col-span-3 bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <p className="font-semibold text-slate-800 text-sm">Recent DutyCredit Redemptions</p>
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-slate-100">
+                  {["Code", "Traveler", "Airport", "Date", "Status", "Sale", "Your Cut"].map(h => (
+                    <th key={h} className="text-left py-1.5 px-2 text-slate-400 font-medium">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {recentVouchers.map(v => (
+                  <tr key={v.code} className="border-b border-slate-50 hover:bg-slate-50">
+                    <td className="py-2 px-2 font-mono text-slate-500">{v.code}</td>
+                    <td className="py-2 px-2 text-slate-700">{v.traveler}</td>
+                    <td className="py-2 px-2 font-bold text-blue-600">{v.airport}</td>
+                    <td className="py-2 px-2 text-slate-400">{v.date}</td>
+                    <td className="py-2 px-2">
+                      <span className={`px-1.5 py-0.5 rounded-full text-xs font-semibold ${
+                        v.status === "Redeemed" ? "bg-emerald-100 text-emerald-700" :
+                        v.status === "Active" ? "bg-blue-100 text-blue-700" :
+                        "bg-slate-100 text-slate-400"
+                      }`}>{v.status}</span>
+                    </td>
+                    <td className="py-2 px-2 font-semibold text-slate-800">{v.amount}</td>
+                    <td className="py-2 px-2 font-bold text-emerald-600">{v.commission}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="text-xs text-slate-400">Commission = 1% of gross sale value per redeemed voucher. Paid monthly.</p>
+          </div>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
 function RetailersNeedYouSlide() {
   return (
     <Slide bg="bg-gradient-to-br from-orange-50 via-white to-blue-50">
@@ -396,6 +498,7 @@ function renderSlide(slide) {
     case "voucher_flow": return <VoucherFlowSlide />;
     case "financials": return <FinancialsSlide />;
     case "dashboard": return <DashboardSlide />;
+    case "live_data": return <LiveDataSlide />;
     case "retailers_need_you": return <RetailersNeedYouSlide />;
     case "cta": return <CtaSlide />;
     default: return null;
@@ -404,7 +507,7 @@ function renderSlide(slide) {
 
 const SLIDE_LABELS = [
   "Cover", "Opportunity", "How It Works", "Account Setup",
-  "Integration", "Traveler Flow", "Financials", "Dashboard", "Ecosystem", "Get Started"
+  "Integration", "Traveler Flow", "Financials", "Dashboard", "Live Example", "Ecosystem", "Get Started"
 ];
 
 // ─── Main Component ───────────────────────────────────────────────────────────

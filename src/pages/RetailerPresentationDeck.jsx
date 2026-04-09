@@ -19,12 +19,13 @@ const SLIDES = [
   { id: "financials", type: "financials" },
   { id: "dashboard", type: "dashboard" },
   { id: "agencies_need_you", type: "agencies_need_you" },
+  { id: "live_data", type: "live_data" },
   { id: "cta", type: "cta" },
 ];
 
 const SLIDE_LABELS = [
   "Cover", "The Problem", "The Solution", "Account Setup",
-  "Store Setup", "Scan Flow", "Financials", "Dashboard", "Ecosystem", "Get Started"
+  "Store Setup", "Scan Flow", "Financials", "Dashboard", "Live Example", "Ecosystem", "Get Started"
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -316,6 +317,109 @@ function DashboardSlide() {
   );
 }
 
+function RetailerLiveDataSlide() {
+  const recentScans = [
+    { code: "DC-AMS-4821", time: "Today, 14:32", discount: "15%", sale: "€ 214", saved: "€ 32", fee: "€ 10.70" },
+    { code: "DC-AMS-4790", time: "Today, 11:08", discount: "15%", sale: "€ 340", saved: "€ 51", fee: "€ 17.00" },
+    { code: "DC-AMS-4744", time: "Yesterday, 17:45", discount: "10%", sale: "€ 175", saved: "€ 18", fee: "€ 8.75" },
+    { code: "DC-AMS-4710", time: "Yesterday, 09:12", discount: "15%", sale: "€ 420", saved: "€ 63", fee: "€ 21.00" },
+    { code: "DC-AMS-4688", time: "2 Apr, 16:20", discount: "10%", sale: "€ 98", saved: "€ 10", fee: "€ 4.90" },
+  ];
+
+  return (
+    <Slide bg="bg-slate-50">
+      <div className="max-w-4xl w-full space-y-4">
+        <div>
+          <div className="flex justify-center mb-1"><Tag label="Live Dashboard Example" /></div>
+          <h2 className="text-2xl sm:text-3xl font-heading font-bold text-slate-900 text-center">What You See in Your Dashboard</h2>
+          <p className="text-slate-500 text-center text-sm mt-1">Example: Schiphol Duty Free — Amsterdam Airport — Last 30 days</p>
+        </div>
+
+        {/* KPI strip */}
+        <div className="grid grid-cols-4 gap-3">
+          {[
+            { label: "Total Redemptions", value: "523", sub: "DutyCredits scanned", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" },
+            { label: "Gross Revenue", value: "€ 52,300", sub: "from DutyCredit sales", color: "text-orange-600", bg: "bg-orange-50 border-orange-200" },
+            { label: "Platform Fee (5%)", value: "€ 2,615", sub: "billed monthly", color: "text-red-600", bg: "bg-red-50 border-red-200" },
+            { label: "Your Net Revenue", value: "€ 49,685", sub: "after DutyBoost fee", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" },
+          ].map(({ label, value, sub, color, bg }) => (
+            <div key={label} className={`border rounded-xl p-3 ${bg}`}>
+              <p className="text-xs text-slate-500 font-medium">{label}</p>
+              <p className={`text-2xl font-bold font-heading ${color}`}>{value}</p>
+              <p className="text-xs text-slate-400 mt-0.5">{sub}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Breakdown + scans table */}
+        <div className="grid grid-cols-5 gap-3">
+          {/* Revenue breakdown */}
+          <div className="col-span-2 bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <p className="font-semibold text-slate-800 text-sm">Monthly Revenue Statement</p>
+            <p className="text-xs text-slate-400">April 2026 — Schiphol Duty Free</p>
+            <div className="space-y-2 text-sm">
+              {[
+                { label: "Gross DutyCredit sales", value: "€ 52,300", color: "text-slate-800" },
+                { label: "Avg. basket size", value: "€ 100", color: "text-slate-800" },
+                { label: "Total traveler savings", value: "€ 7,845", color: "text-orange-600" },
+                { label: "DutyBoost fee (5%)", value: "− € 2,615", color: "text-red-600 font-bold" },
+                { label: "Net revenue (after fee)", value: "€ 49,685", color: "text-emerald-600 font-bold" },
+                { label: "Invoice due (30 Apr)", value: "€ 2,615", color: "text-slate-600 font-semibold" },
+              ].map(({ label, value, color }) => (
+                <div key={label} className="flex justify-between items-center border-b border-slate-100 pb-1.5 last:border-0">
+                  <span className="text-slate-500 text-xs">{label}</span>
+                  <span className={`text-xs font-semibold ${color}`}>{value}</span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-2.5 text-xs text-orange-700">
+              📄 Invoice sent by DutyBoost at month end. Pay by bank transfer or card.
+            </div>
+          </div>
+
+          {/* Recent scans table */}
+          <div className="col-span-3 bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <p className="font-semibold text-slate-800 text-sm">Recent QR Scan Transactions</p>
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-slate-100">
+                  {["Code", "Scanned", "Discount", "Sale Value", "Traveler Saved", "Fee (5%)"].map(h => (
+                    <th key={h} className="text-left py-1.5 px-2 text-slate-400 font-medium">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {recentScans.map(s => (
+                  <tr key={s.code} className="border-b border-slate-50 hover:bg-slate-50">
+                    <td className="py-2 px-2 font-mono text-slate-500">{s.code}</td>
+                    <td className="py-2 px-2 text-slate-400">{s.time}</td>
+                    <td className="py-2 px-2 font-bold text-orange-600">{s.discount}</td>
+                    <td className="py-2 px-2 font-semibold text-slate-800">{s.sale}</td>
+                    <td className="py-2 px-2 text-emerald-600 font-medium">{s.saved}</td>
+                    <td className="py-2 px-2 text-red-500 font-medium">{s.fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="grid grid-cols-3 gap-2 pt-1">
+              {[
+                { label: "Avg discount applied", value: "12.4%", color: "text-orange-600" },
+                { label: "Avg sale per scan", value: "€ 249", color: "text-slate-800" },
+                { label: "Redemption this week", value: "37 scans", color: "text-blue-600" },
+              ].map(({ label, value, color }) => (
+                <div key={label} className="bg-slate-50 border border-slate-200 rounded-lg p-2 text-center">
+                  <p className={`font-bold text-sm ${color}`}>{value}</p>
+                  <p className="text-xs text-slate-400 mt-0.5">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
 function AgenciesNeedYouSlide() {
   return (
     <Slide bg="bg-gradient-to-br from-blue-50 via-white to-orange-50">
@@ -393,6 +497,7 @@ function renderSlide(slide) {
     case "scan_flow": return <ScanFlowSlide />;
     case "financials": return <FinancialsSlide />;
     case "dashboard": return <DashboardSlide />;
+    case "live_data": return <RetailerLiveDataSlide />;
     case "agencies_need_you": return <AgenciesNeedYouSlide />;
     case "cta": return <CtaSlide />;
     default: return null;
