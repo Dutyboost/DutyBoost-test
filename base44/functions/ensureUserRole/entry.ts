@@ -16,8 +16,12 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // If user already has a role, nothing to do
-    if (user.role && user.role !== 'user') {
+    // If user already has a proper custom role, nothing to do
+    if (user.role && user.role !== 'user' && user.role !== 'admin') {
+      return Response.json({ role: user.role, updated: false });
+    }
+    // Admins don't need role assignment
+    if (user.role === 'admin') {
       return Response.json({ role: user.role, updated: false });
     }
 
