@@ -236,7 +236,7 @@ function IntegrationSlide() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-3">
-          {["Zero manual steps after setup", "Works with Amadeus, Sabre, Galileo", "Full test environment available"].map(t => (
+          {["Zero manual steps after setup", "Works with Amadeus, Sabre, Galileo", "POS configured by DutyBoost team"].map(t => (
             <div key={t} className="flex items-center gap-2 text-xs text-slate-600 bg-white border border-slate-200 rounded-xl p-3">
               <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" /> {t}
             </div>

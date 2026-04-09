@@ -64,7 +64,7 @@ function CoverSlide() {
           A complete walkthrough of how DutyBoost works for airport retailers — from store registration to dashboard analytics.
         </p>
         <div className="flex flex-wrap justify-center gap-4 pt-2">
-          {["Pay only on redemption", "No POS system changes", "Pre-motivated buyers", "Real-time dashboard"].map(b => (
+          {["Pay only on redemption", "POS configured by DutyBoost", "Pre-motivated buyers", "Real-time dashboard"].map(b => (
             <div key={b} className="flex items-center gap-1.5 text-sm text-slate-600 bg-white border border-slate-200 rounded-full px-4 py-1.5 shadow-sm">
               <CheckCircle2 className="w-3.5 h-3.5 text-green-500" /> {b}
             </div>
