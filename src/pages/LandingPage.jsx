@@ -36,14 +36,6 @@ export default function LandingPage() {
 
   const stakeholders = [
     {
-      key: 'travelers',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
-      mapLink: true,
-    },
-    {
       key: 'retailers',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
@@ -86,11 +78,6 @@ export default function LandingPage() {
             <Link to="/agency-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 {t('nav.for_agencies')}
-              </Button>
-            </Link>
-            <Link to="/traveler-showcase">
-              <Button size="sm" variant="outline" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_travelers')}
               </Button>
             </Link>
             <Link to="/retailer-showcase">
@@ -154,8 +141,8 @@ export default function LandingPage() {
             <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[stakeholders[2], stakeholders[0], stakeholders[1]].map((s) => {
+          <div className="grid md:grid-cols-2 gap-8">
+            {stakeholders.map((s) => {
               const Icon = s.icon;
               const benefits = [
                 t(`stakeholders.${s.key}.b1`),
