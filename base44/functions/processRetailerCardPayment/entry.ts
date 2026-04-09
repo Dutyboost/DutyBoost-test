@@ -1,59 +1,73 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
+// Creates a Mollie hosted checkout for credit card — retailer flow.
+// Raw card details must NEVER be sent to backend (PCI). Mollie handles card entry on their hosted page.
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
     const body = await req.json();
-    
-    const { cardNumber, cardName, expiryDate, cvv, applicationId } = body;
-    
-    if (!cardNumber || !cardName || !expiryDate || !cvv || !applicationId) {
-      return Response.json({ error: 'Missing required card details' }, { status: 400 });
+
+    const { applicationId, redirectUrl, email, fullName } = body;
+
+    if (!applicationId || !redirectUrl || !email || !fullName) {
+      return Response.json({ error: 'Missing required fields: applicationId, redirectUrl, email, fullName' }, { status: 400 });
     }
 
-    // Parse expiry date (MM/YY format)
-    const [month, year] = expiryDate.split('/');
-    const expiryYear = `20${year}`;
+    const mollieApiKey = Deno.env.get('MOLLIE_API_KEY');
+    if (!mollieApiKey) {
+      return Response.json({ error: 'Mollie API key not configured' }, { status: 500 });
+    }
 
-    // Call Mollie API to create a payment with card details
-    const mollieResponse = await fetch('https://api.mollie.com/v2/payments', {
+    // Step 1: Create or reuse Mollie customer
+    const customerRes = await fetch('https://api.mollie.com/v2/customers', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${Deno.env.get('MOLLIE_API_KEY')}`,
+        'Authorization': `Bearer ${mollieApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: fullName, email }),
+    });
+    const customer = await customerRes.json();
+
+    if (!customerRes.ok) {
+      return Response.json({ error: customer.detail || 'Failed to create Mollie customer' }, { status: 500 });
+    }
+
+    // Step 2: Create a first payment (€0.01 verification) via Mollie hosted checkout
+    // sequenceType: 'first' establishes a mandate for future recurring charges
+    const paymentRes = await fetch('https://api.mollie.com/v2/payments', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${mollieApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        amount: {
-          value: '0.01',
-          currency: 'EUR',
-        },
-        description: 'Card verification charge - Airport Retailer',
-        redirectUrl: `${body.redirectUrl || 'https://dutyboost.com'}`,
+        amount: { currency: 'EUR', value: '0.01' },
+        description: 'DutyBoost card verification & billing mandate — Airport Retailer',
         method: 'creditcard',
-        cardToken: cardNumber, // This would need to be tokenized in production
-        // In production, you should tokenize the card first through Mollie's secure endpoint
-        // For now, we're sending basic card info
+        sequenceType: 'first',
+        customerId: customer.id,
+        redirectUrl: `${redirectUrl}?applicationId=${applicationId}&customerId=${customer.id}`,
+        metadata: { applicationId, customerId: customer.id },
       }),
     });
+    const payment = await paymentRes.json();
 
-    const mollieData = await mollieResponse.json();
-
-    if (!mollieResponse.ok) {
-      return Response.json(
-        { error: 'Payment processing failed', details: mollieData },
-        { status: 400 }
-      );
+    if (!paymentRes.ok) {
+      return Response.json({ error: payment.detail || 'Failed to create payment' }, { status: 500 });
     }
 
-    // Store the Mollie payment ID in the application
+    // Step 3: Save customer/payment IDs to the application
     await base44.asServiceRole.entities.SignupApplication.update(applicationId, {
-      mollie_payment_id: mollieData.id,
+      mollie_customer_id: customer.id,
+      mollie_payment_id: payment.id,
+      payment_method: 'creditcard',
     });
 
     return Response.json({
       success: true,
-      paymentId: mollieData.id,
-      status: mollieData.status,
+      checkoutUrl: payment._links.checkout.href,
+      paymentId: payment.id,
     });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });

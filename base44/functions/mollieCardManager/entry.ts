@@ -12,10 +12,10 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { action, mollie_customer_id, card_name, card_number, card_expiry } = await req.json();
+    const { action, mollie_customer_id } = await req.json();
 
     if (action === 'create') {
-      // Create Mollie customer
+      // Create a Mollie customer for this user
       const customerRes = await fetch(`${MOLLIE_BASE}/customers`, {
         method: 'POST',
         headers: {
@@ -28,29 +28,38 @@ Deno.serve(async (req) => {
         }),
       });
       const customer = await customerRes.json();
+      if (!customerRes.ok) {
+        return Response.json({ error: customer.detail || 'Failed to create customer' }, { status: 500 });
+      }
       return Response.json({ customer_id: customer.id });
     }
 
     if (action === 'get_card') {
-      // Get card details from Mollie customer
-      const custRes = await fetch(`${MOLLIE_BASE}/customers/${mollie_customer_id}`, {
+      if (!mollie_customer_id) {
+        return Response.json({ error: 'Missing mollie_customer_id' }, { status: 400 });
+      }
+
+      // Fetch mandates for this customer — mandates are created after first payment is completed
+      const mandateRes = await fetch(`${MOLLIE_BASE}/customers/${mollie_customer_id}/mandates`, {
         headers: { 'Authorization': `Bearer ${MOLLIE_API_KEY}` },
       });
-      const customer = await custRes.json();
+      const mandateData = await mandateRes.json();
 
-      // Fetch methods (cards) for this customer
-      const methodsRes = await fetch(`${MOLLIE_BASE}/customers/${mollie_customer_id}/methods?resource=customers`, {
-        headers: { 'Authorization': `Bearer ${MOLLIE_API_KEY}` },
-      });
-      const methods = await methodsRes.json();
+      if (!mandateRes.ok) {
+        return Response.json({ error: mandateData.detail || 'Failed to fetch mandates' }, { status: 500 });
+      }
 
-      const card = methods._embedded?.methods?.[0];
+      // Find the first valid (pending or valid) creditcard mandate
+      const mandates = mandateData._embedded?.mandates || [];
+      const cardMandate = mandates.find(m => m.method === 'creditcard' && (m.status === 'valid' || m.status === 'pending'));
+
       return Response.json({
-        customer_id: customer.id,
-        card: card ? {
-          holder_name: card.cardHolder || '—',
-          last_four: card.details?.cardNumber?.slice(-4) || '—',
-          expiry: card.details?.cardExpiry || '—',
+        customer_id: mollie_customer_id,
+        card: cardMandate ? {
+          holder_name: cardMandate.details?.cardHolder || '—',
+          last_four: cardMandate.details?.cardNumber?.slice(-4) || '—',
+          expiry: cardMandate.details?.cardExpiryDate || '—',
+          status: cardMandate.status,
         } : null,
       });
     }
