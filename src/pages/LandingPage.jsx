@@ -49,6 +49,13 @@ export default function LandingPage() {
       bg: "bg-green-50",
       iconColor: "text-green-600",
     },
+    {
+      key: 'travelers',
+      icon: TravelerIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
+    },
   ];
 
   const flowSteps = [
@@ -141,7 +148,7 @@ export default function LandingPage() {
             <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {stakeholders.map((s) => {
               const Icon = s.icon;
               const benefits = [
