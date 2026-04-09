@@ -120,35 +120,45 @@ function HowItWorksSlide() {
   return (
     <Slide bg="bg-gradient-to-br from-blue-600 to-indigo-700" className="text-white">
       <div className="max-w-4xl w-full space-y-6 text-center">
-        <Tag label="How It Works" color="text-white bg-white/20 border-white/30" />
-        <h2 className="text-3xl sm:text-4xl font-heading font-bold">The DutyBoost Loop</h2>
+        <Tag label="End-to-End Automation" color="text-white bg-white/20 border-white/30" />
+        <h2 className="text-3xl sm:text-4xl font-heading font-bold">100% Automated. Zero Manual Steps.</h2>
         <p className="text-blue-100 text-base max-w-lg mx-auto">
-          A simple, automated closed loop — from booking confirmation to commission payout.
+          From booking confirmation to commission payout — everything runs automatically. You integrate once, then earn passively.
         </p>
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-4 sm:gap-3 mt-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-4 sm:gap-2 mt-2">
           {[
-            { n: "1", icon: Plane, label: "Traveler books flight via your agency" },
-            { n: "2", icon: Send, label: "DutyBoost auto-generates a DutyCredit voucher" },
-            { n: "3", icon: QrCode, label: "Traveler receives QR code before departure" },
-            { n: "4", icon: Store, label: "QR scanned at airport retailer checkout" },
-            { n: "5", icon: Euro, label: "1% commission credited to your account" },
+            { n: "1", icon: Plane, label: "Booking confirmed in your system" },
+            { n: "2", icon: Send, label: "API auto-generates DutyCredit" },
+            { n: "3", icon: QrCode, label: "Email sent to traveler automatically" },
+            { n: "4", icon: Store, label: "POS scans & applies discount" },
+            { n: "5", icon: BarChart3, label: "Dashboard updates in real time" },
+            { n: "6", icon: Euro, label: "Commission paid to your IBAN" },
           ].map((s, i, arr) => (
             <>
-              <div key={s.n} className="flex flex-col items-center text-center gap-2 max-w-[130px]">
+              <div key={s.n} className="flex flex-col items-center text-center gap-2 max-w-[110px]">
                 <div className="relative">
-                  <div className="w-12 h-12 bg-white/20 border border-white/30 rounded-2xl flex items-center justify-center">
+                  <div className="w-11 h-11 bg-white/20 border border-white/30 rounded-2xl flex items-center justify-center">
                     <s.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="absolute -top-2 -right-2 w-5 h-5 bg-orange-400 text-white rounded-full text-xs flex items-center justify-center font-bold">{s.n}</div>
                 </div>
                 <p className="text-white text-xs font-medium leading-snug">{s.label}</p>
               </div>
-              {i < arr.length - 1 && <ArrowRight key={`a${i}`} className="w-5 h-5 text-white/40 hidden sm:block shrink-0 mt-[-24px]" />}
+              {i < arr.length - 1 && <ArrowRight key={`a${i}`} className="w-4 h-4 text-white/40 hidden sm:block shrink-0 mt-[-20px]" />}
             </>
           ))}
         </div>
-        <div className="bg-white/10 border border-white/20 rounded-2xl p-4 mt-2 max-w-2xl mx-auto">
-          <p className="text-white text-sm font-semibold">💡 Fully automated once integrated. No manual work per booking required.</p>
+        <div className="grid grid-cols-3 gap-3 mt-2">
+          {[
+            { v: "1 API call", l: "to set up the entire flow" },
+            { v: "0 manual steps", l: "after initial integration" },
+            { v: "Auto payout", l: "to your IBAN every month" },
+          ].map(({ v, l }) => (
+            <div key={l} className="bg-white/10 border border-white/20 rounded-xl p-3 text-center">
+              <p className="font-bold text-white text-sm">{v}</p>
+              <p className="text-blue-200 text-xs mt-0.5">{l}</p>
+            </div>
+          ))}
         </div>
       </div>
     </Slide>
@@ -189,31 +199,44 @@ function IntegrationSlide() {
   return (
     <Slide bg="bg-slate-50">
       <div className="max-w-3xl w-full space-y-5">
-        <div className="flex justify-center"><Tag label="Step 2 — Integration" color="text-indigo-600 bg-indigo-50 border-indigo-200" /></div>
-        <h2 className="text-3xl sm:text-4xl font-heading font-bold text-slate-900 text-center">Connecting Your Booking System</h2>
-        <p className="text-slate-500 text-center text-base max-w-xl mx-auto">One API call is all it takes. Works with Amadeus, Sabre, Galileo, or any custom system.</p>
+        <div className="flex justify-center"><Tag label="Step 2 — Automated Integration" color="text-indigo-600 bg-indigo-50 border-indigo-200" /></div>
+        <h2 className="text-3xl sm:text-4xl font-heading font-bold text-slate-900 text-center">Fully Automated from Booking to Payout</h2>
+        <p className="text-slate-500 text-center text-base max-w-xl mx-auto">One API call after booking confirmation triggers the entire DutyBoost automation chain — no manual steps anywhere.</p>
         <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-green-100 border border-green-300 rounded-xl flex items-center justify-center">
               <Zap className="w-4 h-4 text-green-600" />
             </div>
-            <p className="font-semibold text-slate-800">One API call after booking confirmation</p>
+            <p className="font-semibold text-slate-800">Triggered automatically on booking confirmation</p>
           </div>
           <div className="bg-slate-900 rounded-xl p-4 text-sm font-mono text-green-400 overflow-x-auto">
-            <p className="text-slate-400 text-xs mb-2">// Called automatically after booking confirmation</p>
+            <p className="text-slate-400 text-xs mb-2">// Fires automatically after booking confirmed in your system</p>
             <p>POST https://dutyboost.com/api/generate-duty-credit</p>
-            <p className="text-slate-400 mt-2">{"{"}</p>
+            <p className="text-slate-400 mt-2">{"{"}  </p>
             <p className="ml-4 text-blue-300">"booking_id": <span className="text-yellow-300">"BK-2024-001"</span>,</p>
             <p className="ml-4 text-blue-300">"traveler_email": <span className="text-yellow-300">"traveler@example.com"</span>,</p>
             <p className="ml-4 text-blue-300">"departure_airport": <span className="text-yellow-300">"AMS"</span>,</p>
             <p className="ml-4 text-blue-300">"travel_date": <span className="text-yellow-300">"2024-06-15"</span>,</p>
             <p className="ml-4 text-blue-300">"total_ticket_price": <span className="text-yellow-300">850</span></p>
-            <p className="text-slate-400">{"}"}</p>
+            <p className="text-slate-400">{"}"}  </p>
           </div>
-          <p className="text-xs text-slate-500">→ DutyBoost automatically calculates the discount tier, generates the voucher, and emails it to the traveler. Your job is done.</p>
+          <div className="space-y-2">
+            {[
+              { step: "→", text: "DutyBoost calculates discount tier based on ticket price & travel type", color: "text-blue-600" },
+              { step: "→", text: "Voucher generated and emailed to traveler automatically", color: "text-emerald-600" },
+              { step: "→", text: "Traveler redeems at airport POS — discount applied automatically", color: "text-orange-600" },
+              { step: "→", text: "1% commission credited to your account in real time", color: "text-purple-600" },
+              { step: "→", text: "Monthly commission payout sent to your IBAN — no action required", color: "text-indigo-600" },
+            ].map(({ step, text, color }) => (
+              <div key={text} className="flex items-start gap-2 text-xs">
+                <span className={`font-bold mt-0.5 ${color}`}>{step}</span>
+                <p className="text-slate-600">{text}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="grid grid-cols-3 gap-3">
-          {["No POS changes needed", "Works with any booking system", "Full test environment available"].map(t => (
+          {["Zero manual steps after setup", "Works with Amadeus, Sabre, Galileo", "Full test environment available"].map(t => (
             <div key={t} className="flex items-center gap-2 text-xs text-slate-600 bg-white border border-slate-200 rounded-xl p-3">
               <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" /> {t}
             </div>
@@ -267,18 +290,20 @@ function FinancialsSlide() {
   return (
     <Slide bg="bg-slate-900" className="text-white">
       <div className="max-w-3xl w-full space-y-5 text-center">
-        <Tag label="The Commission Model" color="text-blue-300 bg-blue-900/50 border-blue-700" />
-        <h2 className="text-3xl sm:text-4xl font-heading font-bold">How the Money Flows</h2>
-        <p className="text-slate-400 text-base max-w-xl mx-auto">Every time a traveler redeems a DutyCredit at the airport, here's exactly what happens financially:</p>
+        <Tag label="Automated Commission & Payout" color="text-blue-300 bg-blue-900/50 border-blue-700" />
+        <h2 className="text-3xl sm:text-4xl font-heading font-bold">Zero Manual Steps. From Scan to Payout.</h2>
+        <p className="text-slate-400 text-base max-w-xl mx-auto">Every financial step is fully automated — commission tracking, aggregation, and monthly bank payout happen without any action from you.</p>
 
         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 text-left">
-          <p className="text-slate-300 text-sm font-medium mb-2">Example: Traveler buys €200 worth of goods at the airport</p>
+          <p className="text-slate-300 text-sm font-medium mb-2">Example: Traveler buys €200 at airport retail</p>
           {[
-            { label: "Gross transaction value", value: "€200.00", color: "text-white" },
-            { label: "Effective discount to traveler (e.g. 10%)", value: "−€20.00", color: "text-orange-300" },
-            { label: "Net retailer receives", value: "€180.00", color: "text-emerald-300" },
+            { label: "POS scans QR → validates voucher automatically", value: "Automated", color: "text-blue-300" },
+            { label: "Effective discount calculated & applied by POS", value: "−€20.00", color: "text-orange-300" },
+            { label: "Transaction logged to your dashboard (real-time)", value: "Automated", color: "text-blue-300" },
             { label: "DutyBoost platform fee (5% of gross)", value: "−€10.00", color: "text-slate-400" },
-            { label: "Your agency commission (1% of gross)", value: "€2.00 ✓", color: "text-blue-300 font-bold text-lg" },
+            { label: "Your agency commission (1% of gross)", value: "€2.00", color: "text-emerald-300" },
+            { label: "Commission aggregated monthly", value: "Automated", color: "text-blue-300" },
+            { label: "Payout to your IBAN by 15th of next month", value: "Automated ✓", color: "text-green-300 font-bold text-lg" },
           ].map(({ label, value, color }) => (
             <div key={label} className="flex justify-between items-center border-b border-white/10 pb-2 last:border-0 last:pb-0">
               <span className="text-slate-400 text-sm">{label}</span>
@@ -286,7 +311,7 @@ function FinancialsSlide() {
             </div>
           ))}
         </div>
-        <p className="text-slate-500 text-xs">Commission is aggregated monthly and paid out automatically to your registered bank account (IBAN).</p>
+        <p className="text-slate-500 text-xs">Commission is aggregated automatically each month. Bank transfer to your registered IBAN by the 15th — no invoice needed from your side.</p>
       </div>
     </Slide>
   );
