@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { Store, Plane, ArrowRight, Eye, LayoutDashboard, Briefcase } from "lucide-react";
+import { Store, Plane, ArrowRight, Eye } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import TravelerIcon from "../components/TravelerIcon";
 import { useTranslation } from "react-i18next";
 import PageFooter from "../components/PageFooter";
 
@@ -20,7 +19,7 @@ export default function DemoLanding() {
           <p className="text-muted-foreground text-lg">{t('demo.subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
           <Link to="/demo/agency" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
               <Plane className="w-6 h-6 text-primary" />
@@ -44,19 +43,6 @@ export default function DemoLanding() {
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
             <Eye className="w-4 h-4" /> {t('demo.view_retailer')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-
-          <Link to="/demo/traveler" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <TravelerIcon className="w-6 h-6 text-primary" />
-            </div>
-            <div>
-              <p className="font-heading font-bold text-xl">Traveler</p>
-              <p className="text-muted-foreground text-sm mt-1">Explore DutyCredits and redemption history from airport visits.</p>
-            </div>
-            <div className="flex items-center gap-2 text-primary font-semibold text-sm">
-            <Eye className="w-4 h-4" /> View Traveler Portal <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
