@@ -11,6 +11,8 @@ export default function Home() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        // Ensure role is set (handles first login after invite)
+        await base44.functions.invoke('ensureUserRole', {}).catch(() => {});
         const userData = await base44.auth.me();
         setUser(userData);
       } catch (error) {
