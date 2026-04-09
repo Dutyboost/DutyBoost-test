@@ -12,7 +12,12 @@ export default function Home() {
     const fetchUser = async () => {
       try {
         // Ensure role is set (handles first login after invite)
-        await base44.functions.invoke('ensureUserRole', {}).catch(() => {});
+        const roleResult = await base44.functions.invoke('ensureUserRole', {}).catch(() => ({ data: null }));
+        // If role was just assigned, reload to get fresh session with correct role
+        if (roleResult?.data?.updated === true) {
+          window.location.reload();
+          return;
+        }
         const userData = await base44.auth.me();
         setUser(userData);
       } catch (error) {
