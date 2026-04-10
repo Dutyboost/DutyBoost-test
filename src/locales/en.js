@@ -51,7 +51,7 @@ export default {
       title: 'Get Started with DutyBoost',
       subtitle: 'Choose your role to access and start enjoying the benefits of DutyBoost incentive platform.',
       agencies: {
-        title: 'For Travel Agencies',
+        title: 'For Travel Partners',
         description: 'Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.',
         cta: 'Get Started',
       },
