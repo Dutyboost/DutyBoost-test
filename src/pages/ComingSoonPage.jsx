@@ -42,7 +42,7 @@ export default function ComingSoonPage() {
           <div className="bg-card border border-border rounded-2xl p-8 shadow-sm max-w-md mx-auto space-y-3">
             <p className="font-heading font-semibold text-lg text-foreground">Want to be the first to know?</p>
             <p className="text-foreground text-sm leading-relaxed font-semibold">
-              Are you a travel agency/ airline or airport retailer interested in partnering with us to boost your overall conversions and customer loyalty? We would love to hear from you.
+              Are you a travel partner / airline or airport retailer interested in partnering with us to boost your overall conversions and customer loyalty? We would love to hear from you.
               <br /><br />
               Reach out via{" "}
               <button onClick={() => { setOpen(true); setSubmitted(false); }} className="text-primary font-bold underline underline-offset-2 hover:text-primary/80 transition-colors">
