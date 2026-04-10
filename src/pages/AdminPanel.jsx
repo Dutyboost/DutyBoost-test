@@ -104,14 +104,22 @@ export default function AdminPanel() {
   const handleSendAgain = async (applicationId) => {
     setApprovingId(applicationId);
     try {
-      const res = await base44.functions.invoke('sendMagicLink', { applicationId });
+      const app = applications.find(a => a.id === applicationId);
+      if (!app) { toast.error('Application not found'); return; }
+      const dashboardPath = app.business_type === 'Travel Agency' ? '/agency-portal' : '/retailer-portal';
+      const res = await base44.functions.invoke('sendMagicLink', {
+        email: app.email,
+        full_name: app.full_name,
+        dashboardPath,
+        reInvite: true,
+      });
       if (res.data?.success) {
-        toast.success('Magic link email resent!');
+        toast.success('Login link resent to ' + app.email);
       } else {
         toast.error(res.data?.error || 'Failed to resend email');
       }
     } catch (error) {
-      toast.error('Failed to resend email');
+      toast.error('Failed to resend email: ' + error.message);
     } finally {
       setApprovingId(null);
     }
