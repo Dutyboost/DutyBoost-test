@@ -346,7 +346,7 @@ export default function AgencySignup() {
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
-                <Button className="flex-1 gap-2 h-11" disabled={!bankAccountName || !bankIban || loading} onClick={handleStep1Submit}>
+                <Button className="gap-2 h-11" disabled={!bankAccountName || !bankIban || loading} onClick={handleStep1Submit}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -374,7 +374,7 @@ export default function AgencySignup() {
                 <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
-                <Button className="flex-1 gap-2 h-11" disabled={loading} onClick={handleStep2Submit}>
+                <Button className="gap-2 h-11" disabled={loading} onClick={handleStep2Submit}>
                   {loading ? "Sending..." : "Accept & Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -441,7 +441,7 @@ export default function AgencySignup() {
                 <Button variant="outline" className="gap-2" onClick={() => setStep(2)}>
                   <ArrowLeft className="w-4 h-4" /> Back
                 </Button>
-                <Button className="flex-1 gap-2 h-11" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
+                <Button className="gap-2 h-11" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
                   {loading ? "Submitting..." : "Submit"} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
