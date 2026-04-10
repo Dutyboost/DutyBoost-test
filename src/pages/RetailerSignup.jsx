@@ -280,14 +280,15 @@ export default function RetailerSignup() {
                   <Label>Airport <span className="text-red-500">*</span></Label>
                   <Select value={airport} onValueChange={setAirport}>
                     <SelectTrigger><SelectValue placeholder="Select airport" /></SelectTrigger>
-                    <SelectContent>
+                    <SelectContent position="popper" className="max-h-60 overflow-y-auto">
                       {airports.map(a => (
                         <SelectItem key={a.code} value={a.code}>
-                          {a.name} — {a.city}
+                          {a.code} — {a.name} ({a.city})
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
+                  {airports.length === 0 && <p className="text-xs text-muted-foreground">Loading airports...</p>}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
