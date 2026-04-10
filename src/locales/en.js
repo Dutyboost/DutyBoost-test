@@ -3,6 +3,7 @@ export default {
     nav: {
       signIn: 'Sign In',
       for_agencies: 'For Travel Partners',
+      get_started: 'Get Started',
       for_travelers: 'For Travelers',
       for_retailers: 'For Retailers',
       getStarted: 'Get Started',
@@ -59,8 +60,8 @@ export default {
       subtitle: 'Fill in your business information to get started',
       steps: ['Business Info', 'Payment Method', 'Purchase Order', 'Terms & Review'],
       step0_title: 'Create Your Travel Partner Account',
-        step1_title: 'Bank Details',
-        step1_desc: 'Provide your bank account for commission payments',
+      step1_title: 'Bank Details',
+      step1_desc: 'Provide your bank account for commission payments',
         step1_info: 'We\'ll transfer your commissions to this account each month.',
         step2_title: 'Purchase Order',
         step2_desc: 'Review your purchase order and we\'ll email it to',
@@ -70,9 +71,10 @@ export default {
         success_desc: 'Your Travel Partner account has been created successfully. Our team will review your application and contact you shortly.',
         success_button: 'Go to Travel Partner Portal',
       },
+      },
       retailer: {
-        title: 'Create Your Retailer Account',
-        subtitle: 'Fill in your store information to get started',
+         title: 'Create Your Retailer Account',
+         subtitle: 'Fill in your store information to get started',
         steps: ['Business Info', 'Payment Method', 'Purchase Order', 'Terms & Review'],
         step0_title: 'Create Your Retailer Account',
         step1_title: 'Payment Method',
@@ -86,9 +88,10 @@ export default {
         success_desc: 'Your retailer account has been created successfully. Our team will review your application and contact you shortly.',
         success_button: 'Go to Retailer Portal',
       },
+      },
       traveler: {
-        title: 'Create Your Account',
-        subtitle: 'Set up your DutyBoost profile using the email from your travel booking. This email links your bookings to your DutyCredits.',
+         title: 'Create Your Account',
+         subtitle: 'Set up your DutyBoost profile using the email from your travel booking. This email links your bookings to your DutyCredits',
         fullName: 'Full Name',
         email: 'Email Address',
         emailNote: 'Use the exact email from your travel booking confirmation. This is how we match your DutyCredits to your account.',
@@ -98,10 +101,10 @@ export default {
         redirecting: 'Your account is ready. Redirecting...',
         important: 'Important',
         importantNote: 'Make sure to use the same email you used when booking your travel. This is the only way we can connect your bookings to your DutyCredits.',
-      },
-    },
-    showcase: {
-    agency: {
+        },
+        },
+        showcase: {
+        agency: {
       titlePart1: 'Boost Customer',
       titlePart2: 'Loyalty',
       subtitle: 'Turn every booking into a revenue stream for your travel partner business and a loyalty asset for your customers.',
@@ -117,6 +120,7 @@ export default {
         ctaTitle: 'Ready to Boost Loyalty?',
         ctaDesc: 'Start offering exclusive airport shopping incentives to your travelers today.',
         ctaButton: 'Go to Travel Partner Portal',
+      },
       },
       retailer: {
         titlePart1: 'Convert More',
@@ -135,6 +139,7 @@ export default {
         ctaDesc: 'Get qualified customers and increase transaction value with DutyBoost.',
         ctaButton: 'Go to Retailer Portal',
       },
+      },
       traveler: {
         titlePart1: 'Maximize Your',
         titlePart2: 'Airport Rewards',
@@ -151,7 +156,7 @@ export default {
         ctaTitle: 'Ready to Save?',
         ctaDesc: 'Download your DutyCredit and start enjoying airport rewards today.',
         ctaButton: 'Go to Traveler Portal',
-      },
-    },
-  },
-};
+        },
+        },
+        },
+        };

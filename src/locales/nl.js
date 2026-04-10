@@ -2,7 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Inloggen',
-      for_agencies: 'Voor bureaus',
+      for_agencies: 'Voor Travel Partners',
       for_travelers: 'Voor reizigers',
       for_retailers: 'Voor retailers',
       getStarted: 'Aan de slag',
@@ -47,31 +47,18 @@ export default {
       tagline: '— Dynamisch luchthaven-incentiveplatform',
       rights: '© 2026 DutyBoost. Alle rechten voorbehouden.',
     },
-    getStarted: {
+    getstarted: {
       title: 'Aan de slag met DutyBoost',
-      subtitle: 'Kies uw rol om toegang te krijgen tot de voordelen van het DutyBoost-incentiveplatform.',
-      agencies: {
-        title: 'Voor reisbureaus',
-        description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
-        cta: 'Aan de slag',
-      },
-      travelers: {
-        title: 'Voor vrijetijdsreizigers',
-        description: 'Maximaliseer uw winkelerlebnis op de luchthaven met gepersonaliseerde beloningen. Geniet het hele jaar door van exclusieve kortingen via uw reisoekingen.',
-        cta: 'Aan de slag',
-      },
-      retailers: {
-        title: 'Voor luchthavenretailers',
-        description: 'Ontvang voorgeselecteerde klanten en verhoog de transactiewaarde via DutyBoosts gerichte incentiveprogramma\'s. Groei uw omzet en bouw klantloyaliteit op uw luchthaven op.',
-        cta: 'Aan de slag',
-      },
+      subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van het DutyBoost-incentiveplatform.',
+      agencies_description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
+      retailers_description: 'Ontvang voorgeselecteerde klanten en verhoog de transactiewaarde via DutyBoosts gerichte incentiveprogramma\'s. Groei uw omzet en bouw klantloyaliteit op uw luchthaven op.',
     },
     signup: {
       agency: {
-        title: 'Maak uw agentschapsaccount aan',
+        title: 'Maak uw Travel Partner account aan',
         subtitle: 'Vul uw bedrijfsgegevens in om aan de slag te gaan',
         steps: ['Bedrijfsgegevens', 'Betaalmethode', 'Inkooporder', 'Voorwaarden & Review'],
-        step0_title: 'Maak uw agentschapsaccount aan',
+        step0_title: 'Maak uw Travel Partner account aan',
         step1_title: 'Bankgegevens',
         step1_desc: 'Geef uw bankrekening op voor provisiebetalingen',
         step1_info: 'We zullen uw provisies maandelijks naar deze rekening overmaken.',
@@ -80,8 +67,8 @@ export default {
         step3_title: 'Voorwaarden & Review',
         step3_desc: 'Bekijk en accepteer onze voorwaarden om uw aanmelding af te ronden',
         success_title: 'Welkom bij DutyBoost!',
-        success_desc: 'Uw agentschapsaccount is succesvol aangemaakt. Ons team zal uw aanvraag beoordelen en binnenkort contact met u opnemen.',
-        success_button: 'Ga naar agentschapsportaal',
+        success_desc: 'Uw Travel Partner account is succesvol aangemaakt. Ons team zal uw aanvraag beoordelen en binnenkort contact met u opnemen.',
+        success_button: 'Ga naar Travel Partner Portal',
       },
       retailer: {
         title: 'Maak uw retaileraccount aan',
@@ -129,7 +116,7 @@ export default {
         step4Desc: 'U verdient een commissie op elk ingewisseld DutyCredit.',
         ctaTitle: 'Klaar om loyaliteit te verhogen?',
         ctaDesc: 'Begin vandaag nog exclusieve luchthavenwinkelprikkels aan uw reizigers aan te bieden.',
-        ctaButton: 'Ga naar agentschapsportal',
+        ctaButton: 'Ga naar Travel Partner Portal',
       },
       retailer: {
         titlePart1: 'Converteer meer',
