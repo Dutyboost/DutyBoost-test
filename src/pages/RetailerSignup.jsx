@@ -97,7 +97,7 @@ export default function RetailerSignup() {
   const poNumber = applicationId ? applicationId.slice(-8).toUpperCase() : "PENDING";
 
   const isStep1Valid = () => {
-    return invoiceEmail.trim().length > 0;
+    return invoiceEmail.trim().length > 0 && bankAccountName.trim().length > 0 && bankIban.trim().length > 0;
   };
 
   const handleStep1Submit = async () => {
@@ -326,19 +326,19 @@ export default function RetailerSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">{t('signup.retailer.step1_title')}</h2>
+                <h2 className="text-2xl font-heading font-bold">Billing Details</h2>
                 <p className="text-sm text-muted-foreground">
-                  {t('signup.retailer.step1_desc')}
+                  No charges now — payments are only collected after a confirmed DutyCredit sale at the airport.
                 </p>
-              </div>
-
-              <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 text-sm text-orange-800">
-                <strong>How it works:</strong> {t('signup.retailer.step1_info')}
               </div>
 
               <PaymentMethodSelector
                 invoiceEmail={invoiceEmail}
                 onInvoiceEmailChange={setInvoiceEmail}
+                bankAccountName={bankAccountName}
+                onBankAccountNameChange={setBankAccountName}
+                bankIban={bankIban}
+                onBankIbanChange={setBankIban}
               />
 
               <div className="flex gap-3">
