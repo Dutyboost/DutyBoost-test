@@ -49,7 +49,7 @@ export default function AgencyShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            {t('showcase.agency.titlePart1')} <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">{t('showcase.agency.titlePart2')}</span>
+            Boost Customer <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Loyalty</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t('showcase.agency.subtitle')}
@@ -87,7 +87,7 @@ export default function AgencyShowcase() {
               </p>
               <Link to="/agency-portal">
                 <Button size="lg" className="bg-white text-green-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  {t('showcase.agency.ctaButton')} <ArrowRight className="w-4 h-4" />
+                  Go to Travel Partner Portal <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

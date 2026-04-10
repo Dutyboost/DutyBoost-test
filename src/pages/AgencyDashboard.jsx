@@ -23,6 +23,7 @@ export default function AgencyDashboard() {
   const [vouchers, setVouchers] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [user, setUser] = useState(null);
+  const [companyName, setCompanyName] = useState("");
   const [bankForm, setBankForm] = useState({ bank_account_name: "", bank_iban: "" });
   const [bankSaving, setBankSaving] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -34,12 +35,14 @@ export default function AgencyDashboard() {
     const u = await base44.auth.me();
     setUser(u);
     setBankForm({ bank_account_name: u.bank_account_name || "", bank_iban: u.bank_iban || "" });
-    const [allVouchers, allTxns] = await Promise.all([
+    const [allVouchers, allTxns, apps] = await Promise.all([
       base44.entities.Voucher.filter({ agency_email: u.email }, '-created_date', 100),
       base44.entities.Transaction.filter({ agency_email: u.email }, '-created_date', 200),
+      base44.entities.SignupApplication.filter({ email: u.email }, '-created_date', 1),
     ]);
     setVouchers(allVouchers);
     setTransactions(allTxns);
+    if (apps && apps.length > 0) setCompanyName(apps[0].company || "");
   };
 
   const handleSaveBank = async (e) => {
@@ -181,8 +184,15 @@ export default function AgencyDashboard() {
       </div>
 
       <div>
-        <h1 className="text-2xl font-heading font-bold tracking-tight">Agency Dashboard</h1>
-        <p className="text-muted-foreground mt-1">Earn commission from airport retail conversions made by travelers who purchased tickets through you.</p>
+        <div className="flex items-baseline gap-3 flex-wrap">
+          <h1 className="text-2xl font-heading font-bold tracking-tight">Travel Partner Dashboard</h1>
+          {companyName && (
+            <span className="text-base font-medium text-primary bg-primary/10 px-3 py-0.5 rounded-full">{companyName}</span>
+          )}
+        </div>
+        <p className="text-muted-foreground mt-1">
+          Welcome{user?.full_name ? `, ${user.full_name.split(' ')[0]}` : ''}! Track your DutyCredit performance and earn commission on every airport retail conversion from your travelers.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

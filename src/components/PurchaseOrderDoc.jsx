@@ -5,7 +5,7 @@ const AGENCY_REVENUE_SHARE = "20%"; // of DutyBoost's 5% = effectively 1% of tic
 const RETAILER_COMMISSION = "5%";
 
 export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
-  const isAgency = businessType === "Travel Agency";
+  const isAgency = businessType === "Travel Agency" || businessType === "Travel Partner";
   const today = new Date().toLocaleDateString("nl-NL", { day: "2-digit", month: "long", year: "numeric" });
 
   return (

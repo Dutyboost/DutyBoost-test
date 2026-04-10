@@ -132,7 +132,7 @@ export default function AgencySignup() {
         full_name: fullName,
         email,
         company,
-        business_type: "Travel Agency",
+        business_type: "Travel Partner",
         website,
         kvk,
         vat,
@@ -219,12 +219,12 @@ export default function AgencySignup() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-             <h1 className="text-3xl font-heading font-bold">{t('signup.agency.success_title')}</h1>
+             <h1 className="text-3xl font-heading font-bold">Welcome to DutyBoost!</h1>
              <p className="text-muted-foreground">
-               {t('signup.agency.success_desc')}
+               Your Travel Partner account has been created successfully. Our team will review your application and contact you shortly.
              </p>
             </div>
-            <Link to="/agency-portal"><Button className="w-full">{t('signup.agency.success_button')}</Button></Link>
+            <Link to="/agency-portal"><Button className="w-full">Go to Travel Partner Portal</Button></Link>
           </div>
         </div>
       </div>
@@ -267,7 +267,7 @@ export default function AgencySignup() {
           {step === 0 && (
             <>
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-heading font-bold">{t('signup.agency.step0_title')}</h1>
+                <h1 className="text-3xl font-heading font-bold">Create Your Travel Partner Account</h1>
                 <p className="text-muted-foreground text-sm">
                   {t('signup.agency.subtitle')}
                 </p>
@@ -408,7 +408,7 @@ export default function AgencySignup() {
                   { label: "Name", value: fullName },
                   { label: "Email", value: email },
                   { label: "Company", value: company },
-                  { label: "Type", value: "Travel Agency" },
+                  { label: "Type", value: "Travel Partner" },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>

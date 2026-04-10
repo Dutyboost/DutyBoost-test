@@ -44,7 +44,7 @@ export default function AgencyPortal() {
           <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
             <Briefcase className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl font-heading font-bold">Travel Agency Portal</h1>
+          <h1 className="text-3xl font-heading font-bold">Travel Partner Portal</h1>
           <p className="text-muted-foreground leading-relaxed">
             Manage your bookings and DutyCredits for your travelers.
           </p>
@@ -64,7 +64,7 @@ export default function AgencyPortal() {
           ) : (
             <>
               <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/agency-signup")}>
-                <UserPlus className="w-4 h-4" /> Create Agency Account
+                <UserPlus className="w-4 h-4" /> Create Travel Partner Account
               </Button>
               <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>
                 <LogIn className="w-4 h-4" /> Sign In

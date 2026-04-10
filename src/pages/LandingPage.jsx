@@ -74,7 +74,7 @@ export default function LandingPage() {
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/agency-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                {t('nav.for_agencies')}
+                For Travel Partners
               </Button>
             </Link>
             <Link to="/retailer-showcase">

@@ -2,7 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Sign In',
-      for_agencies: 'For Agencies',
+      for_agencies: 'For Travel Partners',
       for_travelers: 'For Travelers',
       for_retailers: 'For Retailers',
       getStarted: 'Get Started',
@@ -67,11 +67,11 @@ export default {
       },
     },
     signup: {
-      agency: {
-        title: 'Create Your Agency Account',
-        subtitle: 'Fill in your business information to get started',
-        steps: ['Business Info', 'Payment Method', 'Purchase Order', 'Terms & Review'],
-        step0_title: 'Create Your Agency Account',
+    agency: {
+      title: 'Create Your Travel Partner Account',
+      subtitle: 'Fill in your business information to get started',
+      steps: ['Business Info', 'Payment Method', 'Purchase Order', 'Terms & Review'],
+      step0_title: 'Create Your Travel Partner Account',
         step1_title: 'Bank Details',
         step1_desc: 'Provide your bank account for commission payments',
         step1_info: 'We\'ll transfer your commissions to this account each month.',
@@ -80,8 +80,8 @@ export default {
         step3_title: 'Terms & Review',
         step3_desc: 'Review and accept our terms to complete your signup',
         success_title: 'Welcome to DutyBoost!',
-        success_desc: 'Your agency account has been created successfully. Our team will review your application and contact you shortly.',
-        success_button: 'Go to Agency Portal',
+        success_desc: 'Your Travel Partner account has been created successfully. Our team will review your application and contact you shortly.',
+        success_button: 'Go to Travel Partner Portal',
       },
       retailer: {
         title: 'Create Your Retailer Account',
@@ -114,10 +114,10 @@ export default {
       },
     },
     showcase: {
-      agency: {
-        titlePart1: 'Boost Customer',
-        titlePart2: 'Loyalty',
-        subtitle: 'Turn every booking into a revenue stream for your agency and a loyalty asset for your customers.',
+    agency: {
+      titlePart1: 'Boost Customer',
+      titlePart2: 'Loyalty',
+      subtitle: 'Turn every booking into a revenue stream for your travel partner business and a loyalty asset for your customers.',
         howItWorks: 'How It Works',
         step1: 'Booking Submitted',
         step1Desc: 'When a customer books through your system, we capture their details.',
@@ -129,7 +129,7 @@ export default {
         step4Desc: 'You earn a commission on every DutyCredit they redeem.',
         ctaTitle: 'Ready to Boost Loyalty?',
         ctaDesc: 'Start offering exclusive airport shopping incentives to your travelers today.',
-        ctaButton: 'Go to Agency Portal',
+        ctaButton: 'Go to Travel Partner Portal',
       },
       retailer: {
         titlePart1: 'Convert More',
