@@ -91,24 +91,6 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsLoadingAuth(true);
       const currentUser = await base44.auth.me();
-      
-      // Verify user still exists in the User entity
-      const userExists = await base44.entities.User.list();
-      const userRecord = userExists.find(u => u.email === currentUser.email);
-      
-      if (!userRecord) {
-        // User was deleted - immediately logout and block access
-        setUser(null);
-        setIsAuthenticated(false);
-        setIsLoadingAuth(false);
-        base44.auth.logout();
-        setAuthError({
-          type: 'auth_required',
-          message: 'Your account no longer exists'
-        });
-        return;
-      }
-      
       setUser(currentUser);
       setIsAuthenticated(true);
       setIsLoadingAuth(false);
@@ -117,7 +99,6 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setIsLoadingAuth(false);
       setIsAuthenticated(false);
-      base44.auth.logout();
       setAuthError({
         type: 'auth_required',
         message: 'Authentication required'
@@ -139,8 +120,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const navigateToLogin = () => {
-    // Redirect to login, then home
-    base44.auth.redirectToLogin('/');
+    const next = window.location.pathname !== '/' ? window.location.pathname : '/dashboard';
+    base44.auth.redirectToLogin(next);
   };
 
   return (
