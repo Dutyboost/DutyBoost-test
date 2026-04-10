@@ -52,7 +52,7 @@ export default function AgencyShowcase() {
             Boost Customer <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Loyalty</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t('showcase.agency.subtitle')}
+            Turn every booking into a revenue stream for your agency/ airline  and into a loyalty asset for your customers.
           </p>
         </div>
       </section>
