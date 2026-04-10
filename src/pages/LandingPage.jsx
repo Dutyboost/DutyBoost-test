@@ -138,7 +138,7 @@ export default function LandingPage() {
               
               if (s.key === 'agencies') {
                 title = 'For Travel Partners';
-                description = 'Turn every booking into a loyalty tool. Auto-generate personalized DutyCredits for your travelers based on booking value, destination, and group size — with zero extra effort. Earn a margin on every redeemed DutyCredit.';
+                description = 'Turn every booking into a loyalty tool. Auto-generate personalized DutyCredits for your travelers based on booking value, destination, and group size — with simple API integration. Earn a margin on every redeemed DutyCredit.';
                 benefits = ['Boost customer loyalty', 'Zero integration friction', 'New revenue stream'];
               } else {
                 benefits = [
