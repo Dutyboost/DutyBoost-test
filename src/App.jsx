@@ -85,7 +85,7 @@ const AuthenticatedApp = () => {
           <>
             <ScrollRestoration />
             <Routes>
-              <Route path="/" element={<ComingSoonPage />} />
+              <Route path="/" element={<LandingPage />} />
               <Route path="/coming-soon" element={<ComingSoonPage />} />
               <Route path="/landing" element={<LandingPage />} />
               <Route path="/get-started" element={<SelectUserType />} />
@@ -122,7 +122,7 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={<ComingSoonPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/voucher" element={<TravelerVoucher />} />
