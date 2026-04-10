@@ -4,7 +4,8 @@ import StatsCard from "../components/StatsCard";
 import ProfileTab from "../components/ProfileTab";
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import VoucherCard from "../components/VoucherCard";
-import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle } from "lucide-react";
+import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle, BookOpen, ArrowRight, Code2, Mail, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -105,6 +106,7 @@ export default function AgencyDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
@@ -124,6 +126,38 @@ export default function AgencyDashboard() {
 
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} user={user} />} />
+      ) : activeTab === "implementation" ? (
+        <div className="max-w-2xl space-y-8 py-4">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-heading font-bold">Implementation Guide</h1>
+            <p className="text-muted-foreground">Everything your technical team needs to integrate DutyBoost into your booking platform — so every confirmed booking automatically generates a DutyCredit for the traveler.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { icon: Code2, title: 'Single API call', desc: 'One POST request after every confirmed booking. Works with any booking system or language.' },
+              { icon: Zap, title: '~30 min integration', desc: 'Simple endpoint with a ready-to-paste code snippet in JS, Python, and PHP.' },
+              { icon: Mail, title: 'Automatic email', desc: 'DutyBoost emails the traveler their QR voucher automatically — no extra work needed.' },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-card border border-border rounded-xl p-4 space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center"><Icon className="w-4 h-4 text-primary" /></div>
+                <p className="font-semibold text-sm">{title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4">
+            <p className="text-sm text-muted-foreground">The full guide covers: API authentication, request & response field reference, code examples (JS/Node, Python, PHP), email embedding, discount calculation logic, webhook setup for redemption notifications, and a testing checklist.</p>
+            <Link to="/integration-guide">
+              <button className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">
+                Open Full Implementation Guide <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
+          <div className="bg-card border border-border rounded-xl p-4 text-sm">
+            <p className="font-semibold mb-1">Need help?</p>
+            <p className="text-muted-foreground">Contact our integration team at <a href="mailto:integrations@dutyboost.com" className="text-primary underline">integrations@dutyboost.com</a> — we can assist with setup, provide sandbox credentials, or review your implementation.</p>
+          </div>
+        </div>
       ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
