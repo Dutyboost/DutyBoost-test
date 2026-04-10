@@ -84,12 +84,12 @@ export default function LandingPage() {
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                {t('nav.weCallYou')}
+                We Call You
               </Button>
             )} />
             <Link to="/demo">
               <Button variant="outline" size="sm" className="gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
-                <Eye className="w-3.5 h-3.5" /> {t('nav.liveDemo')}
+                <Eye className="w-3.5 h-3.5" /> Live Demo
               </Button>
             </Link>
             {authedUser ? (
