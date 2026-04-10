@@ -132,6 +132,9 @@ export default function GetStarted() {
     });
   }, []);
 
+  const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','live.com','aol.com','protonmail.com','mail.com','gmx.com','ymail.com','msn.com'];
+  const isPersonalEmail = (e) => PERSONAL_DOMAINS.some(d => e.toLowerCase().endsWith('@' + d));
+
   const isAgency = businessType === "Travel Agency";
   const isRetailer = businessType === "Airport Retailer";
   const STEPS = isAgency ? AGENCY_STEPS : RETAILER_STEPS;
@@ -140,7 +143,7 @@ export default function GetStarted() {
   const displayStep = isAgency && step >= 2 ? step - 1 : step;
 
   const isStep0Valid = () => {
-    if (!businessType || !fullName || !email || !company || !website || !kvk || !vat) return false;
+    if (!businessType || !fullName || !email || isPersonalEmail(email) || !company || !website || !kvk || !vat) return false;
     if (isAgency && !bookingSystem) return false;
     if (isRetailer && (!airport || !storeCategory)) return false;
     return true;
@@ -355,6 +358,9 @@ export default function GetStarted() {
                 <div className="space-y-1.5">
                   <Label>{t('getstarted.work_email')} <span className="text-red-500">*</span></Label>
                   <Input required type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
+                  {email && isPersonalEmail(email) && (
+                    <p className="text-xs text-red-500">Please use your work email address. Personal email providers (Gmail, Hotmail, etc.) are not accepted.</p>
+                  )}
                 </div>
                 <div className="space-y-1.5">
                   <Label>{t('getstarted.company_name')} <span className="text-red-500">*</span></Label>
