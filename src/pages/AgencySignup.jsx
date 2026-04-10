@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronLeft, CreditCard, FileText, ClipboardList, ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import PurchaseOrderDoc from "../components/PurchaseOrderDoc";
+import KvkValidator from "../components/KvkValidator";
 
 const BOOKING_ENGINES = [
   "Amadeus", "Sabre", "Travelport (Galileo/Apollo/Worldspan)", "Worldline",
@@ -101,6 +102,7 @@ export default function AgencySignup() {
   const [loading, setLoading] = useState(false);
   const [applicationId, setApplicationId] = useState(null);
   const [airports, setAirports] = useState([]);
+  const [kvkValidated, setKvkValidated] = useState(false);
 
   useEffect(() => {
     base44.entities.Airport.list().then(data => {
@@ -119,7 +121,7 @@ export default function AgencySignup() {
   const isPersonalEmail = (e) => PERSONAL_DOMAINS.some(d => e.toLowerCase().endsWith('@' + d));
 
   const isStep0Valid = () => {
-    return fullName && email && !isPersonalEmail(email) && company && website && kvk && vat && bookingSystem;
+    return fullName && email && !isPersonalEmail(email) && company && website && kvk && vat && bookingSystem && kvkValidated;
   };
 
   const handleStep0Submit = async (e) => {
@@ -307,6 +309,15 @@ export default function AgencySignup() {
                   <Label>Booking Engine <span className="text-red-500">*</span></Label>
                   <BookingSystemSelect value={bookingSystem} onChange={setBookingSystem} />
                 </div>
+
+                {/* KVK + VAT Verification */}
+                <KvkValidator
+                  kvk={kvk}
+                  vat={vat}
+                  company={company}
+                  onValidated={({ valid }) => setKvkValidated(valid)}
+                />
+
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>

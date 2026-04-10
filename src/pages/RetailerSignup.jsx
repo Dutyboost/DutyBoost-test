@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, CreditCard, FileText, ClipboardList, ArrowLeft, ArrowRight, ChevronLeft } from "lucide-react";
 import PurchaseOrderDoc from "../components/PurchaseOrderDoc";
+import KvkValidator from "../components/KvkValidator";
 import PaymentMethodSelector from "../components/PaymentMethodSelector";
 
 export default function RetailerSignup() {
@@ -38,6 +39,7 @@ export default function RetailerSignup() {
   const [loading, setLoading] = useState(false);
   const [applicationId, setApplicationId] = useState(null);
   const [airports, setAirports] = useState([]);
+  const [kvkValidated, setKvkValidated] = useState(false);
 
   const FALLBACK_AIRPORTS = [
     { code: 'AMS', name: 'Amsterdam Schiphol', city: 'Amsterdam' },
@@ -67,7 +69,7 @@ export default function RetailerSignup() {
   const isPersonalEmail = (e) => PERSONAL_DOMAINS.some(d => e.toLowerCase().endsWith('@' + d));
 
   const isStep0Valid = () => {
-    return fullName && email && !isPersonalEmail(email) && company && website && kvk && vat && airport && storeCategory;
+    return fullName && email && !isPersonalEmail(email) && company && website && kvk && vat && airport && storeCategory && kvkValidated;
   };
 
   const handleStep0Submit = async (e) => {
@@ -312,6 +314,14 @@ export default function RetailerSignup() {
                     </SelectContent>
                   </Select>
                 </div>
+                {/* KVK + VAT Verification */}
+                <KvkValidator
+                  kvk={kvk}
+                  vat={vat}
+                  company={company}
+                  onValidated={({ valid }) => setKvkValidated(valid)}
+                />
+
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
                   {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
                 </Button>
