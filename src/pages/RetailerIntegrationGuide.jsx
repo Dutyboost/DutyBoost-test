@@ -1,0 +1,518 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import DutyBoostLogo from "../components/DutyBoostLogo";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Copy, Check, QrCode, Zap, Mail, ArrowRight,
+  CheckCircle2, AlertCircle, Monitor, Smartphone, Wifi, WifiOff,
+  ChevronDown, ChevronUp, Store, Terminal, ShieldCheck
+} from "lucide-react";
+
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
+      className="absolute top-3 right-3 p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors"
+    >
+      {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+    </button>
+  );
+}
+
+function CodeBlock({ code, label }) {
+  return (
+    <div className="relative rounded-xl overflow-hidden bg-slate-900 text-sm">
+      {label && (
+        <div className="flex items-center px-4 py-2 border-b border-white/10 bg-slate-800">
+          <span className="text-xs text-slate-400 font-mono">{label}</span>
+        </div>
+      )}
+      <CopyButton text={code} />
+      <pre className="p-5 text-slate-100 overflow-x-auto leading-relaxed text-xs">{code}</pre>
+    </div>
+  );
+}
+
+function Collapsible({ title, children }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen(v => !v)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/30 transition-colors"
+      >
+        <span className="font-semibold text-sm">{title}</span>
+        {open ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+      </button>
+      {open && <div className="px-5 pb-5 space-y-4 border-t border-border pt-4">{children}</div>}
+    </div>
+  );
+}
+
+const VALIDATE_CURL = `curl -X POST https://api.dutyboost.com/v1/validate-voucher \\
+  -H "Content-Type: application/json" \\
+  -H "X-DutyBoost-Key: YOUR_RETAILER_API_KEY" \\
+  -d '{
+    "voucher_code": "DB-X7K2M4NP",
+    "retailer_id": "YOUR_RETAILER_ID"
+  }'`;
+
+const VALIDATE_RESPONSE = `{
+  "valid": true,
+  "voucher_code": "DB-X7K2M4NP",
+  "discount_percentage": 16,
+  "traveler_name": "John Doe",
+  "airport": "AMS",
+  "expiration_date": "2025-12-01",
+  "status": "active",
+  "message": "Voucher is valid. Apply 16% discount at checkout."
+}`;
+
+const REDEEM_REQUEST = `{
+  "voucher_code": "DB-X7K2M4NP",
+  "retailer_id": "YOUR_RETAILER_ID",
+  "transaction_value": 142.50,
+  "num_items": 3
+}`;
+
+const REDEEM_RESPONSE = `{
+  "success": true,
+  "voucher_code": "DB-X7K2M4NP",
+  "base_discount": 16,
+  "effective_discount": 18,
+  "discount_amount": 25.65,
+  "amount_charged": 116.85,
+  "platform_fee": 7.69,
+  "transaction_id": "TXN-20251201-4482",
+  "message": "Voucher redeemed successfully."
+}`;
+
+const JS_VALIDATE = `// Step 1: Validate the voucher before applying any discount
+async function validateVoucher(voucherCode) {
+  const res = await fetch('https://api.dutyboost.com/v1/validate-voucher', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-DutyBoost-Key': process.env.DUTYBOOST_API_KEY
+    },
+    body: JSON.stringify({
+      voucher_code: voucherCode,
+      retailer_id: process.env.DUTYBOOST_RETAILER_ID
+    })
+  });
+  return await res.json();
+}
+
+// Step 2: After checkout, confirm the redemption with the basket value
+async function redeemVoucher(voucherCode, transactionValue, numItems) {
+  const res = await fetch('https://api.dutyboost.com/v1/redeem-voucher', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-DutyBoost-Key': process.env.DUTYBOOST_API_KEY
+    },
+    body: JSON.stringify({
+      voucher_code:      voucherCode,
+      retailer_id:       process.env.DUTYBOOST_RETAILER_ID,
+      transaction_value: transactionValue,   // final basket total in EUR
+      num_items:         numItems            // number of items scanned
+    })
+  });
+  return await res.json();
+}
+
+// --- Usage in your POS flow ---
+async function processDutyBoostVoucher(scannedCode, basketTotal, numItems) {
+  // 1. Validate
+  const validation = await validateVoucher(scannedCode);
+  if (!validation.valid) {
+    displayError('Voucher invalid or expired');
+    return;
+  }
+
+  // 2. Show discount preview to cashier and customer
+  displayDiscount(validation.discount_percentage, basketTotal);
+
+  // 3. Cashier confirms — finalize the transaction
+  const redemption = await redeemVoucher(scannedCode, basketTotal, numItems);
+  if (redemption.success) {
+    applyDiscountToReceipt(redemption.discount_amount);
+    printReceipt(redemption);
+  }
+}`;
+
+const PYTHON_VALIDATE = `import requests, os
+
+HEADERS = {
+    'Content-Type': 'application/json',
+    'X-DutyBoost-Key': os.environ['DUTYBOOST_API_KEY']
+}
+RETAILER_ID = os.environ['DUTYBOOST_RETAILER_ID']
+
+def validate_voucher(voucher_code: str) -> dict:
+    r = requests.post(
+        'https://api.dutyboost.com/v1/validate-voucher',
+        headers=HEADERS,
+        json={'voucher_code': voucher_code, 'retailer_id': RETAILER_ID}
+    )
+    return r.json()
+
+def redeem_voucher(voucher_code: str, transaction_value: float, num_items: int) -> dict:
+    r = requests.post(
+        'https://api.dutyboost.com/v1/redeem-voucher',
+        headers=HEADERS,
+        json={
+            'voucher_code':      voucher_code,
+            'retailer_id':       RETAILER_ID,
+            'transaction_value': transaction_value,
+            'num_items':         num_items
+        }
+    )
+    return r.json()`;
+
+const WEBHOOK_HANDLER = `// DutyBoost sends a confirmation webhook after every successful redemption
+// Set your webhook URL in the retailer dashboard → Settings → Webhooks
+
+app.post('/webhooks/dutyboost', (req, res) => {
+  const { event, transaction_id, voucher_code, discount_amount, platform_fee } = req.body;
+
+  if (event === 'voucher.redeemed') {
+    // Log the transaction in your back-office system
+    // platform_fee is what DutyBoost will invoice you for at month end
+    saveTransaction({ transaction_id, voucher_code, discount_amount, platform_fee });
+  }
+
+  res.status(200).send('OK');
+});`;
+
+export default function RetailerIntegrationGuide() {
+  return (
+    <div className="min-h-screen bg-background font-body">
+      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
+        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+          <Link to="/"><DutyBoostLogo height={130} /></Link>
+          <div className="flex items-center gap-4">
+            <Link to="/integration-guide" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Agency Guide</Link>
+            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-3xl mx-auto px-6 py-14 space-y-14">
+
+        {/* Hero */}
+        <div className="space-y-4">
+          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Airport Retailer · Implementation Guide</Badge>
+          <h1 className="text-4xl font-heading font-bold">Retailer POS Integration Guide</h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            This guide explains what your technical team needs to build so that DutyBoost vouchers can be validated and redeemed at your point-of-sale system — giving eligible travelers their discount at the till, automatically.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {['~1–2 day integration', 'Two API calls', 'Works with any POS system'].map(t => (
+              <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+            ))}
+          </div>
+        </div>
+
+        {/* How it works */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">How it works in your store</h2>
+          <div className="grid md:grid-cols-4 gap-3">
+            {[
+              { num: '1', title: 'Customer presents QR', desc: 'Traveler opens the DutyBoost email or voucher link and shows the QR code at your till' },
+              { num: '2', title: 'Cashier scans', desc: 'Your POS scanner reads the QR code — it calls the DutyBoost API to validate it instantly' },
+              { num: '3', title: 'Discount displayed', desc: 'POS shows the discount percentage and updated basket total for cashier & customer to confirm' },
+              { num: '4', title: 'Redemption confirmed', desc: 'Cashier finalises the sale — DutyBoost records the transaction and invoices you at month end' },
+            ].map(s => (
+              <div key={s.num} className="bg-card border border-border rounded-xl p-4 space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-orange-500 text-white flex items-center justify-center text-sm font-bold">{s.num}</div>
+                <p className="font-semibold text-sm">{s.title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Integration options */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Choose your integration method</h2>
+          <p className="text-sm text-muted-foreground">Select the method that fits your POS infrastructure. Option A is recommended for most retailers.</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                icon: Terminal,
+                label: 'Recommended',
+                labelColor: 'bg-green-100 text-green-700',
+                title: 'Option A — API Integration',
+                desc: 'Your POS software calls the DutyBoost API directly. Full automation, real-time validation, and no manual steps. Requires a developer to add ~50 lines of code to your POS software.',
+              },
+              {
+                icon: Monitor,
+                label: 'No dev needed',
+                labelColor: 'bg-blue-100 text-blue-700',
+                title: 'Option B — DutyBoost Terminal',
+                desc: 'We provide a dedicated tablet or screen at your till. Cashier enters or scans the code on the DutyBoost device — no changes to your existing POS needed. Contact us to set up.',
+              },
+              {
+                icon: Smartphone,
+                label: 'Simple fallback',
+                labelColor: 'bg-amber-100 text-amber-700',
+                title: 'Option C — Manual Dashboard',
+                desc: 'Log into your DutyBoost retailer dashboard on any device and look up voucher codes manually. No tech integration required — best for low-volume stores.',
+              },
+            ].map(({ icon: Icon, label, labelColor, title, desc }) => (
+              <div key={title} className="bg-card border border-border rounded-xl p-5 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className={`text-xs font-semibold px-2 py-1 rounded-full ${labelColor}`}>{label}</span>
+                </div>
+                <p className="font-semibold text-sm">{title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Prerequisites */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Before you start (Option A)</h2>
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 space-y-3">
+            <p className="font-semibold text-amber-900 text-sm">You will need:</p>
+            <ul className="space-y-2">
+              {[
+                'An approved DutyBoost retailer account (register at dutyboost.com/retailer-signup)',
+                'Your DutyBoost Retailer API Key — from your retailer dashboard under Settings → API',
+                'Your DutyBoost Retailer ID — shown in the same settings screen',
+                'A QR scanner connected to your POS system (standard USB or Bluetooth scanner works)',
+                'A developer who can modify your POS software to make HTTP API calls',
+                'Outbound HTTPS access from your POS network to api.dutyboost.com (port 443)',
+              ].map(item => (
+                <li key={item} className="flex items-start gap-2 text-sm text-amber-800">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-amber-600" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
+            <AlertCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+            <p className="text-sm text-red-700"><strong>Never store API keys in frontend or client-side code.</strong> API calls must be made from your POS backend or middleware — not from browser-based POS interfaces.</p>
+          </div>
+        </div>
+
+        {/* Step 1 — Validate */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-bold shrink-0">1</div>
+            <h2 className="text-2xl font-heading font-semibold">Validate the voucher at scan</h2>
+          </div>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            When the cashier scans a DutyBoost QR code, your POS must immediately call the <strong>validate</strong> endpoint. This confirms the voucher is active, not expired, and valid for your store. This call does <strong>not</strong> consume the voucher — it only checks it.
+          </p>
+
+          <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+            <Badge className="bg-green-600 text-white text-xs shrink-0">POST</Badge>
+            <code className="text-sm font-mono text-foreground break-all">https://api.dutyboost.com/v1/validate-voucher</code>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold">Request body:</p>
+              <CodeBlock code={`{\n  "voucher_code": "DB-X7K2M4NP",\n  "retailer_id": "YOUR_RETAILER_ID"\n}`} label="validate-request.json" />
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm font-semibold">Response:</p>
+              <CodeBlock code={VALIDATE_RESPONSE} label="validate-response.json" />
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-xl p-4 space-y-3 text-sm">
+            <p className="font-semibold">What to do with the response:</p>
+            <ul className="space-y-1.5">
+              {[
+                ['valid: true', 'Display the discount % to the cashier and customer on screen', 'text-green-700'],
+                ['valid: false', 'Show an error: "Voucher invalid or already used". Do not apply any discount.', 'text-red-700'],
+                ['status: "expired"', 'Show: "Voucher expired on [date]. Sorry, we can\'t accept this."', 'text-red-700'],
+                ['status: "redeemed"', 'Show: "This voucher has already been used."', 'text-red-700'],
+              ].map(([code, action, color]) => (
+                <li key={code} className="flex items-start gap-2">
+                  <code className="bg-muted px-1.5 py-0.5 rounded text-xs shrink-0 font-mono">{code}</code>
+                  <span className={`text-xs ${color}`}>{action}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Step 2 — Redeem */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-bold shrink-0">2</div>
+            <h2 className="text-2xl font-heading font-semibold">Confirm the redemption at checkout</h2>
+          </div>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            After the customer agrees to the discount and the cashier finalises the sale, your POS must call the <strong>redeem</strong> endpoint with the final basket total. This marks the voucher as used and records the transaction for your monthly invoice.
+          </p>
+          <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
+            <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 shrink-0" />
+            <p className="text-sm text-orange-800"><strong>Only call /redeem-voucher once per transaction</strong>, at the moment of final checkout — never during scanning or preview. Calling it twice will fail with an "already redeemed" error.</p>
+          </div>
+
+          <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+            <Badge className="bg-green-600 text-white text-xs shrink-0">POST</Badge>
+            <code className="text-sm font-mono text-foreground break-all">https://api.dutyboost.com/v1/redeem-voucher</code>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold">Request body:</p>
+              <CodeBlock code={REDEEM_REQUEST} label="redeem-request.json" />
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm font-semibold">Response:</p>
+              <CodeBlock code={REDEEM_RESPONSE} label="redeem-response.json" />
+            </div>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-border">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-muted/50 text-left">
+                  <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wide">Response field</th>
+                  <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wide">What to do with it</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {[
+                  ['effective_discount', 'The actual % applied (may be higher than base due to basket bonuses)'],
+                  ['discount_amount', 'EUR amount to subtract from the basket — apply this to the receipt'],
+                  ['amount_charged', 'The final amount the customer pays — display on screen and receipt'],
+                  ['platform_fee', 'DutyBoost\'s fee for this transaction — included in your monthly invoice'],
+                  ['transaction_id', 'Store this in your POS records for reconciliation and dispute resolution'],
+                ].map(([field, action]) => (
+                  <tr key={field} className="hover:bg-muted/20">
+                    <td className="px-4 py-2.5 font-mono text-xs text-primary">{field}</td>
+                    <td className="px-4 py-2.5 text-muted-foreground text-xs">{action}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Code examples */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Full POS integration code</h2>
+          <div className="space-y-3">
+            <Collapsible title="JavaScript / Node.js (recommended)">
+              <CodeBlock code={JS_VALIDATE} label="dutyboost-pos.js" />
+            </Collapsible>
+            <Collapsible title="Python">
+              <CodeBlock code={PYTHON_VALIDATE} label="dutyboost_pos.py" />
+            </Collapsible>
+          </div>
+        </div>
+
+        {/* Offline / fallback */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Offline & fallback handling</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+              <div className="flex items-center gap-2">
+                <WifiOff className="w-5 h-5 text-muted-foreground" />
+                <p className="font-semibold text-sm">If your POS loses internet</p>
+              </div>
+              <ul className="space-y-1.5 text-xs text-muted-foreground">
+                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Do not accept the voucher if you cannot validate it</li>
+                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Ask the customer to show the voucher code — log it manually</li>
+                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Once back online, call /redeem-voucher with the recorded code</li>
+                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Contact us if the voucher has expired before you could reconnect</li>
+              </ul>
+            </div>
+            <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+              <div className="flex items-center gap-2">
+                <QrCode className="w-5 h-5 text-muted-foreground" />
+                <p className="font-semibold text-sm">If the QR code won't scan</p>
+              </div>
+              <ul className="space-y-1.5 text-xs text-muted-foreground">
+                <li className="flex items-start gap-1.5"><span className="text-blue-500 mt-0.5">→</span> The traveler can read out their voucher code (e.g. DB-X7K2M4NP)</li>
+                <li className="flex items-start gap-1.5"><span className="text-blue-500 mt-0.5">→</span> Enter it manually in your POS or in the DutyBoost retailer dashboard</li>
+                <li className="flex items-start gap-1.5"><span className="text-blue-500 mt-0.5">→</span> Validate and redeem using the same API calls</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Billing */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Billing & reconciliation</h2>
+          <div className="bg-card border border-border rounded-xl divide-y divide-border">
+            {[
+              { icon: Store, title: 'Monthly invoice', desc: 'On the 1st of each month, DutyBoost sends an invoice for all transactions from the prior month. Each line shows the voucher code, transaction value, discount applied, and DutyBoost platform fee.' },
+              { icon: ShieldCheck, title: 'Transaction log', desc: 'All redeemed vouchers are visible in your retailer dashboard → Transactions. Each record includes the transaction_id, discount amount, and platform fee.' },
+              { icon: Zap, title: 'Webhook notifications', desc: 'Optionally receive a webhook notification after every redemption so your back-office system can log the platform_fee in real time.' },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="p-4 flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold text-sm">{title}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Webhooks */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Optional: Redemption webhooks</h2>
+          <p className="text-sm text-muted-foreground">Configure a webhook URL in your retailer dashboard → Settings → Webhooks to receive real-time transaction confirmations.</p>
+          <CodeBlock code={WEBHOOK_HANDLER} label="webhook-handler.js" />
+        </div>
+
+        {/* Testing */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Testing your integration</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { title: 'Use sandbox mode', desc: 'Add "test_mode": true to your API requests. Sandbox vouchers are marked and won\'t affect your invoice or production stats.' },
+              { title: 'Get a test voucher', desc: 'Your DutyBoost account manager can generate a sandbox voucher code for you to scan during testing.' },
+              { title: 'Simulate the full flow', desc: 'Scan → validate (check discount shown) → complete checkout → redeem (check transaction_id returned).' },
+              { title: 'Check your dashboard', desc: 'All test transactions appear in your retailer dashboard → Transactions with a "sandbox" badge.' },
+            ].map(({ title, desc }) => (
+              <div key={title} className="bg-card border border-border rounded-xl p-4 space-y-1">
+                <p className="font-semibold text-sm flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-600" /> {title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-3">
+          <h3 className="font-heading font-semibold text-lg">Need integration support?</h3>
+          <p className="text-sm text-muted-foreground">Our technical team can assist with POS integration, provide sandbox credentials, or connect you with your POS vendor's developer. Most retailers are live within 1–2 business days.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="mailto:integrations@dutyboost.com">
+              <Button className="gap-2"><Mail className="w-4 h-4" /> integrations@dutyboost.com</Button>
+            </a>
+            <Link to="/integration-guide">
+              <Button variant="outline" className="gap-2"><ArrowRight className="w-4 h-4" /> Agency Guide</Button>
+            </Link>
+          </div>
+        </div>
+
+      </div>
+
+      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
+        © 2026 DutyBoost · <Link to="/" className="text-primary underline">Home</Link> · <a href="mailto:integrations@dutyboost.com" className="text-primary underline">integrations@dutyboost.com</a>
+      </footer>
+    </div>
+  );
+}
