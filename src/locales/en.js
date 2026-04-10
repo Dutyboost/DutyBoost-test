@@ -104,7 +104,7 @@ export default {
       agency: {
         titlePart1: 'Boost Customer',
         titlePart2: 'Loyalty',
-        subtitle: 'Turn every booking into a revenue stream for your travel partner and a loyalty tool for your customers.',
+        subtitle: 'Turn every booking into a revenue stream for your agency/ airline and into a loyalty asset for your travelers.',
         howItWorks: 'How It Works',
         step1: 'Booking Made',
         step1Desc: 'When a customer books through your system, we capture their details.',
