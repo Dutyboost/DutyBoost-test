@@ -52,8 +52,11 @@ export default function RetailerSignup() {
     });
   }, []);
 
+  const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','live.com','aol.com','protonmail.com','mail.com','gmx.com','ymail.com','msn.com'];
+  const isPersonalEmail = (e) => PERSONAL_DOMAINS.some(d => e.toLowerCase().endsWith('@' + d));
+
   const isStep0Valid = () => {
-    return fullName && email && company && website && kvk && vat && airport && storeCategory;
+    return fullName && email && !isPersonalEmail(email) && company && website && kvk && vat && airport && storeCategory;
   };
 
   const handleStep0Submit = async (e) => {
@@ -259,6 +262,11 @@ export default function RetailerSignup() {
                 <div className="space-y-1.5">
                   <Label>Work Email <span className="text-red-500">*</span></Label>
                   <Input required type="email" placeholder="john@store.com" value={email} onChange={e => setEmail(e.target.value)} />
+                  {email && isPersonalEmail(email) ? (
+                    <p className="text-xs text-red-500">DutyBoost only accepts work email addresses. Personal email providers (Gmail, Hotmail, etc.) are not allowed.</p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground">DutyBoost only accepts work email addresses — no personal emails (Gmail, Hotmail, etc.).</p>
+                  )}
                 </div>
                 <div className="space-y-1.5">
                   <Label>Store Name <span className="text-red-500">*</span></Label>
