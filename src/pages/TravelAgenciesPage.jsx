@@ -19,7 +19,7 @@ export default function TravelAgenciesPage() {
   const handleCreate = async (e) => {
     e.preventDefault();
     await base44.entities.TravelAgency.create(form);
-    toast.success("Travel agency added!");
+    toast.success("Travel partner added!");
     setDialogOpen(false);
     setForm({ name: "", website: "", country: "Netherlands" });
     loadAgencies();
@@ -29,18 +29,18 @@ export default function TravelAgenciesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-heading font-bold tracking-tight">Travel Agencies</h1>
-          <p className="text-muted-foreground mt-1">Partner travel agencies on the DutyBoost platform.</p>
+          <h1 className="text-2xl font-heading font-bold tracking-tight">Travel Partners</h1>
+          <p className="text-muted-foreground mt-1">Partner travel partners on the DutyBoost platform.</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="gap-2"><Plus className="w-4 h-4" /> Add Agency</Button>
+            <Button className="gap-2"><Plus className="w-4 h-4" /> Add Partner</Button>
           </DialogTrigger>
           <DialogContent>
-            <DialogHeader><DialogTitle>Add Travel Agency</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle>Add Travel Partner</DialogTitle></DialogHeader>
             <form onSubmit={handleCreate} className="space-y-4">
               <div className="space-y-2">
-                <Label>Agency Name</Label>
+                <Label>Partner Name</Label>
                 <Input value={form.name} onChange={e => setForm({...form, name: e.target.value})} required placeholder="e.g., Vliegtickets.nl" />
               </div>
               <div className="space-y-2">
@@ -51,7 +51,7 @@ export default function TravelAgenciesPage() {
                 <Label>Country</Label>
                 <Input value={form.country} onChange={e => setForm({...form, country: e.target.value})} required placeholder="Netherlands" />
               </div>
-              <Button type="submit" className="w-full">Add Agency</Button>
+              <Button type="submit" className="w-full">Add Partner</Button>
             </form>
           </DialogContent>
         </Dialog>
@@ -60,7 +60,7 @@ export default function TravelAgenciesPage() {
       {agencies.length === 0 ? (
         <div className="bg-card rounded-xl border border-border p-12 text-center text-muted-foreground">
           <Globe className="w-10 h-10 mx-auto mb-3 opacity-40" />
-          <p>No travel agencies added yet.</p>
+          <p>No travel partners added yet.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -78,7 +78,7 @@ export default function TravelAgenciesPage() {
               </div>
               <Button variant="ghost" size="icon" onClick={async () => {
                 await base44.entities.TravelAgency.delete(a.id);
-                toast.success("Travel agency removed");
+                toast.success("Travel partner removed");
                 loadAgencies();
               }}>
                 <Trash2 className="w-4 h-4 text-destructive" />
