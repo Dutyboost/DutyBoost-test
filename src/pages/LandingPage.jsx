@@ -134,20 +134,29 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {stakeholders.map((s) => {
               const Icon = s.icon;
-              const benefits = [
-                t(`stakeholders.${s.key}.b1`),
-                t(`stakeholders.${s.key}.b2`),
-                t(`stakeholders.${s.key}.b3`),
-              ];
+              let title, description, benefits;
+              
+              if (s.key === 'agencies') {
+                title = 'For Travel Partners';
+                description = 'Turn every booking into a loyalty tool. Auto-generate personalized DutyCredits for your travelers based on booking value, destination, and group size — with zero extra effort. Earn a margin on every redeemed DutyCredit.';
+                benefits = ['Boost customer loyalty', 'Zero integration friction', 'New revenue stream'];
+              } else {
+                benefits = [
+                  t(`stakeholders.${s.key}.b1`),
+                  t(`stakeholders.${s.key}.b2`),
+                  t(`stakeholders.${s.key}.b3`),
+                ];
+                title = s.key === 'travelers' ? t('nav.for_travelers') : t('nav.for_retailers');
+                description = t(`stakeholders.${s.key}.description`);
+              }
+              
               return (
                 <div key={s.key} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
                   <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
                     <Icon className={`w-24 h-24 ${s.iconColor}`} />
                   </div>
-                  <h3 className="font-heading font-bold text-xl mb-3">
-                    {s.key === 'agencies' ? t('nav.for_agencies') : s.key === 'travelers' ? t('nav.for_travelers') : t('nav.for_retailers')}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{t(`stakeholders.${s.key}.description`)}</p>
+                  <h3 className="font-heading font-bold text-xl mb-3">{title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{description}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
                       <li key={b} className="flex items-center gap-2 text-sm">
