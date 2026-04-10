@@ -25,7 +25,7 @@ export default function RetailerSignup() {
   const [vat, setVat] = useState("");
   const [airport, setAirport] = useState("");
   const [storeCategory, setStoreCategory] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("self_pay_invoice");
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -97,17 +97,7 @@ export default function RetailerSignup() {
   const poNumber = applicationId ? applicationId.slice(-8).toUpperCase() : "PENDING";
 
   const isStep1Valid = () => {
-    if (!paymentMethod) return false;
-    if (paymentMethod === "creditcard") {
-      return cardNumber.trim() && cardName.trim() && expiryDate.trim() && cvv.trim();
-    }
-    if (paymentMethod === "monthly_invoice") {
-      return bankAccountName.trim() && bankIban.trim();
-    }
-    if (paymentMethod === "self_pay_invoice") {
-      return invoiceEmail.trim();
-    }
-    return true;
+    return invoiceEmail.trim().length > 0;
   };
 
   const handleStep1Submit = async () => {
@@ -347,20 +337,6 @@ export default function RetailerSignup() {
               </div>
 
               <PaymentMethodSelector
-                value={paymentMethod}
-                onChange={setPaymentMethod}
-                cardNumber={cardNumber}
-                onCardNumberChange={setCardNumber}
-                cardName={cardName}
-                onCardNameChange={setCardName}
-                expiryDate={expiryDate}
-                onExpiryDateChange={setExpiryDate}
-                cvv={cvv}
-                onCvvChange={setCvv}
-                bankAccountName={bankAccountName}
-                onBankAccountNameChange={setBankAccountName}
-                bankIban={bankIban}
-                onBankIbanChange={setBankIban}
                 invoiceEmail={invoiceEmail}
                 onInvoiceEmailChange={setInvoiceEmail}
               />
