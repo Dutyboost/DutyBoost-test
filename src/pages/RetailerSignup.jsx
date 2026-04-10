@@ -265,10 +265,8 @@ export default function RetailerSignup() {
                 <div className="space-y-1.5">
                   <Label>Work Email <span className="text-red-500">*</span></Label>
                   <Input required type="email" placeholder="john@store.com" value={email} onChange={e => setEmail(e.target.value)} />
-                  {email && isPersonalEmail(email) ? (
-                    <p className="text-xs text-red-500">DutyBoost only accepts work email addresses. Personal email providers (Gmail, Hotmail, etc.) are not allowed.</p>
-                  ) : (
-                    <p className="text-xs text-muted-foreground">DutyBoost only accepts work email addresses — no personal emails (Gmail, Hotmail, etc.).</p>
+                  {email && isPersonalEmail(email) && (
+                    <p className="text-xs text-red-500">Please use your work email address. Personal email providers (Gmail, Hotmail, etc.) are not accepted.</p>
                   )}
                 </div>
                 <div className="space-y-1.5">
