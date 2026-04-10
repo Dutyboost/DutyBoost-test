@@ -185,13 +185,15 @@ export default function AgencyDashboard() {
 
       <div>
         <div className="flex items-baseline gap-3 flex-wrap">
-          <h1 className="text-2xl font-heading font-bold tracking-tight">Travel Partner Dashboard</h1>
+          <h1 className="text-2xl font-heading font-bold tracking-tight">
+            Welcome, <span className="text-primary">{user?.full_name?.split(' ')[0] || 'Travel Partner'}</span>!
+          </h1>
           {companyName && (
-            <span className="text-base font-medium text-primary bg-primary/10 px-3 py-0.5 rounded-full">{companyName}</span>
+            <span className="text-base font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">{companyName}</span>
           )}
         </div>
         <p className="text-muted-foreground mt-1">
-          Welcome{user?.full_name ? `, ${user.full_name.split(' ')[0]}` : ''}! Track your DutyCredit performance and earn commission on every airport retail conversion from your travelers.
+          Track your DutyCredit performance and earn commission on every airport retail conversion from your travelers.
         </p>
       </div>
 

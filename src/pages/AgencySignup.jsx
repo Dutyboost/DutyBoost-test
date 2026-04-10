@@ -168,7 +168,7 @@ export default function AgencySignup() {
       try {
         await base44.functions.invoke('sendPurchaseOrderEmail', {
           applicationId,
-          businessType: "Travel Agency",
+          businessType: "Travel Partner",
           formData: { fullName, email, company, kvk, vat },
           poNumber,
         });
@@ -374,7 +374,7 @@ export default function AgencySignup() {
               </div>
 
               <PurchaseOrderDoc
-                businessType="Travel Agency"
+                businessType="Travel Partner"
                 formData={{ fullName, email, company, kvk, vat }}
                 poNumber={poNumber}
               />
