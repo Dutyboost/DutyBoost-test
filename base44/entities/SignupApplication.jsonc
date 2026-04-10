@@ -18,7 +18,7 @@
       "type": "string",
       "title": "Business Type",
       "enum": [
-        "Travel Agency",
+        "Travel Partner",
         "Airport Retailer"
       ]
     },
