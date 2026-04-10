@@ -12,7 +12,7 @@ export default {
     hero: {
       title_1: 'Unlock the revenue hidden inside every',
       title_2: 'travel booking',
-      subtitle: 'Unlock the revenue hidden inside every travel booking with DutyBoost\'s <strong>Travel Retail Conversion Layer</strong>. By connecting travel agencies and airport retailers, we turn leisure travelers, that got a reward on their booking through DutyBoost, into <strong>high-intent buyers</strong> before they even reach their airport of departure.',
+      subtitle: 'Unlock the revenue hidden inside every travel booking with DutyBoost\'s <strong>Travel Retail Conversion Layer</strong>. By connecting travel partners and airport retailers, we turn leisure travelers, that got a reward on their booking through DutyBoost, into <strong>high-intent buyers</strong> before they even reach their airport of departure.',
     },
     ecosystem: {
       title: 'See How The Ecosystem Works',
@@ -40,31 +40,18 @@ export default {
     },
     cta: {
       title: 'Transform How Travel and Shopping Connect',
-      description: 'Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.',
+      description: 'Join DutyBoost and unlock a new ecosystem where travel partners boost customer loyalty, travelers maximize rewards, and retailers grow revenue — all through one intelligent platform.',
       button: 'Get Started Today',
     },
     footer: {
       tagline: '— Dynamic Airport Incentive Platform',
       rights: '© 2026 DutyBoost. All rights reserved.',
     },
-    getStarted: {
+    getstarted: {
       title: 'Get Started with DutyBoost',
-      subtitle: 'Choose your role to access and start enjoying the benefits of DutyBoost incentive platform.',
-      agencies: {
-        title: 'For Travel Partners',
-        description: 'Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.',
-        cta: 'Get Started',
-      },
-      travelers: {
-        title: 'For Leisure Travelers',
-        description: 'Maximize your airport shopping experience with personalized rewards. Enjoy exclusive discounts through your travel bookings all year long.',
-        cta: 'Get Started',
-      },
-      retailers: {
-        title: 'For Airport Retailers',
-        description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
-        cta: 'Get Started',
-      },
+      subtitle_default: 'Choose your role to access and start enjoying the benefits of DutyBoost incentive platform.',
+      agencies_description: 'Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.',
+      retailers_description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
     },
     signup: {
     agency: {
@@ -154,7 +141,7 @@ export default {
         subtitle: 'Earn exclusive discounts at departure airports simply by booking travel.',
         howItWorks: 'How It Works',
         step1: 'Book Your Trip',
-        step1Desc: 'When you book travel through your agency, a reward is instantly created.',
+        step1Desc: 'When you book travel through your travel partner, a reward is instantly created.',
         step2: 'Get Your QR',
         step2Desc: 'Receive your DutyCredit as a unique QR code via email.',
         step3: 'Shop at Airport',
