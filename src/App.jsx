@@ -124,6 +124,7 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
+        <Route path="/landing" element={<LandingPage />} />
         <Route path="/voucher" element={<TravelerVoucher />} />
         <Route path="/scan" element={<TravelerScan />} />
         <Route path="/airport-map" element={<AirportMap />} />
