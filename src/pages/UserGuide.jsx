@@ -380,7 +380,7 @@ export default function UserGuide() {
           <p className="text-sm text-muted-foreground">{c.help_desc}</p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <Link to="/faq" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-background text-sm font-medium hover:bg-muted transition-colors">{c.browse_faq} <ArrowRight className="w-4 h-4" /></Link>
-            <a href="mailto:hello@dutyboost.com" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">{c.email_support} <ArrowRight className="w-4 h-4" /></a>
+            <a href="mailto:support@dutyboost.com" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">{c.email_support} <ArrowRight className="w-4 h-4" /></a>
           </div>
         </section>
       </div>
