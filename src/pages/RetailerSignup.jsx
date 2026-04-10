@@ -97,7 +97,7 @@ export default function RetailerSignup() {
   const poNumber = applicationId ? applicationId.slice(-8).toUpperCase() : "PENDING";
 
   const isStep1Valid = () => {
-    return invoiceEmail.trim().length > 0 && bankAccountName.trim().length > 0 && bankIban.trim().length > 0;
+    return invoiceEmail.trim().length > 0;
   };
 
   const handleStep1Submit = async () => {
@@ -335,10 +335,6 @@ export default function RetailerSignup() {
               <PaymentMethodSelector
                 invoiceEmail={invoiceEmail}
                 onInvoiceEmailChange={setInvoiceEmail}
-                bankAccountName={bankAccountName}
-                onBankAccountNameChange={setBankAccountName}
-                bankIban={bankIban}
-                onBankIbanChange={setBankIban}
               />
 
               <div className="flex gap-3">
