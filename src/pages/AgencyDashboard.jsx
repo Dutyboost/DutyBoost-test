@@ -186,7 +186,7 @@ export default function AgencyDashboard() {
       <div>
         <div className="flex items-baseline gap-3 flex-wrap">
           <h1 className="text-2xl font-heading font-bold tracking-tight">
-            Welcome, <span className="text-primary">{user?.full_name?.split(' ')[0] || 'Travel Partner'}</span>!
+            Welcome, <span className="text-primary">{user?.full_name?.split(' ')[0] || 'Partner'}</span>!
           </h1>
           {companyName && (
             <span className="text-base font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">{companyName}</span>

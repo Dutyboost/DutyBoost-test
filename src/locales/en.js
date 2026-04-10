@@ -2,10 +2,10 @@ export default {
   translation: {
     nav: {
       signIn: 'Sign In',
-      for_agencies: 'For Travel Agencies',
+      for_agencies: 'For Travel Partners',
       for_travelers: 'For Travelers',
       for_retailers: 'For Retailers',
-      getStarted: 'Get Started',
+      get_started: 'Get Started',
       weCallYou: 'We Call You',
       liveDemo: 'Live Demo',
     },
@@ -40,7 +40,7 @@ export default {
     },
     cta: {
       title: 'Transform how travel and retail connect',
-      description: 'Join DutyBoost and unlock a new ecosystem where travel agencies boost customer loyalty, travelers maximize rewards, and retailers increase revenue — all through one intelligent platform.',
+      description: 'Join DutyBoost and unlock a new ecosystem where travel partners boost customer loyalty, travelers maximize rewards, and retailers increase revenue — all through one intelligent platform.',
       button: 'Get Started Today',
     },
     footer: {
@@ -55,10 +55,10 @@ export default {
     },
     signup: {
       agency: {
-        title: 'Create Your Travel Agency Account',
+        title: 'Create Your Travel Partner Account',
         subtitle: 'Fill in your business information to get started',
         steps: ['Business Info', 'Payment Method', 'Purchase Order', 'Terms & Review'],
-        step0_title: 'Create Your Travel Agency Account',
+        step0_title: 'Create Your Travel Partner Account',
         step1_title: 'Bank Details',
         step1_desc: 'Provide your bank account for commission payments',
         step1_info: 'We\'ll transfer your commissions to this account monthly.',
@@ -67,8 +67,8 @@ export default {
         step3_title: 'Terms & Review',
         step3_desc: 'Review and accept our terms to complete your signup',
         success_title: 'Welcome to DutyBoost!',
-        success_desc: 'Your Travel Agency account has been created successfully. Our team will review your application and contact you shortly.',
-        success_button: 'Go to Travel Agency Portal',
+        success_desc: 'Your Travel Partner account has been created successfully. Our team will review your application and contact you shortly.',
+        success_button: 'Go to Travel Partner Portal',
       },
       retailer: {
         title: 'Create Your Retailer Account',
@@ -104,7 +104,7 @@ export default {
       agency: {
         titlePart1: 'Boost Customer',
         titlePart2: 'Loyalty',
-        subtitle: 'Turn every booking into a revenue stream for your agency and a loyalty tool for your customers.',
+        subtitle: 'Turn every booking into a revenue stream for your travel partner and a loyalty tool for your customers.',
         howItWorks: 'How It Works',
         step1: 'Booking Made',
         step1Desc: 'When a customer books through your system, we capture their details.',
@@ -116,7 +116,7 @@ export default {
         step4Desc: 'You earn a commission on every redeemed DutyCredit.',
         ctaTitle: 'Ready to Boost Loyalty?',
         ctaDesc: 'Start offering exclusive airport shopping incentives to your travelers today.',
-        ctaButton: 'Go to Travel Agency Portal',
+        ctaButton: 'Go to Travel Partner Portal',
       },
       retailer: {
         titlePart1: 'Convert More',
@@ -141,7 +141,7 @@ export default {
         subtitle: 'Earn exclusive airport discounts by simply booking travel.',
         howItWorks: 'How It Works',
         step1: 'Book Your Travel',
-        step1Desc: 'When you book through your agency, a reward is instantly created.',
+        step1Desc: 'When you book through your travel partner, a reward is instantly created.',
         step2: 'Get Your QR',
         step2Desc: 'Receive your DutyCredit as a unique QR code via email.',
         step3: 'Shop at the Airport',

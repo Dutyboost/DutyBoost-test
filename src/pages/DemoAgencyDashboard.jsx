@@ -110,7 +110,7 @@ export default function DemoAgencyDashboard() {
         {activeTab === "profile" ? <DemoProfileTab entity={selectedAgency} entityType="agency" /> : (<>
         {/* Welcome */}
         <div>
-          <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — Agency Dashboard</h1>
+          <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — Travel Partner Dashboard</h1>
           <p className="text-muted-foreground text-sm mt-1">{t('demo.your_performance')} · {selectedAgency.city}</p>
         </div>
 
