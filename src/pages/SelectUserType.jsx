@@ -23,15 +23,6 @@ export default function SelectUserType() {
       path: "/agency-showcase",
     },
     {
-      titleKey: 'nav.for_travelers',
-      descKey: 'getstarted.travelers_description',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
-      path: "/traveler-showcase",
-    },
-    {
       titleKey: 'nav.for_retailers',
       descKey: 'getstarted.retailers_description',
       icon: AirportRetailerIcon,
