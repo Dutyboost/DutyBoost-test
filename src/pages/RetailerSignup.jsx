@@ -39,17 +39,28 @@ export default function RetailerSignup() {
   const [applicationId, setApplicationId] = useState(null);
   const [airports, setAirports] = useState([]);
 
+  const FALLBACK_AIRPORTS = [
+    { code: 'AMS', name: 'Amsterdam Schiphol', city: 'Amsterdam' },
+    { code: 'EIN', name: 'Eindhoven', city: 'Eindhoven' },
+    { code: 'GRQ', name: 'Groningen Eelde', city: 'Groningen' },
+    { code: 'MST', name: 'Maastricht Aachen', city: 'Maastricht' },
+    { code: 'RTM', name: 'Rotterdam The Hague', city: 'Rotterdam' },
+  ];
+
   useEffect(() => {
-    base44.entities.Airport.list().then(data => {
-      const seen = new Set();
-      const unique = (data || []).filter(a => {
-        if (seen.has(a.code)) return false;
-        seen.add(a.code);
-        return true;
-      });
-      unique.sort((a, b) => a.name.localeCompare(b.name));
-      setAirports(unique);
-    });
+    base44.entities.Airport.list()
+      .then(data => {
+        if (!data || data.length === 0) { setAirports(FALLBACK_AIRPORTS); return; }
+        const seen = new Set();
+        const unique = data.filter(a => {
+          if (seen.has(a.code)) return false;
+          seen.add(a.code);
+          return true;
+        });
+        unique.sort((a, b) => a.name.localeCompare(b.name));
+        setAirports(unique);
+      })
+      .catch(() => setAirports(FALLBACK_AIRPORTS));
   }, []);
 
   const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','live.com','aol.com','protonmail.com','mail.com','gmx.com','ymail.com','msn.com'];
@@ -278,17 +289,18 @@ export default function RetailerSignup() {
                 </div>
                 <div className="space-y-1.5">
                   <Label>Airport <span className="text-red-500">*</span></Label>
-                  <Select value={airport} onValueChange={setAirport}>
-                    <SelectTrigger><SelectValue placeholder="Select airport" /></SelectTrigger>
-                    <SelectContent position="popper" className="max-h-60 overflow-y-auto">
-                      {airports.map(a => (
-                        <SelectItem key={a.code} value={a.code}>
-                          {a.code} — {a.name} ({a.city})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {airports.length === 0 && <p className="text-xs text-muted-foreground">Loading airports...</p>}
+                  <select
+                    value={airport}
+                    onChange={e => setAirport(e.target.value)}
+                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  >
+                    <option value="">Select airport</option>
+                    {airports.map(a => (
+                      <option key={a.code} value={a.code}>
+                        {a.code} — {a.name} ({a.city})
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
