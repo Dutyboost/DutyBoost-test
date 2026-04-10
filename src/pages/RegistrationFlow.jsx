@@ -121,7 +121,7 @@ const RETAILER_STEPS = [
     id: 4,
     icon: "📨",
     title: "Welcome Email + PO",
-    desc: "A welcome email is sent with a Purchase Order attachment confirming the partnership terms and the 5% platform fee model.",
+    desc: "A welcome email is sent with a Purchase Order attachment confirming the partnership terms and the platform fee model.",
     action: "Email: hello@dutyboost.com",
     color: "from-yellow-600 to-lime-600",
     bg: "bg-lime-50",
