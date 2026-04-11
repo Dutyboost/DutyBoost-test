@@ -104,6 +104,36 @@ export default function LandingPage() {
             </button>
           </div>
         </div>
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
+            <Link to="/agency-showcase" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
+                For Travel Partners
+              </Button>
+            </Link>
+            <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
+                {t('nav.for_retailers')}
+              </Button>
+            </Link>
+            <WeCallYouModal trigger={(setOpen) => (
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
+                We Call You
+              </Button>
+            )} />
+            <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
+                <Eye className="w-3.5 h-3.5" /> Live Demo
+              </Button>
+            </Link>
+            {authedUser ? (
+              <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}><Button size="sm" className="w-full gap-1.5">Dashboard</Button></Link>
+            ) : (
+              <Button size="sm" className="w-full gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
+            )}
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
