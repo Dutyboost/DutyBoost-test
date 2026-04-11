@@ -18,7 +18,7 @@ Deno.serve(async (req) => {
         We've received your registration and are excited to connect with you.
       </p>
       <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
-        We are currently putting the final touches on <strong>DutyBoost</strong> &#8212; the first Travel Retail Conversion Layer connecting travel partners, airlines, airport retailers, and leisure travelers in a completely new way.
+        We are currently putting the final touches on <strong>DutyBoost</strong> &#8212; the first Travel Retail Conversion Layer connecting travel partners, airport retailers, and leisure travelers in a completely new way.
       </p>
       <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
         As soon as the platform goes live, we will notify you so you can create your account and start benefiting from the value DutyBoost delivers.
@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
     "",
     "We've received your registration and are excited to connect with you.",
     "",
-    "We are currently putting the final touches on DutyBoost - the first Travel Retail Conversion Layer connecting travel partners, airlines, airport retailers, and leisure travelers in a completely new way.",
+    "We are currently putting the final touches on DutyBoost - the first Travel Retail Conversion Layer connecting travel partners, airport retailers, and leisure travelers in a completely new way.",
     "",
     "As soon as the platform goes live, we will notify you so you can create your account and start benefiting from the value DutyBoost delivers.",
     "",

@@ -137,7 +137,7 @@ export default function WeCallYouForm({ onSuccess }) {
           <option value="">{t('wecallyou.select_type')}</option>
           <option value="Retail">{t('wecallyou.retailer')}</option>
           <option value="Agency">{t('wecallyou.agency')}</option>
-          <option value="Airline">Airline</option>
+
         </select>
       </div>
 
