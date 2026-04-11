@@ -34,7 +34,7 @@ export default function WeCallYouForm({ onSuccess }) {
 
     setLoading(true);
     try {
-      await base44.entities.Lead.create({
+      const lead = await base44.entities.Lead.create({
         full_name: form.full_name,
         email: form.email,
         phone: form.phone,
@@ -44,7 +44,13 @@ export default function WeCallYouForm({ onSuccess }) {
         position: "",
         decision_level: "",
       });
-      
+
+      // Send confirmation email via Postmark
+      await base44.functions.invoke('sendLeadConfirmationEmail', {
+        full_name: form.full_name,
+        email: form.email,
+      });
+
       toast.success(t('wecallyou.success'));
       setForm({ full_name: "", email: "", phone: "", company_name: "", website: "", industry: "" });
       if (onSuccess) onSuccess();
