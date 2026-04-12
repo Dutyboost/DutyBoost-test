@@ -15,7 +15,6 @@ import TravelerIcon from "../components/TravelerIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
-import LinkedInIcon from "../components/LinkedInIcon";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -228,17 +227,7 @@ export default function LandingPage() {
               <DutyBoostLogo height={150} />
               <span>{t('footer.tagline')}</span>
             </div>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/company/dutyboost"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
-              >
-                <LinkedInIcon className="w-6 h-6" />
-              </a>
-              <p>{t('footer.rights')}</p>
-            </div>
+            <p>{t('footer.rights')}</p>
           </div>
           <FooterLinks />
         </div>

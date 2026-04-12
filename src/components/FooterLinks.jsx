@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
+import LinkedInIcon from "./LinkedInIcon";
 
 const legalLinks = [
   { to: "/privacy", label: "Privacy Policy" },
@@ -22,7 +23,8 @@ export default function FooterLinks() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-muted-foreground border-t border-border pt-4 items-center">
+    <div className="flex flex-wrap justify-center md:justify-between gap-y-2 text-xs text-muted-foreground border-t border-border pt-4 items-center">
+      <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 items-center">
       {/* Legal dropdown */}
       <div className="relative" ref={ref}>
         <button
@@ -50,6 +52,15 @@ export default function FooterLinks() {
       <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
       <Link to="/airport-map" className="hover:text-primary transition-colors">Airport Map</Link>
       <a href="mailto:support@dutyboost.com" className="hover:text-primary transition-colors">support@dutyboost.com</a>
+      </div>
+      <a
+        href="https://www.linkedin.com/company/dutyboost"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:opacity-80 transition-opacity"
+      >
+        <LinkedInIcon className="w-6 h-6" />
+      </a>
     </div>
   );
 }
