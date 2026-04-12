@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "./DutyBoostLogo";
 import FooterLinks from "./FooterLinks";
-import { Linkedin } from "lucide-react";
+import LinkedInIcon from "./LinkedInIcon";
 
 export default function PageFooter() {
   const { t } = useTranslation();
@@ -15,13 +15,12 @@ export default function PageFooter() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://www.linkedin.com/company/dutyboost"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
+            href="https://www.linkedin.com/company/dutyboost"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
             >
-              <Linkedin className="w-4 h-4" />
-              <span>LinkedIn</span>
+            <LinkedInIcon className="w-6 h-6" />
             </a>
             <p>{t('footer.rights')}</p>
           </div>

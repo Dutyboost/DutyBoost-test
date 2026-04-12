@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Zap, BarChart3, QrCode, TrendingUp,
-  ShieldCheck, Globe2, ArrowRight, Eye, Menu, X, Linkedin
+  ShieldCheck, Globe2, ArrowRight, Eye, Menu, X
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -15,6 +15,7 @@ import TravelerIcon from "../components/TravelerIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
+import LinkedInIcon from "../components/LinkedInIcon";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -232,10 +233,9 @@ export default function LandingPage() {
                 href="https://www.linkedin.com/company/dutyboost"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
               >
-                <Linkedin className="w-4 h-4" />
-                <span>LinkedIn</span>
+                <LinkedInIcon className="w-6 h-6" />
               </a>
               <p>{t('footer.rights')}</p>
             </div>
