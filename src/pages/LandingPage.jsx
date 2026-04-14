@@ -149,7 +149,7 @@ export default function LandingPage() {
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Unlock the revenue <strong>hidden</strong> inside every travel booking with DutyBoost's <strong>Travel Retail Conversion Layer</strong>. By connecting travel partners and airport retailers, we turn leisure travelers into <strong>high-intent buyers</strong> before they even reach their airport of departure.
+            Turning every travel booking into earnings at airports — for everyone.
           </p>
         </div>
       </section>
