@@ -33,7 +33,7 @@ Deno.serve(async (req) => {
         <p><strong>3. Track your earnings</strong><br/>
         The <strong>"Dashboard"</strong> tab shows real-time commission earnings per redeemed DutyCredit, broken down by traveler and departure airport.</p>
 
-        <p style="margin-top: 24px;">Increase the number of travelers walking through your store with real spending intent.</p>
+        <p style="margin-top: 24px;">Increase the number of travelers walking through your store with real spending intent — we're excited to grow alongside you.</p>
         <p>If you have any questions, reach us at <a href="mailto:hello@dutyboost.com" style="color: #1a56ff;">hello@dutyboost.com</a>.</p>
         <p>Welcome aboard,<br/><strong>The DutyBoost Team</strong></p>
       </div>
