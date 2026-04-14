@@ -31,6 +31,7 @@ export default function AdminPanel() {
   const [rejectionReason, setRejectionReason] = useState("");
   const [selectedApps, setSelectedApps] = useState(new Set());
   const [invoices, setInvoices] = useState([]);
+  const [deletions, setDeletions] = useState([]);
   const [user, setUser] = useState(null);
 
   const toggleSelectAll = () => {
@@ -71,7 +72,7 @@ export default function AdminPanel() {
 
   const loadAll = async () => {
     try {
-      const [v, r, a, t, u, ap, inv] = await Promise.all([
+      const [v, r, a, t, u, ap, inv, del] = await Promise.all([
         base44.entities.Voucher.list('-created_date', 200),
         base44.entities.Retailer.list(),
         base44.entities.TravelAgency.list(),
@@ -79,6 +80,7 @@ export default function AdminPanel() {
         base44.entities.User.list(),
         base44.entities.SignupApplication.list('-created_date', 200),
         base44.entities.MonthlyInvoice.list('-created_date', 200),
+        base44.entities.AccountDeletion.list('-created_date', 200),
       ]);
       setVouchers(v || []);
       setRetailers(r || []);
@@ -87,6 +89,7 @@ export default function AdminPanel() {
       setUsers(u || []);
       setApplications(ap || []);
       setInvoices(inv || []);
+      setDeletions(del || []);
       const currentUser = await base44.auth.me();
       setUser(currentUser);
     } catch (error) {
@@ -300,6 +303,9 @@ export default function AdminPanel() {
               )}
             </TabsTrigger>
             <TabsTrigger value="batch-payouts">Batch Payouts</TabsTrigger>
+            <TabsTrigger value="deletions" className="gap-1.5">
+              Deletions {deletions.length > 0 && <span className="ml-1 bg-destructive text-destructive-foreground text-xs rounded-full px-1.5 py-0.5">{deletions.length}</span>}
+            </TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
             </TabsTrigger>
@@ -554,6 +560,40 @@ export default function AdminPanel() {
             </div>
           </div>
         </TabsContent>
+        <TabsContent value="deletions" className="mt-4">
+          <div className="bg-card rounded-xl border border-border overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Email</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">User Type</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Reason</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Details</th>
+                    <th className="px-4 py-3 text-left font-medium text-muted-foreground">Date</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {deletions.map(d => (
+                    <tr key={d.id} className="hover:bg-muted/30">
+                      <td className="px-4 py-3 text-muted-foreground">{d.email}</td>
+                      <td className="px-4 py-3">
+                        <span className={`text-xs px-2 py-1 rounded-full ${d.user_type === 'Travel Partner' ? 'bg-blue-100 text-blue-700' : 'bg-orange-100 text-orange-700'}`}>{d.user_type}</span>
+                      </td>
+                      <td className="px-4 py-3">{d.reason}</td>
+                      <td className="px-4 py-3 text-muted-foreground text-xs">{d.other_reason || "—"}</td>
+                      <td className="px-4 py-3 text-muted-foreground text-xs">{new Date(d.created_date).toLocaleDateString()}</td>
+                    </tr>
+                  ))}
+                  {deletions.length === 0 && (
+                    <tr><td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">No account deletions yet.</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </TabsContent>
+
         <TabsContent value="batch-payouts" className="mt-4">
           {isAdmin && <BatchPayoutApproval user={user} />}
         </TabsContent>

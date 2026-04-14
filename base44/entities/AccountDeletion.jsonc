@@ -1,0 +1,31 @@
+{
+  "name": "AccountDeletion",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "user_type": {
+      "type": "string",
+      "title": "User Type",
+      "enum": [
+        "Airport Retailer",
+        "Travel Partner"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "title": "Deletion Reason"
+    },
+    "other_reason": {
+      "type": "string",
+      "title": "Other Reason (free text)"
+    }
+  },
+  "required": [
+    "email",
+    "user_type",
+    "reason"
+  ]
+}

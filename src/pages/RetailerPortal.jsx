@@ -10,10 +10,33 @@ export default function RetailerPortal() {
   const [user, setUser] = useState(null);
   const [authed, setAuthed] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleteStep, setDeleteStep] = useState(0); // 0=hidden, 1=pick reason, 2=confirm
+  const [deleteReason, setDeleteReason] = useState("");
+  const [deleteOther, setDeleteOther] = useState("");
+
+  const DELETE_REASONS = [
+    "I no longer use the service",
+    "Too expensive / not worth it",
+    "Technical issues",
+    "Switching to a competitor",
+    "Privacy concerns",
+    "Other",
+  ];
 
   const handleDeleteAccount = async () => {
-    if (!confirmDelete) { setConfirmDelete(true); return; }
+    if (deleteStep === 0) { setDeleteStep(1); return; }
+    if (deleteStep === 1) {
+      if (!deleteReason) return;
+      setDeleteStep(2);
+      return;
+    }
+    // step 2 = confirmed
+    await base44.entities.AccountDeletion.create({
+      email: user?.email || "",
+      user_type: "Airport Retailer",
+      reason: deleteReason,
+      other_reason: deleteReason === "Other" ? deleteOther : undefined,
+    });
     await base44.auth.logout("/");
   };
 
@@ -66,14 +89,38 @@ export default function RetailerPortal() {
               <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.logout("/retailer-portal")}>
                 <LogOut className="w-4 h-4" /> Sign Out
               </Button>
-              <div className="pt-6 border-t border-border">
-                <button
-                  onClick={handleDeleteAccount}
-                  className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-colors mx-auto"
-                >
-                  <Trash2 className="w-3 h-3" />
-                  {confirmDelete ? "Are you sure? Click again to confirm" : "Delete my account"}
-                </button>
+              <div className="pt-6 border-t border-border space-y-3">
+                {deleteStep === 0 && (
+                  <button onClick={handleDeleteAccount} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-colors mx-auto">
+                    <Trash2 className="w-3 h-3" /> Delete my account
+                  </button>
+                )}
+                {deleteStep === 1 && (
+                  <div className="space-y-2 text-left">
+                    <p className="text-xs text-muted-foreground text-center">Why are you deleting your account?</p>
+                    {DELETE_REASONS.map(r => (
+                      <button key={r} onClick={() => setDeleteReason(r)} className={`w-full text-left text-xs px-3 py-2 rounded-lg border transition-colors ${deleteReason === r ? "border-destructive bg-destructive/5 text-destructive" : "border-border hover:border-muted-foreground"}`}>
+                        {r}
+                      </button>
+                    ))}
+                    {deleteReason === "Other" && (
+                      <input className="w-full text-xs px-3 py-2 rounded-lg border border-border bg-background" placeholder="Please describe..." value={deleteOther} onChange={e => setDeleteOther(e.target.value)} />
+                    )}
+                    <div className="flex gap-2 pt-1">
+                      <button onClick={() => { setDeleteStep(0); setDeleteReason(""); }} className="flex-1 text-xs text-muted-foreground hover:text-foreground transition-colors">Cancel</button>
+                      <button onClick={handleDeleteAccount} disabled={!deleteReason} className="flex-1 text-xs text-destructive hover:text-destructive/80 disabled:opacity-40 transition-colors">Continue →</button>
+                    </div>
+                  </div>
+                )}
+                {deleteStep === 2 && (
+                  <div className="space-y-2 text-center">
+                    <p className="text-xs text-destructive font-medium">This is permanent and cannot be undone.</p>
+                    <div className="flex gap-2">
+                      <button onClick={() => setDeleteStep(0)} className="flex-1 text-xs text-muted-foreground hover:text-foreground transition-colors">Cancel</button>
+                      <button onClick={handleDeleteAccount} className="flex-1 text-xs text-destructive font-medium hover:text-destructive/80 transition-colors">Yes, delete my account</button>
+                    </div>
+                  </div>
+                )}
               </div>
             </>
           ) : (
