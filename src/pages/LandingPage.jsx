@@ -26,8 +26,12 @@ export default function LandingPage() {
   useEffect(() => {
     base44.auth.isAuthenticated().then(async (authed) => {
       if (authed) {
-        const me = await base44.auth.me();
-        setAuthedUser(me);
+        try {
+          const me = await base44.auth.me();
+          setAuthedUser(me);
+        } catch {
+          // not authenticated
+        }
       }
     });
   }, []);
