@@ -12,10 +12,6 @@ export default function BatchPayoutApproval({ user }) {
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
-  if (!user || user.role !== 'admin') {
-    return null;
-  }
-
   useEffect(() => {
     const loadPayouts = async () => {
       try {
@@ -49,6 +45,10 @@ export default function BatchPayoutApproval({ user }) {
     }
     setProcessing(false);
   };
+
+  if (!user || user.role !== 'admin') {
+    return null;
+  }
 
   if (loading) {
     return <div className="text-center py-8">Loading payouts...</div>;

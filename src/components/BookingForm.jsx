@@ -145,6 +145,7 @@ export default function BookingForm({ onVoucherGenerated }) {
             value={form.traveler_email}
             onChange={(e) => setForm({ ...form, traveler_email: e.target.value })}
             required
+          />
         </div>
       </div>
 
