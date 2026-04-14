@@ -3,13 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import { LogOut, LogIn, ChevronLeft, UserPlus, Briefcase } from "lucide-react";
+import { LogOut, LogIn, ChevronLeft, UserPlus, Briefcase, Trash2 } from "lucide-react";
 
 export default function AgencyPortal() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [authed, setAuthed] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const handleDeleteAccount = async () => {
+    if (!confirmDelete) { setConfirmDelete(true); return; }
+    await base44.auth.logout("/");
+  };
 
   useEffect(() => {
     base44.auth.isAuthenticated().then(async (isAuth) => {
@@ -60,6 +66,15 @@ export default function AgencyPortal() {
               <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.logout("/agency-portal")}>
                 <LogOut className="w-4 h-4" /> Sign Out
               </Button>
+              <div className="pt-6 border-t border-border">
+                <button
+                  onClick={handleDeleteAccount}
+                  className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-colors mx-auto"
+                >
+                  <Trash2 className="w-3 h-3" />
+                  {confirmDelete ? "Are you sure? Click again to confirm" : "Delete my account"}
+                </button>
+              </div>
             </>
           ) : (
             <>
