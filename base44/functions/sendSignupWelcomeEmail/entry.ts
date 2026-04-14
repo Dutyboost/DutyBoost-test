@@ -33,7 +33,8 @@ Deno.serve(async (req) => {
         <p><strong>3. Track your earnings</strong><br/>
         The <strong>"Dashboard"</strong> tab shows real-time commission earnings per redeemed DutyCredit, broken down by traveler and departure airport.</p>
 
-        <p style="margin-top: 24px;">If you have any questions, reach us at <a href="mailto:hello@dutyboost.com" style="color: #1a56ff;">hello@dutyboost.com</a>.</p>
+        <p style="margin-top: 24px;">Every redeemed DutyCredit means a traveler walking through your door with real spending intent — we're glad to have you part of the network.</p>
+        <p>If you have any questions, reach us at <a href="mailto:hello@dutyboost.com" style="color: #1a56ff;">hello@dutyboost.com</a>.</p>
         <p>Welcome aboard,<br/><strong>The DutyBoost Team</strong></p>
       </div>
     ` : `
@@ -51,7 +52,8 @@ Deno.serve(async (req) => {
         <p><strong>3. Start accepting DutyCredits</strong><br/>
         Once integrated, travelers can redeem their DutyCredits at your store automatically. Each redemption is logged in your dashboard with transaction value and discount details.</p>
 
-        <p style="margin-top: 24px;">If you have any questions, reach us at <a href="mailto:hello@dutyboost.com" style="color: #1a56ff;">hello@dutyboost.com</a>.</p>
+        <p style="margin-top: 24px;">Every booking you process is now an opportunity to deepen traveler loyalty and earn on every spend at the airport — we're excited to grow alongside you.</p>
+        <p>If you have any questions, reach us at <a href="mailto:hello@dutyboost.com" style="color: #1a56ff;">hello@dutyboost.com</a>.</p>
         <p>Welcome aboard,<br/><strong>The DutyBoost Team</strong></p>
       </div>
     `;
