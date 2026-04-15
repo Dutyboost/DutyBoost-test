@@ -202,34 +202,44 @@ app.post('/webhooks/dutyboost', (req, res) => {
 export default function AgencyIntegrationGuide() {
   return (
     <div className="min-h-screen bg-background font-body">
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={130} /></Link>
-          <div className="flex items-center gap-4">
-            <Link to="/retailer-integration-guide" className="text-sm text-muted-foreground hover:text-primary transition-colors">Retailer Guide →</Link>
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Home</Link>
-            <Button size="sm" variant="outline" className="gap-1.5 print:hidden" onClick={() => window.print()}>
+      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80 print:hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+          <DutyBoostLogo height={150} />
+          <div className="flex items-center gap-2">
+            <Link to="/retailer-integration-guide">
+              <Button size="sm" variant="outline" className="text-sm hidden sm:flex">Retailer Guide →</Button>
+            </Link>
+            <Link to="/">
+              <Button size="sm" variant="ghost" className="text-sm">← Home</Button>
+            </Link>
+            <Button size="sm" variant="outline" className="gap-1.5" onClick={() => window.print()}>
               <Download className="w-3.5 h-3.5" /> Download PDF
             </Button>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-3xl mx-auto px-6 py-14 space-y-14">
-
-        {/* Hero */}
-        <div className="space-y-4">
+      {/* Hero Banner */}
+      <section className="relative overflow-hidden py-12 px-6 border-b border-border">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto space-y-4">
           <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Travel Agency · Implementation Guide</Badge>
-          <h1 className="text-4xl font-heading font-bold">Agency Integration Guide</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            This guide covers everything your technical team needs to integrate DutyBoost into your booking platform so that every confirmed booking automatically generates a DutyCredit voucher for the traveler — with zero manual effort.
+          <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">
+            Agency <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Integration Guide</span>
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            Everything your technical team needs to integrate DutyBoost into your booking platform — so every confirmed booking automatically generates a DutyCredit for the traveler.
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 pt-1">
             {['~30 min integration', 'Single API call', 'Works with any booking system'].map(t => (
               <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
             ))}
           </div>
         </div>
+      </section>
+
+      <div className="max-w-3xl mx-auto px-6 py-14 space-y-14">
 
         {/* How it works - overview */}
         <div className="space-y-4">
@@ -512,8 +522,18 @@ export default function AgencyIntegrationGuide() {
 
       </div>
 
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        © 2026 DutyBoost · <Link to="/" className="text-primary underline">Home</Link> · <a href="mailto:integrations@dutyboost.com" className="text-primary underline">integrations@dutyboost.com</a>
+      <footer className="border-t border-border py-8 px-6 print:hidden">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3">
+            <DutyBoostLogo height={120} />
+            <span>Turning travel into airport earnings.</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+            <a href="mailto:integrations@dutyboost.com" className="hover:text-primary transition-colors">integrations@dutyboost.com</a>
+            <span>© 2026 DutyBoost</span>
+          </div>
+        </div>
       </footer>
     </div>
   );

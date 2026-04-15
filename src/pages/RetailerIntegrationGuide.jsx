@@ -190,34 +190,44 @@ app.post('/webhooks/dutyboost', (req, res) => {
 export default function RetailerIntegrationGuide() {
   return (
     <div className="min-h-screen bg-background font-body">
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={130} /></Link>
-          <div className="flex items-center gap-4">
-            <Link to="/integration-guide" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Agency Guide</Link>
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
-            <Button size="sm" variant="outline" className="gap-1.5 print:hidden" onClick={() => window.print()}>
+      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80 print:hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+          <DutyBoostLogo height={150} />
+          <div className="flex items-center gap-2">
+            <Link to="/integration-guide">
+              <Button size="sm" variant="outline" className="text-sm hidden sm:flex">← Agency Guide</Button>
+            </Link>
+            <Link to="/">
+              <Button size="sm" variant="ghost" className="text-sm">Home</Button>
+            </Link>
+            <Button size="sm" variant="outline" className="gap-1.5" onClick={() => window.print()}>
               <Download className="w-3.5 h-3.5" /> Download PDF
             </Button>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-3xl mx-auto px-6 py-14 space-y-14">
-
-        {/* Hero */}
-        <div className="space-y-4">
+      {/* Hero Banner */}
+      <section className="relative overflow-hidden py-12 px-6 border-b border-border">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto space-y-4">
           <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Airport Retailer · Implementation Guide</Badge>
-          <h1 className="text-4xl font-heading font-bold">Retailer POS Integration Guide</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            This guide explains what your technical team needs to build so that DutyBoost vouchers can be validated and redeemed at your point-of-sale system — giving eligible travelers their discount at the till, automatically.
+          <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">
+            Retailer POS <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Integration Guide</span>
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            Everything your technical team needs to validate and redeem DutyBoost vouchers at your point-of-sale — giving eligible travelers their discount at the till, automatically.
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 pt-1">
             {['~1–2 day integration', 'Two API calls', 'Works with any POS system'].map(t => (
               <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
             ))}
           </div>
         </div>
+      </section>
+
+      <div className="max-w-3xl mx-auto px-6 py-14 space-y-14">
 
         {/* How it works */}
         <div className="space-y-4">
@@ -230,7 +240,7 @@ export default function RetailerIntegrationGuide() {
               { num: '4', title: 'Redemption confirmed', desc: 'Cashier finalises the sale — DutyBoost records the transaction and invoices you at month end' },
             ].map(s => (
               <div key={s.num} className="bg-card border border-border rounded-xl p-4 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-orange-500 text-white flex items-center justify-center text-sm font-bold">{s.num}</div>
+                <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">{s.num}</div>
                 <p className="font-semibold text-sm">{s.title}</p>
                 <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
@@ -310,51 +320,9 @@ export default function RetailerIntegrationGuide() {
         {/* Step 1 — Validate */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-bold shrink-0">1</div>
-            <h2 className="text-2xl font-heading font-semibold">Validate the voucher at scan</h2>
-          </div>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            When the cashier scans a DutyBoost QR code, your POS must immediately call the <strong>validate</strong> endpoint. This confirms the voucher is active, not expired, and valid for your store. This call does <strong>not</strong> consume the voucher — it only checks it.
-          </p>
-
-          <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
-            <Badge className="bg-green-600 text-white text-xs shrink-0">POST</Badge>
-            <code className="text-sm font-mono text-foreground break-all">https://api.dutyboost.com/v1/validate-voucher</code>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <p className="text-sm font-semibold">Request body:</p>
-              <CodeBlock code={`{\n  "voucher_code": "DB-X7K2M4NP",\n  "retailer_id": "YOUR_RETAILER_ID"\n}`} label="validate-request.json" />
-            </div>
-            <div className="space-y-2">
-              <p className="text-sm font-semibold">Response:</p>
-              <CodeBlock code={VALIDATE_RESPONSE} label="validate-response.json" />
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-xl p-4 space-y-3 text-sm">
-            <p className="font-semibold">What to do with the response:</p>
-            <ul className="space-y-1.5">
-              {[
-                ['valid: true', 'Display the discount % to the cashier and customer on screen', 'text-green-700'],
-                ['valid: false', 'Show an error: "Voucher invalid or already used". Do not apply any discount.', 'text-red-700'],
-                ['status: "expired"', 'Show: "Voucher expired on [date]. Sorry, we can\'t accept this."', 'text-red-700'],
-                ['status: "redeemed"', 'Show: "This voucher has already been used."', 'text-red-700'],
-              ].map(([code, action, color]) => (
-                <li key={code} className="flex items-start gap-2">
-                  <code className="bg-muted px-1.5 py-0.5 rounded text-xs shrink-0 font-mono">{code}</code>
-                  <span className={`text-xs ${color}`}>{action}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Step 2 — Redeem */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-bold shrink-0">2</div>
+            <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">1</div>
+...
+            <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">2</div>
             <h2 className="text-2xl font-heading font-semibold">Confirm the redemption at checkout</h2>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -430,10 +398,10 @@ export default function RetailerIntegrationGuide() {
                 <p className="font-semibold text-sm">If your POS loses internet</p>
               </div>
               <ul className="space-y-1.5 text-xs text-muted-foreground">
-                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Do not accept the voucher if you cannot validate it</li>
-                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Ask the customer to show the voucher code — log it manually</li>
-                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Once back online, call /redeem-voucher with the recorded code</li>
-                <li className="flex items-start gap-1.5"><span className="text-orange-500 mt-0.5">→</span> Contact us if the voucher has expired before you could reconnect</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary mt-0.5">→</span> Do not accept the voucher if you cannot validate it</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary mt-0.5">→</span> Ask the customer to show the voucher code — log it manually</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary mt-0.5">→</span> Once back online, call /redeem-voucher with the recorded code</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary mt-0.5">→</span> Contact us if the voucher has expired before you could reconnect</li>
               </ul>
             </div>
             <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -513,8 +481,18 @@ export default function RetailerIntegrationGuide() {
 
       </div>
 
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        © 2026 DutyBoost · <Link to="/" className="text-primary underline">Home</Link> · <a href="mailto:integrations@dutyboost.com" className="text-primary underline">integrations@dutyboost.com</a>
+      <footer className="border-t border-border py-8 px-6 print:hidden">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3">
+            <DutyBoostLogo height={120} />
+            <span>Turning travel into airport earnings.</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+            <a href="mailto:integrations@dutyboost.com" className="hover:text-primary transition-colors">integrations@dutyboost.com</a>
+            <span>© 2026 DutyBoost</span>
+          </div>
+        </div>
       </footer>
     </div>
   );
