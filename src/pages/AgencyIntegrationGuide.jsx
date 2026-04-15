@@ -383,7 +383,9 @@ export default function AgencyIntegrationGuide() {
               <tbody className="divide-y divide-border">
                 {[
                   ['voucher_code', 'Unique alphanumeric code for the traveler to quote manually if QR fails'],
-                  ['discount_percentage', 'The % discount the traveler gets at the airport (shown in the email)'],
+                  ['credit_amount_eur', 'The fixed euro DutyCredit value (e.g. 14.00) — display this prominently in your email'],
+                  ['min_spend_eur', 'Minimum basket required in store to redeem (75 for short-haul, 167 for long-haul)'],
+                  ['max_basket_pct', 'Credit cap as a fraction of basket (0.15 = 15%) — for your records'],
                   ['expiration_date', 'The voucher expires at midnight on the departure date'],
                   ['duty_credit_url', 'Direct link to the traveler\'s voucher page — include this in any email'],
                   ['qr_image_url', 'Hosted QR code image URL — usable in custom email templates'],
@@ -432,13 +434,15 @@ export default function AgencyIntegrationGuide() {
               </thead>
               <tbody className="divide-y divide-border">
                 {[
-                  ['Base rate (all bookings)', '+5%'],
-                  ['Each additional traveler beyond 1', '+1% per traveler'],
-                  ['Ticket price €1,000 – €1,999', '+5%'],
-                  ['Ticket price €2,000+', '+10%'],
-                  ['Long-haul flight', '+5%'],
-                  ['Maximum cap', '25%'],
-                ].map(([rule, val]) => (
+                      ['Base per traveler — short-haul', '€2.50'],
+                      ['Base per traveler — long-haul', '€7.00'],
+                      ['Ticket price < €200', '×1.0 multiplier'],
+                      ['Ticket price €200 – €499', '×1.5 multiplier'],
+                      ['Ticket price €500 – €999', '×2.0 multiplier'],
+                      ['Ticket price €1,000+', '×2.5 multiplier'],
+                      ['Floor (minimum credit)', '€5'],
+                      ['Cap (maximum credit)', '€25'],
+                    ].map(([rule, val]) => (
                   <tr key={rule} className="hover:bg-muted/20">
                     <td className="px-4 py-2.5 text-muted-foreground text-sm">{rule}</td>
                     <td className="px-4 py-2.5 font-semibold text-primary text-sm">{val}</td>
@@ -447,7 +451,17 @@ export default function AgencyIntegrationGuide() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-muted-foreground">Example: A long-haul booking for 3 travelers at €1,500 total = 5% (base) + 2% (2 extra travelers) + 5% (price tier) + 5% (long-haul) = <strong>17% discount</strong></p>
+          <p className="text-xs text-muted-foreground">
+            Formula: <strong>credit = clamp(base × travelers × multiplier, €5, €25)</strong><br/>
+            Example (long-haul, 2 travelers, €600 ticket): €7.00 × 2 × 2.0 = <strong>€28 → capped at €25</strong><br/>
+            Example (short-haul, 1 traveler, €300 ticket): €2.50 × 1 × 1.5 = <strong>€3.75 → floored at €5</strong>
+          </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
+            <p className="font-semibold">Redemption rules (communicated to travelers in the email):</p>
+            <p>→ <strong>Short-haul:</strong> minimum spend €75 in store. Credit cannot exceed 15% of basket.</p>
+            <p>→ <strong>Long-haul:</strong> minimum spend €167 in store. Credit cannot exceed 15% of basket.</p>
+            <p className="text-xs text-blue-600">Retailers always net ≥ 85% of the basket — protecting their margin.</p>
+          </div>
         </div>
 
         {/* Step 4 — Webhooks */}

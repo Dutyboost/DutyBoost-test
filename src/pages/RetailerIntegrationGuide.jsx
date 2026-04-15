@@ -62,34 +62,37 @@ const VALIDATE_CURL = `curl -X POST https://api.dutyboost.com/v1/validate-vouche
 const VALIDATE_RESPONSE = `{
   "valid": true,
   "voucher_code": "DB-X7K2M4NP",
-  "discount_percentage": 16,
+  "credit_amount_eur": 14.00,
+  "min_spend_eur": 167,
+  "max_basket_pct": 0.15,
+  "travel_type": "Long-haul",
   "traveler_name": "John Doe",
   "airport": "AMS",
   "expiration_date": "2025-12-01",
   "status": "active",
-  "message": "Voucher is valid. Apply 16% discount at checkout."
+  "message": "Voucher valid. Min spend €167. Apply up to €14.00 (max 15% of basket)."
 }`;
 
 const REDEEM_REQUEST = `{
   "voucher_code": "DB-X7K2M4NP",
   "retailer_id": "YOUR_RETAILER_ID",
-  "transaction_value": 142.50,
+  "transaction_value": 200.00,
   "num_items": 3
 }`;
 
 const REDEEM_RESPONSE = `{
   "success": true,
   "voucher_code": "DB-X7K2M4NP",
-  "base_discount": 16,
-  "effective_discount": 18,
-  "discount_amount": 25.65,
-  "amount_charged": 116.85,
-  "platform_fee": 7.69,
+  "credit_amount_eur": 14.00,
+  "effective_credit": 14.00,
+  "amount_charged": 186.00,
+  "platform_fee": 10.00,
   "transaction_id": "TXN-20251201-4482",
-  "message": "Voucher redeemed successfully."
+  "retailer_net_pct": 93,
+  "message": "Voucher redeemed. €14.00 credit applied (7% of €200 basket — within 15% cap)."
 }`;
 
-const JS_VALIDATE = `// Step 1: Validate the voucher before applying any discount
+const JS_VALIDATE = `// Step 1: Validate the voucher before applying any credit
 async function validateVoucher(voucherCode) {
   const res = await fetch('https://api.dutyboost.com/v1/validate-voucher', {
     method: 'POST',
@@ -105,7 +108,7 @@ async function validateVoucher(voucherCode) {
   return await res.json();
 }
 
-// Step 2: After checkout, confirm the redemption with the basket value
+// Step 2: After checkout, confirm the redemption with the basket total
 async function redeemVoucher(voucherCode, transactionValue, numItems) {
   const res = await fetch('https://api.dutyboost.com/v1/redeem-voucher', {
     method: 'POST',
@@ -117,7 +120,7 @@ async function redeemVoucher(voucherCode, transactionValue, numItems) {
       voucher_code:      voucherCode,
       retailer_id:       process.env.DUTYBOOST_RETAILER_ID,
       transaction_value: transactionValue,   // final basket total in EUR
-      num_items:         numItems            // number of items scanned
+      num_items:         numItems
     })
   });
   return await res.json();
@@ -132,13 +135,28 @@ async function processDutyBoostVoucher(scannedCode, basketTotal, numItems) {
     return;
   }
 
-  // 2. Show discount preview to cashier and customer
-  displayDiscount(validation.discount_percentage, basketTotal);
+  // 2. Check minimum spend requirement
+  if (basketTotal < validation.min_spend_eur) {
+    displayError(\`Minimum spend of €\${validation.min_spend_eur} required to redeem this DutyCredit.\`);
+    return;
+  }
 
-  // 3. Cashier confirms — finalize the transaction
+  // 3. Calculate effective credit (cannot exceed 15% of basket)
+  const effectiveCredit = Math.min(validation.credit_amount_eur, basketTotal * 0.15);
+  const amountCharged   = (basketTotal - effectiveCredit).toFixed(2);
+
+  // 4. Show preview to cashier and customer
+  displayCreditPreview({
+    creditValue:    validation.credit_amount_eur,
+    effectiveCredit: effectiveCredit,
+    basketTotal,
+    amountCharged
+  });
+
+  // 5. Cashier confirms — finalize the transaction
   const redemption = await redeemVoucher(scannedCode, basketTotal, numItems);
   if (redemption.success) {
-    applyDiscountToReceipt(redemption.discount_amount);
+    applyDiscountToReceipt(redemption.effective_credit);
     printReceipt(redemption);
   }
 }`;
@@ -326,8 +344,14 @@ export default function RetailerIntegrationGuide() {
             <h2 className="text-2xl font-heading font-semibold">Confirm the redemption at checkout</h2>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            After the customer agrees to the discount and the cashier finalises the sale, your POS must call the <strong>redeem</strong> endpoint with the final basket total. This marks the voucher as used and records the transaction for your monthly invoice.
+            After the customer meets the minimum spend and the cashier finalises the sale, call the <strong>redeem</strong> endpoint with the final basket total. DutyBoost calculates the effective credit (≤ 15% of basket), marks the voucher as used, and records the transaction for your monthly invoice.
           </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
+            <p className="font-semibold">Minimum spend rules:</p>
+            <p>→ <strong>Short-haul DutyCredit:</strong> basket must be ≥ €75</p>
+            <p>→ <strong>Long-haul DutyCredit:</strong> basket must be ≥ €167</p>
+            <p className="text-xs">The <code>min_spend_eur</code> field in the validate response tells you which applies. Reject redemption if basket is below this value.</p>
+          </div>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 shrink-0" />
             <p className="text-sm text-orange-800"><strong>Only call /redeem-voucher once per transaction</strong>, at the moment of final checkout — never during scanning or preview. Calling it twice will fail with an "already redeemed" error.</p>
@@ -359,9 +383,10 @@ export default function RetailerIntegrationGuide() {
               </thead>
               <tbody className="divide-y divide-border">
                 {[
-                  ['effective_discount', 'The actual % applied (may be higher than base due to basket bonuses)'],
-                  ['discount_amount', 'EUR amount to subtract from the basket — apply this to the receipt'],
-                  ['amount_charged', 'The final amount the customer pays — display on screen and receipt'],
+                  ['credit_amount_eur', 'The traveler\'s DutyCredit value in EUR (e.g. 14.00) — this is the maximum that can be applied'],
+                  ['min_spend_eur', 'Minimum basket required to redeem (75 short-haul / 167 long-haul) — reject if basket is below this'],
+                  ['effective_credit', 'Actual EUR credit applied = min(credit_amount_eur, basket × 0.15) — apply this to the receipt'],
+                  ['amount_charged', 'The final amount the customer pays (basket − effective_credit) — display on screen and receipt'],
                   ['platform_fee', 'DutyBoost\'s fee for this transaction — included in your monthly invoice'],
                   ['transaction_id', 'Store this in your POS records for reconciliation and dispute resolution'],
                 ].map(([field, action]) => (
