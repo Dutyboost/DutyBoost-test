@@ -64,6 +64,7 @@ import RetailerPresentationDeck from './pages/RetailerPresentationDeck';
 import TravelerShowcase from './pages/TravelerShowcase';
 import RegistrationFlow from './pages/RegistrationFlow';
 import EmailPreview from './pages/EmailPreview';
+import AgencyOnePager from './pages/AgencyOnePager';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -150,6 +151,7 @@ const AuthenticatedApp = () => {
         <Route path="/traveler-showcase" element={<TravelerShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
+        <Route path="/agency-one-pager" element={<AgencyOnePager />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/demo/traveler" element={<DemoTravelerPortal />} />
