@@ -103,7 +103,7 @@ export default function AgencyOnePager() {
           {[
             { value: "€1–€3", label: "Average agency commission per booking" },
             { value: "1%", label: "Agency commission on each redemption" },
-            { value: "1–2 days", label: "API integration time" },
+            { value: "< 1 day", label: "API integration time" },
           ].map(({ value, label }) => (
             <div key={label}>
               <p className="text-3xl font-heading font-bold text-green-700">{value}</p>

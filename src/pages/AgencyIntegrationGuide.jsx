@@ -232,7 +232,7 @@ export default function AgencyIntegrationGuide() {
             Everything your technical team needs to integrate DutyBoost into your booking platform — so every confirmed booking automatically generates a DutyCredit for the traveler.
           </p>
           <div className="flex flex-wrap gap-2 pt-1">
-            {['~30 min integration', 'Single API call', 'Works with any booking system'].map(t => (
+            {['< 1 day integration', 'Single API call', 'Works with any booking system'].map(t => (
               <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
             ))}
           </div>
