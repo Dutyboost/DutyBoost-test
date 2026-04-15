@@ -25,7 +25,6 @@ export default function AgencyOnePager() {
         <div className="flex items-center justify-between border-b-2 border-green-500 pb-4">
           <div>
             <DutyBoostLogo height={200} />
-            <p className="text-xs text-muted-foreground">a Borderless Solutions B.V. product</p>
           </div>
           <div className="text-right">
             <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Partner Overview</p>
