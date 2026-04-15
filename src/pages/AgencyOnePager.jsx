@@ -30,7 +30,7 @@ export default function AgencyOnePager() {
         {/* Tagline */}
         <div className="text-center space-y-1.5">
           <h2 className="text-3xl font-heading font-bold leading-tight">
-            Turn Every Booking Into{" "}
+            Turning Every Booking Into{" "}
             <span className="text-green-600">Additional Revenue</span>
           </h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto">
