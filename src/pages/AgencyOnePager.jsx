@@ -101,8 +101,8 @@ export default function AgencyOnePager() {
         {/* Key numbers */}
         <div className="bg-green-50 rounded-2xl p-6 grid grid-cols-3 gap-6 text-center">
           {[
-            { value: "€8–€22", label: "Average DutyCredit per booking" },
-            { value: "~15%", label: "Agency commission on each redemption" },
+            { value: "€1–€3", label: "Average agency commission per booking" },
+            { value: "1%", label: "Agency commission on each redemption" },
             { value: "1–2 days", label: "API integration time" },
           ].map(({ value, label }) => (
             <div key={label}>
