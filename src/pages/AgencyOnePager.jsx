@@ -22,15 +22,9 @@ export default function AgencyOnePager() {
       <div className="max-w-[794px] mx-auto px-10 py-6 print:py-0 print:px-0 space-y-5">
 
         {/* Header */}
-        <div className="flex items-center justify-between border-b-2 border-green-500 pb-2">
-          <div>
-            <DutyBoostLogo height={200} />
-            <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold mt-1">Travel Retail Conversion Layer</p>
-          </div>
-          <div className="text-right">
-            <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Partner Overview</p>
-            <h1 className="text-xl font-heading font-bold text-green-700 mt-0.5">For Travel Agencies</h1>
-          </div>
+        <div className="text-center border-b-2 border-green-500 pb-4">
+          <DutyBoostLogo height={200} />
+          <h1 className="text-3xl font-heading font-bold mt-4">DutyBoost, the 1st <span className="text-green-600">Travel Retail Conversion Layer</span></h1>
         </div>
 
         {/* Tagline */}
