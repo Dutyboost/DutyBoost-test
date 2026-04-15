@@ -22,7 +22,7 @@ export default function AgencyOnePager() {
       <div className="max-w-[794px] mx-auto px-10 py-6 print:py-0 print:px-0 space-y-5">
 
         {/* Header */}
-        <div className="flex items-center justify-between border-b-2 border-green-500 pb-4">
+        <div className="flex items-start justify-between border-b-2 border-green-500 pb-4">
           <div>
             <DutyBoostLogo height={200} />
           </div>
