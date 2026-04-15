@@ -115,9 +115,7 @@ export default function AgencyOnePager() {
         {/* WHY IT WORKS */}
         <div className="space-y-2 bg-blue-50 rounded-lg p-4 border border-blue-200">
           <h2 className="font-heading font-bold text-sm">Why It Works</h2>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            Zero operational effort. No upfront investment. No customer acquisition cost. Just a new revenue stream from your existing bookings.
-          </p>
+          <p className="text-xs text-muted-foreground">New revenue with zero effort, zero cost, zero customer acquisition needed.</p>
         </div>
 
         {/* INTEGRATION */}
