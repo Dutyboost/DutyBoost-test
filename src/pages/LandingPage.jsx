@@ -152,9 +152,7 @@ export default function LandingPage() {
               {t('hero.title_2')}
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t('hero.subtitle')}
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
         </div>
       </section>
 
