@@ -67,8 +67,8 @@ export default function AgencyOnePager() {
             <p className="text-xs text-muted-foreground leading-relaxed">We handle everything: credit creation, email delivery, QR codes, and payouts.</p>
           </div>
           <div className="border border-border rounded-lg p-4 space-y-2">
-            <h3 className="font-heading font-bold text-sm">✨ Added value</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">Give travelers a real, usable reward — not just points or discounts.</p>
+          <h3 className="font-heading font-bold text-sm">✨ Added value</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed">because it adds value for travelers while generating extra commission for agencies—automatically</p>
           </div>
         </div>
 
