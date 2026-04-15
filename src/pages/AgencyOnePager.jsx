@@ -52,7 +52,7 @@ export default function AgencyOnePager() {
         <div className="text-center space-y-1">
           <h1 className="text-3xl font-heading font-bold">Turning every booking into extra revenue</h1>
           <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-            A simple solution that rewards travelers with airport spending credit — while you earn automatically.
+            A simple solution that rewards travelers with airport credit—while you earn automatic commission on every booking.
           </p>
         </div>
 
