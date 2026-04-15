@@ -28,7 +28,7 @@ export default function AgencyOnePager() {
 
         {/* HEADLINE SECTION */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-heading font-bold">Turn every booking into extra revenue</h1>
+          <h1 className="text-4xl font-heading font-bold">Turning every booking into extra revenue</h1>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto">
             A simple solution that rewards travelers with airport spending credit — while you earn automatically.
           </p>
