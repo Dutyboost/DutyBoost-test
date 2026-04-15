@@ -52,33 +52,29 @@ export default function AgencyOnePager() {
               color: "text-green-600",
               bg: "bg-green-50",
               title: "New Revenue Stream",
-              desc: "Earn a commission every time a traveler redeems their DutyCredit at an airport store. No cap. No effort. Commissions are tracked automatically and paid out monthly.",
-              highlight: "Earn while you sleep"
+              desc: "Earn a commission every time a traveler redeems their DutyCredit at an airport store. No cap. No effort."
             },
             {
               icon: Zap,
               color: "text-blue-600",
               bg: "bg-blue-50",
               title: "Zero Operational Burden",
-              desc: "Credits are generated automatically based on booking data. No customer service, no redemption handling — we do it all. Your team does nothing extra.",
-              highlight: "Fully hands-off"
+              desc: "Credits are generated automatically based on booking data. No customer service, no redemption handling — we do it all."
             },
             {
               icon: Users,
               color: "text-purple-600",
               bg: "bg-purple-50",
               title: "Elevated Customer Experience",
-              desc: "Travelers receive a personalized DutyCredit with their booking confirmation — a meaningful loyalty perk that sets you apart from competitors.",
-              highlight: "Built-in differentiator"
+              desc: "Travelers receive a personalized DutyCredit with their booking confirmation — a meaningful loyalty perk that sets you apart."
             },
-          ].map(({ icon: Icon, color, bg, title, desc, highlight }) => (
-            <div key={title} className="rounded-xl border border-border p-4 space-y-2 flex flex-col">
+          ].map(({ icon: Icon, color, bg, title, desc }) => (
+            <div key={title} className="rounded-xl border border-border p-4 space-y-2">
               <div className={`w-8 h-8 rounded-lg ${bg} flex items-center justify-center`}>
                 <Icon className={`w-4 h-4 ${color}`} />
               </div>
               <h3 className="font-heading font-bold text-xs">{title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed flex-1">{desc}</p>
-              <p className={`text-xs font-semibold ${color}`}>→ {highlight}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -117,24 +113,11 @@ export default function AgencyOnePager() {
         </div>
 
         {/* Integration */}
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <h3 className="font-heading font-bold text-sm border-b border-border pb-1.5">Simple API Integration</h3>
-          <div className="grid grid-cols-2 gap-4 items-start">
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              One POST call per booking is all it takes. DutyBoost handles everything else — credit calculation, email delivery, QR generation, and monthly agency payouts. Works with any booking system or CRS.
-            </p>
-            <div className="bg-slate-900 rounded-lg p-3 font-mono text-xs text-slate-300 leading-relaxed">
-              <span className="text-slate-500">POST </span>
-              <span className="text-green-400">api.dutyboost.com/v1/</span>
-              <span className="text-white">generate-duty-credit</span>
-              <br />
-              <span className="text-slate-500 mt-1 block">{"{"}</span>
-              <span className="text-slate-400 ml-3 block"><span className="text-blue-300">"booking_id"</span>: <span className="text-amber-300">"BK-001"</span>,</span>
-              <span className="text-slate-400 ml-3 block"><span className="text-blue-300">"traveler_email"</span>: <span className="text-amber-300">"jane@..."</span>,</span>
-              <span className="text-slate-400 ml-3 block"><span className="text-blue-300">"travel_date"</span>: <span className="text-amber-300">"2025-08-14"</span></span>
-              <span className="text-slate-500 block">{"}"}</span>
-            </div>
-          </div>
+          <p className="text-xs text-muted-foreground">
+            One POST call per booking is all it takes. DutyBoost handles everything else — credit calculation, email delivery, QR generation, and travel agency payouts.
+          </p>
         </div>
 
         {/* Footer CTA */}
