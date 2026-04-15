@@ -1,9 +1,21 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft } from "lucide-react";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 export default function AgencyOnePager() {
+  const handleDownloadPDF = async () => {
+    const element = document.querySelector('.print-content');
+    const canvas = await html2canvas(element, { scale: 2 });
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const imgWidth = 210;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, imgHeight);
+    pdf.save('agency-one-pager.pdf');
+  };
+
   return (
     <div className="min-h-screen font-body" style={{ background: 'linear-gradient(135deg, hsl(216 60% 97%) 0%, hsl(217 50% 95%) 25%, hsl(216 45% 96%) 50%, hsl(220 40% 97%) 75%, hsl(216 55% 96%) 100%)', backgroundAttachment: 'fixed' }}>
       {/* Print toolbar — hidden when printing */}
@@ -13,13 +25,13 @@ export default function AgencyOnePager() {
             <ArrowLeft className="w-4 h-4" /> Back
           </button>
         </Link>
-        <Button onClick={() => window.print()} className="gap-2 bg-green-600 hover:bg-green-700 text-white">
+        <Button onClick={handleDownloadPDF} className="gap-2 bg-green-600 hover:bg-green-700 text-white">
           <Printer className="w-4 h-4" /> Download
         </Button>
       </div>
 
       {/* A4-style content */}
-      <div className="max-w-[794px] mx-auto px-10 py-6 print:py-0 print:px-0 space-y-6">
+      <div className="print-content max-w-[794px] mx-auto px-10 py-6 print:py-0 print:px-0 space-y-6 bg-white">
 
         {/* Header */}
         <div className="text-center border-b-2 border-green-500 pb-6">
