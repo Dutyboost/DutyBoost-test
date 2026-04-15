@@ -227,7 +227,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex flex-col items-center md:items-start gap-0.5">
               <DutyBoostLogo height={150} />
-              <span className="text-xs">DutyBoost, a Borderless Solutions B.V. product</span>
+              <span className="text-xs">DutyBoost is a Borderless Solutions B.V. product</span>
             </div>
             <p>{t('footer.rights')}</p>
           </div>
