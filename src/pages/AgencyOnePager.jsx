@@ -60,7 +60,7 @@ export default function AgencyOnePager() {
         <div className="grid grid-cols-3 gap-4">
           <div className="border border-border rounded-lg p-4 space-y-2">
             <h3 className="font-heading font-bold text-sm">💰 Earn more from every booking</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">Get paid when travelers spend their credit at the airport. No limits. No extra sales effort.</p>
+            <p className="text-xs text-muted-foreground leading-relaxed">Get paid when travelers spend at the airport. No limits. No extra sales effort.</p>
           </div>
           <div className="border border-border rounded-lg p-4 space-y-2">
             <h3 className="font-heading font-bold text-sm">⚙️ Fully automatic</h3>
