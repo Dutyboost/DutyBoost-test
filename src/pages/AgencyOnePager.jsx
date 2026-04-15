@@ -37,7 +37,7 @@ export default function AgencyOnePager() {
         <div className="text-center space-y-2">
           <h2 className="text-4xl font-heading font-bold leading-tight">
             Turn Every Booking Into<br />
-            <span className="text-green-600">Ancillary Revenue</span>
+            <span className="text-green-600">Additional Revenue</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             DutyBoost lets you automatically reward travelers with airport shopping credits — at zero operational cost — while you earn a commission on every redemption.
