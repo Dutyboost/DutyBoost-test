@@ -29,7 +29,7 @@ export default function AgencyOnePager() {
           </div>
           <div className="text-right">
             <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Partner Overview</p>
-            <h1 className="text-2xl font-heading font-bold text-green-700 mt-1">For Travel Agencies & OTAs</h1>
+            <h1 className="text-2xl font-heading font-bold text-green-700 mt-1">For Travel Agencies</h1>
           </div>
         </div>
 
