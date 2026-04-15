@@ -116,7 +116,7 @@ export default function AgencyOnePager() {
         <div className="space-y-3">
           <h3 className="font-heading font-bold text-lg border-b border-border pb-2">Simple API Integration</h3>
           <p className="text-sm text-muted-foreground">
-            One POST call per booking is all it takes. DutyBoost handles everything else — credit calculation, email delivery, QR generation, and retailer payouts.
+            One POST call per booking is all it takes. DutyBoost handles everything else — credit calculation, email delivery, QR generation, and travel agency payouts.
           </p>
 
         </div>
