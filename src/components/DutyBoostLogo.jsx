@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function DutyBoostLogo({ height = 400, inverted = false }) {
   return (
-    <Link to="/" className="hover:opacity-80 transition-opacity inline-block">
+    <Link to="/" className="hover:opacity-80 transition-opacity inline-block text-center">
       <img
         src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9a64855b0_ChatGPT_Image_Mar_30__2026__03_06_29_PM-removebg-preview.png"
         alt="DutyBoost"
@@ -13,6 +13,7 @@ export default function DutyBoostLogo({ height = 400, inverted = false }) {
           filter: 'hue-rotate(0deg) saturate(1.1) brightness(1.0)',
         }}
       />
+      <p className="text-xs text-muted-foreground mt-0.5">a Borderless Solutions B.V. service</p>
     </Link>
   );
 }
