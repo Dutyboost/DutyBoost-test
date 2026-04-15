@@ -44,14 +44,14 @@ export default function AgencyOnePager() {
       <div className="print-content max-w-[794px] mx-auto px-10 py-4 print:py-0 print:px-0 space-y-4 bg-white">
 
         {/* Header */}
-        <div className="text-center border-b-2 border-green-500 pb-3">
-          <DutyBoostLogo height={120} />
+        <div className="text-center border-b-2 border-green-500 pb-2">
+          <DutyBoostLogo height={150} />
         </div>
 
         {/* HEADLINE SECTION */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-heading font-bold">Turning every booking into extra revenue</h1>
-          <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+        <div className="text-center space-y-1">
+          <h1 className="text-3xl font-heading font-bold">Turning every booking into extra revenue</h1>
+          <p className="text-muted-foreground text-xs max-w-xl mx-auto">
             A simple solution that rewards travelers with airport spending credit — while you earn automatically.
           </p>
         </div>
