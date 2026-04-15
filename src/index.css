@@ -80,6 +80,13 @@
   }
 }
 
+@media print {
+  nav, footer, .print\:hidden { display: none !important; }
+  body { background: white !important; }
+  pre { white-space: pre-wrap !important; }
+  .bg-slate-900 { background: #1e293b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

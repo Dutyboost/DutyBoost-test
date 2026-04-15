@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Copy, Check, Code2, Mail, QrCode, Zap, ArrowRight,
-  CheckCircle2, AlertCircle, Globe2, Terminal, BookOpen, ChevronDown, ChevronUp
+  CheckCircle2, AlertCircle, Globe2, Terminal, BookOpen, ChevronDown, ChevronUp, Download
 } from "lucide-react";
 
 function CopyButton({ text }) {
@@ -208,6 +208,9 @@ export default function AgencyIntegrationGuide() {
           <div className="flex items-center gap-4">
             <Link to="/retailer-integration-guide" className="text-sm text-muted-foreground hover:text-primary transition-colors">Retailer Guide →</Link>
             <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Home</Link>
+            <Button size="sm" variant="outline" className="gap-1.5 print:hidden" onClick={() => window.print()}>
+              <Download className="w-3.5 h-3.5" /> Download PDF
+            </Button>
           </div>
         </div>
       </nav>
