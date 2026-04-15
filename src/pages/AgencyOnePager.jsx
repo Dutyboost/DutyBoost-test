@@ -8,11 +8,21 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 export default function AgencyOnePager() {
   const handleDownloadPDF = async () => {
     const element = document.querySelector('.print-content');
-    const canvas = await html2canvas(element, { scale: 2 });
-    const pdf = new jsPDF('p', 'mm', 'a4');
+    const canvas = await html2canvas(element, { scale: 2, allowTaint: true, useCORS: true });
+    const imgData = canvas.toDataURL('image/png');
     const imgWidth = 210;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, imgHeight);
+    const pdf = new jsPDF('p', 'mm', 'a4', { compress: true });
+    let heightLeft = imgHeight;
+    let position = 0;
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= 297;
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= 297;
+    }
     pdf.save('agency-one-pager.pdf');
   };
 
@@ -93,7 +103,7 @@ export default function AgencyOnePager() {
             <p className="text-xs text-muted-foreground mt-0.5">average extra revenue per booking</p>
           </div>
           <div>
-            <p className="text-2xl font-heading font-bold text-green-700">~1%</p>
+            <p className="text-2xl font-heading font-bold text-green-700">1%</p>
             <p className="text-xs text-muted-foreground mt-0.5">commission on airport spend</p>
           </div>
           <div>
