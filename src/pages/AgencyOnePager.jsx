@@ -44,8 +44,8 @@ export default function AgencyOnePager() {
       <div className="print-content max-w-[794px] mx-auto px-10 py-4 print:py-0 print:px-0 space-y-4 bg-white">
 
         {/* Header */}
-        <div className="text-center border-b-2 border-green-500 pb-4">
-          <DutyBoostLogo height={80} />
+        <div className="text-center border-b-2 border-green-500 pb-3">
+          <DutyBoostLogo height={120} />
         </div>
 
         {/* HEADLINE SECTION */}
