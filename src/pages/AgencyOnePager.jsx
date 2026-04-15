@@ -118,9 +118,7 @@ export default function AgencyOnePager() {
           <p className="text-sm text-muted-foreground">
             One POST call per booking is all it takes. DutyBoost handles everything else — credit calculation, email delivery, QR generation, and retailer payouts.
           </p>
-          <div className="bg-slate-900 rounded-xl p-4 font-mono text-xs text-green-400 leading-relaxed">
-            {`POST https://api.dutyboost.com/v1/generate-credit\n{\n  "booking_id": "BK-9182736",\n  "ticket_price_eur": 520,\n  "traveler_email": "john@example.com",\n  "departure_airport": "AMS",\n  "travel_type": "Long-haul"\n}`}
-          </div>
+
         </div>
 
         {/* Footer CTA */}
