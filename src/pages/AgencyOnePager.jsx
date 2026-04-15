@@ -56,11 +56,6 @@ export default function AgencyOnePager() {
           </p>
         </div>
 
-        {/* VALUE STRIP */}
-        <div className="bg-green-50 rounded-lg px-6 py-3 text-center text-sm font-medium text-green-900 border border-green-200">
-          New income stream · Better customer experience
-        </div>
-
         {/* CORE BENEFITS - 3 columns */}
         <div className="grid grid-cols-3 gap-4">
           <div className="border border-border rounded-lg p-4 space-y-2">
