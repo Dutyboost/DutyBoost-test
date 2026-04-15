@@ -14,7 +14,7 @@ export default function AgencyOnePager() {
           </button>
         </Link>
         <Button onClick={() => window.print()} className="gap-2 bg-green-600 hover:bg-green-700 text-white">
-          <Printer className="w-4 h-4" /> Download / Print PDF
+          <Printer className="w-4 h-4" /> Download
         </Button>
       </div>
 
