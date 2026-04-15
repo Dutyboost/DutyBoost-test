@@ -25,6 +25,7 @@ export default function AgencyOnePager() {
         <div className="flex items-center justify-between border-b-2 border-green-500 pb-2">
           <div>
             <DutyBoostLogo height={200} />
+            <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold mt-1">Travel Retail Conversion Layer</p>
           </div>
           <div className="text-right">
             <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Partner Overview</p>
