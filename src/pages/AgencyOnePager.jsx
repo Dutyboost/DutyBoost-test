@@ -110,7 +110,7 @@ export default function AgencyOnePager() {
         {/* WHY IT WORKS */}
         <div className="space-y-2 bg-blue-50 rounded-lg p-4 border border-blue-200">
           <h2 className="font-heading font-bold text-sm">Why It Works</h2>
-          <p className="text-xs text-muted-foreground">You keep doing what you do. Every online booking becomes a revenue opportunity without changing your workflow.</p>
+          <p className="text-xs text-muted-foreground">because it adds value for travelers while generating extra commission for agencies—automatically.</p>
         </div>
 
         {/* INTEGRATION */}
