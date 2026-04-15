@@ -5,7 +5,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 
 export default function AgencyOnePager() {
   return (
-    <div className="min-h-screen bg-white font-body">
+    <div className="min-h-screen font-body" style={{ background: 'linear-gradient(135deg, hsl(216 60% 97%) 0%, hsl(217 50% 95%) 25%, hsl(216 45% 96%) 50%, hsl(220 40% 97%) 75%, hsl(216 55% 96%) 100%)', backgroundAttachment: 'fixed' }}>
       {/* Print toolbar — hidden when printing */}
       <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-between">
         <Link to="/agency-showcase">
