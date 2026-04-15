@@ -23,7 +23,7 @@ export default function AgencyOnePager() {
 
         {/* Header */}
         <div className="text-center border-b-2 border-green-500 pb-4">
-          <DutyBoostLogo height={200} />
+          <DutyBoostLogo height={300} />
           <h1 className="text-3xl font-heading font-bold mt-4">The 1st <span className="text-green-600">Travel Retail Conversion Layer</span></h1>
         </div>
 
