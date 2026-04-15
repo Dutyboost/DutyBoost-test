@@ -384,8 +384,7 @@ export default function AgencyIntegrationGuide() {
                 {[
                   ['voucher_code', 'Unique alphanumeric code for the traveler to quote manually if QR fails'],
                   ['credit_amount_eur', 'The fixed euro DutyCredit value (e.g. 14.00) — display this prominently in your email'],
-                  ['min_spend_eur', 'Minimum basket required in store to redeem (75 for short-haul, 167 for long-haul)'],
-                  ['max_basket_pct', 'Credit cap as a fraction of basket (0.15 = 15%) — for your records'],
+                  ['max_basket_pct', 'Credit cap as a fraction of basket (0.15 = 15%) — no minimum spend, just proportional to basket'],
                   ['expiration_date', 'The voucher expires at midnight on the departure date'],
                   ['duty_credit_url', 'Direct link to the traveler\'s voucher page — include this in any email'],
                   ['qr_image_url', 'Hosted QR code image URL — usable in custom email templates'],
@@ -458,8 +457,8 @@ export default function AgencyIntegrationGuide() {
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
             <p className="font-semibold">Redemption rules (communicated to travelers in the email):</p>
-            <p>→ <strong>Short-haul:</strong> minimum spend €75 in store. Credit cannot exceed 15% of basket.</p>
-            <p>→ <strong>Long-haul:</strong> minimum spend €167 in store. Credit cannot exceed 15% of basket.</p>
+            <p>→ <strong>No minimum spend</strong> — every traveler can redeem regardless of basket size.</p>
+            <p>→ Credit cannot exceed <strong>15% of the basket value</strong> (small baskets get proportionally less).</p>
             <p className="text-xs text-blue-600">Retailers always net ≥ 85% of the basket — protecting their margin.</p>
           </div>
         </div>

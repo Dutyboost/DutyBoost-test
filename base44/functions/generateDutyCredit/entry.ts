@@ -2,12 +2,12 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 // DutyCredit Calculation Model
 // credit = clamp(basePerTraveler × travelers × priceMultiplier, €5, €25)
-// Min spend: Short-haul €75 / Long-haul €167
+// No minimum spend — every traveler can redeem, proportionally capped at 15% of basket
 // 15% cap: credit applied at till ≤ 15% of basket (retailer always nets ≥ 85%)
 
 const DUTY_CREDIT_CONFIG = {
-  shortHaul: { basePerTraveler: 2.50, minSpend: 75 },
-  longHaul:  { basePerTraveler: 7.00, minSpend: 167 },
+  shortHaul: { basePerTraveler: 2.50 },
+  longHaul:  { basePerTraveler: 7.00 },
   floor: 5,
   cap: 25,
   maxBasketPct: 0.15,
@@ -78,9 +78,6 @@ Deno.serve(async (req) => {
     travelType: travel_type,
   });
 
-  const isLongHaul = travel_type === 'Long-haul';
-  const minSpend = isLongHaul ? DUTY_CREDIT_CONFIG.longHaul.minSpend : DUTY_CREDIT_CONFIG.shortHaul.minSpend;
-
   const voucherCode = generateVoucherCode();
   const expirationDate = getExpirationDate(travel_date);
 
@@ -142,7 +139,7 @@ Deno.serve(async (req) => {
                     Simply scan the QR code below at checkout — no app, no loyalty card needed.
                   </p>
                   <p style="margin:10px 0 0;color:#374151;font-size:14px;line-height:1.7;">
-                    <strong>Minimum spend:</strong> €${minSpend} in store. Your credit cannot exceed 15% of your basket value.
+                   No minimum spend required. Your credit is applied up to 15% of your basket value — so even a small purchase earns you a discount.
                   </p>
                 </td>
               </tr>
@@ -169,7 +166,7 @@ Deno.serve(async (req) => {
               </tr>
               <tr style="background:#f9fafb;">
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">DutyCredit Value</td>
-                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">€${creditAmount.toFixed(2)} (minimum spend €${minSpend} in store)</td>
+                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">€${creditAmount.toFixed(2)} (up to 15% of your basket, no minimum spend)</td>
               </tr>
               <tr>
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;">Valid Until</td>
@@ -184,8 +181,8 @@ Deno.serve(async (req) => {
               </tr>
             </table>
             <p style="margin:0;color:#9ca3af;font-size:12px;line-height:1.6;border-top:1px solid #e5e7eb;padding-top:16px;">
-              Your DutyCredit (€${creditAmount.toFixed(2)}) is redeemable in a single transaction at one participating point of sale on a minimum spend of €${minSpend}.
-              The credit applied cannot exceed 15% of your basket value.
+              Your DutyCredit (€${creditAmount.toFixed(2)}) is redeemable in a single transaction at one participating point of sale.
+              No minimum spend required. The credit applied cannot exceed 15% of your basket value.
               It is personal, non-transferable, and expires on <strong>${formattedExpiry}</strong>.
               Having trouble with the QR code? Use voucher code <strong>${voucherCode}</strong> at the till.
             </p>
@@ -214,7 +211,6 @@ Deno.serve(async (req) => {
     success: true,
     voucher_code: voucherCode,
     credit_amount_eur: creditAmount,
-    min_spend_eur: minSpend,
     max_basket_pct: DUTY_CREDIT_CONFIG.maxBasketPct,
     expiration_date: expirationDate,
     duty_credit_url: dutyCreditUrl,
@@ -227,7 +223,7 @@ Deno.serve(async (req) => {
       <p style="margin:0 0 4px;color:#5b4fcf;font-size:36px;font-weight:800;">€${creditAmount.toFixed(2)}</p>
       <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;max-width:400px;display:inline-block;">
         Redeemable at participating shops at <strong>${departure_airport}</strong> on your day of departure.<br/>
-        Minimum spend: <strong>€${minSpend}</strong> in store. Scan the QR code at the till.
+        No minimum spend required — up to 15% of your basket. Scan the QR code at the till.
       </p>
       <div style="margin:0 0 16px;">
         <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="160" height="160" style="display:block;margin:0 auto;border-radius:8px;border:1px solid #e5e7eb;" />

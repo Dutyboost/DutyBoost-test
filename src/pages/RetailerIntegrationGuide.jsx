@@ -63,14 +63,13 @@ const VALIDATE_RESPONSE = `{
   "valid": true,
   "voucher_code": "DB-X7K2M4NP",
   "credit_amount_eur": 14.00,
-  "min_spend_eur": 167,
   "max_basket_pct": 0.15,
   "travel_type": "Long-haul",
   "traveler_name": "John Doe",
   "airport": "AMS",
   "expiration_date": "2025-12-01",
   "status": "active",
-  "message": "Voucher valid. Min spend €167. Apply up to €14.00 (max 15% of basket)."
+  "message": "Voucher valid. Apply up to €14.00 (max 15% of basket). No minimum spend."
 }`;
 
 const REDEEM_REQUEST = `{
@@ -84,12 +83,12 @@ const REDEEM_RESPONSE = `{
   "success": true,
   "voucher_code": "DB-X7K2M4NP",
   "credit_amount_eur": 14.00,
-  "effective_credit": 14.00,
-  "amount_charged": 186.00,
-  "platform_fee": 10.00,
+  "effective_credit": 7.50,
+  "amount_charged": 42.50,
+  "platform_fee": 2.50,
   "transaction_id": "TXN-20251201-4482",
-  "retailer_net_pct": 93,
-  "message": "Voucher redeemed. €14.00 credit applied (7% of €200 basket — within 15% cap)."
+  "retailer_net_pct": 85,
+  "message": "Voucher redeemed. €7.50 credit applied (15% of €50 basket — cap applied)."
 }`;
 
 const JS_VALIDATE = `// Step 1: Validate the voucher before applying any credit
@@ -135,13 +134,7 @@ async function processDutyBoostVoucher(scannedCode, basketTotal, numItems) {
     return;
   }
 
-  // 2. Check minimum spend requirement
-  if (basketTotal < validation.min_spend_eur) {
-    displayError(\`Minimum spend of €\${validation.min_spend_eur} required to redeem this DutyCredit.\`);
-    return;
-  }
-
-  // 3. Calculate effective credit (cannot exceed 15% of basket)
+  // 2. Calculate effective credit (cannot exceed 15% of basket)
   const effectiveCredit = Math.min(validation.credit_amount_eur, basketTotal * 0.15);
   const amountCharged   = (basketTotal - effectiveCredit).toFixed(2);
 
@@ -347,10 +340,10 @@ export default function RetailerIntegrationGuide() {
             After the customer meets the minimum spend and the cashier finalises the sale, call the <strong>redeem</strong> endpoint with the final basket total. DutyBoost calculates the effective credit (≤ 15% of basket), marks the voucher as used, and records the transaction for your monthly invoice.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
-            <p className="font-semibold">Minimum spend rules:</p>
-            <p>→ <strong>Short-haul DutyCredit:</strong> basket must be ≥ €75</p>
-            <p>→ <strong>Long-haul DutyCredit:</strong> basket must be ≥ €167</p>
-            <p className="text-xs">The <code>min_spend_eur</code> field in the validate response tells you which applies. Reject redemption if basket is below this value.</p>
+            <p className="font-semibold">No minimum spend:</p>
+            <p>→ Every traveler can redeem their DutyCredit regardless of basket size.</p>
+            <p>→ The credit applied cannot exceed <strong>15% of the basket value</strong> — small baskets receive proportionally less.</p>
+            <p className="text-xs">Example: €14 credit on a €50 basket → only €7.50 applied (15% cap). On a €200 basket → full €14 applied.</p>
           </div>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 shrink-0" />
@@ -384,7 +377,6 @@ export default function RetailerIntegrationGuide() {
               <tbody className="divide-y divide-border">
                 {[
                   ['credit_amount_eur', 'The traveler\'s DutyCredit value in EUR (e.g. 14.00) — this is the maximum that can be applied'],
-                  ['min_spend_eur', 'Minimum basket required to redeem (75 short-haul / 167 long-haul) — reject if basket is below this'],
                   ['effective_credit', 'Actual EUR credit applied = min(credit_amount_eur, basket × 0.15) — apply this to the receipt'],
                   ['amount_charged', 'The final amount the customer pays (basket − effective_credit) — display on screen and receipt'],
                   ['platform_fee', 'DutyBoost\'s fee for this transaction — included in your monthly invoice'],
