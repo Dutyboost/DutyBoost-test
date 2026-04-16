@@ -12,10 +12,10 @@ import { toast } from "sonner";
 const PLATFORM_FEE_PCT = 0.025;         // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;    // 0.5% of gross = 20% of 2.5%
 
-// Credit = basketValue / 10, capped at €25. Min basket €50.
+// Credit = 5% of basket, capped at €25 (reached at €500+). Min basket €50.
 function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 50) return 0;
-  return Math.min(basketValue / 10, 25);
+  return Math.min(basketValue * 0.05, 25);
 }
 
 export default function RetailerScanQR() {
@@ -213,7 +213,7 @@ export default function RetailerScanQR() {
                   <p className="text-sm text-destructive">Minimum basket is €50 to redeem a DutyCredit.</p>
                 ) : (
                   <div className="bg-primary/5 rounded-lg p-3 text-sm space-y-1">
-                    <div className="flex justify-between"><span className="text-muted-foreground">DutyCredit (10% of basket, max €25)</span><span className="font-semibold text-green-600">€{previewCredit.toFixed(2)}</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">DutyCredit (5% of basket, max €25)</span><span className="font-semibold text-green-600">€{previewCredit.toFixed(2)}</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">DutyBoost fee (2.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.025).toFixed(2)}</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">Agency commission (0.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.005).toFixed(2)}</span></div>
                   </div>

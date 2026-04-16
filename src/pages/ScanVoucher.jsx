@@ -18,10 +18,10 @@ export default function ScanVoucher() {
   const [manualCode, setManualCode] = useState("");
   const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
 
-  // Credit = basketValue / 10, capped at €25. Min basket €50.
+  // Credit = 5% of basket, capped at €25 (reached at €500+). Min basket €50.
   const calcBasketCredit = (basketValue) => {
     if (!basketValue || basketValue < 50) return 0;
-    return Math.min(basketValue / 10, 25);
+    return Math.min(basketValue * 0.05, 25);
   };
 
   useEffect(() => {
@@ -200,7 +200,7 @@ export default function ScanVoucher() {
                       Traveler saves: <span className="font-semibold text-green-600">
                         €{calcBasketCredit(parseFloat(form.transaction_value)).toFixed(2)}
                       </span>
-                      <span className="ml-1 text-muted-foreground">(10% of basket, max €25)</span>
+                      <span className="ml-1 text-muted-foreground">(5% of basket, max €25)</span>
                     </p>
                   )
                 )}
