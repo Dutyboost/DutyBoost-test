@@ -113,12 +113,6 @@ export default function AgencyOnePager() {
           <p className="text-xs text-muted-foreground">Because it adds real, tangible value for travelers — not just points or discounts — while generating extra commission for agencies automatically.</p>
         </div>
 
-        {/* INTEGRATION */}
-        <div className="space-y-1.5">
-          <h3 className="font-heading font-bold text-sm border-b border-border pb-1.5">Simple API Integration</h3>
-          <p className="text-xs text-muted-foreground">One connection. Fully automated. No operational impact on your existing booking workflow.</p>
-        </div>
-
         {/* CALL TO ACTION */}
         <div className="border-t-2 border-green-500 pt-4 text-center space-y-2">
           <p className="font-heading font-bold text-sm">Start earning from your bookings today</p>
