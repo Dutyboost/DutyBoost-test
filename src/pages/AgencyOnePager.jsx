@@ -143,9 +143,13 @@ export default function AgencyOnePager() {
               Contact us
             </a>
           </div>
-          <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
         </div>
 
+      </div>
+
+      {/* Legal footer — pinned to bottom */}
+      <div className="max-w-[794px] mx-auto px-8 pb-3 text-center">
+        <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
       </div>
     </div>
   );
