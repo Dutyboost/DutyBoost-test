@@ -137,10 +137,13 @@ export default function AgencyOnePager() {
         {/* CALL TO ACTION */}
         <div className="border-t-2 border-green-500 pt-2 text-center space-y-1">
           <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
-          <p className="text-xs text-muted-foreground">🌐 dutyboost.com</p>
-          <a href="/?contact=1" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">
-            Contact us
-          </a>
+          <div className="flex items-center justify-center gap-6">
+            <p className="text-xs text-muted-foreground">🌐 dutyboost.com</p>
+            <a href="/?contact=1" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">
+              Contact us
+            </a>
+          </div>
+          <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
         </div>
 
       </div>
