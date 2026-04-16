@@ -137,7 +137,7 @@ export default function AgencyOnePager() {
         {/* CALL TO ACTION */}
         <div className="border-t-2 border-green-500 pt-2 text-center">
           <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
-          <p className="text-xs text-muted-foreground">🌐 dutyboost.com &nbsp;·&nbsp; 📩 integrations@dutyboost.com</p>
+          <p className="text-xs text-muted-foreground">🌐 dutyboost.com &nbsp;·&nbsp; 📩 hello@dutyboost.com</p>
         </div>
 
       </div>
