@@ -38,13 +38,6 @@ export default function LandingPage() {
 
   const stakeholders = [
     {
-      key: 'retailers',
-      icon: AirportRetailerIcon,
-      color: "from-orange-400 to-orange-600",
-      bg: "bg-orange-50",
-      iconColor: "text-orange-600",
-    },
-    {
       key: 'agencies',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
@@ -57,6 +50,13 @@ export default function LandingPage() {
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
+    },
+    {
+      key: 'retailers',
+      icon: AirportRetailerIcon,
+      color: "from-orange-400 to-orange-600",
+      bg: "bg-orange-50",
+      iconColor: "text-orange-600",
     },
   ];
 
