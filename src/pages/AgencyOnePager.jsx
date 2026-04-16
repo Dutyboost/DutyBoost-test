@@ -138,7 +138,7 @@ export default function AgencyOnePager() {
         <div className="border-t-2 border-green-500 pt-2 text-center space-y-1">
           <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
           <div className="flex items-center justify-center gap-6">
-            <p className="text-xs font-semibold text-green-700">🌐 dutyboost.com</p>
+            <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">🌐 dutyboost.com</a>
             <a href="/?contact=1" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">
               Contact us
             </a>
