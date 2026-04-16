@@ -1,7 +1,7 @@
 // DutyCredit Redemption Model
 // At the airport, the credit value is calculated from the basket:
-//   credit = min(basketValue * 0.05, €25)
-//   minimum basket: €50 (gives €2.50), maximum credit: €25 (reached at €500+)
+//   credit = min(basketValue / 10, €25)
+//   minimum basket: €50 (gives €5), maximum credit: €25 (reached at €250+)
 //
 // DutyCredit issuance (stored on the voucher) still uses booking-based calc
 // and represents the MAX credit the traveler can receive.
@@ -15,8 +15,8 @@ export const DUTY_CREDIT_CONFIG = {
   },
   floor: 5,
   cap: 25,
-  minBasket: 50,       // minimum basket to redeem
-  basketRatePct: 0.05, // credit = basketValue * 5%, capped at cap
+  minBasket: 50,      // minimum basket to redeem
+  basketDivisor: 10,  // credit = basketValue / 10, capped at cap
 };
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
@@ -35,10 +35,10 @@ export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
 }
 
 // At redemption: calculate actual credit based on basket size
-// €50 basket → €2.50, €500+ basket → €25 (capped), scales linearly at 5%
+// €50 basket → €5, €250+ basket → €25 (capped), scales linearly at 10%
 export function calcBasketCredit(basketValue) {
   if (basketValue < DUTY_CREDIT_CONFIG.minBasket) return 0;
-  return Math.min(basketValue * DUTY_CREDIT_CONFIG.basketRatePct, DUTY_CREDIT_CONFIG.cap);
+  return Math.min(basketValue / DUTY_CREDIT_CONFIG.basketDivisor, DUTY_CREDIT_CONFIG.cap);
 }
 
 export function applyDutyCreditToBasket(creditAmount, basketValue) {
