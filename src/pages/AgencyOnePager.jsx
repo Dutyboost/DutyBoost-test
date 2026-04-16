@@ -62,11 +62,11 @@ export default function AgencyOnePager() {
           <div className="grid grid-cols-2 gap-2">
             <div className="bg-slate-50 rounded p-2 border border-border">
               <p className="font-semibold text-xs">Travelers expect more than a ticket</p>
-              <p className="text-xs text-muted-foreground leading-snug">Today's travelers look for agencies that add value beyond the booking. DutyBoost gives you a tangible, personalized financial perk to offer at no cost to you.</p>
+              <p className="text-xs text-muted-foreground leading-snug">Today's travelers look for agencies that add value beyond the booking. DutyBoost gives you a tangible, personalized financial spending perk to offer at no cost to you.</p>
             </div>
             <div className="bg-slate-50 rounded p-2 border border-border">
               <p className="font-semibold text-xs">Loyalty without a loyalty program</p>
-              <p className="text-xs text-muted-foreground leading-snug">No points, no complex schemes. Just a real shopping credit waiting for your customer at the airport — tied directly to their booking with you.</p>
+              <p className="text-xs text-muted-foreground leading-snug">No points, no complex schemes. Just a real shopping spending credit waiting for your customer at the airport — tied directly to their booking with you.</p>
             </div>
             <div className="bg-slate-50 rounded p-2 border border-border">
               <p className="font-semibold text-xs">A reason to come back</p>
