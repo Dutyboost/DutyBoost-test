@@ -45,7 +45,7 @@ export default function AgencyOnePager() {
 
         {/* Header */}
         <div className="text-center border-b-2 border-green-500 pb-1">
-          <DutyBoostLogo height={100} />
+          <DutyBoostLogo height={200} />
         </div>
 
         {/* HEADLINE SECTION */}
