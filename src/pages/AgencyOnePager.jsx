@@ -57,22 +57,22 @@ export default function AgencyOnePager() {
         </div>
 
         {/* SECTION 1: WHY IT MATTERS */}
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">01 — Why DutyBoost Matters for Travel Partners</h2>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-slate-50 rounded p-2 border border-border">
+          <div className="grid grid-cols-2 gap-2.5">
+            <div className="bg-slate-50 rounded p-3 border border-border">
               <p className="font-semibold text-xs">Travelers expect more than a ticket</p>
               <p className="text-xs text-muted-foreground leading-snug">Today's travelers look for agencies that add value beyond the booking. DutyBoost gives you a tangible, personalized financial spending perk to offer at no cost to you.</p>
             </div>
-            <div className="bg-slate-50 rounded p-2 border border-border">
+            <div className="bg-slate-50 rounded p-3 border border-border">
               <p className="font-semibold text-xs">Loyalty without a loyalty program</p>
               <p className="text-xs text-muted-foreground leading-snug">No points, no complex schemes. Just a real shopping spending credit waiting for your customer at the airport — tied directly to their booking with you.</p>
             </div>
-            <div className="bg-slate-50 rounded p-2 border border-border">
+            <div className="bg-slate-50 rounded p-3 border border-border">
               <p className="font-semibold text-xs">A reason to come back</p>
               <p className="text-xs text-muted-foreground leading-snug">Travelers who associate their airport experience with your agency are more likely to book again — and recommend you to others.</p>
             </div>
-            <div className="bg-slate-50 rounded p-2 border border-border">
+            <div className="bg-slate-50 rounded p-3 border border-border">
               <p className="font-semibold text-xs">Revenue you're currently leaving on the table</p>
               <p className="text-xs text-muted-foreground leading-snug">Every confirmed booking has untapped commission potential. DutyBoost captures it automatically — with no extra work from your team.</p>
             </div>
