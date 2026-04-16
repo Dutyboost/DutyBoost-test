@@ -50,25 +50,25 @@ export default function AgencyOnePager() {
 
         {/* HEADLINE SECTION */}
         <div className="text-center space-y-1">
-          <h1 className="text-3xl font-heading font-bold">Turning every booking into extra revenue</h1>
+          <h1 className="text-3xl font-heading font-bold">Boost Customer Loyalty & Earn from Every Booking</h1>
           <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-            A simple solution that rewards travelers with airport credit—while you earn automatic commission on every booking.
+            Turn every booking into a revenue stream for your agency and into a loyalty asset for your customers — fully automated, zero operational impact.
           </p>
         </div>
 
         {/* CORE BENEFITS - 3 columns */}
         <div className="grid grid-cols-3 gap-4">
           <div className="border border-border rounded-lg p-4 space-y-2">
-            <h3 className="font-heading font-bold text-sm">💰 Earn from every booking</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">Get paid when travelers spend at the airport. No limits. No extra sales effort.</p>
+            <h3 className="font-heading font-bold text-sm">🤝 Boost customer loyalty</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">Auto-generate personalized DutyCredits for travelers based on booking value, destination, and group size.</p>
           </div>
           <div className="border border-border rounded-lg p-4 space-y-2">
-            <h3 className="font-heading font-bold text-sm">⚙️ Fully automatic</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">We handle everything: credit creation, email delivery, QR codes, and payouts.</p>
+            <h3 className="font-heading font-bold text-sm">💰 New revenue stream</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">Earn a commission on every redeemed DutyCredit. No limits. No extra sales effort required.</p>
           </div>
           <div className="border border-border rounded-lg p-4 space-y-2">
-          <h3 className="font-heading font-bold text-sm">✨ Added value</h3>
-          <p className="text-xs text-muted-foreground leading-relaxed">Give travelers a real, usable reward — not just points or discounts.</p>
+            <h3 className="font-heading font-bold text-sm">⚡ Zero integration friction</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">Simple API. We handle credit creation, email delivery, QR codes, and payouts automatically.</p>
           </div>
         </div>
 
@@ -77,10 +77,10 @@ export default function AgencyOnePager() {
           <h2 className="font-heading font-bold text-sm border-b border-border pb-2">How It Works</h2>
           <div className="grid grid-cols-4 gap-3">
             {[
-              { num: "1", title: "Booking confirmed", desc: "Customer books a trip" },
-              { num: "2", title: "Credit created", desc: "DutyBoost generates a shopping credit" },
-              { num: "3", title: "Credit sent", desc: "Traveler receives a QR code" },
-              { num: "4", title: "Spent at airport", desc: "Customer shops → you earn" },
+              { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your agency" },
+              { num: "02", title: "Credit created", desc: "DutyBoost auto-generates a personalized shopping credit" },
+              { num: "03", title: "Credit delivered", desc: "Traveler receives a QR code by email before departure" },
+              { num: "04", title: "Spent at airport", desc: "Customer shops at the airport → you earn commission" },
             ].map(s => (
               <div key={s.num} className="space-y-1">
                 <p className="text-2xl font-heading font-bold text-green-200">{s.num}</p>
@@ -110,13 +110,13 @@ export default function AgencyOnePager() {
         {/* WHY IT WORKS */}
         <div className="space-y-2 bg-blue-50 rounded-lg p-4 border border-blue-200">
           <h2 className="font-heading font-bold text-sm">Why It Works</h2>
-          <p className="text-xs text-muted-foreground">because it adds value for travelers while generating extra commission for agencies—automatically.</p>
+          <p className="text-xs text-muted-foreground">Because it adds real, tangible value for travelers — not just points or discounts — while generating extra commission for agencies automatically.</p>
         </div>
 
         {/* INTEGRATION */}
         <div className="space-y-1.5">
           <h3 className="font-heading font-bold text-sm border-b border-border pb-1.5">Simple API Integration</h3>
-          <p className="text-xs text-muted-foreground">One connection. Fully automated. No operational impact.</p>
+          <p className="text-xs text-muted-foreground">One connection. Fully automated. No operational impact on your existing booking workflow.</p>
         </div>
 
         {/* CALL TO ACTION */}
