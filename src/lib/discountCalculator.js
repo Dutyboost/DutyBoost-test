@@ -1,7 +1,10 @@
-// DutyCredit Calculation Model
-// Credit = clamp(basePerTraveler × travelers × priceMultiplier, €5, €25)
-// 15% cap rule: credit applied ≤ 15% of actual basket value (guarantees retailer ≥ 85% net)
-// No minimum spend — every traveler can redeem, proportionally on small baskets
+// DutyCredit Redemption Model
+// At the airport, the credit value is calculated from the basket:
+//   credit = min(basketValue / 10, €25)
+//   minimum basket: €50 (gives €5), maximum credit: €25 (reached at €250+)
+//
+// DutyCredit issuance (stored on the voucher) still uses booking-based calc
+// and represents the MAX credit the traveler can receive.
 
 export const DUTY_CREDIT_CONFIG = {
   shortHaul: {
@@ -12,7 +15,8 @@ export const DUTY_CREDIT_CONFIG = {
   },
   floor: 5,
   cap: 25,
-  maxBasketPct: 0.15, // credit cannot exceed 15% of basket
+  minBasket: 50,      // minimum basket to redeem
+  basketDivisor: 10,  // credit = basketValue / 10, capped at cap
 };
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
@@ -30,9 +34,17 @@ export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
   return Math.min(Math.max(raw, DUTY_CREDIT_CONFIG.floor), DUTY_CREDIT_CONFIG.cap);
 }
 
+// At redemption: calculate actual credit based on basket size
+// €50 basket → €5, €250+ basket → €25 (capped), scales linearly at 10%
+export function calcBasketCredit(basketValue) {
+  if (basketValue < DUTY_CREDIT_CONFIG.minBasket) return 0;
+  return Math.min(basketValue / DUTY_CREDIT_CONFIG.basketDivisor, DUTY_CREDIT_CONFIG.cap);
+}
+
 export function applyDutyCreditToBasket(creditAmount, basketValue) {
-  const maxAllowed = basketValue * DUTY_CREDIT_CONFIG.maxBasketPct;
-  return Math.min(creditAmount, maxAllowed);
+  // Use basket-based credit, but never exceed the issued voucher amount
+  const basketCredit = calcBasketCredit(basketValue);
+  return Math.min(basketCredit, creditAmount);
 }
 
 export function generateVoucherCode() {

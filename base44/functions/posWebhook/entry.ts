@@ -14,9 +14,10 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%
 
-function calcEffectiveDiscount(baseDiscount, numItems) {
-  const n = Math.max(1, parseInt(numItems) || 1);
-  return Math.max(5, Math.min(25, baseDiscount / n));
+// Credit = basketValue / 10, capped at €25. Min basket €50.
+function calcBasketCredit(basketValue) {
+  if (!basketValue || basketValue < 50) return 0;
+  return Math.min(basketValue / 10, 25);
 }
 
 Deno.serve(async (req) => {
@@ -29,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const body = await req.json();
-    const { voucher_code, transaction_value, num_items, retailer_id, store_name, airport } = body;
+    const { voucher_code, transaction_value, retailer_id, store_name, airport } = body;
 
     if (!voucher_code || !transaction_value || !retailer_id) {
       return Response.json({ error: 'Missing required fields: voucher_code, transaction_value, retailer_id' }, { status: 400 });
@@ -56,9 +57,11 @@ Deno.serve(async (req) => {
 
     // 2. Calculate financials
     const txnValue = parseFloat(transaction_value);
-    const numItemsInt = Math.max(1, parseInt(num_items) || 1);
-    const effectiveDiscount = calcEffectiveDiscount(voucher.discount_percentage, numItemsInt);
-    const discountAmount = parseFloat((txnValue * effectiveDiscount / 100).toFixed(2));
+    if (txnValue < 50) {
+      return Response.json({ error: 'Minimum basket value is €50 to redeem a DutyCredit' }, { status: 400 });
+    }
+    const discountAmount = parseFloat(calcBasketCredit(txnValue).toFixed(2));
+    const effectiveDiscount = parseFloat(((discountAmount / txnValue) * 100).toFixed(2));
     const platformRevenue = parseFloat((txnValue * PLATFORM_FEE_PCT).toFixed(2));
     const agencyCommission = parseFloat((txnValue * AGENCY_COMMISSION_PCT).toFixed(2));
     const amountDue = parseFloat((txnValue - discountAmount).toFixed(2));
@@ -69,7 +72,6 @@ Deno.serve(async (req) => {
       retailer_id,
       store_name: store_name || 'POS Terminal',
       transaction_value: txnValue,
-      num_items: numItemsInt,
       base_discount: voucher.discount_percentage,
       discount_applied: effectiveDiscount,
       discount_amount: discountAmount,

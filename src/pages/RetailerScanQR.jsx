@@ -12,9 +12,10 @@ import { toast } from "sonner";
 const PLATFORM_FEE_PCT = 0.025;         // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;    // 0.5% of gross = 20% of 2.5%
 
-function calcEffectiveDiscount(baseDiscount, numItems) {
-  const n = Math.max(1, parseInt(numItems) || 1);
-  return Math.max(5, Math.min(25, baseDiscount / n));
+// Credit = basketValue / 10, capped at €25. Min basket €50.
+function calcBasketCredit(basketValue) {
+  if (!basketValue || basketValue < 50) return 0;
+  return Math.min(basketValue / 10, 25);
 }
 
 export default function RetailerScanQR() {
@@ -33,7 +34,7 @@ export default function RetailerScanQR() {
   const [retailers, setRetailers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [redeemed, setRedeemed] = useState(null);
-  const [form, setForm] = useState({ retailer_id: "", num_items: posItems, transaction_value: posValue });
+  const [form, setForm] = useState({ retailer_id: "", transaction_value: posValue });
 
   // Load this retailer's stores
   useEffect(() => {
@@ -94,9 +95,8 @@ export default function RetailerScanQR() {
 
     const retailer = retailers.find(r => r.id === form.retailer_id);
     const txnValue = parseFloat(form.transaction_value);
-    const numItems = Math.max(1, parseInt(form.num_items) || 1);
-    const effectiveDiscount = calcEffectiveDiscount(voucher.discount_percentage, numItems);
-    const discountAmount = parseFloat((txnValue * effectiveDiscount / 100).toFixed(2));
+    const discountAmount = parseFloat(calcBasketCredit(txnValue).toFixed(2));
+    const effectiveDiscount = txnValue > 0 ? parseFloat(((discountAmount / txnValue) * 100).toFixed(2)) : 0;
     const platformRevenue = parseFloat((txnValue * PLATFORM_FEE_PCT).toFixed(2));
     const agencyCommission = parseFloat((txnValue * AGENCY_COMMISSION_PCT).toFixed(2));
 
@@ -105,7 +105,6 @@ export default function RetailerScanQR() {
       retailer_id: form.retailer_id,
       store_name: retailer?.store_name || "Unknown",
       transaction_value: txnValue,
-      num_items: numItems,
       base_discount: voucher.discount_percentage,
       discount_applied: effectiveDiscount,
       discount_amount: discountAmount,
@@ -120,7 +119,6 @@ export default function RetailerScanQR() {
     setLoading(false);
     setRedeemed({
       txnValue,
-      numItems,
       effectiveDiscount,
       discountAmount,
       platformRevenue,
@@ -136,8 +134,7 @@ export default function RetailerScanQR() {
     setForm(f => ({ ...f, num_items: "1", transaction_value: "" }));
   };
 
-  const effective = voucher ? calcEffectiveDiscount(voucher.discount_percentage, form.num_items) : 0;
-  const previewSaving = form.transaction_value ? parseFloat(((parseFloat(form.transaction_value) * effective) / 100).toFixed(2)) : null;
+  const previewCredit = form.transaction_value ? calcBasketCredit(parseFloat(form.transaction_value)) : null;
 
   // ── Success screen ──────────────────────────────────────────────────
   if (redeemed) {
@@ -149,10 +146,8 @@ export default function RetailerScanQR() {
           <div className="bg-white rounded-xl p-4 space-y-2.5 text-sm divide-y divide-border">
             <Row label="Voucher" value={redeemed.voucherCode} mono />
             <Row label="Store" value={redeemed.storeName} />
-            <Row label="Items scanned" value={redeemed.numItems} />
             <Row label="Gross transaction" value={`€${redeemed.txnValue.toFixed(2)}`} />
-            <Row label={`Base discount`} value={`${voucher?.discount_percentage || "–"}%`} />
-            <Row label={`Effective discount (÷${redeemed.numItems} items)`} value={`${redeemed.effectiveDiscount.toFixed(1)}%`} highlight />
+            <Row label="DutyCredit applied (10% of basket)" value={`€${redeemed.discountAmount.toFixed(2)}`} highlight />
             <Row label="Traveler saves" value={`€${redeemed.discountAmount.toFixed(2)}`} green />
             <Row label="DutyBoost fee (2.5%)" value={`€${redeemed.platformRevenue.toFixed(2)}`} />
             <Row label="Agency commission (0.5%)" value={`€${redeemed.agencyCommission.toFixed(2)}`} />
@@ -210,25 +205,19 @@ export default function RetailerScanQR() {
             )}
 
             <div className="space-y-2">
-              <Label className="flex items-center gap-1.5"><ShoppingBag className="w-4 h-4" /> Number of Items in Basket</Label>
-              <Input type="number" min="1" step="1" placeholder="e.g. 3" value={form.num_items}
-                onChange={e => setForm({ ...form, num_items: e.target.value })} required />
-              <p className="text-xs text-muted-foreground">
-                Effective discount: <span className="font-semibold text-primary">{effective.toFixed(1)}%</span>
-                <span className="ml-1">(base {voucher.discount_percentage}% ÷ {form.num_items || 1} item{parseInt(form.num_items) !== 1 ? "s" : ""}, capped 5–25%)</span>
-              </p>
-            </div>
-
-            <div className="space-y-2">
               <Label className="flex items-center gap-1.5"><Receipt className="w-4 h-4" /> Gross Transaction Value (EUR)</Label>
               <Input type="number" min="50" step="0.01" placeholder="min. €50.00" value={form.transaction_value}
                 onChange={e => setForm({ ...form, transaction_value: e.target.value })} required />
-              {previewSaving !== null && (
-                <div className="bg-primary/5 rounded-lg p-3 text-sm space-y-1">
-                  <div className="flex justify-between"><span className="text-muted-foreground">Traveler saves</span><span className="font-semibold text-green-600">€{previewSaving.toFixed(2)}</span></div>
-                  <div className="flex justify-between"><span className="text-muted-foreground">DutyBoost fee (2.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.025).toFixed(2)}</span></div>
-                  <div className="flex justify-between"><span className="text-muted-foreground">Agency commission (0.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.005).toFixed(2)}</span></div>
-                </div>
+              {previewCredit !== null && (
+                parseFloat(form.transaction_value) < 50 ? (
+                  <p className="text-sm text-destructive">Minimum basket is €50 to redeem a DutyCredit.</p>
+                ) : (
+                  <div className="bg-primary/5 rounded-lg p-3 text-sm space-y-1">
+                    <div className="flex justify-between"><span className="text-muted-foreground">DutyCredit (10% of basket, max €25)</span><span className="font-semibold text-green-600">€{previewCredit.toFixed(2)}</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">DutyBoost fee (2.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.025).toFixed(2)}</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">Agency commission (0.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.005).toFixed(2)}</span></div>
+                  </div>
+                )
               )}
             </div>
 

@@ -18,9 +18,10 @@ export default function ScanVoucher() {
   const [manualCode, setManualCode] = useState("");
   const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
 
-  const calcEffectiveDiscount = (baseDiscount, numItems) => {
-    const n = Math.max(1, parseInt(numItems) || 1);
-    return Math.max(5, Math.min(25, baseDiscount / n));
+  // Credit = basketValue / 10, capped at €25. Min basket €50.
+  const calcBasketCredit = (basketValue) => {
+    if (!basketValue || basketValue < 50) return 0;
+    return Math.min(basketValue / 10, 25);
   };
 
   useEffect(() => {
@@ -47,8 +48,8 @@ export default function ScanVoucher() {
 
     const retailer = retailers.find((r) => r.id === form.retailer_id);
     const txnValue = parseFloat(form.transaction_value);
-    const effectiveDiscount = calcEffectiveDiscount(voucher.discount_percentage, form.num_items);
-    const discountAmount = (txnValue * effectiveDiscount) / 100;
+    const discountAmount = parseFloat(calcBasketCredit(txnValue).toFixed(2));
+    const effectiveDiscount = txnValue > 0 ? parseFloat(((discountAmount / txnValue) * 100).toFixed(2)) : 0;
     const platformRevenue = txnValue * 0.025;
 
     await base44.entities.Transaction.create({
@@ -65,7 +66,7 @@ export default function ScanVoucher() {
 
     setLoading(false);
     setRedeemed(true);
-    toast.success(`Travel Yield redeemed! ${effectiveDiscount.toFixed(1)}% discount applied — €${discountAmount.toFixed(2)} saved`);
+    toast.success(`Travel Yield redeemed! €${discountAmount.toFixed(2)} DutyCredit applied`);
   };
 
   const reset = () => {
@@ -149,8 +150,8 @@ export default function ScanVoucher() {
             </div>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <p className="text-muted-foreground">Discount</p>
-                <p className="font-bold text-2xl text-primary">{voucher.discount_percentage}%</p>
+               <p className="text-muted-foreground">Max Credit</p>
+               <p className="font-bold text-2xl text-primary">€{voucher.discount_percentage}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Airport</p>
@@ -181,41 +182,27 @@ export default function ScanVoucher() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label>Number of Items</Label>
-                <Input
-                  type="number"
-                  min="1"
-                  step="1"
-                  placeholder="e.g. 3"
-                  value={form.num_items}
-                  onChange={(e) => setForm({ ...form, num_items: e.target.value })}
-                  required
-                />
-                {voucher && form.num_items && (
-                  <p className="text-xs text-muted-foreground">
-                    Effective discount per item split: <span className="font-semibold text-primary">{calcEffectiveDiscount(voucher.discount_percentage, form.num_items).toFixed(1)}%</span>
-                    <span className="ml-1 text-muted-foreground">(base {voucher.discount_percentage}% ÷ {form.num_items} item{parseInt(form.num_items) !== 1 ? 's' : ''}, capped 5–25%)</span>
-                  </p>
-                )}
-              </div>
-              <div className="space-y-2">
                 <Label>Transaction Value (EUR)</Label>
                 <Input
                   type="number"
-                  min="0"
+                  min="50"
                   step="0.01"
-                  placeholder="e.g. 85.00"
+                  placeholder="min. €50.00"
                   value={form.transaction_value}
                   onChange={(e) => setForm({ ...form, transaction_value: e.target.value })}
                   required
                 />
                 {form.transaction_value && (
-                  <p className="text-sm text-muted-foreground">
-                    Traveler saves: <span className="font-semibold text-green-600">
-                      €{((parseFloat(form.transaction_value) * calcEffectiveDiscount(voucher.discount_percentage, form.num_items)) / 100).toFixed(2)}
-                    </span>
-                    {` (${calcEffectiveDiscount(voucher.discount_percentage, form.num_items).toFixed(1)}% effective rate)`}
-                  </p>
+                  parseFloat(form.transaction_value) < 50 ? (
+                    <p className="text-sm text-destructive">Minimum basket is €50 to redeem a DutyCredit.</p>
+                  ) : (
+                    <p className="text-sm text-muted-foreground">
+                      Traveler saves: <span className="font-semibold text-green-600">
+                        €{calcBasketCredit(parseFloat(form.transaction_value)).toFixed(2)}
+                      </span>
+                      <span className="ml-1 text-muted-foreground">(10% of basket, max €25)</span>
+                    </p>
+                  )
                 )}
               </div>
               <div className="flex gap-2">
