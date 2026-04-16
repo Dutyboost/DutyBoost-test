@@ -50,7 +50,7 @@ export default function AgencyOnePager() {
 
         {/* HEADLINE SECTION */}
         <div className="text-center space-y-0.5">
-          <h1 className="text-2xl font-heading font-bold leading-tight">Turning every booking into extra revenue</h1>
+          <h1 className="text-2xl font-heading font-bold leading-tight">Turning every booking into a loyalty asset and extra revenue</h1>
           <p className="text-muted-foreground text-xs max-w-xl mx-auto">
             DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for your agency. Fully automated. Zero operational impact.
           </p>
