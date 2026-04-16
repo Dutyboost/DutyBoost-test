@@ -213,7 +213,7 @@ export default function WeCallYouForm({ onSuccess }) {
         >
           <option value="">{t('wecallyou.select_type')}</option>
           <option value="Retail">{t('wecallyou.retailer')}</option>
-          <option value="Agency">{t('wecallyou.agency')}</option>
+          <option value="Agency">Travel Partner</option>
         </select>
         {errors.industry && <p className="text-xs text-red-500">{errors.industry}</p>}
       </div>
