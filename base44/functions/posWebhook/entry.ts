@@ -11,8 +11,8 @@
 
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
-const PLATFORM_FEE_PCT = 0.05;
-const AGENCY_COMMISSION_PCT = 0.01;
+const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost
+const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%
 
 function calcEffectiveDiscount(baseDiscount, numItems) {
   const n = Math.max(1, parseInt(numItems) || 1);

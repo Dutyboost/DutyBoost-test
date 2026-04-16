@@ -111,9 +111,9 @@ export default function RetailerOnePager() {
                 <p className="text-xs text-muted-foreground leading-snug">Every redeemed DutyCredit drives a qualified purchase above your threshold</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">0 upfront</p>
-                <p className="font-semibold text-xs">cost to participate</p>
-                <p className="text-xs text-muted-foreground leading-snug">No setup fees, no subscription. You only pay a small commission on redeemed sales</p>
+                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">2.5%</p>
+                <p className="font-semibold text-xs">fee on confirmed redemptions only</p>
+                <p className="text-xs text-muted-foreground leading-snug">No setup fees, no subscription. You only pay 2.5% of the gross sale when a DutyCredit is redeemed</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <p className="text-xl font-heading font-bold text-orange-700 leading-tight">&lt; 1 day</p>

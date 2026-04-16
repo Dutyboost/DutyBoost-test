@@ -9,8 +9,8 @@ import { CheckCircle2, AlertCircle, ScanLine, Loader2, ShoppingBag, Receipt } fr
 import jsQR from "jsqr";
 import { toast } from "sonner";
 
-const PLATFORM_FEE_PCT = 0.05;   // 5% of gross to DutyBoost
-const AGENCY_COMMISSION_PCT = 0.01; // 1% of gross to agency (from within the 5%)
+const PLATFORM_FEE_PCT = 0.025;         // 2.5% of gross to DutyBoost
+const AGENCY_COMMISSION_PCT = 0.005;    // 0.5% of gross = 20% of 2.5%
 
 function calcEffectiveDiscount(baseDiscount, numItems) {
   const n = Math.max(1, parseInt(numItems) || 1);
@@ -154,8 +154,8 @@ export default function RetailerScanQR() {
             <Row label={`Base discount`} value={`${voucher?.discount_percentage || "–"}%`} />
             <Row label={`Effective discount (÷${redeemed.numItems} items)`} value={`${redeemed.effectiveDiscount.toFixed(1)}%`} highlight />
             <Row label="Traveler saves" value={`€${redeemed.discountAmount.toFixed(2)}`} green />
-            <Row label="DutyBoost fee (5%)" value={`€${redeemed.platformRevenue.toFixed(2)}`} />
-            <Row label="Agency commission (1%)" value={`€${redeemed.agencyCommission.toFixed(2)}`} />
+            <Row label="DutyBoost fee (2.5%)" value={`€${redeemed.platformRevenue.toFixed(2)}`} />
+            <Row label="Agency commission (0.5%)" value={`€${redeemed.agencyCommission.toFixed(2)}`} />
           </div>
           <Button onClick={reset} className="w-full bg-green-600 hover:bg-green-700 gap-2">
             <ScanLine className="w-4 h-4" /> Scan Next DutyCredit
@@ -226,8 +226,8 @@ export default function RetailerScanQR() {
               {previewSaving !== null && (
                 <div className="bg-primary/5 rounded-lg p-3 text-sm space-y-1">
                   <div className="flex justify-between"><span className="text-muted-foreground">Traveler saves</span><span className="font-semibold text-green-600">€{previewSaving.toFixed(2)}</span></div>
-                  <div className="flex justify-between"><span className="text-muted-foreground">DutyBoost fee (5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.05).toFixed(2)}</span></div>
-                  <div className="flex justify-between"><span className="text-muted-foreground">Agency commission (1%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.02).toFixed(2)}</span></div>
+                  <div className="flex justify-between"><span className="text-muted-foreground">DutyBoost fee (2.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.025).toFixed(2)}</span></div>
+                  <div className="flex justify-between"><span className="text-muted-foreground">Agency commission (0.5%)</span><span className="font-medium">€{(parseFloat(form.transaction_value) * 0.005).toFixed(2)}</span></div>
                 </div>
               )}
             </div>

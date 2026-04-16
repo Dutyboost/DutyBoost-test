@@ -13,7 +13,7 @@ const PERIOD_MULTIPLIERS = { daily: 7 / 180, monthly: 1, yearly: 2 };
 const byAirport = AIRPORTS.map(ap => {
   const apRetailers = RETAILERS.filter(r => r.airport === ap.code);
   const rev = apRetailers.reduce((s, r) => s + r.revenue, 0);
-  const fee = rev * 0.05;
+  const fee = rev * 0.025;
   const payout = fee * 0.20;
   return { airport: ap.name, code: ap.code, revenue: rev, fee, payout, profit: fee * 0.80 };
 });
@@ -21,7 +21,7 @@ const byAirport = AIRPORTS.map(ap => {
 const byCategory = ["Retail", "Food & Beverage"].map(cat => {
   const catRetailers = RETAILERS.filter(r => r.category === cat);
   const rev = catRetailers.reduce((s, r) => s + r.revenue, 0);
-  return { name: cat, revenue: rev, fee: rev * 0.05 };
+  return { name: cat, revenue: rev, fee: rev * 0.025 };
 });
 
 const topRetailers = [...RETAILERS].sort((a, b) => b.revenue - a.revenue);
@@ -73,15 +73,15 @@ export default function DemoAdminDashboard() {
   }, [period, customStart, customEnd]);
 
   const periodRevenue = BASE_RETAILER_REVENUE * periodMultiplier;
-  const periodFee = periodRevenue * 0.05;
+  const periodFee = periodRevenue * 0.025;
   const periodAgencyPayout = BASE_AGENCY_PAYOUT * periodMultiplier;
   const periodNetProfit = periodFee - periodAgencyPayout;
 
   const chartData = (period === "yearly" ? YEARLY_DATA : MONTHLY_DATA).map(m => ({
     month: m.month,
-    fee: m.revenue * 0.05,
-    payout: m.revenue * 0.05 * 0.20,
-    profit: m.revenue * 0.05 * 0.80,
+    fee: m.revenue * 0.025,
+    payout: m.revenue * 0.025 * 0.20,
+    profit: m.revenue * 0.025 * 0.80,
   }));
 
   return (
@@ -100,7 +100,7 @@ export default function DemoAdminDashboard() {
       <div className="max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
         <div>
           <h1 className="text-2xl font-heading font-bold">Platform Finance Overview</h1>
-          <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 5% fee; 20% of that is paid out to travel agencies.</p>
+          <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 2.5% fee; 20% of that is paid out to travel agencies.</p>
         </div>
 
         {/* Period selector */}
@@ -127,8 +127,8 @@ export default function DemoAdminDashboard() {
 
         {/* KPI row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatCard label="Retailer Revenue" value={fmt(periodRevenue)} sub={`5% fee basis`} icon={Store} color="text-primary" bg="bg-primary/10" />
-          <StatCard label="Platform Fees Invoiced" value={fmt(periodFee)} sub="5% of retailer revenue" icon={Receipt} color="text-amber-600" bg="bg-amber-50" />
+          <StatCard label="Retailer Revenue" value={fmt(periodRevenue)} sub={`2.5% fee basis`} icon={Store} color="text-primary" bg="bg-primary/10" />
+          <StatCard label="Platform Fees Invoiced" value={fmt(periodFee)} sub="2.5% of retailer revenue" icon={Receipt} color="text-amber-600" bg="bg-amber-50" />
           <StatCard label="Agency Payouts" value={fmt(periodAgencyPayout)} sub="20% of platform fee" icon={Wallet} color="text-indigo-600" bg="bg-indigo-50" />
           <StatCard label="Net Platform Profit" value={fmt(periodNetProfit)} sub="Fees minus payouts" icon={DollarSign} color="text-emerald-600" bg="bg-emerald-50" />
         </div>
@@ -157,7 +157,7 @@ export default function DemoAdminDashboard() {
                 <tr className="border-b border-border text-left text-xs text-muted-foreground">
                   <th className="pb-2 font-medium">Airport</th>
                   <th className="pb-2 font-medium text-right">Retailer Revenue</th>
-                  <th className="pb-2 font-medium text-right">Platform Fee (5%)</th>
+                  <th className="pb-2 font-medium text-right">Platform Fee (2.5%)</th>
                   <th className="pb-2 font-medium text-right">Agency Payout (20%)</th>
                   <th className="pb-2 font-medium text-right">Net Profit (80%)</th>
                 </tr>
@@ -177,9 +177,9 @@ export default function DemoAdminDashboard() {
                 <tr className="bg-muted/40 font-bold text-sm">
                   <td className="py-2.5">Total</td>
                   <td className="py-2.5 text-right">{fmt(BASE_RETAILER_REVENUE)}</td>
-                  <td className="py-2.5 text-right text-amber-700">{fmt(BASE_RETAILER_REVENUE * 0.05)}</td>
+                  <td className="py-2.5 text-right text-amber-700">{fmt(BASE_RETAILER_REVENUE * 0.025)}</td>
                   <td className="py-2.5 text-right text-indigo-600">{fmt(BASE_AGENCY_PAYOUT)}</td>
-                  <td className="py-2.5 text-right text-emerald-600">{fmt(BASE_RETAILER_REVENUE * 0.05 - BASE_AGENCY_PAYOUT)}</td>
+                  <td className="py-2.5 text-right text-emerald-600">{fmt(BASE_RETAILER_REVENUE * 0.025 - BASE_AGENCY_PAYOUT)}</td>
                 </tr>
               </tfoot>
             </table>
@@ -227,13 +227,13 @@ export default function DemoAdminDashboard() {
                   <th className="pb-2 font-medium">Airport</th>
                   <th className="pb-2 font-medium">Category</th>
                   <th className="pb-2 font-medium text-right">Revenue</th>
-                  <th className="pb-2 font-medium text-right">Invoice (5%)</th>
+                  <th className="pb-2 font-medium text-right">Invoice (2.5%)</th>
                   <th className="pb-2 font-medium text-right">+VAT 21%</th>
                 </tr>
               </thead>
               <tbody>
                 {topRetailers.map((r, i) => {
-                  const fee = r.revenue * 0.05;
+                  const fee = r.revenue * 0.025;
                   return (
                     <tr key={r.id} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/20" : ""}`}>
                       <td className="py-2.5 font-medium">{r.name}</td>

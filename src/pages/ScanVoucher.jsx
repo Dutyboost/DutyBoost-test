@@ -49,7 +49,7 @@ export default function ScanVoucher() {
     const txnValue = parseFloat(form.transaction_value);
     const effectiveDiscount = calcEffectiveDiscount(voucher.discount_percentage, form.num_items);
     const discountAmount = (txnValue * effectiveDiscount) / 100;
-    const platformRevenue = txnValue * 0.05;
+    const platformRevenue = txnValue * 0.025;
 
     await base44.entities.Transaction.create({
       voucher_code: voucher.voucher_code,

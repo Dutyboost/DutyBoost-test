@@ -111,9 +111,9 @@ export default function AgencyOnePager() {
               <p className="text-xs text-muted-foreground leading-snug">Earned automatically on every redeemed credit, with no sales effort</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">1%</p>
+              <p className="text-xl font-heading font-bold text-green-700 leading-tight">0.5%</p>
               <p className="font-semibold text-xs">commission on airport spend</p>
-              <p className="text-xs text-muted-foreground leading-snug">Paid out monthly. Transparent reporting in your agency dashboard</p>
+              <p className="text-xs text-muted-foreground leading-snug">20% of DutyBoost's 2.5% fee, paid monthly with full dashboard reporting</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold text-green-700 leading-tight">&lt; 1 day</p>
