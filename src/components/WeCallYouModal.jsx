@@ -3,9 +3,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import WeCallYouForm from "./WeCallYouForm";
 import { useTranslation } from "react-i18next";
 
-export default function WeCallYouModal({ trigger }) {
+export default function WeCallYouModal({ trigger, open: controlledOpen, onOpenChange }) {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
+
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+  const setOpen = isControlled ? onOpenChange : setInternalOpen;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

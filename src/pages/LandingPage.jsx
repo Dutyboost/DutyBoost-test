@@ -22,6 +22,7 @@ export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authedUser, setAuthedUser] = useState(null);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   useEffect(() => {
     base44.auth.isAuthenticated().then(async (authed) => {
@@ -34,6 +35,10 @@ export default function LandingPage() {
         }
       }
     });
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('contact') === '1') {
+      setContactModalOpen(true);
+    }
   }, []);
 
   const stakeholders = [
@@ -220,6 +225,13 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Auto-open contact modal from ?contact=1 */}
+      <WeCallYouModal
+        open={contactModalOpen}
+        onOpenChange={setContactModalOpen}
+        trigger={null}
+      />
 
       {/* Footer */}
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">

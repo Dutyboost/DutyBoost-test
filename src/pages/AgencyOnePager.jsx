@@ -4,7 +4,6 @@ import { Printer, ArrowLeft } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import WeCallYouModal from "../components/WeCallYouModal";
 
 export default function AgencyOnePager() {
   const handleDownloadPDF = async () => {
@@ -139,11 +138,9 @@ export default function AgencyOnePager() {
         <div className="border-t-2 border-green-500 pt-2 text-center space-y-1">
           <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
           <p className="text-xs text-muted-foreground">🌐 dutyboost.com</p>
-          <WeCallYouModal trigger={(setOpen) => (
-            <button onClick={() => setOpen(true)} className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">
-              Contact us — we'll call you back
-            </button>
-          )} />
+          <a href="/?contact=1" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">
+            Contact us
+          </a>
         </div>
 
       </div>
