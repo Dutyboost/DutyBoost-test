@@ -49,7 +49,7 @@ export default function AgencyOnePager() {
         </div>
 
         {/* MAIN CONTENT — grows to fill space */}
-        <div className="flex-1 space-y-2">
+        <div className="flex-1 space-y-6">
 
         {/* HEADLINE SECTION */}
         <div className="text-center space-y-0.5">
