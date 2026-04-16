@@ -41,12 +41,15 @@ export default function AgencyOnePager() {
       </div>
 
       {/* A4-style content */}
-      <div className="print-content max-w-[794px] mx-auto px-8 py-2 print:py-0 print:px-0 space-y-2 bg-white">
+      <div className="print-content max-w-[794px] mx-auto px-8 py-2 print:py-0 print:px-0 bg-white flex flex-col" style={{ minHeight: '1122px' }}>
 
         {/* Header */}
         <div className="text-center border-b-2 border-green-500 pb-1">
           <DutyBoostLogo height={200} />
         </div>
+
+        {/* MAIN CONTENT — grows to fill space */}
+        <div className="flex-1 space-y-2">
 
         {/* HEADLINE SECTION */}
         <div className="text-center space-y-0.5">
@@ -145,11 +148,13 @@ export default function AgencyOnePager() {
           </div>
         </div>
 
-      </div>
+        </div>{/* end flex-1 */}
 
-      {/* Legal footer — pinned to bottom */}
-      <div className="max-w-[794px] mx-auto px-8 pb-3 text-center">
-        <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
+        {/* Legal footer — pinned to bottom of A4 */}
+        <div className="text-center pb-2 pt-1">
+          <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
+        </div>
+
       </div>
     </div>
   );
