@@ -103,7 +103,7 @@ const resources = {
         type: "I'm a",
         select_type: "Select type",
         retailer: "Airport Retailer",
-        agency: "Travel Agency",
+        agency: "Travel Partner",
         request_call: "Request a Call",
         success: "Thanks! We'll call you soon.",
         error: "Failed to submit. Please try again.",
