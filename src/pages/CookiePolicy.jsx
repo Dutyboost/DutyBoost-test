@@ -89,7 +89,7 @@ export default function CookiePolicy() {
         {c.sections.map((s) => (
           <section key={s.h} className="space-y-3">
             <h2 className="text-xl font-heading font-semibold">{s.h}</h2>
-            {s.p && <p className="text-muted-foreground leading-relaxed">{s.p}</p>}
+            {s.p && <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: s.p.replace(/([\w.-]+@dutyboost\.com)/g, '<a href="mailto:rael@dutyboost.com" class="text-primary hover:underline">$1</a>') }} />}
             {s.cookies && <div className="space-y-3">{s.cookies.map((ck) => (
               <div key={ck.name} className="bg-card border border-border rounded-xl p-4">
                 <p className="font-semibold text-sm mb-1">{ck.name}</p>
