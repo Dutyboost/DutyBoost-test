@@ -70,12 +70,12 @@ export default function DemoRetailerDashboard() {
     value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
   })).filter(c => c.value > 0);
 
-  // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300–€499 → 20%, €500+ → 25% (cap €50)
+  // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20% (cap €25)
   const recentScans = [
-    { code: "DC-AMS-4821", time: "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 32" },
-    { code: "DC-AMS-4790", time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 50" },
-    { code: "DC-AMS-4744", time: "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 26" },
-    { code: "DC-AMS-4710", time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 50" },
+    { code: "DC-AMS-4821", time: "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 25" },
+    { code: "DC-AMS-4790", time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
+    { code: "DC-AMS-4744", time: "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 25" },
+    { code: "DC-AMS-4710", time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
     { code: "DC-AMS-4688", time: "2 Apr, 16:20",      discount: "10%", sale: "€ 98",  saved: "€ 10" },
   ];
 

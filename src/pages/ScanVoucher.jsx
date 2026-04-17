@@ -18,15 +18,14 @@ export default function ScanVoucher() {
   const [manualCode, setManualCode] = useState("");
   const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
 
-  // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300–€499 → 20%, €500+ → 25%, cap €50
+  // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
   const calcBasketCredit = (basketValue) => {
     if (!basketValue || basketValue < 50) return 0;
     let pct;
-    if (basketValue >= 500) pct = 0.25;
-    else if (basketValue >= 300) pct = 0.20;
+    if (basketValue >= 300) pct = 0.20;
     else if (basketValue >= 100) pct = 0.15;
     else pct = 0.10;
-    return Math.min(basketValue * pct, 50);
+    return Math.min(basketValue * pct, 25);
   };
 
   useEffect(() => {
@@ -206,7 +205,7 @@ export default function ScanVoucher() {
                         €{calcBasketCredit(parseFloat(form.transaction_value)).toFixed(2)}
                       </span>
                       <span className="ml-1 text-muted-foreground">
-                        ({parseFloat(form.transaction_value) >= 500 ? "25%" : parseFloat(form.transaction_value) >= 300 ? "20%" : parseFloat(form.transaction_value) >= 100 ? "15%" : "10%"} of basket, max €50)
+                        ({parseFloat(form.transaction_value) >= 300 ? "20%" : parseFloat(form.transaction_value) >= 100 ? "15%" : "10%"} of basket, max €25)
                       </span>
                     </p>
                   )
