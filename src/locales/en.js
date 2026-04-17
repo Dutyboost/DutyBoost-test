@@ -20,7 +20,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        description: 'Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Valid on purchases of €50+ at a single retail location.',
+        description: 'Enjoy exclusive discounts at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Valid on purchases of €70+ at a single retail location.',
         b1: 'Instant mobile DutyCredit',
         b2: 'Full discount at one shop',
         b3: 'Seamless QR experience',

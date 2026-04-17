@@ -183,7 +183,7 @@ export default function TravelerVoucher() {
         )}
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-800">
-          <strong>Minimum spend required:</strong> DutyCredits can only be redeemed on purchases of <strong>€50 or more</strong>.
+          <strong>Minimum spend required:</strong> DutyCredits can only be redeemed on purchases of <strong>€70 or more</strong>.
         </div>
 
         <p className="text-center text-xs text-muted-foreground pb-4">

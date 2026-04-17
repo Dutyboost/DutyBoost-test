@@ -228,7 +228,7 @@ function ScanFlowSlide() {
           {[
             { n: "1", icon: Users, color: "bg-blue-600", title: "Traveler presents QR at checkout", desc: "The customer shows their DutyCredit QR code (received by email). Your standard barcode scanner reads it as part of the normal checkout flow." },
             { n: "2", icon: QrCode, color: "bg-orange-500", title: "POS validates & fetches voucher", desc: "The POS plugin instantly calls the DutyBoost API, validates the QR, confirms it is active, and retrieves the discount tier — in under 1 second." },
-            { n: "3", icon: Percent, color: "bg-amber-600", title: "Discount calculated automatically", desc: "DutyBoost calculates the effective discount based on basket value and number of items (5–25%). The POS applies it to the total without any manual input." },
+            { n: "3", icon: Percent, color: "bg-amber-600", title: "Discount calculated automatically", desc: "DutyBoost calculates the tiered credit based on basket value (10% at €70–€99, 15% at €100–€299, 20% at €300+, capped at €25). The POS applies it without any manual input." },
             { n: "4", icon: Receipt, color: "bg-emerald-600", title: "Transaction logged & synced", desc: "The final transaction value, discount applied, and platform fee are recorded in real time. Your dashboard updates instantly. The voucher is marked redeemed." },
             { n: "5", icon: CheckCircle2, color: "bg-green-600", title: "Invoice generated automatically", desc: "At month end, DutyBoost automatically generates your invoice, calculates the 5% fee on gross redemption volume, and sends it for payment — no manual reconciliation needed." },
           ].map(({ n, icon: Icon, color, title, desc }) => (

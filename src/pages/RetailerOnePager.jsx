@@ -77,7 +77,7 @@ export default function RetailerOnePager() {
               </div>
               <div className="bg-slate-50 rounded p-3 border border-border">
                 <p className="font-semibold text-xs">Higher basket size per transaction</p>
-                <p className="text-xs text-muted-foreground leading-snug">Travelers with a DutyCredit are motivated to spend more. The credit applies on purchases of €50+, driving higher transaction values and larger baskets per visit.</p>
+                <p className="text-xs text-muted-foreground leading-snug">Travelers with a DutyCredit are motivated to spend more. The credit applies on purchases of €70+, driving higher transaction values and larger baskets per visit.</p>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ export default function RetailerOnePager() {
             <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-1 text-orange-700 uppercase tracking-wide">03 — What DutyBoost Brings to Airport Retailers</h2>
             <div className="grid grid-cols-3 gap-2">
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">€50+</p>
+                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">€70+</p>
                 <p className="font-semibold text-xs">minimum spend per redemption</p>
                 <p className="text-xs text-muted-foreground leading-snug">Every redeemed DutyCredit drives a qualified purchase above your threshold</p>
               </div>

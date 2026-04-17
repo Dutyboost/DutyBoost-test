@@ -31,7 +31,7 @@ const resources = {
       stakeholders: {
         travelers: {
           title: "Travellers",
-          description: "Enjoy an exclusive reward at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Valid on purchases of €50 or more at a single point of sale.",
+          description: "Enjoy an exclusive reward at your departure airport — automatically earned through your booking. No sign-ups, no paperwork. Just scan your DutyCredit and save. Valid on purchases of €70 or more at a single point of sale.",
           b1: "Instant mobile DutyCredit",
           b2: "Single-store, full discount",
           b3: "Seamless QR experience",
