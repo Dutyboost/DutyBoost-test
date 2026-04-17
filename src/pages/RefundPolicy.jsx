@@ -83,7 +83,7 @@ export default function RefundPolicy() {
         {c.sections.map((s) => (
           <section key={s.h} className="space-y-3">
             <h2 className="text-xl font-heading font-semibold">{s.h}</h2>
-            <p className="text-muted-foreground leading-relaxed">{s.p}</p>
+            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: s.p.replace(/([\w.-]+@dutyboost\.com)/g, '<a href="mailto:rael@dutyboost.com" class="text-primary hover:underline">$1</a>') }} />
           </section>
         ))}
       </div>

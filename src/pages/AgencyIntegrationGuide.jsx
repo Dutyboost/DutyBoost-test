@@ -524,7 +524,7 @@ export default function AgencyIntegrationGuide() {
           <h3 className="font-heading font-semibold text-lg">Need help integrating?</h3>
           <p className="text-sm text-muted-foreground">Our technical team is ready to support your integration. We can jump on a call, review your code, or provide a sandbox API key for testing.</p>
           <div className="flex flex-wrap gap-3">
-            <a href="mailto:integrations@dutyboost.com">
+            <a href="mailto:rael@dutyboost.com">
               <Button className="gap-2"><Mail className="w-4 h-4" /> integrations@dutyboost.com</Button>
             </a>
             <Link to="/retailer-integration-guide">
@@ -543,7 +543,7 @@ export default function AgencyIntegrationGuide() {
           </div>
           <div className="flex items-center gap-4">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <a href="mailto:integrations@dutyboost.com" className="hover:text-primary transition-colors">integrations@dutyboost.com</a>
+            <a href="mailto:rael@dutyboost.com" className="hover:text-primary transition-colors">integrations@dutyboost.com</a>
             <span>© 2026 DutyBoost</span>
           </div>
         </div>

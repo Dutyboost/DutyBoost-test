@@ -129,7 +129,7 @@ export default function DataProcessingAgreement() {
         {c.sections.map((s) => (
           <section key={s.h} className="space-y-3">
             <h2 className="text-xl font-heading font-semibold">{s.h}</h2>
-            {s.p && <p className="text-muted-foreground leading-relaxed">{s.p}</p>}
+            {s.p && <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: s.p.replace(/([\w.-]+@dutyboost\.com)/g, '<a href="mailto:rael@dutyboost.com" class="text-primary hover:underline">$1</a>') }} />}
             {s.list && <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">{s.list.map((item, i) => <li key={i}>{item}</li>)}</ul>}
             {s.h.startsWith("6.") && (
               <div className="space-y-3 mt-2">

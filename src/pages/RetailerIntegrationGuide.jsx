@@ -492,7 +492,7 @@ export default function RetailerIntegrationGuide() {
           <h3 className="font-heading font-semibold text-lg">Need integration support?</h3>
           <p className="text-sm text-muted-foreground">Our technical team can assist with POS integration, provide sandbox credentials, or connect you with your POS vendor's developer. Most retailers are live within 1–2 business days.</p>
           <div className="flex flex-wrap gap-3">
-            <a href="mailto:integrations@dutyboost.com">
+            <a href="mailto:rael@dutyboost.com">
               <Button className="gap-2"><Mail className="w-4 h-4" /> integrations@dutyboost.com</Button>
             </a>
             <Link to="/integration-guide">
@@ -511,7 +511,7 @@ export default function RetailerIntegrationGuide() {
           </div>
           <div className="flex items-center gap-4">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <a href="mailto:integrations@dutyboost.com" className="hover:text-primary transition-colors">integrations@dutyboost.com</a>
+            <a href="mailto:rael@dutyboost.com" className="hover:text-primary transition-colors">integrations@dutyboost.com</a>
             <span>© 2026 DutyBoost</span>
           </div>
         </div>
