@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import { useTranslation } from "react-i18next";
+import EmailLinkText from "../components/EmailLinkText";
 
 const content = {
   en: { title: "Billing & Dispute Policy", updated: "Last updated: April 2026", back: "Back to Home", sections: [
@@ -83,7 +84,7 @@ export default function RefundPolicy() {
         {c.sections.map((s) => (
           <section key={s.h} className="space-y-3">
             <h2 className="text-xl font-heading font-semibold">{s.h}</h2>
-            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: s.p.replace(/([\w.-]+@dutyboost\.com)/g, '<a href="mailto:rael@dutyboost.com" class="text-primary hover:underline">$1</a>') }} />
+            <EmailLinkText text={s.p} />
           </section>
         ))}
       </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import { useTranslation } from "react-i18next";
+import EmailLinkText from "../components/EmailLinkText";
 
 const content = {
   en: { title: "Code of Conduct", updated: "Last updated: April 2026", back: "Back to Home", sections: [
@@ -269,8 +270,8 @@ export default function CodeOfConduct() {
         {c.sections.map((s) => (
           <section key={s.h} className="space-y-3">
             <h2 className="text-xl font-heading font-semibold">{s.h}</h2>
-            {s.p && <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: s.p.replace(/([\w.-]+@dutyboost\.com)/g, '<a href="mailto:rael@dutyboost.com" class="text-primary hover:underline">$1</a>') }} />}
-            {s.list && <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">{s.list.map((item, i) => <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/([\w.-]+@dutyboost\.com)/g, '<a href="mailto:rael@dutyboost.com" class="text-primary hover:underline">$1</a>') }} />)}</ul>}
+            {s.p && <EmailLinkText text={s.p} />}
+            {s.list && <ul className="list-disc list-inside text-muted-foreground space-y-1 leading-relaxed">{s.list.map((item, i) => <li key={i}><EmailLinkText text={item} className="inline" /></li>)}</ul>}
           </section>
         ))}
       </div>
