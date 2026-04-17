@@ -18,9 +18,9 @@ export default function ScanVoucher() {
   const [manualCode, setManualCode] = useState("");
   const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
 
-  // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
+  // Tiered: €70–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
   const calcBasketCredit = (basketValue) => {
-    if (!basketValue || basketValue < 50) return 0;
+    if (!basketValue || basketValue < 70) return 0;
     let pct;
     if (basketValue >= 300) pct = 0.20;
     else if (basketValue >= 100) pct = 0.15;

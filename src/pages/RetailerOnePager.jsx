@@ -55,7 +55,7 @@ export default function RetailerOnePager() {
           <div className="text-center space-y-0.5">
             <h1 className="text-2xl font-heading font-bold leading-tight">Turn passing travelers into paying customers — automatically</h1>
             <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-              DutyBoost sends pre-qualified, high-intent shoppers directly to your store with a personalized spending credit. Travelers receive 10% on €50–€99, 15% on €100–€299, or 20% on €300+ (max €25). You only pay 2.5% when we deliver a sale.
+              DutyBoost sends pre-qualified, high-intent shoppers directly to your store with a personalized spending credit. Travelers receive 10% on €70–€99, 15% on €100–€299, or 20% on €300+ (max €25). You only pay 2.5% when we deliver a sale.
             </p>
           </div>
 

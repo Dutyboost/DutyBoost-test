@@ -202,11 +202,11 @@ export default function RetailerScanQR() {
 
             <div className="space-y-2">
               <Label className="flex items-center gap-1.5"><Receipt className="w-4 h-4" /> Gross Transaction Value (EUR)</Label>
-              <Input type="number" min="50" step="0.01" placeholder="min. €50.00" value={form.transaction_value}
+              <Input type="number" min="70" step="0.01" placeholder="min. €70.00" value={form.transaction_value}
                 onChange={e => setForm({ ...form, transaction_value: e.target.value })} required />
               {previewCredit !== null && (
-                parseFloat(form.transaction_value) < 50 ? (
-                  <p className="text-sm text-destructive">Minimum basket is €50 to redeem a DutyCredit.</p>
+                parseFloat(form.transaction_value) < 70 ? (
+                  <p className="text-sm text-destructive">Minimum basket is €70 to redeem a DutyCredit.</p>
                 ) : (
                   <div className="bg-primary/5 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">

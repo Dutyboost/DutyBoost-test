@@ -14,9 +14,9 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%
 
-// Tiered basket credit: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
+// Tiered basket credit: €70–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
 function calcBasketCredit(basketValue) {
-  if (!basketValue || basketValue < 50) return 0;
+  if (!basketValue || basketValue < 70) return 0;
   let pct;
   if (basketValue >= 300) pct = 0.20;
   else if (basketValue >= 100) pct = 0.15;

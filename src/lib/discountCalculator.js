@@ -1,11 +1,11 @@
 // DutyCredit Redemption Model — Tiered Basket Credit
 //
 // Tiers (applied to basket value, credit capped at €25):
-//   €50  – €99  →  10%  (€5.00 – €9.90)
+//   €70  – €99  →  10%  (€7.00 – €9.90)
 //   €100 – €299 →  15%  (€15   – €25, cap reached at €167)
 //   €300+       →  20%  (always capped at €25)
 //
-// Minimum basket: €50. Maximum credit: €25.
+// Minimum basket: €70. Maximum credit: €25.
 // DutyBoost platform fee: 2.5% of gross sales.
 // Agency commission: 0.5% of gross sales.
 
@@ -14,7 +14,7 @@ export const DUTY_CREDIT_CONFIG = {
   longHaul:  { basePerTraveler: 7.00 },
   floor: 5,
   cap: 25,
-  minBasket: 50,
+  minBasket: 70,
 };
 
 // Tiered basket credit calculation
@@ -29,10 +29,10 @@ export function calcBasketCredit(basketValue) {
 
 // Return the tier label for display purposes
 export function getBasketTierLabel(basketValue) {
-  if (!basketValue || basketValue < 50) return null;
+  if (!basketValue || basketValue < 70) return null;
   if (basketValue >= 300) return "20% credit (€300+ basket, max €25)";
   if (basketValue >= 100) return "15% credit (€100–€299 basket, max €25)";
-  return "10% credit (€50–€99 basket)";
+  return "10% credit (€70–€99 basket)";
 }
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {

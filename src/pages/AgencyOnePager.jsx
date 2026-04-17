@@ -55,7 +55,7 @@ export default function AgencyOnePager() {
         <div className="text-center space-y-0.5">
           <h1 className="text-2xl font-heading font-bold leading-tight">Turning every booking into a loyalty asset and extra revenue</h1>
           <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-            DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for your agency. Travelers earn 10–20% credit on airport spend (min. €50 basket, max. €25). Fully automated. Zero operational impact.
+            DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for your agency. Travelers earn 10–20% credit on airport spend (min. €70 basket, max. €25). Fully automated. Zero operational impact.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export default function AgencyOnePager() {
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold text-green-700 leading-tight">€0.50–€2.50</p>
               <p className="font-semibold text-xs">commission per redemption</p>
-              <p className="text-xs text-muted-foreground leading-snug">0.5% of airport basket value — earned automatically, no sales effort required</p>
+              <p className="text-xs text-muted-foreground leading-snug">0.5% of airport basket value (min. €70 spend) — earned automatically, no sales effort required</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold text-green-700 leading-tight">0.5%</p>
