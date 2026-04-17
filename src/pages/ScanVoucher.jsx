@@ -16,6 +16,7 @@ export default function ScanVoucher() {
   const [loading, setLoading] = useState(false);
   const [redeemed, setRedeemed] = useState(false);
   const [manualCode, setManualCode] = useState("");
+  const [phase, setPhase] = useState("scan"); // "scan" | "validated" | "checkout"
   const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
 
   // Tiered: €70–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
@@ -43,6 +44,7 @@ export default function ScanVoucher() {
     }
     setVoucher(results[0]);
     setRedeemed(false);
+    setPhase("validated");
   };
 
   const handleRedeem = async (e) => {
@@ -77,7 +79,8 @@ export default function ScanVoucher() {
     setVoucher(null);
     setRedeemed(false);
     setManualCode("");
-    setForm({ retailer_id: "", transaction_value: "" });
+    setPhase("scan");
+    setForm({ retailer_id: "", transaction_value: "", num_items: "1" });
   };
 
   return (
@@ -133,7 +136,7 @@ export default function ScanVoucher() {
 
       {voucher && !redeemed && (
         <div className="max-w-md space-y-5">
-          {/* Voucher preview */}
+          {/* Voucher status card */}
           <div className={`rounded-xl border p-5 ${
             voucher.status === "active"
               ? "bg-green-50 border-green-200"
@@ -148,14 +151,14 @@ export default function ScanVoucher() {
               <div>
                 <p className="font-semibold font-mono">{voucher.voucher_code}</p>
                 <p className={`text-sm capitalize ${voucher.status === "active" ? "text-green-700" : "text-red-600"}`}>
-                  {voucher.status}
+                  {voucher.status === "active" ? "✓ Valid — DutyCredit confirmed" : voucher.status}
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
-               <p className="text-muted-foreground">Max Credit</p>
-               <p className="font-bold text-2xl text-primary">€{voucher.discount_percentage}</p>
+                <p className="text-muted-foreground">Max Credit</p>
+                <p className="font-bold text-2xl text-primary">up to €25</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Airport</p>
@@ -172,7 +175,22 @@ export default function ScanVoucher() {
             </div>
           </div>
 
-          {voucher.status === "active" && (
+          {/* Phase: validated — waiting for basket */}
+          {voucher.status === "active" && phase === "validated" && (
+            <div className="space-y-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
+                <p className="font-semibold">✓ QR Code accepted — DutyCredit is reserved</p>
+                <p>The customer can now continue shopping. When ready to pay, enter the basket total below to apply the discount.</p>
+              </div>
+              <Button className="w-full gap-2" onClick={() => setPhase("checkout")}>
+                <QrCode className="w-4 h-4" /> Enter Basket & Finalise
+              </Button>
+              <Button variant="outline" className="w-full" onClick={reset}>Cancel</Button>
+            </div>
+          )}
+
+          {/* Phase: checkout — enter basket total */}
+          {voucher.status === "active" && phase === "checkout" && (
             <form onSubmit={handleRedeem} className="space-y-4">
               <div className="space-y-2">
                 <Label>Store</Label>
@@ -186,19 +204,19 @@ export default function ScanVoucher() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label>Transaction Value (EUR)</Label>
+                <Label>Final Basket Total (EUR)</Label>
                 <Input
                   type="number"
-                  min="50"
+                  min="70"
                   step="0.01"
-                  placeholder="min. €50.00"
+                  placeholder="min. €70.00"
                   value={form.transaction_value}
                   onChange={(e) => setForm({ ...form, transaction_value: e.target.value })}
                   required
                 />
                 {form.transaction_value && (
-                  parseFloat(form.transaction_value) < 50 ? (
-                    <p className="text-sm text-destructive">Minimum basket is €50 to redeem a DutyCredit.</p>
+                  parseFloat(form.transaction_value) < 70 ? (
+                    <p className="text-sm text-destructive">Minimum basket is €70 to redeem a DutyCredit.</p>
                   ) : (
                     <p className="text-sm text-muted-foreground">
                       Traveler saves: <span className="font-semibold text-green-600">
@@ -212,11 +230,11 @@ export default function ScanVoucher() {
                 )}
               </div>
               <div className="flex gap-2">
-                <Button type="button" variant="outline" className="flex-1" onClick={reset}>
-                  Cancel
+                <Button type="button" variant="outline" className="flex-1" onClick={() => setPhase("validated")}>
+                  Back
                 </Button>
-                <Button type="submit" className="flex-1" disabled={loading || !form.retailer_id || !form.transaction_value}>
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Redeem Travel Yield"}
+                <Button type="submit" className="flex-1" disabled={loading || !form.retailer_id || !form.transaction_value || parseFloat(form.transaction_value) < 70}>
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Confirm & Redeem"}
                 </Button>
               </div>
             </form>

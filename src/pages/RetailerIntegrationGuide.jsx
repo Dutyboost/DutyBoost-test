@@ -91,7 +91,8 @@ const REDEEM_RESPONSE = `{
   "message": "Voucher redeemed. €7.50 credit applied (15% of €50 basket — cap applied)."
 }`;
 
-const JS_VALIDATE = `// Step 1: Validate the voucher before applying any credit
+const JS_VALIDATE = `// Step 1: Validate the voucher — call this as soon as the QR is scanned
+// (can be before, during, or at the end of shopping)
 async function validateVoucher(voucherCode) {
   const res = await fetch('https://api.dutyboost.com/v1/validate-voucher', {
     method: 'POST',
@@ -107,7 +108,8 @@ async function validateVoucher(voucherCode) {
   return await res.json();
 }
 
-// Step 2: After checkout, confirm the redemption with the basket total
+// Step 2: After checkout, confirm the redemption with the final basket total
+// Only call this once — at the moment the customer pays
 async function redeemVoucher(voucherCode, transactionValue, numItems) {
   const res = await fetch('https://api.dutyboost.com/v1/redeem-voucher', {
     method: 'POST',
@@ -118,36 +120,34 @@ async function redeemVoucher(voucherCode, transactionValue, numItems) {
     body: JSON.stringify({
       voucher_code:      voucherCode,
       retailer_id:       process.env.DUTYBOOST_RETAILER_ID,
-      transaction_value: transactionValue,   // final basket total in EUR
+      transaction_value: transactionValue,   // final basket total in EUR (min €70)
       num_items:         numItems
     })
   });
   return await res.json();
 }
 
-// --- Usage in your POS flow ---
-async function processDutyBoostVoucher(scannedCode, basketTotal, numItems) {
-  // 1. Validate
+// --- Two-phase POS flow ---
+// Phase 1: Customer presents QR at any point (start, mid-shop, or at till)
+async function onQRScanned(scannedCode) {
   const validation = await validateVoucher(scannedCode);
   if (!validation.valid) {
     displayError('Voucher invalid or expired');
     return;
   }
+  // DutyCredit is now confirmed — store the code and show a banner
+  // The customer can continue shopping; no credit is applied yet
+  showBanner('✓ DutyCredit confirmed — discount will apply at checkout (min. basket €70)');
+  return validation; // store this for Phase 2
+}
 
-  // 2. Calculate effective credit (cannot exceed 15% of basket)
-  const effectiveCredit = Math.min(validation.credit_amount_eur, basketTotal * 0.15);
-  const amountCharged   = (basketTotal - effectiveCredit).toFixed(2);
-
-  // 4. Show preview to cashier and customer
-  displayCreditPreview({
-    creditValue:    validation.credit_amount_eur,
-    effectiveCredit: effectiveCredit,
-    basketTotal,
-    amountCharged
-  });
-
-  // 5. Cashier confirms — finalize the transaction
-  const redemption = await redeemVoucher(scannedCode, basketTotal, numItems);
+// Phase 2: Customer is ready to pay — enter the final basket total
+async function onCheckout(voucherCode, basketTotal, numItems) {
+  if (basketTotal < 70) {
+    displayError('Minimum basket of €70 required to apply DutyCredit');
+    return;
+  }
+  const redemption = await redeemVoucher(voucherCode, basketTotal, numItems);
   if (redemption.success) {
     applyDiscountToReceipt(redemption.effective_credit);
     printReceipt(redemption);
@@ -243,12 +243,16 @@ export default function RetailerIntegrationGuide() {
         {/* How it works */}
         <div className="space-y-4">
           <h2 className="text-2xl font-heading font-semibold">How it works in your store</h2>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800">
+            <p className="font-semibold mb-1">Flexible timing — scan QR at any point</p>
+            <p>The customer can present their QR code <strong>before they start shopping</strong> (DutyCredit is reserved) or <strong>at the till when ready to pay</strong>. Both flows work identically — the discount is only finalised and applied once the basket total is entered.</p>
+          </div>
           <div className="grid md:grid-cols-4 gap-3">
             {[
-              { num: '1', title: 'Customer presents QR', desc: 'Traveler opens the DutyBoost email or voucher link and shows the QR code at your till' },
-              { num: '2', title: 'Cashier scans', desc: 'Your POS scanner reads the QR code — it calls the DutyBoost API to validate it instantly' },
-              { num: '3', title: 'Discount displayed', desc: 'POS shows the discount percentage and updated basket total for cashier & customer to confirm' },
-              { num: '4', title: 'Redemption confirmed', desc: 'Cashier finalises the sale — DutyBoost records the transaction and invoices you at month end' },
+              { num: '1', title: 'Customer presents QR', desc: 'Traveler shows their DutyBoost QR code — at any point: when entering the store, while browsing, or at the till' },
+              { num: '2', title: 'Cashier scans & validates', desc: 'Your POS scanner reads the QR code and calls the DutyBoost API — the DutyCredit is instantly confirmed and reserved' },
+              { num: '3', title: 'Customer continues shopping', desc: 'If scanned early, the voucher is held while the customer browses. If at checkout, proceed directly to step 4' },
+              { num: '4', title: 'Basket entered & discount applied', desc: 'Once the final basket total is known, enter it to calculate and apply the tiered credit. DutyBoost records the transaction.' },
             ].map(s => (
               <div key={s.num} className="bg-card border border-border rounded-xl p-4 space-y-2">
                 <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">{s.num}</div>
@@ -337,13 +341,14 @@ export default function RetailerIntegrationGuide() {
             <h2 className="text-2xl font-heading font-semibold">Confirm the redemption at checkout</h2>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            After the customer meets the minimum spend and the cashier finalises the sale, call the <strong>redeem</strong> endpoint with the final basket total. DutyBoost calculates the effective credit (≤ 15% of basket), marks the voucher as used, and records the transaction for your monthly invoice.
+            Once the customer's basket is finalised, call the <strong>redeem</strong> endpoint with the final basket total. DutyBoost calculates the effective tiered credit (10%/15%/20%, capped at €25), marks the voucher as used, and records the transaction for your monthly invoice.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
-            <p className="font-semibold">No minimum spend:</p>
-            <p>→ Every traveler can redeem their DutyCredit regardless of basket size.</p>
-            <p>→ The credit applied cannot exceed <strong>15% of the basket value</strong> — small baskets receive proportionally less.</p>
-            <p className="text-xs">Example: €14 credit on a €50 basket → only €7.50 applied (15% cap). On a €200 basket → full €14 applied.</p>
+            <p className="font-semibold">Tiered credit — €70 minimum basket:</p>
+            <p>→ <strong>€70–€99:</strong> 10% credit (e.g. €7 on a €70 basket)</p>
+            <p>→ <strong>€100–€299:</strong> 15% credit (e.g. €15 on a €100 basket)</p>
+            <p>→ <strong>€300+:</strong> 20% credit, capped at €25 maximum</p>
+            <p className="text-xs mt-1">Baskets under €70 are not eligible — the QR can still be scanned and held, but the redeem call will be rejected.</p>
           </div>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 shrink-0" />
