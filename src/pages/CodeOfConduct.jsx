@@ -11,7 +11,7 @@ const content = {
       "Act honestly and in good faith when using the platform at all times.",
       "Provide accurate, verifiable data — booking references (PNR), transaction values, and store details must reflect reality.",
       "Treat all other platform participants — Travel Partners, Airport Retailers, travelers, and DutyBoost staff — with respect and professionalism.",
-      "Report suspected fraud, abuse, or irregularities immediately via trust@dutyboost.com.",
+      "Report suspected fraud, abuse, or irregularities immediately via rael@dutyboost.com.",
       "Comply with all applicable laws, regulations, and industry codes in your jurisdiction.",
     ]},
     { h: "3. Travel Partners", list: [
@@ -45,7 +45,7 @@ const content = {
       "Misrepresenting your identity, business type, or licensing status when registering or using the platform.",
     ]},
     { h: "7. Enforcement", p: "Violations of this Code of Conduct may result in immediate account suspension, permanent termination of platform access, forfeiture of pending revenue shares or commissions, and legal action. DutyBoost reserves the right to investigate all reported violations and to share information with relevant authorities where required by law." },
-    { h: "8. Contact", p: "Report misconduct or suspicious activity: trust@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
+    { h: "8. Contact", p: "Report misconduct or suspicious activity: rael@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
   ]},
   nl: { title: "Gedragscode", updated: "Laatst bijgewerkt: april 2026", back: "Terug naar home", sections: [
     { h: "1. Onze toewijding", p: "DutyBoost is gebouwd op het principe dat Reispartners, Luchthavenwinkels en reizigers eerlijk en transparant voordeel moeten halen. Wij zetten ons in voor een betrouwbaar, professioneel platform dat de ethische normen van de internationale reis- en detailhandelsector handhaaft." },
@@ -53,7 +53,7 @@ const content = {
       "Eerlijk en te goeder trouw handelen bij het gebruik van het platform.",
       "Nauwkeurige, verifieerbare gegevens verstrekken — boekingsreferenties (PNR), transactiewaarden en winkelgegevens moeten de werkelijkheid weerspiegelen.",
       "Alle andere platformdeelnemers respectvol en professioneel behandelen.",
-      "Vermoedens van fraude, misbruik of onregelmatigheden onmiddellijk melden via trust@dutyboost.com.",
+      "Vermoedens van fraude, misbruik of onregelmatigheden onmiddellijk melden via rael@dutyboost.com.",
       "Voldoen aan alle toepasselijke wet- en regelgeving en branchecode in uw jurisdictie.",
     ]},
     { h: "3. Reispartners", list: [
@@ -87,7 +87,7 @@ const content = {
       "Onjuiste voorstelling van uw identiteit, bedrijfstype of licentiestatus bij registratie of gebruik.",
     ]},
     { h: "7. Handhaving", p: "Overtredingen kunnen leiden tot onmiddellijke schorsing, permanente beëindiging van platformtoegang, verbeurdverklaring van uitstaande commissies en juridische stappen. DutyBoost behoudt zich het recht voor alle overtredingen te onderzoeken en informatie te delen met relevante autoriteiten." },
-    { h: "8. Contact", p: "Wangedrag of verdachte activiteiten melden: trust@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
+    { h: "8. Contact", p: "Wangedrag of verdachte activiteiten melden: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
   ]},
   de: { title: "Verhaltenskodex", updated: "Zuletzt aktualisiert: April 2026", back: "Zurück zur Startseite", sections: [
     { h: "1. Unser Engagement", p: "DutyBoost basiert auf dem Prinzip, dass Reisepartner, Flughafenhändler und Reisende fair und transparent profitieren sollen. Wir verpflichten uns, eine vertrauenswürdige, professionelle Plattform aufrechtzuerhalten, die den ethischen Standards der internationalen Reise- und Einzelhandelsbranche entspricht." },
@@ -95,7 +95,7 @@ const content = {
       "Ehrlich und in gutem Glauben bei der Nutzung der Plattform handeln.",
       "Genaue, überprüfbare Daten angeben — PNR, Transaktionswerte und Geschäftsdaten müssen der Realität entsprechen.",
       "Alle Plattformteilnehmer respektvoll und professionell behandeln.",
-      "Verdächtigen Betrug, Missbrauch oder Unregelmäßigkeiten sofort über trust@dutyboost.com melden.",
+      "Verdächtigen Betrug, Missbrauch oder Unregelmäßigkeiten sofort über rael@dutyboost.com melden.",
       "Alle geltenden Gesetze, Vorschriften und Branchencodes einhalten.",
     ]},
     { h: "3. Reisepartner", list: [
@@ -129,7 +129,7 @@ const content = {
       "Falsche Angaben zur Identität, zum Unternehmenstyp oder zur Lizenzsituation machen.",
     ]},
     { h: "7. Durchsetzung", p: "Verstöße können zu sofortiger Kontosperrung, dauerhafter Beendigung des Zugangs, Einziehung ausstehender Provisionen und rechtlichen Schritten führen. DutyBoost behält sich das Recht vor, alle Verstöße zu untersuchen und Informationen mit den zuständigen Behörden zu teilen." },
-    { h: "8. Kontakt", p: "Fehlverhalten oder verdächtige Aktivitäten melden: trust@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
+    { h: "8. Kontakt", p: "Fehlverhalten oder verdächtige Aktivitäten melden: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
   ]},
   fr: { title: "Code de conduite", updated: "Dernière mise à jour : avril 2026", back: "Retour à l'accueil", sections: [
     { h: "1. Notre engagement", p: "DutyBoost est fondé sur le principe que les partenaires de voyage, les détaillants aéroportuaires et les voyageurs doivent tous bénéficier équitablement et de manière transparente. Nous nous engageons à maintenir une plateforme professionnelle qui respecte les normes éthiques des secteurs du voyage et du commerce de détail internationaux." },
@@ -137,7 +137,7 @@ const content = {
       "Agir honnêtement et de bonne foi lors de l'utilisation de la plateforme.",
       "Fournir des données précises et vérifiables — références de réservation (PNR), valeurs de transaction et détails du magasin doivent refléter la réalité.",
       "Traiter tous les participants avec respect et professionnalisme.",
-      "Signaler immédiatement toute fraude ou irrégularité via trust@dutyboost.com.",
+      "Signaler immédiatement toute fraude ou irrégularité via rael@dutyboost.com.",
       "Respecter toutes les lois, réglementations et codes sectoriels applicables.",
     ]},
     { h: "3. Partenaires de voyage", list: [
@@ -171,7 +171,7 @@ const content = {
       "Se faire passer pour une autre identité ou type d'entreprise lors de l'inscription.",
     ]},
     { h: "7. Application", p: "Les violations peuvent entraîner une suspension immédiate, la résiliation permanente de l'accès, la confiscation des commissions en attente et des actions en justice. DutyBoost se réserve le droit d'enquêter sur toutes les violations et de partager des informations avec les autorités compétentes." },
-    { h: "8. Contact", p: "Signaler un comportement inapproprié ou une activité suspecte : trust@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
+    { h: "8. Contact", p: "Signaler un comportement inapproprié ou une activité suspecte : rael@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Código de conducta", updated: "Última actualización: abril de 2026", back: "Volver al inicio", sections: [
     { h: "1. Nuestro compromiso", p: "DutyBoost se basa en el principio de que los socios de viaje, los comercios aeroportuarios y los viajeros deben beneficiarse de manera justa y transparente. Nos comprometemos a mantener una plataforma profesional que defienda los estándares éticos de los sectores internacionales del viaje y el comercio minorista." },
@@ -179,7 +179,7 @@ const content = {
       "Actuar con honestidad y buena fe en todo momento.",
       "Proporcionar datos precisos y verificables — referencias de reserva (PNR), valores de transacción y detalles de tienda deben reflejar la realidad.",
       "Tratar a todos los participantes con respeto y profesionalismo.",
-      "Informar inmediatamente sobre cualquier fraude, abuso o irregularidad a través de trust@dutyboost.com.",
+      "Informar inmediatamente sobre cualquier fraude, abuso o irregularidad a través de rael@dutyboost.com.",
       "Cumplir con todas las leyes, reglamentos y códigos sectoriales aplicables.",
     ]},
     { h: "3. Socios de viaje", list: [
@@ -213,7 +213,7 @@ const content = {
       "Falsear la identidad, tipo de empresa o situación de licencia al registrarse.",
     ]},
     { h: "7. Cumplimiento", p: "Las infracciones pueden resultar en suspensión inmediata, terminación permanente del acceso, pérdida de comisiones pendientes y acciones legales. DutyBoost se reserva el derecho de investigar todas las infracciones y compartir información con las autoridades competentes." },
-    { h: "8. Contacto", p: "Reportar conductas inapropiadas o actividades sospechosas: trust@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
+    { h: "8. Contacto", p: "Reportar conductas inapropiadas o actividades sospechosas: rael@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
   ]},
   it: { title: "Codice di condotta", updated: "Ultimo aggiornamento: aprile 2026", back: "Torna alla home", sections: [
     { h: "1. Il nostro impegno", p: "DutyBoost è costruita sul principio che i partner di viaggio, i rivenditori aeroportuali e i viaggiatori debbano beneficiare equamente e in modo trasparente. Ci impegniamo a mantenere una piattaforma professionale che rispetti gli standard etici dei settori internazionali del viaggio e del commercio al dettaglio." },
@@ -221,7 +221,7 @@ const content = {
       "Agire onestamente e in buona fede in ogni momento.",
       "Fornire dati accurati e verificabili — riferimenti di prenotazione (PNR), valori delle transazioni e dettagli del negozio devono riflettere la realtà.",
       "Trattare tutti i partecipanti con rispetto e professionalità.",
-      "Segnalare immediatamente frodi, abusi o irregolarità tramite trust@dutyboost.com.",
+      "Segnalare immediatamente frodi, abusi o irregolarità tramite rael@dutyboost.com.",
       "Rispettare tutte le leggi, normative e codici di settore applicabili.",
     ]},
     { h: "3. Partner di viaggio", list: [
@@ -255,7 +255,7 @@ const content = {
       "Dichiarare falsamente la propria identità, tipo di impresa o situazione di licenza.",
     ]},
     { h: "7. Applicazione", p: "Le violazioni possono comportare sospensione immediata, cessazione permanente dell'accesso, perdita di commissioni in sospeso e azioni legali. DutyBoost si riserva il diritto di indagare su tutte le violazioni e di condividere informazioni con le autorità competenti." },
-    { h: "8. Contatto", p: "Segnalare comportamenti scorretti o attività sospette: trust@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
+    { h: "8. Contatto", p: "Segnalare comportamenti scorretti o attività sospette: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
   ]},
 };
 

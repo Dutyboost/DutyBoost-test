@@ -28,7 +28,7 @@ const content = {
       { h: "8. Breach Notification", p: "In the event of a personal data breach, DutyBoost shall notify the Controller without undue delay and where feasible no later than 72 hours after becoming aware of the breach." },
       { h: "9. Data Retention and Deletion", p: "Upon termination, DutyBoost shall delete or return all personal data within 30 days at the Controller's choice, and certify in writing that deletion has been completed." },
       { h: "10. Governing Law", p: "This DPA is governed by the laws of the Netherlands. Disputes shall be subject to the courts of Amsterdam." },
-      { h: "11. Contact", p: "For all data protection enquiries: privacy@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
+      { h: "11. Contact", p: "For all data protection enquiries: rael@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
     ]
   },
   nl: { title: "Gegevensverwerkingsovereenkomst", updated: "Laatst bijgewerkt: maart 2026 · Geregeld door AVG (EU) 2016/679", back: "Terug naar home",
@@ -45,7 +45,7 @@ const content = {
       { h: "8. Meldplicht datalekken", p: "Bij een inbreuk in verband met persoonsgegevens zal DutyBoost de Verwerkingsverantwoordelijke onverwijld en waar mogelijk niet later dan 72 uur na de ontdekking informeren." },
       { h: "9. Gegevensbewaring en -verwijdering", p: "Na beëindiging zal DutyBoost alle persoonsgegevens binnen 30 dagen verwijderen of teruggeven naar keuze van de Verwerkingsverantwoordelijke, en dit schriftelijk bevestigen." },
       { h: "10. Toepasselijk recht", p: "Deze GVO wordt beheerst door Nederlands recht. Geschillen zijn onderworpen aan de rechtbanken van Amsterdam." },
-      { h: "11. Contact", p: "Voor alle gegevensbeschermingsvragen: privacy@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
+      { h: "11. Contact", p: "Voor alle gegevensbeschermingsvragen: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
     ]
   },
   de: { title: "Datenverarbeitungsvertrag", updated: "Zuletzt aktualisiert: März 2026 · Geregelt durch DSGVO (EU) 2016/679", back: "Zurück zur Startseite",
@@ -62,7 +62,7 @@ const content = {
       { h: "8. Benachrichtigung bei Datenpannen", p: "Im Falle einer Datenpanne informiert DutyBoost den Verantwortlichen unverzüglich und wo möglich nicht später als 72 Stunden nach Bekanntwerden." },
       { h: "9. Datenspeicherung und -löschung", p: "Nach Beendigung löscht oder gibt DutyBoost alle personenbezogenen Daten innerhalb von 30 Tagen nach Wahl des Verantwortlichen zurück und bestätigt die Löschung schriftlich." },
       { h: "10. Anwendbares Recht", p: "Dieser DV unterliegt dem Recht der Niederlande. Streitigkeiten unterliegen den Gerichten in Amsterdam." },
-      { h: "11. Kontakt", p: "Für alle Datenschutzanfragen: privacy@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
+      { h: "11. Kontakt", p: "Für alle Datenschutzanfragen: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
     ]
   },
   fr: { title: "Accord de traitement des données", updated: "Dernière mise à jour : mars 2026 · Régi par le RGPD (UE) 2016/679", back: "Retour à l'accueil",
@@ -79,7 +79,7 @@ const content = {
       { h: "8. Notification de violation", p: "En cas de violation de données personnelles, DutyBoost notifiera le Responsable sans délai et, si possible, pas plus de 72 heures après en avoir pris connaissance." },
       { h: "9. Conservation et suppression des données", p: "À la résiliation, DutyBoost supprimera ou restituera toutes les données personnelles dans les 30 jours au choix du Responsable, et certifiera par écrit que la suppression a été effectuée." },
       { h: "10. Droit applicable", p: "Cet ATD est régi par le droit néerlandais. Tout litige relève des tribunaux d'Amsterdam." },
-      { h: "11. Contact", p: "Pour toute demande relative à la protection des données : privacy@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
+      { h: "11. Contact", p: "Pour toute demande relative à la protection des données : rael@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
     ]
   },
   es: { title: "Acuerdo de procesamiento de datos", updated: "Última actualización: marzo de 2026 · Regido por el RGPD (UE) 2016/679", back: "Volver al inicio",
@@ -96,7 +96,7 @@ const content = {
       { h: "8. Notificación de brechas", p: "En caso de brecha de seguridad, DutyBoost notificará al Responsable sin demora indebida y, cuando sea posible, no más de 72 horas después de tener conocimiento de la misma." },
       { h: "9. Retención y supresión de datos", p: "Al finalizar el servicio, DutyBoost eliminará o devolverá todos los datos personales en un plazo de 30 días según elección del Responsable, y certificará por escrito que la eliminación se ha completado." },
       { h: "10. Ley aplicable", p: "Este APD se rige por la ley neerlandesa. Las disputas estarán sujetas a los tribunales de Ámsterdam." },
-      { h: "11. Contacto", p: "Para todas las consultas de protección de datos: privacy@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
+      { h: "11. Contacto", p: "Para todas las consultas de protección de datos: rael@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
     ]
   },
   it: { title: "Accordo sul trattamento dei dati", updated: "Ultimo aggiornamento: marzo 2026 · Regolato dal GDPR (UE) 2016/679", back: "Torna alla home",
@@ -113,7 +113,7 @@ const content = {
       { h: "8. Notifica di violazione", p: "In caso di violazione dei dati personali, DutyBoost notificherà al Titolare senza indebito ritardo e, ove possibile, non oltre 72 ore dopo esserne venuto a conoscenza." },
       { h: "9. Conservazione e cancellazione dei dati", p: "Alla risoluzione, DutyBoost cancellerà o restituirà tutti i dati personali entro 30 giorni a scelta del Titolare, e certificerà per iscritto che la cancellazione è stata completata." },
       { h: "10. Legge applicabile", p: "Il presente ATD è regolato dalla legge olandese. Le controversie sono soggette ai tribunali di Amsterdam." },
-      { h: "11. Contatto", p: "Per tutte le richieste relative alla protezione dei dati: privacy@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
+      { h: "11. Contatto", p: "Per tutte le richieste relative alla protezione dei dati: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
     ]
   },
 };
