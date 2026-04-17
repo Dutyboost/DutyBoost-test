@@ -55,7 +55,7 @@ export default function RetailerOnePager() {
           <div className="text-center space-y-0.5">
             <h1 className="text-2xl font-heading font-bold leading-tight">Turn passing travelers into paying customers — automatically</h1>
             <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-              DutyBoost sends pre-qualified, high-intent shoppers directly to your store with a personalized spending credit. Travelers receive 5% on €50–€99, 10% on €100–€299, or 20% on €300+ (max €25). You only pay 2.5% when we deliver a sale.
+              DutyBoost sends pre-qualified, high-intent shoppers directly to your store with a personalized spending credit. Travelers receive 10% on €50–€99, 15% on €100–€299, 20% on €300–€499, or 25% on €500+ (max €50). You only pay 2.5% when we deliver a sale.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function RetailerOnePager() {
               <div className="border border-border rounded p-2 text-center">
                 <p className="text-xl font-heading font-bold text-orange-700 leading-tight">2.5%</p>
                 <p className="font-semibold text-xs">fee on confirmed redemptions only</p>
-                <p className="text-xs text-muted-foreground leading-snug">No setup fees, no subscription. You only pay 2.5% of gross sales. The DutyCredit (up to €25) is covered by the platform — not deducted from your margin.</p>
+                <p className="text-xs text-muted-foreground leading-snug">No setup fees, no subscription. You only pay 2.5% of gross sales. The DutyCredit (up to €50) is covered by the platform — not deducted from your margin.</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <p className="text-xl font-heading font-bold text-orange-700 leading-tight">&lt; 1 day</p>
