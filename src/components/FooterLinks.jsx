@@ -7,7 +7,7 @@ const legalLinks = [
   { to: "/privacy", label: "Privacy Policy" },
   { to: "/terms", label: "Terms of Service" },
   { to: "/dpa", label: "Data Processing Agreement" },
-  { to: "/refunds", label: "Refund Policy" },
+  { to: "/refunds", label: "Billing & Dispute Policy" },
   { to: "/code-of-conduct", label: "Code of Conduct" },
   { to: "/cookies", label: "Cookie Policy" },
 ];
