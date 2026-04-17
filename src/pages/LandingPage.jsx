@@ -106,8 +106,10 @@ export default function LandingPage() {
             ) : (
               <Button size="sm" className="gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
             )}
+            <LanguageSwitcher />
           </div>
           <div className="flex lg:hidden items-center gap-2">
+            <LanguageSwitcher />
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
