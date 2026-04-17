@@ -312,7 +312,7 @@ export default function RetailerDashboard() {
          <StatsCard title="My Stores" value={retailers.length} icon={Store} />
          <StatsCard title="Active DutyCredits" value={vouchers.length} icon={TicketPercent} />
         <StatsCard title="Revenue Generated" value={`€${totalRevenue.toFixed(2)}`} icon={CreditCard} />
-        <StatsCard title="DutyBoost Fee (5%)" value={`€${dutyBoostFee}`} subtitle={`Avg €${revenuePerDay}/day`} icon={TrendingUp} />
+        <StatsCard title="DutyBoost Fee (2.5%)" value={`€${dutyBoostFee}`} subtitle={`Avg €${revenuePerDay}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

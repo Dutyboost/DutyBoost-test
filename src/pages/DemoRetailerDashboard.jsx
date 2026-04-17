@@ -31,8 +31,8 @@ export default function DemoRetailerDashboard() {
     if (first) setSelectedRetailer(first);
   };
 
-  const platformFee = (selectedRetailer.revenue * 0.05).toFixed(2);
-  const netRevenue = (selectedRetailer.revenue * 0.95).toFixed(2);
+  const platformFee = (selectedRetailer.revenue * 0.025).toFixed(2);
+  const netRevenue = (selectedRetailer.revenue * 0.975).toFixed(2);
   const avgPerRedemption = (selectedRetailer.revenue / selectedRetailer.redemptions).toFixed(0);
 
   const totalRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
@@ -61,8 +61,8 @@ export default function DemoRetailerDashboard() {
 
   const periodRedemptions = Math.round(selectedRetailer.redemptions * periodMultiplier);
   const periodRevenue = Math.round(selectedRetailer.revenue * periodMultiplier);
-  const periodFee = (periodRevenue * 0.05).toFixed(2);
-  const periodNetRevenue = (periodRevenue * 0.95).toFixed(2);
+  const periodFee = (periodRevenue * 0.025).toFixed(2);
+  const periodNetRevenue = (periodRevenue * 0.975).toFixed(2);
   const periodAvg = periodRedemptions > 0 ? (periodRevenue / periodRedemptions).toFixed(0) : avgPerRedemption;
 
   const catBreakdown = ["Retail", "Food & Beverage"].map(cat => ({
@@ -70,12 +70,13 @@ export default function DemoRetailerDashboard() {
     value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
   })).filter(c => c.value > 0);
 
+  // Tiered: €50–€99 → 5%, €100–€299 → 10%, €300+ → 20% (capped at €25)
   const recentScans = [
-    { code: "DC-AMS-4821", time: "Today, 14:32", discount: "15%", sale: "€ 214", saved: "€ 32" },
-    { code: "DC-AMS-4790", time: "Today, 11:08", discount: "15%", sale: "€ 340", saved: "€ 51" },
-    { code: "DC-AMS-4744", time: "Yesterday, 17:45", discount: "10%", sale: "€ 175", saved: "€ 18" },
-    { code: "DC-AMS-4710", time: "Yesterday, 09:12", discount: "15%", sale: "€ 420", saved: "€ 63" },
-    { code: "DC-AMS-4688", time: "2 Apr, 16:20", discount: "10%", sale: "€ 98", saved: "€ 10" },
+    { code: "DC-AMS-4821", time: "Today, 14:32",      discount: "10%", sale: "€ 214", saved: "€ 21" },
+    { code: "DC-AMS-4790", time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
+    { code: "DC-AMS-4744", time: "Yesterday, 17:45",  discount: "10%", sale: "€ 175", saved: "€ 17" },
+    { code: "DC-AMS-4710", time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
+    { code: "DC-AMS-4688", time: "2 Apr, 16:20",      discount: "5%",  sale: "€ 98",  saved: "€ 5" },
   ];
 
   return (
@@ -222,7 +223,7 @@ export default function DemoRetailerDashboard() {
                 <span className="font-semibold">€ {periodRevenue.toLocaleString("nl-NL")}</span>
               </div>
               <div className="flex justify-between items-center text-destructive">
-                <span>{t('demo.platform_fee_5')}</span>
+                <span>DutyBoost fee (2.5%)</span>
                 <span className="font-semibold">- € {parseFloat(periodFee).toLocaleString("nl-NL")}</span>
               </div>
               <div className="border-t border-border pt-2 flex justify-between items-center">

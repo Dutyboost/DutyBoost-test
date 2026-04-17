@@ -1,23 +1,39 @@
-// DutyCredit Redemption Model
-// At the airport, the credit value is calculated from the basket:
-//   credit = min(basketValue / 10, €25)
-//   minimum basket: €50 (gives €5), maximum credit: €25 (reached at €250+)
+// DutyCredit Redemption Model — Tiered Basket Credit (Option A)
 //
-// DutyCredit issuance (stored on the voucher) still uses booking-based calc
-// and represents the MAX credit the traveler can receive.
+// Tiers (applied to basket value, credit capped at €25):
+//   €50  – €99  →  5%   (€2.50 – €4.95)
+//   €100 – €299 → 10%   (€10   – €25, cap reached at €250)
+//   €300+       → 20%   (€25 fixed, cap always reached)
+//
+// Minimum basket: €50. Maximum credit: €25.
+// DutyBoost platform fee: 2.5% of gross sales.
+// Agency commission: 0.5% of gross sales.
 
 export const DUTY_CREDIT_CONFIG = {
-  shortHaul: {
-    basePerTraveler: 2.50,
-  },
-  longHaul: {
-    basePerTraveler: 7.00,
-  },
+  shortHaul: { basePerTraveler: 2.50 },
+  longHaul:  { basePerTraveler: 7.00 },
   floor: 5,
   cap: 25,
-  minBasket: 50,      // minimum basket to redeem
-  basketDivisor: 10,  // credit = basketValue / 10, capped at cap
+  minBasket: 50,
 };
+
+// Tiered basket credit calculation
+export function calcBasketCredit(basketValue) {
+  if (!basketValue || basketValue < DUTY_CREDIT_CONFIG.minBasket) return 0;
+  let pct;
+  if (basketValue >= 300) pct = 0.20;
+  else if (basketValue >= 100) pct = 0.10;
+  else pct = 0.05;
+  return Math.min(basketValue * pct, DUTY_CREDIT_CONFIG.cap);
+}
+
+// Return the tier label for display purposes
+export function getBasketTierLabel(basketValue) {
+  if (!basketValue || basketValue < 50) return null;
+  if (basketValue >= 300) return "20% credit (€300+ basket)";
+  if (basketValue >= 100) return "10% credit (€100–€299 basket)";
+  return "5% credit (€50–€99 basket)";
+}
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
   const isLongHaul = travelType === 'Long-haul';
@@ -34,15 +50,7 @@ export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
   return Math.min(Math.max(raw, DUTY_CREDIT_CONFIG.floor), DUTY_CREDIT_CONFIG.cap);
 }
 
-// At redemption: calculate actual credit based on basket size
-// €50 basket → €5, €250+ basket → €25 (capped), scales linearly at 10%
-export function calcBasketCredit(basketValue) {
-  if (basketValue < DUTY_CREDIT_CONFIG.minBasket) return 0;
-  return Math.min(basketValue / DUTY_CREDIT_CONFIG.basketDivisor, DUTY_CREDIT_CONFIG.cap);
-}
-
 export function applyDutyCreditToBasket(creditAmount, basketValue) {
-  // Use basket-based credit, but never exceed the issued voucher amount
   const basketCredit = calcBasketCredit(basketValue);
   return Math.min(basketCredit, creditAmount);
 }
@@ -56,7 +64,7 @@ export function generateVoucherCode() {
   return code;
 }
 
-// Legacy alias — kept for any components still using calculateDiscount
+// Legacy alias
 export function calculateDiscount({ ticketPrice, travelers, travelType }) {
   return calculateDutyCredit({ ticketPrice, travelers, travelType });
 }

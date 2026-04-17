@@ -14,10 +14,14 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%
 
-// Credit = basketValue / 20, capped at €25 (reached at €500+). Min basket €50.
+// Tiered basket credit: €50–€99 → 5%, €100–€299 → 10%, €300+ → 20%, cap €25
 function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 50) return 0;
-  return Math.min(basketValue / 20, 25);
+  let pct;
+  if (basketValue >= 300) pct = 0.20;
+  else if (basketValue >= 100) pct = 0.10;
+  else pct = 0.05;
+  return Math.min(basketValue * pct, 25);
 }
 
 Deno.serve(async (req) => {
