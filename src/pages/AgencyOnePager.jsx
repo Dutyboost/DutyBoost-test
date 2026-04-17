@@ -106,9 +106,9 @@ export default function AgencyOnePager() {
           <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">03 — What DutyBoost Brings to Travel Partners</h2>
           <div className="grid grid-cols-3 gap-2">
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">€1–€3</p>
-              <p className="font-semibold text-xs">extra revenue per booking</p>
-              <p className="text-xs text-muted-foreground leading-snug">Earned automatically on every redeemed credit, with no sales effort</p>
+              <p className="text-xl font-heading font-bold text-green-700 leading-tight">€0.50–€2.50</p>
+              <p className="font-semibold text-xs">commission per redemption</p>
+              <p className="text-xs text-muted-foreground leading-snug">0.5% of airport basket value — earned automatically, no sales effort required</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold text-green-700 leading-tight">0.5%</p>
