@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -31,15 +32,16 @@ export default function AgencyShowcase() {
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/get-started">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back
+              <ArrowLeft className="w-4 h-4" /> {t('common.back')}
             </button>
           </Link>
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={150} />
           </Link>
+          <LanguageSwitcher />
         </div>
       </nav>
 
@@ -49,10 +51,10 @@ export default function AgencyShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            Boost Customer <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Loyalty</span>
+            {t('showcase.agency.titlePart1')} <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">{t('showcase.agency.titlePart2')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Turn every booking into a revenue stream for your agency and into a loyalty asset for your customers.
+            {t('showcase.agency.subtitle')}
           </p>
         </div>
       </section>
@@ -87,7 +89,7 @@ export default function AgencyShowcase() {
               </p>
               <Link to="/agency-portal">
                 <Button size="lg" className="bg-white text-green-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  Go to Travel Partner Portal <ArrowRight className="w-4 h-4" />
+                  {t('showcase.agency.ctaButton')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

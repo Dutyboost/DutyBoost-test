@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function RetailerOnePager() {
+  const { t } = useTranslation();
   const handleDownloadPDF = async () => {
     const element = document.querySelector('.print-content');
     const canvas = await html2canvas(element, { scale: 2, allowTaint: true, useCORS: true });
@@ -32,11 +35,12 @@ export default function RetailerOnePager() {
       <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-between">
         <Link to="/retailer-showcase">
           <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="w-4 h-4" /> {t('common.back')}
           </button>
         </Link>
+        <LanguageSwitcher />
         <Button onClick={handleDownloadPDF} className="gap-2 bg-orange-600 hover:bg-orange-700 text-white">
-          <Printer className="w-4 h-4" /> Download
+          <Printer className="w-4 h-4" /> {t('common.download')}
         </Button>
       </div>
 

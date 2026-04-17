@@ -11,6 +11,7 @@ import {
   CheckCircle, RefreshCw, ShoppingBag, Ticket, ChevronRight,
   Plane, AlertCircle, UserPlus, ChevronLeft
 } from "lucide-react";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function TravelerPortal() {
   const { t } = useTranslation();
@@ -59,12 +60,12 @@ export default function TravelerPortal() {
       <div className="min-h-screen bg-background flex flex-col">
         <div className="border-b border-border px-5 py-6 flex items-center justify-between">
           <button onClick={() => navigate("/traveler-showcase")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            <ChevronLeft className="w-4 h-4" /> Back
+            <ChevronLeft className="w-4 h-4" /> {t('common.back')}
           </button>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={150} />
           </button>
-          <div className="w-12" />
+          <LanguageSwitcher />
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center space-y-8 max-w-md mx-auto">
@@ -78,7 +79,7 @@ export default function TravelerPortal() {
 
           <div className="w-full space-y-3">
             <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/traveler-signup")}>
-              <UserPlus className="w-4 h-4" /> Create Account
+              <UserPlus className="w-4 h-4" /> {t('signup.traveler.create')}
             </Button>
             <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>
               <LogIn className="w-4 h-4" /> {t('traveler.signInBtn')}

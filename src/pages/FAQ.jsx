@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
@@ -258,7 +259,10 @@ export default function FAQ() {
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/"><DutyBoostLogo height={150} /></Link>
-          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.back_home}</Link>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.back_home}</Link>
+          </div>
         </div>
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-14 space-y-12">

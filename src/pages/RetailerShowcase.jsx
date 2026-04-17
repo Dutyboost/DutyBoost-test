@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -31,15 +32,16 @@ export default function RetailerShowcase() {
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/get-started">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back
+              <ArrowLeft className="w-4 h-4" /> {t('common.back')}
             </button>
           </Link>
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={150} />
           </Link>
+          <LanguageSwitcher />
         </div>
       </nav>
 

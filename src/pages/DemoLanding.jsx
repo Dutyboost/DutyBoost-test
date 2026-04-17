@@ -3,6 +3,7 @@ import { Store, Plane, ArrowRight, Eye } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { useTranslation } from "react-i18next";
 import PageFooter from "../components/PageFooter";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function DemoLanding() {
   const { t } = useTranslation();
@@ -11,6 +12,7 @@ export default function DemoLanding() {
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
         <Link to="/" className="hover:opacity-80 transition-opacity"><DutyBoostLogo height={150} /></Link>
         <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.mode_badge')}</span>
+        <LanguageSwitcher />
       </nav>
 
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-10">

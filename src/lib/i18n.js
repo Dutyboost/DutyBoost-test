@@ -309,6 +309,35 @@ const resources = {
         retailer: { titlePart1: 'Convert More', titlePart2: 'Travelers', subtitle: 'Turn passing travelers into paying customers with personalized shopping rewards.', howItWorks: 'How It Works', step1: 'Customer Arrives', step1Desc: 'A traveler with a DutyCredit reward walks into your store.', step2: 'Scan & Validate', step2Desc: 'They present their QR code at the register — instant validation.', step3: 'Apply Discount', step3Desc: 'The system applies their personalized discount automatically.', step4: 'Earn Revenue Share', step4Desc: 'We log the transaction and track your revenue.', ctaTitle: 'Ready to Grow Revenue?', ctaDesc: 'Get qualified customers and increase transaction value with DutyBoost.', ctaButton: 'Go to Retailer Portal' },
         traveler: { titlePart1: 'Maximize Your', titlePart2: 'Airport Rewards', subtitle: 'Earn exclusive discounts at departure airports simply by booking travel.', howItWorks: 'How It Works', step1: 'Book Your Trip', step1Desc: 'When you book travel through your agency, a reward is instantly created.', step2: 'Get Your QR', step2Desc: 'Receive your DutyCredit as a unique QR code via email.', step3: 'Shop at Airport', step3Desc: 'Present your QR at a participating retailer at your departure airport.', step4: 'Enjoy Your Discount', step4Desc: 'Save money on duty-free and retail purchases.', ctaTitle: 'Ready to Save?', ctaDesc: 'Download your DutyCredit and start enjoying airport rewards today.', ctaButton: 'Go to Traveler Portal' },
       },
+      common: {
+        back: "Back",
+        cancel: "Cancel",
+        continue: "Continue",
+        download: "Download",
+        sign_in: "Sign In",
+      },
+      portal: {
+        signed_in_as: "Signed in as",
+        go_to_dashboard: "Go to Dashboard",
+        sign_out: "Sign Out",
+        sign_in: "Sign In",
+        delete_account: "Delete my account",
+        delete_reason: "Why are you deleting your account?",
+        delete_permanent: "This is permanent and cannot be undone.",
+        delete_confirm: "Yes, delete my account",
+        agency: {
+          title: "Travel Partner Portal",
+          desc: "Manage your bookings and DutyCredits for your travelers.",
+          create_account: "Create Travel Partner Account",
+          new_desc: "New to DutyBoost? Create an account to start integrating with our platform.",
+        },
+        retailer: {
+          title: "Airport Retailer Portal",
+          desc: "Redeem vouchers and manage your store's participation in the DutyBoost program.",
+          create_account: "Create Retailer Account",
+          new_desc: "New to DutyBoost? Create an account to start redeeming DutyCredits at your store.",
+        },
+      },
       traveler: travelerStrings.en,
       signup: {
         agency: {
