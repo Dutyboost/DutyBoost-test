@@ -63,7 +63,7 @@ const content = {
       { h: "15. Suspension and Termination", p: "DutyBoost may suspend or terminate your account immediately if you breach these Terms, engage in fraudulent or AML-related activity, fail to pay outstanding fees, or if your travel intermediary licence or airport retail concession is revoked." },
       { h: "16. Amendments", p: "DutyBoost may update these Terms at any time. Material changes will be communicated with at least 14 days' notice. Continued use of the Platform after the notice period constitutes acceptance of the updated Terms." },
       { h: "17. Governing Law", p: "These Terms are governed by the laws of the Netherlands. Disputes shall be subject to the exclusive jurisdiction of the courts of Amsterdam, the Netherlands." },
-      { h: "18. Contact", p: "For questions relating to these Terms: rael@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
+      { h: "18. Contact", p: "For questions relating to these Terms: legal@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
     ]
   },
   nl: { title: "Servicevoorwaarden", updated: "Laatst bijgewerkt: april 2026 · DutyBoost B.V. · Amsterdam, Nederland", back: "Terug naar home",
@@ -123,7 +123,7 @@ const content = {
       { h: "15. Opschorting en beëindiging", p: "DutyBoost kan uw account onmiddellijk opschorten of beëindigen bij schending van deze Voorwaarden, frauduleuze activiteiten, niet-betaling, of intrekking van uw reisintermediairlicentie of luchthavenconsessie." },
       { h: "16. Wijzigingen", p: "DutyBoost kan deze Voorwaarden op elk moment bijwerken met minimaal 14 dagen voorafgaande kennisgeving voor materiële wijzigingen." },
       { h: "17. Toepasselijk recht", p: "Deze Voorwaarden worden beheerst door Nederlands recht. Geschillen zijn onderworpen aan de exclusieve jurisdictie van de rechtbanken van Amsterdam." },
-      { h: "18. Contact", p: "Voor vragen over deze Voorwaarden: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
+      { h: "18. Contact", p: "Voor vragen over deze Voorwaarden: legal@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
     ]
   },
   de: { title: "Nutzungsbedingungen", updated: "Zuletzt aktualisiert: April 2026 · DutyBoost B.V. · Amsterdam, Niederlande", back: "Zurück zur Startseite",
@@ -183,7 +183,7 @@ const content = {
       { h: "15. Sperrung und Kündigung", p: "DutyBoost kann Ihr Konto sofort sperren oder kündigen bei Verstößen, betrügerischen Aktivitäten, Nichtbezahlung oder Entzug Ihrer Reisevermittlerlizenz oder Flughafenkonzession." },
       { h: "16. Änderungen", p: "DutyBoost kann diese Bedingungen jederzeit aktualisieren. Wesentliche Änderungen werden mit mindestens 14 Tagen Vorankündigung kommuniziert." },
       { h: "17. Anwendbares Recht", p: "Diese Bedingungen unterliegen dem Recht der Niederlande. Streitigkeiten unterliegen der ausschließlichen Zuständigkeit der Gerichte in Amsterdam." },
-      { h: "18. Kontakt", p: "Für Fragen: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
+      { h: "18. Kontakt", p: "Für Fragen: legal@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
     ]
   },
   fr: { title: "Conditions d'utilisation", updated: "Dernière mise à jour : avril 2026 · DutyBoost B.V. · Amsterdam, Pays-Bas", back: "Retour à l'accueil",
@@ -243,7 +243,7 @@ const content = {
       { h: "15. Suspension et résiliation", p: "DutyBoost peut suspendre ou résilier votre compte immédiatement en cas de violation, d'activité frauduleuse, de non-paiement ou de révocation de votre licence d'intermédiaire de voyage ou concession aéroportuaire." },
       { h: "16. Modifications", p: "DutyBoost peut modifier ces Conditions à tout moment avec au moins 14 jours de préavis pour les changements substantiels." },
       { h: "17. Droit applicable", p: "Ces Conditions sont régies par le droit néerlandais. Tout litige relève de la compétence exclusive des tribunaux d'Amsterdam." },
-      { h: "18. Contact", p: "Pour toute question : rael@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
+      { h: "18. Contact", p: "Pour toute question : legal@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
     ]
   },
   es: { title: "Términos de servicio", updated: "Última actualización: abril de 2026 · DutyBoost B.V. · Ámsterdam, Países Bajos", back: "Volver al inicio",
@@ -303,7 +303,7 @@ const content = {
       { h: "15. Suspensión y rescisión", p: "DutyBoost puede suspender o cancelar tu cuenta inmediatamente por incumplimiento, actividad fraudulenta, impago o revocación de tu licencia de intermediario de viajes o concesión aeroportuaria." },
       { h: "16. Modificaciones", p: "DutyBoost puede actualizar estos Términos con al menos 14 días de antelación para cambios materiales." },
       { h: "17. Ley aplicable", p: "Estos Términos se rigen por la ley neerlandesa. Cualquier disputa estará sujeta a la jurisdicción exclusiva de los tribunales de Ámsterdam." },
-      { h: "18. Contacto", p: "Para preguntas: rael@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
+      { h: "18. Contacto", p: "Para preguntas: legal@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
     ]
   },
   it: { title: "Termini di servizio", updated: "Ultimo aggiornamento: aprile 2026 · DutyBoost B.V. · Amsterdam, Paesi Bassi", back: "Torna alla home",
@@ -363,7 +363,7 @@ const content = {
       { h: "15. Sospensione e risoluzione", p: "DutyBoost può sospendere o chiudere il tuo account immediatamente per violazioni, attività fraudolente, mancato pagamento o revoca della tua licenza di intermediario di viaggio o concessione aeroportuale." },
       { h: "16. Modifiche", p: "DutyBoost può aggiornare questi Termini con almeno 14 giorni di preavviso per modifiche sostanziali." },
       { h: "17. Legge applicabile", p: "Questi Termini sono regolati dalla legge olandese. Le controversie sono soggette alla giurisdizione esclusiva dei tribunali di Amsterdam." },
-      { h: "18. Contatto", p: "Per domande: rael@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
+      { h: "18. Contatto", p: "Per domande: legal@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
     ]
   },
 };

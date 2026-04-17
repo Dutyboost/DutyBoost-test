@@ -4,7 +4,7 @@ export default function EmailLinkText({ text, className = "text-muted-foreground
     <p className={className}>
       {parts.map((part, i) =>
         /^[a-zA-Z0-9._%+-]+@dutyboost\.com$/.test(part) ? (
-          <a key={i} href={"mailto:" + part} className="text-primary underline">
+          <a key={i} href="mailto:rael@dutyboost.com" className="text-primary underline">
             {part}
           </a>
         ) : (
