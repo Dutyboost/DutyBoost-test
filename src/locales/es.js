@@ -4,7 +4,7 @@ export default {
       signIn: 'Iniciar sesión',
       for_agencies: 'Para socios de viaje',
       for_travelers: 'Para viajeros',
-      for_retailers: 'Para minoristas',
+      for_retailers: 'Para minoristas aeroportuarios',
       getStarted: 'Comenzar',
       weCallYou: 'Te llamamos',
       liveDemo: 'Demo en vivo',
@@ -51,7 +51,7 @@ export default {
       sign_in: 'Iniciar sesión',
       for_travelers: 'Para viajeros',
       for_agencies: 'Para socios de viaje',
-      for_retailers: 'Para minoristas',
+      for_retailers: 'Para minoristas aeroportuarios',
       get_started: 'Comenzar',
     },
     getstarted: {

@@ -4,7 +4,7 @@ export default {
       signIn: 'Accedi',
       for_agencies: 'Per i partner di viaggio',
       for_travelers: 'Per i viaggiatori',
-      for_retailers: 'Per i retailer',
+      for_retailers: 'Per i retailer aeroportuali',
       getStarted: 'Inizia',
       weCallYou: 'Ti chiamiamo',
       liveDemo: 'Demo dal vivo',
@@ -51,7 +51,7 @@ export default {
       sign_in: 'Accedi',
       for_travelers: 'Per i viaggiatori',
       for_agencies: 'Per i partner di viaggio',
-      for_retailers: 'Per i retailer',
+      for_retailers: 'Per i retailer aeroportuali',
       get_started: 'Inizia',
     },
     getstarted: {
