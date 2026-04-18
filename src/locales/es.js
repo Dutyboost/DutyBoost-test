@@ -2,11 +2,14 @@ export default {
   translation: {
     nav: {
       signIn: 'Iniciar sesión',
+      sign_in: 'Iniciar sesión',
       for_agencies: 'Para socios de viaje',
       for_travelers: 'Para viajeros',
       for_retailers: 'Para minoristas aeroportuarios',
       getStarted: 'Comenzar',
+      get_started: 'Comenzar',
       weCallYou: 'Te llamamos',
+      we_call_you: 'Te llamamos',
       liveDemo: 'Demo en vivo',
     },
     hero: {
@@ -72,14 +75,7 @@ export default {
       tagline: '— Plataforma dinámica de incentivos aeroportuarios',
       rights: '© 2026 DutyBoost. Todos los derechos reservados.',
     },
-    nav: {
-      sign_in: 'Iniciar sesión',
-      for_travelers: 'Para viajeros',
-      for_agencies: 'Para socios de viaje',
-      for_retailers: 'Para minoristas aeroportuarios',
-      we_call_you: 'Te llamamos',
-      get_started: 'Comenzar',
-    },
+
     getstarted: {
       title: 'Comenzar',
       subtitle_default: 'Únete a DutyBoost — la plataforma Travel Retail Conversion.',
