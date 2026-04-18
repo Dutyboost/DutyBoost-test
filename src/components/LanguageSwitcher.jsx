@@ -27,6 +27,7 @@ export default function LanguageSwitcher({ className = "" }) {
 
   const handleSelect = (code) => {
     i18n.changeLanguage(code);
+    localStorage.setItem('i18nextLng', code);
     setOpen(false);
   };
 
