@@ -77,21 +77,21 @@ export default function WeCallYouForm({ onSuccess }) {
   const validate = () => {
     const errs = {};
     if (!isRealName(form.full_name))
-      errs.full_name = 'Please enter your full name (first and last name).';
+      errs.full_name = t('wecallyou.err_name');
     if (!form.email)
-      errs.email = 'Email is required.';
+      errs.email = t('wecallyou.err_email_required');
     else if (!isWorkEmail(form.email))
-      errs.email = 'Please use a professional work email address (no Gmail, Hotmail, etc.).';
+      errs.email = t('wecallyou.err_email_work');
     if (!isValidPhone(form.phone))
-      errs.phone = 'Please enter a valid phone number (e.g. +31 6 1234 5678).';
+      errs.phone = t('wecallyou.err_phone');
     if (!form.company_name.trim())
-      errs.company_name = 'Company name is required.';
+      errs.company_name = t('wecallyou.err_company');
     if (!isValidWebsite(form.website))
-      errs.website = 'Please enter a valid website URL (e.g. https://yourcompany.com).';
+      errs.website = t('wecallyou.err_website');
     else if (form.email && isWorkEmail(form.email) && !domainsMatch(form.email, form.website))
-      errs.website = 'Your email domain must match your company website domain.';
+      errs.website = t('wecallyou.err_domain_mismatch');
     if (!form.industry)
-      errs.industry = 'Please select your business type.';
+      errs.industry = t('wecallyou.err_industry');
     return errs;
   };
 
@@ -106,7 +106,7 @@ export default function WeCallYouForm({ onSuccess }) {
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
-      toast.error('Please fix the errors in the form before submitting.');
+      toast.error(t('wecallyou.fill_required'));
       return;
     }
 
@@ -213,7 +213,7 @@ export default function WeCallYouForm({ onSuccess }) {
         >
           <option value="">{t('wecallyou.select_type')}</option>
           <option value="Retail">{t('wecallyou.retailer')}</option>
-          <option value="Agency">Travel Partner</option>
+          <option value="Agency">{t('wecallyou.agency')}</option>
         </select>
         {errors.industry && <p className="text-xs text-red-500">{errors.industry}</p>}
       </div>
