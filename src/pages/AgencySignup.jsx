@@ -220,12 +220,12 @@ export default function AgencySignup() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-             <h1 className="text-3xl font-heading font-bold">Welcome to DutyBoost!</h1>
+             <h1 className="text-3xl font-heading font-bold">{t('signup.agency.success_title')}</h1>
              <p className="text-muted-foreground">
-               Your Travel Partner account has been created successfully. Our team will review your application and contact you shortly.
+               {t('signup.agency.success_desc')}
              </p>
             </div>
-            <Link to="/agency-portal"><Button className="w-full">Go to Travel Partner Portal</Button></Link>
+            <Link to="/agency-portal"><Button className="w-full">{t('signup.agency.success_button')}</Button></Link>
           </div>
         </div>
       </div>
@@ -268,7 +268,7 @@ export default function AgencySignup() {
           {step === 0 && (
             <>
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-heading font-bold">Create Your Travel Partner Account</h1>
+                <h1 className="text-3xl font-heading font-bold">{t('signup.agency.step0_title')}</h1>
                 <p className="text-muted-foreground text-sm">
                   {t('signup.agency.subtitle')}
                 </p>
@@ -276,36 +276,36 @@ export default function AgencySignup() {
 
               <form onSubmit={handleStep0Submit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>Full Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.full_name')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Work Email <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.work_email')} <span className="text-red-500">*</span></Label>
                   <Input required type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
                   {email && isPersonalEmail(email) && (
-                    <p className="text-xs text-red-500">Please use your work email address. Personal email providers (Gmail, Hotmail, etc.) are not accepted.</p>
+                    <p className="text-xs text-red-500">{t('wecallyou.err_email_work')}</p>
                   )}
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Company Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.company_name')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Website <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.website')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>KVK <span className="text-red-500">*</span></Label>
+                    <Label>{t('getstarted.kvk')} <span className="text-red-500">*</span></Label>
                     <Input required placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>VAT <span className="text-red-500">*</span></Label>
+                    <Label>{t('getstarted.vat')} <span className="text-red-500">*</span></Label>
                     <Input required placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Booking Engine <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.booking_engine')} <span className="text-red-500">*</span></Label>
                   <BookingSystemSelect value={bookingSystem} onChange={setBookingSystem} />
                 </div>
 
@@ -318,7 +318,7 @@ export default function AgencySignup() {
                 />
 
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
-                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.saving') : t('getstarted.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
             </>
@@ -343,21 +343,21 @@ export default function AgencySignup() {
 
               <div className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>Account Holder Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.account_holder')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="e.g. Sunweb Group B.V." value={bankAccountName} onChange={e => setBankAccountName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>IBAN <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.iban')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="e.g. NL91ABNA0417164300" value={bankIban} onChange={e => setBankIban(e.target.value.toUpperCase())} />
                 </div>
               </div>
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('getstarted.back')}
                 </Button>
                 <Button className="gap-2 h-11" disabled={!bankAccountName || !bankIban || loading} onClick={handleStep1Submit}>
-                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.saving') : t('getstarted.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -382,10 +382,10 @@ export default function AgencySignup() {
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('getstarted.back')}
                 </Button>
                 <Button className="gap-2 h-11" disabled={loading} onClick={handleStep2Submit}>
-                  {loading ? "Sending..." : "Accept & Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.sending') : t('getstarted.accept_continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -404,12 +404,12 @@ export default function AgencySignup() {
 
               {/* Summary */}
               <div className="bg-card border border-border rounded-xl p-5 space-y-3 text-sm">
-                <p className="font-semibold text-foreground">Application Summary</p>
+                <p className="font-semibold text-foreground">{t('getstarted.application_summary')}</p>
                 {[
-                  { label: "Name", value: fullName },
-                  { label: "Email", value: email },
-                  { label: "Company", value: company },
-                  { label: "Type", value: "Travel Partner" },
+                  { label: t('getstarted.name_label'), value: fullName },
+                  { label: t('getstarted.email_label'), value: email },
+                  { label: t('getstarted.company_label'), value: company },
+                  { label: t('getstarted.type_label'), value: t('getstarted.travel_agency') },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>
@@ -420,7 +420,7 @@ export default function AgencySignup() {
 
               {/* Terms acceptance */}
               <div className="bg-card border border-border rounded-xl p-5 space-y-4">
-                <p className="font-semibold text-sm">Terms & Conditions</p>
+                <p className="font-semibold text-sm">{t('getstarted.terms_conditions')}</p>
                 <div className="h-36 overflow-y-auto text-xs text-muted-foreground space-y-2 pr-1 border border-border rounded-lg p-3 bg-muted/30">
                   <p><strong>DutyBoost Platform Agreement</strong></p>
                   <p>By joining DutyBoost, you agree to the following terms:</p>
@@ -442,26 +442,26 @@ export default function AgencySignup() {
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
                   <span className="text-sm text-foreground leading-relaxed">
-                    I agree to the DutyBoost Platform Agreement, Terms of Service, Privacy Policy, and Data Processing Agreement
+                    {t('getstarted.terms_checkbox_agency')}
                   </span>
                 </label>
               </div>
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(2)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('getstarted.back')}
                 </Button>
                 <Button className="gap-2 h-11" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
-                  {loading ? "Submitting..." : "Submit"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.submitting') : t('getstarted.submit')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
           )}
 
           <p className="text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
+            {t('getstarted.already_account')}{" "}
             <button onClick={() => base44.auth.redirectToLogin('/agency-portal')} className="text-primary underline underline-offset-2">
-              Sign in
+              {t('getstarted.sign_in')}
             </button>
           </p>
         </div>

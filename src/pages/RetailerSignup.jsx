@@ -261,32 +261,32 @@ export default function RetailerSignup() {
 
               <form onSubmit={handleStep0Submit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>Full Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.full_name')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="John Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Work Email <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.work_email')} <span className="text-red-500">*</span></Label>
                   <Input required type="email" placeholder="john@store.com" value={email} onChange={e => setEmail(e.target.value)} />
                   {email && isPersonalEmail(email) && (
-                    <p className="text-xs text-red-500">Please use your work email address. Personal email providers (Gmail, Hotmail, etc.) are not accepted.</p>
+                    <p className="text-xs text-red-500">{t('wecallyou.err_email_work')}</p>
                   )}
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Store Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.company_name')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Your store" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Website <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.website')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="https://yourstore.com" value={website} onChange={e => setWebsite(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Airport <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.airport')} <span className="text-red-500">*</span></Label>
                   <select
                     value={airport}
                     onChange={e => setAirport(e.target.value)}
                     className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   >
-                    <option value="">Select airport</option>
+                    <option value="">{t('getstarted.select_airport')}</option>
                     {airports.map(a => (
                       <option key={a.code} value={a.code}>
                         {a.code} — {a.name} ({a.city})
@@ -296,21 +296,21 @@ export default function RetailerSignup() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>KVK <span className="text-red-500">*</span></Label>
+                    <Label>{t('getstarted.kvk')} <span className="text-red-500">*</span></Label>
                     <Input required placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>VAT <span className="text-red-500">*</span></Label>
+                    <Label>{t('getstarted.vat')} <span className="text-red-500">*</span></Label>
                     <Input required placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Store Category <span className="text-red-500">*</span></Label>
+                  <Label>{t('getstarted.store_category')} <span className="text-red-500">*</span></Label>
                   <Select value={storeCategory} onValueChange={setStoreCategory}>
-                    <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
+                    <SelectTrigger><SelectValue placeholder={t('getstarted.select_category')} /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Retail">Retail</SelectItem>
-                      <SelectItem value="Food & Beverage">Food & Beverage</SelectItem>
+                      <SelectItem value="Retail">{t('getstarted.retail')}</SelectItem>
+                      <SelectItem value="Food & Beverage">{t('getstarted.food_bev')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -323,7 +323,7 @@ export default function RetailerSignup() {
                 />
 
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
-                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.saving') : t('getstarted.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
             </>
@@ -336,9 +336,9 @@ export default function RetailerSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Billing Details</h2>
+                <h2 className="text-2xl font-heading font-bold">{t('signup.retailer.step1_title')}</h2>
                 <p className="text-sm text-muted-foreground">
-                  No charges now — payments are only collected after a confirmed DutyCredit sale at the airport.
+                  {t('signup.retailer.step1_desc')}
                 </p>
               </div>
 
@@ -349,10 +349,10 @@ export default function RetailerSignup() {
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('getstarted.back')}
                 </Button>
                 <Button className="gap-2 h-11" disabled={!isStep1Valid() || loading} onClick={handleStep1Submit}>
-                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.saving') : t('getstarted.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -377,10 +377,10 @@ export default function RetailerSignup() {
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(1)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('getstarted.back')}
                 </Button>
                 <Button className="gap-2 h-11" disabled={loading} onClick={handleStep2Submit}>
-                  {loading ? "Sending..." : "Accept & Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.sending') : t('getstarted.accept_continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -399,19 +399,19 @@ export default function RetailerSignup() {
 
               {/* Summary */}
               <div className="bg-card border border-border rounded-xl p-5 space-y-3 text-sm">
-                <p className="font-semibold text-foreground">Application Summary</p>
+                <p className="font-semibold text-foreground">{t('getstarted.application_summary')}</p>
                 {[
-                  { label: "Name", value: fullName },
-                  { label: "Email", value: email },
-                  { label: "Store", value: company },
-                  { label: "Type", value: "Airport Retailer" },
-                  { label: "Payment Method", value: paymentMethod === "creditcard" ? "CREDIT CARD" : paymentMethod === "monthly_invoice" ? "MONTHLY INVOICE (SEPA)" : "MONTHLY INVOICE — SELF PAY" },
+                  { label: t('getstarted.name_label'), value: fullName },
+                  { label: t('getstarted.email_label'), value: email },
+                  { label: t('getstarted.company_label'), value: company },
+                  { label: t('getstarted.type_label'), value: t('getstarted.airport_retailer') },
+                  { label: t('getstarted.payment_method_label'), value: paymentMethod === "creditcard" ? "CREDIT CARD" : paymentMethod === "monthly_invoice" ? "MONTHLY INVOICE (SEPA)" : "MONTHLY INVOICE — SELF PAY" },
                   ...(paymentMethod === "creditcard" ? [
                     { label: "Cardholder", value: cardName },
                     { label: "Card Number", value: `****-****-****-${cardNumber.slice(-4)}` },
                   ] : paymentMethod === "monthly_invoice" ? [
-                   { label: "Account Holder", value: bankAccountName },
-                   { label: "IBAN", value: bankIban },
+                   { label: t('getstarted.account_holder'), value: bankAccountName },
+                   { label: t('getstarted.iban'), value: bankIban },
                   ] : paymentMethod === "self_pay_invoice" ? [
                    { label: "Invoice Email", value: invoiceEmail },
                   ] : []),
@@ -425,7 +425,7 @@ export default function RetailerSignup() {
 
               {/* Terms acceptance */}
               <div className="bg-card border border-border rounded-xl p-5 space-y-4">
-                <p className="font-semibold text-sm">Terms & Conditions</p>
+                <p className="font-semibold text-sm">{t('getstarted.terms_conditions')}</p>
                 <div className="h-36 overflow-y-auto text-xs text-muted-foreground space-y-2 pr-1 border border-border rounded-lg p-3 bg-muted/30">
                   <p><strong>DutyBoost Platform Agreement</strong></p>
                   <p>By joining DutyBoost, you agree to the following terms:</p>
@@ -448,26 +448,26 @@ export default function RetailerSignup() {
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
                   <span className="text-sm text-foreground leading-relaxed">
-                    I agree to the DutyBoost Platform Agreement, Terms of Service, Privacy Policy, and Data Processing Agreement
+                    {t('getstarted.terms_checkbox_retailer')}
                   </span>
                 </label>
               </div>
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(2)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('getstarted.back')}
                 </Button>
                 <Button className="gap-2 h-11" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
-                  {loading ? "Submitting..." : "Submit"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('getstarted.submitting') : t('getstarted.submit')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
           )}
 
           <p className="text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
+            {t('getstarted.already_account')}{" "}
             <button onClick={() => base44.auth.redirectToLogin('/retailer-portal')} className="text-primary underline underline-offset-2">
-              Sign in
+              {t('getstarted.sign_in')}
             </button>
           </p>
         </div>
