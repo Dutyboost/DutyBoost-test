@@ -98,9 +98,9 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
-        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/landing" element={<ComingSoonPage />} />
         <Route path="/voucher" element={<TravelerVoucher />} />
         <Route path="/scan" element={<TravelerScan />} />
         <Route path="/airport-map" element={<AirportMap />} />
