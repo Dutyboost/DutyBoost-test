@@ -52,6 +52,7 @@ export default {
       for_travelers: 'Para viajeros',
       for_agencies: 'Para socios de viaje',
       for_retailers: 'Para minoristas aeroportuarios',
+      we_call_you: 'Te llamamos',
       get_started: 'Comenzar',
     },
     getstarted: {

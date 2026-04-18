@@ -93,7 +93,7 @@ export default function LandingPage() {
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                We Call You
+                {t('nav.we_call_you')}
               </Button>
             )} />
             <Link to="/demo">
@@ -130,7 +130,7 @@ export default function LandingPage() {
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                We Call You
+                {t('nav.we_call_you')}
               </Button>
             )} />
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>

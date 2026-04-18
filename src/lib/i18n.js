@@ -19,6 +19,7 @@ const resources = {
         for_travelers: "For Leisure Travelers",
         for_agencies: "For Travel Partners",
         for_retailers: "For Airport Retailers",
+        we_call_you: "We Call You",
         get_started: "Get Started",
         we_call_you: "We Call You",
         live_demo: "Live Demo",
