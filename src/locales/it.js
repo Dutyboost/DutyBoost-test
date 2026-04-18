@@ -11,7 +11,7 @@ export default {
     },
     hero: {
       title_1: 'Trasformare ogni prenotazione di viaggio in',
-      title_2: 'guadagni negli aeroporti',
+      title_2: 'guadagni negli aeroporti — per tutti',
       subtitle: 'Sblocca il flusso di entrate nascosto in ogni prenotazione con il Travel Retail Conversion Layer di DutyBoost. Collegando viaggiatori, agenzie di viaggio e retailer aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento prima ancora che raggiungano l\'aeroporto.',
     },
     ecosystem: {
