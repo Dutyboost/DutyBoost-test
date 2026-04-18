@@ -83,7 +83,7 @@ export default function LandingPage() {
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/agency-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                For Travel Partners
+                {t('nav.for_agencies')}
               </Button>
             </Link>
             <Link to="/retailer-showcase">
@@ -120,7 +120,7 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
             <Link to="/agency-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                For Travel Partners
+                {t('nav.for_agencies')}
               </Button>
             </Link>
             <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
@@ -176,9 +176,13 @@ export default function LandingPage() {
               let title, description, benefits;
               
               if (s.key === 'agencies') {
-                title = 'For Travel Partners';
-                description = 'Turn every booking into a loyalty tool. Auto-generate personalized DutyCredits for your travelers based on booking value, destination, and group size — with simple API integration. Earn a margin on every redeemed DutyCredit.';
-                benefits = ['Boost customer loyalty', 'Zero integration friction', 'New revenue stream'];
+                title = t('nav.for_agencies');
+                description = t('stakeholders.agencies.description');
+                benefits = [
+                  t('stakeholders.agencies.b1'),
+                  t('stakeholders.agencies.b2'),
+                  t('stakeholders.agencies.b3'),
+                ];
               } else {
                 benefits = [
                   t(`stakeholders.${s.key}.b1`),

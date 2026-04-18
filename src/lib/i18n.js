@@ -17,7 +17,7 @@ const resources = {
       nav: {
         sign_in: "Sign In",
         for_travelers: "For Leisure Travelers",
-        for_agencies: "For Travel Agencies",
+        for_agencies: "For Travel Partners",
         for_retailers: "For Airport Retailers",
         get_started: "Get Started",
         we_call_you: "We Call You",

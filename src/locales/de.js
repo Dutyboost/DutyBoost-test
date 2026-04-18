@@ -2,7 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Anmelden',
-      for_agencies: 'Für Agenturen',
+      for_agencies: 'Für Reisepartner',
       for_travelers: 'Für Reisende',
       for_retailers: 'Für Händler',
       getStarted: 'Loslegen',
@@ -50,7 +50,7 @@ export default {
     nav: {
       sign_in: 'Anmelden',
       for_travelers: 'Für Reisende',
-      for_agencies: 'Für Agenturen',
+      for_agencies: 'Für Reisepartner',
       for_retailers: 'Für Händler',
       get_started: 'Loslegen',
     },

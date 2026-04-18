@@ -2,7 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Iniciar sesión',
-      for_agencies: 'Para agencias',
+      for_agencies: 'Para socios de viaje',
       for_travelers: 'Para viajeros',
       for_retailers: 'Para minoristas',
       getStarted: 'Comenzar',
@@ -50,7 +50,7 @@ export default {
     nav: {
       sign_in: 'Iniciar sesión',
       for_travelers: 'Para viajeros',
-      for_agencies: 'Para agencias',
+      for_agencies: 'Para socios de viaje',
       for_retailers: 'Para minoristas',
       get_started: 'Comenzar',
     },
