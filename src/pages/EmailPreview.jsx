@@ -96,7 +96,7 @@ export default function EmailPreview() {
                 </tr>
               </tbody>
             </table>
-            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €${creditAmount.toFixed(2)}.</p>
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €25.00.</p>
           </td>
         </tr>
 
