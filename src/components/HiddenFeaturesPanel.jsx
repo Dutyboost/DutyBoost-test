@@ -83,7 +83,12 @@ ADDITIONAL VALUE:
 • Extended experience: service continues beyond the hotel into the travel journey
 • No friction: no app download, no signup — guest simply receives and uses the reward
 
-KEY MESSAGE: "Turn every departing guest into a revenue opportunity by extending your service beyond the hotel and into the airport."`,
+KEY MESSAGE: "Turn every departing guest into a revenue opportunity by extending your service beyond the hotel and into the airport."
+
+ROLLOUT:
+Phase 1 — Integrate DutyCredit reward into the departure/thank-you email at a single partner hotel and airport.
+Phase 2 — Add pre-departure reminder email (sent morning of departure) and expand to more airport retailers.
+Phase 3 — Expand across hotel chains, multiple airports, and connect to hotel PMS for automated trigger on check-out.`,
     pages: [],
     howToRestore: [
       "Create pages/HotelPartnerOnboarding.jsx for hotel signup flow (mirrors AgencySignup structure).",
