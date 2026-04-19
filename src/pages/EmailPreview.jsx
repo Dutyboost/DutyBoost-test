@@ -84,15 +84,15 @@ export default function EmailPreview() {
               <tbody>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€70 – €99</td>
-                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">10% of spend — max €9.99</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">max €9.99</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">15% of spend — up to €${creditAmount.toFixed(2)}</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">max €14.00</td>
                 </tr>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>
-                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">20% of spend — max €25.00 🏆</td>
+                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">max €25.00 🏆</td>
                 </tr>
               </tbody>
             </table>
