@@ -74,8 +74,8 @@ Deno.serve(async (req) => {
 
     // Send welcome email via Postmark
     const postmarkToken = Deno.env.get('PostMark');
-    const businessTypeLabel = app.business_type === 'Travel Agency' ? 'agency' : 'retailer';
-    const dashboardUrl = app.business_type === 'Travel Agency'
+    const businessTypeLabel = app.business_type === 'Travel Partner' ? 'agency' : 'retailer';
+    const dashboardUrl = app.business_type === 'Travel Partner'
       ? 'https://dutyboost.com/agency-portal'
       : 'https://dutyboost.com/retailer-portal';
 
