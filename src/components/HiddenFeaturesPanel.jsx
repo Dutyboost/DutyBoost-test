@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Trophy, Smartphone, Hotel } from "lucide-react";
+import { EyeOff, Briefcase, Trophy, Smartphone, Hotel, Plane } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -66,6 +66,48 @@ const HIDDEN_FEATURES = [
       "Add hotel partner entity and commission model to backend.",
       "Add a 'For Hotels' showcase page and link it from the LandingPage nav.",
       "Register routes in App.jsx and expose public paths.",
+    ],
+    files: [],
+  },
+  {
+    id: "airline-inflight",
+    icon: Plane,
+    title: "Airline & Inflight Integration",
+    status: "hidden",
+    reason: "Strategic future channel — positioning and rollout defined",
+    description: `DutyBoost is not a retail tech feature or airport promotion. It is a revenue layer that connects booking, airport, and inflight into one monetization flow. The positioning: "We increase revenue per passenger beyond the flight itself."
+
+JOURNEY MAP:
+• Booking → Reward is generated (post-booking confirmation email / airline app / boarding pass wallet)
+• Pre-flight → Reward is redeemed at airport retailer (minimum €50 spend)
+• Inflight → Reminder & activation (WiFi portal, entertainment system, onboard magazine)
+
+INTEGRATION POINTS:
+A. Post-booking (primary entry): "You've unlocked €X to use at your departure airport" — intent is created here.
+B. Pre-flight (conversion moment): Passenger scans QR, meets minimum spend. Revenue is generated here.
+C. Inflight (activation layer): WiFi portal first screen, IFE reminder, digital content — reinforces usage on next trip.
+
+WHY AIRLINES CARE — Third revenue layer beyond tickets and inflight sales:
+• Conversion 20% of 100k pax = 20,000 conversions
+• Avg spend €50 = €1,000,000 gross
+• Commission 2.5% = €25,000 / Airline share 20% = €5,000 incremental
+• Loyalty: tangible immediate value vs abstract points
+• Data: airport purchase behaviour, category performance, conversion timing
+
+KEY MESSAGE: Do not say "we help airport retail." Say: "We increase revenue per passenger beyond the flight itself."
+
+ROLLOUT:
+Phase 1 — Booking confirmation + QR reward at single airport.
+Phase 2 — Inflight reminders via WiFi portal or onboard content.
+Phase 3 — Expand across routes and airports.`,
+    pages: [],
+    howToRestore: [
+      "Create an airline partner onboarding page (pages/AirlinePartner.jsx) with the positioning deck and integration options.",
+      "Add post-booking webhook endpoint that airline booking systems can call to auto-generate DutyCredits for passengers.",
+      "Build an inflight WiFi portal landing page (public, no login) that shows 'You have an unused reward waiting at the airport'.",
+      "Add airline as a user role/partner type in SignupApplication entity.",
+      "Create airline analytics dashboard showing pax conversion, airport spend, and revenue share.",
+      "Add airline partner routes to App.jsx and expose via LandingPage nav.",
     ],
     files: [],
   },
