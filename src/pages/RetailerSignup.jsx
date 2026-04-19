@@ -171,7 +171,7 @@ export default function RetailerSignup() {
     if (!termsAccepted) return;
     setLoading(true);
     try {
-      await base44.entities.SignupApplication.update(applicationId, { terms_accepted: true });
+      await base44.entities.SignupApplication.update(applicationId, { terms_accepted: true, status: 'pending' });
       try {
         const res = await base44.functions.invoke('createMolliePayment', {
           applicationId,

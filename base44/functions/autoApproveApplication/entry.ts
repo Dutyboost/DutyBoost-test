@@ -25,6 +25,14 @@ Deno.serve(async (req) => {
     if (!app) return Response.json({ skipped: true, reason: 'No data' });
 
     // Auto-approve only if all required fields are present and terms accepted
+    const isRetailer = app.business_type === 'Airport Retailer';
+    const isAgency = app.business_type === 'Travel Partner';
+
+    // Retailers can use self_pay_invoice (no IBAN required), agencies always need bank details
+    const hasBankDetails = isAgency
+      ? (app.bank_iban && app.bank_account_name)
+      : true; // Retailers may use invoice billing without IBAN
+
     const isComplete =
       app.full_name &&
       app.email &&
@@ -32,8 +40,7 @@ Deno.serve(async (req) => {
       app.business_type &&
       app.kvk &&
       app.vat &&
-      app.bank_iban &&
-      app.bank_account_name &&
+      hasBankDetails &&
       app.terms_accepted === true;
 
     if (!isComplete) {

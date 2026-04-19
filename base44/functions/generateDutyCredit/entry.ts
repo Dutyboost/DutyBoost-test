@@ -143,7 +143,7 @@ Deno.serve(async (req) => {
                     Simply scan the QR code below at checkout — no app, no loyalty card needed.
                   </p>
                   <p style="margin:10px 0 0;color:#374151;font-size:14px;line-height:1.7;">
-                   No minimum spend required. Your credit is applied up to 15% of your basket value — so even a small purchase earns you a discount.
+                  Valid on purchases of €70 or more at a single participating store. Your credit is applied up to 15% of your basket value.
                   </p>
                 </td>
               </tr>
@@ -170,7 +170,7 @@ Deno.serve(async (req) => {
               </tr>
               <tr style="background:#f9fafb;">
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">DutyCredit Value</td>
-                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">€${creditAmount.toFixed(2)} (up to 15% of your basket, no minimum spend)</td>
+                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">€${creditAmount.toFixed(2)} (up to 15% of your basket, min. €70 purchase)</td>
               </tr>
               <tr>
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;">Valid Until</td>
@@ -186,7 +186,7 @@ Deno.serve(async (req) => {
             </table>
             <p style="margin:0;color:#9ca3af;font-size:12px;line-height:1.6;border-top:1px solid #e5e7eb;padding-top:16px;">
               Your DutyCredit (€${creditAmount.toFixed(2)}) is redeemable in a single transaction at one participating point of sale.
-              No minimum spend required. The credit applied cannot exceed 15% of your basket value.
+              Valid on purchases of €70 or more. The credit applied cannot exceed 15% of your basket value.
               It is personal, non-transferable, and expires on <strong>${formattedExpiry}</strong>.
               Having trouble with the QR code? Use voucher code <strong>${voucherCode}</strong> at the till.
             </p>
@@ -227,7 +227,7 @@ Deno.serve(async (req) => {
       <p style="margin:0 0 4px;color:#5b4fcf;font-size:36px;font-weight:800;">€${creditAmount.toFixed(2)}</p>
       <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;max-width:400px;display:inline-block;">
         Redeemable at participating shops at <strong>${departure_airport}</strong> on your day of departure.<br/>
-        No minimum spend required — up to 15% of your basket. Scan the QR code at the till.
+        Valid on purchases of €70+ at a single store — up to 15% of your basket. Scan the QR code at the till.
       </p>
       <div style="margin:0 0 16px;">
         <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="160" height="160" style="display:block;margin:0 auto;border-radius:8px;border:1px solid #e5e7eb;" />

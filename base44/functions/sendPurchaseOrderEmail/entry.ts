@@ -4,7 +4,7 @@ const AGENCY_REVENUE_SHARE = "20%";
 const RETAILER_COMMISSION = "5%";
 
 function generatePOHtml(businessType, formData, poNumber) {
-  const isAgency = businessType === "Travel Agency";
+  const isAgency = businessType === "Travel Partner";
   const today = new Date().toLocaleDateString("nl-NL", { day: "2-digit", month: "long", year: "numeric" });
   const commission = isAgency ? AGENCY_REVENUE_SHARE : RETAILER_COMMISSION;
 

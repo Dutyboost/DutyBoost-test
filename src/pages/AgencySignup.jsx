@@ -188,7 +188,8 @@ export default function AgencySignup() {
     try {
       await base44.entities.SignupApplication.update(applicationId, { 
         terms_accepted: true,
-        status: "invited"
+        bank_account_name: bankAccountName,
+        bank_iban: bankIban,
       });
       
       // Trigger initial payout setup
