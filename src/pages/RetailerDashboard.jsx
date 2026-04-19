@@ -357,7 +357,7 @@ export default function RetailerDashboard() {
                 <div key={v.id} className="bg-card rounded-xl border border-border p-4 flex items-center justify-between">
                   <div>
                     <p className="font-mono text-sm font-medium">{v.voucher_code}</p>
-                    <p className="text-sm text-muted-foreground">{v.discount_percentage}% DutyCredit · Expires {v.expiration_date}</p>
+                    <p className="text-sm text-muted-foreground">€{v.discount_percentage} DutyCredit · Expires {v.expiration_date}</p>
                   </div>
                   <span className="text-xs px-2 py-1 rounded-full" style={{background:'#00C48C22',color:'#00A876'}}>{v.status}</span>
                 </div>

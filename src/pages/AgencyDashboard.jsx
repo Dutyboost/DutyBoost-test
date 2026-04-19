@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import ProfileTab from "../components/ProfileTab";
-import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import VoucherCard from "../components/VoucherCard";
 import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle, BookOpen, ArrowRight, Code2, Mail, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -201,7 +200,7 @@ export default function AgencyDashboard() {
         <StatsCard title="Total Passengers" value={totalPassengers} icon={TicketPercent} />
         <StatsCard title="Active DutyCredits" value={activeVouchers} icon={TicketPercent} />
         <StatsCard title="DutyCredits Redeemed" value={redeemedVouchers} icon={TicketPercent} />
-        <StatsCard title="Commission Earned" value={`€${totalCommissionEarned.toFixed(2)}`} subtitle={`1% of €${totalGrossVolume.toFixed(2)} gross sales`} icon={Landmark} />
+        <StatsCard title="Commission Earned" value={`€${totalCommissionEarned.toFixed(2)}`} subtitle={`0.5% of €${totalGrossVolume.toFixed(2)} gross sales`} icon={Landmark} />
       </div>
 
       <div className="space-y-4">

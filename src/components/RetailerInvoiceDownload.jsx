@@ -109,7 +109,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers, user 
     y += 7;
     doc.setFont(undefined, "bold");
     doc.setTextColor(255, 122, 0);
-    doc.text("DutyBoost Platform Fee (5%, excl. VAT):", 110, y);
+    doc.text("DutyBoost Platform Fee (2.5%, excl. VAT):", 110, y);
     doc.text(`€${totalFee.toFixed(2)}`, 170, y, { align: "right" });
     doc.setFont(undefined, "normal");
     y += 7;
@@ -171,7 +171,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers, user 
         <div>
           <h3 className="font-heading font-semibold">Download Invoice</h3>
           <p className="text-sm text-muted-foreground">Monthly transaction invoice for tax purposes</p>
-          <p className="text-xs text-amber-600 font-medium mt-0.5">All DutyBoost fees are exclusive of VAT (21% added separately)</p>
+          <p className="text-xs text-amber-600 font-medium mt-0.5">Platform fee is 2.5% of gross redemption value, exclusive of VAT (21% added separately)</p>
         </div>
       </div>
 
