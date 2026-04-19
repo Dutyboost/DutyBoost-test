@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -33,7 +33,7 @@ Deno.serve(async (req) => {
             <table style="width:100%; border-collapse: collapse; margin: 16px 0;">
               <tr><td style="padding: 8px; color: #666;">Booking ID</td><td style="padding: 8px; font-weight: bold;">${voucher.booking_id}</td></tr>
               <tr style="background:#f9f9f9;"><td style="padding: 8px; color: #666;">Voucher Code</td><td style="padding: 8px; font-weight: bold;">${voucher.voucher_code}</td></tr>
-              <tr><td style="padding: 8px; color: #666;">Discount Applied</td><td style="padding: 8px; font-weight: bold;">${voucher.discount_percentage}%</td></tr>
+              <tr><td style="padding: 8px; color: #666;">DutyCredit Value</td><td style="padding: 8px; font-weight: bold;">€${voucher.discount_percentage}</td></tr>
               <tr style="background:#f9f9f9;"><td style="padding: 8px; color: #666;">Airport</td><td style="padding: 8px; font-weight: bold;">${voucher.airport}</td></tr>
             </table>
             <p style="color: #666; font-size: 13px;">To manage your notification settings, visit your <a href="https://dutyboost.com/dashboard" style="color:#4f46e5;">Agency Dashboard</a>.</p>

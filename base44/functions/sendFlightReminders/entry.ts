@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -32,7 +32,7 @@ Deno.serve(async (req) => {
             <p>You have an active DutyCredit to use at <strong>${voucher.airport}</strong> airport. Show it at any participating DutyBoost retailer to redeem your discount.</p>
             <div style="background: #f5f3ff; border: 1px solid #c4b5fd; border-radius: 12px; padding: 16px; margin: 16px 0; text-align: center;">
               <p style="color: #666; margin: 0 0 4px;">Your Discount</p>
-              <p style="font-size: 36px; font-weight: bold; color: #4f46e5; margin: 0;">${voucher.discount_percentage}%</p>
+              <p style="font-size: 36px; font-weight: bold; color: #4f46e5; margin: 0;">€${voucher.discount_percentage}</p>
               <p style="color: #888; font-size: 13px; margin: 8px 0 0;">Code: <strong>${voucher.voucher_code}</strong></p>
             </div>
             <p style="text-align: center;">

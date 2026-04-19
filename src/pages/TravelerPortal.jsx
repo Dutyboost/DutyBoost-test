@@ -245,7 +245,7 @@ export default function TravelerPortal() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-bold text-green-600">{v.discount_percentage}% off</p>
+                      <p className="text-sm font-bold text-green-600">€{v.discount_percentage} DutyCredit</p>
                       <p className="text-xs text-muted-foreground">{v.expiration_date}</p>
                     </div>
                   </div>
@@ -267,8 +267,8 @@ function VoucherCard({ voucher, isQROpen, onToggleQR }) {
         <div className="flex items-start justify-between">
           <div>
             <p className="text-xs opacity-70 uppercase tracking-wider">DutyCredit</p>
-            <p className="text-4xl font-heading font-bold mt-1">{voucher.discount_percentage}%</p>
-            <p className="text-sm opacity-80">{t('traveler.offPurchase')}</p>
+            <p className="text-4xl font-heading font-bold mt-1">€{voucher.discount_percentage}</p>
+            <p className="text-sm opacity-80">DutyCredit</p>
           </div>
           <Badge className="bg-white/20 text-white border-white/30 text-xs">
             <CheckCircle className="w-3 h-3 mr-1" /> Active
@@ -318,7 +318,7 @@ function PastVoucherRow({ voucher }) {
           {isRedeemed ? <CheckCircle className="w-4 h-4 text-green-600" /> : <AlertCircle className="w-4 h-4 text-muted-foreground" />}
         </div>
         <div>
-          <p className="text-sm font-medium">{voucher.airport} · {voucher.discount_percentage}% off</p>
+          <p className="text-sm font-medium">{voucher.airport} · €{voucher.discount_percentage} DutyCredit</p>
           <p className="text-xs text-muted-foreground">{voucher.voucher_code}</p>
         </div>
       </div>

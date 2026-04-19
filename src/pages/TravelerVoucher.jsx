@@ -103,8 +103,8 @@ export default function TravelerVoucher() {
         <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-lg">
           <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 p-6 text-center text-primary-foreground relative">
             <p className="text-sm opacity-80 mb-1">Your Discount</p>
-            <p className="text-6xl font-heading font-bold">{voucher.discount_percentage}%</p>
-            <p className="text-sm opacity-80 mt-2">off at participating stores</p>
+            <p className="text-6xl font-heading font-bold">€{voucher.discount_percentage}</p>
+            <p className="text-sm opacity-80 mt-2">DutyCredit at participating stores</p>
 
             {(isExpired || isRedeemed) && (
               <div className="absolute top-4 right-4">

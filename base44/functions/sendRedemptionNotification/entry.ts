@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
       <h2>DutyCredit Redeemed Successfully!</h2>
       <p>Great news! Your DutyCredit has been redeemed at ${airport}.</p>
       <p><strong>Voucher Code:</strong> ${voucher_code}</p>
-      <p><strong>Discount:</strong> ${discount_percentage}%</p>
+      <p><strong>DutyCredit Value:</strong> €${discount_percentage}</p>
       <p>Thank you for using DutyBoost. Enjoy your shopping!</p>
       <p>Best regards,<br/>The DutyBoost Team</p>
     `;

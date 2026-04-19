@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -21,7 +21,7 @@ Deno.serve(async (req) => {
 
     // Get agency details for bank info
     const agencies = await base44.asServiceRole.entities.SignupApplication.filter({
-      business_type: 'Travel Agency',
+      business_type: 'Travel Partner',
     });
 
     const agencyMap = {};
