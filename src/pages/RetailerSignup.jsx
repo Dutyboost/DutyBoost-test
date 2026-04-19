@@ -172,21 +172,6 @@ export default function RetailerSignup() {
     setLoading(true);
     try {
       await base44.entities.SignupApplication.update(applicationId, { terms_accepted: true, status: 'pending' });
-      try {
-        const res = await base44.functions.invoke('createMolliePayment', {
-          applicationId,
-          paymentMethod,
-          redirectUrl: window.location.origin + '/retailer-portal',
-          email,
-          fullName,
-        });
-        if (res.data?.checkoutUrl) {
-          window.location.href = res.data.checkoutUrl;
-          return;
-        }
-      } catch {
-        // Mollie not configured yet — fall through to success
-      }
       setSubmitted(true);
     } finally {
       setLoading(false);
