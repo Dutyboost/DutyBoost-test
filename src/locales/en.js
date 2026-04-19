@@ -12,7 +12,7 @@ export default {
     hero: {
       title_1: 'Turn every booking into',
       title_2: 'airport revenue',
-      subtitle: 'Unlock the revenue hidden inside every travel booking with DutyBoost\'s The Travel Retail Conversion Solution. By connecting travel partners and airport retailers, we turn leisure travelers into high-intent buyers before they even reach their airport of departure.',
+      subtitle: 'Unlock the revenue hidden inside every travel booking with DutyBoost\'s The Travel Retail Conversion Layer. By connecting travel partners and airport retailers, we turn leisure travelers into high-intent buyers before they even reach their airport of departure.',
     },
     ecosystem: {
       title: 'Our three-stakeholder ecosystem',
@@ -44,12 +44,12 @@ export default {
       button: 'Get Started Today',
     },
     footer: {
-      tagline: '— The Travel Retail Conversion Solution',
+      tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. All rights reserved.',
     },
     getstarted: {
       title: 'Get Started with DutyBoost',
-      subtitle_default: 'Choose your role to access and start enjoying the benefits of The Travel Retail Conversion Solution.',
+      subtitle_default: 'Choose your role to access and start enjoying the benefits of The Travel Retail Conversion Layer.',
       agencies_description: 'Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.',
       retailers_description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
     },

@@ -7,10 +7,10 @@ export default {
       liveDemo: 'ライブデモ',
     },
     hero: {
-      badge: 'The Travel Retail Conversion Solution',
+      badge: 'The Travel Retail Conversion Layer',
       headline1: 'すべての旅行予約を',
       headline2: '空港での収益に変える',
-      sub: 'DutyBoostのThe Travel Retail Conversion Solutionで、すべての予約に隠された収益の流れを解き放ちましょう。旅行者、旅行代理店、空港小売業者をつなぐことで、旅行者が出発空港に到着する前に購買意欲の高いバイヤーに変えます。',
+      sub: 'DutyBoostのThe Travel Retail Conversion Layerで、すべての予約に隠された収益の流れを解き放ちましょう。旅行者、旅行代理店、空港小売業者をつなぐことで、旅行者が出発空港に到着する前に購買意欲の高いバイヤーに変えます。',
       cta: 'プラットフォームを起動',
       seeHow: '仕組みを見る',
     },
@@ -67,7 +67,7 @@ export default {
       button: 'プラットフォームにアクセス',
     },
     footer: {
-      tagline: '— The Travel Retail Conversion Solution',
+      tagline: '— The Travel Retail Conversion Layer',
       copy: '© 2026 DutyBoost. 全著作権所有。',
     },
   },

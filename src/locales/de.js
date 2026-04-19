@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Jede Reisebuchung verwandeln in',
       title_2: 'Einnahmen an Flughäfen — für alle',
-      subtitle: 'Erschließen Sie den versteckten Umsatzstrom in jeder Buchung mit DutyBoosts The Travel Retail Conversion Solution. Durch die Vernetzung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Käufern, bevor sie den Abflughafen erreichen.',
+      subtitle: 'Erschließen Sie den versteckten Umsatzstrom in jeder Buchung mit DutyBoosts The Travel Retail Conversion Layer. Durch die Vernetzung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Käufern, bevor sie den Abflughafen erreichen.',
     },
     ecosystem: {
       title: 'So funktioniert unser Ökosystem',
@@ -72,13 +72,13 @@ export default {
       err_industry: 'Bitte wählen Sie Ihren Unternehmenstyp aus.',
     },
     footer: {
-      tagline: '— The Travel Retail Conversion Solution',
+      tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
     },
 
     getstarted: {
       title: 'Loslegen',
-      subtitle_default: 'Treten Sie DutyBoost bei — The Travel Retail Conversion Solution.',
+      subtitle_default: 'Treten Sie DutyBoost bei — The Travel Retail Conversion Layer.',
       agencies_description: 'Erhöhen Sie die Kundentreue und steigern Sie Ausgaben durch exklusive Flughafen-Shopping-Anreize. Differenzieren Sie Ihr Angebot und erschließen Sie einen neuen Umsatzstrom.',
       retailers_description: 'Erhalten Sie vorqualifizierte Kunden und steigern Sie den Transaktionswert durch DutyBoosts gezielte Incentive-Programme. Steigern Sie Ihren Umsatz und bauen Sie Kundentreue auf.',
       full_name: 'Vollständiger Name',

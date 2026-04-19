@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Trasformare ogni prenotazione di viaggio in',
       title_2: 'guadagni negli aeroporti — per tutti',
-      subtitle: 'Sblocca il flusso di entrate nascosto in ogni prenotazione con The Travel Retail Conversion Solution di DutyBoost. Collegando viaggiatori, agenzie di viaggio e retailer aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento prima ancora che raggiungano l\'aeroporto.',
+      subtitle: 'Sblocca il flusso di entrate nascosto in ogni prenotazione con The Travel Retail Conversion Layer di DutyBoost. Collegando viaggiatori, agenzie di viaggio e retailer aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento prima ancora che raggiungano l\'aeroporto.',
     },
     ecosystem: {
       title: 'Come funziona il nostro ecosistema',
@@ -72,13 +72,13 @@ export default {
       err_industry: 'Per favore seleziona il tipo di attività.',
     },
     footer: {
-      tagline: '— The Travel Retail Conversion Solution',
+      tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Tutti i diritti riservati.',
     },
 
     getstarted: {
       title: 'Inizia',
-      subtitle_default: 'Unisciti a DutyBoost — The Travel Retail Conversion Solution.',
+      subtitle_default: 'Unisciti a DutyBoost — The Travel Retail Conversion Layer.',
       agencies_description: 'Aumenta la fedeltà dei clienti e le spese offrendo incentivi di shopping esclusivi in aeroporto. Differenzia la tua offerta e genera un nuovo flusso di entrate.',
       retailers_description: 'Ottieni clienti pre-qualificati e aumenta il valore delle transazioni tramite i programmi di incentivi mirati di DutyBoost. Aumenta i tuoi ricavi fidelizzando i clienti.',
       full_name: 'Nome completo',

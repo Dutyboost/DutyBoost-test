@@ -12,7 +12,7 @@ export default {
     hero: {
       title_1: 'Elke boeking omzetten in',
       title_2: 'inkomsten op luchthavens',
-      subtitle: 'Ontgrendel de verborgen omzetstroom in elke boeking met DutyBoost\'s The Travel Retail Conversion Solution. Door reizigers, reisbureaus en luchthavenretailers te verbinden, maken we van reizigers koopklare klanten nog vóór ze de luchthaven bereiken.',
+      subtitle: 'Ontgrendel de verborgen omzetstroom in elke boeking met DutyBoost\'s The Travel Retail Conversion Layer. Door reizigers, reisbureaus en luchthavenretailers te verbinden, maken we van reizigers koopklare klanten nog vóór ze de luchthaven bereiken.',
     },
     ecosystem: {
       title: 'Zo werkt ons ecosysteem',
@@ -44,12 +44,12 @@ export default {
       button: 'Vandaag beginnen',
     },
     footer: {
-      tagline: '— The Travel Retail Conversion Solution',
+      tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle rechten voorbehouden.',
     },
     getstarted: {
       title: 'Aan de slag met DutyBoost',
-      subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van The Travel Retail Conversion Solution.',
+      subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van The Travel Retail Conversion Layer.',
       agencies_description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
       retailers_description: 'Ontvang voorgeselecteerde klanten en verhoog de transactiewaarde via DutyBoosts gerichte incentiveprogramma\'s. Groei uw omzet en bouw klantloyaliteit op uw luchthaven op.',
       kvk: 'KvK-nummer (Kamer van Koophandel)',

@@ -7,10 +7,10 @@ export default {
       liveDemo: '在线演示',
     },
     hero: {
-      badge: 'The Travel Retail Conversion Solution',
+      badge: 'The Travel Retail Conversion Layer',
       headline1: '将每一次旅行预订转化为',
       headline2: '机场收益',
-      sub: '利用DutyBoost的The Travel Retail Conversion Solution，解锁每次预订中隐藏的收益流。通过连接旅客、旅行社和机场零售商，我们在旅客抵达出发机场之前就将其转化为高意向买家。',
+      sub: '利用DutyBoost的The Travel Retail Conversion Layer，解锁每次预订中隐藏的收益流。通过连接旅客、旅行社和机场零售商，我们在旅客抵达出发机场之前就将其转化为高意向买家。',
       cta: '启动平台',
       seeHow: '了解运作方式',
     },
@@ -67,7 +67,7 @@ export default {
       button: '访问平台',
     },
     footer: {
-      tagline: '——The Travel Retail Conversion Solution',
+      tagline: '——The Travel Retail Conversion Layer',
       copy: '© 2026 DutyBoost。保留所有权利。',
     },
   },
