@@ -10,6 +10,7 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
+    // No user session — Mollie calls this directly, use service role only
     const base44 = createClientFromRequest(req);
     const body = await req.text();
     const params = new URLSearchParams(body);
@@ -36,21 +37,17 @@ Deno.serve(async (req) => {
     console.log(`Mollie webhook: payment ${id} status = ${payment.status}`);
 
     if (payment.status === 'paid') {
-      // Extract our reference from the description: "INV-{month}-{ownerPrefix}"
-      // or from metadata we stored when creating the payment link
       const metadata = payment.metadata || {};
-      const invoiceId = metadata.invoice_month_year;
+      const invoiceMonthYear = metadata.invoice_month_year;
       const retailerEmail = metadata.retailer_email;
 
-      if (invoiceId && retailerEmail) {
+      if (invoiceMonthYear && retailerEmail) {
         const invoices = await base44.asServiceRole.entities.MonthlyInvoice.filter({
           retailer_email: retailerEmail,
-          month_year: invoiceId,
+          month_year: invoiceMonthYear,
         });
         if (invoices.length > 0) {
-          await base44.asServiceRole.entities.MonthlyInvoice.update(invoices[0].id, {
-            status: 'paid',
-          });
+          await base44.asServiceRole.entities.MonthlyInvoice.update(invoices[0].id, { status: 'paid' });
           console.log(`Marked invoice ${invoices[0].id} as paid for ${retailerEmail}`);
         }
       }

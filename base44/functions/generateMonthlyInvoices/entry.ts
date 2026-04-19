@@ -30,12 +30,11 @@ Deno.serve(async (req) => {
       base44.asServiceRole.entities.SignupApplication.list(),
     ]);
 
-    // Build lookup: owner_email -> invoice email (from application bank_account_name field which stores invoice email)
+    // Build lookup: owner_email -> invoice email (use app email, fall back to owner email)
     const invoiceEmailMap = {};
     for (const app of applications) {
       if (app.email) {
-        // invoice email stored in bank_account_name for self_pay_invoice retailers
-        invoiceEmailMap[app.email] = app.bank_account_name || app.email;
+        invoiceEmailMap[app.email] = app.email;
       }
     }
 

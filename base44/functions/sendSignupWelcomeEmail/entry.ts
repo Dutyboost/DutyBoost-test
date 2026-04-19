@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -16,7 +16,7 @@ Deno.serve(async (req) => {
 
     const { full_name, email, company, business_type } = data;
 
-    const isAgency = business_type === 'Travel Agency' || business_type === 'Travel Partner';
+    const isAgency = business_type === 'Travel Partner';
 
     const emailBody = isAgency ? `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a2e;">

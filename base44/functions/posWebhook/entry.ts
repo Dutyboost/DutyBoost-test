@@ -9,7 +9,7 @@
  * Body: { voucher_code, transaction_value, num_items, retailer_id, store_name, airport, pos_secret }
  */
 
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%

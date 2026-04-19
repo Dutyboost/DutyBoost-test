@@ -5,7 +5,7 @@
  * Applications missing KVK, VAT, or bank details are left as "pending" for admin review.
  */
 
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
