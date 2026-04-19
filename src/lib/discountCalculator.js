@@ -1,10 +1,10 @@
 // DutyCredit Redemption Model — Tiered Flat Reward
 //
 // Tiers (absolute flat rewards):
-//   Boarding Perk  — €70–€99   → €10
-//   Priority Perk  — €100–€199 → €30
-//   Lounge Perk    — €200–€299 → €45
-//   VIP Perk       — €300+     → €60
+//   Boarding DutyCredit  — €70–€99   → €10
+//   Priority DutyCredit  — €100–€199 → €30
+//   Lounge DutyCredit    — €200–€299 → €45
+//   VIP DutyCredit       — €300+     → €60
 //
 // Minimum basket: €70.
 // DutyBoost platform fee: 2.5% of gross sales.
@@ -21,19 +21,19 @@ export const DUTY_CREDIT_CONFIG = {
 // Tiered flat basket credit calculation
 export function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  if (basketValue >= 300) return 60;  // VIP Perk
-  if (basketValue >= 200) return 45;  // Lounge Perk
-  if (basketValue >= 100) return 30;  // Priority Perk
-  return 10;                          // Boarding Perk (€70–€99)
+  if (basketValue >= 300) return 60;  // VIP DutyCredit
+  if (basketValue >= 200) return 45;  // Lounge DutyCredit
+  if (basketValue >= 100) return 30;  // Priority DutyCredit
+  return 10;                          // Boarding DutyCredit (€70–€99)
 }
 
 // Return the tier name for display purposes
 export function getBasketTierLabel(basketValue) {
   if (!basketValue || basketValue < 70) return null;
-  if (basketValue >= 300) return "VIP Perk — €60 reward";
-  if (basketValue >= 200) return "Lounge Perk — €45 reward";
-  if (basketValue >= 100) return "Priority Perk — €30 reward";
-  return "Boarding Perk — €10 reward";
+  if (basketValue >= 300) return "VIP DutyCredit — €60 reward";
+  if (basketValue >= 200) return "Lounge DutyCredit — €45 reward";
+  if (basketValue >= 100) return "Priority DutyCredit — €30 reward";
+  return "Boarding DutyCredit — €10 reward";
 }
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
