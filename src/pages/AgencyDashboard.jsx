@@ -149,7 +149,7 @@ export default function AgencyDashboard() {
           </div>
           <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4">
             <p className="text-sm text-muted-foreground">The full guide covers: API authentication, request & response field reference, code examples (JS/Node, Python, PHP), email embedding, discount calculation logic, webhook setup for redemption notifications, and a testing checklist.</p>
-            <Link to="/integration-guide">
+            <Link to="/travel-partner-integration-guide">
               <button className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">
                 Open Full Implementation Guide <ArrowRight className="w-4 h-4" />
               </button>

@@ -5,7 +5,7 @@
  * and assigns the correct role (agency / retailer).
  */
 
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -36,7 +36,7 @@ Deno.serve(async (req) => {
     }
 
     const app = apps[0];
-    const role = app.business_type === 'Travel Agency' ? 'agency' : 'retailer';
+    const role = app.business_type === 'Travel Partner' ? 'agency' : 'retailer';
 
     // Update user role
     const users = await base44.asServiceRole.entities.User.filter({ email: user.email });

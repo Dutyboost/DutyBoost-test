@@ -24,7 +24,7 @@ export default function RetailerDashboard() {
   const [vouchers, setVouchers] = useState([]);
   const [airports, setAirports] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [form, setForm] = useState({ store_name: "", airport: "", category: "Duty-free", description: "" });
+  const [form, setForm] = useState({ store_name: "", airport: "", category: "Retail", description: "" });
 
   const [overdueInvoice, setOverdueInvoice] = useState(null);
   const [feedback, setFeedback] = useState([]);

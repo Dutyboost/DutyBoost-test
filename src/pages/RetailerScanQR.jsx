@@ -272,8 +272,12 @@ export default function RetailerScanQR() {
           </div>
           <div className="flex gap-2">
             <Input placeholder="DB-XXXXXXXX" className="font-mono"
+              id="manualCodeInput"
               onChange={e => e.target.value && e.target.value.length >= 10 && lookupVoucher(e.target.value.toUpperCase())} />
-            <Button disabled={loading}>{loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Look up"}</Button>
+            <Button disabled={loading} onClick={() => {
+              const val = document.getElementById('manualCodeInput')?.value;
+              if (val) lookupVoucher(val.toUpperCase());
+            }}>{loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Look up"}</Button>
           </div>
         </div>
       )}
