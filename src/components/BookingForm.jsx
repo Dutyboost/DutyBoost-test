@@ -45,7 +45,7 @@ export default function BookingForm({ onVoucherGenerated }) {
     setLoading(false);
 
     if (response.data?.success) {
-      toast.success(`DutyCredit generated: ${response.data.discount_percentage}% — sent to ${form.traveler_email}`);
+      toast.success(`DutyCredit of €${response.data.credit_amount_eur?.toFixed(2)} generated — sent to ${form.traveler_email}`);
       setForm({
         booking_id: "",
         total_ticket_price: "",
@@ -153,11 +153,11 @@ export default function BookingForm({ onVoucherGenerated }) {
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
           <p className="text-sm text-muted-foreground">Estimated incentive</p>
           <p className="text-3xl font-heading font-bold text-primary">
-            {calculateDiscount({
+            €{calculateDiscount({
               ticketPrice: parseFloat(form.total_ticket_price) || 0,
               travelers: parseInt(form.number_of_travelers) || 1,
               travelType: form.travel_type,
-            })}%
+            }).toFixed(2)}
           </p>
         </div>
       )}

@@ -178,7 +178,7 @@ export default function RetailerScanQR() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2 mt-3 text-sm">
-            <div><p className="text-muted-foreground text-xs">Base Discount</p><p className="font-bold text-2xl text-primary">{voucher.discount_percentage}%</p></div>
+            <div><p className="text-muted-foreground text-xs">Max DutyCredit</p><p className="font-bold text-2xl text-primary">€{voucher.discount_percentage}</p></div>
             <div><p className="text-muted-foreground text-xs">Airport</p><p className="font-medium">{voucher.airport}</p></div>
             <div><p className="text-muted-foreground text-xs">Booking</p><p className="font-medium text-xs">{voucher.booking_id}</p></div>
             <div><p className="text-muted-foreground text-xs">Expires</p><p className="font-medium text-xs">{voucher.expiration_date}</p></div>
@@ -211,7 +211,7 @@ export default function RetailerScanQR() {
                   <div className="bg-primary/5 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">
-                        DutyCredit ({parseFloat(form.transaction_value) >= 300 ? "20%" : parseFloat(form.transaction_value) >= 100 ? "15%" : "10%"} of basket, max €25)
+                        DutyCredit ({parseFloat(form.transaction_value) >= 300 ? "VIP DutyCredit" : parseFloat(form.transaction_value) >= 200 ? "Lounge DutyCredit" : parseFloat(form.transaction_value) >= 100 ? "Priority DutyCredit" : "Boarding DutyCredit"})
                       </span>
                       <span className="font-semibold text-green-600">€{previewCredit.toFixed(2)}</span>
                     </div>

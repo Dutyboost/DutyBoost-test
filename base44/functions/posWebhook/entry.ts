@@ -17,10 +17,10 @@ const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%
 // Tiered flat reward: Boarding €10 / Priority €30 / Lounge €45 / VIP €60
 function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  if (basketValue >= 300) return 60;  // VIP Perk
-  if (basketValue >= 200) return 45;  // Lounge Perk
-  if (basketValue >= 100) return 30;  // Priority Perk
-  return 10;                          // Boarding Perk (€70–€99)
+  if (basketValue >= 300) return 60;  // VIP DutyCredit
+  if (basketValue >= 200) return 45;  // Lounge DutyCredit
+  if (basketValue >= 100) return 30;  // Priority DutyCredit
+  return 10;                          // Boarding DutyCredit (€70–€99)
 }
 
 Deno.serve(async (req) => {

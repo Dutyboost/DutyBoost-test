@@ -59,7 +59,7 @@ export default function RetailerScanOnly() {
           setMessage(`Voucher is ${v.status}`);
         } else {
           setResult("redeemed");
-          setMessage(`${v.discount_percentage}% discount — €${(v.ticket_price * v.discount_percentage / 100).toFixed(2)}`);
+          setMessage(`DutyCredit of up to €${v.discount_percentage} applied`);
           await base44.entities.Voucher.update(v.id, { status: "redeemed" });
         }
       }

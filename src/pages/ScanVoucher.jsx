@@ -19,14 +19,13 @@ export default function ScanVoucher() {
   const [phase, setPhase] = useState("scan"); // "scan" | "validated" | "checkout"
   const [form, setForm] = useState({ retailer_id: "", transaction_value: "", num_items: "1" });
 
-  // Tiered: €70–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
+  // Flat-reward tiers: Boarding €10 / Priority €30 / Lounge €45 / VIP €60
   const calcBasketCredit = (basketValue) => {
     if (!basketValue || basketValue < 70) return 0;
-    let pct;
-    if (basketValue >= 300) pct = 0.20;
-    else if (basketValue >= 100) pct = 0.15;
-    else pct = 0.10;
-    return Math.min(basketValue * pct, 25);
+    if (basketValue >= 300) return 60;
+    if (basketValue >= 200) return 45;
+    if (basketValue >= 100) return 30;
+    return 10;
   };
 
   useEffect(() => {
@@ -41,7 +40,7 @@ export default function ScanVoucher() {
     const results = await base44.entities.Voucher.filter({ voucher_code: code.trim().toUpperCase() });
     setLoading(false);
     if (results.length === 0) {
-      toast.error("Travel Yield not found");
+      toast.error("DutyCredit not found");
       return;
     }
     setVoucher(results[0]);
@@ -74,7 +73,7 @@ export default function ScanVoucher() {
 
     setLoading(false);
     setRedeemed(true);
-    toast.success(`Travel Yield redeemed! €${discountAmount.toFixed(2)} DutyCredit applied`);
+    toast.success(`DutyCredit redeemed! €${discountAmount.toFixed(2)} applied`);
   };
 
   const reset = () => {
@@ -88,7 +87,7 @@ export default function ScanVoucher() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-heading font-bold tracking-tight">Scan & Redeem Travel Yield</h1>
+        <h1 className="text-2xl font-heading font-bold tracking-tight">Scan & Redeem DutyCredit</h1>
         <p className="text-muted-foreground mt-1">Scan a traveler's QR code or enter the code manually.</p>
       </div>
 
@@ -132,7 +131,7 @@ export default function ScanVoucher() {
       {loading && !voucher && (
         <div className="flex items-center gap-3 text-muted-foreground">
           <Loader2 className="w-5 h-5 animate-spin" />
-          <span>Looking up Travel Yield...</span>
+          <span>Looking up DutyCredit...</span>
         </div>
       )}
 
@@ -160,7 +159,7 @@ export default function ScanVoucher() {
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
                 <p className="text-muted-foreground">Max Credit</p>
-                <p className="font-bold text-2xl text-primary">up to €25</p>
+                <p className="font-bold text-2xl text-primary">up to €60</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Airport</p>
@@ -221,11 +220,11 @@ export default function ScanVoucher() {
                     <p className="text-sm text-destructive">Minimum basket is €70 to redeem a DutyCredit.</p>
                   ) : (
                     <p className="text-sm text-muted-foreground">
-                      Traveler saves: <span className="font-semibold text-green-600">
+                      DutyCredit: <span className="font-semibold text-green-600">
                         €{calcBasketCredit(parseFloat(form.transaction_value)).toFixed(2)}
                       </span>
                       <span className="ml-1 text-muted-foreground">
-                        ({parseFloat(form.transaction_value) >= 300 ? "20%" : parseFloat(form.transaction_value) >= 100 ? "15%" : "10%"} of basket, max €25)
+                        ({parseFloat(form.transaction_value) >= 300 ? "VIP DutyCredit" : parseFloat(form.transaction_value) >= 200 ? "Lounge DutyCredit" : parseFloat(form.transaction_value) >= 100 ? "Priority DutyCredit" : "Boarding DutyCredit"})
                       </span>
                     </p>
                   )
@@ -251,10 +250,10 @@ export default function ScanVoucher() {
       {redeemed && (
         <div className="max-w-md text-center space-y-4 py-8">
           <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto" />
-          <h2 className="text-xl font-heading font-bold">Travel Yield Redeemed!</h2>
+          <h2 className="text-xl font-heading font-bold">DutyCredit Redeemed!</h2>
           <p className="text-muted-foreground">The transaction has been logged successfully.</p>
           <Button className="w-full gap-2" onClick={reset}>
-            <ScanLine className="w-4 h-4" /> Scan Next Travel Yield
+            <ScanLine className="w-4 h-4" /> Scan Next DutyCredit
           </Button>
         </div>
       )}
