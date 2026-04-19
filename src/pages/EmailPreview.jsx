@@ -79,7 +79,7 @@ export default function EmailPreview() {
                 <tr style="background:#1e40af;">
                   <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Tier</th>
                   <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Spend</th>
-                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">You save</th>
+                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Max savings</th>
                 </tr>
               </thead>
               <tbody>
