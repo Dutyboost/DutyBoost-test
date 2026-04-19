@@ -40,8 +40,7 @@ export default function EmailPreview() {
             <table width="100%" cellpadding="0" cellspacing="0" style="border:2px solid #1e40af;border-radius:14px;overflow:hidden;">
               <tr>
                 <td align="center" style="padding:28px 20px;background:#f8faff;">
-                  <p style="margin:0 0 4px;color:#6b7280;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">Your DutyCredit code</p>
-                  <p style="margin:0 0 20px;color:#1e40af;font-size:48px;font-weight:800;line-height:1;">€${creditAmount.toFixed(2)}</p>
+                  <p style="margin:0 0 20px;color:#6b7280;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">Your DutyCredit code</p>
                   <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="200" height="200" style="display:block;margin:0 auto 16px;border-radius:10px;border:1px solid #e5e7eb;" />
                   <p style="margin:0 0 6px;color:#6b7280;font-size:12px;">📱 Show or scan this QR code at the POS terminal</p>
                   <p style="margin:0;color:#111827;font-size:16px;font-family:monospace;background:#ffffff;border:1.5px solid #c7d2fe;border-radius:8px;padding:8px 20px;display:inline-block;letter-spacing:3px;font-weight:700;">${voucherCode}</p>
