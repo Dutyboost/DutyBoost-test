@@ -1,9 +1,10 @@
-// DutyCredit Redemption Model — Tiered Basket Credit
+// DutyCredit Redemption Model — Tiered Flat Reward
 //
-// Tiers:
-//   €70  – €99  →  linear €5.00 (at €70) to €9.99 (at €99)
-//   €100 – €299 →  15% of spend, capped at €45.00
-//   €300+       →  20% of spend, hard capped at €60.00
+// Tiers (absolute flat rewards):
+//   Boarding Perk  — €70–€99   → €10
+//   Priority Perk  — €100–€199 → €30
+//   Lounge Perk    — €200–€299 → €45
+//   VIP Perk       — €300+     → €60
 //
 // Minimum basket: €70.
 // DutyBoost platform fee: 2.5% of gross sales.
@@ -17,27 +18,22 @@ export const DUTY_CREDIT_CONFIG = {
   minBasket: 70,
 };
 
-// Tiered basket credit calculation
+// Tiered flat basket credit calculation
 export function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  if (basketValue >= 300) {
-    // 20%, hard cap €60
-    return Math.min(basketValue * 0.20, 60);
-  }
-  if (basketValue >= 100) {
-    // 15%, cap €45
-    return Math.min(basketValue * 0.15, 45);
-  }
-  // €70–€99: linear scale from €5.00 at €70 to €9.99 at €99
-  return parseFloat((5 + (basketValue - 70) * (4.99 / 29)).toFixed(2));
+  if (basketValue >= 300) return 60;  // VIP Perk
+  if (basketValue >= 200) return 45;  // Lounge Perk
+  if (basketValue >= 100) return 30;  // Priority Perk
+  return 10;                          // Boarding Perk (€70–€99)
 }
 
-// Return the tier label for display purposes
+// Return the tier name for display purposes
 export function getBasketTierLabel(basketValue) {
   if (!basketValue || basketValue < 70) return null;
-  if (basketValue >= 300) return "20% credit (€300+ basket, max €60)";
-  if (basketValue >= 100) return "15% credit (€100–€299 basket, max €45)";
-  return `Linear credit (€70–€99 basket, €5–€9.99)`;
+  if (basketValue >= 300) return "VIP Perk — €60 reward";
+  if (basketValue >= 200) return "Lounge Perk — €45 reward";
+  if (basketValue >= 100) return "Priority Perk — €30 reward";
+  return "Boarding Perk — €10 reward";
 }
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {

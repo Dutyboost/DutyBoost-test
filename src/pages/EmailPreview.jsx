@@ -73,30 +73,39 @@ export default function EmailPreview() {
         <!-- Discount tier table -->
         <tr>
           <td style="padding:0 40px 28px;">
-            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 How your discount is calculated at the airport retailer:</p>
+            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 Your discount at the airport store:</p>
             <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;font-size:14px;">
               <thead>
                 <tr style="background:#1e40af;">
-                  <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Your spend at the store</th>
-                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Max discount</th>
+                  <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Tier</th>
+                  <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Spend</th>
+                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">You save</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background:#f9fafb;">
-                  <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€70 – €99</td>
-                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">€9.99</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">Boarding Perk</td>
+                  <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€70 – €99</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€10</td>
                 </tr>
                 <tr>
-                  <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€45.00</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">Priority Perk</td>
+                  <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€100 – €199</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€30</td>
                 </tr>
                 <tr style="background:#f9fafb;">
-                  <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>
-                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€60.00</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">Lounge Perk</td>
+                  <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€200 – €299</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€45</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">VIP Perk</td>
+                  <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€300 and above</td>
+                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€60</td>
                 </tr>
               </tbody>
             </table>
-            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €60.00 (on a spend of €300+).</p>
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">Your discount is applied automatically at checkout. Maximum saving: €60 on a spend of €300+.</p>
           </td>
         </tr>
 

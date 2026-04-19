@@ -14,14 +14,13 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost
 const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5%
 
-// Tiered basket credit: €70–€99 → 10%, €100–€299 → 15%, €300+ → 20%, cap €25
+// Tiered flat reward: Boarding €10 / Priority €30 / Lounge €45 / VIP €60
 function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  let pct;
-  if (basketValue >= 300) pct = 0.20;
-  else if (basketValue >= 100) pct = 0.15;
-  else pct = 0.10;
-  return Math.min(basketValue * pct, 25);
+  if (basketValue >= 300) return 60;  // VIP Perk
+  if (basketValue >= 200) return 45;  // Lounge Perk
+  if (basketValue >= 100) return 30;  // Priority Perk
+  return 10;                          // Boarding Perk (€70–€99)
 }
 
 Deno.serve(async (req) => {
