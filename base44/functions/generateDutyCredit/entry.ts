@@ -104,9 +104,7 @@ Deno.serve(async (req) => {
     traveler_email,
   });
 
-  const appUrl = `https://${req.headers.get('host')}`;
-  const dutyCreditUrl = `${appUrl}/voucher?code=${voucherCode}`;
-  const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=${encodeURIComponent(dutyCreditUrl)}`;
+  const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=${encodeURIComponent(voucherCode)}`;
 
   const agencyLabel = agency_name || 'Your Travel Agency';
   const travelerLabel = traveler_name || 'Traveler';
@@ -120,46 +118,96 @@ Deno.serve(async (req) => {
 <body style="margin:0;padding:0;background:#f4f5f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f9;padding:40px 0;">
     <tr><td align="center">
-      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+      <table width="580" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+        <!-- Header -->
         <tr>
-          <td style="background:linear-gradient(135deg,#5b4fcf,#7c6be0);padding:36px 40px;text-align:center;">
-            <p style="margin:0 0 4px 0;color:rgba(255,255,255,0.75);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Presented by ${agencyLabel} × DutyBoost</p>
-            <h1 style="margin:0;color:#ffffff;font-size:28px;font-weight:700;letter-spacing:-0.5px;">Your DutyCredit is Ready 🎁</h1>
+          <td style="background:linear-gradient(135deg,#1e40af,#3b6ef5);padding:36px 40px;text-align:center;">
+            <p style="margin:0 0 6px 0;color:rgba(255,255,255,0.8);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Presented by ${agencyLabel} × DutyBoost</p>
+            <h1 style="margin:0;color:#ffffff;font-size:30px;font-weight:800;letter-spacing:-0.5px;">Your DutyCredit is Ready 🎁</h1>
+            <p style="margin:10px 0 0;color:rgba(255,255,255,0.85);font-size:15px;">A discount waiting for you at the airport</p>
           </td>
         </tr>
+
+        <tr><td style="padding:36px 40px 0;">
+          <p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7;">Hi <strong>${travelerLabel}</strong>,</p>
+          <p style="margin:0 0 28px;color:#374151;font-size:15px;line-height:1.7;">
+            Your booking from <strong>${departure_airport}</strong> on <strong>${formattedDate}</strong> is confirmed.
+            As a thank-you from <strong>${agencyLabel}</strong>, you have received a <strong style="color:#1e40af;">DutyCredit</strong> — a discount you can use at participating shops at the airport on your day of departure.
+          </p>
+        </td></tr>
+
+        <!-- QR Code block -->
         <tr>
-          <td style="padding:36px 40px;">
-            <p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.6;">Hi ${travelerLabel},</p>
-            <p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.6;">
-              Your booking for <strong>${formattedDate}</strong> from <strong>${departure_airport}</strong> has been confirmed.
-              As a thank-you from <strong>${agencyLabel}</strong>, you've earned a <strong style="color:#5b4fcf;">€${creditAmount.toFixed(2)} DutyCredit</strong> — redeemable at participating airport shops on your day of departure.
-            </p>
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0eeff;border-radius:12px;margin:0 0 28px 0;">
+          <td style="padding:0 40px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="border:2px solid #1e40af;border-radius:14px;overflow:hidden;">
+              <tr>
+                <td align="center" style="padding:28px 20px;background:#f8faff;">
+                  <p style="margin:0 0 4px;color:#6b7280;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">Your DutyCredit code</p>
+                  <p style="margin:0 0 20px;color:#1e40af;font-size:48px;font-weight:800;line-height:1;">€${creditAmount.toFixed(2)}</p>
+                  <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="200" height="200" style="display:block;margin:0 auto 16px;border-radius:10px;border:1px solid #e5e7eb;" />
+                  <p style="margin:0 0 6px;color:#6b7280;font-size:12px;">📱 Show or scan this QR code at the POS terminal</p>
+                  <p style="margin:0;color:#111827;font-size:16px;font-family:monospace;background:#ffffff;border:1.5px solid #c7d2fe;border-radius:8px;padding:8px 20px;display:inline-block;letter-spacing:3px;font-weight:700;">${voucherCode}</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- How it works -->
+        <tr>
+          <td style="padding:0 40px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#eff6ff;border-radius:12px;">
               <tr>
                 <td style="padding:20px 24px;">
-                  <p style="margin:0 0 8px;color:#5b4fcf;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">✦ What is a DutyCredit?</p>
-                  <p style="margin:0;color:#374151;font-size:14px;line-height:1.7;">
-                    A DutyCredit is a fixed euro amount (€${creditAmount.toFixed(2)}) you can spend at participating airport shops on your day of departure.
-                    Simply scan the QR code below at checkout — no app, no loyalty card needed.
+                  <p style="margin:0 0 12px;color:#1e40af;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">📋 How to use your DutyCredit</p>
+                  <p style="margin:0 0 8px;color:#374151;font-size:14px;line-height:1.7;">
+                    1. Go to any participating DutyBoost store at <strong>${departure_airport}</strong> on your day of departure.<br/>
+                    2. Shop and bring your purchase to the checkout.<br/>
+                    3. Show the QR code above (or give your code <strong>${voucherCode}</strong>) to the cashier.<br/>
+                    4. The POS terminal will scan your code and automatically calculate and apply your discount based on your spend.
                   </p>
-                  <p style="margin:10px 0 0;color:#374151;font-size:14px;line-height:1.7;">
-                  Valid on purchases of €70 or more at a single participating store. Your credit is applied up to 15% of your basket value.
-                  </p>
+                  <p style="margin:10px 0 0;color:#1e40af;font-size:13px;font-weight:600;">Minimum spend: €70. Single-use. Valid on your travel date only.</p>
                 </td>
               </tr>
             </table>
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px 0;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
-              <tr>
-                <td align="center" style="padding:28px 20px;">
-                  <p style="margin:0 0 4px;color:#6b7280;font-size:14px;">Your DutyCredit value</p>
-                  <p style="margin:0 0 16px;color:#5b4fcf;font-size:52px;font-weight:800;line-height:1;">€${creditAmount.toFixed(2)}</p>
-                  <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="180" height="180" style="display:block;margin:0 auto 16px;border-radius:8px;border:1px solid #e5e7eb;" />
-                  <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Scan this QR code at the till</p>
-                  <p style="margin:0;color:#374151;font-size:14px;font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:6px 14px;display:inline-block;letter-spacing:2px;font-weight:600;">${voucherCode}</p>
-                </td>
-              </tr>
+          </td>
+        </tr>
+
+        <!-- Discount tier table -->
+        <tr>
+          <td style="padding:0 40px 28px;">
+            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 How your discount is calculated at the till:</p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;font-size:14px;">
+              <thead>
+                <tr style="background:#1e40af;">
+                  <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Your spend at the store</th>
+                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Discount applied</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:#f9fafb;">
+                  <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€70 – €99</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">10% of spend — max €9.99</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">15% of spend — up to €${creditAmount.toFixed(2)}</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                  <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>
+                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">20% of spend — max €25.00 🏆</td>
+                </tr>
+              </tbody>
             </table>
-            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;margin:0 0 24px 0;">
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €${creditAmount.toFixed(2)}.</p>
+          </td>
+        </tr>
+
+        <!-- Details row -->
+        <tr>
+          <td style="padding:0 40px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
               <tr style="background:#f9fafb;">
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">Travel Date</td>
                 <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">${formattedDate}</td>
@@ -169,35 +217,21 @@ Deno.serve(async (req) => {
                 <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">${departure_airport}</td>
               </tr>
               <tr style="background:#f9fafb;">
-                <td style="padding:10px 16px;font-size:13px;color:#6b7280;border-bottom:1px solid #e5e7eb;">DutyCredit Value</td>
-                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;border-bottom:1px solid #e5e7eb;">€${creditAmount.toFixed(2)} (up to 15% of your basket, min. €70 purchase)</td>
-              </tr>
-              <tr>
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;">Valid Until</td>
-                <td style="padding:10px 16px;font-size:13px;color:#111827;font-weight:500;">${formattedExpiry} (day of travel only)</td>
+                <td style="padding:10px 16px;font-size:13px;color:#dc2626;font-weight:600;">${formattedExpiry} — travel day only</td>
               </tr>
             </table>
-            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px 0;">
-              <tr>
-                <td align="center">
-                  <a href="${dutyCreditUrl}" style="display:inline-block;background:#5b4fcf;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:13px 32px;border-radius:10px;">Open My DutyCredit →</a>
-                </td>
-              </tr>
-            </table>
-            <p style="margin:0;color:#9ca3af;font-size:12px;line-height:1.6;border-top:1px solid #e5e7eb;padding-top:16px;">
-              Your DutyCredit (€${creditAmount.toFixed(2)}) is redeemable in a single transaction at one participating point of sale.
-              Valid on purchases of €70 or more. The credit applied cannot exceed 15% of your basket value.
-              It is personal, non-transferable, and expires on <strong>${formattedExpiry}</strong>.
-              Having trouble with the QR code? Use voucher code <strong>${voucherCode}</strong> at the till.
-            </p>
           </td>
         </tr>
+
+        <!-- Footer -->
         <tr>
           <td style="background:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb;">
-            <p style="margin:0;color:#9ca3af;font-size:12px;">Powered by <strong style="color:#5b4fcf;">DutyBoost</strong> — Dynamic Airport Incentive Platform</p>
-            <p style="margin:4px 0 0;color:#9ca3af;font-size:11px;">© ${new Date().getFullYear()} DutyBoost B.V., Amsterdam, the Netherlands</p>
+            <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">Questions? Contact <a href="mailto:hello@dutyboost.com" style="color:#1e40af;text-decoration:none;">hello@dutyboost.com</a></p>
+            <p style="margin:4px 0 0;color:#9ca3af;font-size:11px;">Powered by <strong style="color:#1e40af;">DutyBoost</strong> — Airport Retail Incentive Platform · © ${new Date().getFullYear()} DutyBoost B.V., Amsterdam</p>
           </td>
         </tr>
+
       </table>
     </td></tr>
   </table>
@@ -207,7 +241,7 @@ Deno.serve(async (req) => {
 
   await base44.asServiceRole.integrations.Core.SendEmail({
     to: traveler_email,
-    subject: `Your €${creditAmount.toFixed(2)} DutyCredit for ${departure_airport} — from ${agencyLabel}`,
+    subject: `Your DutyCredit for ${departure_airport} — save up to €${creditAmount.toFixed(2)} at the airport`,
     body: emailBody,
   });
 
@@ -215,30 +249,8 @@ Deno.serve(async (req) => {
     success: true,
     voucher_code: voucherCode,
     credit_amount_eur: creditAmount,
-    max_basket_pct: DUTY_CREDIT_CONFIG.maxBasketPct,
     expiration_date: expirationDate,
-    duty_credit_url: dutyCreditUrl,
     qr_image_url: qrImageUrl,
-    html_snippet: `<!-- DutyBoost DutyCredit Block — paste inside your confirmation email template -->
-<table width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;">
-  <tr>
-    <td style="background:#f0eeff;border-radius:14px;padding:28px 24px;text-align:center;border:1px solid #ddd6fe;">
-      <p style="margin:0 0 4px;color:#5b4fcf;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">&#x2726; Your DutyCredit — Exclusive Airport Perk</p>
-      <p style="margin:0 0 4px;color:#5b4fcf;font-size:36px;font-weight:800;">€${creditAmount.toFixed(2)}</p>
-      <p style="margin:0 0 16px;color:#374151;font-size:14px;line-height:1.6;max-width:400px;display:inline-block;">
-        Redeemable at participating shops at <strong>${departure_airport}</strong> on your day of departure.<br/>
-        Valid on purchases of €70+ at a single store — up to 15% of your basket. Scan the QR code at the till.
-      </p>
-      <div style="margin:0 0 16px;">
-        <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="160" height="160" style="display:block;margin:0 auto;border-radius:8px;border:1px solid #e5e7eb;" />
-      </div>
-      <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Voucher code: <strong style="font-family:monospace;letter-spacing:2px;">${voucherCode}</strong></p>
-      <p style="margin:0 0 16px;color:#9ca3af;font-size:11px;">Valid until ${formattedExpiry} &bull; Single-use &bull; Non-transferable</p>
-      <a href="${dutyCreditUrl}" style="display:inline-block;background:#5b4fcf;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:11px 28px;border-radius:8px;">View My DutyCredit &rarr;</a>
-    </td>
-  </tr>
-</table>
-<!-- End DutyBoost Block -->`,
     message: `DutyCredit of €${creditAmount.toFixed(2)} generated and sent to ${traveler_email}`,
   });
 });

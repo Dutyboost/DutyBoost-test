@@ -1,20 +1,7 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PageNotFound from './lib/PageNotFound';
-import { AuthProvider, useAuth } from '@/lib/AuthContext';
-import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import Layout from './components/Layout';
-import ScrollRestoration from './components/ScrollRestoration';
-import Home from './pages/Home';
-import LandingPage from './pages/LandingPage';
-import VouchersPage from './pages/VouchersPage';
-import RetailersPage from './pages/RetailersPage';
-import TravelAgenciesPage from './pages/TravelAgenciesPage';
-import AdminPanel from './pages/AdminPanel';
-import RetailerDashboard from './pages/RetailerDashboard';
-import TravelerVoucher from './pages/TravelerVoucher';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import ScanVoucher from './pages/ScanVoucher';
 import TravelerScan from './pages/TravelerScan';
 import GetStarted from './pages/GetStarted';
@@ -48,7 +35,7 @@ import TravelerSignup from './pages/TravelerSignup';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
 import TravelerApp from './pages/TravelerApp';
 import RetailerScanOnly from './pages/RetailerScanOnly';
-import TravelerPortal from './pages/TravelerPortal';
+
 import DemoTravelerPortal from './pages/DemoTravelerPortal';
 
 import AgencyPortal from './pages/AgencyPortal';
@@ -101,7 +88,6 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={<ComingSoonPage />} />
-        <Route path="/voucher" element={<TravelerVoucher />} />
         <Route path="/scan" element={<TravelerScan />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
@@ -113,7 +99,7 @@ const AuthenticatedApp = () => {
 {/* Corporate / Business Travel routes hidden - pending business model review */}
         <Route path="/traveler" element={<TravelerApp />} />
         <Route path="/traveler-signup" element={<TravelerSignup />} />
-        <Route path="/traveler-portal" element={<TravelerPortal />} />
+        <Route path="/traveler-portal" element={<Navigate to="/" replace />} />
 
         <Route path="/agency-portal" element={<AgencyPortal />} />
         <Route path="/agency-signup" element={<AgencySignup />} />
