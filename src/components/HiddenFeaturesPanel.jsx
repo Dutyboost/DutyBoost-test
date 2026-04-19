@@ -57,13 +57,39 @@ const HIDDEN_FEATURES = [
     icon: Hotel,
     title: "DutyBoost for Hotels",
     status: "hidden",
-    reason: "Future product line — pending business model definition",
-    description: "Extend the DutyBoost Travel Retail Conversion Layer to hotel partners. Guests checking in or out of partner hotels receive DutyBoost vouchers redeemable at airport retailers before departure. Hotels earn a referral commission; retailers gain incremental footfall from hotel guests. Includes hotel partner onboarding, guest voucher delivery, and dashboard analytics.",
+    reason: "Future product line — positioning and model defined",
+    description: `Hotels use DutyBoost like travel partners, but activation happens after the stay — at departure, when the guest is heading to the airport. Instead of the relationship ending at check-out, the hotel extends the guest journey into the airport and turns that moment into both a loyalty touchpoint and a new revenue stream.
+
+HOW IT WORKS:
+When a guest completes their stay, the hotel sends a departure or thank-you email. In that email: "You've unlocked a €X airport reward for your departure today." The reward is a mobile QR code valid at the departure airport, redeemable at a single store with a minimum spend (e.g. €50). Guest scans, purchases, commission is generated and shared with the hotel.
+
+GUEST JOURNEY:
+• Booking → No change
+• Stay → No change
+• Departure → Reward is issued via departure email
+• Airport → Reward is redeemed at retailer
+• Post-trip → Loyalty reinforcement (guest remembers hotel benefit)
+
+WHY IT WORKS FOR HOTELS:
+Hotels already send emails at check-out / post-stay. The departure email is typically underutilized. DutyBoost turns it into a revenue-generating moment with zero operational change — no staff workload, no impact on in-hotel experience.
+
+REVENUE EXAMPLE (per 100k guests):
+• Conversion 20% = 20,000 guests
+• Avg spend €50 = €1,000,000 gross
+• Commission 2.5% = €25,000 / Hotel share 20% = €5,000 incremental
+
+ADDITIONAL VALUE:
+• Loyalty: guest leaves with a tangible benefit, increasing repeat bookings
+• Extended experience: service continues beyond the hotel into the travel journey
+• No friction: no app download, no signup — guest simply receives and uses the reward
+
+KEY MESSAGE: "Turn every departing guest into a revenue opportunity by extending your service beyond the hotel and into the airport."`,
     pages: [],
     howToRestore: [
-      "Design and create pages/HotelPartnerOnboarding.jsx for hotel signup flow.",
-      "Create pages/HotelDashboard.jsx for hotel analytics and voucher issuance management.",
-      "Add hotel partner entity and commission model to backend.",
+      "Create pages/HotelPartnerOnboarding.jsx for hotel signup flow (mirrors AgencySignup structure).",
+      "Create pages/HotelDashboard.jsx for analytics and voucher issuance management.",
+      "Add hotel as a business_type option in SignupApplication entity.",
+      "Build backend trigger: on guest check-out, send departure email with DutyCredit QR (mirrors generateDutyCredit function).",
       "Add a 'For Hotels' showcase page and link it from the LandingPage nav.",
       "Register routes in App.jsx and expose public paths.",
     ],
