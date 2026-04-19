@@ -15,7 +15,6 @@ import TravelAgenciesPage from './pages/TravelAgenciesPage';
 import AdminPanel from './pages/AdminPanel';
 import RetailerDashboard from './pages/RetailerDashboard';
 import ScanVoucher from './pages/ScanVoucher';
-import TravelerScan from './pages/TravelerScan';
 import GetStarted from './pages/GetStarted';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -43,12 +42,8 @@ import BusinessTravelGetStarted from './pages/BusinessTravelGetStarted';
 import CorporateTravelAdmin from './pages/CorporateTravelAdmin';
 import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
 import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
-import TravelerSignup from './pages/TravelerSignup';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
-import TravelerApp from './pages/TravelerApp';
 import RetailerScanOnly from './pages/RetailerScanOnly';
-
-import DemoTravelerPortal from './pages/DemoTravelerPortal';
 
 import AgencyPortal from './pages/AgencyPortal';
 import ComingSoonPage from './pages/ComingSoonPage';
@@ -60,7 +55,6 @@ import PresentationDeck from './pages/PresentationDeck';
 import AgencyShowcase from './pages/AgencyShowcase';
 import AgencyPresentationDeck from './pages/AgencyPresentationDeck';
 import RetailerPresentationDeck from './pages/RetailerPresentationDeck';
-import TravelerShowcase from './pages/TravelerShowcase';
 import RegistrationFlow from './pages/RegistrationFlow';
 import EmailPreview from './pages/EmailPreview';
 import AgencyOnePager from './pages/AgencyOnePager';
@@ -100,7 +94,6 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={<ComingSoonPage />} />
-        <Route path="/scan" element={<TravelerScan />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
@@ -108,11 +101,6 @@ const AuthenticatedApp = () => {
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={<GetStarted />} />
-{/* Corporate / Business Travel routes hidden - pending business model review */}
-        <Route path="/traveler" element={<TravelerApp />} />
-        <Route path="/traveler-signup" element={<TravelerSignup />} />
-        <Route path="/traveler-portal" element={<Navigate to="/" replace />} />
-
         <Route path="/agency-portal" element={<AgencyPortal />} />
         <Route path="/agency-signup" element={<AgencySignup />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
@@ -120,14 +108,12 @@ const AuthenticatedApp = () => {
         <Route path="/agency-deck" element={<AgencyPresentationDeck />} />
         <Route path="/retailer-deck" element={<RetailerPresentationDeck />} />
         <Route path="/agency-showcase" element={<AgencyShowcase />} />
-        <Route path="/traveler-showcase" element={<TravelerShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
         <Route path="/agency-one-pager" element={<AgencyOnePager />} />
         <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
-        <Route path="/demo/traveler" element={<DemoTravelerPortal />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
