@@ -56,6 +56,7 @@ Deno.serve(async (req) => {
     }
 
     const postmarkToken = Deno.env.get('PostMark');
+    const mollieKey = Deno.env.get('MOLLIE_API_KEY');
     let created = 0;
 
     for (const [ownerEmail, data] of Object.entries(retailerMap)) {
@@ -81,9 +82,57 @@ Deno.serve(async (req) => {
       });
       created++;
 
+      // Create Mollie payment link for iDEAL + Bancontact (Wero) + bank transfer
+      let paymentLinkUrl = null;
+      if (mollieKey) {
+        const mollieRes = await fetch('https://api.mollie.com/v2/payment-links', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${mollieKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            description: `DutyBoost Platform Fee — ${monthLabel} — ${data.name}`,
+            amount: { currency: 'EUR', value: amount.toFixed(2) },
+            redirectUrl: 'https://dutyboost.com/retailer-portal',
+            webhookUrl: 'https://dutyboost.com/api/functions/mollieInvoiceWebhook',
+            allowedMethods: ['ideal', 'bancontact', 'banktransfer'],
+            expiresAt: `${dueDateStr}T23:59:59+00:00`,
+            metadata: {
+              retailer_email: ownerEmail,
+              invoice_month_year: prevMonthStr,
+            },
+          }),
+        });
+        if (mollieRes.ok) {
+          const mollieData = await mollieRes.json();
+          paymentLinkUrl = mollieData._links?.paymentLink?.href;
+        } else {
+          const err = await mollieRes.text();
+          console.error('Mollie payment link creation failed:', err);
+        }
+      }
+
       // Send invoice email
       const invoiceEmail = invoiceEmailMap[ownerEmail] || ownerEmail;
       if (postmarkToken && invoiceEmail) {
+        const payNowButton = paymentLinkUrl
+          ? `<div style="text-align: center; margin: 28px 0;">
+               <a href="${paymentLinkUrl}" style="display: inline-block; background: #1e40af; color: #ffffff; font-size: 16px; font-weight: 700; padding: 14px 36px; border-radius: 8px; text-decoration: none; letter-spacing: 0.3px;">
+                 💳 Pay now — iDEAL / Bancontact / Bank Transfer
+               </a>
+               <p style="margin: 10px 0 0; font-size: 12px; color: #6b7280;">Secure payment via Mollie. Link expires ${dueDateStr}.</p>
+             </div>`
+          : `<div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+               <p style="margin: 0 0 8px; font-weight: 600; color: #1e40af; font-size: 14px;">Payment Details</p>
+               <p style="margin: 0; color: #1e40af; font-size: 13px; line-height: 1.7;">
+                 Bank: <strong>ING Bank N.V.</strong><br/>
+                 Account holder: <strong>DutyBoost B.V.</strong><br/>
+                 IBAN: <strong>NL91 INGB 0001 2345 67</strong><br/>
+                 Reference: <strong>INV-${prevMonthStr}-${ownerEmail.split('@')[0].toUpperCase()}</strong>
+               </p>
+             </div>`;
+
         await fetch('https://api.postmarkapp.com/email', {
           method: 'POST',
           headers: {
@@ -120,7 +169,7 @@ Deno.serve(async (req) => {
                     based on DutyCredit vouchers redeemed at your store(s) during this period.
                   </p>
 
-                  <table width="100%" style="border: 1px solid #e5e7eb; border-radius: 8px; border-collapse: collapse; overflow: hidden; margin-bottom: 24px;">
+                  <table width="100%" style="border: 1px solid #e5e7eb; border-radius: 8px; border-collapse: collapse; overflow: hidden; margin-bottom: 8px;">
                     <thead>
                       <tr style="background: #f9fafb;">
                         <th style="text-align: left; padding: 10px 16px; font-size: 13px; color: #374151;">Description</th>
@@ -137,22 +186,11 @@ Deno.serve(async (req) => {
                     </tbody>
                   </table>
 
-                  <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
-                    <p style="margin: 0 0 8px; font-weight: 600; color: #1e40af; font-size: 14px;">Payment Details</p>
-                    <p style="margin: 0; color: #1e40af; font-size: 13px; line-height: 1.7;">
-                      Bank: <strong>ING Bank N.V.</strong><br/>
-                      Account holder: <strong>DutyBoost B.V.</strong><br/>
-                      IBAN: <strong>NL91 INGB 0001 2345 67</strong><br/>
-                      Reference: <strong>INV-${prevMonthStr}-${ownerEmail.split('@')[0].toUpperCase()}</strong>
-                    </p>
-                    <p style="margin: 12px 0 0; color: #374151; font-size: 12px;">
-                      Please pay within <strong>14 days</strong> (by ${dueDateStr}). 
-                      If you have any questions, reply to this email or contact <a href="mailto:hello@dutyboost.com" style="color:#1e40af;">hello@dutyboost.com</a>.
-                    </p>
-                  </div>
+                  ${payNowButton}
 
                   <p style="margin: 0; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 16px;">
-                    DutyBoost B.V. · Amsterdam, The Netherlands · KVK: 94891234 · VAT: NL866038978B01 · hello@dutyboost.com
+                    DutyBoost B.V. · Amsterdam, The Netherlands · KVK: 94891234 · VAT: NL866038978B01 · hello@dutyboost.com<br/>
+                    Questions? Reply to this email or contact <a href="mailto:hello@dutyboost.com" style="color:#1e40af;">hello@dutyboost.com</a>
                   </p>
                 </div>
               </div>
