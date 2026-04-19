@@ -51,8 +51,7 @@ export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
 }
 
 export function applyDutyCreditToBasket(creditAmount, basketValue) {
-  const basketCredit = calcBasketCredit(basketValue);
-  return Math.min(basketCredit, creditAmount);
+  return calcBasketCredit(basketValue);
 }
 
 export function generateVoucherCode() {

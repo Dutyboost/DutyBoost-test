@@ -88,7 +88,7 @@ export default function EmailPreview() {
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">max €14.00</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">max €25.00</td>
                 </tr>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>

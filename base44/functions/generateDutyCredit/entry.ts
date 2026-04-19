@@ -143,8 +143,7 @@ Deno.serve(async (req) => {
             <table width="100%" cellpadding="0" cellspacing="0" style="border:2px solid #1e40af;border-radius:14px;overflow:hidden;">
               <tr>
                 <td align="center" style="padding:28px 20px;background:#f8faff;">
-                  <p style="margin:0 0 4px;color:#6b7280;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">Your DutyCredit code</p>
-                  <p style="margin:0 0 20px;color:#1e40af;font-size:48px;font-weight:800;line-height:1;">€${creditAmount.toFixed(2)}</p>
+                  <p style="margin:0 0 20px;color:#6b7280;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;">Your DutyCredit code</p>
                   <img src="${qrImageUrl}" alt="DutyCredit QR Code" width="200" height="200" style="display:block;margin:0 auto 16px;border-radius:10px;border:1px solid #e5e7eb;" />
                   <p style="margin:0 0 6px;color:#6b7280;font-size:12px;">📱 Show or scan this QR code at the POS terminal</p>
                   <p style="margin:0;color:#111827;font-size:16px;font-family:monospace;background:#ffffff;border:1.5px solid #c7d2fe;border-radius:8px;padding:8px 20px;display:inline-block;letter-spacing:3px;font-weight:700;">${voucherCode}</p>
@@ -177,7 +176,7 @@ Deno.serve(async (req) => {
         <!-- Discount tier table -->
         <tr>
           <td style="padding:0 40px 28px;">
-            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 How your discount is calculated at the till:</p>
+            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 How your discount is calculated at the airport retailer:</p>
             <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;font-size:14px;">
               <thead>
                 <tr style="background:#1e40af;">
@@ -188,11 +187,11 @@ Deno.serve(async (req) => {
               <tbody>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€70 – €99</td>
-                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">10% of spend — max €9.99</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">10% of spend — max €9.90</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">15% of spend — up to €${creditAmount.toFixed(2)}</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">15% of spend — max €25.00</td>
                 </tr>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>
@@ -200,7 +199,7 @@ Deno.serve(async (req) => {
                 </tr>
               </tbody>
             </table>
-            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €${creditAmount.toFixed(2)}.</p>
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €25.00.</p>
           </td>
         </tr>
 
@@ -241,7 +240,7 @@ Deno.serve(async (req) => {
 
   await base44.asServiceRole.integrations.Core.SendEmail({
     to: traveler_email,
-    subject: `Your DutyCredit for ${departure_airport} — save up to €${creditAmount.toFixed(2)} at the airport`,
+    subject: `Your DutyCredit for ${departure_airport} — save up to €25.00 at the airport`,
     body: emailBody,
   });
 
