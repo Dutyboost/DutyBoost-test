@@ -73,7 +73,7 @@ export default function EmailPreview() {
         <!-- Discount tier table -->
         <tr>
           <td style="padding:0 40px 28px;">
-            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 How your discount is calculated at the till:</p>
+            <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700;">💶 How your discount is calculated at the airport retailer:</p>
             <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;font-size:14px;">
               <thead>
                 <tr style="background:#1e40af;">
