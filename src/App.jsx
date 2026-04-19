@@ -96,21 +96,27 @@ const AuthenticatedApp = () => {
         <Route path="/landing" element={<ComingSoonPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
-        <Route path="/demo/agency" element={<DemoAgencyDashboard />} />
+        <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
+        <Route path="/demo/agency" element={<Navigate to="/demo/travel-partner" replace />} />
         <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={<GetStarted />} />
-        <Route path="/agency-portal" element={<AgencyPortal />} />
-        <Route path="/agency-signup" element={<AgencySignup />} />
+        <Route path="/travel-partner-portal" element={<AgencyPortal />} />
+        <Route path="/travel-partner-signup" element={<AgencySignup />} />
+        <Route path="/agency-portal" element={<Navigate to="/travel-partner-portal" replace />} />
+        <Route path="/agency-signup" element={<Navigate to="/travel-partner-signup" replace />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
         <Route path="/deck" element={<PresentationDeck />} />
-        <Route path="/agency-deck" element={<AgencyPresentationDeck />} />
+        <Route path="/travel-partner-deck" element={<AgencyPresentationDeck />} />
+        <Route path="/agency-deck" element={<Navigate to="/travel-partner-deck" replace />} />
         <Route path="/retailer-deck" element={<RetailerPresentationDeck />} />
-        <Route path="/agency-showcase" element={<AgencyShowcase />} />
+        <Route path="/travel-partner-showcase" element={<AgencyShowcase />} />
+        <Route path="/agency-showcase" element={<Navigate to="/travel-partner-showcase" replace />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
-        <Route path="/agency-one-pager" element={<AgencyOnePager />} />
+        <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
+        <Route path="/agency-one-pager" element={<Navigate to="/travel-partner-one-pager" replace />} />
         <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
@@ -122,7 +128,8 @@ const AuthenticatedApp = () => {
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/dpa" element={<DataProcessingAgreement />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/integration-guide" element={<AgencyIntegrationGuide />} />
+        <Route path="/travel-partner-integration-guide" element={<AgencyIntegrationGuide />} />
+        <Route path="/integration-guide" element={<Navigate to="/travel-partner-integration-guide" replace />} />
         <Route path="/retailer-integration-guide" element={<RetailerIntegrationGuide />} />
         <Route path="/user-guide" element={<UserGuide />} />
         <Route element={<Layout />}>
@@ -133,7 +140,8 @@ const AuthenticatedApp = () => {
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
-          <Route path="/agency-integration" element={<AgencyIntegrationPage />} />
+          <Route path="/travel-partner-integration" element={<AgencyIntegrationPage />} />
+          <Route path="/agency-integration" element={<Navigate to="/travel-partner-integration" replace />} />
           <Route path="/scan-redeem" element={<ScanVoucher />} />
           <Route path="/retailer-scan" element={<RetailerScanQR />} />
           <Route path="/leads-admin" element={<LeadsAdmin />} />
