@@ -78,25 +78,29 @@ export default function EmailPreview() {
               <thead>
                 <tr style="background:#1e40af;">
                   <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Your spend at the store</th>
-                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Discount applied</th>
+                  <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Example</th>
+                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Max discount</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€70 – €99</td>
-                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">max €9.99</td>
+                  <td style="padding:10px 16px;color:#6b7280;font-size:13px;border-top:1px solid #e5e7eb;">€75 spend → ~€6 off</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">€9.99</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">max €25.00</td>
+                  <td style="padding:10px 16px;color:#6b7280;font-size:13px;border-top:1px solid #e5e7eb;">€200 spend → €30 off</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€45.00</td>
                 </tr>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>
-                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">max €25.00 🏆</td>
+                  <td style="padding:10px 16px;color:#6b7280;font-size:13px;border-top:1px solid #e5e7eb;">€400 spend → €60 off</td>
+                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€60.00 🏆</td>
                 </tr>
               </tbody>
             </table>
-            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €25.00.</p>
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €60.00 (on a spend of €300+).</p>
           </td>
         </tr>
 
@@ -140,7 +144,7 @@ export default function EmailPreview() {
         <div className="bg-white rounded-xl p-4 border border-slate-300 text-sm text-slate-600 font-mono space-y-1 shadow">
           <div><span className="text-slate-400">From: </span>DutyBoost &lt;noreply@dutyboost.com&gt;</div>
           <div><span className="text-slate-400">To: </span>john@example.com</div>
-          <div><span className="text-slate-400">Subject: </span><strong className="text-slate-800">Your DutyCredit for {departure_airport} — save up to €{creditAmount.toFixed(2)} at the airport</strong></div>
+          <div><span className="text-slate-400">Subject: </span><strong className="text-slate-800">Your DutyCredit for {departure_airport} — save up to €60.00 at the airport</strong></div>
         </div>
       </div>
       <div className="max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg border border-slate-300">

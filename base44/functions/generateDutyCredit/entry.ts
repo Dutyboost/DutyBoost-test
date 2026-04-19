@@ -181,25 +181,29 @@ Deno.serve(async (req) => {
               <thead>
                 <tr style="background:#1e40af;">
                   <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Your spend at the store</th>
-                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Discount applied</th>
+                  <th style="text-align:left;padding:10px 16px;color:#ffffff;font-weight:600;">Example</th>
+                  <th style="text-align:right;padding:10px 16px;color:#ffffff;font-weight:600;">Max discount</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€70 – €99</td>
-                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">10% of spend — max €9.90</td>
+                  <td style="padding:10px 16px;color:#6b7280;font-size:13px;border-top:1px solid #e5e7eb;">€75 spend → ~€6 off</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:600;text-align:right;border-top:1px solid #e5e7eb;">€9.99</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€100 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">15% of spend — max €25.00</td>
+                  <td style="padding:10px 16px;color:#6b7280;font-size:13px;border-top:1px solid #e5e7eb;">€200 spend → €30 off</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€45.00</td>
                 </tr>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;border-top:1px solid #e5e7eb;">€300 and above</td>
-                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">20% of spend — max €25.00 🏆</td>
+                  <td style="padding:10px 16px;color:#6b7280;font-size:13px;border-top:1px solid #e5e7eb;">€400 spend → €60 off</td>
+                  <td style="padding:10px 16px;color:#059669;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€60.00 🏆</td>
                 </tr>
               </tbody>
             </table>
-            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €25.00.</p>
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">The discount is calculated automatically at checkout when you scan your code. Your maximum possible saving is €60.00 (on a spend of €300+).</p>
           </td>
         </tr>
 
@@ -240,7 +244,7 @@ Deno.serve(async (req) => {
 
   await base44.asServiceRole.integrations.Core.SendEmail({
     to: traveler_email,
-    subject: `Your DutyCredit for ${departure_airport} — save up to €25.00 at the airport`,
+    subject: `Your DutyCredit for ${departure_airport} — save up to €60.00 at the airport`,
     body: emailBody,
   });
 
