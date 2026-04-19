@@ -29,7 +29,7 @@ Deno.serve(async (req) => {
     // Validate POS shared secret (retailers get this during onboarding)
     const posSecret = req.headers.get('X-POS-Secret') || (await req.clone().json().catch(() => ({}))).pos_secret;
     const expectedSecret = Deno.env.get('POS_WEBHOOK_SECRET');
-    if (expectedSecret && posSecret !== expectedSecret) {
+    if (!expectedSecret || posSecret !== expectedSecret) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -61,8 +61,8 @@ Deno.serve(async (req) => {
 
     // 2. Calculate financials
     const txnValue = parseFloat(transaction_value);
-    if (txnValue < 50) {
-      return Response.json({ error: 'Minimum basket value is €50 to redeem a DutyCredit' }, { status: 400 });
+    if (txnValue < 70) {
+      return Response.json({ error: 'Minimum basket value is €70 to redeem a DutyCredit' }, { status: 400 });
     }
     const discountAmount = parseFloat(calcBasketCredit(txnValue).toFixed(2));
     const effectiveDiscount = parseFloat(((discountAmount / txnValue) * 100).toFixed(2));

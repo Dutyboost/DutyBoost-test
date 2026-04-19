@@ -12,9 +12,13 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
     const payload = await req.json();
 
-    // Only handle create events
-    if (payload.event?.type !== 'create') {
+    // Only handle create events from the entity automation system
+    if (!payload.event || payload.event?.type !== 'create') {
       return Response.json({ skipped: true, reason: 'Not a create event' });
+    }
+    // Verify this is a legitimate entity automation payload
+    if (!payload.data?.id || !payload.data?.email) {
+      return Response.json({ skipped: true, reason: 'Invalid payload structure' });
     }
 
     const app = payload.data;
@@ -59,7 +63,7 @@ Deno.serve(async (req) => {
 
     // Set correct role
     try {
-      const userRole = app.business_type === 'Travel Agency' ? 'agency' : 'retailer';
+      const userRole = app.business_type === 'Travel Partner' ? 'agency' : 'retailer';
       const existingUsers = await base44.asServiceRole.entities.User.filter({ email: app.email });
       if (existingUsers.length > 0) {
         await base44.asServiceRole.entities.User.update(existingUsers[0].id, { role: userRole });

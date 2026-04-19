@@ -30,7 +30,9 @@ export default function ScanVoucher() {
   };
 
   useEffect(() => {
-    base44.entities.Retailer.list().then(setRetailers);
+    base44.auth.me().then(u =>
+      base44.entities.Retailer.filter({ owner_email: u.email }).then(setRetailers)
+    );
   }, []);
 
   const lookupVoucher = async (code) => {

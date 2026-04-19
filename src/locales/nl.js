@@ -52,6 +52,8 @@ export default {
       subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van het DutyBoost-incentiveplatform.',
       agencies_description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
       retailers_description: 'Ontvang voorgeselecteerde klanten en verhoog de transactiewaarde via DutyBoosts gerichte incentiveprogramma\'s. Groei uw omzet en bouw klantloyaliteit op uw luchthaven op.',
+      kvk: 'KvK-nummer (Kamer van Koophandel)',
+      vat: 'BTW-nummer',
     },
     signup: {
       agency: {

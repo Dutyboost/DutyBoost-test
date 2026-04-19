@@ -56,9 +56,15 @@ Deno.serve(async (req) => {
 
   const base44 = createClientFromRequest(req);
 
-  let agencyEmail = null;
   const user = await base44.auth.me().catch(() => null);
-  if (user) agencyEmail = user.email;
+  if (!user) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  if (user.role !== 'agency' && user.role !== 'admin') {
+    return Response.json({ error: 'Forbidden: Only approved travel partners can generate DutyCredits' }, { status: 403 });
+  }
+
+  const agencyEmail = user.email;
 
   const body = await req.json();
   const {
@@ -69,8 +75,6 @@ Deno.serve(async (req) => {
   if (!booking_id || !total_ticket_price || !number_of_travelers || !travel_type || !departure_airport || !travel_date || !traveler_email) {
     return Response.json({ error: 'Missing required fields' }, { status: 400 });
   }
-
-  if (!agencyEmail) agencyEmail = body.agency_email || 'unknown@agency.com';
 
   const creditAmount = calculateDutyCredit({
     ticketPrice: total_ticket_price,

@@ -134,6 +134,10 @@ function generatePOHtml(businessType, formData, poNumber) {
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
+    const user = await base44.auth.me().catch(() => null);
+    if (!user) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     const { applicationId, businessType, formData, poNumber } = await req.json();
 
     const htmlContent = generatePOHtml(businessType, formData, poNumber);

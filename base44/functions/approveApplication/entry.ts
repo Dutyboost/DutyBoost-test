@@ -29,7 +29,7 @@ Deno.serve(async (req) => {
     }
 
     // Approve
-    const userRole = app.business_type === 'Travel Agency' ? 'agency' : 'retailer';
+    const userRole = app.business_type === 'Travel Partner' ? 'agency' : 'retailer';
     await base44.asServiceRole.entities.SignupApplication.update(applicationId, { status: 'invited' });
 
     // Create retailer record for Airport Retailers

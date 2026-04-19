@@ -87,7 +87,7 @@ export default {
       website: 'Sito web',
       airport: 'Aeroporto',
       select_airport: 'Seleziona aeroporto',
-      kvk: 'Numero KVK',
+      kvk: 'Numero KVK (Camera di Commercio)',
       vat: 'Partita IVA',
       booking_engine: 'Motore di prenotazione',
       store_category: 'Categoria del negozio',
