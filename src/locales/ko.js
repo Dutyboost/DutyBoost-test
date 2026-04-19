@@ -7,10 +7,10 @@ export default {
       liveDemo: '라이브 데모',
     },
     hero: {
-      badge: '세계 최초 다이나믹 공항 인센티브 플랫폼',
+      badge: 'The Travel Retail Conversion Solution',
       headline1: '모든 여행 예약을',
       headline2: '공항에서의 수익으로',
-      sub: 'DutyBoost의 Travel Retail Conversion Layer로 모든 예약에 숨겨진 수익 흐름을 열어보세요. 여행자, 여행사, 공항 소매업체를 연결하여 여행자가 출발 공항에 도착하기 전에 구매 의향이 높은 구매자로 전환합니다.',
+      sub: 'DutyBoost의 The Travel Retail Conversion Solution로 모든 예약에 숨겨진 수익 흐름을 열어보세요. 여행자, 여행사, 공항 소매업체를 연결하여 여행자가 출발 공항에 도착하기 전에 구매 의향이 높은 구매자로 전환합니다.',
       cta: '플랫폼 시작',
       seeHow: '작동 방식 보기',
     },
@@ -67,7 +67,7 @@ export default {
       button: '플랫폼 접속',
     },
     footer: {
-      tagline: '— 다이나믹 공항 인센티브 플랫폼',
+      tagline: '— The Travel Retail Conversion Solution',
       copy: '© 2026 DutyBoost. 모든 권리 보유.',
     },
   },
