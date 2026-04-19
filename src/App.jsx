@@ -59,6 +59,8 @@ import RegistrationFlow from './pages/RegistrationFlow';
 import EmailPreview from './pages/EmailPreview';
 import AgencyOnePager from './pages/AgencyOnePager';
 import RetailerOnePager from './pages/RetailerOnePager';
+import GTMTestingChecklist from './pages/GTMTestingChecklist';
+import StagingValidationGuide from './pages/StagingValidationGuide';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -111,6 +113,8 @@ const AuthenticatedApp = () => {
         <Route path="/email-preview" element={<EmailPreview />} />
         <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
         <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
+        <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
+        <Route path="/staging-validation" element={<StagingValidationGuide />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
