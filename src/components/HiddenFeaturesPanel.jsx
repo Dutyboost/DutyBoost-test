@@ -245,7 +245,7 @@ export default function HiddenFeaturesPanel() {
             </div>
 
             <div className="px-5 py-4 space-y-4">
-              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{feature.description}</p>
 
               {feature.pages.length > 0 && (
                 <div>
@@ -258,14 +258,16 @@ export default function HiddenFeaturesPanel() {
                 </div>
               )}
 
-              <div>
-                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Key Files</p>
-                <div className="flex flex-wrap gap-2">
-                  {feature.files.map((f) => (
-                    <span key={f} className="text-xs font-mono bg-primary/5 text-primary px-2.5 py-1 rounded-lg border border-primary/20">{f}</span>
-                  ))}
+              {feature.files.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Key Files</p>
+                  <div className="flex flex-wrap gap-2">
+                    {feature.files.map((f) => (
+                      <span key={f} className="text-xs font-mono bg-primary/5 text-primary px-2.5 py-1 rounded-lg border border-primary/20">{f}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div>
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">How to restore</p>
