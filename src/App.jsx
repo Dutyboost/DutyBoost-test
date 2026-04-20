@@ -96,7 +96,7 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
-        <Route path="/landing" element={<ComingSoonPage />} />
+        <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
