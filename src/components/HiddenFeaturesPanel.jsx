@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Trophy, Smartphone, Hotel, Plane, Car } from "lucide-react";
+import { EyeOff, Briefcase, Trophy, Smartphone, Hotel, Plane, Navigation } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -144,7 +144,7 @@ Phase 3 — Expand across routes and airports.`,
   },
   {
     id: "car-rental",
-    icon: Car,
+    icon: Navigation,
     title: "DutyBoost for Car Rental",
     status: "hidden",
     reason: "Future product line — positioning and model defined",
