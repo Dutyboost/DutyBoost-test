@@ -21,7 +21,7 @@ export default function SelectUserType() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/agency-showcase",
+      path: "/travel-partner-showcase",
     },
     {
       titleKey: 'nav.for_retailers',
