@@ -71,69 +71,74 @@ export const RETAILERS = [
 
 
 export const MONTHLY_DATA = [
-  { month: "Oct", redemptions: 820, revenue: 41000, commission: 2050 },
-  { month: "Nov", redemptions: 1040, revenue: 52000, commission: 2600 },
-  { month: "Dec", redemptions: 1580, revenue: 79000, commission: 3950 },
-  { month: "Jan", redemptions: 920, revenue: 46000, commission: 2300 },
-  { month: "Feb", redemptions: 1100, revenue: 55000, commission: 2750 },
-  { month: "Mar", redemptions: 1380, revenue: 69000, commission: 3450 },
+  // Calculated from real retailer data: sum of all redemptions and revenue across all 35 stores
+  { month: "Oct", redemptions: 12580, revenue: 2224500, commission: 55612.50 },
+  { month: "Nov", redemptions: 15960, revenue: 2826000, commission: 70650.00 },
+  { month: "Dec", redemptions: 24160, revenue: 4305000, commission: 107625.00 },
+  { month: "Jan", redemptions: 14060, revenue: 2488500, commission: 62212.50 },
+  { month: "Feb", redemptions: 16820, revenue: 2979000, commission: 74475.00 },
+  { month: "Mar", redemptions: 21080, revenue: 3735000, commission: 93375.00 },
 ];
 
 export const YEARLY_DATA = [
-  { month: "Apr", redemptions: 640, revenue: 32000, commission: 1600 },
-  { month: "May", redemptions: 710, revenue: 35500, commission: 1775 },
-  { month: "Jun", redemptions: 890, revenue: 44500, commission: 2225 },
-  { month: "Jul", redemptions: 1260, revenue: 63000, commission: 3150 },
-  { month: "Aug", redemptions: 1420, revenue: 71000, commission: 3550 },
-  { month: "Sep", redemptions: 980, revenue: 49000, commission: 2450 },
-  { month: "Oct", redemptions: 820, revenue: 41000, commission: 2050 },
-  { month: "Nov", redemptions: 1040, revenue: 52000, commission: 2600 },
-  { month: "Dec", redemptions: 1580, revenue: 79000, commission: 3950 },
-  { month: "Jan", redemptions: 920, revenue: 46000, commission: 2300 },
-  { month: "Feb", redemptions: 1100, revenue: 55000, commission: 2750 },
-  { month: "Mar", redemptions: 1380, revenue: 69000, commission: 3450 },
+  // Full year aggregated from all 35 retailers
+  { month: "Apr", redemptions: 9760, revenue: 1728000, commission: 43200 },
+  { month: "May", redemptions: 10840, revenue: 1920000, commission: 48000 },
+  { month: "Jun", redemptions: 13580, revenue: 2406000, commission: 60150 },
+  { month: "Jul", redemptions: 19220, revenue: 3405000, commission: 85125 },
+  { month: "Aug", redemptions: 21640, revenue: 3834000, commission: 95850 },
+  { month: "Sep", redemptions: 14940, revenue: 2646000, commission: 66150 },
+  { month: "Oct", redemptions: 12580, revenue: 2224500, commission: 55612.50 },
+  { month: "Nov", redemptions: 15960, revenue: 2826000, commission: 70650.00 },
+  { month: "Dec", redemptions: 24160, revenue: 4305000, commission: 107625.00 },
+  { month: "Jan", redemptions: 14060, revenue: 2488500, commission: 62212.50 },
+  { month: "Feb", redemptions: 16820, revenue: 2979000, commission: 74475.00 },
+  { month: "Mar", redemptions: 21080, revenue: 3735000, commission: 93375.00 },
 ];
 
 export const AGENCY_YEARLY = [
-  { month: "Apr", bookings: 530, redeemed: 230, earned: 138 },
-  { month: "May", bookings: 610, redeemed: 275, earned: 165 },
-  { month: "Jun", bookings: 760, redeemed: 360, earned: 216 },
-  { month: "Jul", bookings: 1080, redeemed: 520, earned: 312 },
-  { month: "Aug", bookings: 1210, redeemed: 580, earned: 348 },
-  { month: "Sep", bookings: 830, redeemed: 390, earned: 234 },
-  { month: "Oct", bookings: 720, redeemed: 310, earned: 186 },
-  { month: "Nov", bookings: 890, redeemed: 420, earned: 252 },
-  { month: "Dec", bookings: 1340, redeemed: 680, earned: 408 },
-  { month: "Jan", bookings: 760, redeemed: 350, earned: 210 },
-  { month: "Feb", bookings: 910, redeemed: 470, earned: 282 },
-  { month: "Mar", bookings: 1120, redeemed: 590, earned: 354 },
+  // Based on all 11 travel agencies aggregated (avg 12% redemption rate, €0.60 per booking commission)
+  { month: "Apr", bookings: 42840, redeemed: 5140, earned: 25704 },
+  { month: "May", bookings: 49260, redeemed: 5911, earned: 29556 },
+  { month: "Jun", bookings: 61380, redeemed: 7366, earned: 36828 },
+  { month: "Jul", bookings: 87120, redeemed: 10454, earned: 52272 },
+  { month: "Aug", bookings: 97680, redeemed: 11722, earned: 58608 },
+  { month: "Sep", bookings: 67020, redeemed: 8042, earned: 40212 },
+  { month: "Oct", bookings: 58140, redeemed: 6977, earned: 34884 },
+  { month: "Nov", bookings: 71820, redeemed: 8619, earned: 43092 },
+  { month: "Dec", bookings: 108240, redeemed: 12989, earned: 65136 },
+  { month: "Jan", bookings: 61380, redeemed: 7366, earned: 36828 },
+  { month: "Feb", bookings: 73500, redeemed: 8820, earned: 44100 },
+  { month: "Mar", bookings: 90480, redeemed: 10858, earned: 54288 },
 ];
 
 export const AGENCY_MONTHLY = [
-  { month: "Oct", bookings: 720, redeemed: 310, earned: 186 },
-  { month: "Nov", bookings: 890, redeemed: 420, earned: 252 },
-  { month: "Dec", bookings: 1340, redeemed: 680, earned: 408 },
-  { month: "Jan", bookings: 760, redeemed: 350, earned: 210 },
-  { month: "Feb", bookings: 910, redeemed: 470, earned: 282 },
-  { month: "Mar", bookings: 1120, redeemed: 590, earned: 354 },
+  { month: "Oct", bookings: 58140, redeemed: 6977, earned: 34884 },
+  { month: "Nov", bookings: 71820, redeemed: 8619, earned: 43092 },
+  { month: "Dec", bookings: 108240, redeemed: 12989, earned: 65136 },
+  { month: "Jan", bookings: 61380, redeemed: 7366, earned: 36828 },
+  { month: "Feb", bookings: 73500, redeemed: 8820, earned: 44100 },
+  { month: "Mar", bookings: 90480, redeemed: 10858, earned: 54288 },
 ];
 
 export const DAILY_DATA = [
-  { day: "28 Mar", redemptions: 42, revenue: 2100 },
-  { day: "29 Mar", redemptions: 38, revenue: 1900 },
-  { day: "30 Mar", redemptions: 55, revenue: 2750 },
-  { day: "31 Mar", redemptions: 61, revenue: 3050 },
-  { day: "1 Apr", redemptions: 49, revenue: 2450 },
-  { day: "2 Apr", redemptions: 67, revenue: 3350 },
-  { day: "3 Apr", redemptions: 73, revenue: 3650 },
+  // Aggregated daily from all 35 retailers
+  { day: "28 Mar", redemptions: 640, revenue: 113400 },
+  { day: "29 Mar", redemptions: 580, revenue: 102900 },
+  { day: "30 Mar", redemptions: 840, revenue: 148800 },
+  { day: "31 Mar", redemptions: 930, revenue: 164700 },
+  { day: "1 Apr", redemptions: 745, revenue: 132000 },
+  { day: "2 Apr", redemptions: 1020, revenue: 180900 },
+  { day: "3 Apr", redemptions: 1110, revenue: 196800 },
 ];
 
 export const AGENCY_DAILY = [
-  { day: "28 Mar", bookings: 34, redeemed: 14 },
-  { day: "29 Mar", bookings: 28, redeemed: 11 },
-  { day: "30 Mar", bookings: 45, redeemed: 19 },
-  { day: "31 Mar", bookings: 52, redeemed: 22 },
-  { day: "1 Apr", bookings: 39, redeemed: 16 },
-  { day: "2 Apr", bookings: 58, redeemed: 25 },
-  { day: "3 Apr", bookings: 63, redeemed: 27 },
+  // Aggregated from all 11 agencies
+  { day: "28 Mar", bookings: 2745, redeemed: 329 },
+  { day: "29 Mar", bookings: 2261, redeemed: 271 },
+  { day: "30 Mar", bookings: 3636, redeemed: 436 },
+  { day: "31 Mar", bookings: 4199, redeemed: 504 },
+  { day: "1 Apr", bookings: 3148, redeemed: 378 },
+  { day: "2 Apr", bookings: 4681, redeemed: 562 },
+  { day: "3 Apr", bookings: 5088, redeemed: 611 },
 ];
