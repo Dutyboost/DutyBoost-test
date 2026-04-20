@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, MapPin, QrCode, TrendingUp, Gift } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
