@@ -301,10 +301,10 @@ export default function RetailerPresentationFuture() {
               </thead>
               <tbody className="divide-y divide-white/10">
               {[
-                { name: "🟡 Boarding DutyCredit", range: "€70 – €99",   saving: "€5 – €10", note: "Extra sale you wouldn't have had" },
-                { name: "🔵 Priority DutyCredit",  range: "€100 – €199", saving: "€10 – €30", note: "Most common tier — strong incentive" },
-                { name: "🟢 Lounge DutyCredit",    range: "€200 – €299", saving: "€30 – €45", note: "Premium traveler — larger basket" },
-                { name: "🟣 VIP DutyCredit",       range: "€300+",       saving: "€45 – €60", note: "Top-tier — maximum store revenue" },
+                { name: "🟡 Boarding DutyCredit", range: "€70 – €99",   saving: "€5 – €10",  note: "Extra sale you wouldn't have had" },
+                { name: "🔵 Priority DutyCredit",  range: "€100 – €199", saving: "€15 – €30", note: "Most common tier — strong incentive" },
+                { name: "🟢 Lounge DutyCredit",    range: "€200 – €299", saving: "€35 – €45", note: "Premium traveler — larger basket" },
+                { name: "🟣 VIP DutyCredit",       range: "€300+",       saving: "€60",       note: "Top-tier — maximum store revenue" },
               ].map(({ name, range, saving, note }) => (
                 <tr key={name} className="bg-white/5 hover:bg-white/10 transition-colors">
                   <td className="px-3 py-2.5 font-medium text-white">{name}</td>

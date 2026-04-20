@@ -125,9 +125,9 @@ export async function exportRetailerPptx() {
 
     const tiers = [
       { tier: "🟡  Boarding DutyCredit", min: "€70 - €99",   max: "€5 – €10", note: "Traveler spends €70–€99 — you earn an extra sale you wouldn't have had.\n(minimum €5 to a maximum of €10)", bg: "FFFBEB" },
-      { tier: "🔵  Priority DutyCredit",  min: "€100 - €199", max: "€10 – €30", note: "Mid-range basket €100–€199 — most common tier. Strong conversion incentive.\n(minimum €10 to a maximum of €30)", bg: LIGHT_BLUE_BG },
-      { tier: "🟢  Lounge DutyCredit",    min: "€200 - €299", max: "€30 – €45", note: "High-value spend €200–€299 — premium traveler segment, larger basket sizes.\n(minimum €30 to a maximum of €45)", bg: "F0FDF4" },
-      { tier: "🟣  VIP DutyCredit",       min: "€300+",       max: "€45 – €60", note: "Top-tier traveler — €300+ spend delivers maximum store revenue.\n(minimum €45 to a maximum of €60)", bg: "F5F3FF" },
+      { tier: "🔵  Priority DutyCredit",  min: "€100 - €199", max: "€15 – €30", note: "Mid-range basket €100–€199 — most common tier. Strong conversion incentive.\n(minimum €15 to a maximum of €30)", bg: LIGHT_BLUE_BG },
+      { tier: "🟢  Lounge DutyCredit",    min: "€200 - €299", max: "€35 – €45", note: "High-value spend €200–€299 — premium traveler segment, larger basket sizes.\n(minimum €35 to a maximum of €45)", bg: "F0FDF4" },
+      { tier: "🟣  VIP DutyCredit",       min: "€300+",       max: "€60", note: "Top-tier traveler — €300+ spend delivers maximum store revenue.\n(flat €60 reward)", bg: "F5F3FF" },
     ];
 
     tiers.forEach(({ tier, min, max, note, bg }, ri) => {

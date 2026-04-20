@@ -25,11 +25,15 @@ function lerp(value, minVal, maxVal, minOut, maxOut) {
 }
 
 // Tiered linear basket credit calculation
+// Boarding:  €70–€99   → €5  to €10
+// Priority:  €100–€199 → €15 to €30
+// Lounge:    €200–€299 → €35 to €45
+// VIP:       €300+     → €60 (flat)
 export function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  if (basketValue >= 300) return lerp(basketValue, 300, 500, 45, 60);  // VIP DutyCredit (capped at €60)
-  if (basketValue >= 200) return lerp(basketValue, 200, 299, 30, 45);  // Lounge DutyCredit
-  if (basketValue >= 100) return lerp(basketValue, 100, 199, 10, 30);  // Priority DutyCredit
+  if (basketValue >= 300) return 60;                                    // VIP DutyCredit — flat €60
+  if (basketValue >= 200) return lerp(basketValue, 200, 299, 35, 45);  // Lounge DutyCredit
+  if (basketValue >= 100) return lerp(basketValue, 100, 199, 15, 30);  // Priority DutyCredit
   return lerp(basketValue, 70, 99, 5, 10);                             // Boarding DutyCredit
 }
 
