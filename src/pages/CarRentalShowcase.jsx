@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, MapPin, QrCode, TrendingUp, Gift } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import PageFooter from "../components/PageFooter";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 export default function CarRentalShowcase() {
   const navigate = useNavigate();
