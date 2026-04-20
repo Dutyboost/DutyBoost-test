@@ -93,12 +93,12 @@ export default function LandingPage() {
             </Link>
             <Link to="/hotel-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_hotels')}
+                For Hotels
               </Button>
             </Link>
             <Link to="/car-rental-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
-                {t('nav.for_car_rentals')}
+                For Car Rentals
               </Button>
             </Link>
             <Link to="/retailer-calculator">
@@ -140,12 +140,12 @@ export default function LandingPage() {
             </Link>
             <Link to="/hotel-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_hotels')}
+                For Hotels
               </Button>
             </Link>
             <Link to="/car-rental-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
-                {t('nav.for_car_rentals')}
+                For Car Rentals
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
