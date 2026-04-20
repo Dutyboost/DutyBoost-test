@@ -91,11 +91,6 @@ export default function LandingPage() {
                 {t('nav.for_retailers')}
               </Button>
             </Link>
-            <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                {t('nav.we_call_you')}
-              </Button>
-            )} />
             <Link to="/retailer-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
@@ -106,6 +101,11 @@ export default function LandingPage() {
                 <Eye className="w-3.5 h-3.5" /> Live Demo
               </Button>
             </Link>
+            <WeCallYouModal trigger={(setOpen) => (
+              <Button size="sm" variant="outline" className="gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
+                {t('nav.we_call_you')}
+              </Button>
+            )} />
             {authedUser ? (
               <Link to="/dashboard"><Button size="sm" className="gap-1.5">Dashboard</Button></Link>
             ) : (
