@@ -6,6 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
+import CarRentalIcon from "../components/CarRentalIcon";
 import { ArrowRight } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -45,7 +46,7 @@ export default function SelectUserType() {
     {
       title: t('getstarted.car_rentals'),
       descKey: 'getstarted.car_rentals_description',
-      icon: AirportRetailerIcon,
+      icon: CarRentalIcon,
       color: "from-red-400 to-red-600",
       bg: "bg-red-50",
       iconColor: "text-red-600",
