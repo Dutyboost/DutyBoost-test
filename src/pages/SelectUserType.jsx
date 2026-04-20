@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
+import HotelIcon from "../components/HotelIcon";
 import { ArrowRight } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -35,7 +36,7 @@ export default function SelectUserType() {
     {
       title: t('getstarted.hotels'),
       descKey: 'getstarted.hotels_description',
-      icon: TravelAgencyIcon,
+      icon: HotelIcon,
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
