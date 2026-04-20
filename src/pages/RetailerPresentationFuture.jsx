@@ -13,10 +13,10 @@ const SLIDES_PREVIEW = [
     label: "Cover",
     title: "The Future of Airport Retail",
     sub: "with DutyBoost",
-    bg: "from-slate-900 to-blue-950",
-    accent: "text-blue-300",
-  },
-  {
+    bg: "from-green-950 to-orange-950",
+    accent: "text-orange-300",
+    },
+    {
     id: "opportunity",
     label: "The Opportunity",
     title: "Airport retail: a €40B+ market with a conversion problem",
@@ -29,8 +29,8 @@ const SLIDES_PREVIEW = [
     label: "How It Works",
     title: "Pre-qualified buyers. Delivered to your store.",
     sub: "4-step process · QR scan · Performance only",
-    bg: "from-slate-900 to-slate-800",
-    accent: "text-blue-300",
+    bg: "from-green-950 to-orange-950",
+    accent: "text-orange-300",
   },
   {
     id: "discount-tiers",
@@ -84,9 +84,9 @@ const SLIDES_PREVIEW = [
     id: "revenue",
     label: "Revenue Model",
     title: "What all channels mean for 1 store",
-    sub: "€326,000 gross · €8,150 total fees · ROI: 40:1",
-    bg: "from-slate-900 to-blue-950",
-    accent: "text-blue-300",
+    sub: "€384,000 gross · €9,600 total fees · ROI: 40:1",
+    bg: "from-green-950 to-orange-950",
+    accent: "text-orange-300",
   },
   {
     id: "corporate",
@@ -101,8 +101,8 @@ const SLIDES_PREVIEW = [
     label: "Integration",
     title: "Simple by design. Live in days.",
     sub: "No POS overhaul · Any device · Optional API",
-    bg: "from-slate-900 to-slate-800",
-    accent: "text-blue-300",
+    bg: "from-green-950 to-orange-950",
+    accent: "text-orange-300",
   },
   {
     id: "pilot",
@@ -117,8 +117,8 @@ const SLIDES_PREVIEW = [
     label: "Get Started",
     title: "Ready to turn footfall into revenue?",
     sub: "hello@dutyboost.com · www.dutyboost.com",
-    bg: "from-slate-900 to-blue-950",
-    accent: "text-blue-300",
+    bg: "from-green-950 to-orange-950",
+    accent: "text-orange-300",
   },
 ];
 
@@ -182,7 +182,7 @@ export default function RetailerPresentationFuture() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-green-950 via-slate-950 to-orange-950 text-white">
 
       {/* Header */}
       <div className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800 px-6 py-3 flex items-center justify-between">
@@ -284,6 +284,41 @@ export default function RetailerPresentationFuture() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* DutyCredit Tiers Preview */}
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">DutyCredit Discount Tiers (Slide 4)</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-blue-800 text-white">
+                  <th className="text-left px-3 py-2 rounded-tl-lg">Tier</th>
+                  <th className="px-3 py-2">Spend Range</th>
+                  <th className="px-3 py-2">Discount</th>
+                  <th className="px-3 py-2">Max Saving</th>
+                  <th className="text-left px-3 py-2 rounded-tr-lg">What it means</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/10">
+                {[
+                  { name: "🟡 Boarding DutyCredit", range: "€70 – €99",   disc: "~14%", max: "€10", note: "Extra sale you wouldn't have had" },
+                  { name: "🔵 Priority DutyCredit",  range: "€100 – €199", disc: "~20%", max: "€30", note: "Most common tier — strong incentive" },
+                  { name: "🟢 Lounge DutyCredit",    range: "€200 – €299", disc: "~22%", max: "€45", note: "Premium traveler — larger basket" },
+                  { name: "🟣 VIP DutyCredit",       range: "€300+",       disc: "~20%", max: "€60", note: "Top-tier — maximum store revenue" },
+                ].map(({ name, range, disc, max, note }) => (
+                  <tr key={name} className="bg-white/5 hover:bg-white/10 transition-colors">
+                    <td className="px-3 py-2.5 font-medium text-white">{name}</td>
+                    <td className="px-3 py-2.5 text-center text-slate-300">{range}</td>
+                    <td className="px-3 py-2.5 text-center text-green-400 font-bold">{disc}</td>
+                    <td className="px-3 py-2.5 text-center text-blue-300 font-bold">{max}</td>
+                    <td className="px-3 py-2.5 text-slate-400">{note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-orange-300 mt-3 text-center font-medium">⚠ Minimum basket €70 · Single use · Valid on travel date only · Applied automatically at checkout</p>
         </div>
 
         {/* Revenue Summary */}

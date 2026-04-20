@@ -8,6 +8,8 @@ const ORANGE = "EA580C";
 const SLATE = "64748B";
 const WHITE = "FFFFFF";
 const LIGHT_BLUE_BG = "EFF6FF";
+const GRAD_START = "1A3A2A"; // dark green
+const GRAD_END = "3D1A00";  // dark orange/brown
 
 function addFooter(s, text = "DutyBoost · The Future of Airport Retail · hello@dutyboost.com") {
   s.addShape("rect", { x: 0, y: 7.1, w: 13.33, h: 0.4, fill: { color: DARK }, line: { color: DARK, width: 0 } });
@@ -22,9 +24,8 @@ function addDivider(s, x, y, w, color = BLUE_LIGHT) {
   s.addShape("rect", { x, y, w, h: 0.04, fill: { color }, line: { color, width: 0 } });
 }
 
-// White rounded pill behind logo so it's visible on dark backgrounds
-function addLogoBg(s, x, y, w, h) {
-  s.addShape("roundRect", { x: x - 0.2, y: y - 0.15, w: w + 0.4, h: h + 0.3, fill: { color: WHITE }, line: { color: "E2E8F0", width: 0 }, rectRadius: 0.2 });
+function addDarkGradBg(s) {
+  s.background = { fill: { type: "grad", color: GRAD_START, color2: GRAD_END, angle: 135 } };
 }
 
 export async function exportRetailerPptx() {
@@ -36,9 +37,8 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    s.background = { color: DARK };
-    s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
-    addLogoBg(s, 4.9, 0.5, 3.5, 1.3);
+    addDarkGradBg(s);
+    s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.5, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("The Future of Airport Retail", { x: 1, y: 2.1, w: 11.3, h: 1.1, fontSize: 38, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("with DutyBoost", { x: 1, y: 3.1, w: 11.3, h: 0.6, fontSize: 22, color: "93C5FD", align: "center", fontFace: "Calibri", italic: true });
@@ -78,8 +78,8 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    s.background = { color: DARK };
-    addSectionLabel(s, "HOW IT WORKS", "93C5FD");
+    addDarkGradBg(s);
+    addSectionLabel(s, "HOW IT WORKS", "FED7AA");
     s.addText("Pre-qualified buyers. Delivered to your store.", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
       { num: "1", title: "Partner sends DutyCredit", body: "Travel agency, airline, hotel or car rental sends traveler a DutyCredit before departure." },
@@ -124,10 +124,10 @@ export async function exportRetailerPptx() {
     });
 
     const tiers = [
-      { tier: "🟡  Boarding DutyCredit", min: "€70", disc: "~14%", max: "€10", note: "Traveler spends €70+ — you earn an extra sale you wouldn't have had.", bg: "FFFBEB" },
-      { tier: "🔵  Priority DutyCredit",  min: "€100", disc: "~20%", max: "€20", note: "Mid-range basket — most common tier. Strong conversion incentive.", bg: LIGHT_BLUE_BG },
-      { tier: "🟢  Lounge DutyCredit",    min: "€150", disc: "~20%", max: "€30", note: "High-value spend — premium traveler segment, larger basket sizes.", bg: "F0FDF4" },
-      { tier: "🟣  VIP DutyCredit",       min: "€200", disc: "~15%", max: "€30", note: "Top-tier traveler — €200+ spend delivers maximum store revenue.", bg: "F5F3FF" },
+      { tier: "🟡  Boarding DutyCredit", min: "€70",  disc: "~14%", max: "€10", note: "Traveler spends €70–€99 — you earn an extra sale you wouldn't have had.", bg: "FFFBEB" },
+      { tier: "🔵  Priority DutyCredit",  min: "€100", disc: "~20%", max: "€30", note: "Mid-range basket €100–€199 — most common tier. Strong conversion incentive.", bg: LIGHT_BLUE_BG },
+      { tier: "🟢  Lounge DutyCredit",    min: "€200", disc: "~22%", max: "€45", note: "High-value spend €200–€299 — premium traveler segment, larger basket sizes.", bg: "F0FDF4" },
+      { tier: "🟣  VIP DutyCredit",       min: "€300", disc: "~20%", max: "€60", note: "Top-tier traveler — €300+ spend delivers maximum store revenue.", bg: "F5F3FF" },
     ];
 
     tiers.forEach(({ tier, min, disc, max, note, bg }, ri) => {
@@ -338,8 +338,8 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    s.background = { color: DARK };
-    addSectionLabel(s, "COMBINED REVENUE POTENTIAL", "93C5FD");
+    addDarkGradBg(s);
+    addSectionLabel(s, "COMBINED REVENUE POTENTIAL", "FED7AA");
     s.addText("What all channels mean for 1 store", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("Conservative modelling · Single airport store · Min. basket €70 · Mixed channel volume", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: "94A3B8", align: "center", fontFace: "Calibri" });
     const rows = [
@@ -411,8 +411,8 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    s.background = { color: DARK };
-    addSectionLabel(s, "INTEGRATION", "93C5FD");
+    addDarkGradBg(s);
+    addSectionLabel(s, "INTEGRATION", "FED7AA");
     s.addText("Simple by design. Live in days.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
       { num: "1", title: "Register your store", body: "Sign up at dutyboost.com. Add your store name, airport, and category. Takes 5 minutes." },
@@ -493,9 +493,8 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    s.background = { color: DARK };
-    s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
-    addLogoBg(s, 4.9, 0.5, 3.5, 1.3);
+    addDarkGradBg(s);
+    s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.5, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("Ready to turn your airport\nfootfall into revenue?", { x: 1, y: 2.1, w: 11.3, h: 1.5, fontSize: 34, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     addDivider(s, 4.5, 3.8, 4.33);
