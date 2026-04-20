@@ -7,9 +7,9 @@ export default {
       for_retailers: 'Voor retailers',
       for_hotels: 'Voor hotels',
       for_car_rentals: 'Voor autoverhuurers',
-      getStarted: 'Aan de slag',
-      weCallYou: 'Wij bellen u',
-      liveDemo: 'Live Demo',
+      get_started: 'Aan de slag',
+      we_call_you: 'Wij bellen u',
+      live_demo: 'Live Demo',
     },
     hero: {
       title_1: 'Elke boeking omzetten in',

@@ -8,11 +8,9 @@ export default {
       for_retailers: 'Pour les détaillants aéroportuaires',
       for_hotels: 'Pour les hôtels',
       for_car_rentals: 'Pour les locations de voitures',
-      getStarted: 'Commencer',
       get_started: 'Commencer',
-      weCallYou: 'Nous vous appelons',
       we_call_you: 'Nous vous appelons',
-      liveDemo: 'Démo en direct',
+      live_demo: 'Démo en direct',
     },
     hero: {
       title_1: 'Transformer chaque réservation de voyage en',

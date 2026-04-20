@@ -8,8 +8,8 @@ export default {
       for_hotels: 'For Hotels',
       for_car_rentals: 'For Car Rentals',
       get_started: 'Get Started',
-      weCallYou: 'We Call You',
-      liveDemo: 'Live Demo',
+      we_call_you: 'We Call You',
+      live_demo: 'Live Demo',
     },
     hero: {
       title_1: 'Turn every booking into',

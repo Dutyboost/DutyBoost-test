@@ -8,11 +8,9 @@ export default {
       for_retailers: 'Para minoristas aeroportuarios',
       for_hotels: 'Para hoteles',
       for_car_rentals: 'Para rentas de autos',
-      getStarted: 'Comenzar',
       get_started: 'Comenzar',
-      weCallYou: 'Te llamamos',
       we_call_you: 'Te llamamos',
-      liveDemo: 'Demo en vivo',
+      live_demo: 'Demo en vivo',
     },
     hero: {
       title_1: 'Convirtiendo cada reserva de viaje en',
