@@ -37,7 +37,7 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    addDarkGradBg(s);
+    s.background = { color: WHITE };
     s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.5, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("The Future of Airport Retail", { x: 1, y: 2.1, w: 11.3, h: 1.1, fontSize: 38, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
@@ -78,7 +78,7 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    addDarkGradBg(s);
+    s.background = { color: WHITE };
     addSectionLabel(s, "HOW IT WORKS", ORANGE);
     s.addText("Pre-qualified buyers. Delivered to your store.", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
@@ -338,7 +338,7 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    addDarkGradBg(s);
+    s.background = { color: WHITE };
     addSectionLabel(s, "COMBINED REVENUE POTENTIAL", ORANGE);
     s.addText("What all channels mean for 1 store", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("Conservative modelling · Single airport store · Min. basket €70 · Mixed channel volume", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: "94A3B8", align: "center", fontFace: "Calibri" });
@@ -411,7 +411,7 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    addDarkGradBg(s);
+    s.background = { color: WHITE };
     addSectionLabel(s, "INTEGRATION", ORANGE);
     s.addText("Simple by design. Live in days.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
@@ -493,7 +493,7 @@ export async function exportRetailerPptx() {
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
-    addDarkGradBg(s);
+    s.background = { color: WHITE };
     s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.5, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("Ready to turn your airport\nfootfall into revenue?", { x: 1, y: 2.1, w: 11.3, h: 1.5, fontSize: 34, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
