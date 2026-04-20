@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronLeft, CreditCard, FileText, ClipboardList, ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 import PurchaseOrderDoc from "../components/PurchaseOrderDoc";
 import KvkValidator from "../components/KvkValidator";
 
@@ -153,11 +154,17 @@ export default function AgencySignup() {
   const handleStep1Submit = async () => {
     setLoading(true);
     try {
-      await base44.entities.SignupApplication.update(applicationId, {
+      // Use encrypted submission for sensitive bank details
+      await base44.functions.invoke('createSignupApplicationEncrypted', {
+        id: applicationId,
         bank_account_name: bankAccountName,
         bank_iban: bankIban,
       });
       setStep(2);
+    } catch (err) {
+      toast.error('Error saving bank details: ' + (err.message || 'Unknown error'));
+      setLoading(false);
+      return;
     } finally {
       setLoading(false);
     }

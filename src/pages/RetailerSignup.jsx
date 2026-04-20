@@ -113,7 +113,7 @@ export default function RetailerSignup() {
         updateData.card_number = cardNumber;
         updateData.card_name = cardName;
         updateData.card_expiry = expiryDate;
-        
+
         // Process €0.01 card verification charge
         try {
           const res = await base44.functions.invoke('processRetailerCardPayment', {
@@ -136,12 +136,25 @@ export default function RetailerSignup() {
           return;
         }
       } else if (paymentMethod === "monthly_invoice") {
-        updateData.bank_account_name = bankAccountName;
-        updateData.bank_iban = bankIban;
+        // Use encrypted submission for sensitive bank details
+        try {
+          await base44.functions.invoke('createSignupApplicationEncrypted', {
+            ...updateData,
+            id: applicationId,
+            bank_account_name: bankAccountName,
+            bank_iban: bankIban,
+          });
+        } catch (err) {
+          toast.error('Error saving bank details: ' + (err.message || 'Unknown error'));
+          setLoading(false);
+          return;
+        }
       } else if (paymentMethod === "self_pay_invoice") {
         updateData.bank_account_name = invoiceEmail; // store invoice email in bank_account_name field
       }
-      await base44.entities.SignupApplication.update(applicationId, updateData);
+      if (paymentMethod !== "monthly_invoice") {
+        await base44.entities.SignupApplication.update(applicationId, updateData);
+      }
       setStep(2);
     } finally {
       setLoading(false);
