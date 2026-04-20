@@ -44,6 +44,14 @@ import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
 import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
 import RetailerScanOnly from './pages/RetailerScanOnly';
+import HotelShowcase from './pages/HotelShowcase';
+import CarRentalShowcase from './pages/CarRentalShowcase';
+import HotelPortal from './pages/HotelPortal';
+import CarRentalPortal from './pages/CarRentalPortal';
+import HotelSignup from './pages/HotelSignup';
+import CarRentalSignup from './pages/CarRentalSignup';
+import DemoHotelDashboard from './pages/DemoHotelDashboard';
+import DemoCarRentalDashboard from './pages/DemoCarRentalDashboard';
 
 import AgencyPortal from './pages/AgencyPortal';
 import ComingSoonPage from './pages/ComingSoonPage';
@@ -99,6 +107,8 @@ const AuthenticatedApp = () => {
         <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
         <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
+        <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
+        <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={<GetStarted />} />
@@ -118,6 +128,12 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
+        <Route path="/hotel-showcase" element={<HotelShowcase />} />
+        <Route path="/hotel-portal" element={<HotelPortal />} />
+        <Route path="/hotel-signup" element={<HotelSignup />} />
+        <Route path="/car-rental-showcase" element={<CarRentalShowcase />} />
+        <Route path="/car-rental-portal" element={<CarRentalPortal />} />
+        <Route path="/car-rental-signup" element={<CarRentalSignup />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />

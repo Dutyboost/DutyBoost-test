@@ -32,6 +32,24 @@ export default function SelectUserType() {
       iconColor: "text-orange-600",
       path: "/retailer-showcase",
     },
+    {
+      titleKey: 'nav.for_hotels',
+      descKey: 'getstarted.hotels_description',
+      icon: TravelAgencyIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
+      path: "/hotel-showcase",
+    },
+    {
+      titleKey: 'nav.for_car_rentals',
+      descKey: 'getstarted.car_rentals_description',
+      icon: AirportRetailerIcon,
+      color: "from-red-400 to-red-600",
+      bg: "bg-red-50",
+      iconColor: "text-red-600",
+      path: "/car-rental-showcase",
+    },
   ];
 
   return (
@@ -56,7 +74,7 @@ export default function SelectUserType() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {options.map((option) => {
               const Icon = option.icon;
               return (
