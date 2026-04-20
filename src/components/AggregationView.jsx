@@ -4,16 +4,21 @@ import { TrendingUp, Euro, Store, ScanLine } from "lucide-react";
 
 export default function AggregationView({ transactions, vouchers, period, entityType = "retailer", onPeriodChange }) {
   const aggregatedMetrics = useMemo(() => {
+    // Calculate period factor
+    let periodFactor = 1;
+    if (period === "daily") periodFactor = 1 / 30;
+    else if (period === "yearly") periodFactor = 12;
+
     // Total redemptions (count of transactions)
-    const totalRedemptions = transactions.length;
+    const totalRedemptions = Math.round(transactions.length * periodFactor);
 
     // Gross revenue (sum of transaction values)
-    const grossRevenue = transactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
+    const grossRevenue = transactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0) * periodFactor;
 
     // Platform fee (2.5% for retailers, but varies for agencies — use agency_commission if present)
     const platformFee = entityType === "retailer"
       ? grossRevenue * 0.025
-      : transactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0);
+      : transactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0) * periodFactor;
 
     // Average sales per DutyCredit
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
@@ -31,7 +36,7 @@ export default function AggregationView({ transactions, vouchers, period, entity
       avgDiscount: avgDiscount.toFixed(1),
       vouchersIssued: vouchers.length,
     };
-  }, [transactions, vouchers, entityType]);
+  }, [transactions, vouchers, period, entityType]);
 
   // Distribution by airport (if available)
   const airportBreakdown = useMemo(() => {
