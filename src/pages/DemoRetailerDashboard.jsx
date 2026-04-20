@@ -129,8 +129,8 @@ export default function DemoRetailerDashboard() {
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "custom" ? (
           <AggregationView 
             transactions={RETAILERS.flatMap(r => 
-              scaledMonthly.map(m => ({ 
-                transaction_value: Math.round(m.revenue * (r.redemptions / selectedRetailer.redemptions)),
+              Array(r.redemptions).fill(null).map(() => ({ 
+                transaction_value: r.avg_sale,
                 discount_applied: 15,
                 airport: r.airport
               }))

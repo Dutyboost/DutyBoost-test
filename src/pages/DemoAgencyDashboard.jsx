@@ -111,8 +111,8 @@ export default function DemoAgencyDashboard() {
         {activeTab === "profile" ? <DemoProfileTab entity={selectedAgency} entityType="agency" /> : activeTab === "custom" ? (
           <AggregationView 
             transactions={TRAVEL_AGENCIES.flatMap(a =>
-              scaledMonthly.map(m => ({
-                transaction_value: Math.round(m.redeemed * 180 * (a.redeemed / selectedAgency.redeemed)),
+              Array(a.redeemed).fill(null).map(() => ({
+                transaction_value: (a.commission / a.redeemed),
                 discount_applied: 0.5,
                 airport: "AMS"
               }))
