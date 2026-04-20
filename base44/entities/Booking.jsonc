@@ -30,7 +30,12 @@
     "travel_date": {
       "type": "string",
       "format": "date",
-      "title": "Travel Date"
+      "title": "Departure Date"
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Return / Arrival Date"
     },
     "agency_email": {
       "type": "string",

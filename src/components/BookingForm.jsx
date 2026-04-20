@@ -18,6 +18,7 @@ export default function BookingForm({ onVoucherGenerated }) {
     travel_type: "Short-haul",
     departure_airport: "",
     travel_date: "",
+    return_date: "",
     traveler_email: "",
   });
 
@@ -38,6 +39,7 @@ export default function BookingForm({ onVoucherGenerated }) {
       travel_type: form.travel_type,
       departure_airport: form.departure_airport,
       travel_date: form.travel_date,
+      return_date: form.return_date || null,
       traveler_email: form.traveler_email,
       agency_email: user.email,
     });
@@ -53,6 +55,7 @@ export default function BookingForm({ onVoucherGenerated }) {
         travel_type: "Short-haul",
         departure_airport: "",
         travel_date: "",
+        return_date: "",
         traveler_email: "",
       });
       onVoucherGenerated?.(response.data);
@@ -129,12 +132,21 @@ export default function BookingForm({ onVoucherGenerated }) {
           </Select>
         </div>
         <div className="space-y-2">
-          <Label>Travel Date</Label>
+          <Label>Departure Date</Label>
           <Input
             type="date"
             value={form.travel_date}
             onChange={(e) => setForm({ ...form, travel_date: e.target.value })}
             required
+          />
+        </div>
+        <div className="space-y-2">
+          <Label>Return / Arrival Date <span className="text-muted-foreground font-normal">(optional)</span></Label>
+          <Input
+            type="date"
+            value={form.return_date}
+            min={form.travel_date || undefined}
+            onChange={(e) => setForm({ ...form, return_date: e.target.value })}
           />
         </div>
         <div className="space-y-2 md:col-span-2">
