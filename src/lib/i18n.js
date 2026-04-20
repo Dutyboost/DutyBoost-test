@@ -2,17 +2,21 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { travelerStrings } from './i18nTraveler';
+import en from '../locales/en';
+import nl from '../locales/nl';
 import fr from '../locales/fr';
 import de from '../locales/de';
 import es from '../locales/es';
 import it from '../locales/it';
 
 const resources = {
+  en: { translation: { ...en.translation, traveler: travelerStrings.en } },
+  nl: { translation: { ...nl.translation } },
   fr: { translation: { ...fr.translation, traveler: travelerStrings.fr } },
   de: { translation: { ...de.translation, traveler: travelerStrings.de } },
   es: { translation: { ...es.translation, traveler: travelerStrings.es } },
   it: { translation: { ...it.translation, traveler: travelerStrings.it } },
-  en: {
+  old_en: {
     translation: {
       nav: {
         sign_in: "Sign In",
@@ -396,6 +400,8 @@ const resources = {
     },
   },
 };
+
+delete resources.old_en;
 
 i18n
   .use(LanguageDetector)
