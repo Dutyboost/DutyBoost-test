@@ -91,16 +91,6 @@ export default function LandingPage() {
                 {t('nav.for_retailers')}
               </Button>
             </Link>
-            <Link to="/hotel-showcase">
-              <Button size="sm" variant="outline" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_hotels')}
-              </Button>
-            </Link>
-            <Link to="/car-rental-showcase">
-              <Button size="sm" variant="outline" className="gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
-                {t('nav.for_car_rentals')}
-              </Button>
-            </Link>
             <Link to="/retailer-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
@@ -136,16 +126,6 @@ export default function LandingPage() {
             <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 {t('nav.for_retailers')}
-              </Button>
-            </Link>
-            <Link to="/hotel-showcase" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                {t('nav.for_hotels')}
-              </Button>
-            </Link>
-            <Link to="/car-rental-showcase" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
-                {t('nav.for_car_rentals')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
