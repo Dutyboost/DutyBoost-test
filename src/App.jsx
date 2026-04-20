@@ -62,6 +62,7 @@ import RetailerOnePager from './pages/RetailerOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
 import RetailerPresentationFuture from './pages/RetailerPresentationFuture';
+import RetailerCalculator from './pages/RetailerCalculator';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -117,6 +118,7 @@ const AuthenticatedApp = () => {
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
         <Route path="/retailer-future-presentation" element={<RetailerPresentationFuture />} />
+        <Route path="/retailer-calculator" element={<RetailerCalculator />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<RetailerSignup />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
