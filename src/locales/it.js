@@ -325,6 +325,7 @@ export default {
         ctaDesc: 'Inizia a premiare i tuoi clienti con incentivi di shopping esclusivi in aeroporto oggi.',
         ctaButton: 'Vai al portale di noleggio auto',
         },
-        },
-        },
-        };
+      },
+    },
+  },
+};

@@ -325,7 +325,7 @@ export default {
         ctaDesc: 'Commencez à récompenser vos clients avec des incitations d\'achat exclusives à l\'aéroport dès aujourd\'hui.',
         ctaButton: 'Aller au portail location de voiture',
         },
-        },
-        },
-        },
-        };
+      },
+    },
+  },
+};
