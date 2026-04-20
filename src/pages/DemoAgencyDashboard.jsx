@@ -98,7 +98,7 @@ export default function DemoAgencyDashboard() {
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {/* Tabs */}
         <div className="flex gap-1 border-b border-border overflow-x-auto">
-          {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Custom", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (
+          {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Aggregation", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
@@ -109,7 +109,18 @@ export default function DemoAgencyDashboard() {
         </div>
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedAgency} entityType="agency" /> : activeTab === "custom" ? (
-          <AggregationView transactions={scaledMonthly.map(m => ({ transaction_value: m.redeemed * 180, discount_applied: 0.5, airport: "AMS" }))} vouchers={scaledMonthly.map(m => ({ id: m.month, traveler_count: m.bookings }))} period={period} entityType="agency" />
+          <AggregationView 
+            transactions={TRAVEL_AGENCIES.flatMap(a =>
+              scaledMonthly.map(m => ({
+                transaction_value: Math.round(m.redeemed * 180 * (a.redeemed / selectedAgency.redeemed)),
+                discount_applied: 0.5,
+                airport: "AMS"
+              }))
+            )}
+            vouchers={TRAVEL_AGENCIES}
+            period={period}
+            entityType="agency"
+          />
         ) : (<>
         {/* Welcome */}
         <div>
