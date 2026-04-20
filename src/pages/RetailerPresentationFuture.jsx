@@ -182,10 +182,10 @@ export default function RetailerPresentationFuture() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-950 via-slate-950 to-orange-950 text-white">
+    <div className="min-h-screen bg-background text-foreground">
 
       {/* Header */}
-      <div className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
             src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9a64855b0_ChatGPT_Image_Mar_30__2026__03_06_29_PM-removebg-preview.png"
@@ -193,8 +193,8 @@ export default function RetailerPresentationFuture() {
             className="h-8 brightness-0 invert"
           />
           <div>
-            <p className="text-sm font-semibold text-white leading-none">The Future of Airport Retail</p>
-            <p className="text-xs text-slate-400">Airport Retailer Presentation · 14 slides</p>
+            <p className="text-sm font-semibold text-foreground leading-none">The Future of Airport Retail</p>
+            <p className="text-xs text-muted-foreground">Airport Retailer Presentation · 14 slides</p>
           </div>
         </div>
         <Button
@@ -211,12 +211,12 @@ export default function RetailerPresentationFuture() {
 
         {/* Hero */}
         <div className="text-center space-y-4">
-          <Badge className="bg-blue-900 text-blue-300 border-blue-700 text-xs tracking-widest uppercase">
+          <Badge className="bg-primary/10 text-primary border-primary/20 text-xs tracking-widest uppercase">
             Airport Retailer Presentation
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">The Future of Airport Retail</h1>
-          <p className="text-xl text-blue-300 italic">with DutyBoost</p>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">The Future of Airport Retail</h1>
+          <p className="text-xl text-primary italic">with DutyBoost</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
             A performance-based revenue layer that sends pre-motivated travelers to your store — from travel agencies, airlines, hotels, and car rental companies. You pay only when they spend.
           </p>
           <Button
@@ -232,19 +232,19 @@ export default function RetailerPresentationFuture() {
 
         {/* Slide Index */}
         <div>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Slide Overview — 14 slides</p>
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">Slide Overview — 14 slides</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {SLIDES_PREVIEW.map((slide, i) => (
               <div
                 key={slide.id}
-                className="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-blue-600 transition-colors"
+                className="bg-card border border-border rounded-xl p-4 hover:border-primary transition-colors"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-6 h-6 rounded-full bg-blue-900 text-blue-300 text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
-                  <span className="text-xs text-blue-400 font-medium">{slide.label}</span>
+                  <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+                  <span className="text-xs text-primary font-medium">{slide.label}</span>
                 </div>
-                <p className="text-xs text-slate-200 font-medium leading-snug">{slide.title}</p>
-                <p className="text-xs text-slate-500 mt-1 leading-snug">{slide.sub}</p>
+                <p className="text-xs text-foreground font-medium leading-snug">{slide.title}</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-snug">{slide.sub}</p>
               </div>
             ))}
           </div>
@@ -252,47 +252,47 @@ export default function RetailerPresentationFuture() {
 
         {/* Revenue Channels */}
         <div>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Revenue Channels Covered</p>
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">Revenue Channels Covered</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {CHANNELS.map(({ icon: Icon, label, color, stats, value }) => (
-              <div key={label} className="bg-slate-800 border border-slate-700 rounded-2xl p-5 space-y-3">
+              <div key={label} className="bg-card border border-border rounded-2xl p-5 space-y-3">
                 <div className="flex items-center gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${color}`}>
                     <Icon className="w-4 h-4" />
                   </div>
-                  <span className="font-semibold text-white text-sm">{label}</span>
+                  <span className="font-semibold text-foreground text-sm">{label}</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {stats.map(s => (
-                    <span key={s} className="text-xs bg-slate-700 text-slate-300 px-2 py-0.5 rounded-full">{s}</span>
+                    <span key={s} className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">{s}</span>
                   ))}
                 </div>
-                <p className="text-xs text-slate-400 leading-relaxed">{value}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{value}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Retailer Benefits */}
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">What Retailers Get</p>
+        <div className="bg-card border border-border rounded-2xl p-6">
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">What Retailers Get</p>
           <div className="grid md:grid-cols-2 gap-3">
             {RETAILER_BENEFITS.map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-start gap-3">
-                <Icon className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                <p className="text-sm text-slate-300">{text}</p>
+                <Icon className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                <p className="text-sm text-foreground">{text}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* DutyCredit Tiers Preview */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">DutyCredit Discount Tiers (Slide 4)</p>
+        <div className="bg-card border border-border rounded-2xl p-6">
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">DutyCredit Discount Tiers (Slide 4)</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-blue-800 text-white">
+                <tr className="bg-primary text-white">
                   <th className="text-left px-3 py-2 rounded-tl-lg">Tier</th>
                   <th className="px-3 py-2">Spend Range</th>
                   <th className="px-3 py-2">Discount</th>
@@ -300,30 +300,30 @@ export default function RetailerPresentationFuture() {
                   <th className="text-left px-3 py-2 rounded-tr-lg">What it means</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-border">
                 {[
                   { name: "🟡 Boarding DutyCredit", range: "€70 – €99",   disc: "~14%", max: "€10", note: "Extra sale you wouldn't have had" },
                   { name: "🔵 Priority DutyCredit",  range: "€100 – €199", disc: "~20%", max: "€30", note: "Most common tier — strong incentive" },
                   { name: "🟢 Lounge DutyCredit",    range: "€200 – €299", disc: "~22%", max: "€45", note: "Premium traveler — larger basket" },
                   { name: "🟣 VIP DutyCredit",       range: "€300+",       disc: "~20%", max: "€60", note: "Top-tier — maximum store revenue" },
                 ].map(({ name, range, disc, max, note }) => (
-                  <tr key={name} className="bg-white/5 hover:bg-white/10 transition-colors">
-                    <td className="px-3 py-2.5 font-medium text-white">{name}</td>
-                    <td className="px-3 py-2.5 text-center text-slate-300">{range}</td>
-                    <td className="px-3 py-2.5 text-center text-green-400 font-bold">{disc}</td>
-                    <td className="px-3 py-2.5 text-center text-blue-300 font-bold">{max}</td>
-                    <td className="px-3 py-2.5 text-slate-400">{note}</td>
+                  <tr key={name} className="bg-muted/30 hover:bg-muted/60 transition-colors">
+                    <td className="px-3 py-2.5 font-medium text-foreground">{name}</td>
+                    <td className="px-3 py-2.5 text-center text-muted-foreground">{range}</td>
+                    <td className="px-3 py-2.5 text-center text-green-600 font-bold">{disc}</td>
+                    <td className="px-3 py-2.5 text-center text-primary font-bold">{max}</td>
+                    <td className="px-3 py-2.5 text-muted-foreground">{note}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-orange-300 mt-3 text-center font-medium">⚠ Minimum basket €70 · Single use · Valid on travel date only · Applied automatically at checkout</p>
+          <p className="text-xs text-orange-600 mt-3 text-center font-medium">⚠ Minimum basket €70 · Single use · Valid on travel date only · Applied automatically at checkout</p>
         </div>
 
         {/* Revenue Summary */}
-        <div className="bg-gradient-to-r from-blue-900 to-slate-900 border border-blue-700 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">Combined Revenue Potential · 1 Store · Conservative Model</p>
+        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Combined Revenue Potential · 1 Store · Conservative Model</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { channel: "Travel Agencies", gross: "€75,000", fee: "€1,875" },
@@ -331,32 +331,32 @@ export default function RetailerPresentationFuture() {
               { channel: "Hotels", gross: "€45,000", fee: "€1,125" },
               { channel: "Car Rental", gross: "€48,000", fee: "€1,200" },
             ].map(({ channel, gross, fee }) => (
-              <div key={channel} className="text-center bg-slate-800/50 rounded-xl p-3">
-                <p className="text-xs text-slate-400 mb-1">{channel}</p>
-                <p className="text-lg font-bold text-green-400">{gross}</p>
-                <p className="text-xs text-red-300">fee: {fee}</p>
+              <div key={channel} className="text-center bg-card border border-border rounded-xl p-3">
+                <p className="text-xs text-muted-foreground mb-1">{channel}</p>
+                <p className="text-lg font-bold text-green-600">{gross}</p>
+                <p className="text-xs text-red-500">fee: {fee}</p>
               </div>
             ))}
           </div>
-          <div className="mt-4 pt-4 border-t border-blue-800 flex flex-col md:flex-row justify-between items-center gap-2">
+          <div className="mt-4 pt-4 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-2">
             <div className="text-center">
-              <p className="text-xs text-slate-400">Total Gross Revenue</p>
-              <p className="text-2xl font-bold text-white">€384,000</p>
+              <p className="text-xs text-muted-foreground">Total Gross Revenue</p>
+              <p className="text-2xl font-bold text-foreground">€384,000</p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-slate-400">Total DutyBoost Fees</p>
-              <p className="text-2xl font-bold text-red-300">€9,600</p>
+              <p className="text-xs text-muted-foreground">Total DutyBoost Fees</p>
+              <p className="text-2xl font-bold text-red-500">€9,600</p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-slate-400">ROI</p>
-              <p className="text-2xl font-bold text-blue-300">40:1</p>
+              <p className="text-xs text-muted-foreground">ROI</p>
+              <p className="text-2xl font-bold text-primary">40:1</p>
             </div>
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center space-y-4 pb-8">
-          <p className="text-slate-400 text-sm">Ready to get started? Download the full presentation.</p>
+          <p className="text-muted-foreground text-sm">Ready to get started? Download the full presentation.</p>
           <Button
             onClick={handleDownload}
             disabled={downloading}
@@ -366,7 +366,7 @@ export default function RetailerPresentationFuture() {
             <Download className="w-5 h-5" />
             {downloading ? "Generating..." : "Download PPTX — The Future of Airport Retail"}
           </Button>
-          <p className="text-xs text-slate-600">hello@dutyboost.com · www.dutyboost.com</p>
+          <p className="text-xs text-muted-foreground">hello@dutyboost.com · www.dutyboost.com</p>
         </div>
 
       </div>
