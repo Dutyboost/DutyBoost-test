@@ -12,6 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText, BarChart2, EyeOff } from "lucide-react";
 import HiddenFeaturesPanel from "../components/HiddenFeaturesPanel";
 import BatchPayoutApproval from "../components/BatchPayoutApproval";
+import AggregationView from "../components/AggregationView";
 import { Link } from "react-router-dom";
 
 export default function AdminPanel() {
@@ -288,6 +289,7 @@ export default function AdminPanel() {
       <Tabs defaultValue="applications">
         <div className="flex items-center justify-between mb-4">
           <TabsList>
+            <TabsTrigger value="aggregation">Aggregation</TabsTrigger>
             <TabsTrigger value="applications">
               Applications
               {applications.filter(a => a.status === 'pending').length > 0 && (
@@ -317,6 +319,10 @@ export default function AdminPanel() {
             </Button>
           )}
         </div>
+
+        <TabsContent value="aggregation" className="mt-4">
+          <AggregationView transactions={transactions} vouchers={vouchers} period="monthly" entityType="admin" />
+        </TabsContent>
 
         <TabsContent value="applications" className="mt-4">
           <div className="bg-card rounded-xl border border-border overflow-hidden">

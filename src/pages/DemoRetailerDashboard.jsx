@@ -2,8 +2,9 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard } from "lucide-react";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard, Settings } from "lucide-react";
 import DemoProfileTab from "../components/DemoProfileTab";
+import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
@@ -114,8 +115,8 @@ export default function DemoRetailerDashboard() {
 
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {/* Tabs */}
-         <div className="flex gap-1 border-b border-border">
-           {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }, { id: "scan", label: t('demo.tabs_scan'), icon: ScanLine }].map(({ id, label, icon: Icon }) => (
+         <div className="flex gap-1 border-b border-border overflow-x-auto">
+            {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Custom", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }, { id: "scan", label: t('demo.tabs_scan'), icon: ScanLine }].map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
@@ -125,7 +126,9 @@ export default function DemoRetailerDashboard() {
           ))}
         </div>
 
-        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "scan" ? (
+        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "custom" ? (
+          <AggregationView transactions={scaledMonthly.map(m => ({ transaction_value: m.revenue, discount_applied: 15, airport: selectedAirport }))} vouchers={scaledMonthly} period={period} entityType="retailer" />
+        ) : activeTab === "scan" ? (
           <div className="space-y-4">
             <p className="text-muted-foreground text-sm">{t('demo.scan_desc')}</p>
             <Link to="/retailer-scan-only" target="_blank" className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all">{t('demo.open_scan')}</Link>

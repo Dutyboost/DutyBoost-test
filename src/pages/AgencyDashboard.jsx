@@ -15,6 +15,7 @@ import {
 } from "recharts";
 import NotificationPreferences from "../components/NotificationPreferences";
 import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
+import AggregationView from "../components/AggregationView";
 
 
 
@@ -108,6 +109,7 @@ export default function AgencyDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "custom", label: "Custom Aggregation", icon: LayoutDashboard },
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
@@ -128,6 +130,8 @@ export default function AgencyDashboard() {
 
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} user={user} />} />
+      ) : activeTab === "custom" ? (
+        <AggregationView transactions={filteredTxns} vouchers={filteredVouchers} period={period} entityType="agency" />
       ) : activeTab === "implementation" ? (
         <div className="max-w-2xl space-y-8 py-4">
           <div className="space-y-2">

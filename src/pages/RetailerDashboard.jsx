@@ -10,6 +10,7 @@ import {
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import RetailerStrategyTab from "../components/RetailerStrategyTab";
+import AggregationView from "../components/AggregationView";
 import { Button } from "@/components/ui/button";
 import { Compass } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -184,6 +185,7 @@ export default function RetailerDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "custom", label: "Custom Aggregation", icon: Compass },
     { id: "strategy", label: "Define your Airport Retail strategy", icon: Compass },
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
@@ -205,6 +207,8 @@ export default function RetailerDashboard() {
 
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
+      ) : activeTab === "custom" ? (
+        <AggregationView transactions={filteredTransactions} vouchers={filteredTransactions} period={period} entityType="retailer" />
       ) : activeTab === "implementation" ? (
         <div className="max-w-2xl space-y-8 py-4">
           <div className="space-y-2">
