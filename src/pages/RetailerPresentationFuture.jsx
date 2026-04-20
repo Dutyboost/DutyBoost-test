@@ -33,6 +33,14 @@ const SLIDES_PREVIEW = [
     accent: "text-blue-300",
   },
   {
+    id: "discount-tiers",
+    label: "DutyCredit Discount Layer",
+    title: "What the traveler receives — how the discount works",
+    sub: "4 tiers · Min. basket €70 · Auto-applied at checkout · Single use",
+    bg: "from-white to-blue-50",
+    accent: "text-blue-700",
+  },
+  {
     id: "retailer-value",
     label: "Retailer Value",
     title: "More sales. Zero upfront cost.",
@@ -134,7 +142,7 @@ const CHANNELS = [
     label: "Hotels",
     color: "bg-green-100 text-green-700",
     stats: ["1.7B room nights/year", "45–60% departure email open rate", "High-value guests"],
-    value: "Check-out triggers spend · Guest heads to airport already holding your voucher.",
+    value: "Check-out triggers spend · Guest heads to airport already holding their DutyCredit.",
   },
   {
     icon: Car,
@@ -154,7 +162,7 @@ const CHANNELS = [
 
 const RETAILER_BENEFITS = [
   { icon: CheckCircle2, text: "2.5% fee only on completed transactions — pure performance" },
-  { icon: CheckCircle2, text: "Pre-motivated buyers arrive with voucher in hand" },
+  { icon: CheckCircle2, text: "Pre-motivated buyers arrive with DutyCredit in hand — min. basket €70" },
   { icon: CheckCircle2, text: "No POS overhaul — simple QR scan on any device" },
   { icon: CheckCircle2, text: "Real-time dashboard: scans, revenue, channel breakdown" },
   { icon: CheckCircle2, text: "Multiple income channels: agencies, airlines, hotels, car rental" },
@@ -186,7 +194,7 @@ export default function RetailerPresentationFuture() {
           />
           <div>
             <p className="text-sm font-semibold text-white leading-none">The Future of Airport Retail</p>
-            <p className="text-xs text-slate-400">Airport Retailer Presentation · 13 slides</p>
+            <p className="text-xs text-slate-400">Airport Retailer Presentation · 14 slides</p>
           </div>
         </div>
         <Button
@@ -224,7 +232,7 @@ export default function RetailerPresentationFuture() {
 
         {/* Slide Index */}
         <div>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Slide Overview — 13 slides</p>
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Slide Overview — 14 slides</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {SLIDES_PREVIEW.map((slide, i) => (
               <div
@@ -283,10 +291,10 @@ export default function RetailerPresentationFuture() {
           <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">Combined Revenue Potential · 1 Store · Conservative Model</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { channel: "Travel Agencies", gross: "€65,000", fee: "€1,625" },
-              { channel: "Airlines", gross: "€189,000", fee: "€4,725" },
-              { channel: "Hotels", gross: "€33,000", fee: "€825" },
-              { channel: "Car Rental", gross: "€39,000", fee: "€975" },
+              { channel: "Travel Agencies", gross: "€75,000", fee: "€1,875" },
+              { channel: "Airlines", gross: "€216,000", fee: "€5,400" },
+              { channel: "Hotels", gross: "€45,000", fee: "€1,125" },
+              { channel: "Car Rental", gross: "€48,000", fee: "€1,200" },
             ].map(({ channel, gross, fee }) => (
               <div key={channel} className="text-center bg-slate-800/50 rounded-xl p-3">
                 <p className="text-xs text-slate-400 mb-1">{channel}</p>
@@ -298,11 +306,11 @@ export default function RetailerPresentationFuture() {
           <div className="mt-4 pt-4 border-t border-blue-800 flex flex-col md:flex-row justify-between items-center gap-2">
             <div className="text-center">
               <p className="text-xs text-slate-400">Total Gross Revenue</p>
-              <p className="text-2xl font-bold text-white">€326,000</p>
+              <p className="text-2xl font-bold text-white">€384,000</p>
             </div>
             <div className="text-center">
               <p className="text-xs text-slate-400">Total DutyBoost Fees</p>
-              <p className="text-2xl font-bold text-red-300">€8,150</p>
+              <p className="text-2xl font-bold text-red-300">€9,600</p>
             </div>
             <div className="text-center">
               <p className="text-xs text-slate-400">ROI</p>
