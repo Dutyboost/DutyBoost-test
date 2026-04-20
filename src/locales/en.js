@@ -2,11 +2,11 @@ export default {
   translation: {
     nav: {
       signIn: 'Sign In',
-      for_agencies: 'For Travel Partners',
-      for_travelers: 'For Travelers',
-      for_retailers: 'For Retailers',
-      for_hotels: 'For Hotels',
-      for_car_rentals: 'For Car Rentals',
+      for_agencies: 'Travel Partners',
+      for_travelers: 'Travelers',
+      for_retailers: 'Retailers',
+      for_hotels: 'Hotels',
+      for_car_rentals: 'Car Rentals',
       get_started: 'Get Started',
       we_call_you: 'We Call You',
       live_demo: 'Live Demo',

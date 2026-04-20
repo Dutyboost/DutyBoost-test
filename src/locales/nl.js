@@ -2,11 +2,11 @@ export default {
   translation: {
     nav: {
       signIn: 'Inloggen',
-      for_agencies: 'Voor Travel Partners',
-      for_travelers: 'Voor reizigers',
-      for_retailers: 'Voor retailers',
-      for_hotels: 'Voor hotels',
-      for_car_rentals: 'Voor autoverhuurers',
+      for_agencies: 'Travel Partners',
+      for_travelers: 'Reizigers',
+      for_retailers: 'Retailers',
+      for_hotels: 'Hotels',
+      for_car_rentals: 'Autoverhuurers',
       get_started: 'Aan de slag',
       we_call_you: 'Wij bellen u',
       live_demo: 'Live Demo',
