@@ -292,29 +292,27 @@ export default function RetailerPresentationFuture() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-blue-800 text-white">
-                  <th className="text-left px-3 py-2 rounded-tl-lg">Tier</th>
-                  <th className="px-3 py-2">Spend Range</th>
-                  <th className="px-3 py-2">Discount</th>
-                  <th className="px-3 py-2">Max Saving</th>
-                  <th className="text-left px-3 py-2 rounded-tr-lg">What it means</th>
-                </tr>
+              <tr className="bg-blue-800 text-white">
+                <th className="text-left px-3 py-2 rounded-tl-lg">Tier</th>
+                <th className="px-3 py-2">Spend Range</th>
+                <th className="px-3 py-2">Saving Range</th>
+                <th className="text-left px-3 py-2 rounded-tr-lg">What it means</th>
+              </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
-                {[
-                  { name: "🟡 Boarding DutyCredit", range: "€70 – €99",   disc: "~14%", max: "€10", note: "Extra sale you wouldn't have had" },
-                  { name: "🔵 Priority DutyCredit",  range: "€100 – €199", disc: "~20%", max: "€30", note: "Most common tier — strong incentive" },
-                  { name: "🟢 Lounge DutyCredit",    range: "€200 – €299", disc: "~22%", max: "€45", note: "Premium traveler — larger basket" },
-                  { name: "🟣 VIP DutyCredit",       range: "€300+",       disc: "~20%", max: "€60", note: "Top-tier — maximum store revenue" },
-                ].map(({ name, range, disc, max, note }) => (
-                  <tr key={name} className="bg-white/5 hover:bg-white/10 transition-colors">
-                    <td className="px-3 py-2.5 font-medium text-white">{name}</td>
-                    <td className="px-3 py-2.5 text-center text-slate-300">{range}</td>
-                    <td className="px-3 py-2.5 text-center text-green-400 font-bold">{disc}</td>
-                    <td className="px-3 py-2.5 text-center text-blue-300 font-bold">{max}</td>
-                    <td className="px-3 py-2.5 text-slate-400">{note}</td>
-                  </tr>
-                ))}
+              {[
+                { name: "🟡 Boarding DutyCredit", range: "€70 – €99",   saving: "€5 – €10", note: "Extra sale you wouldn't have had" },
+                { name: "🔵 Priority DutyCredit",  range: "€100 – €199", saving: "€10 – €30", note: "Most common tier — strong incentive" },
+                { name: "🟢 Lounge DutyCredit",    range: "€200 – €299", saving: "€30 – €45", note: "Premium traveler — larger basket" },
+                { name: "🟣 VIP DutyCredit",       range: "€300+",       saving: "€45 – €60", note: "Top-tier — maximum store revenue" },
+              ].map(({ name, range, saving, note }) => (
+                <tr key={name} className="bg-white/5 hover:bg-white/10 transition-colors">
+                  <td className="px-3 py-2.5 font-medium text-white">{name}</td>
+                  <td className="px-3 py-2.5 text-center text-slate-300">{range}</td>
+                  <td className="px-3 py-2.5 text-center text-blue-300 font-bold">{saving}</td>
+                  <td className="px-3 py-2.5 text-slate-400">{note}</td>
+                </tr>
+              ))}
               </tbody>
             </table>
           </div>
