@@ -197,14 +197,22 @@ export default function RetailerPresentationFuture() {
             <p className="text-xs text-slate-400">Airport Retailer Presentation · 14 slides</p>
           </div>
         </div>
-        <Button
-          onClick={handleDownload}
-          disabled={downloading}
-          className="bg-blue-600 hover:bg-blue-700 text-white gap-2"
-        >
-          <Download className="w-4 h-4" />
-          {downloading ? "Generating..." : "Download PPTX"}
-        </Button>
+        <div className="flex items-center gap-2">
+          <a href="/retailer-calculator" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white gap-2">
+              <BarChart3 className="w-4 h-4" />
+              ROI Calculator
+            </Button>
+          </a>
+          <Button
+            onClick={handleDownload}
+            disabled={downloading}
+            className="bg-blue-600 hover:bg-blue-700 text-white gap-2"
+          >
+            <Download className="w-4 h-4" />
+            {downloading ? "Generating..." : "Download PPTX"}
+          </Button>
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-10 space-y-12">
