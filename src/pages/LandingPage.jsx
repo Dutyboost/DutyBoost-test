@@ -96,6 +96,11 @@ export default function LandingPage() {
                 {t('nav.we_call_you')}
               </Button>
             )} />
+            <Link to="/retailer-calculator">
+              <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
+              </Button>
+            </Link>
             <Link to="/demo">
               <Button variant="outline" size="sm" className="gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
                 <Eye className="w-3.5 h-3.5" /> Live Demo
@@ -133,6 +138,11 @@ export default function LandingPage() {
                 {t('nav.we_call_you')}
               </Button>
             )} />
+            <Link to="/retailer-calculator" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
+              </Button>
+            </Link>
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
                 <Eye className="w-3.5 h-3.5" /> Live Demo
