@@ -12,6 +12,8 @@ import {
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
+import HotelIcon from "../components/HotelIcon";
+import CarRentalIcon from "../components/CarRentalIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
@@ -197,18 +199,19 @@ export default function LandingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {stakeholders.map((s) => {
-              const Icon = s.icon;
+              let Icon = s.icon;
+              let AdditionalIcons = [];
               let title, description, benefits;
               
               if (s.key === 'agencies') {
-                title = t('nav.for_agencies');
-                description = t('stakeholders.agencies.description');
-                benefits = [
-                  t('stakeholders.agencies.b1'),
-                  t('stakeholders.agencies.b2'),
-                  t('stakeholders.agencies.b3'),
-                ];
-              } else {
+                 title = t('nav.for_agencies');
+                 description = 'Generate personalized DutyCredits for your customers based on their spend. Boost loyalty and create new revenue streams from hotels, car rentals, and flight bookings.';
+                 benefits = [
+                   t('stakeholders.agencies.b1'),
+                   t('stakeholders.agencies.b2'),
+                   t('stakeholders.agencies.b3'),
+                 ];
+               } else {
                 benefits = [
                   t(`stakeholders.${s.key}.b1`),
                   t(`stakeholders.${s.key}.b2`),
@@ -218,10 +221,21 @@ export default function LandingPage() {
                 description = t(`stakeholders.${s.key}.description`);
               }
               
+              if (s.key === 'agencies') {
+                AdditionalIcons = [HotelIcon, CarRentalIcon];
+              }
+
               return (
                 <div key={s.key} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
-                  <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center mb-5`}>
-                    <Icon className={`w-24 h-24 ${s.iconColor}`} />
+                  <div className={`flex items-center gap-3 mb-5`}>
+                    <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center`}>
+                      <Icon className={`w-12 h-12 ${s.iconColor}`} />
+                    </div>
+                    {AdditionalIcons.map((AdIcon, idx) => (
+                      <div key={idx} className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center`}>
+                        <AdIcon className={`w-12 h-12 ${s.iconColor}`} />
+                      </div>
+                    ))}
                   </div>
                   <h3 className="font-heading font-bold text-xl mb-3">{title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">{description}</p>
