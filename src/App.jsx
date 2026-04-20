@@ -51,7 +51,6 @@ import AgencySignup from './pages/AgencySignup';
 import RetailerPortal from './pages/RetailerPortal';
 import RetailerSignup from './pages/RetailerSignup';
 import RetailerShowcase from './pages/RetailerShowcase';
-import PresentationDeck from './pages/PresentationDeck';
 import AgencyShowcase from './pages/AgencyShowcase';
 import AgencyPresentationDeck from './pages/AgencyPresentationDeck';
 import RetailerPresentationDeck from './pages/RetailerPresentationDeck';
@@ -107,7 +106,6 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
         <Route path="/travel-partner-signup" element={<AgencySignup />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
-        <Route path="/deck" element={<PresentationDeck />} />
         <Route path="/travel-partner-deck" element={<AgencyPresentationDeck />} />
         <Route path="/retailer-deck" element={<RetailerPresentationDeck />} />
         <Route path="/travel-partner-showcase" element={<AgencyShowcase />} />
