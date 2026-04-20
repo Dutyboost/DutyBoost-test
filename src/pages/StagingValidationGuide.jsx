@@ -28,7 +28,7 @@ export default function StagingValidationGuide() {
               <div>
                 <h3 className="font-semibold mb-2">Configure Test Accounts</h3>
                 <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-                  <li>Create test travel agency account</li>
+                  <li>Create test travel partner account</li>
                   <li>Create test airport retailer account</li>
                   <li>Create test admin account</li>
                   <li>Create test traveler accounts</li>
@@ -45,7 +45,7 @@ export default function StagingValidationGuide() {
             </h2>
             <div className="space-y-4 ml-10">
               <div>
-                <h3 className="font-semibold mb-2">Travel Agency Flow</h3>
+                <h3 className="font-semibold mb-2">Travel Partner Flow</h3>
                 <div className="bg-secondary/50 p-3 rounded text-sm space-y-1 font-mono text-muted-foreground">
                   <div>→ Sign up with company details</div>
                   <div>→ Verify KVK number validation</div>
