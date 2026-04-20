@@ -142,14 +142,14 @@ const CHANNELS = [
     label: "Hotels",
     color: "bg-green-100 text-green-700",
     stats: ["1.7B room nights/year", "45–60% departure email open rate", "High-value guests"],
-    value: "Check-out triggers spend · Guest heads to airport already holding their DutyCredit.",
+    value: "Check-out triggers spend · Guest holds DutyCredit valid at departure AND arrival airport stores.",
   },
   {
     icon: Car,
     label: "Car Rental",
     color: "bg-orange-100 text-orange-700",
     stats: ["115M+ rentals in Europe", "70–85% open rate", "14–28 day booking window"],
-    value: "Natural airport association · Rental = departure logistics. Reward feels native.",
+    value: "Natural airport association · DutyCredit valid at both departure and arrival — doubles the redemption window.",
   },
   {
     icon: Briefcase,
@@ -324,7 +324,7 @@ export default function RetailerPresentationFuture() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-orange-300 mt-3 text-center font-medium">⚠ Minimum basket €70 · Single use · Valid on travel date only · Applied automatically at checkout</p>
+          <p className="text-xs text-orange-300 mt-3 text-center font-medium">⚠ Minimum basket €70 · Single use · Valid from departure day through arrival day · Applied automatically at checkout</p>
         </div>
 
         {/* Revenue Summary */}

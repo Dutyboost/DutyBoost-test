@@ -83,7 +83,7 @@ export async function exportRetailerPptx() {
     s.addText("Pre-qualified buyers. Delivered to your store.", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
       { num: "1", title: "Partner sends DutyCredit", body: "Travel agency, airline, hotel or car rental sends traveler a DutyCredit before departure." },
-      { num: "2", title: "Traveler arrives at airport", body: "Traveler has a QR code — valid today only, only at participating stores. Min. spend €70." },
+      { num: "2", title: "Traveler arrives at airport", body: "Traveler has a QR code — valid from departure day through arrival day, at all participating stores. Min. spend €70." },
       { num: "3", title: "Traveler scans at checkout", body: "Cashier scans QR. POS automatically applies the tiered discount. Transaction logged in real time." },
       { num: "4", title: "Retailer pays 2.5% fee", body: "DutyBoost invoices you monthly. You only pay on completed transactions — zero risk." },
     ];
@@ -148,7 +148,7 @@ export async function exportRetailerPptx() {
 
     // Minimum basket note
     s.addShape("roundRect", { x: 0.4, y: 6.0, w: 12.5, h: 0.75, fill: { color: "FFF7ED" }, line: { color: "FED7AA", width: 1 }, rectRadius: 0.1 });
-    s.addText("⚠  Minimum basket size to activate any DutyCredit: €70  ·  Single use  ·  Valid on travel date only  ·  Applied automatically at checkout via QR scan", {
+    s.addText("⚠  Minimum basket size to activate any DutyCredit: €70  ·  Single use  ·  Valid from departure day through arrival day  ·  Applied automatically at checkout via QR scan", {
       x: 0.6, y: 6.05, w: 12.1, h: 0.65, fontSize: 10.5, bold: true, color: ORANGE, fontFace: "Calibri", valign: "middle", align: "center"
     });
     addFooter(s);
@@ -283,7 +283,7 @@ export async function exportRetailerPptx() {
     s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
     s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
     const hotelMeansRetailer = [
-      { t: "Check-out triggers spend", b: "Hotel sends DutyCredit at check-out — guest heads to airport ready to spend €70+." },
+      { t: "Departure & arrival window", b: "Hotel sends DutyCredit at check-out — valid at departure AND arrival airport stores, maximising redemption chances." },
       { t: "High-value guests", b: "Hotel guests have higher disposable income and spend more per airport visit." },
       { t: "Revenue example", b: "100k hotel guests × 20% conversion × €75 avg = €1.5M gross / €37,500 fee to DutyBoost." },
       { t: "No operational change", b: "Entirely email-based. No app, no hardware, no hotel staff involvement." },
@@ -321,7 +321,7 @@ export async function exportRetailerPptx() {
     s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
     s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
     const carMeansRetailer = [
-      { t: "Natural airport association", b: "Car rental = departure logistics. A DutyCredit at the airport feels native and expected." },
+      { t: "Departure & arrival window", b: "Car rental = airport logistics. DutyCredit valid at both departure and arrival — doubles the spending opportunity." },
       { t: "Early intent", b: "Booked weeks ahead — traveler has time to plan their €70+ store visit." },
       { t: "Revenue example", b: "100k rentals × 15% conversion × €80 avg = €1.2M gross / €30,000 fee to DutyBoost." },
       { t: "B2B multiplier", b: "Corporate rental accounts can embed DutyCredit in employee travel policy — recurring volume." },
