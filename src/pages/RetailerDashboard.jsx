@@ -208,7 +208,7 @@ export default function RetailerDashboard() {
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
       ) : activeTab === "custom" ? (
-        <AggregationView transactions={filteredTransactions} vouchers={filteredTransactions} period={period} entityType="retailer" />
+        <AggregationView transactions={filteredTransactions} vouchers={filteredTransactions} period={period} entityType="retailer" onPeriodChange={setPeriod} />
       ) : activeTab === "implementation" ? (
         <div className="max-w-2xl space-y-8 py-4">
           <div className="space-y-2">
