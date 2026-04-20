@@ -182,10 +182,10 @@ export default function RetailerPresentationFuture() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-slate-900 text-white">
 
       {/* Header */}
-      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border px-6 py-3 flex items-center justify-between">
+      <div className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-700 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
             src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9a64855b0_ChatGPT_Image_Mar_30__2026__03_06_29_PM-removebg-preview.png"
@@ -193,8 +193,8 @@ export default function RetailerPresentationFuture() {
             className="h-8 brightness-0 invert"
           />
           <div>
-            <p className="text-sm font-semibold text-foreground leading-none">The Future of Airport Retail</p>
-            <p className="text-xs text-muted-foreground">Airport Retailer Presentation · 14 slides</p>
+            <p className="text-sm font-semibold text-white leading-none">The Future of Airport Retail</p>
+            <p className="text-xs text-slate-400">Airport Retailer Presentation · 14 slides</p>
           </div>
         </div>
         <Button
@@ -211,12 +211,12 @@ export default function RetailerPresentationFuture() {
 
         {/* Hero */}
         <div className="text-center space-y-4">
-          <Badge className="bg-primary/10 text-primary border-primary/20 text-xs tracking-widest uppercase">
+          <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs tracking-widest uppercase">
             Airport Retailer Presentation
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">The Future of Airport Retail</h1>
-          <p className="text-xl text-primary italic">with DutyBoost</p>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">The Future of Airport Retail</h1>
+          <p className="text-xl text-orange-300 italic">with DutyBoost</p>
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
             A performance-based revenue layer that sends pre-motivated travelers to your store — from travel agencies, airlines, hotels, and car rental companies. You pay only when they spend.
           </p>
           <Button
@@ -232,19 +232,19 @@ export default function RetailerPresentationFuture() {
 
         {/* Slide Index */}
         <div>
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">Slide Overview — 14 slides</p>
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Slide Overview — 14 slides</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {SLIDES_PREVIEW.map((slide, i) => (
               <div
                 key={slide.id}
-                className="bg-card border border-border rounded-xl p-4 hover:border-primary transition-colors"
+                className="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-blue-500 transition-colors"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
-                  <span className="text-xs text-primary font-medium">{slide.label}</span>
+                  <span className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+                  <span className="text-xs text-blue-300 font-medium">{slide.label}</span>
                 </div>
-                <p className="text-xs text-foreground font-medium leading-snug">{slide.title}</p>
-                <p className="text-xs text-muted-foreground mt-1 leading-snug">{slide.sub}</p>
+                <p className="text-xs text-white font-medium leading-snug">{slide.title}</p>
+                <p className="text-xs text-slate-400 mt-1 leading-snug">{slide.sub}</p>
               </div>
             ))}
           </div>
