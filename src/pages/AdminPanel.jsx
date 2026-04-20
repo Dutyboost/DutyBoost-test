@@ -193,15 +193,16 @@ export default function AdminPanel() {
     }
     const retailer = retailers.find(r => r.id === redeemForm.retailer_id);
     const txnValue = parseFloat(redeemForm.transaction_value);
-    const discountAmount = (txnValue * voucher.discount_percentage) / 100;
-    const platformRevenue = txnValue * 0.05;
+    // discount_percentage stores the euro credit amount (not a percentage)
+    const discountAmount = parseFloat((voucher.discount_percentage || 0).toFixed(2));
+    const platformRevenue = txnValue * 0.025;
 
     await base44.entities.Transaction.create({
       voucher_code: voucher.voucher_code,
       retailer_id: redeemForm.retailer_id,
       store_name: retailer?.store_name || "Unknown",
       transaction_value: txnValue,
-      discount_applied: voucher.discount_percentage,
+      discount_applied: txnValue > 0 ? parseFloat(((discountAmount / txnValue) * 100).toFixed(2)) : 0,
       discount_amount: discountAmount,
       platform_revenue: platformRevenue,
       airport: voucher.airport,

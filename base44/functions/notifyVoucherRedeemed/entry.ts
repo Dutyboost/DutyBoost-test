@@ -17,7 +17,8 @@ Deno.serve(async (req) => {
       const users = await base44.asServiceRole.entities.User.filter({ email: voucher.agency_email });
       const agencyUser = users[0];
       const prefsRaw = agencyUser?.notification_prefs;
-      const prefs = prefsRaw ? JSON.parse(prefsRaw) : {};
+      let prefs = {};
+      try { prefs = prefsRaw ? JSON.parse(prefsRaw) : {}; } catch { prefs = {}; }
       
       if (prefs.redeemed === false) {
         return Response.json({ skipped: 'agency notifications disabled' });

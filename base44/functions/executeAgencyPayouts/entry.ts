@@ -10,10 +10,12 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Mollie API key not configured' }, { status: 500 });
     }
 
-    // Get all pending invoices (payout statements)
-    const invoices = await base44.asServiceRole.entities.MonthlyInvoice.filter({
-      status: 'pending',
-    });
+    // Get all pending payout statements for agencies only (not retailer invoices)
+    const allPending = await base44.asServiceRole.entities.MonthlyInvoice.filter({ status: 'pending' });
+    // Filter to agency payout statements by cross-referencing with agency signup applications
+    const agencyApps = await base44.asServiceRole.entities.SignupApplication.filter({ business_type: 'Travel Partner' });
+    const agencyEmails = new Set(agencyApps.map(a => a.email));
+    const invoices = allPending.filter(inv => agencyEmails.has(inv.retailer_email));
 
     if (invoices.length === 0) {
       return Response.json({ success: true, message: 'No pending payouts to execute' });

@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -25,18 +25,20 @@ Deno.serve(async (req) => {
       if (!agencyCommissions[tx.agency_email]) {
         agencyCommissions[tx.agency_email] = { amount: 0, count: 0 };
       }
-      agencyCommissions[tx.agency_email].amount += tx.transaction_value * 0.01;
+      agencyCommissions[tx.agency_email].amount += tx.agency_commission || (tx.transaction_value * 0.005);
       agencyCommissions[tx.agency_email].count += 1;
     });
 
     // Get all approved agencies
     const agencies = await base44.asServiceRole.entities.SignupApplication.filter({
-      business_type: 'Travel Agency',
+      business_type: 'Travel Partner',
       status: 'invited',
     });
 
     const payoutDate = new Date();
-    const monthYear = `${payoutDate.getFullYear()}-${String(payoutDate.getMonth()).padStart(2, '0')}`;
+    // month is the previous month (this runs at start of current month)
+    const prevMonth = new Date(payoutDate.getFullYear(), payoutDate.getMonth() - 1, 1);
+    const monthYear = `${prevMonth.getFullYear()}-${String(prevMonth.getMonth() + 1).padStart(2, '0')}`;
     const dueDate = new Date(payoutDate.getFullYear(), payoutDate.getMonth() + 1, 14);
 
     // Create monthly invoices (commission statements)

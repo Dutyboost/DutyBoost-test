@@ -12,26 +12,39 @@ export default function RetailerScanOnly() {
   const [loading, setLoading] = useState(false);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const streamRef = useRef(null);
+  const scanningRef = useRef(true);
 
   useEffect(() => {
-    if (!scanning || !videoRef.current) return;
+    if (!scanning) return;
+    scanningRef.current = true;
 
     navigator.mediaDevices
       .getUserMedia({ video: { facingMode: "environment" } })
       .then((stream) => {
-        videoRef.current.srcObject = stream;
-        scanQR();
+        streamRef.current = stream;
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          videoRef.current.onloadedmetadata = () => scanQR();
+        }
       })
       .catch(() => setMessage("Camera access denied"));
+
+    return () => {
+      scanningRef.current = false;
+      streamRef.current?.getTracks().forEach(t => t.stop());
+    };
   }, [scanning]);
 
   const scanQR = () => {
-    if (!videoRef.current || !scanning) return;
+    if (!scanningRef.current || !videoRef.current || !canvasRef.current) return;
+    const video = videoRef.current;
+    if (!video.videoWidth) { setTimeout(scanQR, 200); return; }
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    canvas.width = videoRef.current.videoWidth;
-    canvas.height = videoRef.current.videoHeight;
-    ctx.drawImage(videoRef.current, 0, 0);
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0);
 
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const code = jsQR(imageData.data, imageData.width, imageData.height);
@@ -44,7 +57,9 @@ export default function RetailerScanOnly() {
   };
 
   const handleVoucherCode = async (code) => {
+    scanningRef.current = false;
     setScanning(false);
+    streamRef.current?.getTracks().forEach(t => t.stop());
     setLoading(true);
 
     try {
@@ -73,6 +88,7 @@ export default function RetailerScanOnly() {
   const resetScan = () => {
     setResult(null);
     setMessage("");
+    streamRef.current = null;
     setScanning(true);
   };
 
