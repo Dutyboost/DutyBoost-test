@@ -22,50 +22,55 @@ export const TRAVEL_AGENCIES = [
 ];
 
 export const RETAILERS = [
-  // Amsterdam Schiphol (15) - 60% of total retail market (Schiphol ~60% of Dutch airport traffic)
-  { id: "r1",  name: "The Style Loft",           airport: "AMS", category: "Retail",          redemptions: 680,  avg_sale: 185, revenue: 125800 },
-  { id: "r2",  name: "Tulip & Souvenir Co.",     airport: "AMS", category: "Retail",          redemptions: 1020, avg_sale: 68,  revenue: 69360 },
-  { id: "r3",  name: "The Amber Tap",            airport: "AMS", category: "Food & Beverage", redemptions: 1440, avg_sale: 32,  revenue: 46080 },
-  { id: "r4",  name: "Gateway Duty Free",        airport: "AMS", category: "Retail",          redemptions: 2480, avg_sale: 220, revenue: 545600 },
-  { id: "r5",  name: "Bloom Beauty Shop",        airport: "AMS", category: "Retail",          redemptions: 960,  avg_sale: 95,  revenue: 91200 },
-  { id: "r6",  name: "Le Petit Bistro",          airport: "AMS", category: "Food & Beverage", redemptions: 780,  avg_sale: 28,  revenue: 21840 },
-  { id: "r7",  name: "Prestige Wines & Spirits", airport: "AMS", category: "Retail",          redemptions: 1720, avg_sale: 145, revenue: 249400 },
-  { id: "r8",  name: "Elara Fashion AMS",        airport: "AMS", category: "Retail",          redemptions: 430,  avg_sale: 310, revenue: 133300 },
-  { id: "r9",  name: "Riviera Apparel",          airport: "AMS", category: "Retail",          redemptions: 380,  avg_sale: 180, revenue: 68400 },
-  { id: "r10", name: "Lumière Jewels",           airport: "AMS", category: "Retail",          redemptions: 190,  avg_sale: 780, revenue: 148200 },
-  { id: "r11", name: "QuickBite Terminal 2",     airport: "AMS", category: "Food & Beverage", redemptions: 1820, avg_sale: 18,  revenue: 32760 },
-  { id: "r12", name: "Frost & Cream",            airport: "AMS", category: "Food & Beverage", redemptions: 1280, avg_sale: 14,  revenue: 17920 },
-  { id: "r13", name: "Cacao House",              airport: "AMS", category: "Retail",          redemptions: 620,  avg_sale: 55,  revenue: 34100 },
-  { id: "r14", name: "Chronos Boutique",         airport: "AMS", category: "Retail",          redemptions: 144,  avg_sale: 940, revenue: 135360 },
-  { id: "r15", name: "Crystal & Co.",            airport: "AMS", category: "Retail",          redemptions: 530,  avg_sale: 120, revenue: 63600 },
+  // Total market: 78.4M passengers, €1.05B retail sales
+  // 15% through DutyBoost = 11.76M passengers, €157.5M retail sales
+  // Airport traffic distribution: AMS 50% (5.88M), RTM 20% (2.352M), EIN 15% (1.764M), GRQ 10% (1.176M), MST 5% (0.588M)
+  // 35 shops total: 15 AMS, 7 RTM, 6 EIN, 4 GRQ, 3 MST
 
-  // Rotterdam The Hague (7) - 16% of total market
-  { id: "r16", name: "Harbor Duty Free",         airport: "RTM", category: "Retail",          redemptions: 680,  avg_sale: 130, revenue: 88400 },
-  { id: "r17", name: "Fresh Stop RTM",           airport: "RTM", category: "Food & Beverage", redemptions: 480,  avg_sale: 22,  revenue: 10560 },
-  { id: "r18", name: "Metro Style",              airport: "RTM", category: "Retail",          redemptions: 350,  avg_sale: 95,  revenue: 33250 },
-  { id: "r19", name: "Delta Gifts",              airport: "RTM", category: "Retail",          redemptions: 425,  avg_sale: 35,  revenue: 14875 },
-  { id: "r20", name: "The Hop House RTM",        airport: "RTM", category: "Food & Beverage", redemptions: 610,  avg_sale: 25,  revenue: 15250 },
-  { id: "r21", name: "Noir Parfumerie",          airport: "RTM", category: "Retail",          redemptions: 305,  avg_sale: 175, revenue: 53375 },
-  { id: "r22", name: "Brewpoint Café",           airport: "RTM", category: "Food & Beverage", redemptions: 765,  avg_sale: 16,  revenue: 12240 },
+  // Amsterdam Schiphol (15) - 50% of DutyBoost volume
+  { id: "r1",  name: "The Style Loft",           airport: "AMS", category: "Retail",          redemptions: 3230,  avg_sale: 185, revenue: 597550 },
+  { id: "r2",  name: "Tulip & Souvenir Co.",     airport: "AMS", category: "Retail",          redemptions: 4850,  avg_sale: 68,  revenue: 329800 },
+  { id: "r3",  name: "The Amber Tap",            airport: "AMS", category: "Food & Beverage", redemptions: 6840,  avg_sale: 32,  revenue: 218880 },
+  { id: "r4",  name: "Gateway Duty Free",        airport: "AMS", category: "Retail",          redemptions: 11780, avg_sale: 220, revenue: 2591600 },
+  { id: "r5",  name: "Bloom Beauty Shop",        airport: "AMS", category: "Retail",          redemptions: 4560,  avg_sale: 95,  revenue: 433200 },
+  { id: "r6",  name: "Le Petit Bistro",          airport: "AMS", category: "Food & Beverage", redemptions: 3700,  avg_sale: 28,  revenue: 103600 },
+  { id: "r7",  name: "Prestige Wines & Spirits", airport: "AMS", category: "Retail",          redemptions: 8170,  avg_sale: 145, revenue: 1184650 },
+  { id: "r8",  name: "Elara Fashion AMS",        airport: "AMS", category: "Retail",          redemptions: 2040,  avg_sale: 310, revenue: 632400 },
+  { id: "r9",  name: "Riviera Apparel",          airport: "AMS", category: "Retail",          redemptions: 1810,  avg_sale: 180, revenue: 325800 },
+  { id: "r10", name: "Lumière Jewels",           airport: "AMS", category: "Retail",          redemptions: 900,   avg_sale: 780, revenue: 702000 },
+  { id: "r11", name: "QuickBite Terminal 2",     airport: "AMS", category: "Food & Beverage", redemptions: 8650,  avg_sale: 18,  revenue: 155700 },
+  { id: "r12", name: "Frost & Cream",            airport: "AMS", category: "Food & Beverage", redemptions: 6080,  avg_sale: 14,  revenue: 85120 },
+  { id: "r13", name: "Cacao House",              airport: "AMS", category: "Retail",          redemptions: 2950,  avg_sale: 55,  revenue: 162250 },
+  { id: "r14", name: "Chronos Boutique",         airport: "AMS", category: "Retail",          redemptions: 680,   avg_sale: 940, revenue: 639200 },
+  { id: "r15", name: "Crystal & Co.",            airport: "AMS", category: "Retail",          redemptions: 2520,  avg_sale: 120, revenue: 302400 },
 
-  // Eindhoven (6) - 12% of total market
-  { id: "r23", name: "Innovate Duty Free",       airport: "EIN", category: "Retail",          redemptions: 540,  avg_sale: 110, revenue: 59400 },
-  { id: "r24", name: "Pixel & Craft Gifts",      airport: "EIN", category: "Retail",          redemptions: 285,  avg_sale: 42,  revenue: 11970 },
-  { id: "r25", name: "Runway Lounge Bar",        airport: "EIN", category: "Food & Beverage", redemptions: 420,  avg_sale: 24,  revenue: 10080 },
-  { id: "r26", name: "Stratos Apparel",          airport: "EIN", category: "Retail",          redemptions: 195,  avg_sale: 160, revenue: 31200 },
-  { id: "r27", name: "The Boarding Pantry",      airport: "EIN", category: "Food & Beverage", redemptions: 530,  avg_sale: 19,  revenue: 10070 },
-  { id: "r28", name: "Crafted Works EIN",        airport: "EIN", category: "Retail",          redemptions: 255,  avg_sale: 78,  revenue: 19890 },
+  // Rotterdam The Hague (7) - 20% of DutyBoost volume
+  { id: "r16", name: "Harbor Duty Free",         airport: "RTM", category: "Retail",          redemptions: 3230,  avg_sale: 130, revenue: 419900 },
+  { id: "r17", name: "Fresh Stop RTM",           airport: "RTM", category: "Food & Beverage", redemptions: 2280,  avg_sale: 22,  revenue: 50160 },
+  { id: "r18", name: "Metro Style",              airport: "RTM", category: "Retail",          redemptions: 1660,  avg_sale: 95,  revenue: 157700 },
+  { id: "r19", name: "Delta Gifts",              airport: "RTM", category: "Retail",          redemptions: 2020,  avg_sale: 35,  revenue: 70700 },
+  { id: "r20", name: "The Hop House RTM",        airport: "RTM", category: "Food & Beverage", redemptions: 2900,  avg_sale: 25,  revenue: 72500 },
+  { id: "r21", name: "Noir Parfumerie",          airport: "RTM", category: "Retail",          redemptions: 1450,  avg_sale: 175, revenue: 253750 },
+  { id: "r22", name: "Brewpoint Café",           airport: "RTM", category: "Food & Beverage", redemptions: 3640,  avg_sale: 16,  revenue: 58240 },
 
-  // Groningen (4) - 7% of total market
-  { id: "r29", name: "Northgate Duty Free",      airport: "GRQ", category: "Retail",          redemptions: 210,  avg_sale: 98,  revenue: 20580 },
-  { id: "r30", name: "Eelde Mementos",           airport: "GRQ", category: "Retail",          redemptions: 155,  avg_sale: 30,  revenue: 4650  },
-  { id: "r31", name: "Café Noorderzon",          airport: "GRQ", category: "Food & Beverage", redemptions: 240,  avg_sale: 18,  revenue: 4320  },
-  { id: "r32", name: "Nordic Spirits",           airport: "GRQ", category: "Retail",          redemptions: 185,  avg_sale: 120, revenue: 22200 },
+  // Eindhoven (6) - 15% of DutyBoost volume
+  { id: "r23", name: "Innovate Duty Free",       airport: "EIN", category: "Retail",          redemptions: 2560,  avg_sale: 110, revenue: 281600 },
+  { id: "r24", name: "Pixel & Craft Gifts",      airport: "EIN", category: "Retail",          redemptions: 1350,  avg_sale: 42,  revenue: 56700 },
+  { id: "r25", name: "Runway Lounge Bar",        airport: "EIN", category: "Food & Beverage", redemptions: 1990,  avg_sale: 24,  revenue: 47760 },
+  { id: "r26", name: "Stratos Apparel",          airport: "EIN", category: "Retail",          redemptions: 930,   avg_sale: 160, revenue: 148800 },
+  { id: "r27", name: "The Boarding Pantry",      airport: "EIN", category: "Food & Beverage", redemptions: 2520,  avg_sale: 19,  revenue: 47880 },
+  { id: "r28", name: "Crafted Works EIN",        airport: "EIN", category: "Retail",          redemptions: 1210,  avg_sale: 78,  revenue: 94380 },
 
-  // Maastricht (3) - 5% of total market
-  { id: "r33", name: "Southgate Duty Free",      airport: "MST", category: "Retail",          redemptions: 265,  avg_sale: 105, revenue: 27825 },
-  { id: "r34", name: "Côte d'Or Bistro",         airport: "MST", category: "Food & Beverage", redemptions: 340,  avg_sale: 30,  revenue: 10200 },
-  { id: "r35", name: "Moselle Gift House",       airport: "MST", category: "Retail",          redemptions: 200,  avg_sale: 48,  revenue: 9600  },
+  // Groningen (4) - 10% of DutyBoost volume
+  { id: "r29", name: "Northgate Duty Free",      airport: "GRQ", category: "Retail",          redemptions: 1000,  avg_sale: 98,  revenue: 98000 },
+  { id: "r30", name: "Eelde Mementos",           airport: "GRQ", category: "Retail",          redemptions: 735,   avg_sale: 30,  revenue: 22050 },
+  { id: "r31", name: "Café Noorderzon",          airport: "GRQ", category: "Food & Beverage", redemptions: 1140,  avg_sale: 18,  revenue: 20520 },
+  { id: "r32", name: "Nordic Spirits",           airport: "GRQ", category: "Retail",          redemptions: 880,   avg_sale: 120, revenue: 105600 },
+
+  // Maastricht (3) - 5% of DutyBoost volume
+  { id: "r33", name: "Southgate Duty Free",      airport: "MST", category: "Retail",          redemptions: 1260,  avg_sale: 105, revenue: 132300 },
+  { id: "r34", name: "Côte d'Or Bistro",         airport: "MST", category: "Food & Beverage", redemptions: 1620,  avg_sale: 30,  revenue: 48600 },
+  { id: "r35", name: "Moselle Gift House",       airport: "MST", category: "Retail",          redemptions: 950,   avg_sale: 48,  revenue: 45600 },
 ];
 
 
