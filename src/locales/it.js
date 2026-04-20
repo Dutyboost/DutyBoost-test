@@ -288,8 +288,8 @@ export default {
         ctaTitle: 'Pronto a risparmiare?',
         ctaDesc: 'Scarica il tuo DutyCredit e inizia a goderti le ricompense aeroportuali oggi.',
         ctaButton: 'Vai al portale del viaggiatore',
-        },
-        hotel: {
+      },
+      hotel: {
         titlePart1: 'Aumenta la fedeltà',
         titlePart2: 'degli ospiti',
         subtitle: 'Arricchisci ogni soggiorno con premi di shopping esclusivi in aeroporto.',
@@ -306,8 +306,8 @@ export default {
         ctaTitle: 'Pronto ad aumentare la fedeltà?',
         ctaDesc: 'Inizia a offrire premi di shopping esclusivi in aeroporto ai tuoi ospiti oggi.',
         ctaButton: 'Vai al portale dell\'hotel',
-        },
-        car: {
+      },
+      car: {
         titlePart1: 'Aumenta la fedeltà',
         titlePart2: 'dei clienti',
         subtitle: 'Premia ogni noleggio auto con crediti di shopping esclusivi in aeroporto.',
@@ -324,7 +324,6 @@ export default {
         ctaTitle: 'Pronto ad aumentare i ricavi?',
         ctaDesc: 'Inizia a premiare i tuoi clienti con incentivi di shopping esclusivi in aeroporto oggi.',
         ctaButton: 'Vai al portale di noleggio auto',
-        },
       },
     },
   },

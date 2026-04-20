@@ -199,6 +199,7 @@ export default {
         ctaDesc: 'Begin vandaag nog uw klanten exclusieve luchthavenwinkelbeloningen aan te bieden.',
         ctaButton: 'Ga naar autohuururportal',
         },
-        },
-        },
-        };
+      },
+    },
+  },
+};
