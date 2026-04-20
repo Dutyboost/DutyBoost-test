@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Trophy, Smartphone, Hotel, Plane, Navigation } from "lucide-react";
+import { EyeOff, Briefcase, Hotel, Plane, Navigation } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -33,25 +33,7 @@ const HIDDEN_FEATURES = [
       "components/CorporateAirportSpendMap.jsx",
     ],
   },
-  {
-    id: "traveler-status",
-    icon: Trophy,
-    title: "DutyBoost Status Tiers (Traveler Gamification)",
-    status: "hidden",
-    reason: "Ready to activate — pending commercial decision",
-    description: "Gamification layer in the Traveler App. Tracks trip count and rewards frequent travelers with Explorer → Voyager → Elite → Platinum tiers. Each tier unlocks higher incentive bonuses (+2% to +10%) and exclusive retail offers.",
-    pages: [
-      { label: "Traveler App (Status tab)", path: "/traveler" },
-    ],
-    howToRestore: [
-      "In pages/TravelerApp.jsx: import TravelerStatusTiers from '../components/TravelerStatusTiers'.",
-      "Add a 'Status' tab to the TABS array: { id: 'status', label: 'Status', icon: Trophy }.",
-      "Add a tab content block rendering <TravelerStatusTiers currentTrips={transactions.length} />.",
-    ],
-    files: [
-      "components/TravelerStatusTiers.jsx",
-    ],
-  },
+
   {
     id: "hotels",
     icon: Hotel,
@@ -193,23 +175,6 @@ Phase 3 — Expand to multi-airport, multi-brand, and connect to rental fleet ma
       "Register routes in App.jsx and expose public paths.",
     ],
     files: [],
-  },
-  {
-    id: "traveler-app",
-    icon: Smartphone,
-    title: "Mobile Traveler App",
-    status: "live",
-    reason: "Accessible at /traveler — not linked from public nav yet",
-    description: "Mobile-first wallet app for employees/travelers. Shows DutyCredit balance, generates time-limited QR codes for F&B payment, transaction history, and outlet finder.",
-    pages: [
-      { label: "Traveler App", path: "/traveler" },
-    ],
-    howToRestore: [
-      "Add a link to /traveler in the LandingPage or relevant pages to surface it to users.",
-    ],
-    files: [
-      "pages/TravelerApp.jsx",
-    ],
   },
 ];
 
