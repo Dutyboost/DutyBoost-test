@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Trophy, Smartphone, Hotel, Plane } from "lucide-react";
+import { EyeOff, Briefcase, Trophy, Smartphone, Hotel, Plane, Car } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -139,6 +139,58 @@ Phase 3 — Expand across routes and airports.`,
       "Add airline as a user role/partner type in SignupApplication entity.",
       "Create airline analytics dashboard showing pax conversion, airport spend, and revenue share.",
       "Add airline partner routes to App.jsx and expose via LandingPage nav.",
+    ],
+    files: [],
+  },
+  {
+    id: "car-rental",
+    icon: Car,
+    title: "DutyBoost for Car Rental",
+    status: "hidden",
+    reason: "Future product line — positioning and model defined",
+    description: `Car rental companies occupy a unique position in the travel journey: they confirm bookings weeks in advance, communicate directly with travelers multiple times before pick-up, and the rental itself often starts or ends at the airport. DutyBoost turns this touchpoint into a retail revenue stream.
+
+HOW IT WORKS:
+When a traveler confirms a car rental, the rental company triggers a DutyCredit reward tied to the departure airport. The reward is delivered via the booking confirmation email or a pre-arrival reminder: "You've unlocked €X to spend at your departure airport — as a thank-you from [Rental Brand]."
+
+TRAVELER JOURNEY:
+• Booking → DutyCredit is generated and sent via confirmation email
+• Pre-departure → Reminder email with QR code (morning of travel)
+• Airport → Traveler redeems at participating duty-free or retail store
+• Return → Optional: loyalty reward for return trip activation
+
+WHY IT WORKS FOR CAR RENTAL:
+Car rental confirmation emails have among the highest open rates in travel (70–85%). The booking window is typically 2–4 weeks out, giving ample time for intent-building. Rental brands already compete heavily on loyalty — DutyBoost adds a tangible, immediate reward with zero operational overhead.
+
+REVENUE EXAMPLE (per 100k rental bookings):
+• Conversion 15% = 15,000 travelers
+• Avg spend €65 = €975,000 gross
+• Commission 2.5% = €24,375 / Rental brand share 20% = €4,875 incremental
+
+DIFFERENTIATION FROM OTHER CHANNELS:
+Unlike airlines or hotels, car rental customers already associate their brand with departure logistics. A reward at the departure airport feels natural — not intrusive. This creates a seamless brand extension from "getting there" to "spending there."
+
+ADDITIONAL VALUE:
+• Loyalty: departure reward increases brand affinity vs competitors
+• Upsell trigger: reminder emails can include upgrade offers alongside the reward
+• Data: airport category spend data reveals traveler profiles valuable for future targeting
+• B2B lever: corporate accounts can include DutyCredit as part of their travel policy
+
+KEY MESSAGE: "Every rental confirmation is a departure moment. Turn it into a revenue-generating airport touchpoint."
+
+ROLLOUT:
+Phase 1 — Integrate DutyCredit into booking confirmation email at one rental brand + one partner airport.
+Phase 2 — Add pre-departure reminder (sent 24h before travel date) with QR code refresh.
+Phase 3 — Expand to multi-airport, multi-brand, and connect to rental fleet management APIs for automated triggering on confirmed booking status.`,
+    pages: [],
+    howToRestore: [
+      "Create pages/CarRentalPartner.jsx for car rental company onboarding (mirrors AgencySignup structure, with rental-specific fields like fleet_size and booking_volume).",
+      "Create pages/CarRentalDashboard.jsx for rental brand analytics: bookings synced, DutyCredits issued, redemption rate, revenue share.",
+      "Add 'Car Rental' as a business_type option in the SignupApplication entity.",
+      "Build a backend function (functions/generateCarRentalCredit.js) that triggers on confirmed rental booking — mirrors generateDutyCredit but with rental brand fields.",
+      "Add pre-departure reminder automation: scheduled function that sends reminder email 24h before travel_date for car rental-linked vouchers.",
+      "Create a car rental partner showcase page and link from LandingPage nav under 'For Partners'.",
+      "Register routes in App.jsx and expose public paths.",
     ],
     files: [],
   },
