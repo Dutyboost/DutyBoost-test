@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { Check, X, AlertCircle } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Check, X, AlertCircle, Download } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const checklistItems = [
   {
@@ -147,12 +149,42 @@ const checklistItems = [
 
 export default function GTMTestingChecklist() {
   const [checkedItems, setCheckedItems] = useState({});
+  const contentRef = useRef(null);
+  const [downloading, setDownloading] = useState(false);
 
   const toggleItem = (id) => {
     setCheckedItems(prev => ({
       ...prev,
       [id]: !prev[id]
     }));
+  };
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      const element = contentRef.current;
+      const canvas = await html2canvas(element, { scale: 2 });
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= 297;
+
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= 297;
+      }
+
+      pdf.save('GTM-Testing-Checklist.pdf');
+    } finally {
+      setDownloading(false);
+    }
   };
 
   const totalItems = checklistItems.reduce((sum, cat) => sum + cat.items.length, 0);
@@ -162,9 +194,23 @@ export default function GTMTestingChecklist() {
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-2">GTM Testing Checklist</h1>
-        <p className="text-muted-foreground mb-6">Verify all critical areas before launching to production</p>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">GTM Testing Checklist</h1>
+            <p className="text-muted-foreground">Verify all critical areas before launching to production</p>
+          </div>
+          <Button
+            onClick={handleDownload}
+            disabled={downloading}
+            size="lg"
+            className="gap-2"
+          >
+            <Download className="w-4 h-4" />
+            {downloading ? 'Generating...' : 'Download PDF'}
+          </Button>
+        </div>
 
+        <div ref={contentRef} className="space-y-6">
         <Card className="p-6 mb-8 bg-accent/5">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">Overall Progress</h2>
@@ -234,9 +280,10 @@ export default function GTMTestingChecklist() {
                  <li>✓ 24-hour post-launch monitoring plan</li>
                </ul>
              </div>
-           </div>
-         </Card>
-      </div>
-    </div>
-  );
-}
+             </div>
+             </Card>
+             </div>
+             </div>
+             </div>
+             );
+             }

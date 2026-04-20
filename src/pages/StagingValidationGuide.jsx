@@ -1,15 +1,65 @@
+import { useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { AlertCircle, CheckCircle, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { AlertCircle, CheckCircle, Zap, Download } from 'lucide-react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 export default function StagingValidationGuide() {
+  const contentRef = useRef(null);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      const element = contentRef.current;
+      const canvas = await html2canvas(element, { scale: 2 });
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= 297;
+
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= 297;
+      }
+
+      pdf.save('Staging-Validation-Guide.pdf');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-2">Staging Environment Validation Guide</h1>
-        <p className="text-muted-foreground mb-4">Real code audit findings - Platform validated 2026-04-20</p>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Staging Environment Validation Guide</h1>
+            <p className="text-muted-foreground mb-4">Real code audit findings - Platform validated 2026-04-20</p>
+          </div>
+          <Button
+            onClick={handleDownload}
+            disabled={downloading}
+            size="lg"
+            className="gap-2 h-fit"
+          >
+            <Download className="w-4 h-4" />
+            {downloading ? 'Generating...' : 'Download PDF'}
+          </Button>
+        </div>
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
           <p className="text-sm text-blue-900"><strong>Audit Status:</strong> 34 components audited · 12 backend functions · 8 entities · 28 pages · Critical issues: 3 · Warnings: 7</p>
         </div>
+
+        <div ref={contentRef}>
 
         <div className="space-y-6">
           {/* Phase 1 */}
@@ -230,8 +280,9 @@ export default function StagingValidationGuide() {
               </div>
             </div>
           </Card>
-        </div>
-      </div>
-    </div>
-  );
-}
+          </div>
+          </div>
+          </div>
+          </div>
+          );
+          }
