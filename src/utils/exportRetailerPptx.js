@@ -114,33 +114,33 @@ export async function exportRetailerPptx() {
     });
 
     // Tier table headers
-    const headers = ["Tier", "Min. Basket", "Discount", "Max Saving", "What it means for you"];
-    const colW = [2.2, 1.8, 1.6, 1.8, 5.5];
+    const headers = ["Tier", "Min. Basket", "Max Saving", "What it means for you"];
+    const colW = [2.2, 1.8, 1.8, 7.1];
     let xh = 0.4;
     headers.forEach((h, i) => {
       s.addShape("rect", { x: xh, y: 2.3, w: colW[i], h: 0.5, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
-      s.addText(h, { x: xh + 0.05, y: 2.32, w: colW[i] - 0.1, h: 0.46, fontSize: 10, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: i === 4 ? "left" : "center" });
+      s.addText(h, { x: xh + 0.05, y: 2.32, w: colW[i] - 0.1, h: 0.46, fontSize: 10, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: i === 3 ? "left" : "center" });
       xh += colW[i];
     });
 
     const tiers = [
-      { tier: "🟡  Boarding DutyCredit", min: "€70",  disc: "~14%", max: "€10", note: "Traveler spends €70–€99 — you earn an extra sale you wouldn't have had.", bg: "FFFBEB" },
-      { tier: "🔵  Priority DutyCredit",  min: "€100", disc: "~20%", max: "€30", note: "Mid-range basket €100–€199 — most common tier. Strong conversion incentive.", bg: LIGHT_BLUE_BG },
-      { tier: "🟢  Lounge DutyCredit",    min: "€200", disc: "~22%", max: "€45", note: "High-value spend €200–€299 — premium traveler segment, larger basket sizes.", bg: "F0FDF4" },
-      { tier: "🟣  VIP DutyCredit",       min: "€300", disc: "~20%", max: "€60", note: "Top-tier traveler — €300+ spend delivers maximum store revenue.", bg: "F5F3FF" },
+      { tier: "🟡  Boarding DutyCredit", min: "€70",  max: "€10", note: "Traveler spends €70–€99 — you earn an extra sale you wouldn't have had.", bg: "FFFBEB" },
+      { tier: "🔵  Priority DutyCredit",  min: "€100", max: "€30", note: "Mid-range basket €100–€199 — most common tier. Strong conversion incentive.", bg: LIGHT_BLUE_BG },
+      { tier: "🟢  Lounge DutyCredit",    min: "€200", max: "€45", note: "High-value spend €200–€299 — premium traveler segment, larger basket sizes.", bg: "F0FDF4" },
+      { tier: "🟣  VIP DutyCredit",       min: "€300", max: "€60", note: "Top-tier traveler — €300+ spend delivers maximum store revenue.", bg: "F5F3FF" },
     ];
 
-    tiers.forEach(({ tier, min, disc, max, note, bg }, ri) => {
-      const vals = [tier, min, disc, max, note];
+    tiers.forEach(({ tier, min, max, note, bg }, ri) => {
+      const vals = [tier, min, max, note];
       let xr = 0.4;
       vals.forEach((v, ci) => {
         s.addShape("rect", { x: xr, y: 2.8 + ri * 0.78, w: colW[ci], h: 0.74, fill: { color: ci === 0 ? bg : "F8FAFC" }, line: { color: "E2E8F0", width: 1 } });
         s.addText(v, {
           x: xr + 0.08, y: 2.82 + ri * 0.78, w: colW[ci] - 0.12, h: 0.7,
-          fontSize: ci === 0 ? 11 : ci === 2 ? 13 : ci === 3 ? 13 : 10,
-          bold: ci === 2 || ci === 3,
-          color: ci === 2 ? "059669" : ci === 3 ? BLUE : DARK,
-          fontFace: "Calibri", valign: "middle", align: ci === 4 ? "left" : "center"
+          fontSize: ci === 0 ? 11 : ci === 2 ? 13 : 10,
+          bold: ci === 2,
+          color: ci === 2 ? BLUE : DARK,
+          fontFace: "Calibri", valign: "middle", align: ci === 3 ? "left" : "center"
         });
         xr += colW[ci];
       });
