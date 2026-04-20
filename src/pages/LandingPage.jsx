@@ -95,12 +95,12 @@ export default function LandingPage() {
             </Link>
             <Link to="/hotel-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                For Hotels
+                Hotels
               </Button>
             </Link>
             <Link to="/car-rental-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
-                For Car Rentals
+                Car Rentals
               </Button>
             </Link>
             <Link to="/retailer-calculator">
@@ -142,12 +142,12 @@ export default function LandingPage() {
             </Link>
             <Link to="/hotel-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                For Hotels
+                Hotels
               </Button>
             </Link>
             <Link to="/car-rental-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
-                For Car Rentals
+                Car Rentals
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
