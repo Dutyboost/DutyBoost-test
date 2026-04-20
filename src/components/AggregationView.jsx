@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { TrendingUp, Euro, Store, ScanLine } from "lucide-react";
 
-export default function AggregationView({ transactions, vouchers, period, entityType = "retailer" }) {
+export default function AggregationView({ transactions, vouchers, period, entityType = "retailer", onPeriodChange }) {
   const aggregatedMetrics = useMemo(() => {
     // Total redemptions (count of transactions)
     const totalRedemptions = transactions.length;
@@ -56,6 +56,20 @@ export default function AggregationView({ transactions, vouchers, period, entity
         <h2 className="text-xl font-heading font-bold mb-4">Custom Aggregation — All Stores</h2>
         <p className="text-muted-foreground text-sm mb-4">Combined metrics across all your {entityType === "retailer" ? "retail locations" : "bookings"}.</p>
       </div>
+
+      {/* Period selector */}
+      {onPeriodChange && (
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-sm text-muted-foreground font-medium">Period:</span>
+          {[{v:"daily",l:"Daily"},{v:"monthly",l:"Monthly"},{v:"yearly",l:"Yearly"}].map(({v,l}) => (
+            <button key={v} onClick={() => onPeriodChange(v)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}>{l}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
