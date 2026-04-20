@@ -96,11 +96,6 @@ export default function LandingPage() {
                 <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
               </Button>
             </Link>
-            <Link to="/demo">
-              <Button variant="outline" size="sm" className="gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
-                <Eye className="w-3.5 h-3.5" /> Live Demo
-              </Button>
-            </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
                 {t('nav.we_call_you')}
