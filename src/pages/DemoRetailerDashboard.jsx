@@ -138,6 +138,7 @@ export default function DemoRetailerDashboard() {
             vouchers={RETAILERS}
             period={period}
             entityType="retailer"
+            onPeriodChange={setPeriod}
           />
         ) : activeTab === "scan" ? (
           <div className="space-y-4">
