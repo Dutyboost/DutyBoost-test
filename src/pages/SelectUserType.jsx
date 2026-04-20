@@ -26,15 +26,6 @@ export default function SelectUserType() {
       path: "/travel-partner-showcase",
     },
     {
-      title: t('nav.for_retailers'),
-      descKey: 'getstarted.retailers_description',
-      icon: AirportRetailerIcon,
-      color: "from-orange-400 to-orange-600",
-      bg: "bg-orange-50",
-      iconColor: "text-orange-600",
-      path: "/retailer-showcase",
-    },
-    {
       title: t('getstarted.hotels'),
       descKey: 'getstarted.hotels_description',
       icon: HotelIcon,
@@ -51,6 +42,15 @@ export default function SelectUserType() {
       bg: "bg-red-50",
       iconColor: "text-red-600",
       path: "/car-rental-showcase",
+    },
+    {
+      title: t('nav.for_retailers'),
+      descKey: 'getstarted.retailers_description',
+      icon: AirportRetailerIcon,
+      color: "from-orange-400 to-orange-600",
+      bg: "bg-orange-50",
+      iconColor: "text-orange-600",
+      path: "/retailer-showcase",
     },
   ];
 
