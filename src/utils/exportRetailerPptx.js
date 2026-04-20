@@ -25,7 +25,7 @@ function addDivider(s, x, y, w, color = BLUE_LIGHT) {
 }
 
 function addDarkGradBg(s) {
-  s.background = { fill: { type: "grad", color: GRAD_START, color2: GRAD_END, angle: 135 } };
+  s.background = { color: GRAD_START };
 }
 
 export async function exportRetailerPptx() {
