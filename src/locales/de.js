@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Jede Reisebuchung verwandeln in',
       title_2: 'Einnahmen an Flughäfen — für alle',
-      subtitle: 'Erschließen Sie den versteckten Umsatzstrom in jeder Buchung mit DutyBoosts The Travel Retail Conversion Layer. Durch die Vernetzung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Käufern, bevor sie den Abflughafen erreichen.',
+      subtitle: 'Erschließen Sie den <strong>versteckten</strong> Umsatzstrom in jeder Buchung mit DutyBoosts <strong>The Travel Retail Conversion Layer</strong>. Durch die Vernetzung von Reisenden, Reisebüros und Flughafenhändlern machen wir Reisende zu kaufbereiten Käufern, bevor sie den Abflughafen erreichen.',
     },
     ecosystem: {
       title: 'So funktioniert unser Ökosystem',

@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Convirtiendo cada reserva de viaje en',
       title_2: 'ganancias en aeropuertos — para todos',
-      subtitle: 'Desbloquea el flujo de ingresos oculto en cada reserva con The Travel Retail Conversion Layer de DutyBoost. Al conectar viajeros, agencias de viaje y minoristas aeroportuarios, convertimos a los viajeros en compradores de alto intento antes de llegar al aeropuerto.',
+      subtitle: 'Desbloquea el flujo de ingresos <strong>oculto</strong> en cada reserva con <strong>The Travel Retail Conversion Layer</strong> de DutyBoost. Al conectar viajeros, agencias de viaje y minoristas aeroportuarios, convertimos a los viajeros en compradores de alto intento antes de llegar al aeropuerto.',
     },
     ecosystem: {
       title: 'Cómo funciona nuestro ecosistema',
