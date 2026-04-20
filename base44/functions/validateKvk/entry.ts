@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 // Normalise a company name for fuzzy comparison
 function normaliseName(name = '') {
@@ -28,20 +28,20 @@ function namesMatch(a = '', b = '') {
 }
 
 Deno.serve(async (req) => {
-  const base44 = createClientFromRequest(req);
+   const base44 = createClientFromRequest(req);
 
-  const { kvk, vat, company } = await req.json();
+   const { kvk, vat, company } = await req.json();
 
-  if (!kvk || !vat || !company) {
-    return Response.json({ error: 'Missing required fields: kvk, vat, company' }, { status: 400 });
-  }
+   if (!kvk || !vat || !company) {
+     return Response.json({ error: 'Missing required fields: kvk, vat, company' }, { status: 400 });
+   }
 
-  const KVK_API_KEY = Deno.env.get('KVK_API_KEY');
-  const testMode = !KVK_API_KEY;
+   const KVK_API_KEY = Deno.env.get('KVK_API_KEY');
+   const testMode = !KVK_API_KEY;
 
-  const errors = [];
-  let kvkCompanyName = null;
-  let vatCompanyName = null;
+   const errors = [];
+   let kvkCompanyName = null;
+   let vatCompanyName = null;
 
   // ── 1. KVK Lookup ────────────────────────────────────────────────────────
   if (testMode) {

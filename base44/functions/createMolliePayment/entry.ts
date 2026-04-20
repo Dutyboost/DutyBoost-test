@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -57,6 +57,11 @@ Deno.serve(async (req) => {
 
     if (!paymentRes.ok) {
       return Response.json({ error: payment.detail || 'Failed to create Mollie payment' }, { status: 500 });
+    }
+
+    // Validate payment response has required links
+    if (!payment._links || !payment._links.checkout) {
+      return Response.json({ error: 'Invalid payment response from Mollie' }, { status: 500 });
     }
 
     // Save the Mollie customer ID to the application
