@@ -310,7 +310,7 @@ function TravelPartnerTab() {
           </div>
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
             <p className="text-xs text-slate-400">At {conversionRate}% redemption</p>
-            <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()} transact</p>
+            <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()} transactions</p>
           </div>
           <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 space-y-1">
             <p className="text-xs text-green-300">You earn</p>
