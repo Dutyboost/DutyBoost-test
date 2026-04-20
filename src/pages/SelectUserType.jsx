@@ -33,7 +33,7 @@ export default function SelectUserType() {
       path: "/retailer-showcase",
     },
     {
-      titleKey: 'nav.for_hotels',
+      titleKey: 'getstarted.hotels',
       descKey: 'getstarted.hotels_description',
       icon: TravelAgencyIcon,
       color: "from-blue-400 to-blue-600",
@@ -42,7 +42,7 @@ export default function SelectUserType() {
       path: "/hotel-showcase",
     },
     {
-      titleKey: 'nav.for_car_rentals',
+      titleKey: 'getstarted.car_rentals',
       descKey: 'getstarted.car_rentals_description',
       icon: AirportRetailerIcon,
       color: "from-red-400 to-red-600",

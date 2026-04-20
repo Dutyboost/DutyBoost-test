@@ -52,6 +52,10 @@ export default {
     getstarted: {
       title: 'Get Started with DutyBoost',
       subtitle_default: 'Choose your role to access and start enjoying the benefits of The Travel Retail Conversion Layer.',
+      agencies: 'For Travel Partners',
+      retailers: 'For Airport Retailers',
+      hotels: 'For Hotels',
+      car_rentals: 'For Car Rentals',
       agencies_description: 'Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.',
       retailers_description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
       hotels_description: 'Enhance guest experiences and boost ancillary revenue by offering DutyCredits with every stay. Increase guest satisfaction and earn commissions.',

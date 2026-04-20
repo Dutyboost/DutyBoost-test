@@ -52,6 +52,10 @@ export default {
     getstarted: {
       title: 'Aan de slag met DutyBoost',
       subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van The Travel Retail Conversion Layer.',
+      agencies: 'Voor reispartners',
+      retailers: 'Voor luchthavenwinkels',
+      hotels: 'Voor hotels',
+      car_rentals: 'Voor autoverhuur',
       agencies_description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
       retailers_description: 'Ontvang voorgeselecteerde klanten en verhoog de transactiewaarde via DutyBoosts gerichte incentiveprogramma\'s. Groei uw omzet en bouw klantloyaliteit op uw luchthaven op.',
       hotels_description: 'Verbeter gastenervaring en verhoog aanvullende inkomsten met DutyCredits voor elke overnachting. Verhoog gastentevredenheid en verdien provisies.',

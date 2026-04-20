@@ -81,6 +81,10 @@ export default {
     getstarted: {
       title: 'Loslegen',
       subtitle_default: 'Treten Sie DutyBoost bei — The Travel Retail Conversion Layer.',
+      agencies: 'Für Reisepartner',
+      retailers: 'Für Flughafenhändler',
+      hotels: 'Für Hotels',
+      car_rentals: 'Für Autovermietungen',
       agencies_description: 'Erhöhen Sie die Kundentreue und steigern Sie Ausgaben durch exklusive Flughafen-Shopping-Anreize. Differenzieren Sie Ihr Angebot und erschließen Sie einen neuen Umsatzstrom.',
       retailers_description: 'Erhalten Sie vorqualifizierte Kunden und steigern Sie den Transaktionswert durch DutyBoosts gezielte Incentive-Programme. Steigern Sie Ihren Umsatz und bauen Sie Kundentreue auf.',
       hotels_description: 'Verbessern Sie Gasterfahrung und erhöhen Sie Zusatzeinnahmen mit DutyCredits für jeden Aufenthalt. Steigern Sie Kundenzufriedenheit und verdienen Sie Provisionen.',
