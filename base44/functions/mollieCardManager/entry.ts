@@ -1,16 +1,20 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 const MOLLIE_API_KEY = Deno.env.get('MOLLIE_API_KEY');
-const MOLLIE_BASE = 'https://api.mollie.com/v2';
+   const MOLLIE_BASE = 'https://api.mollie.com/v2';
 
-Deno.serve(async (req) => {
-  try {
-    const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
+   Deno.serve(async (req) => {
+     try {
+       if (!MOLLIE_API_KEY) {
+         return Response.json({ error: 'Mollie API key not configured' }, { status: 500 });
+       }
 
-    if (!user) {
-      return Response.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+       const base44 = createClientFromRequest(req);
+       const user = await base44.auth.me();
+
+       if (!user) {
+         return Response.json({ error: 'Unauthorized' }, { status: 401 });
+       }
 
     const { action, mollie_customer_id } = await req.json();
 

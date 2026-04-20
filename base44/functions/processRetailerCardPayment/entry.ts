@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 // Creates a Mollie hosted checkout for credit card — retailer flow.
 // Raw card details must NEVER be sent to backend (PCI). Mollie handles card entry on their hosted page.
@@ -55,6 +55,11 @@ Deno.serve(async (req) => {
 
     if (!paymentRes.ok) {
       return Response.json({ error: payment.detail || 'Failed to create payment' }, { status: 500 });
+    }
+
+    // Validate payment response has required links
+    if (!payment._links || !payment._links.checkout) {
+      return Response.json({ error: 'Invalid payment response from Mollie' }, { status: 500 });
     }
 
     // Step 3: Save customer/payment IDs to the application
