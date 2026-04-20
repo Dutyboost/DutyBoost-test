@@ -81,7 +81,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={150} />
           <div className="hidden lg:flex items-center gap-2">
-            <Link to="/agency-showcase">
+            <Link to="/travel-partner-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 {t('nav.for_agencies')}
               </Button>
@@ -118,7 +118,7 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
-            <Link to="/agency-showcase" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/travel-partner-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 {t('nav.for_agencies')}
               </Button>

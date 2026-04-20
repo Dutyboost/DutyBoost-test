@@ -62,7 +62,7 @@ export default function AgencyPortal() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <div className="border-b border-border px-5 py-6 flex items-center justify-between">
-        <button onClick={() => navigate("/agency-showcase")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => navigate("/travel-partner-showcase")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           <ChevronLeft className="w-4 h-4" /> {t('common.back')}
         </button>
         <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
@@ -87,7 +87,7 @@ export default function AgencyPortal() {
               <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/dashboard")}>
                 <Briefcase className="w-4 h-4" /> {t('portal.go_to_dashboard')}
               </Button>
-              <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.logout("/agency-portal")}>
+              <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.logout("/travel-partner-portal")}>
                 <LogOut className="w-4 h-4" /> {t('portal.sign_out')}
               </Button>
               <div className="pt-6 border-t border-border space-y-3">
@@ -126,7 +126,7 @@ export default function AgencyPortal() {
             </>
           ) : (
             <>
-              <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/agency-signup")}>
+              <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/travel-partner-signup")}>
                 <UserPlus className="w-4 h-4" /> {t('portal.agency.create_account')}
               </Button>
               <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>

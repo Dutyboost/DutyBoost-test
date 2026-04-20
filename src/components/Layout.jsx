@@ -24,14 +24,14 @@ const roleNavItems = {
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
     { label: "Airport Retailers", path: "/retailers", icon: Store },
-    { label: "Travel Agencies", path: "/travel-agencies", icon: Plane },
+    { label: "Travel Partners", path: "/travel-partners", icon: Plane },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
   agency: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
-    { label: "Automatic Booking Integration", path: "/agency-integration" },
+    { label: "Travel Partner Integration", path: "/travel-partner-integration" },
   ],
   retailer: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
