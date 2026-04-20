@@ -85,6 +85,7 @@ export default {
       retailers: 'Para minoristas aeroportuarios',
       hotels: 'Para hoteles',
       car_rentals: 'Para rentas de autos',
+      get_started: 'Comenzar',
       agencies_description: 'Aumenta la lealtad de los clientes y el gasto ofreciendo incentivos de compra exclusivos en aeropuertos. Diferencia tu oferta y genera un nuevo flujo de ingresos.',
       retailers_description: 'Obtén clientes preseleccionados y aumenta el valor de las transacciones a través de los programas de incentivos de DutyBoost. Aumenta tus ingresos mientras fidelizas clientes.',
       hotels_description: 'Mejora la experiencia del cliente y aumenta los ingresos adicionales con DutyCredits para cada estadía. Aumenta la satisfacción del cliente y gana comisiones.',
