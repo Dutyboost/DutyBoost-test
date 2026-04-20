@@ -15,7 +15,7 @@ export default function SelectUserType() {
 
   const options = [
     {
-      titleKey: 'portal.agency.title',
+      titleKey: 'nav.for_agencies',
       descKey: 'getstarted.agencies_description',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
