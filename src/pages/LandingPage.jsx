@@ -245,9 +245,11 @@ export default function LandingPage() {
             <div className="relative space-y-6">
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.description')}</p>
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => window.location.href = '/get-started'}>
-                {t('cta.button')} <ArrowRight className="w-4 h-4" />
-              </Button>
+              <Link to="/get-started">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
+                  {t('cta.button')} <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
