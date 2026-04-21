@@ -18,6 +18,8 @@ export default function AdminDashboard() {
   const [isAdmin, setIsAdmin] = useState(null);
   const [vouchers, setVouchers] = useState([]);
   const [transactions, setTransactions] = useState([]);
+  const [fnbCredits, setFnbCredits] = useState([]);
+  const [fnbTransactions, setFnbTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
@@ -31,9 +33,13 @@ export default function AdminDashboard() {
       Promise.all([
         base44.entities.Voucher.list("-created_date", 500),
         base44.entities.Transaction.list("-created_date", 500),
-      ]).then(([v, t]) => {
+        base44.entities.FnbDutyCredit.list("-created_date", 500),
+        base44.entities.FnbTransaction.list("-created_date", 500),
+      ]).then(([v, t, fc, ft]) => {
         setVouchers(v || []);
         setTransactions(t || []);
+        setFnbCredits(fc || []);
+        setFnbTransactions(ft || []);
         setLoading(false);
       });
     });
@@ -59,6 +65,16 @@ export default function AdminDashboard() {
   const filteredVouchers = useMemo(() =>
     vouchers.filter(v => { const d = (v.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
     [vouchers, startDate, endDate]
+  );
+
+  // FnB (Hotels/Car Rentals) filtered data
+  const filteredFnbCredits = useMemo(() =>
+    fnbCredits.filter(c => { const d = (c.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [fnbCredits, startDate, endDate]
+  );
+  const filteredFnbTransactions = useMemo(() =>
+    fnbTransactions.filter(t => { const d = (t.timestamp || "").split("T")[0]; return d >= startDate && d <= endDate; }),
+    [fnbTransactions, startDate, endDate]
   );
 
   // --- Redemption rate per airport ---
@@ -126,6 +142,22 @@ export default function AdminDashboard() {
       </div>
     );
   }
+
+  // FnB aggregates
+  const fnbData = useMemo(() => {
+    const fnbByCategory = {};
+    filteredFnbCredits.forEach(c => {
+      const cat = c.traveler_name?.includes("HOTEL") || filteredFnbTransactions.some(t => t.token_id === c.token_id && t.category === "Hotel") ? "Hotel Partners" : "Car Rental Partners";
+      if (!fnbByCategory[cat]) fnbByCategory[cat] = { category: cat, issued: 0, used: 0, revenue: 0 };
+      fnbByCategory[cat].issued++;
+      if (c.status === "used" || c.status === "partially_used") fnbByCategory[cat].used++;
+    });
+    filteredFnbTransactions.forEach(t => {
+      const cat = t.category === "Hotel" ? "Hotel Partners" : "Car Rental Partners";
+      if (fnbByCategory[cat]) fnbByCategory[cat].revenue += t.amount || 0;
+    });
+    return Object.values(fnbByCategory);
+  }, [filteredFnbCredits, filteredFnbTransactions]);
 
   const tabs = [
     { id: "dashboard", label: "Analytics", icon: LayoutDashboard },
@@ -294,6 +326,27 @@ export default function AdminDashboard() {
 
       {/* Spatial heatmap */}
       <RedemptionHeatmap vouchers={filteredVouchers} />
+
+      {/* Hotel Partners & Car Rental Partners */}
+      <div className="bg-card rounded-xl border border-border p-6">
+        <h2 className="font-heading font-semibold mb-4">Hotel Partners & Car Rental Partners Performance</h2>
+        {fnbData.length === 0 ? (
+          <p className="text-muted-foreground text-sm py-8 text-center">No hotel or car rental data yet.</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={250}>
+            <BarChart data={fnbData} margin={{ top: 4, right: 16, bottom: 40, left: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-15} textAnchor="end" height={80} />
+              <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
+              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => n === "revenue" ? [`€${v.toFixed(2)}`, "Revenue"] : [v, n === "issued" ? "Credits Issued" : "Credits Used"]} />
+              <Legend wrapperStyle={{ fontSize: 12 }} />
+              <Bar dataKey="issued" fill="#dbeafe" radius={[4, 4, 0, 0]} name="Credits Issued" />
+              <Bar dataKey="used" fill="#2563eb" radius={[4, 4, 0, 0]} name="Credits Used" />
+              <Bar dataKey="revenue" fill="#10b981" radius={[4, 4, 0, 0]} name="Revenue (€)" />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+      </div>
       </> )}
     </div>
   );
