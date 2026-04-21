@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Convirtiendo cada reserva en',
       title_2: 'ingresos aeroportuarios — para todos',
-      subtitle: 'Desbloquea el flujo de ingresos <strong>oculto</strong> en cada vuelo, reserva de hotel y renta de auto con DutyBoost, <strong>La Capa de Conversión del Comercio de Viajes</strong>. Al conectar a todos los socios de viaje con los minoristas aeroportuarios, convertimos a los viajeros en compradores de alto intento antes de que lleguen a su aeropuerto de salida—e incluso a su llegada a su destino.',
+      subtitle: 'Unlock the revenue <strong>hidden</strong> in every flight, hotel booking, and car rental with DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. We turn travelers into high-intent buyers before they reach their airport of departure—and even upon arrival at their destination.',
     },
     ecosystem: {
       title: 'Cómo funciona nuestro ecosistema',
