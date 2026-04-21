@@ -14,7 +14,7 @@ export default {
     hero: {
       title_1: 'Elke boeking omzetten in',
       title_2: 'luchthavenomzet — voor iedereen',
-      subtitle: 'Ontgrendel de <strong>verborgen</strong> omzetstroom in elke vlucht, hoteloekering en autoverhuur met DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Door alle reispartners te verbinden met luchthavenretailers, maken we van reizigers koopklare klanten voordat ze hun vertrekhaven bereiken—en zelfs bij aankomst op hun bestemming.',
+      subtitle: 'Ontgrendel de <strong>verborgen</strong> omzetstroom in elke vlucht, hoteloekering en autoverhuur met DutyBoost, <strong>De Conversielaag voor Reisdetailhandel</strong>. Door alle reispartners te verbinden met luchthavenretailers, maken we van reizigers koopklare klanten voordat ze hun vertrekhaven bereiken—en zelfs bij aankomst op hun bestemming.',
     },
     ecosystem: {
       title: 'Zo werkt ons ecosysteem',

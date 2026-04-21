@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Trasformando ogni prenotazione in',
       title_2: 'ricavi aeroportuali — per tutti',
-      subtitle: 'Sblocca il flusso di entrate <strong>nascosto</strong> in ogni volo, prenotazione di hotel e autonoleggio con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Collegando tutti i partner di viaggio ai retailer aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento prima che raggiungano il loro aeroporto di partenza—e anche al loro arrivo a destinazione.',
+      subtitle: 'Sblocca il flusso di entrate <strong>nascosto</strong> in ogni volo, prenotazione di hotel e autonoleggio con DutyBoost, <strong>Il Livello di Conversione del Retail di Viaggio</strong>. Collegando tutti i partner di viaggio ai retailer aeroportuali, trasformiamo i viaggiatori in acquirenti ad alto intento prima che raggiungano il loro aeroporto di partenza—e anche al loro arrivo a destinazione.',
     },
     ecosystem: {
       title: 'Come funziona il nostro ecosistema',
