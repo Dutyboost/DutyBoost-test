@@ -134,16 +134,16 @@ const AuthenticatedApp = () => {
         <Route path="/car-rental-showcase" element={<ComingSoonPage />} />
         <Route path="/car-rental-portal" element={<ComingSoonPage />} />
         <Route path="/car-rental-signup" element={<ComingSoonPage />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/refunds" element={<RefundPolicy />} />
-        <Route path="/code-of-conduct" element={<CodeOfConduct />} />
-        <Route path="/cookies" element={<CookiePolicy />} />
-        <Route path="/dpa" element={<DataProcessingAgreement />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/travel-partner-integration-guide" element={<AgencyIntegrationGuide />} />
-        <Route path="/retailer-integration-guide" element={<RetailerIntegrationGuide />} />
-        <Route path="/user-guide" element={<UserGuide />} />
+        <Route path="/privacy" element={<ComingSoonPage />} />
+        <Route path="/terms" element={<ComingSoonPage />} />
+        <Route path="/refunds" element={<ComingSoonPage />} />
+        <Route path="/code-of-conduct" element={<ComingSoonPage />} />
+        <Route path="/cookies" element={<ComingSoonPage />} />
+        <Route path="/dpa" element={<ComingSoonPage />} />
+        <Route path="/faq" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-integration-guide" element={<ComingSoonPage />} />
+        <Route path="/retailer-integration-guide" element={<ComingSoonPage />} />
+        <Route path="/user-guide" element={<ComingSoonPage />} />
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Home />} />
           <Route path="/vouchers" element={<VouchersPage />} />
