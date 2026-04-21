@@ -199,7 +199,7 @@ export default function LandingPage() {
                   t(`stakeholders.${s.key}.b2`),
                   t(`stakeholders.${s.key}.b3`),
                 ];
-                title = s.key === 'travelers' ? t('nav.for_travelers') : t('nav.for_retailers');
+                title = s.key === 'travelers' ? t('nav.for_travelers') : 'Airport Retail Partners';
                 description = t(`stakeholders.${s.key}.description`);
               }
               
