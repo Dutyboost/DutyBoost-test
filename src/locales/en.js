@@ -49,6 +49,9 @@ export default {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. All rights reserved.',
     },
+    common: {
+      back: 'Back',
+    },
     getstarted: {
       title: 'Get Started with DutyBoost',
       subtitle_default: 'Choose your role to access and start enjoying the benefits of The Travel Retail Conversion Layer.',
