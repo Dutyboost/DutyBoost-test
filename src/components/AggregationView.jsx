@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar } from "lucide-react";
 
 export default function AggregationView({ transactions, vouchers, period, entityType = "retailer", onPeriodChange }) {
   const aggregatedMetrics = useMemo(() => {
@@ -57,9 +57,13 @@ export default function AggregationView({ transactions, vouchers, period, entity
   return (
     <div className="space-y-6">
       {/* Aggregation metrics header */}
-      <div>
-        <h2 className="text-xl font-heading font-bold mb-4">Custom Aggregation — All Stores</h2>
+       <div>
+        <h2 className="text-xl font-heading font-bold mb-2">Custom Aggregation — All Stores</h2>
         <p className="text-muted-foreground text-sm mb-4">Combined metrics across all your {entityType === "retailer" ? "retail locations" : "bookings"}.</p>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Calendar className="w-4 h-4" />
+          <span>{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • {period.charAt(0).toUpperCase() + period.slice(1)} view</span>
+        </div>
       </div>
 
       {/* Period selector */}
