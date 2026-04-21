@@ -15,7 +15,7 @@ export default {
     hero: {
       title_1: 'Transformer chaque réservation en',
       title_2: 'revenus aéroportuaires — pour tous',
-      subtitle: 'Débloquez le flux de revenus <strong>caché</strong> dans chaque vol, réservation d\'hôtel et location de voiture avec DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. En connectant les partenaires de voyage, les partenaires hôteliers, les fournisseurs de location de voiture et les détaillants aéroportuaires, nous transformons les voyageurs en acheteurs à forte intention avant même qu\'ils n\'atteignent leur aéroport de départ—et même à leur arrivée à leur destination.',
+      subtitle: 'Débloquez le flux de revenus <strong>caché</strong> dans chaque vol, réservation d\'hôtel et location de voiture avec DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. En connectant tous les partenaires de voyage aux détaillants aéroportuaires, nous transformons les voyageurs en acheteurs à forte intention avant même qu\'ils n\'atteignent leur aéroport de départ—et même à leur arrivée à destination.',
     },
     ecosystem: {
       title: 'Comment fonctionne notre écosystème',
