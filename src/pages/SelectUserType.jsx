@@ -17,7 +17,7 @@ export default function SelectUserType() {
 
   const options = [
     {
-      title: 'Flights',
+      title: t('getstarted.agencies'),
       descKey: 'getstarted.agencies_description',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
