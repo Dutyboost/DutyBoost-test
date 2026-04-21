@@ -186,7 +186,7 @@ export default function LandingPage() {
               let title, description, benefits;
               
               if (s.key === 'agencies') {
-                 title = 'Travel Agencies, Airlines, Hotels & Car Rentals';
+                 title = 'Travel Partners';
                  description = t('stakeholders.agencies.description');
                  benefits = [
                    t('stakeholders.agencies.b1'),
