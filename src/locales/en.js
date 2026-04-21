@@ -14,7 +14,7 @@ export default {
     hero: {
       title_1: 'Turning every booking into',
       title_2: 'airport revenue - for everyone',
-      subtitle: 'Unlock the revenue hidden in every flight, hotel booking, and car rental with DutyBoost, The Travel Retail Conversion Layer. We turn travelers into high-intent buyers before they reach their airport of departure—and even upon arrival at their destination.',
+      subtitle: 'Unlock the revenue <strong>hidden</strong> in every flight, hotel booking, and car rental with DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. We turn travelers into high-intent buyers before they reach their airport of departure—and even upon arrival at their destination.',
     },
     ecosystem: {
       title: '1 Solution, three winners',
