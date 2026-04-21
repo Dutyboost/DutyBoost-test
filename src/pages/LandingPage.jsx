@@ -207,8 +207,9 @@ export default function LandingPage() {
                 AdditionalIcons = [HotelIcon, CarRentalIcon];
               }
 
-              return (
-                <div key={s.key} className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
+              const isClickable = s.key === 'agencies' || s.key === 'retailers';
+              const cardContent = (
+                <>
                   <div className={`flex items-center gap-3 mb-5`}>
                     <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center`}>
                       <Icon className={`w-12 h-12 ${s.iconColor}`} />
@@ -229,6 +230,18 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
+                </>
+              );
+
+              const cardClasses = `bg-card rounded-2xl border border-border p-8 transition-shadow ${isClickable ? 'hover:shadow-lg cursor-pointer' : 'hover:shadow-lg'}`;
+
+              return isClickable ? (
+                <Link key={s.key} to="/get-started" className={cardClasses}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={s.key} className={cardClasses}>
+                  {cardContent}
                 </div>
               );
             })}
