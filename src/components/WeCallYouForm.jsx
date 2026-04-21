@@ -211,9 +211,11 @@ export default function WeCallYouForm({ onSuccess }) {
           onChange={handleChange}
           className="w-full px-3 py-2 border border-input rounded-md bg-background text-sm focus:outline-none focus:ring-1 focus:ring-ring"
         >
-          <option value="">{t('wecallyou.select_type')}</option>
-          <option value="Retail">{t('wecallyou.retailer')}</option>
-          <option value="Agency">{t('wecallyou.agency')}</option>
+          <option value="">Select type</option>
+          <option value="Flight Partner">Flight Partner</option>
+          <option value="Hotel Partner">Hotel Partner</option>
+          <option value="Car Rental Partner">Car Rental Partner</option>
+          <option value="Retail Partner">Retail Partner</option>
         </select>
         {errors.industry && <p className="text-xs text-red-500">{errors.industry}</p>}
       </div>
