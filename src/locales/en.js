@@ -60,10 +60,10 @@ export default {
       hotels: 'Hotels',
       car_rentals: 'Car Rentals',
       get_started: 'Get Started',
-      agencies_description: 'Increase customer loyalty and boost spending by offering exclusive airport shopping incentives. Differentiate your offerings and get a new revenue stream.',
+      agencies_description: 'Reward travelers with exclusive airport shopping credits on every booking. Give your customers a reason to choose you — and earn a commission every time they redeem.',
       retailers_description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
-      hotels_description: 'Enhance guest experiences and boost ancillary revenue by offering DutyCredits with every stay. Increase guest satisfaction and earn commissions.',
-      car_rentals_description: 'Drive customer loyalty and increase spend with DutyCredits earned through car rentals. Create new revenue streams and differentiate your brand.',
+      hotels_description: 'Give guests a compelling reason to book with you by rewarding every stay with exclusive airport shopping credits. Stand out from competitors and earn a commission on every redemption.',
+      car_rentals_description: 'Incentivize travelers to choose your rental by rewarding every booking with exclusive airport shopping credits. Differentiate your brand and unlock a new commission-based revenue stream.',
     },
     signup: {
       agency: {
