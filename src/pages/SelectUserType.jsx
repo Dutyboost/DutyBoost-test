@@ -23,7 +23,7 @@ export default function SelectUserType() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/travel-partner-showcase",
+      path: "/get-started",
     },
     {
       title: t('getstarted.hotels'),
@@ -32,7 +32,7 @@ export default function SelectUserType() {
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
-      path: "/hotel-showcase",
+      path: "/get-started",
     },
     {
       title: t('getstarted.car_rentals'),
@@ -41,7 +41,7 @@ export default function SelectUserType() {
       color: "from-red-400 to-red-600",
       bg: "bg-red-50",
       iconColor: "text-red-600",
-      path: "/car-rental-showcase",
+      path: "/get-started",
     },
     {
       title: 'Airport Retail Partners',
@@ -50,7 +50,7 @@ export default function SelectUserType() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-      path: "/retailer-showcase",
+      path: "/get-started",
     },
   ];
 
