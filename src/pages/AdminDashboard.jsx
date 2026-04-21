@@ -77,6 +77,22 @@ export default function AdminDashboard() {
     [fnbTransactions, startDate, endDate]
   );
 
+  // FnB aggregates
+  const fnbData = useMemo(() => {
+    const fnbByCategory = {};
+    filteredFnbCredits.forEach(c => {
+      const cat = c.traveler_name?.includes("HOTEL") || filteredFnbTransactions.some(t => t.token_id === c.token_id && t.category === "Hotel") ? "Hotel Partners" : "Car Rental Partners";
+      if (!fnbByCategory[cat]) fnbByCategory[cat] = { category: cat, issued: 0, used: 0, revenue: 0 };
+      fnbByCategory[cat].issued++;
+      if (c.status === "used" || c.status === "partially_used") fnbByCategory[cat].used++;
+    });
+    filteredFnbTransactions.forEach(t => {
+      const cat = t.category === "Hotel" ? "Hotel Partners" : "Car Rental Partners";
+      if (fnbByCategory[cat]) fnbByCategory[cat].revenue += t.amount || 0;
+    });
+    return Object.values(fnbByCategory);
+  }, [filteredFnbCredits, filteredFnbTransactions]);
+
   // --- Redemption rate per airport ---
   const airportMap = {};
   filteredVouchers.forEach(v => {
@@ -142,22 +158,6 @@ export default function AdminDashboard() {
       </div>
     );
   }
-
-  // FnB aggregates
-  const fnbData = useMemo(() => {
-    const fnbByCategory = {};
-    filteredFnbCredits.forEach(c => {
-      const cat = c.traveler_name?.includes("HOTEL") || filteredFnbTransactions.some(t => t.token_id === c.token_id && t.category === "Hotel") ? "Hotel Partners" : "Car Rental Partners";
-      if (!fnbByCategory[cat]) fnbByCategory[cat] = { category: cat, issued: 0, used: 0, revenue: 0 };
-      fnbByCategory[cat].issued++;
-      if (c.status === "used" || c.status === "partially_used") fnbByCategory[cat].used++;
-    });
-    filteredFnbTransactions.forEach(t => {
-      const cat = t.category === "Hotel" ? "Hotel Partners" : "Car Rental Partners";
-      if (fnbByCategory[cat]) fnbByCategory[cat].revenue += t.amount || 0;
-    });
-    return Object.values(fnbByCategory);
-  }, [filteredFnbCredits, filteredFnbTransactions]);
 
   const tabs = [
     { id: "dashboard", label: "Analytics", icon: LayoutDashboard },
