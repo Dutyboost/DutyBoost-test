@@ -89,7 +89,7 @@ export default function LandingPage() {
               </Button>
             </Link>
 
-            <Link to="/retailer-showcase">
+            <Link to="/get-started">
               <Button size="sm" variant="outline" className="gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 {t('nav.for_retailers')}
               </Button>
@@ -127,7 +127,7 @@ export default function LandingPage() {
               </Button>
             </Link>
 
-            <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
                 {t('nav.for_retailers')}
               </Button>
