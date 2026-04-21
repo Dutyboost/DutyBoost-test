@@ -236,8 +236,8 @@ function TravelPartnerTab() {
             </div>
             <span className="text-slate-400 text-sm">travelers</span>
           </div>
-          <Slider min={50} max={10000} step={50} value={[bookingsPerYear]} onValueChange={([v]) => setBookingsPerYear(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>50</span><span>10,000+</span></div>
+          <Slider min={50} max={1000000} step={5000} value={[bookingsPerYear]} onValueChange={([v]) => setBookingsPerYear(v)} className="w-full" />
+          <div className="flex justify-between text-xs text-slate-500"><span>50</span><span>1,000,000+</span></div>
         </div>
 
         {/* Conversion rate */}
