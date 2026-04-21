@@ -75,6 +75,18 @@ export default {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
     },
+    demo: {
+      mode_badge: 'Demo-Modus',
+      title: 'DutyBoost entdecken',
+      subtitle: 'Erfahren Sie, wie DutyBoost für Travel Partner und Airport Retailers funktioniert',
+      agency_title: 'Travel Partner Demo',
+      agency_desc: 'Erfahren Sie, wie Travel Partner DutyBoost nutzen, um Kundenloyalität zu steigern und Provisionen zu verdienen',
+      view_agency: 'Demo anzeigen',
+      retailer_title: 'Airport Retailer Demo',
+      retailer_desc: 'Erfahren Sie, wie Retailer Reisende mit DutyBoost-Angeboten in Kunden umwandeln',
+      view_retailer: 'Demo anzeigen',
+      disclaimer: 'Demo-Daten dienen nur zu Illustrationszwecken',
+    },
 
     getstarted: {
       title: 'Loslegen',

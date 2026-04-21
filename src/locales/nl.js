@@ -49,6 +49,18 @@ export default {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle rechten voorbehouden.',
     },
+    demo: {
+      mode_badge: 'Demomodus',
+      title: 'Verken DutyBoost',
+      subtitle: 'Zie hoe DutyBoost werkt voor Travel Partners en Luchthaven Retailers',
+      agency_title: 'Travel Partner Demo',
+      agency_desc: 'Zie hoe travel partners DutyBoost gebruiken om klantloyaliteit te verhogen en commissies te verdienen',
+      view_agency: 'Demo bekijken',
+      retailer_title: 'Luchthaven Retailer Demo',
+      retailer_desc: 'Zie hoe retailers reizigers met DutyBoost-aanbiedingen in klanten omzetten',
+      view_retailer: 'Demo bekijken',
+      disclaimer: 'Demo-gegevens zijn alleen ter illustratie',
+    },
     getstarted: {
       title: 'Aan de slag met DutyBoost',
       subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van De Conversielaag voor Reisdetailhandel.',
