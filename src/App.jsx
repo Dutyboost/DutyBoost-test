@@ -100,23 +100,23 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={<LandingPage />} />
-        <Route path="/airport-map" element={<AirportMap />} />
-        <Route path="/demo" element={<DemoLanding />} />
-        <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
-        <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
-        <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
-        <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
-        <Route path="/demo/admin" element={<DemoAdminDashboard />} />
-        <Route path="/get-started" element={<SelectUserType />} />
-        <Route path="/registration" element={<GetStarted />} />
-        <Route path="/travel-partner-portal" element={<AgencyPortal />} />
-        <Route path="/travel-partner-signup" element={<AgencySignup />} />
-        <Route path="/retailer-showcase" element={<RetailerShowcase />} />
-        <Route path="/travel-partner-showcase" element={<AgencyShowcase />} />
-        <Route path="/registration-flow" element={<RegistrationFlow />} />
+        <Route path="/airport-map" element={<ComingSoonPage />} />
+        <Route path="/demo" element={<ComingSoonPage />} />
+        <Route path="/demo/travel-partner" element={<ComingSoonPage />} />
+        <Route path="/demo/retailer" element={<ComingSoonPage />} />
+        <Route path="/demo/hotel" element={<ComingSoonPage />} />
+        <Route path="/demo/car-rental" element={<ComingSoonPage />} />
+        <Route path="/demo/admin" element={<ComingSoonPage />} />
+        <Route path="/get-started" element={<ComingSoonPage />} />
+        <Route path="/registration" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-portal" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-signup" element={<ComingSoonPage />} />
+        <Route path="/retailer-showcase" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-showcase" element={<ComingSoonPage />} />
+        <Route path="/registration-flow" element={<ComingSoonPage />} />
         <Route path="/email-preview" element={<EmailPreview />} />
         <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
         <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
@@ -125,15 +125,15 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-future-presentation" element={<RetailerPresentationFuture />} />
         <Route path="/retailer-calculator" element={<RetailerCalculator />} />
         <Route path="/travel-partner-presentation" element={<TravelPartnerPresentationFuture />} />
-        <Route path="/retailer-portal" element={<RetailerPortal />} />
-        <Route path="/retailer-signup" element={<RetailerSignup />} />
+        <Route path="/retailer-portal" element={<ComingSoonPage />} />
+        <Route path="/retailer-signup" element={<ComingSoonPage />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
-        <Route path="/hotel-showcase" element={<HotelShowcase />} />
-        <Route path="/hotel-portal" element={<HotelPortal />} />
-        <Route path="/hotel-signup" element={<HotelSignup />} />
-        <Route path="/car-rental-showcase" element={<CarRentalShowcase />} />
-        <Route path="/car-rental-portal" element={<CarRentalPortal />} />
-        <Route path="/car-rental-signup" element={<CarRentalSignup />} />
+        <Route path="/hotel-showcase" element={<ComingSoonPage />} />
+        <Route path="/hotel-portal" element={<ComingSoonPage />} />
+        <Route path="/hotel-signup" element={<ComingSoonPage />} />
+        <Route path="/car-rental-showcase" element={<ComingSoonPage />} />
+        <Route path="/car-rental-portal" element={<ComingSoonPage />} />
+        <Route path="/car-rental-signup" element={<ComingSoonPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
