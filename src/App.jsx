@@ -102,7 +102,7 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/" element={<ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
-        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/landing" element={<ComingSoonPage />} />
         <Route path="/airport-map" element={<ComingSoonPage />} />
         <Route path="/demo" element={<ComingSoonPage />} />
         <Route path="/demo/travel-partner" element={<ComingSoonPage />} />
@@ -117,17 +117,17 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-showcase" element={<ComingSoonPage />} />
         <Route path="/travel-partner-showcase" element={<ComingSoonPage />} />
         <Route path="/registration-flow" element={<ComingSoonPage />} />
-        <Route path="/email-preview" element={<EmailPreview />} />
-        <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
-        <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
-        <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
-        <Route path="/staging-validation" element={<StagingValidationGuide />} />
-        <Route path="/retailer-future-presentation" element={<RetailerPresentationFuture />} />
-        <Route path="/retailer-calculator" element={<RetailerCalculator />} />
-        <Route path="/travel-partner-presentation" element={<TravelPartnerPresentationFuture />} />
+        <Route path="/email-preview" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-one-pager" element={<ComingSoonPage />} />
+        <Route path="/retailer-one-pager" element={<ComingSoonPage />} />
+        <Route path="/gtm-checklist" element={<ComingSoonPage />} />
+        <Route path="/staging-validation" element={<ComingSoonPage />} />
+        <Route path="/retailer-future-presentation" element={<ComingSoonPage />} />
+        <Route path="/retailer-calculator" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-presentation" element={<ComingSoonPage />} />
         <Route path="/retailer-portal" element={<ComingSoonPage />} />
         <Route path="/retailer-signup" element={<ComingSoonPage />} />
-        <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
+        <Route path="/retailer-scan-only" element={<ComingSoonPage />} />
         <Route path="/hotel-showcase" element={<ComingSoonPage />} />
         <Route path="/hotel-portal" element={<ComingSoonPage />} />
         <Route path="/hotel-signup" element={<ComingSoonPage />} />
