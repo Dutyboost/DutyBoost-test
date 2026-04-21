@@ -71,11 +71,6 @@ export default {
       err_domain_mismatch: 'Le domaine de votre e-mail doit correspondre au domaine de votre site web.',
       err_industry: 'Veuillez sélectionner votre type d\'activité.',
     },
-    footer: {
-      tagline: '— The Travel Retail Conversion Layer',
-      rights: '© 2026 DutyBoost. Tous droits réservés.',
-    },
-
     getstarted: {
       title: 'Commencer',
       subtitle_default: 'Rejoignez DutyBoost — The Travel Retail Conversion Layer.',
