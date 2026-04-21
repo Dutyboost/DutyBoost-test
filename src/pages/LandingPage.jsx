@@ -88,11 +88,6 @@ export default function LandingPage() {
                 {t('nav.for_agencies')}
               </Button>
             </Link>
-            <Link to="/retailer-showcase">
-              <Button size="sm" variant="outline" className="gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                {t('nav.for_retailers')}
-              </Button>
-            </Link>
             <Link to="/hotel-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 Hotels
@@ -101,6 +96,11 @@ export default function LandingPage() {
             <Link to="/car-rental-showcase">
               <Button size="sm" variant="outline" className="gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
                 Car Rentals
+              </Button>
+            </Link>
+            <Link to="/retailer-showcase">
+              <Button size="sm" variant="outline" className="gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
+                {t('nav.for_retailers')}
               </Button>
             </Link>
             <Link to="/retailer-calculator">
@@ -135,11 +135,6 @@ export default function LandingPage() {
                 {t('nav.for_agencies')}
               </Button>
             </Link>
-            <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                {t('nav.for_retailers')}
-              </Button>
-            </Link>
             <Link to="/hotel-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 Hotels
@@ -148,6 +143,11 @@ export default function LandingPage() {
             <Link to="/car-rental-showcase" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-red-600 border-red-600 hover:text-red-700 hover:bg-red-50">
                 Car Rentals
+              </Button>
+            </Link>
+            <Link to="/retailer-showcase" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
+                {t('nav.for_retailers')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
