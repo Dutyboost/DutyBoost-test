@@ -78,7 +78,7 @@ export default {
 
     getstarted: {
       title: 'Inizia',
-      subtitle_default: 'Unisciti a DutyBoost — The Travel Retail Conversion Layer.',
+      subtitle_default: 'Unisciti a DutyBoost — Il Livello di Conversione del Retail di Viaggio.',
       agencies: 'Partner di viaggio',
       retailers: 'Retailer aeroportuali',
       hotels: 'Hotel',
