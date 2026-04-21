@@ -44,7 +44,7 @@ export default function SelectUserType() {
       path: "/car-rental-showcase",
     },
     {
-      title: t('nav.for_retailers'),
+      title: 'Airport Retail Partners',
       descKey: 'getstarted.retailers_description',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
