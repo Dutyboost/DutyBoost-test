@@ -5,7 +5,7 @@ export default {
       sign_in: 'Se connecter',
       for_agencies: 'Partenaires de voyage',
       for_travelers: 'Voyageurs',
-      for_retailers: 'Détaillants aéroportuaires',
+      for_retailers: 'Partenaires détaillants aéroportuaires',
       for_hotels: 'Hôtels',
       for_car_rentals: 'Locations de voitures',
       get_started: 'Commencer',

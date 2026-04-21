@@ -5,7 +5,7 @@ export default {
       sign_in: 'Accedi',
       for_agencies: 'Partner di viaggio',
       for_travelers: 'Viaggiatori',
-      for_retailers: 'Retailer aeroportuali',
+      for_retailers: 'Partner retailer aeroportuali',
       for_hotels: 'Hotel',
       for_car_rentals: 'Noleggi auto',
       get_started: 'Inizia',

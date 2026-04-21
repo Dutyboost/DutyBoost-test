@@ -4,7 +4,7 @@ export default {
       signIn: 'Sign In',
       for_agencies: 'Travel Partners',
       for_travelers: 'Travelers',
-      for_retailers: 'Retailers',
+      for_retailers: 'Retail Partners',
       for_hotels: 'Hotels',
       for_car_rentals: 'Car Rentals',
       get_started: 'Get Started',

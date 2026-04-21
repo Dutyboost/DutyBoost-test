@@ -5,7 +5,7 @@ export default {
       sign_in: 'Iniciar sesión',
       for_agencies: 'Socios de viaje',
       for_travelers: 'Viajeros',
-      for_retailers: 'Minoristas aeroportuarios',
+      for_retailers: 'Socios minoristas aeroportuarios',
       for_hotels: 'Hoteles',
       for_car_rentals: 'Rentas de autos',
       get_started: 'Comenzar',

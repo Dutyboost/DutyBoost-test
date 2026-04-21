@@ -5,7 +5,7 @@ export default {
       sign_in: 'Anmelden',
       for_agencies: 'Reisepartner',
       for_travelers: 'Reisende',
-      for_retailers: 'Flughafenhändler',
+      for_retailers: 'Flughafen-Retailpartner',
       for_hotels: 'Hotels',
       for_car_rentals: 'Autovermietungen',
       get_started: 'Loslegen',

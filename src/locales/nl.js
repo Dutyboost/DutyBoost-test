@@ -4,7 +4,7 @@ export default {
       signIn: 'Inloggen',
       for_agencies: 'Travel Partners',
       for_travelers: 'Reizigers',
-      for_retailers: 'Retailers',
+      for_retailers: 'Retailpartners',
       for_hotels: 'Hotels',
       for_car_rentals: 'Autoverhuurers',
       get_started: 'Aan de slag',
