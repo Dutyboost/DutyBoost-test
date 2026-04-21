@@ -205,7 +205,7 @@ function RetailerTab() {
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 function TravelPartnerTab() {
-  const [bookingsPerMonth, setBookingsPerMonth] = useState(500000);
+  const [bookingsPerMonth, setBookingsPerMonth] = useState(0);
   const [conversionRate, setConversionRate] = useState(20); // %
   const [avgBasket, setAvgBasket] = useState(150);
 
@@ -236,8 +236,8 @@ function TravelPartnerTab() {
             </div>
             <span className="text-slate-400 text-sm">travelers</span>
           </div>
-          <Slider min={50} max={1000000} step={5000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>50</span><span>1,000,000+</span></div>
+          <Slider min={0} max={1000000} step={1000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
+          <div className="flex justify-between text-xs text-slate-500"><span>0</span><span>1,000,000</span></div>
         </div>
 
         {/* Conversion rate */}
