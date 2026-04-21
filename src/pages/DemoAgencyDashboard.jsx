@@ -120,6 +120,7 @@ export default function DemoAgencyDashboard() {
             vouchers={TRAVEL_AGENCIES}
             period={period}
             entityType="agency"
+            onPeriodChange={setPeriod}
           />
         ) : (<>
         {/* Welcome */}
