@@ -12,7 +12,7 @@ export default {
       live_demo: 'Live Demo',
     },
     hero: {
-      title_1: 'Turn every booking into',
+      title_1: 'Turning every booking into',
       title_2: 'airport revenue - for everyone',
       subtitle: 'Unlock the revenue <strong>hidden</strong> in every flight, hotel booking, and car rental with DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. By connecting travel partners, hotel partners, car rental providers, and airport retailers, we turn leisure travelers into high-intent buyers before they reach their departure airport—and even upon arrival at their destination.',
     },
