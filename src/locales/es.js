@@ -13,7 +13,7 @@ export default {
       live_demo: 'Demo en vivo',
     },
     hero: {
-      title_1: 'Convirtiendo cada reserva de viaje en',
+      title_1: 'Convirtiendo cada reserva en',
       title_2: 'ganancias en aeropuertos — para todos',
       subtitle: 'Desbloquea el flujo de ingresos <strong>oculto</strong> en cada vuelo, reserva de hotel y renta de auto con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Al conectar socios de viaje, socios hoteleros, proveedores de renta de auto y minoristas aeroportuarios, convertimos a los viajeros en compradores de alto intento antes de que lleguen a su aeropuerto de salida—e incluso a su llegada a su destino.',
     },
