@@ -105,7 +105,7 @@ const AuthenticatedApp = () => {
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
         <Route path="/airport-map" element={isAdmin ? <AirportMap /> : <ComingSoonPage />} />
-        <Route path="/demo" element={isAdmin ? <DemoLanding /> : <ComingSoonPage />} />
+        <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/travel-partner" element={isAdmin ? <DemoAgencyDashboard /> : <ComingSoonPage />} />
         <Route path="/demo/retailer" element={isAdmin ? <DemoRetailerDashboard /> : <ComingSoonPage />} />
         <Route path="/demo/hotel" element={isAdmin ? <DemoHotelDashboard /> : <ComingSoonPage />} />
