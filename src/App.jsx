@@ -101,7 +101,7 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
         <Route path="/airport-map" element={isAdmin ? <AirportMap /> : <ComingSoonPage />} />
