@@ -52,7 +52,7 @@ export default {
     getstarted: {
       title: 'Aan de slag met DutyBoost',
       subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van De Conversielaag voor Reisdetailhandel.',
-      agencies: 'Reispartners',
+      agencies: 'Vluchten',
       retailers: 'Luchthavenwinkels',
       hotels: 'Hotels',
       car_rentals: 'Autoverhuur',

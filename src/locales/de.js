@@ -79,7 +79,7 @@ export default {
     getstarted: {
       title: 'Loslegen',
       subtitle_default: 'Treten Sie DutyBoost bei — Die Reise-Einzelhandels-Konversionsschicht.',
-      agencies: 'Reisepartner',
+      agencies: 'Flüge',
       retailers: 'Flughafenhändler',
       hotels: 'Hotels',
       car_rentals: 'Autovermietungen',

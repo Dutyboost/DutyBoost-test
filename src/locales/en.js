@@ -55,7 +55,7 @@ export default {
     getstarted: {
       title: 'Get Started with DutyBoost',
       subtitle_default: 'Choose your role to access and start enjoying the benefits of The Travel Retail Conversion Layer.',
-      agencies: 'Travel Partners',
+      agencies: 'Flights',
       retailers: 'Airport Retailers',
       hotels: 'Hotels',
       car_rentals: 'Car Rentals',

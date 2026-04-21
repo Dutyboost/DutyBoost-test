@@ -79,7 +79,7 @@ export default {
     getstarted: {
       title: 'Comenzar',
       subtitle_default: 'Únete a DutyBoost — La Capa de Conversión del Comercio de Viajes.',
-      agencies: 'Socios de viaje',
+      agencies: 'Vuelos',
       retailers: 'Minoristas aeroportuarios',
       hotels: 'Hoteles',
       car_rentals: 'Rentas de autos',

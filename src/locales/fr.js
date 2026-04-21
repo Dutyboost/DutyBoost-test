@@ -74,7 +74,7 @@ export default {
     getstarted: {
       title: 'Commencer',
       subtitle_default: 'Rejoignez DutyBoost — La Couche de Conversion du Commerce de Voyage.',
-      agencies: 'Partenaires de voyage',
+      agencies: 'Vols',
       retailers: 'Détaillants aéroportuaires',
       hotels: 'Hôtels',
       car_rentals: 'Locations de voitures',
