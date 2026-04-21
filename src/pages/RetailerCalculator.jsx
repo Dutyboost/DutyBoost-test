@@ -205,13 +205,13 @@ function RetailerTab() {
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 function TravelPartnerTab() {
-  const [bookingsPerYear, setBookingsPerYear] = useState(500);
+  const [bookingsPerMonth, setBookingsPerMonth] = useState(500000);
   const [conversionRate, setConversionRate] = useState(20); // %
   const [avgBasket, setAvgBasket] = useState(150);
 
-  const redemptions = useMemo(() => Math.round(bookingsPerYear * (conversionRate / 100)), [bookingsPerYear, conversionRate]);
+  const redemptions = useMemo(() => Math.round(bookingsPerMonth * (conversionRate / 100)), [bookingsPerMonth, conversionRate]);
   const agencyCommissionPerTx = useMemo(() => Math.round(avgBasket * AGENCY_COMMISSION_RATE * 100) / 100, [avgBasket]);
-  const annualCommission = useMemo(() => Math.round(redemptions * agencyCommissionPerTx * 100) / 100, [redemptions, agencyCommissionPerTx]);
+  const monthlyCommission = useMemo(() => Math.round(redemptions * agencyCommissionPerTx * 100) / 100, [redemptions, agencyCommissionPerTx]);
   const travelerSavingPerTx = useMemo(() => calcSaving(avgBasket), [avgBasket]);
   const totalTravelerSavings = useMemo(() => Math.round(redemptions * travelerSavingPerTx * 100) / 100, [redemptions, travelerSavingPerTx]);
   const tier = useMemo(() => getTier(avgBasket), [avgBasket]);
@@ -221,22 +221,22 @@ function TravelPartnerTab() {
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-white">How much will you earn as a Travel Partner?</h2>
         <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          You earn a <strong className="text-green-300">0.5% commission</strong> on every basket your travelers spend at the airport — with zero effort on your end. DutyBoost pays you out of its own fee.
+          You earn a <strong className="text-green-300">0.5% commission</strong> on every basket your travelers spend at the airport — paid out <strong className="text-green-300">monthly</strong> by DutyBoost out of its own fee.
         </p>
       </div>
 
       {/* Sliders */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-6">
-        {/* Bookings per year */}
+        {/* Bookings per month */}
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Bookings / year you send DutyCredits to</p>
-              <p className="text-4xl font-bold text-white">{bookingsPerYear.toLocaleString()}</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Bookings / month you send DutyCredits to</p>
+              <p className="text-4xl font-bold text-white">{bookingsPerMonth.toLocaleString()}</p>
             </div>
             <span className="text-slate-400 text-sm">travelers</span>
           </div>
-          <Slider min={50} max={1000000} step={5000} value={[bookingsPerYear]} onValueChange={([v]) => setBookingsPerYear(v)} className="w-full" />
+          <Slider min={50} max={1000000} step={5000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-500"><span>50</span><span>1,000,000+</span></div>
         </div>
 
@@ -275,7 +275,7 @@ function TravelPartnerTab() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <Users className="w-4 h-4 text-slate-400 mx-auto mb-2" />
-          <p className="text-xs text-slate-400 mb-1">Redemptions / year</p>
+          <p className="text-xs text-slate-400 mb-1">Redemptions / month</p>
           <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()}</p>
         </div>
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
@@ -286,12 +286,12 @@ function TravelPartnerTab() {
         </div>
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
-          <p className="text-xs text-green-300 mb-1">Annual commission</p>
-          <p className="text-2xl font-bold text-green-300">€{annualCommission.toLocaleString()}</p>
+          <p className="text-xs text-green-300 mb-1">Monthly commission</p>
+          <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()}</p>
         </div>
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 text-center">
           <Percent className="w-4 h-4 text-purple-400 mx-auto mb-2" />
-          <p className="text-xs text-purple-300 mb-1">Traveler savings / year</p>
+          <p className="text-xs text-purple-300 mb-1">Traveler savings / month</p>
           <p className="text-2xl font-bold text-purple-300">€{totalTravelerSavings.toLocaleString()}</p>
         </div>
       </div>
@@ -299,14 +299,14 @@ function TravelPartnerTab() {
       {/* Commission breakdown */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-5">
         <div>
-          <h3 className="font-bold text-white text-lg">Your annual revenue stream</h3>
+          <h3 className="font-bold text-white text-lg">Your monthly revenue stream</h3>
           <p className="text-slate-400 text-sm mt-1">Passive income from your existing bookings — no extra work, no cost to your travelers.</p>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-4">
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
             <p className="text-xs text-slate-400">You send DutyCredits to</p>
-            <p className="text-2xl font-bold text-white">{bookingsPerYear.toLocaleString()} travelers</p>
+            <p className="text-2xl font-bold text-white">{bookingsPerMonth.toLocaleString()} travelers / mo</p>
           </div>
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
             <p className="text-xs text-slate-400">At {conversionRate}% redemption</p>
@@ -314,7 +314,7 @@ function TravelPartnerTab() {
           </div>
           <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 space-y-1">
             <p className="text-xs text-green-300">You earn</p>
-            <p className="text-2xl font-bold text-green-300">€{annualCommission.toLocaleString()} / year</p>
+            <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()} / month</p>
           </div>
         </div>
 
@@ -360,7 +360,7 @@ function TravelPartnerTab() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500">Commission = 0.5% of basket value per redemption, paid monthly by DutyBoost.</p>
+        <p className="text-xs text-slate-500">Commission = 0.5% of basket value per redemption, paid out monthly by DutyBoost.</p>
       </div>
     </div>
   );
