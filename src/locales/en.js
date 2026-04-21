@@ -34,8 +34,8 @@ export default {
         b3: 'Track sales split',
       },
       agencies: {
-        description: 'Turn every booking into a loyalty tool. Auto-generate personalized DutyCredits for your travelers — exclusive incentives earned via their booking, based on group size, destination, and ticket value — with zero extra effort. Earn a margin on every redeemed DutyCredit.',
-        b1: 'Higher traveler satisfaction',
+        description: 'Whether you\'re a travel agency, airline, hotel, or car rental provider — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive airport shopping incentive. Earn a commission on every DutyCredit redeemed.',
+        b1: 'Higher customer satisfaction',
         b2: 'Zero integration friction',
         b3: 'More repeat bookings',
       },

@@ -204,8 +204,8 @@ export default function LandingPage() {
               let title, description, benefits;
               
               if (s.key === 'agencies') {
-                 title = t('nav.for_agencies');
-                 description = 'Generate personalized DutyCredits incentivizing your customers because they booked with you. Boost loyalty and create a new revenue stream for your hotel, car rental, or flight bookings.';
+                 title = 'Travel Agencies, Airlines, Hotels & Car Rentals';
+                 description = t('stakeholders.agencies.description');
                  benefits = [
                    t('stakeholders.agencies.b1'),
                    t('stakeholders.agencies.b2'),
