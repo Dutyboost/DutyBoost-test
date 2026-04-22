@@ -22,7 +22,7 @@ export default function AdminDashboard() {
   const [fnbTransactions, setFnbTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [period, setPeriod] = useState("monthly");
+  const [period, setPeriod] = useState("month");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
@@ -47,13 +47,17 @@ export default function AdminDashboard() {
 
   const { startDate, endDate } = useMemo(() => {
     const now = new Date();
-    if (period === "daily") {
-      const s = new Date(now); s.setDate(s.getDate() - 7);
-      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    if (period === "day") {
+      const s = now.toISOString().split("T")[0];
+      return { startDate: s, endDate: s };
     }
-    if (period === "monthly") {
-      const s = new Date(now); s.setDate(s.getDate() - 30);
-      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
+    if (period === "month") {
+      const s = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split("T")[0];
+      return { startDate: s, endDate: now.toISOString().split("T")[0] };
+    }
+    if (period === "year") {
+      const s = new Date(now.getFullYear(), 0, 1).toISOString().split("T")[0];
+      return { startDate: s, endDate: now.toISOString().split("T")[0] };
     }
     return { startDate: customStart, endDate: customEnd };
   }, [period, customStart, customEnd]);
@@ -191,11 +195,16 @@ export default function AdminDashboard() {
       <div className="flex items-center gap-2 flex-wrap">
         <Calendar className="w-4 h-4 text-muted-foreground" />
         <span className="text-sm text-muted-foreground font-medium">Period:</span>
-        {["daily", "monthly", "custom"].map(p => (
-          <button key={p} onClick={() => setPeriod(p)}
-            className={`text-xs px-3 py-1.5 rounded-full border transition-all capitalize ${
-              period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
-            }`}>{p === "daily" ? "Last 7 days" : p === "monthly" ? "Last 30 days" : "Custom"}
+        {[
+          { key: "day", label: "Day" },
+          { key: "month", label: "Month" },
+          { key: "year", label: "Year" },
+          { key: "custom", label: "Custom" },
+        ].map(({ key, label }) => (
+          <button key={key} onClick={() => setPeriod(key)}
+            className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+              period === key ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+            }`}>{label}
           </button>
         ))}
         {period === "custom" && (
