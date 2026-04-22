@@ -138,9 +138,7 @@ function RetailerTab() {
                 <div key={label} className="flex items-center gap-3">
                   <div className="w-28 text-xs text-slate-400 shrink-0">{label}</div>
                   <div className="flex-1 h-6 bg-slate-700 rounded-lg overflow-hidden">
-                    <div className={`h-full ${barColor} rounded-lg flex items-center justify-end pr-2 transition-all duration-300`} style={{ width: `${Math.min(100, (value / spend) * 100)}%` }}>
-                      <span className="text-xs font-bold text-white">€{value.toFixed(2)}</span>
-                    </div>
+                    <div className={`h-full ${barColor} rounded-lg transition-all duration-300`} style={{ width: `${Math.min(100, (value / spend) * 100)}%` }} />
                   </div>
                   <div className={`w-12 text-xs ${textColor} text-right shrink-0`}>{pct}%</div>
                 </div>
