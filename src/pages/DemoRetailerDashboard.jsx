@@ -149,7 +149,7 @@ export default function DemoRetailerDashboard() {
         {/* Welcome */}
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-heading font-bold">{selectedRetailer.name}</h1>
+            <h1 className="text-2xl font-heading font-bold">Airport Retailer Dashboard — {selectedRetailer.name}</h1>
             <p className="text-muted-foreground text-sm mt-1">
               {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
             </p>
