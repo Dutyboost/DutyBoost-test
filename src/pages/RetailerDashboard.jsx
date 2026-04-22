@@ -266,7 +266,7 @@ export default function RetailerDashboard() {
 
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-heading font-bold tracking-tight">Retailer Dashboard</h1>
+          <h1 className="text-2xl font-heading font-bold tracking-tight">Airport Retailer Dashboard</h1>
           <p className="text-muted-foreground mt-1">Manage your stores and view DutyCredit activity.</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
