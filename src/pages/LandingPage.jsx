@@ -84,14 +84,8 @@ export default function LandingPage() {
           <DutyBoostLogo height={150} />
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/get-started">
-              <Button size="sm" variant="outline" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                {t('nav.for_agencies')}
-              </Button>
-            </Link>
-
-            <Link to="/get-started">
-              <Button size="sm" variant="outline" className="gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                Airport Retail Partners
+              <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
+                Partner with Us
               </Button>
             </Link>
             <Link to="/retailer-calculator">
@@ -122,14 +116,8 @@ export default function LandingPage() {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                {t('nav.for_agencies')}
-              </Button>
-            </Link>
-
-            <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-orange-600 border-orange-600 hover:text-orange-700 hover:bg-orange-50">
-                Airport Retail Partners
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
+                Partner with Us
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
