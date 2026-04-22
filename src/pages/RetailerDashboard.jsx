@@ -111,7 +111,7 @@ export default function RetailerDashboard() {
   );
 
   const totalPassengers = useMemo(() =>
-    filteredTransactions.reduce((s, t) => s + (t.number_of_travelers || 0), 0),
+    filteredTransactions.length,
     [filteredTransactions]
   );
 
@@ -121,7 +121,6 @@ export default function RetailerDashboard() {
   const revenuePerDay = (totalRevenue / periodDays).toFixed(2);
 
   // Transaction volume for selected period
-  const today = new Date();
   const displayDayCount = Math.min(30, Math.max(1, Math.round((new Date(endDate) - new Date(startDate)) / 86400000)) + 1);
   const last30 = Array.from({ length: displayDayCount }, (_, i) => {
     const d = new Date(endDate);

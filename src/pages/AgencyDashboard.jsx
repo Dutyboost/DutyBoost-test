@@ -24,8 +24,7 @@ export default function AgencyDashboard() {
   const [transactions, setTransactions] = useState([]);
   const [user, setUser] = useState(null);
   const [companyName, setCompanyName] = useState("");
-  const [bankForm, setBankForm] = useState({ bank_account_name: "", bank_iban: "" });
-  const [bankSaving, setBankSaving] = useState(false);
+
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
@@ -34,7 +33,6 @@ export default function AgencyDashboard() {
   const loadData = async () => {
     const u = await base44.auth.me();
     setUser(u);
-    setBankForm({ bank_account_name: u.bank_account_name || "", bank_iban: u.bank_iban || "" });
     const [allVouchers, allTxns, apps] = await Promise.all([
       base44.entities.Voucher.filter({ agency_email: u.email }, '-created_date', 100),
       base44.entities.Transaction.filter({ agency_email: u.email }, '-created_date', 200),
@@ -43,14 +41,6 @@ export default function AgencyDashboard() {
     setVouchers(allVouchers);
     setTransactions(allTxns);
     if (apps && apps.length > 0) setCompanyName(apps[0].company || "");
-  };
-
-  const handleSaveBank = async (e) => {
-    e.preventDefault();
-    setBankSaving(true);
-    await base44.auth.updateMe(bankForm);
-    setBankSaving(false);
-    toast.success("Bank details saved!");
   };
 
   useEffect(() => {
@@ -77,9 +67,7 @@ export default function AgencyDashboard() {
 
   const activeVouchers = filteredVouchers.filter((v) => v.status === "active").length;
   const redeemedVouchers = filteredVouchers.filter((v) => v.status === "redeemed").length;
-  const avgIncentive = filteredVouchers.length
-    ? (filteredVouchers.reduce((sum, v) => sum + v.discount_percentage, 0) / filteredVouchers.length).toFixed(1)
-    : 0;
+
   const totalPassengers = filteredVouchers.reduce((s, v) => s + (v.traveler_count || 0), 0);
   
   // Real commission earned from redeemed transactions
@@ -216,7 +204,7 @@ export default function AgencyDashboard() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {vouchers.slice(0, 6).map((v) => <VoucherCard key={v.id} voucher={v} />)}
+            {filteredVouchers.slice(0, 6).map((v) => <VoucherCard key={v.id} voucher={v} />)}
           </div>
         )}
       </div>

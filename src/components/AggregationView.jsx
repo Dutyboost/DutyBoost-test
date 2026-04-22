@@ -29,8 +29,6 @@ export default function AggregationView({ transactions, vouchers, period, custom
   }, [transactions, period, customStart, customEnd]);
 
   const aggregatedMetrics = useMemo(() => {
-    const periodFactor = 1; // now using real filtered data, no scaling
-
     const totalRedemptions = filteredTransactions.length;
     const grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
     const platformFee = entityType === "retailer"

@@ -64,6 +64,7 @@ export default function AdminPanel() {
           return;
         }
         setIsAdmin(true);
+        setUser(user);
         loadAll();
       } catch (error) {
         console.error('Admin check error:', error);
@@ -94,8 +95,6 @@ export default function AdminPanel() {
       setApplications(ap || []);
       setInvoices(inv || []);
       setDeletions(del || []);
-      const currentUser = await base44.auth.me();
-      setUser(currentUser);
     } catch (error) {
       console.error('Error loading admin data:', error);
       toast.error('Failed to load admin data');
