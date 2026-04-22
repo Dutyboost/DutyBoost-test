@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProfileTab from "../components/ProfileTab";
 import {
@@ -85,7 +85,7 @@ export default function RetailerDashboard() {
     await base44.entities.Retailer.create({ ...form, owner_email: user.email, accepts_vouchers: true });
     toast.success("Store created!");
     setDialogOpen(false);
-    setForm({ store_name: "", airport: "", category: "Duty-free", description: "" });
+    setForm({ store_name: "", airport: "", category: "Retail", description: "" });
     loadData();
   };
 
@@ -185,7 +185,7 @@ export default function RetailerDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { id: "custom", label: "Custom Aggregation", icon: Compass },
+    { id: "custom", label: "Custom Aggregation", icon: BarChartIcon },
     { id: "strategy", label: "Define your Airport Retail strategy", icon: Compass },
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
@@ -208,7 +208,7 @@ export default function RetailerDashboard() {
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
       ) : activeTab === "custom" ? (
-        <AggregationView transactions={filteredTransactions} vouchers={filteredTransactions} period={period} entityType="retailer" onPeriodChange={setPeriod} />
+        <AggregationView transactions={filteredTransactions} vouchers={vouchers} period={period === "daily" ? "day" : period === "monthly" ? "month" : period} entityType="retailer" onPeriodChange={setPeriod} />
       ) : activeTab === "implementation" ? (
         <div className="max-w-2xl space-y-8 py-4">
           <div className="space-y-2">

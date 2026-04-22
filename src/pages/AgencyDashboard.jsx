@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import ProfileTab from "../components/ProfileTab";
 import VoucherCard from "../components/VoucherCard";
-import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle, BookOpen, ArrowRight, Code2, Mail, Zap } from "lucide-react";
+import { TicketPercent, AlertCircle, Calendar, Landmark, CheckCircle2, LayoutDashboard, UserCircle, BookOpen, ArrowRight, Code2, Mail, Zap, BarChart2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -109,7 +109,7 @@ export default function AgencyDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { id: "custom", label: "Custom Aggregation", icon: LayoutDashboard },
+    { id: "custom", label: "Custom Aggregation", icon: BarChart2 },
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];

@@ -111,7 +111,6 @@ export default function AdminDashboard() {
   })).sort((a, b) => b.issued - a.issued);
 
   // --- Transaction volume for selected period ---
-  const today = new Date();
   const dayCount = Math.max(1, Math.round((new Date(endDate) - new Date(startDate)) / 86400000)) + 1;
   const periodDays = Array.from({ length: dayCount }, (_, i) => {
     const d = new Date(startDate);

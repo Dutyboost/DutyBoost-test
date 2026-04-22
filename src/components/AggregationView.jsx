@@ -38,7 +38,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0);
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
     const avgDiscount = filteredTransactions.length > 0
-      ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || t.discount_amount || 0), 0) / filteredTransactions.length)
+      ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || 0), 0) / filteredTransactions.length)
       : 0;
 
     return {

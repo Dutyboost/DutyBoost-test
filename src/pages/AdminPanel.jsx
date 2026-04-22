@@ -35,8 +35,8 @@ export default function AdminPanel() {
   const [deletions, setDeletions] = useState([]);
   const [user, setUser] = useState(null);
   const [aggPeriod, setAggPeriod] = useState("month");
-  const [aggCustomStart, setAggCustomStart] = useState("");
-  const [aggCustomEnd, setAggCustomEnd] = useState("");
+  const [aggCustomStart, setAggCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
+  const [aggCustomEnd, setAggCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
 
   const toggleSelectAll = () => {
     if (selectedApps.size === applications.length) {
