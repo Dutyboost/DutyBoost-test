@@ -111,7 +111,7 @@ const AuthenticatedApp = () => {
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
         <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
-        <Route path="/get-started" element={isAdmin ? <SelectUserType /> : <ComingSoonPage />} />
+        <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={isAdmin ? <GetStarted /> : <ComingSoonPage />} />
         <Route path="/travel-partner-portal" element={isAdmin ? <AgencyPortal /> : <ComingSoonPage />} />
         <Route path="/travel-partner-signup" element={isAdmin ? <AgencySignup /> : <ComingSoonPage />} />
