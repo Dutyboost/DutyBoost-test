@@ -80,11 +80,11 @@ function RetailerTab() {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={0} max={500} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
+          <Slider min={0} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-500">
             <span>€0</span>
             <span className="text-slate-400">Min basket: €70</span>
-            <span>€500+</span>
+            <span>€1,000</span>
           </div>
         </div>
         {tier && (
