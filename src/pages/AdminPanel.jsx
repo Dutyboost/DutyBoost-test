@@ -239,6 +239,7 @@ export default function AdminPanel() {
           </h1>
           <p className="text-muted-foreground mt-1">Complete platform overview and management.</p>
         </div>
+        <div className="flex items-center gap-2">
         <Link to="/admin-dashboard">
           <Button variant="outline" className="gap-2"><BarChart2 className="w-4 h-4" /> Analytics</Button>
         </Link>
@@ -272,6 +273,7 @@ export default function AdminPanel() {
             </form>
           </DialogContent>
         </Dialog>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
