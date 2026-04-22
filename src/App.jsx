@@ -101,16 +101,16 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/landing" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
         <Route path="/airport-map" element={isAdmin ? <AirportMap /> : <ComingSoonPage />} />
-        <Route path="/demo" element={<DemoLanding />} />
-        <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
-        <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
-        <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
-        <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
-        <Route path="/demo/admin" element={<DemoAdminDashboard />} />
+        <Route path="/demo" element={isAdmin ? <DemoLanding /> : <ComingSoonPage />} />
+        <Route path="/demo/travel-partner" element={isAdmin ? <DemoAgencyDashboard /> : <ComingSoonPage />} />
+        <Route path="/demo/retailer" element={isAdmin ? <DemoRetailerDashboard /> : <ComingSoonPage />} />
+        <Route path="/demo/hotel" element={isAdmin ? <DemoHotelDashboard /> : <ComingSoonPage />} />
+        <Route path="/demo/car-rental" element={isAdmin ? <DemoCarRentalDashboard /> : <ComingSoonPage />} />
+        <Route path="/demo/admin" element={isAdmin ? <DemoAdminDashboard /> : <ComingSoonPage />} />
         <Route path="/get-started" element={isAdmin ? <SelectUserType /> : <ComingSoonPage />} />
         <Route path="/registration" element={isAdmin ? <GetStarted /> : <ComingSoonPage />} />
         <Route path="/travel-partner-portal" element={isAdmin ? <AgencyPortal /> : <ComingSoonPage />} />

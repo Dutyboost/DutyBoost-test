@@ -83,11 +83,11 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={150} />
           <div className="hidden lg:flex items-center gap-2">
-            <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5" onClick={() => setOpen(true)}>
+            <Link to="/get-started">
+              <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
                 Partner with Us
               </Button>
-            )} />
+            </Link>
             <Link to="/retailer-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
@@ -115,11 +115,11 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
-            <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5" onClick={() => { setOpen(true); setMobileMenuOpen(false); }}>
+            <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
                 Partner with Us
               </Button>
-            )} />
+            </Link>
             <WeCallYouModal trigger={(setOpen) => (
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
                 {t('nav.we_call_you')}
@@ -224,9 +224,9 @@ export default function LandingPage() {
               const cardClasses = `bg-card rounded-2xl border border-border p-8 transition-shadow ${isClickable ? 'hover:shadow-lg cursor-pointer' : 'hover:shadow-lg'}`;
 
               return isClickable ? (
-                <div key={s.key} className={cardClasses} onClick={() => setContactModalOpen(true)}>
+                <Link key={s.key} to="/get-started" className={cardClasses}>
                   {cardContent}
-                </div>
+                </Link>
               ) : (
                 <div key={s.key} className={cardClasses}>
                   {cardContent}
@@ -246,9 +246,11 @@ export default function LandingPage() {
             <div className="relative space-y-6">
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.description')}</p>
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => setContactModalOpen(true)}>
-                {t('cta.button')} <ArrowRight className="w-4 h-4" />
-              </Button>
+              <Link to="/get-started">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
+                  {t('cta.button')} <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
