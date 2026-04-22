@@ -24,10 +24,10 @@ const roleNavItems = {
   admin: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
-    { label: "Airport Retailers", path: "/retailers", icon: Store },
+    { label: "Airport Retail Partners", path: "/retailers", icon: Store },
     { label: "Travel Partners", path: "/travel-partners", icon: Plane },
-    { label: "Hotels", path: "/hotels", icon: Building2 },
-    { label: "Car Rentals", path: "/car-rentals", icon: Car },
+    { label: "Hotel Partners", path: "/hotels", icon: Building2 },
+    { label: "Car Rental Partners", path: "/car-rentals", icon: Car },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
