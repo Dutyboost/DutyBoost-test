@@ -34,6 +34,9 @@ export default function AdminPanel() {
   const [invoices, setInvoices] = useState([]);
   const [deletions, setDeletions] = useState([]);
   const [user, setUser] = useState(null);
+  const [aggPeriod, setAggPeriod] = useState("month");
+  const [aggCustomStart, setAggCustomStart] = useState("");
+  const [aggCustomEnd, setAggCustomEnd] = useState("");
 
   const toggleSelectAll = () => {
     if (selectedApps.size === applications.length) {
@@ -321,7 +324,38 @@ export default function AdminPanel() {
         </div>
 
         <TabsContent value="aggregation" className="mt-4">
-          <AggregationView transactions={transactions} vouchers={vouchers} period="monthly" entityType="admin" />
+          <div className="flex items-center gap-2 flex-wrap mb-4">
+            <span className="text-sm text-muted-foreground font-medium">Period:</span>
+            {[
+              { key: "day", label: "Day" },
+              { key: "month", label: "Month" },
+              { key: "year", label: "Year" },
+              { key: "custom", label: "Custom" },
+            ].map(({ key, label }) => (
+              <button key={key} onClick={() => setAggPeriod(key)}
+                className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                  aggPeriod === key ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+                }`}>{label}
+              </button>
+            ))}
+            {aggPeriod === "custom" && (
+              <div className="flex items-center gap-2 ml-2">
+                <input type="date" value={aggCustomStart} onChange={e => setAggCustomStart(e.target.value)}
+                  className="text-xs border border-border rounded-lg px-2 py-1.5 bg-card focus:outline-none focus:ring-1 focus:ring-primary" />
+                <span className="text-xs text-muted-foreground">to</span>
+                <input type="date" value={aggCustomEnd} onChange={e => setAggCustomEnd(e.target.value)}
+                  className="text-xs border border-border rounded-lg px-2 py-1.5 bg-card focus:outline-none focus:ring-1 focus:ring-primary" />
+              </div>
+            )}
+          </div>
+          <AggregationView
+            transactions={transactions}
+            vouchers={vouchers}
+            period={aggPeriod}
+            customStart={aggCustomStart}
+            customEnd={aggCustomEnd}
+            entityType="admin"
+          />
         </TabsContent>
 
         <TabsContent value="applications" className="mt-4">

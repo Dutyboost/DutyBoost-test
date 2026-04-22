@@ -2,30 +2,43 @@ import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { TrendingUp, Euro, Store, ScanLine, Calendar } from "lucide-react";
 
-export default function AggregationView({ transactions, vouchers, period, entityType = "retailer", onPeriodChange }) {
+export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange }) {
+  // Filter transactions by period
+  const filteredTransactions = useMemo(() => {
+    const now = new Date();
+    let start, end;
+    if (period === "day") {
+      start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      end = new Date(start); end.setDate(end.getDate() + 1);
+    } else if (period === "month") {
+      start = new Date(now.getFullYear(), now.getMonth(), 1);
+      end = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    } else if (period === "year") {
+      start = new Date(now.getFullYear(), 0, 1);
+      end = new Date(now.getFullYear() + 1, 0, 1);
+    } else if (period === "custom" && customStart && customEnd) {
+      start = new Date(customStart);
+      end = new Date(customEnd); end.setDate(end.getDate() + 1);
+    } else {
+      return transactions; // no filter
+    }
+    return transactions.filter(t => {
+      const d = new Date(t.created_date);
+      return d >= start && d < end;
+    });
+  }, [transactions, period, customStart, customEnd]);
+
   const aggregatedMetrics = useMemo(() => {
-    // Calculate period factor
-    let periodFactor = 1;
-    if (period === "daily") periodFactor = 1 / 30;
-    else if (period === "yearly") periodFactor = 12;
+    const periodFactor = 1; // now using real filtered data, no scaling
 
-    // Total redemptions (count of transactions)
-    const totalRedemptions = Math.round(transactions.length * periodFactor);
-
-    // Gross revenue (sum of transaction values)
-    const grossRevenue = transactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0) * periodFactor;
-
-    // Platform fee (2.5% for retailers, but varies for agencies — use agency_commission if present)
+    const totalRedemptions = filteredTransactions.length;
+    const grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
     const platformFee = entityType === "retailer"
       ? grossRevenue * 0.025
-      : transactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0) * periodFactor;
-
-    // Average sales per DutyCredit
+      : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0);
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
-
-    // Average discount applied (for retailers, shows effective discount %; for agencies, shows discount amount)
-    const avgDiscount = transactions.length > 0
-      ? (transactions.reduce((sum, t) => sum + (t.discount_applied || t.discount_amount || 0), 0) / transactions.length)
+    const avgDiscount = filteredTransactions.length > 0
+      ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || t.discount_amount || 0), 0) / filteredTransactions.length)
       : 0;
 
     return {
@@ -36,12 +49,11 @@ export default function AggregationView({ transactions, vouchers, period, entity
       avgDiscount: avgDiscount.toFixed(1),
       vouchersIssued: vouchers.length,
     };
-  }, [transactions, vouchers, period, entityType]);
+  }, [filteredTransactions, vouchers, entityType]);
 
-  // Distribution by airport (if available)
   const airportBreakdown = useMemo(() => {
     const breakdown = {};
-    transactions.forEach(t => {
+    filteredTransactions.forEach(t => {
       const airport = t.airport || "Unknown";
       if (!breakdown[airport]) {
         breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
@@ -50,7 +62,7 @@ export default function AggregationView({ transactions, vouchers, period, entity
       breakdown[airport].revenue += t.transaction_value || 0;
     });
     return Object.values(breakdown).sort((a, b) => b.revenue - a.revenue);
-  }, [transactions]);
+  }, [filteredTransactions]);
 
   const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899", "#06b6d4"];
 
@@ -66,19 +78,7 @@ export default function AggregationView({ transactions, vouchers, period, entity
         </div>
       </div>
 
-      {/* Period selector */}
-      {onPeriodChange && (
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm text-muted-foreground font-medium">Period:</span>
-          {[{v:"daily",l:"Daily"},{v:"monthly",l:"Monthly"},{v:"yearly",l:"Yearly"}].map(({v,l}) => (
-            <button key={v} onClick={() => onPeriodChange(v)}
-              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
-              }`}>{l}
-            </button>
-          ))}
-        </div>
-      )}
+
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
