@@ -67,7 +67,7 @@ export default {
       agencies: 'Vluchtpartners',
       retailers: 'Luchthaven Retailpartners',
       hotels: 'Hotelpartners',
-      car_rentals: 'Autoverhuurpartners',
+      car_rentals: 'Autoverhuur Partners',
       get_started: 'Aan de slag',
       agencies_description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
       retailers_description: 'Ontvang voorgeselecteerde klanten en verhoog de transactiewaarde via DutyBoosts gerichte incentiveprogramma\'s. Groei uw omzet en bouw klantloyaliteit op uw luchthaven op.',
