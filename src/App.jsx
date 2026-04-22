@@ -85,66 +85,79 @@ const AuthenticatedApp = () => {
   if (authError) {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      return (
-        <>
-          <ScrollRestoration />
-          <Routes>
-            <Route path="*" element={<ComingSoonPage />} />
-          </Routes>
-        </>
-      );
     }
+    // Any other auth error (unauthenticated public visitors) → coming soon
+    return (
+      <>
+        <ScrollRestoration />
+        <Routes>
+          <Route path="*" element={<ComingSoonPage />} />
+        </Routes>
+      </>
+    );
   }
 
+  // Non-admins see nothing but the coming soon page
+  if (!isAdmin) {
+    return (
+      <>
+        <ScrollRestoration />
+        <Routes>
+          <Route path="*" element={<ComingSoonPage />} />
+        </Routes>
+      </>
+    );
+  }
+
+  // Admin-only routes
   return (
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
-        <Route path="/landing" element={isAdmin ? <LandingPage /> : <ComingSoonPage />} />
-        <Route path="/airport-map" element={isAdmin ? <AirportMap /> : <ComingSoonPage />} />
-        <Route path="/demo" element={isAdmin ? <DemoLanding /> : <ComingSoonPage />} />
-        <Route path="/demo/travel-partner" element={isAdmin ? <DemoAgencyDashboard /> : <ComingSoonPage />} />
-        <Route path="/demo/retailer" element={isAdmin ? <DemoRetailerDashboard /> : <ComingSoonPage />} />
-        <Route path="/demo/hotel" element={isAdmin ? <DemoHotelDashboard /> : <ComingSoonPage />} />
-        <Route path="/demo/car-rental" element={isAdmin ? <DemoCarRentalDashboard /> : <ComingSoonPage />} />
-        <Route path="/demo/admin" element={isAdmin ? <DemoAdminDashboard /> : <ComingSoonPage />} />
-        <Route path="/get-started" element={isAdmin ? <SelectUserType /> : <ComingSoonPage />} />
-        <Route path="/registration" element={isAdmin ? <GetStarted /> : <ComingSoonPage />} />
-        <Route path="/travel-partner-portal" element={isAdmin ? <AgencyPortal /> : <ComingSoonPage />} />
-        <Route path="/travel-partner-signup" element={isAdmin ? <AgencySignup /> : <ComingSoonPage />} />
-        <Route path="/retailer-showcase" element={isAdmin ? <RetailerShowcase /> : <ComingSoonPage />} />
-        <Route path="/travel-partner-showcase" element={isAdmin ? <AgencyShowcase /> : <ComingSoonPage />} />
-        <Route path="/registration-flow" element={isAdmin ? <RegistrationFlow /> : <ComingSoonPage />} />
-        <Route path="/email-preview" element={isAdmin ? <EmailPreview /> : <ComingSoonPage />} />
-        <Route path="/travel-partner-one-pager" element={isAdmin ? <AgencyOnePager /> : <ComingSoonPage />} />
-        <Route path="/retailer-one-pager" element={isAdmin ? <RetailerOnePager /> : <ComingSoonPage />} />
-        <Route path="/gtm-checklist" element={isAdmin ? <GTMTestingChecklist /> : <ComingSoonPage />} />
-        <Route path="/staging-validation" element={isAdmin ? <StagingValidationGuide /> : <ComingSoonPage />} />
-        <Route path="/retailer-future-presentation" element={isAdmin ? <RetailerPresentationFuture /> : <ComingSoonPage />} />
-        <Route path="/retailer-calculator" element={isAdmin ? <RetailerCalculator /> : <ComingSoonPage />} />
-        <Route path="/travel-partner-presentation" element={isAdmin ? <TravelPartnerPresentationFuture /> : <ComingSoonPage />} />
-        <Route path="/retailer-portal" element={isAdmin ? <RetailerPortal /> : <ComingSoonPage />} />
-        <Route path="/retailer-signup" element={isAdmin ? <RetailerSignup /> : <ComingSoonPage />} />
-        <Route path="/retailer-scan-only" element={isAdmin ? <RetailerScanOnly /> : <ComingSoonPage />} />
-        <Route path="/hotel-showcase" element={isAdmin ? <HotelShowcase /> : <ComingSoonPage />} />
-        <Route path="/hotel-portal" element={isAdmin ? <HotelPortal /> : <ComingSoonPage />} />
-        <Route path="/hotel-signup" element={isAdmin ? <HotelSignup /> : <ComingSoonPage />} />
-        <Route path="/car-rental-showcase" element={isAdmin ? <CarRentalShowcase /> : <ComingSoonPage />} />
-        <Route path="/car-rental-portal" element={isAdmin ? <CarRentalPortal /> : <ComingSoonPage />} />
-        <Route path="/car-rental-signup" element={isAdmin ? <CarRentalSignup /> : <ComingSoonPage />} />
-        <Route path="/privacy" element={isAdmin ? <PrivacyPolicy /> : <ComingSoonPage />} />
-        <Route path="/terms" element={isAdmin ? <TermsOfService /> : <ComingSoonPage />} />
-        <Route path="/refunds" element={isAdmin ? <RefundPolicy /> : <ComingSoonPage />} />
-        <Route path="/code-of-conduct" element={isAdmin ? <CodeOfConduct /> : <ComingSoonPage />} />
-        <Route path="/cookies" element={isAdmin ? <CookiePolicy /> : <ComingSoonPage />} />
-        <Route path="/dpa" element={isAdmin ? <DataProcessingAgreement /> : <ComingSoonPage />} />
-        <Route path="/faq" element={isAdmin ? <FAQ /> : <ComingSoonPage />} />
-        <Route path="/travel-partner-integration-guide" element={isAdmin ? <AgencyIntegrationGuide /> : <ComingSoonPage />} />
-        <Route path="/retailer-integration-guide" element={isAdmin ? <RetailerIntegrationGuide /> : <ComingSoonPage />} />
-        <Route path="/user-guide" element={isAdmin ? <UserGuide /> : <ComingSoonPage />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/airport-map" element={<AirportMap />} />
+        <Route path="/demo" element={<DemoLanding />} />
+        <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
+        <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
+        <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
+        <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
+        <Route path="/demo/admin" element={<DemoAdminDashboard />} />
+        <Route path="/get-started" element={<SelectUserType />} />
+        <Route path="/registration" element={<GetStarted />} />
+        <Route path="/travel-partner-portal" element={<AgencyPortal />} />
+        <Route path="/travel-partner-signup" element={<AgencySignup />} />
+        <Route path="/retailer-showcase" element={<RetailerShowcase />} />
+        <Route path="/travel-partner-showcase" element={<AgencyShowcase />} />
+        <Route path="/registration-flow" element={<RegistrationFlow />} />
+        <Route path="/email-preview" element={<EmailPreview />} />
+        <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
+        <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
+        <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
+        <Route path="/staging-validation" element={<StagingValidationGuide />} />
+        <Route path="/retailer-future-presentation" element={<RetailerPresentationFuture />} />
+        <Route path="/retailer-calculator" element={<RetailerCalculator />} />
+        <Route path="/travel-partner-presentation" element={<TravelPartnerPresentationFuture />} />
+        <Route path="/retailer-portal" element={<RetailerPortal />} />
+        <Route path="/retailer-signup" element={<RetailerSignup />} />
+        <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
+        <Route path="/hotel-showcase" element={<HotelShowcase />} />
+        <Route path="/hotel-portal" element={<HotelPortal />} />
+        <Route path="/hotel-signup" element={<HotelSignup />} />
+        <Route path="/car-rental-showcase" element={<CarRentalShowcase />} />
+        <Route path="/car-rental-portal" element={<CarRentalPortal />} />
+        <Route path="/car-rental-signup" element={<CarRentalSignup />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/refunds" element={<RefundPolicy />} />
+        <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/dpa" element={<DataProcessingAgreement />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/travel-partner-integration-guide" element={<AgencyIntegrationGuide />} />
+        <Route path="/retailer-integration-guide" element={<RetailerIntegrationGuide />} />
+        <Route path="/user-guide" element={<UserGuide />} />
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Home />} />
           <Route path="/vouchers" element={<VouchersPage />} />
