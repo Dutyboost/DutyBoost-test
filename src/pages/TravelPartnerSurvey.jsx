@@ -129,9 +129,9 @@ export default function TravelPartnerSurvey() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is a model we're exploring in the travel space. The model: as a travel partner, you offer your travelers an airport shopping benefit — and in return you earn a commission on every purchase they make.
+              <strong>DutyBoost</strong> is a model we're validating in the travel space. The model: as a travel partner, you offer your travelers an airport shopping benefit — and in return you earn a commission on every purchase they make.
 
-              We want to understand whether there is appetite in the industry for this type of revenue share model, and whether it would create real value for your business.
+              We want to understand whether there is interest in the industry for this type of revenue share model, and whether it would create real value for your business.
             </p>
 
             {/* Concept pillars */}
