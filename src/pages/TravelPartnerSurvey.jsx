@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle2, ArrowRight, Plane, TrendingUp, Euro, Users, Zap, Star } from "lucide-react";
+import { CheckCircle2, ArrowRight, Lightbulb, MessageSquare, FlaskConical, Zap } from "lucide-react";
 
 const STEPS = [
   { id: "intro", label: "About You" },
@@ -17,9 +17,9 @@ const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online
 const BOOKING_VOLUMES = ["Under 1,000", "1,000 – 10,000", "10,000 – 100,000", "100,000+"];
 const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks", "Other"];
 const INTEREST_OPTIONS = [
-  "Very interested – I want early access",
-  "Interested – tell me more",
-  "Curious – still evaluating",
+  "Very interested – I'd join a pilot program",
+  "Interested – I want to learn more first",
+  "Curious – still evaluating the concept",
   "Not sure yet",
 ];
 const COMMISSION_OPTIONS = [
@@ -88,17 +88,18 @@ export default function TravelPartnerSurvey() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">Thank you, {form.full_name.split(" ")[0]}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          Your input means a lot. We're building DutyBoost with partners like you in mind.
-          {form.wants_demo && " Expect a personal call from our team very soon."}
+          Your honest input is exactly what we need to decide whether DutyBoost is worth building.
+          {form.wants_demo && " We'll reach out soon to set up a short conversation."}
         </p>
-        <div className="bg-primary/10 border border-primary/20 rounded-2xl px-6 py-5 max-w-sm">
-          <p className="text-sm font-semibold text-primary">What happens next?</p>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground text-left list-none">
-            <li>✅ We review your responses</li>
-            <li>✅ You get early access to the platform</li>
-            <li>✅ {form.wants_demo ? "We'll call you to walk through a live demo" : "We'll email you launch updates"}</li>
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-5 max-w-sm text-left">
+          <p className="text-sm font-semibold text-amber-800">What happens with your input?</p>
+          <ul className="mt-3 space-y-2 text-sm text-amber-700 list-none">
+            <li>📋 We aggregate responses from across the industry</li>
+            <li>🔍 We analyse whether the model has real traction</li>
+            <li>{form.wants_demo ? "📞 We'll reach out to schedule a conversation" : "📬 We'll update you on what we decide to do next"}</li>
           </ul>
         </div>
+        <p className="text-xs text-muted-foreground max-w-xs">No product exists yet — if enough industry partners validate this concept, we'll move forward. You'll be among the first to know.</p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost B.V.</p>
       </div>
     );
@@ -118,38 +119,37 @@ export default function TravelPartnerSurvey() {
         <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 border-b border-border">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
-              <Zap className="w-3 h-3" /> Travel Partners Only · Early Access Survey
+            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+              <FlaskConical className="w-3 h-3" /> Concept Validation · Travel Partners Only
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Turn every booking into{" "}
+              We're testing an idea —{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                airport revenue
+                and we need your honest input
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost automatically rewards your travelers with exclusive airport shopping credits — and pays <strong>you a commission</strong> every time they redeem. Zero integration friction. No upfront cost.
+              <strong>DutyBoost</strong> is a concept we're validating: automatically rewarding travelers with airport shopping credits — and sharing revenue back to the travel partners who booked their trip. No product exists yet. We want to know if this is something the industry actually needs.
             </p>
 
-            {/* Social proof stats */}
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {/* Concept pillars */}
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Plane, label: "Airports covered", value: "15+" },
-                { icon: Euro, label: "Avg. commission per redemption", value: "€4–12" },
-                { icon: TrendingUp, label: "Uplift in repeat bookings", value: "~18%" },
-                { icon: Users, label: "Travelers activated", value: "Growing" },
-              ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-1">
+                { icon: Lightbulb, label: "The idea", desc: "Travelers get airport shopping credits when they book through a travel partner." },
+                { icon: MessageSquare, label: "Your role", desc: "You tell us if this model makes sense for your business — no strings attached." },
+                { icon: FlaskConical, label: "What we're validating", desc: "Whether a commission-per-redemption model is attractive enough to build around." },
+              ].map(({ icon: Icon, label, desc }) => (
+                <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
                   <Icon className="w-4 h-4 text-primary" />
-                  <p className="text-xl font-heading font-bold">{value}</p>
-                  <p className="text-xs text-muted-foreground">{label}</p>
+                  <p className="text-sm font-semibold">{label}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
 
             <p className="mt-8 text-sm font-semibold text-foreground flex items-center gap-2">
-              <Star className="w-4 h-4 text-accent fill-accent" />
-              Answer 4 quick questions to get early access — takes 90 seconds.
+              <MessageSquare className="w-4 h-4 text-primary" />
+              4 quick questions — your answers directly shape whether we build this.
             </p>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function TravelPartnerSurvey() {
           {step === 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">What type of travel company are you?</h2>
-              <p className="text-muted-foreground text-sm">We tailor DutyBoost to your specific model.</p>
+              <p className="text-muted-foreground text-sm">This helps us understand which part of the industry this concept would serve best.</p>
               <div className="space-y-2">
                 {COMPANY_TYPES.map((t) => (
                   <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} />
@@ -189,15 +189,15 @@ export default function TravelPartnerSurvey() {
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">How many bookings do you process per year?</h2>
-              <p className="text-muted-foreground text-sm">Helps us estimate your earning potential with DutyBoost.</p>
+              <p className="text-muted-foreground text-sm">Helps us understand whether this model could realistically create value at your scale.</p>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
                   <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
                 ))}
               </div>
               {form.annual_bookings === "10,000 – 100,000" || form.annual_bookings === "100,000+" ? (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-sm text-green-800 font-medium">
-                  🎯 At your volume, DutyBoost could generate <strong>€40,000–€500,000+</strong> in annual commission revenue.
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 font-medium">
+                  💡 At this scale, a commission-per-redemption model could be meaningful — we'd love to validate this assumption with you.
                 </div>
               ) : null}
             </div>
@@ -207,7 +207,7 @@ export default function TravelPartnerSurvey() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">What's your current approach to traveler loyalty?</h2>
-              <p className="text-muted-foreground text-sm">DutyBoost works alongside or replaces traditional loyalty programs.</p>
+              <p className="text-muted-foreground text-sm">We're exploring whether this concept fills a gap — or adds something on top of what already exists.</p>
               <div className="space-y-2">
                 {LOYALTY_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />
@@ -230,8 +230,8 @@ export default function TravelPartnerSurvey() {
           {step === 3 && (
             <div className="space-y-6">
               <div className="space-y-4">
-                <h2 className="text-2xl font-heading font-bold">How interested are you in DutyBoost?</h2>
-                <p className="text-muted-foreground text-sm">We earn a commission from airport retailers — you earn a share. No cost to you.</p>
+                <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
+                <p className="text-muted-foreground text-sm">The idea: airport retailers pay a fee when travelers redeem a credit — a share of that flows back to you. Nothing is built yet.</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
@@ -239,7 +239,7 @@ export default function TravelPartnerSurvey() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">How attractive is a commission-per-redemption model to you?</h2>
+                <h2 className="text-xl font-heading font-bold">How attractive would a commission-per-redemption model be to you?</h2>
                 <div className="space-y-2">
                   {COMMISSION_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
@@ -252,8 +252,8 @@ export default function TravelPartnerSurvey() {
           {/* Step 4 – contact */}
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Almost there — who should we contact?</h2>
-              <p className="text-muted-foreground text-sm">We'll share your personalised DutyBoost revenue estimate and early access details.</p>
+              <h2 className="text-2xl font-heading font-bold">Last step — who are you?</h2>
+              <p className="text-muted-foreground text-sm">We'll share the results of this validation with you and let you know if and when we move forward with building.</p>
               <div className="space-y-3">
                 <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <Input placeholder="Work email *" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
@@ -268,7 +268,7 @@ export default function TravelPartnerSurvey() {
                   className="mt-0.5 accent-primary w-4 h-4 cursor-pointer"
                 />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Yes, I'd like a personal demo call</strong> — have someone walk me through DutyBoost live.
+                  <strong>Yes, I'd like a short conversation</strong> — happy to share more thoughts and be part of the validation process.
                 </span>
               </label>
             </div>
@@ -295,13 +295,13 @@ export default function TravelPartnerSurvey() {
                 disabled={!canNext() || saving}
                 onClick={handleSubmit}
               >
-                {saving ? "Submitting..." : "Get Early Access"} <Zap className="w-4 h-4" />
+                {saving ? "Submitting..." : "Submit my input"} <ArrowRight className="w-4 h-4" />
               </Button>
             )}
           </div>
 
           <p className="text-center text-xs text-muted-foreground">
-            No spam. No commitment. Just early access to something that could change your revenue model.
+            No spam. No sales pitch. Just honest market validation — your input directly influences whether we build this.
           </p>
         </div>
       </div>
