@@ -75,7 +75,23 @@ const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
   const isAdmin = user?.role === 'admin';
 
+  // Always allow these two public routes regardless of auth state
+  const publicRoutes = (
+    <>
+      <ScrollRestoration />
+      <Routes>
+        <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
+        <Route path="*" element={<ComingSoonPage />} />
+      </Routes>
+    </>
+  );
+
   if (isLoadingPublicSettings || isLoadingAuth) {
+    // While loading, still serve public routes instantly if on a public path
+    const path = window.location.pathname;
+    if (path === '/travel-partner-survey' || path === '/') {
+      return publicRoutes;
+    }
     return (
       <div className="fixed inset-0 flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
@@ -87,29 +103,12 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     }
-    // Any other auth error (unauthenticated public visitors) → coming soon or survey if direct link
-    return (
-      <>
-        <ScrollRestoration />
-        <Routes>
-          <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
-          <Route path="*" element={<ComingSoonPage />} />
-        </Routes>
-      </>
-    );
+    return publicRoutes;
   }
 
-  // Non-admins see coming soon (or survey if direct link)
+  // Non-admins: survey at its URL, everything else → coming soon
   if (!isAdmin) {
-    return (
-      <>
-        <ScrollRestoration />
-        <Routes>
-          <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
-          <Route path="*" element={<ComingSoonPage />} />
-        </Routes>
-      </>
-    );
+    return publicRoutes;
   }
 
   // Admin-only routes
