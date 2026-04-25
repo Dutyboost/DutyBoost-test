@@ -53,6 +53,7 @@ import CarRentalSignup from './pages/CarRentalSignup';
 import DemoHotelDashboard from './pages/DemoHotelDashboard';
 import DemoCarRentalDashboard from './pages/DemoCarRentalDashboard';
 import TravelPartnerSurvey from './pages/TravelPartnerSurvey';
+import TravelPartnerSurveyNL from './pages/TravelPartnerSurveyNL';
 
 import AgencyPortal from './pages/AgencyPortal';
 import ComingSoonPage from './pages/ComingSoonPage';
@@ -81,6 +82,7 @@ const AuthenticatedApp = () => {
       <ScrollRestoration />
       <Routes>
         <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
+        <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
         <Route path="*" element={<ComingSoonPage />} />
       </Routes>
     </>
@@ -119,6 +121,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
+        <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
