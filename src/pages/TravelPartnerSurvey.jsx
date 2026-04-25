@@ -123,7 +123,7 @@ export default function TravelPartnerSurvey() {
               <FlaskConical className="w-3 h-3" /> Model Validation · Travel Partners Only
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              We're testing a model —{" "}
+              We're validating a new model —{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 and we need your honest input
               </span>
