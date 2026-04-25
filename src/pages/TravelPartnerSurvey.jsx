@@ -123,7 +123,7 @@ export default function TravelPartnerSurvey() {
               <FlaskConical className="w-3 h-3" /> Model Validation · Travel Partners Only
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              We're testing an idea —{" "}
+              We're testing a model —{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 and we need your honest input
               </span>
@@ -135,7 +135,7 @@ export default function TravelPartnerSurvey() {
             {/* Concept pillars */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Lightbulb, label: "The idea", desc: "Travelers get airport shopping credits when they book through a travel partner." },
+                { icon: Lightbulb, label: "The model", desc: "Travelers get airport shopping credits when they book through a travel partner." },
                 { icon: MessageSquare, label: "Your role", desc: "You tell us if this model makes sense for your business — no strings attached." },
                 { icon: FlaskConical, label: "What we're validating", desc: "Whether a commission-per-redemption model is attractive enough to build around." },
               ].map(({ icon: Icon, label, desc }) => (
@@ -231,7 +231,7 @@ export default function TravelPartnerSurvey() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
-                <p className="text-muted-foreground text-sm">The idea: airport retailers pay a fee when travelers redeem a credit — a share of that flows back to you. Nothing is built yet.</p>
+                <p className="text-muted-foreground text-sm">The model: airport retailers pay a fee when travelers redeem a credit — a share of that flows back to you. Nothing is built yet.</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
