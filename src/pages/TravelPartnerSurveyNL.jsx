@@ -129,7 +129,7 @@ export default function TravelPartnerSurveyNL() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. We willen begrijpen of er in de industrie behoefte is aan een nieuw type reizigersvoordeel — en of dit echte waarde en een nieuwe inkomstenstroom zou creëren voor reispartners zoals u.
+              <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. We willen begrijpen of er in de industrie behoefte is aan een nieuw type reizigersvoordeel — en of dit echte waarde en een nieuwe inkomstenstroom zou genereren voor reispartners zoals u.
             </p>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -188,7 +188,7 @@ export default function TravelPartnerSurveyNL() {
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Hoeveel boekingen verwerkt u per maand?</h2>
-              <p className="text-muted-foreground text-sm">Dit helpt ons begrijpen of dit model op uw schaal realistisch waarde kan creëren.</p>
+              <p className="text-muted-foreground text-sm">Dit helpt ons begrijpen of dit model op uw schaal realistisch waarde kan genereren.</p>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
                   <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
