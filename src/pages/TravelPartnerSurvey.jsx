@@ -231,7 +231,7 @@ export default function TravelPartnerSurvey() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
-                <p className="text-muted-foreground text-sm">Based on what you've shared so far, we'd like to understand your initial reaction to this concept.</p>
+                <p className="text-muted-foreground text-sm">Based on what you've shared so far, we'd like to understand your initial reaction to this model.</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
