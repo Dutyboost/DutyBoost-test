@@ -87,24 +87,26 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     }
-    // Any other auth error (unauthenticated public visitors) → survey
+    // Any other auth error (unauthenticated public visitors) → coming soon or survey if direct link
     return (
       <>
         <ScrollRestoration />
         <Routes>
-          <Route path="*" element={<TravelPartnerSurvey />} />
+          <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
+          <Route path="*" element={<ComingSoonPage />} />
         </Routes>
       </>
     );
   }
 
-  // Non-admins see nothing but the survey
+  // Non-admins see coming soon (or survey if direct link)
   if (!isAdmin) {
     return (
       <>
         <ScrollRestoration />
         <Routes>
-          <Route path="*" element={<TravelPartnerSurvey />} />
+          <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
+          <Route path="*" element={<ComingSoonPage />} />
         </Routes>
       </>
     );
