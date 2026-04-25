@@ -129,7 +129,9 @@ export default function TravelPartnerSurveyNL() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. Het idee: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan — en ontvangen daar een commissie op elke besteding. We willen begrijpen of er in de industrie interesse is in dit type revenue share model, en of het echte waarde zou toevoegen aan jouw bedrijf.
+              <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. Het model: als reispartner bied je aan jouw reizigers een luchthaven winkel-voordeel aan — en ontvang je daarvoor een commissie op elke besteding.
+
+              We willen begrijpen of er in de industrie interesse is in dit type revenue share model, en of het echte waarde zou toevoegen aan jouw bedrijf.
             </p>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
