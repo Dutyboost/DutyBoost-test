@@ -95,7 +95,7 @@ export default function TravelPartnerSurvey() {
           <p className="text-sm font-semibold text-amber-800">What happens with your input?</p>
           <ul className="mt-3 space-y-2 text-sm text-amber-700 list-none">
             <li>📋 We aggregate responses from across the industry</li>
-            <li>🔍 We analyse whether the concept has real industry interest</li>
+            <li>🔍 We analyse whether the model has real industry interest</li>
             <li>{form.wants_demo ? "📞 We'll reach out to schedule a conversation" : "📬 We'll update you on what we decide to do next"}</li>
           </ul>
         </div>
@@ -129,15 +129,15 @@ export default function TravelPartnerSurvey() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is a concept we're exploring in the travel space. We want to understand whether there is appetite in the industry for a new kind of traveler benefit — and whether it would create real value for travel partners like you.
+              <strong>DutyBoost</strong> is a model we're exploring in the travel space. We want to understand whether there is appetite in the industry for a new kind of traveler benefit — and whether it would create real value for travel partners like you.
             </p>
 
             {/* Concept pillars */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Lightbulb, label: "The concept", desc: "A new type of traveler benefit connected to the airport experience." },
+                { icon: Lightbulb, label: "The model", desc: "A new type of traveler benefit connected to the airport experience." },
                 { icon: MessageSquare, label: "Your role", desc: "Share your perspective — no commitment, no strings attached." },
-                { icon: FlaskConical, label: "What we're testing", desc: "Whether this kind of benefit would be relevant and valuable to your business." },
+                { icon: FlaskConical, label: "What we're validating", desc: "Whether this kind of benefit would be relevant and valuable to your business." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
                   <Icon className="w-4 h-4 text-primary" />
