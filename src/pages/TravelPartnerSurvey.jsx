@@ -129,7 +129,7 @@ export default function TravelPartnerSurvey() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is a model we're exploring in the travel space. We want to understand whether there is appetite in the industry for a new kind of traveler benefit — and whether it would create real value for travel partners like you.
+              <strong>DutyBoost</strong> is a model we're exploring in the travel space. We want to understand whether there is appetite in the industry for a new kind of traveler benefit — and whether it would create real value and a new revenue stream for travel partners like you.
             </p>
 
             {/* Concept pillars */}
