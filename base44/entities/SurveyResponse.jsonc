@@ -1,0 +1,90 @@
+{
+  "name": "SurveyResponse",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "title": "Company Name"
+    },
+    "full_name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "company_type": {
+      "type": "string",
+      "title": "Company Type",
+      "enum": [
+        "Travel Agency",
+        "Airline",
+        "Tour Operator",
+        "OTA (Online Travel Agency)",
+        "Other"
+      ]
+    },
+    "annual_bookings": {
+      "type": "string",
+      "title": "Annual Bookings Volume",
+      "enum": [
+        "Under 1,000",
+        "1,000 \u2013 10,000",
+        "10,000 \u2013 100,000",
+        "100,000+"
+      ]
+    },
+    "current_loyalty": {
+      "type": "string",
+      "title": "Current loyalty program",
+      "enum": [
+        "None",
+        "Points / Miles",
+        "Discounts",
+        "Partner perks",
+        "Other"
+      ]
+    },
+    "interest_level": {
+      "type": "string",
+      "title": "Interest level in DutyBoost",
+      "enum": [
+        "Very interested \u2013 I want early access",
+        "Interested \u2013 tell me more",
+        "Curious \u2013 still evaluating",
+        "Not sure yet"
+      ]
+    },
+    "commission_attractive": {
+      "type": "string",
+      "title": "Commission model attractiveness",
+      "enum": [
+        "Yes, very attractive",
+        "Somewhat attractive",
+        "Need more details",
+        "Not a priority"
+      ]
+    },
+    "biggest_challenge": {
+      "type": "string",
+      "title": "Biggest challenge with customer loyalty"
+    },
+    "wants_demo": {
+      "type": "boolean",
+      "title": "Wants a demo call",
+      "default": false
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone Number"
+    }
+  },
+  "required": [
+    "company_name",
+    "full_name",
+    "email",
+    "company_type",
+    "interest_level"
+  ]
+}

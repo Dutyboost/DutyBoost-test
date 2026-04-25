@@ -52,6 +52,7 @@ import HotelSignup from './pages/HotelSignup';
 import CarRentalSignup from './pages/CarRentalSignup';
 import DemoHotelDashboard from './pages/DemoHotelDashboard';
 import DemoCarRentalDashboard from './pages/DemoCarRentalDashboard';
+import TravelPartnerSurvey from './pages/TravelPartnerSurvey';
 
 import AgencyPortal from './pages/AgencyPortal';
 import ComingSoonPage from './pages/ComingSoonPage';
@@ -86,24 +87,24 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     }
-    // Any other auth error (unauthenticated public visitors) → coming soon
+    // Any other auth error (unauthenticated public visitors) → survey
     return (
       <>
         <ScrollRestoration />
         <Routes>
-          <Route path="*" element={<ComingSoonPage />} />
+          <Route path="*" element={<TravelPartnerSurvey />} />
         </Routes>
       </>
     );
   }
 
-  // Non-admins see nothing but the coming soon page
+  // Non-admins see nothing but the survey
   if (!isAdmin) {
     return (
       <>
         <ScrollRestoration />
         <Routes>
-          <Route path="*" element={<ComingSoonPage />} />
+          <Route path="*" element={<TravelPartnerSurvey />} />
         </Routes>
       </>
     );
@@ -116,6 +117,7 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
+        <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
