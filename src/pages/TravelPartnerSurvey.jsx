@@ -120,7 +120,7 @@ export default function TravelPartnerSurvey() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
-              <FlaskConical className="w-3 h-3" /> Concept Validation · Travel Partners Only
+              <FlaskConical className="w-3 h-3" /> Model Validation · Travel Partners Only
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               We're testing an idea —{" "}
