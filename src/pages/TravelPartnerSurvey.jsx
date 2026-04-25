@@ -14,7 +14,7 @@ const STEPS = [
 ];
 
 const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel", "Car Rental", "Other"];
-const BOOKING_VOLUMES = ["Under 1,000", "1,000 – 10,000", "10,000 – 100,000", "100,000+"];
+const BOOKING_VOLUMES = ["Under 500", "500 – 2,000", "2,000 – 10,000", "10,000+"];
 const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks", "Other"];
 const INTEREST_OPTIONS = [
   "Very interested – I'd join a pilot program",
@@ -188,14 +188,14 @@ export default function TravelPartnerSurvey() {
           {/* Step 1 – booking volume */}
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">How many bookings do you process per year?</h2>
+              <h2 className="text-2xl font-heading font-bold">How many bookings do you process per month?</h2>
               <p className="text-muted-foreground text-sm">Helps us understand whether this model could realistically create value at your scale.</p>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
                   <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
                 ))}
               </div>
-              {form.annual_bookings === "10,000 – 100,000" || form.annual_bookings === "100,000+" ? (
+              {form.annual_bookings === "2,000 – 10,000" || form.annual_bookings === "10,000+" ? (
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 font-medium">
                   💡 At this scale, a commission-per-redemption model could be meaningful — we'd love to validate this assumption with you.
                 </div>
