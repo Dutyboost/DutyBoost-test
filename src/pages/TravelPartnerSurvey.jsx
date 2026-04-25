@@ -95,7 +95,7 @@ export default function TravelPartnerSurvey() {
           <p className="text-sm font-semibold text-amber-800">What happens with your input?</p>
           <ul className="mt-3 space-y-2 text-sm text-amber-700 list-none">
             <li>📋 We aggregate responses from across the industry</li>
-            <li>🔍 We analyse whether the model has real traction</li>
+            <li>🔍 We analyse whether the concept has real industry interest</li>
             <li>{form.wants_demo ? "📞 We'll reach out to schedule a conversation" : "📬 We'll update you on what we decide to do next"}</li>
           </ul>
         </div>
@@ -129,15 +129,15 @@ export default function TravelPartnerSurvey() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is a model we're validating that will automatically reward travelers with airport shopping credits — and will share revenue with the travel partners who booked their trip. We want to know if this is something that will benefit everyone inside of the travel journey.
+              <strong>DutyBoost</strong> is a concept we're exploring in the travel space. We want to understand whether there is appetite in the industry for a new kind of traveler benefit — and whether it would create real value for travel partners like you.
             </p>
 
             {/* Concept pillars */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Lightbulb, label: "The model", desc: "Travelers get airport shopping credits when they book through a travel partner." },
-                { icon: MessageSquare, label: "Your role", desc: "You tell us if this model makes sense for your business — no strings attached." },
-                { icon: FlaskConical, label: "What we're validating", desc: "Whether a commission-per-redemption model is attractive enough to build around." },
+                { icon: Lightbulb, label: "The concept", desc: "A new type of traveler benefit connected to the airport experience." },
+                { icon: MessageSquare, label: "Your role", desc: "Share your perspective — no commitment, no strings attached." },
+                { icon: FlaskConical, label: "What we're testing", desc: "Whether this kind of benefit would be relevant and valuable to your business." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
                   <Icon className="w-4 h-4 text-primary" />
@@ -197,7 +197,7 @@ export default function TravelPartnerSurvey() {
               </div>
               {form.annual_bookings === "2,000 – 10,000" || form.annual_bookings === "10,000+" ? (
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 font-medium">
-                  💡 At this scale, a commission-per-redemption model could be meaningful — we'd love to validate this assumption with you.
+                  💡 At this scale, your input could be particularly valuable — we'd love to hear your perspective.
                 </div>
               ) : null}
             </div>
@@ -231,7 +231,7 @@ export default function TravelPartnerSurvey() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
-                <p className="text-muted-foreground text-sm">The model: airport retailers pay a fee when travelers redeem a credit — a share of that flows back to you. Nothing is built yet.</p>
+                <p className="text-muted-foreground text-sm">Based on what you've shared so far, we'd like to understand your initial reaction to this concept.</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
@@ -239,7 +239,7 @@ export default function TravelPartnerSurvey() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">How attractive would a commission-per-redemption model be to you?</h2>
+                <h2 className="text-xl font-heading font-bold">How important is it for your business to have an additional revenue stream tied to your travelers' journeys?</h2>
                 <div className="space-y-2">
                   {COMMISSION_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
