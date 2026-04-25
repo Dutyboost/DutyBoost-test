@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight, Lightbulb, MessageSquare, FlaskConical } from "lucide-react";
 
 const STEPS = [
-  { id: "intro", label: "Over jou" },
-  { id: "business", label: "Jouw bedrijf" },
+  { id: "intro", label: "Over u" },
+  { id: "business", label: "Uw bedrijf" },
   { id: "loyalty", label: "Loyaliteit vandaag" },
   { id: "fit", label: "DutyBoost Fit" },
   { id: "contact", label: "Blijf op de hoogte" },
@@ -88,18 +88,18 @@ export default function TravelPartnerSurveyNL() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">Bedankt, {form.full_name.split(" ")[0]}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          Jouw eerlijke input is precies wat we nodig hebben om te beslissen of DutyBoost de moeite waard is om te bouwen.
+          Uw eerlijke input is precies wat we nodig hebben om te beslissen of DutyBoost de moeite waard is om te bouwen.
           {form.wants_demo && " We nemen binnenkort contact op om een kort gesprek in te plannen."}
         </p>
         <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-5 max-w-sm text-left">
-          <p className="text-sm font-semibold text-amber-800">Wat gebeurt er met jouw input?</p>
+          <p className="text-sm font-semibold text-amber-800">Wat gebeurt er met uw input?</p>
           <ul className="mt-3 space-y-2 text-sm text-amber-700 list-none">
             <li>📋 We bundelen de reacties uit de hele sector</li>
             <li>🔍 We analyseren of het model echte interesse heeft in de industrie</li>
-            <li>{form.wants_demo ? "📞 We nemen contact op voor een gesprek" : "📬 We houden je op de hoogte van onze beslissing"}</li>
+            <li>{form.wants_demo ? "📞 We nemen contact op voor een gesprek" : "📬 We houden u op de hoogte van onze beslissing"}</li>
           </ul>
         </div>
-        <p className="text-xs text-muted-foreground max-w-xs">Er bestaat nog geen product — als genoeg partners dit model valideren, gaan we verder. Jij bent een van de eersten die het weet.</p>
+        <p className="text-xs text-muted-foreground max-w-xs">Er bestaat nog geen product — als genoeg partners dit model valideren, gaan we verder. U bent een van de eersten die het weet.</p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost B.V.</p>
       </div>
     );
@@ -125,17 +125,17 @@ export default function TravelPartnerSurveyNL() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               We valideren een nieuw model —{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                en we hebben jouw eerlijke mening nodig
+                en we hebben uw eerlijke mening nodig
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              We verkennen een nieuw model waarbij reispartners een extra inkomstenstroom kunnen genereren — zonder extra werk. We willen weten of er interesse is. <strong>Jouw mening telt.</strong>
+            <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. Het idee: reispartners bieden hun reizigers een exclusief luchthavenshopping-voordeel aan — en ontvangen daar een commissie op elke besteding. We willen begrijpen of er in de industrie interesse is in dit type revenue share model, en of het echte waarde zou toevoegen aan uw bedrijf.
             </p>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: Lightbulb, label: "Het model", desc: "Reizigers krijgen een exclusief luchthavenshopping-voordeel via hun reispartner." },
-                { icon: MessageSquare, label: "Jouw rol", desc: "Als reispartner ontvang je een commissie op elke besteding van jouw reiziger op de luchthaven." },
+                { icon: MessageSquare, label: "Uw rol", desc: "Als reispartner ontvangt u een commissie op elke besteding van uw reiziger op de luchthaven." },
                 { icon: FlaskConical, label: "Wat we valideren", desc: "Of dit revenue share model voldoende interesse heeft om verder te ontwikkelen." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
@@ -148,7 +148,7 @@ export default function TravelPartnerSurveyNL() {
 
             <p className="mt-8 text-sm font-semibold text-foreground flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-primary" />
-              4 korte vragen — jouw antwoorden bepalen direct of we dit bouwen.
+              4 korte vragen — uw antwoorden bepalen direct of we dit bouwen.
             </p>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function TravelPartnerSurveyNL() {
           {/* Step 0 – company type */}
           {step === 0 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Wat voor type reisbedrijf ben je?</h2>
+              <h2 className="text-2xl font-heading font-bold">Wat voor type reisbedrijf bent u?</h2>
               <p className="text-muted-foreground text-sm">Dit helpt ons begrijpen welke reispartners het meeste baat zouden hebben bij een commissiemodel op luchthavenshopping.</p>
               <div className="space-y-2">
                 {COMPANY_TYPES.map((t) => (
@@ -187,8 +187,8 @@ export default function TravelPartnerSurveyNL() {
           {/* Step 1 – booking volume */}
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Hoeveel boekingen verwerk je per maand?</h2>
-              <p className="text-muted-foreground text-sm">Dit helpt ons inschatten wat de potentiële commissie-inkomsten voor jou zouden kunnen zijn op basis van jouw boekingsvolume.</p>
+              <h2 className="text-2xl font-heading font-bold">Hoeveel boekingen verwerkt u per maand?</h2>
+              <p className="text-muted-foreground text-sm">Dit helpt ons inschatten wat de potentiële commissie-inkomsten voor u zouden kunnen zijn op basis van uw boekingsvolume.</p>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
                   <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
@@ -196,7 +196,7 @@ export default function TravelPartnerSurveyNL() {
               </div>
               {form.annual_bookings === "2.000 – 10.000" || form.annual_bookings === "10.000+" ? (
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 font-medium">
-                  💡 Op deze schaal kan jouw input bijzonder waardevol zijn — we horen graag jouw perspectief.
+                  💡 Op deze schaal kan uw input bijzonder waardevol zijn — we horen graag uw perspectief.
                 </div>
               ) : null}
             </div>
@@ -205,15 +205,15 @@ export default function TravelPartnerSurveyNL() {
           {/* Step 2 – current loyalty */}
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Wat is jouw huidige aanpak voor reizigerslojaliteit?</h2>
-              <p className="text-muted-foreground text-sm">We onderzoeken of dit model een aanvulling is op jouw huidige aanpak — en of een extra inkomstenstroom via luchthavenshopping aantrekkelijk is naast jouw bestaande loyaliteitsstrategie.</p>
+              <h2 className="text-2xl font-heading font-bold">Wat is uw huidige aanpak voor reizigerslojaliteit?</h2>
+              <p className="text-muted-foreground text-sm">We onderzoeken of dit model een aanvulling is op uw huidige aanpak — en of een extra inkomstenstroom via luchthavenshopping aantrekkelijk is naast uw bestaande loyaliteitsstrategie.</p>
               <div className="space-y-2">
                 {LOYALTY_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />
                 ))}
               </div>
               <div className="space-y-2 pt-2">
-                <label className="text-sm font-medium">Wat is jouw grootste uitdaging met klantentrouw? <span className="text-muted-foreground">(optioneel)</span></label>
+                <label className="text-sm font-medium">Wat is uw grootste uitdaging met klantentrouw? <span className="text-muted-foreground">(optioneel)</span></label>
                 <textarea
                   className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
                   rows={3}
@@ -229,8 +229,8 @@ export default function TravelPartnerSurveyNL() {
           {step === 3 && (
             <div className="space-y-6">
               <div className="space-y-4">
-                <h2 className="text-2xl font-heading font-bold">Hoe sta je tegenover dit model?</h2>
-                <p className="text-muted-foreground text-sm">Op basis van wat je hebt gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is jouw eerste reactie?</p>
+                <h2 className="text-2xl font-heading font-bold">Hoe staat u tegenover dit model?</h2>
+                <p className="text-muted-foreground text-sm">Op basis van wat u heeft gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is uw eerste reactie?</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
@@ -238,7 +238,7 @@ export default function TravelPartnerSurveyNL() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">DutyBoost werkt via een revenue share model: je ontvangt een commissie op elke euro die jouw reizigers besteden op de luchthaven. Hoe aantrekkelijk vind je dit voor jouw bedrijf?</h2>
+                <h2 className="text-xl font-heading font-bold">DutyBoost werkt via een revenue share model: u ontvangt een commissie op elke euro die uw reizigers besteden op de luchthaven. Hoe aantrekkelijk vindt u dit voor uw bedrijf?</h2>
                 <div className="space-y-2">
                   {COMMISSION_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
@@ -251,8 +251,8 @@ export default function TravelPartnerSurveyNL() {
           {/* Step 4 – contact */}
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Laatste stap — wie ben je?</h2>
-              <p className="text-muted-foreground text-sm">We delen de resultaten van deze validatie met je en laten je weten als en wanneer we verder gaan.</p>
+              <h2 className="text-2xl font-heading font-bold">Laatste stap — wie bent u?</h2>
+              <p className="text-muted-foreground text-sm">We delen de resultaten van deze validatie met u en laten u weten als en wanneer we verder gaan.</p>
               <div className="space-y-3">
                 <Input placeholder="Volledige naam *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <Input placeholder="Zakelijk e-mailadres *" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
@@ -300,7 +300,7 @@ export default function TravelPartnerSurveyNL() {
           </div>
 
           <p className="text-center text-xs text-muted-foreground">
-            Geen spam. Geen verkooppraatje. Gewoon eerlijke marktvalidatie — jouw input bepaalt direct of we dit bouwen.
+            Geen spam. Geen verkooppraatje. Gewoon eerlijke marktvalidatie — uw input bepaalt direct of we dit bouwen.
           </p>
         </div>
       </div>
