@@ -129,7 +129,7 @@ export default function TravelPartnerSurvey() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is a model we're validating: automatically rewarding travelers with airport shopping credits — and sharing revenue back to the travel partners who booked their trip. No product exists yet. We want to know if this is something the industry actually needs.
+              <strong>DutyBoost</strong> is a model we're validating that will automatically reward travelers with airport shopping credits — and will share revenue with the travel partners who booked their trip. We want to know if this is something the industry actually needs.
             </p>
 
             {/* Concept pillars */}
