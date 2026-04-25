@@ -19,7 +19,7 @@ const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks",
 const INTEREST_OPTIONS = [
   "Very interested – I'd join a pilot program",
   "Interested – I want to learn more first",
-  "Curious – still evaluating the concept",
+  "Curious – still evaluating the model",
   "Not sure yet",
 ];
 const COMMISSION_OPTIONS = [
