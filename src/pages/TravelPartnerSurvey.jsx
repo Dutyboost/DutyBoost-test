@@ -13,7 +13,7 @@ const STEPS = [
   { id: "contact", label: "Stay in Touch" },
 ];
 
-const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel", "Car Rental", "Other"];
+const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel", "Car Rental"];
 const BOOKING_VOLUMES = ["Under 500", "500 – 2,000", "2,000 – 10,000", "10,000+"];
 const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks", "Other"];
 const INTEREST_OPTIONS = [
