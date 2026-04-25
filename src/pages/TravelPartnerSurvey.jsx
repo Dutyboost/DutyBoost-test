@@ -129,15 +129,17 @@ export default function TravelPartnerSurvey() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is a model we're exploring in the travel space. We want to understand whether there is appetite in the industry for a new kind of traveler benefit — and whether it would create real value and a new revenue stream for travel partners like you.
+              <strong>DutyBoost</strong> is a model we're exploring in the travel space. The model: as a travel partner, you offer your travelers an airport shopping benefit — and in return you earn a commission on every purchase they make.
+
+              We want to understand whether there is appetite in the industry for this type of revenue share model, and whether it would create real value for your business.
             </p>
 
             {/* Concept pillars */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Lightbulb, label: "The model", desc: "A new type of traveler benefit connected to the airport experience." },
-                { icon: MessageSquare, label: "Your role", desc: "Share your perspective — no commitment, no strings attached." },
-                { icon: FlaskConical, label: "What we're validating", desc: "Whether this kind of benefit would be relevant and valuable to your business." },
+                { icon: Lightbulb, label: "The model", desc: "Travelers get an airport shopping benefit through their travel partner." },
+                { icon: MessageSquare, label: "Your role", desc: "As a travel partner, you earn a commission on every purchase your traveler makes at the airport." },
+                { icon: FlaskConical, label: "What we're validating", desc: "Whether this revenue share model has enough interest to develop further." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
                   <Icon className="w-4 h-4 text-primary" />
@@ -176,7 +178,7 @@ export default function TravelPartnerSurvey() {
           {step === 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">What type of travel company are you?</h2>
-              <p className="text-muted-foreground text-sm">This helps us understand which part of the industry this concept would serve best.</p>
+              <p className="text-muted-foreground text-sm">This helps us understand which travel partners would benefit most from a commission model on airport shopping.</p>
               <div className="space-y-2">
                 {COMPANY_TYPES.map((t) => (
                   <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} />
@@ -189,7 +191,7 @@ export default function TravelPartnerSurvey() {
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">How many bookings do you process per month?</h2>
-              <p className="text-muted-foreground text-sm">Helps us understand whether this model could realistically create value at your scale.</p>
+              <p className="text-muted-foreground text-sm">This helps us estimate what the potential commission earnings could be for you based on your booking volume.</p>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
                   <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
@@ -207,7 +209,7 @@ export default function TravelPartnerSurvey() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">What's your current approach to traveler loyalty?</h2>
-              <p className="text-muted-foreground text-sm">We're exploring whether this concept fills a gap — or adds something on top of what already exists.</p>
+              <p className="text-muted-foreground text-sm">We're exploring whether this model complements your current approach — and whether an additional revenue stream through airport shopping is attractive alongside your existing loyalty strategy.</p>
               <div className="space-y-2">
                 {LOYALTY_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />
@@ -231,7 +233,7 @@ export default function TravelPartnerSurvey() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
-                <p className="text-muted-foreground text-sm">Based on what you've shared so far, we'd like to understand your initial reaction to this model.</p>
+                <p className="text-muted-foreground text-sm">Based on what you've shared: travel partners offer their travelers an airport shopping benefit and receive a commission on every purchase. What's your initial reaction?</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
@@ -239,7 +241,7 @@ export default function TravelPartnerSurvey() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">How important is it for your business to have an additional revenue stream tied to your travelers' journeys?</h2>
+                <h2 className="text-xl font-heading font-bold">DutyBoost works through a revenue share model: you earn a commission on every euro your travelers spend at the airport. How attractive is this for your business?</h2>
                 <div className="space-y-2">
                   {COMMISSION_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
