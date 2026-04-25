@@ -129,14 +129,14 @@ export default function TravelPartnerSurveyNL() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. We willen begrijpen of er in de industrie behoefte is aan een nieuw type reizigersvoordeel — en of dit echte waarde en een nieuwe inkomstenstroom zou genereren voor reispartners zoals u.
+            <strong>DutyBoost</strong> is een model dat we verkennen in de reissector. Het idee: reispartners bieden hun reizigers een exclusief luchthavenshopping-voordeel aan — en ontvangen daar een commissie op elke besteding. We willen begrijpen of er in de industrie interesse is in dit type revenue share model, en of het echte waarde zou toevoegen aan uw bedrijf.
             </p>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Lightbulb, label: "Het model", desc: "Een nieuw type reizigersvoordeel verbonden aan de luchthavenbeleving." },
-                { icon: MessageSquare, label: "Uw rol", desc: "Deel uw perspectief — geen verplichting, geen bijbedoelingen." },
-                { icon: FlaskConical, label: "Wat we valideren", desc: "Of dit soort voordeel relevant en waardevol zou zijn voor uw bedrijf." },
+                { icon: Lightbulb, label: "Het model", desc: "Reizigers krijgen een exclusief luchthavenshopping-voordeel via hun reispartner." },
+                { icon: MessageSquare, label: "Uw rol", desc: "Als reispartner ontvangt u een commissie op elke besteding van uw reiziger op de luchthaven." },
+                { icon: FlaskConical, label: "Wat we valideren", desc: "Of dit revenue share model voldoende interesse heeft om verder te ontwikkelen." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
                   <Icon className="w-4 h-4 text-primary" />
@@ -175,7 +175,7 @@ export default function TravelPartnerSurveyNL() {
           {step === 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Wat voor type reisbedrijf bent u?</h2>
-              <p className="text-muted-foreground text-sm">Dit helpt ons begrijpen welk deel van de industrie dit model het beste zou bedienen.</p>
+              <p className="text-muted-foreground text-sm">Dit helpt ons begrijpen welke reispartners het meeste baat zouden hebben bij een commissiemodel op luchthavenshopping.</p>
               <div className="space-y-2">
                 {COMPANY_TYPES.map((t) => (
                   <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} />
@@ -188,7 +188,7 @@ export default function TravelPartnerSurveyNL() {
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Hoeveel boekingen verwerkt u per maand?</h2>
-              <p className="text-muted-foreground text-sm">Dit helpt ons begrijpen of dit model op uw schaal realistisch waarde kan genereren.</p>
+              <p className="text-muted-foreground text-sm">Dit helpt ons inschatten wat de potentiële commissie-inkomsten voor u zouden kunnen zijn op basis van uw boekingsvolume.</p>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
                   <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
@@ -206,7 +206,7 @@ export default function TravelPartnerSurveyNL() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Wat is uw huidige aanpak voor reizigerslojaliteit?</h2>
-              <p className="text-muted-foreground text-sm">We onderzoeken of dit model een gat vult — of iets toevoegt aan wat al bestaat.</p>
+              <p className="text-muted-foreground text-sm">We onderzoeken of dit model een aanvulling is op uw huidige aanpak — en of een extra inkomstenstroom via luchthavenshopping aantrekkelijk is naast uw bestaande loyaliteitsstrategie.</p>
               <div className="space-y-2">
                 {LOYALTY_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />
@@ -230,7 +230,7 @@ export default function TravelPartnerSurveyNL() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl font-heading font-bold">Hoe staat u tegenover dit model?</h2>
-                <p className="text-muted-foreground text-sm">Op basis van wat u heeft gedeeld, willen we uw eerste reactie op dit model begrijpen.</p>
+              <p className="text-muted-foreground text-sm">Op basis van wat u heeft gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is uw eerste reactie?</p>
                 <div className="space-y-2">
                   {INTEREST_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
@@ -238,7 +238,7 @@ export default function TravelPartnerSurveyNL() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">Hoe belangrijk is het voor uw bedrijf om een extra inkomstenstroom te hebben gekoppeld aan de reizen van uw klanten?</h2>
+                <h2 className="text-xl font-heading font-bold">DutyBoost werkt via een revenue share model: u ontvangt een commissie op elke euro die uw reizigers besteden op de luchthaven. Hoe aantrekkelijk vindt u dit voor uw bedrijf?</h2>
                 <div className="space-y-2">
                   {COMMISSION_OPTIONS.map((o) => (
                     <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
