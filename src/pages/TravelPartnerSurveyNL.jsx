@@ -5,7 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight, Lightbulb, MessageSquare, FlaskConical } from "lucide-react";
 
-const TOTAL_QUESTIONS = 6;
+const TOTAL_QUESTIONS = 7;
+
+const SNIPPET_OPTIONS_NL = [
+  "Ja – een eenvoudig snippet op onze bevestigingspagina klinkt heel haalbaar",
+  "Mogelijk – hangt af van hoe eenvoudig de integratie is",
+  "Onwaarschijnlijk – onze technische setup maakt dit lastig",
+  "Nee – we beheren onze boekingsbevestigingspagina niet zelf",
+];
 
 const COMPANY_TYPES = ["Reisbureau", "Luchtvaartmaatschappij", "Touroperator", "OTA (Online Reisagentschap)", "Hotel", "Autoverhuur"];
 const BOOKING_VOLUMES = ["Minder dan 500", "500 – 2.000", "2.000 – 10.000", "10.000+"];
@@ -54,6 +61,7 @@ export default function TravelPartnerSurveyNL() {
     biggest_challenge: "",
     interest_level: "",
     commission_attractive: "",
+    snippet_willingness: "",
     wants_demo: false,
     phone: "",
     loyalty_other: "",
@@ -72,7 +80,8 @@ export default function TravelPartnerSurveyNL() {
     if (step === 2) return form.current_loyalty !== "";
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
-    if (step === 5) return form.company_name.trim() !== "";
+    if (step === 5) return form.snippet_willingness !== "";
+    if (step === 6) return form.company_name.trim() !== "";
     return true;
   };
 
@@ -265,8 +274,21 @@ export default function TravelPartnerSurveyNL() {
             </div>
           )}
 
-          {/* Step 5 – contact */}
+          {/* Step 5 – snippet willingness */}
           {step === 5 && (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-heading font-bold">Om deze inkomstenstroom te activeren, biedt DutyBoost een eenvoudig snippet dat je toevoegt aan je boekingsbevestigingspagina — dit geeft elke reiziger automatisch een DutyCredit om te besteden op de luchthaven. Hoe waarschijnlijk is het dat je dit implementeert?</h2>
+              <p className="text-muted-foreground text-sm">Het snippet installeer je in een paar minuten en vereist geen aanpassingen aan jouw boekingsflow. Het activeert simpelweg een DutyCredit voor elke reiziger bij bevestiging, waardoor de commissiemogelijkheid voor jou wordt vrijgegeven.</p>
+              <div className="space-y-2">
+                {SNIPPET_OPTIONS_NL.map((o) => (
+                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 6 – contact */}
+          {step === 6 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Laatste vraag — wie ben je?</h2>
               <p className="text-muted-foreground text-sm">Als je geïnteresseerd bent in een nieuwe passieve maar interessante inkomstenstroom, laat dan je contactgegevens achter en we nemen contact met je op zodra we lanceren.</p>

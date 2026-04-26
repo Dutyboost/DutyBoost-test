@@ -5,7 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight, Lightbulb, MessageSquare, FlaskConical, Zap } from "lucide-react";
 
-const TOTAL_QUESTIONS = 6;
+const TOTAL_QUESTIONS = 7;
+
+const SNIPPET_OPTIONS = [
+  "Yes – a simple snippet on our confirmation page sounds very feasible",
+  "Possibly – depends on how easy integration is",
+  "Unlikely – our tech setup makes this difficult",
+  "No – we don't control our booking confirmation page",
+];
 
 const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel", "Car Rental"];
 const BOOKING_VOLUMES = ["Under 500", "500 – 2,000", "2,000 – 10,000", "10,000+"];
@@ -54,6 +61,7 @@ export default function TravelPartnerSurvey() {
     biggest_challenge: "",
     interest_level: "",
     commission_attractive: "",
+    snippet_willingness: "",
     wants_demo: false,
     phone: "",
     loyalty_other: "",
@@ -72,7 +80,8 @@ export default function TravelPartnerSurvey() {
     if (step === 2) return form.current_loyalty !== "";
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
-    if (step === 5) return form.company_name.trim() !== "";
+    if (step === 5) return form.snippet_willingness !== "";
+    if (step === 6) return form.company_name.trim() !== "";
     return true;
   };
 
@@ -266,8 +275,21 @@ export default function TravelPartnerSurvey() {
             </div>
           )}
 
-          {/* Step 5 – contact */}
+          {/* Step 5 – snippet willingness */}
           {step === 5 && (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-heading font-bold">To unlock this revenue stream, DutyBoost provides a simple snippet you add to your booking confirmation page — this automatically gives each traveler a DutyCredit to spend at the airport. How likely are you to implement this?</h2>
+              <p className="text-muted-foreground text-sm">The snippet takes just a few minutes to install and requires no changes to your booking flow. It simply activates a DutyCredit for each traveler on confirmation, enabling the commission opportunity for you.</p>
+              <div className="space-y-2">
+                {SNIPPET_OPTIONS.map((o) => (
+                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 6 – contact */}
+          {step === 6 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Last question — who are you?</h2>
               <p className="text-muted-foreground text-sm">If you are interested in a new passive yet interesting revenue stream, leave your contacts and we will be in touch when we launch.</p>

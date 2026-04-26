@@ -66,6 +66,10 @@
         "Not a priority"
       ]
     },
+    "snippet_willingness": {
+      "type": "string",
+      "title": "Willingness to implement DutyBoost snippet"
+    },
     "biggest_challenge": {
       "type": "string",
       "title": "Biggest challenge with customer loyalty"
