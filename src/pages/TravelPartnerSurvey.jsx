@@ -133,7 +133,7 @@ export default function TravelPartnerSurvey() {
               <Sparkles className="w-3 h-3" /> For Travel Partners Only
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              There's a new revenue stream available to the travel sector.{" "}
+              There's a new revenue stream available for the travel sector.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Is it right for you?
               </span>
