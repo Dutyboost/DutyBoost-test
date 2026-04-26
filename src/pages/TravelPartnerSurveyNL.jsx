@@ -256,7 +256,7 @@ export default function TravelPartnerSurveyNL() {
           {/* Step 4 – commission */}
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">DutyBoost werkt via een revenue share model: je ontvangt een commissie op elke euro die jouw reizigers besteden op de luchthaven. Hoe aantrekkelijk vind je dit voor jouw bedrijf?</h2>
+              <h2 className="text-2xl font-heading font-bold">DutyBoost werkt via een revenue share model: op alle aankopen boven de €70 die jouw reizigers doen op de luchthaven, ontvang je een commissie. Hoe aantrekkelijk vind je dit voor jouw bedrijf?</h2>
               <div className="space-y-2">
                 {COMMISSION_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
