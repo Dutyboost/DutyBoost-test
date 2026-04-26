@@ -159,9 +159,6 @@ export default function TravelPartnerSurvey() {
         <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 border-b border-border">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
-            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
-              <Sparkles className="w-3 h-3" /> For Travel Partners Only
-            </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               There's a new revenue stream available for the travel sector.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">

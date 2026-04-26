@@ -28,9 +28,6 @@ export default function ComingSoonPage() {
         <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 py-14 sm:py-24 relative">
-          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
-            <Sparkles className="w-3 h-3" /> For Travel Partners &amp; Airport Retailers
-          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
             Something new is coming{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
