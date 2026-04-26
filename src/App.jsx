@@ -54,6 +54,10 @@ import DemoHotelDashboard from './pages/DemoHotelDashboard';
 import DemoCarRentalDashboard from './pages/DemoCarRentalDashboard';
 import TravelPartnerSurvey from './pages/TravelPartnerSurvey';
 import TravelPartnerSurveyNL from './pages/TravelPartnerSurveyNL';
+import TravelPartnerSurveyES from './pages/TravelPartnerSurveyES';
+import TravelPartnerSurveyFR from './pages/TravelPartnerSurveyFR';
+import TravelPartnerSurveyDE from './pages/TravelPartnerSurveyDE';
+import TravelPartnerSurveyIT from './pages/TravelPartnerSurveyIT';
 
 import AgencyPortal from './pages/AgencyPortal';
 import ComingSoonPage from './pages/ComingSoonPage';
@@ -83,6 +87,10 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
         <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
+        <Route path="/travel-partner-survey-es" element={<TravelPartnerSurveyES />} />
+        <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
+        <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
+        <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
         <Route path="*" element={<ComingSoonPage />} />
       </Routes>
     </>
@@ -122,6 +130,10 @@ const AuthenticatedApp = () => {
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
         <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
+        <Route path="/travel-partner-survey-es" element={<TravelPartnerSurveyES />} />
+        <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
+        <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
+        <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
