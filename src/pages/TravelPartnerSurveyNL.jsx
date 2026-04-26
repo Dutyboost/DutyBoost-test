@@ -120,7 +120,7 @@ export default function TravelPartnerSurveyNL() {
               <Sparkles className="w-3 h-3" /> Alleen voor reispartners
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Er is een nieuwe inkomstenstroom beschikbaar voor reispartners.{" "}
+              Er is een nieuwe inkomstenbron beschikbaar voor reispartners.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Past het bij jou?
               </span>
@@ -174,7 +174,7 @@ export default function TravelPartnerSurveyNL() {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Als er een eenvoudige, kostenloze manier was om een nieuwe inkomstenstroom toe te voegen aan je bedrijf, hoe geïnteresseerd zou je dan zijn?</h2>
+              <h2 className="text-2xl font-heading font-bold">Als er een eenvoudige, kostenloze manier was om een nieuwe inkomstenbron toe te voegen aan je bedrijf, hoe geïnteresseerd zou je dan zijn?</h2>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />)}</div>
             </div>
           )}
@@ -188,7 +188,7 @@ export default function TravelPartnerSurveyNL() {
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Hoe open sta je tegenover kleine technische toevoegingen aan jouw definitieve boekingsbevestigingsstap die de nieuwe inkomstenstroom ontketent?</h2>
+              <h2 className="text-2xl font-heading font-bold">Hoe open sta je tegenover kleine technische toevoegingen aan jouw definitieve boekingsbevestigingsstap die de nieuwe inkomstenbron ontketent?</h2>
               <div className="space-y-2">{SNIPPET_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />)}</div>
             </div>
           )}
