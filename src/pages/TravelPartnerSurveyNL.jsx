@@ -138,7 +138,7 @@ export default function TravelPartnerSurveyNL() {
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: Lightbulb, label: "Het model", desc: "Reizigers krijgen een luchthavenshopping-voordeel via hun reispartner." },
-                { icon: MessageSquare, label: "Jouw rol", desc: "Als reispartner ontvang je een commissie op elke besteding van jouw reiziger op de luchthaven." },
+                { icon: MessageSquare, label: "Jouw rol", desc: "Als reispartner ontvang je een commissie op elke besteding van de reizigers die jij naar de luchthaven stuurt." },
                 { icon: FlaskConical, label: "Wat we valideren", desc: "Of dit revenue share model voldoende interesse heeft om verder te ontwikkelen." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
