@@ -286,6 +286,9 @@ export default function TravelPartnerSurveyFR() {
                 <label className="text-sm text-muted-foreground">Quel est votre plus grand défi en matière de fidélisation ? (optionnel)</label>
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Optionnel..." value={form.biggest_challenge} onChange={(e) => set("biggest_challenge", e.target.value)} />
               </div>
+              <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>
+                Continuer <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           )}
 

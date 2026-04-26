@@ -293,6 +293,9 @@ export default function TravelPartnerSurveyNL() {
                 <label className="text-sm text-muted-foreground">Wat is jouw grootste uitdaging met klantentrouw? (optioneel)</label>
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Optioneel..." value={form.biggest_challenge} onChange={(e) => set("biggest_challenge", e.target.value)} />
               </div>
+              <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>
+                Doorgaan <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           )}
 

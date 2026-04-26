@@ -316,6 +316,9 @@ export default function TravelPartnerSurvey() {
                   onChange={(e) => set("biggest_challenge", e.target.value)}
                 />
               </div>
+              <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>
+                Continue <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           )}
 
