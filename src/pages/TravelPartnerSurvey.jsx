@@ -195,7 +195,7 @@ export default function TravelPartnerSurvey() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              We're working on building a new revenue stream for the travel sector.{" "}
+              We're building a new revenue stream for the travel sector.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Your opinion is valuable to us. Can you share it with us?
               </span>

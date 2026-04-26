@@ -195,7 +195,7 @@ export default function TravelPartnerSurveyDE() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Wir arbeiten an der Entwicklung einer neuen Einnahmequelle für die Reisebranche.{" "}
+              Wir entwickeln eine neue Einnahmequelle für die Reisebranche.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Ihre Meinung ist uns wertvoll. Können Sie sie mit uns teilen?
               </span>
