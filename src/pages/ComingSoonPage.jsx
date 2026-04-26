@@ -38,7 +38,7 @@ export default function ComingSoonPage() {
             </span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            We're not ready to share all the details yet — but we want to hear from the right people first.
+            We're working on something that changes how the travel industry creates value — for everyone involved. We're not ready to share details yet, but we're looking for the right people to hear about it first.
           </p>
           <p className="mt-2 text-sm text-muted-foreground">2 minutes · No strings attached.</p>
 
