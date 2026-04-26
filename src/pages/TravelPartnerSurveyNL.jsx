@@ -284,7 +284,7 @@ export default function TravelPartnerSurveyNL() {
                   className="mt-0.5 accent-primary w-4 h-4 cursor-pointer"
                 />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Ja, ik wil graag een kort gesprek</strong> — ik deel mijn gedachten graag en doe mee aan het validatieproces.
+                  <strong>Ja, ik wil graag dat DutyBoost contact met mij opneemt</strong> — ik doe graag mee aan de Pilot zodra die van start gaat.
                 </span>
               </label>
             </div>
