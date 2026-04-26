@@ -200,7 +200,7 @@ export default function TravelPartnerSurveyES() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">¡Gracias{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          Tu opinión es muy valiosa. {form.wants_demo ? "Nos pondremos en contacto pronto." : "Te mantendremos informado sobre los próximos pasos."}
+          {form.wants_demo ? "Tu opinión es muy valiosa. Nos pondremos en contacto pronto." : "Tu opinión es muy valiosa. Mantente atento para cuando lancemos."}
         </p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>

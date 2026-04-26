@@ -200,7 +200,7 @@ export default function TravelPartnerSurveyNL() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">Bedankt{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          Jouw input is waardevol. {form.wants_demo ? "We nemen snel contact op." : "We houden je op de hoogte van wat er volgt."}
+          {form.wants_demo ? "Jouw input is waardevol. We nemen snel contact op." : "Jouw input is waardevol. Zorg dat je ons niet mist wanneer we lanceren."}
         </p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
