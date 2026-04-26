@@ -10,6 +10,7 @@ const STEPS = [
   { id: "business", label: "Your Business" },
   { id: "loyalty", label: "Loyalty Today" },
   { id: "fit", label: "DutyBoost Fit" },
+  { id: "commission", label: "Revenue Share" },
   { id: "contact", label: "Stay in Touch" },
 ];
 
@@ -75,8 +76,9 @@ export default function TravelPartnerSurvey() {
     if (step === 0) return form.company_type !== "";
     if (step === 1) return form.annual_bookings !== "";
     if (step === 2) return form.current_loyalty !== "";
-    if (step === 3) return form.interest_level !== "" && form.commission_attractive !== "";
-    if (step === 4) return form.full_name.trim() !== "" && form.email.includes("@") && form.company_name.trim() !== "";
+    if (step === 3) return form.interest_level !== "";
+    if (step === 4) return form.commission_attractive !== "";
+    if (step === 5) return form.full_name.trim() !== "" && form.email.includes("@") && form.company_name.trim() !== "";
     return true;
   };
 
@@ -157,7 +159,7 @@ export default function TravelPartnerSurvey() {
 
             <p className="mt-8 text-sm font-semibold text-foreground flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-primary" />
-              4 quick questions — your answers directly shape whether we build this.
+              5 quick questions — your answers directly shape whether we build this.
             </p>
           </div>
         </div>
@@ -236,29 +238,31 @@ export default function TravelPartnerSurvey() {
 
           {/* Step 3 – fit */}
           {step === 3 && (
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
-                <p className="text-muted-foreground text-sm">Based on what you've shared: travel partners offer their travelers an airport shopping benefit and receive a commission on every purchase. What's your initial reaction?</p>
-                <div className="space-y-2">
-                  {INTEREST_OPTIONS.map((o) => (
-                    <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">DutyBoost works through a revenue share model: you earn a commission on every euro your travelers spend at the airport. How attractive is this for your business?</h2>
-                <div className="space-y-2">
-                  {COMMISSION_OPTIONS.map((o) => (
-                    <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
-                  ))}
-                </div>
+            <div className="space-y-4">
+              <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
+              <p className="text-muted-foreground text-sm">Based on what you've shared: travel partners offer their travelers an airport shopping benefit and receive a commission on every purchase. What's your initial reaction?</p>
+              <div className="space-y-2">
+                {INTEREST_OPTIONS.map((o) => (
+                  <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
+                ))}
               </div>
             </div>
           )}
 
-          {/* Step 4 – contact */}
+          {/* Step 4 – commission */}
           {step === 4 && (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-heading font-bold">DutyBoost works through a revenue share model: you earn a commission on every euro your travelers spend at the airport. How attractive is this for your business?</h2>
+              <div className="space-y-2">
+                {COMMISSION_OPTIONS.map((o) => (
+                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 5 – contact */}
+          {step === 5 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Last step — who are you?</h2>
               <p className="text-muted-foreground text-sm">We'll share the results of this validation with you and let you know if and when we move forward with building.</p>

@@ -10,6 +10,7 @@ const STEPS = [
   { id: "business", label: "Jouw bedrijf" },
   { id: "loyalty", label: "Loyaliteit vandaag" },
   { id: "fit", label: "DutyBoost Fit" },
+  { id: "commission", label: "Revenue Share" },
   { id: "contact", label: "Blijf op de hoogte" },
 ];
 
@@ -75,8 +76,9 @@ export default function TravelPartnerSurveyNL() {
     if (step === 0) return form.company_type !== "";
     if (step === 1) return form.annual_bookings !== "";
     if (step === 2) return form.current_loyalty !== "";
-    if (step === 3) return form.interest_level !== "" && form.commission_attractive !== "";
-    if (step === 4) return form.full_name.trim() !== "" && form.email.includes("@") && form.company_name.trim() !== "";
+    if (step === 3) return form.interest_level !== "";
+    if (step === 4) return form.commission_attractive !== "";
+    if (step === 5) return form.full_name.trim() !== "" && form.email.includes("@") && form.company_name.trim() !== "";
     return true;
   };
 
@@ -156,7 +158,7 @@ export default function TravelPartnerSurveyNL() {
 
             <p className="mt-8 text-sm font-semibold text-foreground flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-primary" />
-              4 korte vragen — jouw antwoorden bepalen direct of we dit bouwen.
+              5 korte vragen — jouw antwoorden bepalen direct of we dit bouwen.
             </p>
           </div>
         </div>
@@ -235,29 +237,31 @@ export default function TravelPartnerSurveyNL() {
 
           {/* Step 3 – fit */}
           {step === 3 && (
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-heading font-bold">Hoe sta je tegenover dit model?</h2>
-                <p className="text-muted-foreground text-sm">Op basis van wat je hebt gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is jouw eerste reactie?</p>
-                <div className="space-y-2">
-                  {INTEREST_OPTIONS.map((o) => (
-                    <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold">DutyBoost werkt via een revenue share model: je ontvangt een commissie op elke euro die jouw reizigers besteden op de luchthaven. Hoe aantrekkelijk vind je dit voor jouw bedrijf?</h2>
-                <div className="space-y-2">
-                  {COMMISSION_OPTIONS.map((o) => (
-                    <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
-                  ))}
-                </div>
+            <div className="space-y-4">
+              <h2 className="text-2xl font-heading font-bold">Hoe sta je tegenover dit model?</h2>
+              <p className="text-muted-foreground text-sm">Op basis van wat je hebt gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is jouw eerste reactie?</p>
+              <div className="space-y-2">
+                {INTEREST_OPTIONS.map((o) => (
+                  <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
+                ))}
               </div>
             </div>
           )}
 
-          {/* Step 4 – contact */}
+          {/* Step 4 – commission */}
           {step === 4 && (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-heading font-bold">DutyBoost werkt via een revenue share model: je ontvangt een commissie op elke euro die jouw reizigers besteden op de luchthaven. Hoe aantrekkelijk vind je dit voor jouw bedrijf?</h2>
+              <div className="space-y-2">
+                {COMMISSION_OPTIONS.map((o) => (
+                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 5 – contact */}
+          {step === 5 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Laatste stap — wie ben je?</h2>
               <p className="text-muted-foreground text-sm">We delen de resultaten van deze validatie met je en laten je weten als en wanneer we verder gaan.</p>
