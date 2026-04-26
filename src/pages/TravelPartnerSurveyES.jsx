@@ -49,6 +49,7 @@ export default function TravelPartnerSurveyES() {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [websiteError, setWebsiteError] = useState("");
 
   const [form, setForm] = useState({
     full_name: "",
@@ -68,6 +69,18 @@ export default function TravelPartnerSurveyES() {
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
+  const isValidWebsite = (val) => {
+    const trimmed = val.trim();
+    if (!trimmed) return false;
+    try {
+      const url = trimmed.startsWith("http") ? trimmed : "https://" + trimmed;
+      const parsed = new URL(url);
+      return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(parsed.hostname) && parsed.hostname.includes(".");
+    } catch {
+      return false;
+    }
+  };
+
   const goToStep = (n) => {
     setStep(n);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -80,7 +93,7 @@ export default function TravelPartnerSurveyES() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.company_name.trim() !== "";
+    if (step === 6) return isValidWebsite(form.company_name);
     return true;
   };
 
@@ -200,7 +213,18 @@ export default function TravelPartnerSurveyES() {
               <div className="space-y-3">
                 <Input placeholder="Nombre completo" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <Input placeholder="Correo de trabajo" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <Input placeholder="Nombre de la empresa *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                <div>
+                  <Input
+                    placeholder="Sitio web de la empresa * (p. ej. www.suempresa.com)"
+                    value={form.company_name}
+                    onChange={(e) => {
+                      set("company_name", e.target.value);
+                      setWebsiteError(e.target.value && !isValidWebsite(e.target.value) ? "Por favor ingresa una URL válida (p. ej. www.suempresa.com)" : "");
+                    }}
+                    className={websiteError ? "border-destructive" : ""}
+                  />
+                  {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
+                </div>
                 <Input placeholder="Teléfono (opcional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
