@@ -133,13 +133,13 @@ export default function TravelPartnerSurveyNL() {
               <Sparkles className="w-3 h-3" /> Alleen voor reispartners
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Er is een nieuwe inkomstenbron beschikbaar voor reispartners.{" "}
+              Er is een nieuwe inkomstenbron beschikbaar voor de reissector.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Past het bij jou?
+                Is het iets voor jou?
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost bouwt iets nieuws voor de reissector. We zijn nog niet klaar om details te delen — maar we willen eerst weten of er interesse is.
+              DutyBoost bouwt iets nieuws voor de reissector. We zijn nog niet klaar om details te delen — maar we willen eerst weten of er interesse is voordat we verdergaan.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">2 minuten · 7 vragen · Vrijblijvend.</p>
           </div>

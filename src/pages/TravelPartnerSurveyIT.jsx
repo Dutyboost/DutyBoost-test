@@ -133,7 +133,7 @@ export default function TravelPartnerSurveyIT() {
               <Sparkles className="w-3 h-3" /> Solo per partner di viaggio
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              C'è una nuova fonte di reddito disponibile per i partner di viaggio.{" "}
+              C'è una nuova fonte di reddito disponibile per il settore dei viaggi.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 È giusta per te?
               </span>

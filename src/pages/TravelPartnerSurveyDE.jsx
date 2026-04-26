@@ -133,13 +133,13 @@ export default function TravelPartnerSurveyDE() {
               <Sparkles className="w-3 h-3" /> Nur für Reisepartner
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Für Reisepartner gibt es eine neue Einnahmequelle.{" "}
+              Es gibt eine neue Einnahmequelle für die Reisebranche.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Ist sie das Richtige für Sie?
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost entwickelt etwas Neues für die Reisebranche. Wir sind noch nicht bereit, Details zu teilen — aber wir möchten zuerst wissen, ob Interesse besteht.
+              DutyBoost entwickelt etwas Neues für die Reisebranche. Wir sind noch nicht bereit, Details zu teilen — aber wir möchten wissen, ob Interesse besteht, bevor wir weitermachen.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">2 Minuten · 7 Fragen · Unverbindlich.</p>
           </div>
