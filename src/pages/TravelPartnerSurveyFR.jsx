@@ -188,7 +188,7 @@ export default function TravelPartnerSurveyFR() {
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Dans quelle mesure seriez-vous ouvert à de petits ajouts techniques dans votre flux de confirmation de réservation existant ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Dans quelle mesure seriez-vous ouvert à de petits ajouts techniques dans votre étape finale de confirmation de réservation qui contribueront à débloquer la nouvelle source de revenus ?</h2>
               <div className="space-y-2">{SNIPPET_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />)}</div>
             </div>
           )}
