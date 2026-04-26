@@ -101,7 +101,7 @@ export default function TravelPartnerSurvey() {
           </ul>
         </div>
         <p className="text-xs text-muted-foreground max-w-xs">No product exists yet — if enough industry partners validate this concept, we'll move forward. You'll be among the first to know.</p>
-        <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost B.V.</p>
+        <p className="text-xs text-muted-foreground">© 2026 DutyBoost. All Rights Reserved.</p>
       </div>
     );
   }
