@@ -197,7 +197,7 @@ export default function TravelPartnerSurveyDE() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               Wir entwickeln eine neue Einnahmequelle für die Reisebranche.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Ihre Meinung ist uns wertvoll. Können Sie sie mit uns teilen?
+                Ihre Meinung ist uns wichtig.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
