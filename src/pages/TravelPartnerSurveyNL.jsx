@@ -244,7 +244,7 @@ export default function TravelPartnerSurveyNL() {
           {step === 3 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Hoe sta je tegenover dit model?</h2>
-              <p className="text-muted-foreground text-sm">Op basis van wat je hebt gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is jouw eerste reactie?</p>
+              <p className="text-muted-foreground text-sm">Op basis van wat je hebt gedeeld: reispartners bieden hun reizigers een luchthavenshopping-voordeel aan en ontvangen een commissie op elke besteding. Wat is jouw eerste reactie op dit model?</p>
               <div className="space-y-2">
                 {INTEREST_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />

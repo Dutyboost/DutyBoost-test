@@ -244,8 +244,8 @@ export default function TravelPartnerSurvey() {
           {/* Step 3 – fit */}
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">How do you feel about this concept?</h2>
-              <p className="text-muted-foreground text-sm">Based on what you've shared: travel partners offer their travelers an airport shopping benefit and receive a commission on every purchase. What's your initial reaction?</p>
+              <h2 className="text-2xl font-heading font-bold">How do you feel about this model?</h2>
+              <p className="text-muted-foreground text-sm">Based on what you've shared: travel partners offer their travelers an airport shopping benefit and receive a commission on every purchase. What's your initial reaction to this model?</p>
               <div className="space-y-2">
                 {INTEREST_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
