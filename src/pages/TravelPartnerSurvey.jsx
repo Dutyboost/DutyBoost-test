@@ -29,11 +29,14 @@ const SNIPPET_OPTIONS = [
   "No – we don't control that page",
 ];
 
-function OptionButton({ label, selected, onClick }) {
+function OptionButton({ label, selected, onClick, onSelect }) {
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={() => {
+        onClick();
+        onSelect?.();
+      }}
       className={`w-full text-left px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
         selected
           ? "bg-primary text-primary-foreground border-primary shadow-md"
@@ -241,7 +244,7 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">What type of travel company are you?</h2>
               <div className="space-y-2">
                 {COMPANY_TYPES.map((t) => (
-                  <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} />
+                  <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} onSelect={() => goToStep(1)} />
                 ))}
               </div>
             </div>
@@ -252,7 +255,7 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">How many bookings do you process per month?</h2>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
-                  <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />
+                  <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => goToStep(2)} />
                 ))}
               </div>
             </div>
@@ -321,7 +324,7 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">If there were a simple, no-cost way to add a new revenue stream to your business, how interested would you be?</h2>
               <div className="space-y-2">
                 {INTEREST_OPTIONS.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
+                  <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} onSelect={() => goToStep(4)} />
                 ))}
               </div>
             </div>
@@ -332,7 +335,7 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">How important is generating additional revenue from your existing bookings to your business?</h2>
               <div className="space-y-2">
                 {COMMISSION_OPTIONS.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />
+                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(5)} />
                 ))}
               </div>
             </div>
@@ -343,7 +346,7 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">How open are you to small technical additions to your final booking confirmation step that will help unleash the new revenue stream?</h2>
               <div className="space-y-2">
                 {SNIPPET_OPTIONS.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />
+                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => goToStep(6)} />
                 ))}
               </div>
             </div>
@@ -410,11 +413,7 @@ export default function TravelPartnerSurvey() {
                 Back
               </Button>
             )}
-            {step < TOTAL_QUESTIONS - 1 ? (
-              <Button className="flex-1 gap-2" disabled={!canNext()} onClick={() => goToStep(step + 1)}>
-                Continue <ArrowRight className="w-4 h-4" />
-              </Button>
-            ) : (
+            {step === TOTAL_QUESTIONS - 1 && (
               <Button className="flex-1 gap-2" disabled={!canNext() || saving} onClick={handleSubmit}>
                 {saving ? "Submitting..." : "Submit"} <ArrowRight className="w-4 h-4" />
               </Button>
