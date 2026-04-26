@@ -188,9 +188,9 @@ export default function TravelPartnerSurveyFR() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Nous créons une nouvelle source de revenus pour le secteur du voyage.{" "}
+              Nous construisons un nouveau modèle de revenus de voyage.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Votre avis est précieux pour nous. Pouvez-vous le partager avec nous ?
+                Pouvez-vous partager votre avis avec nous ?
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
