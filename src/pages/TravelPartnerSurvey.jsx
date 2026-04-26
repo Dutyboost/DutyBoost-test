@@ -139,7 +139,7 @@ export default function TravelPartnerSurvey() {
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: Lightbulb, label: "The model", desc: "Travelers get an airport shopping benefit through their travel partner." },
-                { icon: MessageSquare, label: "Your role", desc: "As a travel partner, you earn a commission on every purchase your traveler makes at the airport." },
+                { icon: MessageSquare, label: "Your role", desc: "As a travel partner, you earn a commission on every purchase made by the travelers you send to the airport." },
                 { icon: FlaskConical, label: "What we're validating", desc: "Whether this revenue share model has enough interest to develop further." },
               ].map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
