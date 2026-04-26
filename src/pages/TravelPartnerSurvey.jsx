@@ -52,6 +52,7 @@ export default function TravelPartnerSurvey() {
   const [websiteError, setWebsiteError] = useState("");
   const [websiteValid, setWebsiteValid] = useState(false);
   const [verifyingWebsite, setVerifyingWebsite] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
   const [form, setForm] = useState({
     full_name: "",
@@ -80,6 +81,18 @@ export default function TravelPartnerSurvey() {
   const hasObsceneContent = (text) => {
     const lower = text.toLowerCase();
     return BLOCKED_KEYWORDS.some(keyword => lower.includes(keyword));
+  };
+
+  const isPersonalEmail = (email) => {
+    const PERSONAL_DOMAINS = [
+      'gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'aol.com',
+      'me.com', 'icloud.com', 'mail.com', 'protonmail.com', 'yandex.com',
+      'mail.ru', 'gmx.de', 'web.de', 'freenet.de', 'vodafone.de',
+      'telefonica.es', 'wanadoo.es', 'alice.it', 'virgilio.it', 'tin.it',
+      'free.fr', 'sfr.fr', 'orange.fr', 'laposte.net'
+    ];
+    const domain = email.split('@')[1]?.toLowerCase();
+    return PERSONAL_DOMAINS.includes(domain);
   };
 
   const extractHostname = (val) => {
@@ -145,7 +158,7 @@ export default function TravelPartnerSurvey() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return websiteValid && !verifyingWebsite;
+    if (step === 6) return websiteValid && !verifyingWebsite && !emailError && form.email;
     return true;
   };
 
@@ -300,7 +313,23 @@ export default function TravelPartnerSurvey() {
               <p className="text-muted-foreground text-sm">We'll reach out when we're ready to share more. No spam, ever.</p>
               <div className="space-y-3">
                 <Input placeholder="Full name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Work email" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                <div>
+                  <Input 
+                    placeholder="Work email" 
+                    type="email" 
+                    value={form.email} 
+                    onChange={(e) => {
+                      set("email", e.target.value);
+                      if (e.target.value && isPersonalEmail(e.target.value)) {
+                        setEmailError("Please use a professional/company email address");
+                      } else {
+                        setEmailError("");
+                      }
+                    }}
+                    className={emailError ? "border-destructive" : ""}
+                  />
+                  {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
+                </div>
                 <div>
                   <Input
                     placeholder="Company website * (e.g. www.yourcompany.com)"
