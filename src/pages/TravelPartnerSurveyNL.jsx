@@ -72,7 +72,7 @@ export default function TravelPartnerSurveyNL() {
     if (step === 2) return form.current_loyalty !== "";
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
-    if (step === 5) return true;
+    if (step === 5) return form.company_name.trim() !== "";
     return true;
   };
 
