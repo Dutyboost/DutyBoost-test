@@ -72,7 +72,7 @@ export default function TravelPartnerSurvey() {
     if (step === 2) return form.current_loyalty !== "";
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
-    if (step === 5) return form.full_name.trim() !== "" && form.email.includes("@") && form.company_name.trim() !== "";
+    if (step === 5) return true;
     return true;
   };
 
@@ -87,7 +87,7 @@ export default function TravelPartnerSurvey() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 text-center space-y-6">
         <CheckCircle2 className="w-16 h-16 text-green-500" />
-        <h1 className="text-3xl font-heading font-bold">Thank you, {form.full_name.split(" ")[0]}!</h1>
+        <h1 className="text-3xl font-heading font-bold">Thank you{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
           Your honest input is exactly what we need to decide whether DutyBoost is worth building.
           {form.wants_demo && " We'll reach out soon to set up a short conversation."}
@@ -270,11 +270,11 @@ export default function TravelPartnerSurvey() {
           {step === 5 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Last question — who are you?</h2>
-              <p className="text-muted-foreground text-sm">We'll share the results of this validation with you and let you know if and when we move forward with building.</p>
+              <p className="text-muted-foreground text-sm">If you are interested in a new passive yet interesting revenue stream, leave your contacts and we will be in touch when we launch.</p>
               <div className="space-y-3">
-                <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Work email *" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <Input placeholder="Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                <Input placeholder="Full name (optional)" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Work email (optional)" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                <Input placeholder="Company name (optional)" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <Input placeholder="Phone (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">

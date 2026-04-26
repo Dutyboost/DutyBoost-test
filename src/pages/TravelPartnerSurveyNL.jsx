@@ -72,7 +72,7 @@ export default function TravelPartnerSurveyNL() {
     if (step === 2) return form.current_loyalty !== "";
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
-    if (step === 5) return form.full_name.trim() !== "" && form.email.includes("@") && form.company_name.trim() !== "";
+    if (step === 5) return true;
     return true;
   };
 
@@ -87,7 +87,7 @@ export default function TravelPartnerSurveyNL() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 text-center space-y-6">
         <CheckCircle2 className="w-16 h-16 text-green-500" />
-        <h1 className="text-3xl font-heading font-bold">Bedankt, {form.full_name.split(" ")[0]}!</h1>
+        <h1 className="text-3xl font-heading font-bold">Bedankt{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
           Jouw eerlijke input is precies wat we nodig hebben om te beslissen of DutyBoost de moeite waard is om te bouwen.
           {form.wants_demo && " We nemen binnenkort contact op om een kort gesprek in te plannen."}
@@ -269,11 +269,11 @@ export default function TravelPartnerSurveyNL() {
           {step === 5 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Laatste vraag — wie ben je?</h2>
-              <p className="text-muted-foreground text-sm">We delen de resultaten van deze validatie met je en laten je weten als en wanneer we verder gaan.</p>
+              <p className="text-muted-foreground text-sm">Als je geïnteresseerd bent in een nieuwe passieve maar interessante inkomstenstroom, laat dan je contactgegevens achter en we nemen contact met je op zodra we lanceren.</p>
               <div className="space-y-3">
-                <Input placeholder="Volledige naam *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Zakelijk e-mailadres *" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <Input placeholder="Bedrijfsnaam *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                <Input placeholder="Volledige naam (optioneel)" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Zakelijk e-mailadres (optioneel)" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                <Input placeholder="Bedrijfsnaam (optioneel)" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <Input placeholder="Telefoonnummer (optioneel)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
