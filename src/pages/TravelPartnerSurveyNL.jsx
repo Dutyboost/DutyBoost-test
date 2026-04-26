@@ -66,6 +66,11 @@ export default function TravelPartnerSurveyNL() {
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
+  const goToStep = (n) => {
+    setStep(n);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const canNext = () => {
     if (step === 0) return form.company_type !== "";
     if (step === 1) return form.annual_bookings !== "";
@@ -279,7 +284,7 @@ export default function TravelPartnerSurveyNL() {
           {/* Navigation */}
           <div className="flex gap-3 pt-2">
             {step > 0 && (
-              <Button variant="outline" onClick={() => setStep((s) => s - 1)} className="flex-1">
+              <Button variant="outline" onClick={() => goToStep(step - 1)} className="flex-1">
                 Terug
               </Button>
             )}
@@ -287,7 +292,7 @@ export default function TravelPartnerSurveyNL() {
               <Button
                 className="flex-1 gap-2"
                 disabled={!canNext()}
-                onClick={() => setStep((s) => s + 1)}
+                onClick={() => goToStep(step + 1)}
               >
                 Verder <ArrowRight className="w-4 h-4" />
               </Button>
