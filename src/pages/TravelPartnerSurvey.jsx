@@ -50,6 +50,8 @@ export default function TravelPartnerSurvey() {
   const [submitted, setSubmitted] = useState(false);
   const [saving, setSaving] = useState(false);
   const [websiteError, setWebsiteError] = useState("");
+  const [websiteValid, setWebsiteValid] = useState(false);
+  const [verifyingWebsite, setVerifyingWebsite] = useState(false);
 
   const [form, setForm] = useState({
     full_name: "",
@@ -69,15 +71,43 @@ export default function TravelPartnerSurvey() {
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
-  const isValidWebsite = (val) => {
+  const extractHostname = (val) => {
     const trimmed = val.trim();
-    if (!trimmed) return false;
+    if (!trimmed) return null;
     try {
       const url = trimmed.startsWith("http") ? trimmed : "https://" + trimmed;
       const parsed = new URL(url);
-      return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(parsed.hostname) && parsed.hostname.includes(".");
+      return parsed.hostname;
+    } catch {
+      return null;
+    }
+  };
+
+  const checkDomainExists = async (val) => {
+    const hostname = extractHostname(val);
+    if (!hostname || !hostname.includes(".")) return false;
+    try {
+      const res = await fetch(`https://dns.google/resolve?name=${hostname}&type=A`);
+      const data = await res.json();
+      return data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0;
     } catch {
       return false;
+    }
+  };
+
+  const handleWebsiteBlur = async () => {
+    const val = form.company_name;
+    if (!val) return;
+    setVerifyingWebsite(true);
+    setWebsiteError("");
+    const exists = await checkDomainExists(val);
+    setVerifyingWebsite(false);
+    if (!exists) {
+      setWebsiteValid(false);
+      setWebsiteError("We couldn't verify this website. Please enter a real company website (e.g. www.yourcompany.com).");
+    } else {
+      setWebsiteValid(true);
+      setWebsiteError("");
     }
   };
 
@@ -93,7 +123,7 @@ export default function TravelPartnerSurvey() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return isValidWebsite(form.company_name);
+    if (step === 6) return websiteValid && !verifyingWebsite;
     return true;
   };
 
@@ -258,11 +288,15 @@ export default function TravelPartnerSurvey() {
                     value={form.company_name}
                     onChange={(e) => {
                       set("company_name", e.target.value);
-                      setWebsiteError(e.target.value && !isValidWebsite(e.target.value) ? "Please enter a valid website URL (e.g. www.yourcompany.com)" : "");
+                      setWebsiteValid(false);
+                      setWebsiteError("");
                     }}
-                    className={websiteError ? "border-destructive" : ""}
+                    onBlur={handleWebsiteBlur}
+                    className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""}
                   />
+                  {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Verifying website...</p>}
                   {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
+                  {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website verified</p>}
                 </div>
                 <Input placeholder="Phone (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
