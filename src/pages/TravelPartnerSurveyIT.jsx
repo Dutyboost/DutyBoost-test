@@ -195,9 +195,9 @@ export default function TravelPartnerSurveyIT() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Stiamo creando un nuovo modello di reddito da viaggio.{" "}
+              Stiamo creando una nuova fonte di reddito per il settore dei viaggi.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Puoi condividere la tua opinione con noi?
+                La tua opinione è preziosa per noi. Puoi condividerla con noi?
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
