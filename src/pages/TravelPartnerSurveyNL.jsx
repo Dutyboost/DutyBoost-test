@@ -273,10 +273,7 @@ export default function TravelPartnerSurveyNL() {
               <div className="space-y-3">
                 <Input placeholder="Volledige naam" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <Input placeholder="Zakelijk e-mailadres" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <div className="relative">
-                  <Input placeholder="Bedrijfsnaam" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
-                  <span className="absolute -top-1.5 -right-1.5 text-red-500 font-bold text-base leading-none">*</span>
-                </div>
+                <Input placeholder="Bedrijfsnaam *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <Input placeholder="Telefoonnummer (optioneel)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">

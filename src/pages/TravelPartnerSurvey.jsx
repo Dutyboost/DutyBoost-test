@@ -274,10 +274,7 @@ export default function TravelPartnerSurvey() {
               <div className="space-y-3">
                 <Input placeholder="Full name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <Input placeholder="Work email" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <div className="relative">
-                  <Input placeholder="Company name" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
-                  <span className="absolute -top-1.5 -right-1.5 text-red-500 font-bold text-base leading-none">*</span>
-                </div>
+                <Input placeholder="Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} className="placeholder:text-muted-foreground [&::placeholder]:after:text-red-500" />
                 <Input placeholder="Phone (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
