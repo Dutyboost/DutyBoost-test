@@ -139,7 +139,7 @@ export default function TravelPartnerSurveyNL() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost bouwt iets nieuws voor de reissector. We zijn nog niet klaar om details te delen — maar we willen eerst weten of er interesse is voordat we verdergaan.
+              DutyBoost creëert een nieuwe inkomstenbron voor de reissector. We zijn nog niet klaar om alle details te delen — maar we willen eerst weten of er interesse is voordat we verdergaan.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">2 minuten · 7 vragen · Vrijblijvend.</p>
           </div>

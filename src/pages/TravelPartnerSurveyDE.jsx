@@ -139,7 +139,7 @@ export default function TravelPartnerSurveyDE() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost entwickelt etwas Neues für die Reisebranche. Wir sind noch nicht bereit, Details zu teilen — aber wir möchten wissen, ob Interesse besteht, bevor wir weitermachen.
+              DutyBoost schafft eine neue Einnahmequelle für die Reisebranche. Wir sind noch nicht bereit, alle Details zu teilen — aber wir möchten wissen, ob Interesse besteht, bevor wir weitermachen.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">2 Minuten · 7 Fragen · Unverbindlich.</p>
           </div>
