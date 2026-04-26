@@ -135,7 +135,7 @@ export default function TravelPartnerSurveyIT() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               C'è una nuova fonte di reddito disponibile per il settore dei viaggi.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                È giusta per te?
+                Ci aiuterai a validarla?
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
