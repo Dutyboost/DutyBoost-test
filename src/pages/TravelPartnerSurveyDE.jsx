@@ -336,7 +336,7 @@ export default function TravelPartnerSurveyDE() {
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
                 <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Ja, ich möchte kontaktiert werden</strong>, wenn DutyBoost bereit ist, Details zu teilen.
+                  <strong>Ja, ich möchte kontaktiert werden</strong>, wenn DutyBoost bereit ist, weitere Details zu teilen.
                 </span>
               </label>
             </div>

@@ -408,7 +408,7 @@ export default function TravelPartnerSurvey() {
                   className="mt-0.5 accent-primary w-4 h-4 cursor-pointer"
                 />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Yes, I'd like to be contacted</strong> when DutyBoost is ready to share details.
+                  <strong>Yes, I'd like to be contacted</strong> when DutyBoost is ready to share more details.
                 </span>
               </label>
             </div>
