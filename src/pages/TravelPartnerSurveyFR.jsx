@@ -60,7 +60,7 @@ export default function TravelPartnerSurveyFR() {
     company_name: "",
     company_type: "",
     annual_bookings: "",
-    current_loyalty: "",
+    current_loyalty: [],
     biggest_challenge: "",
     interest_level: "",
     commission_attractive: "",
@@ -71,6 +71,20 @@ export default function TravelPartnerSurveyFR() {
   });
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
+
+  const handleLoyaltyToggle = (option) => {
+    const hasExclusive = form.current_loyalty.includes("Aucun") || form.current_loyalty.includes("Autre");
+    const isExclusive = option === "Aucun" || option === "Autre";
+    const hasRegular = form.current_loyalty.some(o => ["Points / Miles", "Réductions", "Avantages partenaires"].includes(o));
+
+    if (form.current_loyalty.includes(option)) {
+      setForm((f) => ({ ...f, current_loyalty: f.current_loyalty.filter(o => o !== option) }));
+    } else {
+      if (isExclusive && hasRegular) return;
+      if (!isExclusive && hasExclusive) return;
+      setForm((f) => ({ ...f, current_loyalty: [...f.current_loyalty, option] }));
+    }
+  };
 
   const BLOCKED_KEYWORDS = [
     'porn', 'xxx', 'sex', 'adult', 'xxx', 'nude', 'naked', 'erotic', 'xxx',
@@ -147,7 +161,7 @@ export default function TravelPartnerSurveyFR() {
   const canNext = () => {
     if (step === 0) return form.company_type !== "";
     if (step === 1) return form.annual_bookings !== "";
-    if (step === 2) return form.current_loyalty !== "";
+    if (step === 2) return form.current_loyalty.length > 0;
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
@@ -229,8 +243,40 @@ export default function TravelPartnerSurveyFR() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Proposez-vous actuellement des avantages de fidélité à vos voyageurs ?</h2>
-              <div className="space-y-2">{LOYALTY_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />)}</div>
-              {form.current_loyalty === "Autre" && (
+              <p className="text-sm text-muted-foreground">Sélectionnez tout ce qui s'applique</p>
+              <div className="space-y-2">
+                {LOYALTY_OPTIONS.map((o) => {
+                  const isSelected = form.current_loyalty.includes(o);
+                  const isExclusive = o === "Aucun" || o === "Autre";
+                  const hasRegular = form.current_loyalty.some(opt => ["Points / Miles", "Réductions", "Avantages partenaires"].includes(opt));
+                  const disabled = isExclusive ? hasRegular : form.current_loyalty.includes("Aucun") || form.current_loyalty.includes("Autre");
+                  
+                  return (
+                    <button
+                      key={o}
+                      onClick={() => handleLoyaltyToggle(o)}
+                      disabled={disabled && !isSelected}
+                      className={`w-full text-left px-4 py-3 rounded-xl border text-sm font-medium transition-all flex items-center gap-3 ${
+                        disabled && !isSelected
+                          ? "opacity-40 cursor-not-allowed bg-muted"
+                          : isSelected
+                          ? "bg-primary text-primary-foreground border-primary shadow-md"
+                          : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground cursor-pointer"
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onChange={() => {}}
+                        className="w-4 h-4"
+                        disabled={disabled && !isSelected}
+                      />
+                      {o}
+                    </button>
+                  );
+                })}
+              </div>
+              {form.current_loyalty.includes("Autre") && (
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Décrivez brièvement..." value={form.loyalty_other || ""} onChange={(e) => set("loyalty_other", e.target.value)} />
               )}
               <div className="space-y-2 pt-1">

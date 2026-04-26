@@ -60,7 +60,7 @@ export default function TravelPartnerSurveyDE() {
     company_name: "",
     company_type: "",
     annual_bookings: "",
-    current_loyalty: "",
+    current_loyalty: [],
     biggest_challenge: "",
     interest_level: "",
     commission_attractive: "",
@@ -71,6 +71,20 @@ export default function TravelPartnerSurveyDE() {
   });
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
+
+  const handleLoyaltyToggle = (option) => {
+    const hasExclusive = form.current_loyalty.includes("Keine") || form.current_loyalty.includes("Sonstige");
+    const isExclusive = option === "Keine" || option === "Sonstige";
+    const hasRegular = form.current_loyalty.some(o => ["Punkte / Meilen", "Rabatte", "Partnervorteile"].includes(o));
+
+    if (form.current_loyalty.includes(option)) {
+      setForm((f) => ({ ...f, current_loyalty: f.current_loyalty.filter(o => o !== option) }));
+    } else {
+      if (isExclusive && hasRegular) return;
+      if (!isExclusive && hasExclusive) return;
+      setForm((f) => ({ ...f, current_loyalty: [...f.current_loyalty, option] }));
+    }
+  };
 
   const BLOCKED_KEYWORDS = [
     'porn', 'xxx', 'sex', 'adult', 'xxx', 'nude', 'naked', 'erotic', 'xxx',
@@ -154,7 +168,7 @@ export default function TravelPartnerSurveyDE() {
   const canNext = () => {
     if (step === 0) return form.company_type !== "";
     if (step === 1) return form.annual_bookings !== "";
-    if (step === 2) return form.current_loyalty !== "";
+    if (step === 2) return form.current_loyalty.length > 0;
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
