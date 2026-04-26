@@ -71,6 +71,17 @@ export default function TravelPartnerSurveyFR() {
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
+  const BLOCKED_KEYWORDS = [
+    'porn', 'xxx', 'sex', 'adult', 'xxx', 'nude', 'naked', 'erotic', 'xxx',
+    'penis', 'vagina', 'cock', 'pussy', 'ass', 'fuck', 'shit', 'cunt',
+    'whore', 'slut', 'bitch', 'damn', 'bullshit', 'asshole', 'bastard'
+  ];
+
+  const hasObsceneContent = (text) => {
+    const lower = text.toLowerCase();
+    return BLOCKED_KEYWORDS.some(keyword => lower.includes(keyword));
+  };
+
   const extractHostname = (val) => {
     const trimmed = val.trim();
     if (!trimmed) return null;

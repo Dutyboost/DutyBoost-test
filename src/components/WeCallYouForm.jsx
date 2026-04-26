@@ -53,6 +53,16 @@ function isValidWebsite(url) {
   return /^[a-z0-9\-]+\.[a-z]{2,}/.test(domain);
 }
 
+function hasObsceneContent(text) {
+  const BLOCKED_KEYWORDS = [
+    'porn', 'xxx', 'sex', 'adult', 'nude', 'naked', 'erotic',
+    'penis', 'vagina', 'cock', 'pussy', 'ass', 'fuck', 'shit', 'cunt',
+    'whore', 'slut', 'bitch', 'damn', 'bullshit', 'asshole', 'bastard'
+  ];
+  const lower = text.toLowerCase();
+  return BLOCKED_KEYWORDS.some(keyword => lower.includes(keyword));
+}
+
 function domainsMatch(email, website) {
   const emailDomain = email.toLowerCase().split('@')[1];
   const websiteDomain = extractDomain(website);
@@ -88,6 +98,8 @@ export default function WeCallYouForm({ onSuccess }) {
       errs.company_name = t('wecallyou.err_company');
     if (!isValidWebsite(form.website))
       errs.website = t('wecallyou.err_website');
+    else if (hasObsceneContent(form.website))
+      errs.website = 'This website cannot be submitted.';
     else if (form.email && isWorkEmail(form.email) && !domainsMatch(form.email, form.website))
       errs.website = t('wecallyou.err_domain_mismatch');
     if (!form.industry)
