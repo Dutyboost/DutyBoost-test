@@ -56,6 +56,7 @@ export default function TravelPartnerSurvey() {
     commission_attractive: "",
     wants_demo: false,
     phone: "",
+    loyalty_other: "",
   });
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
@@ -215,6 +216,18 @@ export default function TravelPartnerSurvey() {
                   <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />
                 ))}
               </div>
+              {form.current_loyalty === "Other" && (
+                <div className="space-y-2 pt-1">
+                  <label className="text-sm font-medium">Please explain <span className="text-muted-foreground">(optional)</span></label>
+                  <textarea
+                    className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    rows={3}
+                    placeholder="How do you currently approach traveler loyalty?"
+                    value={form.loyalty_other || ""}
+                    onChange={(e) => set("loyalty_other", e.target.value)}
+                  />
+                </div>
+              )}
               <div className="space-y-2 pt-2">
                 <label className="text-sm font-medium">What's your biggest challenge with customer loyalty? <span className="text-muted-foreground">(optional)</span></label>
                 <textarea

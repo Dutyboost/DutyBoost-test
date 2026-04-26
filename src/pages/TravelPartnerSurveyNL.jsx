@@ -56,6 +56,7 @@ export default function TravelPartnerSurveyNL() {
     commission_attractive: "",
     wants_demo: false,
     phone: "",
+    loyalty_other: "",
   });
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
@@ -214,6 +215,18 @@ export default function TravelPartnerSurveyNL() {
                   <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />
                 ))}
               </div>
+              {form.current_loyalty === "Anders" && (
+                <div className="space-y-2 pt-1">
+                  <label className="text-sm font-medium">Licht toe <span className="text-muted-foreground">(optioneel)</span></label>
+                  <textarea
+                    className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    rows={3}
+                    placeholder="Hoe ga je momenteel om met reizigerslojaliteit?"
+                    value={form.loyalty_other || ""}
+                    onChange={(e) => set("loyalty_other", e.target.value)}
+                  />
+                </div>
+              )}
               <div className="space-y-2 pt-2">
                 <label className="text-sm font-medium">Wat is jouw grootste uitdaging met klantentrouw? <span className="text-muted-foreground">(optioneel)</span></label>
                 <textarea
