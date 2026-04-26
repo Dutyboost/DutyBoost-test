@@ -89,7 +89,11 @@ export default function TravelPartnerSurveyES() {
     try {
       const res = await fetch(`https://dns.google/resolve?name=${hostname}&type=A`);
       const data = await res.json();
-      return data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0;
+      // Status 0 = success, must have Answer array with records
+      if (data.Status !== 0) return false;
+      if (!Array.isArray(data.Answer) || data.Answer.length === 0) return false;
+      // Verify at least one A record exists (not just other record types)
+      return data.Answer.some(record => record.type === 1);
     } catch {
       return false;
     }
