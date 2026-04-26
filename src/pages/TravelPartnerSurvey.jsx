@@ -223,7 +223,7 @@ export default function TravelPartnerSurvey() {
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">How open are you to small technical additions to your final booking confirmation step that will help release the new revenue stream?</h2>
+              <h2 className="text-2xl font-heading font-bold">How open are you to small technical additions to your final booking confirmation step that will help unleash the new revenue stream?</h2>
               <div className="space-y-2">
                 {SNIPPET_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />

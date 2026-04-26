@@ -188,7 +188,7 @@ export default function TravelPartnerSurveyNL() {
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Hoe open sta je tegenover kleine technische toevoegingen aan jouw definitieve boekingsbevestigingsstap die de nieuwe inkomstenstroom vrijgeeft?</h2>
+              <h2 className="text-2xl font-heading font-bold">Hoe open sta je tegenover kleine technische toevoegingen aan jouw definitieve boekingsbevestigingsstap die de nieuwe inkomstenstroom ontketent?</h2>
               <div className="space-y-2">{SNIPPET_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />)}</div>
             </div>
           )}

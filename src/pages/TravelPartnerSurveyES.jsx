@@ -188,7 +188,7 @@ export default function TravelPartnerSurveyES() {
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Qué tan abierto estás a pequeñas adiciones técnicas en tu paso final de confirmación de reserva que ayudarán a activar la nueva fuente de ingresos?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Qué tan abierto estás a pequeñas adiciones técnicas en tu paso final de confirmación de reserva que ayudarán a desatar la nueva fuente de ingresos?</h2>
               <div className="space-y-2">{SNIPPET_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />)}</div>
             </div>
           )}
