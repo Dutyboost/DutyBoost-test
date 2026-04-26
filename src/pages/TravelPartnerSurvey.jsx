@@ -352,7 +352,7 @@ export default function TravelPartnerSurvey() {
           {step === 6 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Last step — Let us know who you are.</h2>
-              <p className="text-muted-foreground text-sm">We'll reach out when we're ready to share more. No spam, ever.</p>
+              <p className="text-muted-foreground text-sm">Would you like to stay updated? We'll only reach out when we have something meaningful to share. No spam, ever.</p>
               <div className="space-y-3">
                 <Input placeholder="Full name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <div>
