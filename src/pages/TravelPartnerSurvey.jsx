@@ -218,7 +218,7 @@ export default function TravelPartnerSurvey() {
               </div>
               {form.current_loyalty === "Other" && (
                 <div className="space-y-2 pt-1">
-                  <label className="text-sm font-medium">Please explain <span className="text-muted-foreground">(optional)</span></label>
+                  <label className="text-sm font-medium">Please explain</label>
                   <textarea
                     className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
                     rows={3}
@@ -229,7 +229,7 @@ export default function TravelPartnerSurvey() {
                 </div>
               )}
               <div className="space-y-2 pt-2">
-                <label className="text-sm font-medium">What's your biggest challenge with customer loyalty? <span className="text-muted-foreground">(optional)</span></label>
+                <label className="text-sm font-medium">What's your biggest challenge with customer loyalty?</label>
                 <textarea
                   className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
                   rows={3}
@@ -272,9 +272,9 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">Last question — who are you?</h2>
               <p className="text-muted-foreground text-sm">If you are interested in a new passive yet interesting revenue stream, leave your contacts and we will be in touch when we launch.</p>
               <div className="space-y-3">
-                <Input placeholder="Full name (optional)" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Work email (optional)" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <Input placeholder="Company name (optional)" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                <Input placeholder="Full name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Work email" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                <Input placeholder="Company name" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <Input placeholder="Phone (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">

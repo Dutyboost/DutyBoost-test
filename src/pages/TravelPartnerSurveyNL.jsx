@@ -217,7 +217,7 @@ export default function TravelPartnerSurveyNL() {
               </div>
               {form.current_loyalty === "Anders" && (
                 <div className="space-y-2 pt-1">
-                  <label className="text-sm font-medium">Licht toe <span className="text-muted-foreground">(optioneel)</span></label>
+                  <label className="text-sm font-medium">Licht toe</label>
                   <textarea
                     className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
                     rows={3}
@@ -228,7 +228,7 @@ export default function TravelPartnerSurveyNL() {
                 </div>
               )}
               <div className="space-y-2 pt-2">
-                <label className="text-sm font-medium">Wat is jouw grootste uitdaging met klantentrouw? <span className="text-muted-foreground">(optioneel)</span></label>
+                <label className="text-sm font-medium">Wat is jouw grootste uitdaging met klantentrouw?</label>
                 <textarea
                   className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40"
                   rows={3}
@@ -271,9 +271,9 @@ export default function TravelPartnerSurveyNL() {
               <h2 className="text-2xl font-heading font-bold">Laatste vraag — wie ben je?</h2>
               <p className="text-muted-foreground text-sm">Als je geïnteresseerd bent in een nieuwe passieve maar interessante inkomstenstroom, laat dan je contactgegevens achter en we nemen contact met je op zodra we lanceren.</p>
               <div className="space-y-3">
-                <Input placeholder="Volledige naam (optioneel)" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Zakelijk e-mailadres (optioneel)" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
-                <Input placeholder="Bedrijfsnaam (optioneel)" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                <Input placeholder="Volledige naam" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Zakelijk e-mailadres" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                <Input placeholder="Bedrijfsnaam" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <Input placeholder="Telefoonnummer (optioneel)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
               </div>
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
