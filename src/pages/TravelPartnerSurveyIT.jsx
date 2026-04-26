@@ -175,7 +175,7 @@ export default function TravelPartnerSurveyIT() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return websiteValid && !verifyingWebsite && !emailError && form.email;
+    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
