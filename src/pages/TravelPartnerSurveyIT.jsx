@@ -131,30 +131,15 @@ export default function TravelPartnerSurveyIT() {
               <FlaskConical className="w-3 h-3" /> Validazione del modello · Solo per partner di viaggio
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Stiamo validando un nuovo modello —{" "}
+              Una nuova fonte di reddito per i partner di viaggio —{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                e abbiamo bisogno della tua opinione onesta
+                vogliamo sapere se fa per te
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> è un modello che stiamo validando nel settore dei viaggi. Il modello: come partner di viaggio, offri ai tuoi viaggiatori un vantaggio per lo shopping in aeroporto — e in cambio guadagni una commissione su ogni acquisto che effettuano.
+              <strong>DutyBoost</strong> consente ai partner di viaggio di accedere a una nuova fonte di reddito. Stiamo validando se esiste un interesse reale nel settore — e il tuo feedback determina direttamente ciò che costruiamo.
             </p>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Vogliamo capire se esiste interesse nel settore per questo tipo di modello di condivisione dei ricavi e se creerebbe un valore reale per la tua attività.
-            </p>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { icon: Lightbulb, label: "Il modello", desc: "I viaggiatori ricevono un vantaggio per lo shopping in aeroporto tramite il loro partner di viaggio." },
-                { icon: MessageSquare, label: "Il tuo ruolo", desc: "Come partner di viaggio, guadagni una commissione su ogni acquisto effettuato dai viaggiatori che invii all'aeroporto." },
-                { icon: FlaskConical, label: "Cosa stiamo validando", desc: "Se questo modello di condivisione dei ricavi ha abbastanza interesse per essere sviluppato ulteriormente." },
-              ].map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
-                  <Icon className="w-4 h-4 text-primary" />
-                  <p className="text-sm font-semibold">{label}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
+
             <p className="mt-8 text-sm font-semibold text-foreground flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-primary" />
               5 domande rapide — le tue risposte determinano direttamente se lo costruiamo.
@@ -177,7 +162,7 @@ export default function TravelPartnerSurveyIT() {
           {step === 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Che tipo di azienda di viaggi sei?</h2>
-              <p className="text-muted-foreground text-sm">Questo ci aiuta a capire quali partner di viaggio trarrebbero maggior beneficio da un modello di commissioni sugli acquisti in aeroporto.</p>
+              <p className="text-muted-foreground text-sm">Questo ci aiuta a capire quali partner di viaggio trarrebbero maggior beneficio da DutyBoost.</p>
               <div className="space-y-2">{COMPANY_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} />)}</div>
             </div>
           )}
@@ -185,7 +170,7 @@ export default function TravelPartnerSurveyIT() {
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Quante prenotazioni elabori al mese?</h2>
-              <p className="text-muted-foreground text-sm">Questo ci aiuta a stimare quali potrebbero essere i guadagni da commissioni per te in base al tuo volume di prenotazioni.</p>
+              <p className="text-muted-foreground text-sm">Questo ci aiuta a stimare la potenziale opportunità di reddito per te in base al tuo volume di prenotazioni.</p>
               <div className="space-y-2">{BOOKING_VOLUMES.map((v) => <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />)}</div>
             </div>
           )}
@@ -193,7 +178,7 @@ export default function TravelPartnerSurveyIT() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Qual è il tuo attuale approccio alla fidelizzazione dei viaggiatori?</h2>
-              <p className="text-muted-foreground text-sm">Stiamo esplorando se questo modello complementa il tuo approccio attuale e se una fonte di reddito aggiuntiva tramite gli acquisti in aeroporto è attraente.</p>
+              <p className="text-muted-foreground text-sm">Stiamo esplorando se una fonte di reddito aggiuntiva tramite DutyBoost è attraente accanto alla tua attuale strategia di fidelizzazione.</p>
               <div className="space-y-2">{LOYALTY_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />)}</div>
               {form.current_loyalty === "Altro" && (
                 <div className="space-y-2 pt-1">
@@ -211,22 +196,22 @@ export default function TravelPartnerSurveyIT() {
           {step === 3 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Cosa ne pensi di questo modello?</h2>
-              <p className="text-muted-foreground text-sm">Sulla base di ciò che hai condiviso: i partner di viaggio offrono ai loro viaggiatori un vantaggio per lo shopping in aeroporto e ricevono una commissione su ogni acquisto. Qual è la tua reazione iniziale?</p>
+              <p className="text-muted-foreground text-sm">DutyBoost dà ai partner di viaggio accesso a una nuova fonte di reddito. Qual è la tua reazione iniziale?</p>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">DutyBoost funziona tramite un modello di condivisione dei ricavi: su tutti gli acquisti superiori a €70 effettuati dai tuoi viaggiatori in aeroporto, ricevi una commissione. Quanto è attraente per la tua attività?</h2>
+              <h2 className="text-2xl font-heading font-bold">DutyBoost dà alla tua attività accesso a una nuova fonte di reddito. Quanto è attraente questa idea per la tua attività?</h2>
               <div className="space-y-2">{COMMISSION_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />)}</div>
             </div>
           )}
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Per attivare questo flusso di entrate, DutyBoost fornisce un semplice snippet da aggiungere alla tua pagina di conferma prenotazione — questo dà automaticamente a ogni viaggiatore un DutyCredit da spendere in aeroporto. Quanto è probabile che tu lo implementi?</h2>
-              <p className="text-muted-foreground text-sm">Lo snippet si installa in pochi minuti e non richiede modifiche al tuo flusso di prenotazione. Attiva semplicemente un DutyCredit per ogni viaggiatore alla conferma, abilitando l'opportunità di commissione per te.</p>
+              <h2 className="text-2xl font-heading font-bold">DutyBoost si integra con il tuo flusso di prenotazione esistente tramite un semplice passaggio tecnico. Quanto sei aperto ad aggiungere una piccola integrazione al tuo processo di conferma prenotazione?</h2>
+              <p className="text-muted-foreground text-sm">Nessuna modifica complessa necessaria — solo una leggera aggiunta al tuo flusso di conferma esistente.</p>
               <div className="space-y-2">{SNIPPET_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />)}</div>
             </div>
           )}

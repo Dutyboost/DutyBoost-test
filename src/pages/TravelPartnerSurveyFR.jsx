@@ -131,30 +131,15 @@ export default function TravelPartnerSurveyFR() {
               <FlaskConical className="w-3 h-3" /> Validation du modèle · Partenaires de voyage uniquement
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Nous validons un nouveau modèle —{" "}
+              Une nouvelle source de revenus pour les partenaires de voyage —{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                et nous avons besoin de votre avis honnête
+                nous voulons savoir si c'est fait pour vous
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              <strong>DutyBoost</strong> est un modèle que nous validons dans le secteur du voyage. Le principe : en tant que partenaire de voyage, vous offrez à vos voyageurs un avantage shopping en aéroport — et en retour, vous percevez une commission sur chaque achat qu'ils effectuent.
+              <strong>DutyBoost</strong> permet aux partenaires de voyage de débloquer une nouvelle source de revenus. Nous validons s'il existe un intérêt réel dans le secteur — et votre avis détermine directement ce que nous construisons.
             </p>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Nous souhaitons comprendre s'il existe un intérêt dans le secteur pour ce type de modèle de partage des revenus, et si cela créerait une valeur réelle pour votre entreprise.
-            </p>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { icon: Lightbulb, label: "Le modèle", desc: "Les voyageurs bénéficient d'un avantage shopping en aéroport via leur partenaire de voyage." },
-                { icon: MessageSquare, label: "Votre rôle", desc: "En tant que partenaire de voyage, vous percevez une commission sur chaque achat effectué par les voyageurs que vous envoyez à l'aéroport." },
-                { icon: FlaskConical, label: "Ce que nous validons", desc: "Si ce modèle de partage des revenus suscite suffisamment d'intérêt pour être développé davantage." },
-              ].map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="bg-card border border-border rounded-xl p-4 space-y-2">
-                  <Icon className="w-4 h-4 text-primary" />
-                  <p className="text-sm font-semibold">{label}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
+
             <p className="mt-8 text-sm font-semibold text-foreground flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-primary" />
               5 questions rapides — vos réponses déterminent directement si nous construisons cela.
@@ -177,7 +162,7 @@ export default function TravelPartnerSurveyFR() {
           {step === 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Quel type d'entreprise de voyage êtes-vous ?</h2>
-              <p className="text-muted-foreground text-sm">Cela nous aide à comprendre quels partenaires de voyage bénéficieraient le plus d'un modèle de commission sur les achats en aéroport.</p>
+              <p className="text-muted-foreground text-sm">Cela nous aide à comprendre quels partenaires de voyage bénéficieraient le plus de DutyBoost.</p>
               <div className="space-y-2">{COMPANY_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} />)}</div>
             </div>
           )}
@@ -185,7 +170,7 @@ export default function TravelPartnerSurveyFR() {
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Combien de réservations traitez-vous par mois ?</h2>
-              <p className="text-muted-foreground text-sm">Cela nous aide à estimer les revenus de commission potentiels pour vous en fonction de votre volume de réservations.</p>
+              <p className="text-muted-foreground text-sm">Cela nous aide à estimer l'opportunité de revenus potentielle pour vous en fonction de votre volume de réservations.</p>
               <div className="space-y-2">{BOOKING_VOLUMES.map((v) => <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} />)}</div>
             </div>
           )}
@@ -193,7 +178,7 @@ export default function TravelPartnerSurveyFR() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Quelle est votre approche actuelle de la fidélisation des voyageurs ?</h2>
-              <p className="text-muted-foreground text-sm">Nous explorons si ce modèle complète votre approche actuelle et si une source de revenus supplémentaire via les achats en aéroport est attrayante.</p>
+              <p className="text-muted-foreground text-sm">Nous explorons si une source de revenus supplémentaire via DutyBoost est attrayante en complément de votre stratégie de fidélisation actuelle.</p>
               <div className="space-y-2">{LOYALTY_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />)}</div>
               {form.current_loyalty === "Autre" && (
                 <div className="space-y-2 pt-1">
@@ -211,22 +196,22 @@ export default function TravelPartnerSurveyFR() {
           {step === 3 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Que pensez-vous de ce modèle ?</h2>
-              <p className="text-muted-foreground text-sm">Sur la base de ce que vous avez partagé : les partenaires de voyage offrent à leurs voyageurs un avantage shopping en aéroport et reçoivent une commission sur chaque achat. Quelle est votre réaction initiale ?</p>
+              <p className="text-muted-foreground text-sm">DutyBoost donne aux partenaires de voyage accès à une nouvelle source de revenus. Quelle est votre réaction initiale ?</p>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">DutyBoost fonctionne via un modèle de partage des revenus : sur tous les achats supérieurs à 70 € effectués par vos voyageurs à l'aéroport, vous percevez une commission. Dans quelle mesure cela est-il attractif pour votre entreprise ?</h2>
+              <h2 className="text-2xl font-heading font-bold">DutyBoost donne à votre entreprise accès à une nouvelle source de revenus. Dans quelle mesure cette idée est-elle attractive pour votre activité ?</h2>
               <div className="space-y-2">{COMMISSION_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} />)}</div>
             </div>
           )}
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Pour activer ce flux de revenus, DutyBoost fournit un simple snippet à ajouter sur votre page de confirmation de réservation — cela donne automatiquement à chaque voyageur un DutyCredit à dépenser à l'aéroport. Quelle est la probabilité que vous l'implémentiez ?</h2>
-              <p className="text-muted-foreground text-sm">Le snippet s'installe en quelques minutes et ne nécessite aucune modification de votre flux de réservation. Il active simplement un DutyCredit pour chaque voyageur lors de la confirmation, ouvrant ainsi l'opportunité de commission pour vous.</p>
+              <h2 className="text-2xl font-heading font-bold">DutyBoost s'intègre à votre flux de réservation existant via une simple étape technique. Dans quelle mesure seriez-vous ouvert à l'ajout d'une petite intégration à votre processus de confirmation de réservation ?</h2>
+              <p className="text-muted-foreground text-sm">Aucune modification complexe requise — juste un ajout léger à votre flux de confirmation existant.</p>
               <div className="space-y-2">{SNIPPET_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} />)}</div>
             </div>
           )}
