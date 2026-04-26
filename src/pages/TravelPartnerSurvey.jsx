@@ -5,14 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight, Lightbulb, MessageSquare, FlaskConical, Zap } from "lucide-react";
 
-const STEPS = [
-  { id: "intro", label: "About You" },
-  { id: "business", label: "Your Business" },
-  { id: "loyalty", label: "Loyalty Today" },
-  { id: "fit", label: "DutyBoost Fit" },
-  { id: "commission", label: "Revenue Share" },
-  { id: "contact", label: "Stay in Touch" },
-];
+const TOTAL_QUESTIONS = 6;
 
 const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel", "Car Rental"];
 const BOOKING_VOLUMES = ["Under 500", "500 – 2,000", "2,000 – 10,000", "10,000+"];
@@ -121,7 +114,7 @@ export default function TravelPartnerSurvey() {
         </div>
       </nav>
 
-      {/* Hero banner – only show on step 0 */}
+      {/* Hero banner – only show on question 1 */}
       {step === 0 && (
         <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 border-b border-border">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -171,13 +164,12 @@ export default function TravelPartnerSurvey() {
           {/* Progress */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Step {step + 1} of {STEPS.length}</span>
-              <span>{STEPS[step].label}</span>
+              <span>Question {step + 1} of {TOTAL_QUESTIONS}</span>
             </div>
             <div className="h-1.5 bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-500"
-                style={{ width: `${((step + 1) / STEPS.length) * 100}%` }}
+                style={{ width: `${((step + 1) / TOTAL_QUESTIONS) * 100}%` }}
               />
             </div>
           </div>
@@ -264,7 +256,7 @@ export default function TravelPartnerSurvey() {
           {/* Step 5 – contact */}
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Last step — who are you?</h2>
+              <h2 className="text-2xl font-heading font-bold">Last question — who are you?</h2>
               <p className="text-muted-foreground text-sm">We'll share the results of this validation with you and let you know if and when we move forward with building.</p>
               <div className="space-y-3">
                 <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
@@ -293,7 +285,7 @@ export default function TravelPartnerSurvey() {
                 Back
               </Button>
             )}
-            {step < STEPS.length - 1 ? (
+            {step < TOTAL_QUESTIONS - 1 ? (
               <Button
                 className="flex-1 gap-2"
                 disabled={!canNext()}

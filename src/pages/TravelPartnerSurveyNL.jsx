@@ -5,14 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight, Lightbulb, MessageSquare, FlaskConical } from "lucide-react";
 
-const STEPS = [
-  { id: "intro", label: "Over jou" },
-  { id: "business", label: "Jouw bedrijf" },
-  { id: "loyalty", label: "Loyaliteit vandaag" },
-  { id: "fit", label: "DutyBoost Fit" },
-  { id: "commission", label: "Revenue Share" },
-  { id: "contact", label: "Blijf op de hoogte" },
-];
+const TOTAL_QUESTIONS = 6;
 
 const COMPANY_TYPES = ["Reisbureau", "Luchtvaartmaatschappij", "Touroperator", "OTA (Online Reisagentschap)", "Hotel", "Autoverhuur"];
 const BOOKING_VOLUMES = ["Minder dan 500", "500 – 2.000", "2.000 – 10.000", "10.000+"];
@@ -121,7 +114,7 @@ export default function TravelPartnerSurveyNL() {
         </div>
       </nav>
 
-      {/* Hero banner – only show on step 0 */}
+      {/* Hero banner – only show on question 1 */}
       {step === 0 && (
         <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 border-b border-border">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -170,13 +163,12 @@ export default function TravelPartnerSurveyNL() {
           {/* Progress */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Stap {step + 1} van {STEPS.length}</span>
-              <span>{STEPS[step].label}</span>
+              <span>Vraag {step + 1} van {TOTAL_QUESTIONS}</span>
             </div>
             <div className="h-1.5 bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-500"
-                style={{ width: `${((step + 1) / STEPS.length) * 100}%` }}
+                style={{ width: `${((step + 1) / TOTAL_QUESTIONS) * 100}%` }}
               />
             </div>
           </div>
@@ -263,7 +255,7 @@ export default function TravelPartnerSurveyNL() {
           {/* Step 5 – contact */}
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Laatste stap — wie ben je?</h2>
+              <h2 className="text-2xl font-heading font-bold">Laatste vraag — wie ben je?</h2>
               <p className="text-muted-foreground text-sm">We delen de resultaten van deze validatie met je en laten je weten als en wanneer we verder gaan.</p>
               <div className="space-y-3">
                 <Input placeholder="Volledige naam *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
@@ -292,7 +284,7 @@ export default function TravelPartnerSurveyNL() {
                 Terug
               </Button>
             )}
-            {step < STEPS.length - 1 ? (
+            {step < TOTAL_QUESTIONS - 1 ? (
               <Button
                 className="flex-1 gap-2"
                 disabled={!canNext()}
