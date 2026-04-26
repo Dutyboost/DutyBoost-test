@@ -174,13 +174,17 @@ export default function TravelPartnerSurveyFR() {
 
   const handleSubmit = async () => {
     setSaving(true);
-    const submitData = {
-      ...form,
-      current_loyalty: form.current_loyalty.join(", ")
-    };
-    await base44.entities.SurveyResponse.create(submitData);
-    setSubmitted(true);
-    setSaving(false);
+    try {
+      const submitData = {
+        ...form,
+        current_loyalty: form.current_loyalty.join(", ")
+      };
+      await base44.entities.SurveyResponse.create(submitData);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSaving(false);
+    }
   };
 
   if (submitted) {
