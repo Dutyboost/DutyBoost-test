@@ -2,7 +2,9 @@ import { useState } from "react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import WeCallYouForm from "../components/WeCallYouForm";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export default function ComingSoonPage() {
   const [open, setOpen] = useState(false);
@@ -11,47 +13,60 @@ export default function ComingSoonPage() {
   const handleSuccess = () => {
     setSubmitted(true);
   };
+
   return (
     <div className="min-h-screen bg-background font-body flex flex-col">
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center">
-          <DutyBoostLogo height={175} />
+        <div className="max-w-4xl mx-auto px-4 h-16 flex items-center">
+          <DutyBoostLogo height={160} />
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="relative overflow-hidden flex-1 flex items-center justify-center px-4 sm:px-6 py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
-        <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 border-b border-border">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-3xl mx-auto text-center space-y-8">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
-            Something{" "}
+        <div className="max-w-4xl mx-auto px-4 py-14 sm:py-24 relative">
+          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+            <Sparkles className="w-3 h-3" /> For Travel Partners &amp; Airport Retailers
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
+            Something new is coming{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              exciting
+              to the travel industry.
             </span>
-            {" "}is coming
           </h1>
-
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We're putting the finishing touches on <strong>DutyBoost</strong> — the Travel Retail Conversion Layer that turns travelers into high-intent buyers like never before. 🎉 <strong>A model where everyone wins!</strong>
+          <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            We're not ready to share all the details yet — but we want to hear from the right people first.
           </p>
+          <p className="mt-2 text-sm text-muted-foreground">2 minutes · No strings attached.</p>
 
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-sm max-w-md mx-auto space-y-3">
-            <p className="font-heading font-semibold text-lg text-foreground">Want to be the first to know?</p>
-            <p className="text-foreground text-sm leading-relaxed font-semibold">
-              If you're a travel partner or airport retailer always looking to boost conversions and customer loyalty, we'd love to hear from you.
-              <br /><br />
-              Reach out via{" "}
-              <button onClick={() => { setOpen(true); setSubmitted(false); }} className="text-primary font-bold underline underline-offset-2 hover:text-primary/80 transition-colors">
-                our contact form
-              </button>
-            </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <Link to="/travel-partner-survey">
+              <Button size="lg" className="gap-2 text-base">
+                Share your opinion <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+            <Button
+              size="lg"
+              variant="outline"
+              className="gap-2 text-base"
+              onClick={() => { setOpen(true); setSubmitted(false); }}
+            >
+              Get in touch
+            </Button>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-6 px-4 mt-auto">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+          <DutyBoostLogo height={130} />
+          <p>© {new Date().getFullYear()} DutyBoost B.V. All rights reserved.</p>
+        </div>
+      </footer>
 
       {/* Contact Modal */}
       <Dialog open={open} onOpenChange={setOpen}>
@@ -61,7 +76,7 @@ export default function ComingSoonPage() {
               <CheckCircle2 className="w-14 h-14 text-green-500" />
               <h2 className="text-2xl font-heading font-bold">Thank you!</h2>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                We've received your details and will be in touch with you soon.
+                We've received your details and will be in touch soon.
               </p>
             </div>
           ) : (
@@ -69,25 +84,12 @@ export default function ComingSoonPage() {
               <DialogHeader>
                 <DialogTitle>Get in touch</DialogTitle>
               </DialogHeader>
-              <p className="text-sm text-muted-foreground">Leave your details and we'll reach out to discuss how DutyBoost can work for you.</p>
+              <p className="text-sm text-muted-foreground">Leave your details and we'll reach out when the time is right.</p>
               <WeCallYouForm onSuccess={handleSuccess} />
             </>
           )}
         </DialogContent>
       </Dialog>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2 pointer-events-none select-none">
-              <DutyBoostLogo height={150} />
-              <span>The Travel Retail Conversion Layer</span>
-            </div>
-            <p>© {new Date().getFullYear()} DutyBoost. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
