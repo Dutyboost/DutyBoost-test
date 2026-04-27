@@ -210,6 +210,7 @@ const AuthenticatedApp = () => {
           <Route path="/retailer-scan" element={<RetailerScanQR />} />
           <Route path="/leads-admin" element={<LeadsAdmin />} />
           <Route path="/survey-dashboard" element={<SurveyDashboard />} />
+
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

@@ -16,7 +16,8 @@ import {
   Code2,
   Building2,
   Car,
-  Briefcase
+  Briefcase,
+  BarChart2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -29,6 +30,7 @@ const roleNavItems = {
     { label: "Hotel Partners", path: "/hotels", icon: Building2 },
     { label: "Car Rental Partners", path: "/car-rentals", icon: Car },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
+    { label: "Survey Dashboard", path: "/survey-dashboard", icon: BarChart2 },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
   agency: [
