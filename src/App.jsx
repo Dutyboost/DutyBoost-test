@@ -76,6 +76,11 @@ import RetailerPresentationFuture from './pages/RetailerPresentationFuture';
 import RetailerCalculator from './pages/RetailerCalculator';
 import TravelPartnerPresentationFuture from './pages/TravelPartnerPresentationFuture';
 import AirportRetailerSurvey from './pages/AirportRetailerSurvey';
+import AirportRetailerSurveyNL from './pages/AirportRetailerSurveyNL';
+import AirportRetailerSurveyDE from './pages/AirportRetailerSurveyDE';
+import AirportRetailerSurveyES from './pages/AirportRetailerSurveyES';
+import AirportRetailerSurveyFR from './pages/AirportRetailerSurveyFR';
+import AirportRetailerSurveyIT from './pages/AirportRetailerSurveyIT';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -93,6 +98,11 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
         <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
         <Route path="/airport-retailer-survey" element={<AirportRetailerSurvey />} />
+        <Route path="/airport-retailer-survey-nl" element={<AirportRetailerSurveyNL />} />
+        <Route path="/airport-retailer-survey-de" element={<AirportRetailerSurveyDE />} />
+        <Route path="/airport-retailer-survey-es" element={<AirportRetailerSurveyES />} />
+        <Route path="/airport-retailer-survey-fr" element={<AirportRetailerSurveyFR />} />
+        <Route path="/airport-retailer-survey-it" element={<AirportRetailerSurveyIT />} />
         <Route path="*" element={<ComingSoonPage />} />
       </Routes>
     </>
@@ -137,6 +147,11 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
         <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
         <Route path="/airport-retailer-survey" element={<AirportRetailerSurvey />} />
+        <Route path="/airport-retailer-survey-nl" element={<AirportRetailerSurveyNL />} />
+        <Route path="/airport-retailer-survey-de" element={<AirportRetailerSurveyDE />} />
+        <Route path="/airport-retailer-survey-es" element={<AirportRetailerSurveyES />} />
+        <Route path="/airport-retailer-survey-fr" element={<AirportRetailerSurveyFR />} />
+        <Route path="/airport-retailer-survey-it" element={<AirportRetailerSurveyIT />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
