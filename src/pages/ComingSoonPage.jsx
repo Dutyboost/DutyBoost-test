@@ -138,15 +138,15 @@ export default function ComingSoonPage() {
           <p className="mt-2 text-sm text-muted-foreground">{t.meta}</p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Link to={t.surveyPath}>
-              <Button size="lg" className="gap-2 text-base">
+            <Link to={t.surveyPath} className="w-full sm:w-auto">
+              <Button size="lg" className="gap-2 text-base w-full sm:w-auto">
                 {t.cta} <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
             <Button
               size="lg"
               variant="outline"
-              className="gap-2 text-base"
+              className="gap-2 text-base w-full sm:w-auto"
               onClick={() => { setOpen(true); setSubmitted(false); }}
             >
               {t.contact}
