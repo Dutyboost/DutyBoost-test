@@ -81,6 +81,7 @@ import AirportRetailerSurveyDE from './pages/AirportRetailerSurveyDE';
 import AirportRetailerSurveyES from './pages/AirportRetailerSurveyES';
 import AirportRetailerSurveyFR from './pages/AirportRetailerSurveyFR';
 import AirportRetailerSurveyIT from './pages/AirportRetailerSurveyIT';
+import SurveyDashboard from './pages/SurveyDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -208,6 +209,7 @@ const AuthenticatedApp = () => {
           <Route path="/scan-redeem" element={<ScanVoucher />} />
           <Route path="/retailer-scan" element={<RetailerScanQR />} />
           <Route path="/leads-admin" element={<LeadsAdmin />} />
+          <Route path="/survey-dashboard" element={<SurveyDashboard />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
