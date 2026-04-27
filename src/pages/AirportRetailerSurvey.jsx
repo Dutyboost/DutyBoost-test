@@ -7,7 +7,21 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const TOTAL_QUESTIONS = 7;
 
-const STORE_TYPES = ["Fashion & Accessories", "Electronics & Tech", "Food & Beverage", "Duty Free / Liquor & Tobacco", "Beauty & Cosmetics", "Books, News & Gifts", "Other"];
+const STORE_TYPES = [
+  "Perfumes & cosmetics",
+  "Electronics & gadgets",
+  "Chocolate, confectionery & cheese",
+  "Gifts & souvenirs",
+  "Liquors & wines",
+  "Watches & jewellery",
+  "Luxury",
+  "Fashion & accessories",
+  "Travel items",
+  "Books & magazines",
+  "Children & toys",
+  "Pharmacy",
+  "Food and drink",
+];
 const MONTHLY_VISITORS = ["Under 1,000", "1,000 – 5,000", "5,000 – 20,000", "20,000+"];
 const CURRENT_PROMOS = ["None", "Loyalty card / stamp", "App-based discounts", "Airport-wide promotions", "Other"];
 const INTEREST_OPTIONS = [
