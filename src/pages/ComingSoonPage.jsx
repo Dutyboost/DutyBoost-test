@@ -4,80 +4,67 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import WeCallYouForm from "../components/WeCallYouForm";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const LANG_CONTENT = {
   en: {
-    headline: <>Something exciting is coming{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">to the travel industry.</span></>,
-    description: "We're validating a new revenue opportunity for the travel industry. Before revealing more, we'd value your input as part of a select group shaping its direction. Would you be open to answering a few quick questions?",
-    meta: "2 minutes · No strings attached.",
-    cta: "Share your opinion",
+    headline: <>Something exciting is coming{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">from DutyBoost.</span></>,
+    description: "We're working on something big. Stay tuned — we'll be sharing more details soon.",
+    meta: "More to come.",
     contact: "Get in touch",
     contactTitle: "Get in touch",
     contactSub: "Leave your details and we'll reach out when the time is right.",
     thankYou: "Thank you!",
     thankYouSub: "We've received your details and will be in touch soon.",
-    surveyPath: "/travel-partner-survey",
   },
   nl: {
-    headline: <>Er komt iets spannends{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">voor de reisbranche.</span></>,
-    description: "We valideren een nieuwe inkomstenmogelijkheid voor de reisbranche. Voor we meer onthullen, horen we graag jouw mening als onderdeel van een select gezelschap dat de richting mee bepaalt. Wil je een paar korte vragen beantwoorden?",
-    meta: "2 minuten · Vrijblijvend.",
-    cta: "Deel jouw mening",
+    headline: <>Er komt iets spannends{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">van DutyBoost.</span></>,
+    description: "We werken aan iets groots. Blijf op de hoogte — we delen binnenkort meer details.",
+    meta: "Meer volgt.",
     contact: "Neem contact op",
     contactTitle: "Neem contact op",
     contactSub: "Laat je gegevens achter en we nemen contact op wanneer de tijd rijp is.",
     thankYou: "Bedankt!",
     thankYouSub: "We hebben je gegevens ontvangen en nemen snel contact op.",
-    surveyPath: "/travel-partner-survey-nl",
   },
   de: {
-    headline: <>Etwas Spannendes kommt{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">auf die Reisebranche zu.</span></>,
-    description: "Wir validieren eine neue Umsatzchance für die Reisebranche. Bevor wir mehr verraten, würden wir Ihre Meinung als Teil einer ausgewählten Gruppe schätzen, die die Richtung mitgestaltet. Würden Sie ein paar kurze Fragen beantworten?",
-    meta: "2 Minuten · Unverbindlich.",
-    cta: "Meinung teilen",
+    headline: <>Etwas Spannendes kommt{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">von DutyBoost.</span></>,
+    description: "Wir arbeiten an etwas Großem. Bleiben Sie dran — wir teilen bald mehr Details.",
+    meta: "Mehr folgt.",
     contact: "Kontakt aufnehmen",
     contactTitle: "Kontakt aufnehmen",
     contactSub: "Hinterlassen Sie Ihre Daten und wir melden uns zur richtigen Zeit.",
     thankYou: "Vielen Dank!",
     thankYouSub: "Wir haben Ihre Daten erhalten und melden uns bald.",
-    surveyPath: "/travel-partner-survey-de",
   },
   es: {
-    headline: <>Algo emocionante está llegando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">al sector de viajes.</span></>,
-    description: "Estamos validando una nueva oportunidad de ingresos para el sector de viajes. Antes de revelar más, valoraríamos tu opinión como parte de un grupo selecto que está dando forma a su dirección. ¿Estarías dispuesto a responder unas preguntas rápidas?",
-    meta: "2 minutos · Sin compromiso.",
-    cta: "Comparte tu opinión",
+    headline: <>Algo emocionante viene{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">de DutyBoost.</span></>,
+    description: "Estamos trabajando en algo grande. Estad atentos — compartiremos más detalles pronto.",
+    meta: "Más por venir.",
     contact: "Ponerse en contacto",
     contactTitle: "Ponerse en contacto",
     contactSub: "Deja tus datos y nos pondremos en contacto cuando sea el momento adecuado.",
     thankYou: "¡Gracias!",
     thankYouSub: "Hemos recibido tus datos y nos pondremos en contacto pronto.",
-    surveyPath: "/travel-partner-survey-es",
   },
   fr: {
-    headline: <>Quelque chose d'excitant arrive{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">dans le secteur du voyage.</span></>,
-    description: "Nous validons une nouvelle opportunité de revenus pour le secteur du voyage. Avant d'en dire plus, nous apprécierions votre avis en tant que membre d'un groupe sélect qui en façonne la direction. Seriez-vous prêt à répondre à quelques questions rapides ?",
-    meta: "2 minutes · Sans engagement.",
-    cta: "Partager votre avis",
+    headline: <>Quelque chose d'excitant arrive{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">de DutyBoost.</span></>,
+    description: "Nous travaillons sur quelque chose d'important. Restez à l'écoute — nous partagerons plus de détails bientôt.",
+    meta: "Plus à venir.",
     contact: "Nous contacter",
     contactTitle: "Nous contacter",
     contactSub: "Laissez vos coordonnées et nous vous contacterons au bon moment.",
     thankYou: "Merci !",
     thankYouSub: "Nous avons reçu vos informations et vous contacterons bientôt.",
-    surveyPath: "/travel-partner-survey-fr",
   },
   it: {
-    headline: <>Qualcosa di entusiasmante sta arrivando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">nel settore dei viaggi.</span></>,
-    description: "Stiamo validando una nuova opportunità di ricavi per il settore dei viaggi. Prima di rivelare di più, apprezzeremmo il tuo contributo come parte di un gruppo selezionato che ne sta delineando la direzione. Saresti disposto a rispondere ad alcune domande rapide?",
-    meta: "2 minuti · Senza impegno.",
-    cta: "Condividi la tua opinione",
+    headline: <>Qualcosa di entusiasmante sta arrivando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">da DutyBoost.</span></>,
+    description: "Stiamo lavorando a qualcosa di grande. Restate sintonizzati — condivideremo presto maggiori dettagli.",
+    meta: "Altro in arrivo.",
     contact: "Contattaci",
     contactTitle: "Contattaci",
     contactSub: "Lascia i tuoi dati e ti contatteremo al momento giusto.",
     thankYou: "Grazie!",
     thankYouSub: "Abbiamo ricevuto i tuoi dati e ti contatteremo presto.",
-    surveyPath: "/travel-partner-survey-it",
   },
 };
 
@@ -138,18 +125,12 @@ export default function ComingSoonPage() {
           <p className="mt-2 text-sm text-muted-foreground">{t.meta}</p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Link to={t.surveyPath} className="w-full sm:w-auto">
-              <Button size="lg" className="gap-2 text-base w-full sm:w-auto">
-                {t.cta} <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
             <Button
               size="lg"
-              variant="outline"
               className="gap-2 text-base w-full sm:w-auto"
               onClick={() => { setOpen(true); setSubmitted(false); }}
             >
-              {t.contact}
+              {t.contact} <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         </div>
