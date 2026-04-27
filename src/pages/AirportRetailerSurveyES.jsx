@@ -153,7 +153,7 @@ export default function AirportRetailerSurveyES() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">¡Gracias{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          {form.wants_demo ? "Tu opinión es muy valiosa. Nos pondremos en contacto pronto." : "Tu opinión es muy valiosa. Mantente atento para nuestro lanzamiento."}
+          {form.wants_demo ? "Su opinión es muy valiosa. Nos pondremos en contacto pronto." : "Su opinión es muy valiosa. Esté atento para nuestro lanzamiento."}
         </p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
@@ -172,7 +172,7 @@ export default function AirportRetailerSurveyES() {
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               Estamos validando una nueva forma para que los comercios aeroportuarios impulsen sus ventas.{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Tu opinión nos importa.</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Su opinión nos importa.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Aún no estamos listos para compartir todos los detalles — pero queremos saber si hay interés genuino antes de seguir adelante.
@@ -193,21 +193,21 @@ export default function AirportRetailerSurveyES() {
 
           {step === 0 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Qué tipo de tienda operas en el aeropuerto?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Qué tipo de tienda opera usted en el aeropuerto?</h2>
               <div className="space-y-2">{STORE_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} onSelect={() => goToStep(1)} />)}</div>
             </div>
           )}
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Cuántos clientes visitan tu tienda al mes (aproximadamente)?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Cuántos clientes visitan su tienda al mes (aproximadamente)?</h2>
               <div className="space-y-2">{MONTHLY_VISITORS.map((v) => <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => goToStep(2)} />)}</div>
             </div>
           )}
 
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Realizas actualmente promociones o programas de fidelización para atraer clientes en el aeropuerto?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Realiza usted actualmente promociones o programas de fidelización para atraer clientes en el aeropuerto?</h2>
               <p className="text-sm text-muted-foreground">Selecciona todo lo que aplique</p>
               <div className="space-y-2">
                 {CURRENT_PROMOS.map((o) => {
@@ -229,7 +229,7 @@ export default function AirportRetailerSurveyES() {
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Describe brevemente..." value={form.loyalty_other || ""} onChange={(e) => set("loyalty_other", e.target.value)} />
               )}
               <div className="space-y-2 pt-1">
-                <label className="text-sm text-muted-foreground">¿Cuál es tu mayor reto para atraer clientes en el aeropuerto? (opcional)</label>
+                <label className="text-sm text-muted-foreground">¿Cuál es su mayor reto para atraer clientes en el aeropuerto? (opcional)</label>
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Opcional..." value={form.biggest_challenge} onChange={(e) => set("biggest_challenge", e.target.value)} />
               </div>
               <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>Continuar <ArrowRight className="w-4 h-4" /></Button>
@@ -238,34 +238,34 @@ export default function AirportRetailerSurveyES() {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Si una plataforma pudiera enviar viajeros pre-calificados con vouchers directamente a tu tienda sin coste inicial, ¿cuánto te interesaría?</h2>
+              <h2 className="text-2xl font-heading font-bold">Si una plataforma pudiera enviar viajeros pre-calificados con vouchers directamente a su tienda sin coste inicial, ¿cuánto le interesaría?</h2>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} onSelect={() => goToStep(4)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Qué tan atractivo es un modelo donde solo pagas una pequeña comisión cuando un voucher es realmente canjeado en tu tienda?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Qué tan atractivo le resulta un modelo donde solo se paga una pequeña comisión cuando un voucher es realmente canjeado en su tienda?</h2>
               <div className="space-y-2">{VOUCHER_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(5)} />)}</div>
             </div>
           )}
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Qué tan abierto estás a un sencillo proceso de canje basado en QR en tu punto de venta?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Qué tan abierto está usted a un sencillo proceso de canje basado en QR en su punto de venta?</h2>
               <div className="space-y-2">{INTEGRATION_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => goToStep(6)} />)}</div>
             </div>
           )}
 
           {step === 6 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Último paso — Dinos quién eres.</h2>
-              <p className="text-muted-foreground text-sm">¿Te gustaría mantenerte informado? Solo nos pondremos en contacto cuando tengamos algo significativo. Sin spam, nunca.</p>
+              <h2 className="text-2xl font-heading font-bold">Último paso — Díganos quién es usted.</h2>
+              <p className="text-muted-foreground text-sm">¿Le gustaría mantenerse informado? Solo nos pondremos en contacto cuando tengamos algo significativo. Sin spam, nunca.</p>
               <div className="space-y-3">
                 <Input placeholder="Nombre completo" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <div>
                   <Input placeholder="Correo de trabajo" type="email" value={form.email}
-                    onChange={(e) => { set("email", e.target.value); setEmailError(e.target.value && isPersonalEmail(e.target.value) ? "Por favor utiliza un correo profesional" : ""); }}
+                    onChange={(e) => { set("email", e.target.value); setEmailError(e.target.value && isPersonalEmail(e.target.value) ? "Por favor utilice un correo profesional" : ""); }}
                     className={emailError ? "border-destructive" : ""} />
                   {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
                 </div>
