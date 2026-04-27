@@ -238,14 +238,14 @@ export default function AirportRetailerSurveyES() {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Si una plataforma pudiera enviar viajeros pre-calificados con vouchers directamente a su tienda sin coste inicial, ¿cuánto le interesaría?</h2>
+              <h2 className="text-2xl font-heading font-bold">Si una plataforma pudiera enviar viajeros pre-calificados con cupones directamente a su tienda sin coste inicial, ¿cuánto le interesaría?</h2>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} onSelect={() => goToStep(4)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">¿Qué tan atractivo le resulta un modelo donde solo se paga una pequeña comisión cuando un voucher es realmente canjeado en su tienda?</h2>
+              <h2 className="text-2xl font-heading font-bold">¿Qué tan atractivo le resulta un modelo donde solo se paga una pequeña comisión cuando un cupón es realmente canjeado en su tienda?</h2>
               <div className="space-y-2">{VOUCHER_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(5)} />)}</div>
             </div>
           )}
