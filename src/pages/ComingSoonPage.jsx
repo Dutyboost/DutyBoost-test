@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 
 const LANG_CONTENT = {
   en: {
-    headline: <>A new era for duty-free{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">is about to begin.</span></>,
-    description: "DutyBoost is redefining how travelers discover and enjoy duty-free — and we're looking for the right partners to be part of it from day one.",
-    meta: "Be among the first to know. No spam, ever.",
-    contact: "Get early access",
-    contactTitle: "Join the waitlist",
-    contactSub: "Leave your details and you'll be the first to hear when we're ready to share more.",
-    thankYou: "You're on the list!",
-    thankYouSub: "We'll be in touch as soon as we have something meaningful to share. Thank you for your interest.",
+    headline: <>The travel retail conversion layer{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">airports have been missing.</span></>,
+    description: "Every day, millions of travelers pass through duty-free — but most never buy. DutyBoost bridges the gap between travel bookings and airport retail, turning passive passengers into active shoppers. We're building the infrastructure that connects travel partners, airports, and retailers into one seamless conversion loop.",
+    meta: "We're not live yet — but we're talking to the right people. Are you one of them?",
+    contact: "Request early access",
+    contactTitle: "Get on the inside",
+    contactSub: "We're selectively sharing details with travel partners, airport retailers, and industry operators ahead of launch. Drop your details and we'll be in touch.",
+    thankYou: "You're on the inside.",
+    thankYouSub: "We'll reach out personally as we get closer to launch. Thank you for your interest in DutyBoost.",
   },
   nl: {
     headline: <>Een nieuw tijdperk voor duty-free{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">staat op het punt te beginnen.</span></>,
