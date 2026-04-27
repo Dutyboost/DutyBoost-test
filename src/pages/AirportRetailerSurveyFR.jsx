@@ -84,9 +84,40 @@ export default function AirportRetailerSurveyFR() {
     }
   };
 
+  const PERSONAL_DOMAINS = [
+    'gmail.com', 'hotmail.com', 'hotmail.nl', 'hotmail.de', 'hotmail.fr', 'hotmail.es', 'hotmail.it',
+    'outlook.com', 'outlook.nl', 'outlook.de', 'outlook.fr', 'outlook.es', 'outlook.it',
+    'yahoo.com', 'yahoo.nl', 'yahoo.de', 'yahoo.fr', 'yahoo.es', 'yahoo.it', 'yahoo.co.uk',
+    'aol.com', 'me.com', 'icloud.com', 'mac.com',
+    'mail.com', 'protonmail.com', 'proton.me',
+    'yandex.com', 'yandex.ru', 'mail.ru',
+    'gmx.de', 'gmx.com', 'gmx.net', 'gmx.at', 'gmx.ch',
+    'web.de', 'free.fr', 'sfr.fr', 'orange.fr', 'laposte.net',
+    'live.com', 'live.nl', 'live.de', 'live.fr', 'live.es', 'live.it',
+    'msn.com', 'qq.com', '163.com', '126.com',
+    'libero.it', 'virgilio.it', 'tin.it', 'alice.it',
+    'wanadoo.fr', 'bbox.fr', 'tiscali.it', 'tiscali.fr',
+    't-online.de', 'freenet.de', 'arcor.de',
+    'ziggo.nl', 'kpnmail.nl', 'planet.nl', 'home.nl', 'xs4all.nl', 'hetnet.nl',
+  ];
+
   const isPersonalEmail = (email) => {
-    const PERSONAL_DOMAINS = ['gmail.com','hotmail.com','outlook.com','yahoo.com','aol.com','me.com','icloud.com','mail.com','protonmail.com','free.fr','sfr.fr','orange.fr','laposte.net'];
-    return PERSONAL_DOMAINS.includes(email.split('@')[1]?.toLowerCase());
+    const domain = email.split('@')[1]?.toLowerCase();
+    return PERSONAL_DOMAINS.includes(domain);
+  };
+
+  const getWebsiteDomain = (website) => {
+    try {
+      const url = website.trim().startsWith('http') ? website.trim() : 'https://' + website.trim();
+      return new URL(url).hostname.replace(/^www\./, '').toLowerCase();
+    } catch { return ''; }
+  };
+
+  const doDomainsMatch = (email, website) => {
+    const emailDomain = email.split('@')[1]?.toLowerCase() || '';
+    const websiteDomain = getWebsiteDomain(website);
+    if (!emailDomain || !websiteDomain) return true;
+    return emailDomain === websiteDomain || emailDomain.endsWith('.' + websiteDomain) || websiteDomain.endsWith('.' + emailDomain);
   };
 
   const checkDomainExists = async (val) => {
@@ -116,6 +147,11 @@ export default function AirportRetailerSurveyFR() {
     } else {
       setWebsiteValid(true);
       setWebsiteError("");
+      if (form.email && !isPersonalEmail(form.email) && !doDomainsMatch(form.email, val)) {
+        setEmailError("Le domaine de votre e-mail ne correspond pas à votre site web. Veuillez utiliser votre e-mail professionnel.");
+      } else if (form.email && !isPersonalEmail(form.email)) {
+        setEmailError("");
+      }
     }
   };
 
@@ -265,7 +301,16 @@ export default function AirportRetailerSurveyFR() {
                 <Input placeholder="Nom complet" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <div>
                   <Input placeholder="E-mail professionnel" type="email" value={form.email}
-                    onChange={(e) => { set("email", e.target.value); setEmailError(e.target.value && isPersonalEmail(e.target.value) ? "Veuillez utiliser une adresse e-mail professionnelle" : ""); }}
+                    onChange={(e) => {
+                      set("email", e.target.value);
+                      if (e.target.value && isPersonalEmail(e.target.value)) {
+                        setEmailError("Veuillez utiliser une adresse e-mail professionnelle d'entreprise");
+                      } else if (e.target.value && form.company_name && websiteValid && !doDomainsMatch(e.target.value, form.company_name)) {
+                        setEmailError("Le domaine de votre e-mail ne correspond pas à votre site web. Veuillez utiliser votre e-mail professionnel.");
+                      } else {
+                        setEmailError("");
+                      }
+                    }}
                     className={emailError ? "border-destructive" : ""} />
                   {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
                 </div>

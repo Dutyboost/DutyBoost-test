@@ -115,14 +115,44 @@ export default function AirportRetailerSurvey() {
     return BLOCKED_KEYWORDS.some(keyword => lower.includes(keyword));
   };
 
+  const PERSONAL_DOMAINS = [
+    'gmail.com', 'hotmail.com', 'hotmail.nl', 'hotmail.de', 'hotmail.fr', 'hotmail.es', 'hotmail.it',
+    'outlook.com', 'outlook.nl', 'outlook.de', 'outlook.fr', 'outlook.es', 'outlook.it',
+    'yahoo.com', 'yahoo.nl', 'yahoo.de', 'yahoo.fr', 'yahoo.es', 'yahoo.it', 'yahoo.co.uk',
+    'aol.com', 'me.com', 'icloud.com', 'mac.com',
+    'mail.com', 'protonmail.com', 'proton.me',
+    'yandex.com', 'yandex.ru', 'mail.ru',
+    'gmx.de', 'gmx.com', 'gmx.net', 'gmx.at', 'gmx.ch',
+    'web.de', 'free.fr', 'sfr.fr', 'orange.fr', 'laposte.net',
+    'live.com', 'live.nl', 'live.de', 'live.fr', 'live.es', 'live.it',
+    'msn.com', 'qq.com', '163.com', '126.com',
+    'libero.it', 'virgilio.it', 'tin.it', 'alice.it',
+    'wanadoo.fr', 'bbox.fr', 'tiscali.it', 'tiscali.fr',
+    't-online.de', 'freenet.de', 'arcor.de',
+    'ziggo.nl', 'kpnmail.nl', 'planet.nl', 'home.nl', 'xs4all.nl', 'hetnet.nl',
+  ];
+
   const isPersonalEmail = (email) => {
-    const PERSONAL_DOMAINS = [
-      'gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'aol.com',
-      'me.com', 'icloud.com', 'mail.com', 'protonmail.com', 'yandex.com',
-      'mail.ru', 'gmx.de', 'web.de', 'free.fr', 'sfr.fr', 'orange.fr',
-    ];
     const domain = email.split('@')[1]?.toLowerCase();
     return PERSONAL_DOMAINS.includes(domain);
+  };
+
+  const getEmailDomain = (email) => email.split('@')[1]?.toLowerCase() || '';
+
+  const getWebsiteDomain = (website) => {
+    try {
+      const url = website.trim().startsWith('http') ? website.trim() : 'https://' + website.trim();
+      const hostname = new URL(url).hostname.replace(/^www\./, '');
+      return hostname.toLowerCase();
+    } catch { return ''; }
+  };
+
+  const doDomainsMatch = (email, website) => {
+    const emailDomain = getEmailDomain(email);
+    const websiteDomain = getWebsiteDomain(website);
+    if (!emailDomain || !websiteDomain) return true; // don't block if either is missing
+    // Check if email domain ends with or equals the website domain
+    return emailDomain === websiteDomain || emailDomain.endsWith('.' + websiteDomain) || websiteDomain.endsWith('.' + emailDomain);
   };
 
   const extractHostname = (val) => {
@@ -168,6 +198,12 @@ export default function AirportRetailerSurvey() {
     } else {
       setWebsiteValid(true);
       setWebsiteError("");
+      // Re-check domain match now that website is confirmed
+      if (form.email && !isPersonalEmail(form.email) && !doDomainsMatch(form.email, val)) {
+        setEmailError("Your email domain doesn't match your company website. Please use your company email.");
+      } else if (form.email && !isPersonalEmail(form.email)) {
+        setEmailError("");
+      }
     }
   };
 
@@ -385,6 +421,8 @@ export default function AirportRetailerSurvey() {
                       set("email", e.target.value);
                       if (e.target.value && isPersonalEmail(e.target.value)) {
                         setEmailError("Please use a professional/company email address");
+                      } else if (e.target.value && form.company_name && websiteValid && !doDomainsMatch(e.target.value, form.company_name)) {
+                        setEmailError("Your email domain doesn't match your company website. Please use your company email.");
                       } else {
                         setEmailError("");
                       }
