@@ -153,7 +153,7 @@ export default function AirportRetailerSurveyIT() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">Grazie{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          {form.wants_demo ? "Il tuo feedback è molto prezioso. Ti contatteremo presto." : "Il tuo feedback è molto prezioso. Rimani sintonizzato per il nostro lancio."}
+          {form.wants_demo ? "Il Suo feedback è molto prezioso. La contatteremo presto." : "Il Suo feedback è molto prezioso. Rimanga sintonizzato per il nostro lancio."}
         </p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
@@ -172,7 +172,7 @@ export default function AirportRetailerSurveyIT() {
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               Stiamo validando un nuovo modo per i rivenditori aeroportuali di aumentare le vendite.{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">La tua opinione conta.</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">La Sua opinione conta.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Non siamo ancora pronti a condividere tutti i dettagli — ma vogliamo sapere se c'è un interesse reale prima di andare avanti.
@@ -193,23 +193,20 @@ export default function AirportRetailerSurveyIT() {
 
           {step === 0 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Che tipo di negozio gestisci in aeroporto?</h2>
-
-              <div className="space-y-2">{STORE_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} onSelect={() => goToStep(1)} />)}</div>
+              <h2 className="text-2xl font-heading font-bold">Che tipo di negozio gestisce in aeroporto?</h2>              <div className="space-y-2">{STORE_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} onSelect={() => goToStep(1)} />)}</div>
             </div>
           )}
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Quanti clienti visitano il tuo negozio al mese (circa)?</h2>
+              <h2 className="text-2xl font-heading font-bold">Quanti clienti visitano il Suo negozio al mese (circa)?</h2>
               <div className="space-y-2">{MONTHLY_VISITORS.map((v) => <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => goToStep(2)} />)}</div>
             </div>
           )}
 
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Gestisci attualmente promozioni o programmi fedeltà per attirare clienti in aeroporto?</h2>
-
+              <h2 className="text-2xl font-heading font-bold">Gestisce attualmente promozioni o programmi fedeltà per attirare clienti in aeroporto?</h2>
               <p className="text-sm text-muted-foreground">Seleziona tutto ciò che si applica</p>
               <div className="space-y-2">
                 {CURRENT_PROMOS.map((o) => {
@@ -231,7 +228,7 @@ export default function AirportRetailerSurveyIT() {
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Descrivi brevemente..." value={form.loyalty_other || ""} onChange={(e) => set("loyalty_other", e.target.value)} />
               )}
               <div className="space-y-2 pt-1">
-                <label className="text-sm text-muted-foreground">Qual è la tua sfida principale per attirare clienti in aeroporto? (opzionale)</label>
+                <label className="text-sm text-muted-foreground">Qual è la Sua sfida principale per attirare clienti in aeroporto? (opzionale)</label>
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Opzionale..." value={form.biggest_challenge} onChange={(e) => set("biggest_challenge", e.target.value)} />
               </div>
               <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>Continua <ArrowRight className="w-4 h-4" /></Button>
@@ -240,29 +237,29 @@ export default function AirportRetailerSurveyIT() {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Se una piattaforma potesse mandare viaggiatori pre-qualificati con voucher direttamente nel tuo negozio senza costi iniziali, quanto saresti interessato?</h2>
+              <h2 className="text-2xl font-heading font-bold">Se una piattaforma potesse inviare viaggiatori pre-qualificati con voucher direttamente nel Suo negozio senza costi iniziali, quanto sarebbe interessato?</h2>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} onSelect={() => goToStep(4)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Quanto ti sembra attraente un modello dove paghi solo una piccola commissione quando un voucher viene effettivamente riscattato nel tuo negozio?</h2>
+              <h2 className="text-2xl font-heading font-bold">Quanto Le sembra attraente un modello dove si paga solo una piccola commissione quando un voucher viene effettivamente riscattato nel Suo negozio?</h2>
               <div className="space-y-2">{VOUCHER_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(5)} />)}</div>
             </div>
           )}
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Quanto sei aperto a un semplice processo di riscatto via QR code alla cassa?</h2>
+              <h2 className="text-2xl font-heading font-bold">Quanto è aperto a un semplice processo di riscatto via QR code alla cassa?</h2>
               <div className="space-y-2">{INTEGRATION_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => goToStep(6)} />)}</div>
             </div>
           )}
 
           {step === 6 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Ultimo step — Dicci chi sei.</h2>
-              <p className="text-muted-foreground text-sm">Vuoi restare aggiornato? Ti contatteremo solo quando avremo qualcosa di significativo da condividere. Niente spam, mai.</p>
+              <h2 className="text-2xl font-heading font-bold">Ultimo passo — Ci dica chi è.</h2>
+              <p className="text-muted-foreground text-sm">Desidera restare aggiornato? La contatteremo solo quando avremo qualcosa di significativo da condividere. Niente spam, mai.</p>
               <div className="space-y-3">
                 <Input placeholder="Nome completo" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <div>
@@ -285,7 +282,7 @@ export default function AirportRetailerSurveyIT() {
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
                 <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Sì, voglio essere contattato</strong> quando DutyBoost sarà pronto a condividere altri dettagli.
+                  <strong>Sì, desidero essere contattato</strong> quando DutyBoost sarà pronto a condividere altri dettagli.
                 </span>
               </label>
             </div>

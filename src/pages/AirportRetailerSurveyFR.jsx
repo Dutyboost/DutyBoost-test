@@ -172,7 +172,7 @@ export default function AirportRetailerSurveyFR() {
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               Nous validons une nouvelle façon pour les commerçants d'aéroport de générer plus de ventes.{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Ton avis compte.</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Votre avis compte.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Nous ne sommes pas encore prêts à partager tous les détails — mais nous voulons savoir s'il y a un intérêt réel avant d'aller plus loin.
@@ -193,21 +193,21 @@ export default function AirportRetailerSurveyFR() {
 
           {step === 0 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Quel type de boutique est-ce que tu gères à l'aéroport ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Quel type de boutique exploitez-vous à l'aéroport ?</h2>
               <div className="space-y-2">{STORE_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} onSelect={() => goToStep(1)} />)}</div>
             </div>
           )}
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Combien de clients visitent ta boutique par mois (environ) ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Combien de clients visitent votre boutique par mois (environ) ?</h2>
               <div className="space-y-2">{MONTHLY_VISITORS.map((v) => <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => goToStep(2)} />)}</div>
             </div>
           )}
 
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Est-ce que tu mènes actuellement des promotions ou programmes de fidélité pour attirer des clients à l'aéroport ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Menez-vous actuellement des promotions ou programmes de fidélité pour attirer des clients à l'aéroport ?</h2>
               <p className="text-sm text-muted-foreground">Sélectionnez tout ce qui s'applique</p>
               <div className="space-y-2">
                 {CURRENT_PROMOS.map((o) => {
@@ -229,7 +229,7 @@ export default function AirportRetailerSurveyFR() {
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Décrivez brièvement..." value={form.loyalty_other || ""} onChange={(e) => set("loyalty_other", e.target.value)} />
               )}
               <div className="space-y-2 pt-1">
-                <label className="text-sm text-muted-foreground">Quel est ton plus grand défi pour attirer des clients à l'aéroport ? (optionnel)</label>
+                <label className="text-sm text-muted-foreground">Quel est votre plus grand défi pour attirer des clients à l'aéroport ? (optionnel)</label>
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Optionnel..." value={form.biggest_challenge} onChange={(e) => set("biggest_challenge", e.target.value)} />
               </div>
               <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>Continuer <ArrowRight className="w-4 h-4" /></Button>
@@ -238,29 +238,29 @@ export default function AirportRetailerSurveyFR() {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Si une plateforme pouvait envoyer des voyageurs pré-qualifiés avec des bons directement dans ta boutique sans frais initiaux, quel serait ton niveau d'intérêt ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Si une plateforme pouvait envoyer des voyageurs pré-qualifiés avec des bons directement dans votre boutique sans frais initiaux, quel serait votre niveau d'intérêt ?</h2>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} onSelect={() => goToStep(4)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Dans quelle mesure un modèle où tu ne paies qu'une petite commission lorsqu'un bon est réellement échangé dans ta boutique te semble-t-il attractif ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Dans quelle mesure un modèle où vous ne payez qu'une petite commission lorsqu'un bon est réellement échangé dans votre boutique vous semble-t-il attractif ?</h2>
               <div className="space-y-2">{VOUCHER_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(5)} />)}</div>
             </div>
           )}
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Dans quelle mesure es-tu ouvert à un simple processus d'échange par QR code en caisse ?</h2>
+              <h2 className="text-2xl font-heading font-bold">Dans quelle mesure êtes-vous ouvert à un simple processus d'échange par QR code en caisse ?</h2>
               <div className="space-y-2">{INTEGRATION_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => goToStep(6)} />)}</div>
             </div>
           )}
 
           {step === 6 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Dernière étape — Dis-nous qui tu es.</h2>
-              <p className="text-muted-foreground text-sm">Tu veux rester informé ? On ne te contactera que lorsqu'on aura quelque chose de significatif à partager. Pas de spam, jamais.</p>
+              <h2 className="text-2xl font-heading font-bold">Dernière étape — Dites-nous qui vous êtes.</h2>
+              <p className="text-muted-foreground text-sm">Souhaitez-vous rester informé ? Nous ne vous contacterons que lorsque nous aurons quelque chose de significatif à partager. Pas de spam, jamais.</p>
               <div className="space-y-3">
                 <Input placeholder="Nom complet" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <div>
@@ -283,7 +283,7 @@ export default function AirportRetailerSurveyFR() {
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
                 <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Oui, je veux être contacté</strong> quand DutyBoost sera prêt à partager plus de détails.
+                  <strong>Oui, je souhaite être contacté</strong> lorsque DutyBoost sera prêt à partager plus de détails.
                 </span>
               </label>
             </div>

@@ -160,7 +160,7 @@ export default function AirportRetailerSurveyNL() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">Bedankt{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          {form.wants_demo ? "Uw input is erg waardevol. We nemen binnenkort contact op." : "Uw input is erg waardevol. Houd ons in de gaten voor de lancering."}
+          {form.wants_demo ? "Jouw input is erg waardevol. We nemen binnenkort contact op." : "Jouw input is erg waardevol. Houd ons in de gaten voor de lancering."}
         </p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
@@ -268,7 +268,7 @@ export default function AirportRetailerSurveyNL() {
 
           {step === 6 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Laatste stap — Laat ons weten wie u bent.</h2>
+              <h2 className="text-2xl font-heading font-bold">Laatste stap — Laat ons weten wie jij bent.</h2>
               <p className="text-muted-foreground text-sm">Wil jij op de hoogte blijven? We nemen alleen contact op als we iets zinvols te delen hebben. Geen spam, nooit.</p>
               <div className="space-y-3">
                 <Input placeholder="Volledige naam" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
