@@ -75,6 +75,7 @@ import StagingValidationGuide from './pages/StagingValidationGuide';
 import RetailerPresentationFuture from './pages/RetailerPresentationFuture';
 import RetailerCalculator from './pages/RetailerCalculator';
 import TravelPartnerPresentationFuture from './pages/TravelPartnerPresentationFuture';
+import AirportRetailerSurvey from './pages/AirportRetailerSurvey';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -91,6 +92,7 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
         <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
         <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
+        <Route path="/airport-retailer-survey" element={<AirportRetailerSurvey />} />
         <Route path="*" element={<ComingSoonPage />} />
       </Routes>
     </>
@@ -134,6 +136,7 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
         <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
         <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
+        <Route path="/airport-retailer-survey" element={<AirportRetailerSurvey />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
