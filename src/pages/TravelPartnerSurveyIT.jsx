@@ -220,13 +220,13 @@ export default function TravelPartnerSurveyIT() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              Stiamo creando una nuova fonte di reddito per il settore dei viaggi.{" "}
+              Stiamo validando una nuova opportunità di ricavi per il settore dei viaggi.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 La tua opinione è importante per noi.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost sta creando una nuova fonte di ricavi per il settore dei viaggi. Non siamo ancora pronti a condividere tutti i dettagli — ma vogliamo sapere se c'è interesse prima di andare avanti.
+              Stiamo validando una nuova opportunità di ricavi per il settore dei viaggi. Non siamo ancora pronti a condividere tutti i dettagli — ma vogliamo sapere se c'è interesse prima di andare avanti.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">2 minuti · 7 domande · Senza impegno.</p>
           </div>

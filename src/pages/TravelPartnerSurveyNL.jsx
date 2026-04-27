@@ -220,13 +220,13 @@ export default function TravelPartnerSurveyNL() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-              We bouwen een nieuwe inkomstenbron op voor de reissector.{" "}
+              We valideren een nieuwe inkomstenmogelijkheid voor de reisbranche.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Jouw mening is belangrijk voor ons.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              DutyBoost creëert een nieuwe inkomstenbron voor de reissector. We zijn nog niet klaar om alle details te delen — maar we willen eerst weten of er interesse is voordat we verdergaan.
+              We valideren een nieuwe inkomstenmogelijkheid voor de reisbranche. We zijn nog niet klaar om alle details te delen — maar we willen eerst weten of er interesse is voordat we verdergaan.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">2 minuten · 7 vragen · Vrijblijvend.</p>
           </div>
