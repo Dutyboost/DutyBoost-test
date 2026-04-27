@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import WeCallYouForm from "../components/WeCallYouForm";
@@ -90,8 +90,8 @@ export default function ComingSoonPage() {
   const [submitted, setSubmitted] = useState(false);
   const [lang, setLang] = useState(() => getDeviceLang() || "en");
 
-  useState(() => {
-    // Only fetch geo if device language didn't match a supported language
+  useEffect(() => {
+    // Only geo-detect if device language didn't match a supported language
     if (getDeviceLang()) return;
     fetch("https://ipapi.co/json/")
       .then((r) => r.json())
@@ -100,7 +100,7 @@ export default function ComingSoonPage() {
         if (geoLang) setLang(geoLang);
       })
       .catch(() => {});
-  });
+  }, []);
 
   const t = LANG_CONTENT[lang];
 
