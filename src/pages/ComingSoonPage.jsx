@@ -81,19 +81,40 @@ const LANG_CONTENT = {
   },
 };
 
-function detectLang() {
+const GEO_LANG_MAP = {
+  NL: "nl", BE: "nl", DE: "de", AT: "de", CH: "de",
+  ES: "es", MX: "es", AR: "es", CO: "es", CL: "es",
+  FR: "fr", LU: "fr", MC: "fr",
+  IT: "it", SM: "it", VA: "it",
+  GB: "en", US: "en", AU: "en", CA: "en", NZ: "en", IE: "en",
+};
+
+function getDeviceLang() {
   const langs = navigator.languages || [navigator.language || "en"];
   for (const l of langs) {
     const code = l.split("-")[0].toLowerCase();
     if (LANG_CONTENT[code]) return code;
   }
-  return "en";
+  return null;
 }
 
 export default function ComingSoonPage() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const lang = detectLang();
+  const [lang, setLang] = useState(() => getDeviceLang() || "en");
+
+  useState(() => {
+    // Only fetch geo if device language didn't match a supported language
+    if (getDeviceLang()) return;
+    fetch("https://ipapi.co/json/")
+      .then((r) => r.json())
+      .then((data) => {
+        const geoLang = GEO_LANG_MAP[data.country_code];
+        if (geoLang) setLang(geoLang);
+      })
+      .catch(() => {});
+  });
+
   const t = LANG_CONTENT[lang];
 
   return (
