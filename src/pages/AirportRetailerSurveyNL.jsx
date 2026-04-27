@@ -179,7 +179,7 @@ export default function AirportRetailerSurveyNL() {
           <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
               We valideren een nieuwe manier voor luchthavenwinkels om meer omzet te genereren.{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Uw mening telt.</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Jouw mening telt.</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               We zijn nog niet klaar om alle details te delen — maar we willen weten of er interesse is bij luchthavenwinkels voordat we verder gaan.
@@ -202,21 +202,21 @@ export default function AirportRetailerSurveyNL() {
 
           {step === 0 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Welk type winkel exploiteert u op de luchthaven?</h2>
+              <h2 className="text-2xl font-heading font-bold">Welk type winkel run jij op de luchthaven?</h2>
               <div className="space-y-2">{STORE_TYPES.map((t) => <OptionButton key={t} label={t} selected={form.company_type === t} onClick={() => set("company_type", t)} onSelect={() => goToStep(1)} />)}</div>
             </div>
           )}
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Hoeveel klanten bezoeken uw winkel per maand (ongeveer)?</h2>
+              <h2 className="text-2xl font-heading font-bold">Hoeveel klanten bezoeken jouw winkel per maand (ongeveer)?</h2>
               <div className="space-y-2">{MONTHLY_VISITORS.map((v) => <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => goToStep(2)} />)}</div>
             </div>
           )}
 
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Voert u momenteel promoties of loyaliteitsprogramma's uit om luchthavenklanten aan te trekken?</h2>
+              <h2 className="text-2xl font-heading font-bold">Voer jij momenteel promoties of loyaliteitsprogramma's uit om luchthavenklanten aan te trekken?</h2>
               <p className="text-sm text-muted-foreground">Selecteer alles wat van toepassing is</p>
               <div className="space-y-2">
                 {CURRENT_PROMOS.map((o) => {
@@ -238,7 +238,7 @@ export default function AirportRetailerSurveyNL() {
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Beschrijf kort..." value={form.loyalty_other || ""} onChange={(e) => set("loyalty_other", e.target.value)} />
               )}
               <div className="space-y-2 pt-1">
-                <label className="text-sm text-muted-foreground">Wat is uw grootste uitdaging bij het aantrekken van klanten op de luchthaven? (optioneel)</label>
+                <label className="text-sm text-muted-foreground">Wat is jouw grootste uitdaging bij het aantrekken van klanten op de luchthaven? (optioneel)</label>
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Optioneel..." value={form.biggest_challenge} onChange={(e) => set("biggest_challenge", e.target.value)} />
               </div>
               <Button className="w-full gap-2 mt-4" onClick={() => goToStep(3)}>Verder <ArrowRight className="w-4 h-4" /></Button>
@@ -247,21 +247,21 @@ export default function AirportRetailerSurveyNL() {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Als een platform vooraf gekwalificeerde, voucherhouders direct naar uw winkel kon sturen zonder voorafgaande kosten, hoe geïnteresseerd zou u dan zijn?</h2>
+              <h2 className="text-2xl font-heading font-bold">Als een platform vooraf gekwalificeerde reizigers met vouchers direct naar jouw winkel kon sturen zonder voorafgaande kosten, hoe geïnteresseerd zou jij dan zijn?</h2>
               <div className="space-y-2">{INTEREST_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} onSelect={() => goToStep(4)} />)}</div>
             </div>
           )}
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Hoe aantrekkelijk is een model waarbij u alleen een kleine vergoeding betaalt wanneer een voucher daadwerkelijk in uw winkel wordt ingewisseld?</h2>
+              <h2 className="text-2xl font-heading font-bold">Hoe aantrekkelijk is een model waarbij jij alleen een kleine vergoeding betaalt wanneer een voucher daadwerkelijk in jouw winkel wordt ingewisseld?</h2>
               <div className="space-y-2">{VOUCHER_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(5)} />)}</div>
             </div>
           )}
 
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Hoe open staat u voor een eenvoudig QR-gebaseerd inwisselproces aan uw kassa?</h2>
+              <h2 className="text-2xl font-heading font-bold">Hoe open sta jij voor een eenvoudig QR-gebaseerd inwisselproces aan jouw kassa?</h2>
               <div className="space-y-2">{INTEGRATION_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => goToStep(6)} />)}</div>
             </div>
           )}
@@ -269,7 +269,7 @@ export default function AirportRetailerSurveyNL() {
           {step === 6 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Laatste stap — Laat ons weten wie u bent.</h2>
-              <p className="text-muted-foreground text-sm">Wilt u op de hoogte blijven? We nemen alleen contact op als we iets zinvols te delen hebben. Geen spam, nooit.</p>
+              <p className="text-muted-foreground text-sm">Wil jij op de hoogte blijven? We nemen alleen contact op als we iets zinvols te delen hebben. Geen spam, nooit.</p>
               <div className="space-y-3">
                 <Input placeholder="Volledige naam" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                 <div>
@@ -292,7 +292,7 @@ export default function AirportRetailerSurveyNL() {
               <label className="flex items-start gap-3 cursor-pointer group pt-2">
                 <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
                 <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Ja, ik wil graag worden gecontacteerd</strong> wanneer DutyBoost klaar is om meer details te delen.
+                  <strong>Ja, ik wil graag gecontacteerd worden</strong> wanneer DutyBoost klaar is om meer details te delen.
                 </span>
               </label>
             </div>
