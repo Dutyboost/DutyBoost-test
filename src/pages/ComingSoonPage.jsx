@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 const LANG_CONTENT = {
   en: {
     headline: <>We've found something that{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">the travel industry has overlooked for years.</span></>,
-    description: "It's not a new loyalty program. It's not an app. It's a smarter way to connect the dots between how people travel and where they spend — and the opportunity is significant.",
+    description: "It's not a new loyalty program. It's not an app. It's a smarter way to connect the dots — and the opportunity is significant.",
     meta: "We're not ready to go public yet. But we are ready to talk to the right people.",
     contact: "I want to know more",
     contactTitle: "Let's talk",
