@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 
 const LANG_CONTENT = {
   en: {
-    headline: <>The travel retail conversion layer{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">airports have been missing.</span></>,
-    description: "Every day, millions of travelers pass through duty-free — but most never buy. DutyBoost bridges the gap between travel bookings and airport retail, turning passive passengers into active shoppers. We're building the infrastructure that connects travel partners, airports, and retailers into one seamless conversion loop.",
-    meta: "We're not live yet — but we're talking to the right people. Are you one of them?",
-    contact: "Request early access",
-    contactTitle: "Get on the inside",
-    contactSub: "We're selectively sharing details with travel partners, airport retailers, and industry operators ahead of launch. Drop your details and we'll be in touch.",
-    thankYou: "You're on the inside.",
-    thankYouSub: "We'll reach out personally as we get closer to launch. Thank you for your interest in DutyBoost.",
+    headline: <>We've found something that{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">travel retail has overlooked for years.</span></>,
+    description: "It's not a new loyalty program. It's not an app. It's a smarter way to connect the dots between how people travel and where they spend — and the opportunity is significant.",
+    meta: "We're not ready to go public yet. But we are ready to talk to the right people.",
+    contact: "I want to know more",
+    contactTitle: "Let's talk",
+    contactSub: "Leave your details and we'll reach out personally. No pitch decks, no newsletters — just a real conversation.",
+    thankYou: "We'll be in touch.",
+    thankYouSub: "Thank you for your interest. We'll reach out personally — we look forward to the conversation.",
   },
   nl: {
     headline: <>Een nieuw tijdperk voor duty-free{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">staat op het punt te beginnen.</span></>,
