@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const LANG_CONTENT = {
   en: {
-    headline: <>Something new is coming{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">to the travel industry.</span></>,
+    headline: <>Something exciting is coming{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">to the travel industry.</span></>,
     description: "We're validating a new revenue opportunity for the travel industry. Before revealing more, we'd value your input as part of a select group shaping its direction. Would you be open to answering a few quick questions?",
     meta: "2 minutes · No strings attached.",
     cta: "Share your opinion",
@@ -20,7 +20,7 @@ const LANG_CONTENT = {
     surveyPath: "/travel-partner-survey",
   },
   nl: {
-    headline: <>Er komt iets nieuws{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">voor de reisbranche.</span></>,
+    headline: <>Er komt iets spannends{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">voor de reisbranche.</span></>,
     description: "We valideren een nieuwe inkomstenmogelijkheid voor de reisbranche. Voor we meer onthullen, horen we graag jouw mening als onderdeel van een select gezelschap dat de richting mee bepaalt. Wil je een paar korte vragen beantwoorden?",
     meta: "2 minuten · Vrijblijvend.",
     cta: "Deel jouw mening",
@@ -32,7 +32,7 @@ const LANG_CONTENT = {
     surveyPath: "/travel-partner-survey-nl",
   },
   de: {
-    headline: <>Etwas Neues kommt{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">auf die Reisebranche zu.</span></>,
+    headline: <>Etwas Spannendes kommt{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">auf die Reisebranche zu.</span></>,
     description: "Wir validieren eine neue Umsatzchance für die Reisebranche. Bevor wir mehr verraten, würden wir Ihre Meinung als Teil einer ausgewählten Gruppe schätzen, die die Richtung mitgestaltet. Würden Sie ein paar kurze Fragen beantworten?",
     meta: "2 Minuten · Unverbindlich.",
     cta: "Meinung teilen",
@@ -44,7 +44,7 @@ const LANG_CONTENT = {
     surveyPath: "/travel-partner-survey-de",
   },
   es: {
-    headline: <>Algo nuevo está llegando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">al sector de viajes.</span></>,
+    headline: <>Algo emocionante está llegando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">al sector de viajes.</span></>,
     description: "Estamos validando una nueva oportunidad de ingresos para el sector de viajes. Antes de revelar más, valoraríamos tu opinión como parte de un grupo selecto que está dando forma a su dirección. ¿Estarías dispuesto a responder unas preguntas rápidas?",
     meta: "2 minutos · Sin compromiso.",
     cta: "Comparte tu opinión",
@@ -56,7 +56,7 @@ const LANG_CONTENT = {
     surveyPath: "/travel-partner-survey-es",
   },
   fr: {
-    headline: <>Quelque chose de nouveau arrive{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">dans le secteur du voyage.</span></>,
+    headline: <>Quelque chose d'excitant arrive{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">dans le secteur du voyage.</span></>,
     description: "Nous validons une nouvelle opportunité de revenus pour le secteur du voyage. Avant d'en dire plus, nous apprécierions votre avis en tant que membre d'un groupe sélect qui en façonne la direction. Seriez-vous prêt à répondre à quelques questions rapides ?",
     meta: "2 minutes · Sans engagement.",
     cta: "Partager votre avis",
@@ -68,7 +68,7 @@ const LANG_CONTENT = {
     surveyPath: "/travel-partner-survey-fr",
   },
   it: {
-    headline: <>Qualcosa di nuovo sta arrivando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">nel settore dei viaggi.</span></>,
+    headline: <>Qualcosa di entusiasmante sta arrivando{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">nel settore dei viaggi.</span></>,
     description: "Stiamo validando una nuova opportunità di ricavi per il settore dei viaggi. Prima di rivelare di più, apprezzeremmo il tuo contributo come parte di un gruppo selezionato che ne sta delineando la direzione. Saresti disposto a rispondere ad alcune domande rapide?",
     meta: "2 minuti · Senza impegno.",
     cta: "Condividi la tua opinione",
