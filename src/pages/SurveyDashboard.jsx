@@ -1,7 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download } from "lucide-react";
+import * as XLSX from "xlsx";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 
 const RETAILER_PREFIX = "Airport Retailer – ";
@@ -213,6 +215,28 @@ function TravelPartnerDashboard({ responses }) {
   );
 }
 
+function exportToExcel(responses, filename, isRetailerView) {
+  const rows = responses.map(r => ({
+    "Date": r.created_date ? new Date(r.created_date).toLocaleDateString() : "",
+    "Full Name": r.full_name || "",
+    "Email": r.email || "",
+    "Company": r.company_name || "",
+    "Type": isRetailerView ? (r.company_type?.replace(RETAILER_PREFIX, "") || "") : (r.company_type || ""),
+    "Interest Level": r.interest_level || "",
+    "Annual Bookings / Monthly Visitors": r.annual_bookings || "",
+    "Current Loyalty Program": r.current_loyalty || "",
+    "Commission Attractive": r.commission_attractive || "",
+    "Snippet Willingness": r.snippet_willingness || "",
+    "Biggest Challenge": r.biggest_challenge || "",
+    "Wants Demo": r.wants_demo ? "Yes" : "No",
+    "Phone": r.phone || "",
+  }));
+  const ws = XLSX.utils.json_to_sheet(rows);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Responses");
+  XLSX.writeFile(wb, filename);
+}
+
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function SurveyDashboard() {
   const [activeTab, setActiveTab] = useState("retailer");
@@ -248,6 +272,22 @@ export default function SurveyDashboard() {
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
             Overview of all survey responses — airport retailers and travel partners.
           </p>
+          <div className="pt-2">
+            <Button
+              size="sm"
+              variant="outline"
+              className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
+              onClick={() => {
+                const isRetailerView = activeTab === "retailer";
+                const data = isRetailerView ? retailerResponses : partnerResponses;
+                const filename = isRetailerView ? "retailer-survey-responses.xlsx" : "travel-partner-survey-responses.xlsx";
+                exportToExcel(data, filename, isRetailerView);
+              }}
+              disabled={loading}
+            >
+              <Download className="w-4 h-4" /> Export to Excel
+            </Button>
+          </div>
         </div>
 
         {/* Tab switcher */}
