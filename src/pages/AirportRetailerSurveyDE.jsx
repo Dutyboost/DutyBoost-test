@@ -62,7 +62,7 @@ export default function AirportRetailerSurveyDE() {
   const [emailError, setEmailError] = useState("");
 
   const [form, setForm] = useState({
-    full_name: "", email: "", company_name: "", company_type: "",
+    full_name: "", email: "", company_name: "", company_website: "", company_type: "",
     annual_bookings: "", current_loyalty: [], biggest_challenge: "",
     interest_level: "", commission_attractive: "", snippet_willingness: "",
     wants_demo: false, phone: "", loyalty_other: "",
@@ -135,7 +135,7 @@ export default function AirportRetailerSurveyDE() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     setVerifyingWebsite(true);
     setWebsiteError("");
@@ -164,7 +164,7 @@ export default function AirportRetailerSurveyDE() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -298,14 +298,15 @@ export default function AirportRetailerSurveyDE() {
               <h2 className="text-2xl font-heading font-bold">Letzter Schritt — Sagen Sie uns, wer Sie sind.</h2>
               <p className="text-muted-foreground text-sm">Möchten Sie auf dem Laufenden bleiben? Wir melden uns nur, wenn wir etwas Bedeutungsvolles zu teilen haben. Kein Spam, niemals.</p>
               <div className="space-y-3">
-                <Input placeholder="Vollständiger Name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Vollständiger Name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Geschäft- / Unternehmensname *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
-                  <Input placeholder="Geschäftliche E-Mail" type="email" value={form.email}
+                  <Input placeholder="Geschäftliche E-Mail *" type="email" value={form.email}
                     onChange={(e) => {
                       set("email", e.target.value);
                       if (e.target.value && isPersonalEmail(e.target.value)) {
                         setEmailError("Bitte verwenden Sie eine professionelle geschäftliche E-Mail-Adresse");
-                      } else if (e.target.value && form.company_name && websiteValid && !doDomainsMatch(e.target.value, form.company_name)) {
+                      } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
                         setEmailError("Ihre E-Mail-Domain stimmt nicht mit Ihrer Unternehmenswebsite überein. Bitte verwenden Sie Ihre geschäftliche E-Mail.");
                       } else {
                         setEmailError("");
@@ -315,8 +316,8 @@ export default function AirportRetailerSurveyDE() {
                   {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
                 </div>
                 <div>
-                  <Input placeholder="Unternehmenswebsite * (z.B. www.ihrgeschaeft.de)" value={form.company_name}
-                    onChange={(e) => { set("company_name", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
+                  <Input placeholder="Unternehmenswebsite * (z.B. www.ihrgeschaeft.de)" value={form.company_website}
+                    onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
                     onBlur={handleWebsiteBlur}
                     className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""} />
                   {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Website wird verifiziert...</p>}

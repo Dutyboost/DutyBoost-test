@@ -62,7 +62,7 @@ export default function AirportRetailerSurveyES() {
   const [emailError, setEmailError] = useState("");
 
   const [form, setForm] = useState({
-    full_name: "", email: "", company_name: "", company_type: "",
+    full_name: "", email: "", company_name: "", company_website: "", company_type: "",
     annual_bookings: "", current_loyalty: [], biggest_challenge: "",
     interest_level: "", commission_attractive: "", snippet_willingness: "",
     wants_demo: false, phone: "", loyalty_other: "",
@@ -136,7 +136,7 @@ export default function AirportRetailerSurveyES() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     setVerifyingWebsite(true);
     setWebsiteError("");
@@ -165,7 +165,7 @@ export default function AirportRetailerSurveyES() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -299,14 +299,15 @@ export default function AirportRetailerSurveyES() {
               <h2 className="text-2xl font-heading font-bold">Último paso — Díganos quién es usted.</h2>
               <p className="text-muted-foreground text-sm">¿Le gustaría mantenerse informado? Solo nos pondremos en contacto cuando tengamos algo significativo. Sin spam, nunca.</p>
               <div className="space-y-3">
-                <Input placeholder="Nombre completo" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Nombre completo *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Nombre de la tienda / empresa *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
-                  <Input placeholder="Correo de trabajo" type="email" value={form.email}
+                  <Input placeholder="Correo de trabajo *" type="email" value={form.email}
                     onChange={(e) => {
                       set("email", e.target.value);
                       if (e.target.value && isPersonalEmail(e.target.value)) {
                         setEmailError("Por favor utilice un correo electrónico profesional de empresa");
-                      } else if (e.target.value && form.company_name && websiteValid && !doDomainsMatch(e.target.value, form.company_name)) {
+                      } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
                         setEmailError("El dominio de tu correo no coincide con el sitio web de tu empresa. Por favor usa tu correo corporativo.");
                       } else {
                         setEmailError("");
@@ -316,8 +317,8 @@ export default function AirportRetailerSurveyES() {
                   {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
                 </div>
                 <div>
-                  <Input placeholder="Sitio web de la empresa * (p. ej. www.sutienda.es)" value={form.company_name}
-                    onChange={(e) => { set("company_name", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
+                  <Input placeholder="Sitio web de la empresa * (p. ej. www.sutienda.es)" value={form.company_website}
+                    onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
                     onBlur={handleWebsiteBlur}
                     className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""} />
                   {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Verificando sitio web...</p>}

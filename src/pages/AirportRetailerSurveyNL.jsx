@@ -69,7 +69,7 @@ export default function AirportRetailerSurveyNL() {
   const [emailError, setEmailError] = useState("");
 
   const [form, setForm] = useState({
-    full_name: "", email: "", company_name: "", company_type: "",
+    full_name: "", email: "", company_name: "", company_website: "", company_type: "",
     annual_bookings: "", current_loyalty: [], biggest_challenge: "",
     interest_level: "", commission_attractive: "", snippet_willingness: "",
     wants_demo: false, phone: "", loyalty_other: "",
@@ -142,7 +142,7 @@ export default function AirportRetailerSurveyNL() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     setVerifyingWebsite(true);
     setWebsiteError("");
@@ -171,7 +171,7 @@ export default function AirportRetailerSurveyNL() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -307,14 +307,15 @@ export default function AirportRetailerSurveyNL() {
               <h2 className="text-2xl font-heading font-bold">Laatste stap — Laat ons weten wie jij bent.</h2>
               <p className="text-muted-foreground text-sm">Wil jij op de hoogte blijven? We nemen alleen contact op als we iets zinvols te delen hebben. Geen spam, nooit.</p>
               <div className="space-y-3">
-                <Input placeholder="Volledige naam" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Volledige naam *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Winkel- / bedrijfsnaam *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
-                  <Input placeholder="Zakelijk e-mailadres" type="email" value={form.email}
+                  <Input placeholder="Zakelijk e-mailadres *" type="email" value={form.email}
                     onChange={(e) => {
                       set("email", e.target.value);
                       if (e.target.value && isPersonalEmail(e.target.value)) {
                         setEmailError("Gebruik een professioneel zakelijk e-mailadres");
-                      } else if (e.target.value && form.company_name && websiteValid && !doDomainsMatch(e.target.value, form.company_name)) {
+                      } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
                         setEmailError("Jouw e-maildomein komt niet overeen met je bedrijfswebsite. Gebruik je zakelijk e-mailadres.");
                       } else {
                         setEmailError("");
@@ -324,8 +325,8 @@ export default function AirportRetailerSurveyNL() {
                   {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
                 </div>
                 <div>
-                  <Input placeholder="Bedrijfswebsite * (bijv. www.uwbedrijf.nl)" value={form.company_name}
-                    onChange={(e) => { set("company_name", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
+                  <Input placeholder="Bedrijfswebsite * (bijv. www.uwbedrijf.nl)" value={form.company_website}
+                    onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
                     onBlur={handleWebsiteBlur}
                     className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""} />
                   {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Website verifiëren...</p>}

@@ -75,6 +75,7 @@ export default function AirportRetailerSurvey() {
     full_name: "",
     email: "",
     company_name: "",
+    company_website: "",
     company_type: "",
     annual_bookings: "",
     current_loyalty: [],
@@ -181,7 +182,7 @@ export default function AirportRetailerSurvey() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     if (hasObsceneContent(val)) {
       setWebsiteValid(false);
@@ -219,7 +220,7 @@ export default function AirportRetailerSurvey() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -411,17 +412,18 @@ export default function AirportRetailerSurvey() {
               <h2 className="text-2xl font-heading font-bold">Last step — Let us know who you are.</h2>
               <p className="text-muted-foreground text-sm">Would you like to stay updated? We'll only reach out when we have something meaningful to share. No spam, ever.</p>
               <div className="space-y-3">
-                <Input placeholder="Full name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Store / Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
                   <Input
-                    placeholder="Work email"
+                    placeholder="Work email *"
                     type="email"
                     value={form.email}
                     onChange={(e) => {
                       set("email", e.target.value);
                       if (e.target.value && isPersonalEmail(e.target.value)) {
                         setEmailError("Please use a professional/company email address");
-                      } else if (e.target.value && form.company_name && websiteValid && !doDomainsMatch(e.target.value, form.company_name)) {
+                      } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
                         setEmailError("Your email domain doesn't match your company website. Please use your company email.");
                       } else {
                         setEmailError("");
@@ -434,9 +436,9 @@ export default function AirportRetailerSurvey() {
                 <div>
                   <Input
                     placeholder="Company website * (e.g. www.yourstore.com)"
-                    value={form.company_name}
+                    value={form.company_website}
                     onChange={(e) => {
-                      set("company_name", e.target.value);
+                      set("company_website", e.target.value);
                       setWebsiteValid(false);
                       setWebsiteError("");
                     }}
