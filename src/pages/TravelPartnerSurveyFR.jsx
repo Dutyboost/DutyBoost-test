@@ -61,6 +61,7 @@ export default function TravelPartnerSurveyFR() {
     full_name: "",
     email: "",
     company_name: "",
+    company_website: "",
     company_type: "",
     annual_bookings: "",
     current_loyalty: [],
@@ -141,7 +142,7 @@ export default function TravelPartnerSurveyFR() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     setVerifyingWebsite(true);
     setWebsiteError("");
@@ -168,7 +169,7 @@ export default function TravelPartnerSurveyFR() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -326,10 +327,11 @@ export default function TravelPartnerSurveyFR() {
               <h2 className="text-2xl font-heading font-bold">Dernière étape — Dites-nous qui vous êtes.</h2>
               <p className="text-muted-foreground text-sm">Aimeriez-vous rester informé ? Nous vous contacterons uniquement lorsque nous aurons quelque chose de significatif à partager. Pas de spam, jamais.</p>
               <div className="space-y-3">
-                <Input placeholder="Nom complet" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Nom complet *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Nom de l'entreprise *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
                   <Input 
-                    placeholder="E-mail professionnel" 
+                    placeholder="E-mail professionnel *" 
                     type="email" 
                     value={form.email} 
                     onChange={(e) => {
@@ -347,9 +349,9 @@ export default function TravelPartnerSurveyFR() {
                 <div>
                   <Input
                     placeholder="Site web de l'entreprise * (ex. www.votreentreprise.com)"
-                    value={form.company_name}
+                    value={form.company_website}
                     onChange={(e) => {
-                      set("company_name", e.target.value);
+                      set("company_website", e.target.value);
                       setWebsiteValid(false);
                       setWebsiteError("");
                     }}

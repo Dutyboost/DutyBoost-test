@@ -61,6 +61,7 @@ export default function TravelPartnerSurveyDE() {
     full_name: "",
     email: "",
     company_name: "",
+    company_website: "",
     company_type: "",
     annual_bookings: "",
     current_loyalty: [],
@@ -141,7 +142,7 @@ export default function TravelPartnerSurveyDE() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     
     if (hasObsceneContent(val)) {
@@ -175,7 +176,7 @@ export default function TravelPartnerSurveyDE() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -261,9 +262,29 @@ export default function TravelPartnerSurveyDE() {
           {step === 2 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-heading font-bold">Bieten Sie Ihren Reisenden derzeit Treueprogramme oder -vorteile an?</h2>
-              <div className="space-y-2">{LOYALTY_OPTIONS.map((o) => <OptionButton key={o} label={o} selected={form.current_loyalty === o} onClick={() => set("current_loyalty", o)} />)}</div>
-              {form.current_loyalty === "Sonstiges" && (
+              <div className="space-y-2">{LOYALTY_OPTIONS.map((o) => {
+                  const isSelected = form.current_loyalty.includes(o);
+                  const isExclusive = o === "Keine" || o === "Sonstige";
+                  const hasRegular = form.current_loyalty.some(opt => ["Punkte / Meilen", "Rabatte", "Partnervorteile"].includes(opt));
+                  const disabled = isExclusive ? hasRegular : form.current_loyalty.includes("Keine") || form.current_loyalty.includes("Sonstige");
+                  return (
+                    <button key={o} onClick={() => {
+                      if (form.current_loyalty.includes(o)) {
+                        setForm(f => ({ ...f, current_loyalty: f.current_loyalty.filter(x => x !== o) }));
+                      } else {
+                        if ((isExclusive && hasRegular) || (!isExclusive && (form.current_loyalty.includes("Keine") || form.current_loyalty.includes("Sonstige")))) return;
+                        setForm(f => ({ ...f, current_loyalty: [...f.current_loyalty, o] }));
+                      }
+                    }} disabled={disabled && !isSelected}
+                      className={`w-full text-left px-4 py-3 rounded-xl border text-sm font-medium transition-all flex items-center gap-3 ${disabled && !isSelected ? "opacity-40 cursor-not-allowed bg-muted" : isSelected ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground cursor-pointer"}`}>
+                      <input type="checkbox" checked={isSelected} onChange={() => {}} className="w-4 h-4" disabled={disabled && !isSelected} />
+                      {o}
+                    </button>
+                  );
+                })}</div>
+              {form.current_loyalty.includes("Sonstige") && (
                 <textarea className="w-full rounded-xl border border-input bg-card px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40" rows={2} placeholder="Kurz beschreiben..." value={form.loyalty_other || ""} onChange={(e) => set("loyalty_other", e.target.value)} />
+              
               )}
               <div className="space-y-2 pt-1">
                 <label className="text-sm text-muted-foreground">Was ist Ihre größte Herausforderung bei der Kundenbindung? (optional)</label>
@@ -301,10 +322,11 @@ export default function TravelPartnerSurveyDE() {
               <h2 className="text-2xl font-heading font-bold">Letzter Schritt — Sagen Sie uns, wer Sie sind.</h2>
               <p className="text-muted-foreground text-sm">Möchten Sie auf dem Laufenden bleiben? Wir melden uns nur, wenn wir etwas Aussagekräftiges zu teilen haben. Kein Spam, nie.</p>
               <div className="space-y-3">
-                <Input placeholder="Vollständiger Name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Vollständiger Name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Unternehmensname *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
                   <Input 
-                    placeholder="Geschäftliche E-Mail" 
+                    placeholder="Geschäftliche E-Mail *" 
                     type="email" 
                     value={form.email} 
                     onChange={(e) => {
@@ -322,9 +344,9 @@ export default function TravelPartnerSurveyDE() {
                 <div>
                   <Input
                     placeholder="Unternehmenswebsite * (z. B. www.ihrunternehmen.de)"
-                    value={form.company_name}
+                    value={form.company_website}
                     onChange={(e) => {
-                      set("company_name", e.target.value);
+                      set("company_website", e.target.value);
                       setWebsiteValid(false);
                       setWebsiteError("");
                     }}

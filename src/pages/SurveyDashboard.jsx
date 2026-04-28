@@ -222,6 +222,7 @@ function exportToExcel(responses, filename, isRetailerView) {
     "Email": r.email || "",
     "Company": r.company_name || "",
     "Type": isRetailerView ? (r.company_type?.replace(RETAILER_PREFIX, "") || "") : (r.company_type || ""),
+    "Website": r.company_website || "",
     "Interest Level": r.interest_level || "",
     "Annual Bookings / Monthly Visitors": r.annual_bookings || "",
     "Current Loyalty Program": r.current_loyalty || "",

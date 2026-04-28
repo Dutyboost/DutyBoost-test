@@ -7,7 +7,7 @@ import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
 const TOTAL_QUESTIONS = 7;
 
-const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel", "Car Rental"];
+const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel chain / Hospitality", "Car Rental company", "Other"];
 const BOOKING_VOLUMES = ["Under 500", "500 – 2,000", "2,000 – 10,000", "10,000+"];
 const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks", "Other"];
 const INTEREST_OPTIONS = [
@@ -61,6 +61,7 @@ export default function TravelPartnerSurvey() {
     full_name: "",
     email: "",
     company_name: "",
+    company_website: "",
     company_type: "",
     annual_bookings: "",
     current_loyalty: [],
@@ -141,7 +142,7 @@ export default function TravelPartnerSurvey() {
   };
 
   const handleWebsiteBlur = async () => {
-    const val = form.company_name;
+    const val = form.company_website;
     if (!val) return;
     
     if (hasObsceneContent(val)) {
@@ -175,7 +176,7 @@ export default function TravelPartnerSurvey() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
     return true;
   };
 
@@ -184,8 +185,10 @@ export default function TravelPartnerSurvey() {
     try {
       const submitData = {
         ...form,
-        current_loyalty: form.current_loyalty.join(", ")
+        current_loyalty: form.current_loyalty.join(", "),
+        loyalty_other: undefined,
       };
+      delete submitData.loyalty_other;
       await base44.entities.SurveyResponse.create(submitData);
       setSubmitted(true);
     } catch (error) {
@@ -368,10 +371,11 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">Last step — Let us know who you are.</h2>
               <p className="text-muted-foreground text-sm">Would you like to stay updated? We'll only reach out when we have something meaningful to share. No spam, ever.</p>
               <div className="space-y-3">
-                <Input placeholder="Full name" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <Input placeholder="Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                 <div>
                   <Input 
-                    placeholder="Work email" 
+                    placeholder="Work email *" 
                     type="email" 
                     value={form.email} 
                     onChange={(e) => {
@@ -389,9 +393,9 @@ export default function TravelPartnerSurvey() {
                 <div>
                   <Input
                     placeholder="Company website * (e.g. www.yourcompany.com)"
-                    value={form.company_name}
+                    value={form.company_website}
                     onChange={(e) => {
-                      set("company_name", e.target.value);
+                      set("company_website", e.target.value);
                       setWebsiteValid(false);
                       setWebsiteError("");
                     }}
