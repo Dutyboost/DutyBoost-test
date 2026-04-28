@@ -233,7 +233,7 @@ export default function AgencySignup() {
                {t('signup.agency.success_desc')}
              </p>
             </div>
-            <Link to="/agency-portal"><Button className="w-full">{t('signup.agency.success_button')}</Button></Link>
+            <Link to="/travel-partner-portal"><Button className="w-full">{t('signup.agency.success_button')}</Button></Link>
           </div>
         </div>
       </div>
@@ -243,7 +243,7 @@ export default function AgencySignup() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/get-started"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('common.back')}</Button></Link>
+        <Link to="/travel-partner-portal"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('common.back')}</Button></Link>
         <Link to="/"><DutyBoostLogo height={150} /></Link>
         <LanguageSwitcher />
       </nav>

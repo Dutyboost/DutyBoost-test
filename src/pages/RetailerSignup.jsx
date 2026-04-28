@@ -218,7 +218,7 @@ export default function RetailerSignup() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/get-started"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('common.back')}</Button></Link>
+        <Link to="/retailer-portal"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('common.back')}</Button></Link>
         <Link to="/"><DutyBoostLogo height={150} /></Link>
         <LanguageSwitcher />
       </nav>

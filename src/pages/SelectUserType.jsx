@@ -17,40 +17,44 @@ export default function SelectUserType() {
 
   const options = [
     {
+      id: "agency",
       title: t('getstarted.agencies'),
       descKey: 'getstarted.agencies_description',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/get-started",
+      path: "/travel-partner-signup",
     },
     {
+      id: "hotel",
       title: t('getstarted.hotels'),
       descKey: 'getstarted.hotels_description',
       icon: HotelIcon,
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
-      path: "/get-started",
+      path: "/hotel-signup",
     },
     {
+      id: "carrental",
       title: t('getstarted.car_rentals'),
       descKey: 'getstarted.car_rentals_description',
       icon: CarRentalIcon,
       color: "from-red-400 to-red-600",
       bg: "bg-red-50",
       iconColor: "text-red-600",
-      path: "/get-started",
+      path: "/car-rental-signup",
     },
     {
+      id: "retailer",
       title: 'Airport Retail Partners',
       descKey: 'getstarted.retailers_description',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-      path: "/get-started",
+      path: "/retailer-signup",
     },
   ];
 
@@ -81,7 +85,7 @@ export default function SelectUserType() {
               const Icon = option.icon;
               return (
                 <div
-                  key={option.path}
+                  key={option.id}
                   onClick={() => navigate(option.path)}
                   className="bg-card rounded-2xl border border-border p-8 hover:shadow-lg hover:border-primary/30 transition-all flex flex-col cursor-pointer"
                 >

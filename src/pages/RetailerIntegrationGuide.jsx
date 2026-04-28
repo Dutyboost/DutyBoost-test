@@ -205,7 +205,7 @@ export default function RetailerIntegrationGuide() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={150} />
           <div className="flex items-center gap-2">
-            <Link to="/integration-guide">
+            <Link to="/travel-partner-integration-guide">
               <Button size="sm" variant="outline" className="text-sm hidden sm:flex">← Agency Guide</Button>
             </Link>
             <Link to="/">
@@ -495,7 +495,7 @@ export default function RetailerIntegrationGuide() {
             <a href="mailto:rael@dutyboost.com">
               <Button className="gap-2"><Mail className="w-4 h-4" /> integrations@dutyboost.com</Button>
             </a>
-            <Link to="/integration-guide">
+            <Link to="/travel-partner-integration-guide">
               <Button variant="outline" className="gap-2"><ArrowRight className="w-4 h-4" /> Agency Guide</Button>
             </Link>
           </div>
