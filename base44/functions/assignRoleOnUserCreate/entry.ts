@@ -25,7 +25,17 @@ Deno.serve(async (req) => {
       status: 'invited',
     });
 
+    const ADMIN_EMAILS = [
+      'zorigt.aria@gmail.com',
+      'admin@dutyboost.com',
+    ];
+
     if (apps.length === 0) {
+      if (ADMIN_EMAILS.includes(user.email?.toLowerCase())) {
+        await base44.asServiceRole.entities.User.update(user.id, { role: 'admin' });
+        console.log(`Assigned admin role to known admin ${user.email}`);
+        return Response.json({ success: true, email: user.email, role: 'admin' });
+      }
       console.log(`No matching application for ${user.email}`);
       return Response.json({ skipped: true, reason: 'No matching application' });
     }
