@@ -1,0 +1,64 @@
+{
+  "name": "TrainTransaction",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "merchant_name": {
+      "type": "string",
+      "title": "Merchant Name"
+    },
+    "station": {
+      "type": "string",
+      "title": "Station"
+    },
+    "train_operator": {
+      "type": "string",
+      "title": "Train Operator"
+    },
+    "traveler_email": {
+      "type": "string",
+      "title": "Traveler Email"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount (EUR)"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "platform_revenue": {
+      "type": "number",
+      "title": "Platform Revenue (EUR)"
+    },
+    "operator_commission": {
+      "type": "number",
+      "title": "Operator Commission (EUR)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "approved",
+        "rejected"
+      ],
+      "default": "approved"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Timestamp"
+    }
+  },
+  "required": [
+    "token_id",
+    "merchant_name",
+    "station",
+    "amount",
+    "status",
+    "timestamp"
+  ]
+}

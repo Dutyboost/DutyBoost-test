@@ -86,6 +86,10 @@ import CruiseShowcase from './pages/CruiseShowcase.jsx';
 import CruisePortal from './pages/CruisePortal.jsx';
 import CruiseSignup from './pages/CruiseSignup.jsx';
 import DemoCruiseDashboard from './pages/DemoCruiseDashboard.jsx';
+import TrainShowcase from './pages/TrainShowcase.jsx';
+import TrainPortal from './pages/TrainPortal.jsx';
+import TrainSignup from './pages/TrainSignup.jsx';
+import DemoTrainDashboard from './pages/DemoTrainDashboard.jsx';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -166,6 +170,7 @@ const AuthenticatedApp = () => {
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
         <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
         <Route path="/demo/cruise" element={<DemoCruiseDashboard />} />
+        <Route path="/demo/train" element={<DemoTrainDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={<GetStarted />} />
@@ -194,6 +199,9 @@ const AuthenticatedApp = () => {
         <Route path="/cruise-showcase" element={<CruiseShowcase />} />
         <Route path="/cruise-portal" element={<CruisePortal />} />
         <Route path="/cruise-signup" element={<CruiseSignup />} />
+        <Route path="/train-showcase" element={<TrainShowcase />} />
+        <Route path="/train-portal" element={<TrainPortal />} />
+        <Route path="/train-signup" element={<TrainSignup />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />

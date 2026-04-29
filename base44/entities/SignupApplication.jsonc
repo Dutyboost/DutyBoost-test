@@ -19,7 +19,8 @@
       "title": "Business Type",
       "enum": [
         "Travel Partner",
-        "Airport Retailer"
+        "Airport Retailer",
+        "Train Partner"
       ]
     },
     "website": {

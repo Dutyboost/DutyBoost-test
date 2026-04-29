@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Store, Plane, ArrowRight, Eye, Building2, Car, Ship } from "lucide-react";
+import { Store, Plane, ArrowRight, Eye, Building2, Car, Ship, Train } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { useTranslation } from "react-i18next";
 import PageFooter from "../components/PageFooter";
@@ -81,6 +81,19 @@ export default function DemoLanding() {
             <div>
               <p className="font-heading font-bold text-xl">Cruise Line Partner Demo</p>
               <p className="text-muted-foreground text-sm mt-1">See how cruise lines turn port stops into retail revenue events for passengers.</p>
+            </div>
+            <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+              <Eye className="w-4 h-4" /> View Demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link to="/demo/train" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center">
+              <Train className="w-6 h-6 text-indigo-600" />
+            </div>
+            <div>
+              <p className="font-heading font-bold text-xl">Rail Partner Demo</p>
+              <p className="text-muted-foreground text-sm mt-1">See how rail operators generate DutyCredits for passengers and earn station retail commission.</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
               <Eye className="w-4 h-4" /> View Demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

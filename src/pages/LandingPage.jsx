@@ -13,6 +13,7 @@ import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import CruiseShipIcon from "../components/CruiseShipIcon";
+import TrainIcon from "../components/TrainIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
@@ -186,8 +187,8 @@ export default function LandingPage() {
               }
               
               if (s.key === 'agencies') {
-                AdditionalIcons = [HotelIcon, CarRentalIcon, CruiseShipIcon];
-              }
+                         AdditionalIcons = [HotelIcon, CarRentalIcon, CruiseShipIcon, TrainIcon];
+                       }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers';
               const cardContent = (

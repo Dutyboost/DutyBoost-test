@@ -7,6 +7,7 @@ import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import CruiseShipIcon from "../components/CruiseShipIcon";
+import TrainIcon from "../components/TrainIcon";
 import { ArrowRight } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -55,6 +56,16 @@ export default function SelectUserType() {
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
       path: "/cruise-signup",
+    },
+    {
+      id: "train",
+      title: "Rail Operators",
+      descKey: 'getstarted.train_description',
+      icon: TrainIcon,
+      color: "from-indigo-400 to-violet-600",
+      bg: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+      path: "/train-signup",
     },
     {
       id: "retailer",
@@ -106,6 +117,8 @@ export default function SelectUserType() {
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
                     {option.id === 'cruise'
                       ? 'Turn every voyage into a loyalty asset. Automatically generate personalized DutyCredits for your passengers, rewarding them with an exclusive port shopping incentive. Earn a commission on every DutyCredit redeemed at partner port retailers.'
+                      : option.id === 'train'
+                      ? 'Turn every train journey into a station retail revenue event. Generate DutyCredits for passengers at booking — redeemable at station retailers before boarding. Earn commission on every redemption with zero infrastructure cost.'
                       : t(option.descKey)}
                   </p>
                   <Button

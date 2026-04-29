@@ -1,0 +1,72 @@
+{
+  "name": "TrainCredit",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "booking_ref": {
+      "type": "string",
+      "title": "Booking Reference"
+    },
+    "train_operator": {
+      "type": "string",
+      "title": "Train Operator"
+    },
+    "departure_station": {
+      "type": "string",
+      "title": "Departure Station"
+    },
+    "arrival_station": {
+      "type": "string",
+      "title": "Arrival Station"
+    },
+    "balance": {
+      "type": "number",
+      "title": "Balance (EUR)"
+    },
+    "remaining_balance": {
+      "type": "number",
+      "title": "Remaining Balance (EUR)"
+    },
+    "expiry": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expiry"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "used",
+        "expired",
+        "partially_used"
+      ],
+      "default": "active"
+    },
+    "traveler_email": {
+      "type": "string",
+      "title": "Traveler Email"
+    },
+    "traveler_name": {
+      "type": "string",
+      "title": "Traveler Name"
+    },
+    "operator_email": {
+      "type": "string",
+      "title": "Operator Email"
+    }
+  },
+  "required": [
+    "token_id",
+    "booking_ref",
+    "train_operator",
+    "departure_station",
+    "arrival_station",
+    "balance",
+    "expiry",
+    "status"
+  ]
+}
