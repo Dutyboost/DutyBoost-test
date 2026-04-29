@@ -11,6 +11,7 @@ export default {
       get_started: 'Get Started',
       we_call_you: 'We Call You',
       live_demo: 'Live Demo',
+      roi_calculator: 'ROI Calculator',
     },
     hero: {
       title_1: 'Turning every booking into',

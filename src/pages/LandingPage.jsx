@@ -79,7 +79,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/retailer-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.live_demo')}
+                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -116,7 +116,7 @@ export default function LandingPage() {
             )} />
             <Link to="/retailer-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.live_demo')}
+                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>

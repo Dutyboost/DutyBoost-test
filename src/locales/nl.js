@@ -11,6 +11,7 @@ export default {
       get_started: 'Aan de slag',
       we_call_you: 'Wij bellen u',
       live_demo: 'Live Demo',
+      roi_calculator: 'ROI Calculator',
     },
     hero: {
       title_1: 'Elke boeking omzetten in',

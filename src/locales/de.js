@@ -12,6 +12,7 @@ export default {
       get_started: 'Loslegen',
       we_call_you: 'Wir rufen Sie an',
       live_demo: 'Live-Demo',
+      roi_calculator: 'ROI-Rechner',
     },
     hero: {
       title_1: 'Jede Buchung verwandeln in',

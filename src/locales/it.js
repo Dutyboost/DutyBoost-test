@@ -11,6 +11,7 @@ export default {
       get_started: 'Inizia',
       we_call_you: 'Ti chiamiamo',
       live_demo: 'Demo dal vivo',
+      roi_calculator: 'Calcolatore ROI',
     },
     hero: {
       title_1: 'Trasformando ogni prenotazione in',
