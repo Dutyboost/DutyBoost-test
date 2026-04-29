@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Ship } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Ship, Train } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -148,6 +148,95 @@ Phase 4 — Cross-channel: fly-cruise packages where airport DutyBoost voucher a
       "functions/generateCruiseCredit.js",
       "entities/CruiseCredit.json",
       "entities/CruiseTransaction.json",
+    ],
+  },
+  {
+    id: "train-travel",
+    icon: Train,
+    title: "Train Travel & Station Retail Integration",
+    status: "hidden",
+    reason: "Strategic future channel — business model defined, not yet built",
+    description: `DutyBoost for train travel adapts the same loyalty-to-retail model to rail passengers. Intercity and international train travelers (Thalys, Eurostar, ICE, Intercity) dwell in large stations with significant retail footprints — but currently receive zero personalized purchase incentive. The positioning: "We turn every train journey into a station retail revenue event."
+
+JOURNEY MAP:
+• Booking → DutyCredit generated at booking confirmation (rail operator app, booking confirmation email, digital ticket)
+• Departure station (pre-boarding window) → Passenger uses DutyCredit at a participating station retailer before boarding
+• Arrival station (optional second window) → If international/long-distance, a second redemption window is unlocked at the destination station
+• Return journey → Repeat cycle generates repeat station visits and repeat commission
+
+INTEGRATION POINTS:
+A. Post-booking (intent creation): "You've unlocked €X to spend at [station] shops before your train departs" — sent via booking confirmation or rail operator app.
+B. Pre-boarding (conversion moment): Passenger scans QR at station retailer. Minimum spend threshold met (e.g. €50). Revenue generated for rail operator and DutyBoost.
+C. Arrival / Return (optional loyalty loop): Returning passengers receive a new DutyCredit for their return leg, or a delayed credit valid on next trip.
+
+BUSINESS MODEL:
+• Rail operators earn a revenue share on each redemption (same commission structure as airlines/cruise)
+• Station retailers pay only on redemption — no upfront cost, no tech investment required
+• DutyBoost takes platform fee from retailer transaction volume
+• Minimum spend threshold ensures only committed buyers convert (quality traffic, not browsing)
+• OTA and rail booking platforms (Trainline, SNCF, NS, DB) can integrate via booking webhook
+
+WHY RAIL OPERATORS CARE:
+• Average station dwell time: 20–45 min (intercity), 90+ min (international e.g. Eurostar)
+• 10 million+ passengers/year on major intercity corridors (e.g. Amsterdam–Paris, London–Brussels)
+• Conversion estimate 8–12% of eligible passengers
+• Avg spend €55 = meaningful gross per route per day
+• Commission 2.5% → Rail operator share 20% → Passive revenue at scale with zero infrastructure cost
+• Station retail partnerships already exist (NS Stations, SNCF Gares & Connexions, Eurostar St. Pancras) — DutyBoost plugs in as the demand-generation layer
+• Data value: which stations drive spend, which categories convert, which routes have highest dwell-to-purchase ratio
+
+KEY DIFFERENTIATORS vs. Airport:
+• Shorter dwell window → higher urgency → higher conversion rate
+• Domestic routes have higher booking frequency per passenger (weekly commuters, regular intercity users)
+• Station retail is underserved vs. airport retail — lower baseline promotional activity = more incremental uplift
+• Rail travelers are less price-sensitive at point of departure (running late, stressed, convenience-seeking)
+• Corporate rail travel is high frequency → corporate DutyCredit programme opportunity (link to Business Travel module)
+
+KEY DIFFERENTIATORS vs. Cruise:
+• Higher booking frequency per passenger (monthly vs. once/twice per year)
+• Smaller per-transaction amounts but much higher redemption volume
+• OTA integration is more standardized (Trainline API, NS API, DB API are well-documented)
+• No physical voucher needed — purely digital via booking confirmation
+
+STATION RETAIL PARTNERS:
+• Relay / WHSmith (books, snacks, press) — present in most European stations
+• Starbucks / Pret A Manger (F&B) — already standard in major stations
+• Rituals / Kiehl's / pharmacy chains (personal care) — high-ticket, high-margin
+• Local artisan / regional specialty stores — high differentiation vs. airport offers
+
+KEY MESSAGE: Do not say "we help station shops." Say: "We turn every departure into a measurable retail revenue event for the rail operator — without changing anything at the station."
+
+ROLLOUT:
+Phase 1 — Pilot with one rail operator (e.g. NS in Netherlands), one major station (Amsterdam Centraal), two category retailers. Digital voucher via booking confirmation email.
+Phase 2 — Expand to international routes (Thalys/Eurostar) where dwell is longer and spend potential higher.
+Phase 3 — OTA integration: Trainline, SNCF, DB — auto-generate DutyCredits for all bookings above a threshold ticket price.
+Phase 4 — Corporate rail module: link to Business Travel programme for frequent corporate travelers on fixed routes.
+Phase 5 — Return-leg loyalty: passengers receive a new DutyCredit for their return journey, creating a full round-trip retail loop.`,
+    pages: [],
+    howToRestore: [
+      "Create pages/TrainShowcase.jsx — public-facing pitch page for rail operator partnerships (mirror CruiseShowcase structure). Route: /train-showcase.",
+      "Create pages/TrainPortal.jsx — logged-in dashboard for rail operator partners: route overview, station performance, passenger conversion, revenue share. Route: /train-portal.",
+      "Create pages/TrainSignup.jsx — multi-step onboarding for rail operators (company info, key routes, main stations, bank details, terms). Route: /train-signup.",
+      "Create pages/DemoTrainDashboard.jsx — demo dashboard showing per-route and per-station analytics. Route: /demo/train.",
+      "Add 'Train Partner' as a business_type option in the SignupApplication entity.",
+      "Create entities/TrainCredit.json — mirrors CruiseCredit but with fields: token_id, booking_ref, train_operator, departure_station, arrival_station, balance, expiry, status.",
+      "Create entities/TrainTransaction.json — mirrors CruiseTransaction for station retail redemptions.",
+      "Create functions/generateTrainCredit.js — backend function triggered at train booking to issue a station retail voucher via email.",
+      "Add a TrainIcon component (use Train icon from lucide-react, or a custom SVG).",
+      "Add train card to pages/SelectUserType.jsx (same pattern as cruise card). Color: indigo/violet.",
+      "Add train demo card to pages/DemoLanding.jsx.",
+      "Add train routes to App.jsx and a 'For Rail Partners' entry in the LandingPage nav.",
+      "Create components/TrainStationMap.jsx — map view of partnered stations with redemption heatmap (mirror CruisePortCallMap).",
+    ],
+    files: [
+      "pages/TrainShowcase.jsx",
+      "pages/TrainPortal.jsx",
+      "pages/TrainSignup.jsx",
+      "pages/DemoTrainDashboard.jsx",
+      "components/TrainStationMap.jsx",
+      "functions/generateTrainCredit.js",
+      "entities/TrainCredit.json",
+      "entities/TrainTransaction.json",
     ],
   },
 ];
