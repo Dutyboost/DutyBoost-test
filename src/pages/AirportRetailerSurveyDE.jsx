@@ -60,6 +60,7 @@ export default function AirportRetailerSurveyDE() {
   const [websiteValid, setWebsiteValid] = useState(false);
   const [verifyingWebsite, setVerifyingWebsite] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [anonymous, setAnonymous] = useState(null);
 
   const [form, setForm] = useState({
     full_name: "", email: "", company_name: "", company_website: "", company_type: "",
@@ -164,7 +165,11 @@ export default function AirportRetailerSurveyDE() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) {
+      if (anonymous === null) return false;
+      if (anonymous) return form.company_name && websiteValid && !verifyingWebsite;
+      return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
+    }
     return true;
   };
 
@@ -294,45 +299,63 @@ export default function AirportRetailerSurveyDE() {
           )}
 
           {step === 6 && (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Letzter Schritt — Sagen Sie uns, wer Sie sind.</h2>
-              <p className="text-muted-foreground text-sm">Möchten Sie auf dem Laufenden bleiben? Wir melden uns nur, wenn wir etwas Bedeutungsvolles zu teilen haben. Kein Spam, niemals.</p>
-              <div className="space-y-3">
-                <Input placeholder="Vollständiger Name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Geschäft- / Unternehmensname *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
-                <div>
-                  <Input placeholder="Geschäftliche E-Mail *" type="email" value={form.email}
-                    onChange={(e) => {
-                      set("email", e.target.value);
-                      if (e.target.value && isPersonalEmail(e.target.value)) {
-                        setEmailError("Bitte verwenden Sie eine professionelle geschäftliche E-Mail-Adresse");
-                      } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
-                        setEmailError("Ihre E-Mail-Domain stimmt nicht mit Ihrer Unternehmenswebsite überein. Bitte verwenden Sie Ihre geschäftliche E-Mail.");
-                      } else {
-                        setEmailError("");
-                      }
-                    }}
-                    className={emailError ? "border-destructive" : ""} />
-                  {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
-                </div>
-                <div>
-                  <Input placeholder="Unternehmenswebsite * (z.B. www.ihrgeschaeft.de)" value={form.company_website}
-                    onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
-                    onBlur={handleWebsiteBlur}
-                    className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""} />
-                  {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Website wird verifiziert...</p>}
-                  {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
-                  {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website verifiziert</p>}
-                </div>
-                <Input placeholder="Telefon (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
-              </div>
-              <label className="flex items-start gap-3 cursor-pointer group pt-2">
-                <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
-                <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Ja, ich möchte kontaktiert werden</strong>, wenn DutyBoost bereit ist, mehr Details zu teilen.
+            <div className="space-y-5">
+              <h2 className="text-2xl font-heading font-bold">Letzter Schritt — Wie möchten Sie antworten?</h2>
+              <p className="text-muted-foreground text-sm">Sie können Ihre Kontaktdaten teilen, damit wir uns melden können, oder anonym antworten. In jedem Fall ist Ihr Beitrag wertvoll.</p>
 
-                </span>
-              </label>
+              <div className="grid grid-cols-1 gap-3">
+                <button type="button" onClick={() => setAnonymous(false)}
+                  className={`w-full text-left px-4 py-4 rounded-xl border text-sm font-medium transition-all ${anonymous === false ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"}`}>
+                  <div className="font-semibold">Kontaktdaten teilen</div>
+                  <div className={`text-xs mt-0.5 ${anonymous === false ? "text-primary-foreground/80" : "text-muted-foreground"}`}>Ich möchte auf dem Laufenden bleiben und kontaktiert werden, wenn DutyBoost startet.</div>
+                </button>
+                <button type="button" onClick={() => setAnonymous(true)}
+                  className={`w-full text-left px-4 py-4 rounded-xl border text-sm font-medium transition-all ${anonymous === true ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"}`}>
+                  <div className="font-semibold">Anonym antworten</div>
+                  <div className={`text-xs mt-0.5 ${anonymous === true ? "text-primary-foreground/80" : "text-muted-foreground"}`}>Ich teile nur meinen Unternehmensnamen und die Website. Keine persönlichen Daten.</div>
+                </button>
+              </div>
+
+              {anonymous !== null && (
+                <div className="space-y-3 pt-1">
+                  <Input placeholder="Geschäft- / Unternehmensname *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                  <div>
+                    <Input placeholder="Unternehmenswebsite * (z.B. www.ihrgeschaeft.de)" value={form.company_website}
+                      onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
+                      onBlur={handleWebsiteBlur}
+                      className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""} />
+                    {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Website wird verifiziert...</p>}
+                    {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
+                    {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website verifiziert</p>}
+                  </div>
+
+                  {anonymous === false && (
+                    <>
+                      <Input placeholder="Vollständiger Name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                      <div>
+                        <Input placeholder="Geschäftliche E-Mail *" type="email" value={form.email}
+                          onChange={(e) => {
+                            set("email", e.target.value);
+                            if (e.target.value && isPersonalEmail(e.target.value)) {
+                              setEmailError("Bitte verwenden Sie eine professionelle geschäftliche E-Mail-Adresse");
+                            } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
+                              setEmailError("Ihre E-Mail-Domain stimmt nicht mit Ihrer Unternehmenswebsite überein. Bitte verwenden Sie Ihre geschäftliche E-Mail.");
+                            } else { setEmailError(""); }
+                          }}
+                          className={emailError ? "border-destructive" : ""} />
+                        {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
+                      </div>
+                      <Input placeholder="Telefon (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
+                      <label className="flex items-start gap-3 cursor-pointer group pt-1">
+                        <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
+                        <span className="text-sm text-foreground group-hover:text-primary transition-colors">
+                          <strong>Ja, ich möchte kontaktiert werden</strong>, wenn DutyBoost bereit ist, mehr Details zu teilen.
+                        </span>
+                      </label>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           )}
 

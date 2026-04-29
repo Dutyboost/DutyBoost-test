@@ -70,6 +70,7 @@ export default function AirportRetailerSurvey() {
   const [websiteValid, setWebsiteValid] = useState(false);
   const [verifyingWebsite, setVerifyingWebsite] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [anonymous, setAnonymous] = useState(null); // null = not chosen yet
 
   const [form, setForm] = useState({
     full_name: "",
@@ -220,7 +221,11 @@ export default function AirportRetailerSurvey() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) {
+      if (anonymous === null) return false;
+      if (anonymous) return form.company_name && websiteValid && !verifyingWebsite;
+      return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
+    }
     return true;
   };
 
@@ -408,60 +413,67 @@ export default function AirportRetailerSurvey() {
           )}
 
           {step === 6 && (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Last step — Let us know who you are.</h2>
-              <p className="text-muted-foreground text-sm">Would you like to stay updated? We'll only reach out when we have something meaningful to share. No spam, ever.</p>
-              <div className="space-y-3">
-                <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Store / Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
-                <div>
-                  <Input
-                    placeholder="Work email *"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => {
-                      set("email", e.target.value);
-                      if (e.target.value && isPersonalEmail(e.target.value)) {
-                        setEmailError("Please use a professional/company email address");
-                      } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
-                        setEmailError("Your email domain doesn't match your company website. Please use your company email.");
-                      } else {
-                        setEmailError("");
-                      }
-                    }}
-                    className={emailError ? "border-destructive" : ""}
-                  />
-                  {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
-                </div>
-                <div>
-                  <Input
-                    placeholder="Company website * (e.g. www.yourstore.com)"
-                    value={form.company_website}
-                    onChange={(e) => {
-                      set("company_website", e.target.value);
-                      setWebsiteValid(false);
-                      setWebsiteError("");
-                    }}
-                    onBlur={handleWebsiteBlur}
-                    className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""}
-                  />
-                  {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Verifying website...</p>}
-                  {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
-                  {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website verified</p>}
-                </div>
-                <Input placeholder="Phone (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
+            <div className="space-y-5">
+              <h2 className="text-2xl font-heading font-bold">Last step — How would you like to respond?</h2>
+              <p className="text-muted-foreground text-sm">You can share your contact details so we can follow up, or respond anonymously. Either way, your input is valuable to us.</p>
+
+              <div className="grid grid-cols-1 gap-3">
+                <button type="button" onClick={() => setAnonymous(false)}
+                  className={`w-full text-left px-4 py-4 rounded-xl border text-sm font-medium transition-all ${anonymous === false ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"}`}>
+                  <div className="font-semibold">Share my contact details</div>
+                  <div className={`text-xs mt-0.5 ${anonymous === false ? "text-primary-foreground/80" : "text-muted-foreground"}`}>I'd like to stay updated and be reached out to when DutyBoost launches.</div>
+                </button>
+                <button type="button" onClick={() => setAnonymous(true)}
+                  className={`w-full text-left px-4 py-4 rounded-xl border text-sm font-medium transition-all ${anonymous === true ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"}`}>
+                  <div className="font-semibold">Respond anonymously</div>
+                  <div className={`text-xs mt-0.5 ${anonymous === true ? "text-primary-foreground/80" : "text-muted-foreground"}`}>I only want to share my company name and website. No personal details.</div>
+                </button>
               </div>
-              <label className="flex items-start gap-3 cursor-pointer group pt-2">
-                <input
-                  type="checkbox"
-                  checked={form.wants_demo}
-                  onChange={(e) => set("wants_demo", e.target.checked)}
-                  className="mt-0.5 accent-primary w-4 h-4 cursor-pointer"
-                />
-                <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Yes, I'd like to be contacted</strong> when DutyBoost is ready to share more details.
-                </span>
-              </label>
+
+              {anonymous !== null && (
+                <div className="space-y-3 pt-1">
+                  <Input placeholder="Store / Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                  <div>
+                    <Input
+                      placeholder="Company website * (e.g. www.yourstore.com)"
+                      value={form.company_website}
+                      onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
+                      onBlur={handleWebsiteBlur}
+                      className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""}
+                    />
+                    {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Verifying website...</p>}
+                    {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
+                    {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website verified</p>}
+                  </div>
+
+                  {anonymous === false && (
+                    <>
+                      <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                      <div>
+                        <Input placeholder="Work email *" type="email" value={form.email}
+                          onChange={(e) => {
+                            set("email", e.target.value);
+                            if (e.target.value && isPersonalEmail(e.target.value)) {
+                              setEmailError("Please use a professional/company email address");
+                            } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
+                              setEmailError("Your email domain doesn't match your company website. Please use your company email.");
+                            } else { setEmailError(""); }
+                          }}
+                          className={emailError ? "border-destructive" : ""}
+                        />
+                        {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
+                      </div>
+                      <Input placeholder="Phone (optional)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
+                      <label className="flex items-start gap-3 cursor-pointer group pt-1">
+                        <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
+                        <span className="text-sm text-foreground group-hover:text-primary transition-colors">
+                          <strong>Yes, I'd like to be contacted</strong> when DutyBoost is ready to share more details.
+                        </span>
+                      </label>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           )}
 

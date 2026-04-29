@@ -56,6 +56,7 @@ export default function TravelPartnerSurveyNL() {
   const [websiteValid, setWebsiteValid] = useState(false);
   const [verifyingWebsite, setVerifyingWebsite] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [anonymous, setAnonymous] = useState(null);
 
   const [form, setForm] = useState({
     full_name: "",
@@ -176,7 +177,11 @@ export default function TravelPartnerSurveyNL() {
     if (step === 3) return form.interest_level !== "";
     if (step === 4) return form.commission_attractive !== "";
     if (step === 5) return form.snippet_willingness !== "";
-    if (step === 6) return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
+    if (step === 6) {
+      if (anonymous === null) return false;
+      if (anonymous) return form.company_name && websiteValid && !verifyingWebsite;
+      return form.full_name && form.email && form.company_name && websiteValid && !verifyingWebsite && !emailError;
+    }
     return true;
   };
 
@@ -330,53 +335,63 @@ export default function TravelPartnerSurveyNL() {
           )}
 
           {step === 6 && (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">Laatste stap — Zeg ons wie je bent.</h2>
-              <p className="text-muted-foreground text-sm">Wil je op de hoogte blijven? We nemen alleen contact op wanneer we iets zinnigs kunnen delen. Geen spam, nooit.</p>
-              <div className="space-y-3">
-                <Input placeholder="Volledige naam *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
-                <Input placeholder="Bedrijfsnaam *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
-                <div>
-                  <Input 
-                    placeholder="Zakelijk e-mailadres *" 
-                    type="email" 
-                    value={form.email} 
-                    onChange={(e) => {
-                      set("email", e.target.value);
-                      if (e.target.value && isPersonalEmail(e.target.value)) {
-                        setEmailError("Gebruik alstublieft een professioneel/zakelijk e-mailadres");
-                      } else {
-                        setEmailError("");
-                      }
-                    }}
-                    className={emailError ? "border-destructive" : ""}
-                  />
-                  {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
-                </div>
-                <div>
-                  <Input
-                    placeholder="Bedrijfswebsite * (bijv. www.uwbedrijf.nl)"
-                    value={form.company_website}
-                    onChange={(e) => {
-                      set("company_website", e.target.value);
-                      setWebsiteValid(false);
-                      setWebsiteError("");
-                    }}
-                    onBlur={handleWebsiteBlur}
-                    className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""}
-                  />
-                  {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Website wordt geverifieerd...</p>}
-                  {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
-                  {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website geverifieerd</p>}
-                </div>
-                <Input placeholder="Telefoonnummer (optioneel)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
+            <div className="space-y-5">
+              <h2 className="text-2xl font-heading font-bold">Laatste stap — Hoe wil je reageren?</h2>
+              <p className="text-muted-foreground text-sm">Je kunt je contactgegevens delen zodat we opvolging kunnen geven, of anoniem reageren. In beide gevallen is jouw input waardevol.</p>
+
+              <div className="grid grid-cols-1 gap-3">
+                <button type="button" onClick={() => setAnonymous(false)}
+                  className={`w-full text-left px-4 py-4 rounded-xl border text-sm font-medium transition-all ${anonymous === false ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"}`}>
+                  <div className="font-semibold">Mijn contactgegevens delen</div>
+                  <div className={`text-xs mt-0.5 ${anonymous === false ? "text-primary-foreground/80" : "text-muted-foreground"}`}>Ik wil op de hoogte blijven en gecontacteerd worden wanneer DutyBoost lanceert.</div>
+                </button>
+                <button type="button" onClick={() => setAnonymous(true)}
+                  className={`w-full text-left px-4 py-4 rounded-xl border text-sm font-medium transition-all ${anonymous === true ? "bg-primary text-primary-foreground border-primary shadow-md" : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"}`}>
+                  <div className="font-semibold">Anoniem reageren</div>
+                  <div className={`text-xs mt-0.5 ${anonymous === true ? "text-primary-foreground/80" : "text-muted-foreground"}`}>Ik deel alleen mijn bedrijfsnaam en website. Geen persoonlijke gegevens.</div>
+                </button>
               </div>
-              <label className="flex items-start gap-3 cursor-pointer group pt-2">
-                <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
-                <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                  <strong>Ja, ik wil graag gecontacteerd worden</strong> wanneer DutyBoost klaar is om meer details te delen.
-                </span>
-              </label>
+
+              {anonymous !== null && (
+                <div className="space-y-3 pt-1">
+                  <Input placeholder="Bedrijfsnaam *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                  <div>
+                    <Input placeholder="Bedrijfswebsite * (bijv. www.uwbedrijf.nl)" value={form.company_website}
+                      onChange={(e) => { set("company_website", e.target.value); setWebsiteValid(false); setWebsiteError(""); }}
+                      onBlur={handleWebsiteBlur}
+                      className={websiteError ? "border-destructive" : websiteValid ? "border-green-500" : ""}
+                    />
+                    {verifyingWebsite && <p className="text-xs text-muted-foreground mt-1">Website wordt geverifieerd...</p>}
+                    {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
+                    {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website geverifieerd</p>}
+                  </div>
+
+                  {anonymous === false && (
+                    <>
+                      <Input placeholder="Volledige naam *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                      <div>
+                        <Input placeholder="Zakelijk e-mailadres *" type="email" value={form.email}
+                          onChange={(e) => {
+                            set("email", e.target.value);
+                            if (e.target.value && isPersonalEmail(e.target.value)) {
+                              setEmailError("Gebruik alstublieft een professioneel/zakelijk e-mailadres");
+                            } else { setEmailError(""); }
+                          }}
+                          className={emailError ? "border-destructive" : ""}
+                        />
+                        {emailError && <p className="text-xs text-destructive mt-1">{emailError}</p>}
+                      </div>
+                      <Input placeholder="Telefoonnummer (optioneel)" value={form.phone} onChange={(e) => set("phone", e.target.value)} />
+                      <label className="flex items-start gap-3 cursor-pointer group pt-1">
+                        <input type="checkbox" checked={form.wants_demo} onChange={(e) => set("wants_demo", e.target.checked)} className="mt-0.5 accent-primary w-4 h-4 cursor-pointer" />
+                        <span className="text-sm text-foreground group-hover:text-primary transition-colors">
+                          <strong>Ja, ik wil graag gecontacteerd worden</strong> wanneer DutyBoost klaar is om meer details te delen.
+                        </span>
+                      </label>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
