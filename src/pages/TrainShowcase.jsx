@@ -162,9 +162,9 @@ export default function TrainShowcase() {
       <section className="py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="bg-gradient-to-br from-indigo-600 to-violet-600 rounded-3xl p-12 text-white shadow-2xl space-y-6">
-            <h2 className="text-4xl font-heading font-bold">Ready to pilot with your network?</h2>
+            <h2 className="text-4xl font-heading font-bold">Ready to join the network?</h2>
             <p className="text-lg opacity-90 max-w-xl mx-auto">
-              Phase 1 starts with a single station and two retail categories. No tech investment. No operational change. Just results.
+              No tech investment. No operational change. Just passive commission revenue from your existing passenger flow.
             </p>
             <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90 gap-2 px-8" onClick={() => navigate("/train-signup")}>
               Apply as Rail Partner <ArrowRight className="w-4 h-4" />
