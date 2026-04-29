@@ -4,10 +4,8 @@ import { base44 } from "@/api/base44Client";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
-  Zap, BarChart3, QrCode, TrendingUp,
-  ShieldCheck, Globe2, ArrowRight, Eye, Menu, X
+  BarChart3, ArrowRight, Eye, Menu, X
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -18,8 +16,6 @@ import CruiseShipIcon from "../components/CruiseShipIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
-
-const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
 export default function LandingPage() {
   const { t } = useTranslation();
@@ -66,15 +62,6 @@ export default function LandingPage() {
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
     },
-  ];
-
-  const featureKeys = [
-    { titleKey: 'features.f1_title', descKey: 'features.f1_desc' },
-    { titleKey: 'features.f2_title', descKey: 'features.f2_desc' },
-    { titleKey: 'features.f3_title', descKey: 'features.f3_desc' },
-    { titleKey: 'features.f4_title', descKey: 'features.f4_desc' },
-    { titleKey: 'features.f5_title', descKey: 'features.f5_desc' },
-    { titleKey: 'features.f6_title', descKey: 'features.f6_desc' },
   ];
 
   return (
