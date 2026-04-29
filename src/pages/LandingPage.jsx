@@ -188,12 +188,14 @@ export default function LandingPage() {
                   'Full discount at one shop',
                   'Seamless QR experience',
                 ] : [
-                  t(`stakeholders.${s.key}.b1`),
-                  t(`stakeholders.${s.key}.b2`),
-                  t(`stakeholders.${s.key}.b3`),
+                  'Higher store conversion',
+                  'Real-time QR redemption',
+                  'Track sales split',
                 ];
-                title = s.key === 'travelers' ? 'Travelers' : 'Airport Retail Partners';
-                description = s.key === 'travelers' ? 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, hotel, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.' : t(`stakeholders.${s.key}.description`);
+                title = s.key === 'travelers' ? 'Travelers' : 'Airport/ Port Retail Partners';
+                description = s.key === 'travelers'
+                  ? 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, hotel, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.'
+                  : 'Convert passing travelers into paying customers. Get targeted, pre-qualified shoppers with purchase intent activated by a personalized DutyCredit incentive. Our commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver sales.';
               }
               
               if (s.key === 'agencies') {
