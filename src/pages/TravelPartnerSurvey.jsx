@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
-const LANG_ROUTES = { nl: "/travel-port-partner-survey-nl", de: "/travel-port-partner-survey-de", fr: "/travel-port-partner-survey-fr", es: "/travel-port-partner-survey-es", it: "/travel-port-partner-survey-it" };
+const LANG_ROUTES = { nl: "/travel-partner-survey-nl", de: "/travel-partner-survey-de", fr: "/travel-partner-survey-fr", es: "/travel-partner-survey-es", it: "/travel-partner-survey-it" };
 
 function getPreferredLang() {
   const langs = navigator.languages || [navigator.language || "en"];
