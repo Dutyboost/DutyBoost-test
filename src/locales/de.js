@@ -10,6 +10,7 @@ export default {
       for_hotels: 'Hotels',
       for_car_rentals: 'Autovermietungen',
       get_started: 'Loslegen',
+      partner_with_us: 'Partner mit uns',
       we_call_you: 'Wir rufen Sie an',
       live_demo: 'Live-Demo',
       roi_calculator: 'ROI-Rechner',

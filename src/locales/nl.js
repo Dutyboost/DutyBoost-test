@@ -9,6 +9,7 @@ export default {
       for_hotels: 'Hotels',
       for_car_rentals: 'Autoverhuurers',
       get_started: 'Aan de slag',
+      partner_with_us: 'Partner met ons',
       we_call_you: 'Wij bellen u',
       live_demo: 'Live Demo',
       roi_calculator: 'ROI Calculator',
