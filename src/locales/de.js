@@ -3,6 +3,7 @@ export default {
     nav: {
       signIn: 'Anmelden',
       sign_in: 'Anmelden',
+      dashboard: 'Dashboard',
       for_agencies: 'Reisepartner',
       for_travelers: 'Reisende',
       for_retailers: 'Flughafen-Retailpartner',

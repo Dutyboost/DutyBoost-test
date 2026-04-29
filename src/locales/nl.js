@@ -2,6 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Inloggen',
+      dashboard: 'Dashboard',
       for_agencies: 'Travel Partners',
       for_travelers: 'Reizigers',
       for_retailers: 'Retailpartners',

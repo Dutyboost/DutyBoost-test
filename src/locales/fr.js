@@ -3,6 +3,7 @@ export default {
     nav: {
       signIn: 'Se connecter',
       sign_in: 'Se connecter',
+      dashboard: 'Tableau de bord',
       for_agencies: 'Partenaires de voyage',
       for_travelers: 'Voyageurs',
       for_retailers: 'Partenaires détaillants aéroportuaires',

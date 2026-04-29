@@ -74,12 +74,12 @@ export default function LandingPage() {
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/get-started">
               <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
-                Partner with Us
+                {t('nav.get_started')}
               </Button>
             </Link>
             <Link to="/retailer-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
+                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -88,9 +88,9 @@ export default function LandingPage() {
               </Button>
             )} />
             {authedUser ? (
-              <Link to="/dashboard"><Button size="sm" className="gap-1.5">Dashboard</Button></Link>
+              <Link to="/dashboard"><Button size="sm" className="gap-1.5">{t('nav.dashboard')}</Button></Link>
             ) : (
-              <Button size="sm" className="gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
+              <Button size="sm" className="gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.signIn')}</Button>
             )}
             <LanguageSwitcher />
           </div>
@@ -106,7 +106,7 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
-                Partner with Us
+                {t('nav.get_started')}
               </Button>
             </Link>
             <WeCallYouModal trigger={(setOpen) => (
@@ -116,18 +116,18 @@ export default function LandingPage() {
             )} />
             <Link to="/retailer-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <BarChart3 className="w-3.5 h-3.5" /> ROI Calculator
+                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
             <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
-                <Eye className="w-3.5 h-3.5" /> Live Demo
+                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
               </Button>
             </Link>
             {authedUser ? (
-              <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}><Button size="sm" className="w-full gap-1.5">Dashboard</Button></Link>
+              <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}><Button size="sm" className="w-full gap-1.5">{t('nav.dashboard')}</Button></Link>
             ) : (
-              <Button size="sm" className="w-full gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
+              <Button size="sm" className="w-full gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.signIn')}</Button>
             )}
           </div>
         )}
