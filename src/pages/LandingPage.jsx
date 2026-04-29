@@ -14,6 +14,7 @@ import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
+import CruiseShipIcon from "../components/CruiseShipIcon";
 import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
@@ -192,7 +193,7 @@ export default function LandingPage() {
               }
               
               if (s.key === 'agencies') {
-                AdditionalIcons = [HotelIcon, CarRentalIcon];
+                AdditionalIcons = [HotelIcon, CarRentalIcon, CruiseShipIcon];
               }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers';

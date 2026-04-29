@@ -82,6 +82,10 @@ import AirportRetailerSurveyES from './pages/AirportRetailerSurveyES';
 import AirportRetailerSurveyFR from './pages/AirportRetailerSurveyFR';
 import AirportRetailerSurveyIT from './pages/AirportRetailerSurveyIT';
 import SurveyDashboard from './pages/SurveyDashboard';
+import CruiseShowcase from './pages/CruiseShowcase.jsx';
+import CruisePortal from './pages/CruisePortal.jsx';
+import CruiseSignup from './pages/CruiseSignup.jsx';
+import DemoCruiseDashboard from './pages/DemoCruiseDashboard.jsx';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -126,6 +130,7 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     }
+    // For auth errors, still serve public/survey routes but redirect to login for protected paths
     return publicRoutes;
   }
 
@@ -160,6 +165,7 @@ const AuthenticatedApp = () => {
         <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
         <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
+        <Route path="/demo/cruise" element={<DemoCruiseDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={<GetStarted />} />
@@ -185,6 +191,9 @@ const AuthenticatedApp = () => {
         <Route path="/car-rental-showcase" element={<CarRentalShowcase />} />
         <Route path="/car-rental-portal" element={<CarRentalPortal />} />
         <Route path="/car-rental-signup" element={<CarRentalSignup />} />
+        <Route path="/cruise-showcase" element={<CruiseShowcase />} />
+        <Route path="/cruise-portal" element={<CruisePortal />} />
+        <Route path="/cruise-signup" element={<CruiseSignup />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
