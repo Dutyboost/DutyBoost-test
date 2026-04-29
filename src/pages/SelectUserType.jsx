@@ -7,6 +7,7 @@ import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
+import CruiseShipIcon from "../components/CruiseShipIcon";
 import { ArrowRight } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -47,8 +48,18 @@ export default function SelectUserType() {
       path: "/car-rental-signup",
     },
     {
+      id: "cruise",
+      title: "Cruise Ship Providers",
+      descKey: 'getstarted.cruise_description',
+      icon: CruiseShipIcon,
+      color: "from-cyan-400 to-teal-600",
+      bg: "bg-cyan-50",
+      iconColor: "text-cyan-600",
+      path: "/cruise-signup",
+    },
+    {
       id: "retailer",
-      title: 'Airport Retail Partners',
+      title: 'Airport/ Port Retail Partners',
       descKey: 'getstarted.retailers_description',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
@@ -80,7 +91,7 @@ export default function SelectUserType() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto">
             {options.map((option) => {
               const Icon = option.icon;
               return (
@@ -94,7 +105,9 @@ export default function SelectUserType() {
                   </div>
                   <h2 className="font-heading font-bold text-2xl mb-3">{option.title}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
-                    {t(option.descKey)}
+                    {option.id === 'cruise'
+                      ? 'Turn every voyage into a loyalty asset. Automatically generate personalized DutyCredits for your passengers, rewarding them with an exclusive port shopping incentive. Earn a commission on every DutyCredit redeemed at partner port retailers.'
+                      : t(option.descKey)}
                   </p>
                   <Button
                     size="lg"
