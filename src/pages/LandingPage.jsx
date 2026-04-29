@@ -176,11 +176,11 @@ export default function LandingPage() {
               
               if (s.key === 'agencies') {
                  title = 'Travel Partners';
-                 description = t('stakeholders.agencies.description');
+                 description = 'Whether you\'re a travel agency, airline, hotel, car rental or cruise ship provider — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive airport or port shopping incentive. Earn a commission on every DutyCredit redeemed.';
                  benefits = [
-                   t('stakeholders.agencies.b1'),
-                   t('stakeholders.agencies.b2'),
-                   t('stakeholders.agencies.b3'),
+                   'Higher customer satisfaction',
+                   'Zero integration friction',
+                   'More repeat bookings',
                  ];
                } else {
                 benefits = [
