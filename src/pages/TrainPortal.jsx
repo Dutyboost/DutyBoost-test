@@ -14,13 +14,7 @@ const features = [
   { icon: Zap, title: "OTA Webhook Integration", desc: "Auto-generate DutyCredits from Trainline, NS, SNCF, and DB booking confirmations." },
 ];
 
-const phases = [
-  { phase: "Phase 1", title: "Pilot", desc: "One rail operator, one major station (e.g. Amsterdam Centraal), two retail categories. Digital voucher via booking confirmation email." },
-  { phase: "Phase 2", title: "International Routes", desc: "Expand to Thalys/Eurostar corridors where dwell is longer and spend potential higher." },
-  { phase: "Phase 3", title: "OTA Integration", desc: "Trainline, SNCF, DB — auto-generate DutyCredits for all bookings above a threshold ticket price." },
-  { phase: "Phase 4", title: "Corporate Module", desc: "Link to Business Travel programme for frequent corporate travelers on fixed routes." },
-  { phase: "Phase 5", title: "Return-Leg Loyalty", desc: "Passengers receive a new DutyCredit for their return journey — a full round-trip retail loop." },
-];
+const phases = [];
 
 export default function TrainPortal() {
   const navigate = useNavigate();
@@ -69,24 +63,6 @@ export default function TrainPortal() {
               </div>
             );
           })}
-        </div>
-
-        {/* Rollout phases */}
-        <div className="space-y-6">
-          <h2 className="text-3xl font-heading font-bold text-center">Rollout Roadmap</h2>
-          <div className="space-y-4">
-            {phases.map((p, i) => (
-              <div key={i} className="flex gap-5 items-start bg-card border border-border rounded-xl p-5">
-                <div className="w-20 shrink-0 text-center">
-                  <span className="text-xs font-bold text-indigo-600 bg-indigo-100 px-2 py-1 rounded-full">{p.phase}</span>
-                </div>
-                <div>
-                  <div className="font-heading font-semibold">{p.title}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{p.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* CTA */}
