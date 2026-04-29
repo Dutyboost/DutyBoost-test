@@ -49,7 +49,7 @@ export default function SelectUserType() {
     },
     {
       id: "cruise",
-      title: "Cruise Ship Providers",
+      title: "Cruise Ship Partners",
       descKey: 'getstarted.cruise_description',
       icon: CruiseShipIcon,
       color: "from-cyan-400 to-teal-600",
@@ -59,7 +59,7 @@ export default function SelectUserType() {
     },
     {
       id: "train",
-      title: "Rail Operators",
+      title: "Train Partners",
       descKey: 'getstarted.train_description',
       icon: TrainIcon,
       color: "from-indigo-400 to-violet-600",
