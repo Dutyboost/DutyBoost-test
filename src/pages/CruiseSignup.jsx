@@ -39,7 +39,7 @@ export default function CruiseSignup() {
         full_name: fullName,
         email,
         company,
-        business_type: "Cruise Line Partner",
+        business_type: "Cruise Ship Partner",
         website,
         airport: homePort,
         kvk: fleet,

@@ -47,8 +47,8 @@ export default function TrainSignup() {
       website: form.website,
       kvk: form.kvk,
       vat: form.vat,
-      business_type: "Travel Partner",
-      booking_system: `Rail Operator — Routes: ${form.routes} | Stations: ${form.main_stations}`,
+      business_type: "Train Partner",
+      booking_system: `Train Partner — Routes: ${form.routes} | Stations: ${form.main_stations}`,
       status: "pending",
     });
     setAppId(rec.id);
