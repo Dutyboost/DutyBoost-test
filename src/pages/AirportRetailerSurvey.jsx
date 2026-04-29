@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+
+const LANG_ROUTES = { nl: "/airport-retailer-survey-nl", de: "/airport-retailer-survey-de", fr: "/airport-retailer-survey-fr", es: "/airport-retailer-survey-es", it: "/airport-retailer-survey-it" };
+
+function getPreferredLang() {
+  const langs = navigator.languages || [navigator.language || "en"];
+  for (const l of langs) {
+    const code = l.split("-")[0].toLowerCase();
+    if (LANG_ROUTES[code]) return code;
+  }
+  return null;
+}
 
 const TOTAL_QUESTIONS = 7;
 
@@ -63,6 +74,11 @@ function OptionButton({ label, selected, onClick, onSelect }) {
 }
 
 export default function AirportRetailerSurvey() {
+  useEffect(() => {
+    const lang = getPreferredLang();
+    if (lang) window.location.replace(LANG_ROUTES[lang]);
+  }, []);
+
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [saving, setSaving] = useState(false);
