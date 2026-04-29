@@ -183,13 +183,17 @@ export default function LandingPage() {
                    'More repeat bookings',
                  ];
                } else {
-                benefits = [
+                benefits = s.key === 'travelers' ? [
+                  'Instant mobile DutyCredit',
+                  'Full discount at one shop',
+                  'Seamless QR experience',
+                ] : [
                   t(`stakeholders.${s.key}.b1`),
                   t(`stakeholders.${s.key}.b2`),
                   t(`stakeholders.${s.key}.b3`),
                 ];
-                title = s.key === 'travelers' ? t('nav.for_travelers') : 'Airport Retail Partners';
-                description = t(`stakeholders.${s.key}.description`);
+                title = s.key === 'travelers' ? 'Travelers' : 'Airport Retail Partners';
+                description = s.key === 'travelers' ? 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, hotel, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.' : t(`stakeholders.${s.key}.description`);
               }
               
               if (s.key === 'agencies') {
