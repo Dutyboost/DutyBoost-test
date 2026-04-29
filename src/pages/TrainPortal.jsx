@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight, Train, QrCode, TrendingUp, MapPin, BarChart3, Zap } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -18,6 +19,7 @@ const phases = [];
 
 export default function TrainPortal() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-background">
@@ -25,7 +27,7 @@ export default function TrainPortal() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/train-showcase">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back
+              <ArrowLeft className="w-4 h-4" /> {t('train.back')}
             </button>
           </Link>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
@@ -39,13 +41,13 @@ export default function TrainPortal() {
         {/* Header */}
         <div className="text-center space-y-6">
           <h1 className="text-5xl sm:text-6xl font-heading font-bold">
-            Rail Partner <span className="text-indigo-600">Portal</span>
+            {t('train.portal_title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything your rail operator needs to reward passengers and earn passive commission at stations across Europe.
+            {t('train.portal_subtitle')}
           </p>
           <Button size="lg" className="gap-2 px-8 bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => navigate("/train-signup")}>
-            Apply to Join <ArrowRight className="w-4 h-4" />
+            {t('train.apply')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
 
@@ -72,7 +74,7 @@ export default function TrainPortal() {
             Apply now and our team will get your rail operator set up within days.
           </p>
           <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90 gap-2" onClick={() => navigate("/train-signup")}>
-            Apply Now <ArrowRight className="w-4 h-4" />
+            {t('train.apply')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
       </section>
