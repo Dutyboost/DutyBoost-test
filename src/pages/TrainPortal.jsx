@@ -6,16 +6,14 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import PageFooter from "../components/PageFooter";
 import { Button } from "@/components/ui/button";
 
-const features = [
-  { icon: Train, title: "Multi-Operator Support", desc: "Manage DutyCredits across your entire route network from one dashboard." },
-  { icon: QrCode, title: "Seamless QR Redemption", desc: "Passengers redeem credits with a simple scan at participating station retailers." },
-  { icon: TrendingUp, title: "Commission Earnings", desc: "Earn a revenue share on every redemption — zero infrastructure cost." },
-  { icon: MapPin, title: "Station Network Access", desc: "Access DutyBoost's growing network of verified station retail partners across Europe." },
-  { icon: BarChart3, title: "Route Analytics", desc: "See which routes and stations drive the most spend, conversion, and revenue." },
-  { icon: Zap, title: "OTA Webhook Integration", desc: "Auto-generate DutyCredits from Trainline, NS, SNCF, and DB booking confirmations." },
+const featureKeys = [
+  { icon: Train, key: "feature1" },
+  { icon: QrCode, key: "feature2" },
+  { icon: TrendingUp, key: "feature3" },
+  { icon: MapPin, key: "feature4" },
+  { icon: BarChart3, key: "feature5" },
+  { icon: Zap, key: "feature6" },
 ];
-
-const phases = [];
 
 export default function TrainPortal() {
   const navigate = useNavigate();
@@ -53,15 +51,15 @@ export default function TrainPortal() {
 
         {/* Features */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => {
+          {featureKeys.map((f, i) => {
             const Icon = f.icon;
             return (
               <div key={i} className="bg-card border border-border rounded-xl p-6 space-y-3">
                 <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
                   <Icon className="w-5 h-5 text-indigo-600" />
                 </div>
-                <h3 className="font-heading font-semibold">{f.title}</h3>
-                <p className="text-sm text-muted-foreground">{f.desc}</p>
+                <h3 className="font-heading font-semibold">{t(`train.${f.key}_title`)}</h3>
+                <p className="text-sm text-muted-foreground">{t(`train.${f.key}_desc`)}</p>
               </div>
             );
           })}
@@ -69,9 +67,9 @@ export default function TrainPortal() {
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl p-12 text-white text-center space-y-6">
-          <h2 className="text-3xl font-heading font-bold">Ready to get started?</h2>
+          <h2 className="text-3xl font-heading font-bold">{t('train.portal_cta_title')}</h2>
           <p className="text-lg opacity-90 max-w-xl mx-auto">
-            Apply now and our team will get your rail operator set up within days.
+            {t('train.portal_cta_desc')}
           </p>
           <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90 gap-2" onClick={() => navigate("/train-signup")}>
             {t('train.apply')} <ArrowRight className="w-4 h-4" />

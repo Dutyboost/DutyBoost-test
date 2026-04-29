@@ -172,7 +172,7 @@ export default function TrainSignup() {
                 <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-sm text-indigo-800 space-y-1">
                   <p className="font-semibold">{t('trainsignup.summary_title')}</p>
                   <p>{form.company} · {form.email}</p>
-                  {form.routes && <p>Routes: {form.routes}</p>}
+                  {form.routes && <p>{t('trainsignup.label_routes')}: {form.routes}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label>{t('trainsignup.label_bank_name')}</Label>
