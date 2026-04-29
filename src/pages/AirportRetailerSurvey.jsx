@@ -248,10 +248,11 @@ export default function AirportRetailerSurvey() {
   const handleSubmit = async () => {
     setSaving(true);
     try {
+      const { loyalty_other, ...rest } = form;
       const submitData = {
-        ...form,
-        company_type: "Airport Retailer – " + form.company_type,
-        current_loyalty: form.current_loyalty.join(", "),
+        ...rest,
+        company_type: "Airport Retailer – " + rest.company_type,
+        current_loyalty: rest.current_loyalty.join(", "),
       };
       await base44.entities.SurveyResponse.create(submitData);
       setSubmitted(true);

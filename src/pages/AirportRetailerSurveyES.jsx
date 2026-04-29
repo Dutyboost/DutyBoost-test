@@ -177,10 +177,11 @@ export default function AirportRetailerSurveyES() {
   const handleSubmit = async () => {
     setSaving(true);
     try {
+      const { loyalty_other, ...rest } = form;
       await base44.entities.SurveyResponse.create({
-        ...form,
-        company_type: "Airport Retailer – " + form.company_type,
-        current_loyalty: form.current_loyalty.join(", "),
+        ...rest,
+        company_type: "Airport Retailer – " + rest.company_type,
+        current_loyalty: rest.current_loyalty.join(", "),
       });
       setSubmitted(true);
     } catch (error) {

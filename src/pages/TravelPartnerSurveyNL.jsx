@@ -188,9 +188,10 @@ export default function TravelPartnerSurveyNL() {
   const handleSubmit = async () => {
     setSaving(true);
     try {
+      const { loyalty_other, ...rest } = form;
       const submitData = {
-        ...form,
-        current_loyalty: form.current_loyalty.join(", ")
+        ...rest,
+        current_loyalty: rest.current_loyalty.join(", "),
       };
       await base44.entities.SurveyResponse.create(submitData);
       setSubmitted(true);

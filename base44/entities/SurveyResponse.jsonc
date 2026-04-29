@@ -18,6 +18,10 @@
       "type": "string",
       "title": "Email"
     },
+    "phone": {
+      "type": "string",
+      "title": "Phone Number"
+    },
     "company_type": {
       "type": "string",
       "title": "Company Type"
@@ -50,16 +54,10 @@
       "type": "boolean",
       "title": "Wants a demo call",
       "default": false
-    },
-    "phone": {
-      "type": "string",
-      "title": "Phone Number"
     }
   },
   "required": [
     "company_name",
-    "full_name",
-    "email",
     "company_type",
     "interest_level"
   ]
