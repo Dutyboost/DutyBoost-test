@@ -116,7 +116,7 @@ export default function SelectUserType() {
                   <h2 className="font-heading font-bold text-2xl mb-3">{option.title}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
                     {option.id === 'cruise'
-                      ? 'Turn every voyage into a loyalty asset. Automatically generate personalized DutyCredits for your passengers, rewarding them with an exclusive port shopping incentive. Earn a commission on every DutyCredit redeemed at partner port retailers.'
+                      ? t('getstarted.cruise_description')
                       : option.id === 'train'
                       ? 'Turn every train journey into a station retail revenue event. Generate DutyCredits for passengers at booking — redeemable at station retailers before boarding. Earn commission on every redemption with zero infrastructure cost.'
                       : t(option.descKey)}

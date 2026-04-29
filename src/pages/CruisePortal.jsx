@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, Anchor, Ship, TrendingUp, QrCode, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft, ArrowRight, Anchor, Ship, TrendingUp, QrCode } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import PageFooter from "../components/PageFooter";
@@ -7,12 +8,13 @@ import { Button } from "@/components/ui/button";
 
 export default function CruisePortal() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const features = [
-    { icon: Ship, title: "Multi-Ship Support", desc: "Manage credits across your entire fleet from one dashboard." },
-    { icon: QrCode, title: "Seamless QR Redemption", desc: "Passengers redeem credits with a simple QR scan at participating port stores." },
-    { icon: TrendingUp, title: "Commission Earnings", desc: "Earn a commission on every credit redeemed by your passengers at port retailers." },
-    { icon: Anchor, title: "Port Network Access", desc: "Access DutyBoost's growing network of verified port-of-call retail partners." },
+    { icon: Ship, title: t('showcase.cruise.step1'), desc: t('showcase.cruise.step1Desc') },
+    { icon: QrCode, title: t('showcase.cruise.step3'), desc: t('showcase.cruise.step3Desc') },
+    { icon: TrendingUp, title: t('showcase.cruise.step4'), desc: t('showcase.cruise.step4Desc') },
+    { icon: Anchor, title: t('showcase.cruise.step2'), desc: t('showcase.cruise.step2Desc') },
   ];
 
   return (
@@ -21,7 +23,7 @@ export default function CruisePortal() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/cruise-showcase">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back
+              <ArrowLeft className="w-4 h-4" /> {t('cruise.back')}
             </button>
           </Link>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
@@ -34,13 +36,13 @@ export default function CruisePortal() {
       <section className="py-20 px-4 sm:px-6 max-w-6xl mx-auto space-y-16">
         <div className="text-center space-y-6">
           <h1 className="text-5xl sm:text-6xl font-heading font-bold">
-            Cruise Line <span className="text-primary">Partner Portal</span>
+            {t('cruise.portal_title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything your cruise line needs to reward passengers and earn commission at ports of call.
+            {t('cruise.portal_subtitle')}
           </p>
           <Button size="lg" className="gap-2 px-8" onClick={() => navigate("/cruise-signup")}>
-            Apply to Join <ArrowRight className="w-4 h-4" />
+            {t('cruise.apply')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
 
@@ -60,16 +62,14 @@ export default function CruisePortal() {
         </div>
 
         <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-12 text-white text-center space-y-6">
-          <h2 className="text-3xl font-heading font-bold">Ready to get started?</h2>
-          <p className="text-lg opacity-90 max-w-xl mx-auto">
-            Apply now and our team will get your cruise line set up within days.
-          </p>
+          <h2 className="text-3xl font-heading font-bold">{t('showcase.cruise.ctaTitle')}</h2>
+          <p className="text-lg opacity-90 max-w-xl mx-auto">{t('showcase.cruise.ctaDesc')}</p>
           <Button
             size="lg"
             className="bg-white text-blue-600 hover:bg-gray-100 gap-2"
             onClick={() => navigate("/cruise-signup")}
           >
-            Apply Now <ArrowRight className="w-4 h-4" />
+            {t('cruise.apply')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
       </section>

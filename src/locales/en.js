@@ -182,6 +182,7 @@ export default {
       retailers_description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
       hotels_description: 'Give guests a compelling reason to book with you by rewarding every stay with exclusive airport shopping credits. Stand out from competitors and earn a commission on every redemption.',
       car_rentals_description: 'Incentivize travelers to choose your rental by rewarding every booking with exclusive airport shopping credits. Differentiate your brand and unlock a new commission-based revenue stream.',
+      cruise_description: 'Turn every voyage into a loyalty asset. Automatically generate personalized DutyCredits for your passengers, rewarding them with an exclusive port shopping incentive. Earn a commission on every DutyCredit redeemed at partner port retailers.',
     },
     signup: {
       agency: {
@@ -318,6 +319,30 @@ export default {
         ctaDesc: 'Start rewarding your customers with exclusive airport shopping incentives today.',
         ctaButton: 'Go to Car Rental Portal',
       },
+      cruise: {
+        headline: 'Cruise & Port Retail Solution',
+        subtitle: 'Boost passenger spending at port destinations and earn commission on every redemption — at zero upfront cost.',
+        howItWorks: 'How It Works',
+        description: 'DutyBoost connects cruise lines with port retailers, enabling passengers to earn and spend DutyCredits during shore excursions. Cruise lines earn a commission on every redemption while passengers enjoy exclusive port discounts.',
+        step1: 'Cruise Line Integration',
+        step1Desc: 'Connect your cruise line to DutyBoost and enable DutyCredits for passengers.',
+        step2: 'Passengers Earn Credits',
+        step2Desc: 'Passengers receive DutyCredits upon booking, valid at participating port retailers.',
+        step3: 'Redeem at Port Stores',
+        step3Desc: 'Passengers scan their QR code at port-of-call retailers to redeem credits.',
+        step4: 'Earn Commission',
+        step4Desc: 'Your cruise line earns a commission on every redemption made by your passengers.',
+        ctaTitle: 'Ready to enhance your port experience?',
+        ctaDesc: 'Join DutyBoost and start turning port calls into a new revenue stream for your cruise line.',
+        ctaButton: 'Get Started',
+        back: 'Back',
+      },
     },
+  },
+  cruise: {
+    portal_title: 'Cruise Line Partner Portal',
+    portal_subtitle: 'Everything your cruise line needs to reward passengers and earn commission at ports of call.',
+    apply: 'Apply to Join',
+    back: 'Back',
   },
 };
