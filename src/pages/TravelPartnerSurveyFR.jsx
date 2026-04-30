@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const TOTAL_QUESTIONS = 7;
 
@@ -145,6 +145,13 @@ export default function TravelPartnerSurveyFR() {
   const handleWebsiteBlur = async () => {
     const val = form.company_website;
     if (!val) return;
+
+    if (hasObsceneContent(val)) {
+      setWebsiteValid(false);
+      setWebsiteError("Ce site web ne peut pas être soumis. Veuillez saisir un site web d'entreprise valide.");
+      return;
+    }
+
     setVerifyingWebsite(true);
     setWebsiteError("");
     const exists = await checkDomainExists(val);
