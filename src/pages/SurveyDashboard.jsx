@@ -477,8 +477,8 @@ function RetailerDashboard({ responses }) {
 }
 
 // ── Travel Partner Dashboard ───────────────────────────────────────────────────
-const EMAILS_SENT = 100;
-const SUCCESS_THRESHOLD = 3; // 3% of 100
+const EMAILS_SENT = 1000;
+const SUCCESS_THRESHOLD = 30; // 3% of 1,000
 
 function GoNoGoBar({ responses }) {
   const count = responses.length;
@@ -492,8 +492,8 @@ function GoNoGoBar({ responses }) {
         <div>
           <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Go / No-Go Decision Tracker</p>
           <p className="text-sm text-slate-300">
-            Based on <span className="text-white font-semibold">100 emails sent</span> — need{" "}
-              <span className="text-white font-semibold">3 responses (3%)</span> to proceed
+            Based on <span className="text-white font-semibold">1,000 emails sent</span> — need{" "}
+              <span className="text-white font-semibold">30 responses (3%)</span> to proceed
           </p>
         </div>
         <div className={`text-center px-4 py-2 rounded-xl font-bold text-sm ${achieved ? "bg-green-500 text-white" : "bg-slate-700 text-slate-300"}`}>
