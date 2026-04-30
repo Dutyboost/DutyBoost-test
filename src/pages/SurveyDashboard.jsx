@@ -477,6 +477,60 @@ function RetailerDashboard({ responses }) {
 }
 
 // ── Travel Partner Dashboard ───────────────────────────────────────────────────
+const EMAILS_SENT = 1000;
+const SUCCESS_THRESHOLD = 30; // 3% of 1,000
+
+function GoNoGoBar({ responses }) {
+  const count = responses.length;
+  const pct = ((count / EMAILS_SENT) * 100).toFixed(1);
+  const progress = Math.min((count / SUCCESS_THRESHOLD) * 100, 100);
+  const achieved = count >= SUCCESS_THRESHOLD;
+
+  return (
+    <div className={`rounded-2xl border p-5 space-y-3 ${achieved ? "bg-green-900/30 border-green-500/40" : "bg-slate-800 border-slate-700"}`}>
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <div>
+          <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Go / No-Go Decision Tracker</p>
+          <p className="text-sm text-slate-300">
+            Based on <span className="text-white font-semibold">1,000 emails sent</span> — need{" "}
+            <span className="text-white font-semibold">30 responses (3%)</span> to proceed
+          </p>
+        </div>
+        <div className={`text-center px-4 py-2 rounded-xl font-bold text-sm ${achieved ? "bg-green-500 text-white" : "bg-slate-700 text-slate-300"}`}>
+          {achieved ? "✅ GO" : "⏳ NOT YET"}
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <div className="flex justify-between text-xs text-slate-400">
+          <span>{count} responses received</span>
+          <span className={achieved ? "text-green-400 font-semibold" : "text-slate-400"}>{pct}% response rate</span>
+        </div>
+        <div className="w-full h-3 bg-slate-700 rounded-full overflow-hidden">
+          <div
+            className={`h-full rounded-full transition-all duration-700 ${achieved ? "bg-green-500" : "bg-blue-500"}`}
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <div className="flex justify-between text-xs text-slate-500">
+          <span>0</span>
+          <span className="text-slate-400">Goal: 30</span>
+          <span>{EMAILS_SENT}</span>
+        </div>
+      </div>
+      {!achieved && (
+        <p className="text-xs text-slate-500">
+          {SUCCESS_THRESHOLD - count} more positive responses needed to reach the go/no-go threshold.
+        </p>
+      )}
+      {achieved && (
+        <p className="text-xs text-green-400">
+          🎉 Threshold reached! Sufficient data to make a go/no-go decision.
+        </p>
+      )}
+    </div>
+  );
+}
+
 function TravelPartnerDashboard({ responses }) {
   const wantsDemo = responses.filter(r => r.wants_demo).length;
   const companyTypes = tally(responses, "company_type");
@@ -487,6 +541,7 @@ function TravelPartnerDashboard({ responses }) {
 
   return (
     <div className="space-y-6">
+      <GoNoGoBar responses={responses} />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <StatCard icon={Users} label="Total responses" value={responses.length} color="text-green-300" />
         <StatCard icon={ThumbsUp} label="Wants follow-up" value={wantsDemo} color="text-blue-300" />
