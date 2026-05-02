@@ -18,7 +18,7 @@ const content = {
         { q: "Can I use my DutyCredit at multiple shops?", a: "No. DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops." },
         { q: "Is there a minimum spend to redeem a DutyCredit?", a: "Yes. A minimum basket spend of €70 is required to redeem a DutyCredit. The credit is tiered: 10% on €70–€99, 15% on €100–€299, and 20% on €300+, capped at €25." },
         { q: "How do I receive my DutyCredit?", a: "Your travel agency will share a link with you after your booking is confirmed. Opening the link shows your personal DutyCredit QR code." },
-        { q: "Do DutyCredits expire?", a: "Yes. Every DutyCredit has an expiration date tied to your travel date. Expired DutyCredits cannot be reinstated or reissued." },
+        { q: "Do DutyCredits expire?", a: "Yes. Every DutyCredit is valid for 30 days starting from your departure date. It expires 30 days after departure and cannot be reinstated or reissued after that." },
         { q: "Can I transfer my DutyCredit to someone else?", a: "No. DutyCredits are unique, single-use, and cryptographically secured. They cannot be transferred, resold, or duplicated." },
       ]},
       { cat: "For Travelers", qs: [
@@ -56,7 +56,7 @@ const content = {
         { q: "Kan ik mijn DutyCredit bij meerdere winkels gebruiken?", a: "Nee. DutyCredits zijn inwisselbaar bij één transactie op één verkooppunt." },
         { q: "Is er een minimumbedrag?", a: "Ja. Er geldt een minimale besteding van €70 om een DutyCredit te kunnen inwisselen. Het tegoed is getrapd: 10% bij €70–€99, 15% bij €100–€299 en 20% bij €300+, afgetopt op €25." },
         { q: "Hoe ontvang ik mijn DutyCredit?", a: "Uw reisbureau deelt een link na bevestiging van uw boeking. Via de link ziet u uw persoonlijke DutyCredit QR-code." },
-        { q: "Verlopen DutyCredits?", a: "Ja. Elke DutyCredit heeft een vervaldatum gekoppeld aan uw reisdatum. Verlopen DutyCredits kunnen niet worden hersteld." },
+        { q: "Verlopen DutyCredits?", a: "Ja. Elke DutyCredit is geldig voor 30 dagen vanaf uw vertrekdatum. Na 30 dagen vervalt de DutyCredit en kan niet worden hersteld of opnieuw uitgegeven." },
         { q: "Kan ik mijn DutyCredit overdragen?", a: "Nee. DutyCredits zijn uniek, eenmalig bruikbaar en cryptografisch beveiligd. Ze kunnen niet worden overgedragen of doorverkocht." },
       ]},
       { cat: "Voor reizigers", qs: [
@@ -94,7 +94,7 @@ const content = {
         { q: "Kann ich meinen DutyCredit in mehreren Geschäften verwenden?", a: "Nein. DutyCredits sind für eine einzige Transaktion an einem Verkaufspunkt einlösbar." },
         { q: "Gibt es einen Mindestbetrag?", a: "Ja. Es gilt ein Mindesteinkauf von €70, um einen DutyCredit einzulösen. Das Guthaben ist gestaffelt: 10% bei €70–€99, 15% bei €100–€299 und 20% bei €300+, gedeckelt bei €25." },
         { q: "Wie erhalte ich meinen DutyCredit?", a: "Ihr Reisebüro teilt Ihnen nach Buchungsbestätigung einen Link mit. Über den Link sehen Sie Ihren DutyCredit QR-Code." },
-        { q: "Verfallen DutyCredits?", a: "Ja. Jeder DutyCredit hat ein Ablaufdatum. Abgelaufene DutyCredits können nicht wiederhergestellt werden." },
+        { q: "Verfallen DutyCredits?", a: "Ja. Jeder DutyCredit ist 30 Tage ab Ihrem Abreisedatum gültig. Nach 30 Tagen verfällt er und kann nicht wiederhergestellt oder neu ausgestellt werden." },
         { q: "Kann ich meinen DutyCredit übertragen?", a: "Nein. DutyCredits sind einzigartig, einmalig verwendbar und kryptografisch gesichert." },
       ]},
       { cat: "Für Reisende", qs: [
@@ -132,7 +132,7 @@ const content = {
         { q: "Puis-je utiliser mon DutyCredit dans plusieurs magasins ?", a: "Non. Les DutyCredits ne peuvent être échangés qu'en une seule transaction dans un seul point de vente." },
         { q: "Y a-t-il un montant minimum ?", a: "Oui. Un panier minimum de €70 est requis pour utiliser un DutyCredit. Le crédit est dégressif : 10% pour €70–€99, 15% pour €100–€299, et 20% pour €300+, plafonné à €25." },
         { q: "Comment est-ce que je reçois mon DutyCredit ?", a: "Votre agence vous partagera un lien après confirmation. En ouvrant le lien, vous verrez votre QR code DutyCredit." },
-        { q: "Les DutyCredits expirent-ils ?", a: "Oui. Chaque DutyCredit a une date d'expiration liée à votre date de voyage. Les DutyCredits expirés ne peuvent pas être réactivés." },
+        { q: "Les DutyCredits expirent-ils ?", a: "Oui. Chaque DutyCredit est valable 30 jours à partir de votre date de départ. Il expire 30 jours après le départ et ne peut pas être réactivé ou réémis." },
         { q: "Puis-je transférer mon DutyCredit ?", a: "Non. Les DutyCredits sont uniques, à usage unique et sécurisés cryptographiquement." },
       ]},
       { cat: "Pour les voyageurs", qs: [
@@ -170,7 +170,7 @@ const content = {
         { q: "¿Puedo usar mi DutyCredit en varios establecimientos?", a: "No. Los DutyCredits son canjeables en una sola transacción en un único punto de venta." },
         { q: "¿Hay un gasto mínimo?", a: "Sí. Se requiere un gasto mínimo de €70 para canjear un DutyCredit. El crédito es escalonado: 10% en €70–€99, 15% en €100–€299 y 20% en €300+, con tope en €25." },
         { q: "¿Cómo recibo mi DutyCredit?", a: "Tu agencia te compartirá un enlace tras la confirmación. Al abrirlo verás tu código QR DutyCredit." },
-        { q: "¿Caducan los DutyCredits?", a: "Sí. Cada DutyCredit tiene una fecha de caducidad vinculada a tu fecha de viaje. Los caducados no pueden reactivarse." },
+        { q: "¿Caducan los DutyCredits?", a: "Sí. Cada DutyCredit es válido durante 30 días a partir de tu fecha de salida. Caduca 30 días después de la salida y no puede reactivarse ni reemitirse." },
         { q: "¿Puedo transferir mi DutyCredit?", a: "No. Los DutyCredits son únicos, de un solo uso y seguros criptográficamente." },
       ]},
       { cat: "Para viajeros", qs: [
@@ -208,7 +208,7 @@ const content = {
         { q: "Posso usare il mio DutyCredit in più negozi?", a: "No. I DutyCredit sono riscattabili in un'unica transazione presso un unico punto vendita." },
         { q: "C'è una spesa minima?", a: "Sì. È richiesta una spesa minima di €70 per riscattare un DutyCredit. Il credito è scaglionato: 10% per €70–€99, 15% per €100–€299 e 20% per €300+, con tetto di €25." },
         { q: "Come ricevo il mio DutyCredit?", a: "La tua agenzia ti condividerà un link dopo la conferma. Aprendo il link vedrai il tuo QR code DutyCredit." },
-        { q: "I DutyCredit scadono?", a: "Sì. Ogni DutyCredit ha una data di scadenza legata alla tua data di viaggio. I DutyCredit scaduti non possono essere ripristinati." },
+        { q: "I DutyCredit scadono?", a: "Sì. Ogni DutyCredit è valido per 30 giorni a partire dalla data di partenza. Scade 30 giorni dopo la partenza e non può essere ripristinato o riemesso." },
         { q: "Posso trasferire il mio DutyCredit?", a: "No. I DutyCredit sono unici, monouso e sicuri crittograficamente." },
       ]},
       { cat: "Per i viaggiatori", qs: [

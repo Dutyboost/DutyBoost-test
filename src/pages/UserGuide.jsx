@@ -21,7 +21,7 @@ const content = {
     agency_steps: [
       { title: "Sign Up & Get Approved", desc: "Go to dutyboost.com and click 'Get Started'. Fill in your business details and accept the terms. Our team reviews your application within 1 business day." },
       { title: "Integration Setup", desc: "After approval, log in to your dashboard and visit the Integration Guide. You will find your unique API key and examples to connect your booking system (Amadeus, Sabre, TravelPort, etc.)." },
-      { title: "Automatic DutyCredit Generation", desc: "Once integrated, DutyBoost automatically generates a DutyCredit for every qualifying booking, valid until the traveler's travel date." },
+      { title: "Automatic DutyCredit Generation", desc: "Once integrated, DutyBoost automatically generates a DutyCredit for every qualifying booking, valid for 30 days starting from the traveler's departure date." },
       { title: "Share Vouchers with Travelers", desc: "Use the DutyCredits dashboard to view all generated vouchers. Share a direct link (dutyboost.com/voucher) with your customers so they can look up their DutyCredit." },
       { title: "Track Commissions", desc: "Your dashboard shows all issued vouchers, redemption statistics, and commission reports. Download monthly commission PDFs from the Vouchers page." },
       { title: "Embed the DutyCredit in Your Booking Confirmation Email", desc: "Our API response includes a ready-made html_snippet field — a self-contained HTML block you can paste directly into your booking confirmation email template. It contains the traveler's personal QR code, discount percentage, voucher code, and a link. Simply call the DutyBoost API after a booking is confirmed, read the html_snippet from the JSON response, and inject it into your email HTML right below your booking summary. The QR code renders in all major email clients. See our Integration Guide for a full code example." },
@@ -40,7 +40,7 @@ const content = {
     traveler_steps: [
       { title: "Receive Your DutyCredit", desc: "After booking a flight through a participating agency, you'll receive your DutyCredit automatically via email." },
       { title: "Look Up Your Voucher", desc: "Visit dutyboost.com/voucher and enter your booking ID to retrieve your DutyCredit QR code." },
-      { title: "Shop at the Airport", desc: "At a participating DutyBoost retailer, show the QR code on your screen. The cashier scans it and your DutyCredit (a fixed euro amount) is applied at the till. Minimum spend: €75 for short-haul trips, €167 for long-haul. The credit cannot exceed 15% of your basket." },
+      { title: "Shop at the Airport", desc: "At a participating DutyBoost retailer, show the QR code on your screen. The cashier scans it and your DutyCredit (a fixed euro amount) is applied at the till. Your DutyCredit is valid for 30 days from your departure date. Minimum spend: €75 for short-haul trips, €167 for long-haul. The credit cannot exceed 15% of your basket." },
     ],
     mobile_title: "5. Installing DutyBoost on Your Mobile Device",
     mobile_desc: "DutyBoost works as a Progressive Web App (PWA) — install it directly to your home screen without visiting an app store.",
@@ -74,7 +74,7 @@ const content = {
     agency_steps: [
       { title: "Aanmelden en goedgekeurd worden", desc: "Ga naar dutyboost.com en klik op 'Aan de slag'. Vul uw bedrijfsgegevens in en accepteer de voorwaarden. Ons team beoordeelt uw aanvraag binnen 1 werkdag." },
       { title: "Integratie instellen", desc: "Na goedkeuring logt u in op uw dashboard en bezoekt u de integratiegids. U vindt uw unieke API-sleutel en voorbeelden om uw boekingssysteem (Amadeus, Sabre, TravelPort, enz.) te verbinden." },
-      { title: "Automatische DutyCredit-generatie", desc: "Eenmaal geïntegreerd, genereert DutyBoost automatisch een DutyCredit voor elke kwalificerende boeking, geldig tot de reisdatum." },
+      { title: "Automatische DutyCredit-generatie", desc: "Eenmaal geïntegreerd, genereert DutyBoost automatisch een DutyCredit voor elke kwalificerende boeking, geldig gedurende 30 dagen vanaf de vertrekdatum van de reiziger." },
       { title: "Vouchers delen met reizigers", desc: "Gebruik het DutyCredits-dashboard om alle gegenereerde vouchers te bekijken. Deel een directe link (dutyboost.com/voucher) met uw klanten." },
       { title: "Commissies bijhouden", desc: "Uw dashboard toont alle uitgegeven vouchers, inwisselstatistieken en commissierapporten. Download maandelijkse PDF's van de voucherspagina." },
       { title: "DutyCredit insluiten in uw boekingsbevestigingsmail", desc: "Onze API-respons bevat een kant-en-klaar html_snippet-veld — een zelfstandig HTML-blok dat u direct in uw bevestigingsmail-sjabloon kunt plakken. Het bevat de persoonlijke QR-code van de reiziger, het kortingspercentage, de vouchercode en een link. Roep de DutyBoost API aan na bevestiging, lees html_snippet uit de JSON-respons en voeg het in uw e-mail HTML in, direct onder uw boekingsoverzicht. De QR-code wordt weergegeven in alle gangbare e-mailclients. Zie onze Integratiegids voor een volledig codevoorbeeld." },
@@ -93,7 +93,7 @@ const content = {
     traveler_steps: [
       { title: "Ontvang uw DutyCredit", desc: "Na het boeken van een vlucht via een deelnemend bureau ontvangt u automatisch uw DutyCredit per e-mail." },
       { title: "Zoek uw voucher op", desc: "Bezoek dutyboost.com/voucher en voer uw boekings-ID in om uw DutyCredit QR-code op te halen." },
-      { title: "Winkelen op de luchthaven", desc: "Toon bij een deelnemende DutyBoost-winkel de QR-code op uw scherm. De kassamedewerker scant deze en uw DutyCredit (een vast eurobedrag) wordt toegepast. Minimum besteding: €75 voor korteafstandsvluchten, €167 voor langeafstandsvluchten." },
+      { title: "Winkelen op de luchthaven", desc: "Toon bij een deelnemende DutyBoost-winkel de QR-code op uw scherm. De kassamedewerker scant deze en uw DutyCredit (een vast eurobedrag) wordt toegepast. Uw DutyCredit is geldig gedurende 30 dagen vanaf uw vertrekdatum. Minimum besteding: €75 voor korteafstandsvluchten, €167 voor langeafstandsvluchten." },
     ],
     mobile_title: "5. DutyBoost installeren op uw mobiel",
     mobile_desc: "DutyBoost werkt als een Progressive Web App (PWA) — installeer het direct op uw startscherm.",
@@ -127,7 +127,7 @@ const content = {
     agency_steps: [
       { title: "Registrieren und genehmigt werden", desc: "Gehen Sie zu dutyboost.com und klicken Sie auf 'Loslegen'. Geben Sie Ihre Geschäftsdaten ein und akzeptieren Sie die Bedingungen. Unser Team prüft Ihren Antrag innerhalb von 1 Werktag." },
       { title: "Integration einrichten", desc: "Nach der Genehmigung melden Sie sich in Ihrem Dashboard an und besuchen Sie den Integrationsleitfaden. Sie finden Ihren eindeutigen API-Schlüssel und Beispiele zur Verbindung Ihres Buchungssystems." },
-      { title: "Automatische DutyCredit-Generierung", desc: "Nach der Integration generiert DutyBoost automatisch einen DutyCredit für jede qualifizierte Buchung, gültig bis zum Reisedatum." },
+      { title: "Automatische DutyCredit-Generierung", desc: "Nach der Integration generiert DutyBoost automatisch einen DutyCredit für jede qualifizierte Buchung, gültig 30 Tage ab dem Abreisetag des Reisenden." },
       { title: "Gutscheine mit Reisenden teilen", desc: "Verwenden Sie das DutyCredits-Dashboard, um alle generierten Gutscheine anzuzeigen. Teilen Sie einen direkten Link (dutyboost.com/voucher) mit Ihren Kunden." },
       { title: "Provisionen verfolgen", desc: "Ihr Dashboard zeigt alle ausgestellten Gutscheine, Einlösungsstatistiken und Provisionsberichte. Laden Sie monatliche PDFs herunter." },
     ],
@@ -145,7 +145,7 @@ const content = {
     traveler_steps: [
       { title: "DutyCredit empfangen", desc: "Nach der Buchung eines Fluges über ein teilnehmendes Büro erhalten Sie Ihren DutyCredit automatisch per E-Mail." },
       { title: "Ihren Gutschein abrufen", desc: "Besuchen Sie dutyboost.com/voucher und geben Sie Ihre Buchungs-ID ein, um Ihren DutyCredit QR-Code abzurufen." },
-      { title: "Am Flughafen einkaufen", desc: "Zeigen Sie bei einem teilnehmenden Händler den QR-Code auf Ihrem Bildschirm. Der Kassierer scannt ihn, um Ihren Rabatt anzuwenden. Ihr Einkauf muss 50 € oder mehr betragen." },
+      { title: "Am Flughafen einkaufen", desc: "Zeigen Sie bei einem teilnehmenden Händler den QR-Code auf Ihrem Bildschirm. Der Kassierer scannt ihn, um Ihren Rabatt anzuwenden. Ihr DutyCredit ist 30 Tage ab Ihrem Abreisetag gültig. Ihr Einkauf muss 50 € oder mehr betragen." },
     ],
     mobile_title: "5. DutyBoost auf Ihrem Mobilgerät installieren",
     mobile_desc: "DutyBoost funktioniert als Progressive Web App (PWA) — installieren Sie es direkt auf Ihrem Startbildschirm.",
@@ -179,7 +179,7 @@ const content = {
     agency_steps: [
       { title: "S'inscrire et être approuvé", desc: "Rendez-vous sur dutyboost.com et cliquez sur 'Commencer'. Renseignez vos coordonnées et acceptez les conditions. Notre équipe examine votre demande dans 1 jour ouvrable." },
       { title: "Configurer l'intégration", desc: "Après approbation, connectez-vous à votre tableau de bord et consultez le guide d'intégration. Vous trouverez votre clé API unique et des exemples pour connecter votre système de réservation." },
-      { title: "Génération automatique de DutyCredits", desc: "Une fois intégré, DutyBoost génère automatiquement un DutyCredit pour chaque réservation éligible, valable jusqu'à la date de voyage." },
+      { title: "Génération automatique de DutyCredits", desc: "Une fois intégré, DutyBoost génère automatiquement un DutyCredit pour chaque réservation éligible, valable 30 jours à partir de la date de départ du voyageur." },
       { title: "Partager les bons avec les voyageurs", desc: "Utilisez le tableau de bord DutyCredits pour voir tous les bons générés. Partagez un lien direct (dutyboost.com/voucher) avec vos clients." },
       { title: "Suivre les commissions", desc: "Votre tableau de bord affiche tous les bons émis, les statistiques de rachat et les rapports de commissions. Téléchargez des PDF mensuels depuis la page Vouchers." },
     ],
@@ -197,7 +197,7 @@ const content = {
     traveler_steps: [
       { title: "Recevoir votre DutyCredit", desc: "Après avoir réservé un vol via une agence participante, vous recevrez votre DutyCredit automatiquement par e-mail." },
       { title: "Retrouver votre bon", desc: "Visitez dutyboost.com/voucher et saisissez votre ID de réservation pour retrouver votre QR code DutyCredit." },
-      { title: "Faire ses achats à l'aéroport", desc: "Chez un détaillant participant, montrez le QR code sur votre écran. Le caissier le scannera pour appliquer votre réduction. Votre achat doit être de 50 € minimum." },
+      { title: "Faire ses achats à l'aéroport", desc: "Chez un détaillant participant, montrez le QR code sur votre écran. Le caissier le scannera pour appliquer votre réduction. Votre DutyCredit est valable 30 jours à partir de votre date de départ. Votre achat doit être de 50 € minimum." },
     ],
     mobile_title: "5. Installer DutyBoost sur votre mobile",
     mobile_desc: "DutyBoost fonctionne comme une Progressive Web App (PWA) — installez-la directement sur votre écran d'accueil.",
@@ -231,7 +231,7 @@ const content = {
     agency_steps: [
       { title: "Regístrate y obtén aprobación", desc: "Ve a dutyboost.com y haz clic en 'Empezar'. Rellena tus datos y acepta los términos. Nuestro equipo revisa tu solicitud en 1 día hábil." },
       { title: "Configura la integración", desc: "Tras la aprobación, inicia sesión y visita la Guía de integración. Encontrarás tu clave API única y ejemplos para conectar tu sistema de reservas." },
-      { title: "Generación automática de DutyCredits", desc: "Una vez integrado, DutyBoost genera automáticamente un DutyCredit para cada reserva válida, válido hasta la fecha de viaje." },
+      { title: "Generación automática de DutyCredits", desc: "Una vez integrado, DutyBoost genera automáticamente un DutyCredit para cada reserva válida, válido durante 30 días a partir de la fecha de salida del viajero." },
       { title: "Comparte los bonos con los viajeros", desc: "Usa el panel de DutyCredits para ver todos los bonos. Comparte un enlace directo (dutyboost.com/voucher) con tus clientes." },
       { title: "Sigue tus comisiones", desc: "Tu panel muestra todos los bonos, estadísticas de canje e informes de comisiones. Descarga PDFs mensuales desde la página de Vouchers." },
     ],
@@ -249,7 +249,7 @@ const content = {
     traveler_steps: [
       { title: "Recibe tu DutyCredit", desc: "Después de reservar un vuelo a través de una agencia participante, recibirás tu DutyCredit automáticamente por email." },
       { title: "Consulta tu bono", desc: "Visita dutyboost.com/voucher e introduce tu ID de reserva para recuperar tu código QR DutyCredit." },
-      { title: "Compra en el aeropuerto", desc: "En una tienda DutyBoost participante, muestra el código QR en tu pantalla. El cajero lo escaneará para aplicar tu descuento. Tu compra debe ser de 50 € o más." },
+      { title: "Compra en el aeropuerto", desc: "En una tienda DutyBoost participante, muestra el código QR en tu pantalla. El cajero lo escaneará para aplicar tu descuento. Tu DutyCredit es válido durante 30 días desde tu fecha de salida. Tu compra debe ser de 50 € o más." },
     ],
     mobile_title: "5. Instalar DutyBoost en tu móvil",
     mobile_desc: "DutyBoost funciona como una Progressive Web App (PWA) — instálala directamente en tu pantalla de inicio.",
@@ -283,7 +283,7 @@ const content = {
     agency_steps: [
       { title: "Registrati e ottieni l'approvazione", desc: "Vai su dutyboost.com e clicca su 'Inizia'. Inserisci i dati aziendali e accetta i termini. Il nostro team esamina la candidatura entro 1 giorno lavorativo." },
       { title: "Configura l'integrazione", desc: "Dopo l'approvazione, accedi alla tua dashboard e visita la guida all'integrazione. Troverai la tua chiave API univoca ed esempi per connettere il tuo sistema di prenotazione." },
-      { title: "Generazione automatica di DutyCredit", desc: "Una volta integrato, DutyBoost genera automaticamente un DutyCredit per ogni prenotazione qualificata, valido fino alla data di viaggio." },
+      { title: "Generazione automatica di DutyCredit", desc: "Una volta integrato, DutyBoost genera automaticamente un DutyCredit per ogni prenotazione qualificata, valido per 30 giorni a partire dalla data di partenza del viaggiatore." },
       { title: "Condividi i buoni con i viaggiatori", desc: "Usa la dashboard DutyCredit per visualizzare tutti i buoni. Condividi un link diretto (dutyboost.com/voucher) con i tuoi clienti." },
       { title: "Monitora le commissioni", desc: "La tua dashboard mostra tutti i buoni emessi, le statistiche di riscatto e i report sulle commissioni. Scarica PDF mensili dalla pagina Voucher." },
     ],
@@ -301,7 +301,7 @@ const content = {
     traveler_steps: [
       { title: "Ricevi il tuo DutyCredit", desc: "Dopo aver prenotato un volo tramite un'agenzia partecipante, riceverai automaticamente il tuo DutyCredit via email." },
       { title: "Cerca il tuo buono", desc: "Visita dutyboost.com/voucher e inserisci il tuo ID prenotazione per recuperare il tuo QR code DutyCredit." },
-      { title: "Acquista in aeroporto", desc: "Presso un rivenditore DutyBoost partecipante, mostra il QR code sullo schermo. Il cassiere lo scansionerà per applicare il tuo sconto. L'acquisto deve essere di 50 € o più." },
+      { title: "Acquista in aeroporto", desc: "Presso un rivenditore DutyBoost partecipante, mostra il QR code sullo schermo. Il cassiere lo scansionerà per applicare il tuo sconto. Il tuo DutyCredit è valido per 30 giorni dalla data di partenza. L'acquisto deve essere di 50 € o più." },
     ],
     mobile_title: "5. Installare DutyBoost sul dispositivo mobile",
     mobile_desc: "DutyBoost funziona come una Progressive Web App (PWA) — installala direttamente sulla schermata Home.",
