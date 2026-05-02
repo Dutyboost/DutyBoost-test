@@ -34,11 +34,10 @@ function generateVoucherCode() {
   return code;
 }
 
-function getExpirationDate(travelDate, returnDate) {
-  // If a return date is provided, the DutyCredit is valid through the arrival day (+1 day buffer).
-  // If no return date, expire end-of-day on the departure date (+1 day buffer).
-  const base = returnDate ? new Date(returnDate) : new Date(travelDate);
-  base.setDate(base.getDate() + 1);
+function getExpirationDate(travelDate) {
+  // DutyCredit is valid for 30 days starting from the departure date.
+  const base = new Date(travelDate);
+  base.setDate(base.getDate() + 30);
   return base.toISOString().split('T')[0];
 }
 
@@ -82,7 +81,7 @@ Deno.serve(async (req) => {
   });
 
   const voucherCode = generateVoucherCode();
-  const expirationDate = getExpirationDate(travel_date, return_date);
+  const expirationDate = getExpirationDate(travel_date);
 
   await base44.asServiceRole.entities.Booking.create({
     booking_id, total_ticket_price, number_of_travelers, travel_type,
@@ -132,7 +131,7 @@ Deno.serve(async (req) => {
           <p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7;">Hi <strong>${travelerLabel}</strong>,</p>
           <p style="margin:0 0 28px;color:#374151;font-size:15px;line-height:1.7;">
             Your booking from <strong>${departure_airport}</strong> on <strong>${formattedDate}</strong> is confirmed.
-            As a thank-you from <strong>${agencyLabel}</strong>, you have received a <strong style="color:#1e40af;">DutyCredit</strong> — a discount you can use at participating shops at the airport, valid from your departure day${return_date ? ' through your arrival day' : ''}.
+            As a thank-you from <strong>${agencyLabel}</strong>, you have received a <strong style="color:#1e40af;">DutyCredit</strong> — a discount you can use at participating shops at the airport, valid for <strong>30 days starting from your departure date</strong>.
           </p>
         </td></tr>
 
@@ -160,12 +159,12 @@ Deno.serve(async (req) => {
                 <td style="padding:20px 24px;">
                   <p style="margin:0 0 12px;color:#1e40af;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">📋 How to use your DutyCredit</p>
                   <p style="margin:0 0 8px;color:#374151;font-size:14px;line-height:1.7;">
-                    1. Go to any participating DutyBoost store at <strong>${departure_airport}</strong> on your departure day${return_date ? ' or arrival day' : ''}.<br/>
+                    1. Go to any participating DutyBoost store at <strong>${departure_airport}</strong> within 30 days of your departure date.<br/>
                     2. Shop and bring your purchase to the checkout.<br/>
                     3. Show the QR code above (or give your code <strong>${voucherCode}</strong>) to the cashier.<br/>
                     4. The POS terminal will scan your code and automatically calculate and apply your discount based on your spend.
                   </p>
-                  <p style="margin:10px 0 0;color:#1e40af;font-size:13px;font-weight:600;">Minimum spend: €70. Single-use. Valid from departure day${return_date ? ' through arrival day' : ' only'}.</p>
+                  <p style="margin:10px 0 0;color:#1e40af;font-size:13px;font-weight:600;">Minimum spend: €70. Single-use. Valid for 30 days from departure date.</p>
                 </td>
               </tr>
             </table>
@@ -225,7 +224,7 @@ Deno.serve(async (req) => {
               </tr>
               <tr style="background:#f9fafb;">
                 <td style="padding:10px 16px;font-size:13px;color:#6b7280;">Valid Until</td>
-                <td style="padding:10px 16px;font-size:13px;color:#dc2626;font-weight:600;">${formattedExpiry}${return_date ? ' — valid departure through arrival' : ' — departure day only'}</td>
+                <td style="padding:10px 16px;font-size:13px;color:#dc2626;font-weight:600;">${formattedExpiry} — 30 days from departure</td>
               </tr>
             </table>
           </td>
