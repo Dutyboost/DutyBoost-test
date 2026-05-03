@@ -14,8 +14,7 @@
       "type": "string",
       "title": "Category",
       "enum": [
-        "Retail",
-        "Food & Beverage"
+        "Retail"
       ]
     },
     "description": {

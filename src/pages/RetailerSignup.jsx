@@ -308,7 +308,6 @@ export default function RetailerSignup() {
                     <SelectTrigger><SelectValue placeholder={t('getstarted.select_category')} /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Retail">{t('getstarted.retail')}</SelectItem>
-                      <SelectItem value="Food & Beverage">{t('getstarted.food_bev')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
