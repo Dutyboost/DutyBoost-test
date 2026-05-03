@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2, CreditCard, FileText, ClipboardList, ArrowLeft, ArrowRight, ChevronLeft } from "lucide-react";
-import { toast } from "sonner";
+import { CheckCircle2, FileText, ArrowLeft, ArrowRight, ChevronLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function HotelSignup() {
-  const navigate = useNavigate();
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,28 +23,20 @@ export default function HotelSignup() {
   const [loading, setLoading] = useState(false);
   const [applicationId, setApplicationId] = useState(null);
 
-  const STEPS = ["Hotel Info", "Terms & Review"];
   const PERSONAL_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com'];
   const isPersonalEmail = (e) => PERSONAL_DOMAINS.some(d => e.toLowerCase().endsWith('@' + d));
 
-  const isStep0Valid = () => {
-    return fullName && email && !isPersonalEmail(email) && company && website && city && rooms;
-  };
+  const isStep0Valid = () => fullName && email && !isPersonalEmail(email) && company && website && city && rooms;
 
   const handleStep0Submit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const app = await base44.entities.SignupApplication.create({
-        full_name: fullName,
-        email,
-        company,
-        business_type: "Hotel Partner",
-        website,
-        airport: city,
-        kvk: rooms,
-        status: "pending",
-        terms_accepted: false,
+        full_name: fullName, email, company,
+        business_type: "Hotel Partner", website,
+        airport: city, kvk: rooms,
+        status: "pending", terms_accepted: false,
       });
       setApplicationId(app.id);
       setStep(1);
@@ -76,22 +68,22 @@ export default function HotelSignup() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-heading font-bold">Application Received!</h1>
-              <p className="text-muted-foreground">
-                We'll review your hotel partnership application and contact you shortly.
-              </p>
+              <h1 className="text-3xl font-heading font-bold">{t('hotelsignup.success_title')}</h1>
+              <p className="text-muted-foreground">{t('hotelsignup.success_desc')}</p>
             </div>
-            <Link to="/hotel-portal"><Button className="w-full">Go to Hotel Portal</Button></Link>
+            <Link to="/hotel-portal"><Button className="w-full">{t('hotelsignup.success_button')}</Button></Link>
           </div>
         </div>
       </div>
     );
   }
 
+  const STEPS = [t('hotelsignup.step_info'), t('hotelsignup.step_terms')];
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/get-started"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> Back</Button></Link>
+        <Link to="/get-started"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('common.back')}</Button></Link>
         <Link to="/"><DutyBoostLogo height={150} /></Link>
         <LanguageSwitcher />
       </nav>
@@ -121,39 +113,39 @@ export default function HotelSignup() {
           {step === 0 && (
             <>
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-heading font-bold">Create Your Hotel Account</h1>
-                <p className="text-muted-foreground text-sm">Fill in your hotel information to get started</p>
+                <h1 className="text-3xl font-heading font-bold">{t('hotelsignup.title')}</h1>
+                <p className="text-muted-foreground text-sm">{t('hotelsignup.subtitle')}</p>
               </div>
 
               <form onSubmit={handleStep0Submit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>Full Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('hotelsignup.label_name')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="John Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Work Email <span className="text-red-500">*</span></Label>
+                  <Label>{t('hotelsignup.label_email')} <span className="text-red-500">*</span></Label>
                   <Input required type="email" placeholder="john@hotel.com" value={email} onChange={e => setEmail(e.target.value)} />
-                  {email && isPersonalEmail(email) && <p className="text-xs text-red-500">Please use a business email</p>}
+                  {email && isPersonalEmail(email) && <p className="text-xs text-red-500">{t('hotelsignup.personal_email_error')}</p>}
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Hotel Name <span className="text-red-500">*</span></Label>
+                  <Label>{t('hotelsignup.label_hotel')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Your hotel name" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Website <span className="text-red-500">*</span></Label>
+                  <Label>{t('hotelsignup.label_website')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="https://yourhotel.com" value={website} onChange={e => setWebsite(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>City <span className="text-red-500">*</span></Label>
+                  <Label>{t('hotelsignup.label_city')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Amsterdam" value={city} onChange={e => setCity(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Number of Rooms <span className="text-red-500">*</span></Label>
+                  <Label>{t('hotelsignup.label_rooms')} <span className="text-red-500">*</span></Label>
                   <Input required type="number" placeholder="50" value={rooms} onChange={e => setRooms(e.target.value)} />
                 </div>
 
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
-                  {loading ? "Saving..." : "Continue"} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('hotelsignup.saving') : t('hotelsignup.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
             </>
@@ -165,18 +157,18 @@ export default function HotelSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">Review & Accept</h2>
-                <p className="text-sm text-muted-foreground">Agree to our terms to complete your signup</p>
+                <h2 className="text-2xl font-heading font-bold">{t('hotelsignup.review_title')}</h2>
+                <p className="text-sm text-muted-foreground">{t('hotelsignup.review_subtitle')}</p>
               </div>
 
               <div className="bg-card border border-border rounded-xl p-5 space-y-3 text-sm">
-                <p className="font-semibold">Your hotel summary</p>
+                <p className="font-semibold">{t('hotelsignup.summary_title')}</p>
                 {[
-                  { label: "Name", value: fullName },
-                  { label: "Email", value: email },
-                  { label: "Hotel", value: company },
-                  { label: "City", value: city },
-                  { label: "Rooms", value: rooms },
+                  { label: t('hotelsignup.label_name'), value: fullName },
+                  { label: t('hotelsignup.label_email'), value: email },
+                  { label: t('hotelsignup.label_hotel'), value: company },
+                  { label: t('hotelsignup.label_city'), value: city },
+                  { label: t('hotelsignup.label_rooms'), value: rooms },
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>
@@ -186,11 +178,11 @@ export default function HotelSignup() {
               </div>
 
               <div className="bg-card border border-border rounded-xl p-5 space-y-4">
-                <p className="font-semibold text-sm">Terms & Conditions</p>
+                <p className="font-semibold text-sm">{t('hotelsignup.terms_title')}</p>
                 <div className="h-36 overflow-y-auto text-xs text-muted-foreground space-y-2 pr-1 border border-border rounded-lg p-3 bg-muted/30">
                   <p><strong>DutyBoost Hotel Partnership Agreement</strong></p>
-                  <p>By registering your hotel, you agree to the DutyBoost terms of service and partnership agreement. Your guests can earn DutyCredits through bookings, redeemable at participating airport retailers.</p>
-                  <p>For full terms, see our <Link to="/terms" target="_blank" className="text-primary underline">Terms of Service</Link> and <Link to="/privacy" target="_blank" className="text-primary underline">Privacy Policy</Link>.</p>
+                  <p>{t('hotelsignup.terms_body')}</p>
+                  <p>{t('hotelsignup.terms_link_text')} <Link to="/terms" target="_blank" className="text-primary underline">Terms of Service</Link> {t('hotelsignup.terms_and')} <Link to="/privacy" target="_blank" className="text-primary underline">Privacy Policy</Link>.</p>
                 </div>
 
                 <label className="flex items-start gap-3 cursor-pointer">
@@ -200,18 +192,16 @@ export default function HotelSignup() {
                     onChange={e => setTermsAccepted(e.target.checked)}
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
-                  <span className="text-sm text-foreground leading-relaxed">
-                    I have read and agree to the Terms of Service and Privacy Policy
-                  </span>
+                  <span className="text-sm text-foreground leading-relaxed">{t('hotelsignup.terms_checkbox')}</span>
                 </label>
               </div>
 
               <div className="flex gap-3">
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  <ArrowLeft className="w-4 h-4" /> {t('common.back')}
                 </Button>
-                <Button className="gap-2 h-11" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
-                  {loading ? "Submitting..." : "Submit"} <ArrowRight className="w-4 h-4" />
+                <Button className="gap-2 h-11 flex-1" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
+                  {loading ? t('hotelsignup.submitting') : t('hotelsignup.submit')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>
