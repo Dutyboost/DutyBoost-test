@@ -1261,7 +1261,7 @@ const lines = [
 "  END OF DOCUMENT",
 "  DutyBoost Development Wireframe v2.0",
 "  Prepared by DutyBoost Engineering",
-"  (c) 2026 DutyBoost B.V. / Borderless Solutions B.V. - Confidential",
+"",
 "================================================================================",
 ];
 
