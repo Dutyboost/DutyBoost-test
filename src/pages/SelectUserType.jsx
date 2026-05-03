@@ -69,7 +69,7 @@ export default function SelectUserType() {
     },
     {
       id: "retailer",
-      title: 'Airport/ Port Retail Partners',
+      title: t('getstarted.retailers'),
       descKey: 'getstarted.retailers_description',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
