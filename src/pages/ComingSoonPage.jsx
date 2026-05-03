@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const LANG_CONTENT = {
   en: {
-    headline: <>We've discovered a new revenue opportunity within the travel journey—{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">one that has been overlooked for years.</span></>,
+    headline: <>We've discovered a new revenue opportunity within the travel & hospitality sector—{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">one that has been overlooked for years.</span></>,
     description: "It's not another loyalty program. It's not an app. It's a smarter way to connect the key players in the ecosystem—and the upside is substantial.",
     meta: "We're not ready to go public yet, but we are ready to speak with a select group of partners.",
     contact: "I want to know more",
