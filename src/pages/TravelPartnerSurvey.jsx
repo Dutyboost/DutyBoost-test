@@ -287,7 +287,7 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">How many bookings do you process per month?</h2>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
-                  <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => form.annual_bookings !== "Custom amount" && goToStep(2)} />
+                  <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => v !== "Custom amount" && goToStep(2)} />
                 ))}
               </div>
               {form.annual_bookings === "Custom amount" && (
