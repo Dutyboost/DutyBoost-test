@@ -237,8 +237,8 @@ export default function LandingPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
-              <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.description')}</p>
+              <h2 className="text-4xl font-heading font-bold">Transform how travel and retail connect</h2>
+              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">Join DutyBoost and unlock a new ecosystem where travel partners boost customer loyalty, travelers maximize rewards, and retailers increase revenue — all through one intelligent platform. Travel partners also earn commission on every redemption.</p>
               <Link to="/get-started">
                 <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
                   {t('cta.button')} <ArrowRight className="w-4 h-4" />
