@@ -19,7 +19,7 @@ function getPreferredLang() {
 const TOTAL_QUESTIONS = 7;
 
 const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel chain / Hospitality", "Car Rental company", "Cruise line / Ship operator", "Train / Rail operator", "Other"];
-const BOOKING_VOLUMES = ["Under 2,000", "2,000 – 5,000", "5,000 – 10,000", "10,000+"];
+const BOOKING_VOLUMES = ["Under 2,000", "2,000 – 5,000", "5,000 – 10,000", "10,000+", "Custom amount"];
 const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks", "Other"];
 const INTEREST_OPTIONS = [
   "Very interested – count me in",
@@ -81,6 +81,7 @@ export default function TravelPartnerSurvey() {
     company_website: "",
     company_type: "",
     annual_bookings: "",
+    custom_bookings: "",
     current_loyalty: [],
     biggest_challenge: "",
     interest_level: "",
@@ -286,9 +287,22 @@ export default function TravelPartnerSurvey() {
               <h2 className="text-2xl font-heading font-bold">How many bookings do you process per month?</h2>
               <div className="space-y-2">
                 {BOOKING_VOLUMES.map((v) => (
-                  <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => goToStep(2)} />
+                  <OptionButton key={v} label={v} selected={form.annual_bookings === v} onClick={() => set("annual_bookings", v)} onSelect={() => form.annual_bookings !== "Custom amount" && goToStep(2)} />
                 ))}
               </div>
+              {form.annual_bookings === "Custom amount" && (
+                <div className="space-y-2 pt-2">
+                  <Input
+                    type="number"
+                    placeholder="Enter exact number of bookings per month"
+                    value={form.custom_bookings}
+                    onChange={(e) => set("custom_bookings", e.target.value)}
+                  />
+                  <Button className="w-full gap-2" disabled={!form.custom_bookings} onClick={() => goToStep(2)}>
+                    Continue <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </div>
+              )}
             </div>
           )}
 
