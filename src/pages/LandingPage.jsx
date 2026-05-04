@@ -70,7 +70,7 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <DutyBoostLogo height={150} />
+          <DutyBoostLogo height={100} />
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/get-started">
               <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
@@ -263,7 +263,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex flex-col items-center md:items-start gap-0.5">
-              <DutyBoostLogo height={150} />
+              <DutyBoostLogo height={100} />
               <span className="text-xs">DutyBoost is a Borderless Solutions B.V. product</span>
             </div>
             <p>{t('footer.rights')}</p>

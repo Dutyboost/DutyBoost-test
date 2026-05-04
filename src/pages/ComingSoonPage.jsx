@@ -79,7 +79,7 @@ export default function ComingSoonPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center">
-          <DutyBoostLogo height={150} />
+          <DutyBoostLogo height={100} />
         </div>
       </nav>
 
@@ -109,7 +109,7 @@ export default function ComingSoonPage() {
       {/* Footer */}
       <footer className="border-t border-border py-6 px-4 mt-auto">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <DutyBoostLogo height={150} />
+          <DutyBoostLogo height={100} />
           <p>© {new Date().getFullYear()} DutyBoost B.V. All rights reserved.</p>
         </div>
       </footer>
