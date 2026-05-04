@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown } from "lucide-react";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, FileText } from "lucide-react";
 import * as XLSX from "xlsx";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 
@@ -379,28 +379,55 @@ function ResponseCard({ response, isRetailerView }) {
     ? "bg-blue-500/20 text-blue-300"
     : "bg-slate-600/40 text-slate-300";
 
+  const downloadResponse = (format) => {
+    const filename = `${response.company_name || "response"}-${response.created_date ? new Date(response.created_date).toISOString().split('T')[0] : 'export'}`;
+    if (format === "csv") {
+      exportToCSV([response], `${filename}.csv`, isRetailerView);
+    } else {
+      exportToExcel([response], `${filename}.xlsx`, isRetailerView);
+    }
+  };
+
   return (
     <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 space-y-3">
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between hover:opacity-80 transition-opacity"
-      >
-        <div className="flex-1 text-left">
-          <div className="flex items-center gap-2 mb-1">
-            {flag && <span className="text-base">{flag}</span>}
-            <span className="text-white font-semibold">{response.full_name || response.company_name || "Anonymous"}</span>
-            <span className={`px-2 py-0.5 rounded-full text-xs ${interestColor}`}>
-              {interestEn?.split("–")[0]?.trim() || "—"}
-            </span>
-            {response.wants_demo && <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />}
+      <div className="w-full flex items-center justify-between">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="flex-1 flex items-center justify-start gap-2 hover:opacity-80 transition-opacity"
+        >
+          <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform shrink-0 ${expanded ? "rotate-180" : ""}`} />
+          <div className="flex-1 text-left min-w-0">
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
+              {flag && <span className="text-base">{flag}</span>}
+              <span className="text-white font-semibold truncate">{response.full_name || response.company_name || "Anonymous"}</span>
+              <span className={`px-2 py-0.5 rounded-full text-xs whitespace-nowrap ${interestColor}`}>
+                {interestEn?.split("–")[0]?.trim() || "—"}
+              </span>
+              {response.wants_demo && <CheckCircle2 className="w-3.5 h-3.5 text-green-400 shrink-0" />}
+            </div>
+            <div className="text-xs text-slate-400 truncate">
+              {response.company_name} · {isRetailerView ? response.company_type?.replace(RETAILER_PREFIX, "") : response.company_type}
+              {response.created_date && ` · ${new Date(response.created_date).toLocaleDateString()}`}
+            </div>
           </div>
-          <div className="text-xs text-slate-400">
-            {response.company_name} · {isRetailerView ? response.company_type?.replace(RETAILER_PREFIX, "") : response.company_type}
-            {response.created_date && ` · ${new Date(response.created_date).toLocaleDateString()}`}
-          </div>
+        </button>
+        <div className="flex gap-1 shrink-0 ml-2">
+          <button
+            onClick={() => downloadResponse("csv")}
+            className="p-1.5 hover:bg-slate-700 rounded transition-colors text-slate-400 hover:text-slate-200"
+            title="Download as CSV"
+          >
+            <FileText className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => downloadResponse("xlsx")}
+            className="p-1.5 hover:bg-slate-700 rounded transition-colors text-slate-400 hover:text-slate-200"
+            title="Download as Excel"
+          >
+            <Download className="w-4 h-4" />
+          </button>
         </div>
-        <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${expanded ? "rotate-180" : ""}`} />
-      </button>
+      </div>
 
       {expanded && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 border-t border-slate-700">
@@ -704,6 +731,34 @@ function exportToExcel(responses, filename, isRetailerView) {
   XLSX.writeFile(wb, filename);
 }
 
+function exportToCSV(responses, filename, isRetailerView) {
+  const rows = responses.map(r => ({
+    "Date": r.created_date ? new Date(r.created_date).toLocaleDateString() : "",
+    "Full Name": r.full_name || "",
+    "Email": r.email || "",
+    "Company": r.company_name || "",
+    "Type": isRetailerView ? (r.company_type?.replace(RETAILER_PREFIX, "") || "") : (r.company_type || ""),
+    "Website": r.company_website || "",
+    "Interest Level": r.interest_level || "",
+    "Annual Bookings / Monthly Visitors": r.annual_bookings || "",
+    "Current Loyalty Program": r.current_loyalty || "",
+    "Commission Attractive": r.commission_attractive || "",
+    "Snippet Willingness": r.snippet_willingness || "",
+    "Biggest Challenge": r.biggest_challenge || "",
+    "Wants Demo": r.wants_demo ? "Yes" : "No",
+    "Phone": r.phone || "",
+  }));
+  const ws = XLSX.utils.json_to_sheet(rows);
+  const csv = XLSX.utils.sheet_to_csv(ws);
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function SurveyDashboard() {
   const [activeTab, setActiveTab] = useState("retailer");
@@ -739,7 +794,7 @@ export default function SurveyDashboard() {
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
             Overview of all survey responses — airport retailers and travel partners.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex gap-2">
             <Button
               size="sm"
               variant="outline"
@@ -752,7 +807,21 @@ export default function SurveyDashboard() {
               }}
               disabled={loading}
             >
-              <Download className="w-4 h-4" /> Export to Excel
+              <Download className="w-4 h-4" /> Excel
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
+              onClick={() => {
+                const isRetailerView = activeTab === "retailer";
+                const data = isRetailerView ? retailerResponses : partnerResponses;
+                const filename = isRetailerView ? "retailer-survey-responses.csv" : "travel-partner-survey-responses.csv";
+                exportToCSV(data, filename, isRetailerView);
+              }}
+              disabled={loading}
+            >
+              <FileText className="w-4 h-4" /> CSV
             </Button>
           </div>
         </div>
