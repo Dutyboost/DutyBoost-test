@@ -218,7 +218,7 @@ export default function TravelPartnerSurveyIT() {
     <div className="min-h-screen bg-background font-body flex flex-col">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center">
-          <DutyBoostLogo height={160} />
+          <DutyBoostLogo height={200} />
         </div>
       </nav>
 
@@ -411,7 +411,7 @@ export default function TravelPartnerSurveyIT() {
 
       <footer className="border-t border-border py-6 px-4">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <DutyBoostLogo height={130} />
+          <DutyBoostLogo height={200} />
           <p>© {new Date().getFullYear()} DutyBoost B.V.</p>
         </div>
       </footer>
