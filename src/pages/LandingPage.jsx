@@ -138,12 +138,14 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
-            {t('hero.title_1')}{" "}
+            Transform how{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('hero.title_2')}
+              travel and retail connect
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Join DutyBoost and unlock a new ecosystem where travel partners boost customer loyalty and earn commission, travelers maximize rewards, and retailers increase revenue — all through one intelligent platform.
+          </p>
         </div>
       </section>
 
