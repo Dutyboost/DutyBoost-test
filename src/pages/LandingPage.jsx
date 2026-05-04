@@ -162,7 +162,7 @@ export default function LandingPage() {
               
               if (s.key === 'agencies') {
                  title = 'Travel Partners';
-                 description = 'Whether you\'re a travel agency, airline, hotel, car rental or cruise ship provider — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive airport or port shopping incentive. Earn a commission on every DutyCredit redeemed.';
+                 description = 'Whether you\'re a travel agency, airline, hotel, or car rental — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive shopping incentive. Earn a commission on every DutyCredit redeemed.';
                  benefits = [
                    'Higher customer satisfaction',
                    'Zero integration friction',
