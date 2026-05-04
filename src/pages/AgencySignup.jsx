@@ -284,36 +284,36 @@ export default function AgencySignup() {
 
               <form onSubmit={handleStep0Submit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>{t('getstarted.full_name')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.work_email')} <span className="text-red-500">*</span></Label>
-                  <Input required type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
-                  {email && isPersonalEmail(email) && (
-                    <p className="text-xs text-red-500">{t('wecallyou.err_email_work')}</p>
-                  )}
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.company_name')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.website')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <Label>{t('getstarted.kvk')} <span className="text-red-500">*</span></Label>
-                    <Input required placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label>{t('getstarted.vat')} <span className="text-red-500">*</span></Label>
-                    <Input required placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
-                  </div>
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.booking_engine')} <span className="text-red-500">*</span></Label>
+                   <Label>Full Name <span className="text-red-500">*</span></Label>
+                   <Input required placeholder="Jane Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Work Email <span className="text-red-500">*</span></Label>
+                   <Input required type="email" placeholder="jane@company.com" value={email} onChange={e => setEmail(e.target.value)} />
+                   {email && isPersonalEmail(email) && (
+                     <p className="text-xs text-red-500">Please use a business email</p>
+                   )}
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Company Name <span className="text-red-500">*</span></Label>
+                   <Input required placeholder="Your company" value={company} onChange={e => setCompany(e.target.value)} />
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Website <span className="text-red-500">*</span></Label>
+                   <Input required placeholder="https://yourcompany.com" value={website} onChange={e => setWebsite(e.target.value)} />
+                 </div>
+                 <div className="grid grid-cols-2 gap-4">
+                   <div className="space-y-1.5">
+                     <Label>KVK Number <span className="text-red-500">*</span></Label>
+                     <Input required placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
+                   </div>
+                   <div className="space-y-1.5">
+                     <Label>VAT Number <span className="text-red-500">*</span></Label>
+                     <Input required placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
+                   </div>
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Booking Engine <span className="text-red-500">*</span></Label>
                   <BookingSystemSelect value={bookingSystem} onChange={setBookingSystem} />
                 </div>
 
@@ -467,9 +467,9 @@ export default function AgencySignup() {
           )}
 
           <p className="text-center text-sm text-muted-foreground">
-            {t('getstarted.already_account')}{" "}
-            <button onClick={() => base44.auth.redirectToLogin('/agency-portal')} className="text-primary underline underline-offset-2">
-              {t('getstarted.sign_in')}
+            Already have an account?{" "}
+            <button onClick={() => base44.auth.redirectToLogin('/travel-partner-portal')} className="text-primary underline underline-offset-2">
+              Sign in
             </button>
           </p>
         </div>

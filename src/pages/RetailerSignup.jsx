@@ -259,32 +259,32 @@ export default function RetailerSignup() {
 
               <form onSubmit={handleStep0Submit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>{t('getstarted.full_name')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="John Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.work_email')} <span className="text-red-500">*</span></Label>
-                  <Input required type="email" placeholder="john@store.com" value={email} onChange={e => setEmail(e.target.value)} />
-                  {email && isPersonalEmail(email) && (
-                    <p className="text-xs text-red-500">{t('wecallyou.err_email_work')}</p>
-                  )}
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.company_name')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="Your store" value={company} onChange={e => setCompany(e.target.value)} />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.website')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="https://yourstore.com" value={website} onChange={e => setWebsite(e.target.value)} />
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{t('getstarted.airport')} <span className="text-red-500">*</span></Label>
-                  <select
-                    value={airport}
-                    onChange={e => setAirport(e.target.value)}
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                  >
-                    <option value="">{t('getstarted.select_airport')}</option>
+                   <Label>Full Name <span className="text-red-500">*</span></Label>
+                   <Input required placeholder="John Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Work Email <span className="text-red-500">*</span></Label>
+                   <Input required type="email" placeholder="john@store.com" value={email} onChange={e => setEmail(e.target.value)} />
+                   {email && isPersonalEmail(email) && (
+                     <p className="text-xs text-red-500">Please use a business email</p>
+                   )}
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Store Name <span className="text-red-500">*</span></Label>
+                   <Input required placeholder="Your store" value={company} onChange={e => setCompany(e.target.value)} />
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Website <span className="text-red-500">*</span></Label>
+                   <Input required placeholder="https://yourstore.com" value={website} onChange={e => setWebsite(e.target.value)} />
+                 </div>
+                 <div className="space-y-1.5">
+                   <Label>Airport <span className="text-red-500">*</span></Label>
+                   <select
+                     value={airport}
+                     onChange={e => setAirport(e.target.value)}
+                     className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                   >
+                     <option value="">Select airport</option>
                     {airports.map(a => (
                       <option key={a.code} value={a.code}>
                         {a.code} — {a.name} ({a.city})
@@ -294,20 +294,20 @@ export default function RetailerSignup() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>{t('getstarted.kvk')} <span className="text-red-500">*</span></Label>
+                    <Label>KVK Number <span className="text-red-500">*</span></Label>
                     <Input required placeholder="12345678" value={kvk} onChange={e => setKvk(e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>{t('getstarted.vat')} <span className="text-red-500">*</span></Label>
+                    <Label>VAT Number <span className="text-red-500">*</span></Label>
                     <Input required placeholder="NL123456789B01" value={vat} onChange={e => setVat(e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label>{t('getstarted.store_category')} <span className="text-red-500">*</span></Label>
+                  <Label>Store Category <span className="text-red-500">*</span></Label>
                   <Select value={storeCategory} onValueChange={setStoreCategory}>
-                    <SelectTrigger><SelectValue placeholder={t('getstarted.select_category')} /></SelectTrigger>
+                    <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Retail">{t('getstarted.retail')}</SelectItem>
+                      <SelectItem value="Retail">Retail</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -462,9 +462,9 @@ export default function RetailerSignup() {
           )}
 
           <p className="text-center text-sm text-muted-foreground">
-            {t('getstarted.already_account')}{" "}
+            Already have an account?{" "}
             <button onClick={() => base44.auth.redirectToLogin('/retailer-portal')} className="text-primary underline underline-offset-2">
-              {t('getstarted.sign_in')}
+              Sign in
             </button>
           </p>
         </div>

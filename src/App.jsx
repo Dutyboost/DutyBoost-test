@@ -149,7 +149,7 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={user?.role === 'admin' ? <LandingPage /> : <Navigate to="/dashboard" />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
         <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
