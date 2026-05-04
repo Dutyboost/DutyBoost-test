@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function DutyBoostLogo({ height = 175, inverted = false }) {
+export default function DutyBoostLogo({ height = 150, inverted = false }) {
   return (
     <Link to="/" className="hover:opacity-80 transition-opacity inline-block">
       <img
