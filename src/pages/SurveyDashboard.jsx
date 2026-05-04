@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download } from "lucide-react";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown } from "lucide-react";
 import * as XLSX from "xlsx";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 
@@ -369,6 +369,103 @@ function Legend({ data }) {
   );
 }
 
+function ResponseCard({ response, isRetailerView }) {
+  const [expanded, setExpanded] = useState(false);
+  const flag = response._lang && response._lang !== "en" ? LANG_FLAGS[response._lang] : null;
+  const interestEn = response.interest_level || "";
+  const interestColor = interestEn.toLowerCase().includes("very")
+    ? "bg-green-500/20 text-green-300"
+    : interestEn.toLowerCase().includes("interested")
+    ? "bg-blue-500/20 text-blue-300"
+    : "bg-slate-600/40 text-slate-300";
+
+  return (
+    <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 space-y-3">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="w-full flex items-center justify-between hover:opacity-80 transition-opacity"
+      >
+        <div className="flex-1 text-left">
+          <div className="flex items-center gap-2 mb-1">
+            {flag && <span className="text-base">{flag}</span>}
+            <span className="text-white font-semibold">{response.full_name || response.company_name || "Anonymous"}</span>
+            <span className={`px-2 py-0.5 rounded-full text-xs ${interestColor}`}>
+              {interestEn?.split("–")[0]?.trim() || "—"}
+            </span>
+            {response.wants_demo && <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />}
+          </div>
+          <div className="text-xs text-slate-400">
+            {response.company_name} · {isRetailerView ? response.company_type?.replace(RETAILER_PREFIX, "") : response.company_type}
+            {response.created_date && ` · ${new Date(response.created_date).toLocaleDateString()}`}
+          </div>
+        </div>
+        <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${expanded ? "rotate-180" : ""}`} />
+      </button>
+
+      {expanded && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 border-t border-slate-700">
+          {response.full_name && (
+            <>
+              <div className="text-xs">
+                <p className="text-slate-500">Full Name</p>
+                <p className="text-slate-200">{response.full_name}</p>
+              </div>
+              <div className="text-xs">
+                <p className="text-slate-500">Email</p>
+                <p className="text-slate-200">{response.email || "—"}</p>
+              </div>
+            </>
+          )}
+          <div className="text-xs">
+            <p className="text-slate-500">Company</p>
+            <p className="text-slate-200">{response.company_name}</p>
+          </div>
+          <div className="text-xs">
+            <p className="text-slate-500">Website</p>
+            <p className="text-slate-200 truncate">{response.company_website || "—"}</p>
+          </div>
+          <div className="text-xs">
+            <p className="text-slate-500">Type</p>
+            <p className="text-slate-200">{isRetailerView ? response.company_type?.replace(RETAILER_PREFIX, "") : response.company_type}</p>
+          </div>
+          <div className="text-xs">
+            <p className="text-slate-500">Monthly Visitors / Booking Volume</p>
+            <p className="text-slate-200">{response.annual_bookings || "—"}</p>
+          </div>
+          <div className="text-xs md:col-span-2">
+            <p className="text-slate-500">Loyalty Programs</p>
+            <p className="text-slate-200">{response.current_loyalty || "—"}</p>
+          </div>
+          <div className="text-xs md:col-span-2">
+            <p className="text-slate-500">Interest Level</p>
+            <p className="text-slate-200">{response.interest_level || "—"}</p>
+          </div>
+          <div className="text-xs md:col-span-2">
+            <p className="text-slate-500">Commission / Voucher Attractiveness</p>
+            <p className="text-slate-200">{response.commission_attractive || "—"}</p>
+          </div>
+          <div className="text-xs md:col-span-2">
+            <p className="text-slate-500">Integration Willingness</p>
+            <p className="text-slate-200">{response.snippet_willingness || "—"}</p>
+          </div>
+          {response.biggest_challenge && (
+            <div className="text-xs md:col-span-2">
+              <p className="text-slate-500">Biggest Challenge</p>
+              <p className="text-slate-200">{response.biggest_challenge}</p>
+            </div>
+          )}
+          {response.phone && (
+            <div className="text-xs">
+              <p className="text-slate-500">Phone</p>
+              <p className="text-slate-200">{response.phone}</p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ResponseTable({ responses, isRetailerView }) {
   return (
     <div className="overflow-x-auto">
@@ -470,7 +567,13 @@ function RetailerDashboard({ responses }) {
       </div>
 
       <ChartCard title="All responses">
-        <ResponseTable responses={responses} isRetailerView={true} />
+        <div className="space-y-2 max-h-[800px] overflow-y-auto">
+          {responses.length === 0 ? (
+            <p className="text-slate-500 text-sm text-center py-8">No responses yet</p>
+          ) : (
+            responses.map(r => <ResponseCard key={r.id} response={r} isRetailerView={true} />)
+          )}
+        </div>
       </ChartCard>
     </div>
   );
@@ -566,7 +669,13 @@ function TravelPartnerDashboard({ responses }) {
       </div>
 
       <ChartCard title="All responses">
-        <ResponseTable responses={responses} isRetailerView={false} />
+        <div className="space-y-2 max-h-[800px] overflow-y-auto">
+          {responses.length === 0 ? (
+            <p className="text-slate-500 text-sm text-center py-8">No responses yet</p>
+          ) : (
+            responses.map(r => <ResponseCard key={r.id} response={r} isRetailerView={false} />)
+          )}
+        </div>
       </ChartCard>
     </div>
   );
