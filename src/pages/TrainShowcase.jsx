@@ -78,9 +78,9 @@ export default function TrainShowcase() {
             <Button
               size="lg"
               className="bg-white text-indigo-600 hover:bg-gray-100 gap-2"
-              onClick={() => navigate("/train-portal")}
+              onClick={() => navigate("/train-signup")}
             >
-              {t('showcase.train.cta_explore')} <ArrowRight className="w-4 h-4" />
+              {t('showcase.train.cta_apply')} <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         </div>
