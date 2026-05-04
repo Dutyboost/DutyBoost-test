@@ -25,7 +25,7 @@ export default function SelectUserType() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/travel-partner-signup",
+      path: "/travel-partner-portal",
     },
     {
       id: "hotel",
@@ -35,7 +35,7 @@ export default function SelectUserType() {
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
-      path: "/hotel-signup",
+      path: "/hotel-portal",
     },
     {
       id: "carrental",
@@ -45,7 +45,7 @@ export default function SelectUserType() {
       color: "from-red-400 to-red-600",
       bg: "bg-red-50",
       iconColor: "text-red-600",
-      path: "/car-rental-signup",
+      path: "/car-rental-portal",
     },
     {
       id: "cruise",
@@ -55,7 +55,7 @@ export default function SelectUserType() {
       color: "from-cyan-400 to-teal-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
-      path: "/cruise-signup",
+      path: "/cruise-portal",
     },
     {
       id: "train",
@@ -65,7 +65,7 @@ export default function SelectUserType() {
       color: "from-indigo-400 to-violet-600",
       bg: "bg-indigo-50",
       iconColor: "text-indigo-600",
-      path: "/train-signup",
+      path: "/train-portal",
     },
     {
       id: "retailer",
@@ -75,7 +75,7 @@ export default function SelectUserType() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-      path: "/retailer-signup",
+      path: "/retailer-portal",
     },
   ];
 
