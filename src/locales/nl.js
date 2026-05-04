@@ -168,6 +168,32 @@ export default {
     },
     common: {
       back: 'Terug',
+      cancel: 'Annuleren',
+      continue: 'Doorgaan',
+      download: 'Downloaden',
+      sign_in: 'Inloggen',
+    },
+    portal: {
+      signed_in_as: 'Ingelogd als',
+      go_to_dashboard: 'Naar Dashboard',
+      sign_out: 'Uitloggen',
+      sign_in: 'Inloggen',
+      delete_account: 'Mijn account verwijderen',
+      delete_reason: 'Waarom verwijdert u uw account?',
+      delete_permanent: 'Deze actie is permanent en kan niet ongedaan worden gemaakt.',
+      delete_confirm: 'Ja, mijn account verwijderen',
+      agency: {
+        title: 'Travel Partner Portal',
+        desc: 'Beheer uw boekingen en DutyCredits voor uw reizigers.',
+        create_account: 'Travel Partner Account aanmaken',
+        new_desc: 'Nieuw bij DutyBoost? Maak een account aan om te beginnen met het integreren van ons platform.',
+      },
+      retailer: {
+        title: 'Luchthavenretailer Portal',
+        desc: 'Wissel vouchers in en beheer de deelname van uw winkel aan het DutyBoost-programma.',
+        create_account: 'Retaileraccount aanmaken',
+        new_desc: 'Nieuw bij DutyBoost? Maak een account aan om DutyCredits in uw winkel in te wisselen.',
+      },
     },
     wecallyou: {
       modal_title: 'Wij bellen u',

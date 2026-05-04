@@ -172,6 +172,32 @@ export default {
     },
     common: {
       back: 'Back',
+      cancel: 'Cancel',
+      continue: 'Continue',
+      download: 'Download',
+      sign_in: 'Sign In',
+    },
+    portal: {
+      signed_in_as: 'Signed in as',
+      go_to_dashboard: 'Go to Dashboard',
+      sign_out: 'Sign Out',
+      sign_in: 'Sign In',
+      delete_account: 'Delete my account',
+      delete_reason: 'Why are you deleting your account?',
+      delete_permanent: 'This action is permanent and cannot be undone.',
+      delete_confirm: 'Yes, delete my account',
+      agency: {
+        title: 'Travel Partner Portal',
+        desc: 'Manage your bookings and DutyCredits for your travelers.',
+        create_account: 'Create Travel Partner Account',
+        new_desc: 'New to DutyBoost? Create an account to start integrating our platform.',
+      },
+      retailer: {
+        title: 'Airport Retailer Portal',
+        desc: 'Redeem vouchers and manage your store\'s participation in the DutyBoost programme.',
+        create_account: 'Create Retailer Account',
+        new_desc: 'New to DutyBoost? Create an account to start redeeming DutyCredits in your store.',
+      },
     },
     getstarted: {
       title: 'Get Started with DutyBoost',
