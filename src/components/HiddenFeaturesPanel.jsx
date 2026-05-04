@@ -125,8 +125,15 @@ Phase 1 — Pilot with one cruise line, one home port, two partnered retailers. 
 Phase 2 — Expand to 3–5 port stops per itinerary with pre-loaded destination vouchers per port.
 Phase 3 — Onboard integration: cabin TV shore excursion screen, loyalty app, physical shore excursion desk cards.
 Phase 4 — Cross-channel: fly-cruise packages where airport DutyBoost voucher and port DutyBoost voucher are unified in one wallet.`,
-    pages: [],
+    pages: [
+      { label: "Cruise Showcase", path: "/cruise-showcase" },
+      { label: "Cruise Portal", path: "/cruise-portal" },
+      { label: "Cruise Signup", path: "/cruise-signup" },
+      { label: "Demo Cruise Dashboard", path: "/demo/cruise" },
+    ],
     howToRestore: [
+      "In pages/SelectUserType.jsx: re-add the cruise option (id: 'cruise') back to the options array.",
+      "In pages/LandingPage.jsx: re-add CruiseShipIcon to the AdditionalIcons array for the 'agencies' stakeholder card.",
       "Create pages/CruiseShowcase.jsx — a public-facing pitch page for cruise line partnerships (mirrors AgencyShowcase/RetailerShowcase structure).",
       "Create pages/CruisePortal.jsx — a logged-in dashboard for cruise line partners: fleet overview, port call performance, passenger conversion, revenue share.",
       "Create pages/CruiseSignup.jsx — multi-step onboarding for cruise lines (company info, fleet size, home port, bank details, terms).",
@@ -212,8 +219,15 @@ Phase 2 — Expand to international routes (Thalys/Eurostar) where dwell is long
 Phase 3 — OTA integration: Trainline, SNCF, DB — auto-generate DutyCredits for all bookings above a threshold ticket price.
 Phase 4 — Corporate rail module: link to Business Travel programme for frequent corporate travelers on fixed routes.
 Phase 5 — Return-leg loyalty: passengers receive a new DutyCredit for their return journey, creating a full round-trip retail loop.`,
-    pages: [],
+    pages: [
+      { label: "Train Showcase", path: "/train-showcase" },
+      { label: "Train Portal", path: "/train-portal" },
+      { label: "Train Signup", path: "/train-signup" },
+      { label: "Demo Train Dashboard", path: "/demo/train" },
+    ],
     howToRestore: [
+      "In pages/SelectUserType.jsx: re-add the train option (id: 'train') back to the options array with icon TrainIcon, colors indigo/violet, path /train-showcase.",
+      "In pages/LandingPage.jsx: re-add TrainIcon to the AdditionalIcons array for the 'agencies' stakeholder card.",
       "Create pages/TrainShowcase.jsx — public-facing pitch page for rail operator partnerships (mirror CruiseShowcase structure). Route: /train-showcase.",
       "Create pages/TrainPortal.jsx — logged-in dashboard for rail operator partners: route overview, station performance, passenger conversion, revenue share. Route: /train-portal.",
       "Create pages/TrainSignup.jsx — multi-step onboarding for rail operators (company info, key routes, main stations, bank details, terms). Route: /train-signup.",

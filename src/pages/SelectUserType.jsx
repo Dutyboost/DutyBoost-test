@@ -6,8 +6,6 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import CruiseShipIcon from "../components/CruiseShipIcon";
-import TrainIcon from "../components/TrainIcon";
 import { ArrowRight } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -46,26 +44,6 @@ export default function SelectUserType() {
       bg: "bg-red-50",
       iconColor: "text-red-600",
       path: "/car-rental-showcase",
-    },
-    {
-      id: "cruise",
-      title: t('getstarted.cruise'),
-      descKey: 'getstarted.cruise_description',
-      icon: CruiseShipIcon,
-      color: "from-cyan-400 to-teal-600",
-      bg: "bg-cyan-50",
-      iconColor: "text-cyan-600",
-      path: "/cruise-showcase",
-    },
-    {
-      id: "train",
-      title: t('getstarted.train'),
-      descKey: 'getstarted.train_description',
-      icon: TrainIcon,
-      color: "from-indigo-400 to-violet-600",
-      bg: "bg-indigo-50",
-      iconColor: "text-indigo-600",
-      path: "/train-showcase",
     },
     {
       id: "retailer",
