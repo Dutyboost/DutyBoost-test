@@ -16,8 +16,8 @@ export default {
     },
     hero: {
       title_1: 'Trasformando ogni prenotazione in',
-      title_2: 'ricavi aeroportuali — per tutti',
-      subtitle: 'Unlock the revenue <strong>hidden</strong> in every flight, hotel booking, and car rental with DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. We turn travelers into high-intent buyers before they reach their airport of departure—and even upon arrival at their destination.',
+      title_2: 'ricavi — per tutti',
+      subtitle: 'Sblocca i ricavi <strong>nascosti</strong> in ogni prenotazione online di voli, hotel, noleggio auto, crociere e treni con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Trasformiamo i viaggiatori in acquirenti ad alta intenzione prima che raggiungano il loro gate di partenza.',
     },
     ecosystem: {
       title: 'Come funziona il nostro ecosistema',

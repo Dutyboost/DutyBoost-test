@@ -17,8 +17,8 @@ export default {
     },
     hero: {
       title_1: 'Jede Buchung verwandeln in',
-      title_2: 'Flughafenumsätze — für alle',
-      subtitle: 'Unlock the revenue <strong>hidden</strong> in every flight, hotel booking, and car rental with DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. We turn travelers into high-intent buyers before they reach their airport of departure—and even upon arrival at their destination.',
+      title_2: 'Umsatz — für alle',
+      subtitle: 'Erschließen Sie den verborgenen Umsatz in jeder Online-Flug-, Hotel-, Mietwagen-, Kreuzfahrt- und Zugbuchung mit DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wir verwandeln Reisende in kaufbereite Käufer, bevor sie ihr Abfluggate erreichen.',
     },
     ecosystem: {
       title: 'So funktioniert unser Ökosystem',
@@ -74,23 +74,6 @@ export default {
       err_domain_mismatch: 'Ihre E-Mail-Domain muss mit der Domain Ihrer Website übereinstimmen.',
       err_industry: 'Bitte wählen Sie Ihren Unternehmenstyp aus.',
     },
-    footer: {
-      tagline: '— The Travel Retail Conversion Layer',
-      rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
-    },
-    demo: {
-      mode_badge: 'Demo-Modus',
-      title: 'DutyBoost entdecken',
-      subtitle: 'Erfahren Sie, wie DutyBoost für Travel Partner und Airport Retailers funktioniert',
-      agency_title: 'Travel Partner Demo',
-      agency_desc: 'Erfahren Sie, wie Travel Partner DutyBoost nutzen, um Kundenloyalität zu steigern und Provisionen zu verdienen',
-      view_agency: 'Demo anzeigen',
-      retailer_title: 'Airport Retailer Demo',
-      retailer_desc: 'Erfahren Sie, wie Retailer Reisende mit DutyBoost-Angeboten in Kunden umwandeln',
-      view_retailer: 'Demo anzeigen',
-      disclaimer: 'Demo-Daten dienen nur zu Illustrationszwecken',
-    },
-
     getstarted: {
       title: 'Loslegen',
       subtitle_default: 'Treten Sie DutyBoost bei — Die Reise-Einzelhandels-Konversionsschicht.',
