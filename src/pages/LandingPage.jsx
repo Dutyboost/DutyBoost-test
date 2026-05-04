@@ -260,9 +260,8 @@ export default function LandingPage() {
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <div className="flex flex-col items-center md:items-start gap-0.5">
+            <div>
               <DutyBoostLogo height={100} />
-              <span className="text-xs">DutyBoost is a Borderless Solutions B.V. product</span>
             </div>
             <p>{t('footer.rights')}</p>
           </div>
