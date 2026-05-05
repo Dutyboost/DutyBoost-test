@@ -26,10 +26,23 @@ Deno.serve(async (req) => {
       business_type: 'Travel Partner',
     });
 
+    // Decrypt bank details for each agency before building the map
     const agencyMap = {};
-    agencies.forEach(a => {
-      agencyMap[a.email] = { name: a.company, iban: a.bank_iban };
-    });
+    for (const a of agencies) {
+      if (!a.email) continue;
+      let iban = null;
+      let name = a.company;
+      if (a.id) {
+        try {
+          const decrypted = await base44.asServiceRole.functions.invoke('getSignupApplicationDecrypted', { id: a.id });
+          iban = decrypted?.data?.bank_iban || null;
+          name = decrypted?.data?.bank_account_name || a.company;
+        } catch (e) {
+          console.error('Failed to decrypt for', a.email, e.message);
+        }
+      }
+      agencyMap[a.email] = { name, iban };
+    }
 
     const results = [];
 

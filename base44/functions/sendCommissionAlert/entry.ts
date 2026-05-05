@@ -14,7 +14,9 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Postmark API key not configured' }, { status: 500 });
     }
 
-    const { agency_email, amount, month_year } = data;
+    // MonthlyInvoice uses `retailer_email` field for agency email (field reused)
+    const { retailer_email, agency_email, amount, month_year } = data;
+    const recipientEmail = agency_email || retailer_email;
 
     const emailBody = `
       <h2>Commission Earned!</h2>
@@ -26,6 +28,10 @@ Deno.serve(async (req) => {
       <p>Best regards,<br/>The DutyBoost Team</p>
     `;
 
+    if (!recipientEmail) {
+      return Response.json({ error: 'No recipient email found on record' }, { status: 400 });
+    }
+
     const response = await fetch('https://api.postmarkapp.com/email', {
       method: 'POST',
       headers: {
@@ -34,7 +40,7 @@ Deno.serve(async (req) => {
       },
       body: JSON.stringify({
         From: 'hello@dutyboost.com',
-        To: agency_email,
+        To: recipientEmail,
         Subject: `You've Earned a Commission - €${amount.toFixed(2)}`,
         HtmlBody: emailBody,
       }),

@@ -9,8 +9,14 @@ Deno.serve(async (req) => {
 
     const invoices = await base44.asServiceRole.entities.MonthlyInvoice.filter({ status: 'pending' });
 
+    // Only mark RETAILER invoices as overdue — agency payout statements share the same entity
+    // and should never be marked overdue (they are processed by executeAgencyPayouts)
+    const agencyApps = await base44.asServiceRole.entities.SignupApplication.filter({ business_type: 'Travel Partner' });
+    const agencyEmails = new Set(agencyApps.map(a => a.email));
+
     let updated = 0;
     for (const inv of invoices) {
+      if (agencyEmails.has(inv.retailer_email)) continue; // skip agency payout statements
       if (inv.due_date < today) {
         await base44.asServiceRole.entities.MonthlyInvoice.update(inv.id, { status: 'overdue' });
         updated++;

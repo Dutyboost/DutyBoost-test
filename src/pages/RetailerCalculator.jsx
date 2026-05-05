@@ -4,17 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store } from "lucide-react";
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
-function lerp(value, minVal, maxVal, minOut, maxOut) {
-  const t = Math.min(1, Math.max(0, (value - minVal) / (maxVal - minVal)));
-  return Math.round((minOut + t * (maxOut - minOut)) * 100) / 100;
-}
-
+// Flat tiers — matches POS webhook exactly
 function calcSaving(spend) {
   if (spend < 70) return 0;
-  if (spend >= 300) return 60;
-  if (spend >= 200) return lerp(spend, 200, 299, 35, 45);
-  if (spend >= 100) return lerp(spend, 100, 199, 15, 30);
-  return lerp(spend, 70, 99, 5, 10);
+  if (spend >= 300) return 60; // VIP
+  if (spend >= 200) return 45; // Lounge
+  if (spend >= 100) return 30; // Priority
+  return 10;                   // Boarding (€70–€99)
 }
 
 function getTier(spend) {
@@ -25,16 +21,16 @@ function getTier(spend) {
   return { name: "Boarding DutyCredit", emoji: "🟡", color: "text-yellow-400", bg: "bg-yellow-500/10 border-yellow-500/30", bar: "bg-yellow-400" };
 }
 
-// Travel Partner: earns a commission from DutyBoost on each redemption
-// Commission = 0.5% of basket (paid by DutyBoost out of their 2.5% fee), capped at €5/tx
-const AGENCY_COMMISSION_RATE = 0.005; // 0.5% of basket value
+// Travel Partner: earns 20% of DutyBoost's 2.5% fee per redemption, capped at €5/tx
+const AGENCY_COMMISSION_SHARE = 0.20; // 20% of DutyBoost fee
+const PLATFORM_FEE_PCT = 0.025;       // 2.5% of basket
 const PLATFORM_FEE_CAP = 25;          // €25 max DutyBoost fee per transaction
 const AGENCY_COMMISSION_CAP = 5;      // €5 max agency commission per transaction
 
 const TIER_BANDS = [
-  { label: "Boarding", min: 70, max: 99, savMin: 5, savMax: 10, color: "bg-yellow-400", textColor: "text-yellow-400" },
-  { label: "Priority", min: 100, max: 199, savMin: 15, savMax: 30, color: "bg-blue-400", textColor: "text-blue-400" },
-  { label: "Lounge", min: 200, max: 299, savMin: 35, savMax: 45, color: "bg-green-400", textColor: "text-green-400" },
+  { label: "Boarding", min: 70, max: 99, savMin: 10, savMax: 10, color: "bg-yellow-400", textColor: "text-yellow-400" },
+  { label: "Priority", min: 100, max: 199, savMin: 30, savMax: 30, color: "bg-blue-400", textColor: "text-blue-400" },
+  { label: "Lounge", min: 200, max: 299, savMin: 45, savMax: 45, color: "bg-green-400", textColor: "text-green-400" },
   { label: "VIP", min: 300, max: 500, savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
 ];
 
@@ -210,7 +206,7 @@ function TravelPartnerTab() {
   const [avgBasket, setAvgBasket] = useState(150);
 
   const redemptions = useMemo(() => Math.round(bookingsPerMonth * (conversionRate / 100)), [bookingsPerMonth, conversionRate]);
-  const agencyCommissionPerTx = useMemo(() => Math.min(Math.round(avgBasket * AGENCY_COMMISSION_RATE * 100) / 100, AGENCY_COMMISSION_CAP), [avgBasket]);
+  const agencyCommissionPerTx = useMemo(() => Math.min(Math.round(Math.min(avgBasket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP) * AGENCY_COMMISSION_SHARE * 100) / 100, AGENCY_COMMISSION_CAP), [avgBasket]);
   const monthlyCommission = useMemo(() => Math.round(redemptions * agencyCommissionPerTx * 100) / 100, [redemptions, agencyCommissionPerTx]);
   const travelerSavingPerTx = useMemo(() => calcSaving(avgBasket), [avgBasket]);
   const totalTravelerSavings = useMemo(() => Math.round(redemptions * travelerSavingPerTx * 100) / 100, [redemptions, travelerSavingPerTx]);
@@ -221,7 +217,7 @@ function TravelPartnerTab() {
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-white">How much will you earn as a Travel Partner?</h2>
         <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          You earn a <strong className="text-green-300">0.5% commission</strong> on every basket your travelers spend at the airport (capped at <strong className="text-green-300">€5 per transaction</strong>) — paid out <strong className="text-green-300">monthly</strong> by DutyBoost out of its own fee.
+          You earn <strong className="text-green-300">20% of DutyBoost's 2.5% fee</strong> on every basket your travelers spend at the airport (capped at <strong className="text-green-300">€5 per transaction</strong>) — paid out <strong className="text-green-300">monthly</strong> by DutyBoost out of its own fee.
         </p>
       </div>
 
@@ -344,7 +340,7 @@ function TravelPartnerTab() {
               {TIER_BANDS.map((t) => {
                 const mid = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
                 const saving = calcSaving(mid);
-                const comm = Math.min(Math.round(mid * AGENCY_COMMISSION_RATE * 100) / 100, AGENCY_COMMISSION_CAP);
+                const comm = Math.min(Math.round(Math.min(mid * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP) * AGENCY_COMMISSION_SHARE * 100) / 100, AGENCY_COMMISSION_CAP);
                 const per100 = Math.round(comm * 100 * 100) / 100;
                 const isActive = tier?.name.startsWith(t.label);
                 return (
@@ -360,7 +356,7 @@ function TravelPartnerTab() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500">Commission = 0.5% of basket value per redemption (max €5/tx), paid out monthly by DutyBoost.</p>
+        <p className="text-xs text-slate-500">Commission = 20% of DutyBoost's 2.5% fee per redemption (max €5/tx), paid out monthly by DutyBoost.</p>
       </div>
     </div>
   );

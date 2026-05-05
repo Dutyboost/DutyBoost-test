@@ -12,9 +12,9 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 const PLATFORM_FEE_PCT = 0.025;          // 2.5% of gross to DutyBoost (capped at €25)
-const AGENCY_COMMISSION_PCT = 0.005;     // 0.5% of gross = 20% of 2.5% (capped at €5)
+const AGENCY_COMMISSION_SHARE = 0.20;   // 20% of DutyBoost fee goes to agency (capped at €5)
 const PLATFORM_FEE_CAP = 25;            // Maximum DutyBoost fee per transaction
-const AGENCY_COMMISSION_CAP = 5;        // Maximum agency commission per transaction (20% of cap)
+const AGENCY_COMMISSION_CAP = 5;        // Maximum agency commission per transaction (20% of €25 cap)
 
 // Tiered flat reward: Boarding €10 / Priority €30 / Lounge €45 / VIP €60
 function calcBasketCredit(basketValue) {
@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
     const discountAmount = parseFloat(calcBasketCredit(txnValue).toFixed(2));
     const effectiveDiscount = parseFloat(((discountAmount / txnValue) * 100).toFixed(2));
     const platformRevenue = parseFloat(Math.min(txnValue * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP).toFixed(2));
-    const agencyCommission = parseFloat(Math.min(txnValue * AGENCY_COMMISSION_PCT, AGENCY_COMMISSION_CAP).toFixed(2));
+    const agencyCommission = parseFloat(Math.min(platformRevenue * AGENCY_COMMISSION_SHARE, AGENCY_COMMISSION_CAP).toFixed(2));
     const amountDue = parseFloat((txnValue - discountAmount).toFixed(2));
 
     // 3. Log transaction

@@ -43,6 +43,7 @@ Deno.serve(async (req) => {
     // Group platform_revenue by retailer owner_email for prev month
     const retailerMap = {};
     for (const r of retailers) {
+      if (!r.owner_email) continue; // skip retailers with no owner email
       if (!retailerMap[r.owner_email]) {
         retailerMap[r.owner_email] = { name: r.store_name, total: 0 };
       }
@@ -51,8 +52,9 @@ Deno.serve(async (req) => {
     for (const t of transactions) {
       const txnDate = t.created_date?.substring(0, 7);
       if (txnDate !== prevMonthStr) continue;
-      const retailer = retailers.find(r => r.store_name === t.store_name);
-      if (!retailer) continue;
+      // Match by retailer_id first, fall back to store_name
+      const retailer = retailers.find(r => r.id === t.retailer_id) || retailers.find(r => r.store_name === t.store_name);
+      if (!retailer || !retailer.owner_email) continue;
       retailerMap[retailer.owner_email].total += (t.platform_revenue || 0);
     }
 
@@ -127,10 +129,8 @@ Deno.serve(async (req) => {
           : `<div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
                <p style="margin: 0 0 8px; font-weight: 600; color: #1e40af; font-size: 14px;">Payment Details</p>
                <p style="margin: 0; color: #1e40af; font-size: 13px; line-height: 1.7;">
-                 Bank: <strong>ING Bank N.V.</strong><br/>
-                 Account holder: <strong>DutyBoost B.V.</strong><br/>
-                 IBAN: <strong>NL91 INGB 0001 2345 67</strong><br/>
-                 Reference: <strong>INV-${prevMonthStr}-${ownerEmail.split('@')[0].toUpperCase()}</strong>
+                 Please contact <a href="mailto:hello@dutyboost.com">hello@dutyboost.com</a> to arrange payment.<br/>
+                    Reference: <strong>INV-${prevMonthStr}-${ownerEmail.split('@')[0].toUpperCase()}</strong>
                </p>
              </div>`;
 

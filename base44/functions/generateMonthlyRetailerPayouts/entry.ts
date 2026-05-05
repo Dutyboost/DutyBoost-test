@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -16,7 +16,7 @@ Deno.serve(async (req) => {
     const displayMonth = previousMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
     // Get all transactions from previous month
-    const allTransactions = await base44.entities.Transaction.list('-created_date', 1000);
+    const allTransactions = await base44.entities.Transaction.list('-created_date', 10000);
     const monthlyTransactions = allTransactions.filter(t => {
       const txDate = (t.created_date || '').split('T')[0];
       return txDate.startsWith(monthYearStr);

@@ -18,14 +18,18 @@ Deno.serve(async (req) => {
       return txDate >= startOfMonth && txDate <= endOfMonth;
     });
 
-    // Group by agency_email and calculate commission (1% of transaction value)
+    // Group by agency_email and sum agency_commission (20% of platform_revenue, capped at €5)
     const agencyCommissions = {};
     lastMonthTransactions.forEach(tx => {
       if (!tx.agency_email) return;
       if (!agencyCommissions[tx.agency_email]) {
         agencyCommissions[tx.agency_email] = { amount: 0, count: 0 };
       }
-      agencyCommissions[tx.agency_email].amount += tx.agency_commission || Math.min(tx.transaction_value * 0.005, 5);
+      // Prefer stored agency_commission; fall back to 20% of platform_revenue (capped at €5)
+      const commission = tx.agency_commission != null
+        ? tx.agency_commission
+        : Math.min(Math.min(tx.transaction_value * 0.025, 25) * 0.20, 5);
+      agencyCommissions[tx.agency_email].amount += commission;
       agencyCommissions[tx.agency_email].count += 1;
     });
 
@@ -39,24 +43,35 @@ Deno.serve(async (req) => {
     // month is the previous month (this runs at start of current month)
     const prevMonth = new Date(payoutDate.getFullYear(), payoutDate.getMonth() - 1, 1);
     const monthYear = `${prevMonth.getFullYear()}-${String(prevMonth.getMonth() + 1).padStart(2, '0')}`;
-    const dueDate = new Date(payoutDate.getFullYear(), payoutDate.getMonth() + 1, 14);
+    // due date = invoice date + 14 days
+    const dueDate = new Date(payoutDate);
+    dueDate.setDate(dueDate.getDate() + 14);
 
-    // Create monthly invoices (commission statements)
-    const invoices = agencies
-      .filter(a => a.email && agencyCommissions[a.email])
-      .map(a => ({
-        retailer_email: a.email, // Reusing field for agency email
-        retailer_name: a.company,
-        amount: agencyCommissions[a.email].amount,
+    // Create monthly invoices (commission statements), skip duplicates
+    const invoicesToCreate = [];
+    for (const agency of agencies) {
+      if (!agency.email || !agencyCommissions[agency.email]) continue;
+      // Duplicate guard
+      const existing = await base44.asServiceRole.entities.MonthlyInvoice.filter({
+        retailer_email: agency.email,
+        month_year: monthYear,
+      });
+      if (existing.length > 0) continue;
+      invoicesToCreate.push({
+        retailer_email: agency.email, // reusing field for agency email
+        retailer_name: agency.company,
+        amount: parseFloat(agencyCommissions[agency.email].amount.toFixed(2)),
         month_year: monthYear,
         invoice_date: payoutDate.toISOString().split('T')[0],
         due_date: dueDate.toISOString().split('T')[0],
         status: 'pending',
-      }));
-
-    if (invoices.length > 0) {
-      await base44.asServiceRole.entities.MonthlyInvoice.bulkCreate(invoices);
+      });
     }
+
+    if (invoicesToCreate.length > 0) {
+      await base44.asServiceRole.entities.MonthlyInvoice.bulkCreate(invoicesToCreate);
+    }
+    const invoices = invoicesToCreate;
 
     return Response.json({ 
       success: true, 

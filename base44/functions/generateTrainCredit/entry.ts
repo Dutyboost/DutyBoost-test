@@ -30,12 +30,10 @@ Deno.serve(async (req) => {
     // Expiry: 72 hours from now
     const expiry = new Date(Date.now() + 72 * 60 * 60 * 1000).toISOString();
 
-    const credit = await base44.entities.TrainCredit.create({
+    const credit = await base44.asServiceRole.entities.TrainCredit.create({
       token_id: tokenId,
-      booking_ref,
       train_operator,
       departure_station,
-      arrival_station,
       balance: creditValue,
       remaining_balance: creditValue,
       expiry,

@@ -36,11 +36,11 @@ Deno.serve(async (req) => {
               <p style="color: #888; font-size: 13px; margin: 8px 0 0;">Code: <strong>${voucher.voucher_code}</strong></p>
             </div>
             <p style="text-align: center;">
-              <a href="https://dutyboost.com/voucher?booking_id=${booking.booking_id}" style="background:#4f46e5; color:white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">View My DutyCredit</a>
+              <a href="https://dutyboost.com/user-guide?booking_id=${booking.booking_id}" style="background:#4f46e5; color:white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">View My DutyCredit</a>
             </p>
             <p style="color: #999; font-size: 12px; margin-top: 24px;">
               Don't want these reminders? 
-              <a href="https://dutyboost.com/voucher?booking_id=${booking.booking_id}&unsubscribe=1" style="color:#999;">Unsubscribe</a>
+              <a href="https://dutyboost.com/user-guide?unsubscribe=1&booking_id=${booking.booking_id}" style="color:#999;">Unsubscribe</a>
             </p>
           </div>
         `

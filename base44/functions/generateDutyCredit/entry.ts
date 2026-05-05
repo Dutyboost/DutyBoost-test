@@ -83,9 +83,16 @@ Deno.serve(async (req) => {
   const voucherCode = generateVoucherCode();
   const expirationDate = getExpirationDate(travel_date);
 
+  // Check for duplicate booking_id to prevent double-issuing vouchers
+  const existingBookings = await base44.asServiceRole.entities.Booking.filter({ booking_id });
+  if (existingBookings.length > 0) {
+    return Response.json({ error: `DutyCredit already generated for booking ${booking_id}` }, { status: 409 });
+  }
+
   await base44.asServiceRole.entities.Booking.create({
     booking_id, total_ticket_price, number_of_travelers, travel_type,
-    departure_airport, travel_date, return_date: return_date || null, agency_email: agencyEmail,
+    departure_airport, travel_date, return_date: return_date || null,
+    agency_email: agencyEmail, traveler_email,
   });
 
   await base44.asServiceRole.entities.Voucher.create({
