@@ -622,7 +622,7 @@ function parseCustomVolume(val) {
   return isNaN(num) ? null : Math.round(num / 12); // assume annual → monthly
 }
 
-const REDEMPTION_RATE = 0.08;   // 8% of travelers redeem
+const REDEMPTION_RATE = 0.01;   // 1% of travelers redeem
 const MIN_BASKET    = 70;        // €70 minimum basket
 const DISCOUNT      = 5;         // €5 DutyCredit discount given to traveler
 const NET_BASKET    = MIN_BASKET - DISCOUNT; // €65
