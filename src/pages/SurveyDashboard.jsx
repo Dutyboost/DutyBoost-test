@@ -679,7 +679,6 @@ function RevenueCalculator({ responses }) {
           Potential Revenue — Survey Respondents Combined
         </h3>
         <p className="text-xs text-slate-400">
-          Based on <span className="text-white">{respondentsWithVolume}</span> respondents with booking volume data ·{" "}
           <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span> ·{" "}
           <span className="text-white">€{AVG_BASKET} avg basket</span> (range: €{MIN_BASKET}–€{MAX_BASKET}) ·{" "}
           <span className="text-white">2.5% fee on €{AVG_BASKET}</span>
