@@ -674,7 +674,7 @@ function RevenueCalculator({ responses }) {
 
   return (
     <div className="bg-slate-800 border border-green-500/30 rounded-2xl p-5 space-y-5">
-      <div>
+      <div className="hidden">
         <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">
           Potential Revenue — Survey Respondents Combined
         </h3>
