@@ -608,18 +608,25 @@ function RetailerDashboard({ responses }) {
 
 // ── Revenue Calculator ─────────────────────────────────────────────────────────
 // Maps English booking volume buckets to a monthly booking midpoint
-const VOLUME_TO_MONTHLY = {
-  "Under 5,000 bookings/year":         { label: "< 5k/yr",   monthly: 250 },
-  "5,000 – 20,000 bookings/year":      { label: "5–20k/yr",  monthly: 1042 },
-  "20,000 – 100,000 bookings/year":    { label: "20–100k/yr",monthly: 5000 },
-  "100,000+ bookings/year":            { label: "100k+/yr",  monthly: 10000 },
-};
+const VOLUME_TO_MONTHLY = [
+  { match: /under.?5[,.]?000/i,          label: "< 5k/yr",    monthly: 250 },
+  { match: /5[,.]?000.{1,5}20[,.]?000/i, label: "5–20k/yr",   monthly: 1042 },
+  { match: /20[,.]?000.{1,5}100[,.]?000/i,label: "20–100k/yr",monthly: 5000 },
+  { match: /100[,.]?000\+/i,             label: "100k+/yr",   monthly: 10000 },
+];
 
-// Custom amount respondents stored as a raw number string
+function matchVolumeBucket(val) {
+  if (!val) return null;
+  return VOLUME_TO_MONTHLY.find(b => b.match.test(val)) || null;
+}
+
+// Only treat as custom if it looks like a plain number (digits only, no "bookings" keyword)
 function parseCustomVolume(val) {
   if (!val) return null;
+  if (/bookings|year|visitors/i.test(val)) return null; // it's a known bucket label that didn't match — skip
   const num = parseInt(val.replace(/[^0-9]/g, ""), 10);
-  return isNaN(num) ? null : Math.round(num / 12); // assume annual → monthly
+  if (isNaN(num) || num === 0) return null;
+  return num; // treat as monthly bookings directly (user entered a monthly custom amount)
 }
 
 const REDEMPTION_RATE = 0.01;   // 1% of travelers redeem
@@ -636,12 +643,11 @@ function RevenueCalculator({ responses }) {
 
   responses.forEach(r => {
     const raw = r.annual_bookings || "";
-    const mapped = VOLUME_TO_MONTHLY[raw];
+    const mapped = matchVolumeBucket(raw);
     if (mapped) {
       buckets[mapped.label] = (buckets[mapped.label] || 0) + 1;
       totalMonthlyBookings += mapped.monthly;
     } else {
-      // Try parsing a custom number
       const custom = parseCustomVolume(raw);
       if (custom) {
         const lbl = `Custom (${raw})`;
@@ -712,15 +718,15 @@ function RevenueCalculator({ responses }) {
       <div>
         <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Breakdown by volume bucket</p>
         <div className="space-y-1.5">
-          {Object.entries(VOLUME_TO_MONTHLY).map(([bucket, { label, monthly }]) => {
+          {VOLUME_TO_MONTHLY.map(({ label, monthly }) => {
             const count = buckets[label] || 0;
             if (!count) return null;
             const bMonthly = count * monthly;
             const bRedem   = Math.round(bMonthly * REDEMPTION_RATE);
             const bFee     = bRedem * NET_BASKET * FEE_RATE;
             return (
-              <div key={bucket} className="flex items-center justify-between text-xs bg-slate-900/40 rounded-lg px-3 py-2">
-                <span className="text-slate-300 font-medium">{bucket}</span>
+              <div key={label} className="flex items-center justify-between text-xs bg-slate-900/40 rounded-lg px-3 py-2">
+                <span className="text-slate-300 font-medium">{label}</span>
                 <span className="text-slate-500">{count} respondent{count !== 1 ? "s" : ""}</span>
                 <span className="text-slate-400">{bRedem.toLocaleString()} redemptions/mo</span>
                 <span className="text-purple-300 font-semibold">{fmt(bFee)} fee/mo</span>
