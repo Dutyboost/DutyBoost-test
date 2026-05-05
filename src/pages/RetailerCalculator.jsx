@@ -26,8 +26,10 @@ function getTier(spend) {
 }
 
 // Travel Partner: earns a commission from DutyBoost on each redemption
-// Commission = 0.5% of basket (paid by DutyBoost out of their 2.5% fee)
+// Commission = 0.5% of basket (paid by DutyBoost out of their 2.5% fee), capped at €5/tx
 const AGENCY_COMMISSION_RATE = 0.005; // 0.5% of basket value
+const PLATFORM_FEE_CAP = 25;          // €25 max DutyBoost fee per transaction
+const AGENCY_COMMISSION_CAP = 5;      // €5 max agency commission per transaction
 
 const TIER_BANDS = [
   { label: "Boarding", min: 70, max: 99, savMin: 5, savMax: 10, color: "bg-yellow-400", textColor: "text-yellow-400" },
@@ -41,7 +43,7 @@ function RetailerTab() {
   const [spend, setSpend] = useState(150);
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
-  const commission = useMemo(() => Math.round(spend * 0.025 * 100) / 100, [spend]);
+  const commission = useMemo(() => Math.min(Math.round(spend * 0.025 * 100) / 100, PLATFORM_FEE_CAP), [spend]);
   const totalCost = useMemo(() => Math.round((saving + commission) * 100) / 100, [saving, commission]);
   const discountPct = useMemo(() => spend > 0 ? Math.round((saving / spend) * 1000) / 10 : 0, [saving, spend]);
   const netRevenue = useMemo(() => Math.round((spend - saving - commission) * 100) / 100, [spend, saving, commission]);
@@ -116,7 +118,7 @@ function RetailerTab() {
             </div>
             <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 text-center">
               <Euro className="w-4 h-4 text-orange-400 mx-auto mb-2" />
-              <p className="text-xs text-orange-300 mb-1">DutyBoost Fee (2.5%)</p>
+              <p className="text-xs text-orange-300 mb-1">DutyBoost Fee (2.5%, max €25)</p>
               <p className="text-2xl font-bold text-orange-300">€{commission.toFixed(2)}</p>
             </div>
             <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
@@ -132,7 +134,7 @@ function RetailerTab() {
             <div className="space-y-2">
               {[
                 { label: "Traveler saving", value: saving, pct: discountPct, barColor: "bg-red-400", textColor: "text-red-300" },
-                { label: "DutyBoost fee", value: commission, pct: 2.5, barColor: "bg-orange-400", textColor: "text-orange-300" },
+                { label: "DutyBoost fee", value: commission, pct: spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, barColor: "bg-orange-400", textColor: "text-orange-300" },
                 { label: "Net revenue", value: netRevenue, pct: Math.round((netRevenue / spend) * 1000) / 10, barColor: "bg-green-400", textColor: "text-green-300" },
               ].map(({ label, value, pct, barColor, textColor }) => (
                 <div key={label} className="flex items-center gap-3">
@@ -173,7 +175,7 @@ function RetailerTab() {
                   {TIER_BANDS.map((t) => {
                     const midSpend = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
                     const midSaving = calcSaving(midSpend);
-                    const midFee = Math.round(midSpend * 0.025 * 100) / 100;
+                    const midFee = Math.min(Math.round(midSpend * 0.025 * 100) / 100, PLATFORM_FEE_CAP);
                     const midNet = Math.round(((midSpend - midSaving - midFee) / midSpend) * 1000) / 10;
                     const isActive = tier?.name.startsWith(t.label);
                     return (
@@ -181,7 +183,7 @@ function RetailerTab() {
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}–€{t.savMax}</td>
-                        <td className="py-2.5 pr-4 text-orange-300">€{(t.min * 0.025).toFixed(2)}–€{(t.max * 0.025).toFixed(2)}</td>
+                        <td className="py-2.5 pr-4 text-orange-300">€{Math.min(t.min * 0.025, PLATFORM_FEE_CAP).toFixed(2)}–€{Math.min(t.max * 0.025, PLATFORM_FEE_CAP).toFixed(2)}</td>
                         <td className="py-2.5 text-green-300">~{midNet}%</td>
                       </tr>
                     );
@@ -208,7 +210,7 @@ function TravelPartnerTab() {
   const [avgBasket, setAvgBasket] = useState(150);
 
   const redemptions = useMemo(() => Math.round(bookingsPerMonth * (conversionRate / 100)), [bookingsPerMonth, conversionRate]);
-  const agencyCommissionPerTx = useMemo(() => Math.round(avgBasket * AGENCY_COMMISSION_RATE * 100) / 100, [avgBasket]);
+  const agencyCommissionPerTx = useMemo(() => Math.min(Math.round(avgBasket * AGENCY_COMMISSION_RATE * 100) / 100, AGENCY_COMMISSION_CAP), [avgBasket]);
   const monthlyCommission = useMemo(() => Math.round(redemptions * agencyCommissionPerTx * 100) / 100, [redemptions, agencyCommissionPerTx]);
   const travelerSavingPerTx = useMemo(() => calcSaving(avgBasket), [avgBasket]);
   const totalTravelerSavings = useMemo(() => Math.round(redemptions * travelerSavingPerTx * 100) / 100, [redemptions, travelerSavingPerTx]);
@@ -219,7 +221,7 @@ function TravelPartnerTab() {
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-white">How much will you earn as a Travel Partner?</h2>
         <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          You earn a <strong className="text-green-300">0.5% commission</strong> on every basket your travelers spend at the airport — paid out <strong className="text-green-300">monthly</strong> by DutyBoost out of its own fee.
+          You earn a <strong className="text-green-300">0.5% commission</strong> on every basket your travelers spend at the airport (capped at <strong className="text-green-300">€5 per transaction</strong>) — paid out <strong className="text-green-300">monthly</strong> by DutyBoost out of its own fee.
         </p>
       </div>
 
@@ -280,7 +282,7 @@ function TravelPartnerTab() {
           <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
           <p className="text-xs text-blue-300 mb-1">Commission / tx</p>
           <p className="text-2xl font-bold text-blue-300">€{agencyCommissionPerTx.toFixed(2)}</p>
-          <p className="text-xs text-blue-400 mt-0.5">0.5% of basket</p>
+          <p className="text-xs text-blue-400 mt-0.5">0.5% of basket (max €5)</p>
         </div>
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
@@ -319,7 +321,7 @@ function TravelPartnerTab() {
         <div className="flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3">
           <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
           <p className="text-sm text-blue-300 leading-relaxed">
-            Your commission is paid by DutyBoost — <strong>not by your traveler, not by the retailer</strong>. It comes out of DutyBoost's 2.5% transaction fee. Your travelers get a genuine airport discount, you earn a new revenue stream.
+            Your commission is paid by DutyBoost — <strong>not by your traveler, not by the retailer</strong>. It comes out of DutyBoost's 2.5% transaction fee (capped at €25/tx). Your travelers get a genuine airport discount, you earn a new revenue stream.
           </p>
         </div>
       </div>
@@ -342,7 +344,7 @@ function TravelPartnerTab() {
               {TIER_BANDS.map((t) => {
                 const mid = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
                 const saving = calcSaving(mid);
-                const comm = Math.round(mid * AGENCY_COMMISSION_RATE * 100) / 100;
+                const comm = Math.min(Math.round(mid * AGENCY_COMMISSION_RATE * 100) / 100, AGENCY_COMMISSION_CAP);
                 const per100 = Math.round(comm * 100 * 100) / 100;
                 const isActive = tier?.name.startsWith(t.label);
                 return (
@@ -358,7 +360,7 @@ function TravelPartnerTab() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500">Commission = 0.5% of basket value per redemption, paid out monthly by DutyBoost.</p>
+        <p className="text-xs text-slate-500">Commission = 0.5% of basket value per redemption (max €5/tx), paid out monthly by DutyBoost.</p>
       </div>
     </div>
   );

@@ -180,7 +180,7 @@ Deno.serve(async (req) => {
                     <tbody>
                       <tr>
                         <td style="padding: 12px 16px; font-size: 14px; color: #374151;">DutyBoost Platform Fee — ${monthLabel}<br/>
-                          <span style="font-size: 12px; color: #6b7280;">2.5% of gross DutyCredit redemption value at your store(s)</span>
+                          <span style="font-size: 12px; color: #6b7280;">2.5% of gross DutyCredit redemption value at your store(s), capped at €25 per transaction</span>
                         </td>
                         <td style="padding: 12px 16px; font-size: 14px; font-weight: 700; color: #1e40af; text-align: right;">€${amount.toFixed(2)}</td>
                       </tr>

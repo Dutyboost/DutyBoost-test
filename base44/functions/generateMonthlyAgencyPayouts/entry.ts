@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
       if (!agencyCommissions[tx.agency_email]) {
         agencyCommissions[tx.agency_email] = { amount: 0, count: 0 };
       }
-      agencyCommissions[tx.agency_email].amount += tx.agency_commission || (tx.transaction_value * 0.005);
+      agencyCommissions[tx.agency_email].amount += tx.agency_commission || Math.min(tx.transaction_value * 0.005, 5);
       agencyCommissions[tx.agency_email].count += 1;
     });
 

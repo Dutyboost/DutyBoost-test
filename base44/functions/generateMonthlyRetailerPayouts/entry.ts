@@ -38,7 +38,7 @@ Deno.serve(async (req) => {
       }
       retailerMap[key].transactions.push(tx);
       retailerMap[key].total_volume += tx.transaction_value || 0;
-      retailerMap[key].platform_fee += tx.platform_revenue || (tx.transaction_value || 0) * 0.05;
+      retailerMap[key].platform_fee += tx.platform_revenue || Math.min((tx.transaction_value || 0) * 0.025, 25);
     });
 
     const payoutSummary = Object.values(retailerMap).sort((a, b) => b.platform_fee - a.platform_fee);

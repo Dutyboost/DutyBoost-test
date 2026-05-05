@@ -206,7 +206,7 @@ Deno.serve(async (req) => {
                 </tr>
               </tbody>
             </table>
-            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">Your discount is applied automatically at checkout. Maximum saving: €60 on a spend of €300+.</p>
+            <p style="margin:10px 0 0;color:#6b7280;font-size:12px;">Your discount is applied automatically at checkout. Maximum saving: €60 on a spend of €300+. DutyBoost platform fee is capped at €25 per transaction.</p>
           </td>
         </tr>
 

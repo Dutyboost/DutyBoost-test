@@ -100,7 +100,7 @@ export default function DemoAdminDashboard() {
       <div className="max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
         <div>
           <h1 className="text-2xl font-heading font-bold">Platform Finance Overview</h1>
-          <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 2.5% fee; 20% of that is paid out to travel agencies.</p>
+          <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 2.5% fee (capped at €25/tx); 20% of that fee is paid out to travel agencies.</p>
         </div>
 
         {/* Period selector */}

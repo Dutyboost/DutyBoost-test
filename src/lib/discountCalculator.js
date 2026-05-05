@@ -7,8 +7,8 @@
 //   VIP DutyCredit       — €300–€500+ → €45 to €60 (capped at €60)
 //
 // Minimum basket: €70.
-// DutyBoost platform fee: 2.5% of gross sales.
-// Agency commission: 0.5% of gross sales.
+// DutyBoost platform fee: 2.5% of gross sales, capped at €25 per transaction.
+// Agency commission: 0.5% of gross sales, capped at €5 per transaction.
 
 export const DUTY_CREDIT_CONFIG = {
   shortHaul: { basePerTraveler: 2.50 },
@@ -17,6 +17,11 @@ export const DUTY_CREDIT_CONFIG = {
   cap: 60,
   minBasket: 70,
 };
+
+export const PLATFORM_FEE_PCT = 0.025;
+export const PLATFORM_FEE_CAP = 25;       // €25 max per transaction
+export const AGENCY_COMMISSION_PCT = 0.005;
+export const AGENCY_COMMISSION_CAP = 5;   // €5 max per transaction (20% of €25 cap)
 
 // Linear interpolation helper
 function lerp(value, minVal, maxVal, minOut, maxOut) {

@@ -640,6 +640,7 @@ const MIN_BASKET    = 70;        // €70 minimum basket
 const MAX_BASKET    = 300;       // €300 maximum basket
 const AVG_BASKET    = 185;       // €185 average basket (midpoint of €70–€300)
 const FEE_RATE      = 0.025;     // 2.5% DutyBoost fee on avg basket
+const FEE_CAP       = 25;        // €25 max DutyBoost fee per transaction
 const AGENCY_SHARE  = 0.20;      // 20% of DutyBoost fee to agency
 
 function RevenueCalculator({ responses }) {
@@ -666,7 +667,8 @@ function RevenueCalculator({ responses }) {
   const respondentsWithVolume = Object.values(buckets).reduce((s, v) => s + v, 0);
   const totalRedemptions   = Math.round(totalMonthlyBookings * REDEMPTION_RATE);
   const grossRevenue       = totalRedemptions * AVG_BASKET;
-  const dutyBoostFee       = totalRedemptions * AVG_BASKET * FEE_RATE;
+  const feePerRedemption   = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+  const dutyBoostFee       = totalRedemptions * feePerRedemption;
   const agencyCommission   = dutyBoostFee * AGENCY_SHARE;
   const dutyBoostNet       = dutyBoostFee - agencyCommission;
 
@@ -681,7 +683,8 @@ function RevenueCalculator({ responses }) {
         <p className="text-xs text-slate-400">
           <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span> ·{" "}
           <span className="text-white">€{AVG_BASKET} avg basket</span> (range: €{MIN_BASKET}–€{MAX_BASKET}) ·{" "}
-          <span className="text-white">2.5% fee on €{AVG_BASKET}</span>
+          <span className="text-white">2.5% fee on €{AVG_BASKET}</span> ·{" "}
+          <span className="text-white">€{FEE_CAP} fee cap/tx</span>
         </p>
       </div>
 
@@ -763,7 +766,7 @@ function RevenueCalculator({ responses }) {
             const bMonthly = count * monthly;
             const bRedem   = Math.round(bMonthly * REDEMPTION_RATE);
             const bGross   = bRedem * AVG_BASKET;
-            const bFee     = bRedem * AVG_BASKET * FEE_RATE;
+            const bFee     = bRedem * Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
             return (
               <div key={label} className="flex items-center justify-between text-xs bg-slate-900/40 rounded-lg px-3 py-2">
                 <span className="text-slate-300 font-medium">{label}</span>
@@ -777,7 +780,7 @@ function RevenueCalculator({ responses }) {
       </div>
 
       <p className="text-xs text-slate-600 italic">
-        Assumptions: upper bound of each monthly booking range used (potential reach) · {REDEMPTION_RATE * 100}% redemption rate · average basket €{AVG_BASKET} (min €{MIN_BASKET} / max €{MAX_BASKET}) · 2.5% DutyBoost fee on €{AVG_BASKET} = €{(AVG_BASKET * FEE_RATE).toFixed(2)}/redemption · 20% of fee to agency
+        Assumptions: upper bound of each monthly booking range used (potential reach) · {REDEMPTION_RATE * 100}% redemption rate · average basket €{AVG_BASKET} (min €{MIN_BASKET} / max €{MAX_BASKET}) · 2.5% DutyBoost fee on €{AVG_BASKET} = €{Math.min(AVG_BASKET * FEE_RATE, FEE_CAP).toFixed(2)}/redemption (capped at €{FEE_CAP}) · 20% of fee to agency
       </p>
     </div>
   );
