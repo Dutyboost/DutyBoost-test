@@ -608,11 +608,14 @@ function RetailerDashboard({ responses }) {
 
 // ── Revenue Calculator ─────────────────────────────────────────────────────────
 // Maps booking volume buckets (from survey Q2) to monthly bookings (lower bound of range)
+// Handles EN/NL/ES/DE/FR/IT formats — thousand separators can be , or .
 const VOLUME_TO_MONTHLY = [
-  { match: /under.?2[,.]?000/i,          label: "< 2,000/mo",    monthly: 0 },
-  { match: /2[,.]?000.{1,5}5[,.]?000/i,  label: "2,000–5,000/mo",monthly: 2000 },
-  { match: /5[,.]?000.{1,5}10[,.]?000/i, label: "5,000–10,000/mo",monthly: 5000 },
-  { match: /10[,.]?000\+/i,              label: "10,000+/mo",    monthly: 10000 },
+  { match: /^under\s*2[,.]?000$/i,                label: "< 2,000/mo",     monthly: 0 },
+  { match: /500\s*[–\-]\s*2[,.]?000/i,            label: "500–2,000/mo",   monthly: 500 },
+  { match: /2[,.]?000\s*[–\-]\s*5[,.]?000/i,      label: "2,000–5,000/mo", monthly: 2000 },
+  { match: /2[,.]?000\s*[–\-]\s*10[,.]?000/i,     label: "2,000–10,000/mo",monthly: 2000 },
+  { match: /5[,.]?000\s*[–\-]\s*10[,.]?000/i,     label: "5,000–10,000/mo",monthly: 5000 },
+  { match: /10[,.]?000\+|10[,.]?000\s*\+|10[,.]?000\s*[–\-]/i, label: "10,000+/mo", monthly: 10000 },
 ];
 
 function matchVolumeBucket(val) {
@@ -620,13 +623,16 @@ function matchVolumeBucket(val) {
   return VOLUME_TO_MONTHLY.find(b => b.match.test(val)) || null;
 }
 
-// Only treat as custom if it looks like a plain number (digits only, no "bookings" keyword)
+// Only treat as custom if it looks like a plain number (no range separator, no range keywords)
 function parseCustomVolume(val) {
   if (!val) return null;
-  if (/bookings|year|visitors/i.test(val)) return null; // it's a known bucket label that didn't match — skip
-  const num = parseInt(val.replace(/[^0-9]/g, ""), 10);
+  // If it contains a dash/en-dash, it's a range bucket that didn't match — never parse it
+  if (/[–\-]/.test(val)) return null;
+  if (/bookings|year|visitors|under|meer|más|plus|oltre|über/i.test(val)) return null;
+  const clean = val.replace(/[^0-9]/g, "");
+  const num = parseInt(clean, 10);
   if (isNaN(num) || num === 0) return null;
-  return num; // treat as monthly bookings directly (user entered a monthly custom amount)
+  return num;
 }
 
 const REDEMPTION_RATE = 0.01;   // 1% of travelers redeem
