@@ -607,14 +607,14 @@ function RetailerDashboard({ responses }) {
 }
 
 // ── Revenue Calculator ─────────────────────────────────────────────────────────
-// Maps booking volume buckets (from survey Q2) to monthly bookings (lower bound of range)
+// Maps booking volume buckets (from survey Q2) to monthly bookings (UPPER bound of range = potential reach)
 // Handles EN/NL/ES/DE/FR/IT formats — thousand separators can be , or .
 const VOLUME_TO_MONTHLY = [
-  { match: /^under\s*2[,.]?000$/i,                label: "< 2,000/mo",     monthly: 0 },
-  { match: /500\s*[–\-]\s*2[,.]?000/i,            label: "500–2,000/mo",   monthly: 500 },
-  { match: /2[,.]?000\s*[–\-]\s*5[,.]?000/i,      label: "2,000–5,000/mo", monthly: 2000 },
-  { match: /2[,.]?000\s*[–\-]\s*10[,.]?000/i,     label: "2,000–10,000/mo",monthly: 2000 },
-  { match: /5[,.]?000\s*[–\-]\s*10[,.]?000/i,     label: "5,000–10,000/mo",monthly: 5000 },
+  { match: /^under\s*2[,.]?000$/i,                label: "< 2,000/mo",     monthly: 2000 },
+  { match: /500\s*[–\-]\s*2[,.]?000/i,            label: "500–2,000/mo",   monthly: 2000 },
+  { match: /2[,.]?000\s*[–\-]\s*5[,.]?000/i,      label: "2,000–5,000/mo", monthly: 5000 },
+  { match: /2[,.]?000\s*[–\-]\s*10[,.]?000/i,     label: "2,000–10,000/mo",monthly: 10000 },
+  { match: /5[,.]?000\s*[–\-]\s*10[,.]?000/i,     label: "5,000–10,000/mo",monthly: 10000 },
   { match: /10[,.]?000\+|10[,.]?000\s*\+|10[,.]?000\s*[–\-]/i, label: "10,000+/mo", monthly: 10000 },
 ];
 
@@ -743,7 +743,7 @@ function RevenueCalculator({ responses }) {
       </div>
 
       <p className="text-xs text-slate-600 italic">
-        Assumptions: lower bound of each monthly booking range used · {REDEMPTION_RATE * 100}% redemption rate · €{MIN_BASKET} min basket · €{DISCOUNT} DutyCredit discount → €{NET_BASKET} net basket · 2.5% DutyBoost fee on €{NET_BASKET} = €{(NET_BASKET * FEE_RATE).toFixed(2)}/redemption · 20% of fee to agency
+        Assumptions: upper bound of each monthly booking range used (potential reach) · {REDEMPTION_RATE * 100}% redemption rate · €{MIN_BASKET} min basket · €{DISCOUNT} DutyCredit discount → €{NET_BASKET} net basket · 2.5% DutyBoost fee on €{NET_BASKET} = €{(NET_BASKET * FEE_RATE).toFixed(2)}/redemption · 20% of fee to agency
       </p>
     </div>
   );
