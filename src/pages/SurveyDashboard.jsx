@@ -635,7 +635,7 @@ function parseCustomVolume(val) {
   return num;
 }
 
-const REDEMPTION_RATE = 0.15;   // 15% redemption rate
+const REDEMPTION_RATE = 0.10;   // 10% redemption rate
 const MIN_BASKET    = 70;        // €70 minimum basket
 const MAX_BASKET    = 300;       // €300 maximum basket
 const AVG_BASKET    = 185;       // €185 average basket (midpoint of €70–€300)
