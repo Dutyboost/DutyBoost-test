@@ -607,12 +607,12 @@ function RetailerDashboard({ responses }) {
 }
 
 // ── Revenue Calculator ─────────────────────────────────────────────────────────
-// Maps English booking volume buckets to a monthly booking midpoint
+// Maps booking volume buckets (from survey Q2) to monthly bookings (lower bound of range)
 const VOLUME_TO_MONTHLY = [
-  { match: /under.?5[,.]?000/i,          label: "< 5k/yr",    monthly: 250 },
-  { match: /5[,.]?000.{1,5}20[,.]?000/i, label: "5–20k/yr",   monthly: 1042 },
-  { match: /20[,.]?000.{1,5}100[,.]?000/i,label: "20–100k/yr",monthly: 5000 },
-  { match: /100[,.]?000\+/i,             label: "100k+/yr",   monthly: 10000 },
+  { match: /under.?2[,.]?000/i,          label: "< 2,000/mo",    monthly: 0 },
+  { match: /2[,.]?000.{1,5}5[,.]?000/i,  label: "2,000–5,000/mo",monthly: 2000 },
+  { match: /5[,.]?000.{1,5}10[,.]?000/i, label: "5,000–10,000/mo",monthly: 5000 },
+  { match: /10[,.]?000\+/i,              label: "10,000+/mo",    monthly: 10000 },
 ];
 
 function matchVolumeBucket(val) {
@@ -737,7 +737,7 @@ function RevenueCalculator({ responses }) {
       </div>
 
       <p className="text-xs text-slate-600 italic">
-        Assumptions: 1 traveler per booking · {REDEMPTION_RATE * 100}% redemption rate · €{MIN_BASKET} min basket · €{DISCOUNT} DutyCredit discount → €{NET_BASKET} net basket · 2.5% DutyBoost fee on €{NET_BASKET} = €{(NET_BASKET * FEE_RATE).toFixed(2)}/redemption · 20% of fee to agency
+        Assumptions: lower bound of each monthly booking range used · {REDEMPTION_RATE * 100}% redemption rate · €{MIN_BASKET} min basket · €{DISCOUNT} DutyCredit discount → €{NET_BASKET} net basket · 2.5% DutyBoost fee on €{NET_BASKET} = €{(NET_BASKET * FEE_RATE).toFixed(2)}/redemption · 20% of fee to agency
       </p>
     </div>
   );
