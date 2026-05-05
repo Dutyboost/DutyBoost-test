@@ -938,6 +938,14 @@ export default function SurveyDashboard() {
       setAllResponses(data);
       setLoading(false);
     });
+
+    const unsubscribe = base44.entities.SurveyResponse.subscribe(() => {
+      base44.entities.SurveyResponse.list("-created_date", 500).then(data => {
+        setAllResponses(data);
+      });
+    });
+
+    return () => unsubscribe();
   }, []);
 
   const retailerResponses = useMemo(() =>
