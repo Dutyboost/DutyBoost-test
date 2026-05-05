@@ -716,7 +716,7 @@ function RevenueCalculator({ responses }) {
             <span className="ml-2 text-xs text-slate-500">(Gross retail spend ÷ DutyBoost fee pool)</span>
           </div>
           <span className="text-lg font-bold text-orange-300">
-            {Math.round(grossRevenue / dutyBoostFee)}:1
+            For every €1 invested, DutyBoost generates €{Math.round(grossRevenue / dutyBoostFee)} in retail spend
           </span>
         </div>
       )}
