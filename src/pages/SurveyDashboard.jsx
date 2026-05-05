@@ -606,6 +606,137 @@ function RetailerDashboard({ responses }) {
   );
 }
 
+// ── Revenue Calculator ─────────────────────────────────────────────────────────
+// Maps English booking volume buckets to a monthly booking midpoint
+const VOLUME_TO_MONTHLY = {
+  "Under 5,000 bookings/year":         { label: "< 5k/yr",   monthly: 250 },
+  "5,000 – 20,000 bookings/year":      { label: "5–20k/yr",  monthly: 1042 },
+  "20,000 – 100,000 bookings/year":    { label: "20–100k/yr",monthly: 5000 },
+  "100,000+ bookings/year":            { label: "100k+/yr",  monthly: 10000 },
+};
+
+// Custom amount respondents stored as a raw number string
+function parseCustomVolume(val) {
+  if (!val) return null;
+  const num = parseInt(val.replace(/[^0-9]/g, ""), 10);
+  return isNaN(num) ? null : Math.round(num / 12); // assume annual → monthly
+}
+
+const REDEMPTION_RATE = 0.08;   // 8% of travelers redeem
+const MIN_BASKET    = 70;        // €70 minimum basket
+const DISCOUNT      = 5;         // €5 DutyCredit discount given to traveler
+const NET_BASKET    = MIN_BASKET - DISCOUNT; // €65
+const FEE_RATE      = 0.025;     // 2.5% DutyBoost fee on €65
+const AGENCY_SHARE  = 0.20;      // 20% of DutyBoost fee to agency
+
+function RevenueCalculator({ responses }) {
+  // Aggregate monthly traveler volume across all respondents
+  const buckets = {};
+  let totalMonthlyBookings = 0;
+
+  responses.forEach(r => {
+    const raw = r.annual_bookings || "";
+    const mapped = VOLUME_TO_MONTHLY[raw];
+    if (mapped) {
+      buckets[mapped.label] = (buckets[mapped.label] || 0) + 1;
+      totalMonthlyBookings += mapped.monthly;
+    } else {
+      // Try parsing a custom number
+      const custom = parseCustomVolume(raw);
+      if (custom) {
+        const lbl = `Custom (${raw})`;
+        buckets[lbl] = (buckets[lbl] || 0) + 1;
+        totalMonthlyBookings += custom;
+      }
+    }
+  });
+
+  const respondentsWithVolume = Object.values(buckets).reduce((s, v) => s + v, 0);
+  const totalRedemptions   = Math.round(totalMonthlyBookings * REDEMPTION_RATE);
+  const grossRevenue       = totalRedemptions * MIN_BASKET;
+  const dutyBoostFee       = totalRedemptions * NET_BASKET * FEE_RATE;
+  const agencyCommission   = dutyBoostFee * AGENCY_SHARE;
+  const dutyBoostNet       = dutyBoostFee - agencyCommission;
+
+  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+
+  return (
+    <div className="bg-slate-800 border border-green-500/30 rounded-2xl p-5 space-y-5">
+      <div>
+        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">
+          Potential Revenue — Survey Respondents Combined
+        </h3>
+        <p className="text-xs text-slate-400">
+          Based on <span className="text-white">{respondentsWithVolume}</span> respondents with booking volume data ·{" "}
+          <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span> ·{" "}
+          <span className="text-white">€{MIN_BASKET} min basket</span> ·{" "}
+          <span className="text-white">2.5% fee on €{NET_BASKET}</span>
+        </p>
+      </div>
+
+      {/* Key metrics */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
+          <p className="text-xs text-slate-400 mb-1">Monthly bookings</p>
+          <p className="text-xl font-bold text-white">{totalMonthlyBookings.toLocaleString()}</p>
+        </div>
+        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
+          <p className="text-xs text-slate-400 mb-1">Monthly redemptions</p>
+          <p className="text-xl font-bold text-green-300">{totalRedemptions.toLocaleString()}</p>
+        </div>
+        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
+          <p className="text-xs text-slate-400 mb-1">Gross retail spend</p>
+          <p className="text-xl font-bold text-blue-300">{fmt(grossRevenue)}</p>
+        </div>
+        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
+          <p className="text-xs text-slate-400 mb-1">DutyBoost fee pool</p>
+          <p className="text-xl font-bold text-purple-300">{fmt(dutyBoostFee)}</p>
+        </div>
+      </div>
+
+      {/* Revenue split */}
+      <div className="grid md:grid-cols-2 gap-3">
+        <div className="bg-green-900/30 border border-green-500/30 rounded-xl p-4 space-y-1">
+          <p className="text-xs text-green-400 uppercase tracking-widest font-semibold">Agency commission (20% of fee)</p>
+          <p className="text-2xl font-bold text-green-300">{fmt(agencyCommission)} <span className="text-sm text-green-500">/mo</span></p>
+          <p className="text-xs text-slate-400">Paid to travel partners for enabling redemptions</p>
+        </div>
+        <div className="bg-blue-900/30 border border-blue-500/30 rounded-xl p-4 space-y-1">
+          <p className="text-xs text-blue-400 uppercase tracking-widest font-semibold">DutyBoost net revenue (80% of fee)</p>
+          <p className="text-2xl font-bold text-blue-300">{fmt(dutyBoostNet)} <span className="text-sm text-blue-500">/mo</span></p>
+          <p className="text-xs text-slate-400">After paying agency commissions</p>
+        </div>
+      </div>
+
+      {/* Per-bucket breakdown */}
+      <div>
+        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Breakdown by volume bucket</p>
+        <div className="space-y-1.5">
+          {Object.entries(VOLUME_TO_MONTHLY).map(([bucket, { label, monthly }]) => {
+            const count = buckets[label] || 0;
+            if (!count) return null;
+            const bMonthly = count * monthly;
+            const bRedem   = Math.round(bMonthly * REDEMPTION_RATE);
+            const bFee     = bRedem * NET_BASKET * FEE_RATE;
+            return (
+              <div key={bucket} className="flex items-center justify-between text-xs bg-slate-900/40 rounded-lg px-3 py-2">
+                <span className="text-slate-300 font-medium">{bucket}</span>
+                <span className="text-slate-500">{count} respondent{count !== 1 ? "s" : ""}</span>
+                <span className="text-slate-400">{bRedem.toLocaleString()} redemptions/mo</span>
+                <span className="text-purple-300 font-semibold">{fmt(bFee)} fee/mo</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <p className="text-xs text-slate-600 italic">
+        Assumptions: 1 traveler per booking · {REDEMPTION_RATE * 100}% redemption rate · €{MIN_BASKET} min basket · €{DISCOUNT} DutyCredit discount → €{NET_BASKET} net basket · 2.5% DutyBoost fee on €{NET_BASKET} = €{(NET_BASKET * FEE_RATE).toFixed(2)}/redemption · 20% of fee to agency
+      </p>
+    </div>
+  );
+}
+
 // ── Travel Partner Dashboard ───────────────────────────────────────────────────
 const EMAILS_SENT = 1000;
 const SUCCESS_THRESHOLD = 30; // 3% of 1,000
@@ -694,6 +825,8 @@ function TravelPartnerDashboard({ responses }) {
           <BarChartSection data={commission} color="#a855f7" />
         </ChartCard>
       </div>
+
+      <RevenueCalculator responses={responses} />
 
       <ChartCard title="All responses">
         <div className="space-y-2 max-h-[800px] overflow-y-auto">
