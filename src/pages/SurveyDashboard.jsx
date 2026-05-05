@@ -635,7 +635,7 @@ function parseCustomVolume(val) {
   return num;
 }
 
-const REDEMPTION_RATE = 0.08;   // 8% industry average redemption rate
+const REDEMPTION_RATE = 0.15;   // 15% redemption rate
 const MIN_BASKET    = 70;        // €70 minimum basket
 const DISCOUNT      = 5;         // €5 DutyCredit discount given to traveler
 const NET_BASKET    = MIN_BASKET - DISCOUNT; // €65
