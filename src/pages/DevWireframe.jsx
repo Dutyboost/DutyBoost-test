@@ -8,7 +8,7 @@ export default function DevWireframe() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "DutyBoost_Full_Stack_Development_Wireframe_v2.0.txt";
+    a.download = "DutyBoost_Full_Stack_Development_Wireframe_v2.1.txt";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -22,7 +22,7 @@ export default function DevWireframe() {
         <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
           <div>
             <h1 className="text-lg font-heading font-bold text-foreground">DutyBoost — Developer Wireframe</h1>
-            <p className="text-xs text-muted-foreground">Full Stack Migration Guide v2.0</p>
+            <p className="text-xs text-muted-foreground">Full Stack Migration Guide v2.1</p>
           </div>
           <Button onClick={handleDownload} className="gap-2">
             <Download className="w-4 h-4" />
@@ -40,7 +40,7 @@ export default function DevWireframe() {
               <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
               <span className="w-3 h-3 rounded-full bg-green-500"></span>
             </div>
-            <span className="text-slate-400 text-xs font-mono">DutyBoost_Full_Stack_Development_Wireframe_v2.0.txt</span>
+            <span className="text-slate-400 text-xs font-mono">DutyBoost_Full_Stack_Development_Wireframe_v2.1.txt</span>
           </div>
           <pre className="p-6 text-sm font-mono leading-relaxed overflow-x-auto whitespace-pre-wrap bg-slate-950 text-slate-100">
             {GUIDE_CONTENT}
