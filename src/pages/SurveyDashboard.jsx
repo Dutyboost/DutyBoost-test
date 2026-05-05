@@ -720,6 +720,29 @@ function RevenueCalculator({ responses }) {
         </div>
       </div>
 
+      {/* Yearly totals */}
+      <div className="bg-slate-900/60 border border-yellow-500/30 rounded-xl p-4">
+        <p className="text-xs text-yellow-400 uppercase tracking-widest font-semibold mb-3">Yearly totals (×12)</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="text-center">
+            <p className="text-xs text-slate-400 mb-1">Redemptions/yr</p>
+            <p className="text-lg font-bold text-white">{(totalRedemptions * 12).toLocaleString()}</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xs text-slate-400 mb-1">Gross retail spend/yr</p>
+            <p className="text-lg font-bold text-blue-300">{fmt(grossRevenue * 12)}</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xs text-slate-400 mb-1">Agency commission/yr</p>
+            <p className="text-lg font-bold text-green-300">{fmt(agencyCommission * 12)}</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xs text-slate-400 mb-1">DutyBoost net/yr</p>
+            <p className="text-lg font-bold text-yellow-300">{fmt(dutyBoostNet * 12)}</p>
+          </div>
+        </div>
+      </div>
+
       {/* Per-bucket breakdown */}
       <div>
         <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Breakdown by volume bucket</p>
