@@ -708,6 +708,17 @@ function RevenueCalculator({ responses }) {
         </div>
       </div>
 
+      {/* Value Ratio */}
+      {dutyBoostFee > 0 && (
+        <div className="bg-slate-900/40 border border-slate-600 rounded-xl px-4 py-3 flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold">Value Ratio</span>
+            <span className="ml-2 text-xs text-slate-500">(Gross retail spend ÷ DutyBoost fee pool)</span>
+          </div>
+          <span className="text-lg font-bold text-orange-300">{Math.round(grossRevenue / dutyBoostFee)}:1</span>
+        </div>
+      )}
+
       {/* Revenue split */}
       <div className="grid md:grid-cols-2 gap-3">
         <div className="bg-green-900/30 border border-green-500/30 rounded-xl p-4 space-y-1">
