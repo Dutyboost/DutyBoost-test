@@ -763,7 +763,7 @@ const FEE_CAP       = 25;        // €25 max DutyBoost fee per transaction
 const AGENCY_SHARE  = 0.20;      // 20% of DutyBoost fee to agency
 
 function calcRevenue(totalMonthlyBookings) {
-  const totalRedemptions = Math.round(totalMonthlyBookings * REDEMPTION_RATE);
+  const totalRedemptions = Math.round(totalMonthlyBookings * REDEMPTION_RATE * RETAILER_REACH_RATE);
   const grossRevenue     = totalRedemptions * AVG_BASKET;
   const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
   const dutyBoostFee     = totalRedemptions * feePerRedemption;
@@ -861,9 +861,10 @@ function RevenueCalculator({ responses }) {
           Potential Revenue — Survey Respondents Combined
         </h3>
         <p className="text-xs text-slate-400">
-          <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span> ·{" "}
+          <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redeem</span> ×{" "}
+          <span className="text-white">{(RETAILER_REACH_RATE * 100).toFixed(0)}% reach airport retail (÷10)</span> ·{" "}
           <span className="text-white">€{AVG_BASKET} avg basket</span> (range: €{MIN_BASKET}–€{MAX_BASKET}) ·{" "}
-          <span className="text-white">2.5% fee on €{AVG_BASKET}</span> ·{" "}
+          <span className="text-white">2.5% fee</span> ·{" "}
           <span className="text-white">€{FEE_CAP} fee cap/tx</span>
         </p>
       </div>
@@ -917,7 +918,7 @@ function RevenueCalculator({ responses }) {
           {VOLUME_TO_MONTHLY.map(({ label, monthly }) => {
             const count = buckets[label] || 0;
             if (!count) return null;
-            const bRedem = Math.round(count * monthly * REDEMPTION_RATE);
+            const bRedem = Math.round(count * monthly * REDEMPTION_RATE * RETAILER_REACH_RATE);
             const bFee   = bRedem * Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
             return (
               <div key={label} className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs bg-slate-900/40 rounded-lg px-3 py-2">
@@ -932,7 +933,7 @@ function RevenueCalculator({ responses }) {
       </div>
 
       <p className="text-xs text-slate-600 italic">
-        Assumptions: upper bound of each survey range used · {REDEMPTION_RATE * 100}% redemption rate · avg basket €{AVG_BASKET} · 2.5% fee = €{Math.min(AVG_BASKET * FEE_RATE, FEE_CAP).toFixed(2)}/redemption (capped €{FEE_CAP}) · 20% of fee to agency
+        Assumptions: upper bound of each survey range used · {REDEMPTION_RATE * 100}% redeem × {RETAILER_REACH_RATE * 100}% reach airport retail (÷10) · avg basket €{AVG_BASKET} · 2.5% fee = €{Math.min(AVG_BASKET * FEE_RATE, FEE_CAP).toFixed(2)}/tx (capped €{FEE_CAP}) · 20% of fee to agency
       </p>
     </div>
   );
