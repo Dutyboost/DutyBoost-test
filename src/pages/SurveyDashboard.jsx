@@ -762,8 +762,8 @@ const FEE_RATE      = 0.025;     // 2.5% DutyBoost fee on avg basket
 const FEE_CAP       = 25;        // €25 max DutyBoost fee per transaction
 const AGENCY_SHARE  = 0.20;      // 20% of DutyBoost fee to agency
 
-function calcRevenue(totalMonthlyBookings, rate = REDEMPTION_RATE) {
-  const totalRedemptions = Math.round(totalMonthlyBookings * rate);
+function calcRevenue(totalMonthlyBookings) {
+  const totalRedemptions = Math.round(totalMonthlyBookings * REDEMPTION_RATE);
   const grossRevenue     = totalRedemptions * AVG_BASKET;
   const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
   const dutyBoostFee     = totalRedemptions * feePerRedemption;
@@ -978,29 +978,24 @@ function GlobalPotentialsDashboard({ responses }) {
   return (
     <div className="space-y-6">
       {/* Header KPIs */}
-      {(() => {
-        const r1 = calcRevenue(totalMonthly, 0.01);
-        return (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
-              <p className="text-xs text-slate-400 mb-1">Verified respondents</p>
-              <p className="text-2xl font-bold text-white">{rows.length}</p>
-            </div>
-            <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
-              <p className="text-xs text-slate-400 mb-1">Combined bookings/mo</p>
-              <p className="text-2xl font-bold text-yellow-300">{totalMonthly.toLocaleString()}</p>
-            </div>
-            <div className="bg-slate-800 border border-green-500/30 rounded-xl p-4 text-center">
-              <p className="text-xs text-green-400 mb-1">DB net/yr @ 1%</p>
-              <p className="text-2xl font-bold text-green-300">{fmt(r1.dutyBoostNet * 12)}</p>
-            </div>
-            <div className="bg-slate-800 border border-yellow-500/30 rounded-xl p-4 text-center">
-              <p className="text-xs text-yellow-400 mb-1">DB net/yr @ 10%</p>
-              <p className="text-2xl font-bold text-yellow-300">{fmt(totalNet * 12)}</p>
-            </div>
-          </div>
-        );
-      })()}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Verified respondents</p>
+          <p className="text-2xl font-bold text-white">{rows.length}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Combined bookings/mo</p>
+          <p className="text-2xl font-bold text-yellow-300">{totalMonthly.toLocaleString()}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">DutyBoost fee pool/mo</p>
+          <p className="text-2xl font-bold text-purple-300">{fmt(totalFee)}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">DutyBoost net/yr</p>
+          <p className="text-2xl font-bold text-green-300">{fmt(totalNet * 12)}</p>
+        </div>
+      </div>
 
       {/* Assumptions bar */}
       <div className="bg-slate-800 border border-blue-500/20 rounded-xl px-4 py-3 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
@@ -1014,7 +1009,7 @@ function GlobalPotentialsDashboard({ responses }) {
 
       {/* Per-company table */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5">
-        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Company Potential (7 Travel Partners)</h3>
+        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Company Potential</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
@@ -1022,101 +1017,88 @@ function GlobalPotentialsDashboard({ responses }) {
                 <th className="pb-2 pr-3">Company</th>
                 <th className="pb-2 pr-3">Type</th>
                 <th className="pb-2 pr-3 text-right">Bookings/mo</th>
-                <th className="pb-2 pr-3 text-right border-l border-slate-700 pl-3 text-green-400">1% DB net/yr</th>
-                <th className="pb-2 pr-3 text-right text-green-400">1% Fee/yr</th>
-                <th className="pb-2 pr-3 text-right border-l border-slate-600 pl-3 text-yellow-400">10% DB net/yr</th>
-                <th className="pb-2 text-right text-yellow-400">10% Fee/yr</th>
+                <th className="pb-2 pr-3 text-right">Redemptions/mo</th>
+                <th className="pb-2 pr-3 text-right">Gross spend/mo</th>
+                <th className="pb-2 pr-3 text-right">Fee pool/mo</th>
+                <th className="pb-2 pr-3 text-right">Agency/mo</th>
+                <th className="pb-2 text-right">DB net/yr</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-700/40">
-              {rows.map(r => {
-                const rev1  = calcRevenue(r.rv.perMonth, 0.01);
-                const rev10 = calcRevenue(r.rv.perMonth, 0.10);
-                return (
-                  <tr key={r.id} className="hover:bg-slate-700/20 transition-colors">
-                    <td className="py-2.5 pr-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-white font-medium">{r.company_name}</span>
-                        <span className={`px-1.5 py-0.5 rounded text-xs font-semibold ${confidenceColor[r.rv.confidence]}`}>
-                          {r.rv.confidence}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="py-2.5 pr-3 text-slate-400">{r.company_type || "—"}</td>
-                    <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{r.rv.perMonth.toLocaleString()}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-300 border-l border-slate-700 pl-3 font-bold">{fmt(rev1.dutyBoostNet * 12)}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-400">{fmt(rev1.dutyBoostFee * 12)}</td>
-                    <td className="py-2.5 pr-3 text-right text-yellow-300 border-l border-slate-600 pl-3 font-bold">{fmt(rev10.dutyBoostNet * 12)}</td>
-                    <td className="py-2.5 text-right text-yellow-400">{fmt(rev10.dutyBoostFee * 12)}</td>
-                  </tr>
-                );
-              })}
+              {rows.map(r => (
+                <tr key={r.id} className="hover:bg-slate-700/20 transition-colors">
+                  <td className="py-2.5 pr-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-white font-medium">{r.company_name}</span>
+                      <span className={`px-1.5 py-0.5 rounded text-xs font-semibold ${confidenceColor[r.rv.confidence]}`}>
+                        {r.rv.confidence}
+                      </span>
+                    </div>
+                  </td>
+                  <td className="py-2.5 pr-3 text-slate-400">{r.company_type || "—"}</td>
+                  <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{r.rv.perMonth.toLocaleString()}</td>
+                  <td className="py-2.5 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString()}</td>
+                  <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
+                  <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(r.rev.dutyBoostFee)}</td>
+                  <td className="py-2.5 pr-3 text-right text-green-400">{fmt(r.rev.agencyCommission)}</td>
+                  <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(r.rev.dutyBoostNet * 12)}</td>
+                </tr>
+              ))}
             </tbody>
             <tfoot>
-              {(() => {
-                const t1  = rows.reduce((a, r) => { const v = calcRevenue(r.rv.perMonth, 0.01);  a.net += v.dutyBoostNet * 12; a.fee += v.dutyBoostFee * 12; return a; }, { net: 0, fee: 0 });
-                const t10 = rows.reduce((a, r) => { const v = calcRevenue(r.rv.perMonth, 0.10); a.net += v.dutyBoostNet * 12; a.fee += v.dutyBoostFee * 12; return a; }, { net: 0, fee: 0 });
-                return (
-                  <tr className="border-t-2 border-slate-500 text-white font-bold">
-                    <td className="pt-3 pr-3" colSpan={2}>TOTAL</td>
-                    <td className="pt-3 pr-3 text-right text-yellow-300">{totalMonthly.toLocaleString()}</td>
-                    <td className="pt-3 pr-3 text-right text-green-300 border-l border-slate-700 pl-3">{fmt(t1.net)}</td>
-                    <td className="pt-3 pr-3 text-right text-green-400">{fmt(t1.fee)}</td>
-                    <td className="pt-3 pr-3 text-right text-yellow-300 border-l border-slate-600 pl-3">{fmt(t10.net)}</td>
-                    <td className="pt-3 text-right text-yellow-400">{fmt(t10.fee)}</td>
-                  </tr>
-                );
-              })()}
+              <tr className="border-t-2 border-slate-500 text-white font-bold">
+                <td className="pt-3 pr-3" colSpan={2}>TOTAL</td>
+                <td className="pt-3 pr-3 text-right text-yellow-300">{totalMonthly.toLocaleString()}</td>
+                <td className="pt-3 pr-3 text-right text-green-300">{totalRedemp.toLocaleString()}</td>
+                <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totalGross)}</td>
+                <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totalFee)}</td>
+                <td className="pt-3 pr-3 text-right text-green-400">{fmt(totalAgency)}</td>
+                <td className="pt-3 text-right text-yellow-300">{fmt(totalNet * 12)}</td>
+              </tr>
             </tfoot>
           </table>
         </div>
       </div>
 
-      {/* Monthly + yearly summary cards — 1% vs 10% */}
-      {(() => {
-        const s1  = { monthly: calcRevenue(totalMonthly, 0.01), annual: calcRevenue(totalMonthly * 12, 0.01) };
-        const s10 = { monthly: calcRevenue(totalMonthly, 0.10), annual: calcRevenue(totalMonthly * 12, 0.10) };
-        return (
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-slate-800 border border-green-500/30 rounded-2xl p-5 space-y-3">
-              <p className="text-xs font-semibold text-green-400 uppercase tracking-widest">Annual Projection — 1% Redemption</p>
-              <div className="space-y-2">
-                {[
-                  { label: "Total bookings/yr", value: (totalMonthly * 12).toLocaleString(), color: "text-yellow-300" },
-                  { label: "Redemptions/yr (1%)", value: (s1.monthly.totalRedemptions * 12).toLocaleString(), color: "text-green-300" },
-                  { label: "Gross retail spend/yr", value: fmt(s1.monthly.grossRevenue * 12), color: "text-blue-300" },
-                  { label: "DutyBoost fee pool/yr", value: fmt(s1.monthly.dutyBoostFee * 12), color: "text-purple-300" },
-                  { label: "→ Agency/yr", value: fmt(s1.monthly.agencyCommission * 12), color: "text-green-400" },
-                  { label: "→ DutyBoost net/yr", value: fmt(s1.monthly.dutyBoostNet * 12), color: "text-white" },
-                ].map(({ label, value, color }) => (
-                  <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
-                    <span className="text-slate-400">{label}</span>
-                    <span className={`font-bold ${color}`}>{value}</span>
-                  </div>
-                ))}
+      {/* Monthly + yearly summary cards */}
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5 space-y-3">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Monthly Summary</p>
+          <div className="space-y-2">
+            {[
+              { label: "Total bookings", value: totalMonthly.toLocaleString(), color: "text-yellow-300" },
+              { label: "Redemptions (10%)", value: totalRedemp.toLocaleString(), color: "text-green-300" },
+              { label: "Gross retail spend", value: fmt(totalGross), color: "text-blue-300" },
+              { label: "DutyBoost fee pool", value: fmt(totalFee), color: "text-purple-300" },
+              { label: "→ Agency (20%)", value: fmt(totalAgency), color: "text-green-400" },
+              { label: "→ DutyBoost net (80%)", value: fmt(totalNet), color: "text-white" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
+                <span className="text-slate-400">{label}</span>
+                <span className={`font-bold ${color}`}>{value}</span>
               </div>
-            </div>
-            <div className="bg-slate-800 border border-yellow-500/30 rounded-2xl p-5 space-y-3">
-              <p className="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Annual Projection — 10% Redemption</p>
-              <div className="space-y-2">
-                {[
-                  { label: "Total bookings/yr", value: (totalMonthly * 12).toLocaleString(), color: "text-yellow-300" },
-                  { label: "Redemptions/yr (10%)", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
-                  { label: "Gross retail spend/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
-                  { label: "DutyBoost fee pool/yr", value: fmt(totalFee * 12), color: "text-purple-300" },
-                  { label: "→ Agency/yr", value: fmt(totalAgency * 12), color: "text-green-400" },
-                  { label: "→ DutyBoost net/yr", value: fmt(totalNet * 12), color: "text-white" },
-                ].map(({ label, value, color }) => (
-                  <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
-                    <span className="text-slate-400">{label}</span>
-                    <span className={`font-bold ${color}`}>{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
-        );
-      })()}
+        </div>
+        <div className="bg-slate-800 border border-yellow-500/30 rounded-2xl p-5 space-y-3">
+          <p className="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Annual Projection (×12)</p>
+          <div className="space-y-2">
+            {[
+              { label: "Total bookings/yr", value: (totalMonthly * 12).toLocaleString(), color: "text-yellow-300" },
+              { label: "Redemptions/yr", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
+              { label: "Gross retail spend/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
+              { label: "DutyBoost fee pool/yr", value: fmt(totalFee * 12), color: "text-purple-300" },
+              { label: "→ Agency/yr", value: fmt(totalAgency * 12), color: "text-green-400" },
+              { label: "→ DutyBoost net/yr", value: fmt(totalNet * 12), color: "text-white" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
+                <span className="text-slate-400">{label}</span>
+                <span className={`font-bold ${color}`}>{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {rows.length === 0 && (
         <p className="text-center text-slate-500 py-12 text-sm">No verified volume data found for current respondents.</p>
@@ -1127,8 +1109,9 @@ function GlobalPotentialsDashboard({ responses }) {
         <div>
           <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">Airport-Level Potential</h3>
           <p className="text-xs text-slate-400">
+            Based on <span className="text-white">10% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
             <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span> ·{" "}
-            Source: official airport annual reports 2024 · Two redemption scenarios shown
+            Source: official airport annual reports 2024
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -1137,25 +1120,28 @@ function GlobalPotentialsDashboard({ responses }) {
               <tr className="text-left text-slate-400 border-b border-slate-700">
                 <th className="pb-2 pr-3">Airport</th>
                 <th className="pb-2 pr-3 text-right">Pax/yr (2024)</th>
-                <th className="pb-2 pr-3 text-right border-l border-slate-700 pl-3 text-green-400">1% DB net/yr</th>
-                <th className="pb-2 pr-3 text-right text-green-400">1% Fee pool/yr</th>
-                <th className="pb-2 pr-3 text-right border-l border-slate-600 pl-3 text-yellow-400">10% DB net/yr</th>
-                <th className="pb-2 text-right text-yellow-400">10% Fee pool/yr</th>
+                <th className="pb-2 pr-3 text-right">10% Redemptions/yr</th>
+                <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
+                <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
+                <th className="pb-2 pr-3 text-right">Agency/yr</th>
+                <th className="pb-2 text-right">DB net/yr</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-700/40">
               {AIRPORT_DATA.map(ap => {
                 const paxPerMonth = Math.round(ap.paxPerYear / 12);
-                const rev1  = calcRevenue(paxPerMonth, 0.01);
-                const rev10 = calcRevenue(paxPerMonth, 0.10);
+                const rev = calcRevenue(paxPerMonth);
                 return (
                   <tr key={ap.iata} className="hover:bg-slate-700/20 transition-colors">
-                    <td className="py-2.5 pr-3 text-white font-medium">{ap.name}</td>
-                    <td className="py-2.5 pr-3 text-right text-slate-400">{ap.paxPerYear.toLocaleString()}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-300 border-l border-slate-700 pl-3 font-bold">{fmt(rev1.dutyBoostNet * 12)}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-400">{fmt(rev1.dutyBoostFee * 12)}</td>
-                    <td className="py-2.5 pr-3 text-right text-yellow-300 border-l border-slate-600 pl-3 font-bold">{fmt(rev10.dutyBoostNet * 12)}</td>
-                    <td className="py-2.5 text-right text-yellow-400">{fmt(rev10.dutyBoostFee * 12)}</td>
+                    <td className="py-2.5 pr-3">
+                      <span className="text-white font-medium">{ap.name}</span>
+                    </td>
+                    <td className="py-2.5 pr-3 text-right text-slate-300">{ap.paxPerYear.toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-300">{(rev.totalRedemptions * 12).toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(rev.grossRevenue * 12)}</td>
+                    <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(rev.dutyBoostFee * 12)}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-400">{fmt(rev.agencyCommission * 12)}</td>
+                    <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(rev.dutyBoostNet * 12)}</td>
                   </tr>
                 );
               })}
@@ -1163,24 +1149,24 @@ function GlobalPotentialsDashboard({ responses }) {
             <tfoot>
               {(() => {
                 const totals = AIRPORT_DATA.reduce((acc, ap) => {
-                  const paxPerMonth = Math.round(ap.paxPerYear / 12);
-                  const r1  = calcRevenue(paxPerMonth, 0.01);
-                  const r10 = calcRevenue(paxPerMonth, 0.10);
-                  acc.pax     += ap.paxPerYear;
-                  acc.net1    += r1.dutyBoostNet * 12;
-                  acc.fee1    += r1.dutyBoostFee * 12;
-                  acc.net10   += r10.dutyBoostNet * 12;
-                  acc.fee10   += r10.dutyBoostFee * 12;
+                  const rev = calcRevenue(Math.round(ap.paxPerYear / 12));
+                  acc.pax += ap.paxPerYear;
+                  acc.redeems += rev.totalRedemptions * 12;
+                  acc.gross += rev.grossRevenue * 12;
+                  acc.fee += rev.dutyBoostFee * 12;
+                  acc.agency += rev.agencyCommission * 12;
+                  acc.net += rev.dutyBoostNet * 12;
                   return acc;
-                }, { pax: 0, net1: 0, fee1: 0, net10: 0, fee10: 0 });
+                }, { pax: 0, redeems: 0, gross: 0, fee: 0, agency: 0, net: 0 });
                 return (
                   <tr className="border-t-2 border-slate-500 text-white font-bold">
                     <td className="pt-3 pr-3">TOTAL ({AIRPORT_DATA.length} airports)</td>
-                    <td className="pt-3 pr-3 text-right text-slate-400">{totals.pax.toLocaleString()}</td>
-                    <td className="pt-3 pr-3 text-right text-green-300 border-l border-slate-700 pl-3">{fmt(totals.net1)}</td>
-                    <td className="pt-3 pr-3 text-right text-green-400">{fmt(totals.fee1)}</td>
-                    <td className="pt-3 pr-3 text-right text-yellow-300 border-l border-slate-600 pl-3">{fmt(totals.net10)}</td>
-                    <td className="pt-3 text-right text-yellow-400">{fmt(totals.fee10)}</td>
+                    <td className="pt-3 pr-3 text-right text-slate-300">{totals.pax.toLocaleString()}</td>
+                    <td className="pt-3 pr-3 text-right text-green-300">{totals.redeems.toLocaleString()}</td>
+                    <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totals.gross)}</td>
+                    <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totals.fee)}</td>
+                    <td className="pt-3 pr-3 text-right text-green-400">{fmt(totals.agency)}</td>
+                    <td className="pt-3 text-right text-yellow-300">{fmt(totals.net)}</td>
                   </tr>
                 );
               })()}
@@ -1188,7 +1174,7 @@ function GlobalPotentialsDashboard({ responses }) {
           </table>
         </div>
         <p className="text-xs text-slate-600 italic">
-          1% = conservative early-stage penetration · 10% = full activation scenario · Real rate depends on DutyBoost penetration and partner activation.
+          Assumption: 10% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
         </p>
       </div>
     </div>
