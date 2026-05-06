@@ -19,7 +19,7 @@ function getPreferredLang() {
 const TOTAL_QUESTIONS = 7;
 
 const COMPANY_TYPES = ["Travel Agency", "Airline", "Tour Operator", "OTA (Online Travel Agency)", "Hotel chain / Hospitality", "Car Rental company", "Cruise line / Ship operator", "Train / Rail operator", "Other"];
-const BOOKING_VOLUMES = ["Under 2,000", "2,000 – 5,000", "5,000 – 10,000", "10,000+", "Custom amount"];
+const BOOKING_VOLUMES = ["Under 2,000", "2,000 – 5,000", "5,000 – 10,000", "10,000 – 20,000", "20,000 – 30,000", "30,000+", "Custom amount"];
 const LOYALTY_OPTIONS = ["None", "Points / Miles", "Discounts", "Partner perks", "Other"];
 const INTEREST_OPTIONS = [
   "Very interested – count me in",

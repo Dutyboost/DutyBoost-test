@@ -8,7 +8,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 const TOTAL_QUESTIONS = 7;
 
 const COMPANY_TYPES = ["Agencia de viajes", "Aerolínea", "Tour operador", "OTA (Agencia de viajes online)", "Hotel", "Alquiler de coches", "Compañía de cruceros", "Operador ferroviario / Tren", "Otro"];
-const BOOKING_VOLUMES = ["Menos de 2.000", "2.000 – 5.000", "5.000 – 10.000", "10.000+"];
+const BOOKING_VOLUMES = ["Menos de 2.000", "2.000 – 5.000", "5.000 – 10.000", "10.000 – 20.000", "20.000 – 30.000", "30.000+"];
 const LOYALTY_OPTIONS = ["Ninguno", "Puntos / Millas", "Descuentos", "Ventajas de socios", "Otro"];
 const INTEREST_OPTIONS = [
   "Muy interesado – cuenten conmigo",
