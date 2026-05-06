@@ -1114,7 +1114,7 @@ function GlobalPotentialsDashboard({ responses }) {
       {/* ── Airport Potential Section ── */}
       {(() => {
         const partnerBookingsPerYear = totalMonthly * 12;
-        const redemptionsPerYear = Math.round(partnerBookingsPerYear * GLOBAL_REDEMPTION_RATE);
+        const redemptionsPerYear = Math.round(partnerBookingsPerYear * GLOBAL_REDEMPTION_RATE * RETAILER_REACH_RATE);
         const grossPerYear = redemptionsPerYear * AVG_BASKET;
         const feePerTx = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
         const feePoolPerYear = redemptionsPerYear * feePerTx;
