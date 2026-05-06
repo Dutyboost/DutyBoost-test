@@ -1008,7 +1008,7 @@ function GlobalPotentialsDashboard({ responses }) {
         <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span>
         <span className="text-white">€{AVG_BASKET} avg basket</span>
         <span className="text-white">2.5% fee → €{feePerRedemption.toFixed(2)}/redemption (capped €{FEE_CAP})</span>
-        <span className="text-white">20% of fee → agency</span>
+        <span className="text-white">20% of fee → Travel Partner</span>
         <span className="text-slate-500 italic">Verified data from public sources (annual reports, press)</span>
       </div>
 
