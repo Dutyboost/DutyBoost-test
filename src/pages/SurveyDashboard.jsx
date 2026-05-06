@@ -1111,78 +1111,59 @@ function GlobalPotentialsDashboard({ responses }) {
       )}
 
       {/* ── Airport Potential Section ── */}
-      <div className="bg-slate-800 border border-indigo-500/30 rounded-2xl p-5 space-y-4">
-        <div>
-          <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">Airport-Level Potential</h3>
-          <p className="text-xs text-slate-400">
-            Based on <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
-            <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span> ·{" "}
-            Source: official airport annual reports 2024
-          </p>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs">
-            <thead>
-              <tr className="text-left text-slate-400 border-b border-slate-700">
-                <th className="pb-2 pr-3">Airport</th>
-                <th className="pb-2 pr-3 text-right">Pax/yr (2024)</th>
-                <th className="pb-2 pr-3 text-right">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% Redemptions/yr</th>
-                <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
-                <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
-                <th className="pb-2 pr-3 text-right">Travel Partner/yr</th>
-                <th className="pb-2 text-right">DB net/yr</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-700/40">
-              {AIRPORT_DATA.map(ap => {
-                const paxPerMonth = Math.round(ap.paxPerYear / 12);
-                const rev = calcRevenueGlobal(paxPerMonth);
-                return (
-                  <tr key={ap.iata} className="hover:bg-slate-700/20 transition-colors">
+      {(() => {
+        const partnerBookingsPerYear = totalMonthly * 12;
+        const redemptionsPerYear = Math.round(partnerBookingsPerYear * GLOBAL_REDEMPTION_RATE);
+        const grossPerYear = redemptionsPerYear * AVG_BASKET;
+        const feePerTx = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+        const feePoolPerYear = redemptionsPerYear * feePerTx;
+        const travelPartnerPerYear = feePoolPerYear * AGENCY_SHARE;
+        const dbNetPerYear = feePoolPerYear - travelPartnerPerYear;
+
+        return (
+          <div className="bg-slate-800 border border-indigo-500/30 rounded-2xl p-5 space-y-4">
+            <div>
+              <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">AMS Airport Potential — Combined Travel Partner Volume</h3>
+              <p className="text-xs text-slate-400">
+                Based on <span className="text-white">{rows.length} verified travel partners</span> combined bookings/yr ×{" "}
+                <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span> ·{" "}
+                <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span>
+              </p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="text-left text-slate-400 border-b border-slate-700">
+                    <th className="pb-2 pr-3">Airport</th>
+                    <th className="pb-2 pr-3 text-right">Partner bookings/yr</th>
+                    <th className="pb-2 pr-3 text-right">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% Redemptions/yr</th>
+                    <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
+                    <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
+                    <th className="pb-2 pr-3 text-right">Travel Partner/yr</th>
+                    <th className="pb-2 text-right">DB net/yr</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-700/40">
+                  <tr className="hover:bg-slate-700/20 transition-colors">
                     <td className="py-2.5 pr-3">
-                      <span className="text-white font-medium">{ap.name}</span>
+                      <span className="text-white font-medium">Amsterdam Schiphol (AMS)</span>
                     </td>
-                    <td className="py-2.5 pr-3 text-right text-slate-300">{ap.paxPerYear.toLocaleString()}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-300">{(rev.totalRedemptions * 12).toLocaleString()}</td>
-                    <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(rev.grossRevenue * 12)}</td>
-                    <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(rev.dutyBoostFee * 12)}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-400">{fmt(rev.agencyCommission * 12)}</td>
-                    <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(rev.dutyBoostNet * 12)}</td>
+                    <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{partnerBookingsPerYear.toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-300">{redemptionsPerYear.toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(grossPerYear)}</td>
+                    <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(feePoolPerYear)}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-400">{fmt(travelPartnerPerYear)}</td>
+                    <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(dbNetPerYear)}</td>
                   </tr>
-                );
-              })}
-            </tbody>
-            <tfoot>
-              {(() => {
-                const totals = AIRPORT_DATA.reduce((acc, ap) => {
-                  const rev = calcRevenueGlobal(Math.round(ap.paxPerYear / 12));
-                  acc.pax += ap.paxPerYear;
-                  acc.redeems += rev.totalRedemptions * 12;
-                  acc.gross += rev.grossRevenue * 12;
-                  acc.fee += rev.dutyBoostFee * 12;
-                  acc.agency += rev.agencyCommission * 12;
-                  acc.net += rev.dutyBoostNet * 12;
-                  return acc;
-                }, { pax: 0, redeems: 0, gross: 0, fee: 0, agency: 0, net: 0 });
-                return (
-                  <tr className="border-t-2 border-slate-500 text-white font-bold">
-                    <td className="pt-3 pr-3">TOTAL ({AIRPORT_DATA.length} airports)</td>
-                    <td className="pt-3 pr-3 text-right text-slate-300">{totals.pax.toLocaleString()}</td>
-                    <td className="pt-3 pr-3 text-right text-green-300">{totals.redeems.toLocaleString()}</td>
-                    <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totals.gross)}</td>
-                    <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totals.fee)}</td>
-                    <td className="pt-3 pr-3 text-right text-green-400">{fmt(totals.agency)}</td>
-                    <td className="pt-3 text-right text-yellow-300">{fmt(totals.net)}</td>
-                  </tr>
-                );
-              })()}
-            </tfoot>
-          </table>
-        </div>
-        <p className="text-xs text-slate-600 italic">
-          {`Assumption: ${(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.`}
-        </p>
-      </div>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-slate-600 italic">
+              {`Partner bookings/yr = sum of verified monthly bookings × 12. ${(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of those bookings are assumed to redeem a voucher at AMS airport retail.`}
+            </p>
+          </div>
+        );
+      })()}
     </div>
   );
 }
