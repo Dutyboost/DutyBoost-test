@@ -941,14 +941,7 @@ function RevenueCalculator({ responses }) {
 // ── Airport reference data (annual passenger totals, 2024, public sources) ──────
 // Source: official airport annual reports / press releases 2024
 const AIRPORT_DATA = [
-  { name: "Dubai Int'l (DXB)",      iata: "DXB", paxPerYear: 92_300_000, source: "Dubai Airports press release Jan 2025" },
   { name: "Amsterdam Schiphol (AMS)", iata: "AMS", paxPerYear: 66_829_000, source: "Schiphol Annual Traffic Review 2024" },
-  { name: "Barcelona El Prat (BCN)", iata: "BCN", paxPerYear: 55_000_000, source: "Barcelona Airport Annual Report 2024" },
-  { name: "Frankfurt (FRA)",         iata: "FRA", paxPerYear: 61_600_000, source: "Fraport AG Annual Report 2024" },
-  { name: "Paris CDG (CDG)",         iata: "CDG", paxPerYear: 67_400_000, source: "ADP Group Annual Report 2024" },
-  { name: "Madrid Barajas (MAD)",    iata: "MAD", paxPerYear: 62_600_000, source: "AENA Annual Report 2024" },
-  { name: "London Heathrow (LHR)",   iata: "LHR", paxPerYear: 83_900_000, source: "Heathrow Airport Annual Report 2024" },
-  { name: "Rome Fiumicino (FCO)",    iata: "FCO", paxPerYear: 50_400_000, source: "Aeroporti di Roma Annual Report 2024" },
 ];
 
 const GLOBAL_REDEMPTION_RATE = 0.01; // 1% for Global Potentials display
