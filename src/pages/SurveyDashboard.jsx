@@ -944,7 +944,7 @@ const AIRPORT_DATA = [
   { name: "Amsterdam Schiphol (AMS)", iata: "AMS", paxPerYear: 66_829_000, source: "Schiphol Annual Traffic Review 2024" },
 ];
 
-const GLOBAL_REDEMPTION_RATE = 0.01; // 1% for Global Potentials display
+const GLOBAL_REDEMPTION_RATE = 0.10; // 10% for Global Potentials display
 
 function calcRevenueGlobal(totalMonthlyBookings) {
   const totalRedemptions = Math.round(totalMonthlyBookings * GLOBAL_REDEMPTION_RATE);
