@@ -762,36 +762,97 @@ const FEE_RATE      = 0.025;     // 2.5% DutyBoost fee on avg basket
 const FEE_CAP       = 25;        // €25 max DutyBoost fee per transaction
 const AGENCY_SHARE  = 0.20;      // 20% of DutyBoost fee to agency
 
-function RevenueCalculator({ responses }) {
-  // Aggregate monthly traveler volume across all respondents
-  const buckets = {};
-  let totalMonthlyBookings = 0;
+function calcRevenue(totalMonthlyBookings) {
+  const totalRedemptions = Math.round(totalMonthlyBookings * REDEMPTION_RATE);
+  const grossRevenue     = totalRedemptions * AVG_BASKET;
+  const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+  const dutyBoostFee     = totalRedemptions * feePerRedemption;
+  const agencyCommission = dutyBoostFee * AGENCY_SHARE;
+  const dutyBoostNet     = dutyBoostFee - agencyCommission;
+  return { totalRedemptions, grossRevenue, feePerRedemption, dutyBoostFee, agencyCommission, dutyBoostNet };
+}
 
+function RevenuePanel({ label, totalMonthlyBookings, accentClass, borderClass, tag }) {
+  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+  const { totalRedemptions, grossRevenue, dutyBoostFee, agencyCommission, dutyBoostNet } = calcRevenue(totalMonthlyBookings);
+
+  return (
+    <div className={`flex-1 rounded-xl border ${borderClass} p-4 space-y-3`}>
+      <div className="flex items-center justify-between gap-2 flex-wrap">
+        <p className="text-xs font-semibold text-slate-300 uppercase tracking-widest">{label}</p>
+        {tag && <span className="text-xs px-2 py-0.5 rounded-full bg-slate-700 text-slate-400">{tag}</span>}
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        <div className="bg-slate-900/60 rounded-lg p-2 text-center">
+          <p className="text-xs text-slate-500 mb-0.5">Monthly bookings</p>
+          <p className={`text-lg font-bold ${accentClass}`}>{totalMonthlyBookings.toLocaleString()}</p>
+        </div>
+        <div className="bg-slate-900/60 rounded-lg p-2 text-center">
+          <p className="text-xs text-slate-500 mb-0.5">Monthly redemptions</p>
+          <p className="text-lg font-bold text-green-300">{totalRedemptions.toLocaleString()}</p>
+        </div>
+        <div className="bg-slate-900/60 rounded-lg p-2 text-center">
+          <p className="text-xs text-slate-500 mb-0.5">Gross retail spend/mo</p>
+          <p className="text-lg font-bold text-blue-300">{fmt(grossRevenue)}</p>
+        </div>
+        <div className="bg-slate-900/60 rounded-lg p-2 text-center">
+          <p className="text-xs text-slate-500 mb-0.5">DutyBoost fee/mo</p>
+          <p className="text-lg font-bold text-purple-300">{fmt(dutyBoostFee)}</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        <div className="bg-green-900/30 border border-green-500/20 rounded-lg p-2 text-center">
+          <p className="text-xs text-green-500 mb-0.5">Agency commission/mo</p>
+          <p className="text-base font-bold text-green-300">{fmt(agencyCommission)}</p>
+        </div>
+        <div className="bg-blue-900/30 border border-blue-500/20 rounded-lg p-2 text-center">
+          <p className="text-xs text-blue-500 mb-0.5">DutyBoost net/mo</p>
+          <p className="text-base font-bold text-blue-300">{fmt(dutyBoostNet)}</p>
+        </div>
+      </div>
+      <div className="bg-yellow-900/20 border border-yellow-500/20 rounded-lg px-3 py-2 flex items-center justify-between text-xs">
+        <span className="text-slate-400">Annual DutyBoost net</span>
+        <span className="font-bold text-yellow-300">{fmt(dutyBoostNet * 12)}/yr</span>
+      </div>
+    </div>
+  );
+}
+
+function RevenueCalculator({ responses }) {
+  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+
+  // ── Self-reported volumes (from survey answers) ──
+  const buckets = {};
+  let selfMonthly = 0;
   responses.forEach(r => {
     const raw = r.annual_bookings || "";
     const mapped = matchVolumeBucket(raw);
     if (mapped) {
       buckets[mapped.label] = (buckets[mapped.label] || 0) + 1;
-      totalMonthlyBookings += mapped.monthly;
+      selfMonthly += mapped.monthly;
     } else {
       const custom = parseCustomVolume(raw);
       if (custom) {
         const lbl = `Custom (${raw})`;
         buckets[lbl] = (buckets[lbl] || 0) + 1;
-        totalMonthlyBookings += custom;
+        selfMonthly += custom;
       }
     }
   });
 
-  const respondentsWithVolume = Object.values(buckets).reduce((s, v) => s + v, 0);
-  const totalRedemptions   = Math.round(totalMonthlyBookings * REDEMPTION_RATE);
-  const grossRevenue       = totalRedemptions * AVG_BASKET;
-  const feePerRedemption   = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
-  const dutyBoostFee       = totalRedemptions * feePerRedemption;
-  const agencyCommission   = dutyBoostFee * AGENCY_SHARE;
-  const dutyBoostNet       = dutyBoostFee - agencyCommission;
+  // ── Verified real-world volumes (from RESEARCHED_VOLUMES, only for matched respondents) ──
+  let verifiedMonthly = 0;
+  const verifiedBreakdown = [];
+  responses.forEach(r => {
+    const rv = getResearchedVolume(r.company_name);
+    if (rv) {
+      verifiedMonthly += rv.perMonth;
+      verifiedBreakdown.push({ company: r.company_name, perMonth: rv.perMonth, confidence: rv.confidence });
+    }
+  });
 
-  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+  const selfRev = calcRevenue(selfMonthly);
+  const verifiedRev = calcRevenue(verifiedMonthly);
 
   return (
     <div className="bg-slate-800 border border-green-500/30 rounded-2xl p-5 space-y-5">
@@ -807,91 +868,63 @@ function RevenueCalculator({ responses }) {
         </p>
       </div>
 
-      {/* Key metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
-          <p className="text-xs text-slate-400 mb-1">Monthly bookings</p>
-          <p className="text-xl font-bold text-white">{totalMonthlyBookings.toLocaleString()}</p>
-        </div>
-        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
-          <p className="text-xs text-slate-400 mb-1">Monthly redemptions</p>
-          <p className="text-xl font-bold text-green-300">{totalRedemptions.toLocaleString()}</p>
-        </div>
-        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
-          <p className="text-xs text-slate-400 mb-1">Gross retail spend (avg €{AVG_BASKET})</p>
-          <p className="text-xl font-bold text-blue-300">{fmt(grossRevenue)}</p>
-        </div>
-        <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-slate-700">
-          <p className="text-xs text-slate-400 mb-1">DutyBoost fee pool</p>
-          <p className="text-xl font-bold text-purple-300">{fmt(dutyBoostFee)}</p>
-        </div>
+      {/* Side-by-side comparison */}
+      <div className="flex flex-col md:flex-row gap-4">
+        <RevenuePanel
+          label="Self-Reported (Survey)"
+          totalMonthlyBookings={selfMonthly}
+          accentClass="text-white"
+          borderClass="border-slate-600"
+          tag="From survey answers"
+        />
+        <div className="hidden md:flex items-center justify-center text-slate-600 text-2xl font-bold">vs</div>
+        <div className="flex md:hidden items-center justify-center text-slate-600 text-sm font-bold py-1">── vs ──</div>
+        <RevenuePanel
+          label="Verified Real-World Data"
+          totalMonthlyBookings={verifiedMonthly}
+          accentClass="text-yellow-300"
+          borderClass="border-yellow-500/40"
+          tag={`${verifiedBreakdown.length} verified respondents`}
+        />
       </div>
 
-      {/* Value Ratio */}
-      {dutyBoostFee > 0 && (
-        <div className="bg-slate-900/40 border border-slate-600 rounded-xl px-4 py-3 flex items-center justify-between flex-wrap gap-2">
-          <div>
-            <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold">Value Ratio</span>
-            <span className="ml-2 text-xs text-slate-500">(Gross retail spend ÷ DutyBoost fee pool)</span>
+      {/* Verified breakdown per company */}
+      {verifiedBreakdown.length > 0 && (
+        <div>
+          <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Verified volume breakdown</p>
+          <div className="space-y-1.5">
+            {verifiedBreakdown.map(({ company, perMonth, confidence }) => {
+              const { totalRedemptions, dutyBoostFee, dutyBoostNet } = calcRevenue(perMonth);
+              const confColor = { high: "text-green-400", medium: "text-yellow-400", low: "text-orange-400" }[confidence];
+              return (
+                <div key={company} className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs bg-slate-900/40 rounded-lg px-3 py-2">
+                  <span className="text-slate-200 font-medium w-28 truncate">{company}</span>
+                  <span className={`font-semibold ${confColor}`}>{confidence}</span>
+                  <span className="text-slate-400">{perMonth.toLocaleString()} bookings/mo</span>
+                  <span className="text-green-300">{totalRedemptions.toLocaleString()} redemptions/mo</span>
+                  <span className="text-purple-300 font-semibold ml-auto">{fmt(dutyBoostFee)} fee/mo → {fmt(dutyBoostNet)} net</span>
+                </div>
+              );
+            })}
           </div>
-          <span className="text-lg font-bold text-orange-300">{Math.round(grossRevenue / dutyBoostFee)}:1</span>
         </div>
       )}
 
-      {/* Revenue split */}
-      <div className="grid md:grid-cols-2 gap-3">
-        <div className="bg-green-900/30 border border-green-500/30 rounded-xl p-4 space-y-1">
-          <p className="text-xs text-green-400 uppercase tracking-widest font-semibold">Agency commission (20% of fee)</p>
-          <p className="text-2xl font-bold text-green-300">{fmt(agencyCommission)} <span className="text-sm text-green-500">/mo</span></p>
-          <p className="text-xs text-slate-400">Paid to travel partners for enabling redemptions</p>
-        </div>
-        <div className="bg-blue-900/30 border border-blue-500/30 rounded-xl p-4 space-y-1">
-          <p className="text-xs text-blue-400 uppercase tracking-widest font-semibold">DutyBoost net revenue (80% of fee)</p>
-          <p className="text-2xl font-bold text-blue-300">{fmt(dutyBoostNet)} <span className="text-sm text-blue-500">/mo</span></p>
-          <p className="text-xs text-slate-400">After paying agency commissions</p>
-        </div>
-      </div>
-
-      {/* Yearly totals */}
-      <div className="bg-slate-900/60 border border-yellow-500/30 rounded-xl p-4">
-        <p className="text-xs text-yellow-400 uppercase tracking-widest font-semibold mb-3">Yearly totals (×12)</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="text-center">
-            <p className="text-xs text-slate-400 mb-1">Redemptions/yr</p>
-            <p className="text-lg font-bold text-white">{(totalRedemptions * 12).toLocaleString()}</p>
-          </div>
-          <div className="text-center">
-            <p className="text-xs text-slate-400 mb-1">Gross retail spend/yr</p>
-            <p className="text-lg font-bold text-blue-300">{fmt(grossRevenue * 12)}</p>
-          </div>
-          <div className="text-center">
-            <p className="text-xs text-slate-400 mb-1">Agency commission/yr</p>
-            <p className="text-lg font-bold text-green-300">{fmt(agencyCommission * 12)}</p>
-          </div>
-          <div className="text-center">
-            <p className="text-xs text-slate-400 mb-1">DutyBoost net/yr</p>
-            <p className="text-lg font-bold text-yellow-300">{fmt(dutyBoostNet * 12)}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Per-bucket breakdown */}
+      {/* Self-reported per-bucket breakdown */}
       <div>
-        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Breakdown by volume bucket</p>
+        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Self-reported breakdown by volume bucket</p>
         <div className="space-y-1.5">
           {VOLUME_TO_MONTHLY.map(({ label, monthly }) => {
             const count = buckets[label] || 0;
             if (!count) return null;
-            const bMonthly = count * monthly;
-            const bRedem   = Math.round(bMonthly * REDEMPTION_RATE);
-            const bGross   = bRedem * AVG_BASKET;
-            const bFee     = bRedem * Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+            const bRedem = Math.round(count * monthly * REDEMPTION_RATE);
+            const bFee   = bRedem * Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
             return (
-              <div key={label} className="flex items-center justify-between text-xs bg-slate-900/40 rounded-lg px-3 py-2">
+              <div key={label} className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs bg-slate-900/40 rounded-lg px-3 py-2">
                 <span className="text-slate-300 font-medium">{label}</span>
                 <span className="text-slate-500">{count} respondent{count !== 1 ? "s" : ""}</span>
                 <span className="text-slate-400">{bRedem.toLocaleString()} redemptions/mo</span>
-                <span className="text-purple-300 font-semibold">{fmt(bFee)} fee/mo</span>
+                <span className="text-purple-300 font-semibold ml-auto">{fmt(bFee)} fee/mo</span>
               </div>
             );
           })}
@@ -899,8 +932,164 @@ function RevenueCalculator({ responses }) {
       </div>
 
       <p className="text-xs text-slate-600 italic">
-        Assumptions: upper bound of each monthly booking range used (potential reach) · {REDEMPTION_RATE * 100}% redemption rate · average basket €{AVG_BASKET} (min €{MIN_BASKET} / max €{MAX_BASKET}) · 2.5% DutyBoost fee on €{AVG_BASKET} = €{Math.min(AVG_BASKET * FEE_RATE, FEE_CAP).toFixed(2)}/redemption (capped at €{FEE_CAP}) · 20% of fee to agency
+        Assumptions: upper bound of each survey range used · {REDEMPTION_RATE * 100}% redemption rate · avg basket €{AVG_BASKET} · 2.5% fee = €{Math.min(AVG_BASKET * FEE_RATE, FEE_CAP).toFixed(2)}/redemption (capped €{FEE_CAP}) · 20% of fee to agency
       </p>
+    </div>
+  );
+}
+
+// ── Global Potentials Dashboard ───────────────────────────────────────────────
+// Uses RESEARCHED_VOLUMES directly — dynamic: only shows companies that match a respondent
+function GlobalPotentialsDashboard({ responses }) {
+  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+  const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+
+  // Build rows: one per matched respondent
+  const rows = responses.map(r => {
+    const rv = getResearchedVolume(r.company_name);
+    if (!rv) return null;
+    const rev = calcRevenue(rv.perMonth);
+    return { ...r, rv, rev };
+  }).filter(Boolean);
+
+  // Totals
+  const totalMonthly   = rows.reduce((s, r) => s + r.rv.perMonth, 0);
+  const totalRedemp    = rows.reduce((s, r) => s + r.rev.totalRedemptions, 0);
+  const totalGross     = rows.reduce((s, r) => s + r.rev.grossRevenue, 0);
+  const totalFee       = rows.reduce((s, r) => s + r.rev.dutyBoostFee, 0);
+  const totalAgency    = rows.reduce((s, r) => s + r.rev.agencyCommission, 0);
+  const totalNet       = rows.reduce((s, r) => s + r.rev.dutyBoostNet, 0);
+
+  const confidenceColor = { high: "text-green-400 bg-green-900/30", medium: "text-yellow-400 bg-yellow-900/30", low: "text-orange-400 bg-orange-900/30" };
+
+  return (
+    <div className="space-y-6">
+      {/* Header KPIs */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Verified respondents</p>
+          <p className="text-2xl font-bold text-white">{rows.length}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Combined bookings/mo</p>
+          <p className="text-2xl font-bold text-yellow-300">{totalMonthly.toLocaleString()}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">DutyBoost fee pool/mo</p>
+          <p className="text-2xl font-bold text-purple-300">{fmt(totalFee)}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">DutyBoost net/yr</p>
+          <p className="text-2xl font-bold text-green-300">{fmt(totalNet * 12)}</p>
+        </div>
+      </div>
+
+      {/* Assumptions bar */}
+      <div className="bg-slate-800 border border-blue-500/20 rounded-xl px-4 py-3 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
+        <span>📐 Assumptions:</span>
+        <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span>
+        <span className="text-white">€{AVG_BASKET} avg basket</span>
+        <span className="text-white">2.5% fee → €{feePerRedemption.toFixed(2)}/redemption (capped €{FEE_CAP})</span>
+        <span className="text-white">20% of fee → agency</span>
+        <span className="text-slate-500 italic">Verified data from public sources (annual reports, press)</span>
+      </div>
+
+      {/* Per-company table */}
+      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5">
+        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Company Potential</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="text-left text-slate-400 border-b border-slate-700">
+                <th className="pb-2 pr-3">Company</th>
+                <th className="pb-2 pr-3">Type</th>
+                <th className="pb-2 pr-3 text-right">Bookings/mo</th>
+                <th className="pb-2 pr-3 text-right">Redemptions/mo</th>
+                <th className="pb-2 pr-3 text-right">Gross spend/mo</th>
+                <th className="pb-2 pr-3 text-right">Fee pool/mo</th>
+                <th className="pb-2 pr-3 text-right">Agency/mo</th>
+                <th className="pb-2 text-right">DB net/yr</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-700/40">
+              {rows.map(r => (
+                <tr key={r.id} className="hover:bg-slate-700/20 transition-colors">
+                  <td className="py-2.5 pr-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-white font-medium">{r.company_name}</span>
+                      <span className={`px-1.5 py-0.5 rounded text-xs font-semibold ${confidenceColor[r.rv.confidence]}`}>
+                        {r.rv.confidence}
+                      </span>
+                    </div>
+                  </td>
+                  <td className="py-2.5 pr-3 text-slate-400">{r.company_type || "—"}</td>
+                  <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{r.rv.perMonth.toLocaleString()}</td>
+                  <td className="py-2.5 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString()}</td>
+                  <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
+                  <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(r.rev.dutyBoostFee)}</td>
+                  <td className="py-2.5 pr-3 text-right text-green-400">{fmt(r.rev.agencyCommission)}</td>
+                  <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(r.rev.dutyBoostNet * 12)}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr className="border-t-2 border-slate-500 text-white font-bold">
+                <td className="pt-3 pr-3" colSpan={2}>TOTAL</td>
+                <td className="pt-3 pr-3 text-right text-yellow-300">{totalMonthly.toLocaleString()}</td>
+                <td className="pt-3 pr-3 text-right text-green-300">{totalRedemp.toLocaleString()}</td>
+                <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totalGross)}</td>
+                <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totalFee)}</td>
+                <td className="pt-3 pr-3 text-right text-green-400">{fmt(totalAgency)}</td>
+                <td className="pt-3 text-right text-yellow-300">{fmt(totalNet * 12)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      {/* Monthly + yearly summary cards */}
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5 space-y-3">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Monthly Summary</p>
+          <div className="space-y-2">
+            {[
+              { label: "Total bookings", value: totalMonthly.toLocaleString(), color: "text-yellow-300" },
+              { label: "Redemptions (10%)", value: totalRedemp.toLocaleString(), color: "text-green-300" },
+              { label: "Gross retail spend", value: fmt(totalGross), color: "text-blue-300" },
+              { label: "DutyBoost fee pool", value: fmt(totalFee), color: "text-purple-300" },
+              { label: "→ Agency (20%)", value: fmt(totalAgency), color: "text-green-400" },
+              { label: "→ DutyBoost net (80%)", value: fmt(totalNet), color: "text-white" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
+                <span className="text-slate-400">{label}</span>
+                <span className={`font-bold ${color}`}>{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-slate-800 border border-yellow-500/30 rounded-2xl p-5 space-y-3">
+          <p className="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Annual Projection (×12)</p>
+          <div className="space-y-2">
+            {[
+              { label: "Total bookings/yr", value: (totalMonthly * 12).toLocaleString(), color: "text-yellow-300" },
+              { label: "Redemptions/yr", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
+              { label: "Gross retail spend/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
+              { label: "DutyBoost fee pool/yr", value: fmt(totalFee * 12), color: "text-purple-300" },
+              { label: "→ Agency/yr", value: fmt(totalAgency * 12), color: "text-green-400" },
+              { label: "→ DutyBoost net/yr", value: fmt(totalNet * 12), color: "text-white" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
+                <span className="text-slate-400">{label}</span>
+                <span className={`font-bold ${color}`}>{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {rows.length === 0 && (
+        <p className="text-center text-slate-500 py-12 text-sm">No verified volume data found for current respondents.</p>
+      )}
     </div>
   );
 }
@@ -1155,6 +1344,14 @@ export default function SurveyDashboard() {
             <Users className="w-4 h-4" /> Travel Partner
             <span className="ml-1 text-xs opacity-70">({partnerResponses.length})</span>
           </button>
+          <button
+            onClick={() => setActiveTab("global")}
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
+              activeTab === "global" ? "bg-yellow-600 text-white shadow" : "text-slate-400 hover:text-white"
+            }`}
+          >
+            <BarChart2 className="w-4 h-4" /> Global Potentials
+          </button>
         </div>
 
         {loading ? (
@@ -1163,8 +1360,10 @@ export default function SurveyDashboard() {
           </div>
         ) : activeTab === "retailer" ? (
           <RetailerDashboard responses={retailerResponses} />
-        ) : (
+        ) : activeTab === "partner" ? (
           <TravelPartnerDashboard responses={partnerResponses} />
+        ) : (
+          <GlobalPotentialsDashboard responses={partnerResponses} />
         )}
 
         <p className="text-center text-xs text-slate-600 pb-4">hello@dutyboost.com · www.dutyboost.com</p>
