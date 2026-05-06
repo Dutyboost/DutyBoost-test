@@ -255,6 +255,61 @@ const TRANSLATIONS = {
   "Promozioni aeroportuali": "Airport-wide promotions",
 };
 
+// ── Booking volume parser ──────────────────────────────────────────────────────
+// Parses annual_bookings field (which stores monthly volume) into { perMonth, perYear } display strings
+function parseBookingVolume(raw) {
+  if (!raw) return null;
+  const str = raw.trim();
+
+  // Range like "2,000 – 5,000" or "2.000 – 5.000" or "2 000 – 5 000"
+  const rangeMatch = str.match(/^([\d\s,.]+)\s*[–\-]\s*([\d\s,.]+)\s*\+?$/);
+  if (rangeMatch) {
+    const lo = parseInt(rangeMatch[1].replace(/[\s,.]/g, ''), 10);
+    const hi = parseInt(rangeMatch[2].replace(/[\s,.]/g, ''), 10);
+    if (!isNaN(lo) && !isNaN(hi)) {
+      return {
+        perMonth: `${lo.toLocaleString()}–${hi.toLocaleString()}`,
+        perYear: `${(lo * 12).toLocaleString()}–${(hi * 12).toLocaleString()}`,
+      };
+    }
+  }
+
+  // "30,000+" / "30.000+" / "30 000+"
+  const plusMatch = str.match(/^([\d\s,.]+)\s*\+/);
+  if (plusMatch) {
+    const n = parseInt(plusMatch[1].replace(/[\s,.]/g, ''), 10);
+    if (!isNaN(n)) {
+      return {
+        perMonth: `${n.toLocaleString()}+`,
+        perYear: `${(n * 12).toLocaleString()}+`,
+      };
+    }
+  }
+
+  // "Under X" / "Minder dan X" / "Menos de X" etc.
+  const underMatch = str.match(/(?:under|minder\s+dan|moins\s+de|meno\s+di|menos\s+de|unter)\s*([\d\s,.]+)/i);
+  if (underMatch) {
+    const n = parseInt(underMatch[1].replace(/[\s,.]/g, ''), 10);
+    if (!isNaN(n)) {
+      return {
+        perMonth: `< ${n.toLocaleString()}`,
+        perYear: `< ${(n * 12).toLocaleString()}`,
+      };
+    }
+  }
+
+  // Plain number (custom entry)
+  const plain = parseInt(str.replace(/[\s,.]/g, ''), 10);
+  if (!isNaN(plain) && plain > 0) {
+    return {
+      perMonth: plain.toLocaleString(),
+      perYear: (plain * 12).toLocaleString(),
+    };
+  }
+
+  return null;
+}
+
 // ── Language detection ─────────────────────────────────────────────────────────
 const LANG_FLAGS = {
   nl: "🇳🇱", de: "🇩🇪", fr: "🇫🇷", es: "🇪🇸", it: "🇮🇹",
@@ -459,6 +514,25 @@ function ResponseCard({ response, isRetailerView }) {
             <p className="text-slate-500">Monthly Visitors / Booking Volume</p>
             <p className="text-slate-200">{response.annual_bookings || "—"}</p>
           </div>
+          {(() => {
+            const vol = parseBookingVolume(response.annual_bookings);
+            if (!vol) return null;
+            return (
+              <div className="text-xs md:col-span-2">
+                <p className="text-slate-500 mb-1.5">Estimated Booking Volume</p>
+                <div className="flex gap-3">
+                  <div className="flex-1 bg-blue-900/30 border border-blue-500/30 rounded-lg px-3 py-2 text-center">
+                    <p className="text-blue-400 font-bold text-base">{vol.perMonth}</p>
+                    <p className="text-slate-400 text-xs mt-0.5">per month</p>
+                  </div>
+                  <div className="flex-1 bg-purple-900/30 border border-purple-500/30 rounded-lg px-3 py-2 text-center">
+                    <p className="text-purple-300 font-bold text-base">{vol.perYear}</p>
+                    <p className="text-slate-400 text-xs mt-0.5">per year</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
           <div className="text-xs md:col-span-2">
             <p className="text-slate-500">Loyalty Programs</p>
             <p className="text-slate-200">{response.current_loyalty || "—"}</p>
