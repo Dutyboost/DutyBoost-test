@@ -1179,7 +1179,7 @@ function GlobalPotentialsDashboard({ responses }) {
           </table>
         </div>
         <p className="text-xs text-slate-600 italic">
-          Assumption: {(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
+          {`Assumption: ${(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.`}
         </p>
       </div>
     </div>
