@@ -802,7 +802,7 @@ function RevenuePanel({ label, totalMonthlyBookings, accentClass, borderClass, t
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div className="bg-green-900/30 border border-green-500/20 rounded-lg p-2 text-center">
-          <p className="text-xs text-green-500 mb-0.5">Agency commission/mo</p>
+          <p className="text-xs text-green-500 mb-0.5">Travel Partner commission/mo</p>
           <p className="text-base font-bold text-green-300">{fmt(agencyCommission)}</p>
         </div>
         <div className="bg-blue-900/30 border border-blue-500/20 rounded-lg p-2 text-center">
@@ -902,7 +902,7 @@ function RevenueCalculator({ responses }) {
                   <span className={`font-semibold ${confColor}`}>{confidence}</span>
                   <span className="text-slate-400">{perMonth.toLocaleString()} bookings/mo</span>
                   <span className="text-green-300">{totalRedemptions.toLocaleString()} redemptions/mo</span>
-                  <span className="text-purple-300 font-semibold ml-auto">{fmt(dutyBoostFee)} fee/mo → {fmt(dutyBoostNet)} net</span>
+                  <span className="text-purple-300 font-semibold ml-auto">{fmt(dutyBoostFee)} fee/mo → {fmt(dutyBoostNet)} DB net</span>
                 </div>
               );
             })}
@@ -1025,7 +1025,7 @@ function GlobalPotentialsDashboard({ responses }) {
                 <th className="pb-2 pr-3 text-right">Redemptions/mo</th>
                 <th className="pb-2 pr-3 text-right">Gross spend/mo</th>
                 <th className="pb-2 pr-3 text-right">Fee pool/mo</th>
-                <th className="pb-2 pr-3 text-right">Agency/mo</th>
+                <th className="pb-2 pr-3 text-right">Travel Partner/mo</th>
                 <th className="pb-2 text-right">DB net/yr</th>
               </tr>
             </thead>
@@ -1046,6 +1046,7 @@ function GlobalPotentialsDashboard({ responses }) {
                   <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
                   <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(r.rev.dutyBoostFee)}</td>
                   <td className="py-2.5 pr-3 text-right text-green-400">{fmt(r.rev.agencyCommission)}</td>
+
                   <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(r.rev.dutyBoostNet * 12)}</td>
                 </tr>
               ))}
@@ -1075,7 +1076,7 @@ function GlobalPotentialsDashboard({ responses }) {
               { label: "Redemptions (10%)", value: totalRedemp.toLocaleString(), color: "text-green-300" },
               { label: "Gross retail spend", value: fmt(totalGross), color: "text-blue-300" },
               { label: "DutyBoost fee pool", value: fmt(totalFee), color: "text-purple-300" },
-              { label: "→ Agency (20%)", value: fmt(totalAgency), color: "text-green-400" },
+              { label: "→ Travel Partner (20%)", value: fmt(totalAgency), color: "text-green-400" },
               { label: "→ DutyBoost net (80%)", value: fmt(totalNet), color: "text-white" },
             ].map(({ label, value, color }) => (
               <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
@@ -1093,7 +1094,7 @@ function GlobalPotentialsDashboard({ responses }) {
               { label: "Redemptions/yr", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
               { label: "Gross retail spend/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
               { label: "DutyBoost fee pool/yr", value: fmt(totalFee * 12), color: "text-purple-300" },
-              { label: "→ Agency/yr", value: fmt(totalAgency * 12), color: "text-green-400" },
+              { label: "→ Travel Partner/yr", value: fmt(totalAgency * 12), color: "text-green-400" },
               { label: "→ DutyBoost net/yr", value: fmt(totalNet * 12), color: "text-white" },
             ].map(({ label, value, color }) => (
               <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
@@ -1128,7 +1129,7 @@ function GlobalPotentialsDashboard({ responses }) {
                 <th className="pb-2 pr-3 text-right">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% Redemptions/yr</th>
                 <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
                 <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
-                <th className="pb-2 pr-3 text-right">Agency/yr</th>
+                <th className="pb-2 pr-3 text-right">Travel Partner/yr</th>
                 <th className="pb-2 text-right">DB net/yr</th>
               </tr>
             </thead>
