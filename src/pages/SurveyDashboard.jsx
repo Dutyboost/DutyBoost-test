@@ -1026,7 +1026,7 @@ function GlobalPotentialsDashboard({ responses }) {
                 <th className="pb-2 pr-3 text-right">Gross spend/mo</th>
                 <th className="pb-2 pr-3 text-right">Fee pool/mo</th>
                 <th className="pb-2 pr-3 text-right">Travel Partner/mo</th>
-                <th className="pb-2 text-right">DB net/yr</th>
+                <th className="pb-2 text-right">DB net/mo</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-700/40">
@@ -1046,8 +1046,7 @@ function GlobalPotentialsDashboard({ responses }) {
                   <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
                   <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(r.rev.dutyBoostFee)}</td>
                   <td className="py-2.5 pr-3 text-right text-green-400">{fmt(r.rev.agencyCommission)}</td>
-
-                  <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(r.rev.dutyBoostNet * 12)}</td>
+                  <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(r.rev.dutyBoostNet)}</td>
                 </tr>
               ))}
             </tbody>
@@ -1059,7 +1058,7 @@ function GlobalPotentialsDashboard({ responses }) {
                 <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totalGross)}</td>
                 <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totalFee)}</td>
                 <td className="pt-3 pr-3 text-right text-green-400">{fmt(totalAgency)}</td>
-                <td className="pt-3 text-right text-yellow-300">{fmt(totalNet * 12)}</td>
+                <td className="pt-3 text-right text-yellow-300">{fmt(totalNet)}</td>
               </tr>
             </tfoot>
           </table>
