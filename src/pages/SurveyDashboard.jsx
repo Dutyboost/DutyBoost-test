@@ -944,10 +944,11 @@ const AIRPORT_DATA = [
   { name: "Amsterdam Schiphol (AMS)", iata: "AMS", paxPerYear: 66_829_000, source: "Schiphol Annual Traffic Review 2024" },
 ];
 
-const GLOBAL_REDEMPTION_RATE = 0.10; // 10% for Global Potentials display
+const GLOBAL_REDEMPTION_RATE = 0.10; // 10% of bookings redeem a voucher
+const RETAILER_REACH_RATE   = 0.10; // 10% of redeemers actually visit airport retail (÷10 realism factor)
 
 function calcRevenueGlobal(totalMonthlyBookings) {
-  const totalRedemptions = Math.round(totalMonthlyBookings * GLOBAL_REDEMPTION_RATE);
+  const totalRedemptions = Math.round(totalMonthlyBookings * GLOBAL_REDEMPTION_RATE * RETAILER_REACH_RATE);
   const grossRevenue     = totalRedemptions * AVG_BASKET;
   const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
   const dutyBoostFee     = totalRedemptions * feePerRedemption;
@@ -1005,9 +1006,10 @@ function GlobalPotentialsDashboard({ responses }) {
       {/* Assumptions bar */}
       <div className="bg-slate-800 border border-blue-500/20 rounded-xl px-4 py-3 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
         <span>📐 Assumptions:</span>
-        <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span>
+        <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of bookings redeem</span>
+        <span className="text-white">×{(RETAILER_REACH_RATE * 100).toFixed(0)}% reach airport retail (÷10 realism)</span>
         <span className="text-white">€{AVG_BASKET} avg basket</span>
-        <span className="text-white">2.5% fee → €{feePerRedemption.toFixed(2)}/redemption (capped €{FEE_CAP})</span>
+        <span className="text-white">2.5% fee → €{feePerRedemption.toFixed(2)}/tx (capped €{FEE_CAP})</span>
         <span className="text-white">20% of fee → Travel Partner</span>
         <span className="text-slate-500 italic">Verified data from public sources (annual reports, press)</span>
       </div>
@@ -1125,7 +1127,8 @@ function GlobalPotentialsDashboard({ responses }) {
               <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">AMS Airport Potential — Combined Travel Partner Volume</h3>
               <p className="text-xs text-slate-400">
                 Based on <span className="text-white">{rows.length} verified travel partners</span> combined bookings/yr ×{" "}
-                <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span> ·{" "}
+                <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redeem</span> ×{" "}
+                <span className="text-white">{(RETAILER_REACH_RATE * 100).toFixed(0)}% reach airport retail (÷10)</span> ·{" "}
                 <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span>
               </p>
             </div>
@@ -1158,7 +1161,7 @@ function GlobalPotentialsDashboard({ responses }) {
               </table>
             </div>
             <p className="text-xs text-slate-600 italic">
-              {`Partner bookings/yr = sum of verified monthly bookings × 12. ${(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of those bookings are assumed to redeem a voucher at AMS airport retail.`}
+              {`Partner bookings/yr = sum of verified monthly bookings × 12. ${(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redeem a voucher × ${(RETAILER_REACH_RATE * 100).toFixed(0)}% of those actually spend at AMS airport retail (÷10 realism factor).`}
             </p>
           </div>
         );
