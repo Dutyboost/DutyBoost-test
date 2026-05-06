@@ -938,6 +938,19 @@ function RevenueCalculator({ responses }) {
   );
 }
 
+// ── Airport reference data (annual passenger totals, 2024, public sources) ──────
+// Source: official airport annual reports / press releases 2024
+const AIRPORT_DATA = [
+  { name: "Dubai Int'l (DXB)",      iata: "DXB", paxPerYear: 92_300_000, source: "Dubai Airports press release Jan 2025" },
+  { name: "Amsterdam Schiphol (AMS)", iata: "AMS", paxPerYear: 66_829_000, source: "Schiphol Annual Traffic Review 2024" },
+  { name: "Barcelona El Prat (BCN)", iata: "BCN", paxPerYear: 55_000_000, source: "Barcelona Airport Annual Report 2024" },
+  { name: "Frankfurt (FRA)",         iata: "FRA", paxPerYear: 61_600_000, source: "Fraport AG Annual Report 2024" },
+  { name: "Paris CDG (CDG)",         iata: "CDG", paxPerYear: 67_400_000, source: "ADP Group Annual Report 2024" },
+  { name: "Madrid Barajas (MAD)",    iata: "MAD", paxPerYear: 62_600_000, source: "AENA Annual Report 2024" },
+  { name: "London Heathrow (LHR)",   iata: "LHR", paxPerYear: 83_900_000, source: "Heathrow Airport Annual Report 2024" },
+  { name: "Rome Fiumicino (FCO)",    iata: "FCO", paxPerYear: 50_400_000, source: "Aeroporti di Roma Annual Report 2024" },
+];
+
 // ── Global Potentials Dashboard ───────────────────────────────────────────────
 // Uses RESEARCHED_VOLUMES directly — dynamic: only shows companies that match a respondent
 function GlobalPotentialsDashboard({ responses }) {
@@ -1090,6 +1103,80 @@ function GlobalPotentialsDashboard({ responses }) {
       {rows.length === 0 && (
         <p className="text-center text-slate-500 py-12 text-sm">No verified volume data found for current respondents.</p>
       )}
+
+      {/* ── Airport Potential Section ── */}
+      <div className="bg-slate-800 border border-indigo-500/30 rounded-2xl p-5 space-y-4">
+        <div>
+          <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">Airport-Level Potential</h3>
+          <p className="text-xs text-slate-400">
+            Based on <span className="text-white">10% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
+            <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span> ·{" "}
+            Source: official airport annual reports 2024
+          </p>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="text-left text-slate-400 border-b border-slate-700">
+                <th className="pb-2 pr-3">Airport</th>
+                <th className="pb-2 pr-3 text-right">Pax/yr (2024)</th>
+                <th className="pb-2 pr-3 text-right">10% Redemptions/yr</th>
+                <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
+                <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
+                <th className="pb-2 pr-3 text-right">Agency/yr</th>
+                <th className="pb-2 text-right">DB net/yr</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-700/40">
+              {AIRPORT_DATA.map(ap => {
+                const paxPerMonth = Math.round(ap.paxPerYear / 12);
+                const rev = calcRevenue(paxPerMonth);
+                return (
+                  <tr key={ap.iata} className="hover:bg-slate-700/20 transition-colors">
+                    <td className="py-2.5 pr-3">
+                      <span className="text-white font-medium">{ap.name}</span>
+                    </td>
+                    <td className="py-2.5 pr-3 text-right text-slate-300">{ap.paxPerYear.toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-300">{(rev.totalRedemptions * 12).toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(rev.grossRevenue * 12)}</td>
+                    <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(rev.dutyBoostFee * 12)}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-400">{fmt(rev.agencyCommission * 12)}</td>
+                    <td className="py-2.5 text-right text-yellow-300 font-bold">{fmt(rev.dutyBoostNet * 12)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot>
+              {(() => {
+                const totals = AIRPORT_DATA.reduce((acc, ap) => {
+                  const rev = calcRevenue(Math.round(ap.paxPerYear / 12));
+                  acc.pax += ap.paxPerYear;
+                  acc.redeems += rev.totalRedemptions * 12;
+                  acc.gross += rev.grossRevenue * 12;
+                  acc.fee += rev.dutyBoostFee * 12;
+                  acc.agency += rev.agencyCommission * 12;
+                  acc.net += rev.dutyBoostNet * 12;
+                  return acc;
+                }, { pax: 0, redeems: 0, gross: 0, fee: 0, agency: 0, net: 0 });
+                return (
+                  <tr className="border-t-2 border-slate-500 text-white font-bold">
+                    <td className="pt-3 pr-3">TOTAL ({AIRPORT_DATA.length} airports)</td>
+                    <td className="pt-3 pr-3 text-right text-slate-300">{totals.pax.toLocaleString()}</td>
+                    <td className="pt-3 pr-3 text-right text-green-300">{totals.redeems.toLocaleString()}</td>
+                    <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totals.gross)}</td>
+                    <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totals.fee)}</td>
+                    <td className="pt-3 pr-3 text-right text-green-400">{fmt(totals.agency)}</td>
+                    <td className="pt-3 text-right text-yellow-300">{fmt(totals.net)}</td>
+                  </tr>
+                );
+              })()}
+            </tfoot>
+          </table>
+        </div>
+        <p className="text-xs text-slate-600 italic">
+          Assumption: 10% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
+        </p>
+      </div>
     </div>
   );
 }
