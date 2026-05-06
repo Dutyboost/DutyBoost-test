@@ -951,6 +951,18 @@ const AIRPORT_DATA = [
   { name: "Rome Fiumicino (FCO)",    iata: "FCO", paxPerYear: 50_400_000, source: "Aeroporti di Roma Annual Report 2024" },
 ];
 
+const GLOBAL_REDEMPTION_RATE = 0.01; // 1% for Global Potentials display
+
+function calcRevenueGlobal(totalMonthlyBookings) {
+  const totalRedemptions = Math.round(totalMonthlyBookings * GLOBAL_REDEMPTION_RATE);
+  const grossRevenue     = totalRedemptions * AVG_BASKET;
+  const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+  const dutyBoostFee     = totalRedemptions * feePerRedemption;
+  const agencyCommission = dutyBoostFee * AGENCY_SHARE;
+  const dutyBoostNet     = dutyBoostFee - agencyCommission;
+  return { totalRedemptions, grossRevenue, feePerRedemption, dutyBoostFee, agencyCommission, dutyBoostNet };
+}
+
 // ── Global Potentials Dashboard ───────────────────────────────────────────────
 // Uses RESEARCHED_VOLUMES directly — dynamic: only shows companies that match a respondent
 function GlobalPotentialsDashboard({ responses }) {
@@ -961,7 +973,7 @@ function GlobalPotentialsDashboard({ responses }) {
   const rows = responses.map(r => {
     const rv = getResearchedVolume(r.company_name);
     if (!rv) return null;
-    const rev = calcRevenue(rv.perMonth);
+    const rev = calcRevenueGlobal(rv.perMonth);
     return { ...r, rv, rev };
   }).filter(Boolean);
 
@@ -1000,7 +1012,7 @@ function GlobalPotentialsDashboard({ responses }) {
       {/* Assumptions bar */}
       <div className="bg-slate-800 border border-blue-500/20 rounded-xl px-4 py-3 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
         <span>📐 Assumptions:</span>
-        <span className="text-white">{(REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span>
+        <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redemption rate</span>
         <span className="text-white">€{AVG_BASKET} avg basket</span>
         <span className="text-white">2.5% fee → €{feePerRedemption.toFixed(2)}/redemption (capped €{FEE_CAP})</span>
         <span className="text-white">20% of fee → agency</span>
@@ -1109,7 +1121,7 @@ function GlobalPotentialsDashboard({ responses }) {
         <div>
           <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">Airport-Level Potential</h3>
           <p className="text-xs text-slate-400">
-            Based on <span className="text-white">10% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
+            Based on <span className="text-white">1% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
             <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span> ·{" "}
             Source: official airport annual reports 2024
           </p>
@@ -1120,7 +1132,7 @@ function GlobalPotentialsDashboard({ responses }) {
               <tr className="text-left text-slate-400 border-b border-slate-700">
                 <th className="pb-2 pr-3">Airport</th>
                 <th className="pb-2 pr-3 text-right">Pax/yr (2024)</th>
-                <th className="pb-2 pr-3 text-right">10% Redemptions/yr</th>
+                <th className="pb-2 pr-3 text-right">1% Redemptions/yr</th>
                 <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
                 <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
                 <th className="pb-2 pr-3 text-right">Agency/yr</th>
@@ -1130,7 +1142,7 @@ function GlobalPotentialsDashboard({ responses }) {
             <tbody className="divide-y divide-slate-700/40">
               {AIRPORT_DATA.map(ap => {
                 const paxPerMonth = Math.round(ap.paxPerYear / 12);
-                const rev = calcRevenue(paxPerMonth);
+                const rev = calcRevenueGlobal(paxPerMonth);
                 return (
                   <tr key={ap.iata} className="hover:bg-slate-700/20 transition-colors">
                     <td className="py-2.5 pr-3">
@@ -1149,7 +1161,7 @@ function GlobalPotentialsDashboard({ responses }) {
             <tfoot>
               {(() => {
                 const totals = AIRPORT_DATA.reduce((acc, ap) => {
-                  const rev = calcRevenue(Math.round(ap.paxPerYear / 12));
+                  const rev = calcRevenueGlobal(Math.round(ap.paxPerYear / 12));
                   acc.pax += ap.paxPerYear;
                   acc.redeems += rev.totalRedemptions * 12;
                   acc.gross += rev.grossRevenue * 12;
@@ -1174,7 +1186,7 @@ function GlobalPotentialsDashboard({ responses }) {
           </table>
         </div>
         <p className="text-xs text-slate-600 italic">
-          Assumption: 10% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
+          Assumption: 1% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
         </p>
       </div>
     </div>
