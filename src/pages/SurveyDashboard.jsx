@@ -1114,7 +1114,7 @@ function GlobalPotentialsDashboard({ responses }) {
         <div>
           <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">Airport-Level Potential</h3>
           <p className="text-xs text-slate-400">
-            Based on <span className="text-white">1% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
+            Based on <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of total annual passengers</span> redeeming a voucher at airport retail ·{" "}
             <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span> ·{" "}
             Source: official airport annual reports 2024
           </p>
@@ -1125,7 +1125,7 @@ function GlobalPotentialsDashboard({ responses }) {
               <tr className="text-left text-slate-400 border-b border-slate-700">
                 <th className="pb-2 pr-3">Airport</th>
                 <th className="pb-2 pr-3 text-right">Pax/yr (2024)</th>
-                <th className="pb-2 pr-3 text-right">1% Redemptions/yr</th>
+                <th className="pb-2 pr-3 text-right">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% Redemptions/yr</th>
                 <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
                 <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
                 <th className="pb-2 pr-3 text-right">Agency/yr</th>
@@ -1179,7 +1179,7 @@ function GlobalPotentialsDashboard({ responses }) {
           </table>
         </div>
         <p className="text-xs text-slate-600 italic">
-          Assumption: 1% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
+          Assumption: {(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% of all passengers redeem one voucher at airport retail. Real redemption rate will depend on DutyBoost penetration and partner activation.
         </p>
       </div>
     </div>
