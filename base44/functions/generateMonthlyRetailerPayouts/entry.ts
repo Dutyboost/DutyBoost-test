@@ -96,7 +96,7 @@ Deno.serve(async (req) => {
 <ol>
   <li>Review the payout summary above</li>
   <li>Confirm the total platform fees to be processed</li>
-  <li>Run the <code>executeRetailerPayouts</code> function to charge retailers and generate invoices</li>
+  <li>Run the <code>executeBatchPayouts</code> function to charge retailers and generate invoices</li>
 </ol>
 
 <p style="color: #666; font-size: 12px;">This is an automated summary for review. No charges have been processed yet.</p>

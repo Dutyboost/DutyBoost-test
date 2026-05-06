@@ -10,8 +10,8 @@ Deno.serve(async (req) => {
     const startOfMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
     const endOfMonth = new Date(now.getFullYear(), now.getMonth(), 0);
 
-    // Fetch all transactions from last month
-    const transactions = await base44.asServiceRole.entities.Transaction.filter({});
+    // Fetch all transactions (large limit to avoid truncation)
+    const transactions = await base44.asServiceRole.entities.Transaction.list('-created_date', 10000);
     
     const lastMonthTransactions = transactions.filter(t => {
       const txDate = new Date(t.created_date);

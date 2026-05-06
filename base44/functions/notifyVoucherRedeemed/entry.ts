@@ -8,8 +8,8 @@ Deno.serve(async (req) => {
     const voucherId = body?.event?.entity_id;
     if (!voucherId) return Response.json({ skipped: true });
 
-    const vouchers = await base44.asServiceRole.entities.Voucher.filter({ id: voucherId });
-    const voucher = vouchers[0];
+    // Use the payload data directly if available (entity automation), else list and find
+    const voucher = body?.data || (await base44.asServiceRole.entities.Voucher.list('-created_date', 1000)).find(v => v.id === voucherId);
     if (!voucher || voucher.status !== 'redeemed') return Response.json({ skipped: true });
 
     // Check agency notification preferences

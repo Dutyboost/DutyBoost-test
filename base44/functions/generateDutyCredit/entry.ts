@@ -252,11 +252,15 @@ Deno.serve(async (req) => {
 </html>
 `.trim();
 
-  await base44.asServiceRole.integrations.Core.SendEmail({
-    to: traveler_email,
-    subject: `Your DutyCredit for ${departure_airport} — save up to €60.00 at the airport`,
-    body: emailBody,
-  });
+  try {
+    await base44.asServiceRole.integrations.Core.SendEmail({
+      to: traveler_email,
+      subject: `Your DutyCredit for ${departure_airport} — save up to €60.00 at the airport`,
+      body: emailBody,
+    });
+  } catch (emailErr) {
+    console.error('DutyCredit email send failed (voucher was still created):', emailErr.message);
+  }
 
   return Response.json({
     success: true,

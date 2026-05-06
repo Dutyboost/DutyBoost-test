@@ -14,9 +14,19 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Postmark API key not configured' }, { status: 500 });
     }
 
-    // MonthlyInvoice uses `retailer_email` field for agency email (field reused)
+    // MonthlyInvoice is shared between retailer invoices and agency commission statements.
+    // Only send commission alerts for agency payout statements (identified by matching a Travel Partner application).
     const { retailer_email, agency_email, amount, month_year } = data;
     const recipientEmail = agency_email || retailer_email;
+
+    // Guard: skip if this invoice belongs to a retailer, not an agency
+    const agencyApps = await base44.asServiceRole.entities.SignupApplication.filter({
+      business_type: 'Travel Partner',
+      email: recipientEmail,
+    });
+    if (agencyApps.length === 0) {
+      return Response.json({ skipped: 'not an agency commission statement' });
+    }
 
     const emailBody = `
       <h2>Commission Earned!</h2>

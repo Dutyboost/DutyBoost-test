@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
       aggregateMap[key].transaction_count += 1;
       aggregateMap[key].total_volume += tx.transaction_value || 0;
       aggregateMap[key].total_discount += (tx.discount_amount || 0);
-      aggregateMap[key].platform_revenue += tx.platform_revenue || (tx.transaction_value || 0) * 0.05;
+      aggregateMap[key].platform_revenue += tx.platform_revenue ?? Math.min((tx.transaction_value || 0) * 0.025, 25);
     });
 
     // Bulk create aggregates

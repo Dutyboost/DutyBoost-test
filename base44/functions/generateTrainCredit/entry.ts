@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
     });
 
     // Send notification email
-    await base44.integrations.Core.SendEmail({
+    await base44.asServiceRole.integrations.Core.SendEmail({
       to: traveler_email,
       subject: `Your DutyCredit for ${departure_station} is ready — €${creditValue} to spend before you board`,
       body: `

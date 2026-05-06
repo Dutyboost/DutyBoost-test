@@ -22,21 +22,23 @@ Deno.serve(async (req) => {
 
     const mollieKey = Deno.env.get('MOLLIE_API_KEY');
 
-    // Fetch payment status from Mollie
-    const mollieRes = await fetch(`https://api.mollie.com/v2/payments/${id}`, {
+    // Fetch payments for this payment-link from Mollie
+    // (Mollie payment-link webhooks send the payment-link ID, not a payment ID)
+    const mollieRes = await fetch(`https://api.mollie.com/v2/payment-links/${id}/payments?limit=1`, {
       headers: { Authorization: `Bearer ${mollieKey}` },
     });
 
     if (!mollieRes.ok) {
       const err = await mollieRes.text();
       console.error('Mollie fetch error:', err);
-      return Response.json({ error: 'Failed to fetch payment' }, { status: 500 });
+      return Response.json({ error: 'Failed to fetch payment-link payments' }, { status: 500 });
     }
 
-    const payment = await mollieRes.json();
-    console.log(`Mollie webhook: payment ${id} status = ${payment.status}`);
+    const paymentsPage = await mollieRes.json();
+    const payment = paymentsPage?._embedded?.payments?.[0];
+    console.log(`Mollie webhook: payment-link ${id} latest payment status = ${payment?.status}`);
 
-    if (payment.status === 'paid') {
+    if (payment?.status === 'paid') {
       const metadata = payment.metadata || {};
       const invoiceMonthYear = metadata.invoice_month_year;
       const retailerEmail = metadata.retailer_email;

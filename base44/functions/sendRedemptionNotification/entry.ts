@@ -21,6 +21,10 @@ Deno.serve(async (req) => {
 
     const { voucher_code, airport, discount_percentage, traveler_email } = data;
 
+    if (!traveler_email) {
+      return Response.json({ skipped: 'no traveler_email on voucher' });
+    }
+
     const emailBody = `
       <h2>DutyCredit Redeemed Successfully!</h2>
       <p>Great news! Your DutyCredit has been redeemed at ${airport}.</p>
