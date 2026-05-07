@@ -32,14 +32,6 @@ Deno.serve(async (req) => {
       base44.asServiceRole.entities.SignupApplication.list(),
     ]);
 
-    // Build lookup: owner_email -> invoice email (use app email, fall back to owner email)
-    const invoiceEmailMap = {};
-    for (const app of applications) {
-      if (app.email) {
-        invoiceEmailMap[app.email] = app.email;
-      }
-    }
-
     // Group platform_revenue by retailer owner_email for prev month
     const retailerMap = {};
     for (const r of retailers) {
@@ -117,7 +109,7 @@ Deno.serve(async (req) => {
       }
 
       // Send invoice email
-      const invoiceEmail = invoiceEmailMap[ownerEmail] || ownerEmail;
+      const invoiceEmail = ownerEmail;
       if (postmarkToken && invoiceEmail) {
         const payNowButton = paymentLinkUrl
           ? `<div style="text-align: center; margin: 28px 0;">

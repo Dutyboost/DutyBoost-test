@@ -265,7 +265,7 @@ const RESEARCHED_VOLUMES = {
   "bookit":          { perYear: 180_000,    perMonth: 15_000,    source: "RocketReach / Slovenia.info trade catalogue (88 employees, $12M revenue est.)", confidence: "medium" },
   "acsi":            { perYear: 75_000,     perMonth: 6_250,     source: "ACSI Handelskrant 2025 / Suncamp.co.uk — 330 campsites, EU camping specialist", confidence: "medium" },
   "exploreo":        { perYear: 12_000,     perMonth: 1_000,     source: "Exploreo.com About page — early-stage sustainable travel platform", confidence: "low" },
-  "nf tu coach":     { perYear: 7_500,      perMonth: 625,       source: "tucoachflanders.com — small regional coach operator Belgium", confidence: "low" },
+  "tucoach":         { perYear: 7_500,      perMonth: 625,       source: "tucoachflanders.com — small regional coach operator Belgium", confidence: "low" },
 };
 
 function getResearchedVolume(companyName) {
@@ -755,14 +755,16 @@ function parseCustomVolume(val) {
   return num;
 }
 
-const REDEMPTION_RATE = 0.10;   // 10% redemption rate
-const MIN_BASKET    = 70;        // €70 minimum basket
-const MAX_BASKET    = 300;       // €300 maximum basket
-const AVG_BASKET    = 185;       // €185 average basket (midpoint of €70–€300)
-const FEE_RATE      = 0.025;     // 2.5% DutyBoost fee on avg basket
-const FEE_CAP       = 25;        // €25 max DutyBoost fee per transaction
-const AGENCY_SHARE  = 0.20;      // 20% of DutyBoost fee to agency
+const REDEMPTION_RATE      = 0.10;  // 10% of bookings issue a voucher
+const RETAILER_REACH_RATE  = 0.10;  // 10% of those actually visit airport retail → effective 1%
+const MIN_BASKET           = 70;    // €70 minimum basket
+const MAX_BASKET           = 300;   // €300 maximum basket
+const AVG_BASKET           = 185;   // €185 average basket (midpoint of €70–€300)
+const FEE_RATE             = 0.025; // 2.5% DutyBoost fee on avg basket
+const FEE_CAP              = 25;    // €25 max DutyBoost fee per transaction
+const AGENCY_SHARE         = 0.20;  // 20% of DutyBoost fee to agency
 
+// Single shared revenue calc — used by both Travel Partner and Global Potentials sections
 function calcRevenue(totalMonthlyBookings) {
   const totalRedemptions = Math.round(totalMonthlyBookings * REDEMPTION_RATE * RETAILER_REACH_RATE);
   const grossRevenue     = totalRedemptions * AVG_BASKET;
@@ -852,8 +854,7 @@ function RevenueCalculator({ responses }) {
     }
   });
 
-  const selfRev = calcRevenue(selfMonthly);
-  const verifiedRev = calcRevenue(verifiedMonthly);
+  // selfRev / verifiedRev not needed — panels call calcRevenue directly
 
   return (
     <div className="bg-slate-800 border border-green-500/30 rounded-2xl p-5 space-y-5">
@@ -940,24 +941,10 @@ function RevenueCalculator({ responses }) {
   );
 }
 
-// ── Airport reference data (annual passenger totals, 2024, public sources) ──────
-// Source: official airport annual reports / press releases 2024
-const AIRPORT_DATA = [
-  { name: "Amsterdam Schiphol (AMS)", iata: "AMS", paxPerYear: 66_829_000, source: "Schiphol Annual Traffic Review 2024" },
-];
+// calcRevenueGlobal is an alias for calcRevenue — same model, one source of truth
+const calcRevenueGlobal = calcRevenue;
+const GLOBAL_REDEMPTION_RATE = REDEMPTION_RATE;
 
-const GLOBAL_REDEMPTION_RATE = 0.10; // 10% of bookings redeem a voucher
-const RETAILER_REACH_RATE   = 0.10; // 10% of redeemers actually visit airport retail (÷10 realism factor)
-
-function calcRevenueGlobal(totalMonthlyBookings) {
-  const totalRedemptions = Math.round(totalMonthlyBookings * GLOBAL_REDEMPTION_RATE * RETAILER_REACH_RATE);
-  const grossRevenue     = totalRedemptions * AVG_BASKET;
-  const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
-  const dutyBoostFee     = totalRedemptions * feePerRedemption;
-  const agencyCommission = dutyBoostFee * AGENCY_SHARE;
-  const dutyBoostNet     = dutyBoostFee - agencyCommission;
-  return { totalRedemptions, grossRevenue, feePerRedemption, dutyBoostFee, agencyCommission, dutyBoostNet };
-}
 
 // ── Global Potentials Dashboard ───────────────────────────────────────────────
 // Uses RESEARCHED_VOLUMES directly — dynamic: only shows companies that match a respondent
@@ -1093,7 +1080,7 @@ function GlobalPotentialsDashboard({ responses }) {
           <div className="space-y-2">
             {[
               { label: "Total bookings", value: totalMonthly.toLocaleString(), color: "text-yellow-300" },
-              { label: "Redemptions (10%)", value: totalRedemp.toLocaleString(), color: "text-green-300" },
+              { label: "Redemptions (1% = 10%×10%)", value: totalRedemp.toLocaleString(), color: "text-green-300" },
               { label: "Gross retail spend", value: fmt(totalGross), color: "text-blue-300" },
               { label: "DutyBoost fee pool", value: fmt(totalFee), color: "text-purple-300" },
               { label: "→ Travel Partner (20%)", value: fmt(totalAgency), color: "text-green-400" },

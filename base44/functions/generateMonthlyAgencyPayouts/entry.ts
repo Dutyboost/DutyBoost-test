@@ -8,7 +8,7 @@ Deno.serve(async (req) => {
     // Get all confirmed redemptions from the previous month
     const now = new Date();
     const startOfMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-    const endOfMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59);
 
     // Fetch all transactions (large limit to avoid truncation)
     const transactions = await base44.asServiceRole.entities.Transaction.list('-created_date', 10000);
