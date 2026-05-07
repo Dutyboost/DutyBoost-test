@@ -1035,7 +1035,7 @@ function GlobalPotentialsDashboard({ responses }) {
 
       {/* Per-company table */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5">
-        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Company Potential</h3>
+        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Company Commitment</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
