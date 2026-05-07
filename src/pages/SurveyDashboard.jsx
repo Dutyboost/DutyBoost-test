@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, FileText } from "lucide-react";
 import * as XLSX from "xlsx";
+import { jsPDF } from "jspdf";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 
 const RETAILER_PREFIX = "Airport Retailer – ";
@@ -982,6 +983,23 @@ function GlobalPotentialsDashboard({ responses }) {
 
   const confidenceColor = { high: "text-green-400 bg-green-900/30", medium: "text-yellow-400 bg-yellow-900/30", low: "text-orange-400 bg-orange-900/30" };
 
+  // Pre-compute airport section data for PDF
+  const partnerBookingsPerYear = totalMonthly * 12;
+  const redemptionsPerYear = Math.round(partnerBookingsPerYear * GLOBAL_REDEMPTION_RATE * RETAILER_REACH_RATE);
+  const grossPerYear = redemptionsPerYear * AVG_BASKET;
+  const feePerTxVal = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+  const feePoolPerYear = redemptionsPerYear * feePerTxVal;
+  const travelPartnerPerYear = feePoolPerYear * AGENCY_SHARE;
+  const dbNetPerYear = feePoolPerYear - travelPartnerPerYear;
+
+  const handleDownloadPDF = () => {
+    exportGlobalPotentialsPDF(
+      rows,
+      { totalMonthly, totalRedemp, totalGross, totalFee, totalAgency, totalNet },
+      { partnerBookingsPerYear, redemptionsPerYear, grossPerYear, feePoolPerYear, travelPartnerPerYear, dbNetPerYear }
+    );
+  };
+
   return (
     <div className="space-y-6">
       {/* Header KPIs */}
@@ -1002,6 +1020,17 @@ function GlobalPotentialsDashboard({ responses }) {
           <p className="text-xs text-slate-400 mb-1">DutyBoost net/yr</p>
           <p className="text-2xl font-bold text-green-300">{fmt(totalNet * 12)}</p>
         </div>
+      </div>
+
+      {/* PDF Download button */}
+      <div className="flex justify-end">
+        <Button
+          size="sm"
+          onClick={handleDownloadPDF}
+          className="gap-2 bg-yellow-600 hover:bg-yellow-500 text-white"
+        >
+          <Download className="w-4 h-4" /> Download PDF
+        </Button>
       </div>
 
       {/* Assumptions bar */}
@@ -1114,14 +1143,6 @@ function GlobalPotentialsDashboard({ responses }) {
 
       {/* ── Airport Potential Section ── */}
       {(() => {
-        const partnerBookingsPerYear = totalMonthly * 12;
-        const redemptionsPerYear = Math.round(partnerBookingsPerYear * GLOBAL_REDEMPTION_RATE * RETAILER_REACH_RATE);
-        const grossPerYear = redemptionsPerYear * AVG_BASKET;
-        const feePerTx = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
-        const feePoolPerYear = redemptionsPerYear * feePerTx;
-        const travelPartnerPerYear = feePoolPerYear * AGENCY_SHARE;
-        const dbNetPerYear = feePoolPerYear - travelPartnerPerYear;
-
         return (
           <div className="bg-slate-800 border border-indigo-500/30 rounded-2xl p-5 space-y-4">
             <div>
@@ -1139,7 +1160,7 @@ function GlobalPotentialsDashboard({ responses }) {
                   <tr className="text-left text-slate-400 border-b border-slate-700">
                     <th className="pb-2 pr-3">Airport</th>
                     <th className="pb-2 pr-3 text-right">Partner bookings/yr</th>
-                    <th className="pb-2 pr-3 text-right">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% Redemptions/yr</th>
+                    <th className="pb-2 pr-3 text-right">Redemptions/yr</th>
                     <th className="pb-2 pr-3 text-right">Gross retail spend/yr</th>
                     <th className="pb-2 pr-3 text-right">Fee pool/yr</th>
                     <th className="pb-2 pr-3 text-right">Travel Partner/yr</th>
@@ -1273,6 +1294,173 @@ function TravelPartnerDashboard({ responses }) {
       </ChartCard>
     </div>
   );
+}
+
+function exportGlobalPotentialsPDF(rows, totals, airportSection) {
+  const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+  const W = doc.internal.pageSize.getWidth();
+  const H = doc.internal.pageSize.getHeight();
+  const fmt = (n) => `\u20AC${Math.round(n).toLocaleString()}`;
+
+  // ── helpers ──────────────────────────────────────────────────────────────────
+  const bg = (hex, x, y, w, h, r = 3) => {
+    doc.setFillColor(hex);
+    doc.roundedRect(x, y, w, h, r, r, "F");
+  };
+  const txt = (str, x, y, color, size = 9, style = "normal") => {
+    doc.setTextColor(color);
+    doc.setFontSize(size);
+    doc.setFont("helvetica", style);
+    doc.text(String(str ?? "—"), x, y);
+  };
+  const rtxt = (str, x, y, color, size = 9, style = "normal") => {
+    doc.setTextColor(color);
+    doc.setFontSize(size);
+    doc.setFont("helvetica", style);
+    doc.text(String(str ?? "—"), x, y, { align: "right" });
+  };
+
+  // ── Background ───────────────────────────────────────────────────────────────
+  doc.setFillColor("#0f172a");
+  doc.rect(0, 0, W, H, "F");
+
+  // ── Header ───────────────────────────────────────────────────────────────────
+  bg("#1e293b", 10, 8, W - 20, 20, 4);
+  txt("DutyBoost", 16, 20, "#3b82f6", 14, "bold");
+  txt("Global Potentials — Verified Travel Partner Revenue Model", 16, 26, "#94a3b8", 8);
+  rtxt(`Generated ${new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}`, W - 16, 20, "#64748b", 8);
+  rtxt("hello@dutyboost.com · www.dutyboost.com", W - 16, 26, "#475569", 7);
+
+  // ── KPI row ──────────────────────────────────────────────────────────────────
+  const kpis = [
+    { label: "Verified respondents", value: String(rows.length), color: "#f8fafc" },
+    { label: "Combined bookings/mo", value: totals.totalMonthly.toLocaleString(), color: "#fde047" },
+    { label: "DutyBoost fee pool/mo", value: fmt(totals.totalFee), color: "#d8b4fe" },
+    { label: "DutyBoost net/yr", value: fmt(totals.totalNet * 12), color: "#86efac" },
+  ];
+  const kpiW = (W - 20) / 4;
+  kpis.forEach((k, i) => {
+    const x = 10 + i * kpiW;
+    bg("#1e293b", x, 32, kpiW - 2, 18, 3);
+    txt(k.label, x + 3, 39, "#94a3b8", 7);
+    txt(k.value, x + 3, 46, k.color, 11, "bold");
+  });
+
+  // ── Assumptions bar ───────────────────────────────────────────────────────────
+  bg("#1e293b", 10, 53, W - 20, 9, 2);
+  txt("📐 Assumptions:", 13, 59, "#94a3b8", 7);
+  txt("10% of bookings redeem  ×  10% reach airport retail (÷10)  ·  €185 avg basket  ·  2.5% fee → €4.63/tx (capped €25)  ·  20% of fee → Travel Partner  ·  Verified data: annual reports / press", 55, 59, "#f8fafc", 7);
+
+  // ── Per-company table ─────────────────────────────────────────────────────────
+  const tY = 65;
+  bg("#1e293b", 10, tY, W - 20, 8, 2);
+  const cols = [
+    { label: "Company",          x: 13,       w: 38, align: "left"  },
+    { label: "Type",             x: 52,       w: 35, align: "left"  },
+    { label: "Conf.",            x: 88,       w: 14, align: "left"  },
+    { label: "Bookings/mo",      x: W-148,    w: 25, align: "right" },
+    { label: "Redemptions/mo",   x: W-122,    w: 25, align: "right" },
+    { label: "Gross spend/mo",   x: W-96,     w: 27, align: "right" },
+    { label: "Fee pool/mo",      x: W-68,     w: 24, align: "right" },
+    { label: "Partner/mo",       x: W-43,     w: 20, align: "right" },
+    { label: "DB net/mo",        x: W-22,     w: 20, align: "right" },
+  ];
+  cols.forEach(c => {
+    if (c.align === "right") rtxt(c.label, c.x, tY + 5.5, "#64748b", 6.5, "bold");
+    else txt(c.label, c.x, tY + 5.5, "#64748b", 6.5, "bold");
+  });
+
+  const confColor = { high: "#4ade80", medium: "#fde047", low: "#fb923c" };
+  let rowY = tY + 10;
+  rows.forEach((r, idx) => {
+    if (idx % 2 === 1) { bg("#1a2744", 10, rowY - 4, W - 20, 8, 0); }
+    txt(r.company_name, 13, rowY + 0.5, "#f8fafc", 7, "bold");
+    txt((r.company_type || "—").substring(0, 22), 52, rowY + 0.5, "#94a3b8", 7);
+    txt(r.rv.confidence, 88, rowY + 0.5, confColor[r.rv.confidence] || "#94a3b8", 7, "bold");
+    rtxt(r.rv.perMonth.toLocaleString(), W - 148 + 25, rowY + 0.5, "#fde047", 7, "bold");
+    rtxt(r.rev.totalRedemptions.toLocaleString(), W - 122 + 25, rowY + 0.5, "#86efac", 7);
+    rtxt(fmt(r.rev.grossRevenue), W - 96 + 27, rowY + 0.5, "#93c5fd", 7);
+    rtxt(fmt(r.rev.dutyBoostFee), W - 68 + 24, rowY + 0.5, "#d8b4fe", 7);
+    rtxt(fmt(r.rev.agencyCommission), W - 43 + 20, rowY + 0.5, "#4ade80", 7);
+    rtxt(fmt(r.rev.dutyBoostNet), W - 22 + 20, rowY + 0.5, "#fde047", 7, "bold");
+    rowY += 8;
+  });
+
+  // Total row
+  doc.setDrawColor("#64748b");
+  doc.setLineWidth(0.3);
+  doc.line(10, rowY - 2, W - 10, rowY - 2);
+  rtxt(totals.totalMonthly.toLocaleString(), W - 148 + 25, rowY + 3, "#fde047", 7, "bold");
+  rtxt(totals.totalRedemp.toLocaleString(), W - 122 + 25, rowY + 3, "#86efac", 7, "bold");
+  rtxt(fmt(totals.totalGross), W - 96 + 27, rowY + 3, "#93c5fd", 7, "bold");
+  rtxt(fmt(totals.totalFee), W - 68 + 24, rowY + 3, "#d8b4fe", 7, "bold");
+  rtxt(fmt(totals.totalAgency), W - 43 + 20, rowY + 3, "#4ade80", 7, "bold");
+  rtxt(fmt(totals.totalNet), W - 22 + 20, rowY + 3, "#fde047", 7, "bold");
+  txt("TOTAL", 13, rowY + 3, "#f8fafc", 7, "bold");
+  rowY += 10;
+
+  // ── Summary cards (monthly / annual) ─────────────────────────────────────────
+  const cardW = (W - 22) / 2;
+  const summaryItems = [
+    [
+      { label: "Total bookings", value: totals.totalMonthly.toLocaleString(), color: "#fde047" },
+      { label: "Redemptions (10%×10%)", value: totals.totalRedemp.toLocaleString(), color: "#86efac" },
+      { label: "Gross retail spend", value: fmt(totals.totalGross), color: "#93c5fd" },
+      { label: "DutyBoost fee pool", value: fmt(totals.totalFee), color: "#d8b4fe" },
+      { label: "→ Travel Partner (20%)", value: fmt(totals.totalAgency), color: "#4ade80" },
+      { label: "→ DutyBoost net (80%)", value: fmt(totals.totalNet), color: "#f8fafc" },
+    ],
+    [
+      { label: "Total bookings/yr", value: (totals.totalMonthly * 12).toLocaleString(), color: "#fde047" },
+      { label: "Redemptions/yr", value: (totals.totalRedemp * 12).toLocaleString(), color: "#86efac" },
+      { label: "Gross retail spend/yr", value: fmt(totals.totalGross * 12), color: "#93c5fd" },
+      { label: "DutyBoost fee pool/yr", value: fmt(totals.totalFee * 12), color: "#d8b4fe" },
+      { label: "→ Travel Partner/yr", value: fmt(totals.totalAgency * 12), color: "#4ade80" },
+      { label: "→ DutyBoost net/yr", value: fmt(totals.totalNet * 12), color: "#f8fafc" },
+    ],
+  ];
+  const cardTitles = ["Monthly Summary", "Annual Projection (×12)"];
+  summaryItems.forEach((items, ci) => {
+    const cx = 10 + ci * (cardW + 2);
+    bg("#1e293b", cx, rowY, cardW, 8 + items.length * 8, 3);
+    txt(cardTitles[ci], cx + 4, rowY + 6, ci === 0 ? "#94a3b8" : "#fde047", 7.5, "bold");
+    items.forEach((item, ii) => {
+      const iy = rowY + 14 + ii * 8;
+      txt(item.label, cx + 4, iy, "#64748b", 7);
+      rtxt(item.value, cx + cardW - 4, iy, item.color, 7, "bold");
+    });
+  });
+
+  rowY += 8 + summaryItems[0].length * 8 + 4;
+
+  // ── Airport potential section ─────────────────────────────────────────────────
+  if (airportSection) {
+    bg("#1a2240", 10, rowY, W - 20, 32, 3);
+    txt("AMS Airport Potential — Combined Travel Partner Volume", 14, rowY + 7, "#f8fafc", 8, "bold");
+    txt(`Based on ${rows.length} verified travel partners · 10% redeem × 10% reach airport retail (÷10) · €185 avg basket · 2.5% fee · €25 cap/tx`, 14, rowY + 13, "#64748b", 6.5);
+    const apCols = [
+      { label: "Airport",             x: 14,       align: "left" },
+      { label: "Partner bookings/yr", x: W*0.38,   align: "right" },
+      { label: "Redemptions/yr",      x: W*0.52,   align: "right" },
+      { label: "Gross spend/yr",      x: W*0.64,   align: "right" },
+      { label: "Fee pool/yr",         x: W*0.74,   align: "right" },
+      { label: "Travel Partner/yr",   x: W*0.85,   align: "right" },
+      { label: "DB net/yr",           x: W-14,     align: "right" },
+    ];
+    apCols.forEach(c => {
+      if (c.align === "right") rtxt(c.label, c.x, rowY + 20, "#64748b", 6.5, "bold");
+      else txt(c.label, c.x, rowY + 20, "#64748b", 6.5, "bold");
+    });
+    rtxt(airportSection.partnerBookingsPerYear.toLocaleString(), W*0.38, rowY + 28, "#fde047", 7.5, "bold");
+    rtxt(airportSection.redemptionsPerYear.toLocaleString(), W*0.52, rowY + 28, "#86efac", 7.5);
+    rtxt(fmt(airportSection.grossPerYear), W*0.64, rowY + 28, "#93c5fd", 7.5);
+    rtxt(fmt(airportSection.feePoolPerYear), W*0.74, rowY + 28, "#d8b4fe", 7.5);
+    rtxt(fmt(airportSection.travelPartnerPerYear), W*0.85, rowY + 28, "#4ade80", 7.5);
+    rtxt(fmt(airportSection.dbNetPerYear), W-14, rowY + 28, "#fde047", 7.5, "bold");
+    txt("Amsterdam Schiphol (AMS)", 14, rowY + 28, "#f8fafc", 7.5, "bold");
+  }
+
+  doc.save(`dutyboost-global-potentials-${new Date().toISOString().slice(0,10)}.pdf`);
 }
 
 function exportToExcel(responses, filename, isRetailerView) {
