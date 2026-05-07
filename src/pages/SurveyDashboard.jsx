@@ -1022,17 +1022,6 @@ function GlobalPotentialsDashboard({ responses }) {
         </div>
       </div>
 
-      {/* PDF Download button */}
-      <div className="flex justify-end">
-        <Button
-          size="sm"
-          onClick={handleDownloadPDF}
-          className="gap-2 bg-yellow-600 hover:bg-yellow-500 text-white"
-        >
-          <Download className="w-4 h-4" /> Download PDF
-        </Button>
-      </div>
-
       {/* Assumptions bar */}
       <div className="bg-slate-800 border border-blue-500/20 rounded-xl px-4 py-3 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
         <span>📐 Assumptions:</span>
@@ -1293,6 +1282,43 @@ function TravelPartnerDashboard({ responses }) {
         </div>
       </ChartCard>
     </div>
+  );
+}
+
+function GlobalPotentialsPDFButton({ responses }) {
+  const rows = responses.map(r => {
+    const rv = getResearchedVolume(r.company_name);
+    if (!rv) return null;
+    const rev = calcRevenueGlobal(rv.perMonth);
+    return { ...r, rv, rev };
+  }).filter(Boolean);
+
+  const totalMonthly = rows.reduce((s, r) => s + r.rv.perMonth, 0);
+  const totalRedemp  = rows.reduce((s, r) => s + r.rev.totalRedemptions, 0);
+  const totalGross   = rows.reduce((s, r) => s + r.rev.grossRevenue, 0);
+  const totalFee     = rows.reduce((s, r) => s + r.rev.dutyBoostFee, 0);
+  const totalAgency  = rows.reduce((s, r) => s + r.rev.agencyCommission, 0);
+  const totalNet     = rows.reduce((s, r) => s + r.rev.dutyBoostNet, 0);
+
+  const partnerBookingsPerYear = totalMonthly * 12;
+  const redemptionsPerYear = Math.round(partnerBookingsPerYear * GLOBAL_REDEMPTION_RATE * RETAILER_REACH_RATE);
+  const grossPerYear = redemptionsPerYear * AVG_BASKET;
+  const feePoolPerYear = redemptionsPerYear * Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
+  const travelPartnerPerYear = feePoolPerYear * AGENCY_SHARE;
+  const dbNetPerYear = feePoolPerYear - travelPartnerPerYear;
+
+  return (
+    <Button
+      size="sm"
+      onClick={() => exportGlobalPotentialsPDF(
+        rows,
+        { totalMonthly, totalRedemp, totalGross, totalFee, totalAgency, totalNet },
+        { partnerBookingsPerYear, redemptionsPerYear, grossPerYear, feePoolPerYear, travelPartnerPerYear, dbNetPerYear }
+      )}
+      className="gap-2 bg-yellow-600 hover:bg-yellow-500 text-white"
+    >
+      <Download className="w-4 h-4" /> Download PDF
+    </Button>
   );
 }
 
@@ -1557,35 +1583,42 @@ export default function SurveyDashboard() {
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
             Overview of all survey responses — airport retailers and travel partners.
           </p>
-          <div className="pt-2 flex gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
-              onClick={() => {
-                const isRetailerView = activeTab === "retailer";
-                const data = isRetailerView ? retailerResponses : partnerResponses;
-                const filename = isRetailerView ? "retailer-survey-responses.xlsx" : "travel-partner-survey-responses.xlsx";
-                exportToExcel(data, filename, isRetailerView);
-              }}
-              disabled={loading}
-            >
-              <Download className="w-4 h-4" /> Excel
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
-              onClick={() => {
-                const isRetailerView = activeTab === "retailer";
-                const data = isRetailerView ? retailerResponses : partnerResponses;
-                const filename = isRetailerView ? "retailer-survey-responses.csv" : "travel-partner-survey-responses.csv";
-                exportToCSV(data, filename, isRetailerView);
-              }}
-              disabled={loading}
-            >
-              <FileText className="w-4 h-4" /> CSV
-            </Button>
+          <div className="pt-2 flex gap-2 flex-wrap justify-center">
+            {activeTab !== "global" && (
+              <>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
+                  onClick={() => {
+                    const isRetailerView = activeTab === "retailer";
+                    const data = isRetailerView ? retailerResponses : partnerResponses;
+                    const filename = isRetailerView ? "retailer-survey-responses.xlsx" : "travel-partner-survey-responses.xlsx";
+                    exportToExcel(data, filename, isRetailerView);
+                  }}
+                  disabled={loading}
+                >
+                  <Download className="w-4 h-4" /> Excel
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
+                  onClick={() => {
+                    const isRetailerView = activeTab === "retailer";
+                    const data = isRetailerView ? retailerResponses : partnerResponses;
+                    const filename = isRetailerView ? "retailer-survey-responses.csv" : "travel-partner-survey-responses.csv";
+                    exportToCSV(data, filename, isRetailerView);
+                  }}
+                  disabled={loading}
+                >
+                  <FileText className="w-4 h-4" /> CSV
+                </Button>
+              </>
+            )}
+            {activeTab === "global" && !loading && (
+              <GlobalPotentialsPDFButton responses={partnerResponses} />
+            )}
           </div>
         </div>
 
