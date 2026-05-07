@@ -1480,10 +1480,15 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
     });
   });
 
-  // Assumptions
+  // 1% redemption highlight banner
   let cy = 74;
+  bg("#7c2d12", M, cy, W - M * 2, 12, 2);
+  txt("!! CONSERVATIVE MODEL: Only 1% of total bookings actually redeem at airport retail (10% redeem voucher x 10% reach retail = 1%). Enormous upside remains untapped. !!", M + 3, cy + 8, "#fed7aa", 7, "bold");
+  cy += 15;
+
+  // Assumptions
   bg("#0f2744", M, cy, W - M * 2, 10, 2);
-  txt("Assumptions: 10% redeem x 10% reach airport retail | EUR185 avg basket | 2.5% fee (max EUR25/tx) | 20% to Travel Partner | Data: annual reports/press", M + 3, cy + 7, "#94a3b8", 6);
+  txt("Assumptions: 10% of bookings issue voucher x 10% of those reach airport retail = 1% effective redemption | EUR185 avg basket | 2.5% fee (max EUR25/tx) | 20% to Travel Partner | Data: annual reports/press", M + 3, cy + 7, "#94a3b8", 6);
   cy += 13;
 
   // Per-company table — 7 cols across portrait width (no "Conf" col, merged into company)
