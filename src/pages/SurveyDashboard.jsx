@@ -1413,247 +1413,290 @@ function GlobalPotentialsPDFButton({ responses }) {
 }
 
 function exportGlobalPotentialsPDF(rows, totals, airportSection) {
-  const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
-  const W = doc.internal.pageSize.getWidth();
-  const H = doc.internal.pageSize.getHeight();
-  const fmt = (n) => `\u20AC${Math.round(n).toLocaleString()}`;
+  // Portrait A4: 210 x 297 mm — all sections visible, no clipping
+  const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
+  const W = 210;
+  const H = 297;
+  const M = 10; // margin
+  const fmt = (n) => `EUR${Math.round(n).toLocaleString()}`;
 
-  // ── helpers ──────────────────────────────────────────────────────────────────
-  const bg = (hex, x, y, w, h, r = 3) => {
+  const newPage = () => {
+    doc.addPage();
+    doc.setFillColor("#0f172a");
+    doc.rect(0, 0, W, H, "F");
+  };
+
+  const bg = (hex, x, y, w, h, r = 2) => {
     doc.setFillColor(hex);
     doc.roundedRect(x, y, w, h, r, r, "F");
   };
-  const txt = (str, x, y, color, size = 9, style = "normal") => {
+  const txt = (str, x, y, color, size = 8, style = "normal") => {
     doc.setTextColor(color);
     doc.setFontSize(size);
     doc.setFont("helvetica", style);
-    doc.text(String(str ?? "—"), x, y);
+    doc.text(String(str ?? ""), x, y);
   };
-  const rtxt = (str, x, y, color, size = 9, style = "normal") => {
+  const rtxt = (str, x, y, color, size = 8, style = "normal") => {
     doc.setTextColor(color);
     doc.setFontSize(size);
     doc.setFont("helvetica", style);
-    doc.text(String(str ?? "—"), x, y, { align: "right" });
+    doc.text(String(str ?? ""), x, y, { align: "right" });
+  };
+  const hline = (y) => {
+    doc.setDrawColor("#334155");
+    doc.setLineWidth(0.2);
+    doc.line(M, y, W - M, y);
   };
 
-  // ── Background ───────────────────────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════
+  // PAGE 1 — Travel Partner Revenue Model
+  // ════════════════════════════════════════════════════════
   doc.setFillColor("#0f172a");
   doc.rect(0, 0, W, H, "F");
 
-  // ── Header ───────────────────────────────────────────────────────────────────
-  bg("#1e293b", 10, 8, W - 20, 20, 4);
-  txt("DutyBoost", 16, 20, "#3b82f6", 14, "bold");
-  txt("Global Potentials — Verified Travel Partner Revenue Model", 16, 26, "#94a3b8", 8);
-  rtxt(`Generated ${new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}`, W - 16, 20, "#64748b", 8);
-  rtxt("hello@dutyboost.com · www.dutyboost.com", W - 16, 26, "#475569", 7);
+  // Header
+  bg("#1e293b", M, 8, W - M * 2, 18, 3);
+  txt("DutyBoost", M + 3, 18, "#3b82f6", 13, "bold");
+  txt("Global Potentials — Verified Travel Partner Revenue Model", M + 3, 23, "#94a3b8", 7);
+  rtxt(`Generated ${new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}`, W - M - 2, 18, "#64748b", 7);
+  rtxt("hello@dutyboost.com", W - M - 2, 23, "#475569", 6);
 
-  // ── KPI row ──────────────────────────────────────────────────────────────────
+  // KPI cards (2x2 grid)
   const kpis = [
     { label: "Verified respondents", value: String(rows.length), color: "#f8fafc" },
     { label: "Combined bookings/mo", value: totals.totalMonthly.toLocaleString(), color: "#fde047" },
     { label: "DutyBoost fee pool/mo", value: fmt(totals.totalFee), color: "#d8b4fe" },
     { label: "DutyBoost net/yr", value: fmt(totals.totalNet * 12), color: "#86efac" },
   ];
-  const kpiW = (W - 20) / 4;
-  kpis.forEach((k, i) => {
-    const x = 10 + i * kpiW;
-    bg("#1e293b", x, 32, kpiW - 2, 18, 3);
-    txt(k.label, x + 3, 39, "#94a3b8", 7);
-    txt(k.value, x + 3, 46, k.color, 11, "bold");
+  const kpiW = (W - M * 2 - 3) / 2;
+  const kpiH = 18;
+  [[0,1],[2,3]].forEach(([a, b], ri) => {
+    [a, b].forEach((ki, ci) => {
+      const x = M + ci * (kpiW + 3);
+      const y = 30 + ri * (kpiH + 2);
+      bg("#1e293b", x, y, kpiW, kpiH, 2);
+      txt(kpis[ki].label, x + 3, y + 7, "#64748b", 6);
+      txt(kpis[ki].value, x + 3, y + 14, kpis[ki].color, 10, "bold");
+    });
   });
 
-  // ── Assumptions bar ───────────────────────────────────────────────────────────
-  bg("#1e293b", 10, 53, W - 20, 9, 2);
-  txt("Assumptions:", 13, 59, "#94a3b8", 7);
-  txt("10% of bookings redeem  x  10% reach airport retail (div10)  |  EUR185 avg basket  |  2.5% fee -> EUR4.63/tx (capped EUR25)  |  20% of fee -> Travel Partner  |  Verified: annual reports / press", 50, 59, "#f8fafc", 6.5);
+  // Assumptions
+  let cy = 74;
+  bg("#0f2744", M, cy, W - M * 2, 10, 2);
+  txt("Assumptions: 10% redeem x 10% reach airport retail | EUR185 avg basket | 2.5% fee (max EUR25/tx) | 20% to Travel Partner | Data: annual reports/press", M + 3, cy + 7, "#94a3b8", 6);
+  cy += 13;
 
-  // ── Per-company table ─────────────────────────────────────────────────────────
-  const tY = 65;
-  bg("#1e293b", 10, tY, W - 20, 8, 2);
-  const cols = [
-    { label: "Company",          x: 13,       align: "left"  },
-    { label: "Type",             x: 52,       align: "left"  },
-    { label: "Conf.",            x: 100,      align: "left"  },
-    { label: "Bookings/mo",      x: W-152,    align: "right" },
-    { label: "Redemptions/mo",   x: W-124,    align: "right" },
-    { label: "Gross spend/mo",   x: W-96,     align: "right" },
-    { label: "Fee pool/mo",      x: W-68,     align: "right" },
-    { label: "Partner/mo",       x: W-42,     align: "right" },
-    { label: "DB net/mo",        x: W-14,     align: "right" },
-  ];
-  cols.forEach(c => {
-    if (c.align === "right") rtxt(c.label, c.x, tY + 5.5, "#64748b", 6.5, "bold");
-    else txt(c.label, c.x, tY + 5.5, "#64748b", 6.5, "bold");
-  });
+  // Per-company table — portrait columns
+  const C = {
+    company:  M + 2,
+    type:     M + 42,
+    conf:     M + 82,
+    bookings: W - 106,
+    redemp:   W - 82,
+    gross:    W - 58,
+    fee:      W - 36,
+    partner:  W - 18,
+    dbnet:    W - M,
+  };
+
+  bg("#1e293b", M, cy, W - M * 2, 8, 2);
+  txt("Company",        C.company,  cy + 5.5, "#64748b", 6, "bold");
+  txt("Type",           C.type,     cy + 5.5, "#64748b", 6, "bold");
+  txt("Conf",           C.conf,     cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Bkgs/mo",       C.bookings, cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Redem/mo",      C.redemp,   cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Gross/mo",      C.gross,    cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Fee/mo",        C.fee,      cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Partner/mo",    C.partner,  cy + 5.5, "#64748b", 6, "bold");
+  rtxt("DB net/mo",     C.dbnet,    cy + 5.5, "#64748b", 6, "bold");
+  cy += 10;
 
   const confColor = { high: "#4ade80", medium: "#fde047", low: "#fb923c" };
-  let rowY = tY + 10;
   rows.forEach((r, idx) => {
-    if (idx % 2 === 1) { bg("#1a2744", 10, rowY - 4, W - 20, 8, 0); }
-    txt(r.company_name.substring(0, 18), 13, rowY + 0.5, "#f8fafc", 7, "bold");
-    txt((r.company_type || "—").substring(0, 20), 52, rowY + 0.5, "#94a3b8", 7);
-    txt(r.rv.confidence, 100, rowY + 0.5, confColor[r.rv.confidence] || "#94a3b8", 7, "bold");
-    rtxt(r.rv.perMonth.toLocaleString(), W - 152, rowY + 0.5, "#fde047", 7, "bold");
-    rtxt(r.rev.totalRedemptions.toLocaleString(), W - 124, rowY + 0.5, "#86efac", 7);
-    rtxt(fmt(r.rev.grossRevenue), W - 96, rowY + 0.5, "#93c5fd", 7);
-    rtxt(fmt(r.rev.dutyBoostFee), W - 68, rowY + 0.5, "#d8b4fe", 7);
-    rtxt(fmt(r.rev.agencyCommission), W - 42, rowY + 0.5, "#4ade80", 7);
-    rtxt(fmt(r.rev.dutyBoostNet), W - 14, rowY + 0.5, "#fde047", 7, "bold");
-    rowY += 8;
+    if (idx % 2 === 1) bg("#172035", M, cy - 3, W - M * 2, 8, 0);
+    txt(r.company_name.substring(0, 16),      C.company,  cy + 2, "#f8fafc", 6.5, "bold");
+    txt((r.company_type || "").substring(0,14), C.type,   cy + 2, "#94a3b8", 6);
+    txt(r.rv.confidence,                        C.conf,   cy + 2, confColor[r.rv.confidence] || "#94a3b8", 6, "bold");
+    rtxt(r.rv.perMonth.toLocaleString(),       C.bookings, cy + 2, "#fde047", 6.5, "bold");
+    rtxt(r.rev.totalRedemptions.toLocaleString(), C.redemp, cy + 2, "#86efac", 6.5);
+    rtxt(fmt(r.rev.grossRevenue),              C.gross,    cy + 2, "#93c5fd", 6.5);
+    rtxt(fmt(r.rev.dutyBoostFee),              C.fee,      cy + 2, "#d8b4fe", 6.5);
+    rtxt(fmt(r.rev.agencyCommission),          C.partner,  cy + 2, "#4ade80", 6.5);
+    rtxt(fmt(r.rev.dutyBoostNet),              C.dbnet,    cy + 2, "#fde047", 6.5, "bold");
+    cy += 8;
   });
 
-  // Total row
-  doc.setDrawColor("#64748b");
-  doc.setLineWidth(0.3);
-  doc.line(10, rowY - 2, W - 10, rowY - 2);
-  rtxt(totals.totalMonthly.toLocaleString(), W - 152, rowY + 3, "#fde047", 7, "bold");
-  rtxt(totals.totalRedemp.toLocaleString(), W - 124, rowY + 3, "#86efac", 7, "bold");
-  rtxt(fmt(totals.totalGross), W - 96, rowY + 3, "#93c5fd", 7, "bold");
-  rtxt(fmt(totals.totalFee), W - 68, rowY + 3, "#d8b4fe", 7, "bold");
-  rtxt(fmt(totals.totalAgency), W - 42, rowY + 3, "#4ade80", 7, "bold");
-  rtxt(fmt(totals.totalNet), W - 14, rowY + 3, "#fde047", 7, "bold");
-  txt("TOTAL", 13, rowY + 3, "#f8fafc", 7, "bold");
-  rowY += 10;
+  hline(cy);
+  cy += 4;
+  txt("TOTAL",                                       C.company,  cy + 2, "#f8fafc", 6.5, "bold");
+  rtxt(totals.totalMonthly.toLocaleString(),          C.bookings, cy + 2, "#fde047", 6.5, "bold");
+  rtxt(totals.totalRedemp.toLocaleString(),           C.redemp,   cy + 2, "#86efac", 6.5, "bold");
+  rtxt(fmt(totals.totalGross),                        C.gross,    cy + 2, "#93c5fd", 6.5, "bold");
+  rtxt(fmt(totals.totalFee),                          C.fee,      cy + 2, "#d8b4fe", 6.5, "bold");
+  rtxt(fmt(totals.totalAgency),                       C.partner,  cy + 2, "#4ade80", 6.5, "bold");
+  rtxt(fmt(totals.totalNet),                          C.dbnet,    cy + 2, "#fde047", 6.5, "bold");
+  cy += 10;
 
-  // ── Summary cards (monthly / annual) ─────────────────────────────────────────
-  const cardW = (W - 22) / 2;
+  // Summary cards side by side
+  const sumW = (W - M * 2 - 4) / 2;
   const summaryItems = [
     [
-      { label: "Total bookings", value: totals.totalMonthly.toLocaleString(), color: "#fde047" },
-      { label: "Redemptions (10%x10%)", value: totals.totalRedemp.toLocaleString(), color: "#86efac" },
-      { label: "Gross retail spend", value: fmt(totals.totalGross), color: "#93c5fd" },
-      { label: "DutyBoost fee pool", value: fmt(totals.totalFee), color: "#d8b4fe" },
-      { label: "-> Travel Partner (20%)", value: fmt(totals.totalAgency), color: "#4ade80" },
-      { label: "-> DutyBoost net (80%)", value: fmt(totals.totalNet), color: "#f8fafc" },
+      { label: "Total bookings",          value: totals.totalMonthly.toLocaleString(),    color: "#fde047" },
+      { label: "Redemptions (10%x10%)",   value: totals.totalRedemp.toLocaleString(),     color: "#86efac" },
+      { label: "Gross retail spend",      value: fmt(totals.totalGross),                  color: "#93c5fd" },
+      { label: "DutyBoost fee pool",      value: fmt(totals.totalFee),                    color: "#d8b4fe" },
+      { label: "Travel Partner (20%)",    value: fmt(totals.totalAgency),                 color: "#4ade80" },
+      { label: "DutyBoost net (80%)",     value: fmt(totals.totalNet),                    color: "#f8fafc" },
     ],
     [
-      { label: "Total bookings/yr", value: (totals.totalMonthly * 12).toLocaleString(), color: "#fde047" },
-      { label: "Redemptions/yr", value: (totals.totalRedemp * 12).toLocaleString(), color: "#86efac" },
-      { label: "Gross retail spend/yr", value: fmt(totals.totalGross * 12), color: "#93c5fd" },
-      { label: "DutyBoost fee pool/yr", value: fmt(totals.totalFee * 12), color: "#d8b4fe" },
-      { label: "-> Travel Partner/yr", value: fmt(totals.totalAgency * 12), color: "#4ade80" },
-      { label: "-> DutyBoost net/yr", value: fmt(totals.totalNet * 12), color: "#f8fafc" },
+      { label: "Total bookings/yr",       value: (totals.totalMonthly * 12).toLocaleString(), color: "#fde047" },
+      { label: "Redemptions/yr",          value: (totals.totalRedemp * 12).toLocaleString(),  color: "#86efac" },
+      { label: "Gross retail spend/yr",   value: fmt(totals.totalGross * 12),                 color: "#93c5fd" },
+      { label: "DutyBoost fee pool/yr",   value: fmt(totals.totalFee * 12),                   color: "#d8b4fe" },
+      { label: "Travel Partner/yr",       value: fmt(totals.totalAgency * 12),                color: "#4ade80" },
+      { label: "DutyBoost net/yr",        value: fmt(totals.totalNet * 12),                   color: "#f8fafc" },
     ],
   ];
   const cardTitles = ["Monthly Summary", "Annual Projection (x12)"];
   summaryItems.forEach((items, ci) => {
-    const cx = 10 + ci * (cardW + 2);
-    bg("#1e293b", cx, rowY, cardW, 8 + items.length * 8, 3);
-    txt(cardTitles[ci], cx + 4, rowY + 6, ci === 0 ? "#94a3b8" : "#fde047", 7.5, "bold");
+    const sx = M + ci * (sumW + 4);
+    const cardH = 8 + items.length * 8;
+    bg("#1e293b", sx, cy, sumW, cardH, 2);
+    txt(cardTitles[ci], sx + 3, cy + 6, ci === 0 ? "#94a3b8" : "#fde047", 7, "bold");
     items.forEach((item, ii) => {
-      const iy = rowY + 14 + ii * 8;
-      txt(item.label, cx + 4, iy, "#64748b", 7);
-      rtxt(item.value, cx + cardW - 4, iy, item.color, 7, "bold");
+      const iy = cy + 13 + ii * 8;
+      txt(item.label, sx + 3, iy, "#64748b", 6.5);
+      rtxt(item.value, sx + sumW - 3, iy, item.color, 6.5, "bold");
     });
   });
 
-  rowY += 8 + summaryItems[0].length * 8 + 4;
+  // ════════════════════════════════════════════════════════
+  // PAGE 2 — Airport Retailer Upside
+  // ════════════════════════════════════════════════════════
+  newPage();
+  let py = 8;
 
-  // ── Airport Retailer Upside (new page) ───────────────────────────────────────
-  doc.addPage();
-  doc.setFillColor("#0f172a");
-  doc.rect(0, 0, W, H, "F");
+  bg("#1e2d1a", M, py, W - M * 2, 16, 3);
+  txt("Airport Retailer Upside — What the Retailer Gets from DutyBoost", M + 3, py + 8, "#f97316", 10, "bold");
+  txt("Retailer receives full basket spend; gives DutyCredit discount back. Net gain = gross spend minus discount. No upfront cost.", M + 3, py + 13, "#94a3b8", 6);
+  py += 20;
 
-  bg("#1e2d1a", 10, 8, W - 20, 12, 3);
-  txt("Airport Retailer Upside — What the Retailer Gets from DutyBoost", 14, 16, "#f97316", 10, "bold");
-
-  bg("#1e293b", 10, 24, W - 20, 9, 2);
-  txt("Retailer receives full basket spend from DutyBoost travellers. They give the DutyCredit discount (= fee pool) back. Net gain = gross spend minus discount. No upfront cost.", 13, 30, "#94a3b8", 6.5);
-
-  // Monthly summary card
-  const retW = (W - 22) / 2;
-  const retY = 36;
+  // Retailer summary cards
+  const retSumW = (W - M * 2 - 4) / 2;
   const retMonthly = [
     { label: "Redemptions at airport retail/mo", value: totals.totalRedemp.toLocaleString(), color: "#86efac" },
-    { label: "Gross basket spend driven/mo", value: fmt(totals.totalGross), color: "#93c5fd" },
-    { label: "DutyCredit discount given/mo", value: `-${fmt(totals.totalFee)}`, color: "#f87171" },
-    { label: "Net new revenue for retailer/mo", value: fmt(totals.totalGross - totals.totalFee), color: "#fb923c" },
+    { label: "Gross basket spend driven/mo",      value: fmt(totals.totalGross),               color: "#93c5fd" },
+    { label: "DutyCredit discount given/mo",      value: `-${fmt(totals.totalFee)}`,            color: "#f87171" },
+    { label: "Net new revenue for retailer/mo",   value: fmt(totals.totalGross - totals.totalFee), color: "#fb923c" },
   ];
   const retAnnual = [
     { label: "Redemptions at airport retail/yr", value: (totals.totalRedemp * 12).toLocaleString(), color: "#86efac" },
-    { label: "Gross basket spend driven/yr", value: fmt(totals.totalGross * 12), color: "#93c5fd" },
-    { label: "DutyCredit discount given/yr", value: `-${fmt(totals.totalFee * 12)}`, color: "#f87171" },
-    { label: "Net new revenue for retailer/yr", value: fmt((totals.totalGross - totals.totalFee) * 12), color: "#fb923c" },
+    { label: "Gross basket spend driven/yr",      value: fmt(totals.totalGross * 12),                 color: "#93c5fd" },
+    { label: "DutyCredit discount given/yr",      value: `-${fmt(totals.totalFee * 12)}`,              color: "#f87171" },
+    { label: "Net new revenue for retailer/yr",   value: fmt((totals.totalGross - totals.totalFee) * 12), color: "#fb923c" },
   ];
   [retMonthly, retAnnual].forEach((items, ci) => {
-    const cx = 10 + ci * (retW + 2);
-    bg("#1e293b", cx, retY, retW, 8 + items.length * 9, 3);
-    txt(ci === 0 ? "Monthly Summary" : "Annual Projection (x12)", cx + 4, retY + 6, ci === 0 ? "#94a3b8" : "#fb923c", 7.5, "bold");
+    const sx = M + ci * (retSumW + 4);
+    const cardH = 8 + items.length * 9;
+    bg("#1e293b", sx, py, retSumW, cardH, 2);
+    txt(ci === 0 ? "Monthly Summary" : "Annual Projection (x12)", sx + 3, py + 6, ci === 0 ? "#94a3b8" : "#fb923c", 7, "bold");
     items.forEach((item, ii) => {
-      const iy = retY + 14 + ii * 9;
-      txt(item.label, cx + 4, iy, "#64748b", 6.5);
-      rtxt(item.value, cx + retW - 4, iy, item.color, 7, "bold");
+      const iy = py + 13 + ii * 9;
+      txt(item.label, sx + 3, iy, "#64748b", 6.5);
+      rtxt(item.value, sx + retSumW - 3, iy, item.color, 6.5, "bold");
     });
   });
+  py += 8 + retMonthly.length * 9 + 6;
 
-  let retRowY = retY + 8 + retMonthly.length * 9 + 8;
-
-  // Per-company table
-  bg("#1e293b", 10, retRowY, W - 20, 8, 2);
-  const retCols = [
-    { label: "Company (travel partner)", x: 13, align: "left" },
-    { label: "Redemptions/mo", x: W - 120, align: "right" },
-    { label: "Gross spend/mo", x: W - 88, align: "right" },
-    { label: "Discount given/mo", x: W - 54, align: "right" },
-    { label: "Net retailer gain/mo", x: W - 14, align: "right" },
-  ];
-  retCols.forEach(c => {
-    if (c.align === "right") rtxt(c.label, c.x, retRowY + 5.5, "#64748b", 6.5, "bold");
-    else txt(c.label, c.x, retRowY + 5.5, "#64748b", 6.5, "bold");
-  });
-  retRowY += 10;
+  // Per-company retailer table
+  bg("#1e293b", M, py, W - M * 2, 8, 2);
+  txt("Company (travel partner)",  M + 3,      py + 5.5, "#64748b", 6, "bold");
+  rtxt("Redemptions/mo",            W - 120,    py + 5.5, "#64748b", 6, "bold");
+  rtxt("Gross spend/mo",            W - 88,     py + 5.5, "#64748b", 6, "bold");
+  rtxt("Discount given/mo",         W - 54,     py + 5.5, "#64748b", 6, "bold");
+  rtxt("Net retailer gain/mo",      W - M,      py + 5.5, "#64748b", 6, "bold");
+  py += 10;
 
   rows.forEach((r, idx) => {
-    if (idx % 2 === 1) bg("#1a2744", 10, retRowY - 4, W - 20, 8, 0);
-    txt(r.company_name.substring(0, 28), 13, retRowY + 0.5, "#f8fafc", 7, "bold");
-    rtxt(r.rev.totalRedemptions.toLocaleString(), W - 120, retRowY + 0.5, "#86efac", 7);
-    rtxt(fmt(r.rev.grossRevenue), W - 88, retRowY + 0.5, "#93c5fd", 7);
-    rtxt(`-${fmt(r.rev.dutyBoostFee)}`, W - 54, retRowY + 0.5, "#f87171", 7);
-    rtxt(fmt(r.rev.grossRevenue - r.rev.dutyBoostFee), W - 14, retRowY + 0.5, "#fb923c", 7, "bold");
-    retRowY += 8;
+    if (idx % 2 === 1) bg("#172035", M, py - 3, W - M * 2, 8, 0);
+    txt(r.company_name.substring(0, 30),           M + 3,   py + 2, "#f8fafc", 6.5, "bold");
+    rtxt(r.rev.totalRedemptions.toLocaleString(),   W - 120, py + 2, "#86efac", 6.5);
+    rtxt(fmt(r.rev.grossRevenue),                   W - 88,  py + 2, "#93c5fd", 6.5);
+    rtxt(`-${fmt(r.rev.dutyBoostFee)}`,             W - 54,  py + 2, "#f87171", 6.5);
+    rtxt(fmt(r.rev.grossRevenue - r.rev.dutyBoostFee), W - M, py + 2, "#fb923c", 6.5, "bold");
+    py += 8;
   });
 
-  doc.setDrawColor("#64748b");
-  doc.setLineWidth(0.3);
-  doc.line(10, retRowY - 2, W - 10, retRowY - 2);
-  txt("TOTAL", 13, retRowY + 3, "#f8fafc", 7, "bold");
-  rtxt(totals.totalRedemp.toLocaleString(), W - 120, retRowY + 3, "#86efac", 7, "bold");
-  rtxt(fmt(totals.totalGross), W - 88, retRowY + 3, "#93c5fd", 7, "bold");
-  rtxt(`-${fmt(totals.totalFee)}`, W - 54, retRowY + 3, "#f87171", 7, "bold");
-  rtxt(fmt(totals.totalGross - totals.totalFee), W - 14, retRowY + 3, "#fb923c", 7, "bold");
-  retRowY += 12;
+  hline(py);
+  py += 4;
+  txt("TOTAL",                                           M + 3,   py + 2, "#f8fafc", 6.5, "bold");
+  rtxt(totals.totalRedemp.toLocaleString(),               W - 120, py + 2, "#86efac", 6.5, "bold");
+  rtxt(fmt(totals.totalGross),                            W - 88,  py + 2, "#93c5fd", 6.5, "bold");
+  rtxt(`-${fmt(totals.totalFee)}`,                        W - 54,  py + 2, "#f87171", 6.5, "bold");
+  rtxt(fmt(totals.totalGross - totals.totalFee),          W - M,   py + 2, "#fb923c", 6.5, "bold");
+  py += 10;
 
-  txt("The retailer's net gain is extra footfall revenue minus the DutyCredit discount they pass on. The discount is funded by DutyBoost (2.5% of basket, max EUR25/tx). No upfront cost to the retailer.", 13, retRowY, "#475569", 6.5);
+  txt("Retailer net gain = extra footfall basket spend minus the DutyCredit discount. Discount funded by DutyBoost (2.5% of basket, max EUR25/tx). No upfront cost to the retailer.", M + 3, py, "#475569", 6);
+  py += 10;
 
-  // ── Airport potential section (page 3) ───────────────────────────────────────
+  // ════════════════════════════════════════════════════════
+  // PAGE 3 — AMS Airport Potential
+  // ════════════════════════════════════════════════════════
   if (airportSection) {
-    doc.addPage();
-    doc.setFillColor("#0f172a");
-    doc.rect(0, 0, W, H, "F");
-    rowY = 10;
-    bg("#1a2240", 10, rowY, W - 20, 32, 3);
-    txt("AMS Airport Potential — Combined Travel Partner Volume", 14, rowY + 7, "#f8fafc", 8, "bold");
-    txt(`Based on ${rows.length} verified travel partners | 10% redeem x 10% reach airport retail (div10) | EUR185 avg basket | 2.5% fee | EUR25 cap/tx`, 14, rowY + 13, "#64748b", 6.5);
-    const apCols = [
-      { label: "Airport",             x: 14,       align: "left" },
-      { label: "Partner bookings/yr", x: W*0.38,   align: "right" },
-      { label: "Redemptions/yr",      x: W*0.52,   align: "right" },
-      { label: "Gross spend/yr",      x: W*0.64,   align: "right" },
-      { label: "Fee pool/yr",         x: W*0.74,   align: "right" },
-      { label: "Travel Partner/yr",   x: W*0.85,   align: "right" },
-      { label: "DB net/yr",           x: W-14,     align: "right" },
+    newPage();
+    let ap = 8;
+
+    bg("#1a2240", M, ap, W - M * 2, 18, 3);
+    txt("AMS Airport Potential — Combined Travel Partner Volume", M + 3, ap + 8, "#f8fafc", 10, "bold");
+    txt(`Based on ${rows.length} verified travel partners | 10% redeem x 10% reach airport retail | EUR185 avg basket | 2.5% fee | EUR25 cap/tx`, M + 3, ap + 14, "#64748b", 6);
+    ap += 22;
+
+    // Annual data in a clear vertical list
+    const apItems = [
+      { label: "Partner bookings/yr (sum of verified monthly x12)", value: airportSection.partnerBookingsPerYear.toLocaleString(), color: "#fde047" },
+      { label: "Redemptions at AMS retail/yr (10% x 10%)",          value: airportSection.redemptionsPerYear.toLocaleString(),    color: "#86efac" },
+      { label: "Gross retail spend at AMS/yr",                       value: fmt(airportSection.grossPerYear),                     color: "#93c5fd" },
+      { label: "DutyBoost fee pool/yr (2.5% of gross, max EUR25/tx)",value: fmt(airportSection.feePoolPerYear),                   color: "#d8b4fe" },
+      { label: "Travel Partner commission/yr (20% of fee pool)",      value: fmt(airportSection.travelPartnerPerYear),             color: "#4ade80" },
+      { label: "DutyBoost net revenue/yr (80% of fee pool)",          value: fmt(airportSection.dbNetPerYear),                    color: "#fde047" },
     ];
-    apCols.forEach(c => {
-      if (c.align === "right") rtxt(c.label, c.x, rowY + 20, "#64748b", 6.5, "bold");
-      else txt(c.label, c.x, rowY + 20, "#64748b", 6.5, "bold");
+
+    bg("#1e293b", M, ap, W - M * 2, 8 + apItems.length * 10, 2);
+    txt("Amsterdam Schiphol (AMS) — Annual Projection", M + 3, ap + 6, "#94a3b8", 7, "bold");
+    apItems.forEach((item, ii) => {
+      const iy = ap + 13 + ii * 10;
+      hline(iy - 2);
+      txt(item.label, M + 3, iy + 3, "#64748b", 6.5);
+      rtxt(item.value, W - M - 3, iy + 3, item.color, 8, "bold");
     });
-    rtxt(airportSection.partnerBookingsPerYear.toLocaleString(), W*0.38, rowY + 28, "#fde047", 7.5, "bold");
-    rtxt(airportSection.redemptionsPerYear.toLocaleString(), W*0.52, rowY + 28, "#86efac", 7.5);
-    rtxt(fmt(airportSection.grossPerYear), W*0.64, rowY + 28, "#93c5fd", 7.5);
-    rtxt(fmt(airportSection.feePoolPerYear), W*0.74, rowY + 28, "#d8b4fe", 7.5);
-    rtxt(fmt(airportSection.travelPartnerPerYear), W*0.85, rowY + 28, "#4ade80", 7.5);
-    rtxt(fmt(airportSection.dbNetPerYear), W-14, rowY + 28, "#fde047", 7.5, "bold");
-    txt("Amsterdam Schiphol (AMS)", 14, rowY + 28, "#f8fafc", 7.5, "bold");
+    ap += 8 + apItems.length * 10 + 8;
+
+    // Also show per-company annual contribution
+    bg("#1e293b", M, ap, W - M * 2, 8, 2);
+    txt("Per-company annual contribution to AMS airport retail", M + 3, ap + 5.5, "#64748b", 6, "bold");
+    rtxt("Partner bkgs/yr",  W - 126, ap + 5.5, "#64748b", 6, "bold");
+    rtxt("Redemp/yr",        W - 94,  ap + 5.5, "#64748b", 6, "bold");
+    rtxt("Gross spend/yr",   W - 62,  ap + 5.5, "#64748b", 6, "bold");
+    rtxt("DB net/yr",        W - M,   ap + 5.5, "#64748b", 6, "bold");
+    ap += 10;
+
+    rows.forEach((r, idx) => {
+      if (idx % 2 === 1) bg("#172035", M, ap - 3, W - M * 2, 8, 0);
+      txt(r.company_name.substring(0, 28),                     M + 3,   ap + 2, "#f8fafc", 6.5, "bold");
+      rtxt((r.rv.perMonth * 12).toLocaleString(),               W - 126, ap + 2, "#fde047", 6.5);
+      rtxt((r.rev.totalRedemptions * 12).toLocaleString(),      W - 94,  ap + 2, "#86efac", 6.5);
+      rtxt(fmt(r.rev.grossRevenue * 12),                        W - 62,  ap + 2, "#93c5fd", 6.5);
+      rtxt(fmt(r.rev.dutyBoostNet * 12),                        W - M,   ap + 2, "#fde047", 6.5, "bold");
+      ap += 8;
+    });
+
+    hline(ap);
+    ap += 4;
+    txt("TOTAL",                                                    M + 3,   ap + 2, "#f8fafc", 6.5, "bold");
+    rtxt(airportSection.partnerBookingsPerYear.toLocaleString(),     W - 126, ap + 2, "#fde047", 6.5, "bold");
+    rtxt(airportSection.redemptionsPerYear.toLocaleString(),         W - 94,  ap + 2, "#86efac", 6.5, "bold");
+    rtxt(fmt(airportSection.grossPerYear),                           W - 62,  ap + 2, "#93c5fd", 6.5, "bold");
+    rtxt(fmt(airportSection.dbNetPerYear),                           W - M,   ap + 2, "#fde047", 6.5, "bold");
   }
 
   doc.save(`dutyboost-global-potentials-${new Date().toISOString().slice(0,10)}.pdf`);
