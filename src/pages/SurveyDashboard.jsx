@@ -1486,55 +1486,55 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   txt("Assumptions: 10% redeem x 10% reach airport retail | EUR185 avg basket | 2.5% fee (max EUR25/tx) | 20% to Travel Partner | Data: annual reports/press", M + 3, cy + 7, "#94a3b8", 6);
   cy += 13;
 
-  // Per-company table — portrait columns
+  // Per-company table — 7 cols across portrait width (no "Conf" col, merged into company)
+  // Col right-edges: Bkgs/mo, Redem/mo, Gross/mo, Fee/mo, Partner/mo, DB net/mo
   const C = {
     company:  M + 2,
-    type:     M + 42,
-    conf:     M + 82,
-    bookings: W - 106,
-    redemp:   W - 82,
-    gross:    W - 58,
-    fee:      W - 36,
-    partner:  W - 18,
+    type:     M + 46,
+    bookings: M + 100,
+    redemp:   M + 122,
+    gross:    M + 148,
+    fee:      M + 166,
+    partner:  M + 183,
     dbnet:    W - M,
   };
 
   bg("#1e293b", M, cy, W - M * 2, 8, 2);
-  txt("Company",        C.company,  cy + 5.5, "#64748b", 6, "bold");
-  txt("Type",           C.type,     cy + 5.5, "#64748b", 6, "bold");
-  txt("Conf",           C.conf,     cy + 5.5, "#64748b", 6, "bold");
-  rtxt("Bkgs/mo",       C.bookings, cy + 5.5, "#64748b", 6, "bold");
-  rtxt("Redem/mo",      C.redemp,   cy + 5.5, "#64748b", 6, "bold");
-  rtxt("Gross/mo",      C.gross,    cy + 5.5, "#64748b", 6, "bold");
-  rtxt("Fee/mo",        C.fee,      cy + 5.5, "#64748b", 6, "bold");
-  rtxt("Partner/mo",    C.partner,  cy + 5.5, "#64748b", 6, "bold");
-  rtxt("DB net/mo",     C.dbnet,    cy + 5.5, "#64748b", 6, "bold");
+  txt("Company",       C.company,  cy + 5.5, "#64748b", 6, "bold");
+  txt("Type",          C.type,     cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Bkgs/mo",      C.bookings, cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Redem/mo",     C.redemp,   cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Gross/mo",     C.gross,    cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Fee/mo",       C.fee,      cy + 5.5, "#64748b", 6, "bold");
+  rtxt("Partner/mo",   C.partner,  cy + 5.5, "#64748b", 6, "bold");
+  rtxt("DB net/mo",    C.dbnet,    cy + 5.5, "#64748b", 6, "bold");
   cy += 10;
 
   const confColor = { high: "#4ade80", medium: "#fde047", low: "#fb923c" };
   rows.forEach((r, idx) => {
     if (idx % 2 === 1) bg("#172035", M, cy - 3, W - M * 2, 8, 0);
-    txt(r.company_name.substring(0, 16),      C.company,  cy + 2, "#f8fafc", 6.5, "bold");
-    txt((r.company_type || "").substring(0,14), C.type,   cy + 2, "#94a3b8", 6);
-    txt(r.rv.confidence,                        C.conf,   cy + 2, confColor[r.rv.confidence] || "#94a3b8", 6, "bold");
-    rtxt(r.rv.perMonth.toLocaleString(),       C.bookings, cy + 2, "#fde047", 6.5, "bold");
-    rtxt(r.rev.totalRedemptions.toLocaleString(), C.redemp, cy + 2, "#86efac", 6.5);
-    rtxt(fmt(r.rev.grossRevenue),              C.gross,    cy + 2, "#93c5fd", 6.5);
-    rtxt(fmt(r.rev.dutyBoostFee),              C.fee,      cy + 2, "#d8b4fe", 6.5);
-    rtxt(fmt(r.rev.agencyCommission),          C.partner,  cy + 2, "#4ade80", 6.5);
-    rtxt(fmt(r.rev.dutyBoostNet),              C.dbnet,    cy + 2, "#fde047", 6.5, "bold");
+    // Company name with confidence badge inline
+    const confLabel = r.rv.confidence === "high" ? "[H]" : r.rv.confidence === "medium" ? "[M]" : "[L]";
+    txt(`${r.company_name.substring(0, 14)} ${confLabel}`,  C.company, cy + 2, "#f8fafc", 6.5, "bold");
+    txt((r.company_type || "").substring(0, 13),             C.type,    cy + 2, "#94a3b8", 6);
+    rtxt(r.rv.perMonth.toLocaleString(),                     C.bookings, cy + 2, "#fde047", 6.5, "bold");
+    rtxt(r.rev.totalRedemptions.toLocaleString(),            C.redemp,   cy + 2, "#86efac", 6.5);
+    rtxt(fmt(r.rev.grossRevenue),                            C.gross,    cy + 2, "#93c5fd", 6.5);
+    rtxt(fmt(r.rev.dutyBoostFee),                            C.fee,      cy + 2, "#d8b4fe", 6.5);
+    rtxt(fmt(r.rev.agencyCommission),                        C.partner,  cy + 2, "#4ade80", 6.5);
+    rtxt(fmt(r.rev.dutyBoostNet),                            C.dbnet,    cy + 2, "#fde047", 6.5, "bold");
     cy += 8;
   });
 
   hline(cy);
   cy += 4;
-  txt("TOTAL",                                       C.company,  cy + 2, "#f8fafc", 6.5, "bold");
-  rtxt(totals.totalMonthly.toLocaleString(),          C.bookings, cy + 2, "#fde047", 6.5, "bold");
-  rtxt(totals.totalRedemp.toLocaleString(),           C.redemp,   cy + 2, "#86efac", 6.5, "bold");
-  rtxt(fmt(totals.totalGross),                        C.gross,    cy + 2, "#93c5fd", 6.5, "bold");
-  rtxt(fmt(totals.totalFee),                          C.fee,      cy + 2, "#d8b4fe", 6.5, "bold");
-  rtxt(fmt(totals.totalAgency),                       C.partner,  cy + 2, "#4ade80", 6.5, "bold");
-  rtxt(fmt(totals.totalNet),                          C.dbnet,    cy + 2, "#fde047", 6.5, "bold");
+  txt("TOTAL",                              C.company,  cy + 2, "#f8fafc", 6.5, "bold");
+  rtxt(totals.totalMonthly.toLocaleString(), C.bookings, cy + 2, "#fde047", 6.5, "bold");
+  rtxt(totals.totalRedemp.toLocaleString(),  C.redemp,   cy + 2, "#86efac", 6.5, "bold");
+  rtxt(fmt(totals.totalGross),               C.gross,    cy + 2, "#93c5fd", 6.5, "bold");
+  rtxt(fmt(totals.totalFee),                 C.fee,      cy + 2, "#d8b4fe", 6.5, "bold");
+  rtxt(fmt(totals.totalAgency),              C.partner,  cy + 2, "#4ade80", 6.5, "bold");
+  rtxt(fmt(totals.totalNet),                 C.dbnet,    cy + 2, "#fde047", 6.5, "bold");
   cy += 10;
 
   // Summary cards side by side
