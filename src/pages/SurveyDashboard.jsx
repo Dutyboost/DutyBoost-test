@@ -1491,11 +1491,11 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   const C = {
     company:  M + 2,
     type:     M + 46,
-    bookings: M + 100,
-    redemp:   M + 122,
-    gross:    M + 148,
-    fee:      M + 166,
-    partner:  M + 183,
+    bookings: M + 98,
+    redemp:   M + 118,
+    gross:    M + 143,
+    fee:      M + 159,
+    partner:  M + 174,
     dbnet:    W - M,
   };
 
