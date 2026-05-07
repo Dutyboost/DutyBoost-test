@@ -1482,14 +1482,16 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
 
   // 1% redemption highlight banner
   let cy = 74;
-  bg("#7c2d12", M, cy, W - M * 2, 12, 2);
-  txt("!! CONSERVATIVE MODEL: Only 1% of total bookings actually redeem at airport retail (10% redeem voucher x 10% reach retail = 1%). Enormous upside remains untapped. !!", M + 3, cy + 8, "#fed7aa", 7, "bold");
-  cy += 15;
+  bg("#7c2d12", M, cy, W - M * 2, 18, 2);
+  txt("CONSERVATIVE MODEL: Only 1% of total bookings actually redeem at airport retail", M + 3, cy + 7, "#fed7aa", 7.5, "bold");
+  txt("(10% issue voucher x 10% reach retail = 1%). Enormous growth upside remains untapped.", M + 3, cy + 14, "#fbbf24", 7, "normal");
+  cy += 22;
 
   // Assumptions
-  bg("#0f2744", M, cy, W - M * 2, 10, 2);
-  txt("Assumptions: 10% of bookings issue voucher x 10% of those reach airport retail = 1% effective redemption | EUR185 avg basket | 2.5% fee (max EUR25/tx) | 20% to Travel Partner | Data: annual reports/press", M + 3, cy + 7, "#94a3b8", 6);
-  cy += 13;
+  bg("#0f2744", M, cy, W - M * 2, 14, 2);
+  txt("Assumptions: 10% of bookings issue a DutyCredit voucher x 10% of those actually reach airport retail = 1% effective redemption rate", M + 3, cy + 6, "#94a3b8", 6);
+  txt("EUR185 avg basket | 2.5% platform fee (max EUR25/tx) | 20% of fee to Travel Partner | Volume data: verified annual reports / press releases", M + 3, cy + 11, "#94a3b8", 6);
+  cy += 18;
 
   // Per-company table — 7 cols across portrait width (no "Conf" col, merged into company)
   // Col right-edges: Bkgs/mo, Redem/mo, Gross/mo, Fee/mo, Partner/mo, DB net/mo
