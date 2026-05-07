@@ -1126,6 +1126,96 @@ function GlobalPotentialsDashboard({ responses }) {
         </div>
       </div>
 
+      {/* ── Airport Retailer Upside Section ── */}
+      <div className="bg-slate-800 border border-orange-500/30 rounded-2xl p-5 space-y-4">
+        <div>
+          <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">
+            Airport Retailer Upside — What the Retailer Gets
+          </h3>
+          <p className="text-xs text-slate-400">
+            Extra revenue driven to airport retailers by DutyBoost travellers spending their vouchers.{" "}
+            Retailer receives the full basket spend and gives the DutyCredit discount (fee pool) back.{" "}
+            Net gain = gross spend minus discount.
+          </p>
+        </div>
+
+        {/* Monthly + yearly retailer cards */}
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-slate-900/60 border border-orange-500/20 rounded-xl p-4 space-y-2">
+            <p className="text-xs font-semibold text-orange-400 uppercase tracking-widest">Monthly — Retailer View</p>
+            {[
+              { label: "Redemptions at airport retail/mo", value: totalRedemp.toLocaleString(), color: "text-green-300" },
+              { label: "Gross basket spend driven/mo", value: fmt(totalGross), color: "text-blue-300", note: `(${totalRedemp.toLocaleString()} × €${AVG_BASKET} avg)` },
+              { label: "DutyCredit discount given/mo", value: `–${fmt(totalFee)}`, color: "text-red-400", note: "(= fee pool, funded by DutyBoost)" },
+              { label: "Net new revenue for retailer/mo", value: fmt(totalGross - totalFee), color: "text-orange-300", bold: true },
+            ].map(({ label, value, color, note, bold }) => (
+              <div key={label} className="flex items-start justify-between text-sm border-b border-slate-700/40 pb-1.5">
+                <span className="text-slate-400 flex-1 pr-2">{label}{note && <span className="block text-xs text-slate-600">{note}</span>}</span>
+                <span className={`font-${bold ? "bold" : "semibold"} ${color} shrink-0`}>{value}</span>
+              </div>
+            ))}
+          </div>
+          <div className="bg-slate-900/60 border border-orange-500/30 rounded-xl p-4 space-y-2">
+            <p className="text-xs font-semibold text-orange-300 uppercase tracking-widest">Annual — Retailer View (×12)</p>
+            {[
+              { label: "Redemptions at airport retail/yr", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
+              { label: "Gross basket spend driven/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
+              { label: "DutyCredit discount given/yr", value: `–${fmt(totalFee * 12)}`, color: "text-red-400" },
+              { label: "Net new revenue for retailer/yr", value: fmt((totalGross - totalFee) * 12), color: "text-orange-300", bold: true },
+            ].map(({ label, value, color, bold }) => (
+              <div key={label} className="flex items-center justify-between text-sm border-b border-slate-700/40 pb-1.5">
+                <span className="text-slate-400">{label}</span>
+                <span className={`font-${bold ? "bold" : "semibold"} ${color}`}>{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Per-company retailer upside */}
+        {rows.length > 0 && (
+          <div>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Per-company retailer uplift (monthly)</p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="text-left text-slate-500 border-b border-slate-700">
+                    <th className="pb-2 pr-3">Company (travel partner)</th>
+                    <th className="pb-2 pr-3 text-right">Redemptions/mo</th>
+                    <th className="pb-2 pr-3 text-right">Gross spend/mo</th>
+                    <th className="pb-2 pr-3 text-right">Discount given/mo</th>
+                    <th className="pb-2 text-right">Net retailer gain/mo</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-700/30">
+                  {rows.map(r => (
+                    <tr key={r.id} className="hover:bg-slate-700/20 transition-colors">
+                      <td className="py-2 pr-3 text-white font-medium">{r.company_name}</td>
+                      <td className="py-2 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString()}</td>
+                      <td className="py-2 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
+                      <td className="py-2 pr-3 text-right text-red-400">–{fmt(r.rev.dutyBoostFee)}</td>
+                      <td className="py-2 text-right text-orange-300 font-bold">{fmt(r.rev.grossRevenue - r.rev.dutyBoostFee)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr className="border-t-2 border-slate-500 font-bold">
+                    <td className="pt-2 pr-3 text-white">TOTAL</td>
+                    <td className="pt-2 pr-3 text-right text-green-300">{totalRedemp.toLocaleString()}</td>
+                    <td className="pt-2 pr-3 text-right text-blue-300">{fmt(totalGross)}</td>
+                    <td className="pt-2 pr-3 text-right text-red-400">–{fmt(totalFee)}</td>
+                    <td className="pt-2 text-right text-orange-300">{fmt(totalGross - totalFee)}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        )}
+
+        <p className="text-xs text-slate-600 italic">
+          The retailer receives extra footfall + basket spend from DutyBoost travellers. The DutyCredit discount is funded from the fee pool (2.5% of basket, max €{FEE_CAP}/tx) — so the retailer's net new revenue = gross spend minus that discount. No upfront cost to the retailer.
+        </p>
+      </div>
+
       {rows.length === 0 && (
         <p className="text-center text-slate-500 py-12 text-sm">No verified volume data found for current respondents.</p>
       )}
@@ -1459,8 +1549,88 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
 
   rowY += 8 + summaryItems[0].length * 8 + 4;
 
-  // ── Airport potential section ─────────────────────────────────────────────────
+  // ── Airport Retailer Upside (new page) ───────────────────────────────────────
+  doc.addPage();
+  doc.setFillColor("#0f172a");
+  doc.rect(0, 0, W, H, "F");
+
+  bg("#1e2d1a", 10, 8, W - 20, 12, 3);
+  txt("Airport Retailer Upside — What the Retailer Gets from DutyBoost", 14, 16, "#f97316", 10, "bold");
+
+  bg("#1e293b", 10, 24, W - 20, 9, 2);
+  txt("Retailer receives full basket spend from DutyBoost travellers. They give the DutyCredit discount (= fee pool) back. Net gain = gross spend minus discount. No upfront cost.", 13, 30, "#94a3b8", 6.5);
+
+  // Monthly summary card
+  const retW = (W - 22) / 2;
+  const retY = 36;
+  const retMonthly = [
+    { label: "Redemptions at airport retail/mo", value: totals.totalRedemp.toLocaleString(), color: "#86efac" },
+    { label: "Gross basket spend driven/mo", value: fmt(totals.totalGross), color: "#93c5fd" },
+    { label: "DutyCredit discount given/mo", value: `-${fmt(totals.totalFee)}`, color: "#f87171" },
+    { label: "Net new revenue for retailer/mo", value: fmt(totals.totalGross - totals.totalFee), color: "#fb923c" },
+  ];
+  const retAnnual = [
+    { label: "Redemptions at airport retail/yr", value: (totals.totalRedemp * 12).toLocaleString(), color: "#86efac" },
+    { label: "Gross basket spend driven/yr", value: fmt(totals.totalGross * 12), color: "#93c5fd" },
+    { label: "DutyCredit discount given/yr", value: `-${fmt(totals.totalFee * 12)}`, color: "#f87171" },
+    { label: "Net new revenue for retailer/yr", value: fmt((totals.totalGross - totals.totalFee) * 12), color: "#fb923c" },
+  ];
+  [retMonthly, retAnnual].forEach((items, ci) => {
+    const cx = 10 + ci * (retW + 2);
+    bg("#1e293b", cx, retY, retW, 8 + items.length * 9, 3);
+    txt(ci === 0 ? "Monthly Summary" : "Annual Projection (x12)", cx + 4, retY + 6, ci === 0 ? "#94a3b8" : "#fb923c", 7.5, "bold");
+    items.forEach((item, ii) => {
+      const iy = retY + 14 + ii * 9;
+      txt(item.label, cx + 4, iy, "#64748b", 6.5);
+      rtxt(item.value, cx + retW - 4, iy, item.color, 7, "bold");
+    });
+  });
+
+  let retRowY = retY + 8 + retMonthly.length * 9 + 8;
+
+  // Per-company table
+  bg("#1e293b", 10, retRowY, W - 20, 8, 2);
+  const retCols = [
+    { label: "Company (travel partner)", x: 13, align: "left" },
+    { label: "Redemptions/mo", x: W - 120, align: "right" },
+    { label: "Gross spend/mo", x: W - 88, align: "right" },
+    { label: "Discount given/mo", x: W - 54, align: "right" },
+    { label: "Net retailer gain/mo", x: W - 14, align: "right" },
+  ];
+  retCols.forEach(c => {
+    if (c.align === "right") rtxt(c.label, c.x, retRowY + 5.5, "#64748b", 6.5, "bold");
+    else txt(c.label, c.x, retRowY + 5.5, "#64748b", 6.5, "bold");
+  });
+  retRowY += 10;
+
+  rows.forEach((r, idx) => {
+    if (idx % 2 === 1) bg("#1a2744", 10, retRowY - 4, W - 20, 8, 0);
+    txt(r.company_name.substring(0, 28), 13, retRowY + 0.5, "#f8fafc", 7, "bold");
+    rtxt(r.rev.totalRedemptions.toLocaleString(), W - 120, retRowY + 0.5, "#86efac", 7);
+    rtxt(fmt(r.rev.grossRevenue), W - 88, retRowY + 0.5, "#93c5fd", 7);
+    rtxt(`-${fmt(r.rev.dutyBoostFee)}`, W - 54, retRowY + 0.5, "#f87171", 7);
+    rtxt(fmt(r.rev.grossRevenue - r.rev.dutyBoostFee), W - 14, retRowY + 0.5, "#fb923c", 7, "bold");
+    retRowY += 8;
+  });
+
+  doc.setDrawColor("#64748b");
+  doc.setLineWidth(0.3);
+  doc.line(10, retRowY - 2, W - 10, retRowY - 2);
+  txt("TOTAL", 13, retRowY + 3, "#f8fafc", 7, "bold");
+  rtxt(totals.totalRedemp.toLocaleString(), W - 120, retRowY + 3, "#86efac", 7, "bold");
+  rtxt(fmt(totals.totalGross), W - 88, retRowY + 3, "#93c5fd", 7, "bold");
+  rtxt(`-${fmt(totals.totalFee)}`, W - 54, retRowY + 3, "#f87171", 7, "bold");
+  rtxt(fmt(totals.totalGross - totals.totalFee), W - 14, retRowY + 3, "#fb923c", 7, "bold");
+  retRowY += 12;
+
+  txt("The retailer's net gain is extra footfall revenue minus the DutyCredit discount they pass on. The discount is funded by DutyBoost (2.5% of basket, max EUR25/tx). No upfront cost to the retailer.", 13, retRowY, "#475569", 6.5);
+
+  // ── Airport potential section (page 3) ───────────────────────────────────────
   if (airportSection) {
+    doc.addPage();
+    doc.setFillColor("#0f172a");
+    doc.rect(0, 0, W, H, "F");
+    rowY = 10;
     bg("#1a2240", 10, rowY, W - 20, 32, 3);
     txt("AMS Airport Potential — Combined Travel Partner Volume", 14, rowY + 7, "#f8fafc", 8, "bold");
     txt(`Based on ${rows.length} verified travel partners | 10% redeem x 10% reach airport retail (div10) | EUR185 avg basket | 2.5% fee | EUR25 cap/tx`, 14, rowY + 13, "#64748b", 6.5);
