@@ -2,6 +2,13 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
+    // Protect against unauthorized invocations (scheduled automation passes this header)
+    const secret = req.headers.get('X-Automation-Secret') || new URL(req.url).searchParams.get('secret');
+    const expectedSecret = Deno.env.get('POS_WEBHOOK_SECRET');
+    if (expectedSecret && secret !== expectedSecret) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const base44 = createClientFromRequest(req);
 
     // Find all active vouchers with a travel date tomorrow
