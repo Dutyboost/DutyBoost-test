@@ -96,31 +96,10 @@ const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
   const isAdmin = user?.role === 'admin';
 
-  // Always allow these two public routes regardless of auth state
-  const publicRoutes = (
-    <>
-      <ScrollRestoration />
-      <Routes>
-        <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
-        <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
-        <Route path="/travel-partner-survey-es" element={<TravelPartnerSurveyES />} />
-        <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
-        <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
-        <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
-        <Route path="/airport-port-retailer-survey" element={<AirportRetailerSurvey />} />
-        <Route path="/airport-port-retailer-survey-nl" element={<AirportRetailerSurveyNL />} />
-        <Route path="/airport-port-retailer-survey-de" element={<AirportRetailerSurveyDE />} />
-        <Route path="/airport-port-retailer-survey-es" element={<AirportRetailerSurveyES />} />
-        <Route path="/airport-port-retailer-survey-fr" element={<AirportRetailerSurveyFR />} />
-        <Route path="/airport-port-retailer-survey-it" element={<AirportRetailerSurveyIT />} />
-        <Route path="*" element={<ComingSoonPage />} />
-      </Routes>
-    </>
-  );
-
+  // Show spinner until BOTH loading flags are done — never render routes early
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center">
+      <div className="fixed inset-0 flex items-center justify-center bg-white">
         <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
       </div>
     );
@@ -130,13 +109,37 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     }
-    // For auth errors, still serve public/survey routes but redirect to login for protected paths
-    return publicRoutes;
   }
 
-  // Non-admins: survey at its URL, everything else → coming soon
+  // Survey routes are always public
+  const surveyRoutes = (
+    <>
+      <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
+      <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
+      <Route path="/travel-partner-survey-es" element={<TravelPartnerSurveyES />} />
+      <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
+      <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
+      <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
+      <Route path="/airport-port-retailer-survey" element={<AirportRetailerSurvey />} />
+      <Route path="/airport-port-retailer-survey-nl" element={<AirportRetailerSurveyNL />} />
+      <Route path="/airport-port-retailer-survey-de" element={<AirportRetailerSurveyDE />} />
+      <Route path="/airport-port-retailer-survey-es" element={<AirportRetailerSurveyES />} />
+      <Route path="/airport-port-retailer-survey-fr" element={<AirportRetailerSurveyFR />} />
+      <Route path="/airport-port-retailer-survey-it" element={<AirportRetailerSurveyIT />} />
+    </>
+  );
+
+  // Non-admins (including unauthenticated): surveys + coming soon for everything else
   if (!isAdmin) {
-    return publicRoutes;
+    return (
+      <>
+        <ScrollRestoration />
+        <Routes>
+          {surveyRoutes}
+          <Route path="*" element={<ComingSoonPage />} />
+        </Routes>
+      </>
+    );
   }
 
   // Admin-only routes
@@ -144,20 +147,9 @@ const AuthenticatedApp = () => {
     <>
       <ScrollRestoration />
       <Routes>
-        <Route path="/" element={user?.role === 'admin' ? <LandingPage /> : <Navigate to="/dashboard" />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
-        <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
-        <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
-        <Route path="/travel-partner-survey-es" element={<TravelPartnerSurveyES />} />
-        <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
-        <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
-        <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
-        <Route path="/airport-port-retailer-survey" element={<AirportRetailerSurvey />} />
-        <Route path="/airport-port-retailer-survey-nl" element={<AirportRetailerSurveyNL />} />
-        <Route path="/airport-port-retailer-survey-de" element={<AirportRetailerSurveyDE />} />
-        <Route path="/airport-port-retailer-survey-es" element={<AirportRetailerSurveyES />} />
-        <Route path="/airport-port-retailer-survey-fr" element={<AirportRetailerSurveyFR />} />
-        <Route path="/airport-port-retailer-survey-it" element={<AirportRetailerSurveyIT />} />
+        {surveyRoutes}
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/airport-map" element={<AirportMap />} />
         <Route path="/demo" element={<DemoLanding />} />
