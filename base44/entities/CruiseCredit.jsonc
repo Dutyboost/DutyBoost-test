@@ -1,0 +1,70 @@
+{
+  "name": "CruiseCredit",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "cabin_number": {
+      "type": "string",
+      "title": "Cabin Number"
+    },
+    "ship_name": {
+      "type": "string",
+      "title": "Ship Name"
+    },
+    "port_of_call": {
+      "type": "string",
+      "title": "Port of Call"
+    },
+    "passenger_name": {
+      "type": "string",
+      "title": "Passenger Name"
+    },
+    "passenger_email": {
+      "type": "string",
+      "title": "Passenger Email"
+    },
+    "balance": {
+      "type": "number",
+      "title": "Balance (EUR)"
+    },
+    "remaining_balance": {
+      "type": "number",
+      "title": "Remaining Balance (EUR)"
+    },
+    "expiry": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expiry"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "used",
+        "expired",
+        "partially_used"
+      ],
+      "default": "active"
+    },
+    "cruise_line": {
+      "type": "string",
+      "title": "Cruise Line"
+    },
+    "voyage_id": {
+      "type": "string",
+      "title": "Voyage ID"
+    }
+  },
+  "required": [
+    "token_id",
+    "ship_name",
+    "port_of_call",
+    "balance",
+    "expiry",
+    "status"
+  ]
+}

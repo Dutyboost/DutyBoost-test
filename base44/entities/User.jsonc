@@ -18,5 +18,10 @@
       "type": "string",
       "title": "IBAN"
     }
-  }
+  },
+  "required": [
+    "role",
+    "bank_account_name",
+    "bank_iban"
+  ]
 }

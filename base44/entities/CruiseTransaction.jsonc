@@ -1,0 +1,59 @@
+{
+  "name": "CruiseTransaction",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "merchant_id": {
+      "type": "string",
+      "title": "Merchant / Retailer ID"
+    },
+    "merchant_name": {
+      "type": "string",
+      "title": "Merchant Name"
+    },
+    "passenger_email": {
+      "type": "string",
+      "title": "Passenger Email"
+    },
+    "ship_name": {
+      "type": "string",
+      "title": "Ship Name"
+    },
+    "port_of_call": {
+      "type": "string",
+      "title": "Port of Call"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount (EUR)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "approved",
+        "rejected"
+      ],
+      "default": "approved"
+    },
+    "rejection_reason": {
+      "type": "string",
+      "title": "Rejection Reason"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Timestamp"
+    }
+  },
+  "required": [
+    "token_id",
+    "merchant_id",
+    "amount",
+    "status",
+    "timestamp"
+  ]
+}
