@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import LinkedInIcon from "./LinkedInIcon";
-
 const legalLinks = [
   { to: "/privacy", label: "Privacy Policy" },
   { to: "/terms", label: "Terms of Service" },
@@ -53,14 +51,6 @@ export default function FooterLinks() {
       <Link to="/airport-map" className="hover:text-primary transition-colors">Airport Map</Link>
       <a href="mailto:rael@dutyboost.com" className="hover:text-primary transition-colors">support@dutyboost.com</a>
       </div>
-      <a
-        href="https://www.linkedin.com/company/dutyboost"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:opacity-80 transition-opacity"
-      >
-        <LinkedInIcon className="w-6 h-6" />
-      </a>
     </div>
   );
 }
