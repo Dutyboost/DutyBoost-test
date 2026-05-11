@@ -73,9 +73,9 @@ export default function HotelShowcase() {
             <Button 
               size="lg" 
               className="bg-white text-blue-600 hover:bg-gray-100 gap-2"
-              onClick={() => navigate("/hotel-portal")}
+              onClick={() => navigate("/request-demo")}
             >
-              {t('showcase.hotel.ctaButton')} <ArrowRight className="w-4 h-4" />
+              Request a Demo <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         </div>

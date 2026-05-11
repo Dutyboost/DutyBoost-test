@@ -73,9 +73,9 @@ export default function CarRentalShowcase() {
             <Button 
               size="lg" 
               className="bg-white text-orange-600 hover:bg-gray-100 gap-2"
-              onClick={() => navigate("/car-rental-portal")}
+              onClick={() => navigate("/request-demo")}
             >
-              {t('showcase.car.ctaButton')} <ArrowRight className="w-4 h-4" />
+              Request a Demo <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         </div>

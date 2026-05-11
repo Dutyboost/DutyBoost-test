@@ -87,9 +87,9 @@ export default function AgencyShowcase() {
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
                 {t('showcase.agency.ctaDesc')}
               </p>
-              <Link to="/travel-partner-portal">
+              <Link to="/request-demo">
                 <Button size="lg" className="bg-white text-green-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  {t('showcase.agency.ctaButton')} <ArrowRight className="w-4 h-4" />
+                  Request a Demo <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

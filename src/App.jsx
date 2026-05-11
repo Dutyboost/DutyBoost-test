@@ -91,6 +91,7 @@ import TrainPortal from './pages/TrainPortal.jsx';
 import TrainSignup from './pages/TrainSignup.jsx';
 import DemoTrainDashboard from './pages/DemoTrainDashboard.jsx';
 import DevWireframe from './pages/DevWireframe';
+import RequestDemoPage from './pages/RequestDemoPage';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -129,13 +130,14 @@ const AuthenticatedApp = () => {
     </>
   );
 
-  // Non-admins (including unauthenticated): surveys + coming soon for everything else
+  // Non-admins (including unauthenticated): surveys + demo request + coming soon for everything else
   if (!isAdmin) {
     return (
       <>
         <ScrollRestoration />
         <Routes>
           {surveyRoutes}
+          <Route path="/request-demo" element={<RequestDemoPage />} />
           <Route path="*" element={<ComingSoonPage />} />
         </Routes>
       </>
@@ -191,6 +193,7 @@ const AuthenticatedApp = () => {
         <Route path="/train-portal" element={<TrainPortal />} />
         <Route path="/train-signup" element={<TrainSignup />} />
         <Route path="/dev-wireframe" element={<DevWireframe />} />
+        <Route path="/request-demo" element={<RequestDemoPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
