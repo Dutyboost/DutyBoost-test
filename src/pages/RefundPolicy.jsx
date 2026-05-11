@@ -15,7 +15,7 @@ const content = {
     { h: "6. Chargebacks", p: "Airport Retailers who initiate a chargeback or payment reversal without first following the dispute process outlined above may have their account suspended pending investigation. Chargeback disputes are handled in accordance with the payment method terms and applicable banking regulations." },
     { h: "7. No Refunds on Valid Transactions", p: "Commission charges on valid, correctly processed DutyCredit redemptions are final and non-refundable. Once a DutyCredit has been redeemed and the transaction confirmed, the associated commission is binding on all parties." },
     { h: "8. Invoice Payment Terms", p: "Monthly invoices issued to Airport Retailers are payable within 30 days of the invoice date. Overdue invoices may attract a late payment fee and, if unpaid after 60 days, may result in account suspension and referral to a collections process." },
-    { h: "9. Contact", p: "For billing or dispute requests: billing@dutyboost.com · DutyBoost B.V., Amsterdam, the Netherlands." },
+    { h: "9. Contact", p: "For billing or dispute requests: billing@dutyboost.com · DutyBoost B.V., a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands." },
   ]},
   nl: { title: "Facturerings- en geschillenbeleid", updated: "Laatst bijgewerkt: april 2026", back: "Terug naar home", sections: [
     { h: "1. Platformkostenmodel", p: "DutyBoost werkt op basis van een prestatiegebonden commissiemodel. Er zijn geen abonnementskosten, installatiekosten of vooruitbetalingen. Commissie wordt alleen toegepast wanneer een DutyCredit succesvol wordt ingewisseld door een reiziger bij een deelnemende Luchthavenwinkel. Alle vergoedingen zijn exclusief BTW." },
@@ -26,7 +26,7 @@ const content = {
     { h: "6. Chargebacks", p: "Luchthavenwinkels die een chargeback of betalingsstornering initiëren zonder eerst de bovenstaande geschillenprocedure te volgen, kunnen hun account worden opgeschort in afwachting van onderzoek." },
     { h: "7. Geen terugbetalingen voor geldige transacties", p: "Commissievergoedingen voor geldige, correct verwerkte DutyCredit-inwisselingen zijn definitief en niet-restitueerbaar." },
     { h: "8. Betalingsvoorwaarden facturen", p: "Maandelijkse facturen aan Luchthavenwinkels zijn betaalbaar binnen 30 dagen na factuurdatum. Achterstallige facturen kunnen leiden tot een vertragingsvergoeding en, na 60 dagen, tot opschorting van het account." },
-    { h: "9. Contact", p: "Voor facturerings- of geschillenverzoeken: billing@dutyboost.com · DutyBoost B.V., Amsterdam, Nederland." },
+    { h: "9. Contact", p: "Voor facturerings- of geschillenverzoeken: billing@dutyboost.com · DutyBoost B.V., een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland." },
   ]},
   de: { title: "Abrechnungs- und Streitbeilegungsrichtlinie", updated: "Zuletzt aktualisiert: April 2026", back: "Zurück zur Startseite", sections: [
     { h: "1. Plattformgebührenmodell", p: "DutyBoost arbeitet nach einem leistungsbasierten Provisionsmodell. Es fallen keine Abonnementgebühren, Einrichtungskosten oder Vorauszahlungen an. Provisionen werden nur erhoben, wenn ein DutyCredit von einem Reisenden bei einem teilnehmenden Flughafenhändler erfolgreich eingelöst wird. Alle Gebühren verstehen sich zuzüglich MwSt." },
@@ -37,7 +37,7 @@ const content = {
     { h: "6. Rückbuchungen (Chargebacks)", p: "Flughafenhändler, die eine Rückbuchung initiieren, ohne zuvor das oben beschriebene Streitbeilegungsverfahren zu befolgen, können ihr Konto bis zur Untersuchung gesperrt bekommen." },
     { h: "7. Keine Rückerstattungen für gültige Transaktionen", p: "Provisionsgebühren für gültige, korrekt verarbeitete DutyCredit-Einlösungen sind endgültig und nicht erstattungsfähig." },
     { h: "8. Rechnungszahlungsbedingungen", p: "Monatliche Rechnungen an Flughafenhändler sind innerhalb von 30 Tagen nach Rechnungsdatum zahlbar. Überfällige Rechnungen können zu Verzugszinsen und nach 60 Tagen zur Kontosperrung führen." },
-    { h: "9. Kontakt", p: "Für Abrechnungs- oder Streitanfragen: billing@dutyboost.com · DutyBoost B.V., Amsterdam, Niederlande." },
+    { h: "9. Kontakt", p: "Für Abrechnungs- oder Streitanfragen: billing@dutyboost.com · DutyBoost B.V., eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande." },
   ]},
   fr: { title: "Politique de facturation et de règlement des litiges", updated: "Dernière mise à jour : avril 2026", back: "Retour à l'accueil", sections: [
     { h: "1. Modèle de frais", p: "DutyBoost fonctionne selon un modèle de commission basé sur la performance. Aucun frais d'abonnement, d'installation ou paiement anticipé. La commission n'est appliquée qu'en cas d'échange réussi d'un DutyCredit par un voyageur chez un détaillant aéroportuaire participant. Tous les montants sont hors TVA." },
@@ -48,7 +48,7 @@ const content = {
     { h: "6. Rétrofacturations (Chargebacks)", p: "Les détaillants qui initient une rétrofacturation sans avoir d'abord suivi la procédure de litige ci-dessus peuvent voir leur compte suspendu en attendant l'enquête." },
     { h: "7. Pas de remboursements sur les transactions valides", p: "Les commissions sur des rachats valides et correctement traités sont définitives et non remboursables." },
     { h: "8. Conditions de paiement des factures", p: "Les factures mensuelles émises aux détaillants sont payables dans les 30 jours. Les factures impayées après 60 jours peuvent entraîner la suspension du compte." },
-    { h: "9. Contact", p: "Pour les demandes de facturation ou de litige : billing@dutyboost.com · DutyBoost B.V., Amsterdam, Pays-Bas." },
+    { h: "9. Contact", p: "Pour les demandes de facturation ou de litige : billing@dutyboost.com · DutyBoost B.V., entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Política de facturación y resolución de disputas", updated: "Última actualización: abril de 2026", back: "Volver al inicio", sections: [
     { h: "1. Modelo de tarifas", p: "DutyBoost opera con un modelo de comisión basado en el rendimiento. Sin tarifas de suscripción, instalación ni pagos anticipados. La comisión solo se aplica cuando un DutyCredit se canjea con éxito por un viajero en un comercio aeroportuario participante. Todos los importes son sin IVA." },
@@ -59,7 +59,7 @@ const content = {
     { h: "6. Contracargos (Chargebacks)", p: "Los comercios que inicien un contracargo sin seguir primero el proceso de disputa anterior pueden ver su cuenta suspendida hasta completar la investigación." },
     { h: "7. Sin reembolsos en transacciones válidas", p: "Los cargos de comisión sobre canjes válidos y correctamente procesados son definitivos y no reembolsables." },
     { h: "8. Condiciones de pago de facturas", p: "Las facturas mensuales emitidas a los comercios son pagaderas en 30 días. Las facturas impagadas tras 60 días pueden resultar en la suspensión de la cuenta." },
-    { h: "9. Contacto", p: "Para solicitudes de facturación o disputas: billing@dutyboost.com · DutyBoost B.V., Ámsterdam, Países Bajos." },
+    { h: "9. Contacto", p: "Para solicitudes de facturación o disputas: billing@dutyboost.com · DutyBoost B.V., entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos." },
   ]},
   it: { title: "Politica di fatturazione e risoluzione delle controversie", updated: "Ultimo aggiornamento: aprile 2026", back: "Torna alla home", sections: [
     { h: "1. Modello di commissione", p: "DutyBoost opera con un modello di commissione basato sulle prestazioni. Nessun costo di abbonamento, configurazione né pagamento anticipato. La commissione viene applicata solo quando un DutyCredit viene riscattato con successo da un viaggiatore presso un rivenditore aeroportuale partecipante. Tutti gli importi si intendono al netto di IVA." },
@@ -70,7 +70,7 @@ const content = {
     { h: "6. Chargeback", p: "I rivenditori che avviano un chargeback senza aver prima seguito la procedura di contestazione sopra descritta possono vedere il proprio account sospeso in attesa di indagine." },
     { h: "7. Nessun rimborso su transazioni valide", p: "Le commissioni su riscatti validi e correttamente elaborati sono definitive e non rimborsabili." },
     { h: "8. Termini di pagamento delle fatture", p: "Le fatture mensili emesse ai rivenditori sono pagabili entro 30 giorni. Le fatture non pagate dopo 60 giorni possono comportare la sospensione dell'account." },
-    { h: "9. Contatto", p: "Per richieste di fatturazione o contestazioni: billing@dutyboost.com · DutyBoost B.V., Amsterdam, Paesi Bassi." },
+    { h: "9. Contatto", p: "Per richieste di fatturazione o contestazioni: billing@dutyboost.com · DutyBoost B.V., entità legale registrata presso la Camera di Commercio olandese (Kamer van Koophandel) con il numero 42053181, Amsterdam, Paesi Bassi." },
   ]},
 };
 

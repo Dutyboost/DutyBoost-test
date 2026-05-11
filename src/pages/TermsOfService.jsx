@@ -11,7 +11,7 @@ const content = {
     sections: [
       { h: "1. Definitions", list: [
         "Platform: the DutyBoost web application, APIs, and services operated by DutyBoost",
-        "DutyBoost / We / Us: DutyBoost, a company registered in the Netherlands (Chamber of Commerce registration available upon request).",
+        "DutyBoost / We / Us: DutyBoost, a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands.",
         "User / You: any individual or entity accessing or using the Platform.",
         "Travel Partner / Agency: a licensed travel intermediary (travel agency, tour operator, airline, or online travel agent / OTA) that generates DutyCredits via the Platform on behalf of their travelers.",
         "Airport Retailer: an airport-based commercial entity (duty-free operator, F&B outlet, or landside/airside retailer) that accepts and redeems DutyCredits at a point of sale.",
@@ -64,7 +64,7 @@ const content = {
       { h: "15. Suspension and Termination", p: "DutyBoost may suspend or terminate your account immediately if you breach these Terms, engage in fraudulent or AML-related activity, fail to pay outstanding fees, or if your travel intermediary licence or airport retail concession is revoked." },
       { h: "16. Amendments", p: "DutyBoost may update these Terms at any time. Material changes will be communicated with at least 14 days' notice. Continued use of the Platform after the notice period constitutes acceptance of the updated Terms." },
       { h: "17. Governing Law", p: "These Terms are governed by the laws of the Netherlands. Disputes shall be subject to the exclusive jurisdiction of the courts of Amsterdam, the Netherlands." },
-      { h: "18. Contact", p: "For questions relating to these Terms: legal@dutyboost.com · DutyBoost, Amsterdam, the Netherlands." },
+      { h: "18. Contact", p: "For questions relating to these Terms: legal@dutyboost.com · DutyBoost, a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands." },
     ]
   },
   nl: { title: "Servicevoorwaarden", updated: "Laatst bijgewerkt: april 2026 · DutyBoost · Amsterdam, Nederland", back: "Terug naar home",
@@ -72,7 +72,7 @@ const content = {
     sections: [
       { h: "1. Definities", list: [
         "Platform: de DutyBoost webapplicatie, API's en diensten van DutyBoost",
-        "DutyBoost / Wij / Ons: DutyBoost, een in Nederland geregistreerd bedrijf.",
+        "DutyBoost / Wij / Ons: DutyBoost, een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland.",
         "Gebruiker / U: elke persoon of rechtspersoon die het Platform gebruikt.",
         "Reispartner / Reisbureau: een erkende reisintermediair (reisbureau, touroperator, luchtvaartmaatschappij of OTA) die DutyCredits genereert via het Platform.",
         "Luchthavenwinkel: een commerciële entiteit op de luchthaven die DutyCredits accepteert en inwisselt.",
@@ -124,7 +124,7 @@ const content = {
       { h: "15. Opschorting en beëindiging", p: "DutyBoost kan uw account onmiddellijk opschorten of beëindigen bij schending van deze Voorwaarden, frauduleuze activiteiten, niet-betaling, of intrekking van uw reisintermediairlicentie of luchthavenconsessie." },
       { h: "16. Wijzigingen", p: "DutyBoost kan deze Voorwaarden op elk moment bijwerken met minimaal 14 dagen voorafgaande kennisgeving voor materiële wijzigingen." },
       { h: "17. Toepasselijk recht", p: "Deze Voorwaarden worden beheerst door Nederlands recht. Geschillen zijn onderworpen aan de exclusieve jurisdictie van de rechtbanken van Amsterdam." },
-      { h: "18. Contact", p: "Voor vragen over deze Voorwaarden: legal@dutyboost.com · DutyBoost, Amsterdam, Nederland." },
+      { h: "18. Contact", p: "Voor vragen over deze Voorwaarden: legal@dutyboost.com · DutyBoost, een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland." },
     ]
   },
   de: { title: "Nutzungsbedingungen", updated: "Zuletzt aktualisiert: April 2026 · DutyBoost · Amsterdam, Niederlande", back: "Zurück zur Startseite",
@@ -132,7 +132,7 @@ const content = {
     sections: [
       { h: "1. Definitionen", list: [
         "Plattform: die DutyBoost-Webanwendung, APIs und Dienste von DutyBoost",
-        "DutyBoost / Wir / Uns: DutyBoost, ein in den Niederlanden eingetragenes Unternehmen.",
+        "DutyBoost / Wir / Uns: DutyBoost, eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande.",
         "Nutzer / Sie: jede natürliche oder juristische Person, die die Plattform nutzt.",
         "Reisepartner / Reisebüro: ein zugelassener Reisevermittler (Reisebüro, Reiseveranstalter, Fluggesellschaft oder OTA), der DutyCredits über die Plattform generiert.",
         "Flughafenhändler: ein flughafenbasiertes Handelsunternehmen, das DutyCredits akzeptiert und einlöst.",
@@ -184,7 +184,7 @@ const content = {
       { h: "15. Sperrung und Kündigung", p: "DutyBoost kann Ihr Konto sofort sperren oder kündigen bei Verstößen, betrügerischen Aktivitäten, Nichtbezahlung oder Entzug Ihrer Reisevermittlerlizenz oder Flughafenkonzession." },
       { h: "16. Änderungen", p: "DutyBoost kann diese Bedingungen jederzeit aktualisieren. Wesentliche Änderungen werden mit mindestens 14 Tagen Vorankündigung kommuniziert." },
       { h: "17. Anwendbares Recht", p: "Diese Bedingungen unterliegen dem Recht der Niederlande. Streitigkeiten unterliegen der ausschließlichen Zuständigkeit der Gerichte in Amsterdam." },
-      { h: "18. Kontakt", p: "Für Fragen: legal@dutyboost.com · DutyBoost, Amsterdam, Niederlande." },
+      { h: "18. Kontakt", p: "Für Fragen: legal@dutyboost.com · DutyBoost, eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande." },
     ]
   },
   fr: { title: "Conditions d'utilisation", updated: "Dernière mise à jour : avril 2026 · DutyBoost · Amsterdam, Pays-Bas", back: "Retour à l'accueil",
@@ -192,7 +192,7 @@ const content = {
     sections: [
       { h: "1. Définitions", list: [
         "Plateforme : l'application web DutyBoost, les API et services de DutyBoost",
-        "DutyBoost / Nous : DutyBoost, société enregistrée aux Pays-Bas.",
+        "DutyBoost / Nous : DutyBoost, entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas.",
         "Utilisateur / Vous : toute personne ou entité utilisant la Plateforme.",
         "Partenaire de voyage / Agence : un intermédiaire de voyage agréé (agence, tour-opérateur, compagnie aérienne ou OTA) générant des DutyCredits via la Plateforme.",
         "Détaillant aéroportuaire : une entité commerciale en aéroport acceptant et échangeant des DutyCredits.",
@@ -244,7 +244,7 @@ const content = {
       { h: "15. Suspension et résiliation", p: "DutyBoost peut suspendre ou résilier votre compte immédiatement en cas de violation, d'activité frauduleuse, de non-paiement ou de révocation de votre licence d'intermédiaire de voyage ou concession aéroportuaire." },
       { h: "16. Modifications", p: "DutyBoost peut modifier ces Conditions à tout moment avec au moins 14 jours de préavis pour les changements substantiels." },
       { h: "17. Droit applicable", p: "Ces Conditions sont régies par le droit néerlandais. Tout litige relève de la compétence exclusive des tribunaux d'Amsterdam." },
-      { h: "18. Contact", p: "Pour toute question : legal@dutyboost.com · DutyBoost, Amsterdam, Pays-Bas." },
+      { h: "18. Contact", p: "Pour toute question : legal@dutyboost.com · DutyBoost, entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
     ]
   },
   es: { title: "Términos de servicio", updated: "Última actualización: abril de 2026 · DutyBoost · Ámsterdam, Países Bajos", back: "Volver al inicio",
@@ -252,7 +252,7 @@ const content = {
     sections: [
       { h: "1. Definiciones", list: [
         "Plataforma: la aplicación web DutyBoost, APIs y servicios de DutyBoost",
-        "DutyBoost / Nosotros: DutyBoost, empresa registrada en los Países Bajos.",
+        "DutyBoost / Nosotros: DutyBoost, entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos.",
         "Usuario / Tú: cualquier persona o entidad que use la Plataforma.",
         "Socio de viaje / Agencia: un intermediario de viajes autorizado (agencia, touroperador, aerolínea u OTA) que genera DutyCredits vía la Plataforma.",
         "Comercio aeroportuario: entidad comercial en aeropuerto que acepta y canjea DutyCredits.",
@@ -304,7 +304,7 @@ const content = {
       { h: "15. Suspensión y rescisión", p: "DutyBoost puede suspender o cancelar tu cuenta inmediatamente por incumplimiento, actividad fraudulenta, impago o revocación de tu licencia de intermediario de viajes o concesión aeroportuaria." },
       { h: "16. Modificaciones", p: "DutyBoost puede actualizar estos Términos con al menos 14 días de antelación para cambios materiales." },
       { h: "17. Ley aplicable", p: "Estos Términos se rigen por la ley neerlandesa. Cualquier disputa estará sujeta a la jurisdicción exclusiva de los tribunales de Ámsterdam." },
-      { h: "18. Contacto", p: "Para preguntas: legal@dutyboost.com · DutyBoost, Ámsterdam, Países Bajos." },
+      { h: "18. Contacto", p: "Para preguntas: legal@dutyboost.com · DutyBoost, entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos." },
     ]
   },
   it: { title: "Termini di servizio", updated: "Ultimo aggiornamento: aprile 2026 · DutyBoost · Amsterdam, Paesi Bassi", back: "Torna alla home",
@@ -312,7 +312,7 @@ const content = {
     sections: [
       { h: "1. Definizioni", list: [
         "Piattaforma: l'applicazione web DutyBoost, le API e i servizi di DutyBoost",
-        "DutyBoost / Noi: DutyBoost, società registrata nei Paesi Bassi.",
+        "DutyBoost / Noi: DutyBoost, entità legale registrata presso la Camera di Commercio olandese (Kamer van Koophandel) con il numero 42053181, Amsterdam, Paesi Bassi.",
         "Utente / Tu: qualsiasi persona o entità che utilizza la Piattaforma.",
         "Partner di viaggio / Agenzia: un intermediario di viaggio autorizzato (agenzia, tour operator, compagnia aerea o OTA) che genera DutyCredit tramite la Piattaforma.",
         "Rivenditore aeroportuale: un'entità commerciale in aeroporto che accetta e riscatta DutyCredit.",
@@ -364,7 +364,7 @@ const content = {
       { h: "15. Sospensione e risoluzione", p: "DutyBoost può sospendere o chiudere il tuo account immediatamente per violazioni, attività fraudolente, mancato pagamento o revoca della tua licenza di intermediario di viaggio o concessione aeroportuale." },
       { h: "16. Modifiche", p: "DutyBoost può aggiornare questi Termini con almeno 14 giorni di preavviso per modifiche sostanziali." },
       { h: "17. Legge applicabile", p: "Questi Termini sono regolati dalla legge olandese. Le controversie sono soggette alla giurisdizione esclusiva dei tribunali di Amsterdam." },
-      { h: "18. Contatto", p: "Per domande: legal@dutyboost.com · DutyBoost, Amsterdam, Paesi Bassi." },
+      { h: "18. Contatto", p: "Per domande: legal@dutyboost.com · DutyBoost, entità legale registrata presso la Camera di Commercio olandese (Kamer van Koophandel) con il numero 42053181, Amsterdam, Paesi Bassi." },
     ]
   },
 };

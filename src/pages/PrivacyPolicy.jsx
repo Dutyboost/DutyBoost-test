@@ -30,7 +30,7 @@ const content = {
     { h: "6. Data Retention", p: "We retain personal data for as long as your account is active or as needed to provide services. Booking and transaction records are retained for a minimum of 7 years in accordance with financial record-keeping obligations. KYC verification records are retained as required by applicable AML regulations." },
     { h: "7. Your Rights (GDPR)", p: "If you are based in the EU/EEA, you have the right to: access your personal data; request correction of inaccurate data; request deletion of your data (subject to legal retention obligations); object to or restrict processing; and request data portability. To exercise your rights, contact us at privacy@dutyboost.com. You also have the right to lodge a complaint with your national data protection authority." },
     { h: "8. Security", p: "We use industry-standard encryption (TLS 1.2+ in transit, AES-256 at rest), role-based access control, and multi-factor authentication for internal systems. DutyCredit codes are cryptographically unique and single-use. We conduct regular security assessments and maintain a documented incident response procedure." },
-    { h: "9. Contact", p: "For privacy-related enquiries: privacy@dutyboost.com · DutyBoost, Amsterdam, the Netherlands." },
+    { h: "9. Contact", p: "For privacy-related enquiries: privacy@dutyboost.com · DutyBoost, a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands." },
   ]},
   nl: { title: "Privacybeleid", updated: "Laatst bijgewerkt: april 2026", back: "Terug naar home", sections: [
     { h: "1. Inleiding", p: "DutyBoost verbindt zich tot de bescherming van uw persoonsgegevens. Dit Privacybeleid legt uit hoe wij de gegevens die u verstrekt bij het gebruik van ons platform verzamelen, gebruiken en beschermen. DutyBoost opereert binnen de internationale reisdetailhandel en verwerkt gegevens in overeenstemming met de AVG (EU) 2016/679." },
@@ -56,7 +56,7 @@ const content = {
     { h: "6. Gegevensbewaring", p: "Wij bewaren persoonsgegevens zolang uw account actief is. Boekings- en transactiegegevens worden minimaal 7 jaar bewaard. KYC-verificatiedossiers worden bewaard zoals vereist door toepasselijke AML-wetgeving." },
     { h: "7. Uw rechten (AVG)", p: "Als u in de EU/EER gevestigd bent, heeft u het recht op inzage, rectificatie, verwijdering, bezwaar, beperking en overdraagbaarheid van uw gegevens. Neem contact op via privacy@dutyboost.com. U heeft ook het recht een klacht in te dienen bij uw nationale toezichthouder." },
     { h: "8. Beveiliging", p: "Wij gebruiken versleuteling (TLS 1.2+, AES-256), rolgebaseerde toegangscontrole en multi-factor authenticatie. DutyCredit-codes zijn cryptografisch uniek en eenmalig bruikbaar. Wij voeren regelmatige beveiligingsbeoordelingen uit." },
-    { h: "9. Contact", p: "Voor privacygerelateerde vragen: privacy@dutyboost.com · DutyBoost, Amsterdam, Nederland." },
+    { h: "9. Contact", p: "Voor privacygerelateerde vragen: privacy@dutyboost.com · DutyBoost, een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland." },
   ]},
   de: { title: "Datenschutzerklärung", updated: "Zuletzt aktualisiert: April 2026", back: "Zurück zur Startseite", sections: [
     { h: "1. Einleitung", p: "DutyBoost verpflichtet sich zum Schutz Ihrer personenbezogenen Daten. Diese Datenschutzerklärung erläutert, wie wir Daten erfassen, verwenden und schützen. DutyBoost ist im internationalen Reiseeinzelhandel tätig und verarbeitet Daten gemäß DSGVO (EU) 2016/679." },
@@ -82,7 +82,7 @@ const content = {
     { h: "6. Datenspeicherung", p: "Wir speichern personenbezogene Daten so lange, wie Ihr Konto aktiv ist. Buchungs- und Transaktionsdaten werden mindestens 7 Jahre aufbewahrt. KYC-Verifizierungsunterlagen werden gemäß AML-Vorschriften aufbewahrt." },
     { h: "7. Ihre Rechte (DSGVO)", p: "Wenn Sie in der EU/EWR ansässig sind, haben Sie das Recht auf Zugang, Berichtigung, Löschung, Widerspruch, Einschränkung und Portabilität Ihrer Daten. Kontaktieren Sie uns unter privacy@dutyboost.com. Sie haben auch das Recht, eine Beschwerde bei Ihrer nationalen Datenschutzbehörde einzureichen." },
     { h: "8. Sicherheit", p: "Wir verwenden Verschlüsselung (TLS 1.2+, AES-256), rollenbasierte Zugriffskontrolle und Multi-Faktor-Authentifizierung. DutyCredit-Codes sind kryptografisch einzigartig und einmalig verwendbar. Wir führen regelmäßige Sicherheitsbewertungen durch." },
-    { h: "9. Kontakt", p: "Für datenschutzbezogene Anfragen: privacy@dutyboost.com · DutyBoost, Amsterdam, Niederlande." },
+    { h: "9. Kontakt", p: "Für datenschutzbezogene Anfragen: privacy@dutyboost.com · DutyBoost, eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande." },
   ]},
   fr: { title: "Politique de confidentialité", updated: "Dernière mise à jour : avril 2026", back: "Retour à l'accueil", sections: [
     { h: "1. Introduction", p: "DutyBoost s'engage à protéger vos informations personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos données. DutyBoost opère dans le secteur du commerce de détail de voyage international et traite les données conformément au RGPD (UE) 2016/679." },
@@ -108,7 +108,7 @@ const content = {
     { h: "6. Conservation des données", p: "Nous conservons les données personnelles aussi longtemps que votre compte est actif. Les données de réservation et de transaction sont conservées au minimum 7 ans. Les dossiers KYC sont conservés conformément aux réglementations AML applicables." },
     { h: "7. Vos droits (RGPD)", p: "Si vous êtes basé dans l'UE/EEE, vous avez le droit d'accéder, de corriger, de supprimer, de vous opposer, de restreindre et de porter vos données. Contactez-nous à privacy@dutyboost.com. Vous avez également le droit de déposer une plainte auprès de votre autorité nationale de protection des données." },
     { h: "8. Sécurité", p: "Nous utilisons le chiffrement (TLS 1.2+, AES-256), le contrôle d'accès basé sur les rôles et l'authentification multi-facteurs. Les codes DutyCredit sont cryptographiquement uniques et à usage unique. Nous effectuons des évaluations de sécurité régulières." },
-    { h: "9. Contact", p: "Pour les demandes liées à la confidentialité : privacy@dutyboost.com · DutyBoost, Amsterdam, Pays-Bas." },
+    { h: "9. Contact", p: "Pour les demandes liées à la confidentialité : privacy@dutyboost.com · DutyBoost, entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Política de privacidad", updated: "Última actualización: abril de 2026", back: "Volver al inicio", sections: [
     { h: "1. Introducción", p: "DutyBoost se compromete a proteger tu información personal. Esta Política explica cómo recopilamos, usamos y protegemos los datos. DutyBoost opera en el sector internacional del comercio minorista de viajes y trata los datos conforme al RGPD (UE) 2016/679." },
@@ -134,7 +134,7 @@ const content = {
     { h: "6. Retención de datos", p: "Conservamos los datos personales mientras tu cuenta esté activa. Los registros de reserva y transacción se conservan un mínimo de 7 años. Los registros KYC se conservan conforme a la normativa AML aplicable." },
     { h: "7. Tus derechos (RGPD)", p: "Si estás en la UE/EEE, tienes derecho a acceder, corregir, eliminar, oponerte, restringir y portar tus datos. Contáctanos en privacy@dutyboost.com. También tienes derecho a presentar una reclamación ante tu autoridad nacional de protección de datos." },
     { h: "8. Seguridad", p: "Usamos cifrado (TLS 1.2+, AES-256), control de acceso basado en roles y autenticación multifactor. Los códigos DutyCredit son criptográficamente únicos y de un solo uso. Realizamos evaluaciones de seguridad periódicas." },
-    { h: "9. Contacto", p: "Para consultas sobre privacidad: privacy@dutyboost.com · DutyBoost, Ámsterdam, Países Bajos." },
+    { h: "9. Contacto", p: "Para consultas sobre privacidad: privacy@dutyboost.com · DutyBoost, entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos." },
   ]},
   it: { title: "Informativa sulla privacy", updated: "Ultimo aggiornamento: aprile 2026", back: "Torna alla home", sections: [
     { h: "1. Introduzione", p: "DutyBoost si impegna a proteggere le tue informazioni personali. Questa informativa spiega come raccogliamo, utilizziamo e proteggiamo i dati. DutyBoost opera nel settore internazionale del commercio al dettaglio di viaggio e tratta i dati in conformità con il GDPR (UE) 2016/679." },
@@ -160,7 +160,7 @@ const content = {
     { h: "6. Conservazione dei dati", p: "Conserviamo i dati personali finché il tuo account è attivo. I record di prenotazione e transazione vengono conservati per un minimo di 7 anni. I dossier KYC vengono conservati conformemente alle normative AML applicabili." },
     { h: "7. I tuoi diritti (GDPR)", p: "Se sei nell'UE/SEE, hai il diritto di accedere, correggere, cancellare, opporti, limitare e portare i tuoi dati. Contattaci all'indirizzo privacy@dutyboost.com. Hai anche il diritto di presentare un reclamo alla tua autorità nazionale per la protezione dei dati." },
     { h: "8. Sicurezza", p: "Utilizziamo crittografia (TLS 1.2+, AES-256), controllo degli accessi basato sui ruoli e autenticazione a più fattori. I codici DutyCredit sono crittograficamente unici e monouso. Conduciamo valutazioni periodiche della sicurezza." },
-    { h: "9. Contatto", p: "Per richieste relative alla privacy: privacy@dutyboost.com · DutyBoost, Amsterdam, Paesi Bassi." },
+    { h: "9. Contatto", p: "Per richieste relative alla privacy: privacy@dutyboost.com · DutyBoost, entità legale registrata presso la Camera di Commercio olandese (Kamer van Koophandel) con il numero 42053181, Amsterdam, Paesi Bassi." },
   ]},
 };
 
