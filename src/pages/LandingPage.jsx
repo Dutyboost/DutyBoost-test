@@ -1,43 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { base44 } from "@/api/base44Client";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  BarChart3, ArrowRight, Eye, Menu, X
+  BarChart3, ArrowRight, Menu, X
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import WeCallYouModal from "../components/WeCallYouModal";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 
 export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [authedUser, setAuthedUser] = useState(null);
-  const [contactModalOpen, setContactModalOpen] = useState(false);
-
-  useEffect(() => {
-    base44.auth.isAuthenticated().then(async (authed) => {
-      if (authed) {
-        try {
-          const me = await base44.auth.me();
-          setAuthedUser(me);
-        } catch {
-          // not authenticated
-        }
-      }
-    });
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('contact') === '1') {
-      setContactModalOpen(true);
-    }
-  }, []);
 
   const stakeholders = [
     {
@@ -80,16 +59,6 @@ export default function LandingPage() {
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
-            <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                {t('nav.we_call_you')}
-              </Button>
-            )} />
-            {authedUser ? (
-              <Link to="/dashboard"><Button size="sm" className="gap-1.5">{t('nav.dashboard')}</Button></Link>
-            ) : (
-              <Button size="sm" className="gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.signIn')}</Button>
-            )}
             <LanguageSwitcher />
           </div>
           <div className="flex lg:hidden items-center gap-2">
@@ -107,26 +76,11 @@ export default function LandingPage() {
                 {t('nav.partner_with_us')}
               </Button>
             </Link>
-            <WeCallYouModal trigger={(setOpen) => (
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-purple-600 border-purple-600 hover:text-purple-700 hover:bg-purple-50" onClick={() => setOpen(true)}>
-                {t('nav.we_call_you')}
-              </Button>
-            )} />
             <Link to="/retailer-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
-            <Link to="/demo" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-emerald-800 border-emerald-800 hover:text-emerald-900 hover:bg-emerald-50">
-                <Eye className="w-3.5 h-3.5" /> {t('nav.live_demo')}
-              </Button>
-            </Link>
-            {authedUser ? (
-              <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}><Button size="sm" className="w-full gap-1.5">{t('nav.dashboard')}</Button></Link>
-            ) : (
-              <Button size="sm" className="w-full gap-1.5" onClick={() => base44.auth.redirectToLogin('/dashboard')}>{t('nav.signIn')}</Button>
-            )}
           </div>
         )}
       </nav>
@@ -248,13 +202,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Auto-open contact modal from ?contact=1 */}
-      <WeCallYouModal
-        open={contactModalOpen}
-        onOpenChange={setContactModalOpen}
-        trigger={null}
-      />
 
       {/* Footer */}
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6">
