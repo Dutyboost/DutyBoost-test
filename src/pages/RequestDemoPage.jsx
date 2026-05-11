@@ -8,6 +8,25 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, ArrowRight, ArrowLeft } from "lucide-react";
 
+const JOB_TITLES = [
+  "CEO / Chief Executive Officer",
+  "COO / Chief Operating Officer",
+  "CFO / Chief Financial Officer",
+  "CMO / Chief Marketing Officer",
+  "CTO / Chief Technology Officer",
+  "Director of Operations",
+  "Director of Sales",
+  "Director of Marketing",
+  "Director of Business Development",
+  "Director of Finance",
+  "General Manager",
+  "Regional Manager",
+  "Operations Manager",
+  "Sales Manager",
+  "Marketing Manager",
+  "Other",
+];
+
 const PARTNER_TYPES = [
   "Travel Agency / Tour Operator",
   "Hotel / Hospitality",
@@ -28,6 +47,7 @@ const EUROPEAN_COUNTRIES = [
 ];
 
 export default function RequestDemoPage() {
+  const [jobTitle, setJobTitle] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -39,7 +59,7 @@ export default function RequestDemoPage() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const isValid = fullName && email && phone && company && website && country && partnerType;
+  const isValid = fullName && jobTitle && email && phone && company && website && country && partnerType;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +72,7 @@ export default function RequestDemoPage() {
         company_name: company,
         website,
         industry: partnerType.includes("Retailer") ? "Retail" : "Agency",
-        position: partnerType,
+        position: jobTitle,
         phone,
       });
       try {
@@ -64,6 +84,7 @@ export default function RequestDemoPage() {
               <h2>New Demo Request</h2>
               <table style="width:100%; border-collapse:collapse;">
                 <tr><td style="padding:6px 0; color:#666;">Name</td><td><strong>${fullName}</strong></td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Title</td><td>${jobTitle}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Email</td><td><strong>${email}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Phone</td><td>${phone}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Company</td><td><strong>${company}</strong></td></tr>
@@ -171,6 +192,20 @@ export default function RequestDemoPage() {
                   onChange={e => setEmail(e.target.value)}
                 />
               </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label>Job Title <span className="text-red-500">*</span></Label>
+              <Select value={jobTitle} onValueChange={setJobTitle}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select your title" />
+                </SelectTrigger>
+                <SelectContent>
+                  {JOB_TITLES.map(t => (
+                    <SelectItem key={t} value={t}>{t}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
