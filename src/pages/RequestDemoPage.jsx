@@ -16,17 +16,30 @@ const PARTNER_TYPES = [
   "Other",
 ];
 
+const EUROPEAN_COUNTRIES = [
+  "Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina",
+  "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia",
+  "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland",
+  "Italy", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
+  "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia",
+  "Norway", "Poland", "Portugal", "Romania", "San Marino", "Serbia", "Slovakia",
+  "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine",
+  "United Kingdom", "Vatican City",
+];
+
 export default function RequestDemoPage() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [website, setWebsite] = useState("");
+  const [country, setCountry] = useState("");
   const [partnerType, setPartnerType] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const isValid = fullName && email && company && partnerType;
+  const isValid = fullName && email && phone && company && website && country && partnerType && message;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,9 +53,8 @@ export default function RequestDemoPage() {
         website,
         industry: partnerType.includes("Retailer") ? "Retail" : "Agency",
         position: partnerType,
-        phone: "",
+        phone,
       });
-      // Send notification email to DutyBoost team
       try {
         await base44.integrations.Core.SendEmail({
           to: "hello@dutyboost.com",
@@ -53,10 +65,12 @@ export default function RequestDemoPage() {
               <table style="width:100%; border-collapse:collapse;">
                 <tr><td style="padding:6px 0; color:#666;">Name</td><td><strong>${fullName}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Email</td><td><strong>${email}</strong></td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Phone</td><td>${phone}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Company</td><td><strong>${company}</strong></td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Website</td><td>${website || "—"}</td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Website</td><td>${website}</td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Country</td><td>${country}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Partner type</td><td>${partnerType}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Message</td><td>${message || "—"}</td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Message</td><td>${message}</td></tr>
               </table>
             </div>
           `,
@@ -126,7 +140,6 @@ export default function RequestDemoPage() {
       <div className="flex-1 flex items-center justify-center p-6">
         <div className="w-full max-w-lg space-y-8">
 
-          {/* Header */}
           <div className="text-center space-y-3">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
               Request a Demo
@@ -137,7 +150,6 @@ export default function RequestDemoPage() {
             </p>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
@@ -161,6 +173,32 @@ export default function RequestDemoPage() {
               </div>
             </div>
 
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label>Phone Number <span className="text-red-500">*</span></Label>
+                <Input
+                  required
+                  type="tel"
+                  placeholder="+31 6 12345678"
+                  value={phone}
+                  onChange={e => setPhone(e.target.value)}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label>Country <span className="text-red-500">*</span></Label>
+                <Select value={country} onValueChange={setCountry}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your country" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {EUROPEAN_COUNTRIES.map(c => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
             <div className="space-y-1.5">
               <Label>Company Name <span className="text-red-500">*</span></Label>
               <Input
@@ -172,8 +210,9 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Website</Label>
+              <Label>Website <span className="text-red-500">*</span></Label>
               <Input
+                required
                 placeholder="https://yourcompany.com"
                 value={website}
                 onChange={e => setWebsite(e.target.value)}
@@ -195,8 +234,9 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Anything you'd like us to know? <span className="text-muted-foreground text-xs">(optional)</span></Label>
+              <Label>Anything you'd like us to know? <span className="text-red-500">*</span></Label>
               <textarea
+                required
                 className="w-full min-h-[90px] rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
                 placeholder="Tell us about your business, your volume, or any specific questions..."
                 value={message}
