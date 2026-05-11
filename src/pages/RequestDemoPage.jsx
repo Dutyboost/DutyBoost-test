@@ -17,7 +17,7 @@ const PARTNER_TYPES = [
 ];
 
 const EUROPEAN_COUNTRIES = [
-  "Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina",
+  "Albania", "Andorra", "Austria", "Belgium", "Bosnia and Herzegovina",
   "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia",
   "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland",
   "Italy", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
@@ -39,7 +39,7 @@ export default function RequestDemoPage() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const isValid = fullName && email && phone && company && website && country && partnerType && message;
+  const isValid = fullName && email && phone && company && website && country && partnerType;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -234,9 +234,8 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Anything you'd like us to know? <span className="text-red-500">*</span></Label>
+              <Label>Anything you'd like us to know? <span className="text-muted-foreground text-xs">(optional)</span></Label>
               <textarea
-                required
                 className="w-full min-h-[90px] rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
                 placeholder="Tell us about your business, your volume, or any specific questions..."
                 value={message}
