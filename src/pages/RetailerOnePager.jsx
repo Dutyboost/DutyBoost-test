@@ -153,7 +153,7 @@ export default function RetailerOnePager() {
 
         {/* Legal footer — pinned to bottom of A4 */}
         <div className="text-center pb-2 pt-1">
-          <p className="text-xs text-muted-foreground">© 2026 DutyBoost B.V. · KVK: 42053181 · All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">DutyBoost. All rights reserved. 2026. KVK: 42053181</p>
         </div>
 
       </div>
