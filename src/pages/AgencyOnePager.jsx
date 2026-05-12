@@ -27,7 +27,7 @@ export default function AgencyOnePager() {
 
   const steps = [
     { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your website or application" },
-    { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) with a minimum basket spend of €70" },
+    { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) with a min. spend of €70 and a max. of €300" },
     { num: "03", title: "Delivered by email", desc: "Traveler receives their DutyCredit QR code directly through your confirmation email — no app needed" },
     { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
   ];
