@@ -36,7 +36,7 @@ export default function CarRentalShowcase() {
       <section className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
         <div className="text-center space-y-6 mb-16">
           <h1 className="text-5xl sm:text-6xl font-heading font-bold">
-          {t('showcase.car.titlePart1')} <span className="text-orange-500">{t('showcase.car.titlePart2')}</span>
+          {t('showcase.car.titlePart1')} <span className="text-red-500">{t('showcase.car.titlePart2')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('showcase.car.subtitle')}
@@ -54,8 +54,8 @@ export default function CarRentalShowcase() {
                 const Icon = step.icon;
                 return (
                   <div key={i} className="bg-card border border-border rounded-xl p-6 flex gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                       <Icon className="w-5 h-5 text-orange-500" />
+                    <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                       <Icon className="w-5 h-5 text-red-500" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-sm">{step.title}</h3>
