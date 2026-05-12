@@ -156,7 +156,7 @@ export default function AgencyOnePager() {
 
         {/* Legal footer — pinned to bottom of A4 */}
         <div className="text-center pb-2 pt-1">
-          <p className="text-xs text-muted-foreground">DutyBoost B.V. · KvK: 42053181 · dutyboost.com</p>
+          <p className="text-xs text-muted-foreground">DutyBoost · KvK: 42053181 · dutyboost.com</p>
         </div>
 
       </div>
