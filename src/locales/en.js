@@ -376,7 +376,7 @@ export default {
         titlePart2: 'Loyalty',
         subtitle: 'Enhance every hotel stay with exclusive airport shopping rewards.',
         howItWorks: 'How It Works',
-        description: 'When guests stay at your hotel, they automatically earn DutyCredits redeemable at airport retailers at their next trip.',
+        description: 'When guests check out at your hotel, they automatically earn DutyCredits redeemable at retailers of their departure airport.',
         step1: 'Guest Checks In',
         step1Desc: 'When a guest books and checks into your hotel, a DutyCredit is automatically generated.',
         step2: 'DutyCredit Issued',
