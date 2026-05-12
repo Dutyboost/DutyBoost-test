@@ -122,7 +122,7 @@ export default function AgencyOnePager() {
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold text-green-700 leading-tight">&lt; 1 day</p>
               <p className="font-semibold text-xs">to go live</p>
-              <p className="text-xs text-muted-foreground leading-snug">Simple API integration. We handle everything else end-to-end</p>
+              <p className="text-xs text-muted-foreground leading-snug">Simple snippet integration. We handle everything else end-to-end</p>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2">
