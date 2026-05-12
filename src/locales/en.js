@@ -396,7 +396,7 @@ export default {
         howItWorks: 'How It Works',
         description: 'Car rental partners have two moments to reward customers with DutyCredits: when they book on your website or app, and again when they return the car. Both moments automatically generate a DutyCredit redeemable at retailers of their departure airport.',
         step1: 'Booking on Your Website or App',
-        step1Desc: 'A customer books a car rental online or via your app. A DutyCredit QR code is automatically included in their booking confirmation email.',
+        step1Desc: 'A customer books a car rental online via your website or app. A DutyCredit QR code is automatically included in their booking confirmation email.',
         step2: 'DutyCredit Issued at Car Return',
         step2Desc: 'When the customer returns the car, a second DutyCredit QR code is automatically included in their car return email — ready to use at the airport.',
         step3: 'Redeemed at Departure Airport',
