@@ -65,7 +65,7 @@ export default function AgencyOnePager() {
 
         {/* SECTION 1: WHY IT MATTERS */}
         <div className="space-y-1.5">
-          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid #3b82f6', color: '#1d4ed8'}}>01 — Why DutyBoost Matters for Travel Partners</h2>
+          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid transparent', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1', color: '#1d4ed8'}}>01 — Why DutyBoost Matters for Travel Partners</h2>
           <div className="grid grid-cols-2 gap-2.5">
             <div className="bg-slate-50 rounded p-3 border border-border">
               <p className="font-semibold text-xs">Travelers expect more than a ticket</p>
@@ -88,7 +88,7 @@ export default function AgencyOnePager() {
 
         {/* SECTION 2: HOW IT WORKS */}
         <div className="space-y-1">
-          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid #14b8a6', color: '#0f766e'}}>02 — How DutyBoost Works</h2>
+          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid transparent', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1', color: '#0f766e'}}>02 — How DutyBoost Works</h2>
           <div className="grid grid-cols-4 gap-2">
             {[
               { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your website or application" },
@@ -107,7 +107,7 @@ export default function AgencyOnePager() {
 
         {/* SECTION 3: WHAT IT BRINGS */}
         <div className="space-y-1">
-          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid #f59e0b', color: '#b45309'}}>03 — What DutyBoost Brings to Travel Partners</h2>
+          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid transparent', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1', color: '#b45309'}}>03 — What DutyBoost Brings to Travel Partners</h2>
           <div className="grid grid-cols-3 gap-2">
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold leading-tight" style={{color: '#3b82f6'}}>Up to €5</p>
