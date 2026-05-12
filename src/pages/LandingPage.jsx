@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
@@ -49,6 +50,9 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={100} />
           <div className="hidden lg:flex items-center gap-2">
+            <Button size="sm" variant="ghost" onClick={() => base44.auth.redirectToLogin()} className="gap-1.5">
+              Login
+            </Button>
             <Link to="/get-started">
               <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
                 {t('nav.partner_with_us')}
@@ -71,6 +75,9 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
+            <Button size="sm" variant="ghost" onClick={() => { base44.auth.redirectToLogin(); setMobileMenuOpen(false); }} className="w-full gap-1.5">
+              Login
+            </Button>
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
                 {t('nav.partner_with_us')}
