@@ -105,7 +105,7 @@ export default function AgencyOnePager() {
           </div>
 
           {/* Section 3 */}
-          <div className="py-2">
+          <div className="py-2 mt-2">
             <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b45309' }}>03 — What DutyBoost Brings to Travel Partners</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-2 mb-2">
