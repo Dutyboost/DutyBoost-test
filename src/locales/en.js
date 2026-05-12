@@ -332,7 +332,7 @@ export default {
         step3: 'Redeemed at Departure Airport',
         step3Desc: 'At the airport, the traveler scans their QR code at a participating retailer and enjoys an exclusive discount on purchases of €70 or more.',
         step4: 'You Earn Commission',
-        step4Desc: 'Every time a DutyCredit is redeemed, you earn a commission — paid monthly, fully automated. No redemption, no cost.',
+        step4Desc: 'Every time a DutyCredit is redeemed, you earn a commission — paid monthly, fully automated. No operational burden, no cost. A new passive revenue stream.',
         ctaTitle: 'Ready to Start Earning?',
         ctaDesc: 'Add a meaningful loyalty perk to every booking and unlock a passive commission stream — with no operational overhead.',
         ctaButton: 'Go to Travel Partner Portal',
