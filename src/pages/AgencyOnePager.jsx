@@ -128,7 +128,7 @@ export default function AgencyOnePager() {
             <div className="grid grid-cols-3 gap-2">
               <div className="border border-border rounded p-3">
                 <h3 className="font-heading font-bold text-xs mb-0.5">🤝 Stronger customer loyalty</h3>
-                <p className="text-xs text-muted-foreground leading-snug">A memorable, personalized perk tied to every booking you make.</p>
+                <p className="text-xs text-muted-foreground leading-snug">A memorable, personalized perk tied to every booking made through you.</p>
               </div>
               <div className="border border-border rounded p-3">
                 <h3 className="font-heading font-bold text-xs mb-0.5">💰 New passive revenue</h3>
