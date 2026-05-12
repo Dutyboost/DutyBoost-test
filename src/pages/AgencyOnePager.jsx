@@ -77,8 +77,8 @@ export default function AgencyOnePager() {
 
           {/* Section 1 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#1d4ed8' }}>01 — Why DutyBoost Matters for Travel Partners</h2>
-            <div className="mb-1.5"><GradientDivider /></div>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#1d4ed8' }}>01 — Why DutyBoost Matters for Travel Partners</h2>
+            <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-2 gap-2">
               {why.map(c => (
                 <div key={c.title} className="bg-slate-50 rounded p-3 border border-border">
@@ -91,8 +91,8 @@ export default function AgencyOnePager() {
 
           {/* Section 2 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#0f766e' }}>02 — How DutyBoost Works</h2>
-            <div className="mb-1.5"><GradientDivider /></div>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#0f766e' }}>02 — How DutyBoost Works</h2>
+            <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-4 gap-2">
               {steps.map(s => (
                 <div key={s.num} className="bg-teal-50 rounded p-3 border border-teal-100">
@@ -106,8 +106,8 @@ export default function AgencyOnePager() {
 
           {/* Section 3 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#b45309' }}>03 — What DutyBoost Brings to Travel Partners</h2>
-            <div className="mb-1.5"><GradientDivider /></div>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b45309' }}>03 — What DutyBoost Brings to Travel Partners</h2>
+            <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               <div className="border border-border rounded p-3 text-center">
                 <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>Up to €5</p>
