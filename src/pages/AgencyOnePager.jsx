@@ -148,7 +148,6 @@ export default function AgencyOnePager() {
             <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
             <div className="flex items-center justify-center gap-6 mt-0.5">
               <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">dutyboost.com</a>
-              <a href="/?contact=1" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">Contact us</a>
             </div>
           </div>
           </div>
@@ -157,7 +156,7 @@ export default function AgencyOnePager() {
 
         {/* Legal footer */}
         <div className="text-center pb-1">
-          <p className="text-xs text-muted-foreground">DutyBoost · KvK: 42053181 · dutyboost.com</p>
+          <p className="text-xs text-muted-foreground">© 2026 DutyBoost B.V. · KVK: 42053181 · dutyboost.com</p>
         </div>
 
       </div>
