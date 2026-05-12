@@ -156,7 +156,7 @@ export default function AgencyOnePager() {
 
         {/* Legal footer */}
         <div className="text-center pb-1">
-          <p className="text-xs text-muted-foreground">© 2026 DutyBoost B.V. · KVK: 42053181 · dutyboost.com</p>
+          <p className="text-xs text-muted-foreground">© 2026 DutyBoost B.V. · KVK: 42053181 · All rights reserved.</p>
         </div>
 
       </div>
