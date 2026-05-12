@@ -91,7 +91,7 @@ export default function AgencyOnePager() {
           <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">02 — How DutyBoost Works</h2>
           <div className="grid grid-cols-4 gap-2">
             {[
-              { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your travel partner account via API or manual upload" },
+              { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your website or application" },
               { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) based on booking value, travel type & group size" },
               { num: "03", title: "Delivered by email", desc: "Traveler receives a branded QR code by email before departure — no app needed" },
               { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
