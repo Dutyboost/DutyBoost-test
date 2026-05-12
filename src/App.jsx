@@ -130,21 +130,6 @@ const AuthenticatedApp = () => {
     </>
   );
 
-  // Non-admins (including unauthenticated): surveys + demo request + coming soon for everything else
-  if (!isAdmin) {
-    return (
-      <>
-        <ScrollRestoration />
-        <Routes>
-          {surveyRoutes}
-          <Route path="/request-demo" element={<RequestDemoPage />} />
-          <Route path="*" element={<ComingSoonPage />} />
-        </Routes>
-      </>
-    );
-  }
-
-  // Admin-only routes
   return (
     <>
       <ScrollRestoration />
