@@ -112,7 +112,7 @@ export default function AgencyOnePager() {
               <div className="border border-border rounded p-3 text-center">
                 <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>Up to €5</p>
                 <p className="font-semibold text-xs mt-0.5">commission per redemption</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">20% of DutyBoost's 2.5% platform fee per transaction — earned automatically, no sales effort required</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">20% of DutyBoost's 2.5% platform fee per transaction (€1K CAP) — earned automatically, no sales effort required</p>
               </div>
               <div className="border border-border rounded p-3 text-center">
                 <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#14b8a6' }}>0% fees</p>
