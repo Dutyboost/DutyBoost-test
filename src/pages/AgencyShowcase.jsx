@@ -64,6 +64,7 @@ export default function AgencyShowcase() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
             <h2 className="text-4xl font-heading font-bold">{t('showcase.agency.howItWorks')}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">From booking to commission — fully automated, zero operational effort on your end.</p>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {flowSteps.map((item) => (
