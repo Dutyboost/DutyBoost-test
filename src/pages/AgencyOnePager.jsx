@@ -92,8 +92,8 @@ export default function AgencyOnePager() {
           <div className="grid grid-cols-4 gap-2">
             {[
               { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your website or application" },
-              { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) based on booking value, travel type & group size" },
-              { num: "03", title: "Delivered by email", desc: "Traveler receives a branded QR code by email before departure — no app needed" },
+              { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) with a minimum spend of €70" },
+              { num: "03", title: "Delivered by email", desc: "Traveler receives their confirmation email with their DutyCredit QR code included and ready for use at the airport — no app needed" },
               { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
             ].map(s => (
               <div key={s.num} className="bg-green-50 rounded p-2 border border-green-100">
