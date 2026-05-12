@@ -36,7 +36,7 @@ export default function AgencyOnePager() {
     { title: "Travelers expect more than a ticket", desc: "Today's travelers look for travel partners that add value beyond their booking. DutyBoost gives a tangible, personalised spending perk to them through you." },
     { title: "Loyalty without a loyalty program", desc: "No points, no complex schemes. Just a real shopping credit waiting at the airport — tied directly to their booking with you." },
     { title: "A reason to come back", desc: "Travelers who associate their airport experience with your brand are more likely to book again — and recommend you to others." },
-    { title: "Revenue you're currently leaving on the table", desc: "Every confirmed booking has untapped commission potential. DutyBoost captures it automatically — with no extra work from your team." },
+    { title: "Revenue you're currently leaving on the table", desc: "Every confirmed booking has untapped commission potential. DutyBoost captures it automatically for you — with no extra work from your team." },
   ];
 
   return (
