@@ -59,7 +59,7 @@ export default function AgencyOnePager() {
         <div className="text-center space-y-0.5">
           <h1 className="text-2xl font-heading font-bold leading-tight">Turning every booking into a loyalty asset and extra revenue</h1>
           <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-            DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for your agency. Travelers earn a flat DutyCredit based on their airport basket (min. €70). Fully automated. Zero operational impact.
+            DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for you. Travelers earn a flat DutyCredit based on their airport basket (min. €70). Fully automated. Zero operational impact.
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export default function AgencyOnePager() {
           <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">02 — How DutyBoost Works</h2>
           <div className="grid grid-cols-4 gap-2">
             {[
-              { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your agency via API or manual upload" },
+              { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your travel partner account via API or manual upload" },
               { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) based on booking value, travel type & group size" },
               { num: "03", title: "Delivered by email", desc: "Traveler receives a branded QR code by email before departure — no app needed" },
               { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
@@ -128,7 +128,7 @@ export default function AgencyOnePager() {
           <div className="grid grid-cols-3 gap-2">
             <div className="border border-border rounded p-2">
               <h3 className="font-heading font-bold text-xs">🤝 Stronger customer loyalty</h3>
-              <p className="text-xs text-muted-foreground leading-snug">A memorable, personalized perk tied to every booking your agency makes.</p>
+              <p className="text-xs text-muted-foreground leading-snug">A memorable, personalized perk tied to every booking you make.</p>
             </div>
             <div className="border border-border rounded p-2">
               <h3 className="font-heading font-bold text-xs">💰 New passive revenue</h3>
