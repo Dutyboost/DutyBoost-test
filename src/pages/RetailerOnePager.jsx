@@ -59,7 +59,7 @@ export default function RetailerOnePager() {
           <div className="text-center space-y-0.5">
             <h1 className="text-2xl font-heading font-bold leading-tight">Turn passing travelers into paying customers — automatically</h1>
             <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-              DutyBoost sends pre-qualified, high-intent shoppers directly to your store with a personalized spending credit. Travelers receive 10% on €70–€99, 15% on €100–€299, or 20% on €300+ (max €25). You only pay 2.5% when we deliver a sale.
+              DutyBoost sends pre-qualified, high-intent shoppers directly to your store with a personalized spending credit. Travelers receive a flat DutyCredit — €10 on €70–€99, €30 on €100–€199, €45 on €200–€299, or €60 on €300+ spend. You only pay 2.5% (max €25) when we deliver a sale.
             </p>
           </div>
 
@@ -110,14 +110,14 @@ export default function RetailerOnePager() {
             <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-1 text-orange-700 uppercase tracking-wide">03 — What DutyBoost Brings to Airport Retailers</h2>
             <div className="grid grid-cols-3 gap-2">
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">€70+</p>
-                <p className="font-semibold text-xs">minimum spend per redemption</p>
-                <p className="text-xs text-muted-foreground leading-snug">Every redeemed DutyCredit drives a qualified purchase above your threshold</p>
+                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">€10–€60</p>
+                <p className="font-semibold text-xs">flat DutyCredit tiers</p>
+                <p className="text-xs text-muted-foreground leading-snug">€10 on €70–€99 · €30 on €100–€199 · €45 on €200–€299 · €60 on €300+ — every redemption drives a qualified, high-value purchase</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">2.5%</p>
+                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">2.5% (max €25)</p>
                 <p className="font-semibold text-xs">fee on confirmed redemptions only</p>
-                <p className="text-xs text-muted-foreground leading-snug">No setup fees, no subscription. You only pay 2.5% of gross sales. The DutyCredit (up to €25) is covered by the platform — not deducted from your margin.</p>
+                <p className="text-xs text-muted-foreground leading-snug">No setup fees, no subscription. You pay 2.5% of gross sales, capped at €25 per transaction. The DutyCredit is fully covered by the platform — not deducted from your margin.</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <p className="text-xl font-heading font-bold text-orange-700 leading-tight">&lt; 1 day</p>
@@ -156,7 +156,7 @@ export default function RetailerOnePager() {
 
         {/* Legal footer — pinned to bottom of A4 */}
         <div className="text-center pb-2 pt-1">
-          <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
+          <p className="text-xs text-muted-foreground">DutyBoost B.V. · KvK: 42053181 · dutyboost.com</p>
         </div>
 
       </div>

@@ -59,7 +59,7 @@ export default function AgencyOnePager() {
         <div className="text-center space-y-0.5">
           <h1 className="text-2xl font-heading font-bold leading-tight">Turning every booking into a loyalty asset and extra revenue</h1>
           <p className="text-muted-foreground text-xs max-w-xl mx-auto">
-            DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for your agency. Travelers earn 10–20% credit on airport spend (min. €70 basket, max. €25). Fully automated. Zero operational impact.
+            DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for your agency. Travelers earn a flat DutyCredit based on their airport basket (min. €70). Fully automated. Zero operational impact.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function AgencyOnePager() {
           <div className="grid grid-cols-4 gap-2">
             {[
               { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your agency via API or manual upload" },
-              { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a personalized shopping credit based on booking value, destination & group size" },
+              { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) based on booking value, travel type & group size" },
               { num: "03", title: "Delivered by email", desc: "Traveler receives a branded QR code by email before departure — no app needed" },
               { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
             ].map(s => (
@@ -110,14 +110,14 @@ export default function AgencyOnePager() {
           <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">03 — What DutyBoost Brings to Travel Partners</h2>
           <div className="grid grid-cols-3 gap-2">
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">€0.50–€2.50</p>
+              <p className="text-xl font-heading font-bold text-green-700 leading-tight">Up to €5</p>
               <p className="font-semibold text-xs">commission per redemption</p>
-              <p className="text-xs text-muted-foreground leading-snug">0.5% of airport basket value (min. €70 spend) — earned automatically, no sales effort required</p>
+              <p className="text-xs text-muted-foreground leading-snug">20% of DutyBoost's 2.5% platform fee per transaction, capped at €5 — earned automatically, no sales effort required</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">0.5%</p>
-              <p className="font-semibold text-xs">commission on airport spend</p>
-              <p className="text-xs text-muted-foreground leading-snug">20% of DutyBoost's 2.5% platform fee, paid monthly with full dashboard reporting</p>
+              <p className="text-xl font-heading font-bold text-green-700 leading-tight">0% fees</p>
+              <p className="font-semibold text-xs">no cost to you, ever</p>
+              <p className="text-xs text-muted-foreground leading-snug">DutyBoost is free for travel partners. Commission flows in from confirmed redemptions — paid monthly with full dashboard reporting</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
               <p className="text-xl font-heading font-bold text-green-700 leading-tight">&lt; 1 day</p>
@@ -156,7 +156,7 @@ export default function AgencyOnePager() {
 
         {/* Legal footer — pinned to bottom of A4 */}
         <div className="text-center pb-2 pt-1">
-          <p className="text-xs text-muted-foreground">DutyBoost is a product of Borderless Solutions B.V. · KvK: 92442145 · VAT: NL866046124B01</p>
+          <p className="text-xs text-muted-foreground">DutyBoost B.V. · KvK: 42053181 · dutyboost.com</p>
         </div>
 
       </div>
