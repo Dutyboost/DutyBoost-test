@@ -99,7 +99,7 @@ export default function SelectUserType() {
                     size="lg"
                     className={`w-full bg-gradient-to-r ${option.color} text-white hover:opacity-90 gap-2`}
                   >
-                    Request a Demo <ArrowRight className="w-4 h-4" />
+                    Learn more <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
               );
