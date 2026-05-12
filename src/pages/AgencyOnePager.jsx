@@ -48,7 +48,7 @@ export default function AgencyOnePager() {
       <div className="print-content max-w-[794px] mx-auto px-8 py-2 print:py-0 print:px-0 bg-white flex flex-col" style={{ minHeight: '1122px' }}>
 
         {/* Header */}
-        <div className="text-center border-b-2 border-green-500 pb-1">
+        <div className="text-center pb-1" style={{borderBottom: '3px solid', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1'}}>
           <DutyBoostLogo height={200} />
         </div>
 
@@ -65,7 +65,7 @@ export default function AgencyOnePager() {
 
         {/* SECTION 1: WHY IT MATTERS */}
         <div className="space-y-1.5">
-          <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">01 — Why DutyBoost Matters for Travel Partners</h2>
+          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid #3b82f6', color: '#1d4ed8'}}>01 — Why DutyBoost Matters for Travel Partners</h2>
           <div className="grid grid-cols-2 gap-2.5">
             <div className="bg-slate-50 rounded p-3 border border-border">
               <p className="font-semibold text-xs">Travelers expect more than a ticket</p>
@@ -88,7 +88,7 @@ export default function AgencyOnePager() {
 
         {/* SECTION 2: HOW IT WORKS */}
         <div className="space-y-1">
-          <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">02 — How DutyBoost Works</h2>
+          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid #14b8a6', color: '#0f766e'}}>02 — How DutyBoost Works</h2>
           <div className="grid grid-cols-4 gap-2">
             {[
               { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your website or application" },
@@ -96,9 +96,9 @@ export default function AgencyOnePager() {
               { num: "03", title: "Delivered by email", desc: "Traveler receives their confirmation email with their DutyCredit QR code included and ready for use at the airport — no app needed" },
               { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
             ].map(s => (
-              <div key={s.num} className="bg-green-50 rounded p-2 border border-green-100">
-                <p className="text-lg font-heading font-bold text-green-300 leading-none">{s.num}</p>
-                <p className="font-semibold text-xs text-green-800 mt-0.5">{s.title}</p>
+              <div key={s.num} className="bg-teal-50 rounded p-2 border border-teal-100">
+                <p className="text-lg font-heading font-bold text-teal-300 leading-none">{s.num}</p>
+                <p className="font-semibold text-xs text-teal-800 mt-0.5">{s.title}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{s.desc}</p>
               </div>
             ))}
@@ -107,20 +107,20 @@ export default function AgencyOnePager() {
 
         {/* SECTION 3: WHAT IT BRINGS */}
         <div className="space-y-1">
-          <h2 className="font-heading font-bold text-xs border-b-2 border-green-500 pb-1 text-green-700 uppercase tracking-wide">03 — What DutyBoost Brings to Travel Partners</h2>
+          <h2 className="font-heading font-bold text-xs pb-1 uppercase tracking-wide" style={{borderBottom: '2px solid #f59e0b', color: '#b45309'}}>03 — What DutyBoost Brings to Travel Partners</h2>
           <div className="grid grid-cols-3 gap-2">
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">Up to €5</p>
+              <p className="text-xl font-heading font-bold leading-tight" style={{color: '#3b82f6'}}>Up to €5</p>
               <p className="font-semibold text-xs">commission per redemption</p>
               <p className="text-xs text-muted-foreground leading-snug">20% of DutyBoost's 2.5% platform fee per transaction, capped at €5 — earned automatically, no sales effort required</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">0% fees</p>
+              <p className="text-xl font-heading font-bold leading-tight" style={{color: '#14b8a6'}}>0% fees</p>
               <p className="font-semibold text-xs">no cost to you, ever</p>
               <p className="text-xs text-muted-foreground leading-snug">DutyBoost is free for travel partners. Commission flows in from confirmed redemptions — paid monthly with full dashboard reporting</p>
             </div>
             <div className="border border-border rounded p-2 text-center">
-              <p className="text-xl font-heading font-bold text-green-700 leading-tight">&lt; 1 day</p>
+              <p className="text-xl font-heading font-bold leading-tight" style={{color: '#f59e0b'}}>&lt; 1 day</p>
               <p className="font-semibold text-xs">to go live</p>
               <p className="text-xs text-muted-foreground leading-snug">Simple snippet integration. We handle everything else end-to-end</p>
             </div>
@@ -142,11 +142,11 @@ export default function AgencyOnePager() {
         </div>
 
         {/* CALL TO ACTION */}
-        <div className="border-t-2 border-green-500 pt-2 text-center space-y-1">
+        <div className="pt-2 text-center space-y-1" style={{borderTop: '2px solid', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1'}}>
           <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
           <div className="flex items-center justify-center gap-6">
-            <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">dutyboost.com</a>
-            <a href="/?contact=1" className="text-xs font-semibold text-green-700 underline underline-offset-2 hover:text-green-800 transition-colors">
+            <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">dutyboost.com</a>
+            <a href="/?contact=1" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">
               Contact us
             </a>
           </div>
