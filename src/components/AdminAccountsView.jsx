@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { Building2, User, Mail, Search, Shield, Store, Plane, Plus, Send } from "lucide-react";
+import {
+  Building2, User, Mail, Search, Shield, Store, Plane, Plus, Send,
+  Hotel, Car, Ship, Train, ChevronDown
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -8,14 +11,60 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 
+const PARTNER_TYPES = [
+  {
+    value: "Travel Partner",
+    label: "Flight / Travel Partner",
+    icon: Plane,
+    color: "bg-blue-50 border-blue-200 text-blue-700",
+    iconColor: "text-blue-600",
+    role: "agency",
+    desc: "Travel agencies, flight booking platforms",
+    fields: ["kvk", "website"],
+  },
+  {
+    value: "Hotel Partner",
+    label: "Hotel Partner",
+    icon: Hotel,
+    color: "bg-purple-50 border-purple-200 text-purple-700",
+    iconColor: "text-purple-600",
+    role: "user",
+    desc: "Hotels and hospitality partners",
+    fields: ["city", "website"],
+  },
+  {
+    value: "Car Rental Partner",
+    label: "Car Rental Partner",
+    icon: Car,
+    color: "bg-green-50 border-green-200 text-green-700",
+    iconColor: "text-green-600",
+    role: "user",
+    desc: "Car rental companies at airports",
+    fields: ["airport", "website"],
+  },
+  {
+    value: "Airport Retailer",
+    label: "Airport Retail Partner",
+    icon: Store,
+    color: "bg-orange-50 border-orange-200 text-orange-700",
+    iconColor: "text-orange-600",
+    role: "retailer",
+    desc: "Shops and stores inside airport terminals",
+    fields: ["airport", "store_category"],
+  },
+];
+
 const ROLE_CONFIG = {
   admin: { label: "Admin", color: "bg-purple-100 text-purple-700", icon: Shield },
   retailer: { label: "Retailer", color: "bg-orange-100 text-orange-700", icon: Store },
-  agency: { label: "Agency", color: "bg-blue-100 text-blue-700", icon: Plane },
-  user: { label: "User", color: "bg-muted text-muted-foreground", icon: User },
+  agency: { label: "Travel Partner", color: "bg-blue-100 text-blue-700", icon: Plane },
+  user: { label: "Partner", color: "bg-muted text-muted-foreground", icon: User },
 };
 
-const EMPTY_FORM = { full_name: "", email: "", company: "", business_type: "", website: "", airport: "", store_category: "", kvk: "", vat: "" };
+const EMPTY_FORM = {
+  full_name: "", email: "", company: "", business_type: "",
+  website: "", airport: "", store_category: "", kvk: "", vat: "", city: ""
+};
 
 export default function AdminAccountsView() {
   const [users, setUsers] = useState([]);
@@ -27,8 +76,13 @@ export default function AdminAccountsView() {
   const [createOpen, setCreateOpen] = useState(false);
   const [form, setForm] = useState(EMPTY_FORM);
   const [creating, setCreating] = useState(false);
+  const [selectedType, setSelectedType] = useState(null);
 
   useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
     Promise.all([
       base44.entities.User.list(),
       base44.entities.Retailer.list(),
@@ -41,7 +95,7 @@ export default function AdminAccountsView() {
       setTransactions(t || []);
       setLoading(false);
     });
-  }, []);
+  };
 
   const filtered = users.filter(u =>
     !search ||
@@ -65,18 +119,15 @@ export default function AdminAccountsView() {
     return { primary: "—", secondary: "" };
   };
 
-  const reload = () => {
-    Promise.all([
-      base44.entities.User.list(),
-      base44.entities.Retailer.list(),
-      base44.entities.Voucher.list(),
-      base44.entities.Transaction.list("-created_date", 200),
-    ]).then(([u, r, v, t]) => {
-      setUsers(u || []);
-      setRetailers(r || []);
-      setVouchers(v || []);
-      setTransactions(t || []);
-    });
+  const openCreate = () => {
+    setForm(EMPTY_FORM);
+    setSelectedType(null);
+    setCreateOpen(true);
+  };
+
+  const selectPartnerType = (pt) => {
+    setSelectedType(pt);
+    setForm(f => ({ ...f, business_type: pt.value }));
   };
 
   const handleCreate = async (e) => {
@@ -87,27 +138,26 @@ export default function AdminAccountsView() {
     }
     setCreating(true);
     try {
-      // 1. Create the signup application
       const app = await base44.entities.SignupApplication.create({
         full_name: form.full_name,
         email: form.email,
         company: form.company,
         business_type: form.business_type,
         website: form.website || null,
-        airport: form.airport || null,
+        airport: form.airport || form.city || null,
         store_category: form.store_category || null,
         kvk: form.kvk || null,
         vat: form.vat || null,
         status: "pending",
       });
 
-      // 2. Immediately approve it — this sends the invite email
       const res = await base44.functions.invoke("approveApplication", { applicationId: app.id, action: "approve" });
       if (res.data?.success) {
         toast.success(`Account created & login email sent to ${form.email}`);
         setCreateOpen(false);
         setForm(EMPTY_FORM);
-        reload();
+        setSelectedType(null);
+        loadData();
       } else {
         toast.error(res.data?.error || "Failed to send invite");
       }
@@ -134,7 +184,7 @@ export default function AdminAccountsView() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input placeholder="Search accounts..." value={search} onChange={e => setSearch(e.target.value)} className="pl-9" />
           </div>
-          <Button onClick={() => setCreateOpen(true)} className="gap-2">
+          <Button onClick={openCreate} className="gap-2">
             <Plus className="w-4 h-4" /> Create Account
           </Button>
         </div>
@@ -142,66 +192,122 @@ export default function AdminAccountsView() {
 
       {/* Create Account Dialog */}
       <Dialog open={createOpen} onOpenChange={setCreateOpen}>
-        <DialogContent className="max-w-lg">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Create Customer Account</DialogTitle>
+            <DialogTitle>Create Partner Account</DialogTitle>
+            <p className="text-sm text-muted-foreground">Select the partner type, fill in their details, and they'll receive a login link automatically.</p>
           </DialogHeader>
-          <form onSubmit={handleCreate} className="space-y-4 mt-2">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label>Full Name <span className="text-destructive">*</span></Label>
-                <Input value={form.full_name} onChange={e => setForm({...form, full_name: e.target.value})} placeholder="John Doe" required />
-              </div>
-              <div className="space-y-1.5">
-                <Label>Email <span className="text-destructive">*</span></Label>
-                <Input type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="john@company.com" required />
-              </div>
+
+          {/* Step 1: Partner type selection */}
+          <div className="space-y-3 mt-2">
+            <Label className="text-sm font-semibold">Partner Type <span className="text-destructive">*</span></Label>
+            <div className="grid grid-cols-2 gap-3">
+              {PARTNER_TYPES.map(pt => {
+                const Icon = pt.icon;
+                const isSelected = selectedType?.value === pt.value;
+                return (
+                  <button
+                    key={pt.value}
+                    type="button"
+                    onClick={() => selectPartnerType(pt)}
+                    className={`flex items-start gap-3 p-4 rounded-xl border-2 text-left transition-all hover:shadow-sm ${
+                      isSelected
+                        ? `${pt.color} border-current shadow-sm`
+                        : "bg-card border-border hover:border-primary/30"
+                    }`}
+                  >
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${isSelected ? "bg-white/60" : "bg-muted"}`}>
+                      <Icon className={`w-5 h-5 ${isSelected ? pt.iconColor : "text-muted-foreground"}`} />
+                    </div>
+                    <div>
+                      <p className={`font-semibold text-sm ${isSelected ? "" : "text-foreground"}`}>{pt.label}</p>
+                      <p className={`text-xs mt-0.5 ${isSelected ? "opacity-80" : "text-muted-foreground"}`}>{pt.desc}</p>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
-            <div className="grid grid-cols-2 gap-4">
+          </div>
+
+          {/* Step 2: Form fields (shown after type is selected) */}
+          {selectedType && (
+            <form onSubmit={handleCreate} className="space-y-4 mt-2 pt-4 border-t border-border">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <Label>Full Name <span className="text-destructive">*</span></Label>
+                  <Input value={form.full_name} onChange={e => setForm({...form, full_name: e.target.value})} placeholder="John Doe" required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>Email <span className="text-destructive">*</span></Label>
+                  <Input type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="john@company.com" required />
+                </div>
+              </div>
+
               <div className="space-y-1.5">
-                <Label>Company <span className="text-destructive">*</span></Label>
+                <Label>Company / Business Name <span className="text-destructive">*</span></Label>
                 <Input value={form.company} onChange={e => setForm({...form, company: e.target.value})} placeholder="Company name" required />
               </div>
-              <div className="space-y-1.5">
-                <Label>Business Type <span className="text-destructive">*</span></Label>
-                <Select value={form.business_type} onValueChange={v => setForm({...form, business_type: v})}>
-                  <SelectTrigger><SelectValue placeholder="Select type" /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Travel Partner">Travel Partner</SelectItem>
-                    <SelectItem value="Airport Retailer">Airport Retailer</SelectItem>
-                    <SelectItem value="Train Partner">Train Partner</SelectItem>
-                  </SelectContent>
-                </Select>
+
+              {/* Type-specific fields */}
+              <div className="grid grid-cols-2 gap-4">
+                {selectedType.fields.includes("website") && (
+                  <div className="space-y-1.5">
+                    <Label>Website</Label>
+                    <Input value={form.website} onChange={e => setForm({...form, website: e.target.value})} placeholder="https://..." />
+                  </div>
+                )}
+                {selectedType.fields.includes("airport") && (
+                  <div className="space-y-1.5">
+                    <Label>Airport Code(s)</Label>
+                    <Input value={form.airport} onChange={e => setForm({...form, airport: e.target.value})} placeholder="AMS, BRU, CDG..." />
+                  </div>
+                )}
+                {selectedType.fields.includes("city") && (
+                  <div className="space-y-1.5">
+                    <Label>City / Location</Label>
+                    <Input value={form.city} onChange={e => setForm({...form, city: e.target.value})} placeholder="Amsterdam" />
+                  </div>
+                )}
+                {selectedType.fields.includes("kvk") && (
+                  <div className="space-y-1.5">
+                    <Label>KVK Number</Label>
+                    <Input value={form.kvk} onChange={e => setForm({...form, kvk: e.target.value})} placeholder="12345678" />
+                  </div>
+                )}
+                {selectedType.fields.includes("store_category") && (
+                  <div className="space-y-1.5">
+                    <Label>Store Category</Label>
+                    <Select value={form.store_category} onValueChange={v => setForm({...form, store_category: v})}>
+                      <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Fashion">Fashion</SelectItem>
+                        <SelectItem value="Electronics">Electronics</SelectItem>
+                        <SelectItem value="Food & Beverage">Food & Beverage</SelectItem>
+                        <SelectItem value="Beauty & Perfume">Beauty & Perfume</SelectItem>
+                        <SelectItem value="Duty Free">Duty Free</SelectItem>
+                        <SelectItem value="Gifts & Souvenirs">Gifts & Souvenirs</SelectItem>
+                        <SelectItem value="Retail">Retail</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
               </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label>Website</Label>
-                <Input value={form.website} onChange={e => setForm({...form, website: e.target.value})} placeholder="https://..." />
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-700">
+                <strong>What happens:</strong> The account will be created and <strong>{form.email || "the partner"}</strong> will receive an email with a link to access their dashboard.
               </div>
-              {form.business_type === "Airport Retailer" ? (
-                <div className="space-y-1.5">
-                  <Label>Airport</Label>
-                  <Input value={form.airport} onChange={e => setForm({...form, airport: e.target.value})} placeholder="AMS, BRU, CDG..." />
-                </div>
-              ) : (
-                <div className="space-y-1.5">
-                  <Label>KVK Number</Label>
-                  <Input value={form.kvk} onChange={e => setForm({...form, kvk: e.target.value})} placeholder="12345678" />
-                </div>
-              )}
-            </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-700">
-              <strong>What happens next:</strong> The account will be created and the customer will receive a login email at <strong>{form.email || "their address"}</strong> with a link to access their dashboard.
-            </div>
-            <div className="flex gap-2 justify-end pt-1">
-              <Button type="button" variant="outline" onClick={() => { setCreateOpen(false); setForm(EMPTY_FORM); }}>Cancel</Button>
-              <Button type="submit" disabled={creating} className="gap-2">
-                <Send className="w-4 h-4" />
-                {creating ? "Creating & Sending..." : "Create & Send Login"}
-              </Button>
-            </div>
-          </form>
+
+              <div className="flex gap-2 justify-end pt-1">
+                <Button type="button" variant="outline" onClick={() => { setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); }}>
+                  Cancel
+                </Button>
+                <Button type="submit" disabled={creating} className="gap-2">
+                  <Send className="w-4 h-4" />
+                  {creating ? "Creating & Sending..." : "Create & Send Login"}
+                </Button>
+              </div>
+            </form>
+          )}
         </DialogContent>
       </Dialog>
 
@@ -209,7 +315,7 @@ export default function AdminAccountsView() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           { label: "Total Accounts", value: users.length, color: "text-primary" },
-          { label: "Travel Agencies", value: users.filter(u => u.role === "agency").length, color: "text-blue-600" },
+          { label: "Travel Partners", value: users.filter(u => u.role === "agency").length, color: "text-blue-600" },
           { label: "Retailers", value: users.filter(u => u.role === "retailer").length, color: "text-orange-600" },
           { label: "Admins", value: users.filter(u => u.role === "admin").length, color: "text-purple-600" },
         ].map(({ label, value, color }) => (

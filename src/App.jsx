@@ -150,7 +150,7 @@ const AuthenticatedApp = () => {
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/registration" element={<GetStarted />} />
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
-        <Route path="/travel-partner-signup" element={<AgencySignup />} />
+        <Route path="/travel-partner-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
         <Route path="/travel-partner-showcase" element={<AgencyShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
@@ -163,20 +163,20 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-calculator" element={<RetailerCalculator />} />
         <Route path="/travel-partner-presentation" element={<TravelPartnerPresentationFuture />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
-        <Route path="/retailer-signup" element={<RetailerSignup />} />
+        <Route path="/retailer-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
         <Route path="/hotel-showcase" element={<HotelShowcase />} />
         <Route path="/hotel-portal" element={<HotelPortal />} />
-        <Route path="/hotel-signup" element={<HotelSignup />} />
+        <Route path="/hotel-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/car-rental-showcase" element={<CarRentalShowcase />} />
         <Route path="/car-rental-portal" element={<CarRentalPortal />} />
-        <Route path="/car-rental-signup" element={<CarRentalSignup />} />
+        <Route path="/car-rental-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/cruise-showcase" element={<CruiseShowcase />} />
         <Route path="/cruise-portal" element={<CruisePortal />} />
-        <Route path="/cruise-signup" element={<CruiseSignup />} />
+        <Route path="/cruise-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/train-showcase" element={<TrainShowcase />} />
         <Route path="/train-portal" element={<TrainPortal />} />
-        <Route path="/train-signup" element={<TrainSignup />} />
+        <Route path="/train-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/dev-wireframe" element={<DevWireframe />} />
         <Route path="/request-demo" element={<RequestDemoPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
