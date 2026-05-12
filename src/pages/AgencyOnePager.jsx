@@ -7,7 +7,9 @@ import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
-const GRADIENT_LINE = { borderBottom: '2px solid transparent', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1' };
+const GradientDivider = () => (
+  <div style={{ height: '2px', background: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b)', width: '100%' }} />
+);
 
 export default function AgencyOnePager() {
   const { t } = useTranslation();
@@ -58,9 +60,10 @@ export default function AgencyOnePager() {
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
         {/* Header */}
-        <div className="text-center pb-1" style={{ borderBottom: '3px solid transparent', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1' }}>
+        <div className="text-center pb-2">
           <DutyBoostLogo height={110} />
         </div>
+        <GradientDivider />
 
         <div className="flex-1 flex flex-col justify-between">
 
@@ -74,7 +77,8 @@ export default function AgencyOnePager() {
 
           {/* Section 1 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs pb-1 mb-1.5 uppercase tracking-wide" style={{ ...GRADIENT_LINE, color: '#1d4ed8' }}>01 — Why DutyBoost Matters for Travel Partners</h2>
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#1d4ed8' }}>01 — Why DutyBoost Matters for Travel Partners</h2>
+            <div className="mb-1.5"><GradientDivider /></div>
             <div className="grid grid-cols-2 gap-2">
               {why.map(c => (
                 <div key={c.title} className="bg-slate-50 rounded p-3 border border-border">
@@ -87,7 +91,8 @@ export default function AgencyOnePager() {
 
           {/* Section 2 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs pb-1 mb-1.5 uppercase tracking-wide" style={{ ...GRADIENT_LINE, color: '#0f766e' }}>02 — How DutyBoost Works</h2>
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#0f766e' }}>02 — How DutyBoost Works</h2>
+            <div className="mb-1.5"><GradientDivider /></div>
             <div className="grid grid-cols-4 gap-2">
               {steps.map(s => (
                 <div key={s.num} className="bg-teal-50 rounded p-3 border border-teal-100">
@@ -101,7 +106,8 @@ export default function AgencyOnePager() {
 
           {/* Section 3 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs pb-1 mb-1.5 uppercase tracking-wide" style={{ ...GRADIENT_LINE, color: '#b45309' }}>03 — What DutyBoost Brings to Travel Partners</h2>
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#b45309' }}>03 — What DutyBoost Brings to Travel Partners</h2>
+            <div className="mb-1.5"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               <div className="border border-border rounded p-3 text-center">
                 <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>Up to €5</p>
@@ -136,12 +142,15 @@ export default function AgencyOnePager() {
           </div>
 
           {/* CTA */}
-          <div className="text-center py-4" style={{ borderTop: '2px solid transparent', borderImage: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b) 1' }}>
+          <div>
+          <GradientDivider />
+          <div className="text-center py-4">
             <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
             <div className="flex items-center justify-center gap-6 mt-0.5">
               <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">dutyboost.com</a>
               <a href="/?contact=1" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">Contact us</a>
             </div>
+          </div>
           </div>
 
         </div>
