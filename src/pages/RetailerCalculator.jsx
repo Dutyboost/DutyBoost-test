@@ -374,7 +374,7 @@ export default function RetailerCalculator() {
         {/* Header */}
         <div className="text-center space-y-2">
           <div className="flex justify-center mb-2">
-            <DutyBoostLogo height={80} invert />
+            <DutyBoostLogo height={80} inverted />
           </div>
           <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs tracking-widest uppercase">
             DutyBoost ROI Calculator

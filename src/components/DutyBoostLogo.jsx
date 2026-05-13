@@ -12,6 +12,7 @@ export default function DutyBoostLogo({ height = 100, inverted = false, linkTo =
           maxWidth: `${height * 4}px`,
           objectFit: 'contain',
           display: 'block',
+          filter: inverted ? 'invert(1) brightness(2)' : 'none',
         }}
       />
     </Link>
