@@ -182,78 +182,49 @@ export async function exportRetailerPptx() {
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 6: REVENUE CHANNEL 1 — Travel Partners
+  // SLIDE 6: REVENUE CHANNEL 1 — Travel Partners & Airlines
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "REVENUE CHANNEL 1 · TRAVEL PARTNERS");
-    s.addText("Travel Agencies & OTAs", { x: 0.5, y: 0.75, w: 8, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addShape("roundRect", { x: 9.0, y: 0.65, w: 3.8, h: 0.75, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.1 });
-    s.addText("Largest active channel", { x: 9.0, y: 0.72, w: 3.8, h: 0.6, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
+    addSectionLabel(s, "REVENUE CHANNEL 1 · TRAVEL PARTNERS & AIRLINES");
+    s.addText("Travel Agencies, OTAs & Airlines", { x: 0.5, y: 0.75, w: 9.5, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
+    s.addShape("roundRect", { x: 10.2, y: 0.65, w: 2.7, h: 0.75, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.1 });
+    s.addText("Largest active channel", { x: 10.2, y: 0.72, w: 2.7, h: 0.6, fontSize: 10, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
     addDivider(s, 0.5, 1.5, 3, BLUE);
-    s.addShape("roundRect", { x: 0.4, y: 1.65, w: 6.0, h: 4.6, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.12 });
-    s.addText("Industry Context", { x: 0.6, y: 1.8, w: 5.6, h: 0.4, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri" });
+
+    // Left column: Travel Agencies & OTAs
+    s.addShape("roundRect", { x: 0.35, y: 1.65, w: 6.2, h: 5.1, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.12 });
+    s.addText("Travel Agencies & OTAs", { x: 0.55, y: 1.78, w: 5.8, h: 0.4, fontSize: 12, bold: true, color: BLUE, fontFace: "Calibri" });
     const travelFacts = [
       "• 1.4B+ international travel bookings per year (UNWTO 2024)",
       "• OTAs (Booking.com, Expedia) process 50%+ of leisure travel",
-      "• Booking confirmation emails: 60–70% open rate (Mailchimp Travel Benchmark)",
-      "• Average basket at airport duty-free: €55–€80 (TFWA 2023)",
-      "• Agency commission model: proven — already used for insurance, hotels, transfers",
+      "• Booking confirmation emails: 60–70% open rate",
+      "• Avg basket at airport duty-free: €55–€80 (TFWA 2023)",
+      "• Pre-sold intent: DutyCredit sent before departure",
+      "• A single mid-size agency = 10k+ travelers/year to Dutch airports",
+      "• Revenue: 10k × 20% × €75 = €150,000 gross / €3,750 fee",
     ];
     travelFacts.forEach((f, i) => {
-      s.addText(f, { x: 0.6, y: 2.35 + i * 0.68, w: 5.6, h: 0.6, fontSize: 10.5, color: "334155", fontFace: "Calibri", valign: "top" });
+      s.addText(f, { x: 0.55, y: 2.28 + i * 0.55, w: 5.9, h: 0.5, fontSize: 10, color: "334155", fontFace: "Calibri", valign: "top" });
     });
-    s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
-    s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
-    const retailerMeans = [
-      { t: "Pre-sold intent", b: "Agency sends DutyCredit before departure — traveler already plans to spend €70+ in your store." },
-      { t: "Volume at scale", b: "A single mid-size agency sends 10k+ travelers/year to Dutch airports." },
-      { t: "Revenue example", b: "10k travelers × 20% conversion × €75 avg = €150,000 gross / €3,750 fee to DutyBoost." },
-      { t: "Seasonality buffer", b: "Agency bookings peak Jan–Mar & Sep–Oct — filling your quieter periods." },
-    ];
-    retailerMeans.forEach(({ t, b }, i) => {
-      s.addText(`▸  ${t}`, { x: 6.9, y: 2.35 + i * 1.0, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri" });
-      s.addText(b, { x: 6.9, y: 2.72 + i * 1.0, w: 5.8, h: 0.55, fontSize: 10, color: SLATE, fontFace: "Calibri" });
-    });
-    addFooter(s);
-  }
 
-  // ─────────────────────────────────────────────
-  // SLIDE 7: REVENUE CHANNEL 1b — Airlines
-  // ─────────────────────────────────────────────
-  {
-    const s = pptx.addSlide();
-    s.background = { color: WHITE };
-    addSectionLabel(s, "REVENUE CHANNEL 1 · TRAVEL PARTNERS (CONT.)");
-    s.addText("Airlines & Inflight", { x: 0.5, y: 0.75, w: 8, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addShape("roundRect", { x: 9.0, y: 0.65, w: 3.8, h: 0.75, fill: { color: "F0F9FF" }, line: { color: "BAE6FD", width: 1 }, rectRadius: 0.1 });
-    s.addText("High-volume channel", { x: 9.0, y: 0.72, w: 3.8, h: 0.6, fontSize: 11, bold: true, color: "0284C7", align: "center", fontFace: "Calibri", valign: "middle" });
-    addDivider(s, 0.5, 1.5, 3, "0284C7");
-    s.addShape("roundRect", { x: 0.4, y: 1.65, w: 6.0, h: 4.6, fill: { color: "F0F9FF" }, line: { color: "BAE6FD", width: 1 }, rectRadius: 0.12 });
-    s.addText("Industry Context", { x: 0.6, y: 1.8, w: 5.6, h: 0.4, fontSize: 11, bold: true, color: "0284C7", fontFace: "Calibri" });
+    // Right column: Airlines & Inflight
+    s.addShape("roundRect", { x: 6.75, y: 1.65, w: 6.2, h: 5.1, fill: { color: "F0F9FF" }, line: { color: "BAE6FD", width: 1 }, rectRadius: 0.12 });
+    s.addText("Airlines & Inflight", { x: 6.95, y: 1.78, w: 5.8, h: 0.4, fontSize: 12, bold: true, color: "0284C7", fontFace: "Calibri" });
     const airlineFacts = [
       "• 4.5B passengers flew in 2024 (IATA Global Outlook)",
-      "• Airline booking confirmation: #1 most-opened transactional email (70–85% open rate)",
-      "• Ancillary revenue per pax: €25–€55 (Ideaworks 2023 CarTrawler Report)",
+      "• Airline booking confirmation: 70–85% open rate — #1 in travel",
+      "• Ancillary revenue per pax: €25–€55 (Ideaworks / CarTrawler 2023)",
       "• 61% of travelers shop at airports on departure (m1nd-set 2023)",
-      "• Inflight WiFi reach: 300M+ passengers per year and growing (Inmarsat)",
+      "• Inflight WiFi reach: 300M+ passengers/year (Inmarsat)",
+      "• Even 1 regional route at AMS = 500k+ pax/year audience",
+      "• Revenue: 100k pax × 20% × €80 = €1.6M gross / €40,000 fee",
     ];
     airlineFacts.forEach((f, i) => {
-      s.addText(f, { x: 0.6, y: 2.35 + i * 0.68, w: 5.6, h: 0.6, fontSize: 10.5, color: "334155", fontFace: "Calibri", valign: "top" });
+      s.addText(f, { x: 6.95, y: 2.28 + i * 0.55, w: 5.9, h: 0.5, fontSize: 10, color: "334155", fontFace: "Calibri", valign: "top" });
     });
-    s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
-    s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
-    const airlineMeansRetailer = [
-      { t: "Massive reach", b: "Even 1 regional airline route at AMS = 500k+ pax/year potential audience." },
-      { t: "Booking-triggered", b: "DutyCredit issued at booking — traveler has weeks to plan their €70+ store visit." },
-      { t: "Revenue example", b: "100k pax × 20% conversion × €80 avg = €1.6M gross / €40,000 fee to DutyBoost." },
-      { t: "Inflight activation", b: "WiFi portal & IFE reminders keep the DutyCredit top-of-mind on the plane." },
-    ];
-    airlineMeansRetailer.forEach(({ t, b }, i) => {
-      s.addText(`▸  ${t}`, { x: 6.9, y: 2.35 + i * 1.0, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: "0284C7", fontFace: "Calibri" });
-      s.addText(b, { x: 6.9, y: 2.72 + i * 1.0, w: 5.8, h: 0.55, fontSize: 10, color: SLATE, fontFace: "Calibri" });
-    });
+
     addFooter(s);
   }
 
@@ -343,8 +314,7 @@ export async function exportRetailerPptx() {
     s.addText("What all channels mean for 1 store", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("Conservative modelling · Single airport store · Min. basket €70 · Mixed channel volume", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: "94A3B8", align: "center", fontFace: "Calibri" });
     const rows = [
-      { channel: "Travel Agencies & OTAs", issued: "5,000/yr", conv: "20%", avg: "€75", gross: "€75,000", fee: "€1,875", color: BLUE },
-      { channel: "Airlines", issued: "15,000/yr", conv: "18%", avg: "€80", gross: "€216,000", fee: "€5,400", color: "0284C7" },
+      { channel: "Travel Partners & Airlines", issued: "20,000/yr", conv: "19%", avg: "€77", gross: "€291,000", fee: "€7,275", color: BLUE },
       { channel: "Accommodations", issued: "3,000/yr", conv: "20%", avg: "€75", gross: "€45,000", fee: "€1,125", color: "059669" },
       { channel: "Car Rental", issued: "4,000/yr", conv: "15%", avg: "€80", gross: "€48,000", fee: "€1,200", color: ORANGE },
     ];
@@ -378,36 +348,7 @@ export async function exportRetailerPptx() {
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 11: BUSINESS TRAVEL (Future)
-  // ─────────────────────────────────────────────
-  {
-    const s = pptx.addSlide();
-    s.background = { color: WHITE };
-    addSectionLabel(s, "FUTURE CHANNEL · CORPORATE & BUSINESS TRAVEL");
-    s.addText("Corporate Travel — The B2B Multiplier", { x: 0.5, y: 0.75, w: 9, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addShape("roundRect", { x: 9.8, y: 0.65, w: 3.1, h: 0.75, fill: { color: "F5F3FF" }, line: { color: "C4B5FD", width: 1 }, rectRadius: 0.1 });
-    s.addText("In development", { x: 9.8, y: 0.72, w: 3.1, h: 0.6, fontSize: 11, bold: true, color: "7C3AED", align: "center", fontFace: "Calibri", valign: "middle" });
-    addDivider(s, 0.5, 1.5, 3, "7C3AED");
-    const corpPoints = [
-      { t: "What is it?", b: "Companies pre-load F&B and retail budgets for travelling employees. Spend is tracked by cost centre, department, and policy." },
-      { t: "Why retailers benefit?", b: "Corporate travelers fly 2–4x/month. DutyCredit becomes a recurring per-trip benefit — guaranteed footfall from known accounts." },
-      { t: "Policy engine", b: "Employers set daily limits (e.g. €20 F&B, €50 retail). Traveler uses QR at your store. Min. basket €70 applies." },
-      { t: "Market size", b: "Global corporate travel spend: $1.4 trillion (GBTA 2024). F&B at airports alone: ~$3.5B annually." },
-      { t: "Value for retailer", b: "Predictable recurring spend from high-frequency corporate accounts. B2B contracts = stable monthly revenue baseline." },
-      { t: "Integration", b: "Same QR scan as leisure DutyCredits — zero extra complexity at checkout." },
-    ];
-    corpPoints.forEach(({ t, b }, i) => {
-      const col = i % 2; const row = Math.floor(i / 2);
-      const x = 0.4 + col * 6.45; const y = 1.75 + row * 1.55;
-      s.addShape("roundRect", { x, y, w: 6.2, h: 1.4, fill: { color: "F5F3FF" }, line: { color: "C4B5FD", width: 1 }, rectRadius: 0.1 });
-      s.addText(t, { x: x + 0.2, y: y + 0.1, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: "7C3AED", fontFace: "Calibri" });
-      s.addText(b, { x: x + 0.2, y: y + 0.55, w: 5.8, h: 0.7, fontSize: 10.5, color: SLATE, fontFace: "Calibri" });
-    });
-    addFooter(s);
-  }
-
-  // ─────────────────────────────────────────────
-  // SLIDE 12: INTEGRATION
+  // SLIDE 11: INTEGRATION
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();

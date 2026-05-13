@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { exportRetailerPptx } from "@/utils/exportRetailerPptx";
 import {
-  Download, TrendingUp, Store, Plane, Hotel, Car, Briefcase,
+  Download, TrendingUp, Store, Plane, Hotel, Car,
   CheckCircle2, ArrowRight, Users, BarChart3, Zap, Globe
 } from "lucide-react";
 
@@ -49,20 +49,12 @@ const SLIDES_PREVIEW = [
     accent: "text-orange-600",
   },
   {
-    id: "channel-agencies",
-    label: "Channel: Travel Partners",
-    title: "Travel Agencies & OTAs",
-    sub: "1.4B+ bookings/year · 60–70% email open rate",
+    id: "channel-travel",
+    label: "Channel: Travel Partners & Airlines",
+    title: "Travel Agencies, OTAs & Airlines",
+    sub: "1.4B+ bookings/year · 4.5B passengers/year · 60–85% email open rate",
     bg: "from-white to-blue-50",
     accent: "text-blue-700",
-  },
-  {
-    id: "channel-airlines",
-    label: "Channel: Airlines",
-    title: "Airlines & Inflight",
-    sub: "4.5B passengers/year · Highest open-rate emails in travel",
-    bg: "from-white to-sky-50",
-    accent: "text-sky-700",
   },
   {
     id: "channel-hotels",
@@ -87,14 +79,6 @@ const SLIDES_PREVIEW = [
     sub: "€384,000 gross · €9,600 total fees · ROI: 40:1",
     bg: "from-green-950 to-orange-950",
     accent: "text-orange-300",
-  },
-  {
-    id: "corporate",
-    label: "Future: Corporate",
-    title: "Corporate Travel — The B2B Multiplier",
-    sub: "$1.4T corporate travel market · Recurring per-trip spend",
-    bg: "from-white to-purple-50",
-    accent: "text-purple-700",
   },
   {
     id: "integration",
@@ -124,18 +108,11 @@ const SLIDES_PREVIEW = [
 
 const CHANNELS = [
   {
-    icon: Users,
-    label: "Travel Partners",
-    color: "bg-blue-100 text-blue-700",
-    stats: ["1.4B+ bookings/year", "60–70% email open rate", "20% conversion target"],
-    value: "Largest active channel · Agencies & OTAs send pre-motivated travelers with DutyCredits in hand.",
-  },
-  {
     icon: Plane,
-    label: "Airlines & Inflight",
-    color: "bg-sky-100 text-sky-700",
-    stats: ["4.5B passengers/year", "70–85% open rate", "Inflight WiFi activation"],
-    value: "Highest-volume future channel · Post-booking email + inflight reminder drive departure spend.",
+    label: "Travel Partners & Airlines",
+    color: "bg-blue-100 text-blue-700",
+    stats: ["1.4B+ agency bookings/year", "4.5B airline passengers/year", "60–85% email open rate"],
+    value: "Largest combined channel · Agencies, OTAs & airlines send pre-motivated travelers with DutyCredits in hand.",
   },
   {
     icon: Hotel,
@@ -151,13 +128,6 @@ const CHANNELS = [
     stats: ["115M+ rentals in Europe", "70–85% open rate", "14–28 day booking window"],
     value: "Natural airport association · DutyCredit valid at both departure and arrival — doubles the redemption window.",
   },
-  {
-    icon: Briefcase,
-    label: "Corporate Travel",
-    color: "bg-purple-100 text-purple-700",
-    stats: ["$1.4T market (GBTA 2024)", "2–4x/month frequency", "Policy-based budgets"],
-    value: "B2B multiplier · Corporate accounts = predictable, recurring per-trip spend at your store.",
-  },
 ];
 
 const RETAILER_BENEFITS = [
@@ -165,7 +135,7 @@ const RETAILER_BENEFITS = [
   { icon: CheckCircle2, text: "Pre-motivated buyers arrive with DutyCredit in hand — min. basket €70" },
   { icon: CheckCircle2, text: "No POS overhaul — simple QR scan on any device" },
   { icon: CheckCircle2, text: "Real-time dashboard: scans, revenue, channel breakdown" },
-  { icon: CheckCircle2, text: "Multiple income channels: agencies, airlines, accommodations, car rental" },
+  { icon: CheckCircle2, text: "Multiple income channels: travel partners, airlines, accommodations, car rental" },
   { icon: CheckCircle2, text: "Start with 1–3 stores — scale with no lock-in" },
 ];
 
@@ -194,7 +164,7 @@ export default function RetailerPresentationFuture() {
           />
           <div>
             <p className="text-sm font-semibold text-white leading-none">The Future of Airport Retail</p>
-            <p className="text-xs text-slate-400">Airport Retailer Presentation · 14 slides</p>
+            <p className="text-xs text-slate-400">Airport Retailer Presentation · 12 slides</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -240,7 +210,7 @@ export default function RetailerPresentationFuture() {
 
         {/* Slide Index */}
         <div>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Slide Overview — 14 slides</p>
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Slide Overview — 12 slides</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {SLIDES_PREVIEW.map((slide, i) => (
               <div
@@ -329,11 +299,10 @@ export default function RetailerPresentationFuture() {
 
         {/* Revenue Summary */}
         <div className="bg-gradient-to-r from-blue-900 to-slate-900 border border-blue-700 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">Combined Revenue Potential · 1 Store · Conservative Model</p>
+          <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-4">Combined Revenue Potential · 1 Store · Conservative Model · 3 Channels</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { channel: "Travel Agencies", gross: "€75,000", fee: "€1,875" },
-              { channel: "Airlines", gross: "€216,000", fee: "€5,400" },
+              { channel: "Travel Partners & Airlines", gross: "€291,000", fee: "€7,275" },
               { channel: "Accommodations", gross: "€45,000", fee: "€1,125" },
               { channel: "Car Rental", gross: "€48,000", fee: "€1,200" },
             ].map(({ channel, gross, fee }) => (
