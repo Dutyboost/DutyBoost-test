@@ -106,7 +106,7 @@ export async function exportRetailerPptx() {
     let xh = 0.3;
     const h = ["", "Tier", "Min. Spend", "Max Saving", "What it means"];
     h.forEach((hh, i) => {
-      s.addShape("rect", { x: xh, y: 2.05, w: cw[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
+      s.addShape({ type: "rect", x: xh, y: 2.05, w: cw[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
       s.addText(hh, { x: xh + 0.05, y: 2.07, w: cw[i] - 0.1, h: 0.41, fontSize: 9, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xh += cw[i];
     });
@@ -115,7 +115,7 @@ export async function exportRetailerPptx() {
       const bg = ri % 2 === 0 ? "1E293B" : SLATE;
       const vals = [e, n, r, sv, d];
       vals.forEach((v, ci) => {
-        s.addShape("rect", { x: xr, y: 2.5 + ri * 0.75, w: cw[ci], h: 0.71, fill: { color: bg }, line: { color: "475569", width: 1 } });
+        s.addShape({ type: "rect", x: xr, y: 2.5 + ri * 0.75, w: cw[ci], h: 0.71, fill: { color: bg }, line: { color: "475569", width: 1 } });
         const c = ci === 3 ? BLUE : WHITE;
         const b = ci === 3;
         const f = ci === 3 ? 12 : ci === 4 ? 9 : 10;
@@ -219,7 +219,7 @@ export async function exportRetailerPptx() {
     const cw = [4.0, 3.3, 2.6, 3.4];
     let xh = 0.35;
     ["Channel", "Gross Revenue", "Fee (2.5%)", ""].forEach((h, i) => {
-      s.addShape("rect", { x: xh, y: 1.95, w: cw[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
+      s.addShape({ type: "rect", x: xh, y: 1.95, w: cw[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
       s.addText(h, { x: xh + 0.05, y: 1.97, w: cw[i] - 0.1, h: 0.41, fontSize: 9, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xh += cw[i];
     });
@@ -227,7 +227,7 @@ export async function exportRetailerPptx() {
       let xr = 0.35;
       const bg = ri % 2 === 0 ? "1E293B" : SLATE;
       [ch, gr, fe, ""].forEach((v, ci) => {
-        s.addShape("rect", { x: xr, y: 2.4 + ri * 0.72, w: cw[ci], h: 0.68, fill: { color: bg }, line: { color: "475569", width: 1 } });
+        s.addShape({ type: "rect", x: xr, y: 2.4 + ri * 0.72, w: cw[ci], h: 0.68, fill: { color: bg }, line: { color: "475569", width: 1 } });
         const c = ci === 1 ? GREEN : WHITE;
         const b = ci === 1;
         const f = ci === 1 ? 12 : 10;
@@ -237,7 +237,7 @@ export async function exportRetailerPptx() {
     });
     let xt = 0.35;
     ["TOTAL", "€384,000", "€9,600", ""].forEach((v, ci) => {
-      s.addShape("rect", { x: xt, y: 4.25, w: cw[ci], h: 0.72, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
+      s.addShape({ type: "rect", x: xt, y: 4.25, w: cw[ci], h: 0.72, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
       s.addText(v, { x: xt + 0.08, y: 4.27, w: cw[ci] - 0.12, h: 0.68, fontSize: ci === 1 ? 14 : 11, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xt += cw[ci];
     });
