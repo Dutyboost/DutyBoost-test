@@ -129,7 +129,7 @@ export default function AgencyPortal() {
               <Button className="w-full gap-2 text-base h-12" onClick={() => navigate("/travel-partner-signup")}>
                 <UserPlus className="w-4 h-4" /> {t('portal.agency.create_account')}
               </Button>
-              <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin(window.location.pathname)}>
+              <Button variant="outline" className="w-full gap-2 text-base h-12" onClick={() => base44.auth.redirectToLogin('/dashboard')}>
                 <LogIn className="w-4 h-4" /> {t('portal.sign_in')}
               </Button>
               <p className="text-xs text-muted-foreground">{t('portal.agency.new_desc')}</p>
