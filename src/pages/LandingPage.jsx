@@ -119,31 +119,13 @@ export default function LandingPage() {
             {stakeholders.map((s) => {
               let Icon = s.icon;
               let AdditionalIcons = [];
-              let title, description, benefits;
-              
-              if (s.key === 'agencies') {
-                 title = 'Travel Partners';
-                 description = 'Whether you\'re a travel agency, airline, hotel, or car rental — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive shopping incentive. Earn a commission on every DutyCredit redeemed.';
-                 benefits = [
-                   'Higher customer satisfaction',
-                   'Zero integration friction',
-                   'More repeat bookings',
-                 ];
-               } else {
-                benefits = s.key === 'travelers' ? [
-                  'Instant mobile DutyCredit',
-                  'Full discount at one shop',
-                  'Seamless QR experience',
-                ] : [
-                  'Higher store conversion',
-                  'Real-time QR redemption',
-                  'Track sales split',
-                ];
-                title = s.key === 'travelers' ? 'Travelers' : 'Airport/ Port Retail Partners';
-                description = s.key === 'travelers'
-                  ? 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, hotel, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.'
-                  : 'Convert passing travelers into paying customers. Get targeted, pre-qualified shoppers with purchase intent activated by a personalized DutyCredit incentive. Our commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver sales.';
-              }
+              const title = t(`stakeholders.${s.key}.title`);
+              const description = t(`stakeholders.${s.key}.description`);
+              const benefits = [
+                t(`stakeholders.${s.key}.b1`),
+                t(`stakeholders.${s.key}.b2`),
+                t(`stakeholders.${s.key}.b3`),
+              ];
               
               if (s.key === 'agencies') {
                          AdditionalIcons = [HotelIcon, CarRentalIcon];
@@ -198,11 +180,11 @@ export default function LandingPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
-              <h2 className="text-4xl font-heading font-bold">Transforming how travel partners and airport retailers connect.</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">Join DutyBoost and unlock a smarter ecosystem where travel partners strengthen customer loyalty while generating new commission-based revenue streams. At the same time, airport retailers increase sales by reaching high-intent travelers through one intelligent platform.</p>
+              <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
+              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.description')}</p>
               <Link to="/get-started">
                 <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  Get Started Today <ArrowRight className="w-4 h-4" />
+                  {t('cta.button')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>

@@ -25,19 +25,22 @@ export default {
     },
     stakeholders: {
       travelers: {
-        description: 'Enjoy an exclusive airport discount — automatically earned when you book a flight, hotel, or car rental. Use your DutyCredit at your departure airport or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.',
+        title: 'Travelers',
+        description: 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, hotel, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.',
         b1: 'Instant mobile DutyCredit',
         b2: 'Full discount at one shop',
         b3: 'Seamless QR experience',
       },
       retailers: {
+        title: 'Airport/ Port Retail Partners',
         description: 'Convert passing travelers into paying customers. Get targeted, pre-qualified shoppers with purchase intent activated by a personalized DutyCredit incentive. Our commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
         b3: 'Track sales split',
       },
       agencies: {
-        description: 'Whether you\'re a travel agency, airline, hotel, or car rental provider — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive airport shopping incentive. Earn a commission on every DutyCredit redeemed.',
+        title: 'Travel Partners',
+        description: 'Whether you\'re a travel agency, airline, hotel, or car rental — turn every booking into a loyalty asset. Automatically generate personalized DutyCredits for your customers, rewarding them with an exclusive shopping incentive. Earn a commission on every DutyCredit redeemed.',
         b1: 'Higher customer satisfaction',
         b2: 'Zero integration friction',
         b3: 'More repeat bookings',

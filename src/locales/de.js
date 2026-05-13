@@ -26,18 +26,21 @@ export default {
     },
     stakeholders: {
       travelers: {
+        title: 'Reisende',
         description: 'Genießen Sie exklusive Rabatte am Abflughafen — automatisch durch Ihre Buchung verdient. Keine Anmeldungen, kein Papierkram. Scannen Sie einfach Ihr DutyCredit und sparen Sie. Gültig für Einkäufe ab €50 an einem einzigen Verkaufspunkt.',
         b1: 'Sofortiges mobiles DutyCredit',
         b2: 'Voller Rabatt in einem Geschäft',
         b3: 'Reibungslose QR-Erfahrung',
       },
       retailers: {
+        title: 'Flughafen/ Hafen Retailpartner',
         description: 'Wandeln Sie vorbeigehende Reisende in zahlende Kunden um. Erhalten Sie gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten DutyCredit-Anreiz. Unsere Provision gilt nur, wenn ein DutyCredit tatsächlich eingelöst wird — Sie zahlen nichts, es sei denn, wir liefern einen Verkauf.',
         b1: 'Höhere Warenkorbkonversion',
         b2: 'Echtzeit-QR-Einlösung',
         b3: 'Umsatzbeteiligung verfolgen',
       },
       agencies: {
+        title: 'Reisepartner',
         description: 'Verwandeln Sie jede Buchung in ein Kundenbindungsmittel. Generieren Sie automatisch personalisierte DutyCredits für Ihre Reisenden — exklusive Anreize basierend auf Gruppengröße, Reiseziel und Ticketwert — ohne zusätzlichen Aufwand. Verdienen Sie eine Marge auf jedes eingelöste DutyCredit.',
         b1: 'Höhere Reisendenzufriedenheit',
         b2: 'Null Integrationsreibung',
