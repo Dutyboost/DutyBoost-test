@@ -4,7 +4,6 @@ import html2canvas from "html2canvas";
 export async function exportRetailerPptxWithImages() {
   const pptx = new pptxgen();
   pptx.layout = "LAYOUT_WIDE";
-  pptx.defineLayout({ name: "LAYOUT_WIDE", width: 13.333, height: 7.5 });
 
   // Get all slide sections from the page
   const slideElements = document.querySelectorAll("section");
@@ -24,38 +23,25 @@ export async function exportRetailerPptxWithImages() {
         scale: 2,
         allowTaint: true,
         useCORS: true,
-        backgroundColor: null,
+        logging: false,
       });
 
-      // Convert canvas to data URL
+      // Convert canvas to PNG data URL
       const imageData = canvas.toDataURL("image/png");
 
-      // Add slide with image
+      // Add new slide
       const slide = pptx.addSlide();
-      slide.background = { path: imageData };
       
-      // Add image to fill the entire slide
+      // Add image that fills the entire slide
       slide.addImage({
-        data: imageData,
+        path: imageData,
         x: 0,
         y: 0,
-        w: "100%",
-        h: "100%",
+        w: 13.333,
+        h: 7.5,
       });
     } catch (error) {
       console.error(`Failed to capture slide ${i + 1}:`, error);
-      // Add a blank slide with error message if capture fails
-      const slide = pptx.addSlide();
-      slide.background = { color: "1E293B" };
-      slide.addText(`Slide ${i + 1} - Capture Failed`, {
-        x: 1,
-        y: 3,
-        w: 11.3,
-        h: 1,
-        fontSize: 24,
-        color: "FFFFFF",
-        align: "center",
-      });
     }
   }
 
