@@ -78,8 +78,8 @@ export default {
       err_industry: 'Veuillez sélectionner votre type d\'activité.',
     },
     getstarted: {
-      title: 'Commencer',
-      subtitle_default: 'Rejoignez DutyBoost — La Couche de Conversion du Commerce de Voyage.',
+      title: 'Commencer avec DutyBoost',
+      subtitle_default: 'Choisissez votre rôle pour accéder aux avantages de DutyBoost.',
       agencies: 'Partenaires vols',
       retailers: 'Partenaires détaillants aéroportuaires',
       hotels: 'Partenaires hébergement',

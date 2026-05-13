@@ -78,8 +78,8 @@ export default {
       err_industry: 'Bitte wählen Sie Ihren Unternehmenstyp aus.',
     },
     getstarted: {
-      title: 'Loslegen',
-      subtitle_default: 'Treten Sie DutyBoost bei — Die Reise-Einzelhandels-Konversionsschicht.',
+      title: 'Loslegen mit DutyBoost',
+      subtitle_default: 'Wählen Sie Ihre Rolle, um auf die Vorteile von DutyBoost zuzugreifen.',
       agencies: 'Flugpartner',
       retailers: 'Flughafen-Retailpartner',
       hotels: 'Unterkunftspartner',

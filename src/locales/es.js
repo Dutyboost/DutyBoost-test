@@ -94,8 +94,8 @@ export default {
     },
 
     getstarted: {
-      title: 'Comenzar',
-      subtitle_default: 'Únete a DutyBoost — La Capa de Conversión del Comercio de Viajes.',
+      title: 'Empieza con DutyBoost',
+      subtitle_default: 'Elige tu rol para acceder a los beneficios de DutyBoost.',
       agencies: 'Socios de vuelos',
       retailers: 'Socios minoristas aeroportuarios',
       hotels: 'Socios de alojamiento',

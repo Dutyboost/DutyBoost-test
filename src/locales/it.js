@@ -94,8 +94,8 @@ export default {
     },
 
     getstarted: {
-      title: 'Inizia',
-      subtitle_default: 'Unisciti a DutyBoost — Il Livello di Conversione del Retail di Viaggio.',
+      title: 'Inizia con DutyBoost',
+      subtitle_default: 'Scegli il tuo ruolo per accedere ai vantaggi di DutyBoost.',
       agencies: 'Partner voli',
       retailers: 'Partner retailer aeroportuali',
       hotels: 'Partner strutture ricettive',

@@ -70,5 +70,9 @@ export default {
       tagline: '— The Travel Retail Conversion Layer',
       copy: '© 2026 DutyBoost. 모든 권리 보유.',
     },
+    getstarted: {
+      title: 'DutyBoost 시작하기',
+      subtitle_default: '역할을 선택하여 DutyBoost의 혜택을 누리세요.',
+    },
   },
 };
