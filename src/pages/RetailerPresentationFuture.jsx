@@ -251,6 +251,154 @@ export default function RetailerPresentationFuture() {
           </div>
         </div>
 
+        {/* App Illustrations */}
+        <div>
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">App Experience — What Retailers Actually See</p>
+          <p className="text-slate-400 text-sm mb-6">A quick look at the three key moments in the DutyBoost retail flow.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+
+            {/* Screen 1: Retailer Dashboard */}
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-semibold text-blue-300 uppercase tracking-widest text-center">① Retailer Dashboard</p>
+              <div className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+                {/* Fake browser bar */}
+                <div className="bg-slate-900 px-3 py-2 flex items-center gap-2 border-b border-slate-700">
+                  <div className="flex gap-1"><div className="w-2.5 h-2.5 rounded-full bg-red-500/60"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60"/><div className="w-2.5 h-2.5 rounded-full bg-green-500/60"/></div>
+                  <div className="flex-1 bg-slate-700 rounded text-xs text-slate-400 px-2 py-0.5 text-center">app.dutyboost.com/retailer-dashboard</div>
+                </div>
+                <div className="p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-slate-400">Good morning,</p>
+                      <p className="text-sm font-bold text-white">Relay Store — AMS T3</p>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold">R</div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { label: "Today's Revenue", val: "€1,240", color: "text-green-400" },
+                      { label: "Vouchers Scanned", val: "8", color: "text-blue-300" },
+                      { label: "Avg. Basket", val: "€155", color: "text-orange-300" },
+                      { label: "This Month", val: "€18,450", color: "text-purple-300" },
+                    ].map(({ label, val, color }) => (
+                      <div key={label} className="bg-slate-700/60 rounded-lg p-2.5">
+                        <p className="text-xs text-slate-400 leading-tight">{label}</p>
+                        <p className={`text-base font-bold ${color}`}>{val}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="bg-slate-700/40 rounded-lg p-2.5">
+                    <p className="text-xs text-slate-400 mb-2">Top Channels Today</p>
+                    {[
+                      { ch: "Travel Partners", pct: 58, color: "bg-blue-500" },
+                      { ch: "Accommodations", pct: 26, color: "bg-green-500" },
+                      { ch: "Car Rental", pct: 16, color: "bg-orange-400" },
+                    ].map(({ ch, pct, color }) => (
+                      <div key={ch} className="flex items-center gap-2 mb-1.5">
+                        <span className="text-xs text-slate-300 w-28 shrink-0">{ch}</span>
+                        <div className="flex-1 bg-slate-600 rounded-full h-1.5">
+                          <div className={`${color} h-1.5 rounded-full`} style={{ width: `${pct}%` }} />
+                        </div>
+                        <span className="text-xs text-slate-400">{pct}%</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-slate-500 text-center leading-relaxed">Real-time performance overview — revenue, scans, and channel breakdown at a glance.</p>
+            </div>
+
+            {/* Screen 2: QR Scan */}
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-semibold text-orange-300 uppercase tracking-widest text-center">② Scan Voucher at Checkout</p>
+              <div className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+                <div className="bg-slate-900 px-3 py-2 flex items-center gap-2 border-b border-slate-700">
+                  <div className="flex gap-1"><div className="w-2.5 h-2.5 rounded-full bg-red-500/60"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60"/><div className="w-2.5 h-2.5 rounded-full bg-green-500/60"/></div>
+                  <div className="flex-1 bg-slate-700 rounded text-xs text-slate-400 px-2 py-0.5 text-center">app.dutyboost.com/scan</div>
+                </div>
+                <div className="p-4 space-y-3">
+                  <p className="text-xs text-slate-400 text-center font-medium uppercase tracking-wider">Scan Traveler's QR Code</p>
+                  {/* Fake QR area */}
+                  <div className="border-2 border-dashed border-blue-500/50 rounded-xl h-28 flex flex-col items-center justify-center bg-blue-500/5 relative">
+                    <div className="grid grid-cols-5 gap-0.5 opacity-40">
+                      {Array.from({ length: 25 }).map((_, i) => (
+                        <div key={i} className={`w-3 h-3 rounded-sm ${[0,1,5,10,15,20,24,23,19,14,6,12].includes(i) ? "bg-blue-400" : "bg-slate-600"}`} />
+                      ))}
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 border-2 border-blue-400 rounded-lg animate-pulse" />
+                    </div>
+                  </div>
+                  {/* Voucher preview card */}
+                  <div className="bg-gradient-to-r from-blue-800 to-blue-900 border border-blue-600 rounded-xl p-3">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="text-xs text-blue-300">🔵 Priority DutyCredit</p>
+                        <p className="text-lg font-bold text-white mt-0.5">€25 discount</p>
+                        <p className="text-xs text-slate-300">Min. basket: €100</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xs text-slate-400">Traveler</p>
+                        <p className="text-sm font-semibold text-white">J. Martens</p>
+                        <p className="text-xs text-slate-400">AMS → BCN</p>
+                      </div>
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-blue-700 flex justify-between items-center">
+                      <span className="text-xs text-green-300">✓ Valid · Expires today</span>
+                      <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full font-bold">ACTIVE</span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button className="bg-red-600/30 border border-red-600 text-red-300 rounded-lg py-2 text-xs font-semibold">✕ Decline</button>
+                    <button className="bg-green-600 text-white rounded-lg py-2 text-xs font-semibold">✓ Redeem</button>
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-slate-500 text-center leading-relaxed">Staff scans the traveler's QR code — voucher details appear instantly. One tap to redeem.</p>
+            </div>
+
+            {/* Screen 3: Confirmation */}
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-semibold text-green-300 uppercase tracking-widest text-center">③ Confirmation & Receipt</p>
+              <div className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+                <div className="bg-slate-900 px-3 py-2 flex items-center gap-2 border-b border-slate-700">
+                  <div className="flex gap-1"><div className="w-2.5 h-2.5 rounded-full bg-red-500/60"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60"/><div className="w-2.5 h-2.5 rounded-full bg-green-500/60"/></div>
+                  <div className="flex-1 bg-slate-700 rounded text-xs text-slate-400 px-2 py-0.5 text-center">app.dutyboost.com/scan</div>
+                </div>
+                <div className="p-4 space-y-3">
+                  {/* Success state */}
+                  <div className="flex flex-col items-center py-2">
+                    <div className="w-14 h-14 rounded-full bg-green-500/20 border-2 border-green-500 flex items-center justify-center mb-2">
+                      <CheckCircle2 className="w-7 h-7 text-green-400" />
+                    </div>
+                    <p className="text-sm font-bold text-white">Redemption Successful</p>
+                    <p className="text-xs text-slate-400">DutyCredit applied</p>
+                  </div>
+                  <div className="bg-slate-700/50 rounded-xl p-3 space-y-2 text-xs">
+                    {[
+                      { label: "Basket Total", val: "€148.00", bold: false },
+                      { label: "DutyCredit Applied", val: "− €25.00", color: "text-green-400" },
+                      { label: "Traveler Paid", val: "€123.00", bold: true },
+                      { label: "DutyBoost Fee (2.5%)", val: "€3.70", color: "text-red-300" },
+                      { label: "Your Net Revenue", val: "€144.30", color: "text-blue-300", bold: true },
+                    ].map(({ label, val, bold, color }) => (
+                      <div key={label} className={`flex justify-between ${bold ? "border-t border-slate-600 pt-2 font-semibold" : ""}`}>
+                        <span className="text-slate-400">{label}</span>
+                        <span className={color ?? "text-white"}>{val}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-2.5 text-center">
+                    <p className="text-xs text-blue-300">📊 Added to your dashboard instantly</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-slate-500 text-center leading-relaxed">Full transaction breakdown — traveler pays discounted price, your net revenue shown immediately.</p>
+            </div>
+
+          </div>
+        </div>
+
         {/* Retailer Benefits */}
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">What Retailers Get</p>
