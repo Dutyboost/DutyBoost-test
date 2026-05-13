@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { exportRetailerPptx } from "@/utils/exportRetailerPptx";
+import { exportRetailerPptxWithImages } from "@/utils/exportRetailerPptxWithImages";
 import {
   Download, TrendingUp, Store, Plane, Hotel, Car,
   CheckCircle2, ArrowRight, BarChart3, Zap, Globe, Users, ArrowDown
@@ -13,7 +13,7 @@ export default function RetailerPresentationFuture() {
   const handleDownload = async () => {
     setDownloading(true);
     try {
-      await exportRetailerPptx();
+      await exportRetailerPptxWithImages();
     } finally {
       setDownloading(false);
     }
