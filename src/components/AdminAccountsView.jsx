@@ -82,7 +82,20 @@ export default function AdminAccountsView() {
   const [bankValidationResult, setBankValidationResult] = useState(null);
 
   useEffect(() => {
-    loadData();
+    const checkAuthAndLoad = async () => {
+      try {
+        const user = await base44.auth.me();
+        if (!user) {
+          setLoading(false);
+          return;
+        }
+        loadData();
+      } catch (err) {
+        console.error("Auth check failed:", err);
+        setLoading(false);
+      }
+    };
+    checkAuthAndLoad();
   }, []);
 
   const loadData = () => {
