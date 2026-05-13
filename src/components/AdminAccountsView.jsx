@@ -84,15 +84,18 @@ export default function AdminAccountsView() {
 
   const loadData = () => {
     Promise.all([
-      base44.entities.User.list(),
+      base44.functions.invoke("listAllUsers", {}),
       base44.entities.Retailer.list(),
       base44.entities.Voucher.list(),
       base44.entities.Transaction.list("-created_date", 200),
-    ]).then(([u, r, v, t]) => {
-      setUsers(u || []);
+    ]).then(([userRes, r, v, t]) => {
+      setUsers(userRes.data?.users || []);
       setRetailers(r || []);
       setVouchers(v || []);
       setTransactions(t || []);
+      setLoading(false);
+    }).catch((err) => {
+      console.error("Failed to load data:", err);
       setLoading(false);
     });
   };
