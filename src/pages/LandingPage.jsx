@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
@@ -18,6 +18,13 @@ import FooterLinks from "../components/FooterLinks";
 export default function LandingPage() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    base44.auth.isAuthenticated().then((isAuth) => {
+      if (isAuth) navigate('/dashboard', { replace: true });
+    });
+  }, []);
 
   const stakeholders = [
     {
