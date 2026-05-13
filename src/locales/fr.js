@@ -82,7 +82,7 @@ export default {
       subtitle_default: 'Rejoignez DutyBoost — La Couche de Conversion du Commerce de Voyage.',
       agencies: 'Partenaires vols',
       retailers: 'Partenaires détaillants aéroportuaires',
-      hotels: 'Partenaires hôtels',
+      hotels: 'Partenaires hébergement',
       car_rentals: 'Partenaires location de voitures',
       get_started: 'Commencer',
       agencies_description: 'Augmentez la fidélité des clients et boostez les dépenses en offrant des incitations d\'achat exclusives à l\'aéroport. Différenciez votre offre et générez un nouveau flux de revenus.',

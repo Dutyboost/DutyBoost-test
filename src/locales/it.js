@@ -98,7 +98,7 @@ export default {
       subtitle_default: 'Unisciti a DutyBoost — Il Livello di Conversione del Retail di Viaggio.',
       agencies: 'Partner voli',
       retailers: 'Partner retailer aeroportuali',
-      hotels: 'Partner hotel',
+      hotels: 'Partner strutture ricettive',
       car_rentals: 'Partner noleggio auto',
       get_started: 'Inizia',
       agencies_description: 'Aumenta la fedeltà dei clienti e le spese offrendo incentivi di shopping esclusivi in aeroporto. Differenzia la tua offerta e genera un nuovo flusso di entrate.',

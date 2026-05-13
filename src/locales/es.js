@@ -98,7 +98,7 @@ export default {
       subtitle_default: 'Únete a DutyBoost — La Capa de Conversión del Comercio de Viajes.',
       agencies: 'Socios de vuelos',
       retailers: 'Socios minoristas aeroportuarios',
-      hotels: 'Socios hoteleros',
+      hotels: 'Socios de alojamiento',
       car_rentals: 'Socios de renta de autos',
       get_started: 'Comenzar',
       agencies_description: 'Aumenta la lealtad de los clientes y el gasto ofreciendo incentivos de compra exclusivos en aeropuertos. Diferencia tu oferta y genera un nuevo flujo de ingresos.',

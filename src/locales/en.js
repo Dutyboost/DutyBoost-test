@@ -207,7 +207,7 @@ export default {
       subtitle_default: 'Choose your role to access and start enjoying the benefits of The Travel Retail Conversion Layer.',
       agencies: 'Flight Partners',
       retailers: 'Airport Retail Partners',
-      hotels: 'Hotel Partners',
+      hotels: 'Accommodation Partners',
       car_rentals: 'Car Rental Partners',
       get_started: 'Get Started',
       agencies_description: 'Reward travelers with exclusive airport shopping credits on every booking. Give your customers a reason to choose you — and earn a commission every time they redeem.',

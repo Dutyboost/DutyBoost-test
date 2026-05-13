@@ -82,7 +82,7 @@ export default {
       subtitle_default: 'Treten Sie DutyBoost bei — Die Reise-Einzelhandels-Konversionsschicht.',
       agencies: 'Flugpartner',
       retailers: 'Flughafen-Retailpartner',
-      hotels: 'Hotelpartner',
+      hotels: 'Unterkunftspartner',
       car_rentals: 'Mietwagenpartner',
       get_started: 'Loslegen',
       agencies_description: 'Erhöhen Sie die Kundentreue und steigern Sie Ausgaben durch exklusive Flughafen-Shopping-Anreize. Differenzieren Sie Ihr Angebot und erschließen Sie einen neuen Umsatzstrom.',
