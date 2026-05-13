@@ -63,7 +63,8 @@ const ROLE_CONFIG = {
 
 const EMPTY_FORM = {
   full_name: "", email: "", company: "", business_type: "",
-  website: "", airport: "", store_category: "", kvk: "", vat: "", city: ""
+  website: "", airport: "", store_category: "", kvk: "", vat: "", city: "",
+  bank_account_name: "", bank_iban: ""
 };
 
 export default function AdminAccountsView() {
@@ -77,6 +78,8 @@ export default function AdminAccountsView() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [creating, setCreating] = useState(false);
   const [selectedType, setSelectedType] = useState(null);
+  const [bankValidating, setBankValidating] = useState(false);
+  const [bankValidationResult, setBankValidationResult] = useState(null);
 
   useEffect(() => {
     loadData();
@@ -133,10 +136,50 @@ export default function AdminAccountsView() {
     setForm(f => ({ ...f, business_type: pt.value }));
   };
 
+  const validateBankAccount = async () => {
+    if (!form.bank_iban || !form.bank_account_name || !form.kvk || !form.company) {
+      toast.error("Please fill in KVK, company name, IBAN, and account holder name");
+      return;
+    }
+    setBankValidating(true);
+    try {
+      const res = await base44.functions.invoke("validateKvk", { 
+        kvk: form.kvk,
+        expectedName: form.company,
+        iban: form.bank_iban,
+        accountHolderName: form.bank_account_name
+      });
+      
+      if (res.data?.valid && res.data?.bankValid) {
+        setBankValidationResult({ success: true, message: "Bank account verified successfully" });
+        toast.success("Bank account matches KVK and company name");
+      } else {
+        setBankValidationResult({ 
+          success: false, 
+          message: res.data?.error || "Bank account verification failed. Please check your details." 
+        });
+        toast.error(res.data?.error || "Verification failed");
+      }
+    } catch (err) {
+      setBankValidationResult({ success: false, message: err.message });
+      toast.error("Verification error: " + err.message);
+    } finally {
+      setBankValidating(false);
+    }
+  };
+
   const handleCreate = async (e) => {
     e.preventDefault();
     if (!form.full_name || !form.email || !form.company || !form.business_type) {
       toast.error("Please fill in all required fields");
+      return;
+    }
+    if (!form.bank_iban || !form.bank_account_name) {
+      toast.error("Please fill in bank account details");
+      return;
+    }
+    if (!bankValidationResult?.success) {
+      toast.error("Please verify bank account details first");
       return;
     }
     setCreating(true);
@@ -151,6 +194,8 @@ export default function AdminAccountsView() {
         store_category: form.store_category || null,
         kvk: form.kvk || null,
         vat: form.vat || null,
+        bank_account_name: form.bank_account_name || null,
+        bank_iban: form.bank_iban || null,
         status: "pending",
       });
 
@@ -160,6 +205,7 @@ export default function AdminAccountsView() {
         setCreateOpen(false);
         setForm(EMPTY_FORM);
         setSelectedType(null);
+        setBankValidationResult(null);
         loadData();
       } else {
         toast.error(res.data?.error || "Failed to send invite");
@@ -296,15 +342,50 @@ export default function AdminAccountsView() {
                 )}
               </div>
 
+              {/* Bank Account Section */}
+              <div className="border-t border-border pt-4 mt-4">
+                <h3 className="font-semibold text-sm mb-3">Bank Account Details</h3>
+                <div className="grid grid-cols-2 gap-4 mb-3">
+                  <div className="space-y-1.5">
+                    <Label>Account Holder Name <span className="text-destructive">*</span></Label>
+                    <Input value={form.bank_account_name} onChange={e => setForm({...form, bank_account_name: e.target.value})} placeholder="Full name on bank account" required />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label>IBAN <span className="text-destructive">*</span></Label>
+                    <Input value={form.bank_iban} onChange={e => setForm({...form, bank_iban: e.target.value})} placeholder="NL00 ABCD 0123456789" required />
+                  </div>
+                </div>
+
+                {bankValidationResult && (
+                  <div className={`p-3 rounded-lg text-sm mb-3 ${
+                    bankValidationResult.success 
+                      ? "bg-green-50 border border-green-200 text-green-700" 
+                      : "bg-red-50 border border-red-200 text-red-700"
+                  }`}>
+                    {bankValidationResult.message}
+                  </div>
+                )}
+
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  disabled={bankValidating || !form.kvk || !form.company || !form.bank_iban || !form.bank_account_name}
+                  onClick={validateBankAccount}
+                  className="w-full"
+                >
+                  {bankValidating ? "Verifying..." : "Verify Bank Account"}
+                </Button>
+              </div>
+
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-700">
                 <strong>What happens:</strong> The account will be created and <strong>{form.email || "the partner"}</strong> will receive an email with a link to access their dashboard.
               </div>
 
               <div className="flex gap-2 justify-end pt-1">
-                <Button type="button" variant="outline" onClick={() => { setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); }}>
+                <Button type="button" variant="outline" onClick={() => { setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); setBankValidationResult(null); }}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={creating} className="gap-2">
+                <Button type="submit" disabled={creating || !bankValidationResult?.success} className="gap-2">
                   <Send className="w-4 h-4" />
                   {creating ? "Creating & Sending..." : "Create & Send Login"}
                 </Button>
