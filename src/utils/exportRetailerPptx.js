@@ -47,12 +47,12 @@ export async function exportRetailerPptx() {
     s.addText("Airport retail: a €40B+ market with a conversion problem", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("The demand is there. The spending intent is there. The technology to capture it wasn't — until now.", { x: 1.5, y: 1.65, w: 10.3, h: 0.6, fontSize: 12, color: "94A3B8", align: "center", fontFace: "Calibri" });
     const stats = [
-      { n: "€40B+", l: "Global airport retail revenue", s: "Source: ACI 2024" },
-      { n: "2.4B", l: "International passengers/year", s: "Source: IATA 2024" },
-      { n: "~10%", l: "Average store conversion rate", s: "Source: m1nd-set" },
-      { n: "72%", l: "Travelers browse but don't buy", s: "Source: TFWA" },
+      { n: "€40B+", l: "Global airport retail revenue", source: "Source: ACI 2024" },
+      { n: "2.4B", l: "International passengers/year", source: "Source: IATA 2024" },
+      { n: "~10%", l: "Average store conversion rate", source: "Source: m1nd-set" },
+      { n: "72%", l: "Travelers browse but don't buy", source: "Source: TFWA" },
     ];
-    stats.forEach(({ n, l, s }, i) => {
+    stats.forEach(({ n, l, source }, i) => {
       const x = 0.35 + i * 3.15;
       s.addShape({ type: "roundRect", x, y: 2.5, w: 2.95, h: 3.2, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
       s.addText(n, { x, y: 2.75, w: 2.95, h: 0.9, fontSize: 34, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
