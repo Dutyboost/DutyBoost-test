@@ -20,13 +20,13 @@ export default {
       subtitle: 'Ontsluit de verborgen omzet in elke online vlucht-, hotel-, autoverhuur-, cruiseschip- en treinboeking met DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wij zetten reizigers om in koopbereidde kopers voordat ze hun vertrekgate bereiken.',
     },
     ecosystem: {
-      title: 'Zo werkt ons ecosysteem',
+      title: '1 Oplossing, drie winnaars',
       subtitle: 'DutyBoost verbindt drie belangrijke stakeholders in een naadloos ecosysteem waar iedereen wint.',
     },
     stakeholders: {
       travelers: {
         title: 'Reizigers',
-        description: 'Geniet van exclusieve kortingen op de vertrekkende luchthaven — automatisch verdiend via de boeking. Geen aanmeldingen, geen papierwerk. Scan gewoon uw DutyCredit en bespaar. Geldig bij aankopen van €50 of meer bij één verkooppunt.',
+        description: 'Geniet van een exclusieve korting bij uw vertrekhaven of -luchthaven — automatisch verdiend wanneer u een vlucht, hotel, autoverhuur of cruise boekt. Gebruik uw DutyCredit op uw vertrekhaven/-luchthaven of bij aankomst op uw bestemming. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
         b1: 'Directe mobiele DutyCredit',
         b2: 'Volledige korting bij één winkel',
         b3: 'Naadloze QR-ervaring',
@@ -40,7 +40,7 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Maak van elke boeking een loyaliteitsmiddel. Genereer automatisch gepersonaliseerde DutyCredits voor uw reizigers — exclusieve incentives verdiend via hun boeking, op basis van groepsgrootte, bestemming en ticketwaarde — zonder extra inspanning. Verdien een marge op elke ingewisselde DutyCredit.',
+        description: 'Of u nu een reisagentschap, luchtvaartmaatschappij, hotel of autoverhuurbedrijf bent — maak van elke boeking een loyaliteitsmiddel. Genereer automatisch gepersonaliseerde DutyCredits voor uw klanten en beloon hen met een exclusieve winkelkorting. Verdien commissie op elke ingewisselde DutyCredit.',
         b1: 'Meer tevredenheid bij reizigers',
         b2: 'Nul integratiefrictie',
         b3: 'Meer herhalingboekingen',
