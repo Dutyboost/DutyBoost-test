@@ -263,19 +263,19 @@ export async function exportRetailerPptx() {
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "REVENUE CHANNEL 2 · HOTELS");
-    s.addText("Hotels — The Departure Moment", { x: 0.5, y: 0.75, w: 8, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
+    addSectionLabel(s, "REVENUE CHANNEL 2 · ACCOMMODATIONS");
+    s.addText("Accommodations — The Departure Moment", { x: 0.5, y: 0.75, w: 8, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
     s.addShape("roundRect", { x: 9.0, y: 0.65, w: 3.8, h: 0.75, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 }, rectRadius: 0.1 });
     s.addText("Future channel — model ready", { x: 9.0, y: 0.72, w: 3.8, h: 0.6, fontSize: 10, bold: true, color: "059669", align: "center", fontFace: "Calibri", valign: "middle" });
     addDivider(s, 0.5, 1.5, 3, "059669");
     s.addShape("roundRect", { x: 0.4, y: 1.65, w: 6.0, h: 4.6, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 }, rectRadius: 0.12 });
     s.addText("Industry Context", { x: 0.6, y: 1.8, w: 5.6, h: 0.4, fontSize: 11, bold: true, color: "059669", fontFace: "Calibri" });
     const hotelFacts = [
-      "• 1.7B hotel room nights booked annually (STR Global 2024)",
+      "• 2B+ accommodation room nights booked globally per year (Booking Holdings: 1.2B alone in 2025)",
+      "• Airbnb: 491M bookings in 2024 — short-term rentals now a major channel",
       "• Post-stay / departure email open rate: 45–60% (HospitalityNet)",
-      "• 70%+ of hotel guests travel by air (UNWTO Visitor Profile)",
-      "• Hotel check-out email is the most underutilised touchpoint in travel",
-      "• Loyalty programme members spend 22% more on average (McKinsey)",
+      "• 70%+ of accommodation guests travel by air (UNWTO Visitor Profile)",
+      "• Check-out email is the most underutilised high-intent touchpoint in travel",
     ];
     hotelFacts.forEach((f, i) => {
       s.addText(f, { x: 0.6, y: 2.35 + i * 0.68, w: 5.6, h: 0.6, fontSize: 10.5, color: "334155", fontFace: "Calibri", valign: "top" });
@@ -283,10 +283,10 @@ export async function exportRetailerPptx() {
     s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
     s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
     const hotelMeansRetailer = [
-      { t: "Departure & arrival window", b: "Hotel sends DutyCredit at check-out — valid at departure AND arrival airport stores, maximising redemption chances." },
-      { t: "High-value guests", b: "Hotel guests have higher disposable income and spend more per airport visit." },
-      { t: "Revenue example", b: "100k hotel guests × 20% conversion × €75 avg = €1.5M gross / €37,500 fee to DutyBoost." },
-      { t: "No operational change", b: "Entirely email-based. No app, no hardware, no hotel staff involvement." },
+      { t: "Departure & arrival window", b: "Accommodation sends DutyCredit at check-out — valid at departure AND arrival airport stores, maximising redemption chances." },
+      { t: "High-value guests", b: "Accommodation guests have higher disposable income and spend more per airport visit on average." },
+      { t: "Revenue example", b: "100k guests × 20% conversion × €75 avg = €1.5M gross / €37,500 fee to DutyBoost." },
+      { t: "No operational change", b: "Entirely email-based. No app, no hardware, no property staff involvement." },
     ];
     hotelMeansRetailer.forEach(({ t, b }, i) => {
       s.addText(`▸  ${t}`, { x: 6.9, y: 2.35 + i * 1.0, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: "059669", fontFace: "Calibri" });
@@ -345,7 +345,7 @@ export async function exportRetailerPptx() {
     const rows = [
       { channel: "Travel Agencies & OTAs", issued: "5,000/yr", conv: "20%", avg: "€75", gross: "€75,000", fee: "€1,875", color: BLUE },
       { channel: "Airlines", issued: "15,000/yr", conv: "18%", avg: "€80", gross: "€216,000", fee: "€5,400", color: "0284C7" },
-      { channel: "Hotels", issued: "3,000/yr", conv: "20%", avg: "€75", gross: "€45,000", fee: "€1,125", color: "059669" },
+      { channel: "Accommodations", issued: "3,000/yr", conv: "20%", avg: "€75", gross: "€45,000", fee: "€1,125", color: "059669" },
       { channel: "Car Rental", issued: "4,000/yr", conv: "15%", avg: "€80", gross: "€48,000", fee: "€1,200", color: ORANGE },
     ];
     const headers = ["Channel", "DutyCredits Issued", "Conversion", "Avg Spend", "Gross Revenue", "DutyBoost Fee (2.5%)"];
