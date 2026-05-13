@@ -3,34 +3,19 @@ import pptxgen from "pptxgenjs";
 const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/195c01c5f_ChatGPT_Image_May_4__2026__10_58_20_AM-removebg-preview.png";
 const DARK = "0F172A";
 const BLUE = "1E40AF";
-const BLUE_LIGHT = "3B6EF5";
 const ORANGE = "EA580C";
 const SLATE = "64748B";
 const WHITE = "FFFFFF";
 const LIGHT_BLUE_BG = "EFF6FF";
-const GRAD_START = "1A3A2A"; // dark green
-const GRAD_END = "3D1A00";  // dark orange/brown
 
 function addFooter(s, text = "DutyBoost · The Future of Airport Retail · hello@dutyboost.com") {
   s.addShape("rect", { x: 0, y: 7.1, w: 13.33, h: 0.4, fill: { color: DARK }, line: { color: DARK, width: 0 } });
   s.addText(text, { x: 0.3, y: 7.12, w: 12.7, h: 0.3, fontSize: 8, color: "94A3B8", fontFace: "Calibri", align: "center" });
 }
 
-function addSectionLabel(s, text, color = BLUE) {
-  s.addText(text, { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color, charSpacing: 3, fontFace: "Calibri", align: "center" });
-}
-
-function addDivider(s, x, y, w, color = BLUE_LIGHT) {
-  s.addShape("rect", { x, y, w, h: 0.04, fill: { color }, line: { color, width: 0 } });
-}
-
-function addDarkGradBg(s) {
-  s.background = { color: DARK };
-}
-
 export async function exportRetailerPptx() {
   const pptx = new pptxgen();
-  pptx.layout = "LAYOUT_WIDE"; // 13.33 x 7.5
+  pptx.layout = "LAYOUT_WIDE";
 
   // ─────────────────────────────────────────────
   // SLIDE 1: COVER
@@ -42,8 +27,18 @@ export async function exportRetailerPptx() {
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.5, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("The Future of Airport Retail", { x: 1, y: 2.1, w: 11.3, h: 1.1, fontSize: 38, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("with DutyBoost", { x: 1, y: 3.1, w: 11.3, h: 0.6, fontSize: 22, color: ORANGE, align: "center", fontFace: "Calibri", italic: true });
-    addDivider(s, 4.5, 3.85, 4.33, ORANGE);
     s.addText("A performance-based revenue layer for airport retailers.\nYou only pay when a traveler spends.", { x: 1.5, y: 4.05, w: 10.3, h: 0.9, fontSize: 14, color: "94A3B8", align: "center", fontFace: "Calibri" });
+    const keyStats = [
+      { v: "2.5%", l: "fee per transaction" },
+      { v: "€0", l: "upfront cost" },
+      { v: "40:1", l: "ROI" },
+    ];
+    keyStats.forEach(({ v, l }, i) => {
+      const x = 1.5 + i * 3.5;
+      s.addShape("roundRect", { x, y: 5.2, w: 3.0, h: 0.9, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.1 });
+      s.addText(v, { x, y: 5.25, w: 3.0, h: 0.4, fontSize: 22, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+      s.addText(l, { x, y: 5.65, w: 3.0, h: 0.35, fontSize: 9, color: SLATE, align: "center", fontFace: "Calibri" });
+    });
     s.addText("2026 · Confidential", { x: 1, y: 6.7, w: 11.3, h: 0.3, fontSize: 9, color: "475569", align: "center", fontFace: "Calibri" });
   }
 
@@ -53,23 +48,22 @@ export async function exportRetailerPptx() {
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "THE OPPORTUNITY");
-    s.addText("Airport retail: a €40B+ market with a conversion problem", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    addDivider(s, 0.5, 1.6, 3);
+    s.addText("SLIDE 2 · THE OPPORTUNITY", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: BLUE, charSpacing: 3, fontFace: "Calibri", align: "center" });
+    s.addText("Airport retail: a €40B+ market with a conversion problem", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const stats = [
-      { num: "€40B+", label: "Global airport retail revenue (2024)\nSource: Airport Council International" },
-      { num: "2.4B", label: "International passengers per year\nSource: IATA 2024" },
-      { num: "~10%", label: "Average conversion rate at airport stores\nSource: m1nd-set Airport Retail Research" },
-      { num: "72%", label: "Of travelers browse but don't buy\nSource: TFWA World Exhibition Research" },
+      { num: "€40B+", label: "Global airport retail revenue" },
+      { num: "2.4B", label: "International passengers/year" },
+      { num: "~10%", label: "Average conversion rate" },
+      { num: "72%", label: "Travelers browse but don't buy" },
     ];
     stats.forEach(({ num, label }, i) => {
       const x = 0.4 + i * 3.15;
-      s.addShape("roundRect", { x, y: 1.85, w: 2.95, h: 3.2, fill: { color: i % 2 === 0 ? LIGHT_BLUE_BG : "F8FAFC" }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.12 });
+      s.addShape("roundRect", { x, y: 1.85, w: 2.95, h: 3.2, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.12 });
       s.addText(num, { x, y: 2.1, w: 2.95, h: 1.0, fontSize: 34, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
       s.addText(label, { x: x + 0.15, y: 3.2, w: 2.65, h: 1.5, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri", valign: "top" });
     });
     s.addShape("roundRect", { x: 0.4, y: 5.25, w: 12.5, h: 0.85, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.12 });
-    s.addText("DutyBoost converts the 72% who browse into buyers — by giving them a reason to spend before they arrive.", { x: 0.6, y: 5.33, w: 12.1, h: 0.65, fontSize: 12, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("DutyBoost converts the 72% who browse into buyers — by giving them a financial reason to spend before they arrive.", { x: 0.6, y: 5.33, w: 12.1, h: 0.65, fontSize: 12, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
     addFooter(s);
   }
 
@@ -79,13 +73,13 @@ export async function exportRetailerPptx() {
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "HOW IT WORKS", ORANGE);
+    s.addText("SLIDE 3 · HOW IT WORKS", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: ORANGE, charSpacing: 3, fontFace: "Calibri", align: "center" });
     s.addText("Pre-qualified buyers. Delivered to your store.", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
       { num: "1", title: "Partner sends DutyCredit", body: "Travel agency, airline, hotel or car rental sends traveler a DutyCredit before departure." },
-      { num: "2", title: "Traveler arrives at airport", body: "Traveler has a QR code — valid from departure day through arrival day, at all participating stores. Min. spend €70." },
-      { num: "3", title: "Traveler scans at checkout", body: "Cashier scans QR. POS automatically applies the tiered discount. Transaction logged in real time." },
-      { num: "4", title: "Retailer pays 2.5% fee", body: "DutyBoost invoices you monthly. You only pay on completed transactions — zero risk." },
+      { num: "2", title: "Traveler arrives at airport", body: "Traveler has a QR code — valid from departure day through arrival day. Min. spend €70." },
+      { num: "3", title: "Staff scans at checkout", body: "Your cashier scans QR. System auto-applies discount. Transaction logged in real time." },
+      { num: "4", title: "You pay 2.5% monthly", body: "One invoice per month for all completed transactions. You only pay on what sold." },
     ];
     steps.forEach(({ num, title, body }, i) => {
       const x = 0.35 + i * 3.18;
@@ -95,62 +89,43 @@ export async function exportRetailerPptx() {
       s.addText(title, { x: x + 0.1, y: 2.85, w: 2.8, h: 0.6, fontSize: 12, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
       s.addText(body, { x: x + 0.15, y: 3.55, w: 2.7, h: 2.1, fontSize: 10.5, color: SLATE, align: "center", fontFace: "Calibri", valign: "top" });
     });
-    addFooter(s, "DutyBoost · Pure Performance. No redemption, no fee.");
+    addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 4: DUTYCREDIT DISCOUNT TIERS (NEW)
+  // SLIDE 4: DUTYCREDIT DISCOUNT TIERS
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "THE DUTYCREDIT DISCOUNT LAYER");
+    s.addText("SLIDE 4 · DUTYCREDIT DISCOUNT LAYER", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: BLUE, charSpacing: 3, fontFace: "Calibri", align: "center" });
     s.addText("What the traveler receives — how the discount works", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    addDivider(s, 0.5, 1.5, 5, BLUE);
-
-    // Intro line
-    s.addText("Travelers receive a DutyCredit tied to their trip. The discount is tiered by spend — the more they spend in your store, the higher the saving they unlock.", {
-      x: 0.5, y: 1.65, w: 12.3, h: 0.55, fontSize: 12, color: SLATE, fontFace: "Calibri"
-    });
-
-    // Tier table headers
-    const headers = ["Tier", "Min. Basket", "Max Saving", "What it means for you"];
-    const colW = [2.2, 1.8, 1.8, 7.1];
-    let xh = 0.4;
+    const tiers = [
+      { tier: "🟡 Boarding", range: "€70–€99", saving: "€5–€10", note: "Extra sale you wouldn't have had" },
+      { tier: "🔵 Priority", range: "€100–€199", saving: "€15–€30", note: "Most common tier — strong incentive" },
+      { tier: "🟢 Lounge", range: "€200–€299", saving: "€35–€45", note: "Premium traveler — larger basket" },
+      { tier: "🟣 VIP", range: "€300+", saving: "€60", note: "Top-tier — maximum revenue" },
+    ];
+    const colW = [2.5, 2.0, 1.8, 6.8];
+    let xh = 0.3;
+    const headers = ["Tier", "Min. Spend", "Max Saving", "What it means"];
     headers.forEach((h, i) => {
-      s.addShape("rect", { x: xh, y: 2.3, w: colW[i], h: 0.5, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
-      s.addText(h, { x: xh + 0.05, y: 2.32, w: colW[i] - 0.1, h: 0.46, fontSize: 10, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: i === 3 ? "left" : "center" });
+      s.addShape("rect", { x: xh, y: 1.7, w: colW[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
+      s.addText(h, { x: xh + 0.05, y: 1.72, w: colW[i] - 0.1, h: 0.41, fontSize: 9.5, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xh += colW[i];
     });
-
-    const tiers = [
-      { tier: "🟡  Boarding DutyCredit", min: "€70 - €99",   max: "€5 – €10", note: "Traveler spends €70–€99 — you earn an extra sale you wouldn't have had.\n(minimum €5 to a maximum of €10)", bg: "FFFBEB" },
-      { tier: "🔵  Priority DutyCredit",  min: "€100 - €199", max: "€15 – €30", note: "Mid-range basket €100–€199 — most common tier. Strong conversion incentive.\n(minimum €15 to a maximum of €30)", bg: LIGHT_BLUE_BG },
-      { tier: "🟢  Lounge DutyCredit",    min: "€200 - €299", max: "€35 – €45", note: "High-value spend €200–€299 — premium traveler segment, larger basket sizes.\n(minimum €35 to a maximum of €45)", bg: "F0FDF4" },
-      { tier: "🟣  VIP DutyCredit",       min: "€300+",       max: "€60", note: "Top-tier traveler — €300+ spend delivers maximum store revenue.\n(flat €60 reward)", bg: "F5F3FF" },
-    ];
-
-    tiers.forEach(({ tier, min, max, note, bg }, ri) => {
-      const vals = [tier, min, max, note];
-      let xr = 0.4;
+    tiers.forEach(({ tier, range, saving, note }, ri) => {
+      let xr = 0.3;
+      const vals = [tier, range, saving, note];
+      const bg = ri % 2 === 0 ? LIGHT_BLUE_BG : "F8FAFC";
       vals.forEach((v, ci) => {
-        s.addShape("rect", { x: xr, y: 2.8 + ri * 0.78, w: colW[ci], h: 0.74, fill: { color: ci === 0 ? bg : "F8FAFC" }, line: { color: "E2E8F0", width: 1 } });
-        s.addText(v, {
-          x: xr + 0.08, y: 2.82 + ri * 0.78, w: colW[ci] - 0.12, h: 0.7,
-          fontSize: ci === 0 ? 11 : ci === 2 ? 13 : 10,
-          bold: ci === 2,
-          color: ci === 2 ? BLUE : DARK,
-          fontFace: "Calibri", valign: "middle", align: ci === 3 ? "left" : "center"
-        });
+        s.addShape("rect", { x: xr, y: 2.15 + ri * 0.7, w: colW[ci], h: 0.66, fill: { color: bg }, line: { color: "E2E8F0", width: 1 } });
+        s.addText(v, { x: xr + 0.08, y: 2.17 + ri * 0.7, w: colW[ci] - 0.12, h: 0.62, fontSize: ci === 2 ? 12 : 10, bold: ci === 2, color: ci === 2 ? BLUE : DARK, fontFace: "Calibri", valign: "middle", align: ci === 3 ? "left" : "center" });
         xr += colW[ci];
       });
     });
-
-    // Minimum basket note
-    s.addShape("roundRect", { x: 0.4, y: 6.0, w: 12.5, h: 0.75, fill: { color: "FFF7ED" }, line: { color: "FED7AA", width: 1 }, rectRadius: 0.1 });
-    s.addText("⚠  Minimum basket size to activate any DutyCredit: €70  ·  Single use  ·  Valid from departure day through arrival day  ·  Applied automatically at checkout via QR scan", {
-      x: 0.6, y: 6.05, w: 12.1, h: 0.65, fontSize: 10.5, bold: true, color: ORANGE, fontFace: "Calibri", valign: "middle", align: "center"
-    });
+    s.addShape("roundRect", { x: 0.3, y: 5.95, w: 12.73, h: 0.75, fill: { color: "FFF7ED" }, line: { color: "FED7AA", width: 1 }, rectRadius: 0.1 });
+    s.addText("⚠ Minimum basket €70 · Single use · Valid departure day through arrival day · Applied automatically at checkout", { x: 0.5, y: 6.0, w: 12.33, h: 0.65, fontSize: 10, bold: true, color: ORANGE, fontFace: "Calibri", valign: "middle", align: "center" });
     addFooter(s);
   }
 
@@ -160,391 +135,189 @@ export async function exportRetailerPptx() {
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "FOR AIRPORT RETAILERS");
+    s.addText("SLIDE 5 · FOR AIRPORT RETAILERS", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: ORANGE, charSpacing: 3, fontFace: "Calibri", align: "center" });
     s.addText("More sales. Zero upfront cost.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
-    addDivider(s, 0.5, 1.5, 2.5, ORANGE);
-    const points = [
-      { icon: "✓", title: "Performance model only", body: "2.5% fee per completed transaction. No monthly fee, no setup cost, no risk." },
-      { icon: "✓", title: "Pre-motivated buyers", body: "Travelers arrive with a DutyCredit — already committed to spending €70+ in your store." },
-      { icon: "✓", title: "No POS overhaul needed", body: "Simple QR scan at checkout. Works alongside your existing system in minutes." },
-      { icon: "✓", title: "Real-time dashboard", body: "Track DutyCredit redemptions, transaction volume, and revenue attribution per store, per day." },
-      { icon: "✓", title: "Multiple income channels", body: "DutyCredits arrive from travel agencies, airlines, hotels & car rentals — diversified flow." },
-      { icon: "✓", title: "Scalable from day one", body: "Start with 1–3 stores. Add locations as volume grows. No lock-in." },
+    const benefits = [
+      { title: "Performance model only", body: "2.5% fee per transaction. No setup cost." },
+      { title: "Pre-motivated buyers", body: "Travelers arrive committed to spending €70+." },
+      { title: "No POS overhaul", body: "Simple QR scan on any device." },
+      { title: "Real-time dashboard", body: "Track redemptions, revenue, channels." },
+      { title: "Multiple revenue channels", body: "Agencies, airlines, hotels, car rentals." },
+      { title: "Scalable from day one", body: "Start with 1–3 stores. No lock-in." },
     ];
-    points.forEach(({ icon, title, body }, i) => {
+    benefits.forEach(({ title, body }, i) => {
       const col = i % 2; const row = Math.floor(i / 2);
       const x = 0.4 + col * 6.35; const y = 1.75 + row * 1.55;
       s.addShape("roundRect", { x, y, w: 6.15, h: 1.35, fill: { color: i % 2 === 0 ? "FFF7ED" : LIGHT_BLUE_BG }, line: { color: i % 2 === 0 ? "FED7AA" : "DBEAFE", width: 1 }, rectRadius: 0.1 });
-      s.addText(`${icon}  ${title}`, { x: x + 0.2, y: y + 0.1, w: 5.8, h: 0.4, fontSize: 12, bold: true, color: DARK, fontFace: "Calibri" });
+      s.addText(`✓ ${title}`, { x: x + 0.2, y: y + 0.1, w: 5.8, h: 0.4, fontSize: 12, bold: true, color: DARK, fontFace: "Calibri" });
       s.addText(body, { x: x + 0.2, y: y + 0.55, w: 5.8, h: 0.65, fontSize: 10.5, color: SLATE, fontFace: "Calibri" });
     });
     addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 6: APP EXPERIENCE — WHAT RETAILERS SEE
+  // SLIDE 6: THE APP — DASHBOARD MOCKUP
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "THE DUTYBOOST APP — WHAT YOU SEE AS A RETAILER");
-    s.addText("Three moments. One seamless flow.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addText("No training required. No hardware. Works on any phone, tablet or POS screen.", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri" });
-    addDivider(s, 0.5, 1.9, 12.3, BLUE);
-
-    // ── PANEL 1: Retailer Dashboard ──
-    const p1x = 0.35;
-    s.addShape("roundRect", { x: p1x, y: 2.05, w: 4.15, h: 4.85, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
-    // Fake browser top bar
-    s.addShape("rect", { x: p1x, y: 2.05, w: 4.15, h: 0.38, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
-    s.addShape("roundRect", { x: p1x + 0.55, y: 2.1, w: 3.0, h: 0.24, fill: { color: "334155" }, line: { color: "334155", width: 0 }, rectRadius: 0.05 });
-    s.addText("app.dutyboost.com/dashboard", { x: p1x + 0.55, y: 2.1, w: 3.0, h: 0.24, fontSize: 6.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "middle" });
-    // Screen label
-    s.addText("① Retailer Dashboard", { x: p1x, y: 2.5, w: 4.15, h: 0.3, fontSize: 9, bold: true, color: "93C5FD", align: "center", fontFace: "Calibri" });
-    s.addText("Relay Store — AMS T3", { x: p1x + 0.15, y: 2.83, w: 3.85, h: 0.28, fontSize: 10, bold: true, color: WHITE, fontFace: "Calibri" });
-    // 4 KPI tiles
+    s.addText("SLIDE 6 · THE APP EXPERIENCE", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: BLUE, charSpacing: 3, fontFace: "Calibri", align: "center" });
+    s.addText("Three moments. Your dashboard updates live.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
+    s.addText("From sign-up to monthly invoice — everything tracked automatically. No manual admin.", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri" });
+    // Dashboard mockup
+    s.addShape("roundRect", { x: 1.0, y: 2.1, w: 11.33, h: 4.5, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
+    s.addShape("rect", { x: 1.0, y: 2.1, w: 11.33, h: 0.4, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
+    s.addText("Relay Store · AMS T3 | Updated just now", { x: 1.3, y: 2.13, w: 10.7, h: 0.34, fontSize: 9, color: "94A3B8", fontFace: "Calibri" });
     const kpis = [
-      { l: "Today's Revenue", v: "€1,240", c: "4ADE80" },
-      { l: "Vouchers Scanned", v: "8", c: "93C5FD" },
-      { l: "Avg. Basket", v: "€155", c: "FB923C" },
-      { l: "This Month", v: "€18,450", c: "C4B5FD" },
+      { l: "Today's Revenue", v: "€1,388", c: "4ADE80" },
+      { l: "Scans Today", v: "9", c: "93C5FD" },
+      { l: "This Month", v: "€18,598", c: "C4B5FD" },
+      { l: "Avg. Basket", v: "€154", c: "FB923C" },
     ];
     kpis.forEach(({ l, v, c }, i) => {
-      const kx = p1x + 0.15 + (i % 2) * 2.0;
-      const ky = 3.2 + Math.floor(i / 2) * 0.95;
-      s.addShape("roundRect", { x: kx, y: ky, w: 1.85, h: 0.82, fill: { color: "334155" }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
-      s.addText(l, { x: kx + 0.08, y: ky + 0.06, w: 1.7, h: 0.28, fontSize: 7.5, color: "94A3B8", fontFace: "Calibri" });
-      s.addText(v, { x: kx + 0.08, y: ky + 0.38, w: 1.7, h: 0.35, fontSize: 14, bold: true, color: c, fontFace: "Calibri" });
+      const kx = 1.2 + (i % 2) * 5.3;
+      const ky = 2.7 + Math.floor(i / 2) * 0.95;
+      s.addShape("roundRect", { x: kx, y: ky, w: 4.8, h: 0.82, fill: { color: "334155" }, line: { color: "475569", width: 1 }, rectRadius: 0.08 });
+      s.addText(l, { x: kx + 0.15, y: ky + 0.06, w: 2.2, h: 0.28, fontSize: 8, color: "94A3B8", fontFace: "Calibri" });
+      s.addText(v, { x: kx + 2.4, y: ky + 0.06, w: 2.25, h: 0.7, fontSize: 18, bold: true, color: c, align: "right", fontFace: "Calibri" });
     });
-    // Channel bars
-    s.addText("Top Channels Today", { x: p1x + 0.15, y: 5.18, w: 3.85, h: 0.25, fontSize: 8, color: "94A3B8", fontFace: "Calibri" });
-    const bars = [
-      { ch: "Travel Partners", pct: 58, c: "3B82F6" },
-      { ch: "Accommodations", pct: 26, c: "22C55E" },
-      { ch: "Car Rental", pct: 16, c: "F97316" },
+    // Recent transactions
+    s.addText("Recent Transactions", { x: 1.3, y: 4.7, w: 3.0, h: 0.25, fontSize: 9, bold: true, color: "CBD5E1", fontFace: "Calibri" });
+    const txns = [
+      { n: "J. Martens", v: "€144.30", ch: "Agency" },
+      { n: "S. Bakker", v: "€187.50", ch: "Airline" },
+      { n: "M. Chen", v: "€95.20", ch: "Hotel" },
     ];
-    bars.forEach(({ ch, pct, c }, i) => {
-      const by = 5.48 + i * 0.38;
-      s.addText(ch, { x: p1x + 0.15, y: by, w: 1.35, h: 0.28, fontSize: 7.5, color: "CBD5E1", fontFace: "Calibri" });
-      s.addShape("rect", { x: p1x + 1.55, y: by + 0.07, w: 2.2, h: 0.14, fill: { color: "475569" }, line: { color: "475569", width: 0 } });
-      s.addShape("rect", { x: p1x + 1.55, y: by + 0.07, w: 2.2 * pct / 100, h: 0.14, fill: { color: c }, line: { color: c, width: 0 } });
-      s.addText(`${pct}%`, { x: p1x + 3.8, y: by, w: 0.45, h: 0.28, fontSize: 7.5, color: "94A3B8", fontFace: "Calibri" });
-    });
-    s.addText("Real-time dashboard: revenue, scans & channel mix", { x: p1x, y: 6.93, w: 4.15, h: 0.28, fontSize: 8, color: SLATE, align: "center", fontFace: "Calibri", italic: true });
-
-    // ── PANEL 2: Scan Voucher ──
-    const p2x = 4.65;
-    s.addShape("roundRect", { x: p2x, y: 2.05, w: 4.0, h: 4.85, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
-    s.addShape("rect", { x: p2x, y: 2.05, w: 4.0, h: 0.38, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
-    s.addShape("roundRect", { x: p2x + 0.5, y: 2.1, w: 3.0, h: 0.24, fill: { color: "334155" }, line: { color: "334155", width: 0 }, rectRadius: 0.05 });
-    s.addText("app.dutyboost.com/scan", { x: p2x + 0.5, y: 2.1, w: 3.0, h: 0.24, fontSize: 6.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("② Scan Voucher at Checkout", { x: p2x, y: 2.5, w: 4.0, h: 0.3, fontSize: 9, bold: true, color: "FB923C", align: "center", fontFace: "Calibri" });
-    s.addText("SCAN TRAVELER'S QR CODE", { x: p2x + 0.15, y: 2.88, w: 3.7, h: 0.25, fontSize: 7.5, bold: true, color: "94A3B8", align: "center", fontFace: "Calibri", charSpacing: 1 });
-    // QR placeholder box
-    s.addShape("roundRect", { x: p2x + 0.6, y: 3.18, w: 2.8, h: 1.05, fill: { color: "0F172A" }, line: { color: "3B82F6", width: 1.5, dashType: "dash" }, rectRadius: 0.1 });
-    s.addText("[ QR SCANNER ]", { x: p2x + 0.6, y: 3.18, w: 2.8, h: 1.05, fontSize: 11, color: "3B82F6", align: "center", fontFace: "Calibri", valign: "middle" });
-    // Voucher card
-    s.addShape("roundRect", { x: p2x + 0.15, y: 4.35, w: 3.7, h: 1.3, fill: { color: "1E3A5F" }, line: { color: "3B82F6", width: 1 }, rectRadius: 0.1 });
-    s.addText("🔵  Priority DutyCredit", { x: p2x + 0.25, y: 4.43, w: 3.5, h: 0.28, fontSize: 8.5, color: "93C5FD", fontFace: "Calibri" });
-    s.addText("€25 discount", { x: p2x + 0.25, y: 4.71, w: 2.0, h: 0.38, fontSize: 15, bold: true, color: WHITE, fontFace: "Calibri" });
-    s.addText("Min. basket: €100", { x: p2x + 0.25, y: 5.09, w: 2.0, h: 0.25, fontSize: 8, color: "94A3B8", fontFace: "Calibri" });
-    s.addText("J. Martens · AMS→BCN", { x: p2x + 2.3, y: 4.71, w: 1.45, h: 0.28, fontSize: 8, color: "CBD5E1", fontFace: "Calibri", align: "right" });
-    s.addShape("roundRect", { x: p2x + 2.55, y: 5.06, w: 1.2, h: 0.28, fill: { color: "16A34A" }, line: { color: "16A34A", width: 0 }, rectRadius: 0.08 });
-    s.addText("ACTIVE", { x: p2x + 2.55, y: 5.07, w: 1.2, h: 0.25, fontSize: 7.5, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    // Buttons
-    s.addShape("roundRect", { x: p2x + 0.15, y: 5.75, w: 1.7, h: 0.42, fill: { color: "7F1D1D" }, line: { color: "DC2626", width: 1 }, rectRadius: 0.08 });
-    s.addText("✕  Decline", { x: p2x + 0.15, y: 5.77, w: 1.7, h: 0.38, fontSize: 9, bold: true, color: "FCA5A5", align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addShape("roundRect", { x: p2x + 2.1, y: 5.75, w: 1.7, h: 0.42, fill: { color: "16A34A" }, line: { color: "16A34A", width: 0 }, rectRadius: 0.08 });
-    s.addText("✓  Redeem", { x: p2x + 2.1, y: 5.77, w: 1.7, h: 0.38, fontSize: 9, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("One tap to validate — no POS overhaul needed", { x: p2x, y: 6.93, w: 4.0, h: 0.28, fontSize: 8, color: SLATE, align: "center", fontFace: "Calibri", italic: true });
-
-    // ── PANEL 3: Confirmation ──
-    const p3x = 8.83;
-    s.addShape("roundRect", { x: p3x, y: 2.05, w: 4.15, h: 4.85, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
-    s.addShape("rect", { x: p3x, y: 2.05, w: 4.15, h: 0.38, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
-    s.addShape("roundRect", { x: p3x + 0.55, y: 2.1, w: 3.0, h: 0.24, fill: { color: "334155" }, line: { color: "334155", width: 0 }, rectRadius: 0.05 });
-    s.addText("app.dutyboost.com/scan", { x: p3x + 0.55, y: 2.1, w: 3.0, h: 0.24, fontSize: 6.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("③ Confirmation & Receipt", { x: p3x, y: 2.5, w: 4.15, h: 0.3, fontSize: 9, bold: true, color: "4ADE80", align: "center", fontFace: "Calibri" });
-    // Success icon area
-    s.addShape("roundRect", { x: p3x + 1.48, y: 2.85, w: 1.2, h: 1.2, fill: { color: "14532D" }, line: { color: "22C55E", width: 2 }, rectRadius: 0.6 });
-    s.addText("✓", { x: p3x + 1.48, y: 2.87, w: 1.2, h: 1.16, fontSize: 30, bold: true, color: "4ADE80", align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("Redemption Successful", { x: p3x + 0.15, y: 4.12, w: 3.85, h: 0.3, fontSize: 10, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
-    s.addText("DutyCredit applied", { x: p3x + 0.15, y: 4.42, w: 3.85, h: 0.25, fontSize: 8, color: "94A3B8", align: "center", fontFace: "Calibri" });
-    // Transaction breakdown
-    const lines = [
-      { l: "Basket Total", v: "€148.00", c: "CBD5E1", b: false },
-      { l: "DutyCredit Applied", v: "− €25.00", c: "4ADE80", b: false },
-      { l: "Traveler Paid", v: "€123.00", c: WHITE, b: true },
-      { l: "DutyBoost Fee (2.5%)", v: "€3.70", c: "FCA5A5", b: false },
-      { l: "Your Net Revenue", v: "€144.30", c: "93C5FD", b: true },
-    ];
-    s.addShape("roundRect", { x: p3x + 0.15, y: 4.72, w: 3.85, h: 1.85, fill: { color: "334155" }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
-    lines.forEach(({ l, v, c, b }, i) => {
-      const ly = 4.8 + i * 0.33;
-      const topBorder = b && i > 0;
-      if (topBorder) {
-        s.addShape("rect", { x: p3x + 0.2, y: ly - 0.03, w: 3.75, h: 0.02, fill: { color: "475569" }, line: { color: "475569", width: 0 } });
-      }
-      s.addText(l, { x: p3x + 0.25, y: ly, w: 2.1, h: 0.28, fontSize: b ? 9 : 8, bold: b, color: "94A3B8", fontFace: "Calibri", valign: "middle" });
-      s.addText(v, { x: p3x + 2.4, y: ly, w: 1.45, h: 0.28, fontSize: b ? 10 : 9, bold: b, color: c, align: "right", fontFace: "Calibri", valign: "middle" });
-    });
-    s.addShape("roundRect", { x: p3x + 0.15, y: 6.63, w: 3.85, h: 0.28, fill: { color: "1E3A5F" }, line: { color: "3B82F6", width: 1 }, rectRadius: 0.08 });
-    s.addText("📊  Transaction logged to your dashboard", { x: p3x + 0.15, y: 6.63, w: 3.85, h: 0.28, fontSize: 7.5, color: "93C5FD", align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("Full breakdown — net revenue shown instantly", { x: p3x, y: 6.93, w: 4.15, h: 0.28, fontSize: 8, color: SLATE, align: "center", fontFace: "Calibri", italic: true });
-
-    addFooter(s);
-  }
-
-  // ─────────────────────────────────────────────
-  // SLIDE 7 (was 6): REVENUE CHANNEL 1 — Travel Partners & Airlines
-  // ─────────────────────────────────────────────
-  {
-    const s = pptx.addSlide();
-    s.background = { color: WHITE };
-    addSectionLabel(s, "REVENUE CHANNEL 1 · TRAVEL PARTNERS & AIRLINES");
-    s.addText("Travel Agencies, OTAs & Airlines", { x: 0.5, y: 0.75, w: 9.5, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addShape("roundRect", { x: 10.2, y: 0.65, w: 2.7, h: 0.75, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.1 });
-    s.addText("Largest active channel", { x: 10.2, y: 0.72, w: 2.7, h: 0.6, fontSize: 10, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
-    addDivider(s, 0.5, 1.5, 3, BLUE);
-
-    // Left column: Travel Agencies & OTAs
-    s.addShape("roundRect", { x: 0.35, y: 1.65, w: 6.2, h: 5.1, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.12 });
-    s.addText("Travel Agencies & OTAs", { x: 0.55, y: 1.78, w: 5.8, h: 0.4, fontSize: 12, bold: true, color: BLUE, fontFace: "Calibri" });
-    const travelFacts = [
-      "• 1.4B+ international travel bookings per year (UNWTO 2024)",
-      "• OTAs (Booking.com, Expedia) process 50%+ of leisure travel",
-      "• Booking confirmation emails: 60–70% open rate",
-      "• Avg basket at airport duty-free: €55–€80 (TFWA 2023)",
-      "• Pre-sold intent: DutyCredit sent before departure",
-      "• A single mid-size agency = 10k+ travelers/year to Dutch airports",
-      "• Revenue: 10k × 20% × €75 = €150,000 gross / €3,750 fee",
-    ];
-    travelFacts.forEach((f, i) => {
-      s.addText(f, { x: 0.55, y: 2.28 + i * 0.55, w: 5.9, h: 0.5, fontSize: 10, color: "334155", fontFace: "Calibri", valign: "top" });
-    });
-
-    // Right column: Airlines & Inflight
-    s.addShape("roundRect", { x: 6.75, y: 1.65, w: 6.2, h: 5.1, fill: { color: "F0F9FF" }, line: { color: "BAE6FD", width: 1 }, rectRadius: 0.12 });
-    s.addText("Airlines & Inflight", { x: 6.95, y: 1.78, w: 5.8, h: 0.4, fontSize: 12, bold: true, color: "0284C7", fontFace: "Calibri" });
-    const airlineFacts = [
-      "• 4.5B passengers flew in 2024 (IATA Global Outlook)",
-      "• Airline booking confirmation: 70–85% open rate — #1 in travel",
-      "• Ancillary revenue per pax: €25–€55 (Ideaworks / CarTrawler 2023)",
-      "• 61% of travelers shop at airports on departure (m1nd-set 2023)",
-      "• Inflight WiFi reach: 300M+ passengers/year (Inmarsat)",
-      "• Even 1 regional route at AMS = 500k+ pax/year audience",
-      "• Revenue: 100k pax × 20% × €80 = €1.6M gross / €40,000 fee",
-    ];
-    airlineFacts.forEach((f, i) => {
-      s.addText(f, { x: 6.95, y: 2.28 + i * 0.55, w: 5.9, h: 0.5, fontSize: 10, color: "334155", fontFace: "Calibri", valign: "top" });
-    });
-
-    addFooter(s);
-  }
-
-  // ─────────────────────────────────────────────
-  // SLIDE 8: REVENUE CHANNEL 2 — Hotels
-  // ─────────────────────────────────────────────
-  {
-    const s = pptx.addSlide();
-    s.background = { color: WHITE };
-    addSectionLabel(s, "REVENUE CHANNEL 2 · ACCOMMODATIONS");
-    s.addText("Accommodations — The Departure Moment", { x: 0.5, y: 0.75, w: 8, h: 0.7, fontSize: 26, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addShape("roundRect", { x: 9.0, y: 0.65, w: 3.8, h: 0.75, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 }, rectRadius: 0.1 });
-    s.addText("Future channel — model ready", { x: 9.0, y: 0.72, w: 3.8, h: 0.6, fontSize: 10, bold: true, color: "059669", align: "center", fontFace: "Calibri", valign: "middle" });
-    addDivider(s, 0.5, 1.5, 3, "059669");
-    s.addShape("roundRect", { x: 0.4, y: 1.65, w: 6.0, h: 4.6, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 }, rectRadius: 0.12 });
-    s.addText("Industry Context", { x: 0.6, y: 1.8, w: 5.6, h: 0.4, fontSize: 11, bold: true, color: "059669", fontFace: "Calibri" });
-    const hotelFacts = [
-      "• 2B+ accommodation room nights booked globally per year (Booking Holdings: 1.2B alone in 2025)",
-      "• Airbnb: 491M bookings in 2024 — short-term rentals now a major channel",
-      "• Post-stay / departure email open rate: 45–60% (HospitalityNet)",
-      "• 70%+ of accommodation guests travel by air (UNWTO Visitor Profile)",
-      "• Check-out email is the most underutilised high-intent touchpoint in travel",
-    ];
-    hotelFacts.forEach((f, i) => {
-      s.addText(f, { x: 0.6, y: 2.35 + i * 0.68, w: 5.6, h: 0.6, fontSize: 10.5, color: "334155", fontFace: "Calibri", valign: "top" });
-    });
-    s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
-    s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
-    const hotelMeansRetailer = [
-      { t: "Departure & arrival window", b: "Accommodation sends DutyCredit at check-out — valid at departure AND arrival airport stores, maximising redemption chances." },
-      { t: "High-value guests", b: "Accommodation guests have higher disposable income and spend more per airport visit on average." },
-      { t: "Revenue example", b: "100k guests × 20% conversion × €75 avg = €1.5M gross / €37,500 fee to DutyBoost." },
-      { t: "No operational change", b: "Entirely email-based. No app, no hardware, no property staff involvement." },
-    ];
-    hotelMeansRetailer.forEach(({ t, b }, i) => {
-      s.addText(`▸  ${t}`, { x: 6.9, y: 2.35 + i * 1.0, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: "059669", fontFace: "Calibri" });
-      s.addText(b, { x: 6.9, y: 2.72 + i * 1.0, w: 5.8, h: 0.55, fontSize: 10, color: SLATE, fontFace: "Calibri" });
+    txns.forEach(({ n, v, ch }, i) => {
+      const ty = 5.0 + i * 0.32;
+      s.addText(n, { x: 1.3, y: ty, w: 3.0, h: 0.28, fontSize: 9, color: "CBD5E1", fontFace: "Calibri" });
+      s.addText(v, { x: 4.4, y: ty, w: 2.0, h: 0.28, fontSize: 10, bold: true, color: "4ADE80", align: "right", fontFace: "Calibri" });
+      s.addText(ch, { x: 6.6, y: ty, w: 5.5, h: 0.28, fontSize: 8, color: "94A3B8", fontFace: "Calibri" });
     });
     addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 9: REVENUE CHANNEL 3 — Car Rental
+  // SLIDE 7: REVENUE CHANNELS
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "REVENUE CHANNEL 3 · CAR RENTAL");
-    s.addText("Car Rental — Every Booking a Departure Moment", { x: 0.5, y: 0.75, w: 10, h: 0.7, fontSize: 24, bold: true, color: DARK, fontFace: "Calibri" });
-    s.addShape("roundRect", { x: 10.2, y: 0.65, w: 2.7, h: 0.75, fill: { color: "FFF7ED" }, line: { color: "FED7AA", width: 1 }, rectRadius: 0.1 });
-    s.addText("Future channel — model ready", { x: 10.2, y: 0.72, w: 2.7, h: 0.6, fontSize: 9, bold: true, color: ORANGE, align: "center", fontFace: "Calibri", valign: "middle" });
-    addDivider(s, 0.5, 1.5, 3, ORANGE);
-    s.addShape("roundRect", { x: 0.4, y: 1.65, w: 6.0, h: 4.6, fill: { color: "FFF7ED" }, line: { color: "FED7AA", width: 1 }, rectRadius: 0.12 });
-    s.addText("Industry Context", { x: 0.6, y: 1.8, w: 5.6, h: 0.4, fontSize: 11, bold: true, color: ORANGE, fontFace: "Calibri" });
-    const carFacts = [
-      "• 115M+ car rental transactions per year in Europe alone (ACRISS / Statista 2024)",
-      "• Booking confirmation email open rate: 70–85% (highest in travel industry)",
-      "• 80% of car rentals connect to or depart from an airport (ACRISS)",
-      "• Rental booking window: avg 14–28 days in advance — long intent-building period",
-      "• Loyalty is the #1 differentiation battleground between Hertz, Avis, Enterprise, Sixt",
+    s.addText("SLIDE 7 · REVENUE CHANNELS", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: BLUE, charSpacing: 3, fontFace: "Calibri", align: "center" });
+    s.addText("Three sources of pre-motivated buyers", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
+    const channels = [
+      { title: "1. Travel Partners & Airlines", sub: "Largest active channel", items: ["1.4B+ bookings/year", "4.5B passengers/year", "60–85% email open rate", "Pre-sold intent"] },
+      { title: "2. Accommodations", sub: "Future channel — model ready", items: ["2B+ room nights/year", "45–60% departure email open", "High-value guests", "Check-out email trigger"] },
+      { title: "3. Car Rental", sub: "Future channel — model ready", items: ["115M+ rentals/year", "70–85% open rate", "14–28 day booking window", "Natural airport link"] },
     ];
-    carFacts.forEach((f, i) => {
-      s.addText(f, { x: 0.6, y: 2.35 + i * 0.68, w: 5.6, h: 0.6, fontSize: 10.5, color: "334155", fontFace: "Calibri", valign: "top" });
-    });
-    s.addShape("roundRect", { x: 6.7, y: 1.65, w: 6.2, h: 4.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
-    s.addText("What this means for your store", { x: 6.9, y: 1.8, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: DARK, fontFace: "Calibri" });
-    const carMeansRetailer = [
-      { t: "Departure & arrival window", b: "Car rental = airport logistics. DutyCredit valid at both departure and arrival — doubles the spending opportunity." },
-      { t: "Early intent", b: "Booked weeks ahead — traveler has time to plan their €70+ store visit." },
-      { t: "Revenue example", b: "100k rentals × 15% conversion × €80 avg = €1.2M gross / €30,000 fee to DutyBoost." },
-      { t: "B2B multiplier", b: "Corporate rental accounts can embed DutyCredit in employee travel policy — recurring volume." },
-    ];
-    carMeansRetailer.forEach(({ t, b }, i) => {
-      s.addText(`▸  ${t}`, { x: 6.9, y: 2.35 + i * 1.0, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: ORANGE, fontFace: "Calibri" });
-      s.addText(b, { x: 6.9, y: 2.72 + i * 1.0, w: 5.8, h: 0.55, fontSize: 10, color: SLATE, fontFace: "Calibri" });
+    channels.forEach(({ title, sub, items }, i) => {
+      const x = 0.4 + i * 4.25;
+      const colors = [BLUE, "059669", ORANGE];
+      s.addShape("roundRect", { x, y: 1.6, w: 4.05, h: 5.3, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
+      s.addText(title, { x: x + 0.2, y: 1.75, w: 3.65, h: 0.45, fontSize: 11, bold: true, color: colors[i], fontFace: "Calibri" });
+      s.addText(sub, { x: x + 0.2, y: 2.25, w: 3.65, h: 0.3, fontSize: 8, color: SLATE, fontFace: "Calibri", italic: true });
+      items.forEach((item, j) => {
+        s.addText(`• ${item}`, { x: x + 0.2, y: 2.65 + j * 0.6, w: 3.65, h: 0.55, fontSize: 9, color: "334155", fontFace: "Calibri" });
+      });
     });
     addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 10: COMBINED REVENUE POTENTIAL
+  // SLIDE 8: COMBINED REVENUE MODEL
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "COMBINED REVENUE POTENTIAL", ORANGE);
-    s.addText("What all channels mean for 1 store", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
-    s.addText("Conservative modelling · Single airport store · Min. basket €70 · Mixed channel volume", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: "94A3B8", align: "center", fontFace: "Calibri" });
+    s.addText("SLIDE 8 · COMBINED REVENUE POTENTIAL", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: ORANGE, charSpacing: 3, fontFace: "Calibri", align: "center" });
+    s.addText("What all channels mean for 1 store", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const rows = [
-      { channel: "Travel Partners & Airlines", issued: "20,000/yr", conv: "19%", avg: "€77", gross: "€291,000", fee: "€7,275", color: BLUE },
-      { channel: "Accommodations", issued: "3,000/yr", conv: "20%", avg: "€75", gross: "€45,000", fee: "€1,125", color: "059669" },
-      { channel: "Car Rental", issued: "4,000/yr", conv: "15%", avg: "€80", gross: "€48,000", fee: "€1,200", color: ORANGE },
+      { channel: "Travel Partners & Airlines", gross: "€291,000", fee: "€7,275" },
+      { channel: "Accommodations", gross: "€45,000", fee: "€1,125" },
+      { channel: "Car Rental", gross: "€48,000", fee: "€1,200" },
     ];
-    const headers = ["Channel", "DutyCredits Issued", "Conversion", "Avg Spend", "Gross Revenue", "DutyBoost Fee (2.5%)"];
-    const colW = [3.2, 1.9, 1.5, 1.5, 2.0, 2.3];
+    const colW = [4.5, 3.5, 2.5, 2.8];
     let xh = 0.35;
+    const headers = ["Channel", "Gross Revenue", "Fee (2.5%)", ""];
     headers.forEach((h, i) => {
-      s.addShape("rect", { x: xh, y: 1.95, w: colW[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
-      s.addText(h, { x: xh + 0.05, y: 1.97, w: colW[i] - 0.1, h: 0.41, fontSize: 9.5, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: i === 0 ? "left" : "center" });
+      s.addShape("rect", { x: xh, y: 1.8, w: colW[i], h: 0.45, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
+      s.addText(h, { x: xh + 0.05, y: 1.82, w: colW[i] - 0.1, h: 0.41, fontSize: 9.5, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xh += colW[i];
     });
-    rows.forEach(({ channel, issued, conv, avg, gross, fee, color }, ri) => {
-      const vals = [channel, issued, conv, avg, gross, fee];
+    rows.forEach(({ channel, gross, fee }, ri) => {
       let xr = 0.35;
+      const vals = [channel, gross, fee, ""];
+      const bg = ri % 2 === 0 ? LIGHT_BLUE_BG : "F8FAFC";
       vals.forEach((v, ci) => {
-        const bg = ri % 2 === 0 ? LIGHT_BLUE_BG : "F8FAFC";
-        s.addShape("rect", { x: xr, y: 2.4 + ri * 0.72, w: colW[ci], h: 0.68, fill: { color: bg }, line: { color: "E2E8F0", width: 1 } });
-        s.addText(v, { x: xr + 0.08, y: 2.42 + ri * 0.72, w: colW[ci] - 0.1, h: 0.64, fontSize: ci === 0 ? 11 : 12, bold: ci === 4 || ci === 5, color: ci === 0 ? color : ci === 4 ? "059669" : ci === 5 ? "DC2626" : DARK, fontFace: "Calibri", valign: "middle", align: ci === 0 ? "left" : "center" });
+        s.addShape("rect", { x: xr, y: 2.25 + ri * 0.72, w: colW[ci], h: 0.68, fill: { color: bg }, line: { color: "E2E8F0", width: 1 } });
+        s.addText(v, { x: xr + 0.08, y: 2.27 + ri * 0.72, w: colW[ci] - 0.12, h: 0.64, fontSize: ci === 1 ? 12 : 11, bold: ci === 1, color: ci === 1 ? "059669" : DARK, fontFace: "Calibri", valign: "middle", align: "center" });
         xr += colW[ci];
       });
     });
     let xt = 0.35;
-    const totals = ["TOTAL", "27,000/yr", "", "", "€384,000 gross", "€9,600/yr"];
+    const totals = ["TOTAL", "€384,000", "€9,600", ""];
     totals.forEach((v, ci) => {
-      s.addShape("rect", { x: xt, y: 5.33, w: colW[ci], h: 0.72, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
-      s.addText(v, { x: xt + 0.08, y: 5.35, w: colW[ci] - 0.1, h: 0.68, fontSize: ci === 4 ? 14 : 11, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: ci === 0 ? "left" : "center" });
+      s.addShape("rect", { x: xt, y: 4.6, w: colW[ci], h: 0.72, fill: { color: BLUE }, line: { color: BLUE, width: 0 } });
+      s.addText(v, { x: xt + 0.08, y: 4.62, w: colW[ci] - 0.12, h: 0.68, fontSize: ci === 1 ? 14 : 11, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xt += colW[ci];
     });
-    s.addText("* You earn €384,000 in incremental sales. You pay €9,600 in total fees. ROI: 40:1  ·  Min. basket €70 applied throughout.", { x: 0.35, y: 6.2, w: 12.6, h: 0.35, fontSize: 10, color: "94A3B8", fontFace: "Calibri", italic: true, align: "center" });
+    s.addShape("roundRect", { x: 1.0, y: 5.5, w: 11.33, h: 1.3, fill: { color: "EFF6FF" }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.1 });
+    s.addText("ROI: 40:1", { x: 1.3, y: 5.65, w: 3.0, h: 0.6, fontSize: 28, bold: true, color: BLUE, fontFace: "Calibri" });
+    s.addText("You earn €384,000 in extra revenue.\nYou pay €9,600 in total fees.\nZero upfront cost. Zero risk.", { x: 4.5, y: 5.6, w: 7.5, h: 1.0, fontSize: 12, color: DARK, fontFace: "Calibri", valign: "middle" });
     addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 11: INTEGRATION
+  // SLIDE 9: INTEGRATION
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "INTEGRATION", ORANGE);
-    s.addText("Simple by design. Live in days.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
+    s.addText("SLIDE 9 · INTEGRATION", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: ORANGE, charSpacing: 3, fontFace: "Calibri", align: "center" });
+    s.addText("Simple by design. Live in days.", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     const steps = [
-      { num: "1", title: "Register your store", body: "Sign up at dutyboost.com. Add your store name, airport, and category. Takes 5 minutes." },
-      { num: "2", title: "Set up QR scanning", body: "Use our web app on any device with a camera. No hardware purchase. No API integration required to start." },
-      { num: "3", title: "Receive your first DutyCredits", body: "DutyBoost activates your store. Travelers with DutyCredits for your airport can now visit your store." },
-      { num: "4", title: "Track & grow", body: "Real-time dashboard shows daily scans, revenue, and channel breakdown. Expand to more stores when ready." },
+      { num: "1", title: "Register your store", body: "Sign up. Add store name, airport, category. Takes 5 minutes." },
+      { num: "2", title: "Set up QR scanning", body: "Use our web app on any device. No hardware. No API integration required." },
+      { num: "3", title: "Receive DutyCredits", body: "DutyBoost activates your store. Travelers can now redeem." },
+      { num: "4", title: "Track & grow", body: "Real-time dashboard. Expand to more stores when ready." },
     ];
     steps.forEach(({ num, title, body }, i) => {
       const x = 0.35 + i * 3.18;
-      s.addShape("roundRect", { x, y: 1.7, w: 3.0, h: 4.4, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.15 });
-      s.addShape("roundRect", { x: x + 1.0, y: 1.8, w: 1.0, h: 1.0, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.5 });
-      s.addText(num, { x: x + 1.0, y: 1.83, w: 1.0, h: 0.94, fontSize: 20, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-      s.addText(title, { x: x + 0.1, y: 2.95, w: 2.8, h: 0.55, fontSize: 12, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
-      s.addText(body, { x: x + 0.15, y: 3.6, w: 2.7, h: 2.1, fontSize: 10.5, color: SLATE, align: "center", fontFace: "Calibri", valign: "top" });
+      s.addShape("roundRect", { x, y: 1.8, w: 3.0, h: 4.4, fill: { color: LIGHT_BLUE_BG }, line: { color: "DBEAFE", width: 1 }, rectRadius: 0.15 });
+      s.addShape("roundRect", { x: x + 1.0, y: 1.9, w: 1.0, h: 1.0, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.5 });
+      s.addText(num, { x: x + 1.0, y: 1.92, w: 1.0, h: 0.96, fontSize: 20, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
+      s.addText(title, { x: x + 0.1, y: 3.0, w: 2.8, h: 0.55, fontSize: 12, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+      s.addText(body, { x: x + 0.15, y: 3.65, w: 2.7, h: 2.1, fontSize: 10.5, color: SLATE, align: "center", fontFace: "Calibri", valign: "top" });
     });
-    s.addShape("roundRect", { x: 0.35, y: 6.3, w: 12.63, h: 0.55, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.1 });
-    s.addText("Optional POS API available for high-volume stores — full webhook & transaction sync included.", { x: 0.5, y: 6.33, w: 12.35, h: 0.47, fontSize: 11, color: WHITE, fontFace: "Calibri", align: "center", valign: "middle" });
     addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 13: PILOT
+  // SLIDE 10: PILOT PLAN
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
     s.background = { color: WHITE };
-    addSectionLabel(s, "LET'S START TOGETHER");
-    s.addText("Pilot: 1–3 stores. Zero risk. Real results.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
-    addDivider(s, 0.5, 1.5, 4, BLUE);
-    const cols = [
-      {
-        title: "Phase 1 · Onboard",
-        color: BLUE, bg: LIGHT_BLUE_BG,
-        points: [
-          "Register 1–3 stores",
-          "Set up QR scan app (any device)",
-          "Agree on reporting cadence",
-          "DutyBoost activates your store",
-          "Timeline: 3–5 business days",
-        ]
-      },
-      {
-        title: "Phase 2 · Go Live",
-        color: "059669", bg: "F0FDF4",
-        points: [
-          "First DutyCredits live from agency channel",
-          "Staff briefed on QR scan process (10 min)",
-          "Live dashboard access granted",
-          "First redemptions tracked in real time",
-          "Timeline: Week 1–4",
-        ]
-      },
-      {
-        title: "Phase 3 · Scale",
-        color: ORANGE, bg: "FFF7ED",
-        points: [
-          "Review monthly report together",
-          "Add airline & hotel channels",
-          "Expand to additional store locations",
-          "Explore POS API for deeper integration",
-          "Timeline: Month 2 onwards",
-        ]
-      }
+    s.addText("SLIDE 10 · LET'S START TOGETHER", { x: 0.5, y: 0.35, w: 12.3, h: 0.3, fontSize: 9, bold: true, color: BLUE, charSpacing: 3, fontFace: "Calibri", align: "center" });
+    s.addText("Pilot: 1–3 stores. Zero risk. Real results.", { x: 0.5, y: 0.75, w: 12.3, h: 0.8, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
+    const phases = [
+      { title: "Phase 1 · Onboard", color: BLUE, bg: LIGHT_BLUE_BG, points: ["Register 1–3 stores", "Set up QR scan app", "Agree on reporting", "DutyBoost activates", "3–5 business days"] },
+      { title: "Phase 2 · Go Live", color: "059669", bg: "F0FDF4", points: ["DutyCredits live", "Staff briefed (10 min)", "Dashboard access", "Track redemptions", "Week 1–4"] },
+      { title: "Phase 3 · Scale", color: ORANGE, bg: "FFF7ED", points: ["Review monthly report", "Add channels", "Expand stores", "Explore POS API", "Month 2 onwards"] },
     ];
-    cols.forEach(({ title, color, bg, points }, i) => {
+    phases.forEach(({ title, color, bg, points }, i) => {
       const x = 0.35 + i * 4.3;
-      s.addShape("roundRect", { x, y: 1.7, w: 4.1, h: 5.1, fill: { color: bg }, line: { color: bg === LIGHT_BLUE_BG ? "DBEAFE" : bg === "F0FDF4" ? "BBF7D0" : "FED7AA", width: 1 }, rectRadius: 0.15 });
-      s.addText(title, { x: x + 0.15, y: 1.85, w: 3.8, h: 0.5, fontSize: 12, bold: true, color, fontFace: "Calibri" });
+      s.addShape("roundRect", { x, y: 1.8, w: 4.1, h: 5.1, fill: { color: bg }, line: { color: bg === LIGHT_BLUE_BG ? "DBEAFE" : bg === "F0FDF4" ? "BBF7D0" : "FED7AA", width: 1 }, rectRadius: 0.15 });
+      s.addText(title, { x: x + 0.15, y: 1.95, w: 3.8, h: 0.5, fontSize: 12, bold: true, color, fontFace: "Calibri" });
       points.forEach((p, j) => {
-        s.addText(`•  ${p}`, { x: x + 0.2, y: 2.55 + j * 0.72, w: 3.7, h: 0.6, fontSize: 11, color: "334155", fontFace: "Calibri" });
+        s.addText(`• ${p}`, { x: x + 0.2, y: 2.6 + j * 0.72, w: 3.7, h: 0.65, fontSize: 10.5, color: "334155", fontFace: "Calibri" });
       });
     });
     addFooter(s);
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 14: CLOSING CTA
+  // SLIDE 11: CLOSING CTA
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
@@ -552,7 +325,6 @@ export async function exportRetailerPptx() {
     s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.08, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.5, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("Ready to turn your airport\nfootfall into revenue?", { x: 1, y: 2.1, w: 11.3, h: 1.5, fontSize: 34, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
-    addDivider(s, 4.5, 3.8, 4.33, ORANGE);
     const ctaItems = [
       { label: "Performance only", sub: "2.5% fee per transaction" },
       { label: "No upfront cost", sub: "Zero risk to get started" },
@@ -564,7 +336,7 @@ export async function exportRetailerPptx() {
       s.addText(label, { x, y: 4.15, w: 3.5, h: 0.45, fontSize: 13, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
       s.addText(sub, { x, y: 4.65, w: 3.5, h: 0.4, fontSize: 11, color: BLUE, align: "center", fontFace: "Calibri" });
     });
-    s.addText("hello@dutyboost.com  ·  www.dutyboost.com", { x: 1, y: 5.7, w: 11.3, h: 0.5, fontSize: 15, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addText("hello@dutyboost.com · www.dutyboost.com", { x: 1, y: 5.7, w: 11.3, h: 0.5, fontSize: 15, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
     s.addText(`© ${new Date().getFullYear()} DutyBoost B.V. · The Future of Airport Retail`, { x: 1, y: 6.75, w: 11.3, h: 0.3, fontSize: 9, color: SLATE, align: "center", fontFace: "Calibri" });
   }
 
