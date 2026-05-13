@@ -19,7 +19,7 @@ export async function exportRetailerPptx() {
   {
     const s = pptx.addSlide();
     s.background = { color: DARK_BG };
-    s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.1, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
+    s.addShape({ type: "rect", x: 0, y: 0, w: 13.33, h: 0.1, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.6, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("The Future of Airport Retail", { x: 1, y: 2.3, w: 11.3, h: 0.8, fontSize: 48, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("with DutyBoost", { x: 1, y: 3.15, w: 11.3, h: 0.5, fontSize: 28, color: ORANGE, align: "center", fontFace: "Calibri", italic: true });
@@ -31,7 +31,7 @@ export async function exportRetailerPptx() {
     ];
     stats.forEach(({ v, l }, i) => {
       const x = 1.5 + i * 3.5;
-      s.addShape("roundRect", { x, y: 4.85, w: 3.0, h: 0.95, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
+      s.addShape({ type: "roundRect", x, y: 4.85, w: 3.0, h: 0.95, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
       s.addText(v, { x, y: 4.9, w: 3.0, h: 0.4, fontSize: 24, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
       s.addText(l, { x, y: 5.35, w: 3.0, h: 0.35, fontSize: 9, color: "94A3B8", align: "center", fontFace: "Calibri" });
     });
@@ -54,11 +54,11 @@ export async function exportRetailerPptx() {
     ];
     stats.forEach(({ n, l, s }, i) => {
       const x = 0.35 + i * 3.15;
-      s.addShape("roundRect", { x, y: 2.5, w: 2.95, h: 3.2, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
+      s.addShape({ type: "roundRect", x, y: 2.5, w: 2.95, h: 3.2, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
       s.addText(n, { x, y: 2.75, w: 2.95, h: 0.9, fontSize: 34, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
       s.addText(l, { x: x + 0.15, y: 3.75, w: 2.65, h: 1.0, fontSize: 10, color: "CBD5E1", align: "center", fontFace: "Calibri" });
     });
-    s.addShape("roundRect", { x: 0.4, y: 5.85, w: 12.5, h: 0.85, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.12 });
+    s.addShape({ type: "roundRect", x: 0.4, y: 5.85, w: 12.5, h: 0.85, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.12 });
     s.addText("DutyBoost converts the 72% who browse into buyers — by giving them a financial reason to spend before they arrive.", { x: 0.6, y: 5.93, w: 12.1, h: 0.65, fontSize: 12, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
   }
 
@@ -79,8 +79,8 @@ export async function exportRetailerPptx() {
     ];
     steps.forEach(({ n, t, b }, i) => {
       const x = 0.35 + i * 3.15;
-      s.addShape("roundRect", { x, y: 2.0, w: 2.95, h: 4.2, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
-      s.addShape("roundRect", { x: x + 1.0, y: 2.1, w: 0.95, h: 0.95, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.48 });
+      s.addShape({ type: "roundRect", x, y: 2.0, w: 2.95, h: 4.2, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
+      s.addShape({ type: "roundRect", x: x + 1.0, y: 2.1, w: 0.95, h: 0.95, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.48 });
       s.addText(n, { x: x + 1.0, y: 2.12, w: 0.95, h: 0.91, fontSize: 18, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
       s.addText(t, { x: x + 0.1, y: 3.2, w: 2.75, h: 0.6, fontSize: 11, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
       s.addText(b, { x: x + 0.15, y: 3.9, w: 2.65, h: 2.1, fontSize: 9.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "top" });
@@ -123,7 +123,7 @@ export async function exportRetailerPptx() {
         xr += cw[ci];
       });
     });
-    s.addShape("roundRect", { x: 0.3, y: 5.5, w: 12.73, h: 0.8, fill: { color: "7C3C1E" }, line: { color: "C2410C", width: 1 }, rectRadius: 0.1 });
+    s.addShape({ type: "roundRect", x: 0.3, y: 5.5, w: 12.73, h: 0.8, fill: { color: "7C3C1E" }, line: { color: "C2410C", width: 1 }, rectRadius: 0.1 });
     s.addText("⚠ Minimum basket €70 · Single use · Valid departure day through arrival day · Applied automatically at checkout via QR scan", { x: 0.5, y: 5.55, w: 12.33, h: 0.7, fontSize: 9.5, bold: true, color: "FED7AA", fontFace: "Calibri", valign: "middle", align: "center" });
   }
 
@@ -147,7 +147,7 @@ export async function exportRetailerPptx() {
     benefits.forEach(({ t, b }, i) => {
       const c = i % 2; const r = Math.floor(i / 2);
       const x = 0.35 + c * 6.35; const y = 2.0 + r * 1.55;
-      s.addShape("roundRect", { x, y, w: 6.15, h: 1.35, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
+      s.addShape({ type: "roundRect", x, y, w: 6.15, h: 1.35, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
       s.addText(`✓ ${t}`, { x: x + 0.2, y: y + 0.1, w: 5.8, h: 0.4, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri" });
       s.addText(b, { x: x + 0.2, y: y + 0.55, w: 5.8, h: 0.65, fontSize: 9.5, color: "94A3B8", fontFace: "Calibri" });
     });
@@ -193,7 +193,7 @@ export async function exportRetailerPptx() {
     ];
     channels.forEach(({ t, s: sub, items }, i) => {
       const x = 0.3 + i * 4.35;
-      s.addShape("roundRect", { x, y: 1.55, w: 4.15, h: 5.0, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
+      s.addShape({ type: "roundRect", x, y: 1.55, w: 4.15, h: 5.0, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
       s.addText(t, { x: x + 0.15, y: 1.7, w: 3.85, h: 0.45, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri" });
       s.addText(sub, { x: x + 0.15, y: 2.2, w: 3.85, h: 0.3, fontSize: 8, color: "94A3B8", fontFace: "Calibri", italic: true });
       items.forEach((item, j) => {
@@ -241,7 +241,7 @@ export async function exportRetailerPptx() {
       s.addText(v, { x: xt + 0.08, y: 4.27, w: cw[ci] - 0.12, h: 0.68, fontSize: ci === 1 ? 14 : 11, bold: true, color: WHITE, fontFace: "Calibri", valign: "middle", align: "center" });
       xt += cw[ci];
     });
-    s.addShape("roundRect", { x: 0.8, y: 5.15, w: 11.73, h: 1.25, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
+    s.addShape({ type: "roundRect", x: 0.8, y: 5.15, w: 11.73, h: 1.25, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
     s.addText("40:1", { x: 1.1, y: 5.3, w: 2.2, h: 0.95, fontSize: 32, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
     s.addText("ROI\n\nYou earn €384k\nYou pay €9.6k\nZero upfront\nZero risk", { x: 3.6, y: 5.25, w: 8.8, h: 1.0, fontSize: 11, color: "CBD5E1", fontFace: "Calibri" });
   }
@@ -262,8 +262,8 @@ export async function exportRetailerPptx() {
     ];
     steps.forEach(({ n, t, b }, i) => {
       const x = 0.35 + i * 3.15;
-      s.addShape("roundRect", { x, y: 1.6, w: 2.95, h: 4.5, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
-      s.addShape("roundRect", { x: x + 1.0, y: 1.75, w: 0.95, h: 0.95, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.48 });
+      s.addShape({ type: "roundRect", x, y: 1.6, w: 2.95, h: 4.5, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
+      s.addShape({ type: "roundRect", x: x + 1.0, y: 1.75, w: 0.95, h: 0.95, fill: { color: BLUE }, line: { color: BLUE, width: 0 }, rectRadius: 0.48 });
       s.addText(n, { x: x + 1.0, y: 1.77, w: 0.95, h: 0.91, fontSize: 18, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
       s.addText(t, { x: x + 0.1, y: 2.85, w: 2.75, h: 0.55, fontSize: 10, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
       s.addText(b, { x: x + 0.15, y: 3.5, w: 2.65, h: 2.3, fontSize: 9, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "top" });
@@ -285,7 +285,7 @@ export async function exportRetailerPptx() {
     ];
     phases.forEach(({ t, c, p }, i) => {
       const x = 0.3 + i * 4.35;
-      s.addShape("roundRect", { x, y: 1.55, w: 4.15, h: 5.0, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
+      s.addShape({ type: "roundRect", x, y: 1.55, w: 4.15, h: 5.0, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.12 });
       s.addText(t, { x: x + 0.15, y: 1.7, w: 3.85, h: 0.45, fontSize: 12, bold: true, color: c, fontFace: "Calibri" });
       p.forEach((pt, j) => {
         s.addText(`• ${pt}`, { x: x + 0.2, y: 2.3 + j * 0.7, w: 3.75, h: 0.65, fontSize: 10, color: "CBD5E1", fontFace: "Calibri" });
@@ -299,7 +299,7 @@ export async function exportRetailerPptx() {
   {
     const s = pptx.addSlide();
     s.background = { color: DARK_BG };
-    s.addShape("rect", { x: 0, y: 0, w: 13.33, h: 0.1, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
+    s.addShape({ type: "rect", x: 0, y: 0, w: 13.33, h: 0.1, fill: { color: ORANGE }, line: { color: ORANGE, width: 0 } });
     s.addImage({ path: LOGO_URL, x: 4.9, y: 0.6, w: 3.5, h: 1.3, sizing: { type: "contain", w: 3.5, h: 1.3 } });
     s.addText("Ready to turn your airport", { x: 1, y: 2.2, w: 11.3, h: 0.45, fontSize: 36, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
     s.addText("footfall into revenue?", { x: 1, y: 2.7, w: 11.3, h: 0.45, fontSize: 36, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
@@ -310,7 +310,7 @@ export async function exportRetailerPptx() {
     ];
     cta.forEach(({ l, s: sub }, i) => {
       const x = 1.0 + i * 3.8;
-      s.addShape("roundRect", { x, y: 3.6, w: 3.5, h: 1.5, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.15 });
+      s.addShape({ type: "roundRect", x, y: 3.6, w: 3.5, h: 1.5, fill: { color: SLATE }, line: { color: "475569", width: 1 }, rectRadius: 0.15 });
       s.addText(l, { x, y: 3.75, w: 3.5, h: 0.45, fontSize: 13, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
       s.addText(sub, { x, y: 4.25, w: 3.5, h: 0.45, fontSize: 10, color: "94A3B8", align: "center", fontFace: "Calibri" });
     });
