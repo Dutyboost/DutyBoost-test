@@ -182,7 +182,121 @@ export async function exportRetailerPptx() {
   }
 
   // ─────────────────────────────────────────────
-  // SLIDE 6: REVENUE CHANNEL 1 — Travel Partners & Airlines
+  // SLIDE 6: APP EXPERIENCE — WHAT RETAILERS SEE
+  // ─────────────────────────────────────────────
+  {
+    const s = pptx.addSlide();
+    s.background = { color: WHITE };
+    addSectionLabel(s, "THE DUTYBOOST APP — WHAT YOU SEE AS A RETAILER");
+    s.addText("Three moments. One seamless flow.", { x: 0.5, y: 0.75, w: 12.3, h: 0.7, fontSize: 28, bold: true, color: DARK, fontFace: "Calibri" });
+    s.addText("No training required. No hardware. Works on any phone, tablet or POS screen.", { x: 0.5, y: 1.5, w: 12.3, h: 0.35, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri" });
+    addDivider(s, 0.5, 1.9, 12.3, BLUE);
+
+    // ── PANEL 1: Retailer Dashboard ──
+    const p1x = 0.35;
+    s.addShape("roundRect", { x: p1x, y: 2.05, w: 4.15, h: 4.85, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
+    // Fake browser top bar
+    s.addShape("rect", { x: p1x, y: 2.05, w: 4.15, h: 0.38, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
+    s.addShape("roundRect", { x: p1x + 0.55, y: 2.1, w: 3.0, h: 0.24, fill: { color: "334155" }, line: { color: "334155", width: 0 }, rectRadius: 0.05 });
+    s.addText("app.dutyboost.com/dashboard", { x: p1x + 0.55, y: 2.1, w: 3.0, h: 0.24, fontSize: 6.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "middle" });
+    // Screen label
+    s.addText("① Retailer Dashboard", { x: p1x, y: 2.5, w: 4.15, h: 0.3, fontSize: 9, bold: true, color: "93C5FD", align: "center", fontFace: "Calibri" });
+    s.addText("Relay Store — AMS T3", { x: p1x + 0.15, y: 2.83, w: 3.85, h: 0.28, fontSize: 10, bold: true, color: WHITE, fontFace: "Calibri" });
+    // 4 KPI tiles
+    const kpis = [
+      { l: "Today's Revenue", v: "€1,240", c: "4ADE80" },
+      { l: "Vouchers Scanned", v: "8", c: "93C5FD" },
+      { l: "Avg. Basket", v: "€155", c: "FB923C" },
+      { l: "This Month", v: "€18,450", c: "C4B5FD" },
+    ];
+    kpis.forEach(({ l, v, c }, i) => {
+      const kx = p1x + 0.15 + (i % 2) * 2.0;
+      const ky = 3.2 + Math.floor(i / 2) * 0.95;
+      s.addShape("roundRect", { x: kx, y: ky, w: 1.85, h: 0.82, fill: { color: "334155" }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
+      s.addText(l, { x: kx + 0.08, y: ky + 0.06, w: 1.7, h: 0.28, fontSize: 7.5, color: "94A3B8", fontFace: "Calibri" });
+      s.addText(v, { x: kx + 0.08, y: ky + 0.38, w: 1.7, h: 0.35, fontSize: 14, bold: true, color: c, fontFace: "Calibri" });
+    });
+    // Channel bars
+    s.addText("Top Channels Today", { x: p1x + 0.15, y: 5.18, w: 3.85, h: 0.25, fontSize: 8, color: "94A3B8", fontFace: "Calibri" });
+    const bars = [
+      { ch: "Travel Partners", pct: 58, c: "3B82F6" },
+      { ch: "Accommodations", pct: 26, c: "22C55E" },
+      { ch: "Car Rental", pct: 16, c: "F97316" },
+    ];
+    bars.forEach(({ ch, pct, c }, i) => {
+      const by = 5.48 + i * 0.38;
+      s.addText(ch, { x: p1x + 0.15, y: by, w: 1.35, h: 0.28, fontSize: 7.5, color: "CBD5E1", fontFace: "Calibri" });
+      s.addShape("rect", { x: p1x + 1.55, y: by + 0.07, w: 2.2, h: 0.14, fill: { color: "475569" }, line: { color: "475569", width: 0 } });
+      s.addShape("rect", { x: p1x + 1.55, y: by + 0.07, w: 2.2 * pct / 100, h: 0.14, fill: { color: c }, line: { color: c, width: 0 } });
+      s.addText(`${pct}%`, { x: p1x + 3.8, y: by, w: 0.45, h: 0.28, fontSize: 7.5, color: "94A3B8", fontFace: "Calibri" });
+    });
+    s.addText("Real-time dashboard: revenue, scans & channel mix", { x: p1x, y: 6.93, w: 4.15, h: 0.28, fontSize: 8, color: SLATE, align: "center", fontFace: "Calibri", italic: true });
+
+    // ── PANEL 2: Scan Voucher ──
+    const p2x = 4.65;
+    s.addShape("roundRect", { x: p2x, y: 2.05, w: 4.0, h: 4.85, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
+    s.addShape("rect", { x: p2x, y: 2.05, w: 4.0, h: 0.38, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
+    s.addShape("roundRect", { x: p2x + 0.5, y: 2.1, w: 3.0, h: 0.24, fill: { color: "334155" }, line: { color: "334155", width: 0 }, rectRadius: 0.05 });
+    s.addText("app.dutyboost.com/scan", { x: p2x + 0.5, y: 2.1, w: 3.0, h: 0.24, fontSize: 6.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("② Scan Voucher at Checkout", { x: p2x, y: 2.5, w: 4.0, h: 0.3, fontSize: 9, bold: true, color: "FB923C", align: "center", fontFace: "Calibri" });
+    s.addText("SCAN TRAVELER'S QR CODE", { x: p2x + 0.15, y: 2.88, w: 3.7, h: 0.25, fontSize: 7.5, bold: true, color: "94A3B8", align: "center", fontFace: "Calibri", charSpacing: 1 });
+    // QR placeholder box
+    s.addShape("roundRect", { x: p2x + 0.6, y: 3.18, w: 2.8, h: 1.05, fill: { color: "0F172A" }, line: { color: "3B82F6", width: 1.5, dashType: "dash" }, rectRadius: 0.1 });
+    s.addText("[ QR SCANNER ]", { x: p2x + 0.6, y: 3.18, w: 2.8, h: 1.05, fontSize: 11, color: "3B82F6", align: "center", fontFace: "Calibri", valign: "middle" });
+    // Voucher card
+    s.addShape("roundRect", { x: p2x + 0.15, y: 4.35, w: 3.7, h: 1.3, fill: { color: "1E3A5F" }, line: { color: "3B82F6", width: 1 }, rectRadius: 0.1 });
+    s.addText("🔵  Priority DutyCredit", { x: p2x + 0.25, y: 4.43, w: 3.5, h: 0.28, fontSize: 8.5, color: "93C5FD", fontFace: "Calibri" });
+    s.addText("€25 discount", { x: p2x + 0.25, y: 4.71, w: 2.0, h: 0.38, fontSize: 15, bold: true, color: WHITE, fontFace: "Calibri" });
+    s.addText("Min. basket: €100", { x: p2x + 0.25, y: 5.09, w: 2.0, h: 0.25, fontSize: 8, color: "94A3B8", fontFace: "Calibri" });
+    s.addText("J. Martens · AMS→BCN", { x: p2x + 2.3, y: 4.71, w: 1.45, h: 0.28, fontSize: 8, color: "CBD5E1", fontFace: "Calibri", align: "right" });
+    s.addShape("roundRect", { x: p2x + 2.55, y: 5.06, w: 1.2, h: 0.28, fill: { color: "16A34A" }, line: { color: "16A34A", width: 0 }, rectRadius: 0.08 });
+    s.addText("ACTIVE", { x: p2x + 2.55, y: 5.07, w: 1.2, h: 0.25, fontSize: 7.5, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
+    // Buttons
+    s.addShape("roundRect", { x: p2x + 0.15, y: 5.75, w: 1.7, h: 0.42, fill: { color: "7F1D1D" }, line: { color: "DC2626", width: 1 }, rectRadius: 0.08 });
+    s.addText("✕  Decline", { x: p2x + 0.15, y: 5.77, w: 1.7, h: 0.38, fontSize: 9, bold: true, color: "FCA5A5", align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addShape("roundRect", { x: p2x + 2.1, y: 5.75, w: 1.7, h: 0.42, fill: { color: "16A34A" }, line: { color: "16A34A", width: 0 }, rectRadius: 0.08 });
+    s.addText("✓  Redeem", { x: p2x + 2.1, y: 5.77, w: 1.7, h: 0.38, fontSize: 9, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("One tap to validate — no POS overhaul needed", { x: p2x, y: 6.93, w: 4.0, h: 0.28, fontSize: 8, color: SLATE, align: "center", fontFace: "Calibri", italic: true });
+
+    // ── PANEL 3: Confirmation ──
+    const p3x = 8.83;
+    s.addShape("roundRect", { x: p3x, y: 2.05, w: 4.15, h: 4.85, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.15 });
+    s.addShape("rect", { x: p3x, y: 2.05, w: 4.15, h: 0.38, fill: { color: "0F172A" }, line: { color: "0F172A", width: 0 } });
+    s.addShape("roundRect", { x: p3x + 0.55, y: 2.1, w: 3.0, h: 0.24, fill: { color: "334155" }, line: { color: "334155", width: 0 }, rectRadius: 0.05 });
+    s.addText("app.dutyboost.com/scan", { x: p3x + 0.55, y: 2.1, w: 3.0, h: 0.24, fontSize: 6.5, color: "94A3B8", align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("③ Confirmation & Receipt", { x: p3x, y: 2.5, w: 4.15, h: 0.3, fontSize: 9, bold: true, color: "4ADE80", align: "center", fontFace: "Calibri" });
+    // Success icon area
+    s.addShape("roundRect", { x: p3x + 1.48, y: 2.85, w: 1.2, h: 1.2, fill: { color: "14532D" }, line: { color: "22C55E", width: 2 }, rectRadius: 0.6 });
+    s.addText("✓", { x: p3x + 1.48, y: 2.87, w: 1.2, h: 1.16, fontSize: 30, bold: true, color: "4ADE80", align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("Redemption Successful", { x: p3x + 0.15, y: 4.12, w: 3.85, h: 0.3, fontSize: 10, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
+    s.addText("DutyCredit applied", { x: p3x + 0.15, y: 4.42, w: 3.85, h: 0.25, fontSize: 8, color: "94A3B8", align: "center", fontFace: "Calibri" });
+    // Transaction breakdown
+    const lines = [
+      { l: "Basket Total", v: "€148.00", c: "CBD5E1", b: false },
+      { l: "DutyCredit Applied", v: "− €25.00", c: "4ADE80", b: false },
+      { l: "Traveler Paid", v: "€123.00", c: WHITE, b: true },
+      { l: "DutyBoost Fee (2.5%)", v: "€3.70", c: "FCA5A5", b: false },
+      { l: "Your Net Revenue", v: "€144.30", c: "93C5FD", b: true },
+    ];
+    s.addShape("roundRect", { x: p3x + 0.15, y: 4.72, w: 3.85, h: 1.85, fill: { color: "334155" }, line: { color: "475569", width: 1 }, rectRadius: 0.1 });
+    lines.forEach(({ l, v, c, b }, i) => {
+      const ly = 4.8 + i * 0.33;
+      const topBorder = b && i > 0;
+      if (topBorder) {
+        s.addShape("rect", { x: p3x + 0.2, y: ly - 0.03, w: 3.75, h: 0.02, fill: { color: "475569" }, line: { color: "475569", width: 0 } });
+      }
+      s.addText(l, { x: p3x + 0.25, y: ly, w: 2.1, h: 0.28, fontSize: b ? 9 : 8, bold: b, color: "94A3B8", fontFace: "Calibri", valign: "middle" });
+      s.addText(v, { x: p3x + 2.4, y: ly, w: 1.45, h: 0.28, fontSize: b ? 10 : 9, bold: b, color: c, align: "right", fontFace: "Calibri", valign: "middle" });
+    });
+    s.addShape("roundRect", { x: p3x + 0.15, y: 6.63, w: 3.85, h: 0.28, fill: { color: "1E3A5F" }, line: { color: "3B82F6", width: 1 }, rectRadius: 0.08 });
+    s.addText("📊  Transaction logged to your dashboard", { x: p3x + 0.15, y: 6.63, w: 3.85, h: 0.28, fontSize: 7.5, color: "93C5FD", align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("Full breakdown — net revenue shown instantly", { x: p3x, y: 6.93, w: 4.15, h: 0.28, fontSize: 8, color: SLATE, align: "center", fontFace: "Calibri", italic: true });
+
+    addFooter(s);
+  }
+
+  // ─────────────────────────────────────────────
+  // SLIDE 7 (was 6): REVENUE CHANNEL 1 — Travel Partners & Airlines
   // ─────────────────────────────────────────────
   {
     const s = pptx.addSlide();
