@@ -183,14 +183,34 @@ export default function AdminAccountsView() {
 
   const handleCreate = async (e) => {
     e.preventDefault();
-    if (!form.full_name || !form.email || !form.company || !form.business_type) {
+    
+    // Check all required fields
+    const requiredFields = ['full_name', 'email', 'company', 'business_type', 'kvk', 'vat', 'bank_account_name', 'bank_iban'];
+    const missingFields = requiredFields.filter(field => !form[field]);
+    
+    if (missingFields.length > 0) {
+      toast.error(`Please fill in all required fields`);
+      return;
+    }
+
+    // Check type-specific fields
+    if (selectedType.fields.includes('website') && !form.website) {
       toast.error("Please fill in all required fields");
       return;
     }
-    if (!form.bank_iban || !form.bank_account_name) {
-      toast.error("Please fill in bank account details");
+    if (selectedType.fields.includes('airport') && !form.airport) {
+      toast.error("Please fill in all required fields");
       return;
     }
+    if (selectedType.fields.includes('city') && !form.city) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+    if (selectedType.fields.includes('store_category') && !form.store_category) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
     if (!bankValidationResult?.success) {
       toast.error("Please verify bank account details first");
       return;
@@ -314,31 +334,31 @@ export default function AdminAccountsView() {
               <div className="grid grid-cols-2 gap-4">
                 {selectedType.fields.includes("website") && (
                   <div className="space-y-1.5">
-                    <Label>Website</Label>
-                    <Input value={form.website} onChange={e => setForm({...form, website: e.target.value})} placeholder="https://..." />
+                    <Label>Website <span className="text-destructive">*</span></Label>
+                    <Input value={form.website} onChange={e => setForm({...form, website: e.target.value})} placeholder="https://..." required />
                   </div>
                 )}
                 {selectedType.fields.includes("airport") && (
                   <div className="space-y-1.5">
-                    <Label>Airport Code(s)</Label>
-                    <Input value={form.airport} onChange={e => setForm({...form, airport: e.target.value})} placeholder="AMS, BRU, CDG..." />
+                    <Label>Airport Code(s) <span className="text-destructive">*</span></Label>
+                    <Input value={form.airport} onChange={e => setForm({...form, airport: e.target.value})} placeholder="AMS, BRU, CDG..." required />
                   </div>
                 )}
                 {selectedType.fields.includes("city") && (
                   <div className="space-y-1.5">
-                    <Label>City / Location</Label>
-                    <Input value={form.city} onChange={e => setForm({...form, city: e.target.value})} placeholder="Amsterdam" />
+                    <Label>City / Location <span className="text-destructive">*</span></Label>
+                    <Input value={form.city} onChange={e => setForm({...form, city: e.target.value})} placeholder="Amsterdam" required />
                   </div>
                 )}
                 {selectedType.fields.includes("kvk") && (
                   <div className="space-y-1.5">
-                    <Label>KVK Number</Label>
-                    <Input value={form.kvk} onChange={e => setForm({...form, kvk: e.target.value})} placeholder="12345678" />
+                    <Label>KVK Number <span className="text-destructive">*</span></Label>
+                    <Input value={form.kvk} onChange={e => setForm({...form, kvk: e.target.value})} placeholder="12345678" required />
                   </div>
                 )}
                 {selectedType.fields.includes("store_category") && (
                   <div className="space-y-1.5">
-                    <Label>Store Category</Label>
+                    <Label>Store Category <span className="text-destructive">*</span></Label>
                     <Select value={form.store_category} onValueChange={v => setForm({...form, store_category: v})}>
                       <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
                       <SelectContent>
@@ -353,7 +373,12 @@ export default function AdminAccountsView() {
                     </Select>
                   </div>
                 )}
-              </div>
+                {/* VAT always required */}
+                <div className="space-y-1.5">
+                  <Label>VAT Number <span className="text-destructive">*</span></Label>
+                  <Input value={form.vat} onChange={e => setForm({...form, vat: e.target.value})} placeholder="NL123456789B01" required />
+                </div>
+                </div>
 
               {/* Bank Account Section */}
               <div className="border-t border-border pt-4 mt-4">
