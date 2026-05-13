@@ -12,7 +12,11 @@ export default function RetailerPresentationFuture() {
 
   const handleDownload = async () => {
     setDownloading(true);
-    try { await exportRetailerPptx(); } finally { setDownloading(false); }
+    try {
+      await exportRetailerPptx();
+    } finally {
+      setDownloading(false);
+    }
   };
 
   return (
