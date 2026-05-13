@@ -47,8 +47,8 @@ export default {
       },
     },
     cta: {
-      title: 'Transforma cómo se conectan los viajes y el shopping',
-      description: 'Únete a DutyBoost y desbloquea un nuevo ecosistema donde las agencias de viaje impulsan la lealtad del cliente, los viajeros maximizan las recompensas y los minoristas aumentan los ingresos — todo a través de una plataforma inteligente.',
+      title: 'Transforma cómo se conectan los viajes y el comercio minorista',
+      description: 'Únete a DutyBoost y desbloquea un nuevo ecosistema donde los socios de viaje impulsan la lealtad del cliente, los viajeros maximizan las recompensas y los minoristas aumentan los ingresos — todo a través de una plataforma inteligente.',
       button: 'Comienza hoy',
     },
     wecallyou: {

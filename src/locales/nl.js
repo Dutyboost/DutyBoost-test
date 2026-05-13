@@ -47,9 +47,9 @@ export default {
       },
     },
     cta: {
-      title: 'Transformeer hoe reizen en winkelen verbonden zijn',
-      description: 'Voeg u bij DutyBoost en ontgrendel een nieuw ecosysteem waar reisbureaus de klantloyaliteit verhogen, reizigers beloningen maximaliseren en retailers de inkomsten verhogen — allemaal via één intelligent platform.',
-      button: 'Vandaag beginnen',
+      title: 'Transformeer hoe reizen en retail verbinden',
+      description: 'Sluit u aan bij DutyBoost en ontsluit een nieuw ecosysteem waar reispartners klantloyaliteit verhogen, reizigers beloningen maximaliseren en retailers inkomsten verhogen — alles via één intelligent platform.',
+      button: 'Begin vandaag',
     },
     footer: {
       tagline: '— The Travel Retail Conversion Layer',

@@ -48,8 +48,8 @@ export default {
       },
     },
     cta: {
-      title: 'Transformieren Sie die Verbindung zwischen Reisen und Shopping',
-      description: 'Treten Sie DutyBoost bei und erschließen Sie ein neues Ökosystem, in dem Reisebüros die Kundentreue steigern, Reisende Belohnungen maximieren und Einzelhändler Umsätze steigern — alles über eine intelligente Plattform.',
+      title: 'Transformieren Sie die Verbindung zwischen Reisen und Einzelhandel',
+      description: 'Treten Sie DutyBoost bei und erschließen Sie ein neues Ökosystem, in dem Reisepartner die Kundentreue steigern, Reisende Belohnungen maximieren und Einzelhändler Umsätze steigern — alles über eine intelligente Plattform.',
       button: 'Jetzt beginnen',
     },
     wecallyou: {
