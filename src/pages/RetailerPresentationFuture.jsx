@@ -66,9 +66,9 @@ const SLIDES_PREVIEW = [
   },
   {
     id: "channel-hotels",
-    label: "Channel: Hotels",
-    title: "Hotels — The Departure Moment",
-    sub: "1.7B room nights/year · Underutilised check-out email",
+    label: "Channel: Accommodations",
+    title: "Accommodations — The Departure Moment",
+    sub: "2B+ room nights/year globally · Underutilised check-out email",
     bg: "from-white to-green-50",
     accent: "text-green-700",
   },
@@ -139,9 +139,9 @@ const CHANNELS = [
   },
   {
     icon: Hotel,
-    label: "Hotels",
+    label: "Accommodations",
     color: "bg-green-100 text-green-700",
-    stats: ["1.7B room nights/year", "45–60% departure email open rate", "High-value guests"],
+    stats: ["2B+ room nights/year globally", "45–60% departure email open rate", "High-value guests"],
     value: "Check-out triggers spend · Guest holds DutyCredit valid at departure AND arrival airport stores.",
   },
   {
@@ -165,7 +165,7 @@ const RETAILER_BENEFITS = [
   { icon: CheckCircle2, text: "Pre-motivated buyers arrive with DutyCredit in hand — min. basket €70" },
   { icon: CheckCircle2, text: "No POS overhaul — simple QR scan on any device" },
   { icon: CheckCircle2, text: "Real-time dashboard: scans, revenue, channel breakdown" },
-  { icon: CheckCircle2, text: "Multiple income channels: agencies, airlines, hotels, car rental" },
+  { icon: CheckCircle2, text: "Multiple income channels: agencies, airlines, accommodations, car rental" },
   { icon: CheckCircle2, text: "Start with 1–3 stores — scale with no lock-in" },
 ];
 
@@ -225,7 +225,7 @@ export default function RetailerPresentationFuture() {
           <h1 className="text-4xl md:text-5xl font-bold text-white">The Future of Airport Retail</h1>
           <p className="text-xl text-orange-300 italic">with DutyBoost</p>
           <p className="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
-            A performance-based revenue layer that sends pre-motivated travelers to your store — from travel agencies, airlines, hotels, and car rental companies. You pay only when they spend.
+            A performance-based revenue layer that sends pre-motivated travelers to your store — from travel agencies, airlines, accommodations, and car rental companies. You pay only when they spend.
           </p>
           <Button
             onClick={handleDownload}
@@ -334,7 +334,7 @@ export default function RetailerPresentationFuture() {
             {[
               { channel: "Travel Agencies", gross: "€75,000", fee: "€1,875" },
               { channel: "Airlines", gross: "€216,000", fee: "€5,400" },
-              { channel: "Hotels", gross: "€45,000", fee: "€1,125" },
+              { channel: "Accommodations", gross: "€45,000", fee: "€1,125" },
               { channel: "Car Rental", gross: "€48,000", fee: "€1,200" },
             ].map(({ channel, gross, fee }) => (
               <div key={channel} className="text-center bg-slate-800/50 rounded-xl p-3">
