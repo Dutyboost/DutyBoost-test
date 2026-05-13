@@ -1,6 +1,6 @@
 import pptxgen from "pptxgenjs";
 
-const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9a64855b0_ChatGPT_Image_Mar_30__2026__03_06_29_PM-removebg-preview.png";
+const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/195c01c5f_ChatGPT_Image_May_4__2026__10_58_20_AM-removebg-preview.png";
 
 function addBackground(slide, color1, color2, dark = false) {
   slide.background = { color: dark ? "0F172A" : "F8FAFF" };
