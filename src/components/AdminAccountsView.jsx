@@ -85,7 +85,8 @@ export default function AdminAccountsView() {
     const checkAuthAndLoad = async () => {
       try {
         const user = await base44.auth.me();
-        if (!user) {
+        if (!user || user.role !== 'admin') {
+          console.error("Admin access required");
           setLoading(false);
           return;
         }
