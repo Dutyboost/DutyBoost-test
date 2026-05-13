@@ -1,5 +1,5 @@
-import { Hotel } from 'lucide-react';
+import { Bed } from 'lucide-react';
 
 export default function HotelIcon({ className }) {
-  return <Hotel className={className} />;
+  return <Bed className={className} />;
 }
