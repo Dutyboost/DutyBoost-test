@@ -4,6 +4,8 @@ import html2canvas from "html2canvas";
 export async function exportRetailerPptxWithImages() {
   try {
     const pptx = new pptxgen();
+    pptx.defineLayout({ name: "LAYOUT_16x9", width: 13.333, height: 7.5 });
+    pptx.layout = "LAYOUT_16x9";
 
     // Get all slide sections from the page
     const slideElements = document.querySelectorAll("section");
@@ -20,65 +22,45 @@ export async function exportRetailerPptxWithImages() {
       const slideElement = slideElements[i];
       
       try {
-        // Scroll slide into view
-        slideElement.scrollIntoView({ behavior: "instant" });
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Scroll slide into view before capturing
+        slideElement.scrollIntoView({ behavior: "instant", block: "center" });
+        await new Promise(resolve => setTimeout(resolve, 300));
 
-        // Get the slide's actual dimensions
-        const rect = slideElement.getBoundingClientRect();
-        const slideHeight = Math.max(rect.height, 700); // Minimum height to avoid distortion
-        
-        // Capture with proper viewport
+        // Capture the slide using html2canvas
         const canvas = await html2canvas(slideElement, {
-          scale: 2,
-          width: slideElement.offsetWidth,
-          height: slideElement.offsetHeight,
+          scale: 1.5,
           allowTaint: true,
           useCORS: true,
           logging: false,
           backgroundColor: "#0F172A",
         });
 
-        // Calculate aspect ratio and resize to fit PPTX (16:9)
-        const aspectRatio = canvas.width / canvas.height;
-        let pptxWidth = 13.333;
-        let pptxHeight = 7.5;
-        
-        // Adjust if image aspect ratio is significantly different
-        if (aspectRatio < 1.77) { // Narrower than 16:9
-          pptxWidth = (canvas.width / canvas.height) * pptxHeight;
-        } else if (aspectRatio > 1.77) { // Wider than 16:9
-          pptxHeight = pptxWidth / (canvas.width / canvas.height);
-        }
-
-        // Center the image
-        const xOffset = (13.333 - pptxWidth) / 2;
-        const yOffset = (7.5 - pptxHeight) / 2;
-
-        // Add new slide
+        // Add slide and fill with image
         const slide = pptx.addSlide();
         slide.background = { color: "0F172A" };
         
-        // Add image to slide
+        // Add image that fills entire slide (16:9)
         slide.addImage({
           data: canvas.toDataURL("image/png"),
-          x: xOffset,
-          y: yOffset,
-          w: pptxWidth,
-          h: pptxHeight,
-          rsize: { type: "cover" },
+          x: 0,
+          y: 0,
+          w: "100%",
+          h: "100%",
+          sizing: { type: "cover", w: 13.333, h: 7.5 },
         });
 
-        console.log(`Captured slide ${i + 1}`);
+        console.log(`Captured slide ${i + 1} successfully`);
       } catch (error) {
         console.error(`Failed to capture slide ${i + 1}:`, error);
+        // Add blank slide on error
+        const slide = pptx.addSlide();
+        slide.background = { color: "000000" };
       }
     }
 
-    // Write the file
     console.log("Writing PPTX file...");
     await pptx.writeFile({ fileName: "DutyBoost-AirportRetailer-Presentation.pptx" });
-    console.log("Download complete");
+    console.log("Download complete!");
   } catch (error) {
     console.error("Export failed:", error);
     alert("Export failed: " + error.message);
