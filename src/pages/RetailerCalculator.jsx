@@ -271,23 +271,23 @@ function TravelPartnerTab({ t }) {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <Users className="w-4 h-4 text-slate-400 mx-auto mb-2" />
-          <p className="text-xs text-slate-400 mb-1">Redemptions / month</p>
+          <p className="text-xs text-slate-400 mb-1">{t('calculator.redemptions_month')}</p>
           <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()}</p>
         </div>
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
           <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
-          <p className="text-xs text-blue-300 mb-1">Commission / tx</p>
+          <p className="text-xs text-blue-300 mb-1">{t('calculator.commission_tx')}</p>
           <p className="text-2xl font-bold text-blue-300">€{agencyCommissionPerTx.toFixed(2)}</p>
           <p className="text-xs text-blue-400 mt-0.5">0.5% of basket (max €5)</p>
         </div>
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
-          <p className="text-xs text-green-300 mb-1">Monthly commission</p>
+          <p className="text-xs text-green-300 mb-1">{t('calculator.monthly_commission')}</p>
           <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()}</p>
         </div>
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 text-center">
           <Percent className="w-4 h-4 text-purple-400 mx-auto mb-2" />
-          <p className="text-xs text-purple-300 mb-1">Traveler savings / month</p>
+          <p className="text-xs text-purple-300 mb-1">{t('calculator.traveler_savings_month')}</p>
           <p className="text-2xl font-bold text-purple-300">€{totalTravelerSavings.toLocaleString()}</p>
         </div>
       </div>
@@ -295,45 +295,45 @@ function TravelPartnerTab({ t }) {
       {/* Commission breakdown */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-5">
         <div>
-          <h3 className="font-bold text-white text-lg">Your monthly revenue stream</h3>
-          <p className="text-slate-400 text-sm mt-1">Passive income from your existing bookings — no extra work, no cost to your travelers.</p>
+          <h3 className="font-bold text-white text-lg">{t('calculator.revenue_title')}</h3>
+          <p className="text-slate-400 text-sm mt-1">{t('calculator.revenue_desc')}</p>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-4">
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-slate-400">You send DutyCredits to</p>
-            <p className="text-2xl font-bold text-white">{bookingsPerMonth.toLocaleString()} travelers / mo</p>
+            <p className="text-xs text-slate-400">{t('calculator.you_send')}</p>
+            <p className="text-2xl font-bold text-white">{bookingsPerMonth.toLocaleString()} {t('calculator.travelers_mo')}</p>
           </div>
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-slate-400">At {conversionRate}% redemption</p>
-            <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()} transactions</p>
+            <p className="text-xs text-slate-400">{t('calculator.at_redemption')} {conversionRate}% {t('calculator.redemption_rate_label')}</p>
+            <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()} {t('calculator.transactions_label')}</p>
           </div>
           <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-green-300">You earn</p>
-            <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()} / month</p>
+            <p className="text-xs text-green-300">{t('calculator.you_earn')}</p>
+            <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()} {t('calculator.per_month')}</p>
           </div>
         </div>
 
         <div className="flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3">
           <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
           <p className="text-sm text-blue-300 leading-relaxed">
-            Your commission is paid by DutyBoost — <strong>not by your traveler, not by the retailer</strong>. It comes out of DutyBoost's 2.5% transaction fee (capped at €25/tx). Your travelers get a genuine airport discount, you earn a new revenue stream.
+            {t('calculator.commission_info')} <strong>{t('calculator.commission_info_2')}</strong>{t('calculator.commission_info_3')}
           </p>
         </div>
       </div>
 
       {/* Tier reference for agencies */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-3">
-        <h3 className="font-bold text-white text-sm uppercase tracking-widest">Commission by tier</h3>
+        <h3 className="font-bold text-white text-sm uppercase tracking-widest">{t('calculator.commission_by_tier')}</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-xs text-slate-400 border-b border-slate-700">
-                <th className="pb-2 pr-4">Tier</th>
-                <th className="pb-2 pr-4">Avg basket</th>
-                <th className="pb-2 pr-4">Traveler saves</th>
-                <th className="pb-2 pr-4">Your commission</th>
-                <th className="pb-2">Per 100 redemptions</th>
+                <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
+                <th className="pb-2 pr-4">{t('calculator.col_avg_basket')}</th>
+                <th className="pb-2 pr-4">{t('calculator.col_traveler_saves')}</th>
+                <th className="pb-2 pr-4">{t('calculator.col_your_commission')}</th>
+                <th className="pb-2">{t('calculator.col_per_100')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-700/50">
@@ -356,7 +356,7 @@ function TravelPartnerTab({ t }) {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500">Commission = 20% of DutyBoost's 2.5% fee per redemption (max €5/tx), paid out monthly by DutyBoost.</p>
+        <p className="text-xs text-slate-500">{t('calculator.commission_footnote')}</p>
       </div>
     </div>
   );
@@ -364,6 +364,7 @@ function TravelPartnerTab({ t }) {
 
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function RetailerCalculator() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("retailer");
 
   return (
@@ -376,11 +377,11 @@ export default function RetailerCalculator() {
             <DutyBoostLogo height={80} inverted />
           </div>
           <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs tracking-widest uppercase">
-            DutyBoost ROI Calculator
+            {t('calculator.badge')}
           </Badge>
-          <h1 className="text-3xl md:text-4xl font-bold text-white">See the numbers for yourself</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white">{t('calculator.title')}</h1>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
-            Whether you're an airport retailer or a travel partner — DutyBoost adds a measurable revenue stream. Pick your role below.
+            {t('calculator.subtitle')}
           </p>
         </div>
 
@@ -394,7 +395,7 @@ export default function RetailerCalculator() {
                 : "text-slate-400 hover:text-white"
             }`}
           >
-            <Store className="w-4 h-4" /> Airport Retailer
+            <Store className="w-4 h-4" /> {t('calculator.tab_retailer')}
           </button>
           <button
             onClick={() => setActiveTab("partner")}
@@ -404,11 +405,11 @@ export default function RetailerCalculator() {
                 : "text-slate-400 hover:text-white"
             }`}
           >
-            <Users className="w-4 h-4" /> Travel Partner
+            <Users className="w-4 h-4" /> {t('calculator.tab_partner')}
           </button>
         </div>
 
-        {activeTab === "retailer" ? <RetailerTab /> : <TravelPartnerTab />}
+        {activeTab === "retailer" ? <RetailerTab t={t} /> : <TravelPartnerTab t={t} />}
 
         <p className="text-center text-xs text-slate-600 pb-4">hello@dutyboost.com · www.dutyboost.com</p>
       </div>
