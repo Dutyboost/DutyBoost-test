@@ -343,13 +343,29 @@ export default function RetailerIntegrationGuide() {
           <p className="text-muted-foreground text-sm leading-relaxed">
             Once the customer's basket is finalised, call the <strong>redeem</strong> endpoint with the final basket total. DutyBoost calculates the effective tiered credit (10%/15%/20%, capped at €25), marks the voucher as used, and records the transaction for your monthly invoice.
           </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
-            <p className="font-semibold">Tiered credit — €70 minimum basket:</p>
-            <p>→ <strong>€70–€99:</strong> 10% credit (e.g. €7 on a €70 basket)</p>
-            <p>→ <strong>€100–€299:</strong> 15% credit (e.g. €15 on a €100 basket)</p>
-            <p>→ <strong>€300+:</strong> 20% credit, capped at €25 maximum</p>
-            <p className="text-xs mt-1">Baskets under €70 are not eligible — the QR can still be scanned and held, but the redeem call will be rejected.</p>
-          </div>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-3">
+             <p className="font-semibold">Tiered credits — €70 minimum basket:</p>
+             <div className="overflow-x-auto">
+               <table className="w-full text-xs">
+                 <thead>
+                   <tr className="border-b border-blue-200">
+                     <th className="text-left py-2 px-2 font-semibold">Tier</th>
+                     <th className="text-left py-2 px-2 font-semibold">Spend</th>
+                     <th className="text-left py-2 px-2 font-semibold">Saving</th>
+                     <th className="text-left py-2 px-2 font-semibold">DutyBoost fee</th>
+                     <th className="text-left py-2 px-2 font-semibold">Net % retained</th>
+                   </tr>
+                 </thead>
+                 <tbody className="divide-y divide-blue-200">
+                   <tr><td className="py-2 px-2 font-semibold">Boarding</td><td className="py-2 px-2">€70–€99</td><td className="py-2 px-2">€10</td><td className="py-2 px-2">€1.75–€2.48</td><td className="py-2 px-2">~85.7%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">Priority</td><td className="py-2 px-2">€100–€199</td><td className="py-2 px-2">€30</td><td className="py-2 px-2">€2.50–€4.98</td><td className="py-2 px-2">~77.5%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">Lounge</td><td className="py-2 px-2">€200–€299</td><td className="py-2 px-2">€45</td><td className="py-2 px-2">€5.00–€7.48</td><td className="py-2 px-2">~79.5%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">VIP</td><td className="py-2 px-2">€300+</td><td className="py-2 px-2">€60</td><td className="py-2 px-2">€7.50–€12.50</td><td className="py-2 px-2">~80.4%</td></tr>
+                 </tbody>
+               </table>
+             </div>
+             <p className="text-xs mt-2">Baskets under €70 are not eligible — the QR can still be scanned and held, but the redeem call will be rejected.</p>
+           </div>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 shrink-0" />
             <p className="text-sm text-orange-800"><strong>Only call /redeem-voucher once per transaction</strong>, at the moment of final checkout — never during scanning or preview. Calling it twice will fail with an "already redeemed" error.</p>
