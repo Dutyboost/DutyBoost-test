@@ -2,6 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Inloggen',
+      login: 'Inloggen',
       dashboard: 'Dashboard',
       for_agencies: 'Travel Partners',
       for_travelers: 'Reizigers',
@@ -524,6 +525,25 @@ export default {
       portal_subtitle: 'Alles wat uw cruisemaatschappij nodig heeft om passagiers te belonen en commissie te verdienen in havensteden.',
       apply: 'Aanmelden',
       back: 'Terug',
+    },
+    login: {
+      page_title: 'Inloggen',
+      title: 'Inloggen bij DutyBoost',
+      subtitle: 'Voer uw zakelijk e-mailadres in en we sturen u een veilige inloglink.',
+      label_email: 'Zakelijk e-mailadres',
+      send_link: 'Stuur inloglink',
+      sending: 'Verzenden...',
+      no_account: 'Nog geen account?',
+      apply: 'Aanmelden bij DutyBoost',
+      check_email: 'Controleer uw e-mail',
+      check_email_desc_1: 'Als',
+      check_email_desc_2: 'is geregistreerd bij DutyBoost, ontvangt u binnenkort een inloglink.',
+      no_email: 'Niet ontvangen?',
+      try_again: 'Opnieuw proberen',
+      need_help: 'Hulp nodig?',
+      error_invalid_email: 'Voer een geldig e-mailadres in.',
+      error_personal_email: 'Gebruik uw zakelijk e-mailadres. Persoonlijke e-mailproviders (Gmail, Hotmail, Yahoo, etc.) worden niet geaccepteerd.',
+      error_generic: 'Er is iets misgegaan. Probeer opnieuw of neem contact op via hello@dutyboost.com',
     },
     requestdemo: {
       badge: 'Demo aanvragen',

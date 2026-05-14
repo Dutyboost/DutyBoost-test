@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
@@ -7,10 +8,16 @@ import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function MagicLinkLogin() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    document.title = `${t('login.page_title')} — DutyBoost`;
+    return () => { document.title = 'DutyBoost'; };
+  }, [t]);
 
   const BLOCKED_DOMAINS = [
     "gmail.com","googlemail.com","hotmail.com","hotmail.co.uk","hotmail.fr","hotmail.de",
@@ -27,12 +34,12 @@ export default function MagicLinkLogin() {
     setError("");
     const trimmed = email.trim().toLowerCase();
     if (!trimmed || !trimmed.includes("@")) {
-      setError("Please enter a valid email address.");
+      setError(t('login.error_invalid_email'));
       return;
     }
     const domain = trimmed.split("@")[1];
     if (BLOCKED_DOMAINS.includes(domain)) {
-      setError("Please use your company email address. Personal email providers (Gmail, Hotmail, Yahoo, etc.) are not accepted.");
+      setError(t('login.error_personal_email'));
       return;
     }
     setLoading(true);
@@ -40,7 +47,7 @@ export default function MagicLinkLogin() {
       await base44.functions.invoke("requestMagicLink", { email: trimmed });
       setSent(true);
     } catch (err) {
-      setError("Something went wrong. Please try again or contact hello@dutyboost.com");
+      setError(t('login.error_generic'));
     } finally {
       setLoading(false);
     }
@@ -57,16 +64,16 @@ export default function MagicLinkLogin() {
           {!sent ? (
             <>
               <div className="space-y-2 text-center">
-                <h1 className="text-2xl font-heading font-bold">Sign in to DutyBoost</h1>
+                <h1 className="text-2xl font-heading font-bold">{t('login.title')}</h1>
                 <p className="text-muted-foreground text-sm">
-                  Enter your company email address and we'll send you a secure login link.
+                  {t('login.subtitle')}
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Company email address
+                    {t('login.label_email')}
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -93,20 +100,20 @@ export default function MagicLinkLogin() {
                   {loading ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
+                      {t('login.sending')}
                     </>
                   ) : (
                     <>
-                      Send login link <ArrowRight className="w-4 h-4" />
+                      {t('login.send_link')} <ArrowRight className="w-4 h-4" />
                     </>
                   )}
                 </Button>
               </form>
 
               <p className="text-center text-xs text-muted-foreground">
-                Don't have an account?{" "}
+                {t('login.no_account')}{" "}
                 <Link to="/get-started" className="text-primary underline underline-offset-2 hover:text-primary/80">
-                  Apply to join DutyBoost
+                  {t('login.apply')}
                 </Link>
               </p>
             </>
@@ -117,21 +124,21 @@ export default function MagicLinkLogin() {
                   <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
               </div>
-              <h2 className="text-xl font-heading font-bold">Check your email</h2>
+              <h2 className="text-xl font-heading font-bold">{t('login.check_email')}</h2>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                If <strong>{email}</strong> is registered with DutyBoost, you'll receive a login link shortly.
+                {t('login.check_email_desc_1')} <strong>{email}</strong> {t('login.check_email_desc_2')}
               </p>
               <p className="text-xs text-muted-foreground">
-                Didn't receive it?{" "}
+                {t('login.no_email')}{" "}
                 <button
                   onClick={() => { setSent(false); setError(""); }}
                   className="text-primary underline underline-offset-2 hover:text-primary/80"
                 >
-                  Try again
+                  {t('login.try_again')}
                 </button>
               </p>
               <p className="text-xs text-muted-foreground">
-                Need help?{" "}
+                {t('login.need_help')}{" "}
                 <a href="mailto:hello@dutyboost.com" className="text-primary underline underline-offset-2">
                   hello@dutyboost.com
                 </a>

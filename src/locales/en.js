@@ -2,6 +2,7 @@ export default {
   translation: {
     nav: {
       signIn: 'Sign In',
+      login: 'Login',
       dashboard: 'Dashboard',
       for_agencies: 'Travel Partners',
       for_travelers: 'Travelers',
@@ -520,6 +521,25 @@ export default {
       portal_subtitle: 'Everything your cruise line needs to reward passengers and earn commission at ports of call.',
       apply: 'Apply to Join',
       back: 'Back',
+    },
+    login: {
+      page_title: 'Sign In',
+      title: 'Sign in to DutyBoost',
+      subtitle: "Enter your company email address and we'll send you a secure login link.",
+      label_email: 'Company email address',
+      send_link: 'Send login link',
+      sending: 'Sending...',
+      no_account: "Don't have an account?",
+      apply: 'Apply to join DutyBoost',
+      check_email: 'Check your email',
+      check_email_desc_1: 'If',
+      check_email_desc_2: "is registered with DutyBoost, you'll receive a login link shortly.",
+      no_email: "Didn't receive it?",
+      try_again: 'Try again',
+      need_help: 'Need help?',
+      error_invalid_email: 'Please enter a valid email address.',
+      error_personal_email: 'Please use your company email address. Personal email providers (Gmail, Hotmail, Yahoo, etc.) are not accepted.',
+      error_generic: 'Something went wrong. Please try again or contact hello@dutyboost.com',
     },
     requestdemo: {
       badge: 'Request a Demo',
