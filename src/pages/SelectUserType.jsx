@@ -99,7 +99,7 @@ export default function SelectUserType() {
                     size="lg"
                     className={`w-full bg-gradient-to-r ${option.color} text-white hover:opacity-90 gap-2`}
                   >
-                    Learn more <ArrowRight className="w-4 h-4" />
+                    {t('getstarted.get_started')} <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
               );
