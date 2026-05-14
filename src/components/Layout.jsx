@@ -54,6 +54,7 @@ export default function Layout() {
     base44.auth.me()
       .then(u => {
         if (!u) { base44.auth.redirectToLogin(); return; }
+        if (!u.role) { window.location.replace('/get-started'); return; }
         setUser(u);
       })
       .catch(() => base44.auth.redirectToLogin());
