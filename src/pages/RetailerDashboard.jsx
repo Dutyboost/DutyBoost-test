@@ -76,7 +76,18 @@ export default function RetailerDashboard() {
   };
 
   useEffect(() => {
-    loadData();
+    const initLoad = async () => {
+      try {
+        const currentUser = await base44.auth.me();
+        setUser(currentUser);
+        if (currentUser) {
+          loadData();
+        }
+      } catch (err) {
+        console.error("Auth check failed:", err);
+      }
+    };
+    initLoad();
   }, []);
 
   const handleCreateStore = async (e) => {
