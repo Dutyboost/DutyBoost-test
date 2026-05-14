@@ -457,8 +457,8 @@ export default function AdminAccountsView() {
                         <SelectItem value="Fashion">Fashion</SelectItem>
                         <SelectItem value="Electronics">Electronics</SelectItem>
                         <SelectItem value="Beauty & Perfume">Beauty & Perfume</SelectItem>
+                        <SelectItem value="Duty Free">Duty Free</SelectItem>
                         <SelectItem value="Gifts & Souvenirs">Gifts & Souvenirs</SelectItem>
-                        <SelectItem value="Retail">Retail</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
