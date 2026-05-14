@@ -244,10 +244,8 @@ export default function AdminAccountsView() {
     // Base required fields (always needed)
     if (!form.full_name || !form.email || !form.company || !form.vat) return false;
     
-    // KVK only required for types that include it
-    if (selectedType.fields.includes('kvk') && !form.kvk) return false;
-    
     // Type-specific required fields
+    if (selectedType.fields.includes('kvk') && !form.kvk) return false;
     if (selectedType.fields.includes('website') && !form.website) return false;
     if (selectedType.fields.includes('airport') && !form.airport) return false;
     if (selectedType.fields.includes('city') && !form.city) return false;
