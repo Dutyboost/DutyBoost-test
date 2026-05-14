@@ -500,6 +500,44 @@ export default function TravelPartnerIntegrationGuide() {
           </div>
         </div>
 
+        {/* Commission & Revenue Share */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Commission & revenue share</h2>
+          <p className="text-sm text-muted-foreground">DutyBoost operates on a performance-based revenue model. You earn commission on every redeemed DutyCredit based on the net sales value at the retailer.</p>
+
+          <div className="bg-card border border-border rounded-xl p-5 space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <p className="font-semibold text-sm">Example transaction:</p>
+                <div className="space-y-1 text-sm">
+                  <div className="flex justify-between"><span>Basket spend (before discount)</span><span className="font-mono">€300</span></div>
+                  <div className="flex justify-between border-t border-border pt-1 mt-1"><span>Traveler discount (DutyCredit)</span><span className="font-mono text-destructive">−€60</span></div>
+                  <div className="flex justify-between font-semibold bg-muted/30 p-2 rounded"><span>Net sales value</span><span className="font-mono">€240</span></div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <p className="font-semibold text-sm">Commission distribution on €240:</p>
+                <div className="space-y-1 text-sm">
+                  <div className="flex justify-between"><span>DutyBoost fee (2.5%)</span><span className="font-mono">€6.00</span></div>
+                  <div className="flex justify-between"><span>Travel Partner share (0.5%)</span><span className="font-mono text-primary font-semibold">€1.20</span></div>
+                  <div className="flex justify-between border-t border-border pt-1 mt-1"><span>DutyBoost net revenue</span><span className="font-mono">€4.80</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-2">
+            <p className="font-semibold">How it works:</p>
+            <ul className="space-y-1.5 text-xs">
+              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>Net sales value</strong> = basket total minus the DutyCredit discount applied</li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>Commission</strong> = 0.5% of net sales value is paid to the Travel Partner</li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>No hidden costs</strong> — you only earn on real transactions</li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> Commission is calculated automatically and appears in your Travel Partner dashboard</li>
+            </ul>
+          </div>
+        </div>
+
         {/* What the traveler sees */}
         <div className="space-y-4">
           <h2 className="text-2xl font-heading font-semibold">What the traveler experiences</h2>
