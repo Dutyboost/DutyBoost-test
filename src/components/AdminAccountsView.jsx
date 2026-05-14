@@ -250,11 +250,14 @@ export default function AdminAccountsView() {
     if (selectedType.fields.includes('city') && !form.city) return false;
     if (selectedType.fields.includes('store_category') && !form.store_category) return false;
     
-    // Bank validation only required for non-Airport Retailers
-    if (selectedType.value !== "Airport Retailer") {
-      if (!form.bank_account_name || !form.bank_iban) return false;
-      if (!bankValidationResult?.success) return false;
+    // For Airport Retailer - no bank validation needed, all fields complete
+    if (selectedType.value === "Airport Retailer") {
+      return true;
     }
+    
+    // For all other partners - bank details and validation required
+    if (!form.bank_account_name || !form.bank_iban) return false;
+    if (!bankValidationResult?.success) return false;
     
     return true;
   };
