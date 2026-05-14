@@ -357,10 +357,10 @@ export default function RetailerIntegrationGuide() {
                    </tr>
                  </thead>
                  <tbody className="divide-y divide-blue-200">
-                   <tr><td className="py-2 px-2 font-semibold">Boarding</td><td className="py-2 px-2">€70–€99</td><td className="py-2 px-2">€10</td><td className="py-2 px-2">€1.75–€2.48</td><td className="py-2 px-2">~85.7%</td></tr>
-                   <tr><td className="py-2 px-2 font-semibold">Priority</td><td className="py-2 px-2">€100–€199</td><td className="py-2 px-2">€30</td><td className="py-2 px-2">€2.50–€4.98</td><td className="py-2 px-2">~77.5%</td></tr>
-                   <tr><td className="py-2 px-2 font-semibold">Lounge</td><td className="py-2 px-2">€200–€299</td><td className="py-2 px-2">€45</td><td className="py-2 px-2">€5.00–€7.48</td><td className="py-2 px-2">~79.5%</td></tr>
-                   <tr><td className="py-2 px-2 font-semibold">VIP</td><td className="py-2 px-2">€300+</td><td className="py-2 px-2">€60</td><td className="py-2 px-2">€7.50–€12.50</td><td className="py-2 px-2">~80.4%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">Boarding</td><td className="py-2 px-2">€70–€99</td><td className="py-2 px-2">€10</td><td className="py-2 px-2">€1.75–€2.48</td><td className="py-2 px-2">85.7%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">Priority</td><td className="py-2 px-2">€100–€199</td><td className="py-2 px-2">€30</td><td className="py-2 px-2">€2.50–€4.98</td><td className="py-2 px-2">77.5%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">Lounge</td><td className="py-2 px-2">€200–€299</td><td className="py-2 px-2">€45</td><td className="py-2 px-2">€5.00–€7.48</td><td className="py-2 px-2">79.5%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">VIP</td><td className="py-2 px-2">€300+</td><td className="py-2 px-2">€60</td><td className="py-2 px-2">€7.50–€12.50</td><td className="py-2 px-2">80.4%</td></tr>
                  </tbody>
                </table>
              </div>
