@@ -23,8 +23,8 @@ const PARTNER_TYPES = [
     fields: ["kvk", "website"],
   },
   {
-    value: "Hotel Partner",
-    label: "Hotel Partner",
+    value: "Accommodation Partner",
+    label: "Accommodation Partner",
     icon: Hotel,
     color: "bg-purple-50 border-purple-200 text-purple-700",
     iconColor: "text-purple-600",
