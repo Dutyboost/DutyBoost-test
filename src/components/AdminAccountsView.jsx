@@ -521,7 +521,7 @@ export default function AdminAccountsView() {
                 <Button type="button" variant="outline" onClick={() => { setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); setBankValidationResult(null); }}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={creating || !bankValidationResult?.success} className="gap-2">
+                <Button type="submit" disabled={creating || (selectedType?.value !== "Airport Retailer" && !bankValidationResult?.success)} className="gap-2">
                   <Send className="w-4 h-4" />
                   {creating ? "Creating & Sending..." : "Create & Send Login"}
                 </Button>
