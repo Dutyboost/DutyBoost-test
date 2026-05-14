@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,7 @@ const EUROPEAN_COUNTRIES = [
 ];
 
 export default function RequestDemoPage() {
+  const { t } = useTranslation();
   const [jobTitle, setJobTitle] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -117,19 +119,17 @@ export default function RequestDemoPage() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-heading font-bold">Request Received!</h1>
-              <p className="text-muted-foreground">
-                Thank you for your interest in DutyBoost. Our team will reach out personally within 1–2 business days to schedule your demo.
-              </p>
+              <h1 className="text-3xl font-heading font-bold">{t('requestdemo.success_title')}</h1>
+              <p className="text-muted-foreground">{t('requestdemo.success_desc')}</p>
             </div>
             <div className="bg-card border border-border rounded-2xl p-6 text-left space-y-3">
-              <p className="font-semibold text-sm">What happens next?</p>
+              <p className="font-semibold text-sm">{t('requestdemo.next_steps_title')}</p>
               <ol className="space-y-3">
                 {[
-                  "Our team reviews your request and prepares a tailored demo.",
-                  "We reach out personally to schedule a convenient time.",
-                  "You get a live walkthrough of the platform — no pitch decks, just a real conversation.",
-                  "If it's a fit, we'll guide you through the onboarding process together.",
+                  t('requestdemo.next_step_1'),
+                  t('requestdemo.next_step_2'),
+                  t('requestdemo.next_step_3'),
+                  t('requestdemo.next_step_4'),
                 ].map((text, i) => (
                   <li key={i} className="flex gap-3 items-start">
                     <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
@@ -139,10 +139,10 @@ export default function RequestDemoPage() {
               </ol>
             </div>
             <p className="text-sm text-muted-foreground">
-              Questions? Email us at{" "}
+              {t('requestdemo.questions')}{" "}
               <a href="mailto:hello@dutyboost.com" className="text-primary underline underline-offset-2">hello@dutyboost.com</a>
             </p>
-            <Link to="/"><Button variant="outline" className="w-full">Back to Home</Button></Link>
+            <Link to="/"><Button variant="outline" className="w-full">{t('requestdemo.back_home')}</Button></Link>
           </div>
         </div>
       </div>
@@ -154,7 +154,7 @@ export default function RequestDemoPage() {
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
         <Link to="/"><DutyBoostLogo height={130} /></Link>
         <Link to="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back
+          <ArrowLeft className="w-4 h-4" /> {t('requestdemo.back')}
         </Link>
       </nav>
 
@@ -163,18 +163,18 @@ export default function RequestDemoPage() {
 
           <div className="text-center space-y-3">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
-              Request a Demo
+              {t('requestdemo.badge')}
             </div>
-            <h1 className="text-3xl sm:text-4xl font-heading font-bold">Let's show you how it works</h1>
+            <h1 className="text-3xl sm:text-4xl font-heading font-bold">{t('requestdemo.title')}</h1>
             <p className="text-muted-foreground text-sm max-w-sm mx-auto">
-              Tell us a bit about yourself and your business. Our team will reach out personally to schedule a tailored walkthrough — no pressure, no pitch decks.
+              {t('requestdemo.subtitle')}
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <Label>Full Name <span className="text-red-500">*</span></Label>
+                <Label>{t('requestdemo.label_name')} <span className="text-red-500">*</span></Label>
                 <Input
                   required
                   placeholder="Jane Smith"
@@ -183,7 +183,7 @@ export default function RequestDemoPage() {
                 />
               </div>
               <div className="space-y-1.5">
-                <Label>Work Email <span className="text-red-500">*</span></Label>
+                <Label>{t('requestdemo.label_email')} <span className="text-red-500">*</span></Label>
                 <Input
                   required
                   type="email"
@@ -195,10 +195,10 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Job Title <span className="text-red-500">*</span></Label>
+              <Label>{t('requestdemo.label_job_title')} <span className="text-red-500">*</span></Label>
               <Select value={jobTitle} onValueChange={setJobTitle}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select your title" />
+                  <SelectValue placeholder={t('requestdemo.placeholder_job_title')} />
                 </SelectTrigger>
                 <SelectContent>
                   {JOB_TITLES.map(t => (
@@ -210,7 +210,7 @@ export default function RequestDemoPage() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <Label>Phone Number <span className="text-red-500">*</span></Label>
+                <Label>{t('requestdemo.label_phone')} <span className="text-red-500">*</span></Label>
                 <Input
                   required
                   type="tel"
@@ -220,10 +220,10 @@ export default function RequestDemoPage() {
                 />
               </div>
               <div className="space-y-1.5">
-                <Label>Country <span className="text-red-500">*</span></Label>
+                <Label>{t('requestdemo.label_country')} <span className="text-red-500">*</span></Label>
                 <Select value={country} onValueChange={setCountry}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select your country" />
+                    <SelectValue placeholder={t('requestdemo.placeholder_country')} />
                   </SelectTrigger>
                   <SelectContent>
                     {EUROPEAN_COUNTRIES.map(c => (
@@ -235,7 +235,7 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Company Name <span className="text-red-500">*</span></Label>
+              <Label>{t('requestdemo.label_company')} <span className="text-red-500">*</span></Label>
               <Input
                 required
                 placeholder="Your company"
@@ -245,7 +245,7 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Website <span className="text-red-500">*</span></Label>
+              <Label>{t('requestdemo.label_website')} <span className="text-red-500">*</span></Label>
               <Input
                 required
                 placeholder="https://yourcompany.com"
@@ -255,10 +255,10 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Partner Type <span className="text-red-500">*</span></Label>
+              <Label>{t('requestdemo.label_partner_type')} <span className="text-red-500">*</span></Label>
               <Select value={partnerType} onValueChange={setPartnerType}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select your business type" />
+                  <SelectValue placeholder={t('requestdemo.placeholder_partner_type')} />
                 </SelectTrigger>
                 <SelectContent>
                   {PARTNER_TYPES.map(pt => (
@@ -269,10 +269,10 @@ export default function RequestDemoPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Anything you'd like us to know? <span className="text-muted-foreground text-xs">(optional)</span></Label>
+              <Label>{t('requestdemo.label_message')} <span className="text-muted-foreground text-xs">{t('requestdemo.optional')}</span></Label>
               <textarea
                 className="w-full min-h-[90px] rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
-                placeholder="Tell us about your business, your volume, or any specific questions..."
+                placeholder={t('requestdemo.placeholder_message')}
                 value={message}
                 onChange={e => setMessage(e.target.value)}
               />
@@ -284,13 +284,13 @@ export default function RequestDemoPage() {
               className="w-full gap-2 text-base"
               disabled={!isValid || loading}
             >
-              {loading ? "Sending..." : "Request Demo"} <ArrowRight className="w-4 h-4" />
+              {loading ? t('requestdemo.submitting') : t('requestdemo.submit')} <ArrowRight className="w-4 h-4" />
             </Button>
 
             <p className="text-center text-xs text-muted-foreground">
-              By submitting, you agree to our{" "}
-              <Link to="/privacy" className="underline underline-offset-2">Privacy Policy</Link>.
-              No spam, ever.
+              {t('requestdemo.privacy_note')}{" "}
+              <Link to="/privacy" className="underline underline-offset-2">{t('requestdemo.privacy_link')}</Link>.
+              {" "}{t('requestdemo.no_spam')}
             </p>
           </form>
         </div>
