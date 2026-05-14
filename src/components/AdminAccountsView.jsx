@@ -241,20 +241,20 @@ export default function AdminAccountsView() {
   const isFormComplete = () => {
     if (!selectedType) return false;
     
-    const requiredFields = ['full_name', 'email', 'company', 'business_type', 'kvk', 'vat'];
-    if (selectedType.value !== "Airport Retailer") {
-      requiredFields.push('bank_account_name', 'bank_iban');
-    }
+    // Base required fields
+    if (!form.full_name || !form.email || !form.company || !form.kvk || !form.vat) return false;
     
-    const hasMissingFields = requiredFields.some(field => !form[field]);
-    if (hasMissingFields) return false;
-    
+    // Type-specific required fields
     if (selectedType.fields.includes('website') && !form.website) return false;
     if (selectedType.fields.includes('airport') && !form.airport) return false;
     if (selectedType.fields.includes('city') && !form.city) return false;
     if (selectedType.fields.includes('store_category') && !form.store_category) return false;
     
-    if (selectedType.value !== "Airport Retailer" && !bankValidationResult?.success) return false;
+    // Bank validation only required for non-Airport Retailers
+    if (selectedType.value !== "Airport Retailer") {
+      if (!form.bank_account_name || !form.bank_iban) return false;
+      if (!bankValidationResult?.success) return false;
+    }
     
     return true;
   };
