@@ -241,8 +241,11 @@ export default function AdminAccountsView() {
   const isFormComplete = () => {
     if (!selectedType) return false;
     
-    // Base required fields
-    if (!form.full_name || !form.email || !form.company || !form.kvk || !form.vat) return false;
+    // Base required fields (always needed)
+    if (!form.full_name || !form.email || !form.company || !form.vat) return false;
+    
+    // KVK only required for types that include it
+    if (selectedType.fields.includes('kvk') && !form.kvk) return false;
     
     // Type-specific required fields
     if (selectedType.fields.includes('website') && !form.website) return false;
@@ -250,7 +253,7 @@ export default function AdminAccountsView() {
     if (selectedType.fields.includes('city') && !form.city) return false;
     if (selectedType.fields.includes('store_category') && !form.store_category) return false;
     
-    // For Airport Retailer - no bank validation needed, all fields complete
+    // For Airport Retailer - no bank validation needed
     if (selectedType.value === "Airport Retailer") {
       return true;
     }
