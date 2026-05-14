@@ -152,22 +152,24 @@ export default function AdminAccountsView() {
     checkAuthAndLoad();
   }, []);
 
-  const loadData = () => {
-    Promise.all([
-      base44.functions.invoke("listAllUsers", {}),
-      base44.entities.Retailer.list(),
-      base44.entities.Voucher.list(),
-      base44.entities.Transaction.list("-created_date", 200),
-    ]).then(([userRes, r, v, t]) => {
+  const loadData = async () => {
+    try {
+      const [userRes, r, v, t] = await Promise.all([
+        base44.functions.invoke("listAllUsers", {}),
+        base44.entities.Retailer.list(),
+        base44.entities.Voucher.list(),
+        base44.entities.Transaction.list("-created_date", 200),
+      ]);
       setUsers(userRes.data?.users || []);
       setRetailers(r || []);
       setVouchers(v || []);
       setTransactions(t || []);
       setLoading(false);
-    }).catch((err) => {
+    } catch (err) {
       console.error("Failed to load data:", err);
+      toast.error("Failed to load admin data. Please try again.");
       setLoading(false);
-    });
+    }
   };
 
   const filtered = users.filter(u =>
