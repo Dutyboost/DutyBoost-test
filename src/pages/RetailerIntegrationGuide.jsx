@@ -305,6 +305,15 @@ export default function RetailerIntegrationGuide() {
           </div>
         </div>
 
+        {/* Getting started */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-heading font-semibold">Getting started</h2>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 space-y-3">
+            <p className="font-semibold text-blue-900 text-sm">Account creation and access:</p>
+            <p className="text-sm text-blue-800">Your DutyBoost account is created by the DutyBoost team. You'll receive a welcome email with a magic link to set your password and access your retailer dashboard. No manual signup needed — just wait for the email and click the link.</p>
+          </div>
+        </div>
+
         {/* Prerequisites */}
         <div className="space-y-4">
           <h2 className="text-2xl font-heading font-semibold">Before you start (Option A)</h2>
@@ -312,7 +321,6 @@ export default function RetailerIntegrationGuide() {
             <p className="font-semibold text-amber-900 text-sm">You will need:</p>
             <ul className="space-y-2">
               {[
-                'An approved DutyBoost retailer account (register at dutyboost.com/retailer-signup)',
                 'Your DutyBoost Retailer API Key — from your retailer dashboard under Settings → API',
                 'Your DutyBoost Retailer ID — shown in the same settings screen',
                 'A QR scanner connected to your POS system (standard USB or Bluetooth scanner works)',

@@ -260,25 +260,33 @@ export default function TravelPartnerIntegrationGuide() {
           </div>
         </div>
 
+        {/* Getting started */}
+         <div className="space-y-4">
+           <h2 className="text-2xl font-heading font-semibold">Getting started</h2>
+           <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 space-y-3">
+             <p className="font-semibold text-blue-900 text-sm">Account creation and access:</p>
+             <p className="text-sm text-blue-800">Your DutyBoost Travel Partner account is created by the DutyBoost team. You'll receive a welcome email with a magic link to set your password and access your Travel Partner dashboard. No manual signup needed — just wait for the email and click the link.</p>
+           </div>
+         </div>
+
         {/* Prerequisites */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-heading font-semibold">Before you start</h2>
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 space-y-3">
-            <p className="font-semibold text-amber-900 text-sm">You will need:</p>
-            <ul className="space-y-2">
-              {[
-                'An approved DutyBoost Travel Partner account (register at dutyboost.com/travel-partner-signup)',
-                'Your DutyBoost API key — available in your Travel Partner dashboard under Settings → API',
-                'A server-side environment to make API calls (Node.js, Python, PHP, or any backend language)',
-                'The ability to trigger code after a booking is confirmed in your booking engine',
-              ].map(item => (
-                <li key={item} className="flex items-start gap-2 text-sm text-amber-800">
-                  <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-amber-600" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+         <div className="space-y-4">
+           <h2 className="text-2xl font-heading font-semibold">Before you start</h2>
+           <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 space-y-3">
+             <p className="font-semibold text-amber-900 text-sm">You will need:</p>
+             <ul className="space-y-2">
+               {[
+                 'Your DutyBoost API key — available in your Travel Partner dashboard under Settings → API',
+                 'A server-side environment to make API calls (Node.js, Python, PHP, or any backend language)',
+                 'The ability to trigger code after a booking is confirmed in your booking engine',
+               ].map(item => (
+                 <li key={item} className="flex items-start gap-2 text-sm text-amber-800">
+                   <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-amber-600" />
+                   {item}
+                 </li>
+               ))}
+             </ul>
+           </div>
           <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
             <p className="text-sm text-red-700"><strong>Never expose your API key on the frontend.</strong> All calls to the DutyBoost API must be made from your server, not from client-side JavaScript in the browser.</p>
