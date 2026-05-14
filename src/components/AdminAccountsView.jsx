@@ -133,6 +133,7 @@ export default function AdminAccountsView() {
   const [selectedType, setSelectedType] = useState(null);
   const [bankValidating, setBankValidating] = useState(false);
   const [bankValidationResult, setBankValidationResult] = useState(null);
+  const [confirmationEmail, setConfirmationEmail] = useState(null);
 
   useEffect(() => {
     const checkAuthAndLoad = async () => {
@@ -294,12 +295,7 @@ export default function AdminAccountsView() {
 
       const res = await base44.functions.invoke("approveApplication", { applicationId: app.id, action: "approve" });
       if (res.data?.success) {
-        toast.success(`Account created & login email sent to ${form.email}`);
-        setCreateOpen(false);
-        setForm(EMPTY_FORM);
-        setSelectedType(null);
-        setBankValidationResult(null);
-        loadData();
+        setConfirmationEmail(form.email);
       } else {
         toast.error(res.data?.error || "Failed to send invite");
       }
@@ -332,8 +328,26 @@ export default function AdminAccountsView() {
         </div>
       </div>
 
+      {/* Confirmation Dialog */}
+      <Dialog open={!!confirmationEmail} onOpenChange={(open) => { if (!open) { setConfirmationEmail(null); setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); setBankValidationResult(null); loadData(); } }}>
+        <DialogContent className="max-w-md text-center">
+          <div className="py-6">
+            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+              <Send className="w-8 h-8 text-green-600" />
+            </div>
+            <DialogTitle className="text-center mb-2">Account Created Successfully!</DialogTitle>
+            <p className="text-sm text-muted-foreground mb-4">
+              A login link has been sent to <strong>{confirmationEmail}</strong>
+            </p>
+            <Button onClick={() => { setConfirmationEmail(null); setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); setBankValidationResult(null); loadData(); }} className="w-full">
+              Done
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Create Account Dialog */}
-      <Dialog open={createOpen} onOpenChange={setCreateOpen}>
+      <Dialog open={createOpen && !confirmationEmail} onOpenChange={setCreateOpen}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Create Partner Account</DialogTitle>
