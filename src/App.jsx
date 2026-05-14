@@ -90,6 +90,8 @@ import TrainSignup from './pages/TrainSignup.jsx';
 import DemoTrainDashboard from './pages/DemoTrainDashboard.jsx';
 import DevWireframe from './pages/DevWireframe';
 import RequestDemoPage from './pages/RequestDemoPage';
+import AirportRetailerPresentation from './pages/AirportRetailerPresentation';
+import TravelPartnerPresentation from './pages/TravelPartnerPresentation';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -175,6 +177,8 @@ const AuthenticatedApp = () => {
         <Route path="/train-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/dev-wireframe" element={<DevWireframe />} />
         <Route path="/request-demo" element={<RequestDemoPage />} />
+        <Route path="/retailer-presentation" element={<AirportRetailerPresentation />} />
+        <Route path="/travel-partner-presentation" element={<TravelPartnerPresentation />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
