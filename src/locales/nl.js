@@ -155,7 +155,7 @@ export default {
       subtitle_default: 'Kies uw rol om toegang te krijgen tot de voordelen van DutyBoost.',
       agencies: 'Vluchtpartners',
       retailers: 'Luchthaven Retailpartners',
-      hotels: 'Accommodatiepartners',
+      hotels: 'Accommodatie Partners',
       car_rentals: 'Autoverhuur Partners',
       get_started: 'Aan de slag',
       agencies_description: 'Verhoog de klantloyaliteit en zet meer af door exclusieve winkelmogelijkheden op de luchthaven aan te bieden. Onderscheid je aanbod en creëer een nieuwe inkomstensbron.',
