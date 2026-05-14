@@ -238,42 +238,31 @@ export default function AdminAccountsView() {
     }
   };
 
-  const handleCreate = async (e) => {
-    e.preventDefault();
+  const isFormComplete = () => {
+    if (!selectedType) return false;
     
-    // Check all required fields
     const requiredFields = ['full_name', 'email', 'company', 'business_type', 'kvk', 'vat'];
-    // Bank details only required for non-Airport Retailer partners
     if (selectedType.value !== "Airport Retailer") {
       requiredFields.push('bank_account_name', 'bank_iban');
     }
-    const missingFields = requiredFields.filter(field => !form[field]);
     
-    if (missingFields.length > 0) {
+    const hasMissingFields = requiredFields.some(field => !form[field]);
+    if (hasMissingFields) return false;
+    
+    if (selectedType.fields.includes('website') && !form.website) return false;
+    if (selectedType.fields.includes('airport') && !form.airport) return false;
+    if (selectedType.fields.includes('city') && !form.city) return false;
+    if (selectedType.fields.includes('store_category') && !form.store_category) return false;
+    
+    if (selectedType.value !== "Airport Retailer" && !bankValidationResult?.success) return false;
+    
+    return true;
+  };
+
+  const handleCreate = async (e) => {
+    e.preventDefault();
+    if (!isFormComplete()) {
       toast.error(`Please fill in all required fields`);
-      return;
-    }
-
-    // Check type-specific fields
-    if (selectedType.fields.includes('website') && !form.website) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-    if (selectedType.fields.includes('airport') && !form.airport) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-    if (selectedType.fields.includes('city') && !form.city) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-    if (selectedType.fields.includes('store_category') && !form.store_category) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    if (selectedType.value !== "Airport Retailer" && !bankValidationResult?.success) {
-      toast.error("Please verify bank account details first");
       return;
     }
     setCreating(true);
@@ -535,7 +524,7 @@ export default function AdminAccountsView() {
                 <Button type="button" variant="outline" onClick={() => { setCreateOpen(false); setForm(EMPTY_FORM); setSelectedType(null); setBankValidationResult(null); }}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={creating || (selectedType?.value !== "Airport Retailer" && !bankValidationResult?.success)} className="gap-2">
+                <Button type="submit" disabled={creating || !isFormComplete()} className="gap-2">
                   <Send className="w-4 h-4" />
                   {creating ? "Creating & Sending..." : "Create & Send Login"}
                 </Button>
