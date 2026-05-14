@@ -53,11 +53,11 @@ export default function Layout() {
   useEffect(() => {
     base44.auth.me()
       .then(u => {
-        if (!u) { base44.auth.redirectToLogin(); return; }
+        if (!u) { window.location.replace('/login'); return; }
         if (!u.role) { window.location.replace('/get-started'); return; }
         setUser(u);
       })
-      .catch(() => base44.auth.redirectToLogin());
+      .catch(() => { window.location.replace('/login'); });
   }, []);
 
   const role = user?.role || "agency";

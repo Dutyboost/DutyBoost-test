@@ -38,16 +38,16 @@ export default function Home() {
   }
 
   if (!user) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <p className="text-muted-foreground">Unable to load user data</p>
-        </div>
-      </div>
-    );
+    window.location.replace('/login');
+    return null;
   }
 
-  const role = user?.role || "agency";
+  if (!user.role) {
+    window.location.replace('/get-started');
+    return null;
+  }
+
+  const role = user.role;
 
   if (role === "admin") return <AdminPanel />;
   if (role === "retailer") return <RetailerDashboard />;
