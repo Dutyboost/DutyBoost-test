@@ -97,7 +97,7 @@ import TravelPartnerPresentationDark from './pages/TravelPartnerPresentationDark
 import SchipholRetailerPresentation from './pages/SchipholRetailerPresentation';
 
 const AuthenticatedApp = () => {
-  const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
+  const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
   const isAdmin = user?.role === 'admin';
 
   // Show spinner until BOTH loading flags are done — never render routes early
@@ -113,6 +113,15 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     }
+  }
+
+  // If authenticated but no role assigned, this user was never invited via magic link — redirect to get-started
+  if (isAuthenticated && user && !user.role) {
+    return (
+      <Routes>
+        <Route path="*" element={<Navigate to="/get-started" replace />} />
+      </Routes>
+    );
   }
 
   // Survey routes are always public
