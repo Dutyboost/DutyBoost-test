@@ -27,8 +27,8 @@ export default function SchipholRetailerPresentation() {
   const downloadPresentation = async () => {
     setIsDownloading(true);
     try {
-      const { exportRetailerPptx } = await import("../utils/exportRetailerPptx");
-      await exportRetailerPptx();
+      const { exportSchipholPptx } = await import("../utils/exportSchipholPptx");
+      await exportSchipholPptx();
     } finally {
       setIsDownloading(false);
     }

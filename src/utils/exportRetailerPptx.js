@@ -2,7 +2,7 @@ import pptxgen from "pptxgenjs";
 
 const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/195c01c5f_ChatGPT_Image_May_4__2026__10_58_20_AM-removebg-preview.png";
 
-export async function exportAirportRetailerPptx() {
+export async function exportRetailerPptx() {
   const pptx = new pptxgen();
   pptx.layout = "LAYOUT_WIDE"; // 13.33 x 7.5
 
