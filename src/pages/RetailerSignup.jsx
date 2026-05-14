@@ -34,11 +34,56 @@ export default function RetailerSignup() {
   const [kvkValidated, setKvkValidated] = useState(false);
 
   const FALLBACK_AIRPORTS = [
+    { code: 'LHR', name: 'London Heathrow', city: 'London' },
+    { code: 'CDG', name: 'Paris Charles de Gaulle', city: 'Paris' },
     { code: 'AMS', name: 'Amsterdam Schiphol', city: 'Amsterdam' },
-    { code: 'EIN', name: 'Eindhoven', city: 'Eindhoven' },
-    { code: 'GRQ', name: 'Groningen Eelde', city: 'Groningen' },
-    { code: 'MST', name: 'Maastricht Aachen', city: 'Maastricht' },
-    { code: 'RTM', name: 'Rotterdam The Hague', city: 'Rotterdam' },
+    { code: 'FRA', name: 'Frankfurt am Main', city: 'Frankfurt' },
+    { code: 'MAD', name: 'Madrid Barajas', city: 'Madrid' },
+    { code: 'BCN', name: 'Barcelona El Prat', city: 'Barcelona' },
+    { code: 'FCO', name: 'Rome Fiumicino', city: 'Rome' },
+    { code: 'MXP', name: 'Milan Malpensa', city: 'Milan' },
+    { code: 'ORY', name: 'Paris Orly', city: 'Paris' },
+    { code: 'LGW', name: 'London Gatwick', city: 'London' },
+    { code: 'DUB', name: 'Dublin Airport', city: 'Dublin' },
+    { code: 'VCE', name: 'Venice Marco Polo', city: 'Venice' },
+    { code: 'ZRH', name: 'Zurich Airport', city: 'Zurich' },
+    { code: 'CPH', name: 'Copenhagen Airport', city: 'Copenhagen' },
+    { code: 'MUC', name: 'Munich Airport', city: 'Munich' },
+    { code: 'STR', name: 'Stuttgart Airport', city: 'Stuttgart' },
+    { code: 'VIE', name: 'Vienna International', city: 'Vienna' },
+    { code: 'DUS', name: 'Dusseldorf International', city: 'Dusseldorf' },
+    { code: 'EDI', name: 'Edinburgh Airport', city: 'Edinburgh' },
+    { code: 'AGP', name: 'Málaga Costa del Sol', city: 'Málaga' },
+    { code: 'PMI', name: 'Palma de Mallorca', city: 'Palma' },
+    { code: 'IBZ', name: 'Ibiza Airport', city: 'Ibiza' },
+    { code: 'PRG', name: 'Prague Václav Havel', city: 'Prague' },
+    { code: 'WAW', name: 'Warsaw Chopin', city: 'Warsaw' },
+    { code: 'ARL', name: 'Athens Eleftherios Venizelos', city: 'Athens' },
+    { code: 'BUD', name: 'Budapest Ferenc Liszt', city: 'Budapest' },
+    { code: 'BRU', name: 'Brussels Zaventem', city: 'Brussels' },
+    { code: 'BVA', name: 'Paris Beauvais', city: 'Paris' },
+    { code: 'HAM', name: 'Hamburg Airport', city: 'Hamburg' },
+    { code: 'HAJ', name: 'Hannover Airport', city: 'Hannover' },
+    { code: 'SVQ', name: 'Seville Airport', city: 'Seville' },
+    { code: 'BIO', name: 'Bilbao Airport', city: 'Bilbao' },
+    { code: 'ADA', name: 'Istanbul Airport', city: 'Istanbul' },
+    { code: 'TFS', name: 'Tenerife South', city: 'Tenerife' },
+    { code: 'IBZ', name: 'Alicante Airport', city: 'Alicante' },
+    { code: 'NIC', name: 'Nice Côte d\'Azur', city: 'Nice' },
+    { code: 'BIO', name: 'Bilbao Airport', city: 'Bilbao' },
+    { code: 'DTM', name: 'Dortmund Airport', city: 'Dortmund' },
+    { code: 'BOD', name: 'Bordeaux-Mérignac', city: 'Bordeaux' },
+    { code: 'LIL', name: 'Lille Airport', city: 'Lille' },
+    { code: 'NCE', name: 'Nice Airport', city: 'Nice' },
+    { code: 'TUN', name: 'Turin Airport', city: 'Turin' },
+    { code: 'COL', name: 'Cologne Bonn', city: 'Cologne' },
+    { code: 'BIQ', name: 'Biarritz-Pays-Basque', city: 'Biarritz' },
+    { code: 'SKG', name: 'Thessaloniki Airport', city: 'Thessaloniki' },
+    { code: 'PHE', name: 'Plovdiv Airport', city: 'Plovdiv' },
+    { code: 'SOF', name: 'Sofia Airport', city: 'Sofia' },
+    { code: 'OTP', name: 'Bucharest Otopeni', city: 'Bucharest' },
+    { code: 'CLJ', name: 'Cluj-Napoca', city: 'Cluj-Napoca' },
+    { code: 'TPS', name: 'Palermo Airport', city: 'Palermo' },
   ];
 
   useEffect(() => {
@@ -194,19 +239,17 @@ export default function RetailerSignup() {
                  </div>
                  <div className="space-y-1.5">
                    <Label>Airport <span className="text-red-500">*</span></Label>
-                   <select
-                     value={airport}
-                     onChange={e => setAirport(e.target.value)}
-                     className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                   >
-                     <option value="">Select airport</option>
-                    {airports.map(a => (
-                      <option key={a.code} value={a.code}>
-                        {a.code} — {a.name} ({a.city})
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                   <Select value={airport} onValueChange={setAirport}>
+                     <SelectTrigger><SelectValue placeholder="Select airport" /></SelectTrigger>
+                     <SelectContent className="max-h-[300px]">
+                       {airports.map(a => (
+                         <SelectItem key={a.code} value={a.code}>
+                           {a.code} — {a.name} ({a.city})
+                         </SelectItem>
+                       ))}
+                     </SelectContent>
+                   </Select>
+                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <Label>KVK Number <span className="text-red-500">*</span></Label>
