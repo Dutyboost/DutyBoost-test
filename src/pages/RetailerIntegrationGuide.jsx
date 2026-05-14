@@ -352,27 +352,26 @@ export default function RetailerIntegrationGuide() {
             Once the customer's basket is finalised, call the <strong>redeem</strong> endpoint with the final basket total. DutyBoost calculates the effective tiered credit (10%/15%/20%, capped at €25), marks the voucher as used, and records the transaction for your monthly invoice.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-3">
-             <p className="font-semibold">Tiered credits — €70 minimum basket:</p>
+             <p className="font-semibold">Discount structure & platform fees:</p>
              <div className="overflow-x-auto">
                <table className="w-full text-xs">
                  <thead>
                    <tr className="border-b border-blue-200">
-                     <th className="text-left py-2 px-2 font-semibold">Tier</th>
-                     <th className="text-left py-2 px-2 font-semibold">Spend</th>
-                     <th className="text-left py-2 px-2 font-semibold">Saving</th>
+                     <th className="text-left py-2 px-2 font-semibold">Basket spend</th>
+                     <th className="text-left py-2 px-2 font-semibold">Traveler discount</th>
                      <th className="text-left py-2 px-2 font-semibold">DutyBoost fee</th>
-                     <th className="text-left py-2 px-2 font-semibold">Net % retained</th>
                    </tr>
                  </thead>
                  <tbody className="divide-y divide-blue-200">
-                   <tr><td className="py-2 px-2 font-semibold">Boarding</td><td className="py-2 px-2">€70–€99</td><td className="py-2 px-2">€10</td><td className="py-2 px-2">€1.75–€2.48</td><td className="py-2 px-2">85.7%</td></tr>
-                   <tr><td className="py-2 px-2 font-semibold">Priority</td><td className="py-2 px-2">€100–€199</td><td className="py-2 px-2">€30</td><td className="py-2 px-2">€2.50–€4.98</td><td className="py-2 px-2">77.5%</td></tr>
-                   <tr><td className="py-2 px-2 font-semibold">Lounge</td><td className="py-2 px-2">€200–€299</td><td className="py-2 px-2">€45</td><td className="py-2 px-2">€5.00–€7.48</td><td className="py-2 px-2">79.5%</td></tr>
-                   <tr><td className="py-2 px-2 font-semibold">VIP</td><td className="py-2 px-2">€300+</td><td className="py-2 px-2">€60</td><td className="py-2 px-2">€7.50–€12.50</td><td className="py-2 px-2">80.4%</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">€70–€99</td><td className="py-2 px-2">€5</td><td className="py-2 px-2">≤ €25 cap</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">€100–€199</td><td className="py-2 px-2">€10+</td><td className="py-2 px-2">≤ €25 cap</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">€200–€299</td><td className="py-2 px-2">€30+</td><td className="py-2 px-2">≤ €25 cap</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">€300–€1,000</td><td className="py-2 px-2">Up to €60</td><td className="py-2 px-2">≤ €25 cap</td></tr>
+                   <tr className="bg-green-100"><td className="py-2 px-2 font-semibold">€1,000+</td><td className="py-2 px-2">Up to €60</td><td className="py-2 px-2">€0 (all above €1,000 is yours)</td></tr>
                  </tbody>
                </table>
              </div>
-             <p className="text-xs mt-2">Baskets under €70 are not eligible — the QR can still be scanned and held, but the redeem call will be rejected.</p>
+             <p className="text-xs mt-2"><strong>Key point:</strong> Platform fees are capped at €25 on all baskets up to €1,000. Any basket value above €1,000 is yours entirely — no platform fee applies.</p>
            </div>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 shrink-0" />

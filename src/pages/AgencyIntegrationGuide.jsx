@@ -532,6 +532,8 @@ export default function TravelPartnerIntegrationGuide() {
             <ul className="space-y-1.5 text-xs">
               <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>Net sales value</strong> = basket total minus the DutyCredit discount applied</li>
               <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>Commission</strong> = 0.5% of net sales value is paid to the Travel Partner</li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>Platform fee cap</strong> = €25 maximum on baskets up to €1,000</li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>Large baskets</strong> = all basket value above €1,000 goes entirely to the retailer (no platform fee)</li>
               <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> <strong>No hidden costs</strong> — you only earn on real transactions</li>
               <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> Commission is calculated automatically and appears in your Travel Partner dashboard</li>
             </ul>
