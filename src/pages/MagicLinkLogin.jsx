@@ -12,12 +12,27 @@ export default function MagicLinkLogin() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
+  const BLOCKED_DOMAINS = [
+    "gmail.com","googlemail.com","hotmail.com","hotmail.co.uk","hotmail.fr","hotmail.de",
+    "hotmail.es","hotmail.it","hotmail.nl","outlook.com","outlook.fr","outlook.de",
+    "live.com","live.co.uk","live.fr","live.de","msn.com","yahoo.com","yahoo.co.uk",
+    "yahoo.fr","yahoo.de","yahoo.es","yahoo.it","yahoo.co.jp","ymail.com","icloud.com",
+    "me.com","mac.com","aol.com","protonmail.com","proton.me","mail.com","gmx.com",
+    "gmx.de","gmx.net","web.de","inbox.com","zoho.com","yandex.com","yandex.ru",
+    "tutanota.com","fastmail.com","rediffmail.com","qq.com","163.com","126.com",
+  ];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     const trimmed = email.trim().toLowerCase();
     if (!trimmed || !trimmed.includes("@")) {
       setError("Please enter a valid email address.");
+      return;
+    }
+    const domain = trimmed.split("@")[1];
+    if (BLOCKED_DOMAINS.includes(domain)) {
+      setError("Please use your company email address. Personal email providers (Gmail, Hotmail, Yahoo, etc.) are not accepted.");
       return;
     }
     setLoading(true);
