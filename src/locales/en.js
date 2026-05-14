@@ -210,7 +210,7 @@ export default {
       retailers: 'Airport Retail Partners',
       hotels: 'Accommodation Partners',
       car_rentals: 'Car Rental Partners',
-      get_started: 'Get Started',
+      get_started: 'Learn more',
       agencies_description: 'Reward travelers with exclusive airport shopping credits on every booking. Give your customers a reason to choose you — and earn a commission every time they redeem.',
       retailers_description: 'Get pre-qualified customers and increase transaction value through DutyBoost\'s targeted incentive programs. Grow your revenue while building customer loyalty at your airport.',
       hotels_description: 'Give guests a compelling reason to book with you by rewarding every stay with exclusive airport shopping credits. Stand out from competitors and earn a commission on every redemption.',

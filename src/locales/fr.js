@@ -85,7 +85,7 @@ export default {
       retailers: 'Partenaires détaillants aéroportuaires',
       hotels: 'Partenaires hébergement',
       car_rentals: 'Partenaires location de voitures',
-      get_started: 'Commencer',
+      get_started: 'En savoir plus',
       agencies_description: 'Augmentez la fidélité des clients et boostez les dépenses en offrant des incitations d\'achat exclusives à l\'aéroport. Différenciez votre offre et générez un nouveau flux de revenus.',
       retailers_description: 'Obtenez des clients pré-qualifiés et augmentez la valeur des transactions via les programmes d\'incitations ciblés de DutyBoost. Développez vos revenus tout en fidélisant vos clients.',
       hotels_description: 'Améliorez l\'expérience des clients et augmentez les revenus supplémentaires avec les DutyCredits pour chaque séjour. Augmentez la satisfaction et gagnez des commissions.',

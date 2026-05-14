@@ -85,7 +85,7 @@ export default {
       retailers: 'Flughafen-Retailpartner',
       hotels: 'Unterkunftspartner',
       car_rentals: 'Mietwagenpartner',
-      get_started: 'Loslegen',
+      get_started: 'Mehr erfahren',
       agencies_description: 'Erhöhen Sie die Kundentreue und steigern Sie Ausgaben durch exklusive Flughafen-Shopping-Anreize. Differenzieren Sie Ihr Angebot und erschließen Sie einen neuen Umsatzstrom.',
       retailers_description: 'Erhalten Sie vorqualifizierte Kunden und steigern Sie den Transaktionswert durch DutyBoosts gezielte Incentive-Programme. Steigern Sie Ihren Umsatz und bauen Sie Kundentreue auf.',
       hotels_description: 'Verbessern Sie Gasterfahrung und erhöhen Sie Zusatzeinnahmen mit DutyCredits für jeden Aufenthalt. Steigern Sie Kundenzufriedenheit und verdienen Sie Provisionen.',
