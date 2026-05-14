@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import {
   Building2, User, Mail, Search, Shield, Store, Plane, Plus, Send,
-  Hotel, Car, Ship, Train, ChevronDown
+  Hotel, Car, Ship, Train, ChevronDown, X
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -66,6 +66,59 @@ const EMPTY_FORM = {
   website: "", airport: "", store_category: "", kvk: "", vat: "", city: "",
   bank_account_name: "", bank_iban: ""
 };
+
+const TOP_AIRPORTS = [
+  { code: 'AMS', name: 'Amsterdam Schiphol' },
+  { code: 'LHR', name: 'London Heathrow' },
+  { code: 'LGW', name: 'London Gatwick' },
+  { code: 'CDG', name: 'Paris Charles de Gaulle' },
+  { code: 'ORY', name: 'Paris Orly' },
+  { code: 'FRA', name: 'Frankfurt am Main' },
+  { code: 'MUC', name: 'Munich Airport' },
+  { code: 'STR', name: 'Stuttgart Airport' },
+  { code: 'DUS', name: 'Düsseldorf International' },
+  { code: 'BER', name: 'Berlin Brandenburg' },
+  { code: 'HAM', name: 'Hamburg Airport' },
+  { code: 'MAD', name: 'Madrid Barajas' },
+  { code: 'BCN', name: 'Barcelona El Prat' },
+  { code: 'AGP', name: 'Málaga Costa del Sol' },
+  { code: 'PMI', name: 'Palma de Mallorca' },
+  { code: 'IBZ', name: 'Ibiza Airport' },
+  { code: 'FCO', name: 'Rome Fiumicino' },
+  { code: 'MXP', name: 'Milan Malpensa' },
+  { code: 'VCE', name: 'Venice Marco Polo' },
+  { code: 'NAP', name: 'Naples International' },
+  { code: 'ZRH', name: 'Zurich Airport' },
+  { code: 'GVA', name: 'Geneva Airport' },
+  { code: 'VIE', name: 'Vienna International' },
+  { code: 'CPH', name: 'Copenhagen Airport' },
+  { code: 'ARN', name: 'Stockholm Arlanda' },
+  { code: 'OSL', name: 'Oslo Gardermoen' },
+  { code: 'HEL', name: 'Helsinki Vantaa' },
+  { code: 'DUB', name: 'Dublin Airport' },
+  { code: 'PRG', name: 'Prague Václav Havel' },
+  { code: 'WAW', name: 'Warsaw Chopin' },
+  { code: 'BRU', name: 'Brussels Airport' },
+  { code: 'LIS', name: 'Lisbon Humberto Delgado' },
+  { code: 'OPO', name: 'Porto Francisco Sá Carneiro' },
+  { code: 'ATH', name: 'Athens Eleftherios Venizelos' },
+  { code: 'SKG', name: 'Thessaloniki Airport' },
+  { code: 'BUD', name: 'Budapest Ferenc Liszt' },
+  { code: 'KRK', name: 'Kraków John Paul II' },
+  { code: 'OTP', name: 'Bucharest Henri Coandă' },
+  { code: 'SOF', name: 'Sofia Airport' },
+  { code: 'LJU', name: 'Ljubljana Jože Pučnik' },
+  { code: 'ZAG', name: 'Zagreb Airport' },
+  { code: 'TXL', name: 'Berlin Tegel (legacy)' },
+  { code: 'EDI', name: 'Edinburgh Airport' },
+  { code: 'MAN', name: 'Manchester Airport' },
+  { code: 'BHX', name: 'Birmingham Airport' },
+  { code: 'NCE', name: 'Nice Côte d\'Azur' },
+  { code: 'MRS', name: 'Marseille Provence' },
+  { code: 'TLS', name: 'Toulouse-Blagnac' },
+  { code: 'LYS', name: 'Lyon Saint-Exupéry' },
+  { code: 'CIA', name: 'Rome Ciampino' },
+];
 
 export default function AdminAccountsView() {
   const [users, setUsers] = useState([]);
@@ -340,9 +393,47 @@ export default function AdminAccountsView() {
                   </div>
                 )}
                 {selectedType.fields.includes("airport") && (
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5 col-span-2">
                     <Label>Airport Code(s) <span className="text-destructive">*</span></Label>
-                    <Input value={form.airport} onChange={e => setForm({...form, airport: e.target.value})} placeholder="AMS, BRU, CDG..." required />
+                    <div className="space-y-2">
+                      <Select onValueChange={(value) => {
+                        const codes = form.airport ? form.airport.split(",").map(c => c.trim()) : [];
+                        if (!codes.includes(value)) {
+                          setForm({...form, airport: codes.length > 0 ? codes.join(", ") + ", " + value : value});
+                        }
+                      }}>
+                        <SelectTrigger><SelectValue placeholder="Search and select airport..." /></SelectTrigger>
+                        <SelectContent>
+                          {TOP_AIRPORTS.map(a => (
+                            <SelectItem key={a.code} value={a.code}>
+                              {a.code} — {a.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {form.airport && (
+                        <div className="flex flex-wrap gap-2">
+                          {form.airport.split(",").map((code, idx) => {
+                            const trimmed = code.trim();
+                            return trimmed ? (
+                              <div key={idx} className="bg-primary/10 border border-primary/30 rounded-full px-3 py-1.5 text-sm font-medium flex items-center gap-2">
+                                {trimmed}
+                                <button 
+                                  type="button"
+                                  onClick={() => {
+                                    const codes = form.airport.split(",").map(c => c.trim()).filter(c => c !== trimmed);
+                                    setForm({...form, airport: codes.join(", ")});
+                                  }} 
+                                  className="text-primary hover:opacity-70"
+                                >
+                                  <X className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            ) : null;
+                          })}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
                 {selectedType.fields.includes("city") && (
