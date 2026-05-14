@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store } from "lucide-react";
@@ -36,7 +37,7 @@ const TIER_BANDS = [
 ];
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
-function RetailerTab() {
+function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
@@ -57,17 +58,15 @@ function RetailerTab() {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-white">What does a DutyBoost traveler cost you?</h2>
-        <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          Drag the slider to any basket size. See your net revenue on a sale that likely wouldn't have happened without DutyBoost.
-        </p>
+        <h2 className="text-xl font-bold text-white">{t('calculator.retailer_title')}</h2>
+        <p className="text-slate-400 text-sm max-w-xl mx-auto">{t('calculator.retailer_subtitle')}</p>
       </div>
 
       {/* Slider Card */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-5">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">Basket Spend</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{t('calculator.basket_spend')}</p>
             <p className="text-5xl font-bold text-white">€{spend}</p>
           </div>
           {tier ? (
@@ -75,21 +74,21 @@ function RetailerTab() {
               {tier.emoji} {tier.name}
             </div>
           ) : (
-            <div className="px-4 py-2 rounded-xl border border-slate-600 text-slate-500 text-sm">Below minimum (€70)</div>
+            <div className="px-4 py-2 rounded-xl border border-slate-600 text-slate-500 text-sm">{t('calculator.below_minimum')}</div>
           )}
         </div>
         <div className="space-y-2">
           <Slider min={0} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-500">
             <span>€0</span>
-            <span className="text-slate-400">Min basket: €70</span>
+            <span className="text-slate-400">{t('calculator.min_basket')}</span>
             <span>€1,000</span>
           </div>
         </div>
         {tier && (
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs text-slate-400">
-              <span>Progress within {tier.name}</span>
+              <span>{t('calculator.progress_within')} {tier.name}</span>
               <span>{Math.round(tierProgress)}%</span>
             </div>
             <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
@@ -104,35 +103,35 @@ function RetailerTab() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
               <ShoppingBag className="w-4 h-4 text-slate-400 mx-auto mb-2" />
-              <p className="text-xs text-slate-400 mb-1">Basket Value</p>
+              <p className="text-xs text-slate-400 mb-1">{t('calculator.basket_value')}</p>
               <p className="text-2xl font-bold text-white">€{spend}</p>
             </div>
             <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
               <Percent className="w-4 h-4 text-red-400 mx-auto mb-2" />
-              <p className="text-xs text-red-300 mb-1">Traveler Saving</p>
+              <p className="text-xs text-red-300 mb-1">{t('calculator.traveler_saving')}</p>
               <p className="text-2xl font-bold text-red-300">€{saving.toFixed(2)}</p>
               <p className="text-xs text-red-400 mt-0.5">{discountPct}% off</p>
             </div>
             <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 text-center">
               <Euro className="w-4 h-4 text-orange-400 mx-auto mb-2" />
-              <p className="text-xs text-orange-300 mb-1">DutyBoost Fee (2.5%, max €25)</p>
+              <p className="text-xs text-orange-300 mb-1">{t('calculator.dutboost_fee')}</p>
               <p className="text-2xl font-bold text-orange-300">€{commission.toFixed(2)}</p>
             </div>
             <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
               <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
-              <p className="text-xs text-green-300 mb-1">Your Net Revenue</p>
+              <p className="text-xs text-green-300 mb-1">{t('calculator.net_revenue')}</p>
               <p className="text-2xl font-bold text-green-300">€{netRevenue.toFixed(2)}</p>
             </div>
           </div>
 
           <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-4">
-            <h3 className="font-bold text-white text-lg">Total acquisition cost</h3>
-            <p className="text-slate-400 text-sm">What you give up to bring in a traveler who most likely would have walked past without DutyBoost.</p>
+            <h3 className="font-bold text-white text-lg">{t('calculator.total_acq_title')}</h3>
+            <p className="text-slate-400 text-sm">{t('calculator.total_acq_desc')}</p>
             <div className="space-y-2">
               {[
-                { label: "Traveler saving", value: saving, pct: discountPct, barColor: "bg-red-400", textColor: "text-red-300" },
-                { label: "DutyBoost fee", value: commission, pct: spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, barColor: "bg-orange-400", textColor: "text-orange-300" },
-                { label: "Net revenue", value: netRevenue, pct: Math.round((netRevenue / spend) * 1000) / 10, barColor: "bg-green-400", textColor: "text-green-300" },
+                { label: t('calculator.label_saving'), value: saving, pct: discountPct, barColor: "bg-red-400", textColor: "text-red-300" },
+                { label: t('calculator.label_fee'), value: commission, pct: spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, barColor: "bg-orange-400", textColor: "text-orange-300" },
+                { label: t('calculator.label_net'), value: netRevenue, pct: Math.round((netRevenue / spend) * 1000) / 10, barColor: "bg-green-400", textColor: "text-green-300" },
               ].map(({ label, value, pct, barColor, textColor }) => (
                 <div key={label} className="flex items-center gap-3">
                   <div className="w-28 text-xs text-slate-400 shrink-0">{label}</div>
@@ -145,27 +144,27 @@ function RetailerTab() {
             </div>
             <div className="pt-3 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
-                <p className="text-xs text-slate-400">Total cost to acquire this traveler</p>
-                <p className="text-2xl font-bold text-white">€{totalCost.toFixed(2)} <span className="text-sm font-normal text-slate-400">/ {Math.round((totalCost / spend) * 1000) / 10}% of basket</span></p>
+                <p className="text-xs text-slate-400">{t('calculator.total_cost_label')}</p>
+                <p className="text-2xl font-bold text-white">€{totalCost.toFixed(2)} <span className="text-sm font-normal text-slate-400">/ {Math.round((totalCost / spend) * 1000) / 10}% {t('calculator.of_basket')}</span></p>
               </div>
               <div className="flex items-start gap-2 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3 max-w-xs">
                 <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                <p className="text-xs text-blue-300 leading-relaxed">Without DutyBoost this traveler's spend was <strong>€0</strong>. Your acquisition cost is <strong>€{totalCost.toFixed(2)}</strong> on a sale of <strong>€{spend}</strong>.</p>
+                <p className="text-xs text-blue-300 leading-relaxed">{t('calculator.acq_info')} <strong>€0</strong>. {t('calculator.acq_info_2')} <strong>€{totalCost.toFixed(2)}</strong> {t('calculator.acq_info_3')} <strong>€{spend}</strong>.</p>
               </div>
             </div>
           </div>
 
           <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-3">
-            <h3 className="font-bold text-white text-sm uppercase tracking-widest">All tiers at a glance</h3>
+            <h3 className="font-bold text-white text-sm uppercase tracking-widest">{t('calculator.tiers_title')}</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="text-left text-xs text-slate-400 border-b border-slate-700">
-                    <th className="pb-2 pr-4">Tier</th>
-                    <th className="pb-2 pr-4">Spend</th>
-                    <th className="pb-2 pr-4">Saving</th>
-                    <th className="pb-2 pr-4">DutyBoost fee</th>
-                    <th className="pb-2">Net % retained</th>
+                    <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
+                    <th className="pb-2 pr-4">{t('calculator.col_spend')}</th>
+                    <th className="pb-2 pr-4">{t('calculator.col_saving')}</th>
+                    <th className="pb-2 pr-4">{t('calculator.col_fee')}</th>
+                    <th className="pb-2">{t('calculator.col_net_pct')}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-700/50">
@@ -188,12 +187,12 @@ function RetailerTab() {
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-slate-500">Net % retained = (basket − saving − 2.5% fee) ÷ basket. Calculated at midpoint of each tier.</p>
+            <p className="text-xs text-slate-500">{t('calculator.tiers_footnote')}</p>
           </div>
         </>
       ) : (
         <div className="bg-slate-800 border border-slate-700 rounded-2xl p-10 text-center">
-          <p className="text-slate-400">Slide to at least <strong className="text-white">€70</strong> to activate a DutyCredit tier.</p>
+          <p className="text-slate-400">{t('calculator.slide_to_activate')} <strong className="text-white">€70</strong> {t('calculator.slide_to_activate_2')}</p>
         </div>
       )}
     </div>
@@ -201,7 +200,7 @@ function RetailerTab() {
 }
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
-function TravelPartnerTab() {
+function TravelPartnerTab({ t }) {
   const [bookingsPerMonth, setBookingsPerMonth] = useState(0);
   const [conversionRate, setConversionRate] = useState(20); // %
   const [avgBasket, setAvgBasket] = useState(150);
@@ -216,9 +215,9 @@ function TravelPartnerTab() {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-white">How much will you earn as a Travel Partner?</h2>
+        <h2 className="text-xl font-bold text-white">{t('calculator.partner_title')}</h2>
         <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          You earn <strong className="text-green-300">20% of DutyBoost's 2.5% fee</strong> on every basket your travelers spend at the airport (capped at <strong className="text-green-300">€5 per transaction</strong>) — paid out <strong className="text-green-300">monthly</strong> by DutyBoost out of its own fee.
+          {t('calculator.partner_subtitle_1')} <strong className="text-green-300">{t('calculator.partner_subtitle_2')}</strong> {t('calculator.partner_subtitle_3')} <strong className="text-green-300">{t('calculator.partner_subtitle_4')}</strong>{t('calculator.partner_subtitle_5')} <strong className="text-green-300">{t('calculator.partner_subtitle_6')}</strong> {t('calculator.partner_subtitle_7')}
         </p>
       </div>
 
@@ -228,10 +227,10 @@ function TravelPartnerTab() {
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Bookings / month you send DutyCredits to</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.bookings_per_month')}</p>
               <p className="text-4xl font-bold text-white">{bookingsPerMonth.toLocaleString()}</p>
             </div>
-            <span className="text-slate-400 text-sm">travelers</span>
+            <span className="text-slate-400 text-sm">{t('calculator.travelers_label')}</span>
           </div>
           <Slider min={0} max={1000000} step={1000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-500"><span>0</span><span>1,000,000</span></div>
@@ -241,20 +240,20 @@ function TravelPartnerTab() {
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Estimated redemption rate</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
               <p className="text-4xl font-bold text-white">{conversionRate}%</p>
             </div>
-            <span className="text-slate-400 text-sm">of travelers redeem</span>
+            <span className="text-slate-400 text-sm">{t('calculator.travelers_redeem')}</span>
           </div>
           <Slider min={5} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>5%</span><span className="text-slate-400">Industry avg: ~15–25%</span><span>50%</span></div>
+          <div className="flex justify-between text-xs text-slate-500"><span>5%</span><span className="text-slate-400">{t('calculator.industry_avg')}</span><span>50%</span></div>
         </div>
 
         {/* Avg basket */}
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">Average basket size at airport store</p>
+              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.avg_basket')}</p>
               <p className="text-4xl font-bold text-white">€{avgBasket}</p>
             </div>
             {tier && (
