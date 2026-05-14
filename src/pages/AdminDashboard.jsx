@@ -5,7 +5,8 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users, Contact } from "lucide-react";
+import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users, Contact, X } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import LeadsAdmin from "./LeadsAdmin";
 import AdminAccountsView from "../components/AdminAccountsView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
@@ -25,6 +26,35 @@ export default function AdminDashboard() {
   const [period, setPeriod] = useState("month");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
+  const [selectedAirports, setSelectedAirports] = useState([]);
+  const [airports, setAirports] = useState([]);
+
+  const TOP_AIRPORTS = [
+    { code: 'LHR', name: 'London Heathrow' },
+    { code: 'CDG', name: 'Paris Charles de Gaulle' },
+    { code: 'AMS', name: 'Amsterdam Schiphol' },
+    { code: 'FRA', name: 'Frankfurt am Main' },
+    { code: 'MAD', name: 'Madrid Barajas' },
+    { code: 'BCN', name: 'Barcelona El Prat' },
+    { code: 'FCO', name: 'Rome Fiumicino' },
+    { code: 'MXP', name: 'Milan Malpensa' },
+    { code: 'ORY', name: 'Paris Orly' },
+    { code: 'LGW', name: 'London Gatwick' },
+    { code: 'DUB', name: 'Dublin Airport' },
+    { code: 'VCE', name: 'Venice Marco Polo' },
+    { code: 'ZRH', name: 'Zurich Airport' },
+    { code: 'CPH', name: 'Copenhagen Airport' },
+    { code: 'MUC', name: 'Munich Airport' },
+    { code: 'STR', name: 'Stuttgart Airport' },
+    { code: 'VIE', name: 'Vienna International' },
+    { code: 'DUS', name: 'Dusseldorf International' },
+    { code: 'EDI', name: 'Edinburgh Airport' },
+    { code: 'AGP', name: 'Málaga Costa del Sol' },
+    { code: 'PMI', name: 'Palma de Mallorca' },
+    { code: 'IBZ', name: 'Ibiza Airport' },
+    { code: 'PRG', name: 'Prague Václav Havel' },
+    { code: 'WAW', name: 'Warsaw Chopin' },
+  ];
 
   useEffect(() => {
     base44.auth.me().then(user => {
@@ -67,8 +97,13 @@ export default function AdminDashboard() {
     [transactions, startDate, endDate]
   );
   const filteredVouchers = useMemo(() =>
-    vouchers.filter(v => { const d = (v.created_date || "").split("T")[0]; return d >= startDate && d <= endDate; }),
-    [vouchers, startDate, endDate]
+    vouchers.filter(v => { 
+      const d = (v.created_date || "").split("T")[0];
+      const dateMatch = d >= startDate && d <= endDate;
+      const airportMatch = selectedAirports.length === 0 || selectedAirports.includes(v.airport);
+      return dateMatch && airportMatch;
+    }),
+    [vouchers, startDate, endDate, selectedAirports]
   );
 
   // FnB (Hotels/Car Rentals) filtered data
@@ -184,10 +219,47 @@ export default function AdminDashboard() {
 
       {activeTab === "accounts" ? <AdminAccountsView /> : activeTab === "leads" ? <LeadsAdmin /> : (<>
       <div>
-        <h1 className="text-2xl font-heading font-bold tracking-tight flex items-center gap-2">
+         <h1 className="text-2xl font-heading font-bold tracking-tight flex items-center gap-2">
           <BarChart2 className="w-6 h-6 text-primary" /> Analytics Dashboard
         </h1>
         <p className="text-muted-foreground mt-1">Platform-wide metrics and performance insights.</p>
+      </div>
+
+      {/* Airport selector */}
+      <div className="bg-card rounded-xl border border-border p-4 space-y-3">
+        <div className="flex items-center gap-2">
+          <MapPin className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm font-medium">Airport Code(s)</span>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Select onValueChange={(value) => {
+            if (!selectedAirports.includes(value)) {
+              setSelectedAirports([...selectedAirports, value]);
+            }
+          }}>
+            <SelectTrigger className="w-64"><SelectValue placeholder="Search and select airport..." /></SelectTrigger>
+            <SelectContent>
+              {TOP_AIRPORTS.map(a => (
+                <SelectItem key={a.code} value={a.code}>
+                  {a.code} — {a.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <div className="flex flex-wrap gap-2">
+            {selectedAirports.map(code => {
+              const airport = TOP_AIRPORTS.find(a => a.code === code);
+              return (
+                <div key={code} className="bg-primary/10 border border-primary/30 rounded-full px-3 py-1.5 text-sm font-medium flex items-center gap-2">
+                  {code}
+                  <button onClick={() => setSelectedAirports(selectedAirports.filter(c => c !== code))} className="text-primary hover:opacity-70">
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Period selector */}
