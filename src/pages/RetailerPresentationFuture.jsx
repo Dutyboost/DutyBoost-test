@@ -675,7 +675,7 @@ export default function RetailerPresentationFuture() {
 function SlideLabel({ num, label, color }) {
   const colors = { blue: "bg-blue-500/20 text-blue-300 border-blue-500/30", orange: "bg-orange-500/20 text-orange-300 border-orange-500/30", green: "bg-green-500/20 text-green-300 border-green-500/30" };
   return (
-    <div className="flex items-center gap-2 mb-4">
+    <div className="flex items-center justify-center gap-2 mb-4">
       <span className={`text-xs font-bold border rounded-full px-3 py-1 ${colors[color]}`}>Slide {num}</span>
       <span className={`text-xs font-semibold uppercase tracking-widest ${colors[color].split(" ")[1]}`}>{label}</span>
     </div>

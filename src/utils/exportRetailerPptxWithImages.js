@@ -44,9 +44,8 @@ export async function exportRetailerPptxWithImages() {
           data: canvas.toDataURL("image/png"),
           x: 0,
           y: 0,
-          w: "100%",
-          h: "100%",
-          sizing: { type: "cover", w: 13.333, h: 7.5 },
+          w: 13.333,
+          h: 7.5,
         });
 
         console.log(`Captured slide ${i + 1} successfully`);
