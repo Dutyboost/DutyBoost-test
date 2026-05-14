@@ -223,8 +223,8 @@ function App() {
         <Router>
           <AuthenticatedApp />
           <CookieConsentBar />
+          <Toaster />
         </Router>
-        <Toaster />
       </QueryClientProvider>
     </AuthProvider>
   )
