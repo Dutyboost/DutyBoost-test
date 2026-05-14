@@ -239,7 +239,11 @@ export default function AdminAccountsView() {
     e.preventDefault();
     
     // Check all required fields
-    const requiredFields = ['full_name', 'email', 'company', 'business_type', 'kvk', 'vat', 'bank_account_name', 'bank_iban'];
+    const requiredFields = ['full_name', 'email', 'company', 'business_type', 'kvk', 'vat'];
+    // Bank details only required for non-Airport Retailer partners
+    if (selectedType.value !== "Airport Retailer") {
+      requiredFields.push('bank_account_name', 'bank_iban');
+    }
     const missingFields = requiredFields.filter(field => !form[field]);
     
     if (missingFields.length > 0) {
@@ -265,7 +269,7 @@ export default function AdminAccountsView() {
       return;
     }
 
-    if (!bankValidationResult?.success) {
+    if (selectedType.value !== "Airport Retailer" && !bankValidationResult?.success) {
       toast.error("Please verify bank account details first");
       return;
     }
@@ -470,7 +474,8 @@ export default function AdminAccountsView() {
                 </div>
                 </div>
 
-              {/* Bank Account Section */}
+              {/* Bank Account Section - only for non-Airport Retailer partners */}
+              {selectedType.value !== "Airport Retailer" && (
               <div className="border-t border-border pt-4 mt-4">
                 <h3 className="font-semibold text-sm mb-3">Bank Account Details</h3>
                 <div className="grid grid-cols-2 gap-4 mb-3">
@@ -504,6 +509,7 @@ export default function AdminAccountsView() {
                   {bankValidating ? "Verifying..." : "Verify Bank Account"}
                 </Button>
               </div>
+              )}
 
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-700">
                 <strong>What happens:</strong> The account will be created and <strong>{form.email || "the partner"}</strong> will receive an email with a link to access their dashboard.
