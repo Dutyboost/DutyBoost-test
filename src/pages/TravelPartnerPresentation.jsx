@@ -36,59 +36,60 @@ export default function TravelPartnerPresentation() {
       <div className="max-w-6xl mx-auto px-6 py-16 space-y-24">
         {/* Title Section */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-heading font-bold text-foreground">DutyBoost for Travel Partners</h1>
+          <h1 className="text-5xl font-heading font-bold text-foreground">Partner with DutyBoost</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Turn every booking into a new revenue stream. Earn commission on every DutyCredit redemption.
+            Add value to your customers. Earn commission.
+          </p>
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto">
+            A white-label loyalty program that delivers exclusive airport retail discounts to your travelers and generates recurring commission.
           </p>
         </div>
 
-        {/* The Market */}
+        {/* The Opportunity */}
         <section className="space-y-8">
-          <div className="border-l-4 border-blue-600 pl-6">
-            <h2 className="text-3xl font-heading font-bold mb-2">The Travel Industry Landscape</h2>
-            <p className="text-muted-foreground">Travel partners are adapting to a cost-conscious market. New revenue models are essential.</p>
+          <div className="border-l-4 border-primary pl-6">
+            <h2 className="text-3xl font-heading font-bold mb-2">The Opportunity</h2>
+            <p className="text-muted-foreground">72% of travelers browse but don't buy at airports. A massive opportunity.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-4 gap-4">
             {[
-              { icon: DollarSign, title: '$141.3B', desc: 'US travel booked through advisors (2026)' },
-              { icon: TrendingUp, title: '26%', desc: 'Of total travel market share' },
-              { icon: Users, title: '+40%', desc: 'Travelers seeking value-add benefits' },
+              { icon: DollarSign, title: '€40B+', desc: 'Global airport retail opportunity' },
+              { icon: Users, title: '2.4B', desc: 'International air passengers/year' },
+              { icon: TrendingUp, title: '72%', desc: 'Browse but don\'t buy' },
+              { icon: BarChart3, title: '€35–€80', desc: 'Average airport duty-free basket' },
             ].map(({ icon: Icon, title, desc }, i) => (
-              <div key={i} className="bg-white border border-border rounded-xl p-6 space-y-2">
-                <Icon className="w-8 h-8 text-blue-600" />
-                <p className="text-2xl font-heading font-bold">{title}</p>
+              <div key={i} className="bg-blue-50 border border-blue-200 rounded-xl p-6 space-y-2">
+                <Icon className="w-8 h-8 text-primary" />
+                <p className="text-2xl font-heading font-bold text-primary">{title}</p>
                 <p className="text-sm text-muted-foreground">{desc}</p>
               </div>
             ))}
           </div>
+
+          <div className="bg-primary text-primary-foreground rounded-xl p-6 text-center">
+            <p className="font-semibold">DutyBoost helps you convert the 72% who browse — by giving your customers a reason to spend.</p>
+          </div>
         </section>
 
-        {/* The Problem */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-heading font-bold">The Commission Problem</h2>
+        {/* Your Value Proposition */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-heading font-bold">Your Value Proposition</h2>
+          <p className="text-center text-muted-foreground max-w-3xl mx-auto">DutyCredit: A loyalty tool that drives spending</p>
+
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              {
-                title: 'Commission rates are shrinking',
-                desc: 'Airlines and OTAs cut commissions every year. Airlines now pay 0-2%, hotels 5-10%. You need new income sources.',
-              },
-              {
-                title: 'One-time transaction model',
-                desc: 'You earn on the booking. That\'s it. No way to monetize what travelers do after departure.',
-              },
-              {
-                title: 'No customer loyalty tools',
-                desc: 'Competitors match your prices. You need a way to differentiate and create stickiness.',
-              },
-              {
-                title: 'Travel happens at the airport',
-                desc: 'Travelers spend significant money at departure airports (duty-free, shopping, food). You earn nothing from that.',
-              },
-            ].map(({ title, desc }, i) => (
-              <div key={i} className="bg-blue-50 border border-blue-200 rounded-xl p-5 space-y-2">
-                <p className="font-semibold text-blue-900">{title}</p>
-                <p className="text-sm text-blue-800">{desc}</p>
+              { icon: '📱', title: '✓ Differentiate Your Platform', desc: 'Exclusive benefit your customers won\'t find elsewhere. Pure competitive advantage.' },
+              { icon: '❤️', title: '✓ Improve Customer Loyalty', desc: 'Travelers remember the extra value you provided. Higher lifetime value, lower churn.' },
+              { icon: '⭐', title: '✓ Increase NPS & Satisfaction', desc: 'Give customers what they want: real savings at moments they care about (airports).' },
+              { icon: '⚡', title: '✓ Zero Operational Burden', desc: 'We handle retailer relationships, fraud, payouts, customer support. You just send emails.' },
+              { icon: '💰', title: '✓ Generate Recurring Revenue', desc: 'Passive commission on every booking. No customer service overhead.' },
+              { icon: '📊', title: '✓ Build Data & Insights', desc: 'Understand your traveler behavior at airports. Spending patterns. Channel performance.' },
+            ].map(({ icon, title, desc }, i) => (
+              <div key={i} className={`${i % 2 === 0 ? 'bg-blue-50 border-blue-200' : 'bg-green-50 border-green-200'} border rounded-xl p-5 space-y-2`}>
+                <p className="text-lg mb-2">{icon}</p>
+                <p className="font-semibold">{title}</p>
+                <p className="text-sm text-muted-foreground">{desc}</p>
               </div>
             ))}
           </div>
