@@ -430,44 +430,39 @@ export default function TravelPartnerIntegrationGuide() {
         {/* Discount logic */}
         <div className="space-y-4">
           <h2 className="text-2xl font-heading font-semibold">How discounts are calculated</h2>
-          <p className="text-sm text-muted-foreground">DutyBoost calculates discounts dynamically based on booking value and trip profile — you don't need to calculate anything yourself.</p>
+          <p className="text-sm text-muted-foreground">DutyBoost calculates discounts based on basket spend — simple and transparent. Discounts are capped at €60 on €300+ spend.</p>
           <div className="rounded-xl border border-border overflow-hidden">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-muted/50 text-left">
-                  <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wide">Rule</th>
-                  <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wide">Discount added</th>
+                  <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wide">Basket spend (before discount)</th>
+                  <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wide">Traveler discount (DutyCredit)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {[
-                      ['Base per traveler — short-haul', '€2.50'],
-                      ['Base per traveler — long-haul', '€7.00'],
-                      ['Ticket price < €200', '×1.0 multiplier'],
-                      ['Ticket price €200 – €499', '×1.5 multiplier'],
-                      ['Ticket price €500 – €999', '×2.0 multiplier'],
-                      ['Ticket price €1,000+', '×2.5 multiplier'],
-                      ['Floor (minimum credit)', '€5'],
-                      ['Cap (maximum credit)', '€25'],
-                    ].map(([rule, val]) => (
-                  <tr key={rule} className="hover:bg-muted/20">
-                    <td className="px-4 py-2.5 text-muted-foreground text-sm">{rule}</td>
-                    <td className="px-4 py-2.5 font-semibold text-primary text-sm">{val}</td>
+                  ['€70', '€5 discount'],
+                  ['€100', '€10+ discount'],
+                  ['€200', '€30+ discount'],
+                  ['€300+', 'Up to €60 discount'],
+                ].map(([spend, discount]) => (
+                  <tr key={spend} className="hover:bg-muted/20">
+                    <td className="px-4 py-2.5 text-muted-foreground text-sm">{spend}</td>
+                    <td className="px-4 py-2.5 font-semibold text-primary text-sm">{discount}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="text-xs text-muted-foreground">
-            Formula: <strong>credit = clamp(base × travelers × multiplier, €5, €25)</strong><br/>
-            Example (long-haul, 2 travelers, €600 ticket): €7.00 × 2 × 2.0 = <strong>€28 → capped at €25</strong><br/>
-            Example (short-haul, 1 traveler, €300 ticket): €2.50 × 1 × 1.5 = <strong>€3.75 → floored at €5</strong>
+            <strong>The more the traveler spends, the higher the discount — up to a maximum of €60 on €300+ spend.</strong><br/>
+            Example: A traveler spends €300 at a retailer and receives a €60 discount. The net sales value (€240) is the basis for commission distribution.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 space-y-1">
-            <p className="font-semibold">Redemption rules (communicated to travelers in the email):</p>
-            <p>→ <strong>No minimum spend</strong> — every traveler can redeem regardless of basket size.</p>
-            <p>→ Credit cannot exceed <strong>15% of the basket value</strong> (small baskets get proportionally less).</p>
-            <p className="text-xs text-blue-600">Retailers always net ≥ 85% of the basket — protecting their margin.</p>
+            <p className="font-semibold">Key redemption rules:</p>
+            <p>→ <strong>Minimum basket spend: €70</strong> — travelers need at least €70 to receive a DutyCredit.</p>
+            <p>→ <strong>Discount cap: €60</strong> — maximum discount available at €300+ spend.</p>
+            <p className="text-xs text-blue-600">This performance-based model rewards both travelers and retailers — higher spending means higher discounts, and travel partners earn commission on the full transaction value.</p>
           </div>
         </div>
 
