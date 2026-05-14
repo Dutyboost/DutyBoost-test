@@ -92,6 +92,8 @@ import DevWireframe from './pages/DevWireframe';
 import RequestDemoPage from './pages/RequestDemoPage';
 import AirportRetailerPresentation from './pages/AirportRetailerPresentation';
 import TravelPartnerPresentation from './pages/TravelPartnerPresentation';
+import AirportRetailerPresentationDark from './pages/AirportRetailerPresentationDark';
+import TravelPartnerPresentationDark from './pages/TravelPartnerPresentationDark';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -179,6 +181,8 @@ const AuthenticatedApp = () => {
         <Route path="/request-demo" element={<RequestDemoPage />} />
         <Route path="/retailer-presentation" element={<AirportRetailerPresentation />} />
         <Route path="/travel-partner-presentation" element={<TravelPartnerPresentation />} />
+        <Route path="/retailer-presentation-dark" element={<AirportRetailerPresentationDark />} />
+        <Route path="/travel-partner-presentation-dark" element={<TravelPartnerPresentationDark />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
