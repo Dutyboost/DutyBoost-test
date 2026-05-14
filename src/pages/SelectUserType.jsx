@@ -91,7 +91,7 @@ export default function SelectUserType() {
                   <div className={`w-20 h-20 rounded-2xl ${option.bg} flex items-center justify-center mb-6`}>
                     <Icon className={`w-20 h-20 ${option.iconColor}`} />
                   </div>
-                  <h2 className="font-heading font-bold text-2xl mb-3">{option.title}</h2>
+                  <h2 className="font-heading font-bold text-2xl mb-3 break-words">{option.title}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
                     {t(option.descKey)}
                   </p>
