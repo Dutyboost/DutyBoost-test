@@ -94,6 +94,7 @@ import AirportRetailerPresentation from './pages/AirportRetailerPresentation';
 import TravelPartnerPresentation from './pages/TravelPartnerPresentation';
 import AirportRetailerPresentationDark from './pages/AirportRetailerPresentationDark';
 import TravelPartnerPresentationDark from './pages/TravelPartnerPresentationDark';
+import SchipholRetailerPresentation from './pages/SchipholRetailerPresentation';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user } = useAuth();
@@ -183,6 +184,7 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-presentation" element={<TravelPartnerPresentation />} />
         <Route path="/retailer-presentation-dark" element={<AirportRetailerPresentationDark />} />
         <Route path="/travel-partner-presentation-dark" element={<TravelPartnerPresentationDark />} />
+        <Route path="/schiphol-retailer-presentation" element={<SchipholRetailerPresentation />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
