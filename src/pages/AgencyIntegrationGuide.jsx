@@ -50,7 +50,7 @@ function Collapsible({ title, children }) {
   );
 }
 
-const STEP_PING = `# Replace with your DutyBoost API key from your agency dashboard
+const STEP_PING = `# Replace with your DutyBoost API key from your Travel Partner dashboard
 curl -X POST https://api.dutyboost.com/v1/generate-duty-credit \\
   -H "Content-Type: application/json" \\
   -H "X-DutyBoost-Key: YOUR_API_KEY" \\
@@ -83,8 +83,8 @@ async function issueDutyCredit(booking) {
       travel_date:         booking.departureDate,        // 'YYYY-MM-DD'
       traveler_email:      booking.travelerEmail,
       traveler_name:       booking.travelerName,
-      agency_email:        'your@agency.com',
-      agency_name:         'YOUR AGENCY NAME'
+      travel_partner_email:        'your@travelpartner.com',
+      travel_partner_name:         'YOUR TRAVEL PARTNER NAME'
     })
   });
 
@@ -115,8 +115,8 @@ def issue_duty_credit(booking):
             'travel_date':         booking['departure_date'],      # 'YYYY-MM-DD'
             'traveler_email':      booking['traveler_email'],
             'traveler_name':       booking['traveler_name'],
-            'agency_email':        'your@agency.com',
-            'agency_name':         'YOUR AGENCY NAME'
+            'travel_partner_email':        'your@travelpartner.com',
+            'travel_partner_name':         'YOUR TRAVEL PARTNER NAME'
         }
     )
 
@@ -137,8 +137,8 @@ function issueDutyCredit(array $booking): array {
         'travel_date'         => $booking['departure_date'],    // 'YYYY-MM-DD'
         'traveler_email'      => $booking['traveler_email'],
         'traveler_name'       => $booking['traveler_name'],
-        'agency_email'        => 'your@agency.com',
-        'agency_name'         => 'YOUR AGENCY NAME',
+        'travel_partner_email'        => 'your@travelpartner.com',
+        'travel_partner_name'         => 'YOUR TRAVEL PARTNER NAME',
     ]);
 
     $ch = curl_init('https://api.dutyboost.com/v1/generate-duty-credit');
@@ -185,7 +185,7 @@ const EXAMPLE_RESPONSE = `{
 }`;
 
 const WEBHOOK_EXAMPLE = `// DutyBoost will POST to your webhook URL when a voucher is redeemed
-// Configure your webhook URL in your agency dashboard settings
+// Configure your webhook URL in your Travel Partner dashboard settings
 
 app.post('/webhooks/dutyboost', (req, res) => {
   const { event, voucher_code, store_name, discount_amount, redeemed_at } = req.body;
@@ -199,7 +199,7 @@ app.post('/webhooks/dutyboost', (req, res) => {
   res.status(200).send('OK');
 });`;
 
-export default function AgencyIntegrationGuide() {
+export default function TravelPartnerIntegrationGuide() {
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80 print:hidden">
@@ -224,10 +224,10 @@ export default function AgencyIntegrationGuide() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-3xl mx-auto space-y-4">
-          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Travel Agency · Implementation Guide</Badge>
-          <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">
-            Agency <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Integration Guide</span>
-          </h1>
+          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">Travel Partner · Implementation Guide</Badge>
+           <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">
+             Travel Partner <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Integration Guide</span>
+           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
             Everything your technical team needs to integrate DutyBoost into your booking platform — so every confirmed booking automatically generates a DutyCredit for the traveler.
           </p>
@@ -267,8 +267,8 @@ export default function AgencyIntegrationGuide() {
             <p className="font-semibold text-amber-900 text-sm">You will need:</p>
             <ul className="space-y-2">
               {[
-                'An approved DutyBoost agency account (register at dutyboost.com/agency-signup)',
-                'Your DutyBoost API key — available in your agency dashboard under Settings → API',
+                'An approved DutyBoost Travel Partner account (register at dutyboost.com/travel-partner-signup)',
+                'Your DutyBoost API key — available in your Travel Partner dashboard under Settings → API',
                 'A server-side environment to make API calls (Node.js, Python, PHP, or any backend language)',
                 'The ability to trigger code after a booking is confirmed in your booking engine',
               ].map(item => (
@@ -292,7 +292,7 @@ export default function AgencyIntegrationGuide() {
             <h2 className="text-2xl font-heading font-semibold">Get your API key</h2>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Log into your DutyBoost agency dashboard and navigate to <strong>Settings → API Integration</strong>. Copy your API key. This key identifies your agency and attributes commissions correctly.
+            Log into your DutyBoost Travel Partner dashboard and navigate to <strong>Settings → API Integration</strong>. Copy your API key. This key identifies your Travel Partner account and attributes commissions correctly.
           </p>
           <div className="bg-card border border-border rounded-xl p-4 space-y-2 text-sm">
             <p className="font-semibold">Test your API key works with a quick curl call:</p>
@@ -338,8 +338,8 @@ export default function AgencyIntegrationGuide() {
                   ['travel_date', 'string', '✅', 'Flight date in YYYY-MM-DD format'],
                   ['traveler_email', 'string', '✅', 'Email to send the DutyCredit voucher to'],
                   ['traveler_name', 'string', '—', 'Used for personalised email greeting'],
-                  ['agency_email', 'string', '—', 'Your agency email for commission tracking'],
-                  ['agency_name', 'string', '—', 'Displayed in the traveler-facing email'],
+                  ['travel_partner_email', 'string', '—', 'Your Travel Partner email for commission tracking'],
+                  ['travel_partner_name', 'string', '—', 'Displayed in the traveler-facing email'],
                 ].map(([field, type, req, desc]) => (
                   <tr key={field} className="hover:bg-muted/20">
                     <td className="px-4 py-2.5 font-mono text-xs text-primary">{field}</td>
@@ -414,7 +414,7 @@ export default function AgencyIntegrationGuide() {
             <Mail className="w-5 h-5 text-primary mt-0.5 shrink-0" />
             <div className="text-sm">
               <p className="font-medium">DutyBoost also sends its own email automatically</p>
-              <p className="text-muted-foreground">Even if you don't embed the snippet, DutyBoost sends a standalone co-branded email to the traveler from your agency name. Embedding the snippet in your own email gives a better, more seamless experience.</p>
+              <p className="text-muted-foreground">Even if you don't embed the snippet, DutyBoost sends a standalone co-branded email to the traveler from your Travel Partner name. Embedding the snippet in your own email gives a better, more seamless experience.</p>
             </div>
           </div>
         </div>
@@ -472,7 +472,7 @@ export default function AgencyIntegrationGuide() {
           <p className="text-muted-foreground text-sm leading-relaxed">
             When a traveler redeems their DutyCredit at an airport store, DutyBoost can notify your system via a webhook. This is useful for CRM updates, commission tracking, or notifying account managers.
           </p>
-          <p className="text-sm">Configure your webhook URL in your agency dashboard under <strong>Settings → Webhooks</strong>.</p>
+          <p className="text-sm">Configure your webhook URL in your Travel Partner dashboard under <strong>Settings → Webhooks</strong>.</p>
           <CodeBlock code={WEBHOOK_EXAMPLE} label="webhook-handler.js" />
         </div>
 
@@ -487,7 +487,7 @@ export default function AgencyIntegrationGuide() {
               { title: 'Sandbox mode', desc: 'Add "test_mode": true to any API request to use the sandbox. Vouchers generated in sandbox mode are flagged and will not be accepted at stores.' },
               { title: 'Check the email', desc: 'Use a real email address when testing. Verify the DutyCredit email arrives correctly and the QR code resolves to a valid voucher page.' },
               { title: 'Verify the voucher page', desc: 'Open the duty_credit_url from the response. It should show the correct discount %, store list, and expiry date.' },
-              { title: 'Dashboard confirmation', desc: 'Log into your agency dashboard → Vouchers. Every API call should appear here in real time.' },
+              { title: 'Dashboard confirmation', desc: 'Log into your Travel Partner dashboard → Vouchers. Every API call should appear here in real time.' },
             ].map(({ title, desc }) => (
               <div key={title} className="bg-card border border-border rounded-xl p-4 space-y-1">
                 <p className="font-semibold text-sm flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-600" /> {title}</p>
@@ -502,7 +502,7 @@ export default function AgencyIntegrationGuide() {
           <h2 className="text-2xl font-heading font-semibold">What the traveler experiences</h2>
           <div className="bg-card border border-border rounded-xl divide-y divide-border">
             {[
-              { icon: Mail, title: 'Booking confirmation email', desc: 'The DutyCredit block appears inside your confirmation email — branded with your agency name. No separate email needed from you.' },
+              { icon: Mail, title: 'Booking confirmation email', desc: 'The DutyCredit block appears inside your confirmation email — branded with your Travel Partner name. No separate email needed from you.' },
               { icon: QrCode, title: 'Personal QR code page', desc: 'Tapping the link opens a mobile-optimised voucher page showing the QR code, participating stores at their departure airport, discount %, and expiry.' },
               { icon: Zap, title: 'Instant scan at the store', desc: 'The retailer scans the QR code at the till. Discount is applied immediately. Traveler gets their discount — you earn your commission.' },
             ].map(({ icon: Icon, title, desc }) => (
