@@ -11,14 +11,15 @@ export default function Home() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        // Ensure role is set (handles first login after invite)
-        const roleResult = await base44.functions.invoke('ensureUserRole', {}).catch(() => ({ data: null }));
-        // If role was just assigned, reload to get fresh session with correct role
-        if (roleResult?.data?.updated === true) {
-          window.location.reload();
-          return;
-        }
         const userData = await base44.auth.me();
+        // Only call ensureUserRole if user has no role yet (first login after invite)
+        if (!userData?.role) {
+          const roleResult = await base44.functions.invoke('ensureUserRole', {}).catch(() => ({ data: null }));
+          if (roleResult?.data?.updated === true) {
+            window.location.reload();
+            return;
+          }
+        }
         setUser(userData);
       } catch (error) {
         console.error('Failed to fetch user:', error);
