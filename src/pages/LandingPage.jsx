@@ -20,16 +20,7 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    base44.auth.isAuthenticated().then(async (isAuth) => {
-      if (isAuth) {
-        const me = await base44.auth.me();
-        if (me?.role) {
-          navigate('/dashboard', { replace: true });
-        }
-      }
-    });
-  }, []);
+
 
   const stakeholders = [
     {
