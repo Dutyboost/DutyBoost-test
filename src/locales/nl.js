@@ -642,7 +642,7 @@ export default {
       stat1_value: 'Tot €5',
       stat1_label: 'commissie per inwisseling',
       stat1_desc: "20% van DutyBoost's 2,5% platformkosten per transactie (max €1K) — automatisch verdiend, geen verkoopinspanning vereist",
-      stat2_value: '0% kosten',
+      stat2_value: 'Gratis',
       stat2_label: 'nooit kosten voor u',
       stat2_desc: 'DutyBoost is gratis voor reispartners. Commissie komt van bevestigde inwisselingen — maandelijks uitbetaald met volledige rapportage',
       stat3_value: '< 1 dag',

@@ -649,7 +649,7 @@ export default {
       stat1_value: 'Bis zu €5',
       stat1_label: 'Provision pro Einlösung',
       stat1_desc: "20% von DutyBoosts 2,5% Plattformgebühr pro Transaktion (max €1K) — automatisch verdient, kein Verkaufsaufwand erforderlich",
-      stat2_value: '0% Gebühren',
+      stat2_value: 'Kostenlos',
       stat2_label: 'keine Kosten für Sie, jemals',
       stat2_desc: 'DutyBoost ist für Reisepartner kostenlos. Provision fließt aus bestätigten Einlösungen — monatlich mit vollständiger Berichterstattung ausgezahlt',
       stat3_value: '< 1 Tag',

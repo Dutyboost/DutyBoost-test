@@ -547,7 +547,7 @@ export default {
       stat1_value: 'Up to €5',
       stat1_label: 'commission per redemption',
       stat1_desc: "20% of DutyBoost's 2.5% platform fee per transaction (€1K CAP) — earned automatically, no sales effort required",
-      stat2_value: '0% fees',
+      stat2_value: 'Free',
       stat2_label: 'no cost to you, ever',
       stat2_desc: 'DutyBoost is free for travel partners. Commission flows from confirmed redemptions — paid monthly with full reporting',
       stat3_value: '< 1 day',

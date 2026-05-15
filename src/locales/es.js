@@ -481,7 +481,7 @@ export default {
       stat1_value: 'Hasta €5',
       stat1_label: 'comisión por canje',
       stat1_desc: '20% de la tarifa del 2,5% de DutyBoost por transacción (límite €1K) — ganado automáticamente, sin esfuerzo de ventas',
-      stat2_value: '0% de tarifas',
+      stat2_value: 'Gratis',
       stat2_label: 'sin coste para ti, nunca',
       stat2_desc: 'DutyBoost es gratuito para socios de viaje. La comisión fluye de canjes confirmados — pagada mensualmente con informes completos',
       stat3_value: '< 1 día',

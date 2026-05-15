@@ -649,7 +649,7 @@ export default {
       stat1_value: "Jusqu'à €5",
       stat1_label: "commission par échange",
       stat1_desc: "20% des frais de 2,5% de DutyBoost par transaction (plafond €1K) — gagnés automatiquement, sans effort commercial",
-      stat2_value: "0% de frais",
+      stat2_value: "Gratuit",
       stat2_label: "jamais de coût pour vous",
       stat2_desc: "DutyBoost est gratuit pour les partenaires de voyage. La commission provient des échanges confirmés — versée mensuellement avec un rapport complet",
       stat3_value: "< 1 jour",

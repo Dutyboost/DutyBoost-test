@@ -665,7 +665,7 @@ export default {
       stat1_value: 'Fino a €5',
       stat1_label: 'commissione per riscatto',
       stat1_desc: "20% della commissione del 2,5% di DutyBoost per transazione (limite €1K) — guadagnata automaticamente, senza sforzo di vendita",
-      stat2_value: '0% commissioni',
+      stat2_value: 'Gratuito',
       stat2_label: 'nessun costo per te, mai',
       stat2_desc: 'DutyBoost è gratuito per i partner di viaggio. La commissione proviene dai riscatti confermati — pagata mensilmente con report completo',
       stat3_value: '< 1 giorno',
