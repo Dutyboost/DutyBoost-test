@@ -26,17 +26,17 @@ export default function AgencyOnePager() {
   };
 
   const steps = [
-    { num: "01", title: "Booking confirmed", desc: "Customer books a trip through your website or application" },
-    { num: "02", title: "Credit auto-generated", desc: "DutyBoost creates a DutyCredit (€5–€60 flat tier) with a min. spend of €70 and a max. of €300" },
-    { num: "03", title: "Delivered by email", desc: "Traveler receives their DutyCredit QR code directly through your confirmation email — no app needed" },
-    { num: "04", title: "Redeemed at airport", desc: "Customer shops at participating airport stores → you automatically earn commission" },
+    { num: "01", title: t('agencyonepager.step1_title'), desc: t('agencyonepager.step1_desc') },
+    { num: "02", title: t('agencyonepager.step2_title'), desc: t('agencyonepager.step2_desc') },
+    { num: "03", title: t('agencyonepager.step3_title'), desc: t('agencyonepager.step3_desc') },
+    { num: "04", title: t('agencyonepager.step4_title'), desc: t('agencyonepager.step4_desc') },
   ];
 
   const why = [
-    { title: "Travelers expect more than a ticket", desc: "Today's travelers look for travel partners that add value beyond their booking. DutyBoost gives a tangible, personalised spending perk to them through you." },
-    { title: "Loyalty without a loyalty program", desc: "No points, no complex schemes. Just a real shopping credit waiting at the airport — tied directly to their booking with you." },
-    { title: "A reason to come back", desc: "Travelers who associate their airport experience with your brand are more likely to book again — and recommend you to others." },
-    { title: "Revenue you're currently leaving on the table", desc: "Every confirmed booking has untapped commission potential. DutyBoost captures it automatically for you — with no extra work from your team." },
+    { title: t('agencyonepager.why1_title'), desc: t('agencyonepager.why1_desc') },
+    { title: t('agencyonepager.why2_title'), desc: t('agencyonepager.why2_desc') },
+    { title: t('agencyonepager.why3_title'), desc: t('agencyonepager.why3_desc') },
+    { title: t('agencyonepager.why4_title'), desc: t('agencyonepager.why4_desc') },
   ];
 
   return (
@@ -69,15 +69,15 @@ export default function AgencyOnePager() {
 
           {/* Headline */}
           <div className="text-center py-3">
-            <h1 className="text-lg font-heading font-bold leading-tight">Turning every booking into a loyalty asset and extra revenue</h1>
+            <h1 className="text-lg font-heading font-bold leading-tight">{t('agencyonepager.headline')}</h1>
             <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">
-              DutyBoost turns every booking into a loyalty asset for your customers — and a new revenue stream for you. Fully automated. Zero operational impact.
+              {t('agencyonepager.subtitle')}
             </p>
           </div>
 
           {/* Section 1 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#1d4ed8' }}>01 — Why DutyBoost Matters for Travel Partners</h2>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#1d4ed8' }}>{t('agencyonepager.s1_title')}</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-2 gap-2">
               {why.map(c => (
@@ -91,7 +91,7 @@ export default function AgencyOnePager() {
 
           {/* Section 2 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#0f766e' }}>02 — How DutyBoost Works</h2>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#0f766e' }}>{t('agencyonepager.s2_title')}</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-4 gap-2">
               {steps.map(s => (
@@ -106,57 +106,57 @@ export default function AgencyOnePager() {
 
           {/* Section 3 */}
           <div className="py-2 mt-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b45309' }}>03 — What DutyBoost Brings to Travel Partners</h2>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b45309' }}>{t('agencyonepager.s3_title')}</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>Up to €5</p>
-                <p className="font-semibold text-xs mt-0.5">commission per redemption</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">20% of DutyBoost's 2.5% platform fee per transaction (€1K CAP) — earned automatically, no sales effort required</p>
+                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>{t('agencyonepager.stat1_value')}</p>
+                <p className="font-semibold text-xs mt-0.5">{t('agencyonepager.stat1_label')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">{t('agencyonepager.stat1_desc')}</p>
               </div>
               <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#14b8a6' }}>0% fees</p>
-                <p className="font-semibold text-xs mt-0.5">no cost to you, ever</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">DutyBoost is free for travel partners. Commission flows from confirmed redemptions — paid monthly with full reporting</p>
+                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#14b8a6' }}>{t('agencyonepager.stat2_value')}</p>
+                <p className="font-semibold text-xs mt-0.5">{t('agencyonepager.stat2_label')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">{t('agencyonepager.stat2_desc')}</p>
               </div>
               <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#f59e0b' }}>&lt; 1 day</p>
-                <p className="font-semibold text-xs mt-0.5">to go live</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">Simple snippet integration. We handle everything else end-to-end</p>
+                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#f59e0b' }}>{t('agencyonepager.stat3_value')}</p>
+                <p className="font-semibold text-xs mt-0.5">{t('agencyonepager.stat3_label')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">{t('agencyonepager.stat3_desc')}</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-2">
               <div className="border border-border rounded p-3">
-                <h3 className="font-heading font-bold text-xs mb-0.5">🤝 Stronger customer loyalty</h3>
-                <p className="text-xs text-muted-foreground leading-snug">A memorable, personalized perk tied to every booking made through you.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{t('agencyonepager.benefit1_title')}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{t('agencyonepager.benefit1_desc')}</p>
               </div>
               <div className="border border-border rounded p-3">
-                <h3 className="font-heading font-bold text-xs mb-0.5">💰 New passive revenue</h3>
-                <p className="text-xs text-muted-foreground leading-snug">Commission flows in from airport spend — no additional sales, no manual work.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{t('agencyonepager.benefit2_title')}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{t('agencyonepager.benefit2_desc')}</p>
               </div>
               <div className="border border-border rounded p-3">
-                <h3 className="font-heading font-bold text-xs mb-0.5">⚡ Zero operational burden</h3>
-                <p className="text-xs text-muted-foreground leading-snug">DutyBoost handles credit creation, delivery, redemption, and payouts automatically.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{t('agencyonepager.benefit3_title')}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{t('agencyonepager.benefit3_desc')}</p>
               </div>
             </div>
           </div>
 
           {/* CTA */}
           <div>
-          <GradientDivider />
-          <div className="text-center py-4">
-            <p className="font-heading font-bold text-sm">Ready to turn your bookings into loyalty and revenue?</p>
-            <div className="flex items-center justify-center gap-6 mt-0.5">
-              <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">dutyboost.com</a>
+            <GradientDivider />
+            <div className="text-center py-4">
+              <p className="font-heading font-bold text-sm">{t('agencyonepager.cta')}</p>
+              <div className="flex items-center justify-center gap-6 mt-0.5">
+                <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800 transition-colors">dutyboost.com</a>
+              </div>
             </div>
-          </div>
           </div>
 
         </div>
 
         {/* Legal footer */}
         <div className="text-center pb-1">
-          <p className="text-xs text-muted-foreground">DutyBoost. All rights reserved. 2026. KVK: 42053181</p>
+          <p className="text-xs text-muted-foreground">{t('agencyonepager.legal')}</p>
         </div>
 
       </div>
