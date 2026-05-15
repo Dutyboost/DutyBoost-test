@@ -631,7 +631,7 @@ export default {
       why4_desc: 'Elke bevestigde boeking heeft onbenut commissiepotentieel. DutyBoost vangt dit automatisch voor u op — zonder extra werk van uw team.',
       s2_title: '02 — Hoe DutyBoost werkt',
       step1_title: 'Boeking bevestigd',
-      step1_desc: 'Klant boekt een reis via uw website of applicatie',
+      step1_desc: 'Klant boekt een vlucht, accommodatie of huurauto via uw website of applicatie',
       step2_title: 'Tegoed automatisch aangemaakt',
       step2_desc: 'DutyBoost maakt een DutyCredit aan (€5–€60 vast niveau) met min. uitgave van €70 en max. €300',
       step3_title: 'Afgeleverd per e-mail',

@@ -536,7 +536,7 @@ export default {
       why4_desc: 'Every confirmed booking has untapped commission potential. DutyBoost captures it automatically for you — with no extra work from your team.',
       s2_title: '02 — How DutyBoost Works',
       step1_title: 'Booking confirmed',
-      step1_desc: 'Customer books a trip through your website or application',
+      step1_desc: 'Customer books a flight, accommodation, or car rental through your website or application',
       step2_title: 'Credit auto-generated',
       step2_desc: 'DutyBoost creates a DutyCredit (€5–€60 flat tier) with a min. spend of €70 and a max. of €300',
       step3_title: 'Delivered by email',

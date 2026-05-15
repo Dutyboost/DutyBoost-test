@@ -638,7 +638,7 @@ export default {
       why4_desc: 'Jede bestätigte Buchung hat ungenutztes Provisionspotenzial. DutyBoost erfasst es automatisch für Sie — ohne zusätzlichen Aufwand Ihres Teams.',
       s2_title: '02 — Wie DutyBoost funktioniert',
       step1_title: 'Buchung bestätigt',
-      step1_desc: 'Kunde bucht eine Reise über Ihre Website oder Anwendung',
+      step1_desc: 'Kunde bucht einen Flug, eine Unterkunft oder einen Mietwagen über Ihre Website oder Anwendung',
       step2_title: 'Guthaben automatisch erstellt',
       step2_desc: 'DutyBoost erstellt ein DutyCredit (€5–€60 feste Stufe) mit Mindestausgabe von €70 und max. €300',
       step3_title: 'Per E-Mail zugestellt',

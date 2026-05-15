@@ -638,7 +638,7 @@ export default {
       why4_desc: "Chaque réservation confirmée a un potentiel de commission inexploité. DutyBoost le capture automatiquement pour vous — sans travail supplémentaire de votre équipe.",
       s2_title: "02 — Comment fonctionne DutyBoost",
       step1_title: "Réservation confirmée",
-      step1_desc: "Le client réserve un voyage via votre site web ou application",
+      step1_desc: "Le client réserve un vol, un hébergement ou une location de voiture via votre site web ou application",
       step2_title: "Crédit généré automatiquement",
       step2_desc: "DutyBoost crée un DutyCredit (€5–€60 niveau fixe) avec dépense min. de €70 et max. de €300",
       step3_title: "Livré par e-mail",
