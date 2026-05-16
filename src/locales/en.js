@@ -33,7 +33,7 @@ export default {
         b3: 'Seamless QR experience',
       },
       retailers: {
-        title: 'Airport/ Port Retail Partners',
+        title: 'Airport Retail Partners',
         description: 'Convert passing travelers into paying customers. Get targeted, pre-qualified shoppers with purchase intent activated by a personalized DutyCredit incentive. Our commission applies only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
