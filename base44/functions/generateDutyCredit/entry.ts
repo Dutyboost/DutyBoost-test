@@ -194,17 +194,17 @@ Deno.serve(async (req) => {
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">Boarding DutyCredit</td>
                   <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€70 – €99</td>
-                  <td style="padding:10px 16px;color:#374151;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€10</td>
+                  <td style="padding:10px 16px;color:#374151;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€5 – €10</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">Priority DutyCredit</td>
                   <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€100 – €199</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€30</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€10 – €30</td>
                 </tr>
                 <tr style="background:#f9fafb;">
                   <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">Lounge DutyCredit</td>
                   <td style="padding:10px 16px;color:#6b7280;border-top:1px solid #e5e7eb;">€200 – €299</td>
-                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€45</td>
+                  <td style="padding:10px 16px;color:#1e40af;font-weight:700;text-align:right;border-top:1px solid #e5e7eb;">€30 – €60</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 16px;color:#374151;font-weight:600;border-top:1px solid #e5e7eb;">VIP DutyCredit</td>

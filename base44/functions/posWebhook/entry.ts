@@ -16,13 +16,18 @@ const AGENCY_COMMISSION_SHARE = 0.20;   // 20% of DutyBoost fee goes to agency (
 const PLATFORM_FEE_CAP = 25;            // Maximum DutyBoost fee per transaction
 const AGENCY_COMMISSION_CAP = 5;        // Maximum agency commission per transaction (20% of €25 cap)
 
-// Tiered flat reward: Boarding €10 / Priority €30 / Lounge €45 / VIP €60
+// Linear interpolation within each tier
+// Boarding: €70–€99 → €5–€10 | Priority: €100–€199 → €10–€30 | Lounge: €200–€299 → €30–€60 | VIP: €300+ → €60
+function lerp(value, minVal, maxVal, minOut, maxOut) {
+  const pct = Math.min(1, (value - minVal) / (maxVal - minVal));
+  return Math.round((minOut + pct * (maxOut - minOut)) * 100) / 100;
+}
 function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  if (basketValue >= 300) return 60;  // VIP DutyCredit
-  if (basketValue >= 200) return 45;  // Lounge DutyCredit
-  if (basketValue >= 100) return 30;  // Priority DutyCredit
-  return 10;                          // Boarding DutyCredit (€70–€99)
+  if (basketValue >= 300) return 60;
+  if (basketValue >= 200) return lerp(basketValue, 200, 299, 30, 60);
+  if (basketValue >= 100) return lerp(basketValue, 100, 199, 10, 30);
+  return lerp(basketValue, 70, 99, 5, 10);
 }
 
 Deno.serve(async (req) => {

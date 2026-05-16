@@ -1,9 +1,9 @@
-// DutyCredit Redemption Model — Flat Tiers (matches POS webhook exactly)
+// DutyCredit Redemption Model — Linear interpolation within tiers
 //
-// Flat reward per tier based on basket spend:
-//   Boarding DutyCredit  — €70–€99    → €10 flat
-//   Priority DutyCredit  — €100–€199  → €30 flat
-//   Lounge DutyCredit    — €200–€299  → €45 flat
+// Discount scales linearly within each spend tier:
+//   Boarding DutyCredit  — €70–€99    → €5–€10
+//   Priority DutyCredit  — €100–€199  → €10–€30
+//   Lounge DutyCredit    — €200–€299  → €30–€60
 //   VIP DutyCredit       — €300+      → €60 flat
 //
 // Minimum basket: €70.
@@ -23,26 +23,32 @@ export const PLATFORM_FEE_CAP = 25;          // €25 max per transaction
 export const AGENCY_COMMISSION_SHARE = 0.20; // 20% of DutyBoost fee
 export const AGENCY_COMMISSION_CAP = 5;      // €5 max per transaction (20% of €25 cap)
 
-// Flat-tier basket credit — matches POS webhook exactly
-// Boarding:  €70–€99   → €10
-// Priority:  €100–€199 → €30
-// Lounge:    €200–€299 → €45
-// VIP:       €300+     → €60
+function lerp(value, minVal, maxVal, minOut, maxOut) {
+  const pct = Math.min(1, (value - minVal) / (maxVal - minVal));
+  return Math.round((minOut + pct * (maxOut - minOut)) * 100) / 100;
+}
+
+// Linear interpolation within each tier
+// Boarding:  €70–€99   → €5–€10
+// Priority:  €100–€199 → €10–€30
+// Lounge:    €200–€299 → €30–€60
+// VIP:       €300+     → €60 flat
 export function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 70) return 0;
-  if (basketValue >= 300) return 60; // VIP DutyCredit
-  if (basketValue >= 200) return 45; // Lounge DutyCredit
-  if (basketValue >= 100) return 30; // Priority DutyCredit
-  return 10;                         // Boarding DutyCredit (€70–€99)
+  if (basketValue >= 300) return 60;                         // VIP DutyCredit
+  if (basketValue >= 200) return lerp(basketValue, 200, 299, 30, 60); // Lounge
+  if (basketValue >= 100) return lerp(basketValue, 100, 199, 10, 30); // Priority
+  return lerp(basketValue, 70, 99, 5, 10);                  // Boarding
 }
 
 // Return the tier name for display purposes
 export function getBasketTierLabel(basketValue) {
   if (!basketValue || basketValue < 70) return null;
+  const credit = calcBasketCredit(basketValue).toFixed(2);
   if (basketValue >= 300) return `VIP DutyCredit — €60 reward`;
-  if (basketValue >= 200) return `Lounge DutyCredit — €45 reward`;
-  if (basketValue >= 100) return `Priority DutyCredit — €30 reward`;
-  return `Boarding DutyCredit — €10 reward`;
+  if (basketValue >= 200) return `Lounge DutyCredit — €${credit} reward`;
+  if (basketValue >= 100) return `Priority DutyCredit — €${credit} reward`;
+  return `Boarding DutyCredit — €${credit} reward`;
 }
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {
