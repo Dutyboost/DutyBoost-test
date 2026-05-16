@@ -32,7 +32,7 @@ const CHART_DATA = {
       { key: "redeemed", tKey: "s2", color: "#1F6FFF" },
       { key: "commission", tKey: "s3", color: "#00C48C" },
     ],
-    kpiValues: ["624,000", "157,200", "€786,000"],
+    kpiValues: ["624.000", "157.200", "€786.000"],
     barColor1: "#bfdbfe",
     barColor2: "#1F6FFF",
     lineColor: "#00C48C",
@@ -61,7 +61,7 @@ const CHART_DATA = {
       { key: "redemptions", tKey: "s1", color: "#fdba74" },
       { key: "revenue", tKey: "s2", color: "#f97316" },
     ],
-    kpiValues: ["€148", "143,000", "€19,464,000"],
+    kpiValues: ["€148", "143.000", "€19.464.000"],
   },
   hotel: {
     color: "#3b82f6",
@@ -85,7 +85,7 @@ const CHART_DATA = {
       { key: "redeemed", tKey: "s2", color: "#3b82f6" },
       { key: "commission", tKey: "s3", color: "#0891b2" },
     ],
-    kpiValues: ["412,000", "98,800", "€494,000"],
+    kpiValues: ["412.000", "98.800", "€494.000"],
     barColor1: "#bfdbfe",
     barColor2: "#3b82f6",
     lineColor: "#0891b2",
@@ -115,7 +115,7 @@ const CHART_DATA = {
       { key: "redeemed", tKey: "s2", color: "#ef4444" },
       { key: "commission", tKey: "s3", color: "#be123c" },
     ],
-    kpiValues: ["306,000", "64,200", "€321,000"],
+    kpiValues: ["306.000", "64.200", "€321.000"],
     barColor1: "#fecaca",
     barColor2: "#ef4444",
     lineColor: "#be123c",
@@ -132,7 +132,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       <p className="text-muted-foreground mb-1 font-medium">{label}</p>
       {payload.map((p, i) => (
         <p key={i} className="font-semibold" style={{ color: p.color }}>
-          {p.name}: {typeof p.value === "number" && p.name.includes("€") ? `€${p.value.toLocaleString()}` : p.value.toLocaleString()}
+          {p.name}: {typeof p.value === "number" && p.name.includes("€") ? `€${p.value.toLocaleString("nl-NL")}` : p.value.toLocaleString("nl-NL")}
         </p>
       ))}
     </div>
@@ -220,7 +220,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
-                      tickFormatter={(v) => v >= 1000000 ? `€${(v / 1000000).toFixed(1)}M` : v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
+                      tickFormatter={(v) => v >= 1000000 ? `€${(v / 1000000).toFixed(1).replace(".", ",")}M` : v >= 1000 ? `€${(v / 1000).toFixed(0)}.000` : `€${v}`}
                     />
                     <YAxis
                       yAxisId="redemptions"
@@ -228,7 +228,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
+                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}.000` : v}
                     />
                     <Tooltip content={<CustomTooltip />} />
                     <Bar yAxisId="revenue" dataKey="revenue" name={series.find(s => s.key === "revenue")?.label || "Revenue (€)"} fill="#f97316" radius={[4, 4, 0, 0]} opacity={0.85} />
@@ -242,7 +242,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
+                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}.000` : v}
                     />
                     <Tooltip content={<CustomTooltip />} />
                     <Bar dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={14} />
