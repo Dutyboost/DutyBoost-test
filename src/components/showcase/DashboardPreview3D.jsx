@@ -8,8 +8,8 @@ import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
 // ── Travel Partner data ────────────────────────────────────────────────────────
 const agencyData = {
-  color: "#22c55e",
-  gradient: ["#22c55e", "#10b981"],
+  color: "#1F6FFF",
+  gradient: ["#1F6FFF", "#0891b2"],
   kpis: [
     { label: "DutyCredits Generated", value: "12,480", sub: "+18% vs last year", trend: "up" },
     { label: "DutyCredits Redeemed", value: "3,144", sub: "25.2% redemption rate", trend: "up" },
@@ -32,9 +32,9 @@ const agencyData = {
     { month: "Dec", generated: 740, redeemed: 119, commission: 595 },
   ],
   series: [
-    { key: "generated", label: "Generated", color: "#86efac" },
-    { key: "redeemed", label: "Redeemed", color: "#22c55e" },
-    { key: "commission", label: "Commission (€)", color: "#059669" },
+    { key: "generated", label: "Generated", color: "#93c5fd" },
+    { key: "redeemed", label: "Redeemed", color: "#1F6FFF" },
+    { key: "commission", label: "Commission (€)", color: "#00C48C" },
   ],
 };
 
@@ -135,11 +135,11 @@ const carData = {
 
 const DATA_MAP = { agency: agencyData, retailer: retailerData, hotel: hotelData, car: carData };
 
-const CustomTooltip = ({ active, payload, label, color }) => {
+const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-slate-900/95 border border-white/10 rounded-xl px-4 py-3 text-xs shadow-2xl">
-      <p className="text-white/60 mb-2 font-medium">{label}</p>
+    <div style={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12, padding: "8px 12px" }}>
+      <p className="text-muted-foreground mb-1 font-medium">{label}</p>
       {payload.map((p, i) => (
         <p key={i} className="font-semibold" style={{ color: p.color }}>
           {p.name}: {typeof p.value === "number" && p.name.includes("€") ? `€${p.value.toLocaleString()}` : p.value.toLocaleString()}
@@ -182,90 +182,76 @@ export default function DashboardPreview3D({ role = "agency" }) {
         >
           <motion.div
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-            className="relative rounded-2xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.35)] border border-white/10"
+            className="relative rounded-2xl overflow-hidden shadow-lg border border-border bg-background p-4 space-y-4"
           >
-            {/* Dashboard shell */}
-            <div className="bg-slate-900 text-white">
-              {/* KPI row */}
-              <div className="grid grid-cols-3 gap-px bg-white/5 border-b border-white/5">
-                {data.kpis.map((kpi, i) => (
-                  <div key={i} className="bg-slate-900 px-5 py-4">
-                    <p className="text-xs text-slate-400 mb-1">{kpi.label}</p>
-                    <p className="text-2xl font-heading font-bold text-white">{kpi.value}</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      <TrendIcon trend={kpi.trend} />
-                      <span className="text-xs text-slate-400">{kpi.sub}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Chart area */}
-              <div className="px-5 pt-5 pb-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold text-slate-200">{data.chartTitle}</h3>
-                  <div className="flex gap-3">
-                    {data.series.map((s) => (
-                      <div key={s.key} className="flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: s.color }} />
-                        <span className="text-xs text-slate-400">{s.label}</span>
-                      </div>
-                    ))}
+            {/* KPI row */}
+            <div className="grid grid-cols-3 gap-4">
+              {data.kpis.map((kpi, i) => (
+                <div key={i} className="bg-card rounded-xl border border-border px-4 py-4">
+                  <p className="text-xs text-muted-foreground mb-1">{kpi.label}</p>
+                  <p className="text-2xl font-heading font-bold text-foreground">{kpi.value}</p>
+                  <div className="flex items-center gap-1 mt-1">
+                    <TrendIcon trend={kpi.trend} />
+                    <span className="text-xs text-muted-foreground">{kpi.sub}</span>
                   </div>
                 </div>
-
-                <ResponsiveContainer width="100%" height={200}>
-                  {data.chart === "bar" ? (
-                    <BarChart data={data.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                      <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} />
-                      <Tooltip content={<CustomTooltip color={data.color} />} />
-                      {data.series.map((s) => (
-                        <Bar key={s.key} dataKey={s.key} name={s.label} fill={s.color} radius={[3, 3, 0, 0]} />
-                      ))}
-                    </BarChart>
-                  ) : (
-                    <AreaChart data={data.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
-                      <defs>
-                        {data.series.map((s) => (
-                          <linearGradient key={s.key} id={`grad-${s.key}`} x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor={s.color} stopOpacity={0.3} />
-                            <stop offset="95%" stopColor={s.color} stopOpacity={0} />
-                          </linearGradient>
-                        ))}
-                      </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                      <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} />
-                      <Tooltip content={<CustomTooltip color={data.color} />} />
-                      {data.series.map((s) => (
-                        <Area
-                          key={s.key}
-                          type="monotone"
-                          dataKey={s.key}
-                          name={s.label}
-                          stroke={s.color}
-                          strokeWidth={2}
-                          fill={`url(#grad-${s.key})`}
-                        />
-                      ))}
-                    </AreaChart>
-                  )}
-                </ResponsiveContainer>
-              </div>
-
-
+              ))}
             </div>
 
-            {/* Subtle 3D depth edge */}
-            <div
-              className="absolute inset-0 rounded-2xl pointer-events-none"
-              style={{
-                background: `linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%)`,
-                boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.06)`,
-              }}
-            />
+            {/* Chart area */}
+            <div className="bg-card rounded-xl border border-border px-5 pt-5 pb-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-semibold font-heading text-foreground">{data.chartTitle}</h3>
+                <div className="flex gap-3">
+                  {data.series.map((s) => (
+                    <div key={s.key} className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: s.color }} />
+                      <span className="text-xs text-muted-foreground">{s.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <ResponsiveContainer width="100%" height={200}>
+                {data.chart === "bar" ? (
+                  <BarChart data={data.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <Tooltip content={<CustomTooltip />} />
+                    {data.series.map((s) => (
+                      <Bar key={s.key} dataKey={s.key} name={s.label} fill={s.color} radius={[4, 4, 0, 0]} />
+                    ))}
+                  </BarChart>
+                ) : (
+                  <AreaChart data={data.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
+                    <defs>
+                      {data.series.map((s) => (
+                        <linearGradient key={s.key} id={`grad-${s.key}`} x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor={s.color} stopOpacity={0.25} />
+                          <stop offset="95%" stopColor={s.color} stopOpacity={0} />
+                        </linearGradient>
+                      ))}
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <Tooltip content={<CustomTooltip />} />
+                    {data.series.map((s) => (
+                      <Area
+                        key={s.key}
+                        type="monotone"
+                        dataKey={s.key}
+                        name={s.label}
+                        stroke={s.color}
+                        strokeWidth={2}
+                        fill={`url(#grad-${s.key})`}
+                      />
+                    ))}
+                  </AreaChart>
+                )}
+              </ResponsiveContainer>
+            </div>
           </motion.div>
         </div>
         <p className="text-center text-xs text-muted-foreground mt-4">
