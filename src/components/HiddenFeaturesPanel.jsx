@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Ship, Train } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Ship, Train, Bus } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -251,6 +251,58 @@ Phase 5 — Return-leg loyalty: passengers receive a new DutyCredit for their re
       "functions/generateTrainCredit.js",
       "entities/TrainCredit.json",
       "entities/TrainTransaction.json",
+    ],
+  },
+  {
+    id: "bus-trip",
+    icon: Bus,
+    title: "Bus Trip & Coach Station Retail Integration",
+    status: "hidden",
+    reason: "Strategic future channel — business model defined, not yet built",
+    description: `DutyBoost for bus and coach travel extends the platform's loyalty-to-retail model to long-distance and intercity bus passengers. Coach travelers (FlixBus, Eurolines, National Express, regional operators) pass through bus terminals and coach stations with retail potential — but receive zero personalized purchase incentive today. The positioning: "We turn every coach departure into a station retail revenue event."
+
+JOURNEY MAP:
+• Booking → DutyCredit generated at booking confirmation (operator app, booking confirmation email, digital ticket)
+• Departure terminal (pre-boarding window) → Passenger uses DutyCredit at a participating terminal retailer before boarding
+• Arrival terminal (optional second window) → For long-distance routes, a second redemption window at the destination terminal
+
+BUSINESS MODEL:
+• Coach operators earn a revenue share on each redemption (same commission structure as rail/airline)
+• Terminal retailers pay only on redemption — no upfront cost
+• DutyBoost takes platform fee from retailer transaction volume
+• OTA and coach booking platforms (FlixBus, Omio, BlaBlaBus) can integrate via booking webhook
+
+WHY COACH OPERATORS CARE:
+• Budget travelers are price-sensitive but respond strongly to free credits (high redemption intent)
+• Major European coach corridors carry millions of passengers/year
+• Coach terminals (Victoria Coach Station London, ZOB Berlin, Gare Routière Paris) have significant retail
+• Zero infrastructure cost for operator — purely digital, webhook-based integration
+
+KEY MESSAGE: Do not say "we help bus station shops." Say: "We turn every coach departure into a retail revenue event for the operator."
+
+ROLLOUT:
+Phase 1 — Pilot with one coach operator (e.g. FlixBus), one major terminal, two category retailers.
+Phase 2 — Expand to international routes where dwell is longer.
+Phase 3 — OTA integration: FlixBus, Omio — auto-generate DutyCredits for all bookings above a threshold ticket price.`,
+    pages: [],
+    howToRestore: [
+      "Create pages/BusTripShowcase.jsx — public-facing pitch page for coach operator partnerships.",
+      "Create pages/BusTripPortal.jsx — logged-in dashboard for coach operator partners.",
+      "Create pages/BusTripSignup.jsx — multi-step onboarding for coach operators.",
+      "Create pages/DemoBusTripDashboard.jsx — demo dashboard showing per-route and per-terminal analytics.",
+      "Add 'Coach Partner' as a business_type option in the SignupApplication entity.",
+      "Create a BusTripCredit entity (mirrors TrainCredit) with fields: token_id, booking_ref, coach_operator, departure_terminal, arrival_terminal, balance, expiry, status.",
+      "Create a BusTripTransaction entity for terminal retail redemptions.",
+      "Create functions/generateBusTripCredit.js — backend function triggered at coach booking to issue a terminal retail voucher via email.",
+      "Add bus trip demo card to pages/DemoLanding.jsx.",
+      "Add bus trip routes to App.jsx and a 'For Coach Partners' entry in the LandingPage nav.",
+    ],
+    files: [
+      "pages/BusTripShowcase.jsx",
+      "pages/BusTripPortal.jsx",
+      "pages/BusTripSignup.jsx",
+      "pages/DemoBusTripDashboard.jsx",
+      "functions/generateBusTripCredit.js",
     ],
   },
 ];
