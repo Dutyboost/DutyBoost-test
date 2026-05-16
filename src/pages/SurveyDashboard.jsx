@@ -290,8 +290,8 @@ function parseBookingVolume(raw) {
     const hi = parseInt(rangeMatch[2].replace(/[\s,.]/g, ''), 10);
     if (!isNaN(lo) && !isNaN(hi)) {
       return {
-        perMonth: `${lo.toLocaleString()}–${hi.toLocaleString()}`,
-        perYear: `${(lo * 12).toLocaleString()}–${(hi * 12).toLocaleString()}`,
+        perMonth: `${lo.toLocaleString("nl-NL")}–${hi.toLocaleString("nl-NL")}`,
+        perYear: `${(lo * 12).toLocaleString("nl-NL")}–${(hi * 12).toLocaleString("nl-NL")}`,
       };
     }
   }
@@ -302,8 +302,8 @@ function parseBookingVolume(raw) {
     const n = parseInt(plusMatch[1].replace(/[\s,.]/g, ''), 10);
     if (!isNaN(n)) {
       return {
-        perMonth: `${n.toLocaleString()}+`,
-        perYear: `${(n * 12).toLocaleString()}+`,
+        perMonth: `${n.toLocaleString("nl-NL")}+`,
+        perYear: `${(n * 12).toLocaleString("nl-NL")}+`,
       };
     }
   }
@@ -314,8 +314,8 @@ function parseBookingVolume(raw) {
     const n = parseInt(underMatch[1].replace(/[\s,.]/g, ''), 10);
     if (!isNaN(n)) {
       return {
-        perMonth: `< ${n.toLocaleString()}`,
-        perYear: `< ${(n * 12).toLocaleString()}`,
+        perMonth: `< ${n.toLocaleString("nl-NL")}`,
+        perYear: `< ${(n * 12).toLocaleString("nl-NL")}`,
       };
     }
   }
@@ -324,8 +324,8 @@ function parseBookingVolume(raw) {
   const plain = parseInt(str.replace(/[\s,.]/g, ''), 10);
   if (!isNaN(plain) && plain > 0) {
     return {
-      perMonth: plain.toLocaleString(),
-      perYear: (plain * 12).toLocaleString(),
+      perMonth: plain.toLocaleString("nl-NL"),
+      perYear: (plain * 12).toLocaleString("nl-NL"),
     };
   }
 
@@ -565,11 +565,11 @@ function ResponseCard({ response, isRetailerView }) {
                     </p>
                     <div className="flex gap-3 mb-2">
                       <div className={`flex-1 border rounded-lg px-3 py-2 text-center ${confidenceBg[researched.confidence]}`}>
-                        <p className={`font-bold text-base ${confidenceColor[researched.confidence]}`}>{researched.perMonth.toLocaleString()}</p>
+                        <p className={`font-bold text-base ${confidenceColor[researched.confidence]}`}>{researched.perMonth.toLocaleString("nl-NL")}</p>
                         <p className="text-slate-400 text-xs mt-0.5">per month</p>
                       </div>
                       <div className={`flex-1 border rounded-lg px-3 py-2 text-center ${confidenceBg[researched.confidence]}`}>
-                        <p className={`font-bold text-base ${confidenceColor[researched.confidence]}`}>{researched.perYear.toLocaleString()}</p>
+                        <p className={`font-bold text-base ${confidenceColor[researched.confidence]}`}>{researched.perYear.toLocaleString("nl-NL")}</p>
                         <p className="text-slate-400 text-xs mt-0.5">per year</p>
                       </div>
                     </div>
@@ -776,7 +776,7 @@ function calcRevenue(totalMonthlyBookings) {
 }
 
 function RevenuePanel({ label, totalMonthlyBookings, accentClass, borderClass, tag }) {
-  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+  const fmt = (n) => `€${Math.round(n).toLocaleString("nl-NL")}`;
   const { totalRedemptions, grossRevenue, dutyBoostFee, agencyCommission, dutyBoostNet } = calcRevenue(totalMonthlyBookings);
 
   return (
@@ -788,11 +788,11 @@ function RevenuePanel({ label, totalMonthlyBookings, accentClass, borderClass, t
       <div className="grid grid-cols-2 gap-2">
         <div className="bg-slate-900/60 rounded-lg p-2 text-center">
           <p className="text-xs text-slate-500 mb-0.5">Monthly bookings</p>
-          <p className={`text-lg font-bold ${accentClass}`}>{totalMonthlyBookings.toLocaleString()}</p>
+          <p className={`text-lg font-bold ${accentClass}`}>{totalMonthlyBookings.toLocaleString("nl-NL")}</p>
         </div>
         <div className="bg-slate-900/60 rounded-lg p-2 text-center">
           <p className="text-xs text-slate-500 mb-0.5">Monthly redemptions</p>
-          <p className="text-lg font-bold text-green-300">{totalRedemptions.toLocaleString()}</p>
+          <p className="text-lg font-bold text-green-300">{totalRedemptions.toLocaleString("nl-NL")}</p>
         </div>
         <div className="bg-slate-900/60 rounded-lg p-2 text-center">
           <p className="text-xs text-slate-500 mb-0.5">Gross retail spend/mo</p>
@@ -822,7 +822,7 @@ function RevenuePanel({ label, totalMonthlyBookings, accentClass, borderClass, t
 }
 
 function RevenueCalculator({ responses }) {
-  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+  const fmt = (n) => `€${Math.round(n).toLocaleString("nl-NL")}`;
 
   // ── Self-reported volumes (from survey answers) ──
   const buckets = {};
@@ -903,8 +903,8 @@ function RevenueCalculator({ responses }) {
                 <div key={company} className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs bg-slate-900/40 rounded-lg px-3 py-2">
                   <span className="text-slate-200 font-medium w-28 truncate">{company}</span>
                   <span className={`font-semibold ${confColor}`}>{confidence}</span>
-                  <span className="text-slate-400">{perMonth.toLocaleString()} bookings/mo</span>
-                  <span className="text-green-300">{totalRedemptions.toLocaleString()} redemptions/mo</span>
+                  <span className="text-slate-400">{perMonth.toLocaleString("nl-NL")} bookings/mo</span>
+                  <span className="text-green-300">{totalRedemptions.toLocaleString("nl-NL")} redemptions/mo</span>
                   <span className="text-purple-300 font-semibold ml-auto">{fmt(dutyBoostFee)} fee/mo → {fmt(dutyBoostNet)} DB net</span>
                 </div>
               );
@@ -926,7 +926,7 @@ function RevenueCalculator({ responses }) {
               <div key={label} className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs bg-slate-900/40 rounded-lg px-3 py-2">
                 <span className="text-slate-300 font-medium">{label}</span>
                 <span className="text-slate-500">{count} respondent{count !== 1 ? "s" : ""}</span>
-                <span className="text-slate-400">{bRedem.toLocaleString()} redemptions/mo</span>
+                <span className="text-slate-400">{bRedem.toLocaleString("nl-NL")} redemptions/mo</span>
                 <span className="text-purple-300 font-semibold ml-auto">{fmt(bFee)} fee/mo</span>
               </div>
             );
@@ -949,7 +949,7 @@ const GLOBAL_REDEMPTION_RATE = REDEMPTION_RATE;
 // ── Global Potentials Dashboard ───────────────────────────────────────────────
 // Uses RESEARCHED_VOLUMES directly — dynamic: only shows companies that match a respondent
 function GlobalPotentialsDashboard({ responses }) {
-  const fmt = (n) => `€${Math.round(n).toLocaleString()}`;
+  const fmt = (n) => `€${Math.round(n).toLocaleString("nl-NL")}`;
   const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
 
   // Build rows: one per matched respondent
@@ -997,7 +997,7 @@ function GlobalPotentialsDashboard({ responses }) {
         </div>
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <p className="text-xs text-slate-400 mb-1">Combined bookings/mo</p>
-          <p className="text-2xl font-bold text-yellow-300">{totalMonthly.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-yellow-300">{totalMonthly.toLocaleString("nl-NL")}</p>
         </div>
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <p className="text-xs text-slate-400 mb-1">DutyBoost fee pool/mo</p>
@@ -1049,8 +1049,8 @@ function GlobalPotentialsDashboard({ responses }) {
                     </div>
                   </td>
                   <td className="py-2.5 pr-3 text-slate-400">{r.company_type || "—"}</td>
-                  <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{r.rv.perMonth.toLocaleString()}</td>
-                  <td className="py-2.5 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString()}</td>
+                  <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{r.rv.perMonth.toLocaleString("nl-NL")}</td>
+                  <td className="py-2.5 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString("nl-NL")}</td>
                   <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
                   <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(r.rev.dutyBoostFee)}</td>
                   <td className="py-2.5 pr-3 text-right text-green-400">{fmt(r.rev.agencyCommission)}</td>
@@ -1061,8 +1061,8 @@ function GlobalPotentialsDashboard({ responses }) {
             <tfoot>
               <tr className="border-t-2 border-slate-500 text-white font-bold">
                 <td className="pt-3 pr-3" colSpan={2}>TOTAL</td>
-                <td className="pt-3 pr-3 text-right text-yellow-300">{totalMonthly.toLocaleString()}</td>
-                <td className="pt-3 pr-3 text-right text-green-300">{totalRedemp.toLocaleString()}</td>
+                <td className="pt-3 pr-3 text-right text-yellow-300">{totalMonthly.toLocaleString("nl-NL")}</td>
+                <td className="pt-3 pr-3 text-right text-green-300">{totalRedemp.toLocaleString("nl-NL")}</td>
                 <td className="pt-3 pr-3 text-right text-blue-300">{fmt(totalGross)}</td>
                 <td className="pt-3 pr-3 text-right text-purple-300">{fmt(totalFee)}</td>
                 <td className="pt-3 pr-3 text-right text-green-400">{fmt(totalAgency)}</td>
@@ -1079,8 +1079,8 @@ function GlobalPotentialsDashboard({ responses }) {
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Monthly Summary</p>
           <div className="space-y-2">
             {[
-              { label: "Total bookings", value: totalMonthly.toLocaleString(), color: "text-yellow-300" },
-              { label: "Redemptions (1% = 10%×10%)", value: totalRedemp.toLocaleString(), color: "text-green-300" },
+              { label: "Total bookings", value: totalMonthly.toLocaleString("nl-NL"), color: "text-yellow-300" },
+              { label: "Redemptions (1% = 10%×10%)", value: totalRedemp.toLocaleString("nl-NL"), color: "text-green-300" },
               { label: "Gross retail spend", value: fmt(totalGross), color: "text-blue-300" },
               { label: "DutyBoost fee pool", value: fmt(totalFee), color: "text-purple-300" },
               { label: "→ Travel Partner (20%)", value: fmt(totalAgency), color: "text-green-400" },
@@ -1097,8 +1097,8 @@ function GlobalPotentialsDashboard({ responses }) {
           <p className="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Annual Projection (×12)</p>
           <div className="space-y-2">
             {[
-              { label: "Total bookings/yr", value: (totalMonthly * 12).toLocaleString(), color: "text-yellow-300" },
-              { label: "Redemptions/yr", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
+              { label: "Total bookings/yr", value: (totalMonthly * 12).toLocaleString("nl-NL"), color: "text-yellow-300" },
+              { label: "Redemptions/yr", value: (totalRedemp * 12).toLocaleString("nl-NL"), color: "text-green-300" },
               { label: "Gross retail spend/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
               { label: "DutyBoost fee pool/yr", value: fmt(totalFee * 12), color: "text-purple-300" },
               { label: "→ Travel Partner/yr", value: fmt(totalAgency * 12), color: "text-green-400" },
@@ -1131,8 +1131,8 @@ function GlobalPotentialsDashboard({ responses }) {
           <div className="bg-slate-900/60 border border-orange-500/20 rounded-xl p-4 space-y-2">
             <p className="text-xs font-semibold text-orange-400 uppercase tracking-widest">Monthly — Retailer View</p>
             {[
-              { label: "Redemptions at airport retail/mo", value: totalRedemp.toLocaleString(), color: "text-green-300" },
-              { label: "Gross basket spend driven/mo", value: fmt(totalGross), color: "text-blue-300", note: `(${totalRedemp.toLocaleString()} × €${AVG_BASKET} avg)` },
+              { label: "Redemptions at airport retail/mo", value: totalRedemp.toLocaleString("nl-NL"), color: "text-green-300" },
+              { label: "Gross basket spend driven/mo", value: fmt(totalGross), color: "text-blue-300", note: `(${totalRedemp.toLocaleString("nl-NL")} × €${AVG_BASKET} avg)` },
               { label: "DutyCredit discount given/mo", value: `–${fmt(totalFee)}`, color: "text-red-400", note: "(= fee pool, funded by DutyBoost)" },
               { label: "Net new revenue for retailer/mo", value: fmt(totalGross - totalFee), color: "text-orange-300", bold: true },
             ].map(({ label, value, color, note, bold }) => (
@@ -1145,7 +1145,7 @@ function GlobalPotentialsDashboard({ responses }) {
           <div className="bg-slate-900/60 border border-orange-500/30 rounded-xl p-4 space-y-2">
             <p className="text-xs font-semibold text-orange-300 uppercase tracking-widest">Annual — Retailer View (×12)</p>
             {[
-              { label: "Redemptions at airport retail/yr", value: (totalRedemp * 12).toLocaleString(), color: "text-green-300" },
+              { label: "Redemptions at airport retail/yr", value: (totalRedemp * 12).toLocaleString("nl-NL"), color: "text-green-300" },
               { label: "Gross basket spend driven/yr", value: fmt(totalGross * 12), color: "text-blue-300" },
               { label: "DutyCredit discount given/yr", value: `–${fmt(totalFee * 12)}`, color: "text-red-400" },
               { label: "Net new revenue for retailer/yr", value: fmt((totalGross - totalFee) * 12), color: "text-orange-300", bold: true },
@@ -1177,7 +1177,7 @@ function GlobalPotentialsDashboard({ responses }) {
                   {rows.map(r => (
                     <tr key={r.id} className="hover:bg-slate-700/20 transition-colors">
                       <td className="py-2 pr-3 text-white font-medium">{r.company_name}</td>
-                      <td className="py-2 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString()}</td>
+                      <td className="py-2 pr-3 text-right text-green-300">{r.rev.totalRedemptions.toLocaleString("nl-NL")}</td>
                       <td className="py-2 pr-3 text-right text-blue-300">{fmt(r.rev.grossRevenue)}</td>
                       <td className="py-2 pr-3 text-right text-red-400">–{fmt(r.rev.dutyBoostFee)}</td>
                       <td className="py-2 text-right text-orange-300 font-bold">{fmt(r.rev.grossRevenue - r.rev.dutyBoostFee)}</td>
@@ -1187,7 +1187,7 @@ function GlobalPotentialsDashboard({ responses }) {
                 <tfoot>
                   <tr className="border-t-2 border-slate-500 font-bold">
                     <td className="pt-2 pr-3 text-white">TOTAL</td>
-                    <td className="pt-2 pr-3 text-right text-green-300">{totalRedemp.toLocaleString()}</td>
+                    <td className="pt-2 pr-3 text-right text-green-300">{totalRedemp.toLocaleString("nl-NL")}</td>
                     <td className="pt-2 pr-3 text-right text-blue-300">{fmt(totalGross)}</td>
                     <td className="pt-2 pr-3 text-right text-red-400">–{fmt(totalFee)}</td>
                     <td className="pt-2 text-right text-orange-300">{fmt(totalGross - totalFee)}</td>
@@ -1238,8 +1238,8 @@ function GlobalPotentialsDashboard({ responses }) {
                     <td className="py-2.5 pr-3">
                       <span className="text-white font-medium">Amsterdam Schiphol (AMS)</span>
                     </td>
-                    <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{partnerBookingsPerYear.toLocaleString()}</td>
-                    <td className="py-2.5 pr-3 text-right text-green-300">{redemptionsPerYear.toLocaleString()}</td>
+                    <td className="py-2.5 pr-3 text-right text-yellow-300 font-semibold">{partnerBookingsPerYear.toLocaleString("nl-NL")}</td>
+                    <td className="py-2.5 pr-3 text-right text-green-300">{redemptionsPerYear.toLocaleString("nl-NL")}</td>
                     <td className="py-2.5 pr-3 text-right text-blue-300">{fmt(grossPerYear)}</td>
                     <td className="py-2.5 pr-3 text-right text-purple-300">{fmt(feePoolPerYear)}</td>
                     <td className="py-2.5 pr-3 text-right text-green-400">{fmt(travelPartnerPerYear)}</td>
@@ -1405,7 +1405,7 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   const W = 210;
   const H = 297;
   const M = 10; // margin
-  const fmt = (n) => `EUR${Math.round(n).toLocaleString()}`;
+  const fmt = (n) => `EUR${Math.round(n).toLocaleString("nl-NL")}`;
 
   const newPage = () => {
     doc.addPage();
@@ -1451,7 +1451,7 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   // KPI cards (2x2 grid)
   const kpis = [
     { label: "Verified respondents", value: String(rows.length), color: "#f8fafc" },
-    { label: "Combined bookings/mo", value: totals.totalMonthly.toLocaleString(), color: "#fde047" },
+    { label: "Combined bookings/mo", value: totals.totalMonthly.toLocaleString("nl-NL"), color: "#fde047" },
     { label: "DutyBoost fee pool/mo", value: fmt(totals.totalFee), color: "#d8b4fe" },
     { label: "DutyBoost net/yr", value: fmt(totals.totalNet * 12), color: "#86efac" },
   ];
@@ -1505,8 +1505,8 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
     const confLabel = r.rv.confidence === "high" ? "[H]" : r.rv.confidence === "medium" ? "[M]" : "[L]";
     txt(`${r.company_name.substring(0, 14)} ${confLabel}`,  C.company, cy + 2, "#f8fafc", 6.5, "bold");
     txt((r.company_type || "").substring(0, 13),             C.type,    cy + 2, "#94a3b8", 6);
-    rtxt(r.rv.perMonth.toLocaleString(),                     C.bookings, cy + 2, "#fde047", 6.5, "bold");
-    rtxt(r.rev.totalRedemptions.toLocaleString(),            C.redemp,   cy + 2, "#86efac", 6.5);
+    rtxt(r.rv.perMonth.toLocaleString("nl-NL"),                     C.bookings, cy + 2, "#fde047", 6.5, "bold");
+    rtxt(r.rev.totalRedemptions.toLocaleString("nl-NL"),            C.redemp,   cy + 2, "#86efac", 6.5);
     rtxt(fmt(r.rev.grossRevenue),                            C.gross,    cy + 2, "#93c5fd", 6.5);
     rtxt(fmt(r.rev.dutyBoostFee),                            C.fee,      cy + 2, "#d8b4fe", 6.5);
     rtxt(fmt(r.rev.agencyCommission),                        C.partner,  cy + 2, "#4ade80", 6.5);
@@ -1517,8 +1517,8 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   hline(cy);
   cy += 4;
   txt("TOTAL",                              C.company,  cy + 2, "#f8fafc", 6.5, "bold");
-  rtxt(totals.totalMonthly.toLocaleString(), C.bookings, cy + 2, "#fde047", 6.5, "bold");
-  rtxt(totals.totalRedemp.toLocaleString(),  C.redemp,   cy + 2, "#86efac", 6.5, "bold");
+  rtxt(totals.totalMonthly.toLocaleString("nl-NL"), C.bookings, cy + 2, "#fde047", 6.5, "bold");
+  rtxt(totals.totalRedemp.toLocaleString("nl-NL"),  C.redemp,   cy + 2, "#86efac", 6.5, "bold");
   rtxt(fmt(totals.totalGross),               C.gross,    cy + 2, "#93c5fd", 6.5, "bold");
   rtxt(fmt(totals.totalFee),                 C.fee,      cy + 2, "#d8b4fe", 6.5, "bold");
   rtxt(fmt(totals.totalAgency),              C.partner,  cy + 2, "#4ade80", 6.5, "bold");
@@ -1529,16 +1529,16 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   const sumW = (W - M * 2 - 4) / 2;
   const summaryItems = [
     [
-      { label: "Total bookings",          value: totals.totalMonthly.toLocaleString(),    color: "#fde047" },
-      { label: "Redemptions (10%x10%)",   value: totals.totalRedemp.toLocaleString(),     color: "#86efac" },
+      { label: "Total bookings",          value: totals.totalMonthly.toLocaleString("nl-NL"),    color: "#fde047" },
+      { label: "Redemptions (10%x10%)",   value: totals.totalRedemp.toLocaleString("nl-NL"),     color: "#86efac" },
       { label: "Gross retail spend",      value: fmt(totals.totalGross),                  color: "#93c5fd" },
       { label: "DutyBoost fee pool",      value: fmt(totals.totalFee),                    color: "#d8b4fe" },
       { label: "Travel Partner (20%)",    value: fmt(totals.totalAgency),                 color: "#4ade80" },
       { label: "DutyBoost net (80%)",     value: fmt(totals.totalNet),                    color: "#f8fafc" },
     ],
     [
-      { label: "Total bookings/yr",       value: (totals.totalMonthly * 12).toLocaleString(), color: "#fde047" },
-      { label: "Redemptions/yr",          value: (totals.totalRedemp * 12).toLocaleString(),  color: "#86efac" },
+      { label: "Total bookings/yr",       value: (totals.totalMonthly * 12).toLocaleString("nl-NL"), color: "#fde047" },
+      { label: "Redemptions/yr",          value: (totals.totalRedemp * 12).toLocaleString("nl-NL"),  color: "#86efac" },
       { label: "Gross retail spend/yr",   value: fmt(totals.totalGross * 12),                 color: "#93c5fd" },
       { label: "DutyBoost fee pool/yr",   value: fmt(totals.totalFee * 12),                   color: "#d8b4fe" },
       { label: "Travel Partner/yr",       value: fmt(totals.totalAgency * 12),                color: "#4ade80" },
@@ -1572,13 +1572,13 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   // Retailer summary cards
   const retSumW = (W - M * 2 - 4) / 2;
   const retMonthly = [
-    { label: "Redemptions at airport retail/mo", value: totals.totalRedemp.toLocaleString(), color: "#86efac" },
+    { label: "Redemptions at airport retail/mo", value: totals.totalRedemp.toLocaleString("nl-NL"), color: "#86efac" },
     { label: "Gross basket spend driven/mo",      value: fmt(totals.totalGross),               color: "#93c5fd" },
     { label: "DutyCredit discount given/mo",      value: `-${fmt(totals.totalFee)}`,            color: "#f87171" },
     { label: "Net new revenue for retailer/mo",   value: fmt(totals.totalGross - totals.totalFee), color: "#fb923c" },
   ];
   const retAnnual = [
-    { label: "Redemptions at airport retail/yr", value: (totals.totalRedemp * 12).toLocaleString(), color: "#86efac" },
+    { label: "Redemptions at airport retail/yr", value: (totals.totalRedemp * 12).toLocaleString("nl-NL"), color: "#86efac" },
     { label: "Gross basket spend driven/yr",      value: fmt(totals.totalGross * 12),                 color: "#93c5fd" },
     { label: "DutyCredit discount given/yr",      value: `-${fmt(totals.totalFee * 12)}`,              color: "#f87171" },
     { label: "Net new revenue for retailer/yr",   value: fmt((totals.totalGross - totals.totalFee) * 12), color: "#fb923c" },
@@ -1608,7 +1608,7 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   rows.forEach((r, idx) => {
     if (idx % 2 === 1) bg("#172035", M, py - 3, W - M * 2, 8, 0);
     txt(r.company_name.substring(0, 30),           M + 3,   py + 2, "#f8fafc", 6.5, "bold");
-    rtxt(r.rev.totalRedemptions.toLocaleString(),   W - 120, py + 2, "#86efac", 6.5);
+    rtxt(r.rev.totalRedemptions.toLocaleString("nl-NL"),   W - 120, py + 2, "#86efac", 6.5);
     rtxt(fmt(r.rev.grossRevenue),                   W - 88,  py + 2, "#93c5fd", 6.5);
     rtxt(`-${fmt(r.rev.dutyBoostFee)}`,             W - 54,  py + 2, "#f87171", 6.5);
     rtxt(fmt(r.rev.grossRevenue - r.rev.dutyBoostFee), W - M, py + 2, "#fb923c", 6.5, "bold");
@@ -1618,7 +1618,7 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
   hline(py);
   py += 4;
   txt("TOTAL",                                           M + 3,   py + 2, "#f8fafc", 6.5, "bold");
-  rtxt(totals.totalRedemp.toLocaleString(),               W - 120, py + 2, "#86efac", 6.5, "bold");
+  rtxt(totals.totalRedemp.toLocaleString("nl-NL"),               W - 120, py + 2, "#86efac", 6.5, "bold");
   rtxt(fmt(totals.totalGross),                            W - 88,  py + 2, "#93c5fd", 6.5, "bold");
   rtxt(`-${fmt(totals.totalFee)}`,                        W - 54,  py + 2, "#f87171", 6.5, "bold");
   rtxt(fmt(totals.totalGross - totals.totalFee),          W - M,   py + 2, "#fb923c", 6.5, "bold");
@@ -1641,8 +1641,8 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
 
     // Annual data in a clear vertical list
     const apItems = [
-      { label: "Partner bookings/yr (sum of verified monthly x12)", value: airportSection.partnerBookingsPerYear.toLocaleString(), color: "#fde047" },
-      { label: "Redemptions at AMS retail/yr (10% x 10%)",          value: airportSection.redemptionsPerYear.toLocaleString(),    color: "#86efac" },
+      { label: "Partner bookings/yr (sum of verified monthly x12)", value: airportSection.partnerBookingsPerYear.toLocaleString("nl-NL"), color: "#fde047" },
+      { label: "Redemptions at AMS retail/yr (10% x 10%)",          value: airportSection.redemptionsPerYear.toLocaleString("nl-NL"),    color: "#86efac" },
       { label: "Gross retail spend at AMS/yr",                       value: fmt(airportSection.grossPerYear),                     color: "#93c5fd" },
       { label: "DutyBoost fee pool/yr (2.5% of gross, max EUR25/tx)",value: fmt(airportSection.feePoolPerYear),                   color: "#d8b4fe" },
       { label: "Travel Partner commission/yr (20% of fee pool)",      value: fmt(airportSection.travelPartnerPerYear),             color: "#4ade80" },
@@ -1671,8 +1671,8 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
     rows.forEach((r, idx) => {
       if (idx % 2 === 1) bg("#172035", M, ap - 3, W - M * 2, 8, 0);
       txt(r.company_name.substring(0, 28),                     M + 3,   ap + 2, "#f8fafc", 6.5, "bold");
-      rtxt((r.rv.perMonth * 12).toLocaleString(),               W - 126, ap + 2, "#fde047", 6.5);
-      rtxt((r.rev.totalRedemptions * 12).toLocaleString(),      W - 94,  ap + 2, "#86efac", 6.5);
+      rtxt((r.rv.perMonth * 12).toLocaleString("nl-NL"),               W - 126, ap + 2, "#fde047", 6.5);
+      rtxt((r.rev.totalRedemptions * 12).toLocaleString("nl-NL"),      W - 94,  ap + 2, "#86efac", 6.5);
       rtxt(fmt(r.rev.grossRevenue * 12),                        W - 62,  ap + 2, "#93c5fd", 6.5);
       rtxt(fmt(r.rev.dutyBoostNet * 12),                        W - M,   ap + 2, "#fde047", 6.5, "bold");
       ap += 8;
@@ -1681,8 +1681,8 @@ function exportGlobalPotentialsPDF(rows, totals, airportSection) {
     hline(ap);
     ap += 4;
     txt("TOTAL",                                                    M + 3,   ap + 2, "#f8fafc", 6.5, "bold");
-    rtxt(airportSection.partnerBookingsPerYear.toLocaleString(),     W - 126, ap + 2, "#fde047", 6.5, "bold");
-    rtxt(airportSection.redemptionsPerYear.toLocaleString(),         W - 94,  ap + 2, "#86efac", 6.5, "bold");
+    rtxt(airportSection.partnerBookingsPerYear.toLocaleString("nl-NL"),     W - 126, ap + 2, "#fde047", 6.5, "bold");
+    rtxt(airportSection.redemptionsPerYear.toLocaleString("nl-NL"),         W - 94,  ap + 2, "#86efac", 6.5, "bold");
     rtxt(fmt(airportSection.grossPerYear),                           W - 62,  ap + 2, "#93c5fd", 6.5, "bold");
     rtxt(fmt(airportSection.dbNetPerYear),                           W - M,   ap + 2, "#fde047", 6.5, "bold");
   }
