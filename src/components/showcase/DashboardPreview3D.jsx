@@ -12,26 +12,33 @@ import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 const CHART_DATA = {
   agency: {
     color: "#1F6FFF",
-    chart: "composed",
+    chart: "composed-stacked",
     chartData: [
-      { month: "Jan", redeemed: 8400, commission: 42000 },
-      { month: "Feb", redeemed: 9900, commission: 49500 },
-      { month: "Mar", redeemed: 12250, commission: 61250 },
-      { month: "Apr", redeemed: 13500, commission: 67500 },
-      { month: "May", redeemed: 14900, commission: 74500 },
-      { month: "Jun", redeemed: 17200, commission: 86000 },
-      { month: "Jul", redeemed: 20300, commission: 101500 },
-      { month: "Aug", redeemed: 19000, commission: 95000 },
-      { month: "Sep", redeemed: 13000, commission: 65000 },
-      { month: "Oct", redeemed: 10900, commission: 54500 },
-      { month: "Nov", redeemed: 11900, commission: 59500 },
-      { month: "Dec", redeemed: 5950, commission: 29750 },
+      { month: "Jan", issued: 36000, redeemed: 8400, commission: 42000 },
+      { month: "Feb", issued: 40500, redeemed: 9900, commission: 49500 },
+      { month: "Mar", issued: 49000, redeemed: 12250, commission: 61250 },
+      { month: "Apr", issued: 52500, redeemed: 13500, commission: 67500 },
+      { month: "May", issued: 57000, redeemed: 14900, commission: 74500 },
+      { month: "Jun", issued: 65000, redeemed: 17200, commission: 86000 },
+      { month: "Jul", issued: 74000, redeemed: 20300, commission: 101500 },
+      { month: "Aug", issued: 69500, redeemed: 19000, commission: 95000 },
+      { month: "Sep", issued: 51000, redeemed: 13000, commission: 65000 },
+      { month: "Oct", issued: 44500, redeemed: 10900, commission: 54500 },
+      { month: "Nov", issued: 48000, redeemed: 11900, commission: 59500 },
+      { month: "Dec", issued: 37000, redeemed: 5950, commission: 29750 },
     ],
     seriesKeys: [
-      { key: "redeemed", tKey: "s2", color: "#93c5fd" },
+      { key: "issued", tKey: "s1", color: "#93c5fd" },
+      { key: "redeemed", tKey: "s2", color: "#1F6FFF" },
       { key: "commission", tKey: "s3", color: "#00C48C" },
     ],
     kpiValues: ["624,000", "157,200", "€786,000"],
+    barColor1: "#bfdbfe",
+    barColor2: "#1F6FFF",
+    lineColor: "#00C48C",
+    barKey1: "issued",
+    barKey2: "redeemed",
+    lineKey: "commission",
   },
   retailer: {
     color: "#f97316",
@@ -226,30 +233,6 @@ export default function DashboardPreview3D({ role = "agency" }) {
                     <Tooltip content={<CustomTooltip />} />
                     <Bar yAxisId="revenue" dataKey="revenue" name={series.find(s => s.key === "revenue")?.label || "Revenue (€)"} fill="#f97316" radius={[4, 4, 0, 0]} opacity={0.85} />
                     <Line yAxisId="redemptions" type="monotone" dataKey="redemptions" name={series.find(s => s.key === "redemptions")?.label || "Redemptions"} stroke="#fdba74" strokeWidth={2.5} dot={false} />
-                  </ComposedChart>
-                ) : chartData.chart === "composed" && role === "agency" ? (
-                  <ComposedChart data={chartData.chartData} margin={{ top: 4, right: 40, bottom: 0, left: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
-                    <YAxis
-                      yAxisId="commission"
-                      orientation="left"
-                      tick={{ fontSize: 10 }}
-                      axisLine={false}
-                      tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
-                    />
-                    <YAxis
-                      yAxisId="redeemed"
-                      orientation="right"
-                      tick={{ fontSize: 10 }}
-                      axisLine={false}
-                      tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
-                    />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Bar yAxisId="commission" dataKey="commission" name={series.find(s => s.key === "commission")?.label || "Commission (€)"} fill="#00C48C" radius={[4, 4, 0, 0]} opacity={0.85} />
-                    <Line yAxisId="redeemed" type="monotone" dataKey="redeemed" name={series.find(s => s.key === "redeemed")?.label || "Redeemed"} stroke="#93c5fd" strokeWidth={2.5} dot={false} />
                   </ComposedChart>
                 ) : chartData.chart === "composed-stacked" ? (
                   <ComposedChart data={chartData.chartData} margin={{ top: 4, right: 40, bottom: 0, left: 0 }}>
