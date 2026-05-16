@@ -58,7 +58,7 @@ const CHART_DATA = {
   },
   hotel: {
     color: "#3b82f6",
-    chart: "area",
+    chart: "composed-stacked",
     chartData: [
       { month: "Jan", issued: 24000, redeemed: 5300, commission: 26500 },
       { month: "Feb", issued: 27000, redeemed: 6100, commission: 30500 },
@@ -79,10 +79,16 @@ const CHART_DATA = {
       { key: "commission", tKey: "s3", color: "#0891b2" },
     ],
     kpiValues: ["412,000", "98,800", "€494,000"],
+    barColor1: "#bfdbfe",
+    barColor2: "#3b82f6",
+    lineColor: "#0891b2",
+    barKey1: "issued",
+    barKey2: "redeemed",
+    lineKey: "commission",
   },
   car: {
     color: "#ef4444",
-    chart: "area",
+    chart: "composed-stacked",
     chartData: [
       { month: "Jan", issued: 18000, redeemed: 3500, commission: 17500 },
       { month: "Feb", issued: 19500, redeemed: 3900, commission: 19500 },
@@ -103,6 +109,12 @@ const CHART_DATA = {
       { key: "commission", tKey: "s3", color: "#be123c" },
     ],
     kpiValues: ["306,000", "64,200", "€321,000"],
+    barColor1: "#fecaca",
+    barColor2: "#ef4444",
+    lineColor: "#be123c",
+    barKey1: "issued",
+    barKey2: "redeemed",
+    lineKey: "commission",
   },
 };
 
@@ -238,6 +250,31 @@ export default function DashboardPreview3D({ role = "agency" }) {
                     <Tooltip content={<CustomTooltip />} />
                     <Bar yAxisId="commission" dataKey="commission" name={series.find(s => s.key === "commission")?.label || "Commission (€)"} fill="#00C48C" radius={[4, 4, 0, 0]} opacity={0.85} />
                     <Line yAxisId="redeemed" type="monotone" dataKey="redeemed" name={series.find(s => s.key === "redeemed")?.label || "Redeemed"} stroke="#93c5fd" strokeWidth={2.5} dot={false} />
+                  </ComposedChart>
+                ) : chartData.chart === "composed-stacked" ? (
+                  <ComposedChart data={chartData.chartData} margin={{ top: 4, right: 40, bottom: 0, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <YAxis
+                      yAxisId="left"
+                      orientation="left"
+                      tick={{ fontSize: 10 }}
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
+                    />
+                    <YAxis
+                      yAxisId="right"
+                      orientation="right"
+                      tick={{ fontSize: 10 }}
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(v) => v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
+                    />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar yAxisId="left" dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={18} />
+                    <Bar yAxisId="left" dataKey={chartData.barKey2} name={series.find(s => s.key === chartData.barKey2)?.label} fill={chartData.barColor2} radius={[4, 4, 0, 0]} barSize={18} stackId="stack" />
+                    <Line yAxisId="right" type="monotone" dataKey={chartData.lineKey} name={series.find(s => s.key === chartData.lineKey)?.label} stroke={chartData.lineColor} strokeWidth={2.5} dot={false} />
                   </ComposedChart>
                 ) : chartData.chart === "bar" ? (
                   <BarChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
