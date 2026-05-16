@@ -240,6 +240,7 @@ export default {
     footer: {
       tagline: '— Plateforme dynamique de récompenses aéroportuaires',
       rights: '© 2026 DutyBoost. Tous droits réservés.',
+      kvk: 'Registre du Commerce (KvK): 42053181',
     },
     showcase: {
       agency: {

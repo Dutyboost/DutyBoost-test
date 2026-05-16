@@ -80,6 +80,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Todos los derechos reservados.',
+      kvk: 'Registro Mercantil (KvK): 42053181',
     },
     demo: {
       mode_badge: 'Modo Demo',
@@ -256,6 +257,7 @@ export default {
     footer: {
       tagline: '— Plataforma dinámica de recompensas aeroportuarias',
       rights: '© 2026 DutyBoost. Todos los derechos reservados.',
+      kvk: 'Registro Mercantil (KvK): 42053181',
     },
     showcase: {
       agency: {

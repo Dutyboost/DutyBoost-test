@@ -55,6 +55,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle rechten voorbehouden.',
+      kvk: 'KvK: 42053181',
     },
     demo: {
       mode_badge: 'Demomodus',

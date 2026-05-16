@@ -240,6 +240,7 @@ export default {
     footer: {
       tagline: '— Dynamische Flughafen-Belohnungsplattform',
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
+      kvk: 'Handelsregister (KvK): 42053181',
     },
     showcase: {
       agency: {
