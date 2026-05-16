@@ -235,30 +235,20 @@ export default function DashboardPreview3D({ role = "agency" }) {
                     <Line yAxisId="redemptions" type="monotone" dataKey="redemptions" name={series.find(s => s.key === "redemptions")?.label || "Redemptions"} stroke="#fdba74" strokeWidth={2.5} dot={false} />
                   </ComposedChart>
                 ) : chartData.chart === "composed-stacked" ? (
-                  <ComposedChart data={chartData.chartData} margin={{ top: 4, right: 40, bottom: 0, left: 0 }}>
+                  <BarChart data={chartData.chartData} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
                     <YAxis
-                      yAxisId="left"
-                      orientation="left"
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
                       tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
                     />
-                    <YAxis
-                      yAxisId="right"
-                      orientation="right"
-                      tick={{ fontSize: 10 }}
-                      axisLine={false}
-                      tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
-                    />
                     <Tooltip content={<CustomTooltip />} />
-                    <Bar yAxisId="left" dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={18} />
-                    <Bar yAxisId="left" dataKey={chartData.barKey2} name={series.find(s => s.key === chartData.barKey2)?.label} fill={chartData.barColor2} radius={[4, 4, 0, 0]} barSize={18} stackId="stack" />
-                    <Line yAxisId="right" type="monotone" dataKey={chartData.lineKey} name={series.find(s => s.key === chartData.lineKey)?.label} stroke={chartData.lineColor} strokeWidth={2.5} dot={false} />
-                  </ComposedChart>
+                    <Bar dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={14} />
+                    <Bar dataKey={chartData.barKey2} name={series.find(s => s.key === chartData.barKey2)?.label} fill={chartData.barColor2} radius={[4, 4, 0, 0]} barSize={14} />
+                    <Bar dataKey={chartData.lineKey} name={series.find(s => s.key === chartData.lineKey)?.label} fill={chartData.lineColor} radius={[4, 4, 0, 0]} barSize={14} />
+                  </BarChart>
                 ) : chartData.chart === "bar" ? (
                   <BarChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
