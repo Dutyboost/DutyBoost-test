@@ -56,6 +56,7 @@ export default {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. All rights reserved.',
       kvk: 'Chamber of Commerce (KvK): 42053181',
+      vat: 'VAT Number: NL869492068B01',
     },
     demo: {
       mode_badge: 'Demo Mode',

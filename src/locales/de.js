@@ -241,6 +241,7 @@ export default {
       tagline: '— Dynamische Flughafen-Belohnungsplattform',
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
       kvk: 'Handelsregister (KvK): 42053181',
+      vat: 'USt-IdNr.: NL869492068B01',
     },
     showcase: {
       agency: {

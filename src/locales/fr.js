@@ -241,6 +241,7 @@ export default {
       tagline: '— Plateforme dynamique de récompenses aéroportuaires',
       rights: '© 2026 DutyBoost. Tous droits réservés.',
       kvk: 'Registre du Commerce (KvK): 42053181',
+      vat: 'N° TVA : NL869492068B01',
     },
     showcase: {
       agency: {
