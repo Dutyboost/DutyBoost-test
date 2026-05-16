@@ -178,7 +178,7 @@ export default function RetailerDashboard() {
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Amount due</span>
-              <span className="font-bold text-destructive">€{overdueInvoice.amount?.toFixed(2)}</span>
+              <span className="font-bold text-destructive">€ {overdueInvoice.amount?.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Due date</span>
@@ -325,8 +325,8 @@ export default function RetailerDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
          <StatsCard title="My Stores" value={retailers.length} icon={Store} />
          <StatsCard title="Active DutyCredits" value={vouchers.length} icon={TicketPercent} />
-        <StatsCard title="Revenue Generated" value={`€${totalRevenue.toFixed(2)}`} icon={CreditCard} />
-        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={`€${dutyBoostFee}`} subtitle={`Avg €${revenuePerDay}/day`} icon={TrendingUp} />
+        <StatsCard title="Revenue Generated" value={`€ ${parseFloat(totalRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} icon={CreditCard} />
+        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={`€ ${parseFloat(dutyBoostFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} subtitle={`Avg €${parseFloat(revenuePerDay).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -389,7 +389,7 @@ export default function RetailerDashboard() {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="date" tick={{ fontSize: 11 }} tickLine={false} />
             <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-            <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [`€${v}`, n]} />
+            <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [`€ ${v.toLocaleString("nl-NL")}`, n]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={false} name="Volume (€)" />
             <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={false} name="DutyBoost Fee (€)" />
@@ -405,7 +405,7 @@ export default function RetailerDashboard() {
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="store" tick={{ fontSize: 11 }} tickLine={false} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [`€${v}`, "Revenue"]} />
+              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [`€ ${v.toLocaleString("nl-NL")}`, "Revenue"]} />
               <Bar dataKey="revenue" fill="#1F6FFF" radius={[4, 4, 0, 0]} name="Revenue (€)" />
             </BarChart>
           </ResponsiveContainer>

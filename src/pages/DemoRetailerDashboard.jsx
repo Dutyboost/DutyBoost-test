@@ -9,6 +9,7 @@ import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoData";
+import { fmtNum, fmtEur } from "../utils/formatNumber";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
@@ -182,10 +183,10 @@ export default function DemoRetailerDashboard() {
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: t('demo.total_redemptions'), value: periodRedemptions.toLocaleString(), icon: ScanLine, color: "text-blue-500" },
-            { label: t('demo.gross_revenue'), value: `€ ${periodRevenue.toLocaleString("nl-NL")}`, icon: Euro, color: "text-orange-500" },
-            { label: t('demo.avg_sale'), value: `€ ${periodAvg}`, icon: TrendingUp, color: "text-emerald-500" },
-            { label: t('demo.platform_fee'), value: `€ ${parseFloat(periodFee).toLocaleString("nl-NL")}`, icon: Store, color: "text-purple-500" },
+            { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
+            { label: t('demo.gross_revenue'), value: fmtEur(periodRevenue), icon: Euro, color: "text-orange-500" },
+            { label: t('demo.avg_sale'), value: fmtEur(periodAvg), icon: TrendingUp, color: "text-emerald-500" },
+            { label: t('demo.platform_fee'), value: fmtEur(parseFloat(periodFee), 2), icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -235,15 +236,15 @@ export default function DemoRetailerDashboard() {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">{t('demo.gross_sales')}</span>
-                <span className="font-semibold">€ {periodRevenue.toLocaleString("nl-NL")}</span>
-              </div>
-              <div className="flex justify-between items-center text-destructive">
+                <span className="font-semibold">{fmtEur(periodRevenue)}</span>
+                </div>
+                <div className="flex justify-between items-center text-destructive">
                 <span>DutyBoost fee (2.5%)</span>
-                <span className="font-semibold">- € {parseFloat(periodFee).toLocaleString("nl-NL")}</span>
-              </div>
-              <div className="border-t border-border pt-2 flex justify-between items-center">
+                <span className="font-semibold">- {fmtEur(parseFloat(periodFee), 2)}</span>
+                </div>
+                <div className="border-t border-border pt-2 flex justify-between items-center">
                 <span className="font-semibold">{t('demo.your_net_revenue')}</span>
-                <span className="font-bold text-emerald-600">€ {parseFloat(periodNetRevenue).toLocaleString("nl-NL")}</span>
+                <span className="font-bold text-emerald-600">{fmtEur(parseFloat(periodNetRevenue), 2)}</span>
               </div>
             </div>
             <div className="bg-blue-50 text-blue-700 rounded-lg p-3 text-xs">

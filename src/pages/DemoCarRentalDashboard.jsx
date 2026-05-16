@@ -32,7 +32,7 @@ export default function DemoCarRentalDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total Rentals" value={1290} icon={Car} />
         <StatsCard title="DutyCredit Users" value={928} icon={Users} />
-        <StatsCard title="Total Earnings" value="€46,320" icon={DollarSign} />
+        <StatsCard title="Total Earnings" value="€46.320" icon={DollarSign} />
         <StatsCard title="Avg. Per Rental" value="€35.89" icon={TrendingUp} />
       </div>
 

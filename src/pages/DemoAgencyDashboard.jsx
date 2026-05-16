@@ -9,6 +9,7 @@ import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY, AGENCY_YEARLY } from "../data/demoData";
+import { fmtNum, fmtEur } from "../utils/formatNumber";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 
@@ -154,10 +155,10 @@ export default function DemoAgencyDashboard() {
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: t('demo.total_bookings'), value: periodBookings.toLocaleString(), icon: Plane, color: "text-blue-500" },
-            { label: t('demo.dutycredits_issued'), value: periodTravelers.toLocaleString(), icon: TicketPercent, color: "text-orange-500" },
-            { label: t('demo.dutycredits_redeemed'), value: periodRedeemed.toLocaleString(), icon: Users, color: "text-emerald-500" },
-            { label: t('demo.commission_earned'), value: `€ ${parseFloat(periodCommission).toLocaleString("nl-NL", { minimumFractionDigits: 2 })}`, icon: Euro, color: "text-purple-500" },
+            { label: t('demo.total_bookings'), value: fmtNum(periodBookings), icon: Plane, color: "text-blue-500" },
+            { label: t('demo.dutycredits_issued'), value: fmtNum(periodTravelers), icon: TicketPercent, color: "text-orange-500" },
+            { label: t('demo.dutycredits_redeemed'), value: fmtNum(periodRedeemed), icon: Users, color: "text-emerald-500" },
+            { label: t('demo.commission_earned'), value: fmtEur(parseFloat(periodCommission), 2), icon: Euro, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">

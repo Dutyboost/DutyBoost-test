@@ -32,7 +32,7 @@ export default function DemoHotelDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total Guests" value={5890} icon={Users} />
         <StatsCard title="DutyCredit Participants" value={3827} icon={Building2} />
-        <StatsCard title="Total Earnings" value="€14,200" icon={DollarSign} />
+        <StatsCard title="Total Earnings" value="€14.200" icon={DollarSign} />
         <StatsCard title="Avg. Per Guest" value="€3.71" icon={TrendingUp} />
       </div>
 

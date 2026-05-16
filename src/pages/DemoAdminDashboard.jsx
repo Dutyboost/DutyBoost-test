@@ -268,7 +268,7 @@ export default function DemoAdminDashboard() {
                   <tr key={ag.id} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/20" : ""}`}>
                     <td className="py-2.5 font-medium">{ag.name}</td>
                     <td className="py-2.5 text-muted-foreground">{ag.city}</td>
-                    <td className="py-2.5 text-right">{ag.redeemed.toLocaleString()}</td>
+                    <td className="py-2.5 text-right">{ag.redeemed.toLocaleString("nl-NL")}</td>
                     <td className="py-2.5 text-right text-indigo-600 font-semibold">{fmt(ag.commission)}</td>
                     <td className="py-2.5 text-right text-muted-foreground">{((ag.commission / BASE_AGENCY_PAYOUT) * 100).toFixed(1)}%</td>
                   </tr>

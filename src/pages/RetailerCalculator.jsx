@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store } from "lucide-react";
+import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
@@ -82,7 +83,7 @@ function RetailerTab({ t }) {
           <div className="flex justify-between text-xs text-slate-500">
             <span>€0</span>
             <span className="text-slate-400">{t('calculator.min_basket')}</span>
-            <span>€1,000</span>
+            <span>€1.000</span>
           </div>
         </div>
         {tier && (
@@ -228,12 +229,12 @@ function TravelPartnerTab({ t }) {
           <div className="flex justify-between items-end">
             <div>
               <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.bookings_per_month')}</p>
-              <p className="text-4xl font-bold text-white">{bookingsPerMonth.toLocaleString()}</p>
+              <p className="text-4xl font-bold text-white">{fmtNum(bookingsPerMonth)}</p>
             </div>
             <span className="text-slate-400 text-sm">{t('calculator.travelers_label')}</span>
           </div>
           <Slider min={0} max={1000000} step={1000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>0</span><span>1,000,000</span></div>
+          <div className="flex justify-between text-xs text-slate-500"><span>0</span><span>1.000.000</span></div>
         </div>
 
         {/* Conversion rate */}
@@ -272,7 +273,7 @@ function TravelPartnerTab({ t }) {
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <Users className="w-4 h-4 text-slate-400 mx-auto mb-2" />
           <p className="text-xs text-slate-400 mb-1">{t('calculator.redemptions_month')}</p>
-          <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-white">{fmtNum(redemptions)}</p>
         </div>
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
           <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
@@ -283,12 +284,12 @@ function TravelPartnerTab({ t }) {
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
           <p className="text-xs text-green-300 mb-1">{t('calculator.monthly_commission')}</p>
-          <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-green-300">{fmtEur(monthlyCommission, 2)}</p>
         </div>
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 text-center">
           <Percent className="w-4 h-4 text-purple-400 mx-auto mb-2" />
           <p className="text-xs text-purple-300 mb-1">{t('calculator.traveler_savings_month')}</p>
-          <p className="text-2xl font-bold text-purple-300">€{totalTravelerSavings.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-purple-300">{fmtEur(totalTravelerSavings, 2)}</p>
         </div>
       </div>
 
@@ -302,15 +303,15 @@ function TravelPartnerTab({ t }) {
         <div className="grid sm:grid-cols-3 gap-4">
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
             <p className="text-xs text-slate-400">{t('calculator.you_send')}</p>
-            <p className="text-2xl font-bold text-white">{bookingsPerMonth.toLocaleString()} {t('calculator.travelers_mo')}</p>
+            <p className="text-2xl font-bold text-white">{fmtNum(bookingsPerMonth)} {t('calculator.travelers_mo')}</p>
           </div>
           <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
             <p className="text-xs text-slate-400">{t('calculator.at_redemption')} {conversionRate}% {t('calculator.redemption_rate_label')}</p>
-            <p className="text-2xl font-bold text-white">{redemptions.toLocaleString()} {t('calculator.transactions_label')}</p>
+            <p className="text-2xl font-bold text-white">{fmtNum(redemptions)} {t('calculator.transactions_label')}</p>
           </div>
           <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 space-y-1">
             <p className="text-xs text-green-300">{t('calculator.you_earn')}</p>
-            <p className="text-2xl font-bold text-green-300">€{monthlyCommission.toLocaleString()} {t('calculator.per_month')}</p>
+            <p className="text-2xl font-bold text-green-300">{fmtEur(monthlyCommission, 2)} {t('calculator.per_month')}</p>
           </div>
         </div>
 

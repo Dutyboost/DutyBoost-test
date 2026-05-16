@@ -293,7 +293,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total DutyCredits" value={filteredVouchers.length} icon={CreditCard} />
         <StatsCard title="Redemption Rate" value={`${redemptionRate}%`} icon={Percent} />
-        <StatsCard title="Platform Revenue" value={`€${totalRevenue.toFixed(2)}`} icon={TrendingUp} />
+        <StatsCard title="Platform Revenue" value={`€ ${totalRevenue.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} icon={TrendingUp} />
         <StatsCard title="Total Transactions" value={transactions.length} icon={BarChart2} />
       </div>
 
@@ -307,7 +307,7 @@ export default function AdminDashboard() {
             <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }}
-              formatter={(val, name) => [name === "volume" ? `€${val}` : name === "revenue" ? `€${val}` : val, name]}
+              formatter={(val, name) => [name === "volume" ? `€ ${val.toLocaleString("nl-NL")}` : name === "revenue" ? `€ ${val.toLocaleString("nl-NL")}` : val, name]}
             />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={false} name="Volume (€)" />
@@ -418,7 +418,7 @@ export default function AdminDashboard() {
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="category" tick={{ fontSize: 11 }} angle={-15} textAnchor="end" height={80} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => n === "revenue" ? [`€${v.toFixed(2)}`, "Revenue"] : [v, n === "issued" ? "Credits Issued" : "Credits Used"]} />
+              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => n === "revenue" ? [`€ ${v.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, "Revenue"] : [v, n === "issued" ? "Credits Issued" : "Credits Used"]} />
               <Legend wrapperStyle={{ fontSize: 12 }} />
               <Bar dataKey="issued" fill="#dbeafe" radius={[4, 4, 0, 0]} name="Credits Issued" />
               <Bar dataKey="used" fill="#2563eb" radius={[4, 4, 0, 0]} name="Credits Used" />
