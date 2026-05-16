@@ -139,7 +139,7 @@ export default function LandingPage() {
                        }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : '/get-started';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : '/get-started';
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-3 mb-5`}>

@@ -13,6 +13,8 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 export default function SelectUserType() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromAgency = urlParams.get('from') === 'agency';
 
   const options = [
     {
@@ -80,7 +82,7 @@ export default function SelectUserType() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {options.map((option) => {
+            {options.filter(o => !(fromAgency && o.id === 'retailer')).map((option) => {
               const Icon = option.icon;
               return (
                 <div
