@@ -139,6 +139,7 @@ export default function LandingPage() {
                        }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : '/get-started';
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-3 mb-5`}>
@@ -167,7 +168,7 @@ export default function LandingPage() {
               const cardClasses = `bg-card rounded-2xl border border-border p-8 transition-shadow ${isClickable ? 'hover:shadow-lg cursor-pointer' : 'hover:shadow-lg'}`;
 
               return isClickable ? (
-                <Link key={s.key} to="/get-started" className={cardClasses}>
+                <Link key={s.key} to={cardLink} className={cardClasses}>
                   {cardContent}
                 </Link>
               ) : (
