@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
@@ -153,25 +153,10 @@ export default function DashboardPreview3D({ role = "agency" }) {
   const data = DATA_MAP[role] || agencyData;
   const containerRef = useRef(null);
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(mouseY, [-150, 150], [6, -6]), { stiffness: 80, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-150, 150], [-8, 8]), { stiffness: 80, damping: 30 });
-
-  const handleMouse = (e) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    mouseX.set(e.clientX - cx);
-    mouseY.set(e.clientY - cy);
-  };
-
-  const handleLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
+  const handleMouse = () => {};
+  const handleLeave = () => {};
+  const rotateX = 0;
+  const rotateY = 0;
 
   const TrendIcon = ({ trend }) => {
     if (trend === "up") return <TrendingUp className="w-3 h-3 text-emerald-400" />;
