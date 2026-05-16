@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import {
   AreaChart, Area, BarChart, Bar,
+  ComposedChart, Line,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
 } from "recharts";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
@@ -35,7 +36,7 @@ const CHART_DATA = {
   },
   retailer: {
     color: "#f97316",
-    chart: "area",
+    chart: "composed",
     chartData: [
       { month: "Jan", redemptions: 9400, revenue: 1109200 },
       { month: "Feb", redemptions: 10400, revenue: 1268800 },
@@ -191,7 +192,31 @@ export default function DashboardPreview3D({ role = "agency" }) {
               </div>
 
               <ResponsiveContainer width="100%" height={200}>
-                {chartData.chart === "bar" ? (
+                {chartData.chart === "composed" ? (
+                  <ComposedChart data={chartData.chartData} margin={{ top: 4, right: 40, bottom: 0, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <YAxis
+                      yAxisId="revenue"
+                      orientation="left"
+                      tick={{ fontSize: 10 }}
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(v) => v >= 1000000 ? `€${(v / 1000000).toFixed(1)}M` : v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
+                    />
+                    <YAxis
+                      yAxisId="redemptions"
+                      orientation="right"
+                      tick={{ fontSize: 10 }}
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
+                    />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar yAxisId="revenue" dataKey="revenue" name={series.find(s => s.key === "revenue")?.label || "Revenue (€)"} fill="#f97316" radius={[4, 4, 0, 0]} opacity={0.85} />
+                    <Line yAxisId="redemptions" type="monotone" dataKey="redemptions" name={series.find(s => s.key === "redemptions")?.label || "Redemptions"} stroke="#fdba74" strokeWidth={2.5} dot={false} />
+                  </ComposedChart>
+                ) : chartData.chart === "bar" ? (
                   <BarChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
