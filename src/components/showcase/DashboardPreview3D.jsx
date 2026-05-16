@@ -244,7 +244,9 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}K` : v}
+                      ticks={[0, 50000, 100000, 150000]}
+                      domain={[0, 150000]}
+                      tickFormatter={(v) => v === 0 ? '0' : `${(v / 1000).toFixed(0)}K`}
                     />
                     <YAxis
                       yAxisId="right"
@@ -252,7 +254,9 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
-                      tickFormatter={(v) => v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
+                      ticks={[0, 50000, 100000, 150000]}
+                      domain={[0, 150000]}
+                      tickFormatter={(v) => v === 0 ? '0' : `€${(v / 1000).toFixed(0)}K`}
                     />
                     <Tooltip content={<CustomTooltip />} />
                     <Bar yAxisId="left" dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={18} />
