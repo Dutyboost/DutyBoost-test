@@ -209,6 +209,7 @@ export default function LandingPage() {
             <div className="text-right">
               <p>{t('footer.rights')}</p>
               <p className="text-xs mt-0.5">{t('footer.kvk')}</p>
+              <p className="text-xs mt-0.5">{t('footer.vat')}</p>
             </div>
           </div>
           <FooterLinks />
