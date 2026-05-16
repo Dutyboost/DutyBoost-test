@@ -636,7 +636,7 @@ export default {
       col_saving: 'Saving',
       col_fee: 'DutyBoost fee',
       col_net_pct: 'Net % retained',
-      tiers_footnote: 'Net % retained = (basket − saving − 2.5% fee) ÷ basket. Calculated at midpoint of each tier.',
+      tiers_footnote: 'Net % retained = (basket − saving − 2,5% fee) ÷ basket. Calculated at midpoint of each tier.',
       slide_to_activate: 'Slide to at least',
       slide_to_activate_2: 'to activate a DutyCredit tier.',
       partner_title: 'How much will you earn as a Travel Partner?',
