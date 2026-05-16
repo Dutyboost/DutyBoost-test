@@ -60,9 +60,6 @@ export default function RetailerShowcase() {
         </div>
       </section>
 
-      {/* 3D Dashboard Preview */}
-      <DashboardPreview3D role="retailer" />
-
       {/* Flow Section */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
@@ -80,6 +77,9 @@ export default function RetailerShowcase() {
             </div>
         </div>
       </section>
+
+      {/* 3D Dashboard Preview */}
+      <DashboardPreview3D role="retailer" />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">

@@ -60,9 +60,6 @@ export default function AgencyShowcase() {
         </div>
       </section>
 
-      {/* 3D Dashboard Preview */}
-      <DashboardPreview3D role="agency" />
-
       {/* Flow Section */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
@@ -81,6 +78,9 @@ export default function AgencyShowcase() {
           </div>
         </div>
       </section>
+
+      {/* 3D Dashboard Preview */}
+      <DashboardPreview3D role="agency" />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
