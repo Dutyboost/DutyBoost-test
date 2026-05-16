@@ -120,6 +120,7 @@ const AuthenticatedApp = () => {
   if (isAuthenticated && user && !user.role) {
     return (
       <Routes>
+        <Route path="/get-started" element={<SelectUserType />} />
         <Route path="*" element={<Navigate to="/get-started" replace />} />
       </Routes>
     );
