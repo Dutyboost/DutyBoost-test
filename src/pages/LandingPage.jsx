@@ -63,7 +63,7 @@ export default function LandingPage() {
                 {t('nav.partner_with_us')}
               </Button>
             </Link>
-            <Link to="/retailer-calculator">
+            <Link to="/roi-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>
@@ -90,7 +90,7 @@ export default function LandingPage() {
                 {t('nav.partner_with_us')}
               </Button>
             </Link>
-            <Link to="/retailer-calculator" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>

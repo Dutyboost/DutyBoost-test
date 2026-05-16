@@ -174,6 +174,7 @@ const AuthenticatedApp = () => {
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
         <Route path="/retailer-calculator" element={<RetailerCalculator />} />
+        <Route path="/roi-calculator" element={<RetailerCalculator />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
