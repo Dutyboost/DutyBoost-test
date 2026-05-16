@@ -7,13 +7,17 @@ import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
-// Flat tiers — matches POS webhook exactly
+// Linear interpolation within each tier
+function lerp(spend, minSpend, maxSpend, minSav, maxSav) {
+  const pct = Math.min(1, (spend - minSpend) / (maxSpend - minSpend));
+  return Math.round((minSav + pct * (maxSav - minSav)) * 100) / 100;
+}
 function calcSaving(spend) {
-  if (spend < 70) return 0;
-  if (spend >= 300) return 60; // VIP
-  if (spend >= 200) return 30; // Lounge
-  if (spend >= 100) return 15; // Priority
-  return 5;                    // Boarding (€70–€99)
+  if (spend < 70)   return 0;
+  if (spend >= 300) return 60;                      // VIP: flat €60
+  if (spend >= 200) return lerp(spend, 200, 299, 30, 60); // Lounge: €30→€60
+  if (spend >= 100) return lerp(spend, 100, 199, 10, 30); // Priority: €10→€30
+  return lerp(spend, 70, 99, 5, 10);               // Boarding: €5→€10
 }
 
 function getTier(spend) {
@@ -31,10 +35,10 @@ const PLATFORM_FEE_CAP = 25;          // €25 max DutyBoost fee per transaction
 const AGENCY_COMMISSION_CAP = 5;      // €5 max agency commission per transaction
 
 const TIER_BANDS = [
-  { label: "Boarding", min: 70, max: 99, savMin: 5, savMax: 5, color: "bg-yellow-400", textColor: "text-yellow-400" },
-  { label: "Priority", min: 100, max: 199, savMin: 15, savMax: 15, color: "bg-blue-400", textColor: "text-blue-400" },
-  { label: "Lounge", min: 200, max: 299, savMin: 30, savMax: 30, color: "bg-green-400", textColor: "text-green-400" },
-  { label: "VIP", min: 300, max: 1000, savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
+  { label: "Boarding", min: 70, max: 99,   savMin: 5,  savMax: 10, color: "bg-yellow-400", textColor: "text-yellow-400" },
+  { label: "Priority", min: 100, max: 199, savMin: 10, savMax: 30, color: "bg-blue-400",   textColor: "text-blue-400" },
+  { label: "Lounge",   min: 200, max: 299, savMin: 30, savMax: 60, color: "bg-green-400",  textColor: "text-green-400" },
+  { label: "VIP",      min: 300, max: 1000,savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
 ];
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
@@ -179,7 +183,7 @@ function RetailerTab({ t }) {
                       <tr key={t.label} className={`transition-colors ${isActive ? "bg-white/5" : ""}`}>
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
-                        <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}</td>
+                        <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}–€{t.savMax}</td>
                         <td className="py-2.5 pr-4 text-orange-300">€{Math.min(t.min * 0.025, PLATFORM_FEE_CAP).toFixed(2)}–€{Math.min(t.max * 0.025, PLATFORM_FEE_CAP).toFixed(2)}</td>
                         <td className="py-2.5 text-green-300">{midNet}%</td>
                       </tr>
