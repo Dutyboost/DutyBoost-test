@@ -252,6 +252,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       tick={{ fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
+                      domain={[50000, 'auto']}
                       tickFormatter={(v) => v >= 1000 ? `€${(v / 1000).toFixed(0)}K` : `€${v}`}
                     />
                     <Tooltip content={<CustomTooltip />} />
