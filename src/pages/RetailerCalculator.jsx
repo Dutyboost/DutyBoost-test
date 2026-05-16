@@ -11,9 +11,9 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 function calcSaving(spend) {
   if (spend < 70) return 0;
   if (spend >= 300) return 60; // VIP
-  if (spend >= 200) return 45; // Lounge
-  if (spend >= 100) return 30; // Priority
-  return 10;                   // Boarding (€70–€99)
+  if (spend >= 200) return 30; // Lounge
+  if (spend >= 100) return 15; // Priority
+  return 5;                    // Boarding (€70–€99)
 }
 
 function getTier(spend) {
@@ -31,10 +31,10 @@ const PLATFORM_FEE_CAP = 25;          // €25 max DutyBoost fee per transaction
 const AGENCY_COMMISSION_CAP = 5;      // €5 max agency commission per transaction
 
 const TIER_BANDS = [
-  { label: "Boarding", min: 70, max: 99, savMin: 10, savMax: 10, color: "bg-yellow-400", textColor: "text-yellow-400" },
-  { label: "Priority", min: 100, max: 199, savMin: 30, savMax: 30, color: "bg-blue-400", textColor: "text-blue-400" },
-  { label: "Lounge", min: 200, max: 299, savMin: 45, savMax: 45, color: "bg-green-400", textColor: "text-green-400" },
-  { label: "VIP", min: 300, max: 500, savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
+  { label: "Boarding", min: 70, max: 99, savMin: 5, savMax: 5, color: "bg-yellow-400", textColor: "text-yellow-400" },
+  { label: "Priority", min: 100, max: 199, savMin: 15, savMax: 15, color: "bg-blue-400", textColor: "text-blue-400" },
+  { label: "Lounge", min: 200, max: 299, savMin: 30, savMax: 30, color: "bg-green-400", textColor: "text-green-400" },
+  { label: "VIP", min: 300, max: 1000, savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
 ];
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
