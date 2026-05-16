@@ -18,7 +18,7 @@ export default {
     hero: {
       title_1: 'Convirtiendo cada reserva online de viajes y hospitalidad en',
       title_2: 'ingresos — para todos',
-      subtitle: 'Desbloquea los ingresos ocultos en cada reserva online de vuelo, hotel y alquiler de coche con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Convertimos a los viajeros en compradores de alta intención antes de que lleguen a su puerta de embarque.',
+      subtitle: 'Desbloquea los ingresos <strong>ocultos</strong> en cada reserva online de vuelo, hotel y alquiler de coche con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Convertimos a los viajeros en compradores de alta intención antes de que lleguen a su puerta de embarque.',
     },
     ecosystem: {
       title: 'Cómo funciona nuestro ecosistema',

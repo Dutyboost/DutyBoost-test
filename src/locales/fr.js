@@ -19,7 +19,7 @@ export default {
     hero: {
       title_1: 'Transformer chaque réservation de voyage et d\'hôtellerie en ligne en',
       title_2: 'revenus — pour tout le monde',
-      subtitle: 'Débloquez les revenus cachés dans chaque réservation de vol, d\'hôtel et de location de voiture en ligne avec DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Nous transformons les voyageurs en acheteurs à forte intention avant qu\'ils n\'atteignent leur porte d\'embarquement.',
+      subtitle: 'Débloquez les revenus <strong>cachés</strong> dans chaque réservation de vol, d\'hôtel et de location de voiture en ligne avec DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Nous transformons les voyageurs en acheteurs à forte intention avant qu\'ils n\'atteignent leur porte d\'embarquement.',
     },
     ecosystem: {
       title: 'Comment fonctionne notre écosystème',

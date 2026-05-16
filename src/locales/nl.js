@@ -18,7 +18,7 @@ export default {
     hero: {
       title_1: 'Elke online reis- en hospitalityboeking omzetten in',
       title_2: 'omzet — voor iedereen',
-      subtitle: 'Ontsluit de verborgen omzet in elke online vlucht-, hotel- en autoverhuurreservering met DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wij zetten reizigers om in koopbereidde kopers voordat ze hun vertrekgate bereiken.',
+      subtitle: 'Ontsluit de <strong>verborgen</strong> omzet in elke online vlucht-, hotel- en autoverhuurreservering met DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wij zetten reizigers om in koopbereidde kopers voordat ze hun vertrekgate bereiken.',
     },
     ecosystem: {
       title: '1 Oplossing, drie winnaars',
