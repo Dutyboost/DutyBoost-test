@@ -494,7 +494,7 @@ export default {
       benefit3_title: '⚡ Cero carga operativa',
       benefit3_desc: 'DutyBoost gestiona la creación, entrega, canje y pagos de créditos automáticamente.',
       cta: '¿Listo para convertir tus reservas en fidelización e ingresos?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053181',
     },
     retaileronepager: {
       headline: 'Convierte a los viajeros que pasan en clientes que compran — automáticamente',
@@ -534,7 +534,7 @@ export default {
       benefit3_title: '⚡ Cero carga operativa',
       benefit3_desc: 'DutyBoost gestiona la generación, distribución y facturación de créditos — tú solo escaneas y vendes.',
       cta: '¿Listo para convertir más viajeros en clientes?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053181',
     },
     calculator: {
       badge: 'Calculadora ROI DutyBoost',

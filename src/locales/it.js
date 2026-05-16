@@ -678,7 +678,7 @@ export default {
       benefit3_title: '⚡ Zero carico operativo',
       benefit3_desc: 'DutyBoost gestisce automaticamente la creazione, consegna, riscatto e pagamenti dei crediti.',
       cta: 'Pronto a trasformare le tue prenotazioni in fidelizzazione e entrate?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181',
     },
     retaileronepager: {
       headline: 'Trasformare i viaggiatori di passaggio in clienti paganti — automaticamente',
@@ -718,7 +718,7 @@ export default {
       benefit3_title: '⚡ Zero carico operativo',
       benefit3_desc: 'DutyBoost gestisce generazione, distribuzione e fatturazione dei crediti — tu scansioni e vendi soltanto.',
       cta: 'Pronto a convertire più viaggiatori in clienti?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181',
     },
     carrentalsignup: {
       step_info: 'Dati aziendali',

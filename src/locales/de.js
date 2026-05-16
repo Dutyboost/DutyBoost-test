@@ -662,7 +662,7 @@ export default {
       benefit3_title: '⚡ Null operativer Aufwand',
       benefit3_desc: 'DutyBoost übernimmt Guthabenerstellung, Zustellung, Einlösung und Auszahlungen automatisch.',
       cta: 'Bereit, Ihre Buchungen in Loyalität und Umsatz zu verwandeln?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053181',
     },
     retaileronepager: {
       headline: 'Vorbeilaufende Reisende in zahlende Kunden verwandeln — automatisch',
@@ -702,7 +702,7 @@ export default {
       benefit3_title: '⚡ Null operativer Aufwand',
       benefit3_desc: 'DutyBoost übernimmt Guthabengenerierung, Verteilung und Abrechnung — Sie scannen und verkaufen nur.',
       cta: 'Bereit, mehr Reisende in Kunden zu verwandeln?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053181',
     },
     carrentalsignup: {
       step_info: 'Unternehmensangaben',

@@ -560,7 +560,7 @@ export default {
       benefit3_title: '⚡ Zero operational burden',
       benefit3_desc: 'DutyBoost handles credit creation, delivery, redemption, and payouts automatically.',
       cta: 'Ready to turn your bookings into loyalty and revenue?',
-      legal: 'DutyBoost. All rights reserved. 2026. KVK: 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
     },
     retaileronepager: {
       headline: 'Turn passing travelers into paying customers — automatically',
@@ -600,7 +600,7 @@ export default {
       benefit3_title: '⚡ Zero operational burden',
       benefit3_desc: 'DutyBoost handles credit generation, distribution, and billing — you just scan and sell.',
       cta: 'Ready to convert more travelers into customers?',
-      legal: 'DutyBoost. All rights reserved. 2026. KVK: 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
     },
     calculator: {
       badge: 'DutyBoost ROI Calculator',

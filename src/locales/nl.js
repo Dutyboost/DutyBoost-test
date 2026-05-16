@@ -655,7 +655,7 @@ export default {
       benefit3_title: '⚡ Nul operationele last',
       benefit3_desc: 'DutyBoost beheert het aanmaken, afleveren, inwisselen en uitbetalen van tegoeden automatisch.',
       cta: 'Klaar om uw boekingen om te zetten in loyaliteit en omzet?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181',
     },
     retaileronepager: {
       headline: 'Passerende reizigers omzetten in betalende klanten — automatisch',
@@ -695,7 +695,7 @@ export default {
       benefit3_title: '⚡ Nul operationele last',
       benefit3_desc: 'DutyBoost beheert tegoedgeneratie, distributie en facturering — u scant en verkoopt alleen.',
       cta: 'Klaar om meer reizigers om te zetten in klanten?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. KVK: 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181',
     },
     requestdemo: {
       badge: 'Demo aanvragen',
