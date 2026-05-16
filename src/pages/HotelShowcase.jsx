@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import DashboardPreview3D from "../components/showcase/DashboardPreview3D";
 
 export default function HotelShowcase() {
   const { t } = useTranslation();
@@ -46,6 +47,9 @@ export default function HotelShowcase() {
           </p>
         </div>
       </section>
+
+      {/* 3D Dashboard Preview */}
+      <DashboardPreview3D role="hotel" />
 
       {/* Flow Section */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">

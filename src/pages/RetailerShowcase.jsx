@@ -6,6 +6,7 @@ import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, Arr
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import DashboardPreview3D from "../components/showcase/DashboardPreview3D";
 
 const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
@@ -58,6 +59,9 @@ export default function RetailerShowcase() {
           </p>
         </div>
       </section>
+
+      {/* 3D Dashboard Preview */}
+      <DashboardPreview3D role="retailer" />
 
       {/* Flow Section */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
