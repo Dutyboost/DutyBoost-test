@@ -179,7 +179,7 @@ function RetailerTab({ t }) {
                       <tr key={t.label} className={`transition-colors ${isActive ? "bg-white/5" : ""}`}>
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
-                        <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}–€{t.savMax}</td>
+                        <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}</td>
                         <td className="py-2.5 pr-4 text-orange-300">€{Math.min(t.min * 0.025, PLATFORM_FEE_CAP).toFixed(2)}–€{Math.min(t.max * 0.025, PLATFORM_FEE_CAP).toFixed(2)}</td>
                         <td className="py-2.5 text-green-300">{midNet}%</td>
                       </tr>
