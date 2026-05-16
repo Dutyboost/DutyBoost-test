@@ -68,6 +68,8 @@ import RetailerShowcase from './pages/RetailerShowcase';
 import AgencyShowcase from './pages/AgencyShowcase';
 import RegistrationFlow from './pages/RegistrationFlow';
 import EmailPreview from './pages/EmailPreview';
+import TravelPartnerGetStarted from './pages/TravelPartnerGetStarted';
+import RetailerGetStarted from './pages/RetailerGetStarted';
 import AgencyOnePager from './pages/AgencyOnePager';
 import RetailerOnePager from './pages/RetailerOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
@@ -161,6 +163,8 @@ const AuthenticatedApp = () => {
         <Route path="/demo/train" element={<DemoTrainDashboard />} />
         <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
+        <Route path="/get-started/travel-partner" element={<TravelPartnerGetStarted />} />
+        <Route path="/get-started/retailer" element={<RetailerGetStarted />} />
         <Route path="/registration" element={<GetStarted />} />
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
         <Route path="/travel-partner-signup" element={<Navigate to="/get-started" replace />} />
