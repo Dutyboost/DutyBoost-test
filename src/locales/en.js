@@ -729,7 +729,7 @@ export default {
       back: 'Back',
     },
     dashboardPreview: {
-      badge: 'Live Dashboard Preview',
+      badge: 'Live Dashboard Example',
       heading: 'What your partner dashboard looks like',
       footnote: 'Figures are illustrative yearly estimates',
       agency: {
