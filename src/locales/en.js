@@ -651,7 +651,7 @@ export default {
       travelers_label: 'travelers',
       redemption_rate: 'Estimated redemption rate',
       travelers_redeem: 'of travelers redeem',
-      industry_avg: 'Industry avg: ~15–25%',
+      industry_avg: 'Industry avg: 15–25%',
       avg_basket: 'Average basket size at airport store',
       redemptions_month: 'Redemptions / month',
       commission_tx: 'Commission / tx',

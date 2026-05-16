@@ -575,7 +575,7 @@ export default {
       travelers_label: 'reizigers',
       redemption_rate: 'Geschat inwisselingspercentage',
       travelers_redeem: 'van reizigers lost in',
-      industry_avg: 'Branchegemiddelde: ~15–25%',
+      industry_avg: 'Branchegemiddelde: 15–25%',
       avg_basket: 'Gemiddelde mandgrootte in luchthavenwinkel',
       redemptions_month: 'Inwisselingen / maand',
       commission_tx: 'Commissie / transactie',

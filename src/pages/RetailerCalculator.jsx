@@ -181,7 +181,7 @@ function RetailerTab({ t }) {
                         <td className="py-2.5 pr-4 text-slate-300">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}–€{t.savMax}</td>
                         <td className="py-2.5 pr-4 text-orange-300">€{Math.min(t.min * 0.025, PLATFORM_FEE_CAP).toFixed(2)}–€{Math.min(t.max * 0.025, PLATFORM_FEE_CAP).toFixed(2)}</td>
-                        <td className="py-2.5 text-green-300">~{midNet}%</td>
+                        <td className="py-2.5 text-green-300">{midNet}%</td>
                       </tr>
                     );
                   })}
@@ -347,7 +347,7 @@ function TravelPartnerTab({ t }) {
                 return (
                   <tr key={t.label} className={`transition-colors ${isActive ? "bg-white/5" : ""}`}>
                     <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
-                    <td className="py-2.5 pr-4 text-slate-300">~€{mid}</td>
+                    <td className="py-2.5 pr-4 text-slate-300">€{mid}</td>
                     <td className="py-2.5 pr-4 text-red-300">€{saving.toFixed(2)}</td>
                     <td className="py-2.5 pr-4 text-green-300 font-semibold">€{comm.toFixed(2)}</td>
                     <td className="py-2.5 text-blue-300">€{per100.toFixed(0)}</td>

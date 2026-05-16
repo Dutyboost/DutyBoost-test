@@ -581,7 +581,7 @@ export default {
       travelers_label: 'viajeros',
       redemption_rate: 'Tasa de canje estimada',
       travelers_redeem: 'de viajeros canjean',
-      industry_avg: 'Promedio del sector: ~15–25%',
+      industry_avg: 'Promedio del sector: 15–25%',
       avg_basket: 'Tamaño promedio de cesta en tienda aeroportuaria',
       redemptions_month: 'Canjes / mes',
       commission_tx: 'Comisión / transacción',
