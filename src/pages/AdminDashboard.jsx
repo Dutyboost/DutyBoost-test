@@ -292,7 +292,7 @@ export default function AdminDashboard() {
       {/* KPI cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard title="Total DutyCredits" value={filteredVouchers.length} icon={CreditCard} />
-        <StatsCard title="Redemption Rate" value={`${redemptionRate}%`} icon={Percent} />
+        <StatsCard title="Redemption Rate" value={`${redemptionRate.toLocaleString("nl-NL")}%`} icon={Percent} />
         <StatsCard title="Platform Revenue" value={`€ ${totalRevenue.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} icon={TrendingUp} />
         <StatsCard title="Total Transactions" value={transactions.length} icon={BarChart2} />
       </div>
@@ -353,7 +353,7 @@ export default function AdminDashboard() {
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} unit="%" domain={[0, 100]} />
               <Tooltip
                 contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }}
-                formatter={(val) => [`${val}%`, "Redemption Rate"]}
+                formatter={(val) => [`${val.toLocaleString("nl-NL")}%`, "Redemption Rate"]}
               />
               <Bar dataKey="rate" radius={[4, 4, 0, 0]} name="Rate">
                 {airportData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}

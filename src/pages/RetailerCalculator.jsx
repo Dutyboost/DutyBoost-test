@@ -114,18 +114,18 @@ function RetailerTab({ t }) {
             <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
               <Percent className="w-4 h-4 text-red-400 mx-auto mb-2" />
               <p className="text-xs text-red-300 mb-1">{t('calculator.traveler_saving')}</p>
-              <p className="text-2xl font-bold text-red-300">€{saving.toFixed(2)}</p>
-              <p className="text-xs text-red-400 mt-0.5">{discountPct}% off</p>
+              <p className="text-2xl font-bold text-red-300">€{fmtNum(saving, 2)}</p>
+              <p className="text-xs text-red-400 mt-0.5">{fmtNum(discountPct, 1)}% off</p>
             </div>
             <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 text-center">
               <Euro className="w-4 h-4 text-orange-400 mx-auto mb-2" />
               <p className="text-xs text-orange-300 mb-1">{t('calculator.dutboost_fee')}</p>
-              <p className="text-2xl font-bold text-orange-300">€{commission.toFixed(2)}</p>
+              <p className="text-2xl font-bold text-orange-300">€{fmtNum(commission, 2)}</p>
             </div>
             <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
               <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
               <p className="text-xs text-green-300 mb-1">{t('calculator.net_revenue')}</p>
-              <p className="text-2xl font-bold text-green-300">€{netRevenue.toFixed(2)}</p>
+              <p className="text-2xl font-bold text-green-300">€{fmtNum(netRevenue, 2)}</p>
             </div>
           </div>
 
@@ -134,9 +134,9 @@ function RetailerTab({ t }) {
             <p className="text-slate-400 text-sm">{t('calculator.total_acq_desc')}</p>
             <div className="space-y-2">
               {[
-                { label: t('calculator.label_saving'), value: saving, pct: discountPct, barColor: "bg-red-400", textColor: "text-red-300" },
-                { label: t('calculator.label_fee'), value: commission, pct: spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, barColor: "bg-orange-400", textColor: "text-orange-300" },
-                { label: t('calculator.label_net'), value: netRevenue, pct: Math.round((netRevenue / spend) * 1000) / 10, barColor: "bg-green-400", textColor: "text-green-300" },
+                { label: t('calculator.label_saving'), value: saving, pct: fmtNum(discountPct, 1), barColor: "bg-red-400", textColor: "text-red-300" },
+                { label: t('calculator.label_fee'), value: commission, pct: fmtNum(spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, 1), barColor: "bg-orange-400", textColor: "text-orange-300" },
+                { label: t('calculator.label_net'), value: netRevenue, pct: fmtNum(Math.round((netRevenue / spend) * 1000) / 10, 1), barColor: "bg-green-400", textColor: "text-green-300" },
               ].map(({ label, value, pct, barColor, textColor }) => (
                 <div key={label} className="flex items-center gap-3">
                   <div className="w-28 text-xs text-slate-400 shrink-0">{label}</div>
@@ -150,11 +150,11 @@ function RetailerTab({ t }) {
             <div className="pt-3 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <p className="text-xs text-slate-400">{t('calculator.total_cost_label')}</p>
-                <p className="text-2xl font-bold text-white">€{totalCost.toFixed(2)} <span className="text-sm font-normal text-slate-400">/ {Math.round((totalCost / spend) * 1000) / 10}% {t('calculator.of_basket')}</span></p>
+                <p className="text-2xl font-bold text-white">€{fmtNum(totalCost, 2)} <span className="text-sm font-normal text-slate-400">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
               </div>
               <div className="flex items-start gap-2 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3 max-w-xs">
                 <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                <p className="text-xs text-blue-300 leading-relaxed">{t('calculator.acq_info')} <strong>€0</strong>. {t('calculator.acq_info_2')} <strong>€{totalCost.toFixed(2)}</strong> {t('calculator.acq_info_3')} <strong>€{spend}</strong>.</p>
+                <p className="text-xs text-blue-300 leading-relaxed">{t('calculator.acq_info')} <strong>€0</strong>. {t('calculator.acq_info_2')} <strong>€{fmtNum(totalCost, 2)}</strong> {t('calculator.acq_info_3')} <strong>€{spend}</strong>.</p>
               </div>
             </div>
           </div>
@@ -184,8 +184,8 @@ function RetailerTab({ t }) {
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
                         <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}–€{t.savMax}</td>
-                        <td className="py-2.5 pr-4 text-orange-300">€{Math.min(t.min * 0.025, PLATFORM_FEE_CAP).toFixed(2)}–€{Math.min(t.max * 0.025, PLATFORM_FEE_CAP).toFixed(2)}</td>
-                        <td className="py-2.5 text-green-300">{midNet}%</td>
+                        <td className="py-2.5 pr-4 text-orange-300">€{fmtNum(Math.min(t.min * 0.025, PLATFORM_FEE_CAP), 2)}–€{fmtNum(Math.min(t.max * 0.025, PLATFORM_FEE_CAP), 2)}</td>
+                        <td className="py-2.5 text-green-300">{fmtNum(midNet, 1)}%</td>
                       </tr>
                     );
                   })}
@@ -282,8 +282,8 @@ function TravelPartnerTab({ t }) {
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
           <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
           <p className="text-xs text-blue-300 mb-1">{t('calculator.commission_tx')}</p>
-          <p className="text-2xl font-bold text-blue-300">€{agencyCommissionPerTx.toFixed(2)}</p>
-          <p className="text-xs text-blue-400 mt-0.5">0.5% of basket (max €5)</p>
+          <p className="text-2xl font-bold text-blue-300">€{fmtNum(agencyCommissionPerTx, 2)}</p>
+          <p className="text-xs text-blue-400 mt-0.5">0,5% of basket (max €5)</p>
         </div>
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
@@ -352,9 +352,9 @@ function TravelPartnerTab({ t }) {
                   <tr key={t.label} className={`transition-colors ${isActive ? "bg-white/5" : ""}`}>
                     <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
                     <td className="py-2.5 pr-4 text-slate-300">€{mid}</td>
-                    <td className="py-2.5 pr-4 text-red-300">€{saving.toFixed(2)}</td>
-                    <td className="py-2.5 pr-4 text-green-300 font-semibold">€{comm.toFixed(2)}</td>
-                    <td className="py-2.5 text-blue-300">€{per100.toFixed(0)}</td>
+                    <td className="py-2.5 pr-4 text-red-300">€{fmtNum(saving, 2)}</td>
+                    <td className="py-2.5 pr-4 text-green-300 font-semibold">€{fmtNum(comm, 2)}</td>
+                    <td className="py-2.5 text-blue-300">€{fmtNum(per100, 0)}</td>
                   </tr>
                 );
               })}

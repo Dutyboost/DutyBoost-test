@@ -127,9 +127,9 @@ export default function RetailerDashboard() {
   );
 
   const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
-  const dutyBoostFee = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0).toFixed(2);
+  const dutyBoostFee = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
   const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
-  const revenuePerDay = (totalRevenue / periodDays).toFixed(2);
+  const revenuePerDay = totalRevenue / periodDays;
 
   // Transaction volume for selected period
   const displayDayCount = Math.min(30, Math.max(1, Math.round((new Date(endDate) - new Date(startDate)) / 86400000)) + 1);
@@ -325,8 +325,8 @@ export default function RetailerDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
          <StatsCard title="My Stores" value={retailers.length} icon={Store} />
          <StatsCard title="Active DutyCredits" value={vouchers.length} icon={TicketPercent} />
-        <StatsCard title="Revenue Generated" value={`€ ${parseFloat(totalRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} icon={CreditCard} />
-        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={`€ ${parseFloat(dutyBoostFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} subtitle={`Avg €${parseFloat(revenuePerDay).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/day`} icon={TrendingUp} />
+        <StatsCard title="Revenue Generated" value={`€ ${totalRevenue.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} icon={CreditCard} />
+        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={`€ ${dutyBoostFee.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} subtitle={`Avg €${revenuePerDay.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -422,7 +422,7 @@ export default function RetailerDashboard() {
             <h2 className="font-heading font-semibold text-lg">Traveler Ratings</h2>
             <div className="flex items-center gap-6 flex-wrap">
               <div className="text-center">
-                <p className="text-5xl font-heading font-bold">{avg.toFixed(1)}</p>
+                <p className="text-5xl font-heading font-bold">{avg.toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</p>
                 <div className="flex gap-0.5 justify-center mt-1">
                   {[1,2,3,4,5].map(s => (
                     <Star key={s} className={`w-5 h-5 ${s <= Math.round(avg) ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />

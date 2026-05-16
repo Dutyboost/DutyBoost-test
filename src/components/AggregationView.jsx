@@ -122,7 +122,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">Average Discount Applied</p>
-          <p className="text-3xl font-heading font-bold">{aggregatedMetrics.avgDiscount}%</p>
+          <p className="text-3xl font-heading font-bold">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
           <p className="text-xs text-muted-foreground mt-2">Per transaction</p>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
                     <td className="py-2.5 px-3 font-semibold text-foreground">{ap.airport}</td>
                     <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions}</td>
                     <td className="py-2.5 px-3 text-right font-semibold">€{ap.revenue.toLocaleString("nl-NL")}</td>
-                    <td className="py-2.5 px-3 text-right text-muted-foreground">€{(ap.revenue / ap.redemptions).toFixed(0)}</td>
+                    <td className="py-2.5 px-3 text-right text-muted-foreground">€{(ap.revenue / ap.redemptions).toLocaleString("nl-NL", { maximumFractionDigits: 0 })}</td>
                   </tr>
                 ))}
                 <tr className="border-t-2 border-border bg-muted/20 font-semibold">

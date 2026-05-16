@@ -268,6 +268,6 @@ Deno.serve(async (req) => {
     credit_amount_eur: creditAmount,
     expiration_date: expirationDate,
     qr_image_url: qrImageUrl,
-    message: `DutyCredit of €${creditAmount.toFixed(2)} generated and sent to ${traveler_email}`,
+    message: `DutyCredit of €${creditAmount.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} generated and sent to ${traveler_email}`,
   });
 });

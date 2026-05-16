@@ -33,9 +33,9 @@ export default function DemoRetailerDashboard() {
     if (first) setSelectedRetailer(first);
   };
 
-  const platformFee = (selectedRetailer.revenue * 0.025).toFixed(2);
-  const netRevenue = (selectedRetailer.revenue * 0.975).toFixed(2);
-  const avgPerRedemption = (selectedRetailer.revenue / selectedRetailer.redemptions).toFixed(0);
+  const platformFee = fmtNum(selectedRetailer.revenue * 0.025, 2);
+  const netRevenue = fmtNum(selectedRetailer.revenue * 0.975, 2);
+  const avgPerRedemption = fmtNum(selectedRetailer.revenue / selectedRetailer.redemptions, 0);
 
   const totalRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
   const totalRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
@@ -63,9 +63,9 @@ export default function DemoRetailerDashboard() {
 
   const periodRedemptions = Math.round(selectedRetailer.redemptions * periodMultiplier);
   const periodRevenue = Math.round(selectedRetailer.revenue * periodMultiplier);
-  const periodFee = (periodRevenue * 0.025).toFixed(2);
-  const periodNetRevenue = (periodRevenue * 0.975).toFixed(2);
-  const periodAvg = periodRedemptions > 0 ? (periodRevenue / periodRedemptions).toFixed(0) : avgPerRedemption;
+  const periodFee = fmtNum(periodRevenue * 0.025, 2);
+  const periodNetRevenue = fmtNum(periodRevenue * 0.975, 2);
+  const periodAvg = periodRedemptions > 0 ? fmtNum(periodRevenue / periodRedemptions, 0) : avgPerRedemption;
 
   const catBreakdown = ["Retail", "Food & Beverage"].map(cat => ({
     name: cat,

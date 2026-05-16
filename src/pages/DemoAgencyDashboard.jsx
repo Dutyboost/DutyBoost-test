@@ -25,8 +25,8 @@ export default function DemoAgencyDashboard() {
   const [customStart, setCustomStart] = useState("2025-10-01");
   const [customEnd, setCustomEnd] = useState("2026-03-31");
 
-  const conversionRate = ((selectedAgency.redeemed / selectedAgency.travelers) * 100).toFixed(1);
-  const pendingEarnings = (selectedAgency.commission * 0.18).toFixed(2);
+  const conversionRate = fmtNum((selectedAgency.redeemed / selectedAgency.travelers) * 100, 1);
+  const pendingEarnings = fmtNum(selectedAgency.commission * 0.18, 2);
 
   const totalBookings = TRAVEL_AGENCIES.reduce((s, a) => s + a.bookings, 0);
   const totalRedeemed = TRAVEL_AGENCIES.reduce((s, a) => s + a.redeemed, 0);
