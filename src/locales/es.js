@@ -77,12 +77,6 @@ export default {
       err_domain_mismatch: 'El dominio de tu correo debe coincidir con el dominio de tu sitio web.',
       err_industry: 'Por favor selecciona tu tipo de negocio.',
     },
-    footer: {
-      tagline: '— The Travel Retail Conversion Layer',
-      rights: '© 2026 DutyBoost. Todos los derechos reservados.',
-      kvk: 'Registro Mercantil (KvK): 42053181',
-      vat: 'NIF-IVA: NL869492068B01',
-    },
     demo: {
       mode_badge: 'Modo Demo',
       title: 'Explora DutyBoost',
@@ -259,6 +253,7 @@ export default {
       tagline: '— Plataforma dinámica de recompensas aeroportuarias',
       rights: '© 2026 DutyBoost. Todos los derechos reservados.',
       kvk: 'Registro Mercantil (KvK): 42053181',
+      vat: 'N.º IVA: NL869492068B01',
     },
     showcase: {
       agency: {
