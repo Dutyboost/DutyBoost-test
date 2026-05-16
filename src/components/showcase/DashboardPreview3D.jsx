@@ -186,20 +186,6 @@ export default function DashboardPreview3D({ role = "agency" }) {
           >
             {/* Dashboard shell */}
             <div className="bg-slate-900 text-white">
-              {/* Top bar */}
-              <div className="flex items-center justify-between px-5 py-3 bg-slate-800/80 border-b border-white/5">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <span className="text-xs text-slate-400 font-medium">DutyBoost Partner Dashboard — 2025 Overview</span>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: data.color }} />
-                  <span className="text-xs text-slate-400">Live</span>
-                </div>
-              </div>
-
               {/* KPI row */}
               <div className="grid grid-cols-3 gap-px bg-white/5 border-b border-white/5">
                 {data.kpis.map((kpi, i) => (
@@ -269,15 +255,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
                 </ResponsiveContainer>
               </div>
 
-              {/* Bottom status bar */}
-              <div className="px-5 py-3 bg-slate-800/60 border-t border-white/5 flex items-center justify-between">
-                <span className="text-xs text-slate-500">Demo data — indicative yearly figures</span>
-                <div className="flex items-center gap-3">
-                  <span className="text-xs text-slate-500">Updated: today</span>
-                  <div className="h-4 w-px bg-white/10" />
-                  <span className="text-xs font-medium" style={{ color: data.color }}>All systems operational</span>
-                </div>
-              </div>
+
             </div>
 
             {/* Subtle 3D depth edge */}
@@ -291,7 +269,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
           </motion.div>
         </div>
         <p className="text-center text-xs text-muted-foreground mt-4">
-          Move your cursor over the dashboard to interact · Figures are illustrative yearly estimates
+          Figures are illustrative yearly estimates
         </p>
       </div>
     </section>
