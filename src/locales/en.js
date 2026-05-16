@@ -751,9 +751,9 @@ export default {
         kpi2Sub: 'This year',
         kpi3: 'Net Revenue',
         kpi3Sub: 'After DutyBoost fee',
-        chartTitle: 'Monthly Basket & Revenue 2025',
+        chartTitle: 'Monthly Redemptions & Revenue 2025',
         s1: 'Redemptions',
-        s2: 'Avg Basket (€)',
+        s2: 'Revenue (€)',
       },
       hotel: {
         kpi1: 'DutyCredits Issued',

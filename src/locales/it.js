@@ -605,9 +605,9 @@ export default {
         kpi2Sub: 'Quest\'anno',
         kpi3: 'Ricavo netto',
         kpi3Sub: 'Dopo commissione DutyBoost',
-        chartTitle: 'Carrello & Ricavi mensili 2025',
+        chartTitle: 'Riscatti & Ricavi mensili 2025',
         s1: 'Riscatti',
-        s2: 'Carrello medio (€)',
+        s2: 'Ricavi (€)',
       },
       hotel: {
         kpi1: 'DutyCredit emessi',

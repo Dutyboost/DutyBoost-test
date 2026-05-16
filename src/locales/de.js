@@ -589,9 +589,9 @@ export default {
         kpi2Sub: 'Dieses Jahr',
         kpi3: 'Nettoumsatz',
         kpi3Sub: 'Nach DutyBoost-Gebühr',
-        chartTitle: 'Monatlicher Warenkorb & Umsatz 2025',
+        chartTitle: 'Monatliche Einlösungen & Umsatz 2025',
         s1: 'Einlösungen',
-        s2: 'Ø Warenkorb (€)',
+        s2: 'Umsatz (€)',
       },
       hotel: {
         kpi1: 'Ausgegebene DutyCredits',

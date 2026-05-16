@@ -755,9 +755,9 @@ export default {
         kpi2Sub: 'Dit jaar',
         kpi3: 'Netto-omzet',
         kpi3Sub: 'Na DutyBoost-fee',
-        chartTitle: 'Maandelijkse mand & omzet 2025',
+        chartTitle: 'Maandelijkse inwisselingen & omzet 2025',
         s1: 'Inwisselingen',
-        s2: 'Gem. mand (€)',
+        s2: 'Omzet (€)',
       },
       hotel: {
         kpi1: 'Uitgegeven DutyCredits',

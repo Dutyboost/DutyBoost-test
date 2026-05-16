@@ -686,9 +686,9 @@ export default {
         kpi2Sub: 'Este año',
         kpi3: 'Ingresos netos',
         kpi3Sub: 'Tras tarifa DutyBoost',
-        chartTitle: 'Cesta & Ingresos mensuales 2025',
+        chartTitle: 'Canjes & Ingresos mensuales 2025',
         s1: 'Canjes',
-        s2: 'Cesta media (€)',
+        s2: 'Ingresos (€)',
       },
       hotel: {
         kpi1: 'DutyCredits emitidos',

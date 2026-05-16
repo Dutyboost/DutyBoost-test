@@ -589,9 +589,9 @@ export default {
         kpi2Sub: 'Cette année',
         kpi3: 'Revenu net',
         kpi3Sub: 'Après frais DutyBoost',
-        chartTitle: 'Panier & Revenu mensuel 2025',
+        chartTitle: 'Utilisations & Revenus mensuels 2025',
         s1: 'Utilisations',
-        s2: 'Panier moyen (€)',
+        s2: 'Revenu (€)',
       },
       hotel: {
         kpi1: 'DutyCredits émis',
