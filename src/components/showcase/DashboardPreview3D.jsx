@@ -156,8 +156,8 @@ export default function DashboardPreview3D({ role = "agency" }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const rotateX = useSpring(useTransform(mouseY, [-150, 150], [12, -12]), { stiffness: 120, damping: 20 });
-  const rotateY = useSpring(useTransform(mouseX, [-150, 150], [-14, 14]), { stiffness: 120, damping: 20 });
+  const rotateX = useSpring(useTransform(mouseY, [-150, 150], [6, -6]), { stiffness: 80, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-150, 150], [-8, 8]), { stiffness: 80, damping: 30 });
 
   const handleMouse = (e) => {
     const rect = containerRef.current?.getBoundingClientRect();
