@@ -23,7 +23,7 @@ export default function SelectUserType() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/get-started/travel-partner",
+      path: "/travel-partner-showcase",
     },
     {
       id: "hotel",
@@ -53,7 +53,7 @@ export default function SelectUserType() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-      path: "/get-started/retailer",
+      path: "/retailer-showcase",
     },
   ];
 
