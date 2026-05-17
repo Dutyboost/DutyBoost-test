@@ -147,7 +147,7 @@ export default function AirportRetailerPresentationDark() {
           <SlideHeader label="WHY" title="The Conversion Gap" color="green" />
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { stat: "~28%", label: "Average airport retail conversion without incentives", color: "orange" },
+              { stat: "28%", label: "Average airport retail conversion without incentives", color: "orange" },
               { stat: "63%", label: "More purchase confidence with active incentives (Kearney)", color: "green" },
               { stat: "71%", label: "Conversion achievable with targeted pre-departure incentives (m1nd-set)", color: "blue" },
             ].map(({ stat, label, color }) => (
