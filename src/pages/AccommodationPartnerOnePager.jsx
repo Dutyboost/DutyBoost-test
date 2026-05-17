@@ -59,12 +59,9 @@ export default function AccommodationPartnerOnePager() {
         className="print-content max-w-[794px] mx-auto px-8 py-6 print:py-0 print:px-0 bg-white flex flex-col"
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
-        <div className="grid grid-cols-3 items-center pb-2">
-          <div><DutyBoostLogo height={90} /></div>
-          <div className="flex justify-center">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-purple-200 text-purple-700 bg-purple-50">{p('badge')}</span>
-          </div>
-          <div />
+        <div className="flex items-center justify-between pb-2">
+          <DutyBoostLogo height={90} />
+          <span className="text-xs font-bold uppercase tracking-widest text-purple-700">{p('badge')}</span>
         </div>
         <GradientDivider />
 
