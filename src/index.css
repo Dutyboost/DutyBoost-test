@@ -83,7 +83,8 @@
 @media print {
   nav, footer, .print\:hidden { display: none !important; }
   pre { white-space: pre-wrap !important; }
-  .bg-slate-900 { background: #1e293b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #020617 !important; }
 }
 
 @layer base {
