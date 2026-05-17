@@ -100,29 +100,29 @@ export default function AirportRetailerPresentationDark() {
               {
                 icon: Globe,
                 stat: '4.8B',
-                label: 'Global air passengers in 2024',
-                detail: 'IATA confirmed a record 4.8 billion segment passengers in 2024 — every single one passing through an airport retail environment before or after their flight.',
+                label: r('why_s1_label'),
+                detail: r('why_s1_detail'),
                 src: { label: 'IATA Annual Review 2025', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' },
               },
               {
                 icon: Plane,
                 stat: '188,500',
-                label: 'Travelers through Schiphol every single day (2025)',
-                detail: 'Amsterdam Schiphol handled 68.8 million travellers in 2025. That\'s 188,500 per day · 1.32M per week · 5.73M per month. Each one a potential customer walking past your store.',
+                label: r('why_s2_label'),
+                detail: r('why_s2_detail'),
                 src: { label: 'Schiphol Group Annual Traffic Review 2025', url: 'https://airportindustry-news.com/schiphol-airport-handles-68-8-million-passengers-in-2025/' },
               },
               {
                 icon: BarChart3,
                 stat: '1h 10m',
-                label: 'Avg. dwell time in departures per traveler',
-                detail: 'After security, travellers have an average of 1 hour and 10 minutes of free time. At Schiphol, that number rises to 146 minutes — over two hours of browsing, dining, and shopping potential.',
+                label: r('why_s3_label'),
+                detail: r('why_s3_detail'),
                 src: { label: 'Pi Insight — Duty Free Competes for 1h10m Airport Dwell Time', url: 'https://www.linkedin.com/posts/pi-insight_travelretail-dutyfree-shopperbehaviour-activity-7450856841967869953-OGWq' },
               },
               {
                 icon: TrendingUp,
                 stat: '€68.2B',
-                label: 'Global duty-free & travel retail market 2024',
-                detail: 'The global duty-free and travel retail market reached €68.2 billion in 2024 and is growing at 8.8% CAGR. Airport retail is the dominant channel — 61.7% of all duty-free sales happen airside.',
+                label: r('why_s4_label'),
+                detail: r('why_s4_detail'),
                 src: { label: 'Mordor Intelligence — Duty Free & Travel Retail Market 2026', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' },
               },
             ].map(({ icon: Icon, stat, label, detail, src }, i) => (
@@ -373,10 +373,10 @@ export default function AirportRetailerPresentationDark() {
           </div>
           <div className="grid md:grid-cols-2 gap-5">
             {[
-              { stat: '+8.8%', label: 'CAGR in global duty-free & travel retail through 2031', context: 'The Mordor Intelligence report projects the market to grow from $102.5B in 2026 to $156.2B by 2031 — over 52% total growth in five years.', src: { label: 'Mordor Intelligence — Duty Free & Travel Retail Market 2026', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' } },
-              { stat: '+8.5%', label: 'Conversion rate increase from targeted digital engagement (QR/mobile)', context: 'Research confirms digital incentive tools — including QR codes and mobile vouchers — directly improve conversion rates at the point of sale.', src: { label: 'LinkedIn — Airport DOOH & Digital Conversion Research', url: 'https://www.linkedin.com/posts/linna-chen-a0055924a_dooh-programmaticadvertising-airportadvertising-activity-7394937993599488000-u16w' } },
-              { stat: '+10.6%', label: 'Global air passenger growth in 2024 — the travelers keep coming', context: 'IATA confirmed a 10.6% year-on-year surge in global passengers in 2024. More travelers = more footfall = more DutyCredit opportunities for your store.', src: { label: 'IATA Annual Review 2025', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' } },
-              { stat: '62%', label: 'of airport retailers already have QR/mobile digital capability', context: 'The infrastructure for DutyBoost integration is already in place for most airport retailers. Adoption is plug-and-play.', src: { label: 'Market Growth Reports — Duty Free Travel Retail 2024', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' } },
+              { stat: '+8.8%', label: r('mkt_s1_label'), context: r('mkt_s1_context'), src: { label: 'Mordor Intelligence — Duty Free & Travel Retail Market 2026', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' } },
+              { stat: '+8.5%', label: r('mkt_s2_label'), context: r('mkt_s2_context'), src: { label: 'LinkedIn — Airport DOOH & Digital Conversion Research', url: 'https://www.linkedin.com/posts/linna-chen-a0055924a_dooh-programmaticadvertising-airportadvertising-activity-7394937993599488000-u16w' } },
+              { stat: '+10.6%', label: r('mkt_s3_label'), context: r('mkt_s3_context'), src: { label: 'IATA Annual Review 2025', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' } },
+              { stat: '62%', label: r('mkt_s4_label'), context: r('mkt_s4_context'), src: { label: 'Market Growth Reports — Duty Free Travel Retail 2024', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' } },
             ].map(({ stat, label, context, src }, i) => (
               <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-2 hover:border-blue-600 transition-colors">
                 <p className="text-3xl font-heading font-bold text-blue-400">{stat}</p>
