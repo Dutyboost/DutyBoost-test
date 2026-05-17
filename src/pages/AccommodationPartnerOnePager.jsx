@@ -4,6 +4,7 @@ import { Printer, ArrowLeft } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #8b5cf6, #06b6d4, #10b981)', width: '100%' }} />
@@ -43,6 +44,7 @@ export default function AccommodationPartnerOnePager() {
             <ArrowLeft className="w-4 h-4" /> Back
           </button>
         </Link>
+        <LanguageSwitcher />
         <Button onClick={handleDownloadPDF} className="gap-2" style={{ background: 'linear-gradient(to right, #8b5cf6, #06b6d4)' }}>
           <Printer className="w-4 h-4" /> Download PDF
         </Button>
