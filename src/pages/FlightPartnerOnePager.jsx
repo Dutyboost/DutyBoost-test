@@ -6,6 +6,22 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+
+const CHART_DATA = [
+  { month: "Jan", issued: 36000, redeemed: 5400, commission: 5900 },
+  { month: "Feb", issued: 40500, redeemed: 6075, commission: 6600 },
+  { month: "Mar", issued: 49000, redeemed: 7350, commission: 8000 },
+  { month: "Apr", issued: 52500, redeemed: 7875, commission: 8600 },
+  { month: "May", issued: 57000, redeemed: 8550, commission: 9300 },
+  { month: "Jun", issued: 65000, redeemed: 9750, commission: 10600 },
+  { month: "Jul", issued: 74000, redeemed: 11100, commission: 12100 },
+  { month: "Aug", issued: 69500, redeemed: 10425, commission: 11400 },
+  { month: "Sep", issued: 51000, redeemed: 7650, commission: 8300 },
+  { month: "Oct", issued: 44500, redeemed: 6675, commission: 7300 },
+  { month: "Nov", issued: 48000, redeemed: 7200, commission: 7800 },
+  { month: "Dec", issued: 37000, redeemed: 5550, commission: 6000 },
+];
 
 const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #3b82f6, #14b8a6, #f59e0b)', width: '100%' }} />
@@ -96,6 +112,41 @@ export default function FlightPartnerOnePager() {
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{s.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Live Dashboard Preview */}
+          <div className="py-1">
+            <div className="border border-blue-100 rounded-lg bg-blue-50/40 px-3 py-2">
+              <p className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-1.5">{t('dashboardPreview.badge')} — {t('dashboardPreview.agency.chartTitle')}</p>
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                <div className="bg-white border border-blue-100 rounded p-2 text-center">
+                  <p className="text-base font-heading font-bold text-blue-600">624.000</p>
+                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.agency.kpi1')}</p>
+                  <p className="text-xs text-emerald-500">{t('dashboardPreview.agency.kpi1Sub')}</p>
+                </div>
+                <div className="bg-white border border-blue-100 rounded p-2 text-center">
+                  <p className="text-base font-heading font-bold text-teal-600">157.200</p>
+                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.agency.kpi2')}</p>
+                  <p className="text-xs text-emerald-500">{t('dashboardPreview.agency.kpi2Sub')}</p>
+                </div>
+                <div className="bg-white border border-blue-100 rounded p-2 text-center">
+                  <p className="text-base font-heading font-bold text-green-600">€786.000</p>
+                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.agency.kpi3')}</p>
+                  <p className="text-xs text-emerald-500">{t('dashboardPreview.agency.kpi3Sub')}</p>
+                </div>
+              </div>
+              <ResponsiveContainer width="100%" height={70}>
+                <BarChart data={CHART_DATA} margin={{ top: 0, right: 4, bottom: 0, left: -20 }}>
+                  <XAxis dataKey="month" tick={{ fontSize: 8 }} axisLine={false} tickLine={false} />
+                  <YAxis hide />
+                  <Tooltip formatter={(v) => v.toLocaleString('nl-NL')} contentStyle={{ fontSize: 10 }} />
+                  <Bar dataKey="issued" fill="#bfdbfe" radius={[2,2,0,0]} barSize={8} />
+                  <Bar dataKey="redeemed" fill="#1F6FFF" radius={[2,2,0,0]} barSize={8} />
+                  <Bar dataKey="commission" fill="#00C48C" radius={[2,2,0,0]} barSize={8} />
+                </BarChart>
+              </ResponsiveContainer>
+              <p className="text-xs text-muted-foreground text-center mt-0.5">{t('dashboardPreview.footnote')}</p>
             </div>
           </div>
 
