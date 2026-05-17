@@ -69,6 +69,9 @@ import AgencyShowcase from './pages/AgencyShowcase';
 import RegistrationFlow from './pages/RegistrationFlow';
 import EmailPreview from './pages/EmailPreview';
 import AgencyOnePager from './pages/AgencyOnePager';
+import FlightPartnerOnePager from './pages/FlightPartnerOnePager';
+import AccommodationPartnerOnePager from './pages/AccommodationPartnerOnePager';
+import CarRentalPartnerOnePager from './pages/CarRentalPartnerOnePager';
 import RetailerOnePager from './pages/RetailerOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
@@ -170,6 +173,9 @@ const AuthenticatedApp = () => {
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
         <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
+        <Route path="/flight-partner-one-pager" element={<FlightPartnerOnePager />} />
+        <Route path="/accommodation-partner-one-pager" element={<AccommodationPartnerOnePager />} />
+        <Route path="/car-rental-partner-one-pager" element={<CarRentalPartnerOnePager />} />
         <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
