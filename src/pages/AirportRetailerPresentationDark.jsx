@@ -204,10 +204,10 @@ export default function AirportRetailerPresentationDark() {
 
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { num: '1', title: 'Travel Partner Issues DutyCredit', desc: 'When a traveler books a flight, hotel or car rental, their confirmation email includes a personalized DutyCredit QR code — weeks before they fly.' },
-              { num: '2', title: 'Traveler Arrives Pre-Activated', desc: 'They enter your store already motivated. They have a specific credit to spend at a minimum basket of €70 — and they\'re looking to use it.' },
-              { num: '3', title: 'Cashier Scans the QR Code', desc: 'One scan at checkout. Our system validates the QR instantly and applies the tiered discount automatically. No manual calculation.' },
-              { num: '4', title: 'Higher Sale. Monthly Invoice.', desc: 'You receive a single monthly invoice for 2,5% of gross redemption value (max €25/transaction). No upfront fees. No subscriptions.' },
+              { num: '1', title: r('step1_title'), desc: r('step1_desc') },
+              { num: '2', title: r('step2_title'), desc: r('step2_desc') },
+              { num: '3', title: r('step3_title'), desc: r('step3_desc') },
+              { num: '4', title: r('step4_title'), desc: r('step4_desc') },
             ].map(({ num, title, desc }) => (
               <div key={num} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-3 hover:border-orange-600 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center font-heading font-bold text-white text-lg">{num}</div>
@@ -440,7 +440,7 @@ export default function AirportRetailerPresentationDark() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
           <DutyBoostLogo height={120} inverted />
           <div className="flex items-center gap-6">
-            <Link to="/" className="hover:text-slate-200 transition-colors">Home</Link>
+            <Link to="/" className="hover:text-slate-200 transition-colors">{r('nav_home').replace('← ', '')}</Link>
             <a href="mailto:hello@dutyboost.com" className="hover:text-slate-200 transition-colors">hello@dutyboost.com</a>
             <span>© 2026 DutyBoost</span>
           </div>
