@@ -59,12 +59,12 @@ export default function FlightPartnerOnePager() {
         className="print-content max-w-[794px] mx-auto px-8 py-6 print:py-0 print:px-0 bg-white flex flex-col"
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
-        <div className="relative flex items-center justify-between pb-2">
-          <DutyBoostLogo height={90} />
-          <div className="absolute left-1/2 -translate-x-1/2">
+        <div className="grid grid-cols-3 items-center pb-2">
+          <div><DutyBoostLogo height={90} /></div>
+          <div className="flex justify-center">
             <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-blue-200 text-blue-700 bg-blue-50">{p('badge')}</span>
           </div>
-          <div className="w-[90px]" />
+          <div />
         </div>
         <GradientDivider />
 
