@@ -256,7 +256,7 @@ export default function AirportRetailerPresentationDark() {
           <SlideHeader label="WHAT" title="Measurable Revenue Impact" color="green" />
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { label: "Conversion Uplift", before: "~28%", after: "40–50%", color: "orange" },
+              { label: "Conversion Uplift", before: "28%", after: "40–50%", color: "orange" },
               { label: "Avg. Basket Uplift", before: "€20–€28", after: "€100–€140", color: "green" },
               { label: "Daily Net Revenue (100 visitors)", before: "€2,100", after: "€5,400", color: "blue" },
             ].map(({ label, before, after, color }) => (
@@ -278,8 +278,8 @@ export default function AirportRetailerPresentationDark() {
               {[
                 { label: "Net incremental revenue per day per store", val: "+€3,150" },
                 { label: "Annual incremental revenue per location", val: "+€1.1M" },
-                { label: "DutyBoost fee on €120 avg basket", val: "~€3 (2.5%)" },
-                { label: "Net to you per €120 sale", val: "~€117" },
+                { label: "DutyBoost fee on €120 avg basket", val: "€3 (2.5%)" },
+                { label: "Net to you per €120 sale", val: "€117" },
               ].map(({ label, val }) => (
                 <div key={label} className="flex justify-between items-center py-2 border-b border-slate-700/40">
                   <span className="text-slate-400">{label}</span>
