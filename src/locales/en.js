@@ -604,7 +604,7 @@ export default {
       step4_title: 'Commission paid to you', step4_desc: 'DutyBoost tracks each redemption and pays you a commission — automatically every month.',
       s3_title: '03 — Revenue Potential For Accommodation Partners',
       stat1_value: '€0.67', stat1_label: 'Avg. commission per booking', stat1_desc: 'Based on 20% redemption rate among flight-adjacent bookings',
-      stat2_value: '€13,400', stat2_label: 'Annual commission at 100K bookings', stat2_desc: 'Passive income — no operational involvement required',
+      stat2_value: '€134,000', stat2_label: 'Annual commission at 1M bookings', stat2_desc: 'Passive income — no operational involvement required',
       stat3_value: '€0', stat3_label: 'Cost to participate', stat3_desc: 'No fees, no subscription, no infrastructure investment',
       benefit1_title: 'Automatic qualification', benefit1_desc: 'Guests flying to or from airports qualify automatically — DutyCredits are issued via booking confirmation emails with no manual setup.',
       benefit2_title: 'All accommodation types', benefit2_desc: 'From boutique properties to large portfolios, any accommodation provider whose guests travel by air can participate in DutyBoost.',
