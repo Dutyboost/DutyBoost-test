@@ -774,7 +774,7 @@ export default {
       step4_title: 'Commissione pagata a te', step4_desc: 'DutyBoost traccia ogni riscatto e ti paga automaticamente una commissione ogni mese.',
       s3_title: '03 — Potenziale di Ricavi per i Partner di Alloggio',
       stat1_value: 'Fino a €5', stat1_label: 'Commissione per riscatto', stat1_desc: "20% della commissione del 2,5% di DutyBoost per transazione (limite €5) — guadagnata automaticamente, senza sforzo di vendita",
-      stat2_value: 'Gratuito', stat2_label: 'Nessun costo per te, mai', stat2_desc: 'DutyBoost è gratuito per i partner di alloggio. La commissione proviene dai riscatti confermati — pagata mensilmente con report completo',
+      stat2_value: 'Gratuito', stat2_label: 'Nessun costo per te', stat2_desc: 'DutyBoost è gratuito per i partner di alloggio. La commissione proviene dai riscatti confermati! Pagata mensilmente con report completo',
       stat3_value: '< 1 giorno', stat3_label: 'Per andare live', stat3_desc: 'Un singolo snippet nell\'e-mail di conferma prenotazione. Gestiamo tutto il resto da capo a fondo',
       benefit1_title: '🤝 Maggiore fedeltà degli ospiti', benefit1_desc: 'Un vantaggio aeroportuale memorabile e personalizzato legato ad ogni prenotazione di alloggio — gli ospiti associano quel valore alla tua piattaforma.',
       benefit2_title: '💰 Nuove entrate passive', benefit2_desc: 'La commissione affluisce dalla spesa aeroportuale — nessuno sforzo di vendita aggiuntivo, nessun lavoro manuale.',
