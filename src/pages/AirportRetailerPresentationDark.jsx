@@ -301,7 +301,6 @@ export default function AirportRetailerPresentationDark() {
               { title: "Continuous traveler flow", desc: "As more travel partners join DutyBoost, more pre-activated travelers are directed to your store every day." },
               { title: "Real-time analytics dashboard", desc: "Track redemptions, basket values, conversion rates, and monthly invoices — per day, per store." },
               { title: "Stronger traveler loyalty", desc: "Travelers who redeem a DutyCredit remember your store as the place that gave them great value." },
-              { title: "No POS integration needed to start", desc: "Cashier scans a QR code on any mobile device. Full POS integration available but not required." },
             ].map(({ title, desc }) => (
               <div key={title} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-2 hover:border-orange-600 transition-colors">
                 <p className="font-semibold text-slate-100 text-sm">{title}</p>
@@ -318,7 +317,6 @@ export default function AirportRetailerPresentationDark() {
             <BulletCard color="blue" items={[
               "Purely performance-based model — you only pay for confirmed sales",
               "No operational disruption to your existing workflow",
-              "No required POS integration to get started",
               "Scalable across airport retail portfolios",
               "Network effect strengthens over time as more travel partners join",
             ]} />
