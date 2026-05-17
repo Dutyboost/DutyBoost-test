@@ -19,7 +19,7 @@ export default {
     hero: {
       title_1: 'Jede Online-Reise- und Hospitality-Buchung verwandeln in',
       title_2: 'Umsatz — für alle',
-      subtitle: 'Erschließen Sie den <strong>verborgenen</strong> Umsatz in jeder Online-Flug-, Hotel- und Mietwagenbuchung mit DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wir verwandeln Reisende in kaufbereite Käufer, bevor sie ihr Abfluggate erreichen.',
+      subtitle: 'Erschließen Sie den <strong>verborgenen</strong> Umsatz in jeder online gebuchten Flug-, Unterkunfts- oder Mietwagenreservierung mit DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wir verwandeln Reisende in kaufbereite Käufer, bevor sie ihr Abfluggate erreichen.',
     },
     ecosystem: {
       title: 'So funktioniert unser Ökosystem',
