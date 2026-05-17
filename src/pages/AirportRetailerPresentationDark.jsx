@@ -40,8 +40,8 @@ export default function AirportRetailerPresentationDark() {
   const downloadPresentation = async () => {
     setIsDownloading(true);
     try {
-      const { exportRetailerPptx } = await import("../utils/exportRetailerPptx");
-      await exportRetailerPptx();
+      const { exportRetailerPptxDark } = await import("../utils/exportRetailerPptxDark");
+      await exportRetailerPptxDark();
     } finally {
       setIsDownloading(false);
     }
