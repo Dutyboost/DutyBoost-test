@@ -510,7 +510,7 @@ export default {
       step4_title: 'Ganas comisión', step4_desc: 'DutyBoost te paga una comisión por cada canje — sin gestión requerida.',
       s3_title: '03 — Potencial de Ingresos para Socios de Vuelo',
       stat1_value: 'Hasta €5', stat1_label: 'Comisión por canje', stat1_desc: "20% de la tarifa del 2,5% de DutyBoost por transacción (límite €5) — ganada automáticamente, sin esfuerzo de ventas",
-      stat2_value: 'Gratis', stat2_label: 'Sin coste para ti, nunca', stat2_desc: 'DutyBoost es gratuito para socios de vuelo. La comisión fluye de canjes confirmados — pagada mensualmente con informes completos',
+      stat2_value: 'Gratis', stat2_label: '¡Sin coste para ti!', stat2_desc: 'DutyBoost es gratuito para socios de vuelo. La comisión fluye de canjes confirmados — pagada mensualmente con informes completos',
       stat3_value: '< 1 día', stat3_label: 'Para estar en marcha', stat3_desc: 'Un solo snippet en el email de confirmación de reserva. Nosotros gestionamos todo lo demás de principio a fin',
       benefit1_title: '🤝 Mayor fidelización del viajero', benefit1_desc: 'Un beneficio aeroportuario memorable y personalizado vinculado a cada reserva de vuelo realizada contigo.',
       benefit2_title: '💰 Nuevos ingresos pasivos', benefit2_desc: 'La comisión llega del gasto aeroportuario — sin esfuerzo de ventas adicional, sin trabajo manual.',
