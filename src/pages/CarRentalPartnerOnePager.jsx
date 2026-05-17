@@ -6,22 +6,7 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
-const CHART_DATA = [
-  { month: "Jan", issued: 18000, redeemed: 2700, commission: 2900 },
-  { month: "Feb", issued: 19500, redeemed: 2925, commission: 3200 },
-  { month: "Mar", issued: 24000, redeemed: 3600, commission: 3900 },
-  { month: "Apr", issued: 28000, redeemed: 4200, commission: 4600 },
-  { month: "May", issued: 32000, redeemed: 4800, commission: 5200 },
-  { month: "Jun", issued: 36000, redeemed: 5400, commission: 5900 },
-  { month: "Jul", issued: 39000, redeemed: 5850, commission: 6400 },
-  { month: "Aug", issued: 37000, redeemed: 5550, commission: 6000 },
-  { month: "Sep", issued: 26000, redeemed: 3900, commission: 4300 },
-  { month: "Oct", issued: 22000, redeemed: 3300, commission: 3600 },
-  { month: "Nov", issued: 23000, redeemed: 3450, commission: 3700 },
-  { month: "Dec", issued: 19000, redeemed: 2850, commission: 3100 },
-];
 
 const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #f97316, #ef4444, #eab308)', width: '100%' }} />
@@ -112,41 +97,6 @@ export default function CarRentalPartnerOnePager() {
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{s.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Live Dashboard Preview */}
-          <div className="py-1">
-            <div className="border border-orange-100 rounded-lg bg-orange-50/40 px-3 py-2">
-              <p className="text-xs font-bold text-orange-700 uppercase tracking-widest mb-1.5">{t('dashboardPreview.badge')} — {t('dashboardPreview.car.chartTitle')}</p>
-              <div className="grid grid-cols-3 gap-2 mb-2">
-                <div className="bg-white border border-orange-100 rounded p-2 text-center">
-                  <p className="text-base font-heading font-bold text-orange-600">306.000</p>
-                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.car.kpi1')}</p>
-                  <p className="text-xs text-emerald-500">{t('dashboardPreview.car.kpi1Sub')}</p>
-                </div>
-                <div className="bg-white border border-orange-100 rounded p-2 text-center">
-                  <p className="text-base font-heading font-bold text-red-600">64.200</p>
-                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.car.kpi2')}</p>
-                  <p className="text-xs text-emerald-500">{t('dashboardPreview.car.kpi2Sub')}</p>
-                </div>
-                <div className="bg-white border border-orange-100 rounded p-2 text-center">
-                  <p className="text-base font-heading font-bold text-green-600">€321.000</p>
-                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.car.kpi3')}</p>
-                  <p className="text-xs text-emerald-500">{t('dashboardPreview.car.kpi3Sub')}</p>
-                </div>
-              </div>
-              <ResponsiveContainer width="100%" height={70}>
-                <BarChart data={CHART_DATA} margin={{ top: 0, right: 4, bottom: 0, left: -20 }}>
-                  <XAxis dataKey="month" tick={{ fontSize: 8 }} axisLine={false} tickLine={false} />
-                  <YAxis hide />
-                  <Tooltip formatter={(v) => v.toLocaleString('nl-NL')} contentStyle={{ fontSize: 10 }} />
-                  <Bar dataKey="issued" fill="#fecaca" radius={[2,2,0,0]} barSize={8} />
-                  <Bar dataKey="redeemed" fill="#ef4444" radius={[2,2,0,0]} barSize={8} />
-                  <Bar dataKey="commission" fill="#be123c" radius={[2,2,0,0]} barSize={8} />
-                </BarChart>
-              </ResponsiveContainer>
-              <p className="text-xs text-muted-foreground text-center mt-0.5">{t('dashboardPreview.footnote')}</p>
             </div>
           </div>
 

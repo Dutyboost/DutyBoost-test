@@ -6,22 +6,7 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
-const CHART_DATA = [
-  { month: "Jan", issued: 24000, redeemed: 3600, commission: 3900 },
-  { month: "Feb", issued: 27000, redeemed: 4050, commission: 4400 },
-  { month: "Mar", issued: 34000, redeemed: 5100, commission: 5600 },
-  { month: "Apr", issued: 39000, redeemed: 5850, commission: 6400 },
-  { month: "May", issued: 43500, redeemed: 6525, commission: 7100 },
-  { month: "Jun", issued: 48000, redeemed: 7200, commission: 7800 },
-  { month: "Jul", issued: 51000, redeemed: 7650, commission: 8300 },
-  { month: "Aug", issued: 49500, redeemed: 7425, commission: 8100 },
-  { month: "Sep", issued: 34000, redeemed: 5100, commission: 5600 },
-  { month: "Oct", issued: 29000, redeemed: 4350, commission: 4700 },
-  { month: "Nov", issued: 31000, redeemed: 4650, commission: 5100 },
-  { month: "Dec", issued: 27000, redeemed: 4050, commission: 4400 },
-];
 
 const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #8b5cf6, #06b6d4, #10b981)', width: '100%' }} />
@@ -112,41 +97,6 @@ export default function AccommodationPartnerOnePager() {
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{s.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Live Dashboard Preview */}
-          <div className="py-1">
-            <div className="border border-purple-100 rounded-lg bg-purple-50/40 px-3 py-2">
-              <p className="text-xs font-bold text-purple-700 uppercase tracking-widest mb-1.5">{t('dashboardPreview.badge')} — {t('dashboardPreview.hotel.chartTitle')}</p>
-              <div className="grid grid-cols-3 gap-2 mb-2">
-                <div className="bg-white border border-purple-100 rounded p-2 text-center">
-                  <p className="text-base font-heading font-bold text-purple-600">412.000</p>
-                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.hotel.kpi1')}</p>
-                  <p className="text-xs text-emerald-500">{t('dashboardPreview.hotel.kpi1Sub')}</p>
-                </div>
-                <div className="bg-white border border-purple-100 rounded p-2 text-center">
-                  <p className="text-base font-heading font-bold text-cyan-600">98.800</p>
-                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.hotel.kpi2')}</p>
-                  <p className="text-xs text-emerald-500">{t('dashboardPreview.hotel.kpi2Sub')}</p>
-                </div>
-                <div className="bg-white border border-purple-100 rounded p-2 text-center">
-                  <p className="text-base font-heading font-bold text-green-600">€494.000</p>
-                  <p className="text-xs text-muted-foreground leading-tight">{t('dashboardPreview.hotel.kpi3')}</p>
-                  <p className="text-xs text-emerald-500">{t('dashboardPreview.hotel.kpi3Sub')}</p>
-                </div>
-              </div>
-              <ResponsiveContainer width="100%" height={70}>
-                <BarChart data={CHART_DATA} margin={{ top: 0, right: 4, bottom: 0, left: -20 }}>
-                  <XAxis dataKey="month" tick={{ fontSize: 8 }} axisLine={false} tickLine={false} />
-                  <YAxis hide />
-                  <Tooltip formatter={(v) => v.toLocaleString('nl-NL')} contentStyle={{ fontSize: 10 }} />
-                  <Bar dataKey="issued" fill="#e9d5ff" radius={[2,2,0,0]} barSize={8} />
-                  <Bar dataKey="redeemed" fill="#8b5cf6" radius={[2,2,0,0]} barSize={8} />
-                  <Bar dataKey="commission" fill="#0891b2" radius={[2,2,0,0]} barSize={8} />
-                </BarChart>
-              </ResponsiveContainer>
-              <p className="text-xs text-muted-foreground text-center mt-0.5">{t('dashboardPreview.footnote')}</p>
             </div>
           </div>
 
