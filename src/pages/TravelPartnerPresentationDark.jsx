@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,8 @@ function SourceBox({ sources }) {
 }
 
 export default function TravelPartnerPresentationDark() {
+  const { t } = useTranslation();
+  const p = (key) => t(`presentation.partner.${key}`);
   const [isDownloading, setIsDownloading] = useState(false);
 
   const downloadPresentation = async () => {
@@ -52,14 +55,14 @@ export default function TravelPartnerPresentationDark() {
           <DutyBoostLogo height={150} inverted />
           <div className="flex items-center gap-2">
             <Link to="/retailer-presentation-dark">
-              <Button size="sm" variant="outline" className="text-sm hidden sm:flex bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800">Retailer Guide →</Button>
+              <Button size="sm" variant="outline" className="text-sm hidden sm:flex bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800">{p('nav_retailer')}</Button>
             </Link>
             <Link to="/">
-              <Button size="sm" variant="ghost" className="text-sm text-slate-300">← Home</Button>
+              <Button size="sm" variant="ghost" className="text-sm text-slate-300">{p('nav_home')}</Button>
             </Link>
             <Button size="sm" variant="outline" className="gap-1.5 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800"
               onClick={downloadPresentation} disabled={isDownloading}>
-              <Download className="w-3.5 h-3.5" /> {isDownloading ? 'Generating...' : 'Download PPTX'}
+              <Download className="w-3.5 h-3.5" /> {isDownloading ? p('generating') : p('download')}
             </Button>
           </div>
         </div>
@@ -69,17 +72,17 @@ export default function TravelPartnerPresentationDark() {
 
         {/* ── HERO ── */}
         <section className="space-y-6 text-center py-12">
-          <Badge className="bg-blue-900/30 text-blue-300 border-blue-700 mx-auto">Travel Partner Program</Badge>
+          <Badge className="bg-blue-900/30 text-blue-300 border-blue-700 mx-auto">{p('badge')}</Badge>
           <h1 className="text-5xl sm:text-6xl font-heading font-bold leading-tight">
-            Every booking you make<br />
-            <span className="text-blue-400">already contains untapped value.</span>
+            {p('hero_title_1')}<br />
+            <span className="text-blue-400">{p('hero_title_2')}</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            DutyBoost turns your existing booking flow into a loyalty engine and a passive commission stream — delivered automatically, at zero cost to you or your traveler.
+            {p('hero_subtitle')}
           </p>
           <div className="flex flex-wrap gap-3 justify-center pt-2">
-            {['Zero setup cost', 'No operational work', 'Real traveler benefit', 'Monthly commission'].map(t => (
-              <span key={t} className="px-3 py-1.5 rounded-full bg-blue-900/30 border border-blue-700/50 text-blue-300 text-sm font-medium">{t}</span>
+            {[p('pill_1'), p('pill_2'), p('pill_3'), p('pill_4')].map(label => (
+              <span key={label} className="px-3 py-1.5 rounded-full bg-blue-900/30 border border-blue-700/50 text-blue-300 text-sm font-medium">{label}</span>
             ))}
           </div>
         </section>
@@ -87,11 +90,9 @@ export default function TravelPartnerPresentationDark() {
         {/* ── WHY DUTYBOOST — THE SCALE OF THE OPPORTUNITY ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-blue-500 pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Why DutyBoost</p>
-            <h2 className="text-3xl font-heading font-bold">The world is flying — and spending</h2>
-            <p className="text-slate-400 mt-2">
-              Global air travel hit a new record in 2024. Every one of those 4.8 billion journeys passes through an airport retail environment. Most of the spending opportunity goes untapped.
-            </p>
+            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">{p('why_label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{p('why_title')}</h2>
+            <p className="text-slate-400 mt-2">{p('why_subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -145,13 +146,13 @@ export default function TravelPartnerPresentationDark() {
 
           {/* Schiphol Breakdown Box */}
           <div className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6">
-            <p className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-4">Schiphol Airport — Passenger Traffic Breakdown (2025)</p>
+            <p className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-4">{p('schiphol_box_title')}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               {[
-                { period: 'Daily', value: '188,500', sub: 'avg. travelers/day' },
-                { period: 'Weekly', value: '1.32M', sub: 'travelers/week' },
-                { period: 'Monthly', value: '5.73M', sub: 'travelers/month' },
-                { period: 'Yearly', value: '68.8M', sub: 'travelers in 2025' },
+                { period: p('daily'), value: '188,500', sub: p('daily_sub') },
+                { period: p('weekly'), value: '1.32M', sub: p('weekly_sub') },
+                { period: p('monthly'), value: '5.73M', sub: p('monthly_sub') },
+                { period: p('yearly'), value: '68.8M', sub: p('yearly_sub') },
               ].map(({ period, value, sub }) => (
                 <div key={period} className="space-y-1">
                   <p className="text-xs text-slate-500 uppercase tracking-wider">{period}</p>
@@ -160,25 +161,23 @@ export default function TravelPartnerPresentationDark() {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mt-4">Source: Schiphol Group Annual Traffic Review 2025 · 68.8M ÷ 365 days = 188,493/day</p>
+            <p className="text-xs text-slate-500 mt-4">{p('schiphol_source')}</p>
           </div>
         </section>
 
         {/* ── WHY DUTYBOOST — THE CONVERSION OPPORTUNITY ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-green-500 pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">Why DutyBoost</p>
-            <h2 className="text-3xl font-heading font-bold">The conversion opportunity hiding in plain sight</h2>
-            <p className="text-slate-400 mt-2">
-              The gap between who walks through an airport and who actually buys is enormous. DutyBoost closes that gap — and turns it into value for your travelers and commission for you.
-            </p>
+            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">{p('conv_label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{p('conv_title')}</h2>
+            <p className="text-slate-400 mt-2">{p('conv_subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { stat: '28%', color: 'text-slate-300', label: 'Typical airport retail conversion without incentives', detail: 'Only about 1 in 4 browsing travelers makes a purchase without a compelling reason to act now.' },
-              { stat: '63%', color: 'text-green-400', label: 'More confident spending when incentives are in place', detail: 'Kearney research shows that travellers are 63% more likely to purchase at airport retail when they have a pre-activation incentive.', src: { label: 'Kearney — Travel Retail & Geopolitical Realities 2024', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' } },
-              { stat: '71%', color: 'text-blue-400', label: 'Conversion achievable with the right incentive structure', detail: 'm1nd-set research confirms that targeted, pre-departure incentives can drive conversion rates as high as 71% among motivated travelers.', src: { label: 'm1nd-set Research — Solo Travel & Conversion Rates 2025', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' } },
+              { stat: '28%', color: 'text-slate-300', label: p('conv_28_label'), detail: p('conv_28_detail') },
+              { stat: '63%', color: 'text-green-400', label: p('conv_63_label'), detail: p('conv_63_detail'), src: { label: 'Kearney — Travel Retail & Geopolitical Realities 2024', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' } },
+              { stat: '71%', color: 'text-blue-400', label: p('conv_71_label'), detail: p('conv_71_detail'), src: { label: 'm1nd-set Research — Solo Travel & Conversion Rates 2025', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' } },
             ].map(({ stat, color, label, detail, src }, i) => (
               <div key={i} className="bg-slate-800/60 border border-slate-700 rounded-xl p-5 space-y-3 hover:border-green-700 transition-colors">
                 <p className={`text-4xl font-heading font-bold ${color}`}>{stat}</p>
@@ -190,27 +189,25 @@ export default function TravelPartnerPresentationDark() {
           </div>
 
           <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/40 rounded-xl p-6 space-y-3">
-            <p className="font-semibold text-slate-100">The DutyBoost difference: activation happens <em>before</em> the airport</p>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Most loyalty tools activate at the point of sale. DutyBoost activates the moment a booking is confirmed — days or weeks before the traveler arrives. This means your traveler arrives at the airport already thinking about where to spend their DutyCredit, not deciding whether to shop at all. Pre-activation is the single biggest driver of conversion uplift.
-            </p>
+            <p className="font-semibold text-slate-100">{p('preact_title')}</p>
+            <p className="text-sm text-slate-400 leading-relaxed">{p('preact_p1')}</p>
           </div>
         </section>
 
         {/* ── HOW DUTYBOOST WORKS ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-blue-500 pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">How DutyBoost</p>
-            <h2 className="text-3xl font-heading font-bold">Four steps. Zero friction.</h2>
-            <p className="text-slate-400 mt-2">The entire experience runs automatically from a single API call per booking.</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">{p('how_label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{p('how_title')}</h2>
+            <p className="text-slate-400 mt-2">{p('how_subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { num: '1', title: 'Booking Confirmed', desc: 'Your customer completes a booking. A single webhook or API call triggers DutyBoost — no manual input from your team.' },
-              { num: '2', title: 'DutyCredit Issued', desc: 'A personalized QR code is instantly generated and embedded in the booking confirmation email. No app. No registration.' },
-              { num: '3', title: 'Traveler Arrives Activated', desc: 'Your traveler reaches the airport already knowing they have a credit to spend — walking into partner stores with real purchase intent.' },
-              { num: '4', title: 'You Earn Commission', desc: 'When the DutyCredit is redeemed, you automatically earn 20% of DutyBoost\'s 2,5% platform fee — up to €5 per transaction, paid monthly.' },
+              { num: '1', title: p('step1_title'), desc: p('step1_desc') },
+              { num: '2', title: p('step2_title'), desc: p('step2_desc') },
+              { num: '3', title: p('step3_title'), desc: p('step3_desc') },
+              { num: '4', title: p('step4_title'), desc: p('step4_desc') },
             ].map(({ num, title, desc }) => (
               <div key={num} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-3 hover:border-blue-600 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-heading font-bold text-white text-lg">{num}</div>
@@ -223,16 +220,16 @@ export default function TravelPartnerPresentationDark() {
           {/* DutyCredit Tiers */}
           <div className="overflow-hidden rounded-xl border border-slate-700">
             <div className="bg-slate-800/60 px-6 py-4 border-b border-slate-700">
-              <p className="font-semibold text-slate-200">DutyCredit Discount Tiers — What Your Travelers Receive</p>
-              <p className="text-xs text-slate-400 mt-1">Tiered incentives proven to drive higher basket spend at partner airport stores</p>
+              <p className="font-semibold text-slate-200">{p('tier_table_title')}</p>
+              <p className="text-xs text-slate-400 mt-1">{p('tier_table_subtitle')}</p>
             </div>
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-700 bg-slate-900/40">
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Tier</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Min. Basket</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Traveler Saves</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Your Commission</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">{p('tier_col_tier')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">{p('tier_col_basket')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">{p('tier_col_save')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">{p('tier_col_comm')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -257,14 +254,14 @@ export default function TravelPartnerPresentationDark() {
         {/* ── WHAT DUTYBOOST BRINGS — REVENUE MODEL ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-green-500 pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">What DutyBoost Brings</p>
-            <h2 className="text-3xl font-heading font-bold">A new revenue stream — from bookings you already have</h2>
-            <p className="text-slate-400 mt-2">No new customers. No new effort. Just a new revenue layer on top of what you do every day.</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">{p('what_label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{p('what_title')}</h2>
+            <p className="text-slate-400 mt-2">{p('what_subtitle')}</p>
           </div>
 
           {/* Revenue Calculator */}
           <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/50 rounded-xl p-8">
-            <p className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-6">Revenue Model — Mid-Size Travel Partner (100,000 annual bookings)</p>
+            <p className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-6">{p('revenue_title')}</p>
             <div className="space-y-2 text-sm">
               {[
                 { label: 'Annual bookings', val: '100,000' },
@@ -290,20 +287,20 @@ export default function TravelPartnerPresentationDark() {
                 <span className="text-2xl font-heading font-bold text-blue-400">€0</span>
               </div>
             </div>
-            <p className="text-xs text-slate-500 mt-4">Calculation based on 20% redemption rate · 20% of DutyBoost's 2,5% platform fee · avg €135 basket. Scales proportionally with booking volume and redemption rate. Commission capped at €5/tx.</p>
+            <p className="text-xs text-slate-500 mt-4">{p('revenue_note')}</p>
           </div>
 
           {/* Scaling table */}
           <div className="overflow-hidden rounded-xl border border-slate-700">
             <div className="bg-slate-800/60 px-6 py-4 border-b border-slate-700">
-              <p className="font-semibold text-slate-200">Commission at Scale — Annual Estimates</p>
+              <p className="font-semibold text-slate-200">{p('scale_title')}</p>
             </div>
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-slate-700 bg-slate-900/40">
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Annual Bookings</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Redemptions (20%)</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Est. Annual Commission</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">{p('col_bookings')}</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">{p('col_redemptions')}</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">{p('col_commission')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -328,34 +325,17 @@ export default function TravelPartnerPresentationDark() {
         {/* ── WHAT DUTYBOOST BRINGS — LOYALTY & TRAVELER VALUE ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-blue-500 pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">What DutyBoost Brings</p>
-            <h2 className="text-3xl font-heading font-bold">Loyalty your travelers actually feel</h2>
-            <p className="text-slate-400 mt-2">Not points. Not cashback on the next booking. Real value — at the airport, when it matters most.</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">{p('loyalty_label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{p('loyalty_title')}</h2>
+            <p className="text-slate-400 mt-2">{p('loyalty_subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              {
-                icon: Gift,
-                title: 'A benefit tied to the booking moment',
-                desc: 'The DutyCredit arrives in the booking confirmation email — the moment customer excitement is highest. No extra steps. Instant perceived value.',
-              },
-              {
-                icon: Star,
-                title: 'Differentiation competitors don\'t have',
-                desc: 'While competitors offer miles or discounts on the next booking, you offer something tangible and immediate. A reason to choose you today.',
-              },
-              {
-                icon: Users,
-                title: 'Higher repeat booking rate',
-                desc: 'Research shows that memorable, positive airport experiences tied to a brand drive repeat bookings. DutyBoost makes your brand the reason they enjoyed the airport.',
-              },
-              {
-                icon: TrendingUp,
-                title: 'Average spend per redeemed traveler: €135',
-                desc: 'European ETRC data shows duty-free spend of €20–€28 per departing passenger on average. With a DutyCredit active, basket sizes rise significantly into our €100–€200 tier.',
-                src: { label: 'ETRC — Economic Impact of Duty-Free & Travel Retail in Europe, April 2025', url: 'https://etrc.org/wp-content/uploads/documents/ETRC-EU-Economic-Impact-of-Duty-Free-Travel-Retail-Report-April-2025-FINAL.pdf' },
-              },
+              { icon: Gift, title: p('l1_title'), desc: p('l1_desc') },
+              { icon: Star, title: p('l2_title'), desc: p('l2_desc') },
+              { icon: Users, title: p('l3_title'), desc: p('l3_desc') },
+              { icon: TrendingUp, title: p('l4_title'), desc: p('l4_desc'), src: { label: 'ETRC — Economic Impact of Duty-Free & Travel Retail in Europe, April 2025', url: 'https://etrc.org/wp-content/uploads/documents/ETRC-EU-Economic-Impact-of-Duty-Free-Travel-Retail-Report-April-2025-FINAL.pdf' } },
             ].map(({ icon: Icon, title, desc, src }, i) => (
               <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 space-y-3 hover:border-blue-600 transition-colors">
                 <div className="flex items-start gap-3">
@@ -374,18 +354,18 @@ export default function TravelPartnerPresentationDark() {
         {/* ── WHAT DUTYBOOST BRINGS — FULL VALUE SUMMARY ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-green-500 pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">What DutyBoost Brings</p>
-            <h2 className="text-3xl font-heading font-bold">Everything you gain. Nothing you lose.</h2>
+            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">{p('advantage_label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{p('advantage_title')}</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              { icon: Check, title: 'Passive commission revenue', desc: 'Up to €5/redemption paid monthly by DutyBoost — no invoicing, no chasing, fully automated.' },
-              { icon: Check, title: 'Exclusive loyalty differentiator', desc: 'A real airport shopping benefit competitors don\'t offer. Instant brand perception uplift.' },
-              { icon: Check, title: 'Zero cost — ever', desc: 'DutyBoost is 100% free for travel partners. Commission is paid out of DutyBoost\'s own platform fee, not by you or your traveler.' },
-              { icon: Check, title: 'One integration, permanent value', desc: 'Single API call or webhook per booking. Once integrated, the system runs indefinitely with no maintenance.' },
-              { icon: Check, title: 'Real-time performance dashboard', desc: 'See which bookings generate DutyCredits, which airports convert best, and your total commission earned — in real time.' },
-              { icon: Zap, title: 'Network effect advantage', desc: 'As the DutyBoost airport retailer network grows, your travelers\' benefit grows too — more stores, more airports, higher perceived value.' },
+              { icon: Check, title: p('b1_title'), desc: p('b1_desc') },
+              { icon: Check, title: p('b2_title'), desc: p('b2_desc') },
+              { icon: Check, title: p('b3_title'), desc: p('b3_desc') },
+              { icon: Check, title: p('b4_title'), desc: p('b4_desc') },
+              { icon: Check, title: p('b5_title'), desc: p('b5_desc') },
+              { icon: Zap, title: p('b6_title'), desc: p('b6_desc') },
             ].map(({ icon: Icon, title, desc }, i) => (
               <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-2 hover:border-blue-600 transition-colors">
                 <div className="flex items-start gap-3">
@@ -402,7 +382,7 @@ export default function TravelPartnerPresentationDark() {
 
         {/* ── SOURCES ── */}
         <section className="space-y-4">
-          <h2 className="text-xl font-heading font-bold text-slate-400">Research Sources</h2>
+          <h2 className="text-xl font-heading font-bold text-slate-400">{p('sources_title')}</h2>
           <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 space-y-2.5">
             {[
               { label: 'IATA Annual Review 2025 — Global air passenger traffic 4.8B in 2024 (+10.6% YoY)', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' },
@@ -427,9 +407,9 @@ export default function TravelPartnerPresentationDark() {
 
         {/* ── CTA ── */}
         <section className="bg-gradient-to-r from-blue-900/40 to-slate-900 border border-blue-700/50 rounded-2xl p-10 space-y-6 text-center">
-          <Badge className="bg-blue-900/30 text-blue-300 border-blue-700 mx-auto">Ready to get started?</Badge>
-          <h3 className="text-3xl font-heading font-bold">Turn every booking into a loyalty moment and a revenue stream.</h3>
-          <p className="text-slate-300 max-w-lg mx-auto">Zero cost. One integration. Passive commission — for as long as your travelers fly.</p>
+          <Badge className="bg-blue-900/30 text-blue-300 border-blue-700 mx-auto">{p('cta_badge')}</Badge>
+          <h3 className="text-3xl font-heading font-bold">{p('cta_title')}</h3>
+          <p className="text-slate-300 max-w-lg mx-auto">{p('cta_subtitle')}</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="mailto:hello@dutyboost.com">
               <Button className="gap-2 bg-blue-600 hover:bg-blue-700 text-base px-6 py-5">
@@ -438,7 +418,7 @@ export default function TravelPartnerPresentationDark() {
             </a>
             <Link to="/retailer-presentation-dark">
               <Button variant="outline" className="gap-2 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800 text-base px-6 py-5">
-                View Retailer Guide <ArrowRight className="w-4 h-4" />
+                {p('cta_retailer')} <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
           </div>
