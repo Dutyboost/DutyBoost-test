@@ -3,18 +3,13 @@ import { useState } from "react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, ArrowRight, TrendingUp, Users, DollarSign, BarChart3, Check, Zap, ExternalLink } from "lucide-react";
+import { Download, Mail, ArrowRight, TrendingUp, Users, Globe, ShoppingBag, Zap, Star, BarChart3, Check, ExternalLink, Plane } from "lucide-react";
 
-function Source({ children, href }) {
+function SrcLink({ href, children }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors ml-1 font-normal"
-    >
-      <ExternalLink className="w-3 h-3" />
-      {children}
+    <a href={href} target="_blank" rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-orange-400 mt-2 transition-colors">
+      <ExternalLink className="w-3 h-3" />{children}
     </a>
   );
 }
@@ -27,7 +22,8 @@ function SourceBox({ sources }) {
         {sources.map((s, i) => (
           <li key={i} className="flex items-start gap-2 text-xs text-slate-500">
             <span className="shrink-0 mt-0.5">›</span>
-            <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition-colors underline underline-offset-2">{s.label}</a>
+            <a href={s.url} target="_blank" rel="noopener noreferrer"
+              className="hover:text-slate-300 transition-colors underline underline-offset-2">{s.label}</a>
           </li>
         ))}
       </ul>
@@ -61,7 +57,8 @@ export default function AirportRetailerPresentationDark() {
             <Link to="/">
               <Button size="sm" variant="ghost" className="text-sm text-slate-300">← Home</Button>
             </Link>
-            <Button size="sm" variant="outline" className="gap-1.5 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800" onClick={downloadPresentation} disabled={isDownloading}>
+            <Button size="sm" variant="outline" className="gap-1.5 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800"
+              onClick={downloadPresentation} disabled={isDownloading}>
               <Download className="w-3.5 h-3.5" /> {isDownloading ? 'Generating...' : 'Download PPTX'}
             </Button>
           </div>
@@ -70,309 +67,302 @@ export default function AirportRetailerPresentationDark() {
 
       <div className="max-w-4xl mx-auto px-6 py-16 space-y-20">
 
-        {/* Hero */}
+        {/* ── HERO ── */}
         <section className="space-y-6 text-center py-12">
-          <Badge variant="secondary" className="bg-orange-900/30 text-orange-300 border-orange-700 mx-auto">Airport Retailer Partnership</Badge>
-          <h1 className="text-5xl sm:text-6xl font-heading font-bold">
-            Increase Revenue <span className="text-orange-400">40%+</span>
+          <Badge className="bg-orange-900/30 text-orange-300 border-orange-700 mx-auto">Airport Retail Partnership</Badge>
+          <h1 className="text-5xl sm:text-6xl font-heading font-bold leading-tight">
+            Your store already has<br />
+            <span className="text-orange-400">the traffic. DutyBoost converts it.</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Turn browsers into buyers. Convert the 72% of travelers who browse but don't purchase at your airport store — with DutyBoost's incentive-driven loyalty system.
+            Millions of travelers pass through airport retail every day. DutyBoost pre-activates their purchase intent before they even board — so when they walk through your door, they are ready to buy.
           </p>
+          <div className="flex flex-wrap gap-3 justify-center pt-2">
+            {['Zero setup cost', 'Pre-qualified buyers', 'Higher basket size', 'Performance-based only'].map(t => (
+              <span key={t} className="px-3 py-1.5 rounded-full bg-orange-900/30 border border-orange-700/50 text-orange-300 text-sm font-medium">{t}</span>
+            ))}
+          </div>
         </section>
 
-        {/* Market Reality */}
+        {/* ── WHY DUTYBOOST — THE SCALE OF FOOT TRAFFIC ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-orange-500 pl-6">
-            <h2 className="text-3xl font-heading font-bold">The Market Reality</h2>
-            <p className="text-slate-400 mt-2">A €61B market with massive foot traffic — and a critical conversion gap.</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-orange-400 mb-1">Why DutyBoost</p>
+            <h2 className="text-3xl font-heading font-bold">The world's biggest captive audience — walking past your store every day</h2>
+            <p className="text-slate-400 mt-2">
+              Airports are the most concentrated retail environments on earth. The footfall is extraordinary. The conversion rate, without the right activation, is not.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             {[
               {
-                icon: DollarSign,
-                title: '€61.2B',
-                desc: 'Global travel retail market size in 2024, growing at 12% CAGR through 2032.',
-                source: { label: 'GM Insights – Travel Retail Market Report 2024', url: 'https://www.gminsights.com/industry-analysis/travel-retail-market' },
+                icon: Globe,
+                stat: '4.8B',
+                label: 'Global air passengers in 2024',
+                detail: 'IATA confirmed a record 4.8 billion segment passengers in 2024 — every single one passing through an airport retail environment before or after their flight.',
+                src: { label: 'IATA Annual Review 2025', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' },
+              },
+              {
+                icon: Plane,
+                stat: '188,500',
+                label: 'Travelers through Schiphol every single day (2025)',
+                detail: 'Amsterdam Schiphol handled 68.8 million travellers in 2025. That\'s 188,500 per day · 1.32M per week · 5.73M per month. Each one a potential customer walking past your store.',
+                src: { label: 'Schiphol Group Annual Traffic Review 2025', url: 'https://airportindustry-news.com/schiphol-airport-handles-68-8-million-passengers-in-2025/' },
               },
               {
                 icon: BarChart3,
-                title: '€58.9B',
-                desc: 'Global airport duty-free market in 2024 — up 11.3% year-on-year.',
-                source: { label: 'Yahoo Finance – Global Airport & Duty-Free Retailing 2024', url: 'https://finance.yahoo.com/news/global-airport-duty-free-retailing-092300710.html' },
-              },
-              {
-                icon: Users,
-                title: '61.7%',
-                desc: 'Of all duty-free retail sales happen at airports — making airside the dominant channel.',
-                source: { label: 'Mordor Intelligence – Duty Free & Travel Retail Market 2025', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' },
+                stat: '1h 10m',
+                label: 'Avg. dwell time in departures per traveler',
+                detail: 'After security, travellers have an average of 1 hour and 10 minutes of free time. At Schiphol, that number rises to 146 minutes — over two hours of browsing, dining, and shopping potential.',
+                src: { label: 'Pi Insight — Duty Free Competes for 1h10m Airport Dwell Time', url: 'https://www.linkedin.com/posts/pi-insight_travelretail-dutyfree-shopperbehaviour-activity-7450856841967869953-OGWq' },
               },
               {
                 icon: TrendingUp,
-                title: '33%+',
-                desc: 'Of airport dwell time is spent on revenue-generating activities: shopping, dining, browsing.',
-                source: { label: 'Airport Experience Research 2024 (ACI/Airports Council)', url: 'https://assets.ctfassets.net/mlhfk7pjn0ow/3ZQTQwuGFBUwHHGkEWW6Lt/5c9165531eb0f10a5cf3dc12d8c69f7c/AX24_The_Age_of_The_Airport_Experience.pdf' },
+                stat: '€68.2B',
+                label: 'Global duty-free & travel retail market 2024',
+                detail: 'The global duty-free and travel retail market reached €68.2 billion in 2024 and is growing at 8.8% CAGR. Airport retail is the dominant channel — 61.7% of all duty-free sales happen airside.',
+                src: { label: 'Mordor Intelligence — Duty Free & Travel Retail Market 2026', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' },
               },
-            ].map(({ icon: Icon, title, desc, source }, i) => (
-              <div key={i} className="bg-gradient-to-br from-orange-900/20 to-slate-900 border border-orange-800/50 rounded-xl p-6 space-y-3 hover:border-orange-700 transition-colors">
+            ].map(({ icon: Icon, stat, label, detail, src }, i) => (
+              <div key={i} className="bg-gradient-to-br from-orange-900/15 to-slate-900 border border-orange-800/40 rounded-xl p-6 space-y-3 hover:border-orange-600 transition-colors">
                 <div className="flex items-start gap-3">
-                  <Icon className="w-7 h-7 text-orange-400 shrink-0 mt-1" />
+                  <Icon className="w-6 h-6 text-orange-400 shrink-0 mt-1" />
                   <div>
-                    <p className="text-2xl font-heading font-bold text-orange-300">{title}</p>
-                    <p className="text-sm text-slate-400 mt-1">{desc}</p>
-                    <a href={source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-orange-400 mt-2 transition-colors">
-                      <ExternalLink className="w-3 h-3" /> {source.label}
-                    </a>
+                    <p className="text-3xl font-heading font-bold text-orange-300">{stat}</p>
+                    <p className="text-sm font-semibold text-slate-200 mt-0.5">{label}</p>
+                    <p className="text-sm text-slate-400 mt-2 leading-relaxed">{detail}</p>
+                    <SrcLink href={src.url}>{src.label}</SrcLink>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </section>
 
-        {/* The Conversion Gap */}
-        <section className="space-y-8">
-          <div className="border-l-4 border-red-500 pl-6">
-            <h2 className="text-3xl font-heading font-bold">The Conversion Gap Problem</h2>
-            <p className="text-slate-400 mt-2">High traffic. Low conversion. Massive untapped revenue sitting on the table.</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-red-950/40 to-slate-900 border border-red-800/40 rounded-xl p-8 space-y-6">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="space-y-2">
-                <p className="text-5xl font-heading font-bold text-red-400">72%</p>
-                <p className="text-slate-400 text-sm">of airport travelers browse without buying</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-5xl font-heading font-bold text-orange-400">€25B+</p>
-                <p className="text-slate-400 text-sm">estimated annual untapped airport spending</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-5xl font-heading font-bold text-yellow-400">14%</p>
-                <p className="text-slate-400 text-sm">now buying elsewhere (up from 10% in 2024)</p>
-              </div>
+          {/* Schiphol Breakdown */}
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6">
+            <p className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-4">Schiphol Airport — Footfall Your Store Can Tap Into</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              {[
+                { period: 'Daily', value: '188,500', sub: 'travelers through Schiphol' },
+                { period: 'Weekly', value: '1.32M', sub: 'potential shoppers' },
+                { period: 'Monthly', value: '5.73M', sub: 'departing travelers' },
+                { period: 'Yearly', value: '68.8M', sub: 'total passengers in 2025' },
+              ].map(({ period, value, sub }) => (
+                <div key={period} className="space-y-1">
+                  <p className="text-xs text-slate-500 uppercase tracking-wider">{period}</p>
+                  <p className="text-2xl font-heading font-bold text-orange-300">{value}</p>
+                  <p className="text-xs text-slate-500">{sub}</p>
+                </div>
+              ))}
             </div>
-            <div className="space-y-2">
-              <p className="font-semibold text-slate-100">Why travelers don't convert:</p>
-              <div className="grid md:grid-cols-2 gap-2">
-                {[
-                  'Price uncertainty vs. online / downtown',
-                  'Time pressure before gate closes',
-                  'No compelling incentive to buy now',
-                  '"I\'ll buy elsewhere" psychology',
-                ].map((reason, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm text-slate-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
-                    {reason}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <SourceBox sources={[
-              { label: 'Forbes – Airport Shoppers Shift to Value, Convenience & Self-Treating (2026)', url: 'https://www.forbes.com/sites/kevinrozario/2026/03/09/airport-shoppers-shift-to-value-convenience-and-selftreating/' },
-              { label: 'Kearney – Travel Retail\'s Future Flight Path 2024', url: 'https://www.kearney.com/about/kearney-in-the-media/press/travel-retails-future-flight-path-turning-heightened-volatility-into-tomorrows-market-edge' },
-              { label: 'Luxus Plus – Travel Retail: Decline in Airport Spending 2025', url: 'https://luxus-plus.com/en/travel-retail-decline-in-airport-spending-confirmed-for-third-consecutive-year/' },
-            ]} />
+            <p className="text-xs text-slate-500 mt-4">Source: Schiphol Group Annual Traffic Review 2025 · 68.8M ÷ 365 = 188,493/day</p>
           </div>
         </section>
 
-        {/* Revenue Impact */}
+        {/* ── WHY DUTYBOOST — THE CONVERSION OPPORTUNITY ── */}
         <section className="space-y-8">
           <div className="border-l-4 border-green-500 pl-6">
-            <h2 className="text-3xl font-heading font-bold">Revenue Impact With DutyBoost</h2>
-            <p className="text-slate-400 mt-2">Incentive-driven purchasing delivers measurable uplift — backed by research.</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">Why DutyBoost</p>
+            <h2 className="text-3xl font-heading font-bold">The conversion gap — and how pre-activation closes it</h2>
+            <p className="text-slate-400 mt-2">
+              Airport retail has the traffic. What it lacks is purchase intent at the point of entry. DutyBoost creates that intent days before the traveler arrives.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4">
             {[
-              { metric: 'Conversion Rate', before: '28%', after: '40%+', lift: '+42%', note: 'Based on m1nd-set research showing 71% conversion achievable with the right incentive structure.' },
-              { metric: 'Avg Transaction', before: '€60', after: '€75+', lift: '+25%', note: 'Incentivized shoppers spend more per basket — consistent with Kearney premiumization trends.' },
-              { metric: 'Daily Revenue (10k visitors)', before: '€168k', after: '€237k', lift: '+41%', note: 'Net of DutyBoost fee (2.5%, capped at €25).' },
-            ].map(({ metric, before, after, lift, note }) => (
-              <div key={metric} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 space-y-4 hover:border-green-700 transition-colors">
-                <p className="text-slate-400 text-sm">{metric}</p>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-500 text-sm">Current:</span>
-                    <span className="text-xl font-bold text-slate-300">{before}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400 text-sm">With DutyBoost:</span>
-                    <span className="text-xl font-bold text-orange-400">{after}</span>
-                  </div>
-                </div>
-                <div className="pt-3 border-t border-slate-700">
-                  <p className="text-center font-bold text-green-400 text-lg">{lift} uplift</p>
-                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">{note}</p>
-                </div>
+              { stat: '~28%', color: 'text-slate-300', label: 'Typical conversion rate without incentives', detail: 'Only about 1 in 4 travelers in the airport retail environment makes a purchase. The other 75% browse and leave.' },
+              { stat: '63%', color: 'text-orange-400', label: 'More confident spending when incentivized', detail: 'Kearney research: travelers with an active incentive are 63% more confident making a purchase at airport retail versus without one.', src: { label: 'Kearney — Travel Retail & Geopolitical Realities 2024', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' } },
+              { stat: '71%', color: 'text-green-400', label: 'Conversion achievable with right incentive', detail: 'm1nd-set data shows that with a targeted, pre-activated incentive, conversion rates among motivated traveler segments can reach 71%.', src: { label: 'm1nd-set Research — Conversion with Incentives 2025', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' } },
+            ].map(({ stat, color, label, detail, src }, i) => (
+              <div key={i} className="bg-slate-800/60 border border-slate-700 rounded-xl p-5 space-y-3 hover:border-orange-700 transition-colors">
+                <p className={`text-4xl font-heading font-bold ${color}`}>{stat}</p>
+                <p className="text-sm font-semibold text-slate-200">{label}</p>
+                <p className="text-xs text-slate-400 leading-relaxed">{detail}</p>
+                {src && <SrcLink href={src.url}>{src.label}</SrcLink>}
               </div>
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/50 rounded-xl p-6">
-            <h3 className="font-semibold text-slate-100 mb-4">Annual Impact — Single Location</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-slate-400">Current: 28 daily conversions × €35 margin</span><span className="text-slate-300 font-semibold">€980/day</span></div>
-              <div className="flex justify-between"><span className="text-slate-400">With DutyBoost: 40 conversions × €32.50 (net of fee)</span><span className="text-green-400 font-semibold">€1,300/day</span></div>
-              <div className="flex justify-between pt-2 border-t border-green-700/30 text-base">
-                <span className="text-slate-100 font-semibold">Annual additional revenue per location:</span>
-                <span className="text-green-400 font-bold text-xl">€116,800</span>
-              </div>
-            </div>
+          <div className="bg-gradient-to-br from-orange-900/20 to-slate-900 border border-orange-800/40 rounded-xl p-6 space-y-3">
+            <p className="font-semibold text-slate-100 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-orange-400" /> The DutyBoost difference: purchase intent activated before arrival
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Conventional retail relies on catching a traveler's attention at the point of sale. DutyBoost works differently — it plants the seed days before the flight. When a traveler's booking confirmation arrives with a DutyCredit, they start thinking about where to spend it. By the time they clear security, they have a store in mind. They are not browsing. They are buying.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed mt-2">
+              A 10% increase in dwell time is associated with an 8% rise in retail sales and a 6% rise in F&B revenue, according to peer-reviewed airport retail research. Pre-activation amplifies this by converting passive dwell time into active purchase intent.
+            </p>
+            <SrcLink href="https://www.sciencedirect.com/science/article/pii/S0969699724000851">ScienceDirect — Shopping or Dining? Dwell Time & Non-Aeronautical Revenue 2024</SrcLink>
           </div>
-
-          <SourceBox sources={[
-            { label: 'LinkedIn / m1nd-set Research – Solo Travel & Conversion Rate Study 2025', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' },
-            { label: 'Mordor Intelligence – Digital Engagement & Conversion Lift Data', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' },
-            { label: 'Kearney – Travel Retail Premiumization Trends', url: 'https://www.luxuryroundtable.com/wp-content/uploads/2023/10/Kearney-travel-retail-report-101223-.pdf' },
-          ]} />
         </section>
 
-        {/* How It Works */}
+        {/* ── HOW DUTYBOOST WORKS ── */}
         <section className="space-y-8">
-          <h2 className="text-3xl font-heading font-bold">How DutyBoost Works For You</h2>
+          <div className="border-l-4 border-orange-500 pl-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-orange-400 mb-1">How DutyBoost</p>
+            <h2 className="text-3xl font-heading font-bold">Simple to operate. Powerful in impact.</h2>
+            <p className="text-slate-400 mt-2">No POS integration required to start. You scan a QR code. We handle everything else.</p>
+          </div>
+
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { num: '1', title: 'Traveler Gets DutyCredit', desc: 'Via booking confirmation email from travel partner — before they even board.' },
-              { num: '2', title: 'Arrives at Your Store', desc: 'Shows QR code or voucher code at checkout — already incentivised to spend.' },
-              { num: '3', title: 'You Scan QR Code', desc: 'Instant validation. Discount applied automatically. No manual work.' },
-              { num: '4', title: 'Higher Sale & Revenue', desc: 'Higher conversion + higher basket = measurable revenue uplift per day.' },
+              { num: '1', title: 'Travel Partner Issues DutyCredit', desc: 'When a traveler books a flight, hotel or car rental, their confirmation email includes a personalized DutyCredit QR code — weeks before they fly.' },
+              { num: '2', title: 'Traveler Arrives Pre-Activated', desc: 'They enter your store already motivated. They have a specific credit to spend at a minimum basket of €70 — and they\'re looking to use it.' },
+              { num: '3', title: 'Cashier Scans the QR Code', desc: 'One scan at checkout. Our system validates the QR instantly and applies the tiered discount automatically. No manual calculation.' },
+              { num: '4', title: 'Higher Sale. Monthly Invoice.', desc: 'You receive a single monthly invoice for 2,5% of gross redemption value (max €25/transaction). No upfront fees. No subscriptions.' },
             ].map(({ num, title, desc }) => (
-              <div key={num} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-3 hover:border-orange-700 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center font-heading font-bold text-white">{num}</div>
+              <div key={num} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-3 hover:border-orange-600 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center font-heading font-bold text-white text-lg">{num}</div>
                 <p className="font-semibold text-slate-100">{title}</p>
-                <p className="text-sm text-slate-400">{desc}</p>
+                <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
-        </section>
 
-        {/* Discount Tiers */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-heading font-bold">DutyCredit Discount Structure</h2>
-          <p className="text-slate-400">Tiered discounts based on basket spend — proven to increase average transaction value.</p>
-
+          {/* Tier Table */}
           <div className="overflow-hidden rounded-xl border border-slate-700">
+            <div className="bg-slate-800/60 px-6 py-4 border-b border-slate-700">
+              <p className="font-semibold text-slate-200">DutyCredit Discount Structure — What Drives Basket Size</p>
+              <p className="text-xs text-slate-400 mt-1">Tiered discounts are designed to push basket sizes upward — not just reward existing spend</p>
+            </div>
             <table className="w-full">
               <thead>
-                <tr className="bg-slate-800/50 border-b border-slate-700">
-                  <th className="px-6 py-4 text-left font-semibold text-slate-300">Tier</th>
-                  <th className="px-6 py-4 text-left font-semibold text-slate-300">Min. Basket</th>
-                  <th className="px-6 py-4 text-left font-semibold text-slate-300">Traveler Discount</th>
-                  <th className="px-6 py-4 text-left font-semibold text-slate-300">Target Behavior</th>
+                <tr className="border-b border-slate-700 bg-slate-900/40">
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Tier</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Min. Basket</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Traveler Saves</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Your Fee (2,5%)</th>
+                  <th className="px-5 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Your Net</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { tier: 'Boarding', basket: '€70–€99', discount: '€5–€10', behavior: 'Entry-level. Converts price-conscious travelers.' },
-                  { tier: 'Priority', basket: '€100–€199', discount: '€15–€30', behavior: 'Most popular. Strong conversion for mid-market.' },
-                  { tier: 'Lounge', basket: '€200–€299', discount: '€35–€45', behavior: 'Premium travelers. Higher AOV.' },
-                  { tier: 'VIP', basket: '€300+', discount: '€60', behavior: 'Top spenders. Maximises retailer revenue.' },
-                ].map(({ tier, basket, discount, behavior }, i) => (
-                  <tr key={tier} className={`border-b border-slate-700 ${i % 2 === 0 ? 'bg-slate-900/20' : 'bg-slate-800/10'} hover:bg-slate-800/30 transition-colors`}>
-                    <td className="px-6 py-4 font-semibold text-slate-100">{tier}</td>
-                    <td className="px-6 py-4 text-slate-400">{basket}</td>
-                    <td className="px-6 py-4 font-semibold text-orange-400">{discount}</td>
-                    <td className="px-6 py-4 text-slate-400 text-sm">{behavior}</td>
+                  { tier: '🟡 Boarding', basket: '€70–€99', save: '€5–€10', fee: '€1.75–€2.50', net: '€56–€86', row: 'bg-yellow-900/10' },
+                  { tier: '🔵 Priority', basket: '€100–€199', save: '€10–€30', fee: '€2.50–€5', net: '€83–€169', row: 'bg-blue-900/10' },
+                  { tier: '🟢 Lounge', basket: '€200–€299', save: '€30–€60', fee: '€5–€7.50', net: '€150–€234', row: 'bg-green-900/10' },
+                  { tier: '🟣 VIP', basket: '€300+', save: '€60 flat', fee: 'max €25', net: '€215+ net', row: 'bg-purple-900/10' },
+                ].map(({ tier, basket, save, fee, net, row }) => (
+                  <tr key={tier} className={`border-b border-slate-700/50 ${row} hover:bg-slate-800/40 transition-colors`}>
+                    <td className="px-5 py-4 font-semibold text-slate-100 text-sm">{tier}</td>
+                    <td className="px-5 py-4 text-slate-400 text-sm">{basket}</td>
+                    <td className="px-5 py-4 font-semibold text-orange-400 text-sm">{save}</td>
+                    <td className="px-5 py-4 text-slate-500 text-sm">{fee}</td>
+                    <td className="px-5 py-4 font-bold text-green-400 text-sm">{net}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </div>
-          <p className="text-xs text-slate-500">Tier structure aligned with TFWA Duty Free Spend Understanding Study 2024, which identifies distinct low, medium, and high spending segments among airport shoppers. <a href="https://www.tfwa.com/research/tfwa-insight/tfwa-insight-the-duty-free-spend-understanding-study-2024-100016689" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-300 transition-colors">TFWA Insight 2024 →</a></p>
-        </section>
-
-        {/* Cost & ROI */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-heading font-bold">Cost & ROI</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 space-y-4">
-              <h3 className="font-semibold text-slate-100">Implementation Cost</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between"><span className="text-slate-400">Setup fee:</span><span className="font-bold text-green-400">€0</span></div>
-                <div className="flex justify-between"><span className="text-slate-400">Monthly fee:</span><span className="font-bold text-green-400">€0</span></div>
-                <div className="flex justify-between"><span className="text-slate-400">Per-redemption fee:</span><span className="font-bold text-orange-400">2.5% (max €25)</span></div>
-                <div className="flex justify-between"><span className="text-slate-400">Cost on €100 basket:</span><span className="font-bold text-orange-400">€2.50</span></div>
-                <div className="flex justify-between"><span className="text-slate-400">Cost on €1,000+ basket:</span><span className="font-bold text-green-400">€25 cap (0 above €1k)</span></div>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/50 rounded-xl p-6 space-y-4">
-              <h3 className="font-semibold text-slate-100">Quick ROI Check</h3>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between"><span className="text-slate-400">100 visitors/day</span></div>
-                <div className="flex justify-between"><span className="text-slate-400">Without DutyBoost (28 conversions):</span><span className="text-slate-300">€980</span></div>
-                <div className="flex justify-between border-t border-green-700/30 pt-2"><span className="text-slate-100">With DutyBoost (40+ conversions):</span><span className="text-green-400 font-bold">€1,300+</span></div>
-                <div className="text-center pt-2 font-bold text-green-400 text-lg">+€116,800/year per location</div>
-              </div>
-            </div>
+            <p className="px-5 py-3 text-xs text-slate-500">Net = basket − traveler saving − DutyBoost fee. DutyCredit discount is fully covered by DutyBoost — not deducted from your margin.</p>
           </div>
         </section>
 
-        {/* Market Growth Context */}
+        {/* ── WHAT DUTYBOOST BRINGS — REVENUE IMPACT ── */}
         <section className="space-y-8">
-          <div className="border-l-4 border-blue-500 pl-6">
-            <h2 className="text-3xl font-heading font-bold">Market Growth Context</h2>
-            <p className="text-slate-400 mt-2">The window to capture growth is now — before competitors do.</p>
+          <div className="border-l-4 border-green-500 pl-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">What DutyBoost Brings</p>
+            <h2 className="text-3xl font-heading font-bold">Measurable revenue uplift — per location, per day</h2>
+            <p className="text-slate-400 mt-2">Based on real conversion research and average basket data from European airport retail.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
               {
-                stat: '+17.4%',
-                label: 'Asia-Pacific duty-free growth (2022–2024)',
-                context: 'The fastest growing region is setting the benchmark for incentive-driven airport retail.',
-                source: { label: 'Market Growth Reports – Duty Free Travel Retail 2024', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' },
+                metric: 'Conversion Rate',
+                baseline: '~28%',
+                with_db: '40–50%',
+                lift: '+42–78%',
+                note: 'Based on m1nd-set research: targeted pre-departure incentives drive conversion among motivated traveler segments up to 71%.',
+                src: { label: 'm1nd-set Research 2025', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' },
               },
               {
-                stat: '63%',
-                label: 'of travelers more confident spending with incentives',
-                context: 'Kearney research (Saudi Arabia market) shows incentive programs directly boost traveler purchase confidence.',
-                source: { label: 'Kearney – Travel Retail & Geopolitical Realities 2024', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' },
+                metric: 'Avg. Basket Spend',
+                baseline: '€20–€28',
+                with_db: '€100–€140',
+                lift: '4–5× uplift',
+                note: 'ETRC data shows €20–€28 duty-free spend per passenger on average. DutyCredit requires a €70+ basket minimum — naturally elevating average order value.',
+                src: { label: 'ETRC EU Duty-Free Economic Impact Report April 2025', url: 'https://etrc.org/wp-content/uploads/documents/ETRC-EU-Economic-Impact-of-Duty-Free-Travel-Retail-Report-April-2025-FINAL.pdf' },
               },
               {
-                stat: '+8.5%',
-                label: 'conversion rate increase with targeted digital engagement',
-                context: 'Digital incentive tools (QR, mobile vouchers) directly improve conversion at the point of sale.',
-                source: { label: 'LinkedIn – Airport DOOH & Digital Conversion Research', url: 'https://www.linkedin.com/posts/linna-chen-a0055924a_dooh-programmaticadvertising-airportadvertising-activity-7394937993599488000-u16w' },
+                metric: 'Daily Revenue (100 DutyCredit visitors)',
+                baseline: '28 sales × €75 = €2,100',
+                with_db: '45 sales × €120 = €5,400',
+                lift: '+€3,300/day',
+                note: 'Net of DutyBoost fee (2,5%, max €25/tx). Assumes mid-tier Priority basket average, 45% conversion with activated DutyCredit holders.',
               },
-              {
-                stat: '62%',
-                label: 'of airport retailers have digital capability (QR/mobile)',
-                context: 'Digital infrastructure is already in place — DutyBoost integration is plug-and-play for most retailers.',
-                source: { label: 'Market Growth Reports – Duty Free Travel Retail 2024', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' },
-              },
-            ].map(({ stat, label, context, source }, i) => (
-              <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 space-y-3 hover:border-blue-700 transition-colors">
-                <p className="text-3xl font-heading font-bold text-blue-400">{stat}</p>
-                <p className="font-semibold text-slate-200 text-sm">{label}</p>
-                <p className="text-sm text-slate-400 leading-relaxed">{context}</p>
-                <a href={source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-blue-400 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> {source.label}
-                </a>
+            ].map(({ metric, baseline, with_db, lift, note, src }) => (
+              <div key={metric} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 space-y-4 hover:border-green-700 transition-colors">
+                <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider">{metric}</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-500 text-sm">Without DutyBoost:</span>
+                    <span className="text-lg font-bold text-slate-300">{baseline}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-300 text-sm">With DutyBoost:</span>
+                    <span className="text-lg font-bold text-orange-400">{with_db}</span>
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-slate-700">
+                  <p className="text-center font-bold text-green-400 text-base">{lift}</p>
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">{note}</p>
+                  {src && <SrcLink href={src.url}>{src.label}</SrcLink>}
+                </div>
               </div>
             ))}
           </div>
+
+          {/* Annual impact */}
+          <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/50 rounded-xl p-6">
+            <p className="font-semibold text-slate-100 mb-4">Annual Impact Estimate — Single Store Location</p>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between py-2 border-b border-slate-700/40">
+                <span className="text-slate-400">Baseline (28% conversion, €75 avg basket, 100 DutyCredit visitors/day)</span>
+                <span className="text-slate-300 font-semibold">€2,100/day</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-slate-700/40">
+                <span className="text-slate-400">With DutyBoost (45% conversion, €120 avg basket)</span>
+                <span className="text-orange-400 font-semibold">€5,400/day</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-slate-700/40">
+                <span className="text-slate-400">Net daily uplift (after DutyBoost fee)</span>
+                <span className="text-green-400 font-semibold">~€3,150/day</span>
+              </div>
+              <div className="flex justify-between py-3 text-base">
+                <span className="text-slate-100 font-semibold">Annual additional revenue per location:</span>
+                <span className="text-green-400 font-bold text-xl">~€1,149,750</span>
+              </div>
+            </div>
+            <p className="text-xs text-slate-500 mt-2">Estimate based on 365 operating days. Actual results depend on DutyCredit holder volume at your specific location.</p>
+          </div>
         </section>
 
-        {/* Key Benefits */}
+        {/* ── WHAT DUTYBOOST BRINGS — FULL VALUE SUMMARY ── */}
         <section className="space-y-8">
-          <h2 className="text-3xl font-heading font-bold">Why Retailers Choose DutyBoost</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="border-l-4 border-orange-500 pl-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-orange-400 mb-1">What DutyBoost Brings</p>
+            <h2 className="text-3xl font-heading font-bold">The complete retailer advantage</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
             {[
-              { icon: Check, title: 'Zero Setup Cost', desc: 'No integration fees. No monthly fee. Purely performance-based.' },
-              { icon: Check, title: 'Conversion Lift Proven', desc: '+42% conversion rate demonstrated by incentive-driven purchase research.' },
-              { icon: Check, title: 'Higher Average Order Value', desc: 'Tiered discounts incentivise travelers to spend more per basket.' },
-              { icon: Check, title: 'Pre-Qualified Traffic', desc: 'Travelers arrive with an existing voucher — already motivated to spend.' },
-              { icon: Check, title: 'Real-Time Analytics', desc: 'Dashboard shows conversions, revenue, partner performance per day.' },
-              { icon: Zap, title: 'Growing Network Effect', desc: '100+ travel partners continuously feeding incentivised customers to your store.' },
+              { icon: Check, title: 'Zero setup cost. Zero monthly fee.', desc: 'Purely performance-based. You only pay 2,5% (max €25) when DutyBoost delivers a confirmed, incremental sale.' },
+              { icon: Check, title: 'Pre-qualified, pre-motivated buyers', desc: 'Every DutyCredit holder has a specific credit to spend. They are not window shopping — they arrive at your store with a mission.' },
+              { icon: Check, title: 'Higher average basket size guaranteed', desc: 'The minimum basket of €70 to unlock any tier means every DutyCredit redemption is a meaningful transaction, not a micro-purchase.' },
+              { icon: Check, title: 'No POS integration needed to start', desc: 'Cashier scans a QR code on a mobile device. That\'s it. Full POS integration is available but not required to begin earning.' },
+              { icon: BarChart3, title: 'Real-time analytics dashboard', desc: 'Track redemptions, basket values, conversion rates, and monthly invoice totals — per day, per store, across your entire portfolio.' },
+              { icon: Zap, title: 'Growing traveler partner network', desc: 'Every new travel partner that joins DutyBoost sends more pre-activated travelers to your store. The network effect works in your favor continuously.' },
+              { icon: Star, title: 'Traveler loyalty at your store', desc: 'Travelers who redeem a DutyCredit remember your store as the place that gave them great value. Brand loyalty built effortlessly.' },
+              { icon: Users, title: 'Consistent incremental footfall', desc: 'Unlike one-time promotions, DutyBoost delivers a steady stream of pre-activated shoppers every day — as long as travel partners keep issuing DutyCredits.' },
             ].map(({ icon: Icon, title, desc }, i) => (
-              <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 space-y-3 hover:border-orange-700 transition-colors">
+              <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-2 hover:border-orange-600 transition-colors">
                 <div className="flex items-start gap-3">
-                  <Icon className="w-6 h-6 text-orange-400 mt-1 shrink-0" />
+                  <Icon className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-slate-100">{title}</p>
-                    <p className="text-sm text-slate-400 mt-1">{desc}</p>
+                    <p className="font-semibold text-slate-100 text-sm">{title}</p>
+                    <p className="text-xs text-slate-400 mt-1 leading-relaxed">{desc}</p>
                   </div>
                 </div>
               </div>
@@ -380,25 +370,49 @@ export default function AirportRetailerPresentationDark() {
           </div>
         </section>
 
-        {/* Full Sources Reference */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-heading font-bold text-slate-300">Research Sources</h2>
-          <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 space-y-3">
+        {/* ── MARKET GROWTH CONTEXT ── */}
+        <section className="space-y-8">
+          <div className="border-l-4 border-blue-500 pl-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Market Context</p>
+            <h2 className="text-3xl font-heading font-bold">The market is growing. Your share of it should too.</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
             {[
-              { label: 'GM Insights – Travel Retail Market Size & Share, Forecasts 2024–2032', url: 'https://www.gminsights.com/industry-analysis/travel-retail-market' },
-              { label: 'Yahoo Finance – Global Airport & Duty-Free Retailing 2019–2024 & 2025–2029', url: 'https://finance.yahoo.com/news/global-airport-duty-free-retailing-092300710.html' },
-              { label: 'Mordor Intelligence – Duty Free and Travel Retail Market Size & Share Analysis', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' },
-              { label: 'Kearney – Travel Retail\'s Future Flight Path 2024', url: 'https://www.kearney.com/about/kearney-in-the-media/press/travel-retails-future-flight-path-turning-heightened-volatility-into-tomorrows-market-edge' },
-              { label: 'Kearney – Travel Retail amid Geopolitical Realities 2024', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' },
-              { label: 'TFWA Insight – The Duty Free Spend Understanding Study 2024', url: 'https://www.tfwa.com/research/tfwa-insight/tfwa-insight-the-duty-free-spend-understanding-study-2024-100016689' },
-              { label: 'TFWA Insight – The Influence of Travel Retail 2024', url: 'https://www.tfwa.com/research/tfwa-insight/tfwa-insight-the-influence-of-travel-retail-2024-100015735' },
-              { label: 'ACI – Airport Experience Research 2024 (The Age of the Airport Experience)', url: 'https://assets.ctfassets.net/mlhfk7pjn0ow/3ZQTQwuGFBUwHHGkEWW6Lt/5c9165531eb0f10a5cf3dc12d8c69f7c/AX24_The_Age_of_The_Airport_Experience.pdf' },
-              { label: 'Forbes – Airport Shoppers Shift to Value, Convenience & Self-Treating (2026)', url: 'https://www.forbes.com/sites/kevinrozario/2026/03/09/airport-shoppers-shift-to-value-convenience-and-selftreating/' },
-              { label: 'Luxus Plus – Travel Retail: Decline in Airport Spending 2025', url: 'https://luxus-plus.com/en/travel-retail-decline-in-airport-spending-confirmed-for-third-consecutive-year/' },
-              { label: 'Market Growth Reports – Duty Free Travel Retail Market 2024', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' },
-              { label: 'Kearney – Travel Retail Faces Its Moment of Truth (Premiumization)', url: 'https://www.luxuryroundtable.com/wp-content/uploads/2023/10/Kearney-travel-retail-report-101223-.pdf' },
+              { stat: '+8.8%', label: 'CAGR in global duty-free & travel retail through 2031', context: 'The Mordor Intelligence report projects the market to grow from $102.5B in 2026 to $156.2B by 2031 — over 52% total growth in five years.', src: { label: 'Mordor Intelligence — Duty Free & Travel Retail Market 2026', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' } },
+              { stat: '+8.5%', label: 'Conversion rate increase from targeted digital engagement (QR/mobile)', context: 'Research confirms digital incentive tools — including QR codes and mobile vouchers — directly improve conversion rates at the point of sale.', src: { label: 'LinkedIn — Airport DOOH & Digital Conversion Research', url: 'https://www.linkedin.com/posts/linna-chen-a0055924a_dooh-programmaticadvertising-airportadvertising-activity-7394937993599488000-u16w' } },
+              { stat: '+10.6%', label: 'Global air passenger growth in 2024 — the travelers keep coming', context: 'IATA confirmed a 10.6% year-on-year surge in global passengers in 2024. More travelers = more footfall = more DutyCredit opportunities for your store.', src: { label: 'IATA Annual Review 2025', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' } },
+              { stat: '62%', label: 'of airport retailers already have QR/mobile digital capability', context: 'The infrastructure for DutyBoost integration is already in place for most airport retailers. Adoption is plug-and-play.', src: { label: 'Market Growth Reports — Duty Free Travel Retail 2024', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' } },
+            ].map(({ stat, label, context, src }, i) => (
+              <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-5 space-y-2 hover:border-blue-600 transition-colors">
+                <p className="text-3xl font-heading font-bold text-blue-400">{stat}</p>
+                <p className="text-sm font-semibold text-slate-200">{label}</p>
+                <p className="text-xs text-slate-400 leading-relaxed">{context}</p>
+                <SrcLink href={src.url}>{src.label}</SrcLink>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── SOURCES ── */}
+        <section className="space-y-4">
+          <h2 className="text-xl font-heading font-bold text-slate-400">Research Sources</h2>
+          <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 space-y-2.5">
+            {[
+              { label: 'IATA Annual Review 2025 — 4.8B air passengers in 2024 (+10.6% YoY)', url: 'https://www.iata.org/contentassets/c81222d96c9a4e0bb4ff6ced0126f0bb/iata-annual-review-2025.pdf' },
+              { label: 'Schiphol Group — 68.8M passengers in 2025 (+2.9% YoY)', url: 'https://airportindustry-news.com/schiphol-airport-handles-68-8-million-passengers-in-2025/' },
+              { label: 'Mordor Intelligence — Duty Free & Travel Retail Market $102.5B 2026, CAGR 8.8%', url: 'https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market' },
+              { label: 'Pi Insight — Duty Free Competes for 1h10m Airport Dwell Time', url: 'https://www.linkedin.com/posts/pi-insight_travelretail-dutyfree-shopperbehaviour-activity-7450856841967869953-OGWq' },
+              { label: 'Air Travel Design Guide — Schiphol Average Dwell Time 146 min per passenger', url: 'https://airtraveldesign.guide/Time' },
+              { label: 'ScienceDirect — Dwell Time & Non-Aeronautical Revenue: 10% dwell = +8% retail sales', url: 'https://www.sciencedirect.com/science/article/pii/S0969699724000851' },
+              { label: 'Kearney — Travel Retail & Geopolitical Realities 2024 (63% confidence with incentives)', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' },
+              { label: 'm1nd-set Research — Solo Travel & Conversion Rates (71% achievable with incentives)', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' },
+              { label: 'ETRC — Economic Impact of Duty-Free & Travel Retail in Europe, April 2025 (€20–€28/pax)', url: 'https://etrc.org/wp-content/uploads/documents/ETRC-EU-Economic-Impact-of-Duty-Free-Travel-Retail-Report-April-2025-FINAL.pdf' },
+              { label: 'TFWA Insight — Duty Free Spend Understanding Study 2024', url: 'https://www.tfwa.com/research/tfwa-insight/tfwa-insight-the-duty-free-spend-understanding-study-2024-100016689' },
+              { label: 'LinkedIn — Airport DOOH & Digital Conversion Research (+8.5% conversion with digital)', url: 'https://www.linkedin.com/posts/linna-chen-a0055924a_dooh-programmaticadvertising-airportadvertising-activity-7394937993599488000-u16w' },
+              { label: 'Market Growth Reports — Duty Free Travel Retail Market 2024 (62% digital capability)', url: 'https://www.marketgrowthreports.com/market-reports/duty-free-travel-retail-market-114899' },
             ].map((s, i) => (
-              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-sm text-slate-500 hover:text-slate-300 transition-colors group">
+              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+                className="flex items-start gap-2 text-sm text-slate-500 hover:text-slate-300 transition-colors group">
                 <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-0.5 group-hover:text-orange-400" />
                 {s.label}
               </a>
@@ -406,16 +420,21 @@ export default function AirportRetailerPresentationDark() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-gradient-to-r from-orange-900/30 to-slate-900 border border-orange-800/50 rounded-xl p-8 space-y-6 text-center">
-          <h3 className="text-2xl font-heading font-bold">Ready to increase your revenue?</h3>
-          <p className="text-slate-300">Turn 72% of browsers into buyers. Proven 40%+ conversion uplift. Zero setup cost.</p>
+        {/* ── CTA ── */}
+        <section className="bg-gradient-to-r from-orange-900/40 to-slate-900 border border-orange-700/50 rounded-2xl p-10 space-y-6 text-center">
+          <Badge className="bg-orange-900/30 text-orange-300 border-orange-700 mx-auto">Ready to get started?</Badge>
+          <h3 className="text-3xl font-heading font-bold">Pre-activated buyers. Higher baskets. Zero setup cost.</h3>
+          <p className="text-slate-300 max-w-lg mx-auto">Join the DutyBoost retail network and start converting the travelers already walking past your store.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="mailto:hello@dutyboost.com">
-              <Button className="gap-2 bg-orange-600 hover:bg-orange-700"><Mail className="w-4 h-4" /> hello@dutyboost.com</Button>
+              <Button className="gap-2 bg-orange-600 hover:bg-orange-700 text-base px-6 py-5">
+                <Mail className="w-4 h-4" /> hello@dutyboost.com
+              </Button>
             </a>
             <Link to="/travel-partner-presentation-dark">
-              <Button variant="outline" className="gap-2 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800">Travel Partner Guide <ArrowRight className="w-4 h-4" /></Button>
+              <Button variant="outline" className="gap-2 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800 text-base px-6 py-5">
+                Travel Partner Guide <ArrowRight className="w-4 h-4" />
+              </Button>
             </Link>
           </div>
         </section>
