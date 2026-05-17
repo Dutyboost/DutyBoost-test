@@ -172,7 +172,7 @@ export default function AirportRetailerPresentationDark() {
 
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { stat: '~28%', color: 'text-slate-300', label: 'Typical conversion rate without incentives', detail: 'Only about 1 in 4 travelers in the airport retail environment makes a purchase. The other 75% browse and leave.' },
+              { stat: '28%', color: 'text-slate-300', label: 'Typical conversion rate without incentives', detail: 'Only about 1 in 4 travelers in the airport retail environment makes a purchase. The other 75% browse and leave.' },
               { stat: '63%', color: 'text-orange-400', label: 'More confident spending when incentivized', detail: 'Kearney research: travelers with an active incentive are 63% more confident making a purchase at airport retail versus without one.', src: { label: 'Kearney — Travel Retail & Geopolitical Realities 2024', url: 'https://www.kearney.com/industry/consumer-retail/article/travel-retail-amid-today-s-geopolitical-realities' } },
               { stat: '71%', color: 'text-green-400', label: 'Conversion achievable with right incentive', detail: 'm1nd-set data shows that with a targeted, pre-activated incentive, conversion rates among motivated traveler segments can reach 71%.', src: { label: 'm1nd-set Research — Conversion with Incentives 2025', url: 'https://www.linkedin.com/posts/m1nd-set_m1nd-set-research-reveals-solo-travel-will-activity-7388090859046731776-3Gbn' } },
             ].map(({ stat, color, label, detail, src }, i) => (
@@ -271,7 +271,7 @@ export default function AirportRetailerPresentationDark() {
             {[
               {
                 metric: 'Conversion Rate',
-                baseline: '~28%',
+                baseline: '28%',
                 with_db: '40–50%',
                 lift: '+42–78%',
                 note: 'Based on m1nd-set research: targeted pre-departure incentives drive conversion among motivated traveler segments up to 71%.',
@@ -328,11 +328,11 @@ export default function AirportRetailerPresentationDark() {
               </div>
               <div className="flex justify-between py-2 border-b border-slate-700/40">
                 <span className="text-slate-400">Net daily uplift (after DutyBoost fee)</span>
-                <span className="text-green-400 font-semibold">~€3,150/day</span>
+                <span className="text-green-400 font-semibold">€3,150/day</span>
               </div>
               <div className="flex justify-between py-3 text-base">
                 <span className="text-slate-100 font-semibold">Annual additional revenue per location:</span>
-                <span className="text-green-400 font-bold text-xl">~€1,149,750</span>
+                <span className="text-green-400 font-bold text-xl">€1,149,750</span>
               </div>
             </div>
             <p className="text-xs text-slate-500 mt-2">Estimate based on 365 operating days. Actual results depend on DutyCredit holder volume at your specific location.</p>

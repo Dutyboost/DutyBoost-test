@@ -269,7 +269,7 @@ export default function TravelPartnerPresentationDark() {
               {[
                 { label: 'Annual bookings', val: '100,000' },
                 { label: 'DutyCredits issued (100% of bookings, automated)', val: '100,000' },
-                { label: 'Estimated redemption rate (industry avg 18–22%)', val: '~20,000 redemptions' },
+                { label: 'Estimated redemption rate (industry avg 18–22%)', val: '20,000 redemptions' },
                 { label: 'Average basket spend at airport store', val: '€135 (mid-tier)' },
                 { label: 'DutyBoost fee per transaction (2,5%, max €25)', val: '€3.38 avg' },
                 { label: 'Your commission (20% of platform fee)', val: '€0.67 avg per tx' },
@@ -283,7 +283,7 @@ export default function TravelPartnerPresentationDark() {
             <div className="mt-4 grid md:grid-cols-2 gap-4">
               <div className="flex justify-between items-center py-3 px-4 bg-green-900/30 rounded-lg border border-green-700/50">
                 <span className="font-semibold text-slate-100">Annual Commission</span>
-                <span className="text-2xl font-heading font-bold text-green-400">~€13,400</span>
+                <span className="text-2xl font-heading font-bold text-green-400">€13,400</span>
               </div>
               <div className="flex justify-between items-center py-3 px-4 bg-blue-900/30 rounded-lg border border-blue-700/50">
                 <span className="font-semibold text-slate-100">Cost to You</span>
@@ -308,11 +308,11 @@ export default function TravelPartnerPresentationDark() {
               </thead>
               <tbody>
                 {[
-                  { bookings: '10,000', redeem: '2,000', comm: '~€1,340' },
-                  { bookings: '50,000', redeem: '10,000', comm: '~€6,700' },
-                  { bookings: '100,000', redeem: '20,000', comm: '~€13,400' },
-                  { bookings: '500,000', redeem: '100,000', comm: '~€67,000' },
-                  { bookings: '1,000,000', redeem: '200,000', comm: '~€134,000' },
+                  { bookings: '10,000', redeem: '2,000', comm: '€1,340' },
+                  { bookings: '50,000', redeem: '10,000', comm: '€6,700' },
+                  { bookings: '100,000', redeem: '20,000', comm: '€13,400' },
+                  { bookings: '500,000', redeem: '100,000', comm: '€67,000' },
+                  { bookings: '1,000,000', redeem: '200,000', comm: '€134,000' },
                 ].map(({ bookings, redeem, comm }) => (
                   <tr key={bookings} className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
                     <td className="px-5 py-3.5 text-slate-300 font-medium">{bookings}</td>
