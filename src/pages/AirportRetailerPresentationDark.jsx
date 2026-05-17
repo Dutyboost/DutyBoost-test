@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, ArrowRight, TrendingUp, Users, Globe, ShoppingBag, Zap, Star, BarChart3, Check, ExternalLink, Plane } from "lucide-react";
+import { Download, FileText, Mail, ArrowRight, TrendingUp, Users, Globe, ShoppingBag, Zap, Star, BarChart3, Check, ExternalLink, Plane } from "lucide-react";
 
 function SrcLink({ href, children }) {
   return (
@@ -37,6 +37,8 @@ export default function AirportRetailerPresentationDark() {
   const r = (key) => t(`presentation.retailer.${key}`);
   const [isDownloading, setIsDownloading] = useState(false);
 
+  const downloadPdf = () => window.print();
+
   const downloadPresentation = async () => {
     setIsDownloading(true);
     try {
@@ -60,6 +62,10 @@ export default function AirportRetailerPresentationDark() {
             <Link to="/">
               <Button size="sm" variant="ghost" className="text-sm text-slate-300">{r('nav_home')}</Button>
             </Link>
+            <Button size="sm" variant="outline" className="gap-1.5 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800"
+              onClick={downloadPdf}>
+              <FileText className="w-3.5 h-3.5" /> PDF
+            </Button>
             <Button size="sm" variant="outline" className="gap-1.5 bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800"
               onClick={downloadPresentation} disabled={isDownloading}>
               <Download className="w-3.5 h-3.5" /> {isDownloading ? r('generating') : r('download')}
