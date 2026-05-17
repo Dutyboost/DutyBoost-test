@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft } from "lucide-react";
 import { jsPDF } from "jspdf";
@@ -11,6 +12,9 @@ const GradientDivider = () => (
 );
 
 export default function CarRentalPartnerOnePager() {
+  const { t } = useTranslation();
+  const p = (k) => t(`carrentalonepager.${k}`);
+
   const handleDownloadPDF = async () => {
     const element = document.querySelector('.print-content');
     const canvas = await html2canvas(element, { scale: 2, allowTaint: true, useCORS: true });
@@ -23,17 +27,17 @@ export default function CarRentalPartnerOnePager() {
   };
 
   const steps = [
-    { num: "01", title: "Customer books a rental", desc: "A customer books a car at an airport pickup location via your platform." },
-    { num: "02", title: "DutyCredit attached", desc: "DutyBoost adds a personalized QR voucher to the booking confirmation — ready to use airside." },
-    { num: "03", title: "Customer shops before pickup", desc: "The customer arrives early, redeems their DutyCredit at airport retail stores, then picks up their car." },
-    { num: "04", title: "Commission earned", desc: "You receive a commission for every redemption linked to your rental bookings." },
+    { num: "01", title: p('step1_title'), desc: p('step1_desc') },
+    { num: "02", title: p('step2_title'), desc: p('step2_desc') },
+    { num: "03", title: p('step3_title'), desc: p('step3_desc') },
+    { num: "04", title: p('step4_title'), desc: p('step4_desc') },
   ];
 
   const why = [
-    { title: "Airport pickups = perfect timing", desc: "Car rental customers arrive at the airport early. DutyBoost puts that dwell time to work — for them and for you." },
-    { title: "Zero-cost revenue on confirmed bookings", desc: "No new UI, no new product. DutyCredits flow from your confirmation emails automatically with a simple integration." },
-    { title: "Stand out from competitors", desc: "Offer travelers an airport shopping reward that no other car rental platform provides. Convert more bookings." },
-    { title: "High-value customer segment", desc: "Car rental customers are typically longer-haul, higher-spend travelers — exactly the profile that redeems DutyCredits most." },
+    { title: p('why1_title'), desc: p('why1_desc') },
+    { title: p('why2_title'), desc: p('why2_desc') },
+    { title: p('why3_title'), desc: p('why3_desc') },
+    { title: p('why4_title'), desc: p('why4_desc') },
   ];
 
   return (
@@ -41,12 +45,12 @@ export default function CarRentalPartnerOnePager() {
       <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-between">
         <Link to="/">
           <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="w-4 h-4" /> {t('common.back')}
           </button>
         </Link>
         <LanguageSwitcher />
         <Button onClick={handleDownloadPDF} className="gap-2" style={{ background: 'linear-gradient(to right, #f97316, #ef4444)' }}>
-          <Printer className="w-4 h-4" /> Download PDF
+          <Printer className="w-4 h-4" /> {t('common.download')}
         </Button>
       </div>
 
@@ -54,28 +58,22 @@ export default function CarRentalPartnerOnePager() {
         className="print-content max-w-[794px] mx-auto px-8 py-6 print:py-0 print:px-0 bg-white flex flex-col"
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
-        {/* Header */}
         <div className="flex items-center justify-between pb-2">
           <DutyBoostLogo height={90} />
           <div className="text-right">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-orange-200 text-orange-700 bg-orange-50">Car Rental Partner Program</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-orange-200 text-orange-700 bg-orange-50">{p('badge')}</span>
           </div>
         </div>
         <GradientDivider />
 
         <div className="flex-1 flex flex-col justify-between">
-
-          {/* Headline */}
           <div className="text-center py-3">
-            <h1 className="text-lg font-heading font-bold leading-tight">Your Airport Car Rental Customers Shop More — You Earn More</h1>
-            <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">
-              Car rental customers picking up at airports arrive with time to spare. DutyBoost activates that dwell time with personalized airport retail incentives — and pays you a commission every time they redeem.
-            </p>
+            <h1 className="text-lg font-heading font-bold leading-tight">{p('headline')}</h1>
+            <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">{p('subtitle')}</p>
           </div>
 
-          {/* Section 1 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#c2410c' }}>Why Car Rental Partners Join DutyBoost</h2>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#c2410c' }}>{p('s1_title')}</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-2 gap-2">
               {why.map(c => (
@@ -87,9 +85,8 @@ export default function CarRentalPartnerOnePager() {
             </div>
           </div>
 
-          {/* Section 2 */}
           <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b91c1c' }}>How It Works</h2>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b91c1c' }}>{p('s2_title')}</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-4 gap-2">
               {steps.map(s => (
@@ -102,59 +99,56 @@ export default function CarRentalPartnerOnePager() {
             </div>
           </div>
 
-          {/* Section 3 — Revenue */}
           <div className="py-2 mt-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#a16207' }}>Revenue Potential For Car Rental Partners</h2>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#a16207' }}>{p('s3_title')}</h2>
             <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#f97316' }}>€0.67</p>
-                <p className="font-semibold text-xs mt-0.5">Avg. commission per rental</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">Airport pickup rentals qualify automatically for DutyCredit issuance</p>
+                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#f97316' }}>{p('stat1_value')}</p>
+                <p className="font-semibold text-xs mt-0.5">{p('stat1_label')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">{p('stat1_desc')}</p>
               </div>
               <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#ef4444' }}>€13,400</p>
-                <p className="font-semibold text-xs mt-0.5">Annual commission at 100K rentals</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">Fully automated — no manual commission tracking or invoicing</p>
+                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#ef4444' }}>{p('stat2_value')}</p>
+                <p className="font-semibold text-xs mt-0.5">{p('stat2_label')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">{p('stat2_desc')}</p>
               </div>
               <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#eab308' }}>€0</p>
-                <p className="font-semibold text-xs mt-0.5">Cost to join</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">No fees, no setup costs, no operational burden</p>
+                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#eab308' }}>{p('stat3_value')}</p>
+                <p className="font-semibold text-xs mt-0.5">{p('stat3_label')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-1">{p('stat3_desc')}</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-2">
               <div className="border border-border rounded p-3">
-                <h3 className="font-heading font-bold text-xs mb-0.5">Airport-only activations</h3>
-                <p className="text-xs text-muted-foreground leading-snug">DutyCredits are only issued for airport pickup/dropoff rentals — so every credit reaches the right customer at the right time.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit1_title')}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{p('benefit1_desc')}</p>
               </div>
               <div className="border border-border rounded p-3">
-                <h3 className="font-heading font-bold text-xs mb-0.5">Booking conversion boost</h3>
-                <p className="text-xs text-muted-foreground leading-snug">Customers choosing between two rental providers will prefer the one that gives them airport shopping credit.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit2_title')}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{p('benefit2_desc')}</p>
               </div>
               <div className="border border-border rounded p-3">
-                <h3 className="font-heading font-bold text-xs mb-0.5">Monthly automated payouts</h3>
-                <p className="text-xs text-muted-foreground leading-snug">DutyBoost handles all tracking, validation, and commission payments. You receive a monthly summary and transfer.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit3_title')}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{p('benefit3_desc')}</p>
               </div>
             </div>
           </div>
 
-          {/* CTA */}
           <div>
             <GradientDivider />
             <div className="text-center py-4">
-              <p className="font-heading font-bold text-sm">Earn commission on every airport car rental — without lifting a finger.</p>
+              <p className="font-heading font-bold text-sm">{p('cta')}</p>
               <div className="flex items-center justify-center gap-6 mt-0.5">
-                <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-800 transition-colors">dutyboost.com</a>
-                <a href="mailto:hello@dutyboost.com" className="text-xs font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-800 transition-colors">hello@dutyboost.com</a>
+                <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-orange-700 underline underline-offset-2">dutyboost.com</a>
+                <a href="mailto:hello@dutyboost.com" className="text-xs font-semibold text-orange-700 underline underline-offset-2">hello@dutyboost.com</a>
               </div>
             </div>
           </div>
-
         </div>
 
         <div className="text-center pb-1">
-          <p className="text-xs text-muted-foreground">© 2026 DutyBoost B.V. — Confidential partner document. Not for redistribution.</p>
+          <p className="text-xs text-muted-foreground">{p('legal')}</p>
         </div>
       </div>
     </div>
