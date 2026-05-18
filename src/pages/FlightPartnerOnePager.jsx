@@ -56,27 +56,27 @@ export default function FlightPartnerOnePager() {
       </div>
 
       <div
-        className="print-content max-w-[794px] mx-auto px-8 py-6 print:py-0 print:px-0 bg-white flex flex-col"
+        className="print-content max-w-[794px] mx-auto px-8 py-3 print:py-0 print:px-0 bg-white flex flex-col"
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
-        <div className="flex items-center justify-between pb-2">
-          <DutyBoostLogo height={90} />
+        <div className="flex items-center justify-between pb-1">
+          <DutyBoostLogo height={72} />
           <span className="text-xs font-bold uppercase tracking-widest text-blue-700">{p('badge')}</span>
         </div>
         <GradientDivider />
 
         <div className="flex-1 flex flex-col justify-between">
-          <div className="text-center py-3">
-            <h1 className="text-lg font-heading font-bold leading-tight">{p('headline')}</h1>
+          <div className="text-center py-2">
+            <h1 className="text-base font-heading font-bold leading-tight">{p('headline')}</h1>
             <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">{p('subtitle')}</p>
           </div>
 
-          <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#1d4ed8' }}>{p('s1_title')}</h2>
-            <div className="mb-2"><GradientDivider /></div>
-            <div className="grid grid-cols-2 gap-2">
+          <div className="py-1">
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#1d4ed8' }}>{p('s1_title')}</h2>
+            <div className="mb-1"><GradientDivider /></div>
+            <div className="grid grid-cols-2 gap-1.5">
               {why.map(c => (
-                <div key={c.title} className="bg-slate-50 rounded p-3 border border-border">
+                <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
                   <p className="font-semibold text-xs mb-0.5">{c.title}</p>
                   <p className="text-xs text-muted-foreground leading-snug">{c.desc}</p>
                 </div>
@@ -84,50 +84,50 @@ export default function FlightPartnerOnePager() {
             </div>
           </div>
 
-          <div className="py-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#0f766e' }}>{p('s2_title')}</h2>
-            <div className="mb-2"><GradientDivider /></div>
-            <div className="grid grid-cols-4 gap-2">
+          <div className="py-1">
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#0f766e' }}>{p('s2_title')}</h2>
+            <div className="mb-1"><GradientDivider /></div>
+            <div className="grid grid-cols-4 gap-1.5">
               {steps.map(s => (
-                <div key={s.num} className="bg-teal-50 rounded p-3 border border-teal-100">
-                  <p className="text-lg font-heading font-bold text-teal-300 leading-none">{s.num}</p>
-                  <p className="font-semibold text-xs text-teal-800 mt-1">{s.title}</p>
+                <div key={s.num} className="bg-teal-50 rounded p-2 border border-teal-100">
+                  <p className="text-base font-heading font-bold text-teal-300 leading-none">{s.num}</p>
+                  <p className="font-semibold text-xs text-teal-800 mt-0.5">{s.title}</p>
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{s.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="py-2 mt-2">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide pt-2" style={{ color: '#b45309' }}>{p('s3_title')}</h2>
-            <div className="mb-2"><GradientDivider /></div>
-            <div className="grid grid-cols-3 gap-2 mb-2">
-              <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>{p('stat1_value')}</p>
+          <div className="py-1">
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#b45309' }}>{p('s3_title')}</h2>
+            <div className="mb-1"><GradientDivider /></div>
+            <div className="grid grid-cols-3 gap-1.5 mb-1.5">
+              <div className="border border-border rounded p-2 text-center">
+                <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#3b82f6' }}>{p('stat1_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{p('stat1_label')}</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">{p('stat1_desc')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat1_desc')}</p>
               </div>
-              <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#14b8a6' }}>{p('stat2_value')}</p>
+              <div className="border border-border rounded p-2 text-center">
+                <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#14b8a6' }}>{p('stat2_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{p('stat2_label')}</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">{p('stat2_desc')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat2_desc')}</p>
               </div>
-              <div className="border border-border rounded p-3 text-center">
-                <p className="text-2xl font-heading font-bold leading-tight" style={{ color: '#f59e0b' }}>{p('stat3_value')}</p>
+              <div className="border border-border rounded p-2 text-center">
+                <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#f59e0b' }}>{p('stat3_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{p('stat3_label')}</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-1">{p('stat3_desc')}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat3_desc')}</p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-2">
-              <div className="border border-border rounded p-3">
+            <div className="grid grid-cols-3 gap-1.5">
+              <div className="border border-border rounded p-2">
                 <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit1_title')}</h3>
                 <p className="text-xs text-muted-foreground leading-snug">{p('benefit1_desc')}</p>
               </div>
-              <div className="border border-border rounded p-3">
+              <div className="border border-border rounded p-2">
                 <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit2_title')}</h3>
                 <p className="text-xs text-muted-foreground leading-snug">{p('benefit2_desc')}</p>
               </div>
-              <div className="border border-border rounded p-3">
+              <div className="border border-border rounded p-2">
                 <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit3_title')}</h3>
                 <p className="text-xs text-muted-foreground leading-snug">{p('benefit3_desc')}</p>
               </div>
@@ -136,8 +136,8 @@ export default function FlightPartnerOnePager() {
 
           <div>
             <GradientDivider />
-            <div className="text-center py-4">
-              <p className="font-heading font-bold text-sm">{p('cta')}</p>
+            <div className="text-center py-2">
+              <p className="font-heading font-bold text-xs">{p('cta')}</p>
               <div className="flex items-center justify-center gap-6 mt-0.5">
                 <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-700 underline underline-offset-2">dutyboost.com</a>
                 <a href="mailto:hello@dutyboost.com" className="text-xs font-semibold text-blue-700 underline underline-offset-2">hello@dutyboost.com</a>
