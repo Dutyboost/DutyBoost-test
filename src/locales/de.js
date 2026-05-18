@@ -22,13 +22,13 @@ export default {
       subtitle: 'Erschließen Sie den <strong>verborgenen</strong> Umsatz in jeder online gebuchten Flug-, Unterkunfts- oder Mietwagenreservierung mit DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Wir verwandeln Reisende in kaufbereite Käufer, bevor sie ihr Abfluggate erreichen.',
     },
     ecosystem: {
-      title: 'So funktioniert unser Ökosystem',
+      title: '1 Lösung, drei Gewinner',
       subtitle: 'DutyBoost verbindet drei wichtige Stakeholder in einem nahtlosen Ökosystem, bei dem alle gewinnen.',
     },
     stakeholders: {
       travelers: {
         title: 'Reisende',
-        description: 'Genießen Sie exklusive Rabatte am Abflughafen — automatisch durch Ihre Buchung verdient. Keine Anmeldungen, kein Papierkram. Scannen Sie einfach Ihr DutyCredit und sparen Sie. Gültig für Einkäufe ab €70 an einem einzigen Verkaufspunkt.',
+        description: 'Genießen Sie exklusive Rabatte am Abflug- oder Hafen — automatisch verdient, wenn Sie einen Flug, ein Hotel, einen Mietwagen oder eine Kreuzfahrt buchen. Nutzen Sie Ihr DutyCredit am Abflughafen/-hafen oder bei der Ankunft. Keine Anmeldungen, kein Papierkram. Scannen und sparen. Gültig für Einkäufe ab €70 an einem einzigen Verkaufspunkt.',
         b1: 'Sofortiges mobiles DutyCredit',
         b2: 'Voller Rabatt in einem Geschäft',
         b3: 'Reibungslose QR-Erfahrung',
@@ -36,13 +36,13 @@ export default {
       retailers: {
         title: 'Flughafen/ Hafen Retailpartner',
         description: 'Wandeln Sie vorbeigehende Reisende in zahlende Kunden um. Erhalten Sie gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten DutyCredit-Anreiz. Unsere Provision gilt nur, wenn ein DutyCredit tatsächlich eingelöst wird — Sie zahlen nichts, es sei denn, wir liefern einen Verkauf.',
-        b1: 'Höhere Warenkorbkonversion',
+        b1: 'Höhere Ladenkonversion',
         b2: 'Echtzeit-QR-Einlösung',
         b3: 'Umsatzbeteiligung verfolgen',
       },
       agencies: {
         title: 'Reisepartner',
-        description: 'Verwandeln Sie jede Buchung in ein Kundenbindungsmittel. Generieren Sie automatisch personalisierte DutyCredits für Ihre Reisenden — exklusive Anreize basierend auf Gruppengröße, Reiseziel und Ticketwert — ohne zusätzlichen Aufwand. Verdienen Sie eine Marge auf jedes eingelöste DutyCredit.',
+        description: 'Ob Sie ein Reisebüro, eine Fluggesellschaft, ein Hotel oder ein Mietwagenunternehmen sind — verwandeln Sie jede Buchung in ein Kundenbindungsmittel. Generieren Sie automatisch personalisierte DutyCredits für Ihre Kunden und belohnen Sie sie mit einem exklusiven Shopping-Anreiz. Verdienen Sie eine Provision auf jedes eingelöste DutyCredit.',
         b1: 'Höhere Reisendenzufriedenheit',
         b2: 'Null Integrationsreibung',
         b3: 'Mehr Wiederholungsbuchungen',
@@ -238,9 +238,9 @@ export default {
       disclaimer: 'Dies ist eine Demo-Umgebung. Es werden keine echten Transaktionen verarbeitet.',
     },
     footer: {
-      tagline: '— Dynamische Flughafen-Belohnungsplattform',
+      tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
-      kvk: 'Handelsregister (KvK): 42053181',
+      kvk: 'Handelskammer (KvK): 42053181',
       vat: 'USt-IdNr.: NL869492068B01',
     },
     showcase: {
