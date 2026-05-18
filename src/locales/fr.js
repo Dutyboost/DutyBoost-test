@@ -28,7 +28,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Voyageurs',
-        description: 'Profitez de réductions exclusives à l\'aéroport de départ — gagnées automatiquement via votre réservation. Pas d\'inscription, pas de paperasse. Scannez simplement votre DutyCredit et économisez. Valable pour des achats de 50 € ou plus en un seul point de vente.',
+        description: 'Profitez de réductions exclusives à l\'aéroport de départ — gagnées automatiquement via votre réservation. Pas d\'inscription, pas de paperasse. Scannez simplement votre DutyCredit et économisez. Valable pour des achats de 70 € ou plus en un seul point de vente.',
         b1: 'DutyCredit mobile instantané',
         b2: 'Réduction complète dans un magasin',
         b3: 'Expérience QR sans friction',
