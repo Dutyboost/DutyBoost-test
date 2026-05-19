@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight } from "lucide-react";
@@ -42,7 +43,12 @@ export default function RetailerShowcase() {
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={150} />
           </Link>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-4">
+            <Link to="/retailer-calculator">
+              <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
+            </Link>
+            <LanguageSwitcher />
+          </div>
         </div>
       </nav>
 

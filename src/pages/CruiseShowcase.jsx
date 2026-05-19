@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft, Anchor, Gift, QrCode, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import PageFooter from "../components/PageFooter";
@@ -29,7 +30,12 @@ export default function CruiseShowcase() {
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={150} />
           </button>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-4">
+            <Link to="/retailer-calculator">
+              <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
+            </Link>
+            <LanguageSwitcher />
+          </div>
         </div>
       </nav>
 
