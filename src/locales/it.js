@@ -16,10 +16,10 @@ export default {
       roi_calculator: 'Calcolatore ROI',
     },
     hero: {
-      title_1: 'Trasformando ogni prenotazione online di viaggi e ospitalità in',
-      title_2: 'ricavi — per tutti',
-      subtitle: 'Sblocca i ricavi <strong>nascosti</strong> in ogni volo, alloggio o noleggio auto prenotato online con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Trasformiamo i viaggiatori in acquirenti ad alta intenzione prima che raggiungano il loro gate di partenza.',
-    },
+       title_1: 'Trasforma ogni prenotazione online di viaggi e ospitalità in',
+       title_2: 'ricavi — per tutti',
+       subtitle: 'Sblocca i ricavi <strong>nascosti</strong> in ogni volo, alloggio o noleggio auto prenotato online con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Ti trasformiamo i viaggiatori in acquirenti ad alta intenzione prima che raggiungano il loro gate di partenza.',
+     },
     ecosystem: {
       title: '1 Soluzione, tre vincitori',
       subtitle: 'DutyBoost collega tre stakeholder chiave in un ecosistema trasparente dove tutti vincono.',
@@ -48,10 +48,10 @@ export default {
       },
     },
     cta: {
-      title: 'Trasforma come i viaggi e il retail si connettono',
-      description: 'Unisciti a DutyBoost e sblocca un nuovo ecosistema dove i partner di viaggio rafforzano la fedeltà dei clienti, i viaggiatori massimizzano le ricompense e i retailer aumentano i ricavi — tutto tramite un\'unica piattaforma intelligente.',
-      button: 'Inizia oggi',
-    },
+       title: 'Trasforma come i viaggi e il retail si connettono',
+       description: 'Unisciti a DutyBoost e sblocca un nuovo ecosistema dove i partner di viaggio rafforzano la fedeltà dei clienti, tu massimizzi le tue ricompense e i retailer aumentano i ricavi — tutto tramite un\'unica piattaforma intelligente.',
+       button: 'Inizia oggi',
+     },
     wecallyou: {
       modal_title: 'Ti chiamiamo',
       modal_subtitle: 'Lascia i tuoi dati e ti chiameremo per discutere le tue esigenze.',

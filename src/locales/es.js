@@ -16,10 +16,10 @@ export default {
       roi_calculator: 'Calculadora ROI',
     },
     hero: {
-      title_1: 'Convirtiendo cada reserva online de viajes y hospitalidad en',
-      title_2: 'ingresos — para todos',
-      subtitle: 'Desbloquea los ingresos <strong>ocultos</strong> en cada vuelo, alojamiento o alquiler de coche reservado online con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Convertimos a los viajeros en compradores de alta intención antes de que lleguen a su puerta de embarque.',
-    },
+       title_1: 'Convierte cada reserva online de viajes y hospitalidad en',
+       title_2: 'ingresos — para todos',
+       subtitle: 'Desbloquea los ingresos <strong>ocultos</strong> en cada vuelo, alojamiento o alquiler de coche reservado online con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Te convertimos a los viajeros en compradores de alta intención antes de que lleguen a su puerta de embarque.',
+     },
     ecosystem: {
       title: '1 Solución, tres ganadores',
       subtitle: 'DutyBoost conecta tres partes interesadas clave en un ecosistema transparente donde todos ganan.',
@@ -48,10 +48,10 @@ export default {
       },
     },
     cta: {
-      title: 'Transforma cómo se conectan los viajes y el comercio minorista',
-      description: 'Únete a DutyBoost y desbloquea un nuevo ecosistema donde los socios de viaje impulsan la lealtad del cliente, los viajeros maximizan las recompensas y los minoristas aumentan los ingresos — todo a través de una plataforma inteligente.',
-      button: 'Comienza hoy',
-    },
+       title: 'Transforma cómo se conectan los viajes y el comercio minorista',
+       description: 'Únete a DutyBoost y desbloquea un nuevo ecosistema donde los socios de viaje impulsan la lealtad del cliente, tú maximizas tus recompensas y los minoristas aumentan los ingresos — todo a través de una plataforma inteligente.',
+       button: 'Comienza hoy',
+     },
     wecallyou: {
       modal_title: 'Te llamamos',
       modal_subtitle: 'Deja tus datos y te llamaremos para hablar sobre tus necesidades.',
