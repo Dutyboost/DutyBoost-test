@@ -593,7 +593,7 @@ export default {
       headline: 'Reward Your Guests at the Airport — and Earn While You Sleep',
       subtitle: 'DutyBoost lets accommodation platforms generate passive commission revenue from their existing guest bookings. Every guest that arrives or departs from an airport gets a DutyCredit — a personalised airport retail voucher — and you earn a commission whenever they redeem it.',
       s1_title: '01 — WHY ACCOMMODATION PARTNERS SHOULD JOIN DUTYBOOST',
-      why1_title: 'Passive income on existing bookings', why1_desc: 'No new product to sell. Every flight-adjacent accommodation booking becomes a potential commission source.',
+      why1_title: 'Passive income on existing bookings', why1_desc: 'No new product to sell. Every flight-related accommodation booking becomes a potential commission source.',
       why2_title: 'Differentiate your platform', why2_desc: 'Offer travelers a tangible perk — airport shopping credit — that no standard accommodation platform provides.',
       why3_title: 'Works for all accommodation types', why3_desc: 'Any accommodation provider where guests travel to or from an airport can participate in DutyBoost — no matter the property type or booking channel.',
       why4_title: 'Guest satisfaction uplift', why4_desc: 'Guests who feel rewarded at booking leave better reviews and rebook more often.',
