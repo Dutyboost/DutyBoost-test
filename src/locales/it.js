@@ -16,9 +16,9 @@ export default {
       roi_calculator: 'Calcolatore ROI',
     },
     hero: {
-       title_1: 'Trasforma ogni prenotazione online di viaggi e ospitalità in',
+       title_1: 'Trasforma ogni prenotazione di viaggi e ospitalità in',
        title_2: 'ricavi — per tutti',
-       subtitle: 'Sblocca i ricavi <strong>nascosti</strong> in ogni volo, alloggio o noleggio auto prenotato online con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Ti trasformiamo i viaggiatori in acquirenti ad alta intenzione prima che raggiungano il loro gate di partenza.',
+       subtitle: 'Sblocca i ricavi <strong>nascosti</strong> in ogni volo, alloggio o noleggio auto prenotato con DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. Ti trasformiamo i viaggiatori in acquirenti ad alta intenzione prima che raggiungano il loro gate di partenza.',
      },
     ecosystem: {
       title: '1 Soluzione, tre vincitori',

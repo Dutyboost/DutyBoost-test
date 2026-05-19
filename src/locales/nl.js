@@ -16,9 +16,9 @@ export default {
       roi_calculator: 'ROI Calculator',
     },
     hero: {
-       title_1: 'Zet elke online reis- en hospitalityboeking om in',
+       title_1: 'Zet elke reis- en hospitalityboeking om in',
        title_2: 'omzet — voor iedereen',
-       subtitle: 'Ontsluit de <strong>verborgen</strong> omzet in elke online vlucht-, accommodatie- of autoverhuurreservering met DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. We zetten reizigers om in koopbereidde kopers voordat ze hun vertrekgate bereiken.',
+       subtitle: 'Ontsluit de <strong>verborgen</strong> omzet in elke vlucht-, accommodatie- of autoverhuurreservering met DutyBoost, <strong>The Travel Retail Conversion Layer</strong>. We zetten reizigers om in koopbereidde kopers voordat ze hun vertrekgate bereiken.',
      },
     ecosystem: {
       title: '1 Oplossing, drie winnaars',
