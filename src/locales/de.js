@@ -815,7 +815,7 @@ export default {
       stat1_value: '%',
       stat1_label: 'Konversionssteigerung',
       stat1_desc: 'Voraktivierte Reisende konvertieren 2x häufiger als zufällige Besucher — Sie verwandeln vorbeigehenden Traffic in zahlende Kunden.',
-      stat2_value: '↑',
+      stat2_value: '📈',
       stat2_label: 'durchschnittlicher Warenkorbwert',
       stat2_desc: 'DutyCredit-Inhaber geben deutlich mehr aus, dank Voraktivierung und dem Mindesteinkauf von €70.',
       stat3_value: '+€50K–€150K',
