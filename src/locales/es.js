@@ -521,7 +521,7 @@ export default {
     accommodationonepager: {
       badge: 'Programa de Socios de Alojamiento',
       headline: 'Recompensa a tus huéspedes en el aeropuerto — y gana mientras duermes',
-      subtitle: 'DutyBoost te permite generar ingresos pasivos por comisiones a partir de las reservas de huéspedes que ya tienes. Cada huésped que vuela recibe un DutyCredit — un vale personalizado de compras en el aeropuerto — y tú ganas comisión cada vez que lo canjea.',
+      subtitle: 'DutyBoost permite a las plataformas de alojamiento generar ingresos pasivos por comisiones a partir de reservas de huéspedes existentes. Cada huésped recibe un DutyCredit personalizado para usar durante las salidas en aeropuerto, y tu plataforma gana una comisión cada vez que lo canjean.',
       s1_title: '01 — Por qué los socios de alojamiento eligen DutyBoost',
       why1_title: 'Ingresos pasivos en reservas que ya tienes', why1_desc: 'No hay ningún producto nuevo que vender. Cada reserva de alojamiento vinculada a vuelos se convierte en una fuente potencial de comisión para ti.',
       why2_title: 'Diferencia tu plataforma', why2_desc: 'Ofrece a tus viajeros un beneficio real — crédito de compras en el aeropuerto — que ninguna plataforma de alojamiento estándar da.',

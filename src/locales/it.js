@@ -761,7 +761,7 @@ export default {
     accommodationonepager: {
       badge: 'Programma Partner Alloggio',
       headline: 'Premia i tuoi ospiti in aeroporto — e guadagna mentre dormi',
-      subtitle: 'DutyBoost ti permette di generare ricavi passivi da commissioni sulle prenotazioni degli ospiti che hai già. Ogni ospite che vola riceve un DutyCredit — un buono personalizzato per lo shopping in aeroporto — e tu guadagni una commissione ogni volta che lo riscatta.',
+      subtitle: 'DutyBoost consente alle piattaforme di alloggio di generare ricavi passivi da commissioni sulle prenotazioni degli ospiti esistenti. Ogni ospite riceve un DutyCredit personalizzato da utilizzare durante le partenze aeroportuali, e la tua piattaforma guadagna una commissione ogni volta che viene riscattato.',
       s1_title: '01 — Perché i partner di alloggio scelgono DutyBoost',
       why1_title: 'Reddito passivo su prenotazioni esistenti', why1_desc: 'Nessun nuovo prodotto da vendere. Ogni prenotazione di alloggio legata a voli diventa una potenziale fonte di commissione per te.',
       why2_title: 'Differenzia la tua piattaforma', why2_desc: 'Offri ai tuoi viaggiatori un vantaggio concreto — credito acquisti in aeroporto — che nessun\'altra piattaforma di alloggio standard dà.',

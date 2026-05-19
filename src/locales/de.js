@@ -745,7 +745,7 @@ export default {
     accommodationonepager: {
       badge: 'Unterkunftspartner-Programm',
       headline: 'Belohnen Sie Ihre Gäste am Flughafen — und Verdienen Sie Im Schlaf',
-      subtitle: 'DutyBoost ermöglicht Unterkunftsplattformen, passive Provisionseinnahmen aus bestehenden Gästebuchungen zu generieren. Jeder fliegende Gast erhält einen DutyCredit — einen personalisierten Flughafen-Einzelhandelsgutschein — und Sie verdienen eine Provision, wann immer dieser eingelöst wird.',
+      subtitle: 'DutyBoost ermöglicht Unterkunftsplattformen, passive Provisionseinnahmen aus bestehenden Gästebuchungen zu generieren. Jeder Gast erhält ein personalisiertes DutyCredit zur Nutzung bei Flughafenabreisen, und Ihre Plattform verdient eine Provision, wann immer sie eingelöst wird.',
       s1_title: '01 — Warum Unterkunftspartner DutyBoost Wählen',
       why1_title: 'Passives Einkommen aus bestehenden Buchungen', why1_desc: 'Kein neues Produkt zu verkaufen. Jede flugbezogene Unterkunftsbuchung wird zur potenziellen Provisionsquelle.',
       why2_title: 'Differenzieren Sie Ihre Plattform', why2_desc: 'Bieten Sie Reisenden einen greifbaren Vorteil — Flughafen-Einkaufsguthaben — den keine Standardunterkunftsplattform bietet.',

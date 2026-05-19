@@ -745,7 +745,7 @@ export default {
     accommodationonepager: {
       badge: 'Programme Partenaire Hébergement',
       headline: 'Récompensez Vos Clients à l\'Aéroport — et Gagnez Pendant Votre Sommeil',
-      subtitle: 'DutyBoost permet aux plateformes d\'hébergement de générer des revenus passifs de commission sur leurs réservations clients existantes. Chaque client voyageant en avion reçoit un DutyCredit — un bon personnalisé de vente au détail aéroportuaire — et vous gagnez une commission à chaque utilisation.',
+      subtitle: 'DutyBoost permet aux plateformes d\'hébergement de générer des revenus passifs de commission à partir des réservations clients existantes. Chaque client reçoit un DutyCredit personnalisé utilisable lors des départs en aéroport, et votre plateforme gagne une commission à chaque fois qu\'il est utilisé.',
       s1_title: '01 — Pourquoi les Partenaires d\'Hébergement Choisissent DutyBoost',
       why1_title: 'Revenus passifs sur les réservations existantes', why1_desc: 'Pas de nouveau produit à vendre. Chaque réservation d\'hébergement liée à un vol devient une source potentielle de commission.',
       why2_title: 'Différenciez votre plateforme', why2_desc: 'Offrez aux voyageurs un avantage tangible — crédit d\'achats à l\'aéroport — qu\'aucune plateforme d\'hébergement standard ne propose.',

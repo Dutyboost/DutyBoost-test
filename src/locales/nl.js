@@ -686,7 +686,7 @@ export default {
     accommodationonepager: {
       badge: 'Accommodatie Partner Programma',
       headline: 'Beloon je gasten op de luchthaven — en verdien terwijl je slaapt',
-      subtitle: 'DutyBoost stelt accommodatieplatforms in staat passieve commissie-inkomsten te genereren uit bestaande gastboekingen. Elke vliegende gast ontvangt een DutyCredit — een gepersonaliseerde luchthaven retailvoucher — en je verdient commissie elke keer dat ze die inwisselen.',
+      subtitle: 'DutyBoost stelt accommodatieplatforms in staat passieve commissie-inkomsten te genereren uit bestaande gastboekingen. Elke gast ontvangt een gepersonaliseerde DutyCredit voor gebruik bij luchthaven vertrekken, en uw platform verdient commissie telkens wanneer ze die inwisselen.',
       s1_title: '01 — Waarom accommodatiepartners DutyBoost kiezen',
       why1_title: 'Passief inkomen op bestaande boekingen', why1_desc: 'Geen nieuw product te verkopen. Elke vluchtsgebonden accommodatieboeking wordt een potentiële commissiebron.',
       why2_title: 'Differentieer je platform', why2_desc: 'Bied reizigers een tastbaar voordeel — luchthaven winkelkrediet — dat geen standaard accommodatieplatform biedt.',
