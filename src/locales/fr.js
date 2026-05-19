@@ -42,7 +42,7 @@ export default {
       },
       agencies: {
         title: 'Partenaires de voyage',
-        description: 'Que vous soyez une agence de voyage, une compagnie aérienne, un hôtel ou un loueur de voitures — transformez chaque réservation en actif de fidélisation. Générez automatiquement des DutyCredits personnalisés pour vos clients, en les récompensant avec une incitation shopping exclusive. Gagnez une commission sur chaque DutyCredit utilisé.',
+        description: 'Que vous soyez une agence de voyage, une compagnie aérienne, un hébergement ou un loueur de voitures — transformez chaque réservation en actif de fidélisation. Générez automatiquement des DutyCredits personnalisés pour vos clients, en les récompensant avec une incitation shopping exclusive. Gagnez une commission sur chaque DutyCredit utilisé.',
         b1: 'Satisfaction accrue des voyageurs',
         b2: 'Zéro friction d\'intégration',
         b3: 'Plus de réservations répétées',
@@ -887,7 +887,7 @@ export default {
         how_label: 'Comment DutyBoost',
         how_title: 'Simple à opérer. Puissant en impact.',
         how_subtitle: 'Pas d\'intégration POS requise pour commencer. Vous scannez un QR code. Nous gérons tout le reste.',
-        step1_title: 'Le partenaire de voyage émet un DutyCredit', step1_desc: 'Quand un voyageur réserve un vol, hôtel ou location, son email de confirmation inclut un QR code DutyCredit personnalisé — des semaines avant le vol.',
+        step1_title: 'Le partenaire de voyage émet un DutyCredit', step1_desc: 'Quand un voyageur réserve un vol, hébergement ou location, son email de confirmation inclut un QR code DutyCredit personnalisé — des semaines avant le vol.',
         step2_title: 'Le voyageur arrive pré-activé', step2_desc: 'Il entre dans votre magasin déjà motivé. Un crédit spécifique à dépenser à un panier minimum de €70.',
         step3_title: 'Le caissier scanne le QR code', step3_desc: 'Un scan à la caisse. Notre système valide le QR instantanément et applique la remise automatiquement.',
         step4_title: 'Vente plus élevée. Facture mensuelle.', step4_desc: 'Vous recevez une facture mensuelle de 2,5% de la valeur brute (max €25/transaction). Pas de frais initiaux.',
