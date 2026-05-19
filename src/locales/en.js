@@ -658,7 +658,7 @@ export default {
       step4_title: 'Transaction recorded',
       step4_desc: 'DutyBoost logs the sale, applies the discount, and invoices you the monthly fee of 2.5%',
       s3_title: '03 — What DutyBoost Brings to Airport Retailers',
-      stat1_value: '+45%',
+      stat1_value: '%',
       stat1_label: 'conversion uplift',
       stat1_desc: 'Pre-activated travellers convert at 2x the rate of casual browsers — turning passing traffic into paying customers.',
       stat2_value: '€120+',

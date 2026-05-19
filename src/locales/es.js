@@ -588,7 +588,7 @@ export default {
       step4_title: 'Transacción registrada',
       step4_desc: 'DutyBoost registra la venta, aplica el descuento e incluye la comisión de 2,5% en tu facturación mensual',
       s3_title: '03 — Qué aporta DutyBoost a los minoristas aeroportuarios',
-      stat1_value: '+45%',
+      stat1_value: '%',
       stat1_label: 'aumento de conversión',
       stat1_desc: 'Los viajeros preactivados convierten 2x más que los navegantes casuales — conviertes tráfico de paso en clientes pagadores.',
       stat2_value: '€120+',

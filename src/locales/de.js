@@ -812,7 +812,7 @@ export default {
       step4_title: 'Transaktion erfasst',
       step4_desc: 'DutyBoost erfasst den Verkauf, wendet den Rabatt an und stellt Ihnen monatlich Rechnung',
       s3_title: '03 — Was DutyBoost Flughafenhändlern bringt',
-      stat1_value: '+45%',
+      stat1_value: '%',
       stat1_label: 'Konversionssteigerung',
       stat1_desc: 'Voraktivierte Reisende konvertieren 2x häufiger als zufällige Besucher — Sie verwandeln vorbeigehenden Traffic in zahlende Kunden.',
       stat2_value: '€120+',

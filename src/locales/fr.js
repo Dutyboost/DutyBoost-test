@@ -812,7 +812,7 @@ export default {
       step4_title: "Transaction enregistrée",
       step4_desc: "DutyBoost enregistre la vente, applique la remise et vous facture la commission mensuelle de 2,5%",
       s3_title: "03 — Ce que DutyBoost apporte aux commerçants aéroportuaires",
-      stat1_value: "+45%",
+      stat1_value: "%",
       stat1_label: "augmentation de conversion",
       stat1_desc: "Les voyageurs pré-activés convertissent 2x plus que les navigateurs occasionnels — vous transformez le trafic passant en clients payants.",
       stat2_value: "€120+",

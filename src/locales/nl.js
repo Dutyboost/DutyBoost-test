@@ -753,7 +753,7 @@ export default {
       step4_title: 'Transactie geregistreerd',
       step4_desc: 'DutyBoost registreert de verkoop, past de korting toe en factureert je maandelijks',
       s3_title: '03 — Wat DutyBoost biedt aan luchthavenwinkeliers',
-      stat1_value: '+45%',
+      stat1_value: '%',
       stat1_label: 'conversie-uplift',
       stat1_desc: 'Voorgeactiveerde reizigers converteren 2x zo hoog als toevallige voorbijgangers — je zet voorbijlopend verkeer om in betalende klanten.',
       stat2_value: '€120+',

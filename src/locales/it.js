@@ -828,7 +828,7 @@ export default {
       step4_title: 'Transazione registrata',
       step4_desc: 'DutyBoost registra la vendita, applica lo sconto e ti fattura mensilmente',
       s3_title: '03 — Cosa porta DutyBoost ai rivenditori aeroportuali',
-      stat1_value: '+45%',
+      stat1_value: '%',
       stat1_label: 'aumento della conversione',
       stat1_desc: 'I viaggiatori pre-attivati convertono 2x più dei visitatori casuali — trasformi il traffico di passaggio in clienti paganti.',
       stat2_value: '€120+',
