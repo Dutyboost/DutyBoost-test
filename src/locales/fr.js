@@ -28,7 +28,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Voyageurs',
-        description: 'Profitez d\'une réduction exclusive à l\'aéroport ou au port de départ — gagnée automatiquement lors de la réservation d\'un vol, d\'un hôtel, d\'une location de voiture ou d\'une croisière. Utilisez votre DutyCredit à votre aéroport/port de départ ou à l\'arrivée. Pas d\'inscription, pas de paperasse. Scannez et économisez. Valable pour des achats de 70 € ou plus en un seul point de vente.',
+        description: 'Profitez d\'une réduction exclusive à l\'aéroport ou au port de départ — gagnée automatiquement lors de la réservation d\'un vol, d\'un hébergement, d\'une location de voiture ou d\'une croisière. Utilisez votre DutyCredit à votre aéroport/port de départ ou à l\'arrivée. Pas d\'inscription, pas de paperasse. Scannez et économisez. Valable pour des achats de 70 € ou plus en un seul point de vente.',
         b1: 'DutyCredit mobile instantané',
         b2: 'Réduction complète dans un magasin',
         b3: 'Expérience QR sans friction',

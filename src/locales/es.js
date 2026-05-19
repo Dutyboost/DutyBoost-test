@@ -41,7 +41,7 @@ export default {
       },
       agencies: {
         title: 'Socios de viaje',
-        description: 'Tanto si eres una agencia de viajes, una aerolínea, un hotel o una empresa de alquiler de coches — convierte cada reserva en un activo de fidelización. Genera automáticamente DutyCredits personalizados para tus clientes, recompensándolos con un incentivo de compra exclusivo. Gana una comisión en cada DutyCredit canjeado.',
+        description: 'Tanto si eres una agencia de viajes, una aerolínea, un alojamiento o una empresa de alquiler de coches — convierte cada reserva en un activo de fidelización. Genera automáticamente DutyCredits personalizados para tus clientes, recompensándolos con un incentivo de compra exclusivo. Gana una comisión en cada DutyCredit canjeado.',
         b1: 'Mayor satisfacción del viajero',
         b2: 'Cero fricción de integración',
         b3: 'Más reservas repetidas',

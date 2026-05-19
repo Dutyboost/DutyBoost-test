@@ -27,7 +27,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Travellers',
-        description: 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, hotel, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.',
+        description: 'Enjoy an exclusive airport or port discount — automatically earned when you book a flight, accommodation, car rental or cruise ship. Use your DutyCredit at your departure airport/ port or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.',
         b1: 'Instant mobile DutyCredit',
         b2: 'Full discount at one shop',
         b3: 'Seamless QR experience',
@@ -41,7 +41,7 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Whether you\'re a travel agency, airline, hotel, or car rental — turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your customers, rewarding them with an exclusive shopping incentive. Earn a commission on every DutyCredit redeemed.',
+        description: 'Whether you\'re a travel agency, airline, accommodation, or car rental — turn every booking into a loyalty asset. Automatically generate personalised DutyCredits for your customers, rewarding them with an exclusive shopping incentive. Earn a commission on every DutyCredit redeemed.',
         b1: 'Higher customer satisfaction',
         b2: 'Zero integration friction',
         b3: 'More repeat bookings',
@@ -913,7 +913,7 @@ export default {
         how_label: 'How DutyBoost',
         how_title: 'Simple to operate. Powerful in impact.',
         how_subtitle: 'No POS integration required to start. You scan a QR code. We handle everything else.',
-        step1_title: 'Travel Partner Issues DutyCredit', step1_desc: 'When a traveller books a flight, hotel or car rental, their confirmation email includes a personalised DutyCredit QR code — weeks before they fly.',
+        step1_title: 'Travel Partner Issues DutyCredit', step1_desc: 'When a traveller books a flight, accommodation or car rental, their confirmation email includes a personalised DutyCredit QR code — weeks before they fly.',
         step2_title: 'Traveller Arrives Pre-Activated', step2_desc: "They enter your store already motivated. They have a specific credit to spend at a minimum basket of €70 — and they're looking to use it.",
         step3_title: 'Cashier Scans the QR Code', step3_desc: 'One scan at checkout. Our system validates the QR instantly and applies the tiered discount automatically. No manual calculation.',
         step4_title: 'Higher Sale. Monthly Invoice.', step4_desc: 'You receive a single monthly invoice for 2,5% of gross redemption value (max €25/transaction). No upfront fees. No subscriptions.',

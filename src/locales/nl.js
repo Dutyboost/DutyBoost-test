@@ -27,7 +27,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reizigers',
-        description: 'Geniet van een exclusieve korting bij je vertrekluchthaven — automatisch verdiend wanneer je een vlucht, hotel, autoverhuur of cruise boekt. Gebruik je DutyCredit op je vertrekluchthaven of bij aankomst op je bestemming. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
+        description: 'Geniet van een exclusieve korting bij je vertrekluchthaven — automatisch verdiend wanneer je een vlucht, accommodatie, autoverhuur of cruise boekt. Gebruik je DutyCredit op je vertrekluchthaven of bij aankomst op je bestemming. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
         b1: 'Directe mobiele DutyCredit',
         b2: 'Volledige korting bij één winkel',
         b3: 'Naadloze QR-ervaring',
@@ -41,7 +41,7 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Of je nu een reisagentschap, luchtvaartmaatschappij, hotel of autoverhuurbedrijf bent — maak van elke boeking een loyaliteitsmiddel. Genereer automatisch gepersonaliseerde DutyCredits voor je klanten en beloon hen met een exclusieve winkelkorting. Verdien commissie op elke ingewisselde DutyCredit.',
+        description: 'Of je nu een reisagentschap, luchtvaartmaatschappij, accommodatie of autoverhuurbedrijf bent — maak van elke boeking een loyaliteitsmiddel. Genereer automatisch gepersonaliseerde DutyCredits voor je klanten en beloon hen met een exclusieve winkelkorting. Verdien commissie op elke ingewisselde DutyCredit.',
         b1: 'Meer tevredenheid bij reizigers',
         b2: 'Nul integratiefrictie',
         b3: 'Meer herhalingboekingen',
@@ -832,7 +832,7 @@ export default {
         s1: 'Inwisselingen',
         s2: 'Omzet (€)',
       },
-      hotel: {
+      accommodation: {
         kpi1: 'Uitgegeven DutyCredits',
         kpi1Sub: 'Boeking + uitchecken',
         kpi2: 'Ingewisseld door gasten',
@@ -917,7 +917,7 @@ export default {
         how_label: 'Hoe DutyBoost',
         how_title: 'Eenvoudig te bedienen. Krachtig in impact.',
         how_subtitle: 'Geen POS-integratie vereist om te beginnen. U scant een QR-code. Wij regelen al het andere.',
-        step1_title: 'Reispartner geeft DutyCredit uit', step1_desc: 'Wanneer een reiziger een vlucht, hotel of huurauto boekt, bevat de bevestigingsmail een gepersonaliseerde DutyCredit QR-code — weken voor vertrek.',
+        step1_title: 'Reispartner geeft DutyCredit uit', step1_desc: 'Wanneer een reiziger een vlucht, accommodatie of huurauto boekt, bevat de bevestigingsmail een gepersonaliseerde DutyCredit QR-code — weken voor vertrek.',
         step2_title: 'Reiziger arriveert pre-geactiveerd', step2_desc: 'Ze betreden uw winkel al gemotiveerd. Ze hebben een specifiek tegoed te besteden bij een minimale mand van €70 — en ze willen het gebruiken.',
         step3_title: 'Kassamedewerker scant de QR-code', step3_desc: 'Één scan bij de kassa. Ons systeem valideert de QR onmiddellijk en past de gelaagde korting automatisch toe.',
         step4_title: 'Hogere verkoop. Maandelijkse factuur.', step4_desc: 'U ontvangt een maandelijkse factuur voor 2,5% van de bruto inwisselingswaarde (max €25/transactie). Geen vooruitbetalingen. Geen abonnementen.',

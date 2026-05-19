@@ -28,7 +28,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reisende',
-        description: 'Genießen Sie exklusive Rabatte am Abflug- oder Hafen — automatisch verdient, wenn Sie einen Flug, ein Hotel, einen Mietwagen oder eine Kreuzfahrt buchen. Nutzen Sie Ihr DutyCredit am Abflughafen/-hafen oder bei der Ankunft. Keine Anmeldungen, kein Papierkram. Scannen und sparen. Gültig für Einkäufe ab €70 an einem einzigen Verkaufspunkt.',
+        description: 'Genießen Sie exklusive Rabatte am Abflug- oder Hafen — automatisch verdient, wenn Sie einen Flug, eine Unterkunft, einen Mietwagen oder eine Kreuzfahrt buchen. Nutzen Sie Ihr DutyCredit am Abflughafen/-hafen oder bei der Ankunft. Keine Anmeldungen, kein Papierkram. Scannen und sparen. Gültig für Einkäufe ab €70 an einem einzigen Verkaufspunkt.',
         b1: 'Sofortiges mobiles DutyCredit',
         b2: 'Voller Rabatt in einem Geschäft',
         b3: 'Reibungslose QR-Erfahrung',
@@ -42,7 +42,7 @@ export default {
       },
       agencies: {
         title: 'Reisepartner',
-        description: 'Ob Sie ein Reisebüro, eine Fluggesellschaft, ein Hotel oder ein Mietwagenunternehmen sind — verwandeln Sie jede Buchung in ein Kundenbindungsmittel. Generieren Sie automatisch personalisierte DutyCredits für Ihre Kunden und belohnen Sie sie mit einem exklusiven Shopping-Anreiz. Verdienen Sie eine Provision auf jedes eingelöste DutyCredit.',
+        description: 'Ob Sie ein Reisebüro, eine Fluggesellschaft, eine Unterkunft oder ein Mietwagenunternehmen sind — verwandeln Sie jede Buchung in ein Kundenbindungsmittel. Generieren Sie automatisch personalisierte DutyCredits für Ihre Kunden und belohnen Sie sie mit einem exklusiven Shopping-Anreiz. Verdienen Sie eine Provision auf jedes eingelöste DutyCredit.',
         b1: 'Höhere Reisendenzufriedenheit',
         b2: 'Null Integrationsreibung',
         b3: 'Mehr Wiederholungsbuchungen',
