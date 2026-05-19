@@ -758,7 +758,7 @@ export default {
       stat1_desc: 'van tussen de €5 to max €60 korting hangende van hun uitgave van minmaal €70 — elke inwisseling leidt tot een gekwalificeerde, hoogwaardige aankoop',
       stat2_value: '2,5% (max €25)',
       stat2_label: 'kosten alleen bij bevestigde inwisselingen',
-      stat2_desc: 'Geen installatiekosten, geen abonnement. Je betaalt 2,5% van de bruto-omzet, gemaximeerd op €25 per transactie. Het DutyCredit wordt volledig gedekt door het platform.',
+      stat2_desc: 'Geen installatiekosten, geen abonnement. Je betaalt 2,5% van de netto-verkoop, tot maximaal €25 per transactie.',
       stat3_value: '< 1 dag',
       stat3_label: 'om live te gaan',
       stat3_desc: 'Eenvoudige QR-scanner setup. Geen POS-integratie vereist om te beginnen',
