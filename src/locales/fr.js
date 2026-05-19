@@ -810,7 +810,7 @@ export default {
       step3_title: "Ils visitent votre boutique",
       step3_desc: "Le voyageur présente son QR en caisse. Vous scannez et validez en quelques secondes",
       step4_title: "Transaction enregistrée",
-      step4_desc: "DutyBoost enregistre la vente, applique la remise et vous facture mensuellement",
+      step4_desc: "DutyBoost enregistre la vente, applique la remise et vous facture la commission mensuelle de 2,5%",
       s3_title: "03 — Ce que DutyBoost apporte aux commerçants aéroportuaires",
       stat1_value: "€5–€60",
       stat1_label: "niveaux fixes de DutyCredit",
