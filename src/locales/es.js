@@ -560,7 +560,7 @@ export default {
       stat1_value: 'Hasta €5', stat1_label: 'Comisión por canje', stat1_desc: "20% de la tarifa del 2,5% de DutyBoost por transacción (límite €5) — ganada automáticamente, sin esfuerzo de ventas",
       stat2_value: 'Gratis', stat2_label: '¡Sin coste para ti!', stat2_desc: 'DutyBoost es gratuito para socios de alquiler de coches. La comisión fluye de canjes confirmados — pagada mensualmente con informes completos',
       stat3_value: '< 1 día', stat3_label: 'Para estar en marcha', stat3_desc: 'Un solo snippet en el email de confirmación de reserva. Nosotros gestionamos todo lo demás de principio a fin',
-      benefit1_title: '🤝 Mayor fidelización del cliente', benefit1_desc: 'Un beneficio aeroportuario memorable y personalizado vinculado a cada reserva de auto — los clientes asocian ese valor con tu marca.',
+      benefit1_title: '🤝 Mayor fidelización del cliente', benefit1_desc: 'Un beneficio aeroportuario memorable y personalizado vinculado a cada reserva de coche — los clientes asocian ese valor con tu marca.',
       benefit2_title: '💰 Nuevos ingresos pasivos', benefit2_desc: 'La comisión llega del gasto aeroportuario — sin esfuerzo de ventas adicional, sin trabajo manual.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incrustan directamente en el email de confirmación de reserva y en el de devolución del coche — dos puntos de contacto por cliente, completamente automatizados, sin trabajo manual.',
       cta: 'Gana comisión en cada alquiler de coche en el aeropuerto — sin mover un dedo.',
