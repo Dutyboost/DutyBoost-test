@@ -140,7 +140,7 @@ export default function CarRentalPartnerOnePager() {
               <p className="font-heading font-bold text-xs">{p('cta')}</p>
               <div className="flex items-center justify-center gap-6 mt-0.5">
                 <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-orange-700 underline underline-offset-2">dutyboost.com</a>
-                <a href="mailto:hello@dutyboost.com" className="text-xs font-semibold text-orange-700 underline underline-offset-2">hello@dutyboost.com</a>
+                <a href="mailto:rael@dutyboost.com" className="text-xs font-semibold text-orange-700 underline underline-offset-2">rael@dutyboost.com</a>
               </div>
             </div>
           </div>

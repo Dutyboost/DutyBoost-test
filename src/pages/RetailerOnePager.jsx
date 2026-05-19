@@ -146,6 +146,7 @@ export default function RetailerOnePager() {
             <p className="font-heading font-bold text-sm">{t('retaileronepager.cta')}</p>
             <div className="flex items-center justify-center gap-6">
               <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-800 transition-colors">dutyboost.com</a>
+              <a href="mailto:rael@dutyboost.com" className="text-xs font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-800 transition-colors">rael@dutyboost.com</a>
             </div>
           </div>
 
