@@ -697,7 +697,7 @@ export default {
       step2_title: '2e DutyCredit — Bij uitchecken', step2_desc: 'Wanneer de gast uitcheckt, wordt automatisch een tweede DutyCredit QR-code verstuurd in de uitcheckmail — klaar voor gebruik op de luchthaven.',
       step3_title: 'Ingewisseld op het vertrekluchtplaats', step3_desc: 'De gast scant hun QR-code bij een deelnemende retailer op hun luchthaven van vertrek en geniet van een korting op aankopen van €70 of meer.',
       step4_title: 'Je verdient commissie — twee keer', step4_desc: 'Je verdient commissie op elk ingewisseld DutyCredit — zowel op het boekingskrediet als het uitcheckkrediet. Volledig geautomatiseerd, geen operationele last.',
-      s3_title: '03 — Omzetpotentieel voor accommodatiepartners',
+      s3_title: '03 — Wat is het Omzetpotentieel voor accommodatiepartners',
       stat1_value: 'Tot €5', stat1_label: 'Commissie per inwisseling', stat1_desc: "20% van DutyBoost's 2,5% platformtarief per transactie (max €5) — automatisch verdiend, geen verkoopinspanning vereist",
       stat2_value: 'Gratis', stat2_label: 'Nooit kosten voor jou', stat2_desc: 'DutyBoost is gratis voor accommodatiepartners. Commissie stroomt van bevestigde inwisselingen — maandelijks betaald met volledige rapportage',
       stat3_value: '< 1 dag', stat3_label: 'Om live te gaan', stat3_desc: 'Één snippet in de boekingsbevestiging. Wij regelen de rest van begin tot eind',
