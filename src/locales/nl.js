@@ -703,7 +703,7 @@ export default {
       stat3_value: '< 1 dag', stat3_label: 'Om live te gaan', stat3_desc: 'Één snippet in de boekingsbevestiging. Wij regelen de rest van begin tot eind',
       benefit1_title: '🤝 Sterkere gastenloyaliteit', benefit1_desc: 'Een gedenkwaardig, gepersonaliseerd luchthavenperk gekoppeld aan elke accommodatieboeking — gasten koppelen die waarde aan jouw platform.',
       benefit2_title: '💰 Nieuwe passieve omzet', benefit2_desc: 'Commissie stroomt binnen vanuit luchthavenuitgaven — geen extra verkoopinspanning, geen handmatig werk.',
-      benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct ingebed in de boekingsbevestiging én uitcheckmail — twee contactmomenten per gast, volledig geautomatiseerd, geen handmatig werk.',
+      benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct ingebed in de boekingsbevestigingsmail en de uitcheckmail — twee contactmomenten per gast, volledig geautomatiseerd, geen handmatig werk.',
       cta: 'Voeg een inkomstenstroom toe aan elke gastboeking — zonder enige moeite.',
       legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181',
     },

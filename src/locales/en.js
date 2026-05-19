@@ -608,7 +608,7 @@ export default {
       stat3_value: '< 1 day', stat3_label: 'To go live', stat3_desc: 'Single booking confirmation snippet. We handle everything else end-to-end',
       benefit1_title: '🤝 Stronger guest loyalty', benefit1_desc: 'A memorable, personalised airport perk tied to every accommodation booking — your guests associate that value with your platform.',
       benefit2_title: '💰 New passive revenue', benefit2_desc: 'Commission flows in from airport spend — no additional sales effort, no manual work.',
-      benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits are embedded directly into your booking confirmation and check-out emails — two touchpoints per guest, fully automated, no manual work.',
+      benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits are embedded directly into the booking confirmation and check-out emails — two touchpoints per guest, fully automated, no manual work.',
       cta: 'Add a revenue stream to every guest booking — with zero effort.',
       legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
     },

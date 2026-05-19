@@ -538,7 +538,7 @@ export default {
       stat3_value: '< 1 día', stat3_label: 'Para estar en marcha', stat3_desc: 'Un solo snippet en el email de confirmación de reserva. Nosotros gestionamos todo lo demás',
       benefit1_title: '🤝 Huéspedes más fieles', benefit1_desc: 'Un beneficio aeroportuario memorable y personalizado vinculado a cada reserva — tus huéspedes asocian ese valor con tu plataforma.',
       benefit2_title: '💰 Nuevos ingresos pasivos', benefit2_desc: 'La comisión llega del gasto aeroportuario — sin esfuerzo de ventas adicional, sin trabajo manual.',
-      benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incrustan directamente en el email de confirmación de reserva y en el de check-out — dos puntos de contacto por huésped, completamente automatizados, sin trabajo manual.',
+      benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incrustan directamente en el email de confirmación de reserva y en el email de check-out — dos puntos de contacto por huésped, totalmente automatizados, sin trabajo manual.',
       cta: 'Añade una fuente de ingresos a cada reserva de huésped — sin ningún esfuerzo.',
       legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181',
     },

@@ -762,7 +762,7 @@ export default {
       stat3_value: '< 1 Tag', stat3_label: 'Um live zu gehen', stat3_desc: 'Ein einzelner Snippet in der Buchungsbestätigung. Wir kümmern uns um alles andere von Anfang bis Ende',
       benefit1_title: '🤝 Stärkere Gästetreue', benefit1_desc: 'Ein unvergesslicher, personalisierter Flughafen-Vorteil, der an jede Unterkunftsbuchung geknüpft ist — Gäste verbinden diesen Wert mit Ihrer Plattform.',
       benefit2_title: '💰 Neue passive Einnahmen', benefit2_desc: 'Provision fließt aus Flughafenausgaben — kein zusätzlicher Verkaufsaufwand, keine manuelle Arbeit.',
-      benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in die Buchungsbestätigungs-E-Mail und die Check-out-E-Mail eingebettet — zwei Touchpoints pro Gast, vollständig automatisiert, kein manueller Aufwand.',
+      benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in die Buchungsbestätigungs-E-Mail und die Check-out-E-Mail eingebettet — zwei Kontaktpunkte pro Gast, vollständig automatisiert, kein manueller Aufwand.',
       cta: 'Fügen Sie jeder Gästebuchung eine Einnahmequelle hinzu — ohne jeden Aufwand.',
       legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181',
     },
