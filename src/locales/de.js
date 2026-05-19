@@ -784,7 +784,7 @@ export default {
       stat1_value: 'Bis zu €5', stat1_label: 'Provision pro Einlösung', stat1_desc: "20% von DutyBoosts 2,5% Plattformgebühr pro Transaktion (max €5) — automatisch verdient, kein Verkaufsaufwand erforderlich",
       stat2_value: 'Kostenlos', stat2_label: 'Für Sie komplett kostenlos', stat2_desc: 'DutyBoost ist für Autovermietungspartner kostenlos. Provision fließt aus bestätigten Einlösungen — monatlich mit vollständiger Berichterstattung ausgezahlt',
       stat3_value: '< 1 Tag', stat3_label: 'Um live zu gehen', stat3_desc: 'Ein einzelner Snippet in der Buchungsbestätigung. Wir kümmern uns um alles andere von Anfang bis Ende',
-      benefit1_title: '🤝 Stärkere Kundentreue', benefit1_desc: 'Ein unvergesslicher, personalisierter Flughafen-Vorteil, der an jede Mietbuchung geknüpft ist — Kunden verbinden diesen Wert mit Ihrer Marke.',
+      benefit1_title: '🤝 Stärkere Kundentreue', benefit1_desc: 'Ein unvergesslicher, personalisierter Flughafen-Vorteil, der an jeden Autovermietungsbuchung geknüpft ist — Kunden verbinden diesen Wert mit Ihrer Marke.',
       benefit2_title: '💰 Neue passive Einnahmen', benefit2_desc: 'Provision fließt aus Flughafenausgaben — kein zusätzlicher Verkaufsaufwand, keine manuelle Arbeit.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in die Buchungsbestätigungs-E-Mail und die Fahrzeugrückgabe-E-Mail eingebettet — zwei Touchpoints pro Kunde, vollständig automatisiert, kein manueller Aufwand.',
       cta: 'Verdienen Sie Provision bei jeder Flughafen-Automiete — ohne einen Finger zu rühren.',

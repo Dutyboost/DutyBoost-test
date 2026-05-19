@@ -784,7 +784,7 @@ export default {
       stat1_value: "Jusqu'à €5", stat1_label: 'Commission par utilisation', stat1_desc: "20% des frais de 2,5% de DutyBoost par transaction (plafond €5) — gagnés automatiquement, sans effort commercial",
       stat2_value: 'Gratuit', stat2_label: 'Jamais de coût pour vous', stat2_desc: 'DutyBoost est gratuit pour les partenaires location de voiture. La commission provient des utilisations confirmées — versée mensuellement avec rapport complet',
       stat3_value: '< 1 jour', stat3_label: 'Pour être opérationnel', stat3_desc: 'Un seul snippet dans l\'e-mail de confirmation de réservation. Nous gérons tout le reste de bout en bout',
-      benefit1_title: '🤝 Fidélisation des clients renforcée', benefit1_desc: 'Un avantage mémorable et personnalisé à l\'aéroport lié à chaque réservation de location — les clients associent cette valeur à votre marque.',
+      benefit1_title: '🤝 Fidélisation des clients renforcée', benefit1_desc: 'Un avantage mémorable et personnalisé à l\'aéroport lié à chaque réservation de voiture — les clients associent cette valeur à votre marque.',
       benefit2_title: '💰 Nouveaux revenus passifs', benefit2_desc: 'La commission afflue des dépenses aéroportuaires — aucun effort de vente supplémentaire, aucun travail manuel.',
       benefit3_title: '⚡ Zéro charge opérationnelle', benefit3_desc: 'Les DutyCredits sont intégrés directement dans l\'e-mail de confirmation de réservation et dans l\'e-mail de retour du véhicule — deux points de contact par client, entièrement automatisés, aucun travail manuel.',
       cta: 'Gagnez une commission sur chaque location de voiture à l\'aéroport — sans lever le petit doigt.',

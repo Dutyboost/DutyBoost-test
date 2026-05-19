@@ -800,7 +800,7 @@ export default {
       stat1_value: 'Fino a €5', stat1_label: 'Commissione per riscatto', stat1_desc: "20% della commissione del 2,5% di DutyBoost per transazione (limite €5) — guadagnata automaticamente, senza sforzo di vendita",
       stat2_value: 'Gratuito', stat2_label: 'Per te è sempre gratuito', stat2_desc: 'DutyBoost è gratuito per i partner di noleggio auto. La commissione proviene dai riscatti confermati — pagata mensilmente con report completo',
       stat3_value: '< 1 giorno', stat3_label: 'Per andare live', stat3_desc: 'Un singolo snippet nell\'e-mail di conferma prenotazione. Gestiamo tutto il resto da capo a fondo',
-      benefit1_title: '🤝 Maggiore fedeltà dei clienti', benefit1_desc: 'Un vantaggio aeroportuale memorabile e personalizzato legato ad ogni prenotazione di noleggio — i clienti associano quel valore al tuo marchio.',
+      benefit1_title: '🤝 Maggiore fedeltà dei clienti', benefit1_desc: 'Un vantaggio aeroportuale memorabile e personalizzato legato ad ogni prenotazione di auto — i clienti associano quel valore al tuo marchio.',
       benefit2_title: '💰 Nuove entrate passive', benefit2_desc: 'La commissione affluisce dalla spesa aeroportuale — nessuno sforzo di vendita aggiuntivo, nessun lavoro manuale.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'I DutyCredit vengono inseriti direttamente nell\'e-mail di conferma prenotazione e nell\'e-mail di restituzione del veicolo — due touchpoint per cliente, completamente automatizzati, nessun lavoro manuale.',
       cta: 'Guadagna commissione su ogni noleggio auto in aeroporto — senza muovere un dito.',

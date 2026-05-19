@@ -630,7 +630,7 @@ export default {
       stat1_value: 'Up to €5', stat1_label: 'Commission per redemption', stat1_desc: "20% of DutyBoost's 2.5% platform fee per transaction (€5 cap) — earned automatically, no sales effort required",
       stat2_value: 'Free', stat2_label: 'No cost to you, ever', stat2_desc: 'DutyBoost is free for car rental partners. Commission flows from confirmed redemptions — paid monthly with full reporting',
       stat3_value: '< 1 day', stat3_label: 'To go live', stat3_desc: 'Single booking confirmation snippet. We handle everything else end-to-end',
-      benefit1_title: '🤝 Stronger customer loyalty', benefit1_desc: 'A memorable, personalized airport perk tied to every rental booking — customers associate that value with your brand.',
+      benefit1_title: '🤝 Stronger customer loyalty', benefit1_desc: 'A memorable, personalised airport perk tied to every car booking — customers associate that value with your brand.',
       benefit2_title: '💰 New passive revenue', benefit2_desc: 'Commission flows in from airport spend — no additional sales effort, no manual work.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits are embedded directly into your booking confirmation and car return emails — two touchpoints per customer, fully automated, no manual work.',
       cta: 'Earn commission on every airport car rental — without lifting a finger.',

@@ -725,7 +725,7 @@ export default {
       stat1_value: 'Tot €5', stat1_label: 'Commissie per inwisseling', stat1_desc: "20% van DutyBoost's 2,5% platformtarief per transactie (max €5) — automatisch verdiend, geen verkoopinspanning vereist",
       stat2_value: 'Gratis', stat2_label: 'Nooit kosten voor jou', stat2_desc: 'DutyBoost is gratis voor autoverhuurpartners. Commissie stroomt van bevestigde inwisselingen — maandelijks betaald met volledige rapportage',
       stat3_value: '< 1 dag', stat3_label: 'Om live te gaan', stat3_desc: 'Één snippet in de boekingsbevestiging. Wij regelen de rest van begin tot eind',
-      benefit1_title: '🤝 Sterkere klantenloyaliteit', benefit1_desc: 'Een gedenkwaardig, gepersonaliseerd luchthavenperk gekoppeld aan elke huurboeking — klanten koppelen die waarde aan je merk.',
+      benefit1_title: '🤝 Sterkere klantenloyaliteit', benefit1_desc: 'Een gedenkwaardig, gepersonaliseerd luchthavenperk gekoppeld aan elke autoboeking — klanten koppelen die waarde aan je merk.',
       benefit2_title: '💰 Nieuwe passieve omzet', benefit2_desc: 'Commissie stroomt binnen vanuit luchthavenuitgaven — geen extra verkoopinspanning, geen handmatig werk.',
       benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct ingebed in de boekingsbevestiging én teruggavemail — twee contactmomenten per klant, volledig geautomatiseerd, geen handmatig werk.',
       cta: 'Verdien commissie op elke luchthaven autoverhuur — zonder enige inspanning.',
