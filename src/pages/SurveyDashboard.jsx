@@ -266,6 +266,7 @@ const RESEARCHED_VOLUMES = {
   "acsi":            { perYear: 75_000,     perMonth: 6_250,     source: "ACSI Handelskrant 2025 / Suncamp.co.uk — 330 campsites, EU camping specialist", confidence: "medium" },
   "exploreo":        { perYear: 12_000,     perMonth: 1_000,     source: "Exploreo.com About page — early-stage sustainable travel platform", confidence: "low" },
   "tucoach":         { perYear: 7_500,      perMonth: 625,       source: "tucoachflanders.com — small regional coach operator Belgium", confidence: "low" },
+  "europarcs":       { perYear: 500_000,    perMonth: 41_667,    source: "EuroParcs Group — 60+ holiday parks, ~500K annual bookings est. (press / industry data 2024)", confidence: "medium" },
 };
 
 function getResearchedVolume(companyName) {
