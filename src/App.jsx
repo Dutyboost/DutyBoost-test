@@ -169,7 +169,7 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
         <Route path="/travel-partner-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
-        <Route path="/flight-partner-showcase" element={<AgencyShowcase />} />
+        <Route path="/flight-showcase" element={<AgencyShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
         <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
