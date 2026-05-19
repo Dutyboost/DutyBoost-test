@@ -941,7 +941,7 @@ export default {
         annual_note: 'Schatting gebaseerd op 365 werkdagen. Werkelijke resultaten afhankelijk van DutyCredit houder volume op uw specifieke locatie.',
         advantage_label: 'Wat DutyBoost Biedt',
         advantage_title: 'Het complete retailvoordeel',
-        b1_title: 'Geen opstartkosten. Geen maandelijkse kosten.', b1_desc: 'Puur prestatiegericht. U betaalt slechts 2,5% (max €25) wanneer DutyBoost een bevestigde, incrementele verkoop levert.',
+        b1_title: 'Geen opstartkosten. Geen maandelijkse kosten.', b1_desc: 'Geen installatiekosten, geen abonnement. Je betaalt 2,5% van de netto-verkoop, tot maximaal €25 per transactie.',
         b2_title: 'Voorgeselecteerde, voorgemotiveerde kopers', b2_desc: 'Elke DutyCredit houder heeft een specifiek tegoed te besteden. Ze zijn niet aan het winkelen — ze arriveren in uw winkel met een missie.',
         b3_title: 'Hogere gemiddelde mandgrootte gegarandeerd', b3_desc: 'De minimale mand van €70 betekent dat elke DutyCredit inwisseling een betekenisvolle transactie is.',
         b4_title: 'Geen POS-integratie nodig om te beginnen', b4_desc: 'Kassamedewerker scant een QR-code op een mobiel apparaat. Klaar. Volledige POS-integratie beschikbaar maar niet vereist.',
