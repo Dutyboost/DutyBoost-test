@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
@@ -63,11 +63,16 @@ export default function SelectUserType() {
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={100} />
           </button>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-4">
+            <Link to="/retailer-calculator">
+              <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
+            </Link>
+            <LanguageSwitcher />
+          </div>
         </div>
       </nav>
 
