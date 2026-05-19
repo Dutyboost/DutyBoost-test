@@ -845,7 +845,7 @@ export default {
     carrentalsignup: {
       step_info: 'Datos de la empresa',
       step_terms: 'Términos & Revisión',
-      title: 'Crea tu cuenta de renta de autos',
+      title: 'Crea tu cuenta de renta de coches',
       subtitle: 'Completa la información de tu empresa para comenzar',
       label_name: 'Nombre completo',
       label_email: 'Correo profesional',
@@ -867,8 +867,8 @@ export default {
       submit: 'Enviar solicitud',
       submitting: 'Enviando...',
       success_title: '¡Solicitud recibida!',
-      success_desc: 'Revisaremos tu solicitud de renta de autos y nos pondremos en contacto contigo pronto.',
-      success_button: 'Ir al portal de renta de autos',
+      success_desc: 'Revisaremos tu solicitud de renta de coches y nos pondremos en contacto contigo pronto.',
+      success_button: 'Ir al portal de renta de coches',
     },
     presentation: {
       retailer: {
