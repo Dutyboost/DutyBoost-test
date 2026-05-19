@@ -11,10 +11,10 @@ export default function HotelShowcase() {
   const { t } = useTranslation();
 
   const flowSteps = [
-    { num: '01', titleKey: 'showcase.hotel.step1', descKey: 'showcase.hotel.step1Desc' },
-    { num: '02', titleKey: 'showcase.hotel.step2', descKey: 'showcase.hotel.step2Desc' },
-    { num: '03', titleKey: 'showcase.hotel.step3', descKey: 'showcase.hotel.step3Desc' },
-    { num: '04', titleKey: 'showcase.hotel.step4', descKey: 'showcase.hotel.step4Desc' },
+    { num: '01', titleKey: 'showcase.accommodation.step1', descKey: 'showcase.accommodation.step1Desc' },
+    { num: '02', titleKey: 'showcase.accommodation.step2', descKey: 'showcase.accommodation.step2Desc' },
+    { num: '03', titleKey: 'showcase.accommodation.step3', descKey: 'showcase.accommodation.step3Desc' },
+    { num: '04', titleKey: 'showcase.accommodation.step4', descKey: 'showcase.accommodation.step4Desc' },
   ];
 
   return (
@@ -45,10 +45,10 @@ export default function HotelShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            {t('showcase.hotel.titlePart1')} <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">{t('showcase.hotel.titlePart2')}</span>
+            {t('showcase.accommodation.titlePart1')} <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">{t('showcase.accommodation.titlePart2')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t('showcase.hotel.subtitle')}
+            {t('showcase.accommodation.subtitle')}
           </p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function HotelShowcase() {
       <section className="py-10 sm:py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 space-y-3">
-            <h2 className="text-4xl font-heading font-bold">{t('showcase.hotel.howItWorks')}</h2>
+            <h2 className="text-4xl font-heading font-bold">{t('showcase.accommodation.howItWorks')}</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {flowSteps.map((item) => (
@@ -72,7 +72,7 @@ export default function HotelShowcase() {
       </section>
 
       {/* 3D Dashboard Preview */}
-      <DashboardPreview3D role="hotel" />
+      <DashboardPreview3D role="accommodation" />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
@@ -80,9 +80,9 @@ export default function HotelShowcase() {
           <div className="bg-gradient-to-br from-blue-400 to-cyan-600 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
-              <h2 className="text-4xl font-heading font-bold">{t('showcase.hotel.ctaTitle')}</h2>
+              <h2 className="text-4xl font-heading font-bold">{t('showcase.accommodation.ctaTitle')}</h2>
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
-                {t('showcase.hotel.ctaDesc')}
+                {t('showcase.accommodation.ctaDesc')}
               </p>
               <Link to="/request-demo">
                 <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">

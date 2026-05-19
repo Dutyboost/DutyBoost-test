@@ -68,17 +68,17 @@ export default function HotelSignup() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-heading font-bold">{t('hotelsignup.success_title')}</h1>
-              <p className="text-muted-foreground">{t('hotelsignup.success_desc')}</p>
+              <h1 className="text-3xl font-heading font-bold">{t('accommodationsignup.success_title')}</h1>
+              <p className="text-muted-foreground">{t('accommodationsignup.success_desc')}</p>
             </div>
-            <Link to="/hotel-portal"><Button className="w-full">{t('hotelsignup.success_button')}</Button></Link>
+            <Link to="/hotel-portal"><Button className="w-full">{t('accommodationsignup.success_button')}</Button></Link>
           </div>
         </div>
       </div>
     );
   }
 
-  const STEPS = [t('hotelsignup.step_info'), t('hotelsignup.step_terms')];
+  const STEPS = [t('accommodationsignup.step_info'), t('accommodationsignup.step_terms')];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -113,39 +113,39 @@ export default function HotelSignup() {
           {step === 0 && (
             <>
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-heading font-bold">{t('hotelsignup.title')}</h1>
-                <p className="text-muted-foreground text-sm">{t('hotelsignup.subtitle')}</p>
+                <h1 className="text-3xl font-heading font-bold">{t('accommodationsignup.title')}</h1>
+                <p className="text-muted-foreground text-sm">{t('accommodationsignup.subtitle')}</p>
               </div>
 
               <form onSubmit={handleStep0Submit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label>{t('hotelsignup.label_name')} <span className="text-red-500">*</span></Label>
+                  <Label>{t('accommodationsignup.label_name')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="John Smith" value={fullName} onChange={e => setFullName(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>{t('hotelsignup.label_email')} <span className="text-red-500">*</span></Label>
-                  <Input required type="email" placeholder="john@hotel.com" value={email} onChange={e => setEmail(e.target.value)} />
-                  {email && isPersonalEmail(email) && <p className="text-xs text-red-500">{t('hotelsignup.personal_email_error')}</p>}
+                  <Label>{t('accommodationsignup.label_email')} <span className="text-red-500">*</span></Label>
+                  <Input required type="email" placeholder="john@accommodation.com" value={email} onChange={e => setEmail(e.target.value)} />
+                  {email && isPersonalEmail(email) && <p className="text-xs text-red-500">{t('accommodationsignup.personal_email_error')}</p>}
                 </div>
                 <div className="space-y-1.5">
-                  <Label>{t('hotelsignup.label_hotel')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="Your hotel name" value={company} onChange={e => setCompany(e.target.value)} />
+                  <Label>{t('accommodationsignup.label_accommodation')} <span className="text-red-500">*</span></Label>
+                  <Input required placeholder="Your accommodation name" value={company} onChange={e => setCompany(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>{t('hotelsignup.label_website')} <span className="text-red-500">*</span></Label>
-                  <Input required placeholder="https://yourhotel.com" value={website} onChange={e => setWebsite(e.target.value)} />
+                  <Label>{t('accommodationsignup.label_website')} <span className="text-red-500">*</span></Label>
+                  <Input required placeholder="https://youraccommodation.com" value={website} onChange={e => setWebsite(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>{t('hotelsignup.label_city')} <span className="text-red-500">*</span></Label>
+                  <Label>{t('accommodationsignup.label_city')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Amsterdam" value={city} onChange={e => setCity(e.target.value)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label>{t('hotelsignup.label_rooms')} <span className="text-red-500">*</span></Label>
+                  <Label>{t('accommodationsignup.label_rooms')} <span className="text-red-500">*</span></Label>
                   <Input required type="number" placeholder="50" value={rooms} onChange={e => setRooms(e.target.value)} />
                 </div>
 
                 <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
-                  {loading ? t('hotelsignup.saving') : t('hotelsignup.continue')} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('accommodationsignup.saving') : t('accommodationsignup.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
             </>
@@ -157,18 +157,18 @@ export default function HotelSignup() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-heading font-bold">{t('hotelsignup.review_title')}</h2>
-                <p className="text-sm text-muted-foreground">{t('hotelsignup.review_subtitle')}</p>
+                <h2 className="text-2xl font-heading font-bold">{t('accommodationsignup.review_title')}</h2>
+                <p className="text-sm text-muted-foreground">{t('accommodationsignup.review_subtitle')}</p>
               </div>
 
               <div className="bg-card border border-border rounded-xl p-5 space-y-3 text-sm">
-                <p className="font-semibold">{t('hotelsignup.summary_title')}</p>
+                <p className="font-semibold">{t('accommodationsignup.summary_title')}</p>
                 {[
-                  { label: t('hotelsignup.label_name'), value: fullName },
-                  { label: t('hotelsignup.label_email'), value: email },
-                  { label: t('hotelsignup.label_hotel'), value: company },
-                  { label: t('hotelsignup.label_city'), value: city },
-                  { label: t('hotelsignup.label_rooms'), value: rooms },
+                  { label: t('accommodationsignup.label_name'), value: fullName },
+                  { label: t('accommodationsignup.label_email'), value: email },
+                  { label: t('accommodationsignup.label_accommodation'), value: company },
+                  { label: t('accommodationsignup.label_city'), value: city },
+                  { label: t('accommodationsignup.label_rooms'), value: rooms },
                 ].map(({ label, value }) => value && (
                   <div key={label} className="flex justify-between">
                     <span className="text-muted-foreground">{label}</span>
@@ -178,11 +178,11 @@ export default function HotelSignup() {
               </div>
 
               <div className="bg-card border border-border rounded-xl p-5 space-y-4">
-                <p className="font-semibold text-sm">{t('hotelsignup.terms_title')}</p>
+                <p className="font-semibold text-sm">{t('accommodationsignup.terms_title')}</p>
                 <div className="h-36 overflow-y-auto text-xs text-muted-foreground space-y-2 pr-1 border border-border rounded-lg p-3 bg-muted/30">
-                  <p><strong>DutyBoost Hotel Partnership Agreement</strong></p>
-                  <p>{t('hotelsignup.terms_body')}</p>
-                  <p>{t('hotelsignup.terms_link_text')} <Link to="/terms" target="_blank" className="text-primary underline">Terms of Service</Link> {t('hotelsignup.terms_and')} <Link to="/privacy" target="_blank" className="text-primary underline">Privacy Policy</Link>.</p>
+                  <p><strong>DutyBoost Accommodation Partnership Agreement</strong></p>
+                  <p>{t('accommodationsignup.terms_body')}</p>
+                  <p>{t('accommodationsignup.terms_link_text')} <Link to="/terms" target="_blank" className="text-primary underline">Terms of Service</Link> {t('accommodationsignup.terms_and')} <Link to="/privacy" target="_blank" className="text-primary underline">Privacy Policy</Link>.</p>
                 </div>
 
                 <label className="flex items-start gap-3 cursor-pointer">
@@ -192,7 +192,7 @@ export default function HotelSignup() {
                     onChange={e => setTermsAccepted(e.target.checked)}
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
-                  <span className="text-sm text-foreground leading-relaxed">{t('hotelsignup.terms_checkbox')}</span>
+                  <span className="text-sm text-foreground leading-relaxed">{t('accommodationsignup.terms_checkbox')}</span>
                 </label>
               </div>
 
@@ -201,7 +201,7 @@ export default function HotelSignup() {
                   <ArrowLeft className="w-4 h-4" /> {t('common.back')}
                 </Button>
                 <Button className="gap-2 h-11 flex-1" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
-                  {loading ? t('hotelsignup.submitting') : t('hotelsignup.submit')} <ArrowRight className="w-4 h-4" />
+                  {loading ? t('accommodationsignup.submitting') : t('accommodationsignup.submit')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
             </div>

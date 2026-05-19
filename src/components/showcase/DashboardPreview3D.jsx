@@ -63,7 +63,7 @@ const CHART_DATA = {
     ],
     kpiValues: ["€148", "143.000", "€19.464.000"],
   },
-  hotel: {
+  accommodation: {
     color: "#3b82f6",
     chart: "composed-stacked",
     chartData: [

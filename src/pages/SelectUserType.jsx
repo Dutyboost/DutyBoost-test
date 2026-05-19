@@ -29,8 +29,8 @@ export default function SelectUserType() {
     },
     {
       id: "hotel",
-      title: t('getstarted.hotels'),
-      descKey: 'getstarted.hotels_description',
+      title: t('getstarted.accommodations'),
+      descKey: 'getstarted.accommodations_description',
       icon: HotelIcon,
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
