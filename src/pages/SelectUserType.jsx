@@ -25,7 +25,7 @@ export default function SelectUserType() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-      path: "/travel-partner-showcase",
+      path: "/flight-partner-showcase",
     },
     {
       id: "hotel",
@@ -35,7 +35,7 @@ export default function SelectUserType() {
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
-      path: "/hotel-showcase",
+      path: "/accommodation-showcase",
     },
     {
       id: "carrental",

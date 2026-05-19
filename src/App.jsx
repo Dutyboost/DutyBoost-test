@@ -169,7 +169,7 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
         <Route path="/travel-partner-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-showcase" element={<RetailerShowcase />} />
-        <Route path="/travel-partner-showcase" element={<AgencyShowcase />} />
+        <Route path="/flight-partner-showcase" element={<AgencyShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
         <Route path="/travel-partner-one-pager" element={<AgencyOnePager />} />
@@ -184,7 +184,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
-        <Route path="/hotel-showcase" element={<HotelShowcase />} />
+        <Route path="/accommodation-showcase" element={<HotelShowcase />} />
         <Route path="/hotel-portal" element={<HotelPortal />} />
         <Route path="/hotel-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/car-rental-showcase" element={<CarRentalShowcase />} />
