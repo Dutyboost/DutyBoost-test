@@ -693,7 +693,7 @@ export default {
       why3_title: 'Werkt voor alle accommodatietypes', why3_desc: 'Elk accommodatiebedrijf waarbij gasten vertrekken vanuit of aankomen op een luchthaven kan deelnemen aan DutyBoost — ongeacht het type verblijf of boekingskanaal.',
       why4_title: 'Hogere gasttevredenheid', why4_desc: 'Gasten die beloond worden bij boeking laten betere beoordelingen achter en boeken vaker opnieuw.',
       s2_title: '02 — Hoe DutyBoost werkt voor accommodatiepartners',
-      step1_title: '1e DutyCredit — Bij reservering', step1_desc: 'Wanneer via je website wordt geboekt, wordt automatisch een DutyCredit QR-code opgenomen in de bevestigingsmail — klaar voor gebruik op de luchthaven.',
+      step1_title: '1e DutyCredit — Bij reservering', step1_desc: 'Wanneer via je website wordt geboekt, wordt automatisch een DutyCredit QR-code opgenomen in de bevestigingsmail die naar de gast wordt gestuurd — klaar voor gebruik op de luchthaven.',
       step2_title: '2e DutyCredit — Bij uitchecken', step2_desc: 'Wanneer de gast uitcheckt, wordt automatisch een tweede DutyCredit QR-code verstuurd in de uitcheckmail — klaar voor gebruik op de luchthaven.',
       step3_title: 'Ingewisseld op het vertrekluchtplaats', step3_desc: 'De gast scant hun QR-code bij een deelnemende retailer op hun luchthaven van vertrek en geniet van een korting op aankopen van €70 of meer.',
       step4_title: 'Je verdient commissie — twee keer', step4_desc: 'Je verdient commissie op elk ingewisseld DutyCredit — zowel op het boekingskrediet als het uitcheckkrediet. Volledig geautomatiseerd, geen operationele last.',

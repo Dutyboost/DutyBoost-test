@@ -528,7 +528,7 @@ export default {
       why3_title: 'Funciona para todos los tipos de alojamiento', why3_desc: 'Cualquier proveedor de alojamiento cuyos huéspedes lleguen o partan desde un aeropuerto puede participar en DutyBoost — independientemente del tipo de propiedad o canal de reserva.',
       why4_title: 'Huéspedes más satisfechos', why4_desc: 'Los huéspedes que se sienten recompensados al reservar dejan mejores reseñas y vuelven a reservar con más frecuencia.',
       s2_title: '02 — Cómo funciona DutyBoost para socios de alojamiento',
-      step1_title: '1er DutyCredit — Al reservar', step1_desc: 'Cuando se realiza una reserva a través de tu web, un código QR DutyCredit se incluye automáticamente en el email de confirmación que viene de ti — listo para usar en el aeropuerto.',
+      step1_title: '1er DutyCredit — Al reservar', step1_desc: 'Cuando se realiza una reserva a través de tu web, un código QR DutyCredit se incluye automáticamente en el email de confirmación enviado al huésped — listo para usar en el aeropuerto.',
       step2_title: '2º DutyCredit — Al hacer check-out', step2_desc: 'Cuando el huésped hace check-out, un segundo código QR DutyCredit se envía automáticamente en el email de salida — listo para usar en el aeropuerto.',
       step3_title: 'Canjeado en el aeropuerto de salida', step3_desc: 'El huésped escanea su QR en un minorista participante en su aeropuerto de salida y disfruta de un descuento en compras de €70 o más.',
       step4_title: 'Ganas comisión — dos veces', step4_desc: 'Ganas comisión en cada DutyCredit canjeado — tanto en el crédito de reserva como en el de check-out. Totalmente automatizado, sin carga operativa.',

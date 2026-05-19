@@ -752,7 +752,7 @@ export default {
       why3_title: 'Funktioniert für alle Unterkunftstypen', why3_desc: 'Jeder Unterkunftsanbieter, bei dem Gäste zu oder von einem Flughafen reisen, kann an DutyBoost teilnehmen — unabhängig von Unterkunftsart oder Buchungskanal.',
       why4_title: 'Gästezufriedenheit steigern', why4_desc: 'Gäste, die sich bei der Buchung belohnt fühlen, hinterlassen bessere Bewertungen und buchen häufiger erneut.',
       s2_title: '02 — So Funktioniert DutyBoost für Unterkunftspartner',
-      step1_title: '1. DutyCredit — Bei der Buchung', step1_desc: 'Wenn über Ihre Website gebucht wird, wird automatisch ein DutyCredit-QR-Code in der Bestätigungs-E-Mail von Ihnen eingefügt — bereit zur Nutzung am Flughafen.',
+      step1_title: '1. DutyCredit — Bei der Buchung', step1_desc: 'Wenn über Ihre Website gebucht wird, wird automatisch ein DutyCredit-QR-Code in der Bestätigungs-E-Mail an den Gast eingefügt — bereit zur Nutzung am Flughafen.',
       step2_title: '2. DutyCredit — Beim Check-out', step2_desc: 'Wenn der Gast auscheckt, wird automatisch ein zweiter DutyCredit-QR-Code in der Check-out-E-Mail gesendet — bereit zur Nutzung am Flughafen.',
       step3_title: 'Einlösung am Abflughafen', step3_desc: 'Der Gast scannt seinen QR-Code bei einem teilnehmenden Händler am Abflughafen und genießt einen Rabatt auf Einkäufe ab €70.',
       step4_title: 'Sie verdienen Provision — zweimal', step4_desc: 'Sie verdienen eine Provision auf jedes eingelöste DutyCredit — sowohl auf das Buchungsguthaben als auch auf das Check-out-Guthaben. Vollständig automatisiert, kein Betriebsaufwand.',
