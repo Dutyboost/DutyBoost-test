@@ -755,7 +755,7 @@ export default {
       s3_title: '03 — Wat DutyBoost biedt aan luchthavenwinkeliers',
       stat1_value: '€10–€60',
       stat1_label: 'vaste DutyCredit-niveaus',
-      stat1_desc: '€10 bij €70–€99 · €30 bij €100–€199 · €45 bij €200–€299 · €60 bij €300+ — elke inwisseling leidt tot een gekwalificeerde, hoogwaardige aankoop',
+      stat1_desc: 'van tussen de €5 to max €60 korting hangende van hun uitgave van minmaal €70 — elke inwisseling leidt tot een gekwalificeerde, hoogwaardige aankoop',
       stat2_value: '2,5% (max €25)',
       stat2_label: 'kosten alleen bij bevestigde inwisselingen',
       stat2_desc: 'Geen installatiekosten, geen abonnement. Je betaalt 2,5% van de bruto-omzet, gemaximeerd op €25 per transactie. Het DutyCredit wordt volledig gedekt door het platform.',
