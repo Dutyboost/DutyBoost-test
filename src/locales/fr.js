@@ -815,7 +815,7 @@ export default {
       stat1_value: "%",
       stat1_label: "augmentation de conversion",
       stat1_desc: "Les voyageurs pré-activés convertissent 2x plus que les navigateurs occasionnels — vous transformez le trafic passant en clients payants.",
-      stat2_value: "€120+",
+      stat2_value: "↑",
       stat2_label: "valeur moyenne du panier",
       stat2_desc: "Les titulaires de DutyCredit dépensent considérablement plus grâce à la pré-activation et au seuil d'achat minimum de €70.",
       stat3_value: "+€50K–€150K",
