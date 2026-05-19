@@ -753,7 +753,7 @@ export default {
       step4_title: 'Transactie geregistreerd',
       step4_desc: 'DutyBoost registreert de verkoop, past de korting toe en factureert je maandelijks',
       s3_title: '03 — Wat DutyBoost biedt aan luchthavenwinkeliers',
-      stat1_value: '€10–€60',
+      stat1_value: '€5–€60',
       stat1_label: 'vaste DutyCredit-niveaus',
       stat1_desc: 'van tussen de €5 to max €60 korting hangende van hun uitgave van minmaal €70 — elke inwisseling leidt tot een gekwalificeerde, hoogwaardige aankoop',
       stat2_value: '2,5% (max €25)',
