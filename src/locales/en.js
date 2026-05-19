@@ -591,7 +591,7 @@ export default {
     accommodationonepager: {
       badge: 'Accommodation Partner Program',
       headline: 'Reward Your Guests at the Airport — and Earn While You Sleep',
-      subtitle: 'DutyBoost lets accommodation platforms generate passive commission revenue from their existing guest bookings. Every flying guest gets a DutyCredit — a personalized airport retail voucher — and you earn a commission whenever they redeem it.',
+      subtitle: 'DutyBoost lets accommodation platforms generate passive commission revenue from their existing guest bookings. Every guest that arrives or departs from an airport gets a DutyCredit — a personalised airport retail voucher — and you earn a commission whenever they redeem it.',
       s1_title: '01 — Why Accommodation Partners Join DutyBoost',
       why1_title: 'Passive income on existing bookings', why1_desc: 'No new product to sell. Every flight-adjacent accommodation booking becomes a potential commission source.',
       why2_title: 'Differentiate your platform', why2_desc: 'Offer travelers a tangible perk — airport shopping credit — that no standard accommodation platform provides.',
