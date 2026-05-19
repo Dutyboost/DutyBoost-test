@@ -952,12 +952,19 @@ function GlobalPotentialsDashboard({ responses }) {
   const fmt = (n) => `€${Math.round(n).toLocaleString("nl-NL")}`;
   const feePerRedemption = Math.min(AVG_BASKET * FEE_RATE, FEE_CAP);
 
-  // Build rows: one per matched respondent
+  // Build rows: verified respondents get researched volume; others use self-reported
   const rows = responses.map(r => {
     const rv = getResearchedVolume(r.company_name);
-    if (!rv) return null;
-    const rev = calcRevenueGlobal(rv.perMonth);
-    return { ...r, rv, rev };
+    if (rv) {
+      return { ...r, rv, rev: calcRevenueGlobal(rv.perMonth), isVerified: true };
+    }
+    // Fall back to self-reported volume
+    const bucket = matchVolumeBucket(r.annual_bookings);
+    const custom = !bucket ? parseCustomVolume(r.annual_bookings) : null;
+    const monthly = bucket ? bucket.monthly : custom;
+    if (!monthly) return null;
+    const selfRv = { perMonth: monthly, perYear: monthly * 12, source: "Self-reported (survey)", confidence: "self-reported" };
+    return { ...r, rv: selfRv, rev: calcRevenueGlobal(monthly), isVerified: false };
   }).filter(Boolean);
 
   // Totals
@@ -968,7 +975,7 @@ function GlobalPotentialsDashboard({ responses }) {
   const totalAgency    = rows.reduce((s, r) => s + r.rev.agencyCommission, 0);
   const totalNet       = rows.reduce((s, r) => s + r.rev.dutyBoostNet, 0);
 
-  const confidenceColor = { high: "text-green-400 bg-green-900/30", medium: "text-yellow-400 bg-yellow-900/30", low: "text-orange-400 bg-orange-900/30" };
+  const confidenceColor = { high: "text-green-400 bg-green-900/30", medium: "text-yellow-400 bg-yellow-900/30", low: "text-orange-400 bg-orange-900/30", "self-reported": "text-slate-400 bg-slate-700/50" };
 
   // Pre-compute airport section data for PDF
   const partnerBookingsPerYear = totalMonthly * 12;
@@ -992,7 +999,7 @@ function GlobalPotentialsDashboard({ responses }) {
       {/* Header KPIs */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
-          <p className="text-xs text-slate-400 mb-1">Verified respondents</p>
+          <p className="text-xs text-slate-400 mb-1">Respondents with volume</p>
           <p className="text-2xl font-bold text-white">{rows.length}</p>
         </div>
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
@@ -1022,7 +1029,7 @@ function GlobalPotentialsDashboard({ responses }) {
 
       {/* Per-company table */}
       <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5">
-        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Company Commitment</h3>
+        <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Per-Respondent Volume — All with Reported Data</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
@@ -1041,10 +1048,10 @@ function GlobalPotentialsDashboard({ responses }) {
               {rows.map(r => (
                 <tr key={r.id} className="hover:bg-slate-700/20 transition-colors">
                   <td className="py-2.5 pr-3">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-white font-medium">{r.company_name}</span>
                       <span className={`px-1.5 py-0.5 rounded text-xs font-semibold ${confidenceColor[r.rv.confidence]}`}>
-                        {r.rv.confidence}
+                        {r.isVerified ? r.rv.confidence : "self-reported"}
                       </span>
                     </div>
                   </td>
@@ -1204,7 +1211,7 @@ function GlobalPotentialsDashboard({ responses }) {
       </div>
 
       {rows.length === 0 && (
-        <p className="text-center text-slate-500 py-12 text-sm">No verified volume data found for current respondents.</p>
+        <p className="text-center text-slate-500 py-12 text-sm">No volume data found for current respondents.</p>
       )}
 
       {/* ── Airport Potential Section ── */}
@@ -1214,7 +1221,7 @@ function GlobalPotentialsDashboard({ responses }) {
             <div>
               <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">AMS Airport Potential — Combined Travel Partner Volume</h3>
               <p className="text-xs text-slate-400">
-                Based on <span className="text-white">{rows.length} verified travel partners</span> combined bookings/yr ×{" "}
+                Based on <span className="text-white">{rows.length} travel partners</span> combined bookings/yr ×{" "}
                 <span className="text-white">{(GLOBAL_REDEMPTION_RATE * 100).toFixed(0)}% redeem</span> ×{" "}
                 <span className="text-white">{(RETAILER_REACH_RATE * 100).toFixed(0)}% reach airport retail (÷10)</span> ·{" "}
                 <span className="text-white">€{AVG_BASKET} avg basket · 2.5% fee · €{FEE_CAP} cap/tx</span>
@@ -1365,9 +1372,13 @@ function TravelPartnerDashboard({ responses }) {
 function GlobalPotentialsPDFButton({ responses }) {
   const rows = responses.map(r => {
     const rv = getResearchedVolume(r.company_name);
-    if (!rv) return null;
-    const rev = calcRevenueGlobal(rv.perMonth);
-    return { ...r, rv, rev };
+    if (rv) return { ...r, rv, rev: calcRevenueGlobal(rv.perMonth), isVerified: true };
+    const bucket = matchVolumeBucket(r.annual_bookings);
+    const custom = !bucket ? parseCustomVolume(r.annual_bookings) : null;
+    const monthly = bucket ? bucket.monthly : custom;
+    if (!monthly) return null;
+    const selfRv = { perMonth: monthly, perYear: monthly * 12, source: "Self-reported (survey)", confidence: "self-reported" };
+    return { ...r, rv: selfRv, rev: calcRevenueGlobal(monthly), isVerified: false };
   }).filter(Boolean);
 
   const totalMonthly = rows.reduce((s, r) => s + r.rv.perMonth, 0);
