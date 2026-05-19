@@ -663,8 +663,7 @@ export default {
       badge: 'Vliegpartner Programma',
       headline: 'Zet Elke Vluchtboeking Om in Luchthaven Retail Commissie',
       subtitle: 'DutyBoost koppelt uw vluchtsbevestigingen automatisch aan luchthavenretail. Reizigers ontvangen bij elke boeking een gepersonaliseerde DutyCredit-kortingsbon, en u verdient commissie elke keer dat ze die inwisselen.',
-      s1_title: '01 — Waarom Vliegpartners DutyBoost Kiezen',
-
+      s1_title: '01 — Waarom Vliegpartners Zich Bij DutyBoost Zouden Moeten Aansluiten',
       why1_title: 'Nieuwe inkomstenstroom, nul inspanning', why1_desc: 'Commissie stroomt automatisch voor elke inwisseling gekoppeld aan uw boekingen. Geen accountbeheer, geen facturering.',
       why2_title: 'Versterk reizigerslojaliteit', why2_desc: 'Elke boeking bevat nu een tastbare beloning op de luchthaven — reizigers associëren die waarde met uw merk.',
       why3_title: 'Nul integratie-overhead', why3_desc: 'Één lichtgewicht bevestigingssnippet of API-aanroep is alles wat nodig is om DutyCredits te beginnen uitsturen.',
@@ -712,7 +711,7 @@ export default {
       badge: 'Autoverhuур Partner Programma',
       headline: 'Uw Luchthavenautoverhuurklanten Winkelen Meer — U Verdient Meer',
       subtitle: 'Autoverhuurklanten die ophalen op luchthavens arriveren met tijd over. DutyBoost zet die verblijfstijd in met gepersonaliseerde luchthavenretailincentives — en betaalt u commissie elke keer dat ze inwisselen.',
-      s1_title: '01 — Waarom Autoverhuurpartners DutyBoost Kiezen',
+      s1_title: '01 — Waarom Autoverhuurpartners Zich Bij DutyBoost Zouden Moeten Aansluiten',
       why1_title: 'Luchthaven ophalen = perfect moment', why1_desc: 'Autoverhuurklanten arriveren vroeg op de luchthaven. DutyBoost zet die verblijfstijd in — voor hen en voor u.',
       why2_title: 'Nul-kosten omzet op bevestigde boekingen', why2_desc: 'Geen nieuwe UI, geen nieuw product. DutyCredits stromen automatisch uit uw bevestigingsmails met een eenvoudige integratie.',
       why3_title: 'Onderscheid u van concurrenten', why3_desc: 'Bied reizigers een luchthavenwinkelbeloning die geen ander autoverhuurplatform biedt. Converteer meer boekingen.',
