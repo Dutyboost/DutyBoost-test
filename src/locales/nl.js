@@ -761,7 +761,7 @@ export default {
       stat2_desc: 'Geen installatiekosten, geen abonnement. Je betaalt 2,5% van de netto-verkoop, tot maximaal €25 per transactie.',
       stat3_value: '< 1 dag',
       stat3_label: 'om live te gaan',
-      stat3_desc: 'Eenvoudige QR-scanner setup. Geen POS-integratie vereist om te beginnen',
+      stat3_desc: 'Eenvoudige QR-scanner setup. POS-integratie vereist',
       benefit1_title: '🛍️ Meer winkelbezoek',
       benefit1_desc: 'Gerichte reizigers worden doorgestuurd naar deelnemende winkels — niet zomaar door de terminal lopen.',
       benefit2_title: '📊 Realtime dashboard',
