@@ -661,8 +661,8 @@ export default {
     },
     flightonepager: {
       badge: 'Vliegpartner Programma',
-      headline: 'Beloon Uw Reizigers op de Luchthaven — in Ruil voor een Nieuwe Inkomstenstroom',
-      subtitle: 'DutyBoost stelt vliegplatforms in staat passieve commissie-inkomsten te genereren uit bestaande online boekingen. Elke reiziger ontvangt een gepersonaliseerde DutyCredit voor gebruik bij luchthavenvertrekken, en u verdient commissie telkens wanneer ze die inwisselen.',
+      headline: 'Beloon je reizigers op de luchthaven — in ruil voor een nieuwe inkomstenstroom',
+      subtitle: 'DutyBoost stelt vliegplatforms in staat passieve commissie-inkomsten te genereren uit bestaande online boekingen. Elke reiziger ontvangt een gepersonaliseerde DutyCredit voor gebruik bij luchthavenvertrekken, en je verdient commissie telkens wanneer ze die inwisselen.',
       s1_title: '01 — Waarom Vliegpartners Zich Bij DutyBoost Zouden Moeten Aansluiten',
       why1_title: 'Nieuwe inkomstenstroom, nul inspanning', why1_desc: 'Commissie stroomt automatisch voor elke inwisseling gekoppeld aan uw boekingen. Geen accountbeheer, geen facturering.',
       why2_title: 'Versterk reizigerslojaliteit', why2_desc: 'Elke boeking bevat nu een tastbare beloning op de luchthaven — reizigers associëren die waarde met uw merk.',
@@ -709,8 +709,8 @@ export default {
     },
     carrentalonepager: {
       badge: 'Autoverhuур Partner Programma',
-      headline: 'Beloon Uw Klanten op de Luchthaven — in Ruil voor een Nieuwe Inkomstenstroom',
-      subtitle: 'DutyBoost stelt autoverhuurplatforms in staat passieve commissie-inkomsten te genereren uit bestaande autoverhuurboekingen. Elke klant ontvangt een gepersonaliseerde DutyCredit voor gebruik bij luchthavenvertrekken, en u verdient commissie telkens wanneer ze die inwisselen.',
+      headline: 'Beloon je klanten op de luchthaven — in ruil voor een nieuwe inkomstenstroom',
+      subtitle: 'DutyBoost stelt autoverhuurplatforms in staat passieve commissie-inkomsten te genereren uit bestaande autoverhuurboekingen. Elke klant ontvangt een gepersonaliseerde DutyCredit voor gebruik bij luchthavenvertrekken, en je verdient commissie telkens wanneer ze die inwisselen.',
       s1_title: '01 — Waarom Autoverhuurpartners Zich Bij DutyBoost Zouden Moeten Aansluiten',
       why1_title: 'Luchthaven ophalen = perfect moment', why1_desc: 'Autoverhuurklanten arriveren vroeg op de luchthaven. DutyBoost zet die verblijfstijd in — voor hen en voor u.',
       why2_title: 'Nul-kosten omzet op bevestigde boekingen', why2_desc: 'Geen nieuwe UI, geen nieuw product. DutyCredits stromen automatisch uit uw bevestigingsmails met een eenvoudige integratie.',
