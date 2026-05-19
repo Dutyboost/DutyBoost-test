@@ -101,7 +101,7 @@ export default {
       agencies_description: 'Aumenta la lealtad de los clientes y el gasto ofreciendo incentivos de compra exclusivos en aeropuertos. Diferencia tu oferta y genera un nuevo flujo de ingresos.',
       retailers_description: 'Obtén clientes preseleccionados y aumenta el valor de las transacciones a través de los programas de incentivos de DutyBoost. Aumenta tus ingresos mientras fidelizas clientes.',
       accommodations_description: 'Mejora la experiencia del huésped y genera ingresos adicionales con DutyCredits para cada estadía. Diferencia tu alojamiento y gana comisión en cada DutyCredit canjeado por tus huéspedes en el aeropuerto.',
-      car_rentals_description: 'Impulsa la lealtad del cliente y aumenta el gasto con DutyCredits ganados en rentas. Crea nuevos flujos de ingresos y diferencia tu marca.',
+      car_rentals_description: 'Incentiva a los viajeros a elegir tu alquiler recompensando cada reserva con créditos de compra exclusivos en el aeropuerto. Diferencia tu marca y desbloquea una nueva fuente de ingresos basada en comisiones.',
       cruise_description: 'Convierte cada viaje en un activo de fidelización. Genera automáticamente DutyCredits personalizados para tus pasajeros, recompensándolos con un incentivo exclusivo de compra en el puerto. Gana comisión en cada DutyCredit canjeado en minoristas portuarios asociados.',
       train_description: 'Convierte cada viaje en tren en un evento de retail en la estación. Genera DutyCredits para pasajeros al reservar — canjeables en tiendas de la estación antes de embarcar. Gana comisión en cada canje sin costes de infraestructura.',
       cruise: 'Socios de Cruceros',
