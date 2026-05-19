@@ -224,7 +224,7 @@ export default function TravelPartnerSurvey() {
         <CheckCircle2 className="w-16 h-16 text-green-500" />
         <h1 className="text-3xl font-heading font-bold">Thank you{form.full_name ? `, ${form.full_name.split(" ")[0]}` : ""}!</h1>
         <p className="text-muted-foreground max-w-md leading-relaxed">
-          {form.wants_demo ? "Your input means a lot. We'll be in touch soon." : "Your input means a lot. Stay Tune for when we release."}
+          {form.wants_demo ? "Your input means a lot. We'll be in touch soon." : "Your input means a lot. Stay tuned for when we launch."}
         </p>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
@@ -440,7 +440,7 @@ export default function TravelPartnerSurvey() {
                           onChange={(e) => {
                             set("email", e.target.value);
                             if (e.target.value && isPersonalEmail(e.target.value)) {
-                              setEmailError("Please use a professional/company email address");
+                              setEmailError("Please use a professional/company email address.");
                             } else { setEmailError(""); }
                           }}
                           className={emailError ? "border-destructive" : ""}

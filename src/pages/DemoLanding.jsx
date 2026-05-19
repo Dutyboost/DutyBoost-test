@@ -54,7 +54,7 @@ export default function DemoLanding() {
             </div>
             <div>
               <p className="font-heading font-bold text-xl">Hotel Partner Demo</p>
-              <p className="text-muted-foreground text-sm mt-1">See how hotel partners generate DutyCredits for guests and earn commission.</p>
+              <p className="text-muted-foreground text-sm mt-1">See how hotel partners generate DutyCredits for guests and earn commissions.</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
               <Eye className="w-4 h-4" /> View Demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -67,7 +67,7 @@ export default function DemoLanding() {
             </div>
             <div>
               <p className="font-heading font-bold text-xl">Car Rental Partner Demo</p>
-              <p className="text-muted-foreground text-sm mt-1">See how car rental companies reward customers with airport DutyCredits.</p>
+              <p className="text-muted-foreground text-sm mt-1">See how car rental companies reward travellers with airport DutyCredits.</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
               <Eye className="w-4 h-4" /> View Demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -80,7 +80,7 @@ export default function DemoLanding() {
             </div>
             <div>
               <p className="font-heading font-bold text-xl">Cruise Line Partner Demo</p>
-              <p className="text-muted-foreground text-sm mt-1">See how cruise lines turn port stops into retail revenue events for passengers.</p>
+              <p className="text-muted-foreground text-sm mt-1">See how cruise lines turn port stops into retail revenue events for travellers.</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
               <Eye className="w-4 h-4" /> View Demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -93,7 +93,7 @@ export default function DemoLanding() {
             </div>
             <div>
               <p className="font-heading font-bold text-xl">Rail Partner Demo</p>
-              <p className="text-muted-foreground text-sm mt-1">See how rail operators generate DutyCredits for passengers and earn station retail commission.</p>
+              <p className="text-muted-foreground text-sm mt-1">See how rail operators generate DutyCredits for passengers and earn station retail commissions.</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
               <Eye className="w-4 h-4" /> View Demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -218,8 +218,8 @@ export default function AirportRetailerSurvey() {
       setWebsiteError("");
       // Re-check domain match now that website is confirmed
       if (form.email && !isPersonalEmail(form.email) && !doDomainsMatch(form.email, val)) {
-        setEmailError("Your email domain doesn't match your company website. Please use your company email.");
-      } else if (form.email && !isPersonalEmail(form.email)) {
+        setEmailError("Your email domain doesn't match your company website. Please use your company email address.");
+        } else if (form.email && !isPersonalEmail(form.email)) {
         setEmailError("");
       }
     }
@@ -471,9 +471,9 @@ export default function AirportRetailerSurvey() {
                           onChange={(e) => {
                             set("email", e.target.value);
                             if (e.target.value && isPersonalEmail(e.target.value)) {
-                              setEmailError("Please use a professional/company email address");
+                              setEmailError("Please use a professional/company email address.");
                             } else if (e.target.value && form.company_website && websiteValid && !doDomainsMatch(e.target.value, form.company_website)) {
-                              setEmailError("Your email domain doesn't match your company website. Please use your company email.");
+                              setEmailError("Your email domain doesn't match your company website. Please use your company email address.");
                             } else { setEmailError(""); }
                           }}
                           className={emailError ? "border-destructive" : ""}

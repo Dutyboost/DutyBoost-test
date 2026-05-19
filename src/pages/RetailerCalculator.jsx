@@ -283,7 +283,7 @@ function TravelPartnerTab({ t }) {
           <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
           <p className="text-xs text-blue-300 mb-1">{t('calculator.commission_tx')}</p>
           <p className="text-2xl font-bold text-blue-300">€{fmtNum(agencyCommissionPerTx, 2)}</p>
-          <p className="text-xs text-blue-400 mt-0.5">0,5% of basket (max €5)</p>
+          <p className="text-xs text-blue-400 mt-0.5">0.5% of basket (max €5)</p>
         </div>
         <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
