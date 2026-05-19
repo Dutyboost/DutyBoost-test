@@ -1763,12 +1763,12 @@ export default function SurveyDashboard() {
   }, []);
 
   const retailerResponses = useMemo(() =>
-    allResponses.filter(r => isRetailer(r)).map(r => normalizeResponse({ ...r, ...r.data, id: r.id, created_date: r.created_date })),
+    allResponses.filter(r => isRetailer(r)).map(r => normalizeResponse(r)),
     [allResponses]
   );
 
   const partnerResponses = useMemo(() =>
-    allResponses.filter(r => !isRetailer(r)).map(r => normalizeResponse({ ...r, ...r.data, id: r.id, created_date: r.created_date })),
+    allResponses.filter(r => !isRetailer(r)).map(r => normalizeResponse(r)),
     [allResponses]
   );
 
