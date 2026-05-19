@@ -622,7 +622,7 @@ export default {
       why3_title: 'Stand out from competitors', why3_desc: 'Offer travellers an airport shopping reward that no other car rental platform provides. Convert more bookings.',
       why4_title: 'High-value customer segment', why4_desc: 'Car rental customers are typically longer-haul, higher-spend travellers — exactly the profile that redeems DutyCredits most.',
       s2_title: '02 — How DutyBoost Works for Car Rental Partners',
-      step1_title: '1st DutyCredit — At Booking', step1_desc: 'A customer books a car rental online via your website or app. A personalised DutyCredit QR code is automatically included in their booking confirmation email.',
+      step1_title: '1st DutyCredit — At Booking', step1_desc: 'A customer books a car online via your website or app. A personalised DutyCredit QR code is automatically included in their booking confirmation email.',
       step2_title: '2nd DutyCredit — At Car Return', step2_desc: 'When the customer returns the car, a second personalised DutyCredit QR code is automatically sent in their car return email — ready to use at the airport.',
       step3_title: 'Redeemed at the Departure Airport', step3_desc: 'The customer scans their QR code at a participating retailer at their departure airport and enjoys an exclusive discount on purchases of €70 or more.',
       step4_title: 'You Earn Commission — Twice', step4_desc: 'You earn commission on every DutyCredit redeemed — on both the booking credit and the car return credit. Fully automated, no operational burden.',

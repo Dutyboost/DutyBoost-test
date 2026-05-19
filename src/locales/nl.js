@@ -717,7 +717,7 @@ export default {
       why3_title: 'Onderscheid jezelf van concurrenten', why3_desc: 'Bied reizigers een luchthavenwinkelbeloning die geen ander autoverhuurplatform biedt. Converteer meer boekingen.',
       why4_title: 'Hoogwaardig klantensegment', why4_desc: 'Autoverhuurklanten zijn doorgaans langeafstandsreizigers met hogere uitgaven — precies het profiel dat DutyCredits het meest inwisselt.',
       s2_title: '02 — Hoe DutyBoost Werkt voor Autoverhuurpartners',
-      step1_title: '1e DutyCredit — Bij reservering', step1_desc: 'Klant boekt online via je website of app. Een gepersonaliseerde DutyCredit QR-code wordt automatisch opgenomen in de boekingsbevestiging.',
+      step1_title: '1e DutyCredit — Bij reservering', step1_desc: 'Klant boekt een auto online via je website of app. Een gepersonaliseerde DutyCredit QR-code wordt automatisch opgenomen in de boekingsbevestiging.',
       step2_title: '2e DutyCredit — Bij teruggave van de auto', step2_desc: 'Wanneer de klant de auto terugbrengt, wordt automatisch een tweede gepersonaliseerde DutyCredit QR-code verstuurd in de teruggavemail — klaar voor gebruik op de luchthaven.',
       step3_title: 'Ingewisseld op het vertrekluchtplaats', step3_desc: 'De klant scant de QR-code bij een deelnemende retailer op het vertrekluchtplaats en geniet van een exclusieve korting op aankopen van €70 of meer.',
       step4_title: 'Je verdient commissie — twee keer', step4_desc: 'Je verdient commissie op elk ingewisseld DutyCredit — zowel op het boekingskrediet als het teruggavekrediet. Volledig geautomatiseerd, geen operationele last.',

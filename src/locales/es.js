@@ -552,7 +552,7 @@ export default {
       why3_title: 'Destácate de la competencia', why3_desc: 'Ofrece a los viajeros una recompensa de compras en el aeropuerto que ninguna otra plataforma de alquiler de coches proporciona.',
       why4_title: 'Segmento de clientes de alto valor', why4_desc: 'Los clientes de alquiler de coches son típicamente viajeros de larga distancia con mayor gasto — exactamente el perfil que más canjea DutyCredits.',
       s2_title: '02 — Cómo Funciona DutyBoost para Socios de Alquiler',
-      step1_title: '1er DutyCredit — Al reservar', step1_desc: 'Un cliente reserva un alquiler de coche online a través de tu web o app. Un código QR DutyCredit personalizado se incluye automáticamente en el email de confirmación de reserva.',
+      step1_title: '1er DutyCredit — Al reservar', step1_desc: 'Un cliente reserva un coche online a través de tu web o app. Un código QR DutyCredit personalizado se incluye automáticamente en el email de confirmación de reserva.',
       step2_title: '2º DutyCredit — Al devolver el coche', step2_desc: 'Cuando el cliente devuelve el coche, un segundo código QR DutyCredit personalizado se envía automáticamente en el email de devolución — listo para usar en el aeropuerto.',
       step3_title: 'Canjeado en el aeropuerto de salida', step3_desc: 'El cliente escanea su código QR en un comercio participante en su aeropuerto de salida y disfruta de un descuento exclusivo en compras de €70 o más.',
       step4_title: 'Ganas comisión — dos veces', step4_desc: 'Ganas comisión en cada DutyCredit canjeado — tanto en el crédito de reserva como en el de devolución del coche. Totalmente automatizado, sin carga operativa.',

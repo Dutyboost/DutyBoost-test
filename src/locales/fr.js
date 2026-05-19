@@ -776,7 +776,7 @@ export default {
       why3_title: 'Démarquez-vous de la concurrence', why3_desc: 'Offrez aux voyageurs une récompense d\'achats à l\'aéroport qu\'aucune autre plateforme de location ne propose.',
       why4_title: 'Segment de clients à haute valeur', why4_desc: 'Les clients de location de voiture sont typiquement des voyageurs longue distance avec des dépenses plus élevées — exactement le profil qui utilise le plus les DutyCredits.',
       s2_title: '02 — Comment DutyBoost Fonctionne pour les Partenaires de Location',
-      step1_title: '1er DutyCredit — À la réservation', step1_desc: 'Un client réserve une voiture de location en ligne via votre site web ou application. Un code QR DutyCredit personnalisé est automatiquement inclus dans l\'e-mail de confirmation de réservation.',
+      step1_title: '1er DutyCredit — À la réservation', step1_desc: 'Un client réserve une voiture en ligne via votre site web ou application. Un code QR DutyCredit personnalisé est automatiquement inclus dans l\'e-mail de confirmation de réservation.',
       step2_title: '2e DutyCredit — Au retour du véhicule', step2_desc: 'Quand le client rend le véhicule, un second code QR DutyCredit personnalisé est automatiquement envoyé dans son e-mail de retour — prêt à utiliser à l\'aéroport.',
       step3_title: 'Échangé à l\'aéroport de départ', step3_desc: 'Le client scanne son QR chez un détaillant partenaire à son aéroport de départ et profite d\'une réduction exclusive sur les achats de €70 ou plus.',
       step4_title: 'Vous gagnez une commission — deux fois', step4_desc: 'Vous gagnez une commission sur chaque DutyCredit échangé — sur le crédit de réservation et sur le crédit de retour du véhicule. Entièrement automatisé, aucune charge opérationnelle.',

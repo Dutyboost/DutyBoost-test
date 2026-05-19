@@ -776,7 +776,7 @@ export default {
       why3_title: 'Heben Sie sich von Wettbewerbern ab', why3_desc: 'Bieten Sie Reisenden eine Flughafen-Einkaufsbelohnung, die keine andere Mietwagenplattform bietet. Mehr Buchungen konvertieren.',
       why4_title: 'Hochwertige Kundensegmente', why4_desc: 'Mietwagenkunden sind in der Regel Langstreckentreisende mit höheren Ausgaben — genau das Profil, das DutyCredits am meisten einlöst.',
       s2_title: '02 — So Funktioniert DutyBoost für Autovermietungspartner',
-      step1_title: '1. DutyCredit — Bei der Buchung', step1_desc: 'Ein Kunde bucht online einen Mietwagen über Ihre Website oder App. Ein personalisierter DutyCredit-QR-Code wird automatisch in die Buchungsbestätigungs-E-Mail eingefügt.',
+      step1_title: '1. DutyCredit — Bei der Buchung', step1_desc: 'Ein Kunde bucht online über Ihre Website oder App. Ein personalisierter DutyCredit-QR-Code wird automatisch in die Buchungsbestätigungs-E-Mail eingefügt.',
       step2_title: '2. DutyCredit — Bei der Fahrzeugrückgabe', step2_desc: 'Wenn der Kunde das Auto zurückgibt, wird automatisch ein zweiter personalisierter DutyCredit-QR-Code in der Rückgabe-E-Mail gesendet — bereit zur Nutzung am Flughafen.',
       step3_title: 'Einlösung am Abflughafen', step3_desc: 'Der Kunde scannt seinen QR-Code bei einem teilnehmenden Händler am Abflughafen und genießt einen exklusiven Rabatt auf Einkäufe ab €70.',
       step4_title: 'Sie verdienen Provision — zweimal', step4_desc: 'Sie verdienen eine Provision auf jedes eingelöste DutyCredit — sowohl auf das Buchungsguthaben als auch auf das Rückgabeguthaben. Vollständig automatisiert, kein Betriebsaufwand.',

@@ -792,7 +792,7 @@ export default {
       why3_title: 'Distinguiti dalla concorrenza', why3_desc: 'Offri ai viaggiatori un premio di acquisti in aeroporto che nessun\'altra piattaforma di noleggio auto fornisce.',
       why4_title: 'Segmento di clienti ad alto valore', why4_desc: 'I clienti di noleggio auto sono tipicamente viaggiatori di lungo raggio con spese più elevate — esattamente il profilo che riscatta di più i DutyCredits.',
       s2_title: '02 — Come Funziona DutyBoost per i Partner di Noleggio',
-      step1_title: '1° DutyCredit — Alla prenotazione', step1_desc: 'Un cliente prenota un noleggio auto online tramite il tuo sito o app. Un codice QR DutyCredit personalizzato viene incluso automaticamente nell\'e-mail di conferma prenotazione.',
+      step1_title: '1° DutyCredit — Alla prenotazione', step1_desc: 'Un cliente prenota un\'auto online tramite il tuo sito o app. Un codice QR DutyCredit personalizzato viene incluso automaticamente nell\'e-mail di conferma prenotazione.',
       step2_title: '2° DutyCredit — Alla restituzione dell\'auto', step2_desc: 'Quando il cliente restituisce l\'auto, un secondo codice QR DutyCredit personalizzato viene inviato automaticamente nell\'e-mail di restituzione — pronto per l\'uso in aeroporto.',
       step3_title: 'Riscattato all\'aeroporto di partenza', step3_desc: 'Il cliente scansiona il QR presso un retailer partner al suo aeroporto di partenza e gode di uno sconto esclusivo su acquisti di €70 o più.',
       step4_title: 'Guadagni commissione — due volte', step4_desc: 'Guadagni commissione su ogni DutyCredit riscattato — sia sul credito di prenotazione che su quello di restituzione dell\'auto. Completamente automatizzato, nessun onere operativo.',
