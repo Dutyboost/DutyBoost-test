@@ -566,8 +566,8 @@ export default {
     },
     flightonepager: {
       badge: 'Flight Partner Program',
-      headline: 'Turn Every Flight Booking Into Airport Retail Commission',
-      subtitle: 'DutyBoost connects your flight confirmations to airport retail — automatically. Travelers receive a personalized DutyCredit discount voucher with every booking, and you earn a commission every time they redeem it at the airport.',
+      headline: 'Reward Your Travelers at the Airport — in Exchange of a New Revenue Stream',
+      subtitle: 'DutyBoost enables flight platforms to generate passive commission revenue from existing online bookings. Every traveler receives a personalised DutyCredit for use during airport departures, and you earn a commission whenever they redeem it.',
       s1_title: '01 — Why Flight Partners Should Join DutyBoost',
       why1_title: 'New revenue stream, zero effort', why1_desc: 'Commission flows automatically for every redemption tied to your bookings. No account management, no invoicing from your side.',
       why2_title: 'Strengthen traveler loyalty', why2_desc: 'Every booking now comes with a tangible reward at the airport — travelers associate that value with your brand.',
@@ -614,8 +614,8 @@ export default {
     },
     carrentalonepager: {
       badge: 'Car Rental Partner Program',
-      headline: 'Your Airport Car Rental Customers Shop More — You Earn More',
-      subtitle: 'Car rental customers picking up at airports arrive with time to spare. DutyBoost activates that dwell time with personalized airport retail incentives — and pays you a commission every time they redeem.',
+      headline: 'Reward Your Clients at the Airport — in Exchange of a New Revenue Stream',
+      subtitle: 'DutyBoost enables car rental platforms to generate passive commission revenue from existing car rental bookings. Every client receives a personalised DutyCredit for use during airport departures, and you earn a commission whenever they redeem it.',
       s1_title: '01 — Why Car Rental Partners Should Join DutyBoost',
       why1_title: 'Airport pickups = perfect timing', why1_desc: 'Car rental customers arrive at the airport early. DutyBoost puts that dwell time to work — for them and for you.',
       why2_title: 'Zero-cost revenue on confirmed bookings', why2_desc: 'No new UI, no new product. DutyCredits flow from your confirmation emails automatically with a simple integration.',

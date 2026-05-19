@@ -496,8 +496,8 @@ export default {
     },
     flightonepager: {
       badge: 'Programa de Socios de Vuelo',
-      headline: 'Convierte Cada Reserva de Vuelo en Comisión de Venta en el Aeropuerto',
-      subtitle: 'DutyBoost conecta tus confirmaciones de vuelo con el comercio minorista del aeropuerto — automáticamente. Los viajeros reciben un vale de descuento DutyCredit personalizado con cada reserva, y tú ganas comisión cada vez que lo canjean.',
+      headline: 'Recompensa a Tus Viajeros en el Aeropuerto — a Cambio de un Nuevo Flujo de Ingresos',
+      subtitle: 'DutyBoost permite a las plataformas de vuelos generar ingresos pasivos por comisión a partir de reservas en línea existentes. Cada viajero recibe un DutyCredit personalizado para usar durante las salidas en el aeropuerto, y tú ganas una comisión cada vez que lo canjean.',
       s1_title: '01 — Por Qué los Socios de Vuelo Deberían Unirse a DutyBoost',
       why1_title: 'Nueva fuente de ingresos, cero esfuerzo', why1_desc: 'La comisión fluye automáticamente por cada canje vinculado a tus reservas. Sin gestión de cuentas, sin facturación de tu parte.',
       why2_title: 'Reforzar la lealtad del viajero', why2_desc: 'Cada reserva ahora incluye una recompensa tangible en el aeropuerto — los viajeros asocian ese valor con tu marca.',
@@ -544,8 +544,8 @@ export default {
     },
     carrentalonepager: {
       badge: 'Programa de Socios de Alquiler de Coches',
-      headline: 'Tus Clientes de Alquiler de Coches en el Aeropuerto Compran Más — Tú Ganas Más',
-      subtitle: 'Los clientes de alquiler de coches que recogen en aeropuertos llegan con tiempo de sobra. DutyBoost activa ese tiempo de espera con incentivos personalizados de venta minorista en el aeropuerto — y te paga comisión cada vez que canjean.',
+      headline: 'Recompensa a Tus Clientes en el Aeropuerto — a Cambio de un Nuevo Flujo de Ingresos',
+      subtitle: 'DutyBoost permite a las plataformas de alquiler de coches generar ingresos pasivos por comisión a partir de reservas de alquiler existentes. Cada cliente recibe un DutyCredit personalizado para usar durante las salidas en el aeropuerto, y tú ganas una comisión cada vez que lo canjean.',
       s1_title: '01 — Por Qué los Socios de Alquiler Deberían Unirse a DutyBoost',
       why1_title: 'Recogida en aeropuerto = momento perfecto', why1_desc: 'Los clientes de alquiler de coches llegan al aeropuerto pronto. DutyBoost aprovecha ese tiempo de espera — para ellos y para ti.',
       why2_title: 'Ingresos de cero coste en reservas confirmadas', why2_desc: 'Sin nueva UI, sin nuevo producto. Los DutyCredits fluyen automáticamente desde tus emails de confirmación con una integración simple.',

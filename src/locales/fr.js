@@ -720,8 +720,8 @@ export default {
     },
     flightonepager: {
       badge: 'Programme Partenaire Vol',
-      headline: 'Transformez Chaque Réservation de Vol en Commission de Vente Aéroportuaire',
-      subtitle: 'DutyBoost connecte automatiquement vos confirmations de vol au commerce de détail aéroportuaire. Les voyageurs reçoivent un bon de réduction DutyCredit personnalisé avec chaque réservation, et vous gagnez une commission à chaque utilisation.',
+      headline: 'Récompensez Vos Voyageurs à l\'Aéroport — en Échange d\'un Nouveau Flux de Revenus',
+      subtitle: 'DutyBoost permet aux plateformes de vol de générer des revenus de commission passifs à partir de réservations en ligne existantes. Chaque voyageur reçoit un DutyCredit personnalisé à utiliser lors des départs en aéroport, et vous gagnez une commission chaque fois qu\'il est utilisé.',
       s1_title: '01 — Pourquoi les Partenaires de Vol Devraient Rejoindre DutyBoost',
       why1_title: 'Nouvelle source de revenus, zéro effort', why1_desc: 'La commission coule automatiquement pour chaque utilisation liée à vos réservations. Pas de gestion de compte, pas de facturation de votre côté.',
       why2_title: 'Renforcer la fidélité des voyageurs', why2_desc: 'Chaque réservation comprend maintenant une récompense tangible à l\'aéroport — les voyageurs associent cette valeur à votre marque.',
@@ -768,8 +768,8 @@ export default {
     },
     carrentalonepager: {
       badge: 'Programme Partenaire Location de Voiture',
-      headline: 'Vos Clients de Location de Voiture à l\'Aéroport Achètent Plus — Vous Gagnez Plus',
-      subtitle: 'Les clients de location de voiture qui récupèrent à l\'aéroport arrivent avec du temps. DutyBoost active ce temps d\'attente avec des incentives personnalisées de vente au détail aéroportuaire — et vous verse une commission à chaque utilisation.',
+      headline: 'Récompensez Vos Clients à l\'Aéroport — en Échange d\'un Nouveau Flux de Revenus',
+      subtitle: 'DutyBoost permet aux plateformes de location de voiture de générer des revenus de commission passifs à partir de réservations de location existantes. Chaque client reçoit un DutyCredit personnalisé à utiliser lors des départs en aéroport, et vous gagnez une commission chaque fois qu\'il est utilisé.',
       s1_title: '01 — Pourquoi les Partenaires de Location Devraient Rejoindre DutyBoost',
       why1_title: 'Récupération aéroport = moment parfait', why1_desc: 'Les clients de location de voiture arrivent tôt à l\'aéroport. DutyBoost met ce temps d\'attente à profit — pour eux et pour vous.',
       why2_title: 'Revenus à coût zéro sur les réservations confirmées', why2_desc: 'Pas de nouvelle UI, pas de nouveau produit. Les DutyCredits coulent automatiquement depuis vos emails de confirmation avec une intégration simple.',

@@ -720,8 +720,8 @@ export default {
     },
     flightonepager: {
       badge: 'Flugpartner-Programm',
-      headline: 'Verwandeln Sie Jede Flugbuchung in Flughafen-Einzelhandelskommission',
-      subtitle: 'DutyBoost verbindet Ihre Flugbestätigungen automatisch mit dem Flughafeneinzelhandel. Reisende erhalten bei jeder Buchung einen personalisierten DutyCredit-Rabattgutschein, und Sie verdienen eine Provision bei jeder Einlösung.',
+      headline: 'Belohnen Sie Ihre Reisenden am Flughafen — im Austausch für einen neuen Einkommensstrom',
+      subtitle: 'DutyBoost ermöglicht Flugplattformen, passive Provisionseinnahmen aus bestehenden Online-Buchungen zu generieren. Jeder Reisende erhält ein personalisiertes DutyCredit für die Nutzung bei Flughafenabflügen, und Sie verdienen eine Provision, wann immer es eingelöst wird.',
       s1_title: '01 — Warum Flugpartner DutyBoost Beitreten Sollten',
       why1_title: 'Neue Einnahmequelle, null Aufwand', why1_desc: 'Provisionen fließen automatisch für jede Einlösung, die mit Ihren Buchungen verknüpft ist. Keine Kontoverwaltung, keine Rechnungsstellung.',
       why2_title: 'Reisendentreue stärken', why2_desc: 'Jede Buchung enthält nun eine greifbare Belohnung am Flughafen — Reisende verbinden diesen Wert mit Ihrer Marke.',
@@ -768,8 +768,8 @@ export default {
     },
     carrentalonepager: {
       badge: 'Autovermietungs-Partner-Programm',
-      headline: 'Ihre Flughafen-Mietwagenkunden Kaufen Mehr — Sie Verdienen Mehr',
-      subtitle: 'Mietwagenkunden, die am Flughafen abholen, kommen mit Zeit. DutyBoost aktiviert diese Verweilzeit mit personalisierten Flughafen-Einzelhandelsincentives — und zahlt Ihnen eine Provision bei jeder Einlösung.',
+      headline: 'Belohnen Sie Ihre Kunden am Flughafen — im Austausch für einen neuen Einkommensstrom',
+      subtitle: 'DutyBoost ermöglicht Mietwagenplattformen, passive Provisionseinnahmen aus bestehenden Mietwagenreservierungen zu generieren. Jeder Kunde erhält ein personalisiertes DutyCredit für die Nutzung bei Flughafenabflügen, und Sie verdienen eine Provision, wann immer es eingelöst wird.',
       s1_title: '01 — Warum Autovermietungspartner DutyBoost Beitreten Sollten',
       why1_title: 'Flughafenabholung = perfektes Timing', why1_desc: 'Mietwagenkunden kommen früh am Flughafen an. DutyBoost setzt diese Verweilzeit ein — für sie und für Sie.',
       why2_title: 'Nullkosteneinnahmen aus bestätigten Buchungen', why2_desc: 'Keine neue UI, kein neues Produkt. DutyCredits fließen automatisch aus Ihren Bestätigungs-E-Mails mit einfacher Integration.',
