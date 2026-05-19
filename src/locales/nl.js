@@ -708,7 +708,7 @@ export default {
       legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181',
     },
     carrentalonepager: {
-      badge: 'Autoverhuур Partner Programma',
+      badge: 'Autoverhuur Partner Programma',
       headline: 'Beloon je klanten op de luchthaven — in ruil voor een nieuwe inkomstenstroom',
       subtitle: 'DutyBoost stelt autoverhuurplatforms in staat passieve commissie-inkomsten te genereren uit bestaande autoverhuurboekingen. Elke klant ontvangt een gepersonaliseerde DutyCredit voor gebruik bij luchthavenvertrekken, en je verdient commissie telkens wanneer ze die inwisselen.',
       s1_title: '01 — Waarom Autoverhuurpartners Zich Bij DutyBoost Zouden Moeten Aansluiten',
