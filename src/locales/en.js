@@ -661,7 +661,7 @@ export default {
       stat1_value: '%',
       stat1_label: 'conversion uplift',
       stat1_desc: 'Pre-activated travellers convert at 2x the rate of casual browsers — turning passing traffic into paying customers.',
-      stat2_value: '📈',
+      stat2_value: '',
       stat2_label: 'average basket size',
       stat2_desc: 'DutyCredit holders spend significantly more due to pre-activation and minimum €70 purchase threshold.',
       stat3_value: '+€50K–€150K',

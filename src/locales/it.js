@@ -831,7 +831,7 @@ export default {
       stat1_value: '%',
       stat1_label: 'aumento della conversione',
       stat1_desc: 'I viaggiatori pre-attivati convertono 2x più dei visitatori casuali — trasformi il traffico di passaggio in clienti paganti.',
-      stat2_value: '📈',
+      stat2_value: '',
       stat2_label: 'valore medio del carrello',
       stat2_desc: 'I detentori di DutyCredit spendono significativamente di più grazie alla pre-attivazione e alla soglia minima di €70.',
       stat3_value: '+€50K–€150K',

@@ -115,7 +115,12 @@ export default function RetailerOnePager() {
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat1_desc')}</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat2_value')}</p>
+                <div className="flex justify-center mb-1">
+                  <svg width="48" height="28" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="2,24 12,16 20,20 32,8 40,12 46,4" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <polyline points="40,4 46,4 46,10" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                  </svg>
+                </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat2_desc')}</p>
               </div>

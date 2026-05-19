@@ -591,7 +591,7 @@ export default {
       stat1_value: '%',
       stat1_label: 'aumento de conversión',
       stat1_desc: 'Los viajeros preactivados convierten 2x más que los navegantes casuales — conviertes tráfico de paso en clientes pagadores.',
-      stat2_value: '📈',
+      stat2_value: '',
       stat2_label: 'valor promedio de cesta',
       stat2_desc: 'Los titulares de DutyCredit gastan significativamente más gracias a la preactivación y el umbral mínimo de €70.',
       stat3_value: '+€50K–€150K',

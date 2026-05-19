@@ -756,7 +756,7 @@ export default {
       stat1_value: '%',
       stat1_label: 'conversie-uplift',
       stat1_desc: 'Voorgeactiveerde reizigers converteren 2x zo hoog als toevallige voorbijgangers — je zet voorbijlopend verkeer om in betalende klanten.',
-      stat2_value: '📈',
+      stat2_value: '',
       stat2_label: 'gemiddelde mandwaarde',
       stat2_desc: 'DutyCredit-houders besteden aanzienlijk meer door vooractivering en de minimale aankoop van €70.',
       stat3_value: '+€50K–€150K',
