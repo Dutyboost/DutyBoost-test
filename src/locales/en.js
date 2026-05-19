@@ -598,7 +598,7 @@ export default {
       why3_title: 'Works for all accommodation types', why3_desc: 'Any accommodation provider where guests travel to or from an airport can participate in DutyBoost — no matter the property type or booking channel.',
       why4_title: 'Guest satisfaction uplift', why4_desc: 'Guests who feel rewarded at booking leave better reviews and rebook more often.',
       s2_title: '02 — How It Works',
-      step1_title: '1st DutyCredit — At Booking', step1_desc: 'When a guest books directly through your hotel website, a personalised DutyCredit QR code is automatically included in their booking confirmation email.',
+      step1_title: '1st DutyCredit — At Booking', step1_desc: 'When a guest books directly through your website, a personalised DutyCredit QR code is automatically included in their booking confirmation email coming from you.',
       step2_title: '2nd DutyCredit — At Check-Out', step2_desc: 'When the guest checks out, a second personalised DutyCredit QR code is automatically sent in their check-out email — ready to use at the airport.',
       step3_title: 'Redeemed at the Departure Airport', step3_desc: 'The guest scans their QR code at a participating retailer at their departure airport and enjoys an exclusive discount on purchases of €70 or more.',
       step4_title: 'You Earn Commission — Twice', step4_desc: 'You earn a commission on every DutyCredit redeemed — on both the booking credit and the check-out credit. Fully automated, no operational burden.',
