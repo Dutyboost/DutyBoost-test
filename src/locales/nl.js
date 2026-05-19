@@ -745,7 +745,7 @@ export default {
       why4_desc: 'Reizigers met een DutyCredit worden gemotiveerd om meer te besteden. Het tegoed geldt bij aankopen van €70+, wat hogere transactiewaarden en grotere baskets stimuleert.',
       s2_title: '02 — Hoe DutyBoost werkt',
       step1_title: 'Reiziger geboekt',
-      step1_desc: 'Een reiziger boekt een reis via een DutyBoost-verbonden reispartner',
+      step1_desc: 'Een reiziger boekt via een DutyBoost-verbonden reispartner',
       step2_title: 'Tegoed per e-mail verstuurd',
       step2_desc: 'Ze ontvangen een gepersonaliseerde QR-code met uitgeeftegoed — vóór vertrek',
       step3_title: 'Ze bezoeken jouw winkel',
