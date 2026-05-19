@@ -734,7 +734,7 @@ export default {
       step4_title: 'Sie verdienen Provision', step4_desc: 'DutyBoost zahlt Ihnen eine Pro-Einlösung-Provision — kein Verwaltungsaufwand erforderlich.',
       s3_title: '03 — Umsatzpotenzial für Flugpartner',
       stat1_value: 'Bis zu €5', stat1_label: 'Provision pro Einlösung', stat1_desc: "20% von DutyBoosts 2,5% Plattformgebühr pro Transaktion (max €5) — automatisch verdient, kein Verkaufsaufwand erforderlich",
-      stat2_value: 'Kostenlos', stat2_label: 'Keine Kosten für Sie, jemals', stat2_desc: 'DutyBoost ist für Flugpartner kostenlos. Provision fließt aus bestätigten Einlösungen — monatlich mit vollständiger Berichterstattung ausgezahlt',
+      stat2_value: 'Kostenlos', stat2_label: 'Für Sie komplett kostenlos', stat2_desc: 'DutyBoost ist für Flugpartner kostenlos. Provision fließt aus bestätigten Einlösungen — monatlich mit vollständiger Berichterstattung ausgezahlt',
       stat3_value: '< 1 Tag', stat3_label: 'Um live zu gehen', stat3_desc: 'Ein einzelner Snippet in der Buchungsbestätigung. Wir kümmern uns um alles andere von Anfang bis Ende',
       benefit1_title: '🤝 Stärkere Reisendentreue', benefit1_desc: 'Ein unvergesslicher, personalisierter Flughafen-Vorteil, der an jede Flugbuchung über Sie geknüpft ist.',
       benefit2_title: '💰 Neue passive Einnahmen', benefit2_desc: 'Provision fließt aus Flughafenausgaben — kein zusätzlicher Verkaufsaufwand, keine manuelle Arbeit.',
