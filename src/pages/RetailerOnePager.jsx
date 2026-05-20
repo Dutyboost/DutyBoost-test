@@ -116,17 +116,24 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="36" height="36" viewBox="0 0 140 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* 2-stair escalator — last segment angles up */}
-                  <line x1="8"  y1="95" x2="8"  y2="62" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                  <line x1="8"  y1="62" x2="44" y2="62" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                  <line x1="44" y1="62" x2="44" y2="30" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                  {/* diagonal line going up-right */}
-                  <line x1="44" y1="30" x2="88" y2="8" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                  {/* arrowhead pointing up-right */}
-                  <polygon points="88,8 104,18 80,24" fill="#16a34a"/>
-                  {/* € sign — same visual weight as % in sibling box */}
-                  <text x="108" y="13" fontSize="22" fontWeight="bold" fill="#16a34a" textAnchor="start" dominantBaseline="middle">€</text>
+                  <svg width="44" height="44" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* axes */}
+                    <line x1="10" y1="8"  x2="10" y2="78" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round"/>
+                    <line x1="10" y1="78" x2="72" y2="78" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round"/>
+                    {/* bars (6 bars, increasing height) */}
+                    <rect x="14" y="62" width="7" height="16" fill="#16a34a" opacity="0.25" rx="1"/>
+                    <rect x="23" y="54" width="7" height="24" fill="#16a34a" opacity="0.25" rx="1"/>
+                    <rect x="32" y="46" width="7" height="32" fill="#16a34a" opacity="0.25" rx="1"/>
+                    <rect x="41" y="38" width="7" height="40" fill="#16a34a" opacity="0.25" rx="1"/>
+                    <rect x="50" y="30" width="7" height="48" fill="#16a34a" opacity="0.25" rx="1"/>
+                    <rect x="59" y="20" width="7" height="58" fill="#16a34a" opacity="0.25" rx="1"/>
+                    {/* trend line with arrow pointing up-right */}
+                    <polyline points="14,65 23,57 32,49 41,41 50,33 63,18" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    {/* arrowhead */}
+                    <polygon points="63,18 70,22 60,26" fill="#16a34a"/>
+                    {/* € coin circle — bottom right */}
+                    <circle cx="84" cy="76" r="16" stroke="#16a34a" strokeWidth="2.5" fill="white"/>
+                    <text x="84" y="76" fontSize="16" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="middle">€</text>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
