@@ -126,8 +126,8 @@ export default function RetailerOnePager() {
                    <line x1="58" y1="36"  x2="82" y2="36" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
                    {/* arrowhead pointing right */}
                    <polygon points="82,24 96,36 82,48" fill="#16a34a"/>
-                   {/* € sign above arrow */}
-                   <text x="90" y="22" fontSize="22" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="auto">€</text>
+                   {/* € sign centered above arrow */}
+                   <text x="89" y="26" fontSize="28" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="middle">€</text>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
