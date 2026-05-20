@@ -116,20 +116,18 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="52" height="52" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                    {/* escalator steps going up-right */}
-                   <line x1="10" y1="90" x2="10" y2="75" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="10" y1="75" x2="28" y2="75" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="28" y1="75" x2="28" y2="58" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="28" y1="58" x2="48" y2="58" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="48" y1="58" x2="48" y2="40" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="48" y1="40" x2="68" y2="40" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="68" y1="40" x2="68" y2="22" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   <line x1="68" y1="22" x2="85" y2="22" stroke="#16a34a" strokeWidth="6" strokeLinecap="round"/>
-                   {/* arrowhead */}
-                   <polygon points="85,14 95,22 85,30" fill="#16a34a"/>
-                   {/* € sign */}
-                   <text x="88" y="14" fontSize="14" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="auto">€</text>
+                   <line x1="8"  y1="100" x2="8"  y2="80" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="8"  y1="80"  x2="32" y2="80" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="32" y1="80"  x2="32" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="32" y1="58"  x2="58" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="58" y1="58"  x2="58" y2="36" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="58" y1="36"  x2="82" y2="36" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   {/* arrowhead pointing right */}
+                   <polygon points="82,24 96,36 82,48" fill="#16a34a"/>
+                   {/* € sign above arrow */}
+                   <text x="90" y="22" fontSize="22" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="auto">€</text>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
