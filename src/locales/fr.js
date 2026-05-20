@@ -802,7 +802,7 @@ export default {
       why3_desc: "Pas de frais initiaux, pas d'abonnement. La commission de DutyBoost ne s'applique que lorsqu'un DutyCredit est échangé dans votre établissement. Zéro risque, pur bénéfice.",
       why4_title: "Panier moyen plus élevé par transaction",
       why4_desc: "Les voyageurs avec un DutyCredit sont motivés à dépenser plus. Le crédit s'applique aux achats de €70+, stimulant des valeurs de transaction plus élevées et de plus grands paniers.",
-      s2_title: "02 — Comment fonctionne DutyBoost",
+      s2_title: "02 — Comment fonctionne DutyBoost pour les Retailers",
       step1_title: "Voyageur réservé",
       step1_desc: "Un voyageur réserve un voyage via un partenaire de voyage connecté à DutyBoost",
       step2_title: "Crédit envoyé par e-mail",

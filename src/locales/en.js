@@ -648,7 +648,7 @@ export default {
       why3_desc: "No upfront fees, no subscription costs. DutyBoost's commission applies only when a DutyCredit is redeemed at your location. Zero risk, pure upside.",
       why4_title: 'Higher basket size per transaction',
       why4_desc: 'Travellers with a DutyCredit are motivated to spend more. The credit applies on purchases of €70+, driving higher transaction values and larger baskets per visit.',
-      s2_title: '02 — How DutyBoost Works',
+      s2_title: '02 — How DutyBoost Works for Retailers',
       step1_title: 'Traveller is booked',
       step1_desc: 'A traveller books through a DutyBoost-connected travel partner',
       step2_title: 'Credit sent by email',

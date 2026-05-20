@@ -818,7 +818,7 @@ export default {
       why3_desc: "Nessun costo iniziale, nessun abbonamento. La commissione di DutyBoost si applica solo quando un DutyCredit viene riscattato nella tua sede. Zero rischio, puro vantaggio.",
       why4_title: 'Carrello medio più alto per transazione',
       why4_desc: 'I viaggiatori con un DutyCredit sono motivati a spendere di più. Il credito si applica agli acquisti di €70+, stimolando valori di transazione più alti e carrelli più grandi.',
-      s2_title: '02 — Come funziona DutyBoost',
+      s2_title: '02 — Come funziona DutyBoost per i Retailer',
       step1_title: 'Viaggiatore prenotato',
       step1_desc: 'Un viaggiatore prenota un viaggio tramite un partner di viaggio connesso a DutyBoost',
       step2_title: 'Credito inviato via e-mail',

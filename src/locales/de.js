@@ -802,7 +802,7 @@ export default {
       why3_desc: "Keine Vorabkosten, keine Abonnementkosten. DutyBoosts Provision gilt nur, wenn ein DutyCredit an Ihrem Standort eingelöst wird. Null Risiko, purer Gewinn.",
       why4_title: 'Höherer Warenkorbwert pro Transaktion',
       why4_desc: 'Reisende mit einem DutyCredit sind motiviert, mehr auszugeben. Das Guthaben gilt bei Käufen ab €70+, was höhere Transaktionswerte und größere Warenkörbe fördert.',
-      s2_title: '02 — Wie DutyBoost funktioniert',
+      s2_title: '02 — Wie DutyBoost für Retailer funktioniert',
       step1_title: 'Reisender gebucht',
       step1_desc: 'Ein Reisender bucht eine Reise über einen DutyBoost-verbundenen Reisepartner',
       step2_title: 'Guthaben per E-Mail gesendet',

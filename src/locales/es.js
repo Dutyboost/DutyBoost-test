@@ -578,7 +578,7 @@ export default {
       why3_desc: 'Sin tarifas iniciales, sin costes de suscripción. La comisión de DutyBoost se aplica solo cuando se canjea un DutyCredit en tu local. Cero riesgo, puro beneficio.',
       why4_title: 'Mayor tamaño de cesta por transacción',
       why4_desc: 'Los viajeros con un DutyCredit se motivan a gastar más. El crédito aplica en compras de €70+, impulsando valores de transacción más altos y cestas más grandes.',
-      s2_title: '02 — Cómo funciona DutyBoost',
+      s2_title: '02 — Cómo funciona DutyBoost para Retailers',
       step1_title: 'El viajero reserva',
       step1_desc: 'Un viajero reserva a través de un socio de viaje conectado a DutyBoost',
       step2_title: 'Crédito enviado por correo',
