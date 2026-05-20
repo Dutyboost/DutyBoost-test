@@ -117,22 +117,21 @@ export default function RetailerOnePager() {
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
                   <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polyline
-                      points="5,80 30,35 50,55 75,20 90,10"
-                      stroke="#16a34a"
-                      strokeWidth="9"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <polyline
-                      points="76,5 90,10 85,24"
-                      stroke="#16a34a"
-                      strokeWidth="9"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
+                   <line
+                     x1="10" y1="85"
+                     x2="85" y2="10"
+                     stroke="#16a34a"
+                     strokeWidth="10"
+                     strokeLinecap="round"
+                   />
+                   <polyline
+                     points="55,8 85,10 83,40"
+                     stroke="#16a34a"
+                     strokeWidth="10"
+                     strokeLinecap="round"
+                     strokeLinejoin="round"
+                     fill="none"
+                   />
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
