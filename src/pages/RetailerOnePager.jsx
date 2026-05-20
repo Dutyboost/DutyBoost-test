@@ -120,17 +120,17 @@ export default function RetailerOnePager() {
                     {/* shadow under bars */}
                     <ellipse cx="52" cy="98" rx="36" ry="5" fill="#00000015"/>
                     {/* 4 bars growing in height */}
-                    <rect x="8"  y="68" width="18" height="26" fill="#a3a31680" rx="3"/>
-                    <rect x="29" y="50" width="18" height="44" fill="#16a34a99" rx="3"/>
-                    <rect x="50" y="58" width="18" height="36" fill="#14b8a699" rx="3"/>
-                    <rect x="71" y="36" width="18" height="58" fill="#ea580c99" rx="3"/>
+                    <rect x="8"  y="68" width="18" height="26" fill="#fdba7480" rx="3"/>
+                    <rect x="29" y="50" width="18" height="44" fill="#f9731680" rx="3"/>
+                    <rect x="50" y="58" width="18" height="36" fill="#ea580c80" rx="3"/>
+                    <rect x="71" y="36" width="18" height="58" fill="#c2410c99" rx="3"/>
                     {/* bold upward arrow with white outline */}
                     <polyline points="12,82 38,62 58,68 84,40" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                    <polyline points="12,82 38,62 58,68 84,40" stroke="#111827" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <polyline points="12,82 38,62 58,68 84,40" stroke="#c2410c" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                     <polygon points="84,40 92,54 74,50" fill="white"/>
-                    <polygon points="84,40 91,52 75,49" fill="#111827"/>
+                    <polygon points="84,40 91,52 75,49" fill="#c2410c"/>
                     {/* € coin floating top-center */}
-                    <circle cx="38" cy="18" r="16" fill="#4f46e5"/>
+                    <circle cx="38" cy="18" r="16" fill="#ea580c"/>
                     <text x="38" y="18" fontSize="17" fontWeight="bold" fill="white" textAnchor="middle" dominantBaseline="middle">€</text>
                     {/* shadow under coin */}
                     <ellipse cx="38" cy="36" rx="12" ry="3.5" fill="#00000018"/>
