@@ -117,21 +117,19 @@ export default function RetailerOnePager() {
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
                   <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   {/* zigzag line */}
                    <polyline
-                     points="5,85 25,60 42,72 62,38 78,50 95,12"
+                     points="5,85 25,60 42,72 62,38 78,50 90,18"
                      stroke="#16a34a"
-                     strokeWidth="8"
+                     strokeWidth="7"
                      strokeLinecap="round"
                      strokeLinejoin="round"
                      fill="none"
                    />
-                   <polyline
-                     points="78,7 95,12 90,28"
-                     stroke="#16a34a"
-                     strokeWidth="8"
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                     fill="none"
+                   {/* arrowhead */}
+                   <polygon
+                     points="90,18 80,8 100,8"
+                     fill="#16a34a"
                    />
                   </svg>
                 </div>
