@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 const imagesByLang = {
   es: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/4b9f831ea_ChatGPTImageMay20202609_54_27PM.png",
+  nl: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38f6e0ec4_ChatGPTImageMay20202609_59_05PM.png",
   default: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/418ac3f01_ChatGPTImageMay20202608_49_56PM.png",
 };
 
