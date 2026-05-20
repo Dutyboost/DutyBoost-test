@@ -116,24 +116,25 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="48" height="48" viewBox="0 0 100 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="52" height="52" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* shadow under bars */}
-                    <ellipse cx="52" cy="98" rx="36" ry="5" fill="#00000015"/>
-                    {/* 4 bars growing in height */}
-                    <rect x="8"  y="68" width="18" height="26" fill="#fdba7480" rx="3"/>
-                    <rect x="29" y="50" width="18" height="44" fill="#f9731680" rx="3"/>
-                    <rect x="50" y="58" width="18" height="36" fill="#ea580c80" rx="3"/>
-                    <rect x="71" y="36" width="18" height="58" fill="#c2410c99" rx="3"/>
-                    {/* bold upward arrow with white outline */}
-                    <polyline points="12,82 38,62 58,68 84,40" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                    <polyline points="12,82 38,62 58,68 84,40" stroke="#c2410c" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                    <polygon points="84,40 92,54 74,50" fill="white"/>
-                    <polygon points="84,40 91,52 75,49" fill="#c2410c"/>
-                    {/* € coin floating top-center */}
-                    <circle cx="38" cy="18" r="16" fill="#ea580c"/>
-                    <text x="38" y="18" fontSize="17" fontWeight="bold" fill="white" textAnchor="middle" dominantBaseline="middle">€</text>
+                    <ellipse cx="55" cy="103" rx="32" ry="4" fill="#00000015"/>
+                    {/* 4 bars growing in height — smaller/tighter */}
+                    <rect x="12" y="72" width="13" height="28" fill="#fdba7480" rx="2"/>
+                    <rect x="28" y="58" width="13" height="42" fill="#f9731680" rx="2"/>
+                    <rect x="44" y="64" width="13" height="36" fill="#ea580c80" rx="2"/>
+                    <rect x="60" y="46" width="13" height="54" fill="#c2410c99" rx="2"/>
+                    {/* bold upward arrow — line goes bottom-left to top-right */}
+                    <polyline points="14,88 35,70 55,76 78,50" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <polyline points="14,88 35,70 55,76 78,50" stroke="#c2410c" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    {/* arrowhead pointing up-right: tip at 78,50 */}
+                    <polygon points="78,50 68,46 72,58" fill="white"/>
+                    <polygon points="78,50 69,47 73,57" fill="#c2410c"/>
+                    {/* € coin floating top-right — bigger */}
+                    <circle cx="88" cy="22" r="20" fill="#ea580c"/>
+                    <text x="88" y="22" fontSize="22" fontWeight="bold" fill="white" textAnchor="middle" dominantBaseline="middle">€</text>
                     {/* shadow under coin */}
-                    <ellipse cx="38" cy="36" rx="12" ry="3.5" fill="#00000018"/>
+                    <ellipse cx="88" cy="44" rx="14" ry="4" fill="#00000018"/>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
