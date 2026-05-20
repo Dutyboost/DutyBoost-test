@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowLeft, ChevronRight, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import { exportCircularFlowPptx } from "../utils/exportCircularFlowPptx";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const steps = [
   {
@@ -109,11 +112,40 @@ export default function CircularRevenueFlow() {
   const [currentStep, setCurrentStep] = useState(0); // 0 = intro, 1-6 = steps, 7 = result
   const [audience, setAudience] = useState(null); // "retailer" | "partner"
 
+  const [exportingPptx, setExportingPptx] = useState(false);
+  const [exportingPdf, setExportingPdf] = useState(false);
+
   const totalSlides = steps.length + 2; // intro + 6 steps + result
   const slideIndex = currentStep; // 0=intro, 1-6=steps, 7=result
 
   const goNext = () => setCurrentStep((s) => Math.min(s + 1, totalSlides - 1));
   const goPrev = () => setCurrentStep((s) => Math.max(s - 1, 0));
+
+  const handleExportPptx = async () => {
+    setExportingPptx(true);
+    await exportCircularFlowPptx();
+    setExportingPptx(false);
+  };
+
+  const handleExportPdf = async () => {
+    setExportingPdf(true);
+    const savedStep = currentStep;
+    const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [1280, 720] });
+    for (let i = 0; i < totalSlides; i++) {
+      setCurrentStep(i);
+      await new Promise((r) => setTimeout(r, 300));
+      const el = document.getElementById("slide-content");
+      if (el) {
+        const canvas = await html2canvas(el, { scale: 1.5, useCORS: true, backgroundColor: "#0F172A" });
+        const imgData = canvas.toDataURL("image/jpeg", 0.92);
+        if (i > 0) pdf.addPage();
+        pdf.addImage(imgData, "JPEG", 0, 0, 1280, 720);
+      }
+    }
+    pdf.save("DutyBoost-Circular-Revenue-Flow.pdf");
+    setCurrentStep(savedStep);
+    setExportingPdf(false);
+  };
 
   const step = currentStep >= 1 && currentStep <= 6 ? steps[currentStep - 1] : null;
 
@@ -123,7 +155,27 @@ export default function CircularRevenueFlow() {
       <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
         <DutyBoostLogo height={80} inverted />
         <div className="flex items-center gap-3">
-          <span className="text-white/50 text-sm">{slideIndex} / {totalSlides - 1}</span>
+          <span className="text-white/50 text-sm hidden sm:inline">{slideIndex} / {totalSlides - 1}</span>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleExportPptx}
+            disabled={exportingPptx}
+            className="text-white/60 hover:text-white gap-1.5"
+          >
+            <Download className="w-3.5 h-3.5" />
+            {exportingPptx ? "Exporting…" : "PPTX"}
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleExportPdf}
+            disabled={exportingPdf}
+            className="text-white/60 hover:text-white gap-1.5"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            {exportingPdf ? "Exporting…" : "PDF"}
+          </Button>
           <Link to="/">
             <Button variant="ghost" size="sm" className="text-white/60 hover:text-white">
               ← Back
@@ -133,7 +185,7 @@ export default function CircularRevenueFlow() {
       </div>
 
       {/* Slide Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-10">
+      <div id="slide-content" className="flex-1 flex flex-col items-center justify-center px-6 py-10">
 
         {/* INTRO SLIDE */}
         {currentStep === 0 && (
