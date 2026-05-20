@@ -116,7 +116,7 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="60" height="60" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="36" height="36" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                    {/* 2-stair escalator */}
                    <line x1="8"  y1="90" x2="8"  y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
                    <line x1="8"  y1="58" x2="44" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
