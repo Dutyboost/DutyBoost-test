@@ -7,9 +7,9 @@ export default function DutyBoostLogo({ height = 100, inverted = false, linkTo =
         src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/195c01c5f_ChatGPT_Image_May_4__2026__10_58_20_AM-removebg-preview.png"
         alt="DutyBoost"
         style={{
-          height: `${height}px`,
+          height: `${height * 0.5}px`,
           width: 'auto',
-          maxWidth: `${height * 4}px`,
+          maxWidth: `${height * 2}px`,
           objectFit: 'contain',
           display: 'block',
           filter: inverted ? 'invert(1) brightness(2)' : 'none',
