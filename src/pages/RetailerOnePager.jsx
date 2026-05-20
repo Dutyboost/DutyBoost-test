@@ -116,9 +116,8 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="36" height="22" viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 32 Q15 28 25 20 Q35 12 52 4" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                    <polyline points="44,2 53,4 51,13" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                  <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 90 C20 85 35 70 50 50 C65 30 75 15 85 8 L72 6 L85 8 L83 21" stroke="#16a34a" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
