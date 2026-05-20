@@ -116,18 +116,16 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="60" height="60" viewBox="0 0 130 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   {/* escalator steps going up-right */}
-                   <line x1="8"  y1="100" x2="8"  y2="80" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="8"  y1="80"  x2="32" y2="80" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="32" y1="80"  x2="32" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="32" y1="58"  x2="58" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="58" y1="58"  x2="58" y2="36" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="58" y1="36"  x2="82" y2="36" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                  <svg width="60" height="60" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   {/* 2-stair escalator */}
+                   <line x1="8"  y1="90" x2="8"  y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="8"  y1="58" x2="44" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="44" y1="58" x2="44" y2="26" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                   <line x1="44" y1="26" x2="78" y2="26" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
                    {/* arrowhead pointing right */}
-                   <polygon points="82,24 96,36 82,48" fill="#16a34a"/>
-                   {/* € sign — separated, top-left area */}
-                   <text x="48" y="18" fontSize="28" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="middle">€</text>
+                   <polygon points="78,14 94,26 78,38" fill="#16a34a"/>
+                   {/* € sign centred on the arrow line (y=26) */}
+                   <text x="94" y="26" fontSize="30" fontWeight="bold" fill="#16a34a" textAnchor="start" dominantBaseline="middle">€</text>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
