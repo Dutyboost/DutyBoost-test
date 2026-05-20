@@ -57,106 +57,15 @@ function DarkLanguageSwitcher({ currentLang, onSelect }) {
   );
 }
 
-const steps = [
-  {
-    number: 1,
-    actor: "Travel Partner",
-    subtext: "(Airline, OTA, Accommodation, Car Rental)",
-    color: "bg-blue-600",
-    lightColor: "bg-blue-50",
-    borderColor: "border-blue-200",
-    textColor: "text-blue-600",
-    emoji: "✈️🏨",
-    title: "Booking Confirmed",
-    description: "A traveller books a flight, hotel, or car rental through the Travel Partner's platform. The booking confirmation email automatically includes a personalised DutyCredit QR code — no extra steps, no manual work.",
-    highlight: "Booking confirmation email includes a personalised DutyCredit QR code.",
-    forRetailer: "This is how motivated shoppers are created before they even reach the airport.",
-    forPartner: "Every booking you confirm automatically triggers a DutyCredit for your traveller.",
-  },
-  {
-    number: 2,
-    actor: "Traveller",
-    subtext: "",
-    color: "bg-indigo-600",
-    lightColor: "bg-indigo-50",
-    borderColor: "border-indigo-200",
-    textColor: "text-indigo-600",
-    emoji: "📱",
-    title: "DutyCredit Received",
-    description: "The traveller receives a DutyCredit worth €5–€60 in their booking confirmation email. No app download, no registration. Just a QR code they can scan at the airport.",
-    highlight: "Traveller receives a DutyCredit worth €5–€60 instantly.",
-    forRetailer: "These are your incoming customers — pre-qualified, pre-motivated, and credit in hand.",
-    forPartner: "Your traveller gets a tangible reward tied to their booking with you.",
-  },
-  {
-    number: 3,
-    actor: "Airport Retailer",
-    subtext: "",
-    color: "bg-orange-500",
-    lightColor: "bg-orange-50",
-    borderColor: "border-orange-200",
-    textColor: "text-orange-600",
-    emoji: "🛍️",
-    title: "Traveller Visits the Store",
-    description: "The traveller visits a participating airport retailer and presents their DutyCredit QR code at checkout. The retailer scans it in seconds. The discount is automatically applied on purchases of €70 or more.",
-    highlight: "Traveller visits participating retailer → incremental sales generated.",
-    forRetailer: "One scan at checkout. No complex integration needed. You capture sales that would have walked past your door.",
-    forPartner: "Your traveller is now actively spending at the airport — thanks to the credit you gave them.",
-  },
-  {
-    number: 4,
-    actor: "DutyBoost",
-    subtext: "",
-    color: "bg-blue-700",
-    lightColor: "bg-blue-50",
-    borderColor: "border-blue-200",
-    textColor: "text-blue-700",
-    emoji: "⚡",
-    title: "Performance-Based Commission",
-    description: "DutyBoost receives a small performance-based commission from the retailer — only when a DutyCredit is successfully redeemed. The retailer pays nothing unless DutyBoost delivers an actual sale.",
-    highlight: "Retailer only pays upon a successful sale. Zero risk.",
-    forRetailer: "You only pay DutyBoost's 2.5% fee (max €25) when we actually deliver a sale. No sale, no fee.",
-    forPartner: "DutyBoost handles all operations — no cost to you, ever.",
-  },
-  {
-    number: 5,
-    actor: "Travel Partner",
-    subtext: "",
-    color: "bg-green-600",
-    lightColor: "bg-green-50",
-    borderColor: "border-green-200",
-    textColor: "text-green-600",
-    emoji: "💶",
-    title: "Revenue Share Flows Back",
-    description: "DutyBoost shares a portion of its commission revenue back to the Travel Partner. This creates a new passive income stream for the travel partner — earned automatically from every DutyCredit redemption linked to their bookings.",
-    highlight: "Revenue share flows back to the Travel Partner monthly.",
-    forRetailer: "Your purchases directly fund a commission stream for travel partners — strengthening the partnership network that sends you customers.",
-    forPartner: "You earn up to €5 per redemption, paid monthly by DutyBoost — out of our own fee, not from your traveller.",
-  },
-  {
-    number: 6,
-    actor: "Traveller",
-    subtext: "",
-    color: "bg-purple-600",
-    lightColor: "bg-purple-50",
-    borderColor: "border-purple-200",
-    textColor: "text-purple-600",
-    emoji: "🛍️❤️",
-    title: "Better Experience, More Engagement",
-    description: "The traveller enjoys a better shopping experience and more value. They associate this positive experience with the travel partner who gave them the DutyCredit. This drives more engagement, repeat bookings, and a stronger overall ecosystem.",
-    highlight: "More engagement → more bookings → stronger ecosystem.",
-    forRetailer: "Happy travellers come back — and they remember where they spent their DutyCredit.",
-    forPartner: "Travellers who feel rewarded book again. Your brand becomes the reason they loved their airport experience.",
-  },
+const STEP_STYLES = [
+  { color: "bg-blue-600", lightColor: "bg-blue-50", borderColor: "border-blue-200", textColor: "text-blue-600", emoji: "✈️🏨" },
+  { color: "bg-indigo-600", lightColor: "bg-indigo-50", borderColor: "border-indigo-200", textColor: "text-indigo-600", emoji: "📱" },
+  { color: "bg-orange-500", lightColor: "bg-orange-50", borderColor: "border-orange-200", textColor: "text-orange-600", emoji: "🛍️" },
+  { color: "bg-blue-700", lightColor: "bg-blue-50", borderColor: "border-blue-200", textColor: "text-blue-700", emoji: "⚡" },
+  { color: "bg-green-600", lightColor: "bg-green-50", borderColor: "border-green-200", textColor: "text-green-600", emoji: "💶" },
+  { color: "bg-purple-600", lightColor: "bg-purple-50", borderColor: "border-purple-200", textColor: "text-purple-600", emoji: "🛍️❤️" },
 ];
-
-const results = [
-  { icon: "💶", label: "Travellers save money" },
-  { icon: "📈", label: "Retailers increase revenue" },
-  { icon: "💰", label: "Travel partners generate passive income" },
-  { icon: "⚡", label: "DutyBoost scales the ecosystem" },
-  { icon: "👥", label: "More travellers engage and spend" },
-];
+const RESULT_ICONS = ["💶", "📈", "💰", "⚡", "👥"];
 
 const SUPPORTED_LANGS = ["en", "nl", "fr", "de", "es", "it"];
 
@@ -181,6 +90,26 @@ export default function CircularRevenueFlow() {
 
   const [currentStep, setCurrentStep] = useState(0); // 0 = intro, 1-6 = steps, 7 = result
   const [audience, setAudience] = useState(null); // "retailer" | "partner"
+
+  const { t } = useTranslation();
+
+  // Build translated steps and results from locale keys
+  const steps = STEP_STYLES.map((style, i) => ({
+    number: i + 1,
+    actor: t(`circularFlow.step${i + 1}_title`),
+    subtext: i === 0 ? "(Airline, OTA, Accommodation, Car Rental)" : "",
+    ...style,
+    title: t(`circularFlow.step${i + 1}_title`),
+    description: t(`circularFlow.step${i + 1}_desc`),
+    highlight: t(`circularFlow.step${i + 1}_desc`),
+    forRetailer: t(`circularFlow.step${i + 1}_desc`),
+    forPartner: t(`circularFlow.step${i + 1}_desc`),
+  }));
+
+  const results = RESULT_ICONS.map((icon, i) => ({
+    icon,
+    label: t(`circularFlow.r${i + 1}`),
+  }));
 
   const [exportingPptx, setExportingPptx] = useState(false);
   const [exportingPdf, setExportingPdf] = useState(false);
@@ -270,11 +199,10 @@ export default function CircularRevenueFlow() {
                 Interactive Presentation
               </div>
               <h1 className="text-4xl sm:text-5xl font-heading font-bold text-white leading-tight">
-                DutyBoost Circular<br />
-                <span className="text-blue-400">Revenue Flow</span>
+                {t('circularFlow.title')}
               </h1>
               <p className="text-white/60 text-lg max-w-xl mx-auto">
-                A self-reinforcing revenue ecosystem that creates value for travellers, retailers, and travel partners.
+                {t('circularFlow.subtitle')}
               </p>
             </div>
 
@@ -286,23 +214,23 @@ export default function CircularRevenueFlow() {
                   className={`px-8 py-5 rounded-2xl border-2 transition-all text-left ${audience === "retailer" ? "border-orange-400 bg-orange-500/20" : "border-white/20 bg-white/5 hover:border-orange-400/50 hover:bg-orange-500/10"}`}
                 >
                   <div className="text-2xl mb-1">🛍️</div>
-                  <div className="text-white font-semibold text-lg">Airport Retailer</div>
-                  <div className="text-white/50 text-sm mt-1">See how DutyBoost drives customers to your store</div>
+                  <div className="text-white font-semibold text-lg">{t('stakeholders.retailers.title')}</div>
+                  <div className="text-white/50 text-sm mt-1">{t('stakeholders.retailers.b1')}</div>
                 </button>
                 <button
                   onClick={() => { setAudience("partner"); goNext(); }}
                   className={`px-8 py-5 rounded-2xl border-2 transition-all text-left ${audience === "partner" ? "border-green-400 bg-green-500/20" : "border-white/20 bg-white/5 hover:border-green-400/50 hover:bg-green-500/10"}`}
                 >
                   <div className="text-2xl mb-1">✈️</div>
-                  <div className="text-white font-semibold text-lg">Travel Partner</div>
-                  <div className="text-white/50 text-sm mt-1">See how every booking earns you passive revenue</div>
+                  <div className="text-white font-semibold text-lg">{t('stakeholders.agencies.title')}</div>
+                  <div className="text-white/50 text-sm mt-1">{t('stakeholders.agencies.b3')}</div>
                 </button>
               </div>
               <p className="text-white/30 text-xs">You can also just click Next to proceed without selecting</p>
             </div>
 
             <Button onClick={goNext} size="lg" className="bg-blue-600 hover:bg-blue-500 text-white gap-2 px-8">
-              Start Presentation <ArrowRight className="w-4 h-4" />
+              {t('common.continue')} <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         )}
@@ -355,7 +283,7 @@ export default function CircularRevenueFlow() {
                 {audience && (
                   <div className={`rounded-2xl ${step.lightColor} border-2 ${step.borderColor} p-5`}>
                     <div className={`text-xs uppercase tracking-widest ${step.textColor} mb-2 font-bold`}>
-                      {audience === "retailer" ? "🛍️ What this means for you as a Retailer" : "✈️ What this means for you as a Travel Partner"}
+                      {audience === "retailer" ? `🛍️ ${t('stakeholders.retailers.title')}` : `✈️ ${t('stakeholders.agencies.title')}`}
                     </div>
                     <p className="text-slate-800 font-medium">
                       {audience === "retailer" ? step.forRetailer : step.forPartner}
@@ -384,13 +312,12 @@ export default function CircularRevenueFlow() {
           <div className="max-w-3xl mx-auto text-center space-y-10">
             <div className="space-y-3">
               <div className="inline-block px-4 py-1.5 rounded-full bg-green-500/20 text-green-300 text-sm font-medium border border-green-500/30 mb-2">
-                Result
+                {t('circularFlow.result_label')}
               </div>
               <h2 className="text-4xl font-heading font-bold text-white">
-                A Self-Reinforcing<br />
-                <span className="text-green-400">Revenue Ecosystem</span>
+                {t('circularFlow.title')}
               </h2>
-              <p className="text-white/60 text-lg">Everyone wins — and the cycle keeps growing.</p>
+              <p className="text-white/60 text-lg">{t('circularFlow.subtitle')}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center">
@@ -408,16 +335,16 @@ export default function CircularRevenueFlow() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
-              <h3 className="text-white text-xl font-bold">Ready to join the ecosystem?</h3>
+              <h3 className="text-white text-xl font-bold">{t('cta.title')}</h3>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/get-started">
                   <Button className="bg-blue-600 hover:bg-blue-500 text-white gap-2 px-6">
-                    Get Started <ArrowRight className="w-4 h-4" />
+                    {t('cta.button')} <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
                 <Link to="/request-demo">
                   <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 px-6">
-                    Request a Demo
+                    {t('requestdemo.badge')}
                   </Button>
                 </Link>
               </div>
@@ -434,7 +361,7 @@ export default function CircularRevenueFlow() {
           variant="ghost"
           className="text-white/60 hover:text-white disabled:opacity-30 gap-2"
         >
-          <ArrowLeft className="w-4 h-4" /> Previous
+          <ArrowLeft className="w-4 h-4" /> {t('common.back')}
         </Button>
 
         {/* Progress dots */}
@@ -453,7 +380,7 @@ export default function CircularRevenueFlow() {
           disabled={currentStep === totalSlides - 1}
           className="bg-blue-600 hover:bg-blue-500 text-white gap-2 disabled:opacity-30"
         >
-          Next <ArrowRight className="w-4 h-4" />
+          {t('common.continue')} <ArrowRight className="w-4 h-4" />
         </Button>
       </div>
     </div>
