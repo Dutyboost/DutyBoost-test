@@ -56,13 +56,13 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reizigers',
-        description: 'Geniet van een exclusieve korting bij je vertrekluchthaven — automatisch verdiend wanneer je een vlucht, accommodatie, autoverhuur of cruise boekt. Gebruik je DutyCredit op je vertrekluchthaven of bij aankomst op je bestemming. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
+        description: 'Geniet van een exclusieve korting bij je vertrekluchthaven — automatisch verdiend wanneer je een vlucht, accommodatie of autoverhuur boekt. Gebruik je DutyCredit op je vertrekluchthaven of bij aankomst op je bestemming. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
         b1: 'Directe mobiele DutyCredit',
         b2: 'Volledige korting bij één winkel',
         b3: 'Naadloze QR-ervaring',
       },
       retailers: {
-        title: 'Luchthaven/ Haven Retailpartners',
+        title: 'Luchthaven Retailpartners',
         description: 'Converteer passerende reizigers naar betalende klanten. Ontvang gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerde DutyCredit-incentive. Onze commissie geldt alleen wanneer een DutyCredit daadwerkelijk wordt ingewisseld — je betaalt niets tenzij wij een verkoop leveren.',
         b1: 'Hogere winkelconversie',
         b2: 'Realtime QR-inwisseling',
