@@ -127,9 +127,7 @@ export default function RetailerOnePager() {
                     {/* bold upward arrow — line goes bottom-left to top-right */}
                     <polyline points="14,88 35,70 55,76 78,50" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                     <polyline points="14,88 35,70 55,76 78,50" stroke="#c2410c" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                    {/* arrowhead pointing up-right: tip at 78,50, base behind-left */}
-                    <polygon points="78,50 64,54 68,40" fill="white"/>
-                    <polygon points="78,50 65,53 69,41" fill="#c2410c"/>
+
                     {/* € coin floating top-right — bigger */}
                     <circle cx="88" cy="22" r="20" fill="#ea580c"/>
                     <text x="88" y="22" fontSize="22" fontWeight="bold" fill="white" textAnchor="middle" dominantBaseline="middle">€</text>
