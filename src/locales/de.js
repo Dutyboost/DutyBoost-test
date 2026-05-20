@@ -792,7 +792,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Vorbeilaufende Reisende in zahlende Kunden verwandeln — automatisch',
-      subtitle: 'DutyBoost schickt kaufbereite Reisende direkt in Ihr Geschäft mit einem personalisierten DutyCredit. Reisende erhalten zwischen €5 und €60 Rabatt bei einem Mindesteinkauf von €70. Sie zahlen nur Provision, wenn tatsächlich ein Verkauf stattfindet.',
+      subtitle: 'DutyBoost schickt kaufbereite Reisende direkt in Ihr Geschäft mit einem personalisierten DutyCredit. Je mehr sie ausgeben, desto höher der Rabatt — von €5 ab €70 bis €60 ab €300+. Sie zahlen nur Provision, wenn tatsächlich ein Verkauf stattfindet.',
       s1_title: '01 — Warum DutyBoost für Flughafenhändler wichtig ist',
       why1_title: 'Die meisten Reisenden gehen vorbei, ohne zu kaufen',
       why1_desc: 'Flughafenbesucherströme sind hoch, aber die Conversion ist gering. Reisende brauchen einen überzeugenden Grund zum Eintreten und Kaufen. DutyBoost liefert genau das.',

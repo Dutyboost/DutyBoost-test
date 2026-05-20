@@ -638,7 +638,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Turn passing travellers into paying customers — automatically',
-      subtitle: 'DutyBoost sends high-intent travellers directly to your store with a personalised DutyCredit. Travellers get between €5 and €60 discount with a minimum spend of €70. You only pay commission when a sale actually takes place.',
+      subtitle: 'DutyBoost sends high-intent travellers directly to your store with a personalised DutyCredit. The more they spend, the higher the discount — from €5 at €70 to €60 at €300+. You only pay commission when a sale actually takes place.',
       s1_title: '01 — Why DutyBoost Matters for Airport Retailers',
       why1_title: 'Most travellers walk past without buying',
       why1_desc: 'Airport footfall is high but conversion is low. Travellers need a compelling reason to stop, enter, and spend. DutyBoost provides exactly that — a personalised discount incentive tied to their trip.',

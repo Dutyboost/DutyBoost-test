@@ -808,7 +808,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Trasformare i viaggiatori di passaggio in clienti paganti — automaticamente',
-      subtitle: "DutyBoost invia viaggiatori ad alta intenzione direttamente nel tuo negozio con un DutyCredit personalizzato. I viaggiatori ottengono tra €5 e €60 di sconto con una spesa minima di €70. Paghi commissione solo quando avviene effettivamente una vendita.",
+      subtitle: "DutyBoost invia viaggiatori ad alta intenzione direttamente nel tuo negozio con un DutyCredit personalizzato. Più spendono, più alto è lo sconto — da €5 a partire da €70 fino a €60 a partire da €300+. Paghi commissione solo quando avviene effettivamente una vendita.",
       s1_title: '01 — Perché DutyBoost è importante per i rivenditori aeroportuali',
       why1_title: 'La maggior parte dei viaggiatori passa senza comprare',
       why1_desc: 'Il traffico aeroportuale è alto ma la conversione è bassa. I viaggiatori hanno bisogno di un motivo convincente per fermarsi, entrare e spendere. DutyBoost fornisce esattamente quello.',
