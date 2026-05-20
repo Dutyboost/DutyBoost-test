@@ -58,7 +58,7 @@ function DarkLanguageSwitcher({ currentLang, onSelect }) {
 }
 
 const STEP_STYLES = [
-  { color: "bg-blue-600", lightColor: "bg-blue-50", borderColor: "border-blue-200", textColor: "text-blue-600", emoji: "✈️🏨" },
+  { color: "bg-blue-600", lightColor: "bg-blue-50", borderColor: "border-blue-200", textColor: "text-blue-600", emoji: "✈️🏨🚗" },
   { color: "bg-indigo-600", lightColor: "bg-indigo-50", borderColor: "border-indigo-200", textColor: "text-indigo-600", emoji: "📱" },
   { color: "bg-orange-500", lightColor: "bg-orange-50", borderColor: "border-orange-200", textColor: "text-orange-600", emoji: "🛍️" },
   { color: "bg-blue-700", lightColor: "bg-blue-50", borderColor: "border-blue-200", textColor: "text-blue-700", emoji: "⚡" },
