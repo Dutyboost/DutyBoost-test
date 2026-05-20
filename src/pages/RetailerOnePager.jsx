@@ -110,37 +110,35 @@ export default function RetailerOnePager() {
             <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-1 text-orange-700 uppercase tracking-wide">{t('retaileronepager.s3_title')}</h2>
             <div className="grid grid-cols-3 gap-2">
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat1_value')}</p>
-                <p className="font-semibold text-xs">{t('retaileronepager.stat1_label')}</p>
+                <div className="flex items-end justify-center h-14">
+                  <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat1_value')}</p>
+                </div>
+                <p className="font-semibold text-xs mt-1">{t('retaileronepager.stat1_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat1_desc')}</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <div className="flex justify-center mb-1">
+                <div className="flex items-end justify-center h-14">
                   <svg width="52" height="52" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* shadow under bars */}
                     <ellipse cx="55" cy="103" rx="32" ry="4" fill="#00000015"/>
-                    {/* 4 bars growing in height — smaller/tighter */}
                     <rect x="12" y="72" width="13" height="28" fill="#fdba7480" rx="2"/>
                     <rect x="28" y="58" width="13" height="42" fill="#f9731680" rx="2"/>
                     <rect x="44" y="64" width="13" height="36" fill="#ea580c80" rx="2"/>
                     <rect x="60" y="46" width="13" height="54" fill="#c2410c99" rx="2"/>
-                    {/* bold upward arrow — line goes bottom-left to top-right */}
                     <polyline points="14,88 35,70 55,76 78,50" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                     <polyline points="14,88 35,70 55,76 78,50" stroke="#c2410c" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-
-                    {/* € coin floating top-right — bigger */}
                     <circle cx="88" cy="22" r="20" fill="#ea580c"/>
                     <text x="88" y="22" fontSize="22" fontWeight="bold" fill="white" textAnchor="middle" dominantBaseline="middle">€</text>
-                    {/* shadow under coin */}
                     <ellipse cx="88" cy="44" rx="14" ry="4" fill="#00000018"/>
                   </svg>
                 </div>
-                <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
+                <p className="font-semibold text-xs mt-1">{t('retaileronepager.stat2_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat2_desc')}</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat3_value')}</p>
-                <p className="font-semibold text-xs">{t('retaileronepager.stat3_label')}</p>
+                <div className="flex items-end justify-center h-14">
+                  <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat3_value')}</p>
+                </div>
+                <p className="font-semibold text-xs mt-1">{t('retaileronepager.stat3_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat3_desc')}</p>
               </div>
             </div>
