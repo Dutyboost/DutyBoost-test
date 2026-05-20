@@ -97,7 +97,7 @@ export default function CircularRevenueFlow() {
   const steps = STEP_STYLES.map((style, i) => ({
     number: i + 1,
     actor: t(`circularFlow.step${i + 1}_title`),
-    subtext: i === 0 ? "(Airline, OTA, Accommodation, Car Rental)" : "",
+    subtext: i === 0 ? t('circularFlow.step1_subtext') : "",
     ...style,
     title: t(`circularFlow.step${i + 1}_title`),
     description: t(`circularFlow.step${i + 1}_desc`),
@@ -168,7 +168,7 @@ export default function CircularRevenueFlow() {
             className="text-white/60 hover:text-white gap-1.5"
           >
             <Download className="w-3.5 h-3.5" />
-            {exportingPptx ? "Exporting…" : "PPTX"}
+            {exportingPptx ? t('circularFlow.exporting') : "PPTX"}
           </Button>
           <Button
             variant="ghost"
@@ -178,11 +178,11 @@ export default function CircularRevenueFlow() {
             className="text-white/60 hover:text-white gap-1.5"
           >
             <FileText className="w-3.5 h-3.5" />
-            {exportingPdf ? "Exporting…" : "PDF"}
+            {exportingPdf ? t('circularFlow.exporting') : "PDF"}
           </Button>
           <Link to="/">
             <Button variant="ghost" size="sm" className="text-white/60 hover:text-white">
-              ← Back
+              ← {t('common.back')}
             </Button>
           </Link>
         </div>
@@ -196,7 +196,7 @@ export default function CircularRevenueFlow() {
           <div className="max-w-3xl mx-auto text-center space-y-10">
             <div className="space-y-4">
               <div className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium border border-blue-500/30 mb-2">
-                Interactive Presentation
+                {t('circularFlow.badge')}
               </div>
               <h1 className="text-4xl sm:text-5xl font-heading font-bold text-white leading-tight">
                 {t('circularFlow.title')}
@@ -207,7 +207,7 @@ export default function CircularRevenueFlow() {
             </div>
 
             <div className="space-y-4">
-              <p className="text-white/50 text-sm uppercase tracking-widest">I am viewing this as a</p>
+              <p className="text-white/50 text-sm uppercase tracking-widest">{t('circularFlow.viewing_as')}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => { setAudience("retailer"); goNext(); }}
@@ -226,7 +226,7 @@ export default function CircularRevenueFlow() {
                   <div className="text-white/50 text-sm mt-1">{t('stakeholders.agencies.b3')}</div>
                 </button>
               </div>
-              <p className="text-white/30 text-xs">You can also just click Next to proceed without selecting</p>
+              <p className="text-white/30 text-xs">{t('circularFlow.skip_hint')}</p>
             </div>
 
             <Button onClick={goNext} size="lg" className="bg-blue-600 hover:bg-blue-500 text-white gap-2 px-8">
@@ -257,7 +257,7 @@ export default function CircularRevenueFlow() {
                     {step.number}
                   </div>
                   <div>
-                    <div className="text-white/40 text-sm uppercase tracking-widest">Step {step.number} of 6</div>
+                    <div className="text-white/40 text-sm uppercase tracking-widest">{t('circularFlow.step_of', { n: step.number, total: 6 })}</div>
                     <h2 className="text-white text-2xl font-heading font-bold">{step.title}</h2>
                   </div>
                 </div>
@@ -269,7 +269,7 @@ export default function CircularRevenueFlow() {
                 </div>
 
                 <div className={`rounded-xl border ${step.borderColor} bg-white/5 p-4`}>
-                  <div className={`text-xs uppercase tracking-widest ${step.textColor} mb-2 font-semibold`}>Key Takeaway</div>
+                  <div className={`text-xs uppercase tracking-widest ${step.textColor} mb-2 font-semibold`}>{t('circularFlow.key_takeaway')}</div>
                   <p className="text-white font-medium">{step.highlight}</p>
                 </div>
               </div>
