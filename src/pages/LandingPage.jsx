@@ -14,6 +14,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
+import CircularFlowSection from "../components/CircularFlowSection";
 
 export default function LandingPage() {
   const { t } = useTranslation();
@@ -180,6 +181,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Circular Flow */}
+      <CircularFlowSection />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
