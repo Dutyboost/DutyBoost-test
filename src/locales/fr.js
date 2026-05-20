@@ -820,7 +820,7 @@ export default {
       stat2_desc: "Les titulaires de DutyCredit dépensent considérablement plus grâce à la pré-activation et au seuil d'achat minimum de €70.",
       stat3_value: "+€300K–€400K",
       stat3_label: "revenus annuels par magasin",
-      stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €65 net/panier (€70 min. dépense − €5 remise) × 365 jours = ~€355K de revenus nets supplémentaires par magasin par an.",
+      stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €65 net/panier (€70 min. dépense − €5 remise) × 365 jours = environ €355K de revenus nets supplémentaires par magasin par an.",
       benefit1_title: "🛍️ Plus de ventes de voyageurs qui n'achèteraient pas autrement",
       benefit1_desc: "L'intention pré-activée stimule les achats d'impulsion — vous capturez les ventes qui auraient autrement passé à côté.",
       benefit2_title: "📊 Valeur de transaction plus élevée",

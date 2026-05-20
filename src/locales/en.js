@@ -666,7 +666,7 @@ export default {
       stat2_desc: 'DutyCredit holders spend significantly more due to pre-activation and minimum €70 purchase threshold.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'annual revenue per store',
-      stat3_desc: '100 DutyCredit holders/day × 15% conversion × €65 net basket (€70 min spend − €5 discount) × 365 days = ~€355K incremental net revenue per store per year.',
+      stat3_desc: '100 DutyCredit holders/day × 15% conversion × €65 net basket (€70 min spend − €5 discount) × 365 days = approximately €355K incremental net revenue per store per year.',
       benefit1_title: "🛍️ More sales from travellers who wouldn't buy",
       benefit1_desc: 'Pre-activated intent drives impulse purchases — you capture sales that would have walked past your store without DutyBoost.',
       benefit2_title: '📊 Higher transaction value',

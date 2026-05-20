@@ -836,7 +836,7 @@ export default {
       stat2_desc: 'I detentori di DutyCredit spendono significativamente di più grazie alla pre-attivazione e alla soglia minima di €70.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'ricavi aggiuntivi per negozio all\'anno',
-      stat3_desc: '100 titolari DutyCredit/giorno × 15% conversione × €65 netto/carrello (€70 spesa min. − €5 sconto) × 365 giorni = ~€355K ricavi netti incrementali per negozio per anno.',
+      stat3_desc: '100 titolari DutyCredit/giorno × 15% conversione × €65 netto/carrello (€70 spesa min. − €5 sconto) × 365 giorni = circa €355K ricavi netti incrementali per negozio per anno.',
       benefit1_title: '🛍️ Più vendite da viaggiatori che non comprerebbero altrimenti',
       benefit1_desc: 'L\'intenzione pre-attivata genera acquisti d\'impulso — catturi vendite che altrimenti sarebbero passate davanti al tuo negozio.',
       benefit2_title: '📊 Valore di transazione più elevato',

@@ -761,7 +761,7 @@ export default {
       stat2_desc: 'DutyCredit-houders besteden aanzienlijk meer door vooractivering en de minimale aankoop van €70.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'extra omzet per winkel per jaar',
-      stat3_desc: '100 DutyCredit-houders/dag × 15% conversie × €65 netto mand (€70 min. besteding − €5 korting) × 365 dagen = ~€355K incrementele netto-omzet per winkel per jaar.',
+      stat3_desc: '100 DutyCredit-houders/dag × 15% conversie × €65 netto mand (€70 min. besteding − €5 korting) × 365 dagen = circa €355K incrementele netto-omzet per winkel per jaar.',
       benefit1_title: '🛍️ Meer verkopen van reizigers die anders niet zouden kopen',
       benefit1_desc: 'Voorgeactiveerde koopintentie drijft impulsaankopen — je pakt verkopen die anders voorbij je winkel zouden zijn gelopen.',
       benefit2_title: '📊 Hogere transactiewaarde',

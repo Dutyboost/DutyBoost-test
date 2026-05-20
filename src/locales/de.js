@@ -820,7 +820,7 @@ export default {
       stat2_desc: 'DutyCredit-Inhaber geben deutlich mehr aus, dank Voraktivierung und dem Mindesteinkauf von €70.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'zusätzlicher Umsatz pro Geschäft im Jahr',
-      stat3_desc: '100 DutyCredit-Inhaber/Tag × 15% Konversion × €65 Netto/Korb (€70 Mindestausgabe − €5 Rabatt) × 365 Tage = ~€355K inkrementeller Nettoumsatz pro Geschäft pro Jahr.',
+      stat3_desc: '100 DutyCredit-Inhaber/Tag × 15% Konversion × €65 Netto/Korb (€70 Mindestausgabe − €5 Rabatt) × 365 Tage = etwa €355K inkrementeller Nettoumsatz pro Geschäft pro Jahr.',
       benefit1_title: '🛍️ Mehr Verkäufe von Reisenden, die sonst nicht kaufen würden',
       benefit1_desc: 'Voraktivierte Kaufabsicht treibt Impulskäufe — Sie sichern Verkäufe, die sonst an Ihrem Geschäft vorbeigegangen wären.',
       benefit2_title: '📊 Höherer Transaktionswert',
