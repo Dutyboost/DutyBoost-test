@@ -112,7 +112,7 @@ export default function LandingPage() {
               {t('hero.title_2')}
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
+          <p className="text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
         </div>
       </section>
 
@@ -121,7 +121,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 space-y-4">
             <h2 className="text-4xl font-heading font-bold">{t('ecosystem.title')}</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {stakeholders.map((s) => {
@@ -153,11 +153,11 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
-                  <h3 className="font-heading font-bold text-xl mb-3">{title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{description}</p>
+                  <h3 className="font-heading font-bold text-2xl mb-3">{title}</h3>
+                  <p className="text-muted-foreground text-base leading-relaxed mb-5">{description}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-sm">
+                      <li key={b} className="flex items-center gap-2 text-base">
                         <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
                         {b}
                       </li>
@@ -193,7 +193,7 @@ export default function LandingPage() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative space-y-6">
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">{t('cta.description')}</p>
+              <p className="text-primary-foreground/80 text-xl max-w-xl mx-auto">{t('cta.description')}</p>
               <Link to="/get-started">
                 <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
                   {t('cta.button')} <ArrowRight className="w-4 h-4" />
