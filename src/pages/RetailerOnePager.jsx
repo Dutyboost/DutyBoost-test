@@ -116,7 +116,7 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="52" height="52" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="60" height="60" viewBox="0 0 130 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                    {/* escalator steps going up-right */}
                    <line x1="8"  y1="100" x2="8"  y2="80" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
                    <line x1="8"  y1="80"  x2="32" y2="80" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
@@ -126,8 +126,8 @@ export default function RetailerOnePager() {
                    <line x1="58" y1="36"  x2="82" y2="36" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
                    {/* arrowhead pointing right */}
                    <polygon points="82,24 96,36 82,48" fill="#16a34a"/>
-                   {/* € sign centered above arrow */}
-                   <text x="89" y="26" fontSize="28" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="middle">€</text>
+                   {/* € sign — separated, top-left area */}
+                   <text x="48" y="18" fontSize="28" fontWeight="bold" fill="#16a34a" textAnchor="middle" dominantBaseline="middle">€</text>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
