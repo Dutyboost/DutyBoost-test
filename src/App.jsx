@@ -99,6 +99,7 @@ import AirportRetailerPresentationDark from './pages/AirportRetailerPresentation
 import TravelPartnerPresentationDark from './pages/TravelPartnerPresentationDark';
 import SchipholRetailerPresentation from './pages/SchipholRetailerPresentation';
 import MagicLinkLogin from './pages/MagicLinkLogin';
+import CircularRevenueFlow from './pages/CircularRevenueFlow';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -204,6 +205,7 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-presentation-dark" element={<TravelPartnerPresentationDark />} />
         <Route path="/schiphol-retailer-presentation" element={<SchipholRetailerPresentation />} />
         <Route path="/login" element={<MagicLinkLogin />} />
+        <Route path="/circular-revenue-flow" element={<CircularRevenueFlow />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
