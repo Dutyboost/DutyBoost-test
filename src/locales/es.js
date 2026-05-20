@@ -568,7 +568,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Convierte a los viajeros que pasan en clientes que compran — automáticamente',
-      subtitle: 'DutyBoost envía compradores precalificados y con alta intención directamente a tu tienda con un crédito de gasto personalizado. Los viajeros reciben entre €5 y hasta €60 de descuento según su gasto, con una compra mínima de €70. Solo pagas el 2,5% (máx. €25) cuando generamos una venta.',
+      subtitle: 'DutyBoost envía viajeros con alta intención directamente a tu tienda con un DutyCredit personalizado. Los viajeros obtienen entre €5 y €60 de descuento con un gasto mínimo de €70. Solo pagas comisión cuando se produce una venta real.',
       s1_title: '01 — Por qué DutyBoost importa para los minoristas aeroportuarios',
       why1_title: 'La mayoría de los viajeros pasan sin comprar',
       why1_desc: 'El tráfico aeroportuario es alto pero la conversión es baja. Los viajeros necesitan un motivo convincente para detenerse, entrar y gastar. DutyBoost lo proporciona — un incentivo de descuento personalizado vinculado a su viaje.',

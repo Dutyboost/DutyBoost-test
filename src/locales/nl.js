@@ -733,7 +733,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Passerende reizigers omzetten in betalende klanten — automatisch',
-      subtitle: 'DutyBoost stuurt voorgeselecteerde, koopgerichte shoppers rechtstreeks naar je winkel via een gepersonaliseerd DutyCredit-tegoed. Reizigers ontvangen tussen de €5 en maximaal €60 korting, afhankelijk van hoeveel ze uitgeven, bij een minimale besteding van €70. Jij betaalt alleen 2,5% commissie (maximaal €25 per transactie) wanneer wij daadwerkelijk een verkoop realiseren.',
+      subtitle: 'DutyBoost stuurt koopgerichte reizigers rechtstreeks naar je winkel met een gepersonaliseerd DutyCredit. Reizigers krijgen tussen de €5 en €60 korting bij een minimale besteding van €70. Jij betaalt alleen commissie wanneer er daadwerkelijk een verkoop plaatsvindt.',
       s1_title: '01 — Waarom DutyBoost belangrijk is voor luchthavenwinkeliers',
       why1_title: 'De meeste reizigers lopen voorbij zonder te kopen',
       why1_desc: 'Luchthavenbezoek is hoog maar conversie is laag. Reizigers hebben een overtuigende reden nodig om te stoppen, binnen te komen en te besteden. DutyBoost biedt precies dat.',
