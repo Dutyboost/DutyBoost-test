@@ -116,16 +116,17 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="36" height="36" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   {/* 2-stair escalator */}
-                   <line x1="8"  y1="90" x2="8"  y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="8"  y1="58" x2="44" y2="58" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="44" y1="58" x2="44" y2="26" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   <line x1="44" y1="26" x2="78" y2="26" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
-                   {/* arrowhead pointing right */}
-                   <polygon points="78,14 94,26 78,38" fill="#16a34a"/>
-                   {/* € sign centred on the arrow line (y=26) */}
-                   <text x="94" y="26" fontSize="30" fontWeight="bold" fill="#16a34a" textAnchor="start" dominantBaseline="middle">€</text>
+                  <svg width="36" height="36" viewBox="0 0 140 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* 2-stair escalator — last segment angles up */}
+                  <line x1="8"  y1="95" x2="8"  y2="62" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                  <line x1="8"  y1="62" x2="44" y2="62" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                  <line x1="44" y1="62" x2="44" y2="30" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                  {/* diagonal line going up-right */}
+                  <line x1="44" y1="30" x2="88" y2="8" stroke="#16a34a" strokeWidth="7" strokeLinecap="round"/>
+                  {/* arrowhead pointing up-right */}
+                  <polygon points="88,8 104,18 80,24" fill="#16a34a"/>
+                  {/* € sign — same visual weight as % in sibling box */}
+                  <text x="108" y="13" fontSize="22" fontWeight="bold" fill="#16a34a" textAnchor="start" dominantBaseline="middle">€</text>
                   </svg>
                 </div>
                 <p className="font-semibold text-xs">{t('retaileronepager.stat2_label')}</p>
