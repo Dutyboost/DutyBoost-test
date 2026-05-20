@@ -206,6 +206,7 @@ const AuthenticatedApp = () => {
         <Route path="/schiphol-retailer-presentation" element={<SchipholRetailerPresentation />} />
         <Route path="/login" element={<MagicLinkLogin />} />
         <Route path="/circular-revenue-flow" element={<CircularRevenueFlow />} />
+        <Route path="/circular-revenue-flow/:lang" element={<CircularRevenueFlow />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />

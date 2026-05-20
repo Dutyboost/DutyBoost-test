@@ -1,11 +1,61 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft, ChevronRight, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { exportCircularFlowPptx } from "../utils/exportCircularFlowPptx";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import LanguageSwitcher from "../components/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+
+const LANGS = [
+  { code: "en", flag: "🇬🇧" },
+  { code: "nl", flag: "🇳🇱" },
+  { code: "fr", flag: "🇫🇷" },
+  { code: "de", flag: "🇩🇪" },
+  { code: "es", flag: "🇪🇸" },
+  { code: "it", flag: "🇮🇹" },
+];
+
+function DarkLanguageSwitcher({ currentLang, onSelect }) {
+  const [open, setOpen] = useState(false);
+  const ref = useState(null);
+  const current = LANGS.find((l) => l.code === (currentLang || "en")) || LANGS[0];
+
+  useEffect(() => {
+    const handler = (e) => { if (ref[0] && !ref[0].contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div className="relative" ref={(el) => { ref[0] = el; }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors px-2 py-1 rounded-md hover:bg-white/10"
+      >
+        <span>{current.flag}</span>
+        <span className="uppercase font-medium">{current.code}</span>
+        <ChevronRight className={`w-3 h-3 transition-transform ${open ? "rotate-90" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute right-0 mt-1 w-28 bg-slate-800 border border-white/10 rounded-lg shadow-xl z-50 py-1 overflow-hidden">
+          {LANGS.map((l) => (
+            <button
+              key={l.code}
+              onClick={() => { onSelect(l.code); setOpen(false); }}
+              className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left transition-colors hover:bg-white/10 ${l.code === current.code ? "text-blue-400 font-semibold" : "text-white/70"}`}
+            >
+              <span>{l.flag}</span>
+              <span className="uppercase">{l.code}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 const steps = [
   {
@@ -108,7 +158,27 @@ const results = [
   { icon: "👥", label: "More travellers engage and spend" },
 ];
 
+const SUPPORTED_LANGS = ["en", "nl", "fr", "de", "es", "it"];
+
 export default function CircularRevenueFlow() {
+  const { lang } = useParams();
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
+
+  // Sync URL lang param → i18n on mount / param change
+  useEffect(() => {
+    if (lang && SUPPORTED_LANGS.includes(lang)) {
+      if (i18n.language !== lang) {
+        i18n.changeLanguage(lang);
+        localStorage.setItem("i18nextLng", lang);
+      }
+    } else if (!lang) {
+      // No lang in URL — redirect to current language
+      const currentLang = SUPPORTED_LANGS.includes(i18n.language) ? i18n.language : "en";
+      navigate(`/circular-revenue-flow/${currentLang}`, { replace: true });
+    }
+  }, [lang]);
+
   const [currentStep, setCurrentStep] = useState(0); // 0 = intro, 1-6 = steps, 7 = result
   const [audience, setAudience] = useState(null); // "retailer" | "partner"
 
@@ -120,6 +190,10 @@ export default function CircularRevenueFlow() {
 
   const goNext = () => setCurrentStep((s) => Math.min(s + 1, totalSlides - 1));
   const goPrev = () => setCurrentStep((s) => Math.max(s - 1, 0));
+
+  const handleLangChange = (code) => {
+    navigate(`/circular-revenue-flow/${code}`, { replace: true });
+  };
 
   const handleExportPptx = async () => {
     setExportingPptx(true);
@@ -154,8 +228,9 @@ export default function CircularRevenueFlow() {
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
         <DutyBoostLogo height={80} inverted />
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <span className="text-white/50 text-sm hidden sm:inline">{slideIndex} / {totalSlides - 1}</span>
+          <DarkLanguageSwitcher onSelect={handleLangChange} currentLang={lang || i18n.language} />
           <Button
             variant="ghost"
             size="sm"
