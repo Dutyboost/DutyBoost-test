@@ -116,18 +116,19 @@ export default function RetailerOnePager() {
               </div>
               <div className="border border-border rounded p-2 text-center">
                 <div className="flex justify-center mb-1">
-                  <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <line
-                     x1="10" y1="85"
-                     x2="85" y2="10"
+                  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <polyline
+                     points="5,85 25,60 42,72 62,38 78,50 95,12"
                      stroke="#16a34a"
-                     strokeWidth="10"
+                     strokeWidth="8"
                      strokeLinecap="round"
+                     strokeLinejoin="round"
+                     fill="none"
                    />
                    <polyline
-                     points="55,8 85,10 83,40"
+                     points="78,7 95,12 90,28"
                      stroke="#16a34a"
-                     strokeWidth="10"
+                     strokeWidth="8"
                      strokeLinecap="round"
                      strokeLinejoin="round"
                      fill="none"
