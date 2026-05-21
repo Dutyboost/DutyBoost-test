@@ -193,6 +193,12 @@ export default function CircularRevenueFlow() {
                     <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
                       <TravelAgencyIcon className="w-7 h-7 text-green-600" />
                     </div>
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                      <HotelIcon className="w-7 h-7 text-blue-600" />
+                    </div>
+                    <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center">
+                      <CarRentalIcon className="w-7 h-7 text-orange-600" />
+                    </div>
                   </div>
                   <p className="font-heading font-bold text-lg">{t("stakeholders.agencies.title")}</p>
                   <p className="text-muted-foreground text-sm mt-1">{t("stakeholders.agencies.b3")}</p>
