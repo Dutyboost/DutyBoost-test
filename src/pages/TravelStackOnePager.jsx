@@ -7,9 +7,6 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
-import TravelAgencyIcon from "../components/TravelAgencyIcon";
-import HotelIcon from "../components/HotelIcon";
-import CarRentalIcon from "../components/CarRentalIcon";
 
 const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)', width: '100%' }} />
@@ -18,7 +15,6 @@ const GradientDivider = () => (
 const getVerticals = (t) => [
   {
     key: "flight",
-    icon: TravelAgencyIcon,
     color: "#1A6BFF",
     bgColor: "#eff6ff",
     borderColor: "#bfdbfe",
@@ -32,7 +28,6 @@ const getVerticals = (t) => [
   },
   {
     key: "accommodation",
-    icon: HotelIcon,
     color: "#8b5cf6",
     bgColor: "#f5f3ff",
     borderColor: "#ddd6fe",
@@ -47,7 +42,6 @@ const getVerticals = (t) => [
   },
   {
     key: "car",
-    icon: CarRentalIcon,
     color: "#FF8000",
     bgColor: "#fff7ed",
     borderColor: "#fed7aa",
@@ -102,7 +96,6 @@ export default function TravelStackOnePager() {
         <div className="flex items-center gap-2">
           <span className="text-xs text-muted-foreground font-medium hidden sm:block">{t("travelstackonepager.select_verticals")}</span>
           {VERTICALS.map((v) => {
-            const Icon = v.icon;
             const isOn = selected[v.key];
             return (
               <button
@@ -114,7 +107,6 @@ export default function TravelStackOnePager() {
                 style={isOn ? { background: v.color, borderColor: v.color } : {}}
               >
                 {isOn && <Check className="w-3 h-3" />}
-                <Icon className="w-3 h-3" />
                 {v.label}
               </button>
             );
@@ -141,14 +133,7 @@ export default function TravelStackOnePager() {
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.programme_name")}
             </span>
-            <div className="flex items-center gap-1.5 justify-end mt-1">
-              {VERTICALS.map((v) => {
-                const Icon = v.icon;
-                return selected[v.key] ? (
-                  <Icon key={v.key} className="w-4 h-4" style={{ color: v.color, verticalAlign: "middle" }} />
-                ) : null;
-              })}
-            </div>
+
           </div>
         </div>
         <GradientDivider />
@@ -161,16 +146,12 @@ export default function TravelStackOnePager() {
             </h1>
             <div className="text-muted-foreground text-xs max-w-2xl mx-auto mt-0.5 flex flex-wrap items-center justify-center gap-x-1">
               <span>{t("travelstackonepager.subtitle_start")}</span>
-              {activeVerticals.map((v, i) => {
-                const Icon = v.icon;
-                return (
-                  <span key={v.key} className="inline-flex items-center gap-0.5 font-semibold" style={{ color: v.color }}>
-                    <Icon className="w-3 h-3 shrink-0" style={{ color: v.color }} />
-                    <span>{v.label}</span>
-                    {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;{t("travelstackonepager.and")}</span> : ""}
-                  </span>
-                );
-              })}
+              {activeVerticals.map((v, i) => (
+                <span key={v.key} className="inline-flex items-center gap-0.5 font-semibold" style={{ color: v.color }}>
+                  <span>{v.label}</span>
+                  {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;{t("travelstackonepager.and")}</span> : ""}
+                </span>
+              ))}
               <span>{t("travelstackonepager.subtitle_end")}</span>
             </div>
           </div>
@@ -203,12 +184,9 @@ export default function TravelStackOnePager() {
             </h2>
             <div className="mb-1"><GradientDivider /></div>
             <div className={`grid gap-1.5`} style={{ gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
-              {activeVerticals.map((v) => {
-                const Icon = v.icon;
-                return (
+              {activeVerticals.map((v) => (
                 <div key={v.key} className="rounded p-2 border" style={{ background: v.bgColor, borderColor: v.borderColor }}>
                   <div className="flex items-center gap-1 mb-1">
-                    <Icon className="w-4 h-4 shrink-0" style={{ color: v.color, verticalAlign: "middle" }} />
                     <span className="text-xs font-bold" style={{ color: v.color }}>{v.label}</span>
                     <span className="ml-auto text-xs font-semibold" style={{ color: v.color, fontSize: "9px" }}>
                       {v.credits}
@@ -233,8 +211,7 @@ export default function TravelStackOnePager() {
                     ))}
                   </div>
                 </div>
-                );
-              })}
+              ))}
             </div>
           </div>
 
