@@ -182,7 +182,7 @@ export default function TravelStackOnePager() {
                 { title: "One integration. Multiple verticals.", desc: "Connect once via our lightweight API or confirmation-email snippet. Every product you offer — flights, stays, rentals — automatically generates DutyCredits." },
                 { title: "New revenue stream on existing bookings", desc: "Every confirmed booking you already process has untapped commission potential. DutyBoost captures it automatically — no extra work from your team." },
                 { title: "Stronger customer loyalty across all services", desc: "Customers who receive a real, tangible airport perk with every booking associate that value with your brand — across every vertical you offer." },
-                { title: "Performance-based: zero cost if nothing redeems", desc: "DutyBoost is completely free for travel partners. Your commission is paid directly out of the platform fee we invoice participating airport retailers — not by you or your customer." },
+                { title: "Performance-based: zero cost if nothing redeems", desc: "DutyBoost is completely free for travel partners. Your commission is paid directly out of the platform fee we invoice participating airport retailers." },
               ].map((c) => (
                 <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
                   <p className="font-semibold text-xs mb-0.5">{c.title}</p>
