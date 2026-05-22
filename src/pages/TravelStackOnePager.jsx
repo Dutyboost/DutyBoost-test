@@ -15,19 +15,20 @@ const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)', width: '100%' }} />
 );
 
-const VERTICALS = [
+const getVerticals = (t) => [
   {
     key: "flight",
     icon: TravelAgencyIcon,
     color: "#1A6BFF",
     bgColor: "#eff6ff",
     borderColor: "#bfdbfe",
-    label: "✈️ Flight",
-    credits: "1 DutyCredit",
-    creditDesc: "at booking",
+    label: `✈️ ${t("travelstackonepager.flight_label")}`,
+    credits: t("travelstackonepager.flight_credits"),
     steps: [
-      { title: "At Booking", desc: "Guest receives a DutyCredit QR in their flight confirmation email." },
+      { title: t("travelstackonepager.at_booking"), desc: t("travelstackonepager.flight_step1_desc") },
     ],
+    stepAtAirport: t("travelstackonepager.step_at_airport"),
+    stepYouEarn: t("travelstackonepager.step_you_earn"),
   },
   {
     key: "accommodation",
@@ -35,13 +36,14 @@ const VERTICALS = [
     color: "#8b5cf6",
     bgColor: "#f5f3ff",
     borderColor: "#ddd6fe",
-    label: "🏨 Accommodation",
-    credits: "2 DutyCredits",
-    creditDesc: "at booking & check-out",
+    label: `🏨 ${t("travelstackonepager.accommodation_label")}`,
+    credits: t("travelstackonepager.accommodation_credits"),
     steps: [
-      { title: "At Booking", desc: "Guest receives a DutyCredit QR in their accommodation confirmation email." },
-      { title: "At Check-Out", desc: "A second DutyCredit is automatically sent in the check-out email." },
+      { title: t("travelstackonepager.at_booking"), desc: t("travelstackonepager.accommodation_step1_desc") },
+      { title: t("travelstackonepager.at_checkout"), desc: t("travelstackonepager.accommodation_step2_desc") },
     ],
+    stepAtAirport: t("travelstackonepager.step_at_airport"),
+    stepYouEarn: t("travelstackonepager.step_you_earn"),
   },
   {
     key: "car",
@@ -49,13 +51,14 @@ const VERTICALS = [
     color: "#FF8000",
     bgColor: "#fff7ed",
     borderColor: "#fed7aa",
-    label: "🚗 Car Rental",
-    credits: "2 DutyCredits",
-    creditDesc: "at booking & car return",
+    label: `🚗 ${t("travelstackonepager.car_label")}`,
+    credits: t("travelstackonepager.car_credits"),
     steps: [
-      { title: "At Booking", desc: "Customer receives a DutyCredit QR in their car rental confirmation email." },
-      { title: "At Car Return", desc: "A second DutyCredit is automatically sent in the car return email." },
+      { title: t("travelstackonepager.at_booking"), desc: t("travelstackonepager.car_step1_desc") },
+      { title: t("travelstackonepager.at_car_return"), desc: t("travelstackonepager.car_step2_desc") },
     ],
+    stepAtAirport: t("travelstackonepager.step_at_airport"),
+    stepYouEarn: t("travelstackonepager.step_you_earn"),
   },
 ];
 
@@ -63,6 +66,7 @@ export default function TravelStackOnePager() {
   const { t } = useTranslation();
   const [selected, setSelected] = useState({ flight: true, accommodation: true, car: true });
 
+  const VERTICALS = getVerticals(t);
   const activeVerticals = VERTICALS.filter((v) => selected[v.key]);
 
   const toggleVertical = (key) => {
@@ -96,7 +100,7 @@ export default function TravelStackOnePager() {
 
         {/* Vertical selector — only shows outside print */}
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium hidden sm:block">Select verticals:</span>
+          <span className="text-xs text-muted-foreground font-medium hidden sm:block">{t("travelstackonepager.select_verticals")}</span>
           {VERTICALS.map((v) => {
             const Icon = v.icon;
             const isOn = selected[v.key];
@@ -135,7 +139,7 @@ export default function TravelStackOnePager() {
           <DutyBoostLogo height={120} />
           <div className="text-right">
             <span className="text-xs font-bold uppercase tracking-widest" style={{ background: "linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              TravelStack Partner Programme
+              {t("travelstackonepager.programme_name")}
             </span>
             <div className="flex items-center gap-1.5 justify-end mt-1">
               {VERTICALS.map((v) => {
@@ -153,36 +157,36 @@ export default function TravelStackOnePager() {
           {/* Headline */}
           <div className="text-center py-2">
             <h1 className="text-base font-heading font-bold leading-tight">
-              Reward Your Customers at Every Touchpoint — and Earn a New Revenue Stream
+              {t("travelstackonepager.headline")}
             </h1>
             <p className="text-muted-foreground text-xs max-w-2xl mx-auto mt-0.5">
-              DutyBoost's TravelStack Programme lets{" "}
+              {t("travelstackonepager.subtitle_start")}{" "}
               {activeVerticals.map((v, i) => {
                 const Icon = v.icon;
                 return (
                   <span key={v.key} className="inline-flex items-center gap-0.5 font-semibold" style={{ color: v.color }}>
                     <Icon className="inline w-3 h-3" style={{ color: v.color }} />
                     {v.label.split(" ").slice(1).join(" ")}
-                    {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,&nbsp;</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;and&nbsp;</span> : ""}
+                    {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,&nbsp;</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;{t("travelstackonepager.and")}&nbsp;</span> : ""}
                   </span>
                 );
               })}{" "}
-              partners automatically deliver personalised DutyCredits to their customers — redeemable at airport retailers — and earn commission on every redemption. Zero cost. Zero effort. Pure upside.
+              {t("travelstackonepager.subtitle_end")}
             </p>
           </div>
 
           {/* Section 1 — Why */}
           <div className="py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#1A6BFF" }}>
-              01 — Why TravelStack Partners Should Join DutyBoost
+              {t("travelstackonepager.s1_title")}
             </h2>
             <div className="mb-1"><GradientDivider /></div>
             <div className="grid grid-cols-2 gap-1.5">
               {[
-                { title: "One integration. Multiple verticals.", desc: "Connect once via our lightweight API or confirmation-email snippet. Every product you offer — flights, stays, rentals — automatically generates DutyCredits." },
-                { title: "New revenue stream on existing bookings", desc: "Every confirmed booking you already process has untapped commission potential. DutyBoost captures it automatically — no extra work from your team." },
-                { title: "Stronger customer loyalty across all services", desc: "Customers who receive a real, tangible airport perk with every booking associate that value with your brand — across every vertical you offer." },
-                { title: "100% risk-free — you only earn, never pay", desc: "There is no subscription, no setup fee. DutyBoost is a pure upside for travel partners: you earn commission on every redemption, with zero financial exposure if none occur." },
+                { title: t("travelstackonepager.why1_title"), desc: t("travelstackonepager.why1_desc") },
+                { title: t("travelstackonepager.why2_title"), desc: t("travelstackonepager.why2_desc") },
+                { title: t("travelstackonepager.why3_title"), desc: t("travelstackonepager.why3_desc") },
+                { title: t("travelstackonepager.why4_title"), desc: t("travelstackonepager.why4_desc") },
               ].map((c) => (
                 <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
                   <p className="font-semibold text-xs mb-0.5">{c.title}</p>
@@ -195,7 +199,7 @@ export default function TravelStackOnePager() {
           {/* Section 2 — How it works per vertical */}
           <div className="py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#7c3aed" }}>
-              02 — How DutyBoost Works — Per Vertical
+              {t("travelstackonepager.s2_title")}
             </h2>
             <div className="mb-1"><GradientDivider /></div>
             <div className={`grid gap-1.5`} style={{ gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
@@ -213,8 +217,8 @@ export default function TravelStackOnePager() {
                   <div className="flex flex-col gap-1 mt-1">
                     {[
                       ...v.steps.map((s) => ({ label: s.title, desc: s.desc })),
-                      { label: "At the Airport", desc: "Customer redeems the QR at a participating airport retailer (€70+ spend)." },
-                      { label: "You Earn", desc: "Commission is credited to your account automatically — no action needed." },
+                      { label: v.stepAtAirport, desc: t("travelstackonepager.step_at_airport_desc") },
+                      { label: v.stepYouEarn, desc: t("travelstackonepager.step_you_earn_desc") },
                     ].map((item, idx, arr) => (
                       <div key={item.label} className="flex gap-1.5 items-start">
                         <div className="flex flex-col items-center shrink-0" style={{ width: "16px" }}>
@@ -237,38 +241,38 @@ export default function TravelStackOnePager() {
           {/* Section 3 — Revenue potential */}
           <div className="py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#FF8000" }}>
-              03 — Revenue Potential for TravelStack Partners
+              {t("travelstackonepager.s3_title")}
             </h2>
             <div className="mb-1"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-1.5 mb-1.5">
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#1A6BFF" }}>Up to €5</p>
-                <p className="font-semibold text-xs mt-0.5">Commission per redemption</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-0.5">20% of DutyBoost's 2.5% platform fee per transaction (€5 cap) — earned automatically per vertical</p>
+                <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#1A6BFF" }}>{t("travelstackonepager.stat1_value")}</p>
+                <p className="font-semibold text-xs mt-0.5">{t("travelstackonepager.stat1_label")}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-0.5">{t("travelstackonepager.stat1_desc")}</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#8b5cf6" }}>Free</p>
-                <p className="font-semibold text-xs mt-0.5">No cost to you, ever</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-0.5">Commission flows from confirmed redemptions — paid monthly with full reporting per vertical</p>
+                <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#8b5cf6" }}>{t("travelstackonepager.stat2_value")}</p>
+                <p className="font-semibold text-xs mt-0.5">{t("travelstackonepager.stat2_label")}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-0.5">{t("travelstackonepager.stat2_desc")}</p>
               </div>
               <div className="border border-border rounded p-2 text-center">
-                <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#FF8000" }}>&lt; 1 day</p>
-                <p className="font-semibold text-xs mt-0.5">To go live — all verticals</p>
-                <p className="text-xs text-muted-foreground leading-snug mt-0.5">Single API integration covers all verticals simultaneously. We handle the rest end-to-end.</p>
+                <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#FF8000" }}>{t("travelstackonepager.stat3_value")}</p>
+                <p className="font-semibold text-xs mt-0.5">{t("travelstackonepager.stat3_label")}</p>
+                <p className="text-xs text-muted-foreground leading-snug mt-0.5">{t("travelstackonepager.stat3_desc")}</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-1.5">
               <div className="border border-border rounded p-2">
-                <h3 className="font-heading font-bold text-xs mb-0.5">🤝 Stronger loyalty — across all products</h3>
-                <p className="text-xs text-muted-foreground leading-snug">A memorable airport perk on every booking — flight, stay, or rental — tied directly to your brand.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{t("travelstackonepager.benefit1_title")}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{t("travelstackonepager.benefit1_desc")}</p>
               </div>
               <div className="border border-border rounded p-2">
-                <h3 className="font-heading font-bold text-xs mb-0.5">💰 Multiplied commission potential</h3>
-                <p className="text-xs text-muted-foreground leading-snug">Accommodation and car rental partners earn commission on 2 DutyCredits per customer — doubling revenue vs. flight-only partners.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{t("travelstackonepager.benefit2_title")}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{t("travelstackonepager.benefit2_desc")}</p>
               </div>
               <div className="border border-border rounded p-2">
-                <h3 className="font-heading font-bold text-xs mb-0.5">⚡ One integration. Permanent value.</h3>
-                <p className="text-xs text-muted-foreground leading-snug">DutyCredits are embedded directly into your existing confirmation emails — no new tools, no manual work, no ongoing maintenance.</p>
+                <h3 className="font-heading font-bold text-xs mb-0.5">{t("travelstackonepager.benefit3_title")}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{t("travelstackonepager.benefit3_desc")}</p>
               </div>
             </div>
           </div>
@@ -277,7 +281,7 @@ export default function TravelStackOnePager() {
           <div>
             <GradientDivider />
             <div className="text-center py-2">
-              <p className="font-heading font-bold text-xs">Ready to activate DutyBoost across your entire travel stack?</p>
+              <p className="font-heading font-bold text-xs">{t("travelstackonepager.cta")}</p>
               <div className="flex items-center justify-center gap-6 mt-0.5">
                 <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline underline-offset-2" style={{ color: "#1A6BFF" }}>dutyboost.com</a>
                 <a href="mailto:hello@dutyboost.com" className="text-xs font-semibold underline underline-offset-2" style={{ color: "#1A6BFF" }}>hello@dutyboost.com</a>
@@ -287,7 +291,7 @@ export default function TravelStackOnePager() {
         </div>
 
         <div className="text-center pb-1">
-          <p className="text-xs text-muted-foreground">DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181</p>
+          <p className="text-xs text-muted-foreground">{t("travelstackonepager.legal")}</p>
         </div>
       </div>
     </div>
