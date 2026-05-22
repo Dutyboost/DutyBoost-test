@@ -22,7 +22,7 @@ const getVerticals = (t) => [
     color: "#1A6BFF",
     bgColor: "#eff6ff",
     borderColor: "#bfdbfe",
-    label: `✈️ ${t("travelstackonepager.flight_label")}`,
+    label: t("travelstackonepager.flight_label"),
     credits: t("travelstackonepager.flight_credits"),
     steps: [
       { title: t("travelstackonepager.at_booking"), desc: t("travelstackonepager.flight_step1_desc") },
@@ -36,7 +36,7 @@ const getVerticals = (t) => [
     color: "#8b5cf6",
     bgColor: "#f5f3ff",
     borderColor: "#ddd6fe",
-    label: `🏨 ${t("travelstackonepager.accommodation_label")}`,
+    label: t("travelstackonepager.accommodation_label"),
     credits: t("travelstackonepager.accommodation_credits"),
     steps: [
       { title: t("travelstackonepager.at_booking"), desc: t("travelstackonepager.accommodation_step1_desc") },
@@ -51,7 +51,7 @@ const getVerticals = (t) => [
     color: "#FF8000",
     bgColor: "#fff7ed",
     borderColor: "#fed7aa",
-    label: `🚗 ${t("travelstackonepager.car_label")}`,
+    label: t("travelstackonepager.car_label"),
     credits: t("travelstackonepager.car_credits"),
     steps: [
       { title: t("travelstackonepager.at_booking"), desc: t("travelstackonepager.car_step1_desc") },
@@ -115,7 +115,7 @@ export default function TravelStackOnePager() {
               >
                 {isOn && <Check className="w-3 h-3" />}
                 <Icon className="w-3 h-3" />
-                {v.label.split(" ")[1]}
+                {v.label}
               </button>
             );
           })}
@@ -159,20 +159,20 @@ export default function TravelStackOnePager() {
             <h1 className="text-base font-heading font-bold leading-tight">
               {t("travelstackonepager.headline")}
             </h1>
-            <p className="text-muted-foreground text-xs max-w-2xl mx-auto mt-0.5">
-              {t("travelstackonepager.subtitle_start")}{" "}
+            <div className="text-muted-foreground text-xs max-w-2xl mx-auto mt-0.5 flex flex-wrap items-center justify-center gap-x-1">
+              <span>{t("travelstackonepager.subtitle_start")}</span>
               {activeVerticals.map((v, i) => {
                 const Icon = v.icon;
                 return (
                   <span key={v.key} className="inline-flex items-center gap-0.5 font-semibold" style={{ color: v.color }}>
-                    <Icon className="inline w-3 h-3" style={{ color: v.color, verticalAlign: "middle", position: "relative", top: "-1px" }} />
-                    {v.label.split(" ").slice(1).join(" ")}
-                    {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,&nbsp;</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;{t("travelstackonepager.and")}&nbsp;</span> : ""}
+                    <Icon className="w-3 h-3 shrink-0" style={{ color: v.color }} />
+                    <span>{v.label}</span>
+                    {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;{t("travelstackonepager.and")}</span> : ""}
                   </span>
                 );
-              })}{" "}
-              {t("travelstackonepager.subtitle_end")}
-            </p>
+              })}
+              <span>{t("travelstackonepager.subtitle_end")}</span>
+            </div>
           </div>
 
           {/* Section 1 — Why */}
@@ -209,7 +209,7 @@ export default function TravelStackOnePager() {
                 <div key={v.key} className="rounded p-2 border" style={{ background: v.bgColor, borderColor: v.borderColor }}>
                   <div className="flex items-center gap-1 mb-1">
                     <Icon className="w-4 h-4 shrink-0" style={{ color: v.color, verticalAlign: "middle" }} />
-                    <span className="text-xs font-bold" style={{ color: v.color }}>{v.label.split(" ").slice(1).join(" ")}</span>
+                    <span className="text-xs font-bold" style={{ color: v.color }}>{v.label}</span>
                     <span className="ml-auto text-xs font-semibold" style={{ color: v.color, fontSize: "9px" }}>
                       {v.credits}
                     </span>
