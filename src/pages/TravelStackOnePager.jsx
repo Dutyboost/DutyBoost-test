@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Printer, ArrowLeft, Plane, BedDouble, Car, Check } from "lucide-react";
+import { Printer, ArrowLeft, Check } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import TravelAgencyIcon from "../components/TravelAgencyIcon";
+import HotelIcon from "../components/HotelIcon";
+import CarRentalIcon from "../components/CarRentalIcon";
 
 const GradientDivider = () => (
   <div style={{ height: '2px', background: 'linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)', width: '100%' }} />
@@ -15,7 +18,7 @@ const GradientDivider = () => (
 const VERTICALS = [
   {
     key: "flight",
-    icon: Plane,
+    icon: TravelAgencyIcon,
     color: "#1A6BFF",
     bgColor: "#eff6ff",
     borderColor: "#bfdbfe",
@@ -28,7 +31,7 @@ const VERTICALS = [
   },
   {
     key: "accommodation",
-    icon: BedDouble,
+    icon: HotelIcon,
     color: "#8b5cf6",
     bgColor: "#f5f3ff",
     borderColor: "#ddd6fe",
@@ -42,7 +45,7 @@ const VERTICALS = [
   },
   {
     key: "car",
-    icon: Car,
+    icon: CarRentalIcon,
     color: "#FF8000",
     bgColor: "#fff7ed",
     borderColor: "#fed7aa",
