@@ -61,7 +61,7 @@ export default function AgencyOnePager() {
       >
         {/* Header */}
         <div className="text-center pb-2">
-          <DutyBoostLogo height={110} />
+          <DutyBoostLogo height={140} />
         </div>
         <GradientDivider />
 
