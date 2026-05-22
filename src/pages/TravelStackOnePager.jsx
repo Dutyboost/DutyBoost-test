@@ -210,16 +210,23 @@ export default function TravelStackOnePager() {
                       {v.credits}
                     </span>
                   </div>
-                  {v.steps.map((s) => (
-                    <div key={s.title} className="mb-1">
-                      <p className="font-semibold text-xs" style={{ color: v.color }}>{s.title}</p>
-                      <p className="text-xs text-muted-foreground leading-snug">{s.desc}</p>
-                    </div>
-                  ))}
-                  <div className="mt-1 pt-1 border-t" style={{ borderColor: v.borderColor }}>
-                    <p className="text-xs text-muted-foreground leading-snug">
-                      <span className="font-semibold" style={{ color: v.color }}>Step 3:</span> Customer redeems QR at a participating airport retailer (€70+ spend). <span className="font-semibold" style={{ color: v.color }}>Step 4:</span> You earn commission — automatically.
-                    </p>
+                  <div className="flex flex-col gap-1 mt-1">
+                    {[
+                      ...v.steps.map((s) => ({ label: s.title, desc: s.desc })),
+                      { label: "At the Airport", desc: "Customer redeems the QR at a participating airport retailer (€70+ spend)." },
+                      { label: "You Earn", desc: "Commission is credited to your account automatically — no action needed." },
+                    ].map((item, idx, arr) => (
+                      <div key={item.label} className="flex gap-1.5 items-start">
+                        <div className="flex flex-col items-center shrink-0" style={{ width: "16px" }}>
+                          <div className="w-3 h-3 rounded-full border-2 shrink-0 mt-0.5" style={{ borderColor: v.color, background: v.bgColor }} />
+                          {idx < arr.length - 1 && <div className="w-px flex-1 mt-0.5" style={{ background: v.borderColor, minHeight: "8px" }} />}
+                        </div>
+                        <div className="pb-1">
+                          <p className="font-semibold text-xs leading-tight" style={{ color: v.color }}>{item.label}</p>
+                          <p className="text-xs text-muted-foreground leading-snug">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 );
