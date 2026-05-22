@@ -198,12 +198,12 @@ export default function TravelStackOnePager() {
                       { label: v.stepAtAirport, desc: t("travelstackonepager.step_at_airport_desc") },
                       { label: v.stepYouEarn, desc: t("travelstackonepager.step_you_earn_desc") },
                     ].map((item, idx, arr) => (
-                      <div key={item.label} className="flex gap-1.5 items-start">
-                        <div className="flex flex-col items-center shrink-0" style={{ width: "16px" }}>
-                          <div className="w-3 h-3 rounded-full border-2 shrink-0 mt-0.5" style={{ borderColor: v.color, background: v.bgColor }} />
+                      <div key={item.label} className="flex gap-1.5 items-start pt-0.5">
+                        <div className="flex flex-col items-center shrink-0" style={{ width: "16px", marginTop: "2px" }}>
+                          <div className="w-3 h-3 rounded-full border-2 shrink-0" style={{ borderColor: v.color, background: v.bgColor }} />
                           {idx < arr.length - 1 && <div className="w-px flex-1 mt-0.5" style={{ background: v.borderColor, minHeight: "8px" }} />}
                         </div>
-                        <div className="pb-1">
+                        <div>
                           <p className="font-semibold text-xs leading-tight" style={{ color: v.color }}>{item.label}</p>
                           <p className="text-xs text-muted-foreground leading-snug">{item.desc}</p>
                         </div>
