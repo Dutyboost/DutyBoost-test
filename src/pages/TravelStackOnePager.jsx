@@ -134,7 +134,7 @@ export default function TravelStackOnePager() {
         <div className="flex items-center justify-between pb-1">
           <DutyBoostLogo height={120} />
           <div className="text-right">
-            <span className="inline-block px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-white" style={{ background: "linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)" }}>
+            <span className="text-xs font-bold uppercase tracking-widest" style={{ background: "linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               TravelStack Partner Programme
             </span>
             <div className="flex items-center gap-1.5 justify-end mt-1">
@@ -206,7 +206,7 @@ export default function TravelStackOnePager() {
                   <div className="flex items-center gap-1 mb-1">
                     <Icon className="w-4 h-4 shrink-0" style={{ color: v.color }} />
                     <span className="text-xs font-bold" style={{ color: v.color }}>{v.label.split(" ").slice(1).join(" ")}</span>
-                    <span className="ml-auto text-xs font-semibold px-1.5 py-0.5 rounded-full text-white" style={{ background: v.color, fontSize: "9px" }}>
+                    <span className="ml-auto text-xs font-semibold" style={{ color: v.color, fontSize: "9px" }}>
                       {v.credits}
                     </span>
                   </div>
