@@ -138,7 +138,7 @@ export default function TravelStackOnePager() {
         <div className="flex items-center justify-between pb-1">
           <DutyBoostLogo height={120} />
           <div className="text-right">
-            <span className="text-xs font-bold uppercase tracking-widest" style={{ background: "linear-gradient(to right, #1A6BFF, #8b5cf6, #FF8000)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.programme_name")}
             </span>
             <div className="flex items-center gap-1.5 justify-end mt-1">
