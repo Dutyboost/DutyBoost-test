@@ -161,7 +161,7 @@ export default function TravelStackOnePager() {
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.s1_title")}
             </h2>
-            <div className="mb-1"><GradientDivider /></div>
+            <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-2 gap-1.5">
               {[
                 { title: t("travelstackonepager.why1_title"), desc: t("travelstackonepager.why1_desc") },
@@ -182,7 +182,7 @@ export default function TravelStackOnePager() {
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#7c3aed" }}>
               {t("travelstackonepager.s2_title")}
             </h2>
-            <div className="mb-1"><GradientDivider /></div>
+            <div className="mb-2"><GradientDivider /></div>
             <div className={`grid gap-1.5`} style={{ gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
               {activeVerticals.map((v) => (
                 <div key={v.key} className="rounded p-2 border" style={{ background: v.bgColor, borderColor: v.borderColor }}>
@@ -216,7 +216,7 @@ export default function TravelStackOnePager() {
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#FF8000" }}>
               {t("travelstackonepager.s3_title")}
             </h2>
-            <div className="mb-1"><GradientDivider /></div>
+            <div className="mb-2"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-1.5 mb-1.5">
               <div className="border border-border rounded p-2 text-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#1A6BFF" }}>{t("travelstackonepager.stat1_value")}</p>
