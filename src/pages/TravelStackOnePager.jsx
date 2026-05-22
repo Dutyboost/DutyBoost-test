@@ -197,16 +197,13 @@ export default function TravelStackOnePager() {
                       ...v.steps.map((s) => ({ label: s.title, desc: s.desc })),
                       { label: v.stepAtAirport, desc: t("travelstackonepager.step_at_airport_desc") },
                       { label: v.stepYouEarn, desc: t("travelstackonepager.step_you_earn_desc") },
-                    ].map((item, idx, arr) => (
-                      <div key={item.label} style={{ display: "flex", gap: "6px", alignItems: "flex-start", paddingTop: "2px" }}>
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "12px", flexShrink: 0, paddingTop: "1px" }}>
-                          <div style={{ width: "10px", height: "10px", borderRadius: "50%", border: `2px solid ${v.color}`, background: v.bgColor, flexShrink: 0 }} />
-                          {idx < arr.length - 1 && <div style={{ width: "1px", flex: 1, background: v.borderColor, minHeight: "8px", marginTop: "2px" }} />}
-                        </div>
-                        <div style={{ flex: 1 }}>
-                          <p style={{ fontWeight: 600, fontSize: "10px", lineHeight: "1.2", color: v.color, margin: 0 }}>{item.label}</p>
-                          <p style={{ fontSize: "10px", color: "#64748b", lineHeight: "1.3", margin: 0, marginTop: "1px" }}>{item.desc}</p>
-                        </div>
+                    ].map((item, idx) => (
+                      <div key={item.label} style={{ paddingTop: "3px" }}>
+                        <p style={{ fontWeight: 600, fontSize: "10px", lineHeight: "1.2", color: v.color, margin: 0 }}>
+                          <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", border: `2px solid ${v.color}`, verticalAlign: "middle", marginRight: "4px", position: "relative", top: "-1px" }} />
+                          {item.label}
+                        </p>
+                        <p style={{ fontSize: "10px", color: "#64748b", lineHeight: "1.3", margin: 0, marginTop: "1px", paddingLeft: "12px" }}>{item.desc}</p>
                       </div>
                     ))}
                   </div>
