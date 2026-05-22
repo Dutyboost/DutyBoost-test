@@ -200,7 +200,7 @@ export default function TravelStackOnePager() {
                     ].map((item, idx) => (
                       <div key={item.label} style={{ paddingTop: "3px" }}>
                         <p style={{ fontWeight: 600, fontSize: "10px", lineHeight: "1.4", color: v.color, margin: 0 }}>
-                          <span style={{ color: v.color, marginRight: "4px", fontSize: "14px", lineHeight: "10px", verticalAlign: "middle" }}>●</span>{item.label}
+                          {item.label}
                         </p>
                         <p style={{ fontSize: "10px", color: "#64748b", lineHeight: "1.3", margin: 0, marginTop: "1px", paddingLeft: "14px" }}>{item.desc}</p>
                       </div>
