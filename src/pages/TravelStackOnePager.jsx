@@ -158,7 +158,7 @@ export default function TravelStackOnePager() {
 
           {/* Section 1 — Why */}
           <div className="py-1">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#1A6BFF" }}>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.s1_title")}
             </h2>
             <div className="mb-2"><GradientDivider /></div>
@@ -179,7 +179,7 @@ export default function TravelStackOnePager() {
 
           {/* Section 2 — How it works per vertical */}
           <div className="py-1">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#7c3aed" }}>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide" style={{ color: "#7c3aed" }}>
               {t("travelstackonepager.s2_title")}
             </h2>
             <div className="mb-2"><GradientDivider /></div>
@@ -213,7 +213,7 @@ export default function TravelStackOnePager() {
 
           {/* Section 3 — Revenue potential */}
           <div className="py-1">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#FF8000" }}>
+            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide" style={{ color: "#FF8000" }}>
               {t("travelstackonepager.s3_title")}
             </h2>
             <div className="mb-2"><GradientDivider /></div>
