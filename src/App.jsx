@@ -72,6 +72,7 @@ import FlightPartnerOnePager from './pages/FlightPartnerOnePager';
 import AccommodationPartnerOnePager from './pages/AccommodationPartnerOnePager';
 import CarRentalPartnerOnePager from './pages/CarRentalPartnerOnePager';
 import RetailerOnePager from './pages/RetailerOnePager';
+import TravelStackOnePager from './pages/TravelStackOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
 import RetailerCalculator from './pages/RetailerCalculator';
@@ -176,6 +177,7 @@ const AuthenticatedApp = () => {
         <Route path="/accommodation-partner-one-pager" element={<AccommodationPartnerOnePager />} />
         <Route path="/car-rental-partner-one-pager" element={<CarRentalPartnerOnePager />} />
         <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
+        <Route path="/travelstack-partner-one-pager" element={<TravelStackOnePager />} />
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
         <Route path="/retailer-calculator" element={<RetailerCalculator />} />
