@@ -635,7 +635,7 @@ export default {
       stat1_label: 'Comisión por canje',
       stat1_desc: "20% de la tarifa del 2,5% de DutyBoost por transacción (límite €5) — ganado automáticamente por área",
       stat2_value: 'Gratis',
-      stat2_label: 'Sin coste para ti, nunca',
+      stat2_label: 'Sin coste para ti',
       stat2_desc: 'La comisión fluye de canjes confirmados — pagada mensualmente con informes completos por área',
       stat3_value: '< 1 día',
       stat3_label: 'Para estar en marcha — todas las áreas',
