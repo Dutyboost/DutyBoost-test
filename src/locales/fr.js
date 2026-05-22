@@ -840,7 +840,7 @@ export default {
       step_at_airport_desc: "Le client utilise le QR chez un détaillant aéroportuaire partenaire (dépense de €70+).",
       step_you_earn: 'Vous gagnez',
       step_you_earn_desc: "La commission est créditée automatiquement sur votre compte — aucune action requise.",
-      headline: 'Récompensez vos clients à chaque point de contact — et gagnez un nouveau flux de revenus',
+      headline: 'Récompensez vos clients à l\'aéroport — en échange d\'un nouveau flux de revenus',
       subtitle_start: "Le programme TravelStack de DutyBoost permet aux partenaires",
       and: 'et',
       subtitle_end: "de livrer automatiquement des DutyCredits personnalisés à leurs clients — utilisables chez les détaillants aéroportuaires — et de gagner une commission sur chaque utilisation. Zéro coût. Zéro effort. Pur bénéfice.",

@@ -616,7 +616,7 @@ export default {
       step_at_airport_desc: 'El cliente canjea el QR en un minorista aeroportuario participante (gasto de €70+).',
       step_you_earn: 'Tú Ganas',
       step_you_earn_desc: 'La comisión se acredita automáticamente en tu cuenta — sin necesidad de ninguna acción.',
-      headline: 'Recompensa a tus clientes en cada punto de contacto — y gana un nuevo flujo de ingresos',
+      headline: 'Recompensa a tus clientes en el aeropuerto — a cambio de un nuevo flujo de ingresos',
       subtitle_start: 'El Programa TravelStack de DutyBoost permite a los socios',
       and: 'y',
       subtitle_end: 'entregar automáticamente DutyCredits personalizados a sus clientes — canjeables en minoristas aeroportuarios — y ganar comisión en cada canje. Cero coste. Cero esfuerzo. Puro beneficio.',

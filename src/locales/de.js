@@ -840,7 +840,7 @@ export default {
       step_at_airport_desc: 'Kunde löst den QR bei einem teilnehmenden Flughafenhändler ein (€70+ Ausgabe).',
       step_you_earn: 'Sie Verdienen',
       step_you_earn_desc: 'Provision wird automatisch Ihrem Konto gutgeschrieben — kein Handlungsbedarf.',
-      headline: 'Belohnen Sie Ihre Kunden an jedem Touchpoint — und verdienen Sie einen neuen Einnahmestrom',
+      headline: 'Belohnen Sie Ihre Kunden am Flughafen — im Austausch für einen neuen Einnahmestrom',
       subtitle_start: "DutyBoosts TravelStack Programm ermöglicht",
       and: 'und',
       subtitle_end: 'Partnern die automatische Lieferung personalisierter DutyCredits an ihre Kunden — einlösbar bei Flughafenhändlern — und eine Provision auf jede Einlösung. Null Kosten. Null Aufwand. Purer Gewinn.',

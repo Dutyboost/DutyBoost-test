@@ -686,7 +686,7 @@ export default {
       step_at_airport_desc: 'Customer redeems the QR at a participating airport retailer (€70+ spend).',
       step_you_earn: 'You Earn',
       step_you_earn_desc: 'Commission is credited to your account automatically — no action needed.',
-      headline: 'Reward Your Customers at Every Touchpoint — and Earn a New Revenue Stream',
+      headline: 'Reward Your Customers at the Airport — in Exchange of a New Revenue Stream',
       subtitle_start: "DutyBoost's TravelStack Programme lets",
       and: 'and',
       subtitle_end: 'partners automatically deliver personalised DutyCredits to their customers — redeemable at airport retailers — and earn commission on every redemption. Zero cost. Zero effort. Pure upside.',

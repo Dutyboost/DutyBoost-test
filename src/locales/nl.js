@@ -781,7 +781,7 @@ export default {
       step_at_airport_desc: 'Klant wisselt de QR in bij een deelnemende luchthavenretailer (€70+ besteding).',
       step_you_earn: 'U Verdient',
       step_you_earn_desc: 'Commissie wordt automatisch gecrediteerd op uw account — geen actie vereist.',
-      headline: 'Beloon uw klanten bij elk contactmoment — en verdien een nieuwe inkomstenstroom',
+      headline: 'Beloon uw klanten op de luchthaven — in ruil voor een nieuwe inkomstenstroom',
       subtitle_start: "DutyBoost's TravelStack Programma laat",
       and: 'en',
       subtitle_end: 'partners automatisch gepersonaliseerde DutyCredits leveren aan hun klanten — inwisselbaar bij luchthavenretailers — en commissie verdienen op elke inwisseling. Nul kosten. Nul inspanning. Puur voordeel.',

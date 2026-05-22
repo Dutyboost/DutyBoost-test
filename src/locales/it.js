@@ -856,7 +856,7 @@ export default {
       step_at_airport_desc: "Il cliente riscatta il QR presso un retailer aeroportuale partner (spesa €70+).",
       step_you_earn: 'Guadagni',
       step_you_earn_desc: "La commissione viene accreditata automaticamente sul tuo account — nessuna azione necessaria.",
-      headline: 'Premia i tuoi clienti ad ogni touchpoint — e guadagna un nuovo flusso di entrate',
+      headline: 'Premia i tuoi clienti all\'aeroporto — in cambio di un nuovo flusso di entrate',
       subtitle_start: 'Il Programma TravelStack di DutyBoost permette ai partner',
       and: 'e',
       subtitle_end: 'di consegnare automaticamente DutyCredit personalizzati ai loro clienti — riscattabili presso i retailer aeroportuali — e guadagnare commissione su ogni riscatto. Zero costi. Zero sforzo. Puro vantaggio.',
