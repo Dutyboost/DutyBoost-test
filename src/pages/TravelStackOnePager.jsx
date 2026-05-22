@@ -157,12 +157,16 @@ export default function TravelStackOnePager() {
             </h1>
             <p className="text-muted-foreground text-xs max-w-2xl mx-auto mt-0.5">
               DutyBoost's TravelStack Programme lets{" "}
-              {activeVerticals.map((v, i) => (
-                <span key={v.key}>
-                  <span className="font-semibold" style={{ color: v.color }}>{v.label}</span>
-                  {i < activeVerticals.length - 2 ? ", " : i === activeVerticals.length - 2 ? " and " : ""}
-                </span>
-              ))}{" "}
+              {activeVerticals.map((v, i) => {
+                const Icon = v.icon;
+                return (
+                  <span key={v.key} className="inline-flex items-center gap-0.5 font-semibold" style={{ color: v.color }}>
+                    <Icon className="inline w-3 h-3" style={{ color: v.color }} />
+                    {v.label.split(" ").slice(1).join(" ")}
+                    {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,&nbsp;</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;and&nbsp;</span> : ""}
+                  </span>
+                );
+              })}{" "}
               partners automatically deliver personalised DutyCredits to their customers — redeemable at airport retailers — and earn commission on every redemption. Zero cost. Zero effort. Pure upside.
             </p>
           </div>
