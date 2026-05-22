@@ -145,7 +145,7 @@ export default function TravelStackOnePager() {
               {VERTICALS.map((v) => {
                 const Icon = v.icon;
                 return selected[v.key] ? (
-                  <Icon key={v.key} className="w-4 h-4" style={{ color: v.color }} />
+                  <Icon key={v.key} className="w-4 h-4" style={{ color: v.color, verticalAlign: "middle" }} />
                 ) : null;
               })}
             </div>
@@ -165,7 +165,7 @@ export default function TravelStackOnePager() {
                 const Icon = v.icon;
                 return (
                   <span key={v.key} className="inline-flex items-center gap-0.5 font-semibold" style={{ color: v.color }}>
-                    <Icon className="inline w-3 h-3" style={{ color: v.color }} />
+                    <Icon className="inline w-3 h-3" style={{ color: v.color, verticalAlign: "middle", position: "relative", top: "-1px" }} />
                     {v.label.split(" ").slice(1).join(" ")}
                     {i < activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">,&nbsp;</span> : i === activeVerticals.length - 2 ? <span className="text-muted-foreground font-normal">&nbsp;{t("travelstackonepager.and")}&nbsp;</span> : ""}
                   </span>
@@ -208,7 +208,7 @@ export default function TravelStackOnePager() {
                 return (
                 <div key={v.key} className="rounded p-2 border" style={{ background: v.bgColor, borderColor: v.borderColor }}>
                   <div className="flex items-center gap-1 mb-1">
-                    <Icon className="w-4 h-4 shrink-0" style={{ color: v.color }} />
+                    <Icon className="w-4 h-4 shrink-0" style={{ color: v.color, verticalAlign: "middle" }} />
                     <span className="text-xs font-bold" style={{ color: v.color }}>{v.label.split(" ").slice(1).join(" ")}</span>
                     <span className="ml-auto text-xs font-semibold" style={{ color: v.color, fontSize: "9px" }}>
                       {v.credits}
