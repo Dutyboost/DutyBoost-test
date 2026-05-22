@@ -195,10 +195,13 @@ export default function TravelStackOnePager() {
             </h2>
             <div className="mb-1"><GradientDivider /></div>
             <div className={`grid gap-1.5`} style={{ gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
-              {activeVerticals.map((v) => (
+              {activeVerticals.map((v) => {
+                const Icon = v.icon;
+                return (
                 <div key={v.key} className="rounded p-2 border" style={{ background: v.bgColor, borderColor: v.borderColor }}>
                   <div className="flex items-center gap-1 mb-1">
-                    <span className="text-xs font-bold" style={{ color: v.color }}>{v.label}</span>
+                    <Icon className="w-4 h-4 shrink-0" style={{ color: v.color }} />
+                    <span className="text-xs font-bold" style={{ color: v.color }}>{v.label.split(" ").slice(1).join(" ")}</span>
                     <span className="ml-auto text-xs font-semibold px-1.5 py-0.5 rounded-full text-white" style={{ background: v.color, fontSize: "9px" }}>
                       {v.credits}
                     </span>
@@ -215,7 +218,8 @@ export default function TravelStackOnePager() {
                     </p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
