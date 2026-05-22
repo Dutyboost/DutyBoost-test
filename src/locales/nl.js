@@ -708,7 +708,7 @@ export default {
       stat3_value: '< 1 dag', stat3_label: 'Om live te gaan', stat3_desc: 'Één snippet in de boekingsbevestiging. Wij regelen de rest van begin tot eind',
       benefit1_title: '🤝 Sterkere reizigersloyaliteit', benefit1_desc: 'Een gedenkwaardig, gepersonaliseerd luchthavenperk gekoppeld aan elke vluchtboeking via jou.',
       benefit2_title: '💰 Nieuwe passieve omzet', benefit2_desc: 'Commissie stroomt binnen vanuit luchthavenuitgaven — geen extra verkoopinspanning, geen handmatig werk.',
-      benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'De DutyCredit QR-code wordt direct ingebed in je boekingsbevestigingsmail — geen extra stappen, geen nieuwe tools, geen handmatig werk.',
+      benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'De DutyCredit QR-code wordt direct verwerkt in je boekingsbevestigingsmail — geen extra stappen, geen nieuwe tools, geen handmatig werk.',
       cta: 'Klaar om je vluchtboekingen om te zetten in luchthavenretail-omzet?',
       legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181',
     },
