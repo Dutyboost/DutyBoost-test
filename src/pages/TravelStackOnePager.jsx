@@ -199,11 +199,10 @@ export default function TravelStackOnePager() {
                       { label: v.stepYouEarn, desc: t("travelstackonepager.step_you_earn_desc") },
                     ].map((item, idx) => (
                       <div key={item.label} style={{ paddingTop: "3px" }}>
-                        <p style={{ fontWeight: 600, fontSize: "10px", lineHeight: "1.2", color: v.color, margin: 0 }}>
-                          <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", border: `2px solid ${v.color}`, verticalAlign: "middle", marginRight: "4px", position: "relative", top: "-1px" }} />
-                          {item.label}
+                        <p style={{ fontWeight: 600, fontSize: "10px", lineHeight: "1.4", color: v.color, margin: 0 }}>
+                          <span style={{ color: v.color, marginRight: "4px", fontSize: "14px", lineHeight: "10px", verticalAlign: "middle" }}>●</span>{item.label}
                         </p>
-                        <p style={{ fontSize: "10px", color: "#64748b", lineHeight: "1.3", margin: 0, marginTop: "1px", paddingLeft: "12px" }}>{item.desc}</p>
+                        <p style={{ fontSize: "10px", color: "#64748b", lineHeight: "1.3", margin: 0, marginTop: "1px", paddingLeft: "14px" }}>{item.desc}</p>
                       </div>
                     ))}
                   </div>
