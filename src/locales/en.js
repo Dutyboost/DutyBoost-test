@@ -56,7 +56,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Travellers',
-        description: 'Enjoy an exclusive airport discount — automatically earned when you book a flight, accommodation or car rental. Use your DutyCredit at your departure airport or upon arrival at your destination. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.',
+        description: 'Enjoy an exclusive airport discount — automatically earned when you book a flight, accommodation or car rental. Use your DutyCredit at your departure airport before you board. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €70+ at a single retail location.',
         b1: 'Instant mobile DutyCredit',
         b2: 'Full discount at one shop',
         b3: 'Seamless QR experience',
