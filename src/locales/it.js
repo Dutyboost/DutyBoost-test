@@ -56,7 +56,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viaggiatori',
-        description: 'Goditi uno sconto esclusivo all\'aeroporto di partenza — guadagnato automaticamente prenotando un volo, alloggio o noleggio auto. Usa il tuo DutyCredit al tuo aeroporto di partenza o all\'arrivo. Nessuna registrazione, nessuna burocrazia. Scansiona e risparmia. Valido per acquisti di €70 o più in un unico punto vendita.',
+        description: 'Goditi uno sconto esclusivo all\'aeroporto di partenza — guadagnato automaticamente prenotando un volo, alloggio o noleggio auto. Usa il tuo DutyCredit al tuo aeroporto di partenza prima di imbarcarti. Nessuna registrazione, nessuna burocrazia. Scansiona e risparmia. Valido per acquisti di €70 o più in un unico punto vendita.',
         b1: 'DutyCredit mobile immediato',
         b2: 'Sconto completo in un negozio',
         b3: 'Esperienza QR senza attrito',

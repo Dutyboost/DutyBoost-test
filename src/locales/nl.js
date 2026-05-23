@@ -56,7 +56,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reizigers',
-        description: 'Geniet van een exclusieve korting bij je vertrekluchthaven — automatisch verdiend wanneer je een vlucht, accommodatie of autoverhuur boekt. Gebruik je DutyCredit op je vertrekluchthaven of bij aankomst op je bestemming. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
+        description: 'Geniet van een exclusieve korting bij je vertrekluchthaven — automatisch verdiend wanneer je een vlucht, accommodatie of autoverhuur boekt. Gebruik je DutyCredit op je vertrekluchthaven voor je aan boord gaat. Geen aanmeldingen, geen papierwerk. Scan en bespaar. Geldig bij aankopen van €70 of meer bij één retaillocatie.',
         b1: 'Directe mobiele DutyCredit',
         b2: 'Volledige korting bij één winkel',
         b3: 'Naadloze QR-ervaring',

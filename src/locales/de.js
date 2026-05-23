@@ -57,7 +57,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reisende',
-        description: 'Genießen Sie exklusive Rabatte am Abflughafen — automatisch verdient, wenn Sie einen Flug, eine Unterkunft oder einen Mietwagen buchen. Nutzen Sie Ihr DutyCredit am Abflughafen oder bei der Ankunft. Keine Anmeldungen, kein Papierkram. Scannen und sparen. Gültig für Einkäufe ab €70 an einem einzigen Verkaufspunkt.',
+        description: 'Genießen Sie exklusive Rabatte am Abflughafen — automatisch verdient, wenn Sie einen Flug, eine Unterkunft oder einen Mietwagen buchen. Nutzen Sie Ihr DutyCredit am Abflughafen vor dem Einsteigen. Keine Anmeldungen, kein Papierkram. Scannen und sparen. Gültig für Einkäufe ab €70 an einem einzigen Verkaufspunkt.',
         b1: 'Sofortiges mobiles DutyCredit',
         b2: 'Voller Rabatt in einem Geschäft',
         b3: 'Reibungslose QR-Erfahrung',
