@@ -579,7 +579,7 @@ export default {
       error_generic: 'Qualcosa è andato storto. Riprova o contatta hello@dutyboost.com',
     },
     requestdemo: {
-       badge: 'Richiedi una demo',
+       badge: 'Richiedi più informazioni',
        title: 'Lascia che ti mostriamo come funziona',
        subtitle: 'Raccontaci un po\' di te e della tua azienda. Il nostro team ti contatterà personalmente per programmare una demo su misura — nessuna pressione, nessuna presentazione commerciale.',
        label_name: 'Nome completo',
@@ -596,7 +596,7 @@ export default {
        label_message: 'Qualcosa che vorresti farci sapere?',
        optional: '(opzionale)',
        placeholder_message: 'Raccontaci della tua attività, del tuo volume o di domande specifiche...',
-       submit: 'Richiedi demo',
+       submit: 'Richiedi più informazioni',
        submitting: 'Invio in corso...',
        privacy_note: 'Inviando, accetti la nostra',
        privacy_link: 'Informativa sulla Privacy',

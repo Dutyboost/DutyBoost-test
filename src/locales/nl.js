@@ -855,7 +855,7 @@ export default {
       legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181',
     },
     requestdemo: {
-       badge: 'Demo aanvragen',
+       badge: 'Meer informatie aanvragen',
        title: 'Laat ons je laten zien hoe het werkt',
        subtitle: 'Vertel ons iets over jezelf en je bedrijf. Ons team neemt persoonlijk contact op om een demo op maat in te plannen — geen druk, geen verkooppraatjes.',
       label_name: 'Volledige naam',
@@ -872,7 +872,7 @@ export default {
       label_message: 'Iets dat je wilt laten weten?',
       optional: '(optioneel)',
       placeholder_message: 'Vertel ons over je bedrijf, je volume of specifieke vragen...',
-      submit: 'Demo aanvragen',
+      submit: 'Meer informatie aanvragen',
       submitting: 'Verzenden...',
       privacy_note: 'Door in te dienen, ga je akkoord met ons',
       privacy_link: 'Privacybeleid',

@@ -563,7 +563,7 @@ export default {
       error_generic: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder kontaktieren Sie hello@dutyboost.com',
     },
     requestdemo: {
-      badge: 'Demo anfragen',
+      badge: 'Mehr Informationen anfordern',
       title: 'Lassen Sie uns Ihnen zeigen, wie es funktioniert',
       subtitle: 'Erzählen Sie uns etwas über sich und Ihr Unternehmen. Unser Team meldet sich persönlich, um eine maßgeschneiderte Demo zu vereinbaren — kein Druck, keine Präsentationen.',
       label_name: 'Vollständiger Name',
@@ -580,7 +580,7 @@ export default {
       label_message: 'Etwas, das wir wissen sollten?',
       optional: '(optional)',
       placeholder_message: 'Erzählen Sie uns von Ihrem Unternehmen, Ihrem Volumen oder spezifischen Fragen...',
-      submit: 'Demo anfragen',
+      submit: 'Mehr Informationen anfordern',
       submitting: 'Wird gesendet...',
       privacy_note: 'Mit dem Absenden stimmen Sie unserer',
       privacy_link: 'Datenschutzrichtlinie',

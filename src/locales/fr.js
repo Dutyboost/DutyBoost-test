@@ -563,7 +563,7 @@ export default {
       error_generic: 'Une erreur s\'est produite. Veuillez réessayer ou contacter hello@dutyboost.com',
     },
     requestdemo: {
-      badge: 'Demander une démo',
+      badge: 'Demander plus d\'informations',
       title: 'Laissez-nous vous montrer comment ça fonctionne',
       subtitle: "Parlez-nous un peu de vous et de votre entreprise. Notre équipe vous contactera personnellement pour programmer une démonstration sur mesure — sans pression, sans présentation commerciale.",
       label_name: 'Nom complet',
@@ -580,7 +580,7 @@ export default {
       label_message: 'Quelque chose à nous faire savoir ?',
       optional: '(optionnel)',
       placeholder_message: 'Parlez-nous de votre activité, de votre volume ou de questions spécifiques...',
-      submit: 'Demander une démo',
+      submit: 'Demander plus d\'informations',
       submitting: 'Envoi en cours...',
       privacy_note: 'En soumettant, vous acceptez notre',
       privacy_link: 'Politique de confidentialité',
