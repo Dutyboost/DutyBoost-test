@@ -247,6 +247,7 @@ export default {
       continue: 'Continua',
       download: 'Scarica',
       sign_in: 'Accedi',
+      request_more_info: 'Richiedi più informazioni',
     },
     portal: {
       signed_in_as: 'Accesso come',
@@ -580,7 +581,7 @@ export default {
     },
     requestdemo: {
        badge: 'Richiedi più informazioni',
-       title: 'Lascia che ti mostriamo come funziona',
+       title: 'Richiedi più informazioni',
        subtitle: 'Raccontaci un po\' di te e della tua azienda. Il nostro team ti contatterà personalmente per programmare una demo su misura — nessuna pressione, nessuna presentazione commerciale.',
        label_name: 'Nome completo',
        label_email: 'E-mail aziendale',

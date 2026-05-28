@@ -231,6 +231,7 @@ export default {
       continue: 'Weiter',
       download: 'Herunterladen',
       sign_in: 'Anmelden',
+      request_more_info: 'Mehr Informationen anfordern',
     },
     portal: {
       signed_in_as: 'Angemeldet als',
@@ -564,7 +565,7 @@ export default {
     },
     requestdemo: {
       badge: 'Mehr Informationen anfordern',
-      title: 'Lassen Sie uns Ihnen zeigen, wie es funktioniert',
+      title: 'Mehr Informationen anfordern',
       subtitle: 'Erzählen Sie uns etwas über sich und Ihr Unternehmen. Unser Team meldet sich persönlich, um eine maßgeschneiderte Demo zu vereinbaren — kein Druck, keine Präsentationen.',
       label_name: 'Vollständiger Name',
       label_email: 'Geschäfts-E-Mail',

@@ -243,6 +243,7 @@ export default {
       continue: 'Continuar',
       download: 'Descargar',
       sign_in: 'Iniciar sesión',
+      request_more_info: 'Solicitar más información',
     },
     portal: {
       signed_in_as: 'Conectado como',
@@ -782,7 +783,7 @@ export default {
     },
     requestdemo: {
        badge: 'Solicitar más información',
-       title: 'Déjanos mostrarte cómo funciona',
+       title: 'Solicitar más información',
        subtitle: 'Cuéntanos un poco sobre ti y tu negocio. Nuestro equipo se pondrá en contacto personalmente para programar una demo personalizada — sin presión, sin presentaciones de ventas.',
        label_name: 'Nombre completo',
        label_email: 'Correo profesional',

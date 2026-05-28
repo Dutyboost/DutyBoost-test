@@ -207,6 +207,7 @@ export default {
       continue: 'Doorgaan',
       download: 'Downloaden',
       sign_in: 'Inloggen',
+      request_more_info: 'Meer informatie aanvragen',
     },
     portal: {
       signed_in_as: 'Ingelogd als',
@@ -856,7 +857,7 @@ export default {
     },
     requestdemo: {
        badge: 'Meer informatie aanvragen',
-       title: 'Laat ons je laten zien hoe het werkt',
+       title: 'Meer informatie aanvragen',
        subtitle: 'Vertel ons iets over jezelf en je bedrijf. Ons team neemt persoonlijk contact op om een demo op maat in te plannen — geen druk, geen verkooppraatjes.',
       label_name: 'Volledige naam',
       label_email: 'Zakelijk e-mailadres',

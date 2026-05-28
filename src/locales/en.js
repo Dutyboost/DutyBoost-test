@@ -211,6 +211,7 @@ export default {
       continue: 'Continue',
       download: 'Download',
       sign_in: 'Sign In',
+      request_more_info: 'Request More Information',
     },
     portal: {
       signed_in_as: 'Signed in as',
@@ -852,7 +853,7 @@ export default {
       },
       requestdemo: {
       badge: 'Request More Information',
-      title: "Let's show you how it works",
+      title: "Request More Information",
       subtitle: 'Tell us a bit about yourself and your business. Our team will reach out personally to schedule a tailored walkthrough — no pressure, no pitch decks.',
       label_name: 'Full Name',
       label_email: 'Work Email',
