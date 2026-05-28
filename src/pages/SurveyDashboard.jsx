@@ -1,8 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
+import LeadsTab from "../components/LeadsTab";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, FileText } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search } from "lucide-react";
 import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
@@ -1863,6 +1866,14 @@ export default function SurveyDashboard() {
           >
             <BarChart2 className="w-4 h-4" /> Global Potentials
           </button>
+          <button
+            onClick={() => setActiveTab("leads")}
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
+              activeTab === "leads" ? "bg-blue-600 text-white shadow" : "text-slate-400 hover:text-white"
+            }`}
+          >
+            <Phone className="w-4 h-4" /> Leads
+          </button>
         </div>
 
         {loading ? (
@@ -1873,6 +1884,8 @@ export default function SurveyDashboard() {
           <RetailerDashboard responses={retailerResponses} />
         ) : activeTab === "partner" ? (
           <TravelPartnerDashboard responses={partnerResponses} />
+        ) : activeTab === "leads" ? (
+          <LeadsTab />
         ) : (
           <GlobalPotentialsDashboard responses={partnerResponses} />
         )}
