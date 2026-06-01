@@ -79,7 +79,7 @@ export default {
     },
     cta: {
       title: 'Transformez la connexion entre voyage et commerce de détail',
-      description: 'Rejoignez DutyBoost et débloquez un nouvel écosystème où les partenaires de voyage renforcent la fidélité des clients, les voyageurs maximisent les récompenses et les détaillants augmentent les revenus — le tout via une seule plateforme intelligente.',
+      description: 'Rejoignez DutyBoost et débloquez un nouvel écosystème où les partenaires vols, hébergement et location de voiture renforcent la fidélité des clients et génèrent un nouveau revenu passif — les voyageurs maximisent leurs récompenses et les détaillants augmentent leurs revenus. Le tout via une seule plateforme intelligente.',
       button: 'Commencer aujourd\'hui',
     },
     wecallyou: {

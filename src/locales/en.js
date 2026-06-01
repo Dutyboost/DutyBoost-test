@@ -78,7 +78,7 @@ export default {
     },
     cta: {
       title: 'Transform how travel and retail connect',
-      description: 'Join DutyBoost and unlock a new ecosystem where travel partners boost customer loyalty, travelers maximize rewards, and retailers increase revenue — all through one intelligent platform.',
+      description: 'Join DutyBoost and unlock a new ecosystem where flight, accommodation, and car rental partners boost customer loyalty and earn a new passive income stream — travelers maximize rewards, and retailers increase revenue. All through one intelligent platform.',
       button: 'Get Started Today',
     },
     footer: {

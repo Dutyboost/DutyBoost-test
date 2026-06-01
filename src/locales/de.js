@@ -79,7 +79,7 @@ export default {
     },
     cta: {
       title: 'Transformieren Sie die Verbindung zwischen Reisen und Einzelhandel',
-      description: 'Treten Sie DutyBoost bei und erschließen Sie ein neues Ökosystem, in dem Reisepartner die Kundentreue steigern, Reisende Belohnungen maximieren und Einzelhändler Umsätze steigern — alles über eine intelligente Plattform.',
+      description: 'Treten Sie DutyBoost bei und erschließen Sie ein neues Ökosystem, in dem Flug-, Unterkunfts- und Mietwagenpartner die Kundentreue steigern und ein neues passives Einkommen verdienen — Reisende Belohnungen maximieren und Einzelhändler Umsätze steigern. Alles über eine intelligente Plattform.',
       button: 'Jetzt beginnen',
     },
     wecallyou: {

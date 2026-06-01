@@ -78,7 +78,7 @@ export default {
     },
     cta: {
        title: 'Transformeer hoe reizen en retail verbinden',
-       description: 'Sluit je aan bij DutyBoost en ontsluit een nieuw ecosysteem waar reispartners klantloyaliteit verhogen, reizigers beloningen maximaliseren en retailers inkomsten verhogen — alles via één intelligent platform.',
+       description: 'Sluit je aan bij DutyBoost en ontsluit een nieuw ecosysteem waar vlucht-, accommodatie- en autoverhuurpartners klantloyaliteit verhogen én een nieuw passief inkomen verdienen — reizigers beloningen maximaliseren en retailers inkomsten verhogen. Alles via één intelligent platform.',
        button: 'Begin vandaag',
      },
     footer: {

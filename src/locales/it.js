@@ -78,7 +78,7 @@ export default {
     },
     cta: {
        title: 'Trasforma come i viaggi e il retail si connettono',
-       description: 'Unisciti a DutyBoost e sblocca un nuovo ecosistema dove i partner di viaggio rafforzano la fedeltà dei clienti, tu massimizzi le tue ricompense e i retailer aumentano i ricavi — tutto tramite un\'unica piattaforma intelligente.',
+       description: 'Unisciti a DutyBoost e sblocca un nuovo ecosistema dove i partner voli, alloggio e noleggio auto rafforzano la fedeltà dei clienti e generano un nuovo reddito passivo — i viaggiatori massimizzano le ricompense e i retailer aumentano i ricavi. Tutto tramite un\'unica piattaforma intelligente.',
        button: 'Inizia oggi',
      },
     wecallyou: {
