@@ -13,7 +13,7 @@ export default function DutyBoostLogo({ height = 100, inverted = false, linkTo =
           maxWidth: `${height * 2}px`,
           objectFit: 'contain',
           display: 'block',
-          filter: 'none',
+          filter: inverted ? 'brightness(0) invert(1)' : 'none',
         }}
       />
       <span style={{ display: 'none', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: `${height * 0.22}px`, color: inverted ? 'white' : '#1a1a2e', letterSpacing: '-0.5px' }}>
