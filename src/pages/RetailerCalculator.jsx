@@ -76,19 +76,16 @@ function RetailerTab({ t }) {
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{t('calculator.basket_spend')}</p>
             <p className="text-5xl font-bold text-white">€{spend}</p>
           </div>
-          {tier ? (
+          {tier && (
             <div className={`px-4 py-2 rounded-xl border text-sm font-semibold ${tier.bg} ${tier.color}`}>
               {tier.emoji} {tier.name}
             </div>
-          ) : (
-            <div className="px-4 py-2 rounded-xl border border-slate-600 text-slate-500 text-sm">{t('calculator.below_minimum')}</div>
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={0} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
+          <Slider min={70} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-500">
-            <span>€0</span>
-            <span className="text-slate-400">{t('calculator.min_basket')}</span>
+            <span>€70</span>
             <span>€1.000</span>
           </div>
         </div>
@@ -105,9 +102,7 @@ function RetailerTab({ t }) {
         )}
       </div>
 
-      {spend >= 70 ? (
-        <>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
               <ShoppingBag className="w-4 h-4 text-slate-400 mx-auto mb-2" />
               <p className="text-xs text-slate-400 mb-1">{t('calculator.basket_value')}</p>
@@ -201,12 +196,7 @@ function RetailerTab({ t }) {
             </div>
             <p className="text-xs text-slate-500">{t('calculator.tiers_footnote')}</p>
           </div>
-        </>
-      ) : (
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-10 text-center">
-          <p className="text-slate-400">{t('calculator.slide_to_activate')} <strong className="text-white">€70</strong> {t('calculator.slide_to_activate_2')}</p>
-        </div>
-      )}
+
     </div>
   );
 }
