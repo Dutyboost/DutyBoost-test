@@ -127,7 +127,7 @@ function RetailerTab({ t }) {
             <div className="bg-emerald-500/15 border border-emerald-500/30 rounded-xl p-4 text-center">
               <TrendingUp className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
               <p className="text-xs text-emerald-300 mb-1">Return per €1 invested</p>
-              <p className="text-2xl font-bold text-emerald-300">{commission > 0 ? Math.round((netRevenue / commission) * 10) / 10 : 0}x</p>
+              <p className="text-2xl font-bold text-emerald-300">{totalCost > 0 ? Math.round((netRevenue / totalCost) * 10) / 10 : 0}x</p>
               <p className="text-xs text-emerald-400 mt-0.5">ROI</p>
             </div>
           </div>
