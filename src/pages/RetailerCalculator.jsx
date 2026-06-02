@@ -160,10 +160,7 @@ function RetailerTab({ t }) {
                 <p className="text-xs text-slate-400">{t('calculator.total_cost_label')}</p>
                 <p className="text-2xl font-bold text-white">€{fmtNum(totalCost, 2)} <span className="text-sm font-normal text-slate-400">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
               </div>
-              <div className="flex items-start gap-2 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3 max-w-xs">
-                <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                <p className="text-xs text-blue-300 leading-relaxed">{t('calculator.acq_info')} <strong>€0</strong>. {t('calculator.acq_info_2')} <strong>€{fmtNum(totalCost, 2)}</strong> {t('calculator.acq_info_3')} <strong>€{spend}</strong>.</p>
-              </div>
+
             </div>
           </div>
 
