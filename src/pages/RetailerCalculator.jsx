@@ -67,8 +67,8 @@ function RetailerROIAtScale({ spend, saving, commission, netRevenue, totalCost, 
           </div>
           <span className="text-slate-400 text-sm">visitors</span>
         </div>
-        <Slider min={1} max={500} step={1} value={[visitorsPerDay]} onValueChange={([v]) => setVisitorsPerDay(v)} className="w-full" />
-        <div className="flex justify-between text-xs text-slate-500"><span>1</span><span>500 / day</span></div>
+        <Slider min={1} max={10000} step={10} value={[visitorsPerDay]} onValueChange={([v]) => setVisitorsPerDay(v)} className="w-full" />
+        <div className="flex justify-between text-xs text-slate-500"><span>1</span><span>10.000 / day</span></div>
       </div>
 
       {/* Metrics */}
