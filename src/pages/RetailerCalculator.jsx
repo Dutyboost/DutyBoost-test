@@ -145,7 +145,13 @@ function RetailerTab({ t }) {
   const netRevenue = useMemo(() => Math.round((spend - saving - commission) * 100) / 100, [spend, saving, commission]);
   const tier = useMemo(() => getTier(spend), [spend]);
 
-
+  const tierProgress = useMemo(() => {
+    if (spend < 70) return 0;
+    if (spend >= 300) return 100;
+    if (spend >= 200) return ((spend - 200) / 99) * 100;
+    if (spend >= 100) return ((spend - 100) / 99) * 100;
+    return ((spend - 70) / 29) * 100;
+  }, [spend]);
 
   return (
     <div className="space-y-6">
@@ -169,42 +175,25 @@ function RetailerTab({ t }) {
             <div className="px-4 py-2 rounded-xl border border-slate-600 text-slate-500 text-sm">{t('calculator.below_minimum')}</div>
           )}
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2">
           <Slider min={0} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
-
-          {/* Tier band markers */}
-          <div className="relative h-8">
-            {/* Tier segments */}
-            {[
-              { label: "Boarding", emoji: "🟡", from: 70, to: 100, color: "bg-yellow-500/30 border-yellow-500/50 text-yellow-300" },
-              { label: "Priority", emoji: "🔵", from: 100, to: 200, color: "bg-blue-500/30 border-blue-500/50 text-blue-300" },
-              { label: "Lounge",   emoji: "🟢", from: 200, to: 300, color: "bg-green-500/30 border-green-500/50 text-green-300" },
-              { label: "VIP",      emoji: "🟣", from: 300, to: 1000, color: "bg-purple-500/30 border-purple-500/50 text-purple-300" },
-            ].map(({ label, emoji, from, to, color }) => {
-              const left = (from / 1000) * 100;
-              const width = ((to - from) / 1000) * 100;
-              const isActive = spend >= from && spend < to || (to === 1000 && spend >= from);
-              return (
-                <div
-                  key={label}
-                  className={`absolute top-0 h-7 rounded border text-xs flex items-center justify-center gap-0.5 font-medium transition-all duration-200 cursor-pointer select-none
-                    ${isActive ? color + " opacity-100" : "bg-slate-700/40 border-slate-600/40 text-slate-500 opacity-60"}`}
-                  style={{ left: `${left}%`, width: `${width}%` }}
-                  onClick={() => setSpend(from === 70 ? 84 : from === 100 ? 150 : from === 200 ? 250 : 350)}
-                >
-                  <span className="hidden sm:inline">{emoji} {label}</span>
-                  <span className="sm:hidden text-xs">{emoji}</span>
-                </div>
-              );
-            })}
-          </div>
-
           <div className="flex justify-between text-xs text-slate-500">
             <span>€0</span>
-            <span className="text-slate-400">{t('calculator.min_basket')} €70</span>
+            <span className="text-slate-400">{t('calculator.min_basket')}</span>
             <span>€1.000</span>
           </div>
         </div>
+        {tier && (
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs text-slate-400">
+              <span>{t('calculator.progress_within')} {tier.name}</span>
+              <span>{Math.round(tierProgress)}%</span>
+            </div>
+            <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+              <div className={`h-full rounded-full transition-all duration-200 ${tier.bar}`} style={{ width: `${tierProgress}%` }} />
+            </div>
+          </div>
+        )}
       </div>
 
       {spend >= 70 ? (
