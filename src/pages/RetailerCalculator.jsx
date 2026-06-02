@@ -103,9 +103,9 @@ function RetailerTab({ t }) {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
-              <ShoppingBag className="w-4 h-4 text-slate-400 mx-auto mb-2" />
-              <p className="text-xs text-slate-400 mb-1">{t('calculator.basket_value')}</p>
+            <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
+              <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
+              <p className="text-xs text-blue-300 mb-1">{t('calculator.basket_value')}</p>
               <p className="text-2xl font-bold text-white">€{spend}</p>
             </div>
             <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
