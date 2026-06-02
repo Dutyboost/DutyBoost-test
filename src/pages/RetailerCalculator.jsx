@@ -104,28 +104,28 @@ function RetailerTab({ t }) {
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
-              <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
+              <ShoppingBag className="w-6 h-6 text-blue-400 mx-auto mb-2" />
               <p className="text-xs text-blue-300 mb-1">{t('calculator.basket_value')}</p>
               <p className="text-2xl font-bold text-white">€{spend}</p>
             </div>
             <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
-              <Percent className="w-4 h-4 text-red-400 mx-auto mb-2" />
+              <Percent className="w-6 h-6 text-red-400 mx-auto mb-2" />
               <p className="text-xs text-red-300 mb-1">{t('calculator.traveler_saving')}</p>
               <p className="text-2xl font-bold text-red-300">€{fmtNum(saving, 2)}</p>
               <p className="text-xs text-red-400 mt-0.5">{fmtNum(discountPct, 1)}% off</p>
             </div>
             <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 text-center">
-              <Euro className="w-4 h-4 text-orange-400 mx-auto mb-2" />
+              <Euro className="w-6 h-6 text-orange-400 mx-auto mb-2" />
               <p className="text-xs text-orange-300 mb-1">{t('calculator.dutboost_fee')}</p>
               <p className="text-2xl font-bold text-orange-300">€{fmtNum(commission, 2)}</p>
             </div>
             <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
-              <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
+              <TrendingUp className="w-6 h-6 text-green-400 mx-auto mb-2" />
               <p className="text-xs text-green-300 mb-1">{t('calculator.net_revenue')}</p>
               <p className="text-2xl font-bold text-green-300">€{fmtNum(netRevenue, 2)}</p>
             </div>
             <div className="bg-emerald-500/15 border border-emerald-500/30 rounded-xl p-4 text-center">
-              <TrendingUp className="w-4 h-4 text-emerald-400 mx-auto mb-2" />
+              <TrendingUp className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
               <p className="text-xs text-emerald-300 mb-1">Return per €1 fee paid</p>
               <p className="text-2xl font-bold text-emerald-300">{commission > 0 ? Math.round((netRevenue / commission) * 10) / 10 : 0}x</p>
               <p className="text-xs text-emerald-400 mt-0.5">ROI</p>
