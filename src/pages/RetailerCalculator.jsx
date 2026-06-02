@@ -41,6 +41,92 @@ const TIER_BANDS = [
   { label: "VIP",      min: 300, max: 1000,savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
 ];
 
+// ── Retailer ROI at Scale ──────────────────────────────────────────────────────
+function RetailerROIAtScale({ spend, saving, commission, netRevenue, totalCost, t }) {
+  const [visitorsPerDay, setVisitorsPerDay] = useState(50);
+
+  const dailyCost = useMemo(() => Math.round(visitorsPerDay * totalCost * 100) / 100, [visitorsPerDay, totalCost]);
+  const dailyNetRevenue = useMemo(() => Math.round(visitorsPerDay * netRevenue * 100) / 100, [visitorsPerDay, netRevenue]);
+  const annualNetRevenue = useMemo(() => Math.round(dailyNetRevenue * 365 * 100) / 100, [dailyNetRevenue]);
+  const annualCost = useMemo(() => Math.round(dailyCost * 365 * 100) / 100, [dailyCost]);
+  const roiPerEuro = useMemo(() => annualCost > 0 ? Math.round((annualNetRevenue / annualCost) * 100) / 100 : 0, [annualNetRevenue, annualCost]);
+
+  return (
+    <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-5">
+      <div>
+        <h3 className="font-bold text-white text-lg">ROI at Scale</h3>
+        <p className="text-slate-400 text-sm mt-1">How much net revenue does your store generate per €1 invested in DutyBoost — at your current basket size, across your daily visitor volume?</p>
+      </div>
+
+      {/* Visitors per day slider */}
+      <div className="space-y-3">
+        <div className="flex justify-between items-end">
+          <div>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">DutyCredit holders / day</p>
+            <p className="text-4xl font-bold text-white">{fmtNum(visitorsPerDay)}</p>
+          </div>
+          <span className="text-slate-400 text-sm">visitors</span>
+        </div>
+        <Slider min={1} max={500} step={1} value={[visitorsPerDay]} onValueChange={([v]) => setVisitorsPerDay(v)} className="w-full" />
+        <div className="flex justify-between text-xs text-slate-500"><span>1</span><span>500 / day</span></div>
+      </div>
+
+      {/* Metrics */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="bg-slate-700/50 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Daily Cost</p>
+          <p className="text-xl font-bold text-orange-300">€{fmtNum(dailyCost, 0)}</p>
+          <p className="text-xs text-slate-500 mt-0.5">saving + fee</p>
+        </div>
+        <div className="bg-slate-700/50 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Daily Net Revenue</p>
+          <p className="text-xl font-bold text-green-300">€{fmtNum(dailyNetRevenue, 0)}</p>
+          <p className="text-xs text-slate-500 mt-0.5">after all costs</p>
+        </div>
+        <div className="bg-slate-700/50 rounded-xl p-4 text-center">
+          <p className="text-xs text-slate-400 mb-1">Annual Net Revenue</p>
+          <p className="text-xl font-bold text-green-300">€{fmtNum(annualNetRevenue, 0)}</p>
+          <p className="text-xs text-slate-500 mt-0.5">365 days</p>
+        </div>
+        <div className="bg-emerald-500/15 border border-emerald-500/30 rounded-xl p-4 text-center">
+          <p className="text-xs text-emerald-300 mb-1">Return per €1 invested</p>
+          <p className="text-2xl font-bold text-emerald-300">€{fmtNum(roiPerEuro, 2)}</p>
+          <p className="text-xs text-emerald-400 mt-0.5">annually</p>
+        </div>
+      </div>
+
+      {/* ROI bar */}
+      <div className="space-y-2">
+        <div className="flex justify-between text-xs text-slate-400">
+          <span>Annual Cost <span className="text-orange-300">€{fmtNum(annualCost, 0)}</span></span>
+          <span>Annual Revenue <span className="text-green-300">€{fmtNum(annualNetRevenue, 0)}</span></span>
+        </div>
+        <div className="h-5 bg-slate-700 rounded-full overflow-hidden flex">
+          <div
+            className="h-full bg-orange-400 rounded-l-full transition-all duration-300 shrink-0"
+            style={{ width: `${annualNetRevenue > 0 ? Math.min(50, (annualCost / (annualCost + annualNetRevenue)) * 100) : 50}%` }}
+          />
+          <div
+            className="h-full bg-emerald-400 rounded-r-full transition-all duration-300"
+            style={{ width: `${annualNetRevenue > 0 ? Math.min(100, (annualNetRevenue / (annualCost + annualNetRevenue)) * 100) : 0}%` }}
+          />
+        </div>
+        <div className="flex gap-4 text-xs text-slate-500">
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-400 inline-block" /> Cost (saving + fee)</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" /> Net revenue retained</span>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-3">
+        <TrendingUp className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+        <p className="text-sm text-emerald-300 leading-relaxed">
+          For every <strong>€1</strong> you invest in DutyBoost (discount + fee), your store returns <strong>€{fmtNum(roiPerEuro, 2)}</strong> in net revenue annually — on sales that would not have happened without DutyBoost.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
@@ -158,6 +244,9 @@ function RetailerTab({ t }) {
               </div>
             </div>
           </div>
+
+          {/* ROI at Scale */}
+          <RetailerROIAtScale spend={spend} saving={saving} commission={commission} netRevenue={netRevenue} totalCost={totalCost} t={t} />
 
           <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-3">
             <h3 className="font-bold text-white text-sm uppercase tracking-widest">{t('calculator.tiers_title')}</h3>
