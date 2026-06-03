@@ -599,7 +599,7 @@ export default {
       partner_subtitle_3: 'op elke mand die uw reizigers op de luchthaven besteden (gemaximeerd op',
       partner_subtitle_4: '€5 per transactie',
       partner_subtitle_5: ') — maandelijks uitbetaald',
-      partner_subtitle_6: 'maandelijks',
+      partner_subtitle_6: '',
       partner_subtitle_7: 'door DutyBoost uit zijn eigen fee.',
       bookings_per_month: 'Boekingen / maand waarnaar u DutyCredits stuurt',
       travelers_label: 'reizigers',
