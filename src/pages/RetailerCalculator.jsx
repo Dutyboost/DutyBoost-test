@@ -6,6 +6,7 @@ import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store } from "luci
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
 // Linear interpolation within each tier
@@ -376,9 +377,13 @@ export default function RetailerCalculator() {
 
         {/* Header */}
         <div className="text-center space-y-2">
-          <div className="flex justify-center mb-2">
-              <DutyBoostLogo height={80} />
+          <div className="flex justify-between items-center mb-2">
+            <div className="w-24" />
+            <DutyBoostLogo height={80} />
+            <div className="w-24 flex justify-end">
+              <LanguageSwitcher />
             </div>
+          </div>
             <Badge className="bg-blue-100 text-blue-700 border-blue-300 text-xs tracking-widest uppercase">
               {t('calculator.badge')}
             </Badge>
