@@ -5,7 +5,7 @@ export default function DutyBoostLogo({ height = 100, inverted = false, linkTo =
     <Link to={linkTo} className="hover:opacity-80 transition-opacity inline-flex items-center">
       <div style={inverted ? { background: 'white', borderRadius: '12px', padding: '6px 14px', display: 'inline-flex', alignItems: 'center' } : {}}>
         <img
-          src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/8c6afdf07_DutyBoostLogo_1.svg"
+          src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/71d6891ff_UpdatedLogo.svg"
           alt="DutyBoost"
           onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
           style={{
