@@ -103,32 +103,32 @@ function RetailerTab({ t }) {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
-              <ShoppingBag className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-              <p className="text-xs text-blue-300 mb-1">{t('calculator.basket_value')}</p>
+            <div className="bg-blue-600 rounded-xl p-4 text-center">
+              <ShoppingBag className="w-6 h-6 text-blue-100 mx-auto mb-2" />
+              <p className="text-xs text-blue-100 mb-1">{t('calculator.basket_value')}</p>
               <p className="text-2xl font-bold text-white">€{spend}</p>
             </div>
-            <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
-              <Percent className="w-6 h-6 text-red-400 mx-auto mb-2" />
-              <p className="text-xs text-red-300 mb-1">{t('calculator.traveler_saving')}</p>
-              <p className="text-2xl font-bold text-red-300">€{fmtNum(saving, 2)}</p>
-              <p className="text-xs text-red-400 mt-0.5">{fmtNum(discountPct, 1)}% off</p>
+            <div className="bg-rose-600 rounded-xl p-4 text-center">
+              <Percent className="w-6 h-6 text-rose-100 mx-auto mb-2" />
+              <p className="text-xs text-rose-100 mb-1">{t('calculator.traveler_saving')}</p>
+              <p className="text-2xl font-bold text-white">€{fmtNum(saving, 2)}</p>
+              <p className="text-xs text-rose-200 mt-0.5">{fmtNum(discountPct, 1)}% off</p>
             </div>
-            <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 text-center">
-              <Euro className="w-6 h-6 text-orange-400 mx-auto mb-2" />
-              <p className="text-xs text-orange-300 mb-1">{t('calculator.dutboost_fee')}</p>
-              <p className="text-2xl font-bold text-orange-300">€{fmtNum(commission, 2)}</p>
+            <div className="bg-orange-500 rounded-xl p-4 text-center">
+              <Euro className="w-6 h-6 text-orange-100 mx-auto mb-2" />
+              <p className="text-xs text-orange-100 mb-1">{t('calculator.dutboost_fee')}</p>
+              <p className="text-2xl font-bold text-white">€{fmtNum(commission, 2)}</p>
             </div>
-            <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
-              <TrendingUp className="w-6 h-6 text-green-400 mx-auto mb-2" />
-              <p className="text-xs text-green-300 mb-1">{t('calculator.net_revenue')}</p>
-              <p className="text-2xl font-bold text-green-300">€{fmtNum(netRevenue, 2)}</p>
+            <div className="bg-emerald-600 rounded-xl p-4 text-center">
+              <TrendingUp className="w-6 h-6 text-emerald-100 mx-auto mb-2" />
+              <p className="text-xs text-emerald-100 mb-1">{t('calculator.net_revenue')}</p>
+              <p className="text-2xl font-bold text-white">€{fmtNum(netRevenue, 2)}</p>
             </div>
-            <div className="bg-emerald-500/15 border border-emerald-500/30 rounded-xl p-4 text-center">
-              <TrendingUp className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
-              <p className="text-xs text-emerald-300 mb-1">Return per €1 invested</p>
-              <p className="text-2xl font-bold text-emerald-300">{totalCost > 0 ? Math.round((netRevenue / totalCost) * 10) / 10 : 0}x</p>
-              <p className="text-xs text-emerald-400 mt-0.5">ROI</p>
+            <div className="bg-teal-700 rounded-xl p-4 text-center">
+              <TrendingUp className="w-6 h-6 text-teal-100 mx-auto mb-2" />
+              <p className="text-xs text-teal-100 mb-1">Return per €1 invested</p>
+              <p className="text-2xl font-bold text-white">{totalCost > 0 ? Math.round((netRevenue / totalCost) * 10) / 10 : 0}x</p>
+              <p className="text-xs text-teal-200 mt-0.5">ROI</p>
             </div>
           </div>
 
