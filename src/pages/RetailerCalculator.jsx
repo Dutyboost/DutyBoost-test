@@ -137,16 +137,16 @@ function RetailerTab({ t }) {
             <p className="text-slate-600 text-sm">{t('calculator.total_acq_desc')}</p>
             <div className="space-y-2">
               {[
-                { label: t('calculator.label_saving'), value: saving, pct: fmtNum(discountPct, 1), barColor: "bg-red-400", textColor: "text-red-300" },
-                { label: t('calculator.label_fee'), value: commission, pct: fmtNum(spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, 1), barColor: "bg-orange-400", textColor: "text-orange-300" },
-                { label: t('calculator.label_net'), value: netRevenue, pct: fmtNum(Math.round((netRevenue / spend) * 1000) / 10, 1), barColor: "bg-green-400", textColor: "text-green-300" },
+                { label: t('calculator.label_saving'), value: saving, pct: fmtNum(discountPct, 1), barColor: "bg-rose-600", textColor: "text-rose-600" },
+                { label: t('calculator.label_fee'), value: commission, pct: fmtNum(spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, 1), barColor: "bg-orange-500", textColor: "text-orange-500" },
+                { label: t('calculator.label_net'), value: netRevenue, pct: fmtNum(Math.round((netRevenue / spend) * 1000) / 10, 1), barColor: "bg-emerald-600", textColor: "text-emerald-600" },
               ].map(({ label, value, pct, barColor, textColor }) => (
                 <div key={label} className="flex items-center gap-3">
-                  <div className="w-28 text-xs text-slate-400 shrink-0">{label}</div>
-                  <div className="flex-1 h-6 bg-slate-700 rounded-lg overflow-hidden">
+                  <div className="w-28 text-xs text-slate-500 shrink-0">{label}</div>
+                  <div className="flex-1 h-6 bg-slate-200 rounded-lg overflow-hidden">
                     <div className={`h-full ${barColor} rounded-lg transition-all duration-300`} style={{ width: `${Math.min(100, (value / spend) * 100)}%` }} />
                     </div>
-                    <div className="w-12 text-xs text-slate-700 text-right shrink-0">{pct}%</div>
+                    <div className={`w-12 text-xs text-right shrink-0 font-semibold ${textColor}`}>{pct}%</div>
                 </div>
               ))}
             </div>
