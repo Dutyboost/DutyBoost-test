@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import PageFooter from "../components/PageFooter";
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
 // Linear interpolation within each tier
@@ -413,8 +414,8 @@ export default function RetailerCalculator() {
 
         {activeTab === "retailer" ? <RetailerTab t={t} /> : <TravelPartnerTab t={t} />}
 
-        <p className="text-center text-xs text-slate-700 pb-4">hello@dutyboost.com · www.dutyboost.com</p>
       </div>
+      <PageFooter />
     </div>
   );
 }
