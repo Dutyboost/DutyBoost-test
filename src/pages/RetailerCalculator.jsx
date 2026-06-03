@@ -217,22 +217,22 @@ function TravelPartnerTab({ t }) {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-white">{t('calculator.partner_title')}</h2>
-        <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          {t('calculator.partner_subtitle_1')} <strong className="text-green-300">{t('calculator.partner_subtitle_2')}</strong> {t('calculator.partner_subtitle_3')} <strong className="text-green-300">{t('calculator.partner_subtitle_4')}</strong>{t('calculator.partner_subtitle_5')} <strong className="text-green-300">{t('calculator.partner_subtitle_6')}</strong> {t('calculator.partner_subtitle_7')}
+        <h2 className="text-xl font-bold text-slate-900">{t('calculator.partner_title')}</h2>
+        <p className="text-slate-600 text-sm max-w-xl mx-auto">
+          {t('calculator.partner_subtitle_1')} <strong className="text-emerald-700">{t('calculator.partner_subtitle_2')}</strong> {t('calculator.partner_subtitle_3')} <strong className="text-emerald-700">{t('calculator.partner_subtitle_4')}</strong>{t('calculator.partner_subtitle_5')} <strong className="text-emerald-700">{t('calculator.partner_subtitle_6')}</strong> {t('calculator.partner_subtitle_7')}
         </p>
       </div>
 
       {/* Sliders */}
-      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-6">
         {/* Bookings per month */}
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.bookings_per_month')}</p>
-              <p className="text-4xl font-bold text-white">{fmtNum(bookingsPerMonth)}</p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_per_month')}</p>
+              <p className="text-4xl font-bold text-slate-900">{fmtNum(bookingsPerMonth)}</p>
             </div>
-            <span className="text-slate-400 text-sm">{t('calculator.travelers_label')}</span>
+            <span className="text-slate-500 text-sm">{t('calculator.travelers_label')}</span>
           </div>
           <Slider min={0} max={1000000} step={1000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-500"><span>0</span><span>1.000.000</span></div>
@@ -242,24 +242,24 @@ function TravelPartnerTab({ t }) {
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
-              <p className="text-4xl font-bold text-white">{conversionRate}%</p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
+              <p className="text-4xl font-bold text-slate-900">{conversionRate}%</p>
             </div>
-            <span className="text-slate-400 text-sm">{t('calculator.travelers_redeem')}</span>
+            <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
           </div>
           <Slider min={5} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>5%</span><span className="text-slate-400">{t('calculator.industry_avg')}</span><span>50%</span></div>
+          <div className="flex justify-between text-xs text-slate-500"><span>5%</span><span>{t('calculator.industry_avg')}</span><span>50%</span></div>
         </div>
 
         {/* Avg basket */}
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest mb-0.5">{t('calculator.avg_basket')}</p>
-              <p className="text-4xl font-bold text-white">€{avgBasket}</p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.avg_basket')}</p>
+              <p className="text-4xl font-bold text-slate-900">€{avgBasket}</p>
             </div>
             {tier && (
-              <div className={`px-3 py-1.5 rounded-xl border text-xs font-semibold ${tier.bg} ${tier.color}`}>
+              <div className="px-3 py-1.5 rounded-xl border border-slate-300 bg-slate-100 text-xs font-semibold text-slate-900">
                 {tier.emoji} {tier.name}
               </div>
             )}
@@ -271,66 +271,66 @@ function TravelPartnerTab({ t }) {
 
       {/* Result metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
-          <Users className="w-4 h-4 text-slate-400 mx-auto mb-2" />
-          <p className="text-xs text-slate-400 mb-1">{t('calculator.redemptions_month')}</p>
+        <div className="bg-slate-700 rounded-xl p-4 text-center">
+          <Users className="w-4 h-4 text-slate-200 mx-auto mb-2" />
+          <p className="text-xs text-slate-200 mb-1">{t('calculator.redemptions_month')}</p>
           <p className="text-2xl font-bold text-white">{fmtNum(redemptions)}</p>
         </div>
-        <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
-          <ShoppingBag className="w-4 h-4 text-blue-400 mx-auto mb-2" />
-          <p className="text-xs text-blue-300 mb-1">{t('calculator.commission_tx')}</p>
-          <p className="text-2xl font-bold text-blue-300">€{fmtNum(agencyCommissionPerTx, 2)}</p>
-          <p className="text-xs text-blue-400 mt-0.5">0.5% of basket (max €5)</p>
+        <div className="bg-blue-600 rounded-xl p-4 text-center">
+          <ShoppingBag className="w-4 h-4 text-blue-100 mx-auto mb-2" />
+          <p className="text-xs text-blue-100 mb-1">{t('calculator.commission_tx')}</p>
+          <p className="text-2xl font-bold text-white">€{fmtNum(agencyCommissionPerTx, 2)}</p>
+          <p className="text-xs text-blue-200 mt-0.5">0.5% of basket (max €5)</p>
         </div>
-        <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
-          <TrendingUp className="w-4 h-4 text-green-400 mx-auto mb-2" />
-          <p className="text-xs text-green-300 mb-1">{t('calculator.monthly_commission')}</p>
-          <p className="text-2xl font-bold text-green-300">{fmtEur(monthlyCommission, 2)}</p>
+        <div className="bg-emerald-600 rounded-xl p-4 text-center">
+          <TrendingUp className="w-4 h-4 text-emerald-100 mx-auto mb-2" />
+          <p className="text-xs text-emerald-100 mb-1">{t('calculator.monthly_commission')}</p>
+          <p className="text-2xl font-bold text-white">{fmtEur(monthlyCommission, 2)}</p>
         </div>
-        <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 text-center">
-          <Percent className="w-4 h-4 text-purple-400 mx-auto mb-2" />
-          <p className="text-xs text-purple-300 mb-1">{t('calculator.traveler_savings_month')}</p>
-          <p className="text-2xl font-bold text-purple-300">{fmtEur(totalTravelerSavings, 2)}</p>
+        <div className="bg-rose-600 rounded-xl p-4 text-center">
+          <Percent className="w-4 h-4 text-rose-100 mx-auto mb-2" />
+          <p className="text-xs text-rose-100 mb-1">{t('calculator.traveler_savings_month')}</p>
+          <p className="text-2xl font-bold text-white">{fmtEur(totalTravelerSavings, 2)}</p>
         </div>
       </div>
 
       {/* Commission breakdown */}
-      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-5">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
         <div>
-          <h3 className="font-bold text-white text-lg">{t('calculator.revenue_title')}</h3>
-          <p className="text-slate-400 text-sm mt-1">{t('calculator.revenue_desc')}</p>
+          <h3 className="font-bold text-slate-900 text-lg">{t('calculator.revenue_title')}</h3>
+          <p className="text-slate-600 text-sm mt-1">{t('calculator.revenue_desc')}</p>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-4">
-          <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-slate-400">{t('calculator.you_send')}</p>
-            <p className="text-2xl font-bold text-white">{fmtNum(bookingsPerMonth)} {t('calculator.travelers_mo')}</p>
+          <div className="bg-slate-100 rounded-xl p-4 space-y-1">
+            <p className="text-xs text-slate-500">{t('calculator.you_send')}</p>
+            <p className="text-2xl font-bold text-slate-900">{fmtNum(bookingsPerMonth)} {t('calculator.travelers_mo')}</p>
           </div>
-          <div className="bg-slate-700/50 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-slate-400">{t('calculator.at_redemption')} {conversionRate}% {t('calculator.redemption_rate_label')}</p>
-            <p className="text-2xl font-bold text-white">{fmtNum(redemptions)} {t('calculator.transactions_label')}</p>
+          <div className="bg-slate-100 rounded-xl p-4 space-y-1">
+            <p className="text-xs text-slate-500">{t('calculator.at_redemption')} {conversionRate}% {t('calculator.redemption_rate_label')}</p>
+            <p className="text-2xl font-bold text-slate-900">{fmtNum(redemptions)} {t('calculator.transactions_label')}</p>
           </div>
-          <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-green-300">{t('calculator.you_earn')}</p>
-            <p className="text-2xl font-bold text-green-300">{fmtEur(monthlyCommission, 2)} {t('calculator.per_month')}</p>
+          <div className="bg-emerald-600 rounded-xl p-4 space-y-1">
+            <p className="text-xs text-emerald-100">{t('calculator.you_earn')}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyCommission, 2)} {t('calculator.per_month')}</p>
           </div>
         </div>
 
-        <div className="flex items-start gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3">
-          <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-          <p className="text-sm text-blue-300 leading-relaxed">
+        <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+          <Info className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+          <p className="text-sm text-blue-800 leading-relaxed">
             {t('calculator.commission_info')} <strong>{t('calculator.commission_info_2')}</strong>{t('calculator.commission_info_3')}
           </p>
         </div>
       </div>
 
       {/* Tier reference for agencies */}
-      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-3">
-        <h3 className="font-bold text-white text-sm uppercase tracking-widest">{t('calculator.commission_by_tier')}</h3>
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+        <h3 className="font-bold text-slate-900 text-sm uppercase tracking-widest">{t('calculator.commission_by_tier')}</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-xs text-slate-400 border-b border-slate-700">
+              <tr className="text-left text-xs text-slate-600 border-b border-slate-200">
                 <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
                 <th className="pb-2 pr-4">{t('calculator.col_avg_basket')}</th>
                 <th className="pb-2 pr-4">{t('calculator.col_traveler_saves')}</th>
@@ -338,7 +338,7 @@ function TravelPartnerTab({ t }) {
                 <th className="pb-2">{t('calculator.col_per_100')}</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-700/50">
+            <tbody className="divide-y divide-slate-100">
               {TIER_BANDS.map((t) => {
                 const mid = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
                 const saving = calcSaving(mid);
@@ -346,12 +346,12 @@ function TravelPartnerTab({ t }) {
                 const per100 = Math.round(comm * 100 * 100) / 100;
                 const isActive = tier?.name.startsWith(t.label);
                 return (
-                  <tr key={t.label} className={`transition-colors ${isActive ? "bg-white/5" : ""}`}>
+                  <tr key={t.label} className={`transition-colors ${isActive ? "bg-slate-100" : ""}`}>
                     <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
-                    <td className="py-2.5 pr-4 text-slate-300">€{mid}</td>
-                    <td className="py-2.5 pr-4 text-red-300">€{fmtNum(saving, 2)}</td>
-                    <td className="py-2.5 pr-4 text-green-300 font-semibold">€{fmtNum(comm, 2)}</td>
-                    <td className="py-2.5 text-blue-300">€{fmtNum(per100, 0)}</td>
+                    <td className="py-2.5 pr-4 text-slate-700">€{mid}</td>
+                    <td className="py-2.5 pr-4 text-rose-600 font-medium">€{fmtNum(saving, 2)}</td>
+                    <td className="py-2.5 pr-4 text-emerald-700 font-semibold">€{fmtNum(comm, 2)}</td>
+                    <td className="py-2.5 text-blue-700 font-medium">€{fmtNum(per100, 0)}</td>
                   </tr>
                 );
               })}
