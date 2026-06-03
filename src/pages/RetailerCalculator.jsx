@@ -65,37 +65,37 @@ function RetailerTab({ t }) {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-white">{t('calculator.retailer_title')}</h2>
-        <p className="text-slate-400 text-sm max-w-xl mx-auto">{t('calculator.retailer_subtitle')}</p>
+        <h2 className="text-xl font-bold text-slate-900">{t('calculator.retailer_title')}</h2>
+        <p className="text-slate-600 text-sm max-w-xl mx-auto">{t('calculator.retailer_subtitle')}</p>
       </div>
 
       {/* Slider Card */}
-      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-5">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{t('calculator.basket_spend')}</p>
-            <p className="text-5xl font-bold text-white">€{spend}</p>
+            <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.basket_spend')}</p>
+            <p className="text-5xl font-bold text-slate-900">€{spend}</p>
           </div>
           {tier && (
-            <div className={`px-4 py-2 rounded-xl border text-sm font-semibold ${tier.bg} ${tier.color}`}>
+            <div className="px-4 py-2 rounded-xl border text-sm font-semibold border-slate-300 bg-slate-100 text-slate-900">
               {tier.emoji} {tier.name}
             </div>
           )}
         </div>
         <div className="space-y-2">
           <Slider min={70} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500">
-            <span>€70</span>
-            <span>€1.000</span>
+          <div className="flex justify-between text-xs text-slate-600">
+          <span>€70</span>
+          <span>€1.000</span>
           </div>
         </div>
         {tier && (
           <div className="space-y-1.5">
-            <div className="flex justify-between text-xs text-slate-400">
-              <span>{t('calculator.progress_within')} {tier.name}</span>
-              <span>{Math.round(tierProgress)}%</span>
-            </div>
-            <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+          <div className="flex justify-between text-xs text-slate-600">
+            <span>{t('calculator.progress_within')} {tier.name}</span>
+            <span>{Math.round(tierProgress)}%</span>
+          </div>
+            <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
               <div className={`h-full rounded-full transition-all duration-200 ${tier.bar}`} style={{ width: `${tierProgress}%` }} />
             </div>
           </div>
@@ -132,9 +132,9 @@ function RetailerTab({ t }) {
             </div>
           </div>
 
-          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-4">
-            <h3 className="font-bold text-white text-lg">{t('calculator.total_acq_title')}</h3>
-            <p className="text-slate-400 text-sm">{t('calculator.total_acq_desc')}</p>
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+            <h3 className="font-bold text-slate-900 text-lg">{t('calculator.total_acq_title')}</h3>
+            <p className="text-slate-600 text-sm">{t('calculator.total_acq_desc')}</p>
             <div className="space-y-2">
               {[
                 { label: t('calculator.label_saving'), value: saving, pct: fmtNum(discountPct, 1), barColor: "bg-red-400", textColor: "text-red-300" },
@@ -145,15 +145,15 @@ function RetailerTab({ t }) {
                   <div className="w-28 text-xs text-slate-400 shrink-0">{label}</div>
                   <div className="flex-1 h-6 bg-slate-700 rounded-lg overflow-hidden">
                     <div className={`h-full ${barColor} rounded-lg transition-all duration-300`} style={{ width: `${Math.min(100, (value / spend) * 100)}%` }} />
-                  </div>
-                  <div className={`w-12 text-xs ${textColor} text-right shrink-0`}>{pct}%</div>
+                    </div>
+                    <div className="w-12 text-xs text-slate-700 text-right shrink-0">{pct}%</div>
                 </div>
               ))}
             </div>
-            <div className="pt-3 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
-                <p className="text-xs text-slate-400">{t('calculator.total_cost_label')}</p>
-                <p className="text-2xl font-bold text-white">€{fmtNum(totalCost, 2)} <span className="text-sm font-normal text-slate-400">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
+                <p className="text-xs text-slate-500">{t('calculator.total_cost_label')}</p>
+                <p className="text-2xl font-bold text-slate-900">€{fmtNum(totalCost, 2)} <span className="text-sm font-normal text-slate-600">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
               </div>
 
             </div>
@@ -161,12 +161,12 @@ function RetailerTab({ t }) {
 
 
 
-          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-3">
-            <h3 className="font-bold text-white text-sm uppercase tracking-widest">{t('calculator.tiers_title')}</h3>
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+            <h3 className="font-bold text-slate-900 text-sm uppercase tracking-widest">{t('calculator.tiers_title')}</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-xs text-slate-400 border-b border-slate-700">
+                  <tr className="text-left text-xs text-slate-600 border-b border-slate-200">
                     <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
                     <th className="pb-2 pr-4">{t('calculator.col_spend')}</th>
                     <th className="pb-2 pr-4">{t('calculator.col_saving')}</th>
@@ -174,7 +174,7 @@ function RetailerTab({ t }) {
                     <th className="pb-2">{t('calculator.col_net_pct')}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-700/50">
+                <tbody className="divide-y divide-slate-200">
                   {TIER_BANDS.map((t) => {
                     const midSpend = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
                     const midSaving = calcSaving(midSpend);
@@ -182,19 +182,19 @@ function RetailerTab({ t }) {
                     const midNet = Math.round(((midSpend - midSaving - midFee) / midSpend) * 1000) / 10;
                     const isActive = tier?.name.startsWith(t.label);
                     return (
-                      <tr key={t.label} className={`transition-colors ${isActive ? "bg-white/5" : ""}`}>
+                      <tr key={t.label} className={`transition-colors ${isActive ? "bg-slate-100" : ""}`}>
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
-                        <td className="py-2.5 pr-4 text-slate-300">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
-                        <td className="py-2.5 pr-4 text-slate-300">€{t.savMin}–€{t.savMax}</td>
-                        <td className="py-2.5 pr-4 text-orange-300">€{fmtNum(Math.min(t.min * 0.025, PLATFORM_FEE_CAP), 2)}–€{fmtNum(Math.min(t.max * 0.025, PLATFORM_FEE_CAP), 2)}</td>
-                        <td className="py-2.5 text-green-300">{fmtNum(midNet, 1)}%</td>
+                        <td className="py-2.5 pr-4 text-slate-700">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
+                        <td className="py-2.5 pr-4 text-slate-700">€{t.savMin}–€{t.savMax}</td>
+                        <td className="py-2.5 pr-4 text-orange-600">€{fmtNum(Math.min(t.min * 0.025, PLATFORM_FEE_CAP), 2)}–€{fmtNum(Math.min(t.max * 0.025, PLATFORM_FEE_CAP), 2)}</td>
+                        <td className="py-2.5 text-green-600">{fmtNum(midNet, 1)}%</td>
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-slate-500">{t('calculator.tiers_footnote')}</p>
+            <p className="text-xs text-slate-600">{t('calculator.tiers_footnote')}</p>
           </div>
 
     </div>
@@ -370,31 +370,31 @@ export default function RetailerCalculator() {
   const [activeTab, setActiveTab] = useState("retailer");
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white px-4 py-10">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
       <div className="max-w-3xl mx-auto space-y-8">
 
         {/* Header */}
         <div className="text-center space-y-2">
           <div className="flex justify-center mb-2">
-            <DutyBoostLogo height={80} inverted />
-          </div>
-          <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs tracking-widest uppercase">
-            {t('calculator.badge')}
-          </Badge>
-          <h1 className="text-3xl md:text-4xl font-bold text-white">{t('calculator.title')}</h1>
-          <p className="text-slate-400 text-sm max-w-xl mx-auto">
+              <DutyBoostLogo height={80} />
+            </div>
+            <Badge className="bg-blue-100 text-blue-700 border-blue-300 text-xs tracking-widest uppercase">
+              {t('calculator.badge')}
+            </Badge>
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900">{t('calculator.title')}</h1>
+            <p className="text-slate-600 text-sm max-w-xl mx-auto">
             {t('calculator.subtitle')}
           </p>
         </div>
 
         {/* Tab switcher */}
-        <div className="flex gap-2 bg-slate-800 border border-slate-700 rounded-2xl p-1.5">
+        <div className="flex gap-2 bg-slate-100 border border-slate-300 rounded-2xl p-1.5">
           <button
             onClick={() => setActiveTab("retailer")}
             className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
               activeTab === "retailer"
                 ? "bg-orange-500 text-white shadow"
-                : "text-slate-400 hover:text-white"
+                : "text-slate-700 hover:text-slate-900"
             }`}
           >
             <Store className="w-4 h-4" /> {t('calculator.tab_retailer')}
@@ -404,7 +404,7 @@ export default function RetailerCalculator() {
             className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
               activeTab === "partner"
                 ? "bg-green-600 text-white shadow"
-                : "text-slate-400 hover:text-white"
+                : "text-slate-700 hover:text-slate-900"
             }`}
           >
             <Users className="w-4 h-4" /> {t('calculator.tab_partner')}
@@ -413,7 +413,7 @@ export default function RetailerCalculator() {
 
         {activeTab === "retailer" ? <RetailerTab t={t} /> : <TravelPartnerTab t={t} />}
 
-        <p className="text-center text-xs text-slate-600 pb-4">hello@dutyboost.com · www.dutyboost.com</p>
+        <p className="text-center text-xs text-slate-700 pb-4">hello@dutyboost.com · www.dutyboost.com</p>
       </div>
     </div>
   );
