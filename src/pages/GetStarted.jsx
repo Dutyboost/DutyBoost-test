@@ -285,7 +285,7 @@ export default function GetStarted() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center">
-        <Link to="/"><DutyBoostLogo height={130} /></Link>
+        <Link to="/"><DutyBoostLogo height={40} /></Link>
       </nav>
 
       <div className="flex-1 flex items-center justify-center p-6">
