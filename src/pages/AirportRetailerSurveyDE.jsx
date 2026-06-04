@@ -205,7 +205,7 @@ export default function AirportRetailerSurveyDE() {
   return (
     <div className="min-h-screen bg-background font-body flex flex-col">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-4xl mx-auto px-4 h-16 flex items-center"><DutyBoostLogo height={100} /></div>
+        <div className="max-w-4xl mx-auto px-4 h-16 flex items-center"><DutyBoostLogo height={55} /></div>
       </nav>
 
       {step === 0 && (
@@ -374,7 +374,7 @@ export default function AirportRetailerSurveyDE() {
 
       <footer className="border-t border-border py-6 px-4">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <DutyBoostLogo height={100} />
+          <DutyBoostLogo height={55} />
           <p>© {new Date().getFullYear()} DutyBoost</p>
         </div>
       </footer>
