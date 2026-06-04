@@ -853,7 +853,7 @@ export default {
       benefit3_title: '⚡ Incrementele omzet, nul risico',
       benefit3_desc: 'U betaalt alleen wanneer DutyBoost een verkoop oplevert. Geen vooruitkosten. Pure incrementele winst op verkeer dat u al heeft.',
       cta: 'Klaar om meer reizigers om te zetten in klanten?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181 | BTW: NL869492068B01',
     },
     requestdemo: {
        badge: 'Meer informatie aanvragen',
