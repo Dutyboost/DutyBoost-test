@@ -892,7 +892,7 @@ export default {
       step2_title: "Crédit envoyé par e-mail",
       step2_desc: "Le voyageur reçoit un QR code personnalisé avec un crédit de dépense intégré dans son e-mail de confirmation de réservation — sans téléchargement d'app, sans inscription. La valeur est échelonnée : €5 à partir de €70 jusqu'à €60 à partir de €300+.",
       step3_title: "Ils visitent votre boutique",
-      step3_desc: "Le voyageur arrive dans votre boutique déjà motivé à dépenser — il a un crédit spécifique qui l'attend. Il présente son QR code à la caisse. Une intégration POS est requise pour valider et appliquer la remise.",
+      step3_desc: "Le voyageur arrive dans votre boutique déjà motivé à dépenser — il a un crédit spécifique qui l'attend. Il présente son QR code à la caisse. Votre caissier le valide en quelques secondes via notre intégration POS DutyBoost. Une intégration POS est requise pour valider et appliquer la remise.",
       step4_title: "Transaction enregistrée",
       step4_desc: "DutyBoost enregistre instantanément la vente, applique la remise échelonnée et gère tous les rapports. En fin de mois, vous recevez une seule facture correspondant à 2,5% de la valeur brute des échanges (plafonnée à €25 par transaction). Jamais de frais initiaux.",
       s3_title: "03 — Ce que DutyBoost apporte aux commerçants aéroportuaires",
