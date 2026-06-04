@@ -522,7 +522,7 @@ export default {
       benefit3_title: '⚡ Cero carga operativa',
       benefit3_desc: 'El código QR DutyCredit se incrusta directamente en tu email de confirmación de reserva — sin pasos adicionales, sin nuevas herramientas, sin trabajo manual.',
       cta: '¿Listo para convertir tus reservas en fidelización e ingresos?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053181 | N.º IVA: NL869492068B01',
     },
     flightonepager: {
       badge: 'Programa de Socios de Vuelo',
@@ -546,7 +546,7 @@ export default {
       benefit2_title: '💰 Nuevos ingresos pasivos', benefit2_desc: 'La comisión llega del gasto aeroportuario — sin esfuerzo de ventas adicional, sin trabajo manual.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'El código QR DutyCredit se incrusta directamente en tu email de confirmación de reserva — sin pasos adicionales, sin nuevas herramientas, sin trabajo manual.',
       cta: '¿Listo para convertir tus reservas de vuelo en ingresos de venta en el aeropuerto?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181 | N.º IVA: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Programa de Socios de Alojamiento',
@@ -570,7 +570,7 @@ export default {
       benefit2_title: '💰 Nuevos ingresos pasivos', benefit2_desc: 'La comisión llega del gasto aeroportuario — sin esfuerzo de ventas adicional, sin trabajo manual.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incrustan directamente en el email de confirmación de reserva y en el email de check-out — dos puntos de contacto por huésped, totalmente automatizados, sin trabajo manual.',
       cta: 'Añade una fuente de ingresos a cada reserva de huésped — sin ningún esfuerzo.',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181 | N.º IVA: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Programa de Socios de Alquiler de Coches',
@@ -594,7 +594,7 @@ export default {
       benefit2_title: '💰 Nuevos ingresos pasivos', benefit2_desc: 'La comisión llega del gasto aeroportuario — sin esfuerzo de ventas adicional, sin trabajo manual.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incrustan directamente en el email de confirmación de reserva y en el de devolución de coche — dos puntos de contacto por cliente, completamente automatizados, sin trabajo manual.',
       cta: 'Gana comisión en cada alquiler de coche en el aeropuerto — sin mover un dedo.',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181 | N.º IVA: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Programa Socio TravelStack',
@@ -648,7 +648,7 @@ export default {
       benefit3_title: '⚡ Una integración. Valor permanente.',
       benefit3_desc: 'Los DutyCredits se incrustan directamente en tus emails de confirmación existentes — sin nuevas herramientas, sin trabajo manual, sin mantenimiento continuo.',
       cta: '¿Listo para activar DutyBoost en todo tu travel stack?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053181 | N.º IVA: NL869492068B01',
     },
     retaileronepager: {
       headline: 'Convierte a los viajeros que pasan en clientes que compran — automáticamente',
@@ -688,7 +688,7 @@ export default {
       benefit3_title: '⚡ Ingresos incrementales, cero riesgo',
       benefit3_desc: 'Solo pagas cuando DutyBoost entrega una venta. Sin costes iniciales. Ganancia incremental pura en tráfico que ya tienes.',
       cta: '¿Listo para convertir más viajeros en clientes?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053181',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053181 | N.º IVA: NL869492068B01',
     },
     calculator: {
       badge: 'Calculadora ROI DutyBoost',

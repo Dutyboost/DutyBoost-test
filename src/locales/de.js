@@ -746,7 +746,7 @@ export default {
       benefit3_title: '⚡ Null operativer Aufwand',
       benefit3_desc: 'Der DutyCredit-QR-Code wird direkt in Ihre Buchungsbestätigungs-E-Mail eingebettet — keine zusätzlichen Schritte, keine neuen Tools, kein manueller Aufwand.',
       cta: 'Bereit, Ihre Buchungen in Loyalität und Umsatz zu verwandeln?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     flightonepager: {
       badge: 'Flugpartner-Programm',
@@ -770,7 +770,7 @@ export default {
       benefit2_title: '💰 Neue passive Einnahmen', benefit2_desc: 'Provision fließt aus Flughafenausgaben — kein zusätzlicher Verkaufsaufwand, keine manuelle Arbeit.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'Der DutyCredit-QR-Code wird direkt in Ihre Buchungsbestätigungs-E-Mail eingebettet — keine zusätzlichen Schritte, keine neuen Tools, kein manueller Aufwand.',
       cta: 'Bereit, Ihre Flugbuchungen in Flughafeneinzelhandelseinnahmen umzuwandeln?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Unterkunftspartner-Programm',
@@ -794,7 +794,7 @@ export default {
       benefit2_title: '💰 Neue passive Einnahmen', benefit2_desc: 'Provision fließt aus Flughafenausgaben — kein zusätzlicher Verkaufsaufwand, keine manuelle Arbeit.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in die Buchungsbestätigungs-E-Mail und die Check-out-E-Mail eingebettet — zwei Kontaktpunkte pro Gast, vollständig automatisiert, kein manueller Aufwand.',
       cta: 'Fügen Sie jeder Gästebuchung eine Einnahmequelle hinzu — ohne jeden Aufwand.',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Autovermietungs-Partner-Programm',
@@ -818,7 +818,7 @@ export default {
       benefit2_title: '💰 Neue passive Einnahmen', benefit2_desc: 'Provision fließt aus Flughafenausgaben — kein zusätzlicher Verkaufsaufwand, keine manuelle Arbeit.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in die Buchungsbestätigungs-E-Mail und die Fahrzeugrückgabe-E-Mail eingebettet — zwei Touchpoints pro Kunde, vollständig automatisiert, kein manueller Aufwand.',
       cta: 'Verdienen Sie Provision bei jeder Flughafen-Automiete — ohne einen Finger zu rühren.',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'TravelStack Partner Programm',
@@ -872,7 +872,7 @@ export default {
       benefit3_title: '⚡ Eine Integration. Dauerhafter Wert.',
       benefit3_desc: 'DutyCredits werden direkt in Ihre bestehenden Bestätigungs-E-Mails eingebettet — keine neuen Tools, keine manuelle Arbeit, keine laufende Wartung.',
       cta: 'Bereit, DutyBoost über Ihren gesamten Travel Stack zu aktivieren?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     retaileronepager: {
       headline: 'Vorbeilaufende Reisende in zahlende Kunden verwandeln — automatisch',
@@ -912,7 +912,7 @@ export default {
       benefit3_title: '⚡ Inkrementelle Umsätze, null Risiko',
       benefit3_desc: "Sie zahlen nur, wenn DutyBoost einen Verkauf liefert. Keine Vorabkosten. Reiner inkrementeller Gewinn auf Traffic, den Sie bereits haben.",
       cta: 'Bereit, mehr Reisende in Kunden zu verwandeln?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053181',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     presentation: {
       retailer: {

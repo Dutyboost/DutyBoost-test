@@ -687,7 +687,7 @@ export default {
       benefit3_title: '⚡ Nul operationele last',
       benefit3_desc: 'De DutyCredit QR-code wordt direct verwerkt in uw boekingsbevestigingsmail — geen extra stappen, geen nieuwe tools, geen handmatig werk.',
       cta: 'Klaar om uw boekingen om te zetten in loyaliteit en omzet?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181 | BTW: NL869492068B01',
     },
     flightonepager: {
       badge: 'Vliegpartner Programma',
@@ -711,7 +711,7 @@ export default {
       benefit2_title: '💰 Nieuwe passieve omzet', benefit2_desc: 'Commissie stroomt binnen vanuit luchthavenuitgaven — geen extra verkoopinspanning, geen handmatig werk.',
       benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'De DutyCredit QR-code wordt direct verwerkt in uw boekingsbevestigingsmail — geen extra stappen, geen nieuwe tools, geen handmatig werk.',
       cta: 'Klaar om uw vluchtboekingen om te zetten in luchthavenretail-omzet?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181 | BTW: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Accommodatie Partner Programma',
@@ -735,7 +735,7 @@ export default {
       benefit2_title: '💰 Nieuwe passieve omzet', benefit2_desc: 'Commissie stroomt binnen vanuit luchthavenuitgaven — geen extra verkoopinspanning, geen handmatig werk.',
       benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct verwerkt in de boekingsbevestigingsmail en de uitcheckmail — twee contactmomenten per gast, volledig geautomatiseerd, geen handmatig werk.',
       cta: 'Voeg een inkomstenstroom toe aan elke gastboeking — zonder enige moeite.',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053181 | BTW: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Autoverhuur Partner Programma',
@@ -813,7 +813,7 @@ export default {
       benefit3_title: '⚡ Één integratie. Permanente waarde.',
       benefit3_desc: 'DutyCredits worden direct ingebed in uw bestaande bevestigingsmails — geen nieuwe tools, geen handmatig werk, geen lopend onderhoud.',
       cta: 'Klaar om DutyBoost over uw hele travel stack te activeren?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181 | BTW: NL869492068B01',
     },
     retaileronepager: {
       headline: 'Passerende reizigers omzetten in betalende klanten — automatisch',

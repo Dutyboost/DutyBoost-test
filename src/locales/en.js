@@ -592,7 +592,7 @@ export default {
       benefit3_title: '⚡ Zero operational burden',
       benefit3_desc: 'The DutyCredit QR code is embedded directly into your booking confirmation email — no extra steps, no new tools, no manual work.',
       cta: 'Ready to turn your bookings into loyalty and revenue?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181 | VAT: NL869492068B01',
     },
     flightonepager: {
       badge: 'Flight Partner Program',
@@ -616,7 +616,7 @@ export default {
       benefit2_title: '💰 New passive revenue', benefit2_desc: 'Commission flows in from airport spend — no additional sales effort, no manual work.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'The DutyCredit QR code is embedded directly into your booking confirmation email — no extra steps, no new tools, no manual work.',
       cta: 'Ready to turn your flight bookings into airport retail revenue?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181 | VAT: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Accommodation Partner Program',
@@ -640,7 +640,7 @@ export default {
       benefit2_title: '💰 New passive revenue', benefit2_desc: 'Commission flows in from airport spend — no additional sales effort, no manual work.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits are embedded directly into the booking confirmation and check-out emails — two touchpoints per guest, fully automated, no manual work.',
       cta: 'Add a revenue stream to every guest booking — with zero effort.',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181 | VAT: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Car Rental Partner Program',
@@ -664,7 +664,7 @@ export default {
       benefit2_title: '💰 New passive revenue', benefit2_desc: 'Commission flows in from airport spend — no additional sales effort, no manual work.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits are embedded directly into your booking confirmation and car return emails — two touchpoints per customer, fully automated, no manual work.',
       cta: 'Earn commission on every airport car rental — without lifting a finger.',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181 | VAT: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'TravelStack Partner Programme',
@@ -718,7 +718,7 @@ export default {
       benefit3_title: '⚡ One integration. Permanent value.',
       benefit3_desc: 'DutyCredits are embedded directly into your existing confirmation emails — no new tools, no manual work, no ongoing maintenance.',
       cta: 'Ready to activate DutyBoost across your entire travel stack?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181 | VAT: NL869492068B01',
     },
     retaileronepager: {
       headline: 'Turn passing travellers into paying customers — automatically',
@@ -758,7 +758,7 @@ export default {
       benefit3_title: '⚡ Incremental revenue, zero risk',
       benefit3_desc: 'You only pay when DutyBoost delivers a sale. No upfront costs. Pure incremental profit on traffic you already have.',
       cta: 'Ready to convert more travelers into customers?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053181 | VAT: NL869492068B01',
     },
     calculator: {
       badge: 'DutyBoost ROI Calculator',

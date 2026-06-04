@@ -762,7 +762,7 @@ export default {
       benefit3_title: '⚡ Zero carico operativo',
       benefit3_desc: 'Il QR code DutyCredit viene incorporato direttamente nella tua e-mail di conferma prenotazione — nessun passaggio extra, nessun nuovo strumento, nessun lavoro manuale.',
       cta: 'Pronto a trasformare le tue prenotazioni in fidelizzazione e entrate?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181 | P.IVA: NL869492068B01',
     },
     flightonepager: {
       badge: 'Programma Partner Voli',
@@ -786,7 +786,7 @@ export default {
       benefit2_title: '💰 Nuove entrate passive', benefit2_desc: 'La commissione affluisce dalla spesa aeroportuale — nessuno sforzo di vendita aggiuntivo, nessun lavoro manuale.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'Il QR code DutyCredit viene incorporato direttamente nella tua e-mail di conferma prenotazione — nessun passaggio extra, nessun nuovo strumento, nessun lavoro manuale.',
       cta: 'Pronto a trasformare le tue prenotazioni di volo in ricavi retail aeroportuali?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Programma Partner Alloggio',
@@ -810,7 +810,7 @@ export default {
       benefit2_title: '💰 Nuove entrate passive', benefit2_desc: 'La commissione arriva dalla spesa in aeroporto — nessuno sforzo di vendita extra, nessun lavoro manuale.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'I DutyCredit vengono inseriti direttamente nell\'e-mail di conferma prenotazione e nell\'e-mail di check-out — due touchpoint per ospite, completamente automatizzati, nessun lavoro manuale.',
       cta: 'Aggiungi una fonte di entrate a ogni prenotazione ospite — senza alcuno sforzo.',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Programma Partner Noleggio Auto',
@@ -834,7 +834,7 @@ export default {
       benefit2_title: '💰 Nuove entrate passive', benefit2_desc: 'La commissione affluisce dalla spesa aeroportuale — nessuno sforzo di vendita aggiuntivo, nessun lavoro manuale.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'I DutyCredit vengono inseriti direttamente nell\'e-mail di conferma prenotazione e nell\'e-mail di restituzione del veicolo — due touchpoint per cliente, completamente automatizzati, nessun lavoro manuale.',
       cta: 'Guadagna commissione su ogni noleggio auto in aeroporto — senza muovere un dito.',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Programma Partner TravelStack',
@@ -888,7 +888,7 @@ export default {
       benefit3_title: "⚡ Un'integrazione. Valore permanente.",
       benefit3_desc: 'I DutyCredit vengono incorporati direttamente nelle tue email di conferma esistenti — nessun nuovo strumento, nessun lavoro manuale, nessuna manutenzione continua.',
       cta: 'Pronto ad attivare DutyBoost su tutto il tuo travel stack?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
     },
     retaileronepager: {
       headline: 'Trasformare i viaggiatori di passaggio in clienti paganti — automaticamente',
@@ -928,7 +928,7 @@ export default {
       benefit3_title: '⚡ Ricavi incrementali, zero rischio',
       benefit3_desc: 'Paghi solo quando DutyBoost consegna una vendita. Nessun costo iniziale. Profitto incrementale puro sul traffico che hai già.',
       cta: 'Pronto a convertire più viaggiatori in clienti?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181 | P.IVA: NL869492068B01',
     },
     carrentalsignup: {
       step_info: 'Dati aziendali',
