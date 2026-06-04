@@ -379,7 +379,7 @@ export default function RetailerCalculator() {
         <div className="text-center space-y-2">
           <div className="flex justify-between items-center mb-2">
             <div className="w-24" />
-            <DutyBoostLogo height={80} />
+            <DutyBoostLogo height={55} />
             <div className="w-24 flex justify-end">
               <LanguageSwitcher />
             </div>
