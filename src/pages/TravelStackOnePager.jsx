@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft, Check } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import DutyBoostLogo from "../components/DutyBoostLogo";
+import OnePagerLogo from "../components/OnePagerLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const GradientDivider = () => (
@@ -128,7 +128,7 @@ export default function TravelStackOnePager() {
       >
         {/* Header */}
         <div className="flex items-center justify-between pb-1">
-          <DutyBoostLogo height={40} />
+          <OnePagerLogo height={40} />
           <div className="text-right">
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.programme_name")}

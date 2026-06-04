@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import DutyBoostLogo from "../components/DutyBoostLogo";
+import OnePagerLogo from "../components/OnePagerLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function RetailerOnePager() {
@@ -60,16 +60,16 @@ export default function RetailerOnePager() {
       </div>
 
       {/* A4-style content */}
-      <div className="print-content max-w-[794px] mx-auto px-8 py-2 print:py-0 print:px-0 bg-white flex flex-col" style={{ minHeight: '1122px' }}>
+      <div className="print-content max-w-[794px] mx-auto px-8 py-4 print:py-0 print:px-0 bg-white flex flex-col" style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}>
 
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-orange-500 pb-1">
-          <DutyBoostLogo height={40} />
+          <OnePagerLogo height={40} />
           <span className="text-xs font-bold uppercase tracking-widest text-orange-700">{t('retaileronepager.s1_title').split('—')[0].trim()}</span>
         </div>
 
         {/* MAIN CONTENT */}
-        <div className="flex-1 space-y-6">
+        <div className="flex-1 space-y-3">
 
           {/* HEADLINE SECTION */}
           <div className="text-center space-y-0.5">

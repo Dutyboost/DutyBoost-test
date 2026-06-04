@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import DutyBoostLogo from "../components/DutyBoostLogo";
+import OnePagerLogo from "../components/OnePagerLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 
@@ -60,7 +60,7 @@ export default function AccommodationPartnerOnePager() {
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
         <div className="flex items-center justify-between pb-1">
-          <DutyBoostLogo height={40} />
+          <OnePagerLogo height={40} />
           <span className="text-xs font-bold uppercase tracking-widest text-purple-700">{p('badge')}</span>
         </div>
         <GradientDivider />

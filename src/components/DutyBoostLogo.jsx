@@ -1,24 +1,46 @@
 import { Link } from "react-router-dom";
 
+// Inline SVG logo — always renders correctly in browser AND in html2canvas PDF export
+function LogoSVG({ height, color = "#0a1628" }) {
+  const w = height * 3.8;
+  return (
+    <svg width={w} height={height} viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
+      <text
+        x="0" y="72"
+        fontFamily="Space Grotesk, Inter, sans-serif"
+        fontWeight="700"
+        fontSize="72"
+        fill={color}
+        letterSpacing="-2"
+      >
+        DutyBoost
+      </text>
+    </svg>
+  );
+}
+
 export default function DutyBoostLogo({ height = 100, inverted = false, linkTo = "/" }) {
+  const logoUrl = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/71d6891ff_UpdatedLogo.svg";
+  const aspectRatio = 4;
+  const w = height * aspectRatio;
+  const textColor = inverted ? 'white' : '#0a1628';
+
   return (
     <Link to={linkTo} className="hover:opacity-80 transition-opacity inline-flex items-center">
       <div style={inverted ? { background: 'white', borderRadius: '12px', padding: '6px 14px', display: 'inline-flex', alignItems: 'center' } : {}}>
         <img
-          src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/71d6891ff_UpdatedLogo.svg"
+          src={logoUrl}
           alt="DutyBoost"
-          onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-          style={{
-            height: `${height}px`,
-            width: 'auto',
-            maxWidth: `${height * 4}px`,
-            objectFit: 'contain',
-            display: 'block',
+          crossOrigin="anonymous"
+          width={w}
+          height={height}
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.nextSibling.style.display = 'block';
           }}
+          style={{ height: `${height}px`, width: `${w}px`, objectFit: 'contain', display: 'block' }}
         />
-        <span style={{ display: 'none', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: `${height * 0.22}px`, color: inverted ? 'white' : '#1a1a2e', letterSpacing: '-0.5px' }}>
-          DutyBoost
-        </span>
+        <LogoSVG height={height} color={textColor} style={{ display: 'none' }} />
       </div>
     </Link>
   );
