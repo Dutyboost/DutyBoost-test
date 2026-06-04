@@ -36,11 +36,11 @@ export default function DutyBoostLogo({ height = 100, inverted = false, linkTo =
           height={height}
           onError={(e) => {
             e.target.style.display = 'none';
-            e.target.nextSibling.style.display = 'block';
+            if (e.target.nextSibling) e.target.nextSibling.style.display = 'inline-block';
           }}
           style={{ height: `${height}px`, width: `${w}px`, objectFit: 'contain', display: 'block' }}
         />
-        <LogoSVG height={height} color={textColor} style={{ display: 'none' }} />
+        <span style={{ display: 'none' }}><LogoSVG height={height} color={textColor} /></span>
       </div>
     </Link>
   );
