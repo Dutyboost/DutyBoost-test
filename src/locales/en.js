@@ -727,7 +727,7 @@ export default {
       why1_title: 'From browser to buyer — the psychological shift',
       why1_desc: 'Most travellers walk into airport stores in browsing mode. DutyBoost flips that mindset. Once they know a personalised discount awaits them, they stop looking and start buying. They arrive mentally prepared to spend at your specific store — not wondering whether to shop.',
       why2_title: 'Arrives in their booking email — weeks before the flight',
-      why2_desc: 'No marketing campaigns. No app download. No tracking. The DutyCredit is embedded in their flight or accommodation confirmation — the moment they book. Days or weeks of mental commitment before they arrive at your store. Pre-activation happens automatically, at scale, through their own booking email.',
+      why2_desc: 'No marketing campaigns. No app download. No tracking. The DutyCredit is embedded in their flight, accommodation, or car rental confirmation — the moment they book. Days or weeks of mental commitment before they arrive at your store. Pre-activation happens automatically, at scale, through their own booking email.',
       why3_title: 'Pre-activated intent drives higher conversion',
       why3_desc: "Because travellers have already committed to spending in your store days before arrival, conversion rates are dramatically higher than random foot traffic. Pre-activation transforms casual browsers into motivated buyers — at zero upfront cost to you.",
       why4_title: 'Mindset already set: they came to spend',
