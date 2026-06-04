@@ -738,7 +738,7 @@ export default {
       step2_title: 'Credit sent by email',
       step2_desc: 'The traveller receives a personalised QR code with a spending credit embedded in their booking confirmation email — no app download, no sign-up. The credit value is tiered: €5 at €70 spend up to €60 at €300+.',
       step3_title: 'They visit your store',
-      step3_desc: 'The traveller arrives at your store already motivated to spend — they have a specific credit waiting. They present their QR code at checkout. A POS integration is required to validate and apply the discount.',
+      step3_desc: 'The traveller arrives at your store already motivated to spend — they have a specific credit waiting. They present their QR code at checkout. A simple POS integration is required to validate and apply the discount.',
       step4_title: 'Transaction recorded',
       step4_desc: 'DutyBoost instantly logs the sale, applies the tiered discount, and handles all reporting. At month-end you receive a single invoice for 2.5% of gross redemption value (capped at €25 per transaction). No upfront fees, ever.',
       s3_title: '03 — What DutyBoost Brings to Airport Retailers',

@@ -910,7 +910,7 @@ export default {
       step2_title: 'Credito inviato via e-mail',
       step2_desc: 'Il viaggiatore riceve un codice QR personalizzato con un credito di spesa incorporato nell\'email di conferma prenotazione — nessun download di app, nessuna registrazione. Il valore è a livelli: €5 a partire da €70 fino a €60 a partire da €300+.',
       step3_title: 'Visitano il tuo negozio',
-      step3_desc: "Il viaggiatore arriva nel tuo negozio già motivato a spendere — ha un credito specifico che lo aspetta. Presenta il suo codice QR alla cassa. È richiesta un'integrazione POS per validare e applicare lo sconto.",
+      step3_desc: "Il viaggiatore arriva nel tuo negozio già motivato a spendere — ha un credito specifico che lo aspetta. Presenta il suo codice QR alla cassa. È richiesta una semplice integrazione POS per validare e applicare lo sconto.",
       step4_title: 'Transazione registrata',
       step4_desc: 'DutyBoost registra la vendita istantaneamente, applica lo sconto a livelli e gestisce tutta la reportistica. A fine mese ricevi un\'unica fattura pari al 2,5% del valore lordo dei riscatti (max €25 per transazione). Mai costi anticipati.',
       s3_title: '03 — Cosa porta DutyBoost ai rivenditori aeroportuali',
