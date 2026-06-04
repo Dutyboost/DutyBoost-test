@@ -65,7 +65,6 @@ export default function RetailerOnePager() {
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-orange-500 pb-1">
           <OnePagerLogo height={36} />
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-700">{t('retaileronepager.s1_title').split('—')[0].trim()}</span>
         </div>
 
         {/* MAIN CONTENT */}
