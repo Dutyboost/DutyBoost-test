@@ -668,7 +668,7 @@ export default {
       step2_title: 'Crédito enviado por correo',
       step2_desc: 'El viajero recibe un código QR personalizado con un crédito de gasto integrado en su email de confirmación de reserva — sin descarga de app, sin registro. El valor es escalonado: €5 a partir de €70 hasta €60 a partir de €300+.',
       step3_title: 'Visitan tu tienda',
-      step3_desc: 'El viajero llega a tu tienda ya motivado para gastar — tiene un crédito específico esperándole. Presenta su código QR en caja. Tu cajero lo escanea en segundos con cualquier dispositivo móvil. No se requiere integración POS.',
+      step3_desc: 'El viajero llega a tu tienda ya motivado para gastar — tiene un crédito específico esperándole. Presenta su código QR en caja. Tu cajero lo escanea en segundos con cualquier dispositivo móvil. Se requiere una integración POS sencilla para validar y aplicar el descuento.',
       step4_title: 'Transacción registrada',
       step4_desc: 'DutyBoost registra la venta al instante, aplica el descuento escalonado y gestiona todos los informes. A final de mes recibes una única factura del 2,5% del valor bruto de los canjes (máx. €25 por transacción). Nunca costes iniciales.',
       s3_title: '03 — Qué aporta DutyBoost a los minoristas aeroportuarios',
