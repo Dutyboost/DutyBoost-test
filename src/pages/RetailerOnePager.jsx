@@ -64,7 +64,7 @@ export default function RetailerOnePager() {
 
         {/* Header */}
         <div className="text-center border-b-2 border-orange-500 pb-1">
-          <DutyBoostLogo height={200} />
+          <DutyBoostLogo height={100} />
         </div>
 
         {/* MAIN CONTENT */}

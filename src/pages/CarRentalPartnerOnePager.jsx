@@ -60,7 +60,7 @@ export default function CarRentalPartnerOnePager() {
         style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
       >
         <div className="flex items-center justify-between pb-1">
-          <DutyBoostLogo height={120} />
+          <DutyBoostLogo height={60} />
           <span className="text-xs font-bold uppercase tracking-widest text-orange-700">{p('badge')}</span>
         </div>
         <GradientDivider />
