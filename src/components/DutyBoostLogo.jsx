@@ -9,9 +9,9 @@ export default function DutyBoostLogo({ height = 100, inverted = false, linkTo =
           alt="DutyBoost"
           onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
           style={{
-            height: `${height * 0.5}px`,
+            height: `${height}px`,
             width: 'auto',
-            maxWidth: `${height * 2}px`,
+            maxWidth: `${height * 4}px`,
             objectFit: 'contain',
             display: 'block',
           }}

@@ -63,8 +63,9 @@ export default function RetailerOnePager() {
       <div className="print-content max-w-[794px] mx-auto px-8 py-2 print:py-0 print:px-0 bg-white flex flex-col" style={{ minHeight: '1122px' }}>
 
         {/* Header */}
-        <div className="text-center border-b-2 border-orange-500 pb-1">
-          <DutyBoostLogo height={100} />
+        <div className="flex items-center justify-between border-b-2 border-orange-500 pb-1">
+          <DutyBoostLogo height={40} />
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-700">{t('retaileronepager.s1_title').split('—')[0].trim()}</span>
         </div>
 
         {/* MAIN CONTENT */}

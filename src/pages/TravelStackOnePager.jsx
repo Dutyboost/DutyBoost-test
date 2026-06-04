@@ -128,7 +128,7 @@ export default function TravelStackOnePager() {
       >
         {/* Header */}
         <div className="flex items-center justify-between pb-1">
-          <DutyBoostLogo height={60} />
+          <DutyBoostLogo height={40} />
           <div className="text-right">
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.programme_name")}
