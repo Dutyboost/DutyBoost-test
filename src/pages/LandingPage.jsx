@@ -51,7 +51,7 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <DutyBoostLogo height={65} />
+          <DutyBoostLogo height={55} />
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/login">
               <Button size="sm" variant="ghost" className="gap-1.5">
@@ -205,7 +205,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div>
-              <DutyBoostLogo height={65} />
+              <DutyBoostLogo height={55} />
             </div>
             <div className="text-right">
               <p>{t('footer.rights')}</p>
