@@ -57,7 +57,7 @@ export default function MagicLinkLogin() {
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-md space-y-8">
         <div className="flex justify-center">
-          <DutyBoostLogo height={90} linkTo="/" />
+          <DutyBoostLogo height={40} linkTo="/" />
         </div>
 
         <div className="bg-card border border-border rounded-2xl shadow-sm p-8 space-y-6">
