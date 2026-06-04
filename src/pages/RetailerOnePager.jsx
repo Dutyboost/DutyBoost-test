@@ -65,7 +65,6 @@ export default function RetailerOnePager() {
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-orange-500 pb-1">
           <OnePagerLogo height={36} />
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-700">{t('retaileronepager.s1_title').split('—')[0].trim()}</span>
         </div>
 
         {/* MAIN CONTENT */}
@@ -81,7 +80,7 @@ export default function RetailerOnePager() {
 
           {/* SECTION 1: WHY IT MATTERS */}
           <div className="flex-1 flex flex-col py-1">
-            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s1_title')}</h2>
+            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s1_title').split('—')[1]?.trim()}</h2>
             <div className="grid grid-cols-2 gap-1.5 flex-1">
               {why.map(c => (
                 <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
@@ -94,7 +93,7 @@ export default function RetailerOnePager() {
 
           {/* SECTION 2: HOW IT WORKS */}
           <div className="flex-1 flex flex-col py-1">
-            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s2_title')}</h2>
+            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s2_title').split('—')[1]?.trim()}</h2>
             <div className="grid grid-cols-4 gap-1.5 flex-1">
               {steps.map(s => (
                 <div key={s.num} className="bg-orange-50 rounded p-2 border border-orange-100">
@@ -108,7 +107,7 @@ export default function RetailerOnePager() {
 
           {/* SECTION 3: WHAT IT BRINGS */}
           <div className="flex-1 flex flex-col py-1">
-            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s3_title')}</h2>
+            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s3_title').split('—')[1]?.trim()}</h2>
             <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
               <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-3xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat1_value')}</p>
