@@ -65,16 +65,16 @@ export default function AccommodationPartnerOnePager() {
         </div>
         <GradientDivider />
 
-        <div className="flex-1 flex flex-col justify-between">
-          <div className="text-center py-2">
+        <div className="flex-1 flex flex-col">
+          <div className="text-center py-1">
             <h1 className="text-base font-heading font-bold leading-tight">{p('headline')}</h1>
             <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">{p('subtitle')}</p>
           </div>
 
-          <div className="py-1">
+          <div className="flex-1 flex flex-col py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#7c3aed' }}>{p('s1_title')}</h2>
             <div className="mb-1"><GradientDivider /></div>
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-2 gap-1.5 flex-1">
               {why.map(c => (
                 <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
                   <p className="font-semibold text-xs mb-0.5">{c.title}</p>
@@ -84,10 +84,10 @@ export default function AccommodationPartnerOnePager() {
             </div>
           </div>
 
-          <div className="py-1">
+          <div className="flex-1 flex flex-col py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#0891b2' }}>{p('s2_title')}</h2>
             <div className="mb-1"><GradientDivider /></div>
-            <div className="grid grid-cols-4 gap-1.5">
+            <div className="grid grid-cols-4 gap-1.5 flex-1">
               {steps.map(s => (
                 <div key={s.num} className="bg-cyan-50 rounded p-2 border border-cyan-100">
                   <p className="text-base font-heading font-bold text-cyan-300 leading-none">{s.num}</p>
@@ -98,27 +98,27 @@ export default function AccommodationPartnerOnePager() {
             </div>
           </div>
 
-          <div className="py-1">
+          <div className="flex-1 flex flex-col py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#059669' }}>{p('s3_title')}</h2>
             <div className="mb-1"><GradientDivider /></div>
-            <div className="grid grid-cols-3 gap-1.5 mb-1.5">
-              <div className="border border-border rounded p-2 text-center">
+            <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#8b5cf6' }}>{p('stat1_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{p('stat1_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat1_desc')}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#06b6d4' }}>{p('stat2_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{p('stat2_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat2_desc')}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#10b981' }}>{p('stat3_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{p('stat3_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat3_desc')}</p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-3 gap-1.5 flex-1">
               <div className="border border-border rounded p-2">
                 <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit1_title')}</h3>
                 <p className="text-xs text-muted-foreground leading-snug">{p('benefit1_desc')}</p>
@@ -136,7 +136,7 @@ export default function AccommodationPartnerOnePager() {
 
           <div>
             <GradientDivider />
-            <div className="text-center py-2">
+            <div className="text-center py-1.5">
               <p className="font-heading font-bold text-xs">{p('cta')}</p>
               <div className="flex items-center justify-center gap-6 mt-0.5">
                 <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-purple-700 underline underline-offset-2">dutyboost.com</a>

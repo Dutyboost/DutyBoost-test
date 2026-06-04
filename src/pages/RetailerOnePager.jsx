@@ -69,20 +69,20 @@ export default function RetailerOnePager() {
         </div>
 
         {/* MAIN CONTENT */}
-        <div className="flex-1 space-y-2">
+        <div className="flex-1 flex flex-col justify-between">
 
           {/* HEADLINE SECTION */}
-          <div className="text-center space-y-0.5">
+          <div className="text-center py-1">
             <h1 className="text-xl font-heading font-bold leading-tight">{t('retaileronepager.headline')}</h1>
-            <p className="text-muted-foreground text-xs max-w-xl mx-auto">
+            <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">
               {t('retaileronepager.subtitle')}
             </p>
           </div>
 
           {/* SECTION 1: WHY IT MATTERS */}
-          <div className="space-y-1">
-            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide">{t('retaileronepager.s1_title')}</h2>
-            <div className="grid grid-cols-2 gap-2">
+          <div className="flex-1 flex flex-col py-1">
+            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s1_title')}</h2>
+            <div className="grid grid-cols-2 gap-1.5 flex-1">
               {why.map(c => (
                 <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
                   <p className="font-semibold text-xs">{c.title}</p>
@@ -93,9 +93,9 @@ export default function RetailerOnePager() {
           </div>
 
           {/* SECTION 2: HOW IT WORKS */}
-          <div className="space-y-1">
-            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide">{t('retaileronepager.s2_title')}</h2>
-            <div className="grid grid-cols-4 gap-1.5">
+          <div className="flex-1 flex flex-col py-1">
+            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s2_title')}</h2>
+            <div className="grid grid-cols-4 gap-1.5 flex-1">
               {steps.map(s => (
                 <div key={s.num} className="bg-orange-50 rounded p-2 border border-orange-100">
                   <p className="text-base font-heading font-bold text-orange-300 leading-none">{s.num}</p>
@@ -107,18 +107,16 @@ export default function RetailerOnePager() {
           </div>
 
           {/* SECTION 3: WHAT IT BRINGS */}
-          <div className="space-y-1">
-            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide">{t('retaileronepager.s3_title')}</h2>
-            <div className="grid grid-cols-3 gap-1.5">
-              <div className="border border-border rounded p-2 text-center">
-                <div className="flex items-end justify-center h-12">
-                  <p className="text-3xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat1_value')}</p>
-                </div>
+          <div className="flex-1 flex flex-col py-1">
+            <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s3_title')}</h2>
+            <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                <p className="text-3xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat1_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat1_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat1_desc')}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center">
-                <div className="flex items-end justify-center h-12">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                <div className="flex items-center justify-center mb-1">
                   <svg width="44" height="44" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <ellipse cx="55" cy="103" rx="32" ry="4" fill="#00000015"/>
                     <rect x="12" y="72" width="13" height="28" fill="#fdba7480" rx="2"/>
@@ -135,15 +133,13 @@ export default function RetailerOnePager() {
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat2_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat2_desc')}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center">
-                <div className="flex items-end justify-center h-12">
-                  <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat3_value')}</p>
-                </div>
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat3_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat3_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat3_desc')}</p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-3 gap-1.5 flex-1">
               <div className="border border-border rounded p-2">
                 <h3 className="font-heading font-bold text-xs">{t('retaileronepager.benefit1_title')}</h3>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.benefit1_desc')}</p>
@@ -160,9 +156,9 @@ export default function RetailerOnePager() {
           </div>
 
           {/* CALL TO ACTION */}
-          <div className="border-t-2 border-orange-500 pt-1 text-center space-y-0.5">
+          <div className="border-t-2 border-orange-500 pt-1 text-center">
             <p className="font-heading font-bold text-xs">{t('retaileronepager.cta')}</p>
-            <div className="flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-6 mt-0.5">
               <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-800 transition-colors">dutyboost.com</a>
             </div>
           </div>

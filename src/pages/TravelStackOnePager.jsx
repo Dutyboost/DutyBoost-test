@@ -138,9 +138,9 @@ export default function TravelStackOnePager() {
         </div>
         <GradientDivider />
 
-        <div className="flex-1 flex flex-col justify-between">
+        <div className="flex-1 flex flex-col">
           {/* Headline */}
-          <div className="text-center py-2">
+          <div className="text-center py-1">
             <h1 className="text-base font-heading font-bold leading-tight">
               {t("travelstackonepager.headline")}
             </h1>
@@ -157,12 +157,12 @@ export default function TravelStackOnePager() {
           </div>
 
           {/* Section 1 — Why */}
-          <div className="py-1">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide" style={{ color: "#1A6BFF" }}>
+          <div className="flex-1 flex flex-col py-1">
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#1A6BFF" }}>
               {t("travelstackonepager.s1_title")}
             </h2>
-            <div className="mb-2"><GradientDivider /></div>
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="mb-1"><GradientDivider /></div>
+            <div className="grid grid-cols-2 gap-1.5 flex-1">
               {[
                 { title: t("travelstackonepager.why1_title"), desc: t("travelstackonepager.why1_desc") },
                 { title: t("travelstackonepager.why2_title"), desc: t("travelstackonepager.why2_desc") },
@@ -178,12 +178,12 @@ export default function TravelStackOnePager() {
           </div>
 
           {/* Section 2 — How it works per vertical */}
-          <div className="py-1">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide" style={{ color: "#7c3aed" }}>
+          <div className="flex-1 flex flex-col py-1">
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#7c3aed" }}>
               {t("travelstackonepager.s2_title")}
             </h2>
-            <div className="mb-2"><GradientDivider /></div>
-            <div className={`grid gap-1.5`} style={{ gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
+            <div className="mb-1"><GradientDivider /></div>
+            <div className={`grid gap-1.5 flex-1`} style={{ gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
               {activeVerticals.map((v) => (
                 <div key={v.key} className="rounded p-2 border" style={{ background: v.bgColor, borderColor: v.borderColor }}>
                   <div className="flex items-center gap-1 mb-1">
@@ -212,29 +212,29 @@ export default function TravelStackOnePager() {
           </div>
 
           {/* Section 3 — Revenue potential */}
-          <div className="py-1">
-            <h2 className="font-heading font-bold text-xs mb-2 uppercase tracking-wide" style={{ color: "#FF8000" }}>
+          <div className="flex-1 flex flex-col py-1">
+            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: "#FF8000" }}>
               {t("travelstackonepager.s3_title")}
             </h2>
-            <div className="mb-2"><GradientDivider /></div>
-            <div className="grid grid-cols-3 gap-1.5 mb-1.5">
-              <div className="border border-border rounded p-2 text-center">
+            <div className="mb-1"><GradientDivider /></div>
+            <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#1A6BFF" }}>{t("travelstackonepager.stat1_value")}</p>
                 <p className="font-semibold text-xs mt-0.5">{t("travelstackonepager.stat1_label")}</p>
                 <p className="text-xs text-muted-foreground leading-snug mt-0.5">{t("travelstackonepager.stat1_desc")}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#8b5cf6" }}>{t("travelstackonepager.stat2_value")}</p>
                 <p className="font-semibold text-xs mt-0.5">{t("travelstackonepager.stat2_label")}</p>
                 <p className="text-xs text-muted-foreground leading-snug mt-0.5">{t("travelstackonepager.stat2_desc")}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
                 <p className="text-xl font-heading font-bold leading-tight" style={{ color: "#FF8000" }}>{t("travelstackonepager.stat3_value")}</p>
                 <p className="font-semibold text-xs mt-0.5">{t("travelstackonepager.stat3_label")}</p>
                 <p className="text-xs text-muted-foreground leading-snug mt-0.5">{t("travelstackonepager.stat3_desc")}</p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-3 gap-1.5 flex-1">
               <div className="border border-border rounded p-2">
                 <h3 className="font-heading font-bold text-xs mb-0.5">{t("travelstackonepager.benefit1_title")}</h3>
                 <p className="text-xs text-muted-foreground leading-snug">{t("travelstackonepager.benefit1_desc")}</p>
@@ -253,7 +253,7 @@ export default function TravelStackOnePager() {
           {/* CTA */}
           <div>
             <GradientDivider />
-            <div className="text-center py-2">
+            <div className="text-center py-1.5">
               <p className="font-heading font-bold text-xs">{t("travelstackonepager.cta")}</p>
               <div className="flex items-center justify-center gap-6 mt-0.5">
                 <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline underline-offset-2" style={{ color: "#1A6BFF" }}>dutyboost.com</a>
