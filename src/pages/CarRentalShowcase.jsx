@@ -28,7 +28,7 @@ export default function CarRentalShowcase() {
             </button>
           </Link>
           <Link to="/" className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={150} />
+            <DutyBoostLogo height={40} />
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/retailer-calculator">

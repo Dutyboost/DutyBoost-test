@@ -29,7 +29,7 @@ export default function TrainShowcase() {
             </button>
           </Link>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={150} />
+            <DutyBoostLogo height={40} />
           </button>
           <LanguageSwitcher />
         </div>
