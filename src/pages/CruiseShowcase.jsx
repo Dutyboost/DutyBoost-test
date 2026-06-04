@@ -27,7 +27,7 @@ export default function CruiseShowcase() {
             </button>
           </Link>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={40} />
+            <DutyBoostLogo height={55} />
           </button>
           <div className="flex items-center gap-4">
             <Link to="/retailer-calculator">

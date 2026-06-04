@@ -205,7 +205,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div>
-              <DutyBoostLogo height={40} />
+              <DutyBoostLogo height={55} />
             </div>
             <div className="text-right">
               <p>{t('footer.rights')}</p>

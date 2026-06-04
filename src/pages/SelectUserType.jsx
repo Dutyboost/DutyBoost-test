@@ -65,7 +65,7 @@ export default function SelectUserType() {
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={40} />
+            <DutyBoostLogo height={55} />
           </button>
           <div className="flex items-center gap-4">
             <Link to="/retailer-calculator">
