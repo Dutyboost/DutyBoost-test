@@ -833,7 +833,7 @@ export default {
       step2_title: 'Tegoed per e-mail verstuurd',
       step2_desc: 'De reiziger ontvangt een gepersonaliseerde QR-code met uitgeeftegoed ingebed in hun boekingsbevestigingsmail — geen app-download, geen aanmelding. De waarde is gelaagd: €5 bij €70 besteding tot €60 bij €300+.',
       step3_title: 'Ze bezoeken uw winkel',
-      step3_desc: 'De reiziger arriveert in uw winkel al gemotiveerd om te besteden — ze hebben een specifiek tegoed wachten. Ze tonen hun QR-code bij de kassa. Uw kassamedewerker valideert deze in seconden via onze DutyBoost POS-integratie. Een POS-integratie is vereist om de korting te valideren en toe te passen.',
+      step3_desc: 'De reiziger arriveert in uw winkel al gemotiveerd om te besteden — ze hebben een specifiek tegoed wachten. Ze tonen hun QR-code bij de kassa. Een POS-integratie is vereist om de korting te valideren en toe te passen.',
       step4_title: 'Transactie geregistreerd',
       step4_desc: 'DutyBoost registreert de verkoop onmiddellijk, past de gelaagde korting toe en beheert alle rapportages. Aan het einde van de maand ontvangt u één factuur voor 2,5% van de bruto inwisselingswaarde (max. €25 per transactie). Nooit vooruitkosten.',
       s3_title: '03 — Wat DutyBoost biedt aan luchthavenwinkeliers',
