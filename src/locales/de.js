@@ -892,7 +892,7 @@ export default {
       step2_title: 'Guthaben per E-Mail gesendet',
       step2_desc: 'Der Reisende erhält einen personalisierten QR-Code mit einem Ausgabenguthaben, das in der Buchungsbestätigungs-E-Mail eingebettet ist — kein App-Download, keine Anmeldung. Der Wert ist gestaffelt: €5 ab €70 Ausgaben bis €60 ab €300+.',
       step3_title: 'Sie besuchen Ihr Geschäft',
-      step3_desc: 'Der Reisende betritt Ihr Geschäft bereits kaufbereit — er hat ein spezifisches Guthaben, das auf ihn wartet. Er zeigt seinen QR-Code an der Kasse vor. Ihr Kassierer scannt diesen in Sekunden über jedes mobile Gerät. Eine einfache POS-Integration ist erforderlich, um den Rabatt zu validieren und anzuwenden.',
+      step3_desc: 'Der Reisende betritt Ihr Geschäft bereits kaufbereit — er hat ein spezifisches Guthaben, das auf ihn wartet. Er zeigt seinen QR-Code an der Kasse vor. Ihr Kassierer validiert diesen in Sekunden über unsere DutyBoost-POS-Integration. Eine POS-Integration ist erforderlich, um den Rabatt zu validieren und anzuwenden.',
       step4_title: 'Transaktion erfasst',
       step4_desc: 'DutyBoost erfasst den Verkauf sofort, wendet den gestaffelten Rabatt an und übernimmt das gesamte Reporting. Zum Monatsende erhalten Sie eine einzige Rechnung für 2,5% des Brutto-Einlösungswertes (max. €25 pro Transaktion). Niemals Vorabkosten.',
       s3_title: '03 — Was DutyBoost Flughafenhändlern bringt',
