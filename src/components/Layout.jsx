@@ -85,10 +85,10 @@ export default function Layout() {
         }`}
       >
         <div className="p-6 border-b border-border">
-          <Link to="/dashboard" className="flex items-center">
-            <DutyBoostLogo height={72} />
-          </Link>
-        </div>
+           <Link to="/dashboard" className="flex items-center">
+             <DutyBoostLogo height={40} />
+           </Link>
+         </div>
 
         <nav className="flex-1 p-4 space-y-1">
           {navItems.map((item) => {
@@ -145,7 +145,7 @@ export default function Layout() {
             >
               <Menu className="w-5 h-5" />
             </Button>
-            <DutyBoostLogo height={72} />
+            <DutyBoostLogo height={40} />
             <div className="w-10" />
           </div>
         </header>
