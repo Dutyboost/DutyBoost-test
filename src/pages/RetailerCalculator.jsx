@@ -371,8 +371,8 @@ function TravelPartnerTab({ t }) {
                 </div>
               )}
             </div>
-            <Slider min={35} max={500} step={5} value={[avgBasket[v.key]]} onValueChange={([val]) => setAvgBasket((a) => ({ ...a, [v.key]: val }))} className="w-full" />
-            <div className="flex justify-between text-xs text-slate-400"><span>€35 (min)</span><span>€500+</span></div>
+            <Slider min={35} max={1000} step={5} value={[avgBasket[v.key]]} onValueChange={([val]) => setAvgBasket((a) => ({ ...a, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>€35 (min)</span><span>€1.000+</span></div>
           </div>
 
           {/* Per-vertical mini result */}
