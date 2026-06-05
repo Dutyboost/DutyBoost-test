@@ -403,20 +403,26 @@ function TravelPartnerTab({ t }) {
       {activeVerticals.length > 1 && (
         <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
           <h3 className="font-bold text-white text-lg">Combined Monthly Revenue</h3>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-slate-800 rounded-xl p-4 text-center">
-              <Users className="w-4 h-4 text-slate-300 mx-auto mb-2" />
-              <p className="text-xs text-slate-400 mb-1">Total redemptions/mo</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+                <Users className="w-4 h-4 text-slate-300" />
+                <p className="text-xs text-slate-400">Total redemptions/mo</p>
+              </div>
               <p className="text-2xl font-bold text-white">{fmtNum(totals.redemptions)}</p>
             </div>
-            <div className="bg-emerald-700 rounded-xl p-4 text-center">
-              <TrendingUp className="w-4 h-4 text-emerald-200 mx-auto mb-2" />
-              <p className="text-xs text-emerald-200 mb-1">Total commission/mo</p>
+            <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+                <TrendingUp className="w-4 h-4 text-emerald-200" />
+                <p className="text-xs text-emerald-200">Total commission/mo</p>
+              </div>
               <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 2)}</p>
             </div>
-            <div className="bg-emerald-600 rounded-xl p-4 text-center">
-              <TrendingUp className="w-4 h-4 text-emerald-100 mx-auto mb-2" />
-              <p className="text-xs text-emerald-100 mb-1">Total commission/yr</p>
+            <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+                <TrendingUp className="w-4 h-4 text-emerald-100" />
+                <p className="text-xs text-emerald-100">Total commission/yr</p>
+              </div>
               <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 0)}</p>
             </div>
           </div>
@@ -424,10 +430,10 @@ function TravelPartnerTab({ t }) {
             {verticalStats.map((stat) => {
               const v = VERTICALS_CONFIG.find((vc) => vc.key === stat.key);
               return (
-                <div key={stat.key} className="flex items-center justify-between gap-2 bg-slate-800 rounded-xl px-4 py-3">
+                <div key={stat.key} className="flex items-center justify-between gap-3 bg-slate-800 rounded-xl px-4 py-3 flex-wrap">
                   <span className="text-sm font-semibold shrink-0" style={{ color: v.color }}>{v.label}</span>
-                  <span className="text-xs text-slate-400 text-center flex-1">{fmtNum(stat.b)} × {stat.c}% = {fmtNum(stat.redemptions)}</span>
-                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 2)}/mo</span>
+                  <span className="text-xs text-slate-400 shrink-0">{fmtNum(stat.b)} × {stat.c}% = {fmtNum(stat.redemptions)} redemptions</span>
+                  <span className="text-sm font-bold text-white shrink-0 ml-auto">{fmtEur(stat.monthlyComm, 2)}/mo</span>
                 </div>
               );
             })}
