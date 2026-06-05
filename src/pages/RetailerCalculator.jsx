@@ -416,7 +416,7 @@ function TravelPartnerTab({ t }) {
                 <TrendingUp className="w-4 h-4 text-emerald-200" />
                 <p className="text-xs text-emerald-200">Total commission/mo</p>
               </div>
-              <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 2)}</p>
+              <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 0)}</p>
             </div>
             <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
               <div className="flex items-center gap-2 sm:flex-col sm:items-center">
@@ -430,10 +430,12 @@ function TravelPartnerTab({ t }) {
             {verticalStats.map((stat) => {
               const v = VERTICALS_CONFIG.find((vc) => vc.key === stat.key);
               return (
-                <div key={stat.key} className="flex items-center justify-between gap-3 bg-slate-800 rounded-xl px-4 py-3 flex-wrap">
-                  <span className="text-sm font-semibold shrink-0" style={{ color: v.color }}>{v.label}</span>
-                  <span className="text-xs text-slate-400 shrink-0">{fmtNum(stat.b)} × {stat.c}% = {fmtNum(stat.redemptions)} redemptions</span>
-                  <span className="text-sm font-bold text-white shrink-0 ml-auto">{fmtEur(stat.monthlyComm, 2)}/mo</span>
+                <div key={stat.key} className="bg-slate-800 rounded-xl px-4 py-3 flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <span className="text-sm font-semibold block" style={{ color: v.color }}>{v.label}</span>
+                    <span className="text-xs text-slate-400 block">{fmtNum(stat.b)} × {stat.c}% = {fmtNum(stat.redemptions)}</span>
+                  </div>
+                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/mo</span>
                 </div>
               );
             })}
