@@ -382,16 +382,16 @@ function TravelPartnerTab({ t }) {
             return (
               <div className={`grid grid-cols-3 gap-2 pt-2 border-t ${v.borderClass}`}>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5">Redemptions/mo</p>
-                  <p className="text-lg font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
+                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">Redemptions<br className="sm:hidden"/>/mo</p>
+                  <p className="text-base font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
                 </div>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5">Commission/tx</p>
-                  <p className="text-lg font-bold" style={{ color: v.color }}>€{fmtNum(stat.commPerTx, 2)}</p>
+                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">Commission<br className="sm:hidden"/>/tx</p>
+                  <p className="text-base font-bold" style={{ color: v.color }}>€{fmtNum(stat.commPerTx, 2)}</p>
                 </div>
                 <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
-                  <p className="text-xs text-white/80 mb-0.5">You earn/mo</p>
-                  <p className="text-lg font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
+                  <p className="text-xs text-white/80 mb-0.5 leading-tight">You earn<br className="sm:hidden"/>/mo</p>
+                  <p className="text-base font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
                 </div>
               </div>
             );
@@ -424,10 +424,10 @@ function TravelPartnerTab({ t }) {
             {verticalStats.map((stat) => {
               const v = VERTICALS_CONFIG.find((vc) => vc.key === stat.key);
               return (
-                <div key={stat.key} className="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3">
-                  <span className="text-sm font-semibold" style={{ color: v.color }}>{v.label}</span>
-                  <span className="text-xs text-slate-400">{fmtNum(stat.b)} bookings × {stat.c}% = {fmtNum(stat.redemptions)} redemptions</span>
-                  <span className="text-sm font-bold text-white">{fmtEur(stat.monthlyComm, 2)}/mo</span>
+                <div key={stat.key} className="flex items-center justify-between gap-2 bg-slate-800 rounded-xl px-4 py-3">
+                  <span className="text-sm font-semibold shrink-0" style={{ color: v.color }}>{v.label}</span>
+                  <span className="text-xs text-slate-400 text-center flex-1">{fmtNum(stat.b)} × {stat.c}% = {fmtNum(stat.redemptions)}</span>
+                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 2)}/mo</span>
                 </div>
               );
             })}
