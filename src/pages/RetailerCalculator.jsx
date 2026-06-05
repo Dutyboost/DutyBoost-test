@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store } from "lucide-react";
+import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store, Check } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
@@ -203,164 +203,236 @@ function RetailerTab({ t }) {
   );
 }
 
+// ── TravelStack vertical config ────────────────────────────────────────────────
+const VERTICALS_CONFIG = [
+  {
+    key: "flight",
+    label: "✈️ Flight",
+    color: "#1A6BFF",
+    bgClass: "bg-blue-600",
+    bgLightClass: "bg-blue-50",
+    borderClass: "border-blue-200",
+    textClass: "text-blue-700",
+    activeClass: "bg-blue-600 text-white border-blue-600",
+    inactiveClass: "bg-white text-slate-600 border-slate-300",
+    commissionNote: "0.5% of basket (max €5) per redemption",
+    defaultBookings: 10000,
+    defaultConversion: 15,
+    defaultBasket: 150,
+  },
+  {
+    key: "accommodation",
+    label: "🏨 Accommodation",
+    color: "#8b5cf6",
+    bgClass: "bg-violet-600",
+    bgLightClass: "bg-violet-50",
+    borderClass: "border-violet-200",
+    textClass: "text-violet-700",
+    activeClass: "bg-violet-600 text-white border-violet-600",
+    inactiveClass: "bg-white text-slate-600 border-slate-300",
+    commissionNote: "0.5% of basket (max €5) per redemption",
+    defaultBookings: 5000,
+    defaultConversion: 20,
+    defaultBasket: 185,
+  },
+  {
+    key: "car",
+    label: "🚗 Car Rental",
+    color: "#FF8000",
+    bgClass: "bg-orange-500",
+    bgLightClass: "bg-orange-50",
+    borderClass: "border-orange-200",
+    textClass: "text-orange-700",
+    activeClass: "bg-orange-500 text-white border-orange-500",
+    inactiveClass: "bg-white text-slate-600 border-slate-300",
+    commissionNote: "0.5% of basket (max €5) per redemption",
+    defaultBookings: 3000,
+    defaultConversion: 18,
+    defaultBasket: 170,
+  },
+];
+
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 function TravelPartnerTab({ t }) {
-  const [bookingsPerMonth, setBookingsPerMonth] = useState(0);
-  const [conversionRate, setConversionRate] = useState(20); // %
-  const [avgBasket, setAvgBasket] = useState(150);
+  const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
+  const [bookings, setBookings] = useState({ flight: 10000, accommodation: 5000, car: 3000 });
+  const [conversion, setConversion] = useState({ flight: 15, accommodation: 20, car: 18 });
+  const [avgBasket, setAvgBasket] = useState({ flight: 150, accommodation: 185, car: 170 });
 
-  const redemptions = useMemo(() => Math.round(bookingsPerMonth * (conversionRate / 100)), [bookingsPerMonth, conversionRate]);
-  const agencyCommissionPerTx = useMemo(() => Math.min(Math.round(Math.min(avgBasket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP) * AGENCY_COMMISSION_SHARE * 100) / 100, AGENCY_COMMISSION_CAP), [avgBasket]);
-  const monthlyCommission = useMemo(() => Math.round(redemptions * agencyCommissionPerTx * 100) / 100, [redemptions, agencyCommissionPerTx]);
-  const travelerSavingPerTx = useMemo(() => calcSaving(avgBasket), [avgBasket]);
-  const totalTravelerSavings = useMemo(() => Math.round(redemptions * travelerSavingPerTx * 100) / 100, [redemptions, travelerSavingPerTx]);
-  const tier = useMemo(() => getTier(avgBasket), [avgBasket]);
+  const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);
+
+  const toggleVertical = (key) => {
+    const next = { ...selected, [key]: !selected[key] };
+    if (Object.values(next).some(Boolean)) setSelected(next);
+  };
+
+  const verticalStats = useMemo(() => {
+    return VERTICALS_CONFIG.map((v) => {
+      if (!selected[v.key]) return null;
+      const b = bookings[v.key];
+      const c = conversion[v.key];
+      const basket = avgBasket[v.key];
+      const redemptions = Math.round(b * (c / 100));
+      const commPerTx = Math.min(Math.round(Math.min(basket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP) * AGENCY_COMMISSION_SHARE * 100) / 100, AGENCY_COMMISSION_CAP);
+      const monthlyComm = Math.round(redemptions * commPerTx * 100) / 100;
+      const travelerSaving = Math.round(redemptions * calcSaving(basket) * 100) / 100;
+      return { key: v.key, redemptions, commPerTx, monthlyComm, travelerSaving, basket, b, c };
+    }).filter(Boolean);
+  }, [selected, bookings, conversion, avgBasket]);
+
+  const totals = useMemo(() => ({
+    redemptions: verticalStats.reduce((s, v) => s + v.redemptions, 0),
+    monthlyComm: verticalStats.reduce((s, v) => s + v.monthlyComm, 0),
+    travelerSaving: verticalStats.reduce((s, v) => s + v.travelerSaving, 0),
+  }), [verticalStats]);
 
   return (
     <div className="space-y-6">
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-slate-900">{t('calculator.partner_title')}</h2>
+        <h2 className="text-xl font-bold text-slate-900">TravelStack Partner ROI Calculator</h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto">
-          {t('calculator.partner_subtitle_1')} <strong className="text-emerald-700">{t('calculator.partner_subtitle_2')}</strong> {t('calculator.partner_subtitle_3')} <strong className="text-emerald-700">{t('calculator.partner_subtitle_4')}</strong>{t('calculator.partner_subtitle_5')} <strong className="text-emerald-700">{t('calculator.partner_subtitle_6')}</strong> {t('calculator.partner_subtitle_7')}
+          Select your active verticals and adjust your volumes to see your combined monthly commission.
         </p>
       </div>
 
-      {/* Sliders */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-6">
-        {/* Bookings per month */}
-        <div className="space-y-3">
-          <div className="flex justify-between items-end">
-            <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_per_month')}</p>
-              <p className="text-4xl font-bold text-slate-900">{fmtNum(bookingsPerMonth)}</p>
-            </div>
-            <span className="text-slate-500 text-sm">{t('calculator.travelers_label')}</span>
-          </div>
-          <Slider min={0} max={1000000} step={1000} value={[bookingsPerMonth]} onValueChange={([v]) => setBookingsPerMonth(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>0</span><span>1.000.000</span></div>
+      {/* Vertical selector */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-4">
+        <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">Select your verticals</p>
+        <div className="flex flex-wrap gap-3">
+          {VERTICALS_CONFIG.map((v) => {
+            const isOn = selected[v.key];
+            return (
+              <button
+                key={v.key}
+                onClick={() => toggleVertical(v.key)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all ${isOn ? v.activeClass : v.inactiveClass}`}
+              >
+                {isOn && <Check className="w-3.5 h-3.5" />}
+                {v.label}
+              </button>
+            );
+          })}
         </div>
+        <p className="text-xs text-slate-400">Select one, two, or all three verticals you operate.</p>
+      </div>
 
-        {/* Conversion rate */}
-        <div className="space-y-3">
-          <div className="flex justify-between items-end">
-            <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
-              <p className="text-4xl font-bold text-slate-900">{conversionRate}%</p>
-            </div>
-            <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
+      {/* Per-vertical sliders */}
+      {activeVerticals.map((v) => (
+        <div key={v.key} className={`bg-white border rounded-2xl p-6 space-y-5 ${v.borderClass}`} style={{ borderLeftWidth: "4px", borderLeftColor: v.color }}>
+          <div className="flex items-center gap-2">
+            <span className="text-base font-bold" style={{ color: v.color }}>{v.label}</span>
+            <span className="text-xs text-slate-400 ml-auto">{v.commissionNote}</span>
           </div>
-          <Slider min={5} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>5%</span><span>{t('calculator.industry_avg')}</span><span>50%</span></div>
-        </div>
 
-        {/* Avg basket */}
-        <div className="space-y-3">
-          <div className="flex justify-between items-end">
-            <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.avg_basket')}</p>
-              <p className="text-4xl font-bold text-slate-900">€{avgBasket}</p>
-            </div>
-            {tier && (
-              <div className="px-3 py-1.5 rounded-xl border border-slate-300 bg-slate-100 text-xs font-semibold text-slate-900">
-                {tier.emoji} {tier.name}
+          {/* Bookings slider */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-end">
+              <div>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Bookings / month</p>
+                <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
               </div>
-            )}
+              <span className="text-slate-500 text-sm">travelers</span>
+            </div>
+            <Slider min={0} max={500000} step={500} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>500.000</span></div>
           </div>
-          <Slider min={70} max={500} step={5} value={[avgBasket]} onValueChange={([v]) => setAvgBasket(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-500"><span>€70 (min)</span><span>€500+</span></div>
-        </div>
-      </div>
 
-      {/* Result metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="bg-slate-700 rounded-xl p-4 text-center">
-          <Users className="w-4 h-4 text-slate-200 mx-auto mb-2" />
-          <p className="text-xs text-slate-200 mb-1">{t('calculator.redemptions_month')}</p>
-          <p className="text-2xl font-bold text-white">{fmtNum(redemptions)}</p>
-        </div>
-        <div className="bg-blue-600 rounded-xl p-4 text-center">
-          <ShoppingBag className="w-4 h-4 text-blue-100 mx-auto mb-2" />
-          <p className="text-xs text-blue-100 mb-1">{t('calculator.commission_tx')}</p>
-          <p className="text-2xl font-bold text-white">€{fmtNum(agencyCommissionPerTx, 2)}</p>
-          <p className="text-xs text-blue-200 mt-0.5">0.5% of basket (max €5)</p>
-        </div>
-        <div className="bg-emerald-600 rounded-xl p-4 text-center">
-          <TrendingUp className="w-4 h-4 text-emerald-100 mx-auto mb-2" />
-          <p className="text-xs text-emerald-100 mb-1">{t('calculator.monthly_commission')}</p>
-          <p className="text-2xl font-bold text-white">{fmtEur(monthlyCommission, 2)}</p>
-        </div>
-        <div className="bg-rose-600 rounded-xl p-4 text-center">
-          <Percent className="w-4 h-4 text-rose-100 mx-auto mb-2" />
-          <p className="text-xs text-rose-100 mb-1">{t('calculator.traveler_savings_month')}</p>
-          <p className="text-2xl font-bold text-white">{fmtEur(totalTravelerSavings, 2)}</p>
-        </div>
-      </div>
-
-      {/* Commission breakdown */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
-        <div>
-          <h3 className="font-bold text-slate-900 text-lg">{t('calculator.revenue_title')}</h3>
-          <p className="text-slate-600 text-sm mt-1">{t('calculator.revenue_desc')}</p>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-4">
-          <div className="bg-slate-100 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-slate-500">{t('calculator.you_send')}</p>
-            <p className="text-2xl font-bold text-slate-900">{fmtNum(bookingsPerMonth)} {t('calculator.travelers_mo')}</p>
+          {/* Conversion rate slider */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-end">
+              <div>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Redemption rate</p>
+                <p className="text-3xl font-bold text-slate-900">{conversion[v.key]}%</p>
+              </div>
+              <span className="text-slate-500 text-sm">of travelers redeem</span>
+            </div>
+            <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>1%</span><span>50%</span></div>
           </div>
-          <div className="bg-slate-100 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-slate-500">{t('calculator.at_redemption')} {conversionRate}% {t('calculator.redemption_rate_label')}</p>
-            <p className="text-2xl font-bold text-slate-900">{fmtNum(redemptions)} {t('calculator.transactions_label')}</p>
-          </div>
-          <div className="bg-emerald-600 rounded-xl p-4 space-y-1">
-            <p className="text-xs text-emerald-100">{t('calculator.you_earn')}</p>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyCommission, 2)} {t('calculator.per_month')}</p>
-          </div>
-        </div>
 
-        <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
-          <Info className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-          <p className="text-sm text-blue-800 leading-relaxed">
-            {t('calculator.commission_info')} <strong>{t('calculator.commission_info_2')}</strong>{t('calculator.commission_info_3')}
-          </p>
-        </div>
-      </div>
+          {/* Avg basket slider */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-end">
+              <div>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Avg. basket size</p>
+                <p className="text-3xl font-bold text-slate-900">€{avgBasket[v.key]}</p>
+              </div>
+              {getTier(avgBasket[v.key]) && (
+                <div className="px-3 py-1.5 rounded-xl border border-slate-300 bg-slate-100 text-xs font-semibold text-slate-900">
+                  {getTier(avgBasket[v.key]).emoji} {getTier(avgBasket[v.key]).name}
+                </div>
+              )}
+            </div>
+            <Slider min={70} max={500} step={5} value={[avgBasket[v.key]]} onValueChange={([val]) => setAvgBasket((a) => ({ ...a, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>€70 (min)</span><span>€500+</span></div>
+          </div>
 
-      {/* Tier reference for agencies */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
-        <h3 className="font-bold text-slate-900 text-sm uppercase tracking-widest">{t('calculator.commission_by_tier')}</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-xs text-slate-600 border-b border-slate-200">
-                <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
-                <th className="pb-2 pr-4">{t('calculator.col_avg_basket')}</th>
-                <th className="pb-2 pr-4">{t('calculator.col_traveler_saves')}</th>
-                <th className="pb-2 pr-4">{t('calculator.col_your_commission')}</th>
-                <th className="pb-2">{t('calculator.col_per_100')}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {TIER_BANDS.map((t) => {
-                const mid = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
-                const saving = calcSaving(mid);
-                const comm = Math.min(Math.round(Math.min(mid * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP) * AGENCY_COMMISSION_SHARE * 100) / 100, AGENCY_COMMISSION_CAP);
-                const per100 = Math.round(comm * 100 * 100) / 100;
-                const isActive = tier?.name.startsWith(t.label);
-                return (
-                  <tr key={t.label} className={`transition-colors ${isActive ? "bg-slate-100" : ""}`}>
-                    <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
-                    <td className="py-2.5 pr-4 text-slate-700">€{mid}</td>
-                    <td className="py-2.5 pr-4 text-rose-600 font-medium">€{fmtNum(saving, 2)}</td>
-                    <td className="py-2.5 pr-4 text-emerald-700 font-semibold">€{fmtNum(comm, 2)}</td>
-                    <td className="py-2.5 text-blue-700 font-medium">€{fmtNum(per100, 0)}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          {/* Per-vertical mini result */}
+          {(() => {
+            const stat = verticalStats.find((s) => s.key === v.key);
+            if (!stat) return null;
+            return (
+              <div className={`grid grid-cols-3 gap-2 pt-2 border-t ${v.borderClass}`}>
+                <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
+                  <p className="text-xs text-slate-500 mb-0.5">Redemptions/mo</p>
+                  <p className="text-lg font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
+                </div>
+                <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
+                  <p className="text-xs text-slate-500 mb-0.5">Commission/tx</p>
+                  <p className="text-lg font-bold" style={{ color: v.color }}>€{fmtNum(stat.commPerTx, 2)}</p>
+                </div>
+                <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
+                  <p className="text-xs text-white/80 mb-0.5">You earn/mo</p>
+                  <p className="text-lg font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
+                </div>
+              </div>
+            );
+          })()}
         </div>
-        <p className="text-xs text-slate-500">{t('calculator.commission_footnote')}</p>
+      ))}
+
+      {/* Combined totals */}
+      {activeVerticals.length > 1 && (
+        <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
+          <h3 className="font-bold text-white text-lg">Combined Monthly Revenue</h3>
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-slate-800 rounded-xl p-4 text-center">
+              <Users className="w-4 h-4 text-slate-300 mx-auto mb-2" />
+              <p className="text-xs text-slate-400 mb-1">Total redemptions/mo</p>
+              <p className="text-2xl font-bold text-white">{fmtNum(totals.redemptions)}</p>
+            </div>
+            <div className="bg-emerald-700 rounded-xl p-4 text-center">
+              <TrendingUp className="w-4 h-4 text-emerald-200 mx-auto mb-2" />
+              <p className="text-xs text-emerald-200 mb-1">Total commission/mo</p>
+              <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 2)}</p>
+            </div>
+            <div className="bg-emerald-600 rounded-xl p-4 text-center">
+              <TrendingUp className="w-4 h-4 text-emerald-100 mx-auto mb-2" />
+              <p className="text-xs text-emerald-100 mb-1">Total commission/yr</p>
+              <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 0)}</p>
+            </div>
+          </div>
+          <div className="grid gap-2">
+            {verticalStats.map((stat) => {
+              const v = VERTICALS_CONFIG.find((vc) => vc.key === stat.key);
+              return (
+                <div key={stat.key} className="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3">
+                  <span className="text-sm font-semibold" style={{ color: v.color }}>{v.label}</span>
+                  <span className="text-xs text-slate-400">{fmtNum(stat.b)} bookings × {stat.c}% = {fmtNum(stat.redemptions)} redemptions</span>
+                  <span className="text-sm font-bold text-white">{fmtEur(stat.monthlyComm, 2)}/mo</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Info note */}
+      <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+        <Info className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+        <p className="text-sm text-blue-800 leading-relaxed">
+          Commission is <strong>0.5% of the airport basket spend per redemption (max €5/tx)</strong>. No upfront cost — you only earn when your travelers actually spend at the airport.
+        </p>
       </div>
     </div>
   );
