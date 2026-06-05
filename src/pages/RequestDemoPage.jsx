@@ -111,7 +111,7 @@ export default function RequestDemoPage() {
     return (
       <div className="min-h-screen bg-background flex flex-col font-body">
         <nav className="border-b border-border px-6 h-16 flex items-center">
-          <Link to="/"><DutyBoostLogo height={130} /></Link>
+          <Link to="/"><DutyBoostLogo height={40} /></Link>
         </nav>
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="w-full max-w-md text-center space-y-6">
@@ -152,7 +152,7 @@ export default function RequestDemoPage() {
   return (
     <div className="min-h-screen bg-background font-body flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/"><DutyBoostLogo height={130} /></Link>
+        <Link to="/"><DutyBoostLogo height={40} /></Link>
         <Link to="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="w-4 h-4" /> {t('requestdemo.back')}
         </Link>
