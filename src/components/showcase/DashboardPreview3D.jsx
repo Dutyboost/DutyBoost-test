@@ -182,14 +182,14 @@ export default function DashboardPreview3D({ role = "agency" }) {
             className="relative rounded-2xl overflow-hidden shadow-lg border border-border bg-background p-4 space-y-4"
           >
             {/* KPI row */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {kpis.map((kpi, i) => (
-                <div key={i} className="bg-card rounded-xl border border-border px-4 py-4">
-                  <p className="text-xs text-muted-foreground mb-1">{kpi.label}</p>
-                  <p className="text-2xl font-heading font-bold text-foreground">{kpi.value}</p>
+                <div key={i} className="bg-card rounded-xl border border-border px-2 py-3 sm:px-4 sm:py-4">
+                  <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 leading-tight">{kpi.label}</p>
+                  <p className="text-sm sm:text-2xl font-heading font-bold text-foreground break-all leading-tight">{kpi.value}</p>
                   <div className="flex items-center gap-1 mt-1">
                     <TrendIcon trend={kpi.trend} />
-                    <span className="text-xs text-muted-foreground">{kpi.sub}</span>
+                    <span className="text-[10px] sm:text-xs text-muted-foreground leading-tight">{kpi.sub}</span>
                   </div>
                 </div>
               ))}
@@ -197,12 +197,12 @@ export default function DashboardPreview3D({ role = "agency" }) {
 
             {/* Chart area */}
             <div className="bg-card rounded-xl border border-border px-5 pt-5 pb-6">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                 <h3 className="text-sm font-semibold font-heading text-foreground">{t(`${dp}.chartTitle`)}</h3>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-x-3 gap-y-1">
                   {series.map((s) => (
                     <div key={s.key} className="flex items-center gap-1.5">
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: s.color }} />
+                      <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: s.color }} />
                       <span className="text-xs text-muted-foreground">{s.label}</span>
                     </div>
                   ))}
