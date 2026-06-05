@@ -9,38 +9,43 @@ import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
-// Linear interpolation within each tier
-function lerp(spend, minSpend, maxSpend, minSav, maxSav) {
-  const pct = Math.min(1, (spend - minSpend) / (maxSpend - minSpend));
-  return Math.round((minSav + pct * (maxSav - minSav)) * 100) / 100;
-}
+// Fixed reward per tier — minimum basket €35
 function calcSaving(spend) {
-  if (spend < 70)   return 0;
-  if (spend >= 300) return 60;                      // VIP: flat €60
-  if (spend >= 200) return lerp(spend, 200, 299, 30, 60); // Lounge: €30→€60
-  if (spend >= 100) return lerp(spend, 100, 199, 10, 30); // Priority: €10→€30
-  return lerp(spend, 70, 99, 5, 10);               // Boarding: €5→€10
+  if (spend < 35)  return 0;
+  if (spend >= 300) return 60.00; // VIP
+  if (spend >= 250) return 45.00; // Premium
+  if (spend >= 200) return 30.00; // Lounge
+  if (spend >= 150) return 20.00; // Plus
+  if (spend >= 100) return 10.00; // Standard
+  if (spend >= 70)  return 5.00;  // Boarding
+  return 2.50;                    // Entry (€35–€69)
 }
 
 function getTier(spend) {
-  if (spend < 70) return null;
-  if (spend >= 300) return { name: "VIP DutyCredit", emoji: "🟣", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/30", bar: "bg-purple-400" };
-  if (spend >= 200) return { name: "Lounge DutyCredit", emoji: "🟢", color: "text-green-400", bg: "bg-green-500/10 border-green-500/30", bar: "bg-green-400" };
-  if (spend >= 100) return { name: "Priority DutyCredit", emoji: "🔵", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/30", bar: "bg-blue-400" };
-  return { name: "Boarding DutyCredit", emoji: "🟡", color: "text-yellow-400", bg: "bg-yellow-500/10 border-yellow-500/30", bar: "bg-yellow-400" };
+  if (spend < 35)  return null;
+  if (spend >= 300) return { name: "VIP DutyCredit",     emoji: "🟣", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/30", bar: "bg-purple-400" };
+  if (spend >= 250) return { name: "Premium DutyCredit", emoji: "💎", color: "text-pink-400",   bg: "bg-pink-500/10 border-pink-500/30",   bar: "bg-pink-400" };
+  if (spend >= 200) return { name: "Lounge DutyCredit",  emoji: "🟢", color: "text-green-400",  bg: "bg-green-500/10 border-green-500/30",  bar: "bg-green-400" };
+  if (spend >= 150) return { name: "Plus DutyCredit",    emoji: "🔵", color: "text-blue-400",   bg: "bg-blue-500/10 border-blue-500/30",    bar: "bg-blue-400" };
+  if (spend >= 100) return { name: "Standard DutyCredit",emoji: "🟡", color: "text-yellow-500", bg: "bg-yellow-500/10 border-yellow-500/30", bar: "bg-yellow-400" };
+  if (spend >= 70)  return { name: "Boarding DutyCredit",emoji: "⚪", color: "text-slate-400",  bg: "bg-slate-500/10 border-slate-500/30",  bar: "bg-slate-400" };
+  return               { name: "Entry DutyCredit",    emoji: "🟤", color: "text-amber-600",  bg: "bg-amber-500/10 border-amber-500/30",  bar: "bg-amber-400" };
 }
 
-// Travel Partner: earns 20% of DutyBoost's 2.5% fee per redemption, capped at €5/tx
-const AGENCY_COMMISSION_SHARE = 0.20; // 20% of DutyBoost fee
-const PLATFORM_FEE_PCT = 0.025;       // 2.5% of basket
-const PLATFORM_FEE_CAP = 25;          // €25 max DutyBoost fee per transaction
-const AGENCY_COMMISSION_CAP = 5;      // €5 max agency commission per transaction
+// Platform Fee = 2.5% of basket. Travel Partner = 0.5% of basket (capped at €5/tx).
+const PLATFORM_FEE_PCT = 0.025;      // 2.5% of basket
+const PLATFORM_FEE_CAP = 25;         // €25 max per transaction
+const AGENCY_COMMISSION_PCT = 0.005; // 0.5% of basket
+const AGENCY_COMMISSION_CAP = 5;     // €5 max per transaction
 
 const TIER_BANDS = [
-  { label: "Boarding", min: 70, max: 99,   savMin: 5,  savMax: 10, color: "bg-yellow-400", textColor: "text-yellow-400" },
-  { label: "Priority", min: 100, max: 199, savMin: 10, savMax: 30, color: "bg-blue-400",   textColor: "text-blue-400" },
-  { label: "Lounge",   min: 200, max: 299, savMin: 30, savMax: 60, color: "bg-green-400",  textColor: "text-green-400" },
-  { label: "VIP",      min: 300, max: 1000,savMin: 60, savMax: 60, color: "bg-purple-400", textColor: "text-purple-400" },
+  { label: "Entry",    min: 35,  max: 69,  saving: 2.50,  color: "bg-amber-400",  textColor: "text-amber-600" },
+  { label: "Boarding", min: 70,  max: 99,  saving: 5.00,  color: "bg-slate-400",  textColor: "text-slate-500" },
+  { label: "Standard", min: 100, max: 149, saving: 10.00, color: "bg-yellow-400", textColor: "text-yellow-600" },
+  { label: "Plus",     min: 150, max: 199, saving: 20.00, color: "bg-blue-400",   textColor: "text-blue-600" },
+  { label: "Lounge",   min: 200, max: 249, saving: 30.00, color: "bg-green-400",  textColor: "text-green-600" },
+  { label: "Premium",  min: 250, max: 299, saving: 45.00, color: "bg-pink-400",   textColor: "text-pink-600" },
+  { label: "VIP",      min: 300, max: 1000,saving: 60.00, color: "bg-purple-400", textColor: "text-purple-600" },
 ];
 
 
@@ -48,6 +53,7 @@ const TIER_BANDS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
+  // min basket is now €35
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
   const commission = useMemo(() => Math.min(Math.round(spend * 0.025 * 100) / 100, PLATFORM_FEE_CAP), [spend]);
@@ -57,11 +63,14 @@ function RetailerTab({ t }) {
   const tier = useMemo(() => getTier(spend), [spend]);
 
   const tierProgress = useMemo(() => {
-    if (spend < 70) return 0;
+    if (spend < 35)  return 0;
     if (spend >= 300) return 100;
-    if (spend >= 200) return ((spend - 200) / 99) * 100;
-    if (spend >= 100) return ((spend - 100) / 99) * 100;
-    return ((spend - 70) / 29) * 100;
+    if (spend >= 250) return ((spend - 250) / 49) * 100;
+    if (spend >= 200) return ((spend - 200) / 49) * 100;
+    if (spend >= 150) return ((spend - 150) / 49) * 100;
+    if (spend >= 100) return ((spend - 100) / 49) * 100;
+    if (spend >= 70)  return ((spend - 70)  / 29) * 100;
+    return ((spend - 35) / 34) * 100;
   }, [spend]);
 
   return (
@@ -85,9 +94,9 @@ function RetailerTab({ t }) {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={70} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
+          <Slider min={35} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-600">
-          <span>€70</span>
+          <span>€35</span>
           <span>€1.000</span>
           </div>
         </div>
@@ -179,16 +188,15 @@ function RetailerTab({ t }) {
                 <tbody className="divide-y divide-slate-200">
                   {TIER_BANDS.map((t) => {
                     const midSpend = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
-                    const midSaving = calcSaving(midSpend);
-                    const midFee = Math.min(Math.round(midSpend * 0.025 * 100) / 100, PLATFORM_FEE_CAP);
-                    const midNet = Math.round(((midSpend - midSaving - midFee) / midSpend) * 1000) / 10;
+                    const midFee = Math.min(Math.round(midSpend * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
+                    const midNet = Math.round(((midSpend - t.saving - midFee) / midSpend) * 1000) / 10;
                     const isActive = tier?.name.startsWith(t.label);
                     return (
                       <tr key={t.label} className={`transition-colors ${isActive ? "bg-slate-100" : ""}`}>
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
-                        <td className="py-2.5 pr-4 text-slate-700">€{t.min}–{t.max === 500 ? "€300+" : `€${t.max}`}</td>
-                        <td className="py-2.5 pr-4 text-slate-700">€{t.savMin}–€{t.savMax}</td>
-                        <td className="py-2.5 pr-4 text-orange-600">€{fmtNum(Math.min(t.min * 0.025, PLATFORM_FEE_CAP), 2)}–€{fmtNum(Math.min(t.max * 0.025, PLATFORM_FEE_CAP), 2)}</td>
+                        <td className="py-2.5 pr-4 text-slate-700">€{t.min}{t.max === 1000 ? "+" : `–€${t.max}`}</td>
+                        <td className="py-2.5 pr-4 text-slate-700">€{t.saving.toFixed(2)}</td>
+                        <td className="py-2.5 pr-4 text-orange-600">€{fmtNum(Math.min(t.min * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP), 2)}</td>
                         <td className="py-2.5 text-green-600">{fmtNum(midNet, 1)}%</td>
                       </tr>
                     );
@@ -215,7 +223,7 @@ const VERTICALS_CONFIG = [
     textClass: "text-blue-700",
     activeClass: "bg-blue-600 text-white border-blue-600",
     inactiveClass: "bg-white text-slate-600 border-slate-300",
-    commissionNote: "0.5% of basket (max €5) per redemption",
+    commissionNote: "0.5% of basket spend (max €5/tx)",
     defaultBookings: 10000,
     defaultConversion: 15,
     defaultBasket: 150,
@@ -230,7 +238,7 @@ const VERTICALS_CONFIG = [
     textClass: "text-violet-700",
     activeClass: "bg-violet-600 text-white border-violet-600",
     inactiveClass: "bg-white text-slate-600 border-slate-300",
-    commissionNote: "0.5% of basket (max €5) per redemption",
+    commissionNote: "0.5% of basket spend (max €5/tx)",
     defaultBookings: 5000,
     defaultConversion: 20,
     defaultBasket: 185,
@@ -245,7 +253,7 @@ const VERTICALS_CONFIG = [
     textClass: "text-orange-700",
     activeClass: "bg-orange-500 text-white border-orange-500",
     inactiveClass: "bg-white text-slate-600 border-slate-300",
-    commissionNote: "0.5% of basket (max €5) per redemption",
+    commissionNote: "0.5% of basket spend (max €5/tx)",
     defaultBookings: 3000,
     defaultConversion: 18,
     defaultBasket: 170,
@@ -273,7 +281,7 @@ function TravelPartnerTab({ t }) {
       const c = conversion[v.key];
       const basket = avgBasket[v.key];
       const redemptions = Math.round(b * (c / 100));
-      const commPerTx = Math.min(Math.round(Math.min(basket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP) * AGENCY_COMMISSION_SHARE * 100) / 100, AGENCY_COMMISSION_CAP);
+      const commPerTx = Math.min(Math.round(basket * AGENCY_COMMISSION_PCT * 100) / 100, AGENCY_COMMISSION_CAP);
       const monthlyComm = Math.round(redemptions * commPerTx * 100) / 100;
       const travelerSaving = Math.round(redemptions * calcSaving(basket) * 100) / 100;
       return { key: v.key, redemptions, commPerTx, monthlyComm, travelerSaving, basket, b, c };
@@ -363,8 +371,8 @@ function TravelPartnerTab({ t }) {
                 </div>
               )}
             </div>
-            <Slider min={70} max={500} step={5} value={[avgBasket[v.key]]} onValueChange={([val]) => setAvgBasket((a) => ({ ...a, [v.key]: val }))} className="w-full" />
-            <div className="flex justify-between text-xs text-slate-400"><span>€70 (min)</span><span>€500+</span></div>
+            <Slider min={35} max={500} step={5} value={[avgBasket[v.key]]} onValueChange={([val]) => setAvgBasket((a) => ({ ...a, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>€35 (min)</span><span>€500+</span></div>
           </div>
 
           {/* Per-vertical mini result */}
@@ -431,7 +439,7 @@ function TravelPartnerTab({ t }) {
       <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
         <Info className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
         <p className="text-sm text-blue-800 leading-relaxed">
-          Commission is <strong>0.5% of the airport basket spend per redemption (max €5/tx)</strong>. No upfront cost — you only earn when your travelers actually spend at the airport.
+          Commission is <strong>0.5% of the airport basket spend per redemption (max €5/tx)</strong>. Minimum basket is €35. No upfront cost — you only earn when your travelers actually spend at the airport.
         </p>
       </div>
     </div>
