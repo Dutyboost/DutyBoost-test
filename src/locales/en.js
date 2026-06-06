@@ -385,7 +385,7 @@ export default {
         step3: 'Apply Discount',
         step3Desc: "The system automatically applies their tiered discount based on their basket total — from €2.50 at €35 spend up to €60 at €300+. The discount is calculated instantly and appears on the receipt. Clean, transparent, professional.",
         step4: 'Earn Revenue Share',
-        step4Desc: 'Every redeemed transaction is instantly recorded in your dashboard. At month-end, you receive a single invoice for 2.5% of the gross redemption value (capped at €25 per transaction). DutyBoost handles all reporting, settlement, and payment—fully automated, no spreadsheets, no chasing.',
+        step4Desc: 'Every redeemed transaction is instantly recorded in your dashboard. At month-end, we send you an invoice for 2.5% of the gross redemption value (capped at €25 per transaction). DutyBoost handles all reporting and settlement—fully automated, no spreadsheets, no chasing.',
         ctaTitle: 'Ready to Grow Revenue?',
         ctaDesc: 'Get qualified customers and increase transaction value with DutyBoost.',
         ctaButton: 'Go to Retailer Portal',
