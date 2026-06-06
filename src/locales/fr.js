@@ -302,7 +302,7 @@ export default {
         step2Desc: 'Il présente son QR code à la caisse — validation instantanée.',
         step3: 'Appliquer la réduction',
         step3Desc: 'Le système applique automatiquement sa réduction personnalisée.',
-        step4: 'Gagnez le partage des revenus',
+        step4: 'Frais de service mensuels',
         step4Desc: 'Nous enregistrons la transaction et suivons vos revenus.',
         ctaTitle: 'Prêt à augmenter vos revenus ?',
         ctaDesc: 'Obtenez des clients qualifiés et augmentez la valeur des transactions avec DutyBoost.',

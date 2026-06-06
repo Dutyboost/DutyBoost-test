@@ -388,7 +388,7 @@ export default {
         step2Desc: 'Ze presenteren hun QR-code aan de kassa — directe validatie.',
         step3: 'Korting toepassen',
         step3Desc: 'Het systeem past hun gepersonaliseerde korting automatisch toe.',
-        step4: 'Verdien omzetdeling',
+        step4: 'Maandelijkse Servicekosten',
         step4Desc: 'We registreren de transactie en volgen je omzet.',
         ctaTitle: 'Klaar voor omzetgroei?',
         ctaDesc: 'Ontvang gekwalificeerde klanten en verhoog de transactiewaarde met DutyBoost.',

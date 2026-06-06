@@ -314,7 +314,7 @@ export default {
         step2Desc: 'Presentan su código QR en la caja — validación instantánea.',
         step3: 'Aplicar descuento',
         step3Desc: 'El sistema aplica automáticamente su descuento personalizado.',
-        step4: 'Gana participación de ingresos',
+        step4: 'Tarifa de servicio mensual',
         step4Desc: 'Registramos la transacción y seguimos tus ingresos.',
         ctaTitle: '¿Listo para aumentar ingresos?',
         ctaDesc: 'Obtén clientes calificados y aumenta el valor de las transacciones con DutyBoost.',

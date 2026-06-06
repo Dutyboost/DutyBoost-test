@@ -302,7 +302,7 @@ export default {
         step2Desc: 'Sie zeigen ihren QR-Code an der Kasse vor — sofortige Validierung.',
         step3: 'Rabatt anwenden',
         step3Desc: 'Das System wendet den personalisierten Rabatt automatisch an.',
-        step4: 'Verdienen Sie Umsatzbeteiligung',
+        step4: 'Monatliche Servicegebühr',
         step4Desc: 'Wir protokollieren die Transaktion und verfolgen Ihren Umsatz.',
         ctaTitle: 'Bereit zum Umsatzwachstum?',
         ctaDesc: 'Erhalten Sie qualifizierte Kunden und steigern Sie den Transaktionswert mit DutyBoost.',

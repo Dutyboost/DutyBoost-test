@@ -320,7 +320,7 @@ export default {
         step2Desc: 'Presentano il loro codice QR alla cassa — convalida istantanea.',
         step3: 'Applica lo sconto',
         step3Desc: 'Il sistema applica automaticamente il loro sconto personalizzato.',
-        step4: 'Guadagna la condivisione dei ricavi',
+        step4: 'Canone mensile per il servizio',
         step4Desc: 'Registriamo la transazione e monitorare i tuoi ricavi.',
         ctaTitle: 'Pronto per la crescita dei ricavi?',
         ctaDesc: 'Ottieni clienti qualificati e aumenta il valore delle transazioni con DutyBoost.',
