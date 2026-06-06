@@ -381,7 +381,7 @@ export default {
         step1: 'Customer Arrives',
         step1Desc: "A traveller with a personalised DutyCredit incentive walks into your store, already motivated to spend. They've had this credit waiting in their email for days or weeks — ever since they booked their flight. They're not browsing. They've arrived with a mission: to spend their credit with you.",
         step2: 'Scan & Validate',
-        step2Desc: "They present their unique QR code at checkout, and your staff scans it using a mobile device or integrated POS. The system instantly validates the code in real-time, verifying the credit is active, hasn't expired, and belongs to this traveller. No manual calculations. No friction.",
+        step2Desc: "They present their unique QR code at checkout, and your staff scans it via the integrated POS system. The system instantly validates the code in real-time, verifying the credit is active, hasn't expired, and belongs to this traveller. No manual calculations. No friction.",
         step3: 'Apply Discount',
         step3Desc: "The system automatically applies their tiered discount based on their basket total — from €2.50 at €35 spend up to €60 at €300+. The discount is calculated instantly and appears on the receipt. Clean, transparent, professional.",
         step4: 'Earn Revenue Share',
