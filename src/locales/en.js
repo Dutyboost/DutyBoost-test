@@ -384,7 +384,7 @@ export default {
         step2Desc: "They present their unique QR code at checkout, and your staff scans it via the integrated POS system. The system instantly validates the code in real-time, verifying the credit is active, hasn't expired, and belongs to this traveller. No manual calculations. No friction.",
         step3: 'Apply Discount',
         step3Desc: "The system automatically applies their tiered discount based on their basket total — from €2.50 at €35 spend up to €60 at €300+. The discount is calculated instantly and appears on the receipt. Clean, transparent, professional.",
-        step4: 'Earn Revenue Share',
+        step4: 'Monthly Service Fee',
         step4Desc: 'Every redeemed transaction is instantly recorded in your dashboard. At month-end, we send you an invoice for 2.5% of the gross redemption value (capped at €25 per transaction). DutyBoost handles all reporting and settlement—fully automated, no spreadsheets, no chasing.',
         ctaTitle: 'Ready to Grow Revenue?',
         ctaDesc: 'Get qualified customers and increase transaction value with DutyBoost.',
