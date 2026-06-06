@@ -389,7 +389,7 @@ export default {
         step3: 'Korting toepassen',
         step3Desc: "Het systeem past automatisch de gestaffelde korting toe op basis van het mandtotaal — van €2,50 bij €35 besteding tot €60 bij €300+. De korting wordt direct berekend en verschijnt op de bon. Helder, transparant, professioneel.",
         step4: 'Maandelijkse Servicekosten',
-        step4Desc: "Elke ingewisselde transactie wordt direct geregistreerd in je dashboard. Aan het einde van de maand sturen wij je een factuur voor 2,5% van de bruto inwisselingswaarde (maximaal €25 per transactie). DutyBoost regelt alle rapportage en afrekening — volledig geautomatiseerd, geen spreadsheets, geen achtervolging.",
+        step4Desc: "Aan het einde van de maand sturen wij je een factuur voor 2,5% van de bruto inwisselingswaarde (maximaal €25 per transactie). DutyBoost regelt alle rapportage en afrekening — volledig geautomatiseerd, geen spreadsheets, geen achtervolging.",
         ctaTitle: 'Klaar voor omzetgroei?',
         ctaDesc: 'Ontvang gekwalificeerde klanten en verhoog de transactiewaarde met DutyBoost.',
         ctaButton: 'Ga naar retailerportal',

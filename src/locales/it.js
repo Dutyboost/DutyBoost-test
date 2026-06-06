@@ -321,7 +321,7 @@ export default {
         step3: 'Applica lo sconto',
         step3Desc: "Il sistema applica automaticamente il loro sconto a livelli basato sul totale del carrello — da €2,50 a €35 di spesa fino a €60 a €300+. Lo sconto viene calcolato istantaneamente e appare sullo scontrino. Chiaro, trasparente, professionale.",
         step4: 'Canone mensile per il servizio',
-        step4Desc: "Ogni transazione riscattata viene istantaneamente registrata nel tuo dashboard. A fine mese, ti inviamo una fattura pari al 2,5% del valore lordo dei riscatti (fino a un massimo di €25 per transazione). DutyBoost gestisce tutta la reportistica e il regolamento — completamente automatizzato, senza fogli di calcolo, senza inseguimenti.",
+        step4Desc: "A fine mese, ti inviamo una fattura pari al 2,5% del valore lordo dei riscatti (fino a un massimo di €25 per transazione). DutyBoost gestisce tutta la reportistica e il regolamento — completamente automatizzato, senza fogli di calcolo, senza inseguimenti.",
         ctaTitle: 'Pronto per la crescita dei ricavi?',
         ctaDesc: 'Ottieni clienti qualificati e aumenta il valore delle transazioni con DutyBoost.',
         ctaButton: 'Vai al portale del retailer',

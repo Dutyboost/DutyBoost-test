@@ -303,7 +303,7 @@ export default {
         step3: 'Appliquer la réduction',
         step3Desc: "Le système applique automatiquement leur remise échelonnée basée sur le total du panier — de €2,50 à partir de €35 de dépense jusqu'à €60 à partir de €300+. La remise est calculée instantanément et apparaît sur le reçu. Simple, transparent, professionnel.",
         step4: 'Frais de service mensuels',
-        step4Desc: "Chaque transaction échangée est instantanément enregistrée dans votre tableau de bord. En fin de mois, nous vous envoyons une facture correspondant à 2,5% de la valeur brute des échanges (plafonnée à €25 par transaction). DutyBoost gère tous les rapports et les règlements — entièrement automatisé, sans tableurs ni relances.",
+        step4Desc: "En fin de mois, nous vous envoyons une facture correspondant à 2,5% de la valeur brute des échanges (plafonnée à €25 par transaction). DutyBoost gère tous les rapports et les règlements — entièrement automatisé, sans tableurs ni relances.",
         ctaTitle: 'Prêt à augmenter vos revenus ?',
         ctaDesc: 'Obtenez des clients qualifiés et augmentez la valeur des transactions avec DutyBoost.',
         ctaButton: 'Aller au portail détaillant',

@@ -315,7 +315,7 @@ export default {
         step3: 'Aplicar descuento',
         step3Desc: "El sistema aplica automáticamente su descuento escalonado basado en el total de la cesta — desde €2,50 con €35 de gasto hasta €60 con €300+. El descuento se calcula al instante y aparece en el recibo. Claro, transparente, profesional.",
         step4: 'Tarifa de servicio mensual',
-        step4Desc: "Cada transacción canjeada queda instantáneamente registrada en tu panel. A final de mes, te enviamos una factura del 2,5% del valor bruto de los canjes (limitada a €25 por transacción). DutyBoost gestiona todos los informes y la liquidación — completamente automatizado, sin hojas de cálculo, sin seguimiento.",
+        step4Desc: "A final de mes, te enviamos una factura del 2,5% del valor bruto de los canjes (limitada a €25 por transacción). DutyBoost gestiona todos los informes y la liquidación — completamente automatizado, sin hojas de cálculo, sin seguimiento.",
         ctaTitle: '¿Listo para aumentar ingresos?',
         ctaDesc: 'Obtén clientes calificados y aumenta el valor de las transacciones con DutyBoost.',
         ctaButton: 'Ir al portal de minorista',

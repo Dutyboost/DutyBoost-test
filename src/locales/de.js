@@ -303,7 +303,7 @@ export default {
         step3: 'Rabatt anwenden',
         step3Desc: "Das System wendet automatisch den gestaffelten Rabatt basierend auf dem Gesamtwarenwert an — von €2,50 bei €35 Ausgaben bis zu €60 bei €300+. Der Rabatt wird sofort berechnet und erscheint auf dem Kassenbon. Klar, transparent, professionell.",
         step4: 'Monatliche Servicegebühr',
-        step4Desc: "Jede eingelöste Transaktion wird sofort in Ihrem Dashboard erfasst. Am Monatsende erhalten Sie eine Rechnung über 2,5% des Brutto-Einlösungswertes (max. €25 pro Transaktion). DutyBoost übernimmt alle Berichte und die Abrechnung — vollständig automatisiert, keine Tabellen, kein Nachfassen.",
+        step4Desc: "Am Monatsende erhalten Sie eine Rechnung über 2,5% des Brutto-Einlösungswertes (max. €25 pro Transaktion). DutyBoost übernimmt alle Berichte und die Abrechnung — vollständig automatisiert, keine Tabellen, kein Nachfassen.",
         ctaTitle: 'Bereit zum Umsatzwachstum?',
         ctaDesc: 'Erhalten Sie qualifizierte Kunden und steigern Sie den Transaktionswert mit DutyBoost.',
         ctaButton: 'Zum Händlerportal',
