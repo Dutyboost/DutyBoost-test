@@ -23,15 +23,17 @@ export default function TrainShowcase() {
     <div className="min-h-screen bg-background">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
-          <Link to="/get-started">
-            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4" /> {t('showcase.train.back')}
-            </button>
-          </Link>
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
           </button>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link to="/get-started">
+              <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <ArrowLeft className="w-4 h-4" /> {t('showcase.train.back')}
+              </button>
+            </Link>
+          </div>
         </div>
       </nav>
 
