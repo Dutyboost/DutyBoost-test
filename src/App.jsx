@@ -30,7 +30,7 @@ import RetailerIntegrationGuide from './pages/RetailerIntegrationGuide';
 import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
 import SelectUserType from './pages/SelectUserType';
-import AirportMap from './pages/AirportMap';
+
 import DemoLanding from './pages/DemoLanding';
 import LeadsAdmin from './pages/LeadsAdmin';
 import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
@@ -156,7 +156,7 @@ const AuthenticatedApp = () => {
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         {surveyRoutes}
         <Route path="/landing" element={<LandingPage />} />
-        <Route path="/airport-map" element={<AirportMap />} />
+
         <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
         <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />

@@ -48,8 +48,6 @@ export default function FooterLinks() {
       </div>
       <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
       <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
-      <Link to="/airport-map" className="hover:text-primary transition-colors">Airport Map</Link>
-      <a href="mailto:rael@dutyboost.com" className="hover:text-primary transition-colors">support@dutyboost.com</a>
       </div>
     </div>
   );

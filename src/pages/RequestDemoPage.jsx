@@ -138,10 +138,7 @@ export default function RequestDemoPage() {
                 ))}
               </ol>
             </div>
-            <p className="text-sm text-muted-foreground">
-              {t('requestdemo.questions')}{" "}
-              <a href="mailto:hello@dutyboost.com" className="text-primary underline underline-offset-2">hello@dutyboost.com</a>
-            </p>
+
             <Link to="/"><Button variant="outline" className="w-full">{t('requestdemo.back_home')}</Button></Link>
           </div>
         </div>
