@@ -53,6 +53,11 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={55} />
           <div className="hidden lg:flex items-center gap-2">
+            <Link to="/letter-of-intent">
+              <Button size="sm" variant="ghost" className="gap-1.5">
+                Letter of Intent
+              </Button>
+            </Link>
             <Link to="/get-started">
               <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
                 {t('nav.partner_with_us')}
@@ -75,6 +80,11 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
+            <Link to="/letter-of-intent" onClick={() => setMobileMenuOpen(false)}>
+              <Button size="sm" variant="ghost" className="w-full gap-1.5">
+                Letter of Intent
+              </Button>
+            </Link>
             <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
               <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
                 {t('nav.partner_with_us')}
