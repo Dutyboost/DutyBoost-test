@@ -280,7 +280,7 @@ export default function LetterOfIntentPage() {
           <div className="bg-slate-50 border border-slate-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
             <h3 className="font-semibold text-slate-900 text-base">Why a Letter of Intent?</h3>
             <p className="text-sm text-slate-700 leading-relaxed mb-2">
-              By signing this Letter of Intent, you commit to helping airport retailers see the measurable value DutyBoost delivers. Our shared goal is to demonstrate that:
+              We're asking for your help to show airport retailers the real value DutyBoost brings. Together, we can demonstrate:
             </p>
             <ul className="text-sm text-slate-700 space-y-1.5 ml-3">
               <li><strong>Conversion Uplift:</strong> Pre-activated travelers convert at 2x the rate of casual browsers — we prove this by delivering real results together.</li>
@@ -288,7 +288,7 @@ export default function LetterOfIntentPage() {
               <li><strong>Incremental Revenue:</strong> €300K–€400K annual per location — real, measurable growth on traffic they already have.</li>
             </ul>
             <p className="text-sm text-slate-700 leading-relaxed pt-2">
-              Your signature signals to airport retailers that you're serious about this partnership. It shows them you're willing to integrate, issue DutyCredits, and prove the model works. That commitment is what unlocks their trust and participation.
+              Your signature tells airport retailers you're willing to participate and help prove the model works. That's what unlocks their trust and participation.
             </p>
           </div>
 
