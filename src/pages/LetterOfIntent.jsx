@@ -263,44 +263,45 @@ export default function LetterOfIntentPage() {
 
       <div className="max-w-3xl mx-auto px-6 py-12 space-y-10">
         {/* Header */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-6">
           <h1 className="text-4xl font-heading font-bold text-foreground">{t('letterOfIntent.title')}</h1>
-          
+
+          {/* Opener Section */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-blue-900 text-sm">{t('letterOfIntent.header_text')}</h3>
             <p className="text-sm text-blue-800 leading-relaxed">
               {t('letterOfIntent.description_1')}
             </p>
             <p className="text-sm text-blue-800 leading-relaxed">
               {t('letterOfIntent.description_2')}
             </p>
+          </div>
 
-            <div className="mt-4 pt-4 border-t border-blue-300 space-y-3">
-              <div>
-                <h4 className="text-sm font-bold text-blue-900 mb-1.5">Why the Letter of Intent?</h4>
-                <p className="text-sm text-blue-800">A Letter of Intent formalizes our mutual commitment to explore this partnership in good faith. It signals serious intent on both sides while keeping terms flexible as we discuss the details. It protects both parties with binding confidentiality and intellectual property clauses, while keeping the commercial terms open for negotiation.</p>
-              </div>
+          {/* Why Section */}
+          <div className="bg-slate-50 border border-slate-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
+            <h3 className="font-semibold text-slate-900 text-base">Why a Letter of Intent?</h3>
+            <p className="text-sm text-slate-700 leading-relaxed">
+              A Letter of Intent signals mutual commitment while keeping terms flexible. It formalizes our intent to explore this partnership in good faith and protects both parties with binding confidentiality and intellectual property clauses—all while keeping commercial details open for negotiation.
+            </p>
+          </div>
 
-              <div>
-                <h4 className="text-sm font-bold text-blue-900 mb-1.5">How It Works</h4>
-                <p className="text-sm text-blue-800 mb-2">Once signed, here's what happens:</p>
-                <ul className="text-sm text-blue-800 space-y-1 ml-2">
-                  <li><strong>1. Exclusive Discussions:</strong> For 365 days, we engage in exclusive good-faith negotiations about the partnership structure.</li>
-                  <li><strong>2. Confidentiality:</strong> All information shared remains confidential for 5 years, protecting your business and ours.</li>
-                  <li><strong>3. Binding Terms:</strong> Confidentiality, intellectual property, and exclusivity clauses are legally binding. Everything else (pricing, terms, etc.) remains open for discussion.</li>
-                  <li><strong>4. Future Agreement:</strong> If both parties agree on the details, we execute a final binding partnership agreement.</li>
-                  <li><strong>5. No Obligation Yet:</strong> Until a final agreement is signed, neither party is obligated to proceed.</li>
-                </ul>
-              </div>
+          {/* How It Works Section */}
+          <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
+            <h3 className="font-semibold text-emerald-900 text-base">How It Works</h3>
+            <ol className="text-sm text-emerald-800 space-y-2 ml-2">
+              <li><strong>1. You Sign:</strong> You review and digitally sign this Letter of Intent, confirming your intent to explore collaboration.</li>
+              <li><strong>2. We Discuss:</strong> For up to 365 days, our teams engage in exclusive, good-faith discussions about partnership structure, integration, and commercial terms.</li>
+              <li><strong>3. We Negotiate:</strong> Based on mutual interest, we move toward a formal partnership agreement with binding commercial terms.</li>
+              <li><strong>4. We Execute:</strong> Once both parties agree on all details, we sign a final partnership agreement and begin implementation.</li>
+              <li><strong>5. No Obligation Until Final Agreement:</strong> Until a final agreement is signed, neither party is obligated to proceed.</li>
+            </ol>
+          </div>
 
-              <div>
-                <h4 className="text-sm font-bold text-blue-900 mb-1.5">{t('letterOfIntent.what_we_ask')}</h4>
-                <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-                  <li>{t('letterOfIntent.from_you')}</li>
-                </ul>
-              </div>
-            </div>
-
+          {/* What We're Asking Section */}
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
+            <h3 className="font-semibold text-amber-900 text-base">{t('letterOfIntent.what_we_ask')}</h3>
+            <p className="text-sm text-amber-800 leading-relaxed">
+              {t('letterOfIntent.from_you')}
+            </p>
           </div>
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
