@@ -143,7 +143,7 @@ const FIELDS = [
   { key: "partner_representative_name", label: "Representative Full Name", required: true, placeholder: "Legal signatory name" },
   { key: "partner_representative_title", label: "Representative Title / Function", required: false, placeholder: "e.g. CEO, Co-Founder, Director" },
   { key: "partner_email", label: "Email Address", required: true, placeholder: "your@company.com", type: "email" },
-  { key: "monthly_travelers", label: "Monthly Travelers to Airports", required: true, type: "number", placeholder: "e.g. 5000" },
+  { key: "monthly_travelers", label: "Monthly Travellers to Airports", required: true, type: "number", placeholder: "e.g. 5000" },
   { key: "partner_type", label: "Partner Type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
 ];
 
@@ -283,7 +283,7 @@ export default function LetterOfIntentPage() {
               We're asking for your help to show airport retailers the real value DutyBoost brings. Together, we can demonstrate:
             </p>
             <ul className="text-sm text-slate-700 space-y-1.5 ml-3">
-              <li><strong>Conversion Uplift:</strong> Pre-activated travelers convert at 2x the rate of casual browsers — we prove this by delivering real results together.</li>
+              <li><strong>Conversion Uplift:</strong> Pre-activated travellers convert at 2x the rate of casual browsers — we prove this by delivering real results together.</li>
               <li><strong>Basket Size Growth:</strong> The €35 minimum spend naturally elevates average transaction value — airport retailers see this immediately.</li>
               <li><strong>Incremental Revenue:</strong> €300K–€400K annual per location — real, measurable growth on traffic they already have.</li>
             </ul>
@@ -299,7 +299,7 @@ export default function LetterOfIntentPage() {
               <li><strong>1. You Sign:</strong> Review and digitally sign this Letter of Intent.</li>
               <li><strong>2. We Use Your Signature:</strong> Your signature strengthens DutyBoost's negotiating position with airport retailers, showing them that travel partners are committed to the partnership.</li>
               <li><strong>3. Airport Retailers Join:</strong> With your signature as proof of commitment, airport retailers gain confidence in the model and agree to participate.</li>
-              <li><strong>4. You Start Earning:</strong> Your travelers receive DutyCredits in their confirmation emails — a loyalty perk that strengthens brand loyalty. You earn 20% of the 2.5% DutyBoost platform fee (up to €5 per redemption) paid by airport retailers on every transaction.</li>
+              <li><strong>4. You Start Earning:</strong> Your travellers receive DutyCredits in their confirmation emails — a loyalty perk that strengthens brand loyalty. You earn 20% of the 2.5% DutyBoost platform fee (up to €5 per redemption) paid by airport retailers on every transaction.</li>
             </ol>
           </div>
 
