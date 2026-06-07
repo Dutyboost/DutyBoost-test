@@ -265,8 +265,18 @@ export default function LetterOfIntentPage() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
             <h3 className="font-semibold text-blue-900 text-sm">A True Partnership — Hand in Hand</h3>
             <p className="text-sm text-blue-800 leading-relaxed">
-              By signing this Letter of Intent, we're building <strong>a circular revenue ecosystem where everyone wins</strong>. You bring the travelers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.
+              At DutyBoost, we're building <strong>a circular revenue ecosystem where everyone wins</strong>. You as a travel partner bring the travelers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.
             </p>
+            <p className="text-sm text-blue-800 leading-relaxed">
+              <strong>What is DutyBoost?</strong> A "Travel Retail Conversion Layer" that creates new commercial value based on existing traveler flows. We turn your passengers into high-intent airport shoppers—and you earn from every transaction.
+            </p>
+            <p className="text-sm text-blue-800 font-semibold pt-1">What we're asking from each party:</p>
+            <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
+              <li><strong>From you as a travel partner:</strong> Integrate DutyBoost into your booking journey and offer DutyCredits to your travelers—it's one-time setup, zero cost to you.</li>
+              <li><strong>From your travelers:</strong> Redeem their DutyCredits at participating airport retailers for exclusive discounts.</li>
+              <li><strong>From airport retailers:</strong> Accept DutyCredits as payment and benefit from high-intent customers ready to spend.</li>
+            </ul>
+            <p className="text-sm text-blue-800 leading-relaxed pt-2"><strong>The outcome:</strong></p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
               <li><strong>For you:</strong> Earn 20% margin on every DutyCredit your travelers redeem — passive income with zero cost</li>
               <li><strong>For your travelers:</strong> Exclusive airport discounts they'll remember and value</li>
