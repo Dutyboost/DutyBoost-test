@@ -268,15 +268,15 @@ export default function LetterOfIntentPage() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
             <h3 className="font-semibold text-blue-900 text-sm">Why Partner With DutyBoost?</h3>
             <p className="text-sm text-blue-800 leading-relaxed">
-              By signing this Letter of Intent, you're unlocking a mutual revenue opportunity. DutyBoost drives <strong>high-intent travelers directly to your stores</strong> through digital incentives tied to their bookings. These travelers arrive pre-motivated to spend, resulting in:
+              By signing this Letter of Intent, you're unlocking a new revenue stream from your existing traveler flows. DutyBoost converts your passengers into airport retail customers, generating <strong>20% revenue margin</strong> on every redemption at participating retailers. Benefits include:
             </p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li><strong>↑ Higher conversion rates</strong> — Pre-qualified shoppers with spending incentives</li>
-              <li><strong>↑ Larger basket sizes</strong> — Discount tiers encourage increased purchases</li>
-              <li><strong>↑ Incremental revenue</strong> — New customers you wouldn't reach otherwise</li>
-              <li><strong>✓ Zero upfront cost</strong> — Pay only a small platform fee when sales are completed</li>
+              <li><strong>💰 Passive income</strong> — Earn 20% margin on every DutyCredit your travelers redeem</li>
+              <li><strong>✓ Zero effort</strong> — One-time integration, then automated revenue generation</li>
+              <li><strong>✓ Zero cost</strong> — No setup fees, subscription fees, or usage charges</li>
+              <li><strong>↑ Enhanced loyalty</strong> — Exclusive airport benefits strengthen customer relationships</li>
             </ul>
-            <p className="text-sm text-blue-800 font-medium pt-2">Together, we generate more revenue for your business while delivering real value to travelers.</p>
+            <p className="text-sm text-blue-800 font-medium pt-2">Your travelers get rewarded at the airport. You get rewarded every time they redeem.</p>
           </div>
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
