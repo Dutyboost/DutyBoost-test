@@ -37,7 +37,7 @@ const content = {
         { q: "How do I redeem a DutyCredit at my store?", a: "Retailers integrate DutyBoost validation directly into their existing point-of-sale system via our API. When a traveler presents their QR code at checkout, it is scanned natively within your POS and the discount is applied automatically — no separate device or manual step required, just a seamless experience built into your existing checkout flow." },
       ]},
       { cat: "Integration & Technical", qs: [
-        { q: "What do airport retailers need to implement to accept DutyCredits?", a: "Airport retailers integrate DutyBoost directly into their existing POS system via our API. The redemption API handles QR code validation natively at checkout, so the discount is applied automatically within the retailer's existing workflow." },
+        { q: "What do airport retailers need to implement to accept DutyCredits?", a: "Airport retailers integrate DutyBoost directly into their existing POS system via an API integration. The redemption API handles QR code validation natively at checkout, so the discount is applied automatically within the retailer's existing workflow." },
         { q: "Is there an API for travel agencies?", a: "Not required. DutyBoost connects directly to your booking system during onboarding. DutyCredits are generated automatically with zero API work." },
       ]},
       { cat: "Platform & Security", qs: [
@@ -75,7 +75,7 @@ const content = {
         { q: "Hoe wissel ik een DutyCredit in?", a: "Retailers integreren de DutyBoost-validatie rechtstreeks in hun bestaande kassasysteem via onze API. Wanneer een reiziger zijn QR-code presenteert bij het afrekenen, wordt deze native gescand binnen uw POS en wordt de korting automatisch toegepast — geen apart apparaat of handmatige stap vereist, gewoon een naadloze ervaring ingebouwd in uw bestaande afrekenproces." },
       ]},
       { cat: "Integratie & Techniek", qs: [
-        { q: "Wat moeten luchthavenwinkels implementeren?", a: "Luchthavenwinkels integreren DutyBoost rechtstreeks in hun bestaande kassasysteem via onze API. De validatie-API verwerkt QR-codes native bij het afrekenen, zodat de korting automatisch wordt toegepast binnen de bestaande workflow van de winkel." },
+        { q: "Wat moeten luchthavenwinkels implementeren?", a: "Luchthavenwinkels integreren DutyBoost rechtstreeks in hun bestaande kassasysteem via een API-integratie. De validatie-API verwerkt QR-codes native bij het afrekenen, zodat de korting automatisch wordt toegepast binnen de bestaande workflow van de winkel." },
         { q: "Is er een API voor reisbureaus?", a: "Niet vereist. DutyBoost verbindt zich rechtstreeks met uw boekingssysteem tijdens de onboarding." },
       ]},
       { cat: "Platform & Beveiliging", qs: [
@@ -113,7 +113,7 @@ const content = {
         { q: "Wie löse ich einen DutyCredit ein?", a: "Händler integrieren die DutyBoost-Validierung direkt in ihr bestehendes Kassensystem über unsere API. Wenn ein Reisender seinen QR-Code an der Kasse vorzeigt, wird er nativ im POS gescannt und der Rabatt automatisch angewendet — kein separates Gerät oder manueller Schritt erforderlich, nur ein nahtloses Erlebnis, das in Ihren bestehenden Kassenablauf integriert ist." },
       ]},
       { cat: "Integration & Technik", qs: [
-        { q: "Was müssen Flughafenhändler implementieren?", a: "Flughafenhändler integrieren DutyBoost direkt über unsere API in ihr bestehendes Kassensystem. Die Validierungs-API verarbeitet QR-Codes nativ an der Kasse, sodass der Rabatt automatisch im bestehenden Workflow des Händlers angewendet wird." },
+        { q: "Was müssen Flughafenhändler implementieren?", a: "Flughafenhändler integrieren DutyBoost direkt über eine API-Integration in ihr bestehendes Kassensystem. Die Validierungs-API verarbeitet QR-Codes nativ an der Kasse, sodass der Rabatt automatisch im bestehenden Workflow des Händlers angewendet wird." },
         { q: "Gibt es eine API für Reisebüros?", a: "Nicht erforderlich. DutyBoost verbindet sich beim Onboarding direkt mit Ihrem Buchungssystem." },
       ]},
       { cat: "Plattform & Sicherheit", qs: [
@@ -151,7 +151,7 @@ const content = {
         { q: "Comment échanger un DutyCredit ?", a: "Les détaillants intègrent la validation DutyBoost directement dans leur système de caisse existant via notre API. Lorsqu'un voyageur présente son QR code à la caisse, il est scanné nativement dans votre système et la réduction est appliquée automatiquement — aucun appareil séparé ni étape manuelle requis, juste une expérience fluide intégrée dans votre processus de paiement existant." },
       ]},
       { cat: "Intégration & Technique", qs: [
-        { q: "Que doivent mettre en place les détaillants ?", a: "Les détaillants aéroportuaires intègrent DutyBoost directement dans leur système de caisse existant via notre API. L'API de validation traite les QR codes nativement lors du paiement, de sorte que la réduction est appliquée automatiquement dans le flux de travail existant du détaillant." },
+        { q: "Que doivent mettre en place les détaillants ?", a: "Les détaillants aéroportuaires intègrent DutyBoost directement dans leur système de caisse existant via une intégration API. L'API de validation traite les QR codes nativement lors du paiement, de sorte que la réduction est appliquée automatiquement dans le flux de travail existant du détaillant." },
         { q: "Existe-t-il une API pour les agences ?", a: "Non requise. DutyBoost se connecte directement à votre système de réservation lors de l'onboarding." },
       ]},
       { cat: "Plateforme & Sécurité", qs: [
@@ -189,7 +189,7 @@ const content = {
         { q: "¿Cómo canjeo un DutyCredit?", a: "Los comercios integran la validación de DutyBoost directamente en su sistema de punto de venta existente a través de nuestra API. Cuando un viajero presenta su código QR en caja, se escanea de forma nativa dentro de tu TPV y el descuento se aplica automáticamente — sin dispositivo adicional ni paso manual, solo una experiencia fluida integrada en tu proceso de cobro habitual." },
       ]},
       { cat: "Integración y Técnica", qs: [
-        { q: "¿Qué deben implementar las tiendas?", a: "Las tiendas aeroportuarias integran DutyBoost directamente en su sistema de punto de venta existente a través de nuestra API. La API de validación procesa los códigos QR de forma nativa en caja, de modo que el descuento se aplica automáticamente dentro del flujo de trabajo habitual del comercio." },
+        { q: "¿Qué deben implementar las tiendas?", a: "Las tiendas aeroportuarias integran DutyBoost directamente en su sistema de punto de venta existente a través de una integración API. La API de validación procesa los códigos QR de forma nativa en caja, de modo que el descuento se aplica automáticamente dentro del flujo de trabajo habitual del comercio." },
         { q: "¿Existe una API para agencias?", a: "No es necesaria. DutyBoost se conecta directamente a tu sistema de reservas durante el alta." },
       ]},
       { cat: "Plataforma y Seguridad", qs: [
@@ -227,7 +227,7 @@ const content = {
         { q: "Come riscatto un DutyCredit?", a: "I rivenditori integrano la validazione DutyBoost direttamente nel loro sistema POS esistente tramite la nostra API. Quando un viaggiatore presenta il QR code alla cassa, viene scansionato nativamente nel POS e lo sconto viene applicato automaticamente — nessun dispositivo separato o passaggio manuale richiesto, solo un'esperienza fluida integrata nel processo di pagamento esistente." },
       ]},
       { cat: "Integrazione & Tecnica", qs: [
-        { q: "Cosa devono implementare i rivenditori?", a: "I rivenditori aeroportuali integrano DutyBoost direttamente nel loro sistema POS esistente tramite la nostra API. L'API di validazione gestisce i QR code nativamente alla cassa, in modo che lo sconto venga applicato automaticamente nel flusso di lavoro esistente del rivenditore." },
+        { q: "Cosa devono implementare i rivenditori?", a: "I rivenditori aeroportuali integrano DutyBoost direttamente nel loro sistema POS esistente tramite un'integrazione API. L'API di validazione gestisce i QR code nativamente alla cassa, in modo che lo sconto venga applicato automaticamente nel flusso di lavoro esistente del rivenditore." },
         { q: "Esiste un'API per le agenzie?", a: "Non necessaria. DutyBoost si connette direttamente al tuo sistema di prenotazione durante l'onboarding." },
       ]},
       { cat: "Piattaforma e Sicurezza", qs: [
