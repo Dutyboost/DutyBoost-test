@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import LeadsTab from "../components/LeadsTab";
+import LOITab from "../components/LOITab";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -1800,7 +1801,7 @@ export default function SurveyDashboard() {
             Overview of all survey responses — airport retailers and travel partners.
           </p>
           <div className="pt-2 flex gap-2 flex-wrap justify-center">
-            {activeTab !== "global" && (
+            {activeTab !== "global" && activeTab !== "loi" && (
               <>
                 <Button
                   size="sm"
@@ -1874,6 +1875,14 @@ export default function SurveyDashboard() {
           >
             <Phone className="w-4 h-4" /> Leads
           </button>
+          <button
+            onClick={() => setActiveTab("loi")}
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
+              activeTab === "loi" ? "bg-indigo-600 text-white shadow" : "text-slate-400 hover:text-white"
+            }`}
+          >
+            <FileText className="w-4 h-4" /> Signed LOIs
+          </button>
         </div>
 
         {loading ? (
@@ -1886,6 +1895,8 @@ export default function SurveyDashboard() {
           <TravelPartnerDashboard responses={partnerResponses} />
         ) : activeTab === "leads" ? (
           <LeadsTab />
+        ) : activeTab === "loi" ? (
+          <LOITab />
         ) : (
           <GlobalPotentialsDashboard responses={partnerResponses} />
         )}

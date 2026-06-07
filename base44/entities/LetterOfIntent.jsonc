@@ -1,0 +1,79 @@
+{
+  "name": "LetterOfIntent",
+  "type": "object",
+  "properties": {
+    "partner_company_name": {
+      "type": "string",
+      "title": "Partner Company Name"
+    },
+    "partner_address": {
+      "type": "string",
+      "title": "Partner Registered Address"
+    },
+    "partner_country": {
+      "type": "string",
+      "title": "Partner Country"
+    },
+    "partner_registration_number": {
+      "type": "string",
+      "title": "Partner Registration Number"
+    },
+    "partner_vat": {
+      "type": "string",
+      "title": "Partner VAT/Tax Number"
+    },
+    "partner_representative_name": {
+      "type": "string",
+      "title": "Representative Full Name"
+    },
+    "partner_representative_title": {
+      "type": "string",
+      "title": "Representative Title"
+    },
+    "partner_email": {
+      "type": "string",
+      "title": "Partner Email"
+    },
+    "partner_type": {
+      "type": "string",
+      "title": "Partner Type",
+      "enum": [
+        "Travel Agency",
+        "Airline",
+        "Accommodation",
+        "Car Rental",
+        "Tour Operator",
+        "OTA",
+        "Other"
+      ]
+    },
+    "signed": {
+      "type": "boolean",
+      "title": "Accepted & Signed",
+      "default": false
+    },
+    "signed_date": {
+      "type": "string",
+      "title": "Signed Date"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "pending",
+        "reviewed",
+        "accepted",
+        "rejected"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "partner_company_name",
+    "partner_address",
+    "partner_country",
+    "partner_representative_name",
+    "partner_email",
+    "signed"
+  ]
+}
