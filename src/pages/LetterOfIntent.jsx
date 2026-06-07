@@ -165,13 +165,13 @@ export default function LetterOfIntentPage() {
   const [validatingKvk, setValidatingKvk] = useState(false);
 
   const handleChange = (key, value) => {
-    setForm(f => ({ ...f, [key]: value }));
+    let finalValue = value;
+    if (key === "monthly_travelers") {
+      // Store only digits, but display formatted
+      finalValue = value.replace(/\D/g, "");
+    }
+    setForm(f => ({ ...f, [key]: finalValue }));
     if (errors[key]) setErrors(e => ({ ...e, [key]: false }));
-  };
-
-  const formatMonthlyTravelers = (value) => {
-    if (!value) return "";
-    return parseInt(value).toLocaleString("de-DE");
   };
 
   const validate = async () => {
@@ -290,20 +290,13 @@ export default function LetterOfIntentPage() {
                       {field.options.map(o => <option key={o} value={o}>{o}</option>)}
                     </select>
                   ) : field.key === "monthly_travelers" ? (
-                    <div className="relative">
-                      <Input
-                        type="number"
-                        placeholder={field.placeholder}
-                        value={form[field.key]}
-                        onChange={e => handleChange(field.key, e.target.value)}
-                        className={errors[field.key] ? "border-destructive" : ""}
-                      />
-                      {form[field.key] && (
-                        <div className="absolute right-3 top-2.5 text-xs text-muted-foreground">
-                          {formatMonthlyTravelers(form[field.key])}
-                        </div>
-                      )}
-                    </div>
+                    <Input
+                      type="text"
+                      placeholder={field.placeholder}
+                      value={form[field.key] ? parseInt(form[field.key]).toLocaleString("de-DE") : ""}
+                      onChange={e => handleChange(field.key, e.target.value)}
+                      className={errors[field.key] ? "border-destructive" : ""}
+                    />
                   ) : (
                     <Input
                       type={field.type || "text"}
