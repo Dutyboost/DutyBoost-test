@@ -261,9 +261,6 @@ export default function LetterOfIntentPage() {
             <FileText className="w-3 h-3 mr-1.5" />Partnership
           </Badge>
           <h1 className="text-4xl font-heading font-bold text-foreground">Letter of Intent</h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Fill in your company details below. The Letter of Intent will be populated with your information and submitted to DutyBoost upon acceptance.
-          </p>
           
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
             <h3 className="font-semibold text-blue-900 text-sm">A True Partnership — Hand in Hand</h3>
@@ -280,6 +277,10 @@ export default function LetterOfIntentPage() {
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
             <strong>Important:</strong> This Letter of Intent is non-binding and does not generate any financial obligations unless and until a final binding agreement is separately executed by authorized representatives of both parties.
+          </p>
+
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Fill in your company details below. The Letter of Intent will be populated with your information and submitted to DutyBoost upon acceptance.
           </p>
         </div>
 
