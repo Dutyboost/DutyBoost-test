@@ -294,7 +294,7 @@ export default function LetterOfIntentPage() {
 
           {/* How It Works Section */}
           <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-emerald-900 text-base">How It Works</h3>
+            <h3 className="font-semibold text-emerald-900 text-base">How this will benefit everyone</h3>
             <ol className="text-sm text-emerald-800 space-y-2 ml-2">
               <li><strong>1. You Sign:</strong> Review and digitally sign this Letter of Intent.</li>
               <li><strong>2. We Use Your Signature:</strong> Your signature strengthens DutyBoost's negotiating position with airport retailers, showing them that travel partners are committed to the partnership.</li>
