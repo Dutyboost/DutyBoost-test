@@ -14,9 +14,9 @@ const content = {
     categories: [
       { cat: "DutyCredits", qs: [
         { q: "What is a DutyCredit?", a: "A DutyCredit is a booking-earned incentive — a unique digital discount code automatically generated when a travel agency submits a booking through the DutyBoost platform. Travelers receive it as a QR code and can use it to get a discount at participating airport retailers." },
-        { q: "How is my DutyCredit value calculated?", a: "Your DutyCredit is a fixed euro amount (€5–€25) calculated from your booking: base rate per traveler (€2.50 short-haul / €7.00 long-haul), multiplied by the number of travelers and a ticket-price multiplier (×1.0 to ×2.5 based on total ticket value). The result is capped at €25." },
+        { q: "How is my DutyCredit value calculated?", a: "Your DutyCredit provides a fixed euro discount at participating airport retailers — no complex calculation involved. The amount depends entirely on your basket size at checkout: €2.50 off at €35–€49, €5 off at €50–€74, €10 off at €75–€99, €15 off at €100–€149, €20 off at €150–€199, €35 off at €200–€299, and €60 off at €300 or more." },
         { q: "Can I use my DutyCredit at multiple shops?", a: "No. DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops." },
-        { q: "Is there a minimum spend to redeem a DutyCredit?", a: "Yes. A minimum basket spend of €70 is required to redeem a DutyCredit. The credit is tiered: 10% on €70–€99, 15% on €100–€299, and 20% on €300+, capped at €25." },
+        { q: "Is there a minimum spend to redeem a DutyCredit?", a: "Yes. A minimum basket spend of €35 is required to activate your DutyCredit. The discount is a fixed euro amount that grows with your basket — from €2.50 at €35 spend up to €60 at €300 or more." },
         { q: "How do I receive my DutyCredit?", a: "Your travel agency will share a link with you after your booking is confirmed. Opening the link shows your personal DutyCredit QR code." },
         { q: "Do DutyCredits expire?", a: "Yes. Every DutyCredit is valid for 30 days starting from your departure date. It expires 30 days after departure and cannot be reinstated or reissued after that." },
         { q: "Can I transfer my DutyCredit to someone else?", a: "No. DutyCredits are unique, single-use, and cryptographically secured. They cannot be transferred, resold, or duplicated." },
@@ -33,7 +33,7 @@ const content = {
       ]},
       { cat: "For Airport Retailers", qs: [
         { q: "How does DutyBoost benefit my store?", a: "DutyBoost drives pre-qualified, incentivised travelers directly to your store — meaning higher conversion rates and larger basket sizes." },
-        { q: "What commission does DutyBoost charge retailers?", a: "DutyBoost charges a 5% commission on the gross transaction value of sales made through a redeemed DutyCredit." },
+        { q: "What commission does DutyBoost charge retailers?", a: "DutyBoost charges a 2.5% platform fee on the gross transaction value of each redeemed DutyCredit, capped at €25 per transaction. There are no upfront or subscription fees — you only pay when DutyBoost delivers a confirmed sale." },
         { q: "How do I redeem a DutyCredit at my store?", a: "Use the DutyBoost retailer dashboard or scan interface to scan the traveler's QR code. The system validates the DutyCredit and logs the transaction automatically." },
       ]},
       { cat: "Integration & Technical", qs: [
@@ -52,9 +52,9 @@ const content = {
     categories: [
       { cat: "DutyCredits", qs: [
         { q: "Wat is een DutyCredit?", a: "Een DutyCredit is een boeking-gedreven incentive — een unieke digitale kortingscode die automatisch wordt gegenereerd wanneer een reisbureau een boeking indient via DutyBoost. Reizigers ontvangen deze als QR-code." },
-        { q: "Hoe wordt mijn DutyCredit berekend?", a: "Uw DutyCredit is een vast eurobedrag (€5–€25): basisbedrag per reiziger (€2,50 korte afstand / €7,00 lange afstand) × aantal reizigers × prijsmultiplicator (×1,0 tot ×2,5 op basis van totale ticketprijs), afgetopt op €25." },
+        { q: "Hoe wordt mijn DutyCredit berekend?", a: "Uw DutyCredit geeft u een vaste eurokorting bij deelnemende luchthavenwinkels. Het bedrag hangt af van de totale waarde van uw aankoop bij het afrekenen: €2,50 korting bij €35–€49, €5 bij €50–€74, €10 bij €75–€99, €15 bij €100–€149, €20 bij €150–€199, €35 bij €200–€299 en €60 bij €300 of meer." },
         { q: "Kan ik mijn DutyCredit bij meerdere winkels gebruiken?", a: "Nee. DutyCredits zijn inwisselbaar bij één transactie op één verkooppunt." },
-        { q: "Is er een minimumbedrag?", a: "Ja. Er geldt een minimale besteding van €70 om een DutyCredit te kunnen inwisselen. Het tegoed is getrapd: 10% bij €70–€99, 15% bij €100–€299 en 20% bij €300+, afgetopt op €25." },
+        { q: "Is er een minimumbedrag?", a: "Ja. Er geldt een minimale besteding van €35 om een DutyCredit te activeren. De korting is een vast eurobedrag dat oploopt met uw aankoop — van €2,50 bij €35 tot €60 bij €300 of meer." },
         { q: "Hoe ontvang ik mijn DutyCredit?", a: "Uw reisbureau deelt een link na bevestiging van uw boeking. Via de link ziet u uw persoonlijke DutyCredit QR-code." },
         { q: "Verlopen DutyCredits?", a: "Ja. Elke DutyCredit is geldig voor 30 dagen vanaf uw vertrekdatum. Na 30 dagen vervalt de DutyCredit en kan niet worden hersteld of opnieuw uitgegeven." },
         { q: "Kan ik mijn DutyCredit overdragen?", a: "Nee. DutyCredits zijn uniek, eenmalig bruikbaar en cryptografisch beveiligd. Ze kunnen niet worden overgedragen of doorverkocht." },
@@ -71,7 +71,7 @@ const content = {
       ]},
       { cat: "Voor luchthavenwinkels", qs: [
         { q: "Wat levert DutyBoost mijn winkel op?", a: "DutyBoost brengt vooraf gekwalificeerde reizigers met koopintentie naar uw winkel." },
-        { q: "Welke commissie berekent DutyBoost?", a: "5% op de bruto transactiewaarde van verkopen via een ingewisselde DutyCredit." },
+        { q: "Welke commissie berekent DutyBoost?", a: "DutyBoost rekent 2,5% platformkosten over de bruto transactiewaarde van elke ingewisselde DutyCredit, met een maximum van €25 per transactie. Er zijn geen vaste of abonnementskosten — u betaalt alleen wanneer DutyBoost een bevestigde verkoop levert." },
         { q: "Hoe wissel ik een DutyCredit in?", a: "Scan de QR-code via het DutyBoost-dashboard of de scaninterface. Het systeem valideert en registreert automatisch." },
       ]},
       { cat: "Integratie & Techniek", qs: [
@@ -90,9 +90,9 @@ const content = {
     categories: [
       { cat: "DutyCredits", qs: [
         { q: "Was ist ein DutyCredit?", a: "Ein DutyCredit ist ein buchungsbasierter Anreiz — ein einzigartiger digitaler Rabattcode, der automatisch generiert wird, wenn ein Reisebüro eine Buchung über DutyBoost einreicht. Reisende erhalten ihn als QR-Code." },
-        { q: "Wie wird mein DutyCredit berechnet?", a: "Ihr DutyCredit ist ein fester Eurobetrag (€5–€25): Basisbetrag pro Reisenden (€2,50 Kurzstrecke / €7,00 Langstrecke) × Anzahl Reisende × Preismultiplikator (×1,0 bis ×2,5 je nach Ticketpreis), gedeckelt bei €25." },
+        { q: "Wie wird mein DutyCredit berechnet?", a: "Ihr DutyCredit gewährt Ihnen einen festen Eurorabatt bei teilnehmenden Flughafenhändlern. Der Betrag richtet sich nach Ihrem Einkaufswert: €2,50 Rabatt bei €35–€49, €5 bei €50–€74, €10 bei €75–€99, €15 bei €100–€149, €20 bei €150–€199, €35 bei €200–€299 und €60 bei €300 oder mehr." },
         { q: "Kann ich meinen DutyCredit in mehreren Geschäften verwenden?", a: "Nein. DutyCredits sind für eine einzige Transaktion an einem Verkaufspunkt einlösbar." },
-        { q: "Gibt es einen Mindestbetrag?", a: "Ja. Es gilt ein Mindesteinkauf von €70, um einen DutyCredit einzulösen. Das Guthaben ist gestaffelt: 10% bei €70–€99, 15% bei €100–€299 und 20% bei €300+, gedeckelt bei €25." },
+        { q: "Gibt es einen Mindestbetrag?", a: "Ja. Es gilt ein Mindesteinkauf von €35, um Ihren DutyCredit zu aktivieren. Der Rabatt ist ein fester Eurobetrag, der mit Ihrem Einkauf wächst — von €2,50 bei €35 bis €60 bei €300 oder mehr." },
         { q: "Wie erhalte ich meinen DutyCredit?", a: "Ihr Reisebüro teilt Ihnen nach Buchungsbestätigung einen Link mit. Über den Link sehen Sie Ihren DutyCredit QR-Code." },
         { q: "Verfallen DutyCredits?", a: "Ja. Jeder DutyCredit ist 30 Tage ab Ihrem Abreisedatum gültig. Nach 30 Tagen verfällt er und kann nicht wiederhergestellt oder neu ausgestellt werden." },
         { q: "Kann ich meinen DutyCredit übertragen?", a: "Nein. DutyCredits sind einzigartig, einmalig verwendbar und kryptografisch gesichert." },
@@ -109,7 +109,7 @@ const content = {
       ]},
       { cat: "Für Flughafenhändler", qs: [
         { q: "Wie profitiert mein Geschäft?", a: "DutyBoost bringt vorqualifizierte, motivierte Reisende direkt zu Ihrem Geschäft." },
-        { q: "Welche Provision berechnet DutyBoost?", a: "5% auf den Bruttotransaktionswert von Umsätzen über einen eingelösten DutyCredit." },
+        { q: "Welche Provision berechnet DutyBoost?", a: "DutyBoost berechnet eine Plattformgebühr von 2,5% auf den Bruttotransaktionswert jedes eingelösten DutyCreditss, gedeckelt bei €25 pro Transaktion. Es fallen keine fixen oder Abonnementsgebühren an — Sie zahlen nur, wenn DutyBoost einen bestätigten Verkauf liefert." },
         { q: "Wie löse ich einen DutyCredit ein?", a: "Scannen Sie den QR-Code über das Dashboard oder die Scan-Oberfläche. Das System validiert und protokolliert automatisch." },
       ]},
       { cat: "Integration & Technik", qs: [
@@ -128,9 +128,9 @@ const content = {
     categories: [
       { cat: "DutyCredits", qs: [
         { q: "Qu'est-ce qu'un DutyCredit ?", a: "Un DutyCredit est un incentive lié à une réservation — un code de réduction numérique unique généré automatiquement lorsqu'une agence soumet une réservation via DutyBoost. Les voyageurs le reçoivent sous forme de QR code." },
-        { q: "Comment mon DutyCredit est-il calculé ?", a: "Votre DutyCredit est un montant fixe en euros (€5–€25) : montant de base par voyageur (€2,50 court-courrier / €7,00 long-courrier) × nombre de voyageurs × multiplicateur prix (×1,0 à ×2,5 selon prix total du billet), plafonné à €25." },
+        { q: "Comment mon DutyCredit est-il calculé ?", a: "Votre DutyCredit vous offre une réduction fixe en euros chez les détaillants aéroportuaires participants. Le montant dépend de votre panier au moment du paiement : €2,50 de réduction pour €35–€49, €5 pour €50–€74, €10 pour €75–€99, €15 pour €100–€149, €20 pour €150–€199, €35 pour €200–€299, et €60 pour €300 ou plus." },
         { q: "Puis-je utiliser mon DutyCredit dans plusieurs magasins ?", a: "Non. Les DutyCredits ne peuvent être échangés qu'en une seule transaction dans un seul point de vente." },
-        { q: "Y a-t-il un montant minimum ?", a: "Oui. Un panier minimum de €70 est requis pour utiliser un DutyCredit. Le crédit est dégressif : 10% pour €70–€99, 15% pour €100–€299, et 20% pour €300+, plafonné à €25." },
+        { q: "Y a-t-il un montant minimum ?", a: "Oui. Un panier minimum de €35 est requis pour activer votre DutyCredit. La réduction est un montant fixe en euros qui augmente avec votre panier — de €2,50 à partir de €35 jusqu'à €60 à partir de €300." },
         { q: "Comment est-ce que je reçois mon DutyCredit ?", a: "Votre agence vous partagera un lien après confirmation. En ouvrant le lien, vous verrez votre QR code DutyCredit." },
         { q: "Les DutyCredits expirent-ils ?", a: "Oui. Chaque DutyCredit est valable 30 jours à partir de votre date de départ. Il expire 30 jours après le départ et ne peut pas être réactivé ou réémis." },
         { q: "Puis-je transférer mon DutyCredit ?", a: "Non. Les DutyCredits sont uniques, à usage unique et sécurisés cryptographiquement." },
@@ -147,7 +147,7 @@ const content = {
       ]},
       { cat: "Pour les détaillants aéroportuaires", qs: [
         { q: "Comment DutyBoost profite-t-il à mon magasin ?", a: "DutyBoost dirige des voyageurs pré-qualifiés et motivés directement vers votre magasin." },
-        { q: "Quelle commission DutyBoost facture-t-il ?", a: "5% sur la valeur brute des transactions effectuées via un DutyCredit échangé." },
+        { q: "Quelle commission DutyBoost facture-t-il ?", a: "DutyBoost facture des frais de plateforme de 2,5% sur la valeur brute de chaque transaction DutyCredit échangé, plafonnés à €25 par transaction. Aucun frais fixe ou d'abonnement — vous ne payez que lorsque DutyBoost génère une vente confirmée." },
         { q: "Comment échanger un DutyCredit ?", a: "Scannez le QR code via le tableau de bord ou l'interface de scan. Le système valide et enregistre automatiquement." },
       ]},
       { cat: "Intégration & Technique", qs: [
@@ -166,9 +166,9 @@ const content = {
     categories: [
       { cat: "DutyCredits", qs: [
         { q: "¿Qué es un DutyCredit?", a: "Un DutyCredit es un incentivo vinculado a una reserva — un código de descuento digital único generado automáticamente cuando una agencia envía una reserva a través de DutyBoost. Los viajeros lo reciben como código QR." },
-        { q: "¿Cómo se calcula mi DutyCredit?", a: "Tu DutyCredit es un importe fijo en euros (€5–€25): base por viajero (€2,50 corta distancia / €7,00 larga distancia) × número de viajeros × multiplicador de precio (×1,0 a ×2,5 según precio total del billete), con tope en €25." },
+        { q: "¿Cómo se calcula mi DutyCredit?", a: "Tu DutyCredit ofrece un descuento fijo en euros en las tiendas aeroportuarias participantes. El importe depende del valor de tu cesta en el momento del pago: €2,50 de descuento con €35–€49, €5 con €50–€74, €10 con €75–€99, €15 con €100–€149, €20 con €150–€199, €35 con €200–€299 y €60 con €300 o más." },
         { q: "¿Puedo usar mi DutyCredit en varios establecimientos?", a: "No. Los DutyCredits son canjeables en una sola transacción en un único punto de venta." },
-        { q: "¿Hay un gasto mínimo?", a: "Sí. Se requiere un gasto mínimo de €70 para canjear un DutyCredit. El crédito es escalonado: 10% en €70–€99, 15% en €100–€299 y 20% en €300+, con tope en €25." },
+        { q: "¿Hay un gasto mínimo?", a: "Sí. Se requiere un gasto mínimo de €35 para activar tu DutyCredit. El descuento es un importe fijo en euros que crece con tu compra — desde €2,50 a partir de €35 hasta €60 a partir de €300 o más." },
         { q: "¿Cómo recibo mi DutyCredit?", a: "Tu agencia te compartirá un enlace tras la confirmación. Al abrirlo verás tu código QR DutyCredit." },
         { q: "¿Caducan los DutyCredits?", a: "Sí. Cada DutyCredit es válido durante 30 días a partir de tu fecha de salida. Caduca 30 días después de la salida y no puede reactivarse ni reemitirse." },
         { q: "¿Puedo transferir mi DutyCredit?", a: "No. Los DutyCredits son únicos, de un solo uso y seguros criptográficamente." },
@@ -185,7 +185,7 @@ const content = {
       ]},
       { cat: "Para tiendas aeroportuarias", qs: [
         { q: "¿Cómo beneficia DutyBoost a mi tienda?", a: "DutyBoost dirige viajeros precalificados e incentivados directamente a tu tienda." },
-        { q: "¿Qué comisión cobra DutyBoost?", a: "El 5% sobre el valor bruto de las transacciones realizadas a través de un DutyCredit canjeado." },
+        { q: "¿Qué comisión cobra DutyBoost?", a: "DutyBoost cobra una tarifa de plataforma del 2,5% sobre el valor bruto de cada transacción con DutyCredit canjeado, con un máximo de €25 por transacción. Sin tarifas fijas ni suscripciones — solo pagas cuando DutyBoost genera una venta confirmada." },
         { q: "¿Cómo canjeo un DutyCredit?", a: "Escanea el código QR en el panel o la interfaz de escaneo. El sistema valida y registra automáticamente." },
       ]},
       { cat: "Integración y Técnica", qs: [
@@ -204,9 +204,9 @@ const content = {
     categories: [
       { cat: "DutyCredit", qs: [
         { q: "Cos'è un DutyCredit?", a: "Un DutyCredit è un incentivo legato a una prenotazione — un codice sconto digitale unico generato automaticamente quando un'agenzia invia una prenotazione tramite DutyBoost. I viaggiatori lo ricevono come QR code." },
-        { q: "Come viene calcolato il mio DutyCredit?", a: "Il tuo DutyCredit è un importo fisso in euro (€5–€25): base per viaggiatore (€2,50 corto raggio / €7,00 lungo raggio) × numero di viaggiatori × moltiplicatore prezzo (×1,0 a ×2,5 in base al prezzo totale del biglietto), con tetto di €25." },
+        { q: "Come viene calcolato il mio DutyCredit?", a: "Il tuo DutyCredit offre uno sconto fisso in euro presso i rivenditori aeroportuali partecipanti. L'importo dipende dal valore del tuo carrello alla cassa: €2,50 di sconto con €35–€49, €5 con €50–€74, €10 con €75–€99, €15 con €100–€149, €20 con €150–€199, €35 con €200–€299 e €60 con €300 o più." },
         { q: "Posso usare il mio DutyCredit in più negozi?", a: "No. I DutyCredit sono riscattabili in un'unica transazione presso un unico punto vendita." },
-        { q: "C'è una spesa minima?", a: "Sì. È richiesta una spesa minima di €70 per riscattare un DutyCredit. Il credito è scaglionato: 10% per €70–€99, 15% per €100–€299 e 20% per €300+, con tetto di €25." },
+        { q: "C'è una spesa minima?", a: "Sì. È richiesta una spesa minima di €35 per attivare il tuo DutyCredit. Lo sconto è un importo fisso in euro che cresce con il tuo acquisto — da €2,50 a partire da €35 fino a €60 a partire da €300 o più." },
         { q: "Come ricevo il mio DutyCredit?", a: "La tua agenzia ti condividerà un link dopo la conferma. Aprendo il link vedrai il tuo QR code DutyCredit." },
         { q: "I DutyCredit scadono?", a: "Sì. Ogni DutyCredit è valido per 30 giorni a partire dalla data di partenza. Scade 30 giorni dopo la partenza e non può essere ripristinato o riemesso." },
         { q: "Posso trasferire il mio DutyCredit?", a: "No. I DutyCredit sono unici, monouso e sicuri crittograficamente." },
@@ -223,7 +223,7 @@ const content = {
       ]},
       { cat: "Per i rivenditori aeroportuali", qs: [
         { q: "Come beneficia il mio negozio?", a: "DutyBoost porta viaggiatori pre-qualificati e incentivati direttamente al tuo negozio." },
-        { q: "Quale commissione applica DutyBoost?", a: "Il 5% sul valore lordo delle transazioni effettuate tramite un DutyCredit riscattato." },
+        { q: "Quale commissione applica DutyBoost?", a: "DutyBoost applica una commissione di piattaforma del 2,5% sul valore lordo di ogni transazione con DutyCredit riscattato, con un massimo di €25 per transazione. Nessuna quota fissa o abbonamento — si paga solo quando DutyBoost genera una vendita confermata." },
         { q: "Come riscatto un DutyCredit?", a: "Scansiona il QR code tramite la dashboard o l'interfaccia di scansione. Il sistema valida e registra automaticamente." },
       ]},
       { cat: "Integrazione & Tecnica", qs: [
