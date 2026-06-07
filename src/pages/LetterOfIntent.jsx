@@ -299,7 +299,7 @@ export default function LetterOfIntentPage() {
               <li><strong>1. You Sign:</strong> Review and digitally sign this Letter of Intent.</li>
               <li><strong>2. We Use Your Signature:</strong> Your signature strengthens DutyBoost's negotiating position with airport retailers, showing them that travel partners are committed to the partnership.</li>
               <li><strong>3. Airport Retailers Join:</strong> With your signature as proof of commitment, airport retailers gain confidence in the model and agree to participate.</li>
-              <li><strong>4. We All Benefit:</strong> Once retailers are on board, we finalize commercial terms with you — and the ecosystem starts generating value.</li>
+              <li><strong>4. You Start Earning:</strong> Your travelers receive DutyCredits in their confirmation emails — a loyalty perk that strengthens brand loyalty. You earn 20% of the 2.5% DutyBoost platform fee (up to €5 per redemption) paid by airport retailers on every transaction.</li>
             </ol>
           </div>
 
