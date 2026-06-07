@@ -22,7 +22,7 @@ const content = {
         { q: "Can I transfer my DutyCredit to someone else?", a: "No. DutyCredits are unique, single-use, and cryptographically secured. They cannot be transferred, resold, or duplicated." },
       ]},
       { cat: "For Travelers", qs: [
-        { q: "Do I need to sign up to use a DutyCredit?", a: "No sign-up or account is required. Simply open the link shared by your travel agency." },
+        { q: "Do I need to sign up to use a DutyCredit?", a: "No sign-up or account is required. Simply open your booking confirmation email from your travel partner (flight, accommodation, or car rental provider) and use the QR code included." },
         { q: "Where can I redeem my DutyCredit?", a: "DutyCredits can be redeemed at any airport retailer registered on the DutyBoost platform at your departure airport." },
         { q: "What happens after I scan my DutyCredit?", a: "The retailer scans your QR code, the discount is instantly applied to your purchase, and your DutyCredit is marked as redeemed." },
       ]},
@@ -60,7 +60,7 @@ const content = {
         { q: "Kan ik mijn DutyCredit overdragen?", a: "Nee. DutyCredits zijn uniek, eenmalig bruikbaar en cryptografisch beveiligd. Ze kunnen niet worden overgedragen of doorverkocht." },
       ]},
       { cat: "Voor reizigers", qs: [
-        { q: "Moet ik me aanmelden?", a: "Nee. Open gewoon de link die uw reisbureau heeft gedeeld." },
+        { q: "Moet ik me aanmelden?", a: "Nee. Open gewoon de boekingsbevestigingsmail van uw reispartner (vlucht, accommodatie of autoverhuur) en gebruik de meegestuurde QR-code." },
         { q: "Waar kan ik mijn DutyCredit inwisselen?", a: "Bij elke luchthavenwinkel die geregistreerd is op DutyBoost op uw luchthaven van vertrek." },
         { q: "Wat gebeurt er na het scannen?", a: "De winkel scant uw QR-code, de korting wordt direct toegepast en uw DutyCredit wordt als ingewisseld gemarkeerd." },
       ]},
@@ -98,7 +98,7 @@ const content = {
         { q: "Kann ich meinen DutyCredit übertragen?", a: "Nein. DutyCredits sind einzigartig, einmalig verwendbar und kryptografisch gesichert." },
       ]},
       { cat: "Für Reisende", qs: [
-        { q: "Muss ich mich anmelden?", a: "Nein. Öffnen Sie einfach den von Ihrem Reisebüro geteilten Link." },
+        { q: "Muss ich mich anmelden?", a: "Nein. Öffnen Sie einfach Ihre Buchungsbestätigungs-E-Mail Ihres Reisepartners (Flug, Unterkunft oder Mietwagen) und verwenden Sie den enthaltenen QR-Code." },
         { q: "Wo kann ich meinen DutyCredit einlösen?", a: "Bei jedem registrierten Flughafenhändler an Ihrem Abflughafen." },
         { q: "Was passiert nach dem Scannen?", a: "Der Händler scannt Ihren QR-Code, der Rabatt wird sofort angewendet und Ihr DutyCredit wird als eingelöst markiert." },
       ]},
@@ -136,7 +136,7 @@ const content = {
         { q: "Puis-je transférer mon DutyCredit ?", a: "Non. Les DutyCredits sont uniques, à usage unique et sécurisés cryptographiquement." },
       ]},
       { cat: "Pour les voyageurs", qs: [
-        { q: "Dois-je m'inscrire ?", a: "Non. Ouvrez simplement le lien partagé par votre agence." },
+        { q: "Dois-je m'inscrire ?", a: "Non. Ouvrez simplement l'e-mail de confirmation de réservation de votre partenaire de voyage (vol, hébergement ou location de voiture) et utilisez le QR code inclus." },
         { q: "Où puis-je échanger mon DutyCredit ?", a: "Chez tout détaillant aéroportuaire enregistré sur DutyBoost à votre aéroport de départ." },
         { q: "Que se passe-t-il après le scan ?", a: "Le détaillant scanne votre QR code, la réduction est instantanément appliquée et votre DutyCredit est marqué comme utilisé." },
       ]},
@@ -174,7 +174,7 @@ const content = {
         { q: "¿Puedo transferir mi DutyCredit?", a: "No. Los DutyCredits son únicos, de un solo uso y seguros criptográficamente." },
       ]},
       { cat: "Para viajeros", qs: [
-        { q: "¿Necesito registrarme?", a: "No. Simplemente abre el enlace compartido por tu agencia." },
+        { q: "¿Necesito registrarme?", a: "No. Simplemente abre el correo de confirmación de reserva de tu socio de viajes (vuelo, alojamiento o alquiler de coche) y usa el código QR incluido." },
         { q: "¿Dónde puedo canjear mi DutyCredit?", a: "En cualquier tienda aeroportuaria registrada en DutyBoost en tu aeropuerto de salida." },
         { q: "¿Qué ocurre después del escaneo?", a: "El comercio escanea tu código QR, el descuento se aplica al instante y tu DutyCredit queda marcado como canjeado." },
       ]},
@@ -212,7 +212,7 @@ const content = {
         { q: "Posso trasferire il mio DutyCredit?", a: "No. I DutyCredit sono unici, monouso e sicuri crittograficamente." },
       ]},
       { cat: "Per i viaggiatori", qs: [
-        { q: "Devo registrarmi?", a: "No. Basta aprire il link condiviso dalla tua agenzia." },
+        { q: "Devo registrarmi?", a: "No. Apri semplicemente l'e-mail di conferma della prenotazione del tuo partner di viaggio (volo, alloggio o noleggio auto) e usa il QR code incluso." },
         { q: "Dove posso riscattare il mio DutyCredit?", a: "Presso qualsiasi rivenditore aeroportuale registrato su DutyBoost nel tuo aeroporto di partenza." },
         { q: "Cosa succede dopo la scansione?", a: "Il rivenditore scansiona il tuo QR code, lo sconto viene applicato istantaneamente e il tuo DutyCredit viene contrassegnato come riscattato." },
       ]},
