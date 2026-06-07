@@ -33,7 +33,7 @@ const content = {
       ]},
       { cat: "For Airport Retailers", qs: [
         { q: "How does DutyBoost benefit my store?", a: "DutyBoost drives pre-qualified, incentivised travelers directly to your store — meaning higher conversion rates and larger basket sizes. Every traveler arriving with a DutyCredit already has the intent to spend: they've received a discount tied to a minimum basket, so they're motivated to reach that threshold. That translates into more foot traffic, bigger average orders, and customers who feel rewarded for shopping with you. Best of all, you only pay a small platform fee when a sale is actually completed — no upfront costs, no wasted ad spend." },
-        { q: "What commission does DutyBoost charge retailers?", a: "DutyBoost charges a 2.5% platform fee on the gross transaction value of each redeemed DutyCredit, capped at €25 per transaction. There are no upfront or subscription fees — you only pay when DutyBoost delivers a confirmed sale." },
+        { q: "What commission does DutyBoost charge retailers?", a: "DutyBoost charges a 2.5% platform fee on the gross transaction value of each redeemed DutyCredit, capped at €25 per transaction (which corresponds to a €1,000 transaction value). All revenue above €1,000 stays with you. There are no upfront or subscription fees — you only pay when DutyBoost delivers a confirmed sale." },
         { q: "How do I redeem a DutyCredit at my store?", a: "Use the DutyBoost retailer dashboard or scan interface to scan the traveler's QR code. The system validates the DutyCredit and logs the transaction automatically." },
       ]},
       { cat: "Integration & Technical", qs: [
@@ -71,7 +71,7 @@ const content = {
       ]},
       { cat: "Voor luchthavenwinkels", qs: [
         { q: "Wat levert DutyBoost mijn winkel op?", a: "DutyBoost brengt vooraf gekwalificeerde, gemotiveerde reizigers rechtstreeks naar uw winkel — wat leidt tot hogere conversieratio's en grotere aankoopbedragen. Elke reiziger die binnenkomt met een DutyCredit heeft al de intentie om te kopen: ze hebben een korting ontvangen die gekoppeld is aan een minimaal aankoopbedrag, dus ze zijn gemotiveerd om dat te bereiken. Dat resulteert in meer bezoekers, hogere gemiddelde bestedingen en klanten die zich beloond voelen voor het winkelen bij u. En u betaalt alleen een kleine platformvergoeding wanneer er daadwerkelijk een verkoop plaatsvindt — geen vaste kosten, geen verspild advertentiebudget." },
-        { q: "Welke commissie berekent DutyBoost?", a: "DutyBoost rekent 2,5% platformkosten over de bruto transactiewaarde van elke ingewisselde DutyCredit, met een maximum van €25 per transactie. Er zijn geen vaste of abonnementskosten — u betaalt alleen wanneer DutyBoost een bevestigde verkoop levert." },
+        { q: "Welke commissie berekent DutyBoost?", a: "DutyBoost rekent 2,5% platformkosten over de bruto transactiewaarde van elke ingewisselde DutyCredit, met een maximum van €25 per transactie (wat overeenkomt met een transactiewaarde van €1.000). Alle omzet boven €1.000 blijft bij u. Er zijn geen vaste of abonnementskosten — u betaalt alleen wanneer DutyBoost een bevestigde verkoop levert." },
         { q: "Hoe wissel ik een DutyCredit in?", a: "Scan de QR-code via het DutyBoost-dashboard of de scaninterface. Het systeem valideert en registreert automatisch." },
       ]},
       { cat: "Integratie & Techniek", qs: [
@@ -109,7 +109,7 @@ const content = {
       ]},
       { cat: "Für Flughafenhändler", qs: [
         { q: "Wie profitiert mein Geschäft?", a: "DutyBoost bringt vorqualifizierte, motivierte Reisende direkt zu Ihrem Geschäft — mit höheren Conversion-Raten und größeren Warenkörben. Jeder Reisende, der mit einem DutyCredit ankommt, hat bereits die Absicht zu kaufen: Er hat einen Rabatt erhalten, der an einen Mindestbetrag geknüpft ist, und ist daher motiviert, diesen zu erreichen. Das bedeutet mehr Laufkundschaft, höhere Durchschnittsumsätze und Kunden, die sich für ihren Einkauf bei Ihnen belohnt fühlen. Und Sie zahlen nur eine kleine Plattformgebühr, wenn tatsächlich ein Verkauf abgeschlossen wird — keine Fixkosten, kein verschwendetes Werbebudget." },
-        { q: "Welche Provision berechnet DutyBoost?", a: "DutyBoost berechnet eine Plattformgebühr von 2,5% auf den Bruttotransaktionswert jedes eingelösten DutyCreditss, gedeckelt bei €25 pro Transaktion. Es fallen keine fixen oder Abonnementsgebühren an — Sie zahlen nur, wenn DutyBoost einen bestätigten Verkauf liefert." },
+        { q: "Welche Provision berechnet DutyBoost?", a: "DutyBoost berechnet eine Plattformgebühr von 2,5% auf den Bruttotransaktionswert jedes eingelösten DutyCredits, gedeckelt bei €25 pro Transaktion (was einem Transaktionswert von €1.000 entspricht). Alle Einnahmen über €1.000 bleiben bei Ihnen. Es fallen keine fixen oder Abonnementsgebühren an — Sie zahlen nur, wenn DutyBoost einen bestätigten Verkauf liefert." },
         { q: "Wie löse ich einen DutyCredit ein?", a: "Scannen Sie den QR-Code über das Dashboard oder die Scan-Oberfläche. Das System validiert und protokolliert automatisch." },
       ]},
       { cat: "Integration & Technik", qs: [
@@ -147,7 +147,7 @@ const content = {
       ]},
       { cat: "Pour les détaillants aéroportuaires", qs: [
         { q: "Comment DutyBoost profite-t-il à mon magasin ?", a: "DutyBoost dirige des voyageurs pré-qualifiés et motivés directement vers votre magasin — avec des taux de conversion plus élevés et des paniers plus grands. Chaque voyageur qui arrive avec un DutyCredit a déjà l'intention d'acheter : il a reçu une réduction liée à un panier minimum, ce qui le motive à atteindre ce seuil. Résultat : plus de trafic en magasin, des commandes moyennes plus élevées et des clients qui se sentent récompensés d'avoir fait leurs achats chez vous. Et vous ne payez qu'une petite commission de plateforme uniquement lorsqu'une vente est effectivement conclue — aucun coût fixe, aucun budget publicitaire gaspillé." },
-        { q: "Quelle commission DutyBoost facture-t-il ?", a: "DutyBoost facture des frais de plateforme de 2,5% sur la valeur brute de chaque transaction DutyCredit échangé, plafonnés à €25 par transaction. Aucun frais fixe ou d'abonnement — vous ne payez que lorsque DutyBoost génère une vente confirmée." },
+        { q: "Quelle commission DutyBoost facture-t-il ?", a: "DutyBoost facture des frais de plateforme de 2,5% sur la valeur brute de chaque transaction DutyCredit échangé, plafonnés à €25 par transaction (ce qui correspond à une valeur de transaction de €1.000). Tous les revenus au-dessus de €1.000 vous restent. Aucun frais fixe ou d'abonnement — vous ne payez que lorsque DutyBoost génère une vente confirmée." },
         { q: "Comment échanger un DutyCredit ?", a: "Scannez le QR code via le tableau de bord ou l'interface de scan. Le système valide et enregistre automatiquement." },
       ]},
       { cat: "Intégration & Technique", qs: [
@@ -185,7 +185,7 @@ const content = {
       ]},
       { cat: "Para tiendas aeroportuarias", qs: [
         { q: "¿Cómo beneficia DutyBoost a mi tienda?", a: "DutyBoost dirige viajeros precalificados e incentivados directamente a tu tienda — lo que se traduce en mayores tasas de conversión y cestas más grandes. Cada viajero que llega con un DutyCredit ya tiene intención de comprar: ha recibido un descuento vinculado a un gasto mínimo, por lo que está motivado a alcanzarlo. Eso se traduce en más visitas, pedidos medios más altos y clientes que se sienten recompensados por comprar contigo. Y solo pagas una pequeña tarifa de plataforma cuando se completa una venta — sin costes fijos, sin gasto publicitario desperdiciado." },
-        { q: "¿Qué comisión cobra DutyBoost?", a: "DutyBoost cobra una tarifa de plataforma del 2,5% sobre el valor bruto de cada transacción con DutyCredit canjeado, con un máximo de €25 por transacción. Sin tarifas fijas ni suscripciones — solo pagas cuando DutyBoost genera una venta confirmada." },
+        { q: "¿Qué comisión cobra DutyBoost?", a: "DutyBoost cobra una tarifa de plataforma del 2,5% sobre el valor bruto de cada transacción con DutyCredit canjeado, con un máximo de €25 por transacción (que corresponde a un valor de transacción de €1.000). Todos los ingresos por encima de €1.000 quedan contigo. Sin tarifas fijas ni suscripciones — solo pagas cuando DutyBoost genera una venta confirmada." },
         { q: "¿Cómo canjeo un DutyCredit?", a: "Escanea el código QR en el panel o la interfaz de escaneo. El sistema valida y registra automáticamente." },
       ]},
       { cat: "Integración y Técnica", qs: [
@@ -223,7 +223,7 @@ const content = {
       ]},
       { cat: "Per i rivenditori aeroportuali", qs: [
         { q: "Come beneficia il mio negozio?", a: "DutyBoost porta viaggiatori pre-qualificati e incentivati direttamente al tuo negozio — con tassi di conversione più alti e carrelli più grandi. Ogni viaggiatore che arriva con un DutyCredit ha già intenzione di acquistare: ha ricevuto uno sconto legato a una spesa minima, quindi è motivato a raggiungerla. Questo si traduce in più traffico, ordini medi più elevati e clienti che si sentono premiati per aver fatto acquisti da te. E paghi solo una piccola commissione di piattaforma solo quando viene effettivamente completata una vendita — nessun costo fisso, nessun budget pubblicitario sprecato." },
-        { q: "Quale commissione applica DutyBoost?", a: "DutyBoost applica una commissione di piattaforma del 2,5% sul valore lordo di ogni transazione con DutyCredit riscattato, con un massimo di €25 per transazione. Nessuna quota fissa o abbonamento — si paga solo quando DutyBoost genera una vendita confermata." },
+        { q: "Quale commissione applica DutyBoost?", a: "DutyBoost applica una commissione di piattaforma del 2,5% sul valore lordo di ogni transazione con DutyCredit riscattato, con un massimo di €25 per transazione (che corrisponde a un valore di transazione di €1.000). Tutti i ricavi al di sopra di €1.000 rimangono con te. Nessuna quota fissa o abbonamento — si paga solo quando DutyBoost genera una vendita confermata." },
         { q: "Come riscatto un DutyCredit?", a: "Scansiona il QR code tramite la dashboard o l'interfaccia di scansione. Il sistema valida e registra automaticamente." },
       ]},
       { cat: "Integrazione & Tecnica", qs: [
