@@ -296,11 +296,10 @@ export default function LetterOfIntentPage() {
           <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
             <h3 className="font-semibold text-emerald-900 text-base">How It Works</h3>
             <ol className="text-sm text-emerald-800 space-y-2 ml-2">
-              <li><strong>1. You Sign:</strong> You review and digitally sign this Letter of Intent, confirming your intent to explore collaboration.</li>
-              <li><strong>2. We Discuss:</strong> For up to 365 days, our teams engage in exclusive, good-faith discussions about partnership structure, integration, and commercial terms.</li>
-              <li><strong>3. We Negotiate:</strong> Based on mutual interest, we move toward a formal partnership agreement with binding commercial terms.</li>
-              <li><strong>4. We Execute:</strong> Once both parties agree on all details, we sign a final partnership agreement and begin implementation.</li>
-              <li><strong>5. No Obligation Until Final Agreement:</strong> Until a final agreement is signed, neither party is obligated to proceed.</li>
+              <li><strong>1. You Sign:</strong> Review and digitally sign this Letter of Intent.</li>
+              <li><strong>2. We Use Your Signature:</strong> Your signature strengthens DutyBoost's negotiating position with airport retailers, showing them that travel partners are committed to the partnership.</li>
+              <li><strong>3. Airport Retailers Join:</strong> With your signature as proof of commitment, airport retailers gain confidence in the model and agree to participate.</li>
+              <li><strong>4. We All Benefit:</strong> Once retailers are on board, we finalize commercial terms with you — and the ecosystem starts generating value.</li>
             </ol>
           </div>
 
