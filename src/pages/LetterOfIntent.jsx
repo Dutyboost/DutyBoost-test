@@ -264,6 +264,21 @@ export default function LetterOfIntentPage() {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Fill in your company details below. The Letter of Intent will be populated with your information and submitted to DutyBoost upon acceptance.
           </p>
+          
+          <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
+            <h3 className="font-semibold text-blue-900 text-sm">Why Partner With DutyBoost?</h3>
+            <p className="text-sm text-blue-800 leading-relaxed">
+              By signing this Letter of Intent, you're unlocking a mutual revenue opportunity. DutyBoost drives <strong>high-intent travelers directly to your stores</strong> through digital incentives tied to their bookings. These travelers arrive pre-motivated to spend, resulting in:
+            </p>
+            <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
+              <li><strong>↑ Higher conversion rates</strong> — Pre-qualified shoppers with spending incentives</li>
+              <li><strong>↑ Larger basket sizes</strong> — Discount tiers encourage increased purchases</li>
+              <li><strong>↑ Incremental revenue</strong> — New customers you wouldn't reach otherwise</li>
+              <li><strong>✓ Zero upfront cost</strong> — Pay only a small platform fee when sales are completed</li>
+            </ul>
+            <p className="text-sm text-blue-800 font-medium pt-2">Together, we generate more revenue for your business while delivering real value to travelers.</p>
+          </div>
+          
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
             <strong>Important:</strong> This Letter of Intent is non-binding and does not generate any financial obligations unless and until a final binding agreement is separately executed by authorized representatives of both parties.
           </p>
