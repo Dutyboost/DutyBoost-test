@@ -274,10 +274,32 @@ export default function LetterOfIntentPage() {
             <p className="text-sm text-blue-800 leading-relaxed">
               {t('letterOfIntent.description_2')}
             </p>
-            <p className="text-sm text-blue-800 font-semibold pt-1">{t('letterOfIntent.what_we_ask')}</p>
-            <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li>{t('letterOfIntent.from_you')}</li>
-            </ul>
+
+            <div className="mt-4 pt-4 border-t border-blue-300 space-y-3">
+              <div>
+                <h4 className="text-sm font-bold text-blue-900 mb-1.5">Why the Letter of Intent?</h4>
+                <p className="text-sm text-blue-800">A Letter of Intent formalizes our mutual commitment to explore this partnership in good faith. It signals serious intent on both sides while keeping terms flexible as we discuss the details. It protects both parties with binding confidentiality and intellectual property clauses, while keeping the commercial terms open for negotiation.</p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-bold text-blue-900 mb-1.5">How It Works</h4>
+                <p className="text-sm text-blue-800 mb-2">Once signed, here's what happens:</p>
+                <ul className="text-sm text-blue-800 space-y-1 ml-2">
+                  <li><strong>1. Exclusive Discussions:</strong> For 365 days, we engage in exclusive good-faith negotiations about the partnership structure.</li>
+                  <li><strong>2. Confidentiality:</strong> All information shared remains confidential for 5 years, protecting your business and ours.</li>
+                  <li><strong>3. Binding Terms:</strong> Confidentiality, intellectual property, and exclusivity clauses are legally binding. Everything else (pricing, terms, etc.) remains open for discussion.</li>
+                  <li><strong>4. Future Agreement:</strong> If both parties agree on the details, we execute a final binding partnership agreement.</li>
+                  <li><strong>5. No Obligation Yet:</strong> Until a final agreement is signed, neither party is obligated to proceed.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-bold text-blue-900 mb-1.5">{t('letterOfIntent.what_we_ask')}</h4>
+                <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
+                  <li>{t('letterOfIntent.from_you')}</li>
+                </ul>
+              </div>
+            </div>
 
           </div>
           
