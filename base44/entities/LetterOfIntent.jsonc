@@ -16,7 +16,7 @@
     },
     "partner_registration_number": {
       "type": "string",
-      "title": "Partner Registration Number"
+      "title": "Chamber of Commerce Number"
     },
     "partner_vat": {
       "type": "string",
@@ -72,6 +72,8 @@
     "partner_company_name",
     "partner_address",
     "partner_country",
+    "partner_registration_number",
+    "partner_vat",
     "partner_representative_name",
     "partner_email",
     "signed"
