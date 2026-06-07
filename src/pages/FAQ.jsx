@@ -26,10 +26,10 @@ const content = {
         { q: "Where can I redeem my DutyCredit?", a: "DutyCredits can be redeemed at any airport retailer registered on the DutyBoost platform at your departure airport." },
         { q: "What happens after I scan my DutyCredit?", a: "The retailer scans your QR code, the discount is instantly applied to your purchase, and your DutyCredit is marked as redeemed." },
       ]},
-      { cat: "For Travel Agencies", qs: [
-        { q: "How does DutyBoost benefit my agency?", a: "Every time one of your travelers redeems a DutyCredit at the airport, your agency earns a 20% revenue margin on the platform's commission." },
+      { cat: "For Travel Partners", qs: [
+        { q: "How does DutyBoost benefit my business?", a: "Every time one of your travelers redeems a DutyCredit at the airport, your business earns a 20% revenue margin on the platform's commission — whether you're a flight, accommodation, or car rental provider." },
         { q: "How do I generate a DutyCredit?", a: "You don't — it happens automatically. Our team connects your booking system to DutyBoost. From that point on, DutyBoost automatically sends travelers a co-branded email with their unique DutyCredit QR code." },
-        { q: "Is there a cost to join DutyBoost as an agency?", a: "No. There are no setup fees, subscription fees, or usage costs for travel agencies." },
+        { q: "Is there a cost to join DutyBoost as a travel partner?", a: "No. There are no setup fees, subscription fees, or usage costs for travel partners." },
       ]},
       { cat: "For Airport Retailers", qs: [
         { q: "How does DutyBoost benefit my store?", a: "DutyBoost drives pre-qualified, incentivised travelers directly to your store — meaning higher conversion rates and larger basket sizes." },
@@ -64,10 +64,10 @@ const content = {
         { q: "Waar kan ik mijn DutyCredit inwisselen?", a: "Bij elke luchthavenwinkel die geregistreerd is op DutyBoost op uw luchthaven van vertrek." },
         { q: "Wat gebeurt er na het scannen?", a: "De winkel scant uw QR-code, de korting wordt direct toegepast en uw DutyCredit wordt als ingewisseld gemarkeerd." },
       ]},
-      { cat: "Voor reisbureaus", qs: [
-        { q: "Wat levert DutyBoost mijn bureau op?", a: "Elke keer dat een reiziger een DutyCredit inwisselt, verdient uw bureau 20% van de platformcommissie." },
+      { cat: "Voor reispartners", qs: [
+        { q: "Wat levert DutyBoost mijn bedrijf op?", a: "Elke keer dat een reiziger een DutyCredit inwisselt, verdient uw bedrijf 20% van de platformcommissie — of u nu een vlucht-, accommodatie- of autoverhuuraanbieder bent." },
         { q: "Hoe genereer ik een DutyCredit?", a: "Dat doet u niet — het gebeurt automatisch. Ons team koppelt uw boekingssysteem aan DutyBoost." },
-        { q: "Zijn er kosten?", a: "Nee. Er zijn geen installatie-, abonnements- of gebruikskosten voor reisbureaus." },
+        { q: "Zijn er kosten?", a: "Nee. Er zijn geen installatie-, abonnements- of gebruikskosten voor reispartners." },
       ]},
       { cat: "Voor luchthavenwinkels", qs: [
         { q: "Wat levert DutyBoost mijn winkel op?", a: "DutyBoost brengt vooraf gekwalificeerde reizigers met koopintentie naar uw winkel." },
@@ -102,10 +102,10 @@ const content = {
         { q: "Wo kann ich meinen DutyCredit einlösen?", a: "Bei jedem registrierten Flughafenhändler an Ihrem Abflughafen." },
         { q: "Was passiert nach dem Scannen?", a: "Der Händler scannt Ihren QR-Code, der Rabatt wird sofort angewendet und Ihr DutyCredit wird als eingelöst markiert." },
       ]},
-      { cat: "Für Reisebüros", qs: [
-        { q: "Wie profitiert mein Büro?", a: "Jedes Mal, wenn ein Reisender einen DutyCredit einlöst, verdient Ihr Büro 20% der Plattformgebühr." },
+      { cat: "Für Reisepartner", qs: [
+        { q: "Wie profitiert mein Unternehmen?", a: "Jedes Mal, wenn ein Reisender einen DutyCredit einlöst, verdient Ihr Unternehmen 20% der Plattformgebühr — egal ob Sie Flug-, Unterkunfts- oder Mietwagenunternehmen sind." },
         { q: "Wie generiere ich einen DutyCredit?", a: "Das tun Sie nicht — es geschieht automatisch. Unser Team verbindet Ihr Buchungssystem mit DutyBoost." },
-        { q: "Gibt es Kosten?", a: "Nein. Keine Einrichtungsgebühren, Abonnements oder Nutzungskosten für Reisebüros." },
+        { q: "Gibt es Kosten?", a: "Nein. Keine Einrichtungsgebühren, Abonnements oder Nutzungskosten für Reisepartner." },
       ]},
       { cat: "Für Flughafenhändler", qs: [
         { q: "Wie profitiert mein Geschäft?", a: "DutyBoost bringt vorqualifizierte, motivierte Reisende direkt zu Ihrem Geschäft." },
@@ -140,10 +140,10 @@ const content = {
         { q: "Où puis-je échanger mon DutyCredit ?", a: "Chez tout détaillant aéroportuaire enregistré sur DutyBoost à votre aéroport de départ." },
         { q: "Que se passe-t-il après le scan ?", a: "Le détaillant scanne votre QR code, la réduction est instantanément appliquée et votre DutyCredit est marqué comme utilisé." },
       ]},
-      { cat: "Pour les agences de voyage", qs: [
-        { q: "Comment DutyBoost profite-t-il à mon agence ?", a: "Chaque fois qu'un voyageur échange un DutyCredit, votre agence gagne 20% de la commission de la plateforme." },
+      { cat: "Pour les partenaires de voyage", qs: [
+        { q: "Comment DutyBoost profite-t-il à mon activité ?", a: "Chaque fois qu'un voyageur échange un DutyCredit, votre entreprise gagne 20% de la commission de la plateforme — que vous soyez prestataire de vols, d'hébergement ou de location de voiture." },
         { q: "Comment générer un DutyCredit ?", a: "Vous ne le faites pas — cela se passe automatiquement. Notre équipe connecte votre système de réservation à DutyBoost." },
-        { q: "Y a-t-il des frais ?", a: "Non. Aucun frais d'installation, d'abonnement ou d'utilisation pour les agences." },
+        { q: "Y a-t-il des frais ?", a: "Non. Aucun frais d'installation, d'abonnement ou d'utilisation pour les partenaires de voyage." },
       ]},
       { cat: "Pour les détaillants aéroportuaires", qs: [
         { q: "Comment DutyBoost profite-t-il à mon magasin ?", a: "DutyBoost dirige des voyageurs pré-qualifiés et motivés directement vers votre magasin." },
@@ -178,10 +178,10 @@ const content = {
         { q: "¿Dónde puedo canjear mi DutyCredit?", a: "En cualquier tienda aeroportuaria registrada en DutyBoost en tu aeropuerto de salida." },
         { q: "¿Qué ocurre después del escaneo?", a: "El comercio escanea tu código QR, el descuento se aplica al instante y tu DutyCredit queda marcado como canjeado." },
       ]},
-      { cat: "Para agencias de viajes", qs: [
-        { q: "¿Cómo beneficia DutyBoost a mi agencia?", a: "Cada vez que un viajero canjea un DutyCredit, tu agencia gana el 20% de la comisión de la plataforma." },
+      { cat: "Para socios de viajes", qs: [
+        { q: "¿Cómo beneficia DutyBoost a mi negocio?", a: "Cada vez que un viajero canjea un DutyCredit, tu empresa gana el 20% de la comisión de la plataforma — ya seas proveedor de vuelos, alojamiento o alquiler de coches." },
         { q: "¿Cómo genero un DutyCredit?", a: "No lo haces tú — ocurre automáticamente. Nuestro equipo conecta tu sistema de reservas a DutyBoost." },
-        { q: "¿Hay algún coste?", a: "No. Sin comisiones de configuración, suscripción ni uso para agencias." },
+        { q: "¿Hay algún coste?", a: "No. Sin comisiones de configuración, suscripción ni uso para socios de viajes." },
       ]},
       { cat: "Para tiendas aeroportuarias", qs: [
         { q: "¿Cómo beneficia DutyBoost a mi tienda?", a: "DutyBoost dirige viajeros precalificados e incentivados directamente a tu tienda." },
@@ -216,10 +216,10 @@ const content = {
         { q: "Dove posso riscattare il mio DutyCredit?", a: "Presso qualsiasi rivenditore aeroportuale registrato su DutyBoost nel tuo aeroporto di partenza." },
         { q: "Cosa succede dopo la scansione?", a: "Il rivenditore scansiona il tuo QR code, lo sconto viene applicato istantaneamente e il tuo DutyCredit viene contrassegnato come riscattato." },
       ]},
-      { cat: "Per le agenzie di viaggio", qs: [
-        { q: "Come beneficia la mia agenzia?", a: "Ogni volta che un viaggiatore riscatta un DutyCredit, la tua agenzia guadagna il 20% della commissione della piattaforma." },
+      { cat: "Per i partner di viaggio", qs: [
+        { q: "Come beneficia la mia attività?", a: "Ogni volta che un viaggiatore riscatta un DutyCredit, la tua azienda guadagna il 20% della commissione della piattaforma — che tu sia un fornitore di voli, alloggi o noleggio auto." },
         { q: "Come genero un DutyCredit?", a: "Non lo fai tu — avviene automaticamente. Il nostro team collega il tuo sistema di prenotazione a DutyBoost." },
-        { q: "Ci sono costi?", a: "No. Nessun costo di configurazione, abbonamento o utilizzo per le agenzie." },
+        { q: "Ci sono costi?", a: "No. Nessun costo di configurazione, abbonamento o utilizzo per i partner di viaggio." },
       ]},
       { cat: "Per i rivenditori aeroportuali", qs: [
         { q: "Come beneficia il mio negozio?", a: "DutyBoost porta viaggiatori pre-qualificati e incentivati direttamente al tuo negozio." },
