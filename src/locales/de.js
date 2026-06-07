@@ -272,6 +272,7 @@ export default {
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
       kvk: 'Handelskammer (KvK): 42053181',
       vat: 'USt-IdNr.: NL869492068B01',
+      cookie_policy: 'Cookie-Richtlinie',
     },
     showcase: {
       agency: {

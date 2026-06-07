@@ -86,6 +86,7 @@ export default {
       rights: '© 2026 DutyBoost. All rights reserved.',
       kvk: 'Chamber of Commerce (KvK): 42053181',
       vat: 'VAT Number: NL869492068B01',
+      cookie_policy: 'Cookie Policy',
     },
     demo: {
       mode_badge: 'Demo Mode',

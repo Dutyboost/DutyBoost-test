@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import LinkedInIcon from "./LinkedInIcon";
+import { useTranslation } from "react-i18next";
 const legalLinks = [
   { to: "/privacy", label: "Privacy Policy" },
   { to: "/terms", label: "Terms of Service" },
@@ -14,6 +15,7 @@ const legalLinks = [
 export default function FooterLinks() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
@@ -49,6 +51,7 @@ export default function FooterLinks() {
       </div>
       <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
       <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
+      <Link to="/cookies" className="hover:text-primary transition-colors">{t('footer.cookie_policy', 'Cookie Policy')}</Link>
       </div>
       <a href="https://www.linkedin.com/company/dutyboost-official/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-80 transition-opacity">
         <LinkedInIcon className="w-5 h-5" />
