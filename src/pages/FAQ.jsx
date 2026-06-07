@@ -29,7 +29,7 @@ const content = {
       { cat: "For Travel Partners", qs: [
         { q: "How does DutyBoost benefit my business?", a: "Every time one of your travelers redeems a DutyCredit at the airport, your business earns a 20% revenue margin on the platform's commission — whether you're a flight, accommodation, or car rental provider." },
         { q: "How do I generate a DutyCredit?", a: "You don't — it happens automatically. By adding the DutyBoost snippet to your booking confirmation page, every traveler automatically receives a unique DutyCredit QR code in their confirmation email." },
-        { q: "Is there a cost to join DutyBoost as a travel partner?", a: "No. There are no setup fees, subscription fees, or usage costs for travel partners. This gives your travelers an exclusive airport benefit they'll remember — boosting loyalty and repeat bookings. And every time they redeem it, you earn passive income through your 20% revenue margin. Zero effort, real returns." },
+        { q: "Is there a cost to join DutyBoost as a travel partner?", a: "No! — There are no setup fees, subscription fees, or usage costs for travel partners. This gives your travelers an exclusive airport benefit they'll remember — boosting loyalty and repeat bookings. And every time they redeem it, you earn passive income through your 20% revenue margin. Zero effort, real returns." },
       ]},
       { cat: "For Airport Retailers", qs: [
         { q: "How does DutyBoost benefit my store?", a: "DutyBoost drives pre-qualified, incentivised travelers directly to your store — meaning higher conversion rates and larger basket sizes." },
@@ -67,7 +67,7 @@ const content = {
       { cat: "Voor reispartners", qs: [
         { q: "Wat levert DutyBoost mijn bedrijf op?", a: "Elke keer dat een reiziger een DutyCredit inwisselt, verdient uw bedrijf 20% van de platformcommissie — of u nu een vlucht-, accommodatie- of autoverhuuraanbieder bent." },
         { q: "Hoe genereer ik een DutyCredit?", a: "Dat doet u niet — het gebeurt automatisch. Door de DutyBoost-snippet toe te voegen aan uw boekingsbevestigingspagina, ontvangt elke reiziger automatisch een unieke DutyCredit QR-code in hun bevestigingsmail." },
-        { q: "Zijn er kosten?", a: "Nee. Er zijn geen installatie-, abonnements- of gebruikskosten voor reispartners. Dit geeft uw reizigers een exclusief voordeel op de luchthaven dat ze niet vergeten — wat loyaliteit en herhaalboeking stimuleert. En elke keer dat ze hem inwisselen, verdient u passief inkomen via uw 20% winstmarge. Nul moeite, echte opbrengsten." },
+        { q: "Zijn er kosten?", a: "Nee! — Er zijn geen installatie-, abonnements- of gebruikskosten voor reispartners. Dit geeft uw reizigers een exclusief voordeel op de luchthaven dat ze niet vergeten — wat loyaliteit en herhaalboeking stimuleert. En elke keer dat ze hem inwisselen, verdient u passief inkomen via uw 20% winstmarge. Nul moeite, echte opbrengsten." },
       ]},
       { cat: "Voor luchthavenwinkels", qs: [
         { q: "Wat levert DutyBoost mijn winkel op?", a: "DutyBoost brengt vooraf gekwalificeerde reizigers met koopintentie naar uw winkel." },
@@ -105,7 +105,7 @@ const content = {
       { cat: "Für Reisepartner", qs: [
         { q: "Wie profitiert mein Unternehmen?", a: "Jedes Mal, wenn ein Reisender einen DutyCredit einlöst, verdient Ihr Unternehmen 20% der Plattformgebühr — egal ob Sie Flug-, Unterkunfts- oder Mietwagenunternehmen sind." },
         { q: "Wie generiere ich einen DutyCredit?", a: "Das tun Sie nicht — es geschieht automatisch. Durch die Integration des DutyBoost-Snippets in Ihre Buchungsbestätigungsseite erhält jeder Reisende automatisch seinen einzigartigen DutyCredit QR-Code in der Bestätigungs-E-Mail." },
-        { q: "Gibt es Kosten?", a: "Nein. Keine Einrichtungsgebühren, Abonnements oder Nutzungskosten für Reisepartner. Das gibt Ihren Reisenden einen exklusiven Flughafenvorteil, den sie nicht vergessen — was Loyalität und Wiederholungsbuchungen fördert. Und jedes Mal, wenn sie ihn einlösen, verdienen Sie passives Einkommen durch Ihre 20% Gewinnmarge. Null Aufwand, echte Erträge." },
+        { q: "Gibt es Kosten?", a: "Nein! — Keine Einrichtungsgebühren, Abonnements oder Nutzungskosten für Reisepartner. Das gibt Ihren Reisenden einen exklusiven Flughafenvorteil, den sie nicht vergessen — was Loyalität und Wiederholungsbuchungen fördert. Und jedes Mal, wenn sie ihn einlösen, verdienen Sie passives Einkommen durch Ihre 20% Gewinnmarge. Null Aufwand, echte Erträge." },
       ]},
       { cat: "Für Flughafenhändler", qs: [
         { q: "Wie profitiert mein Geschäft?", a: "DutyBoost bringt vorqualifizierte, motivierte Reisende direkt zu Ihrem Geschäft." },
@@ -143,7 +143,7 @@ const content = {
       { cat: "Pour les partenaires de voyage", qs: [
         { q: "Comment DutyBoost profite-t-il à mon activité ?", a: "Chaque fois qu'un voyageur échange un DutyCredit, votre entreprise gagne 20% de la commission de la plateforme — que vous soyez prestataire de vols, d'hébergement ou de location de voiture." },
         { q: "Comment générer un DutyCredit ?", a: "Vous ne le faites pas — cela se passe automatiquement. En ajoutant le snippet DutyBoost à votre page de confirmation de réservation, chaque voyageur reçoit automatiquement son QR code DutyCredit unique dans son e-mail de confirmation." },
-        { q: "Y a-t-il des frais ?", a: "Non. Aucun frais d'installation, d'abonnement ou d'utilisation pour les partenaires de voyage. Cela offre à vos voyageurs un avantage exclusif en aéroport qu'ils n'oublieront pas — renforçant la fidélité et les réservations répétées. Et chaque fois qu'ils l'utilisent, vous gagnez un revenu passif grâce à votre marge de 20%. Zéro effort, des retours réels." },
+        { q: "Y a-t-il des frais ?", a: "Non ! — Aucun frais d'installation, d'abonnement ou d'utilisation pour les partenaires de voyage. Cela offre à vos voyageurs un avantage exclusif en aéroport qu'ils n'oublieront pas — renforçant la fidélité et les réservations répétées. Et chaque fois qu'ils l'utilisent, vous gagnez un revenu passif grâce à votre marge de 20%. Zéro effort, des retours réels." },
       ]},
       { cat: "Pour les détaillants aéroportuaires", qs: [
         { q: "Comment DutyBoost profite-t-il à mon magasin ?", a: "DutyBoost dirige des voyageurs pré-qualifiés et motivés directement vers votre magasin." },
@@ -181,7 +181,7 @@ const content = {
       { cat: "Para socios de viajes", qs: [
         { q: "¿Cómo beneficia DutyBoost a mi negocio?", a: "Cada vez que un viajero canjea un DutyCredit, tu empresa gana el 20% de la comisión de la plataforma — ya seas proveedor de vuelos, alojamiento o alquiler de coches." },
         { q: "¿Cómo genero un DutyCredit?", a: "No lo haces tú — ocurre automáticamente. Al añadir el snippet de DutyBoost a tu página de confirmación de reserva, cada viajero recibe automáticamente su código QR DutyCredit único en su correo de confirmación." },
-        { q: "¿Hay algún coste?", a: "No. Sin comisiones de configuración, suscripción ni uso para socios de viajes. Esto ofrece a tus viajeros un beneficio exclusivo en el aeropuerto que recordarán — aumentando la fidelidad y las reservas repetidas. Y cada vez que lo canjean, tú ganas ingresos pasivos a través de tu margen del 20%. Cero esfuerzo, resultados reales." },
+        { q: "¿Hay algún coste?", a: "¡No! — Sin comisiones de configuración, suscripción ni uso para socios de viajes. Esto ofrece a tus viajeros un beneficio exclusivo en el aeropuerto que recordarán — aumentando la fidelidad y las reservas repetidas. Y cada vez que lo canjean, tú ganas ingresos pasivos a través de tu margen del 20%. Cero esfuerzo, resultados reales." },
       ]},
       { cat: "Para tiendas aeroportuarias", qs: [
         { q: "¿Cómo beneficia DutyBoost a mi tienda?", a: "DutyBoost dirige viajeros precalificados e incentivados directamente a tu tienda." },
@@ -219,7 +219,7 @@ const content = {
       { cat: "Per i partner di viaggio", qs: [
         { q: "Come beneficia la mia attività?", a: "Ogni volta che un viaggiatore riscatta un DutyCredit, la tua azienda guadagna il 20% della commissione della piattaforma — che tu sia un fornitore di voli, alloggi o noleggio auto." },
         { q: "Come genero un DutyCredit?", a: "Non lo fai tu — avviene automaticamente. Aggiungendo lo snippet DutyBoost alla tua pagina di conferma della prenotazione, ogni viaggiatore riceve automaticamente il proprio QR code DutyCredit unico nella sua e-mail di conferma." },
-        { q: "Ci sono costi?", a: "No. Nessun costo di configurazione, abbonamento o utilizzo per i partner di viaggio. Questo offre ai tuoi viaggiatori un vantaggio esclusivo in aeroporto che non dimenticheranno — aumentando la fidelizzazione e le prenotazioni ripetute. E ogni volta che lo riscattano, guadagni reddito passivo attraverso il tuo margine del 20%. Zero sforzo, ritorni reali." },
+        { q: "Ci sono costi?", a: "No! — Nessun costo di configurazione, abbonamento o utilizzo per i partner di viaggio. Questo offre ai tuoi viaggiatori un vantaggio esclusivo in aeroporto che non dimenticheranno — aumentando la fidelizzazione e le prenotazioni ripetute. E ogni volta che lo riscattano, guadagni reddito passivo attraverso il tuo margine del 20%. Zero sforzo, ritorni reali." },
       ]},
       { cat: "Per i rivenditori aeroportuali", qs: [
         { q: "Come beneficia il mio negozio?", a: "DutyBoost porta viaggiatori pre-qualificati e incentivati direttamente al tuo negozio." },
