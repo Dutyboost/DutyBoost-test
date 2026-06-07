@@ -266,17 +266,16 @@ export default function LetterOfIntentPage() {
           </p>
           
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-blue-900 text-sm">Why Partner With DutyBoost?</h3>
+            <h3 className="font-semibold text-blue-900 text-sm">A True Partnership — Hand in Hand</h3>
             <p className="text-sm text-blue-800 leading-relaxed">
-              By signing this Letter of Intent, you're unlocking a new revenue stream from your existing traveler flows. DutyBoost converts your passengers into airport retail customers, generating <strong>20% revenue margin</strong> on every redemption at participating retailers. Benefits include:
+              By signing this Letter of Intent, we're building <strong>a circular revenue ecosystem where everyone wins</strong>. You bring the travelers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.
             </p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li><strong>💰 Passive income</strong> — Earn 20% margin on every DutyCredit your travelers redeem</li>
-              <li><strong>✓ Zero effort</strong> — One-time integration, then automated revenue generation</li>
-              <li><strong>✓ Zero cost</strong> — No setup fees, subscription fees, or usage charges</li>
-              <li><strong>↑ Enhanced loyalty</strong> — Exclusive airport benefits strengthen customer relationships</li>
+              <li><strong>For you:</strong> Earn 20% margin on every DutyCredit your travelers redeem — passive income with zero cost</li>
+              <li><strong>For your travelers:</strong> Exclusive airport discounts they'll remember and value</li>
+              <li><strong>For airport retailers:</strong> High-intent shoppers arriving ready to spend</li>
             </ul>
-            <p className="text-sm text-blue-800 font-medium pt-2">Your travelers get rewarded at the airport. You get rewarded every time they redeem.</p>
+            <p className="text-sm text-blue-800 font-medium pt-2">One booking. Three parties benefiting. That's the power of working hand in hand with DutyBoost.</p>
           </div>
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
