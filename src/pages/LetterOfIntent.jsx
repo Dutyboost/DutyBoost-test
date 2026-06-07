@@ -260,7 +260,7 @@ export default function LetterOfIntentPage() {
           <h1 className="text-4xl font-heading font-bold text-foreground">Letter of Intent</h1>
           
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-blue-900 text-sm">A True Partnership — Hand in Hand</h3>
+            <h3 className="font-semibold text-blue-900 text-sm">How It Works — Creating Value Together</h3>
             <p className="text-sm text-blue-800 leading-relaxed">
               At DutyBoost, we're building <strong>a circular revenue ecosystem where everyone wins</strong>. You as a travel partner bring the travelers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.
             </p>
