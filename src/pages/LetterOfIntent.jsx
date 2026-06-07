@@ -220,7 +220,7 @@ export default function LetterOfIntentPage() {
           </div>
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
-            <strong>Important:</strong> {t('letterOfIntent.disclaimer')}
+            <strong>{t('letterOfIntent.important')}</strong> {t('letterOfIntent.disclaimer')}
           </p>
 
           <p className="text-muted-foreground max-w-xl mx-auto">
