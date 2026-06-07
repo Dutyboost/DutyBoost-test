@@ -7,6 +7,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
+const BLOCKED_EMAIL_DOMAINS = [
+  "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "yahoo.co.uk",
+  "yahoo.com.br", "yahoo.fr", "yahoo.de", "yahoo.es", "yahoo.it",
+  "aol.com", "mail.com", "protonmail.com", "icloud.com", "mail.ru",
+  "yandex.com", "163.com", "qq.com", "sina.com", "sohu.com",
+  "test.com", "example.com", "localhost.com"
+];
+
+const isValidProfessionalEmail = (email) => {
+  if (!email) return false;
+  const domain = email.split("@")[1]?.toLowerCase();
+  return domain && !BLOCKED_EMAIL_DOMAINS.includes(domain);
+};
+
 const LOI_TEXT = (partner) => {
   const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
   return `DUTYBOOST LETTER OF INTENT
@@ -157,6 +171,9 @@ export default function LetterOfIntentPage() {
     FIELDS.filter(f => f.required).forEach(f => {
       if (!form[f.key]?.trim()) newErrors[f.key] = true;
     });
+    if (form.partner_email && !isValidProfessionalEmail(form.partner_email)) {
+      newErrors.partner_email = "email_domain_invalid";
+    }
     if (!accepted) newErrors.accepted = true;
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -256,7 +273,11 @@ export default function LetterOfIntentPage() {
                     />
                   )}
                   {errors[field.key] && (
-                    <p className="text-xs text-destructive mt-1">This field is required.</p>
+                    <p className="text-xs text-destructive mt-1">
+                      {field.key === "partner_email" && errors[field.key] === "email_domain_invalid"
+                        ? "Please use a professional company email address (not Gmail, Hotmail, Yahoo, etc.)"
+                        : "This field is required."}
+                    </p>
                   )}
                 </div>
               ))}
