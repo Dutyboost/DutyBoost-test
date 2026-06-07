@@ -278,28 +278,28 @@ export default function LetterOfIntentPage() {
 
           {/* Why Section */}
           <div className="bg-slate-50 border border-slate-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-slate-900 text-base">Why a Letter of Intent?</h3>
+            <h3 className="font-semibold text-slate-900 text-base">{t('letterOfIntent.why_loi_title')}</h3>
             <p className="text-sm text-slate-700 leading-relaxed mb-2">
-              We're asking for your help to show airport retailers the real value DutyBoost brings. Together, we can demonstrate:
+              {t('letterOfIntent.why_loi_body')}
             </p>
             <ul className="text-sm text-slate-700 space-y-1.5 ml-3">
-              <li><strong>Conversion Uplift:</strong> Pre-activated travellers convert at 2x the rate of casual browsers — we prove this by delivering real results together.</li>
-              <li><strong>Basket Size Growth:</strong> The €35 minimum spend naturally elevates average transaction value — airport retailers see this immediately.</li>
-              <li><strong>Incremental Revenue:</strong> €300K–€400K annual per location — real, measurable growth on traffic they already have.</li>
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.why_loi_b1') }} />
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.why_loi_b2') }} />
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.why_loi_b3') }} />
             </ul>
             <p className="text-sm text-slate-700 leading-relaxed pt-2">
-              Your signature tells airport retailers you're willing to participate and help prove the model works. That's what unlocks their trust and participation.
+              {t('letterOfIntent.why_loi_footer')}
             </p>
           </div>
 
           {/* How It Works Section */}
           <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-emerald-900 text-base">How this will benefit everyone</h3>
+            <h3 className="font-semibold text-emerald-900 text-base">{t('letterOfIntent.how_title')}</h3>
             <ol className="text-sm text-emerald-800 space-y-2 ml-2">
-              <li><strong>1. You Sign:</strong> Review and digitally sign this Letter of Intent.</li>
-              <li><strong>2. We Use Your Signature:</strong> Your signature strengthens DutyBoost's negotiating position with airport retailers, showing them that travel partners are committed to the partnership.</li>
-              <li><strong>3. Airport Retailers Join:</strong> With your signature as proof of commitment, airport retailers gain confidence in the model and agree to participate.</li>
-              <li><strong>4. You Start Earning:</strong> Your travellers receive DutyCredits in their confirmation emails — a loyalty perk that strengthens brand loyalty. You earn 20% of the 2.5% DutyBoost platform fee (up to €5 per redemption) paid by airport retailers on every transaction.</li>
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.how_step1') }} />
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.how_step2') }} />
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.how_step3') }} />
+              <li dangerouslySetInnerHTML={{ __html: t('letterOfIntent.how_step4') }} />
             </ol>
           </div>
 
