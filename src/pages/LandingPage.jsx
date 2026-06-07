@@ -54,7 +54,7 @@ export default function LandingPage() {
           <DutyBoostLogo height={55} />
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/letter-of-intent">
-              <Button size="sm" variant="ghost" className="gap-1.5">
+              <Button size="sm" variant="outline" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 Letter of Intent
               </Button>
             </Link>
@@ -81,7 +81,7 @@ export default function LandingPage() {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
             <Link to="/letter-of-intent" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="ghost" className="w-full gap-1.5">
+              <Button size="sm" variant="outline" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 Letter of Intent
               </Button>
             </Link>
