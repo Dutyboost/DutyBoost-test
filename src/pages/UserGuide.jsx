@@ -326,7 +326,7 @@ export default function UserGuide() {
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="border-b border-border px-6 h-16 flex items-center sticky top-0 bg-background/95 backdrop-blur z-10">
-        <Link to="/"><DutyBoostLogo height={130} /></Link>
+        <Link to="/"><DutyBoostLogo height={55} /></Link>
       </nav>
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-14">
         <div className="text-center space-y-3">
