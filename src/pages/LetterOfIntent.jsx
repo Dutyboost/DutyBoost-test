@@ -280,15 +280,15 @@ export default function LetterOfIntentPage() {
           <div className="bg-slate-50 border border-slate-200 rounded-lg px-6 py-5 max-w-2xl mx-auto space-y-3">
             <h3 className="font-semibold text-slate-900 text-base">Why a Letter of Intent?</h3>
             <p className="text-sm text-slate-700 leading-relaxed mb-2">
-              By signing this Letter of Intent, airport retailers commit to DutyBoost because the data is clear:
+              By signing this Letter of Intent, you commit to helping airport retailers see the measurable value DutyBoost delivers. Our shared goal is to demonstrate that:
             </p>
             <ul className="text-sm text-slate-700 space-y-1.5 ml-3">
-              <li><strong>Conversion Uplift:</strong> Pre-activated travelers convert at 2x the rate of casual browsers — turning your existing footfall into paying customers.</li>
-              <li><strong>Basket Size Growth:</strong> DutyCredits require a €35 minimum spend, naturally elevating average transaction value and total store revenue.</li>
-              <li><strong>Incremental Revenue:</strong> An estimated €300K–€400K annual additional revenue per store location — pure profit on traffic that already walks your aisles.</li>
+              <li><strong>Conversion Uplift:</strong> Pre-activated travelers convert at 2x the rate of casual browsers — we prove this by delivering real results together.</li>
+              <li><strong>Basket Size Growth:</strong> The €35 minimum spend naturally elevates average transaction value — airport retailers see this immediately.</li>
+              <li><strong>Incremental Revenue:</strong> €300K–€400K annual per location — real, measurable growth on traffic they already have.</li>
             </ul>
             <p className="text-sm text-slate-700 leading-relaxed pt-2">
-              This partnership is about measurable revenue growth with zero upfront risk. You only pay commission when DutyBoost delivers a sale.
+              Your signature signals to airport retailers that you're serious about this partnership. It shows them you're willing to integrate, issue DutyCredits, and prove the model works. That commitment is what unlocks their trust and participation.
             </p>
           </div>
 
