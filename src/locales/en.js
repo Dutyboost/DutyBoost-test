@@ -871,6 +871,17 @@ export default {
       representative_name: 'Representative Full Name',
       representative_title: 'Representative Title / Function',
       email_address: 'Email Address',
+      monthly_travelers: 'Monthly Travellers to Airports',
+      partner_type: 'Partner Type',
+      select_type: 'Select type...',
+      company_name: 'Company Name',
+      registered_address: 'Registered Address',
+      country: 'Country',
+      chamber_of_commerce: 'Chamber of Commerce Number',
+      vat_number: 'VAT / Tax Number',
+      representative_name: 'Representative Full Name',
+      representative_title: 'Representative Title / Function',
+      email_address: 'Email Address',
       monthly_travelers: 'Monthly Travelers to Airports',
       partner_type: 'Partner Type',
       select_type: 'Select type...',
@@ -889,6 +900,112 @@ export default {
       error_email_invalid: 'Please use a professional company email address (not Gmail, Hotmail, Yahoo, etc.)',
       error_kvk_mismatch: 'Company name does not match the Chamber of Commerce registration.',
       error_kvk_validation: 'Could not validate Chamber of Commerce number. Please check and try again.',
+      loi_document: `DUTYBOOST LETTER OF INTENT
+
+This Letter of Intent ("LOI") is entered into on {date} by and between:
+
+DutyBoost, having its registered office at DEK 32, 1319BB Almere, The Netherlands, registered with the Dutch Chamber of Commerce under number 42053181, VAT number NL869492068B01, legally represented by:
+Jaquelin Beliad Perez – Co-Founder
+Raël Martis – Co-Founder
+hereinafter referred to as "DutyBoost",
+
+AND
+
+{company} having its registered office at {address} {country}{kvk_text}{vat_text}, legally represented by:
+{representative}{title_text}
+hereinafter referred to as "{company}",
+
+DutyBoost and {company} hereinafter jointly referred to as the "Party" or "Parties."
+
+1. Background
+
+DutyBoost has developed an innovative travel retail solution aimed at increasing commercial performance within airport retail environments. The platform creates additional commercial value based on existing traveller flows to airports and travel retail locations.
+
+DutyBoost positions itself as a "Travel Retail Conversion Layer", creating a new commercial revenue stream for travel partners based on the travellers they bring to airports and travel retail environments.
+
+{company} operates as a travel partner within the travel, mobility and/or tourism industry and possesses relevant traveller flows and customer relationships that can contribute to additional commercial value within airport environments.
+
+The Parties wish to explore opportunities for a commercial partnership whereby travellers introduced by the travel partner may contribute to additional commercial value and revenue opportunities within airport environments through DutyBoost.
+
+The objective of this collaboration is to create an additional revenue stream for the travel partner whilst simultaneously enhancing commercial performance within travel retail.
+
+2. Purpose of this Letter of Intent
+
+The purpose of this Letter of Intent is to record the Parties' intention to engage in discussions, evaluations and potential commercial collaborations relating to:
+- creating additional commercial value based on traveller flows;
+- creating additional revenue streams based on passenger traffic;
+- commercial cooperation between DutyBoost and the travel partner;
+- commercial revenue optimisation within travel retail;
+- revenue-enhancing strategies within airport retail;
+- engagement and conversion optimisation;
+- potential revenue-sharing models;
+- strategic positioning of DutyBoost within the traveller customer journey;
+- international commercial rollout opportunities.
+
+The Parties acknowledge that existing traveller flows within the travel industry can generate additional commercial opportunities within airport retail and travel retail environments.
+
+DutyBoost enables travel partners to create additional commercial value from existing traveller flows without impacting their core business operations.
+
+3. Exploratory Collaboration
+
+The Parties declare their intention to engage in good-faith discussions regarding a potential collaboration.
+
+Such collaboration between DutyBoost and the travel partner may include:
+- commercial cooperation based on existing traveller flows;
+- revenue-sharing models;
+- commercial positioning of DutyBoost within travel retail;
+- strategic collaboration surrounding airport retail;
+- international commercial rollout opportunities;
+- revenue optimisation within travel retail environments.
+
+The Parties acknowledge that DutyBoost was developed from the vision of making travel retail smarter, more interactive and commercially more effective.
+
+The collaboration may focus on:
+- revenue-sharing models;
+- commercial revenue optimisation;
+- strategic positioning within travel retail;
+- expansion of commercial opportunities within airport environments;
+- international commercial expansion.
+
+4. Confidentiality
+
+4.1 All information disclosed by either Party in connection with this Letter of Intent shall be treated as strictly confidential.
+4.2 No confidential information shall be disclosed to any third party without the prior written consent of the other Party.
+4.3 Confidential information includes, but is not limited to: business models, strategies, technology, software, concepts, commercial terms, financial information, customer information, presentations, prototypes, and market positioning.
+4.4 This confidentiality obligation shall remain in effect for a period of five (5) years following the execution of this Letter of Intent.
+
+5. Exclusivity
+
+For a period of 365 days from the date of execution of this Letter of Intent, the Parties shall engage in good-faith exclusive discussions regarding the proposed collaboration, unless otherwise agreed in writing.
+
+6. Non-Binding Nature
+
+6.1 This Letter of Intent is non-binding with respect to entering into any definitive collaboration agreement.
+6.2 Only the provisions relating to confidentiality, intellectual property and exclusivity shall be legally binding, unless otherwise agreed by the Parties in writing.
+6.3 Neither Party shall be obligated to enter into a definitive agreement until a formal written agreement has been duly executed.
+
+7. Intellectual Property
+
+7.1 All intellectual property rights relating to DutyBoost, including but not limited to software, technology, branding, strategies, designs, concepts, presentations, documentation, data sources, user experiences, marketing materials and commercial models, shall remain the sole property of DutyBoost.
+7.2 Nothing contained in this Letter of Intent shall be construed as a transfer of any intellectual property rights.
+7.3 Without the prior written consent of DutyBoost, the Parties shall not copy any part of the concept, reproduce any technology, use confidential commercial information outside the scope of the contemplated collaboration, or develop similar concepts based upon confidential information shared by DutyBoost.
+7.4 Any joint developments or future collaboration outcomes shall be governed exclusively by a separate written agreement.
+
+8. Costs
+
+Each Party shall bear its own costs and expenses relating to negotiations, meetings, investigations and any potential collaboration process.
+
+9. Term and Termination
+
+9.1 This Letter of Intent shall become effective on the date of execution.
+9.2 This Letter of Intent shall automatically expire after 36 months unless the Parties agree in writing to extend it.
+9.3 Either Party may terminate this Letter of Intent at any time by written notice.
+
+10. Governing Law
+
+This Letter of Intent shall be governed exclusively by the laws of The Netherlands. Any dispute arising from or relating to this Letter of Intent shall be submitted to the competent courts of The Netherlands.
+
+The Parties declare that they enter into this Letter of Intent in a spirit of mutual trust and with the intention of exploring the possibilities of a long-term and valuable collaboration. Although this Letter of Intent does not constitute a definitive commercial agreement, the Parties emphasise their sincere intention to continue discussions and explore potential future collaborations.`,
     },
     login: {
       page_title: 'Sign In',

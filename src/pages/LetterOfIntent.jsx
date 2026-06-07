@@ -24,127 +24,35 @@ const isValidProfessionalEmail = (email) => {
   return domain && !BLOCKED_EMAIL_DOMAINS.includes(domain);
 };
 
-const LOI_TEXT = (partner) => {
+const generateLOI_TEXT = (partner, t) => {
    const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
-   return `DUTYBOOST LETTER OF INTENT
-
-This Letter of Intent ("LOI") is entered into on ${today} by and between:
-
-DutyBoost, having its registered office at DEK 32, 1319BB Almere, The Netherlands, registered with the Dutch Chamber of Commerce under number 42053181, VAT number NL869492068B01, legally represented by:
-Jaquelin Beliad Perez – Co-Founder
-Raël Martis – Co-Founder
-hereinafter referred to as "DutyBoost",
-
-AND
-
-${partner.partner_company_name || "[PARTNER COMPANY NAME]"}, having its registered office at ${partner.partner_address || "[ADDRESS]"}, ${partner.partner_country || "[COUNTRY]"}${partner.partner_registration_number ? `, registered under number ${partner.partner_registration_number}` : ""}${partner.partner_vat ? `, VAT/Tax number ${partner.partner_vat}` : ""}, legally represented by:
-${partner.partner_representative_name || "[REPRESENTATIVE NAME]"}${partner.partner_representative_title ? ` – ${partner.partner_representative_title}` : ""}
-hereinafter referred to as "${partner.partner_company_name || "[PARTNER COMPANY NAME]"}",
-
-DutyBoost and ${partner.partner_company_name || "[PARTNER COMPANY NAME]"} hereinafter jointly referred to as the "Party" or "Parties."
-
-1. Background
-
-DutyBoost has developed an innovative travel retail solution aimed at increasing commercial performance within airport retail environments. The platform creates additional commercial value based on existing traveller flows to airports and travel retail locations.
-
-DutyBoost positions itself as a "Travel Retail Conversion Layer", creating a new commercial revenue stream for travel partners based on the travellers they bring to airports and travel retail environments.
-
-${partner.partner_company_name || "[PARTNER COMPANY NAME]"} operates as a travel partner within the travel, mobility and/or tourism industry and possesses relevant traveller flows and customer relationships that can contribute to additional commercial value within airport environments.
-
-The Parties wish to explore opportunities for a commercial partnership whereby travellers introduced by the travel partner may contribute to additional commercial value and revenue opportunities within airport environments through DutyBoost.
-
-The objective of this collaboration is to create an additional revenue stream for the travel partner whilst simultaneously enhancing commercial performance within travel retail.
-
-2. Purpose of this Letter of Intent
-
-The purpose of this Letter of Intent is to record the Parties' intention to engage in discussions, evaluations and potential commercial collaborations relating to:
-- creating additional commercial value based on traveller flows;
-- creating additional revenue streams based on passenger traffic;
-- commercial cooperation between DutyBoost and the travel partner;
-- commercial revenue optimisation within travel retail;
-- revenue-enhancing strategies within airport retail;
-- engagement and conversion optimisation;
-- potential revenue-sharing models;
-- strategic positioning of DutyBoost within the traveller customer journey;
-- international commercial rollout opportunities.
-
-The Parties acknowledge that existing traveller flows within the travel industry can generate additional commercial opportunities within airport retail and travel retail environments.
-
-DutyBoost enables travel partners to create additional commercial value from existing traveller flows without impacting their core business operations.
-
-3. Exploratory Collaboration
-
-The Parties declare their intention to engage in good-faith discussions regarding a potential collaboration.
-
-Such collaboration between DutyBoost and the travel partner may include:
-- commercial cooperation based on existing traveller flows;
-- revenue-sharing models;
-- commercial positioning of DutyBoost within travel retail;
-- strategic collaboration surrounding airport retail;
-- international commercial rollout opportunities;
-- revenue optimisation within travel retail environments.
-
-The Parties acknowledge that DutyBoost was developed from the vision of making travel retail smarter, more interactive and commercially more effective.
-
-The collaboration may focus on:
-- revenue-sharing models;
-- commercial revenue optimisation;
-- strategic positioning within travel retail;
-- expansion of commercial opportunities within airport environments;
-- international commercial expansion.
-
-4. Confidentiality
-
-4.1 All information disclosed by either Party in connection with this Letter of Intent shall be treated as strictly confidential.
-4.2 No confidential information shall be disclosed to any third party without the prior written consent of the other Party.
-4.3 Confidential information includes, but is not limited to: business models, strategies, technology, software, concepts, commercial terms, financial information, customer information, presentations, prototypes, and market positioning.
-4.4 This confidentiality obligation shall remain in effect for a period of five (5) years following the execution of this Letter of Intent.
-
-5. Exclusivity
-
-For a period of 365 days from the date of execution of this Letter of Intent, the Parties shall engage in good-faith exclusive discussions regarding the proposed collaboration, unless otherwise agreed in writing.
-
-6. Non-Binding Nature
-
-6.1 This Letter of Intent is non-binding with respect to entering into any definitive collaboration agreement.
-6.2 Only the provisions relating to confidentiality, intellectual property and exclusivity shall be legally binding, unless otherwise agreed by the Parties in writing.
-6.3 Neither Party shall be obligated to enter into a definitive agreement until a formal written agreement has been duly executed.
-
-7. Intellectual Property
-
-7.1 All intellectual property rights relating to DutyBoost, including but not limited to software, technology, branding, strategies, designs, concepts, presentations, documentation, data sources, user experiences, marketing materials and commercial models, shall remain the sole property of DutyBoost.
-7.2 Nothing contained in this Letter of Intent shall be construed as a transfer of any intellectual property rights.
-7.3 Without the prior written consent of DutyBoost, the Parties shall not copy any part of the concept, reproduce any technology, use confidential commercial information outside the scope of the contemplated collaboration, or develop similar concepts based upon confidential information shared by DutyBoost.
-7.4 Any joint developments or future collaboration outcomes shall be governed exclusively by a separate written agreement.
-
-8. Costs
-
-Each Party shall bear its own costs and expenses relating to negotiations, meetings, investigations and any potential collaboration process.
-
-9. Term and Termination
-
-9.1 This Letter of Intent shall become effective on the date of execution.
-9.2 This Letter of Intent shall automatically expire after 36 months unless the Parties agree in writing to extend it.
-9.3 Either Party may terminate this Letter of Intent at any time by written notice.
-
-10. Governing Law
-
-This Letter of Intent shall be governed exclusively by the laws of The Netherlands. Any dispute arising from or relating to this Letter of Intent shall be submitted to the competent courts of The Netherlands.
-
-The Parties declare that they enter into this Letter of Intent in a spirit of mutual trust and with the intention of exploring the possibilities of a long-term and valuable collaboration. Although this Letter of Intent does not constitute a definitive commercial agreement, the Parties emphasise their sincere intention to continue discussions and explore potential future collaborations.`;
+   const kvkText = partner.partner_registration_number ? `, registered under number ${partner.partner_registration_number}` : "";
+   const vatText = partner.partner_vat ? `, VAT/Tax number ${partner.partner_vat}` : "";
+   const titleText = partner.partner_representative_title ? ` – ${partner.partner_representative_title}` : "";
+   
+   const template = t('letterOfIntent.loi_document');
+   return template
+     .replace(/{date}/g, today)
+     .replace(/{company}/g, partner.partner_company_name || "[PARTNER COMPANY NAME]")
+     .replace(/{address}/g, partner.partner_address || "[ADDRESS]")
+     .replace(/{country}/g, partner.partner_country || "[COUNTRY]")
+     .replace(/{kvk_text}/g, kvkText)
+     .replace(/{vat_text}/g, vatText)
+     .replace(/{representative}/g, partner.partner_representative_name || "[REPRESENTATIVE NAME]")
+     .replace(/{title_text}/g, titleText);
 };
 
 const FIELDS = [
-  { key: "partner_company_name", label: "Company Name", required: true, placeholder: "Your company legal name" },
-  { key: "partner_address", label: "Registered Address", required: true, placeholder: "Full street address" },
-  { key: "partner_country", label: "Country", required: true, placeholder: "e.g. Netherlands, Spain, Germany" },
-  { key: "partner_registration_number", label: "Chamber of Commerce Number", required: true, placeholder: "e.g. KvK, Trade Register, etc." },
-  { key: "partner_vat", label: "VAT / Tax Number", required: true, placeholder: "e.g. NL123456789B01" },
-  { key: "partner_representative_name", label: "Representative Full Name", required: true, placeholder: "Legal signatory name" },
-  { key: "partner_representative_title", label: "Representative Title / Function", required: false, placeholder: "e.g. CEO, Co-Founder, Director" },
-  { key: "partner_email", label: "Email Address", required: true, placeholder: "your@company.com", type: "email" },
-  { key: "monthly_travelers", label: "Monthly Travellers to Airports", required: true, type: "number", placeholder: "e.g. 5000" },
-  { key: "partner_type", label: "Partner Type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
+  { key: "partner_company_name", labelKey: "letterOfIntent.company_name", required: true, placeholder: "Your company legal name" },
+  { key: "partner_address", labelKey: "letterOfIntent.registered_address", required: true, placeholder: "Full street address" },
+  { key: "partner_country", labelKey: "letterOfIntent.country", required: true, placeholder: "e.g. Netherlands, Spain, Germany" },
+  { key: "partner_registration_number", labelKey: "letterOfIntent.chamber_of_commerce", required: true, placeholder: "e.g. KvK, Trade Register, etc." },
+  { key: "partner_vat", labelKey: "letterOfIntent.vat_number", required: true, placeholder: "e.g. NL123456789B01" },
+  { key: "partner_representative_name", labelKey: "letterOfIntent.representative_name", required: true, placeholder: "Legal signatory name" },
+  { key: "partner_representative_title", labelKey: "letterOfIntent.representative_title", required: false, placeholder: "e.g. CEO, Co-Founder, Director" },
+  { key: "partner_email", labelKey: "letterOfIntent.email_address", required: true, placeholder: "your@company.com", type: "email" },
+  { key: "monthly_travelers", labelKey: "letterOfIntent.monthly_travelers", required: true, type: "number", placeholder: "e.g. 5000" },
+  { key: "partner_type", labelKey: "letterOfIntent.partner_type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
 ];
 
 export default function LetterOfIntentPage() {
@@ -220,7 +128,7 @@ export default function LetterOfIntentPage() {
     setSubmitted(true);
   };
 
-  const loiText = LOI_TEXT(form);
+  const loiText = generateLOI_TEXT(form, t);
 
   if (submitted) {
     return (
@@ -328,7 +236,7 @@ export default function LetterOfIntentPage() {
               {FIELDS.map(field => (
                 <div key={field.key} className={field.key === "partner_address" ? "md:col-span-2" : ""}>
                   <label className="block text-sm font-medium text-foreground mb-1.5">
-                    {field.label}
+                    {t(field.labelKey)}
                     {field.required && <span className="text-destructive ml-1">*</span>}
                   </label>
                   {field.type === "select" ? (
@@ -337,7 +245,7 @@ export default function LetterOfIntentPage() {
                       onChange={e => handleChange(field.key, e.target.value)}
                       className={`w-full h-10 rounded-md border bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${errors[field.key] ? "border-destructive" : "border-input"}`}
                     >
-                      <option value="">Select type...</option>
+                      <option value="">{t('letterOfIntent.select_type')}</option>
                       {field.options.map(o => <option key={o} value={o}>{o}</option>)}
                     </select>
                   ) : field.key === "monthly_travelers" ? (

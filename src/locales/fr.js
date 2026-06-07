@@ -567,6 +567,17 @@ export default {
       disclaimer: 'Important : Cette Lettre d\'Intention n\'est pas contraignante et ne génère aucune obligation financière à moins qu\'un accord contraignant définitif ne soit signé séparément par des représentants autorisés des deux parties.',
       fill_details: 'Renseignez les coordonnées de votre entreprise ci-dessous. La Lettre d\'Intention sera remplie avec vos informations et soumise à DutyBoost lors de l\'acceptation.',
       your_details: 'Vos coordonnées',
+      company_name: 'Nom de l\'Entreprise',
+      registered_address: 'Adresse Enregistrée',
+      country: 'Pays',
+      chamber_of_commerce: 'Numéro de Chambre de Commerce',
+      vat_number: 'Numéro TVA / Fiscal',
+      representative_name: 'Nom Complet du Représentant',
+      representative_title: 'Titre/Fonction du Représentant',
+      email_address: 'Adresse E-mail',
+      monthly_travelers: 'Voyageurs Mensuels vers les Aéroports',
+      partner_type: 'Type de Partenaire',
+      select_type: 'Sélectionner le type...',
       preview_loi: 'Aperçu de la Lettre d\'Intention',
       live_preview: 'Aperçu en direct',
       acceptance: 'Acceptation & Signature',
@@ -582,6 +593,112 @@ export default {
       error_email_invalid: 'Veuillez utiliser une adresse e-mail professionnelle (pas Gmail, Hotmail, Yahoo, etc.)',
       error_kvk_mismatch: 'Le nom de l\'entreprise ne correspond pas à l\'enregistrement du registre du commerce.',
       error_kvk_validation: 'Impossible de valider le numéro de registre du commerce. Veuillez vérifier et réessayer.',
+      loi_document: `DUTYBOOST LETTRE D\'INTENTION
+
+La présente Lettre d\'Intention (« LOI ») a été conclue le {date} entre :
+
+DutyBoost, ayant son siège social à DEK 32, 1319BB Almere, Pays-Bas, enregistrée auprès de la Chambre de Commerce des Pays-Bas sous le numéro 42053181, numéro TVA NL869492068B01, légalement représentée par :
+Jaquelin Beliad Perez – Co-Fondateur
+Raël Martis – Co-Fondateur
+ci-après dénommée « DutyBoost »,
+
+ET
+
+{company} ayant son siège social à {address} {country}{kvk_text}{vat_text}, légalement représentée par :
+{representative}{title_text}
+ci-après dénommée « {company} »,
+
+DutyBoost et {company} ci-après collectivement dénommées la « Partie » ou les « Parties ».
+
+1. Contexte
+
+DutyBoost a développé une solution innovante de vente au détail de voyage visant à améliorer la performance commerciale dans les environnements de vente au détail des aéroports. La plateforme crée de la valeur commerciale supplémentaire basée sur les flux de voyageurs existants vers les aéroports et les sites de vente au détail de voyage.
+
+DutyBoost se positionne comme une « Travel Retail Conversion Layer », créant un nouveau flux de revenus commerciaux pour les partenaires de voyage basé sur les voyageurs qu\'ils apportent aux aéroports et aux environnements de vente au détail de voyage.
+
+{company} fonctionne comme un partenaire de voyage dans l\'industrie des voyages, de la mobilité et/ou du tourisme et possède des flux de voyageurs pertinents et des relations avec les clients qui peuvent contribuer à créer une valeur commerciale supplémentaire dans les environnements aéroportuaires.
+
+Les Parties souhaitent explorer les opportunités d\'un partenariat commercial par lequel les voyageurs introduits par le partenaire de voyage peuvent contribuer à créer une valeur commerciale supplémentaire et des opportunités de revenus au sein des environnements aéroportuaires via DutyBoost.
+
+L\'objectif de cette collaboration est de créer un flux de revenus supplémentaire pour le partenaire de voyage tout en améliorant simultanément la performance commerciale au sein de la vente au détail de voyage.
+
+2. Objet de cette Lettre d\'Intention
+
+L\'objet de cette Lettre d\'Intention est d\'enregistrer l\'intention des Parties de s\'engager dans des discussions, des évaluations et des collaborations commerciales potentielles concernant :
+- créer une valeur commerciale supplémentaire basée sur les flux de voyageurs ;
+- créer des flux de revenus supplémentaires basés sur le trafic de passagers ;
+- la coopération commerciale entre DutyBoost et le partenaire de voyage ;
+- l\'optimisation des revenus commerciaux au sein de la vente au détail de voyage ;
+- les stratégies d\'amélioration des revenus dans la vente au détail aéroportuaire ;
+- l\'optimisation de l\'engagement et de la conversion ;
+- les modèles de partage des revenus potentiels ;
+- le positionnement stratégique de DutyBoost au sein du parcours client du voyageur ;
+- les opportunités de déploiement commercial international.
+
+Les Parties reconnaissent que les flux de voyageurs existants au sein de l\'industrie des voyages peuvent générer des opportunités commerciales supplémentaires au sein des environnements de vente au détail des aéroports et de voyage.
+
+DutyBoost permet aux partenaires de voyage de créer une valeur commerciale supplémentaire à partir des flux de voyageurs existants sans impacter leurs opérations commerciales principales.
+
+3. Collaboration Exploratoire
+
+Les Parties déclarent leur intention de s\'engager dans des discussions de bonne foi concernant une collaboration potentielle.
+
+Une telle collaboration entre DutyBoost et le partenaire de voyage peut inclure :
+- la coopération commerciale basée sur les flux de voyageurs existants ;
+- les modèles de partage des revenus ;
+- le positionnement commercial de DutyBoost au sein de la vente au détail de voyage ;
+- la collaboration stratégique concernant la vente au détail aéroportuaire ;
+- les opportunités de déploiement commercial international ;
+- l\'optimisation des revenus au sein des environnements de vente au détail de voyage.
+
+Les Parties reconnaissent que DutyBoost a été développée à partir de la vision de rendre la vente au détail de voyage plus intelligente, plus interactive et commercialement plus efficace.
+
+La collaboration peut se concentrer sur :
+- les modèles de partage des revenus ;
+- l\'optimisation des revenus commerciaux ;
+- le positionnement stratégique au sein de la vente au détail de voyage ;
+- l\'expansion des opportunités commerciales au sein des environnements aéroportuaires ;
+- l\'expansion commerciale internationale.
+
+4. Confidentialité
+
+4.1 Toutes les informations divulguées par l\'une ou l\'autre Partie en relation avec cette Lettre d\'Intention seront traitées comme strictement confidentielles.
+4.2 Aucune information confidentielle ne sera divulguée à un tiers sans le consentement écrit préalable de l\'autre Partie.
+4.3 Les informations confidentielles incluent, mais ne se limitent pas à : les modèles commerciaux, les stratégies, la technologie, les logiciels, les concepts, les conditions commerciales, les informations financières, les informations sur les clients, les présentations, les prototypes et le positionnement sur le marché.
+4.4 Cette obligation de confidentialité restera en vigueur pour une période de cinq (5) ans suivant l\'exécution de cette Lettre d\'Intention.
+
+5. Exclusivité
+
+Pendant une période de 365 jours à partir de la date d\'exécution de cette Lettre d\'Intention, les Parties s\'engageront dans des discussions exclusives de bonne foi concernant la collaboration proposée, sauf accord contraire écrit.
+
+6. Nature Non Contraignante
+
+6.1 Cette Lettre d\'Intention n\'est pas contraignante en ce qui concerne la conclusion de tout accord de collaboration définitif.
+6.2 Seules les dispositions relatives à la confidentialité, à la propriété intellectuelle et à l\'exclusivité seront juridiquement contraignantes, sauf accord contraire écrit des Parties.
+6.3 Aucune Partie n\'sera obligée de conclure un accord définitif tant qu\'un accord écrit formel n\'aura pas été dûment exécuté.
+
+7. Propriété Intellectuelle
+
+7.1 Tous les droits de propriété intellectuelle relatifs à DutyBoost, y compris, mais sans s\'y limiter, les logiciels, la technologie, la marque, les stratégies, les conceptions, les concepts, les présentations, la documentation, les sources de données, les expériences utilisateur, les matériels de marketing et les modèles commerciaux, resteront la propriété exclusive de DutyBoost.
+7.2 Rien dans cette Lettre d\'Intention ne peut être interprété comme un transfert de droits de propriété intellectuelle.
+7.3 Sans le consentement écrit préalable de DutyBoost, les Parties ne doivent pas copier une partie du concept, reproduire une technologie, utiliser des informations commerciales confidentielles en dehors de la portée de la collaboration envisagée, ou développer des concepts similaires basés sur les informations confidentielles partagées par DutyBoost.
+7.4 Tout développement conjoint ou résultat de collaboration future sera régi exclusivement par un accord écrit distinct.
+
+8. Frais
+
+Chaque Partie supportera ses propres frais et dépenses relatifs aux négociations, réunions, investigations et à tout processus de collaboration potentiel.
+
+9. Durée et Résiliation
+
+9.1 Cette Lettre d\'Intention entrera en vigueur à la date de son exécution.
+9.2 Cette Lettre d\'Intention expirera automatiquement après 36 mois à moins que les Parties n\'acceptent par écrit de la prolonger.
+9.3 Chaque Partie peut résilier cette Lettre d\'Intention à tout moment par notification écrite.
+
+10. Droit Applicable
+
+Cette Lettre d\'Intention est régie exclusivement par les lois des Pays-Bas. Tout différend découlant ou se rapportant à cette Lettre d\'Intention sera soumis aux tribunaux compétents des Pays-Bas.
+
+Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esprit de confiance mutuelle et avec l\'intention d\'explorer les possibilités d\'une collaboration à long terme et précieuse. Bien que cette Lettre d\'Intention ne constitue pas un accord commercial définitif, les Parties soulignent leur intention sincère de poursuivre les discussions et d\'explorer les collaborations futures potentielles.`,
     },
     login: {
       page_title: 'Connexion',

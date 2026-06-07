@@ -567,6 +567,17 @@ export default {
       disclaimer: 'Wichtig: Diese Absichtserklärung ist unverbindlich und begründet keine finanziellen Verpflichtungen, es sei denn, eine endgültige bindende Vereinbarung wird separat von bevollmächtigten Vertretern beider Parteien unterzeichnet.',
       fill_details: 'Füllen Sie unten Ihre Unternehmensdaten aus. Die Absichtserklärung wird mit Ihren Informationen ausgefüllt und bei Annahme an DutyBoost übermittelt.',
       your_details: 'Ihre Angaben',
+      company_name: 'Unternehmensname',
+      registered_address: 'Registrierte Adresse',
+      country: 'Land',
+      chamber_of_commerce: 'Handelskammernummer',
+      vat_number: 'USt-ID-Nummer',
+      representative_name: 'Vollständiger Name des Vertreters',
+      representative_title: 'Titel/Funktion des Vertreters',
+      email_address: 'E-Mail-Adresse',
+      monthly_travelers: 'Monatliche Reisende zu Flughäfen',
+      partner_type: 'Partnertyp',
+      select_type: 'Typ wählen...',
       preview_loi: 'Absichtserklärung vorschau',
       live_preview: 'Live-Vorschau',
       acceptance: 'Akzeptanz & Unterschrift',
@@ -582,6 +593,112 @@ export default {
       error_email_invalid: 'Bitte verwenden Sie eine professionelle Unternehmens-E-Mail (kein Gmail, Hotmail, Yahoo, etc.)',
       error_kvk_mismatch: 'Der Unternehmensname stimmt nicht mit der Handelsregistereintragung überein.',
       error_kvk_validation: 'Die Handelsregisternummer konnte nicht validiert werden. Bitte überprüfen und erneut versuchen.',
+      loi_document: `DUTYBOOST ABSICHTSERKLÄRUNG
+
+Diese Absichtserklärung ("AOI") wird am {date} zwischen folgenden Parteien geschlossen:
+
+DutyBoost mit Sitz unter DEK 32, 1319BB Almere, Niederlande, eingetragen in der niederländischen Handelskammer unter der Nummer 42053181, USt-ID NL869492068B01, rechtlich vertreten durch:
+Jaquelin Beliad Perez – Mitbegründer
+Raël Martis – Mitbegründer
+im Folgenden „DutyBoost" genannt,
+
+UND
+
+{company} mit Sitz unter {address} {country}{kvk_text}{vat_text}, rechtlich vertreten durch:
+{representative}{title_text}
+im Folgenden „{company}" genannt,
+
+DutyBoost und {company} im Folgenden gemeinsam als die „Partei" oder die „Parteien" bezeichnet.
+
+1. Hintergrund
+
+DutyBoost hat eine innovative Reiseeinzellösung entwickelt, die darauf abzielt, die kommerzielle Leistung in Flughafen-Einzelhandelsumgebungen zu verbessern. Die Plattform schafft zusätzlichen kommerziellen Wert basierend auf bestehenden Reisenderströmen zu Flughäfen und Reiseeinzelbandortungen.
+
+DutyBoost positioniert sich als "Travel Retail Conversion Layer" und schafft einen neuen Umsatzstrom für Reisepartner basierend auf den Reisenden, die sie zu Flughäfen und Reiseeinzelbandortungen bringen.
+
+{company} agiert als Reisepartner in der Reise-, Mobilitäts- und/oder Tourismusbranche und verfügt über relevante Reisenderströme und Kundenbeziehungen, die zu zusätzlichem kommerziellem Wert in Flughafen-Umgebungen beitragen können.
+
+Die Parteien wünschen sich die Erkundung von Möglichkeiten für eine kommerzielle Partnerschaft, bei der von dem Reisepartner eingebrachte Reisende zu zusätzlichem kommerziellem Wert und Umsatzmöglichkeiten innerhalb von Flughafen-Umgebungen durch DutyBoost beitragen können.
+
+Ziel dieser Zusammenarbeit ist es, einen zusätzlichen Umsatzstrom für den Reisepartner zu schaffen und gleichzeitig die kommerzielle Leistung im Reiseeinzelhandel zu verbessern.
+
+2. Zweck dieser Absichtserklärung
+
+Der Zweck dieser Absichtserklärung ist es, die Absicht der Parteien zu dokumentieren, sich an Diskussionen, Bewertungen und potenziellen Handelskooperationen zu beteiligen, die sich auf Folgendes beziehen:
+- Schaffung von zusätzlichem kommerziellem Wert basierend auf Reisenderströmen;
+- Schaffung zusätzlicher Umsatzströme basierend auf Passagierverkehr;
+- Geschäftszusammenarbeit zwischen DutyBoost und dem Reisepartner;
+- Optimierung der kommerziellen Umsätze im Reiseeinzelhandel;
+- Umsatzsteigerungsstrategien im Flughafen-Einzelhandel;
+- Engagement- und Konversionsoptimierung;
+- potenzielle Umsatzbeteiligungsmodelle;
+- strategische Positionierung von DutyBoost in der Kundenreise des Reisenden;
+- internationale Handelsausbaumöglichkeiten.
+
+Die Parteien erkennen an, dass bestehende Reisenderströme in der Reiseindustrie zusätzliche Handelsmöglichkeiten in Flughafen- und Reiseeinzel-Einzelhandelsumgebungen generieren können.
+
+DutyBoost ermöglicht Reisepartnern, zusätzlichen kommerziellen Wert aus bestehenden Reisenderströmen zu schaffen, ohne ihre Kerngeschäftsabläufe zu beeinträchtigen.
+
+3. Explorative Zusammenarbeit
+
+Die Parteien erklären ihre Absicht, sich in gutem Glauben an Diskussionen über eine mögliche Zusammenarbeit zu beteiligen.
+
+Eine solche Zusammenarbeit zwischen DutyBoost und dem Reisepartner kann Folgendes beinhalten:
+- kommerzielle Zusammenarbeit basierend auf bestehenden Reisenderströmen;
+- Umsatzbeteiligungsmodelle;
+- kommerzielle Positionierung von DutyBoost im Reiseeinzelhandel;
+- strategische Zusammenarbeit rund um den Flughafen-Einzelhandel;
+- internationale Handelsausbaumöglichkeiten;
+- Umsatzoptimierung in Reiseeinzel-Einzelhandelsumgebungen.
+
+Die Parteien erkennen an, dass DutyBoost aus der Vision heraus entwickelt wurde, Reiseeinzelhandel intelligenter, interaktiver und kommerziell effizienter zu gestalten.
+
+Die Zusammenarbeit kann sich auf Folgendes konzentrieren:
+- Umsatzbeteiligungsmodelle;
+- Optimierung der kommerziellen Umsätze;
+- strategische Positionierung im Reiseeinzelhandel;
+- Erweiterung der kommerziellen Möglichkeiten in Flughafen-Umgebungen;
+- internationale Handelsausbau.
+
+4. Vertraulichkeit
+
+4.1 Alle Informationen, die von einer Partei im Zusammenhang mit dieser Absichtserklärung offengelegt werden, werden als streng vertraulich behandelt.
+4.2 Keine vertraulichen Informationen werden ohne vorherige schriftliche Zustimmung der anderen Partei an Dritte offengelegt.
+4.3 Vertrauliche Informationen umfassen unter anderem: Geschäftsmodelle, Strategien, Technologie, Software, Konzepte, Handelsbedingungen, Finanzinformationen, Kundeninformationen, Präsentationen, Prototypen und Marktpositionierung.
+4.4 Diese Vertraulichkeitsverpflichtung bleibt für einen Zeitraum von fünf (5) Jahren nach Unterzeichnung dieser Absichtserklärung gültig.
+
+5. Ausschließlichkeit
+
+Für einen Zeitraum von 365 Tagen ab Unterzeichnung dieser Absichtserklärung werden die Parteien sich in gutem Glauben ausschließlich an Diskussionen über die vorgeschlagene Zusammenarbeit beteiligen, sofern nichts anderes schriftlich vereinbart wird.
+
+6. Unverbindliche Natur
+
+6.1 Diese Absichtserklärung ist nicht verbindlich in Bezug auf den Abschluss einer verbindlichen Kooperationsvereinbarung.
+6.2 Nur die Bestimmungen zur Vertraulichkeit, geistigen Eigentumsrechte und Ausschließlichkeit sind rechtsverbindlich, sofern nichts anderes schriftlich von den Parteien vereinbart wird.
+6.3 Keine Partei ist verpflichtet, eine verbindliche Vereinbarung abzuschließen, bis eine offizielle schriftliche Vereinbarung ordnungsgemäß unterzeichnet wurde.
+
+7. Geistige Eigentumsrechte
+
+7.1 Alle geistigen Eigentumsrechte im Zusammenhang mit DutyBoost, einschließlich unter anderem Software, Technologie, Branding, Strategien, Designs, Konzepte, Präsentationen, Dokumentation, Datenquellen, Benutzererfahrungen, Marketingmaterialien und Geschäftsmodelle, bleiben ausschließliches Eigentum von DutyBoost.
+7.2 Nichts in dieser Absichtserklärung kann als Übertragung von geistigen Eigentumsrechten ausgelegt werden.
+7.3 Ohne vorherige schriftliche Zustimmung von DutyBoost dürfen die Parteien keinen Teil des Konzepts kopieren, keine Technologie vervielfältigen, vertrauliche Handelsinformationen außerhalb des Umfangs der vorgesehenen Zusammenarbeit verwenden oder ähnliche Konzepte basierend auf von DutyBoost geteilten vertraulichen Informationen entwickeln.
+7.4 Alle gemeinsamen Entwicklungen oder zukünftigen Kooperationsergebnisse unterliegen ausschließlich einer separaten schriftlichen Vereinbarung.
+
+8. Kosten
+
+Jede Partei trägt ihre eigenen Kosten und Ausgaben im Zusammenhang mit Verhandlungen, Meetings, Untersuchungen und einem etwaigen Kooperationsprozess.
+
+9. Dauer und Beendigung
+
+9.1 Diese Absichtserklärung wird wirksam am Tag ihrer Unterzeichnung.
+9.2 Diese Absichtserklärung erlischt automatisch nach 36 Monaten, sofern die Parteien nicht schriftlich einer Verlängerung zustimmen.
+9.3 Jede Partei kann diese Absichtserklärung jederzeit schriftlich beendigen.
+
+10. Anwendbares Recht
+
+Diese Absichtserklärung unterliegt ausschließlich den Gesetzen der Niederlande. Alle Streitigkeiten, die sich aus dieser Absichtserklärung ergeben oder sich darauf beziehen, werden den zuständigen Gerichten der Niederlande vorgelegt.
+
+Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertrauen eingehen und mit der Absicht, die Möglichkeiten einer langfristigen und wertvollen Zusammenarbeit zu erkunden. Obwohl diese Absichtserklärung kein verbindliches Handelsabkommen darstellt, betonen die Parteien ihre aufrichtige Absicht, Diskussionen fortzusetzen und potenzielle zukünftige Kooperationen zu erkunden.`,
     },
     login: {
       page_title: 'Anmelden',

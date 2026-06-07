@@ -785,6 +785,17 @@ export default {
       disclaimer: 'Importante: Esta Carta de Intención no es vinculante y no genera ninguna obligación financiera a menos que un acuerdo vinculante definitivo sea firmado por separado por representantes autorizados de ambas partes.',
       fill_details: 'Completa los datos de tu empresa a continuación. La Carta de Intención se rellenará con tu información y se enviará a DutyBoost al aceptarla.',
       your_details: 'Tus datos',
+      company_name: 'Nombre de la Empresa',
+      registered_address: 'Dirección Registrada',
+      country: 'País',
+      chamber_of_commerce: 'Número de Cámara de Comercio',
+      vat_number: 'Número de IVA / Fiscal',
+      representative_name: 'Nombre Completo del Representante',
+      representative_title: 'Título/Cargo del Representante',
+      email_address: 'Dirección de Correo Electrónico',
+      monthly_travelers: 'Viajeros Mensuales a Aeropuertos',
+      partner_type: 'Tipo de Socio',
+      select_type: 'Selecciona tipo...',
       preview_loi: 'Vista previa de la Carta de Intención',
       live_preview: 'Vista previa en vivo',
       acceptance: 'Aceptación y firma',
@@ -800,6 +811,112 @@ export default {
       error_email_invalid: 'Por favor usa una dirección de correo profesional (no Gmail, Hotmail, Yahoo, etc.)',
       error_kvk_mismatch: 'El nombre de la empresa no coincide con el registro mercantil.',
       error_kvk_validation: 'No se pudo validar el número de registro mercantil. Por favor verifica e inténtalo de nuevo.',
+      loi_document: `DUTYBOOST CARTA DE INTENCIÓN
+
+La presente Carta de Intención ("CI") se celebra el {date} entre:
+
+DutyBoost, con domicilio social en DEK 32, 1319BB Almere, Países Bajos, registrada ante la Cámara de Comercio Holandesa bajo el número 42053181, número de IVA NL869492068B01, legalmente representada por:
+Jaquelin Beliad Perez – Cofundador
+Raël Martis – Cofundador
+en lo sucesivo denominada "DutyBoost",
+
+Y
+
+{company} con domicilio social en {address} {country}{kvk_text}{vat_text}, legalmente representada por:
+{representative}{title_text}
+en lo sucesivo denominada "{company}",
+
+DutyBoost y {company} en lo sucesivo conjuntamente denominadas la "Parte" o las "Partes".
+
+1. Antecedentes
+
+DutyBoost ha desarrollado una solución innovadora de venta minorista de viajes destinada a aumentar el desempeño comercial en entornos de venta minorista de aeropuertos. La plataforma crea valor comercial adicional basado en los flujos de viajeros existentes hacia aeropuertos y ubicaciones de venta minorista de viajes.
+
+DutyBoost se posiciona a sí mismo como una "Travel Retail Conversion Layer", creando un nuevo flujo de ingresos comerciales para socios de viajes basado en los viajeros que traen a los aeropuertos y entornos de venta minorista de viajes.
+
+{company} opera como socio de viajes dentro de la industria de viajes, movilidad y/o turismo y posee flujos de viajeros relevantes y relaciones con clientes que pueden contribuir a crear valor comercial adicional en entornos de aeropuertos.
+
+Las Partes desean explorar oportunidades para una asociación comercial por la cual los viajeros presentados por el socio de viajes puedan contribuir a crear valor comercial adicional y oportunidades de ingresos en entornos de aeropuertos a través de DutyBoost.
+
+El objetivo de esta colaboración es crear un flujo de ingresos adicional para el socio de viajes mientras mejora simultáneamente el desempeño comercial en la venta minorista de viajes.
+
+2. Propósito de esta Carta de Intención
+
+El propósito de esta Carta de Intención es registrar la intención de las Partes de participar en discusiones, evaluaciones y colaboraciones comerciales potenciales relacionadas con:
+- crear valor comercial adicional basado en flujos de viajeros;
+- crear flujos de ingresos adicionales basados en tráfico de pasajeros;
+- cooperación comercial entre DutyBoost y el socio de viajes;
+- optimización de ingresos comerciales en venta minorista de viajes;
+- estrategias de mejora de ingresos en venta minorista de aeropuertos;
+- optimización de engagement y conversión;
+- posibles modelos de participación en ingresos;
+- posicionamiento estratégico de DutyBoost dentro del viaje del cliente viajero;
+- oportunidades de expansión comercial internacional.
+
+Las Partes reconocen que los flujos de viajeros existentes dentro de la industria de viajes pueden generar oportunidades comerciales adicionales dentro de entornos de venta minorista de aeropuertos y viajes.
+
+DutyBoost permite a los socios de viajes crear valor comercial adicional a partir de flujos de viajeros existentes sin impactar sus operaciones comerciales principales.
+
+3. Colaboración Exploratoria
+
+Las Partes declaran su intención de participar en discusiones de buena fe respecto a una colaboración potencial.
+
+Tal colaboración entre DutyBoost y el socio de viajes puede incluir:
+- cooperación comercial basada en flujos de viajeros existentes;
+- modelos de participación en ingresos;
+- posicionamiento comercial de DutyBoost en venta minorista de viajes;
+- colaboración estratégica alrededor de venta minorista de aeropuertos;
+- oportunidades de expansión comercial internacional;
+- optimización de ingresos en entornos de venta minorista de viajes.
+
+Las Partes reconocen que DutyBoost fue desarrollado a partir de la visión de hacer la venta minorista de viajes más inteligente, más interactiva y comercialmente más efectiva.
+
+La colaboración puede enfocarse en:
+- modelos de participación en ingresos;
+- optimización de ingresos comerciales;
+- posicionamiento estratégico en venta minorista de viajes;
+- expansión de oportunidades comerciales en entornos de aeropuertos;
+- expansión comercial internacional.
+
+4. Confidencialidad
+
+4.1 Toda la información divulgada por cualquiera de las Partes en conexión con esta Carta de Intención será tratada como estrictamente confidencial.
+4.2 Ninguna información confidencial será divulgada a terceros sin el consentimiento escrito previo de la otra Parte.
+4.3 La información confidencial incluye, pero no se limita a: modelos comerciales, estrategias, tecnología, software, conceptos, términos comerciales, información financiera, información del cliente, presentaciones, prototipos y posicionamiento de mercado.
+4.4 Esta obligación de confidencialidad permanecerá en vigencia durante un período de cinco (5) años después de la ejecución de esta Carta de Intención.
+
+5. Exclusividad
+
+Durante un período de 365 días a partir de la fecha de ejecución de esta Carta de Intención, las Partes se comprometerán en discusiones exclusivas de buena fe respecto a la colaboración propuesta, a menos que se acuerde lo contrario por escrito.
+
+6. Naturaleza No Vinculante
+
+6.1 Esta Carta de Intención no es vinculante respecto a celebrar cualquier acuerdo de colaboración definitivo.
+6.2 Solo las disposiciones relacionadas con confidencialidad, propiedad intelectual y exclusividad serán legalmente vinculantes, a menos que las Partes acuerden lo contrario por escrito.
+6.3 Ninguna Parte estará obligada a celebrar un acuerdo definitivo hasta que se haya ejecutado debidamente un acuerdo escrito formal.
+
+7. Propiedad Intelectual
+
+7.1 Todos los derechos de propiedad intelectual relacionados con DutyBoost, incluyendo pero no limitado a software, tecnología, marca, estrategias, diseños, conceptos, presentaciones, documentación, fuentes de datos, experiencias de usuario, materiales de marketing y modelos comerciales, permanecerán como propiedad exclusiva de DutyBoost.
+7.2 Nada contenido en esta Carta de Intención puede interpretarse como una transferencia de derechos de propiedad intelectual.
+7.3 Sin el consentimiento escrito previo de DutyBoost, las Partes no copiarán ninguna parte del concepto, reproducirán tecnología alguna, utilizarán información comercial confidencial fuera del alcance de la colaboración contemplada, o desarrollarán conceptos similares basados en información confidencial compartida por DutyBoost.
+7.4 Cualquier desarrollo conjunto o resultado de colaboración futura será gobernado exclusivamente por un acuerdo escrito separado.
+
+8. Costos
+
+Cada Parte soportará sus propios costos y gastos relacionados con negociaciones, reuniones, investigaciones y cualquier proceso potencial de colaboración.
+
+9. Duración y Terminación
+
+9.1 Esta Carta de Intención entrará en vigor en la fecha de su ejecución.
+9.2 Esta Carta de Intención expirará automáticamente después de 36 meses a menos que las Partes acuerden por escrito extenderla.
+9.3 Cualquiera de las Partes puede terminar esta Carta de Intención en cualquier momento mediante notificación escrita.
+
+10. Ley Aplicable
+
+Esta Carta de Intención será regida exclusivamente por las leyes de los Países Bajos. Cualquier disputa que surja de o se relacione con esta Carta de Intención será sometida a los tribunales competentes de los Países Bajos.
+
+Las Partes declaran que celebran esta Carta de Intención en un espíritu de confianza mutua y con la intención de explorar las posibilidades de una colaboración a largo plazo y valiosa. Aunque esta Carta de Intención no constituye un acuerdo comercial definitivo, las Partes enfatizan su intención sincera de continuar discusiones y explorar colaboraciones potenciales futuras.`,
     },
     login: {
       page_title: 'Iniciar sesión',

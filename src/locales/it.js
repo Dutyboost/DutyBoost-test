@@ -585,6 +585,17 @@ export default {
       disclaimer: 'Importante: Questa Lettera di Intenti non è vincolante e non genera obblighi finanziari a meno che un accordo vincolante definitivo non venga firmato separatamente da rappresentanti autorizzati di entrambe le parti.',
       fill_details: 'Compila i dati della tua azienda di seguito. La Lettera di Intenti verrà compilata con le tue informazioni e inviata a DutyBoost all\'accettazione.',
       your_details: 'I tuoi dati',
+      company_name: 'Nome Azienda',
+      registered_address: 'Indirizzo Registrato',
+      country: 'Paese',
+      chamber_of_commerce: 'Numero Registro Imprese',
+      vat_number: 'Numero IVA / Fiscale',
+      representative_name: 'Nome Completo del Rappresentante',
+      representative_title: 'Titolo/Funzione del Rappresentante',
+      email_address: 'Indirizzo Email',
+      monthly_travelers: 'Viaggiatori Mensili verso Aeroporti',
+      partner_type: 'Tipo di Partner',
+      select_type: 'Seleziona tipo...',
       preview_loi: 'Anteprima della Lettera di Intenti',
       live_preview: 'Anteprima in diretta',
       acceptance: 'Accettazione e firma',
@@ -600,6 +611,112 @@ export default {
       error_email_invalid: 'Si prega di utilizzare un indirizzo e-mail professionale aziendale (non Gmail, Hotmail, Yahoo, ecc.)',
       error_kvk_mismatch: 'Il nome dell\'azienda non corrisponde alla registrazione nel registro delle imprese.',
       error_kvk_validation: 'Impossibile validare il numero di registro imprese. Controlla e riprova.',
+      loi_document: `DUTYBOOST LETTERA DI INTENTI
+
+La presente Lettera di Intenti ("LI") è stipulata il {date} tra:
+
+DutyBoost, con sede legale a DEK 32, 1319BB Almere, Paesi Bassi, registrata presso la Camera di Commercio olandese con numero 42053181, numero IVA NL869492068B01, legalmente rappresentata da:
+Jaquelin Beliad Perez – Co-Fondatore
+Raël Martis – Co-Fondatore
+di seguito denominata "DutyBoost",
+
+E
+
+{company} con sede legale in {address} {country}{kvk_text}{vat_text}, legalmente rappresentata da:
+{representative}{title_text}
+di seguito denominata "{company}",
+
+DutyBoost e {company} di seguito collettivamente denominate la "Parte" o le "Parti".
+
+1. Contesto
+
+DutyBoost ha sviluppato una soluzione innovativa di retail di viaggio volta a migliorare le prestazioni commerciali negli ambienti di retail degli aeroporti. La piattaforma crea valore commerciale aggiuntivo basato sui flussi di viaggiatori esistenti verso aeroporti e sedi di retail di viaggio.
+
+DutyBoost si posiziona come "Travel Retail Conversion Layer", creando un nuovo flusso di entrate commerciali per i partner di viaggio basato sui viaggiatori che portano negli aeroporti e negli ambienti di retail di viaggio.
+
+{company} opera come partner di viaggio nell\'industria dei viaggi, della mobilità e/o del turismo e possiede flussi di viaggiatori rilevanti e relazioni con clienti che possono contribuire a creare valore commerciale aggiuntivo negli ambienti aeroportuali.
+
+Le Parti desiderano esplorare opportunità per una partnership commerciale per la quale i viaggiatori introdotti dal partner di viaggio possono contribuire a creare valore commerciale aggiuntivo e opportunità di entrate negli ambienti aeroportuali attraverso DutyBoost.
+
+L\'obiettivo di questa collaborazione è creare un flusso di entrate aggiuntivo per il partner di viaggio mantenendo nel contempo il miglioramento delle prestazioni commerciali nel retail di viaggio.
+
+2. Scopo di questa Lettera di Intenti
+
+Lo scopo di questa Lettera di Intenti è registrare l\'intenzione delle Parti di impegnarsi in discussioni, valutazioni e potenziali collaborazioni commerciali relative a:
+- creazione di valore commerciale aggiuntivo basato su flussi di viaggiatori;
+- creazione di flussi di entrate aggiuntivi basati sul traffico passeggeri;
+- cooperazione commerciale tra DutyBoost e il partner di viaggio;
+- ottimizzazione delle entrate commerciali nel retail di viaggio;
+- strategie di miglioramento delle entrate nel retail aeroportuale;
+- ottimizzazione dell\'engagement e della conversione;
+- potenziali modelli di condivisione delle entrate;
+- posizionamento strategico di DutyBoost nel percorso del cliente viaggiatore;
+- opportunità di espansione commerciale internazionale.
+
+Le Parti riconoscono che i flussi di viaggiatori esistenti nell\'industria dei viaggi possono generare opportunità commerciali aggiuntive negli ambienti di retail degli aeroporti e di viaggio.
+
+DutyBoost consente ai partner di viaggio di creare valore commerciale aggiuntivo dai flussi di viaggiatori esistenti senza impattare le loro operazioni commerciali principali.
+
+3. Collaborazione Esplorativa
+
+Le Parti dichiarano la loro intenzione di impegnarsi in discussioni di buona fede riguardanti una potenziale collaborazione.
+
+Tale collaborazione tra DutyBoost e il partner di viaggio può includere:
+- cooperazione commerciale basata su flussi di viaggiatori esistenti;
+- modelli di condivisione delle entrate;
+- posizionamento commerciale di DutyBoost nel retail di viaggio;
+- collaborazione strategica nel retail aeroportuale;
+- opportunità di espansione commerciale internazionale;
+- ottimizzazione delle entrate negli ambienti di retail di viaggio.
+
+Le Parti riconoscono che DutyBoost è stata sviluppata dalla visione di rendere il retail di viaggio più intelligente, più interattivo e commercialmente più efficace.
+
+La collaborazione può concentrarsi su:
+- modelli di condivisione delle entrate;
+- ottimizzazione delle entrate commerciali;
+- posizionamento strategico nel retail di viaggio;
+- espansione delle opportunità commerciali negli ambienti aeroportuali;
+- espansione commerciale internazionale.
+
+4. Riservatezza
+
+4.1 Tutte le informazioni divulgate da una Parte in connessione con questa Lettera di Intenti saranno trattate come strettamente riservate.
+4.2 Nessuna informazione riservata sarà divulgata a terzi senza il previo consenso scritto dell\'altra Parte.
+4.3 Le informazioni riservate includono, ma non sono limitate a: modelli commerciali, strategie, tecnologia, software, concetti, termini commerciali, informazioni finanziarie, informazioni sui clienti, presentazioni, prototipi e posizionamento di mercato.
+4.4 Questo obbligo di riservatezza rimane in vigore per un periodo di cinque (5) anni successivo all\'esecuzione di questa Lettera di Intenti.
+
+5. Esclusività
+
+Per un periodo di 365 giorni dalla data di esecuzione di questa Lettera di Intenti, le Parti condurranno discussioni esclusive in buona fede riguardanti la collaborazione proposta, a meno che non sia diversamente concordato per iscritto.
+
+6. Natura Non Vincolante
+
+6.1 Questa Lettera di Intenti non è vincolante per quanto riguarda la conclusione di qualsiasi accordo di collaborazione definitivo.
+6.2 Solo le disposizioni relative alla riservatezza, alla proprietà intellettuale e all\'esclusività saranno legalmente vincolanti, a meno che le Parti non concordino diversamente per iscritto.
+6.3 Nessuna Parte è obbligata a stipulare un accordo definitivo fino a quando un accordo scritto formale non sia stato debitamente eseguito.
+
+7. Proprietà Intellettuale
+
+7.1 Tutti i diritti di proprietà intellettuale relativi a DutyBoost, inclusi ma non limitati a software, tecnologia, branding, strategie, design, concetti, presentazioni, documentazione, fonti dati, esperienze utente, materiali di marketing e modelli commerciali, rimangono di proprietà esclusiva di DutyBoost.
+7.2 Nulla contenuto in questa Lettera di Intenti può essere interpretato come un trasferimento di diritti di proprietà intellettuale.
+7.3 Senza il previo consenso scritto di DutyBoost, le Parti non possono copiare alcuna parte del concetto, riprodurre alcuna tecnologia, utilizzare informazioni commerciali riservate al di fuori dell\'ambito della collaborazione prevista, o sviluppare concetti simili basati su informazioni riservate condivise da DutyBoost.
+7.4 Qualsiasi sviluppo congiunto o risultato di collaborazione futura sarà disciplinato esclusivamente da un accordo scritto separato.
+
+8. Costi
+
+Ciascuna Parte sostiene i propri costi e spese relativi a negoziati, incontri, investigazioni e qualsiasi potenziale processo di collaborazione.
+
+9. Durata e Risoluzione
+
+9.1 Questa Lettera di Intenti entra in vigore alla data della sua esecuzione.
+9.2 Questa Lettera di Intenti scade automaticamente dopo 36 mesi a meno che le Parti non concordino per iscritto di estenderla.
+9.3 Entrambe le Parti possono risolvere questa Lettera di Intenti in qualsiasi momento mediante notifica scritta.
+
+10. Legge Applicabile
+
+Questa Lettera di Intenti è regolata esclusivamente dalle leggi dei Paesi Bassi. Qualsiasi controversia derivante da o relativa a questa Lettera di Intenti è sottoposta ai tribunali competenti dei Paesi Bassi.
+
+Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fiducia reciproca e con l\'intenzione di esplorare le possibilità di una collaborazione a lungo termine e preziosa. Sebbene questa Lettera di Intenti non costituisca un accordo commerciale definitivo, le Parti sottolineano la loro sincera intenzione di continuare le discussioni ed esplorare potenziali collaborazioni future.`,
     },
     login: {
       page_title: 'Accedi',
