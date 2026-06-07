@@ -277,16 +277,8 @@ export default function LetterOfIntentPage() {
             <p className="text-sm text-blue-800 font-semibold pt-1">{t('letterOfIntent.what_we_ask')}</p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
               <li>{t('letterOfIntent.from_you')}</li>
-              <li>{t('letterOfIntent.from_travelers')}</li>
-              <li>{t('letterOfIntent.from_retailers')}</li>
             </ul>
-            <p className="text-sm text-blue-800 leading-relaxed pt-2"><strong>{t('letterOfIntent.the_outcome')}</strong></p>
-            <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li>{t('letterOfIntent.outcome_1')}</li>
-              <li>{t('letterOfIntent.outcome_2')}</li>
-              <li>{t('letterOfIntent.outcome_3')}</li>
-            </ul>
-            <p className="text-sm text-blue-800 font-medium pt-2">{t('letterOfIntent.closing')}</p>
+
           </div>
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
