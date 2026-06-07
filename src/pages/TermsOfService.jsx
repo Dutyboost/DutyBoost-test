@@ -24,7 +24,7 @@ const content = {
         "Force Majeure: any event beyond a party's reasonable control, including but not limited to natural disasters, pandemics, strikes, air traffic control disruptions, government travel bans, or airport closures.",
       ]},
       { h: "2. Acceptance of Terms", p: "By using the Platform, you accept these Terms, our Privacy Policy, our Cookie Policy, our Code of Conduct, and our Data Processing Agreement. If you are registering on behalf of a business, you warrant that you have authority to bind that business." },
-      { h: "3. Service Description", p: "DutyBoost is a Travel Retail Conversion Platform (TRCP) that connects travel partners, airport retailers, and travelers through DutyCredits — dynamic, booking-linked shopping incentives redeemable at participating airport points of sale. DutyBoost does not operate as a travel agent, tour operator, or airline and does not sell travel products." },
+      { h: "3. Service Description", p: "DutyBoost is a Travel Retail Conversion Platform (TRCP) operating as a Circular Revenue Ecosystem — connecting travel partners, airport retailers, and travelers through DutyCredits. Every confirmed booking generates a DutyCredit that rewards the traveler, drives footfall to airport retailers, and earns the travel partner a revenue share. DutyBoost does not operate as a travel agent, tour operator, or airline and does not sell travel products." },
       { h: "4. Eligibility", p: "You must be at least 18 years of age with full legal capacity. Travel Partners must hold all applicable licences and accreditations required to operate as a travel intermediary in their jurisdiction (e.g. IATA accreditation, ABTA/ANVR membership, or equivalent). All information you provide must be accurate and complete." },
       { h: "5. Travel Partner Obligations", list: [
         "Submit only confirmed, ticketed bookings. DutyCredits must be linked to a valid PNR or booking reference issued by a recognised Global Distribution System (GDS) or direct airline reservation system.",
@@ -85,7 +85,7 @@ const content = {
         "Overmacht: elke gebeurtenis buiten redelijke controle van een partij, inclusief natuurrampen, pandemieën, stakingen, luchtverkeersleiding-verstoringen, reisverboden of luchthavensluitingen.",
       ]},
       { h: "2. Acceptatie van voorwaarden", p: "Door het Platform te gebruiken, accepteert u deze Voorwaarden, ons Privacybeleid, ons Cookiebeleid, onze Gedragscode en onze Gegevensverwerkingsovereenkomst." },
-      { h: "3. Dienstverlening", p: "DutyBoost is een Travel Retail Conversieplatform (TRCP) dat reispartners, luchthavenwinkels en reizigers verbindt via DutyCredits — dynamische, aan boekingen gekoppelde winkelincentives die inwisselbaar zijn op deelnemende luchthaven-verkooppunten. DutyBoost treedt niet op als reisbureau, touroperator of luchtvaartmaatschappij." },
+      { h: "3. Dienstverlening", p: "DutyBoost is een Travel Retail Conversieplatform (TRCP) dat opereert als een Circulair Omzetecosysteem — reispartners, luchthavenwinkels en reizigers worden verbonden via DutyCredits. Elke bevestigde boeking genereert een DutyCredit die de reiziger beloont, bezoekers naar luchthavenwinkels trekt en de reispartner een inkomstenaandeel oplevert. DutyBoost treedt niet op als reisbureau, touroperator of luchtvaartmaatschappij." },
       { h: "4. Geschiktheid", p: "U moet minimaal 18 jaar oud zijn en de volledige juridische bevoegdheid hebben. Reispartners dienen alle vereiste licenties en accreditaties te bezitten (bijv. IATA-accreditatie, ANVR-lidmaatschap of gelijkwaardig). Alle verstrekte informatie moet nauwkeurig en volledig zijn." },
       { h: "5. Verplichtingen reispartners", list: [
         "Alleen bevestigde, getickte boekingen indienen. DutyCredits moeten gekoppeld zijn aan een geldig PNR of boekingsreferentie.",
@@ -145,7 +145,7 @@ const content = {
         "Höhere Gewalt: Ereignisse außerhalb der zumutbaren Kontrolle einer Partei, einschließlich Naturkatastrophen, Pandemien, Streiks, Flugsicherungsstörungen, Reiseverbote oder Flughafenschließungen.",
       ]},
       { h: "2. Annahme der Bedingungen", p: "Durch die Nutzung der Plattform akzeptieren Sie diese Bedingungen, unsere Datenschutzerklärung, unsere Cookie-Richtlinie, unseren Verhaltenskodex und unseren Datenverarbeitungsvertrag." },
-      { h: "3. Leistungsbeschreibung", p: "DutyBoost ist eine Travel Retail Conversion Plattform (TRCP), die Reisepartner, Flughafenhändler und Reisende über DutyCredits verbindet — dynamische, buchungsgebundene Einkaufsanreize. DutyBoost ist kein Reisebüro, Reiseveranstalter oder Fluggesellschaft." },
+      { h: "3. Leistungsbeschreibung", p: "DutyBoost ist eine Travel Retail Conversion Plattform (TRCP), die als Circular Revenue Ecosystem operiert — Reisepartner, Flughafenhändler und Reisende werden über DutyCredits verbunden. Jede bestätigte Buchung generiert einen DutyCredit, der den Reisenden belohnt, Flughafenhändlern Kundschaft bringt und dem Reisepartner einen Umsatzanteil einbringt. DutyBoost ist kein Reisebüro, Reiseveranstalter oder Fluggesellschaft." },
       { h: "4. Berechtigung", p: "Sie müssen mindestens 18 Jahre alt sein. Reisepartner müssen alle erforderlichen Lizenzen und Akkreditierungen besitzen (z. B. IATA-Akkreditierung oder gleichwertiges). Alle Angaben müssen korrekt sein." },
       { h: "5. Pflichten der Reisepartner", list: [
         "Nur bestätigte, ausgestellte Buchungen einreichen. DutyCredits müssen mit einem gültigen PNR verknüpft sein.",
@@ -205,7 +205,7 @@ const content = {
         "Force majeure : tout événement hors du contrôle raisonnable d'une partie, y compris catastrophes naturelles, pandémies, grèves, perturbations du contrôle aérien, interdictions de voyager ou fermetures d'aéroports.",
       ]},
       { h: "2. Acceptation des Conditions", p: "En utilisant la Plateforme, vous acceptez ces Conditions, notre Politique de confidentialité, notre Politique en matière de cookies, notre Code de conduite et notre Accord de traitement des données." },
-      { h: "3. Description du service", p: "DutyBoost est une plateforme de conversion retail de voyage (TRCP) reliant partenaires de voyage, détaillants aéroportuaires et voyageurs via des DutyCredits. DutyBoost n'est pas une agence de voyage, un tour-opérateur ou une compagnie aérienne." },
+      { h: "3. Description du service", p: "DutyBoost est une plateforme de conversion retail de voyage (TRCP) qui opère comme un Écosystème de Revenus Circulaires — reliant partenaires de voyage, détaillants aéroportuaires et voyageurs via des DutyCredits. Chaque réservation confirmée génère un DutyCredit qui récompense le voyageur, attire des clients chez les détaillants aéroportuaires et génère une part de revenus pour le partenaire de voyage. DutyBoost n'est pas une agence de voyage, un tour-opérateur ou une compagnie aérienne." },
       { h: "4. Éligibilité", p: "Vous devez avoir au moins 18 ans. Les partenaires de voyage doivent détenir toutes les licences et accréditations requises (ex. : accréditation IATA ou équivalent). Toutes les informations doivent être exactes." },
       { h: "5. Obligations des partenaires de voyage", list: [
         "Soumettre uniquement des réservations confirmées et émises, liées à un PNR valide.",
@@ -265,7 +265,7 @@ const content = {
         "Fuerza mayor: cualquier evento fuera del control razonable de una parte, incluyendo catástrofes naturales, pandemias, huelgas, restricciones de viaje o cierres de aeropuertos.",
       ]},
       { h: "2. Aceptación de los Términos", p: "Al usar la Plataforma, aceptas estos Términos, nuestra Política de privacidad, nuestra Política de cookies, nuestro Código de conducta y nuestro Acuerdo de procesamiento de datos." },
-      { h: "3. Descripción del servicio", p: "DutyBoost es una Plataforma de Conversión de Retail de Viajes (TRCP) que conecta socios de viaje, comercios aeroportuarios y viajeros a través de DutyCredits. DutyBoost no es agencia de viajes, touroperador ni aerolínea." },
+      { h: "3. Descripción del servicio", p: "DutyBoost es una Plataforma de Conversión de Retail de Viajes (TRCP) que opera como un Ecosistema de Ingresos Circulares — conectando socios de viaje, comercios aeroportuarios y viajeros a través de DutyCredits. Cada reserva confirmada genera un DutyCredit que recompensa al viajero, lleva clientes a los comercios aeroportuarios y genera una participación en los ingresos para el socio de viaje. DutyBoost no es agencia de viajes, touroperador ni aerolínea." },
       { h: "4. Elegibilidad", p: "Debes tener al menos 18 años. Los socios de viaje deben poseer todas las licencias y acreditaciones requeridas (ej. acreditación IATA o equivalente). Toda la información debe ser precisa." },
       { h: "5. Obligaciones de los socios de viaje", list: [
         "Enviar solo reservas confirmadas y emitidas, vinculadas a un PNR válido.",
@@ -325,7 +325,7 @@ const content = {
         "Forza maggiore: qualsiasi evento al di fuori del ragionevole controllo di una parte, incluse catastrofi naturali, pandemie, scioperi, restrizioni di viaggio o chiusure di aeroporti.",
       ]},
       { h: "2. Accettazione dei Termini", p: "Utilizzando la Piattaforma, accetti questi Termini, la nostra Informativa sulla privacy, la nostra Politica sui cookie, il nostro Codice di condotta e il nostro Accordo sul trattamento dei dati." },
-      { h: "3. Descrizione del servizio", p: "DutyBoost è una Travel Retail Conversion Platform (TRCP) che collega partner di viaggio, rivenditori aeroportuali e viaggiatori tramite DutyCredit. DutyBoost non è un'agenzia di viaggi, un tour operator o una compagnia aerea." },
+      { h: "3. Descrizione del servizio", p: "DutyBoost è una Travel Retail Conversion Platform (TRCP) che opera come un Ecosistema di Ricavi Circolari — collegando partner di viaggio, rivenditori aeroportuali e viaggiatori tramite DutyCredit. Ogni prenotazione confermata genera un DutyCredit che premia il viaggiatore, porta clienti ai rivenditori aeroportuali e genera una quota di ricavi per il partner di viaggio. DutyBoost non è un'agenzia di viaggi, un tour operator o una compagnia aerea." },
       { h: "4. Requisiti", p: "Devi avere almeno 18 anni. I partner di viaggio devono possedere tutte le licenze e accreditamenti richiesti (es. accreditamento IATA o equivalente). Tutte le informazioni devono essere accurate." },
       { h: "5. Obblighi dei partner di viaggio", list: [
         "Inviare solo prenotazioni confermate ed emesse, collegate a un PNR valido.",

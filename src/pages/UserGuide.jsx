@@ -10,7 +10,7 @@ const content = {
     contents: "Contents",
     toc: ["Platform Overview", "Guide for Travel Partners", "Guide for Airport Retailers", "Guide for Travelers", "Installing DutyBoost on Your Mobile Device"],
     overview_title: "1. Platform Overview",
-    overview_desc: "DutyBoost is a Travel Retail Conversion Platform that bridges travel partners, airport retailers, and travelers through DutyCredits. When a traveler books a flight, accommodation, or car rental through a participating travel partner, they automatically receive a DutyCredit — a digital discount voucher redeemable at participating airport shops.",
+    overview_desc: "DutyBoost is a Travel Retail Conversion Platform operating as a Circular Revenue Ecosystem — connecting travel partners, airport retailers, and travelers through DutyCredits. When a traveler books a flight, accommodation, or car rental through a participating travel partner, they automatically receive a DutyCredit — a digital discount voucher redeemable at participating airport shops. Every booking sets the ecosystem in motion: the travel partner earns a revenue share, the traveler gets an airport discount, and the retailer gains a motivated shopper.",
     overview_cards: [
       { title: "Travel Partners", desc: "Generate DutyCredits automatically for every qualifying flight, accommodation, or car rental booking." },
       { title: "DutyCredits", desc: "Smart vouchers delivered to travelers before they reach the airport." },
@@ -63,7 +63,7 @@ const content = {
     contents: "Inhoud",
     toc: ["Platformoverzicht", "Gids voor reispartners", "Gids voor luchthavenwinkels", "Gids voor reizigers", "DutyBoost installeren op uw mobiel"],
     overview_title: "1. Platformoverzicht",
-    overview_desc: "DutyBoost is een Travel Retail Conversieplatform dat reispartners, luchthavenwinkels en reizigers verbindt via DutyCredits. Wanneer een reiziger een vlucht, accommodatie of huurauto boekt via een deelnemende reispartner, ontvangt hij automatisch een DutyCredit — een digitale kortingsvoucher inwisselbaar bij deelnemende luchthavenwinkels.",
+    overview_desc: "DutyBoost is een Travel Retail Conversieplatform dat opereert als een Circulair Omzetecosysteem — reispartners, luchthavenwinkels en reizigers worden verbonden via DutyCredits. Wanneer een reiziger een vlucht, accommodatie of huurauto boekt via een deelnemende reispartner, ontvangt hij automatisch een DutyCredit — een digitale kortingsvoucher inwisselbaar bij deelnemende luchthavenwinkels. Elke boeking zet het ecosysteem in beweging: de reispartner verdient een inkomstenaandeel, de reiziger krijgt korting op de luchthaven en de winkel krijgt een gemotiveerde klant.",
     overview_cards: [
       { title: "Reispartners", desc: "Genereer automatisch DutyCredits voor elke kwalificerende vlucht-, accommodatie- of huurauto-boeking." },
       { title: "DutyCredits", desc: "Slimme vouchers die reizigers ontvangen vóórdat ze de luchthaven bereiken." },
@@ -116,7 +116,7 @@ const content = {
     contents: "Inhalt",
     toc: ["Plattformübersicht", "Leitfaden für Reisepartner", "Leitfaden für Flughafenhändler", "Leitfaden für Reisende", "DutyBoost auf Ihrem Mobilgerät installieren"],
     overview_title: "1. Plattformübersicht",
-    overview_desc: "DutyBoost ist eine Travel Retail Conversion Plattform, die Reisepartner, Flughafenhändler und Reisende durch DutyCredits verbindet. Wenn ein Reisender einen Flug, eine Unterkunft oder einen Mietwagen über einen teilnehmenden Reisepartner bucht, erhält er automatisch einen DutyCredit — einen digitalen Rabattgutschein.",
+    overview_desc: "DutyBoost ist eine Travel Retail Conversion Plattform, die als Circular Revenue Ecosystem operiert — Reisepartner, Flughafenhändler und Reisende werden durch DutyCredits verbunden. Wenn ein Reisender einen Flug, eine Unterkunft oder einen Mietwagen über einen teilnehmenden Reisepartner bucht, erhält er automatisch einen DutyCredit — einen digitalen Rabattgutschein. Jede Buchung setzt das Ökosystem in Gang: der Reisepartner verdient einen Umsatzanteil, der Reisende erhält einen Flughafenrabatt und der Händler gewinnt einen kaufbereiten Kunden.",
     overview_cards: [
       { title: "Reisepartner", desc: "Generieren Sie automatisch DutyCredits für jede qualifizierte Flug-, Unterkunfts- oder Mietwagenbuchung." },
       { title: "DutyCredits", desc: "Intelligente Gutscheine, die Reisenden vor ihrer Ankunft am Flughafen zugestellt werden." },
@@ -168,7 +168,7 @@ const content = {
     contents: "Sommaire",
     toc: ["Présentation de la plateforme", "Guide pour les partenaires de voyage", "Guide pour les détaillants aéroportuaires", "Guide pour les voyageurs", "Installer DutyBoost sur votre mobile"],
     overview_title: "1. Présentation de la plateforme",
-    overview_desc: "DutyBoost est une plateforme de conversion retail de voyage reliant partenaires de voyage, commerces aéroportuaires et voyageurs via des DutyCredits. Lorsqu'un voyageur réserve un vol, un hébergement ou une location de voiture via un partenaire de voyage participant, il reçoit automatiquement un DutyCredit — un bon de réduction numérique échangeable dans les commerces participants.",
+    overview_desc: "DutyBoost est une plateforme de conversion retail de voyage qui opère comme un Écosystème de Revenus Circulaires — reliant partenaires de voyage, commerces aéroportuaires et voyageurs via des DutyCredits. Lorsqu'un voyageur réserve un vol, un hébergement ou une location de voiture via un partenaire de voyage participant, il reçoit automatiquement un DutyCredit — un bon de réduction numérique échangeable dans les commerces participants. Chaque réservation met l'écosystème en mouvement : le partenaire de voyage gagne une part de revenus, le voyageur obtient une réduction en aéroport et le détaillant attire un acheteur motivé.",
     overview_cards: [
       { title: "Partenaires de voyage", desc: "Générez automatiquement des DutyCredits pour chaque réservation de vol, d'hébergement ou de location de voiture éligible." },
       { title: "DutyCredits", desc: "Bons intelligents envoyés aux voyageurs avant leur arrivée à l'aéroport." },
@@ -220,7 +220,7 @@ const content = {
     contents: "Contenido",
     toc: ["Descripción general", "Guía para socios de viajes", "Guía para tiendas aeroportuarias", "Guía para viajeros", "Instalar DutyBoost en tu móvil"],
     overview_title: "1. Descripción general",
-    overview_desc: "DutyBoost es una plataforma de conversión de retail de viajes que une socios de viajes, tiendas aeroportuarias y viajeros a través de DutyCredits. Cuando un viajero reserva un vuelo, alojamiento o alquiler de coche a través de un socio de viajes participante, recibe automáticamente un DutyCredit — un bono de descuento digital canjeable en tiendas participantes.",
+    overview_desc: "DutyBoost es una plataforma de conversión de retail de viajes que opera como un Ecosistema de Ingresos Circulares — uniendo socios de viajes, tiendas aeroportuarias y viajeros a través de DutyCredits. Cuando un viajero reserva un vuelo, alojamiento o alquiler de coche a través de un socio de viajes participante, recibe automáticamente un DutyCredit — un bono de descuento digital canjeable en tiendas participantes. Cada reserva pone en marcha el ecosistema: el socio de viaje gana una participación en los ingresos, el viajero obtiene un descuento en el aeropuerto y el comercio atrae a un comprador motivado.",
     overview_cards: [
       { title: "Socios de viajes", desc: "Genera automáticamente DutyCredits para cada reserva de vuelo, alojamiento o alquiler de coche válida." },
       { title: "DutyCredits", desc: "Bonos inteligentes entregados a los viajeros antes de llegar al aeropuerto." },
@@ -272,7 +272,7 @@ const content = {
     contents: "Indice",
     toc: ["Panoramica della piattaforma", "Guida per i partner di viaggio", "Guida per i rivenditori aeroportuali", "Guida per i viaggiatori", "Installare DutyBoost sul dispositivo mobile"],
     overview_title: "1. Panoramica della piattaforma",
-    overview_desc: "DutyBoost è una piattaforma di conversione del retail di viaggio che collega partner di viaggio, rivenditori aeroportuali e viaggiatori tramite DutyCredit. Quando un viaggiatore prenota un volo, un alloggio o un noleggio auto tramite un partner di viaggio partecipante, riceve automaticamente un DutyCredit — un buono sconto digitale riscattabile nei negozi partecipanti.",
+    overview_desc: "DutyBoost è una piattaforma di conversione del retail di viaggio che opera come un Ecosistema di Ricavi Circolari — collegando partner di viaggio, rivenditori aeroportuali e viaggiatori tramite DutyCredit. Quando un viaggiatore prenota un volo, un alloggio o un noleggio auto tramite un partner di viaggio partecipante, riceve automaticamente un DutyCredit — un buono sconto digitale riscattabile nei negozi partecipanti. Ogni prenotazione mette in moto l'ecosistema: il partner di viaggio guadagna una quota di ricavi, il viaggiatore ottiene uno sconto in aeroporto e il rivenditore attrae un acquirente motivato.",
     overview_cards: [
       { title: "Partner di viaggio", desc: "Genera automaticamente DutyCredit per ogni prenotazione qualificata di volo, alloggio o noleggio auto." },
       { title: "DutyCredit", desc: "Buoni intelligenti consegnati ai viaggiatori prima che arrivino all'aeroporto." },

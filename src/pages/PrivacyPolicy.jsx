@@ -7,7 +7,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const content = {
   en: { title: "Privacy Policy", updated: "Last updated: April 2026", back: "Back to Home", sections: [
-    { h: "1. Introduction", p: "DutyBoost is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you provide when using our platform. DutyBoost operates within the international travel retail sector and processes data in accordance with GDPR (EU) 2016/679 and applicable travel industry data standards." },
+    { h: "1. Introduction", p: "DutyBoost is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you provide when using our platform. DutyBoost operates as a Circular Revenue Ecosystem within the international travel retail sector — connecting travel partners, airport retailers, and travelers through booking-linked DutyCredits. We process data in accordance with GDPR (EU) 2016/679 and applicable travel industry data standards." },
     { h: "2. Data We Collect", list: [
       "Account data: full name, email address, company name, role, and business registration details.",
       "Booking data: Passenger Name Record (PNR) reference, departure airport (IATA code), travel date, number of travelers, ticket value, travel type (short-haul / long-haul), and booking confirmation number.",
@@ -33,7 +33,7 @@ const content = {
     { h: "9. Contact", p: "For privacy-related enquiries: privacy@dutyboost.com · DutyBoost, a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands." },
   ]},
   nl: { title: "Privacybeleid", updated: "Laatst bijgewerkt: april 2026", back: "Terug naar home", sections: [
-    { h: "1. Inleiding", p: "DutyBoost verbindt zich tot de bescherming van uw persoonsgegevens. Dit Privacybeleid legt uit hoe wij de gegevens die u verstrekt bij het gebruik van ons platform verzamelen, gebruiken en beschermen. DutyBoost opereert binnen de internationale reisdetailhandel en verwerkt gegevens in overeenstemming met de AVG (EU) 2016/679." },
+    { h: "1. Inleiding", p: "DutyBoost verbindt zich tot de bescherming van uw persoonsgegevens. Dit Privacybeleid legt uit hoe wij de gegevens die u verstrekt bij het gebruik van ons platform verzamelen, gebruiken en beschermen. DutyBoost opereert als een Circulair Omzetecosysteem binnen de internationale reisdetailhandel — reispartners, luchthavenwinkels en reizigers worden verbonden via boekingsgekoppelde DutyCredits. Wij verwerken gegevens in overeenstemming met de AVG (EU) 2016/679." },
     { h: "2. Gegevens die wij verzamelen", list: [
       "Accountgegevens: volledige naam, e-mailadres, bedrijfsnaam, rol en bedrijfsregistratiegegevens.",
       "Boekingsgegevens: PNR-referentie, vertrekhaven (IATA-code), reisdatum, aantal reizigers, ticketwaarde, reistype en boekingsbevestigingsnummer.",
@@ -59,7 +59,7 @@ const content = {
     { h: "9. Contact", p: "Voor privacygerelateerde vragen: privacy@dutyboost.com · DutyBoost, een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland." },
   ]},
   de: { title: "Datenschutzerklärung", updated: "Zuletzt aktualisiert: April 2026", back: "Zurück zur Startseite", sections: [
-    { h: "1. Einleitung", p: "DutyBoost verpflichtet sich zum Schutz Ihrer personenbezogenen Daten. Diese Datenschutzerklärung erläutert, wie wir Daten erfassen, verwenden und schützen. DutyBoost ist im internationalen Reiseeinzelhandel tätig und verarbeitet Daten gemäß DSGVO (EU) 2016/679." },
+    { h: "1. Einleitung", p: "DutyBoost verpflichtet sich zum Schutz Ihrer personenbezogenen Daten. Diese Datenschutzerklärung erläutert, wie wir Daten erfassen, verwenden und schützen. DutyBoost operiert als Circular Revenue Ecosystem im internationalen Reiseeinzelhandel — Reisepartner, Flughafenhändler und Reisende werden über buchungsgebundene DutyCredits verbunden. Wir verarbeiten Daten gemäß DSGVO (EU) 2016/679." },
     { h: "2. Erhobene Daten", list: [
       "Kontodaten: vollständiger Name, E-Mail-Adresse, Firmenname, Rolle und Unternehmensregistrierungsdetails.",
       "Buchungsdaten: PNR-Referenz, Abflughafen (IATA-Code), Reisedatum, Anzahl der Reisenden, Ticketwert, Reiseart und Buchungsbestätigungsnummer.",
@@ -85,7 +85,7 @@ const content = {
     { h: "9. Kontakt", p: "Für datenschutzbezogene Anfragen: privacy@dutyboost.com · DutyBoost, eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande." },
   ]},
   fr: { title: "Politique de confidentialité", updated: "Dernière mise à jour : avril 2026", back: "Retour à l'accueil", sections: [
-    { h: "1. Introduction", p: "DutyBoost s'engage à protéger vos informations personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos données. DutyBoost opère dans le secteur du commerce de détail de voyage international et traite les données conformément au RGPD (UE) 2016/679." },
+    { h: "1. Introduction", p: "DutyBoost s'engage à protéger vos informations personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos données. DutyBoost opère comme un Écosystème de Revenus Circulaires dans le secteur du commerce de détail de voyage international — reliant partenaires de voyage, détaillants aéroportuaires et voyageurs via des DutyCredits liés aux réservations. Nous traitons les données conformément au RGPD (UE) 2016/679." },
     { h: "2. Données collectées", list: [
       "Données de compte : nom complet, e-mail, nom d'entreprise, rôle et détails d'enregistrement.",
       "Données de réservation : référence PNR, aéroport de départ (code IATA), date de voyage, nombre de voyageurs, valeur du billet, type de voyage et numéro de confirmation.",
@@ -111,7 +111,7 @@ const content = {
     { h: "9. Contact", p: "Pour les demandes liées à la confidentialité : privacy@dutyboost.com · DutyBoost, entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Política de privacidad", updated: "Última actualización: abril de 2026", back: "Volver al inicio", sections: [
-    { h: "1. Introducción", p: "DutyBoost se compromete a proteger tu información personal. Esta Política explica cómo recopilamos, usamos y protegemos los datos. DutyBoost opera en el sector internacional del comercio minorista de viajes y trata los datos conforme al RGPD (UE) 2016/679." },
+    { h: "1. Introducción", p: "DutyBoost se compromete a proteger tu información personal. Esta Política explica cómo recopilamos, usamos y protegemos los datos. DutyBoost opera como un Ecosistema de Ingresos Circulares en el sector internacional del comercio minorista de viajes — conectando socios de viaje, comercios aeroportuarios y viajeros a través de DutyCredits vinculados a reservas. Tratamos los datos conforme al RGPD (UE) 2016/679." },
     { h: "2. Datos que recopilamos", list: [
       "Datos de cuenta: nombre completo, correo electrónico, nombre de empresa, rol y detalles de registro.",
       "Datos de reserva: referencia PNR, aeropuerto de salida (código IATA), fecha de viaje, número de viajeros, valor del billete, tipo de viaje y número de confirmación.",
@@ -137,7 +137,7 @@ const content = {
     { h: "9. Contacto", p: "Para consultas sobre privacidad: privacy@dutyboost.com · DutyBoost, entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos." },
   ]},
   it: { title: "Informativa sulla privacy", updated: "Ultimo aggiornamento: aprile 2026", back: "Torna alla home", sections: [
-    { h: "1. Introduzione", p: "DutyBoost si impegna a proteggere le tue informazioni personali. Questa informativa spiega come raccogliamo, utilizziamo e proteggiamo i dati. DutyBoost opera nel settore internazionale del commercio al dettaglio di viaggio e tratta i dati in conformità con il GDPR (UE) 2016/679." },
+    { h: "1. Introduzione", p: "DutyBoost si impegna a proteggere le tue informazioni personali. Questa informativa spiega come raccogliamo, utilizziamo e proteggiamo i dati. DutyBoost opera come un Ecosistema di Ricavi Circolari nel settore internazionale del commercio al dettaglio di viaggio — collegando partner di viaggio, rivenditori aeroportuali e viaggiatori tramite DutyCredit legati alle prenotazioni. Trattiamo i dati in conformità con il GDPR (UE) 2016/679." },
     { h: "2. Dati che raccogliamo", list: [
       "Dati dell'account: nome completo, email, ragione sociale, ruolo e dettagli di registrazione.",
       "Dati di prenotazione: riferimento PNR, aeroporto di partenza (codice IATA), data di viaggio, numero di viaggiatori, valore del biglietto, tipo di viaggio e numero di conferma.",
