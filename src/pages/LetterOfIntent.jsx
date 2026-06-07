@@ -7,6 +7,8 @@ import { CheckCircle2, FileText, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const BLOCKED_EMAIL_DOMAINS = [
   "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "yahoo.co.uk",
@@ -47,7 +49,7 @@ DutyBoost has developed an innovative travel retail solution aimed at increasing
 
 DutyBoost positions itself as a "Travel Retail Conversion Layer", creating a new commercial revenue stream for travel partners based on the travelers they bring to airports and travel retail environments.
 
-${partner.partner_company_name || "[PARTNER COMPANY NAME]"} operates as a travel partner within the travel, mobility and/or tourism industry and possesses relevant traveler flows and customer relationships that can contribute to additional commercial value within airport retail.
+${partner.partner_company_name || "[PARTNER COMPANY NAME]"} operates as a travel partner within the travel, mobility and/or tourism industry and possesses relevant traveler flows and customer relationships that can contribute to additional commercial value within airport environments.
 
 The Parties wish to explore opportunities for a commercial partnership whereby travelers introduced by the travel partner may contribute to additional commercial value and revenue opportunities within airport environments through DutyBoost.
 
@@ -146,6 +148,7 @@ const FIELDS = [
 ];
 
 export default function LetterOfIntentPage() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     partner_company_name: "",
     partner_address: "",
@@ -167,7 +170,6 @@ export default function LetterOfIntentPage() {
   const handleChange = (key, value) => {
     let finalValue = value;
     if (key === "monthly_travelers") {
-      // Store only digits, but display formatted
       finalValue = value.replace(/\D/g, "");
     }
     setForm(f => ({ ...f, [key]: finalValue }));
@@ -183,7 +185,6 @@ export default function LetterOfIntentPage() {
       newErrors.partner_email = "email_domain_invalid";
     }
     
-    // Validate KVK registration matches company name (only for Netherlands)
     if (form.partner_country?.toLowerCase() === "netherlands" && form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
       setValidatingKvk(true);
       try {
@@ -231,13 +232,16 @@ export default function LetterOfIntentPage() {
             </div>
           </div>
           <div>
-            <h1 className="text-2xl font-heading font-bold text-foreground mb-2">Letter of Intent Submitted</h1>
+            <h1 className="text-2xl font-heading font-bold text-foreground mb-2">{t('letterOfIntent.success_title')}</h1>
             <p className="text-muted-foreground">
-              Thank you, <strong>{form.partner_representative_name}</strong>. Your signed Letter of Intent has been received on behalf of <strong>{form.partner_company_name}</strong>. Our team will follow up shortly.
+              {t('letterOfIntent.success_subtitle', {
+                name: form.partner_representative_name,
+                company: form.partner_company_name
+              })}
             </p>
           </div>
           <Link to="/" className="inline-block">
-            <Button variant="outline">← Back to Home</Button>
+            <Button variant="outline">← {t('letterOfIntent.back_to_home')}</Button>
           </Link>
         </div>
       </div>
@@ -250,51 +254,54 @@ export default function LetterOfIntentPage() {
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/"><DutyBoostLogo height={55} /></Link>
-          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">← Back to Home</Link>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">← {t('letterOfIntent.back_to_home')}</Link>
+          </div>
         </div>
       </nav>
 
       <div className="max-w-3xl mx-auto px-6 py-12 space-y-10">
         {/* Header */}
         <div className="text-center space-y-3">
-          <h1 className="text-4xl font-heading font-bold text-foreground">Letter of Intent</h1>
+          <h1 className="text-4xl font-heading font-bold text-foreground">{t('letterOfIntent.title')}</h1>
           
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
-            <h3 className="font-semibold text-blue-900 text-sm">How It Works — Creating Value Together</h3>
+            <h3 className="font-semibold text-blue-900 text-sm">{t('letterOfIntent.header_text')}</h3>
             <p className="text-sm text-blue-800 leading-relaxed">
-              At DutyBoost, we're building <strong>a circular revenue ecosystem where everyone wins</strong>. You as a travel partner bring the travelers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.
+              {t('letterOfIntent.description_1')}
             </p>
             <p className="text-sm text-blue-800 leading-relaxed">
-              <strong>What is DutyBoost?</strong> A "Travel Retail Conversion Layer" that creates new commercial value based on existing traveler flows. We turn your passengers into high-intent airport shoppers—and you earn from every transaction.
+              {t('letterOfIntent.description_2')}
             </p>
-            <p className="text-sm text-blue-800 font-semibold pt-1">What we're asking from each party:</p>
+            <p className="text-sm text-blue-800 font-semibold pt-1">{t('letterOfIntent.what_we_ask')}</p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li><strong>From you as a travel partner:</strong> Integrate DutyBoost into your booking journey and offer DutyCredits to your travelers—it's one-time setup, zero cost to you.</li>
-              <li><strong>From your travelers:</strong> Redeem their DutyCredits at participating airport retailers for exclusive discounts.</li>
-              <li><strong>From airport retailers:</strong> Accept DutyCredits as payment and benefit from high-intent customers ready to spend.</li>
+              <li>{t('letterOfIntent.from_you')}</li>
+              <li>{t('letterOfIntent.from_travelers')}</li>
+              <li>{t('letterOfIntent.from_retailers')}</li>
             </ul>
-            <p className="text-sm text-blue-800 leading-relaxed pt-2"><strong>The outcome:</strong></p>
+            <p className="text-sm text-blue-800 leading-relaxed pt-2"><strong>{t('letterOfIntent.the_outcome')}</strong></p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li><strong>For you:</strong> Earn 20% margin on every DutyCredit your travelers redeem — funded by DutyBoost's 2.5% platform fee from airport retailers, creating passive income with zero cost</li>
-              <li><strong>For your travelers:</strong> Exclusive airport discounts they'll remember and value</li>
-              <li><strong>For airport retailers:</strong> High-intent shoppers arriving ready to spend</li>
+              <li>{t('letterOfIntent.outcome_1')}</li>
+              <li>{t('letterOfIntent.outcome_2')}</li>
+              <li>{t('letterOfIntent.outcome_3')}</li>
             </ul>
-            <p className="text-sm text-blue-800 font-medium pt-2">One booking. Three parties benefiting. That's the power of working hand in hand with DutyBoost.</p>
+            <p className="text-sm text-blue-800 font-medium pt-2">{t('letterOfIntent.closing')}</p>
           </div>
           
           <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
-            <strong>Important:</strong> This Letter of Intent is non-binding and does not generate any financial obligations unless and until a final binding agreement is separately executed by authorized representatives of both parties.
+            <strong>Important:</strong> {t('letterOfIntent.disclaimer')}
           </p>
 
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Fill in your company details below. The Letter of Intent will be populated with your information and submitted to DutyBoost upon acceptance.
+            {t('letterOfIntent.fill_details')}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Form fields */}
           <div className="bg-card border border-border rounded-2xl p-6 space-y-5">
-            <h2 className="font-heading font-semibold text-lg text-foreground">Your Details</h2>
+            <h2 className="font-heading font-semibold text-lg text-foreground">{t('letterOfIntent.your_details')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {FIELDS.map(field => (
                 <div key={field.key} className={field.key === "partner_address" ? "md:col-span-2" : ""}>
@@ -331,12 +338,12 @@ export default function LetterOfIntentPage() {
                   {errors[field.key] && (
                     <p className="text-xs text-destructive mt-1">
                       {field.key === "partner_email" && errors[field.key] === "email_domain_invalid"
-                        ? "Please use a professional company email address (not Gmail, Hotmail, Yahoo, etc.)"
+                        ? t('letterOfIntent.error_email_invalid')
                         : field.key === "partner_registration_number" && errors[field.key] === "kvk_mismatch"
-                        ? "Company name does not match the Chamber of Commerce registration."
+                        ? t('letterOfIntent.error_kvk_mismatch')
                         : field.key === "partner_registration_number" && errors[field.key] === "kvk_validation_error"
-                        ? "Could not validate Chamber of Commerce number. Please check and try again."
-                        : "This field is required."}
+                        ? t('letterOfIntent.error_kvk_validation')
+                        : t('letterOfIntent.error_required')}
                     </p>
                   )}
                 </div>
@@ -353,8 +360,8 @@ export default function LetterOfIntentPage() {
             >
               <div className="flex items-center gap-3">
                 <FileText className="w-5 h-5 text-primary" />
-                <span className="font-semibold text-foreground">Preview Letter of Intent</span>
-                <Badge variant="outline" className="text-xs">Live Preview</Badge>
+                <span className="font-semibold text-foreground">{t('letterOfIntent.preview_loi')}</span>
+                <Badge variant="outline" className="text-xs">{t('letterOfIntent.live_preview')}</Badge>
               </div>
               {loiOpen ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
             </button>
@@ -369,9 +376,9 @@ export default function LetterOfIntentPage() {
 
           {/* Acceptance */}
           <div className={`bg-card border rounded-2xl p-6 space-y-3 ${errors.accepted ? "border-destructive" : "border-border"}`}>
-            <h2 className="font-heading font-semibold text-lg text-foreground">Acceptance & Signature</h2>
+            <h2 className="font-heading font-semibold text-lg text-foreground">{t('letterOfIntent.acceptance')}</h2>
             <p className="text-sm text-muted-foreground">
-              By checking the box below, you confirm that you have read, understood, and agree to the terms of this Letter of Intent on behalf of your organisation. You acknowledge that the confidentiality, intellectual property and exclusivity clauses are legally binding.
+              {t('letterOfIntent.read_understood')}
             </p>
             <label className="flex items-start gap-3 cursor-pointer group">
               <div className="relative mt-0.5">
@@ -389,7 +396,11 @@ export default function LetterOfIntentPage() {
                 </div>
               </div>
               <span className="text-sm text-foreground">
-                I, <strong>{form.partner_representative_name || "[your name]"}</strong>, on behalf of <strong>{form.partner_company_name || "[your company]"}</strong>, hereby accept and digitally sign this Letter of Intent with DutyBoost B.V., dated <strong>{new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })}</strong>.
+                {t('letterOfIntent.acceptance_text', {
+                  name: form.partner_representative_name || "[your name]",
+                  company: form.partner_company_name || "[your company]",
+                  date: new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
+                })}
               </span>
             </label>
             {errors.accepted && (
@@ -402,16 +413,16 @@ export default function LetterOfIntentPage() {
             disabled={submitting || validatingKvk}
             className="w-full h-12 text-base font-semibold"
           >
-            {submitting ? "Submitting..." : validatingKvk ? (
+            {submitting ? t('letterOfIntent.submitting') : validatingKvk ? (
               <div className="flex items-center justify-center gap-2">
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Verifying Chamber of Commerce...
+                {t('letterOfIntent.validating')}
               </div>
-            ) : "Submit Signed Letter of Intent"}
+            ) : t('letterOfIntent.submit_loi')}
           </Button>
 
           <p className="text-center text-xs text-muted-foreground">
-            Your submission will be securely stored. DutyBoost B.V. · KvK 42053181 · hello@dutyboost.com
+            {t('letterOfIntent.storage_info')}
           </p>
         </form>
       </div>
