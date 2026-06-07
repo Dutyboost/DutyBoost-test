@@ -14,7 +14,7 @@ export default {
       we_call_you: 'Wij bellen je',
       live_demo: 'Live Demo',
       roi_calculator: 'ROI Calculator',
-      letter_of_intent: 'Letter of Intent voor Travel Partners',
+      letter_of_intent: 'Intentieverklaring',
     },
     hero: {
        title_1: 'Zet elke reis- en hospitalityboeking om in',

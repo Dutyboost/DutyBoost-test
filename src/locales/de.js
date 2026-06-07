@@ -15,7 +15,7 @@ export default {
       we_call_you: 'Wir rufen Sie an',
       live_demo: 'Live-Demo',
       roi_calculator: 'ROI-Rechner',
-      letter_of_intent: 'Absichtserklärung für Reisepartner',
+      letter_of_intent: 'Absichtserklärung',
     },
     hero: {
       title_1: 'Jede Online-Reise- und Hospitality-Buchung verwandeln in',

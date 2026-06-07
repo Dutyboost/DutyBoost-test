@@ -14,7 +14,7 @@ export default {
       we_call_you: 'Te llamamos',
       live_demo: 'Demo en vivo',
       roi_calculator: 'Calculadora ROI',
-      letter_of_intent: 'Carta de Intención para Socios de Viaje',
+      letter_of_intent: 'Carta de Intención',
     },
     hero: {
        title_1: 'Convierte cada reserva de viajes y hospitalidad en',
