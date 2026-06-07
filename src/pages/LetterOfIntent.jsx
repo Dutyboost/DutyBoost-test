@@ -169,6 +169,11 @@ export default function LetterOfIntentPage() {
     if (errors[key]) setErrors(e => ({ ...e, [key]: false }));
   };
 
+  const formatMonthlyTravelers = (value) => {
+    if (!value) return "";
+    return parseInt(value).toLocaleString("de-DE");
+  };
+
   const validate = async () => {
     const newErrors = {};
     FIELDS.filter(f => f.required).forEach(f => {
@@ -178,8 +183,8 @@ export default function LetterOfIntentPage() {
       newErrors.partner_email = "email_domain_invalid";
     }
     
-    // Validate KVK registration matches company name
-    if (form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
+    // Validate KVK registration matches company name (only for Netherlands)
+    if (form.partner_country?.toLowerCase() === "netherlands" && form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
       setValidatingKvk(true);
       try {
         const result = await base44.functions.invoke("validateKvk", {
@@ -284,6 +289,21 @@ export default function LetterOfIntentPage() {
                       <option value="">Select type...</option>
                       {field.options.map(o => <option key={o} value={o}>{o}</option>)}
                     </select>
+                  ) : field.key === "monthly_travelers" ? (
+                    <div className="relative">
+                      <Input
+                        type="number"
+                        placeholder={field.placeholder}
+                        value={form[field.key]}
+                        onChange={e => handleChange(field.key, e.target.value)}
+                        className={errors[field.key] ? "border-destructive" : ""}
+                      />
+                      {form[field.key] && (
+                        <div className="absolute right-3 top-2.5 text-xs text-muted-foreground">
+                          {formatMonthlyTravelers(form[field.key])}
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <Input
                       type={field.type || "text"}
