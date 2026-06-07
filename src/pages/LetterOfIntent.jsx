@@ -257,9 +257,6 @@ export default function LetterOfIntentPage() {
       <div className="max-w-3xl mx-auto px-6 py-12 space-y-10">
         {/* Header */}
         <div className="text-center space-y-3">
-          <Badge variant="outline" className="text-xs tracking-widest uppercase px-4 py-1">
-            <FileText className="w-3 h-3 mr-1.5" />Partnership
-          </Badge>
           <h1 className="text-4xl font-heading font-bold text-foreground">Letter of Intent</h1>
           
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
