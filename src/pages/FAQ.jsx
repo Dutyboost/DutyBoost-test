@@ -38,7 +38,7 @@ const content = {
       ]},
       { cat: "Integration & Technical", qs: [
         { q: "What do airport retailers need to implement to accept DutyCredits?", a: "Airport retailers integrate DutyBoost directly into their existing POS system via an API integration. The redemption API handles QR code validation natively at checkout, so the discount is applied automatically within the retailer's existing workflow." },
-        { q: "Is there an API for travel agencies?", a: "Not required. DutyBoost connects directly to your booking system during onboarding. DutyCredits are generated automatically with zero API work." },
+        { q: "How do travel partners integrate with DutyBoost?", a: "Travel partners add the DutyBoost snippet to their booking confirmation email. Once integrated, every booking automatically triggers the generation of a unique DutyCredit QR code, which is embedded directly in the traveler's confirmation email — no manual steps required." },
       ]},
       { cat: "Platform & Security", qs: [
         { q: "Is DutyBoost secure?", a: "Yes. Every DutyCredit is cryptographically unique and single-use. Our platform uses industry-standard encryption (TLS 1.2+, AES-256) and role-based access controls." },
@@ -76,7 +76,7 @@ const content = {
       ]},
       { cat: "Integratie & Techniek", qs: [
         { q: "Wat moeten luchthavenwinkels implementeren?", a: "Luchthavenwinkels integreren DutyBoost rechtstreeks in hun bestaande kassasysteem via een API-integratie. De validatie-API verwerkt QR-codes native bij het afrekenen, zodat de korting automatisch wordt toegepast binnen de bestaande workflow van de winkel." },
-        { q: "Is er een API voor reisbureaus?", a: "Niet vereist. DutyBoost verbindt zich rechtstreeks met uw boekingssysteem tijdens de onboarding." },
+        { q: "Hoe integreren reispartners met DutyBoost?", a: "Reispartners voegen de DutyBoost-snippet toe aan hun boekingsbevestigingsmail. Zodra geïntegreerd, genereert elke boeking automatisch een unieke DutyCredit QR-code die direct in de bevestigingsmail van de reiziger wordt opgenomen — geen handmatige stappen vereist." },
       ]},
       { cat: "Platform & Beveiliging", qs: [
         { q: "Is DutyBoost veilig?", a: "Ja. Elke DutyCredit is cryptografisch uniek en eenmalig. We gebruiken TLS 1.2+ en AES-256 versleuteling." },
@@ -114,7 +114,7 @@ const content = {
       ]},
       { cat: "Integration & Technik", qs: [
         { q: "Was müssen Flughafenhändler implementieren?", a: "Flughafenhändler integrieren DutyBoost direkt über eine API-Integration in ihr bestehendes Kassensystem. Die Validierungs-API verarbeitet QR-Codes nativ an der Kasse, sodass der Rabatt automatisch im bestehenden Workflow des Händlers angewendet wird." },
-        { q: "Gibt es eine API für Reisebüros?", a: "Nicht erforderlich. DutyBoost verbindet sich beim Onboarding direkt mit Ihrem Buchungssystem." },
+        { q: "Wie integrieren Reisepartner DutyBoost?", a: "Reisepartner fügen das DutyBoost-Snippet in ihre Buchungsbestätigungs-E-Mail ein. Nach der Integration wird bei jeder Buchung automatisch ein einzigartiger DutyCredit QR-Code generiert, der direkt in die Bestätigungs-E-Mail des Reisenden eingebettet wird — ohne manuelle Schritte." },
       ]},
       { cat: "Plattform & Sicherheit", qs: [
         { q: "Ist DutyBoost sicher?", a: "Ja. Jeder DutyCredit ist kryptografisch einzigartig. Wir verwenden TLS 1.2+ und AES-256 Verschlüsselung." },
@@ -152,7 +152,7 @@ const content = {
       ]},
       { cat: "Intégration & Technique", qs: [
         { q: "Que doivent mettre en place les détaillants ?", a: "Les détaillants aéroportuaires intègrent DutyBoost directement dans leur système de caisse existant via une intégration API. L'API de validation traite les QR codes nativement lors du paiement, de sorte que la réduction est appliquée automatiquement dans le flux de travail existant du détaillant." },
-        { q: "Existe-t-il une API pour les agences ?", a: "Non requise. DutyBoost se connecte directement à votre système de réservation lors de l'onboarding." },
+        { q: "Comment les partenaires de voyage s'intègrent-ils à DutyBoost ?", a: "Les partenaires de voyage ajoutent le snippet DutyBoost à leur e-mail de confirmation de réservation. Une fois intégré, chaque réservation génère automatiquement un QR code DutyCredit unique, directement intégré dans l'e-mail de confirmation du voyageur — sans aucune étape manuelle." },
       ]},
       { cat: "Plateforme & Sécurité", qs: [
         { q: "DutyBoost est-il sécurisé ?", a: "Oui. Chaque DutyCredit est cryptographiquement unique. Nous utilisons TLS 1.2+ et AES-256." },
@@ -190,7 +190,7 @@ const content = {
       ]},
       { cat: "Integración y Técnica", qs: [
         { q: "¿Qué deben implementar las tiendas?", a: "Las tiendas aeroportuarias integran DutyBoost directamente en su sistema de punto de venta existente a través de una integración API. La API de validación procesa los códigos QR de forma nativa en caja, de modo que el descuento se aplica automáticamente dentro del flujo de trabajo habitual del comercio." },
-        { q: "¿Existe una API para agencias?", a: "No es necesaria. DutyBoost se conecta directamente a tu sistema de reservas durante el alta." },
+        { q: "¿Cómo se integran los socios de viajes con DutyBoost?", a: "Los socios de viajes añaden el snippet de DutyBoost a su correo de confirmación de reserva. Una vez integrado, cada reserva genera automáticamente un código QR DutyCredit único, que se incluye directamente en el correo de confirmación del viajero — sin pasos manuales." },
       ]},
       { cat: "Plataforma y Seguridad", qs: [
         { q: "¿Es DutyBoost seguro?", a: "Sí. Cada DutyCredit es criptográficamente único. Usamos cifrado TLS 1.2+ y AES-256." },
@@ -228,7 +228,7 @@ const content = {
       ]},
       { cat: "Integrazione & Tecnica", qs: [
         { q: "Cosa devono implementare i rivenditori?", a: "I rivenditori aeroportuali integrano DutyBoost direttamente nel loro sistema POS esistente tramite un'integrazione API. L'API di validazione gestisce i QR code nativamente alla cassa, in modo che lo sconto venga applicato automaticamente nel flusso di lavoro esistente del rivenditore." },
-        { q: "Esiste un'API per le agenzie?", a: "Non necessaria. DutyBoost si connette direttamente al tuo sistema di prenotazione durante l'onboarding." },
+        { q: "Come si integrano i partner di viaggio con DutyBoost?", a: "I partner di viaggio aggiungono lo snippet DutyBoost alla loro e-mail di conferma della prenotazione. Una volta integrato, ogni prenotazione genera automaticamente un QR code DutyCredit unico, che viene incorporato direttamente nell'e-mail di conferma del viaggiatore — senza passaggi manuali." },
       ]},
       { cat: "Piattaforma e Sicurezza", qs: [
         { q: "DutyBoost è sicuro?", a: "Sì. Ogni DutyCredit è crittograficamente unico. Utilizziamo TLS 1.2+ e AES-256." },
