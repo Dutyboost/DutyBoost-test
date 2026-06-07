@@ -28,7 +28,7 @@ const content = {
       ]},
       { cat: "For Travel Partners", qs: [
         { q: "How does DutyBoost benefit my business?", a: "Every time one of your travelers redeems a DutyCredit at the airport, your business earns a 20% revenue margin on the platform's commission — whether you're a flight, accommodation, or car rental provider." },
-        { q: "How do I generate a DutyCredit?", a: "You don't — it happens automatically. Our team connects your booking system to DutyBoost. From that point on, DutyBoost automatically sends travelers a co-branded email with their unique DutyCredit QR code." },
+        { q: "How do I generate a DutyCredit?", a: "You don't — it happens automatically. Our team connects your booking system to DutyBoost. From that point on, every booking confirmation email you send to travelers will automatically include their unique DutyCredit QR code." },
         { q: "Is there a cost to join DutyBoost as a travel partner?", a: "No. There are no setup fees, subscription fees, or usage costs for travel partners." },
       ]},
       { cat: "For Airport Retailers", qs: [
@@ -66,7 +66,7 @@ const content = {
       ]},
       { cat: "Voor reispartners", qs: [
         { q: "Wat levert DutyBoost mijn bedrijf op?", a: "Elke keer dat een reiziger een DutyCredit inwisselt, verdient uw bedrijf 20% van de platformcommissie — of u nu een vlucht-, accommodatie- of autoverhuuraanbieder bent." },
-        { q: "Hoe genereer ik een DutyCredit?", a: "Dat doet u niet — het gebeurt automatisch. Ons team koppelt uw boekingssysteem aan DutyBoost." },
+        { q: "Hoe genereer ik een DutyCredit?", a: "Dat doet u niet — het gebeurt automatisch. Ons team koppelt uw boekingssysteem aan DutyBoost. Vanaf dat moment wordt elke boekingsbevestigingsmail die u naar reizigers stuurt automatisch aangevuld met hun unieke DutyCredit QR-code." },
         { q: "Zijn er kosten?", a: "Nee. Er zijn geen installatie-, abonnements- of gebruikskosten voor reispartners." },
       ]},
       { cat: "Voor luchthavenwinkels", qs: [
@@ -104,7 +104,7 @@ const content = {
       ]},
       { cat: "Für Reisepartner", qs: [
         { q: "Wie profitiert mein Unternehmen?", a: "Jedes Mal, wenn ein Reisender einen DutyCredit einlöst, verdient Ihr Unternehmen 20% der Plattformgebühr — egal ob Sie Flug-, Unterkunfts- oder Mietwagenunternehmen sind." },
-        { q: "Wie generiere ich einen DutyCredit?", a: "Das tun Sie nicht — es geschieht automatisch. Unser Team verbindet Ihr Buchungssystem mit DutyBoost." },
+        { q: "Wie generiere ich einen DutyCredit?", a: "Das tun Sie nicht — es geschieht automatisch. Unser Team verbindet Ihr Buchungssystem mit DutyBoost. Ab diesem Zeitpunkt wird jede Buchungsbestätigungs-E-Mail, die Sie an Reisende senden, automatisch mit deren einzigartigem DutyCredit QR-Code ergänzt." },
         { q: "Gibt es Kosten?", a: "Nein. Keine Einrichtungsgebühren, Abonnements oder Nutzungskosten für Reisepartner." },
       ]},
       { cat: "Für Flughafenhändler", qs: [
@@ -142,7 +142,7 @@ const content = {
       ]},
       { cat: "Pour les partenaires de voyage", qs: [
         { q: "Comment DutyBoost profite-t-il à mon activité ?", a: "Chaque fois qu'un voyageur échange un DutyCredit, votre entreprise gagne 20% de la commission de la plateforme — que vous soyez prestataire de vols, d'hébergement ou de location de voiture." },
-        { q: "Comment générer un DutyCredit ?", a: "Vous ne le faites pas — cela se passe automatiquement. Notre équipe connecte votre système de réservation à DutyBoost." },
+        { q: "Comment générer un DutyCredit ?", a: "Vous ne le faites pas — cela se passe automatiquement. Notre équipe connecte votre système de réservation à DutyBoost. À partir de ce moment, chaque e-mail de confirmation de réservation envoyé à vos voyageurs inclura automatiquement leur QR code DutyCredit unique." },
         { q: "Y a-t-il des frais ?", a: "Non. Aucun frais d'installation, d'abonnement ou d'utilisation pour les partenaires de voyage." },
       ]},
       { cat: "Pour les détaillants aéroportuaires", qs: [
@@ -180,7 +180,7 @@ const content = {
       ]},
       { cat: "Para socios de viajes", qs: [
         { q: "¿Cómo beneficia DutyBoost a mi negocio?", a: "Cada vez que un viajero canjea un DutyCredit, tu empresa gana el 20% de la comisión de la plataforma — ya seas proveedor de vuelos, alojamiento o alquiler de coches." },
-        { q: "¿Cómo genero un DutyCredit?", a: "No lo haces tú — ocurre automáticamente. Nuestro equipo conecta tu sistema de reservas a DutyBoost." },
+        { q: "¿Cómo genero un DutyCredit?", a: "No lo haces tú — ocurre automáticamente. Nuestro equipo conecta tu sistema de reservas a DutyBoost. A partir de ese momento, cada correo de confirmación de reserva que envíes a tus viajeros incluirá automáticamente su código QR DutyCredit único." },
         { q: "¿Hay algún coste?", a: "No. Sin comisiones de configuración, suscripción ni uso para socios de viajes." },
       ]},
       { cat: "Para tiendas aeroportuarias", qs: [
@@ -218,7 +218,7 @@ const content = {
       ]},
       { cat: "Per i partner di viaggio", qs: [
         { q: "Come beneficia la mia attività?", a: "Ogni volta che un viaggiatore riscatta un DutyCredit, la tua azienda guadagna il 20% della commissione della piattaforma — che tu sia un fornitore di voli, alloggi o noleggio auto." },
-        { q: "Come genero un DutyCredit?", a: "Non lo fai tu — avviene automaticamente. Il nostro team collega il tuo sistema di prenotazione a DutyBoost." },
+        { q: "Come genero un DutyCredit?", a: "Non lo fai tu — avviene automaticamente. Il nostro team collega il tuo sistema di prenotazione a DutyBoost. Da quel momento, ogni e-mail di conferma della prenotazione inviata ai viaggiatori includerà automaticamente il loro QR code DutyCredit unico." },
         { q: "Ci sono costi?", a: "No. Nessun costo di configurazione, abbonamento o utilizzo per i partner di viaggio." },
       ]},
       { cat: "Per i rivenditori aeroportuali", qs: [
