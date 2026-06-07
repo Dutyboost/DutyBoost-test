@@ -221,6 +221,9 @@ export default function LetterOfIntentPage() {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Fill in your company details below. The Letter of Intent will be populated with your information and submitted to DutyBoost upon acceptance.
           </p>
+          <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 max-w-xl mx-auto">
+            <strong>Important:</strong> This Letter of Intent is non-binding and does not generate any financial obligations unless and until a final binding agreement is separately executed by authorized representatives of both parties.
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
