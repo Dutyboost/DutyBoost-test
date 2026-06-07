@@ -25,8 +25,8 @@ const isValidProfessionalEmail = (email) => {
 };
 
 const LOI_TEXT = (partner) => {
-  const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
-  return `DUTYBOOST LETTER OF INTENT
+   const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
+   return `DUTYBOOST LETTER OF INTENT
 
 This Letter of Intent ("LOI") is entered into on ${today} by and between:
 
@@ -45,50 +45,50 @@ DutyBoost and ${partner.partner_company_name || "[PARTNER COMPANY NAME]"} herein
 
 1. Background
 
-DutyBoost has developed an innovative travel retail solution aimed at increasing commercial performance within airport retail environments. The platform creates additional commercial value based on existing traveler flows to airports and travel retail locations.
+DutyBoost has developed an innovative travel retail solution aimed at increasing commercial performance within airport retail environments. The platform creates additional commercial value based on existing traveller flows to airports and travel retail locations.
 
-DutyBoost positions itself as a "Travel Retail Conversion Layer", creating a new commercial revenue stream for travel partners based on the travelers they bring to airports and travel retail environments.
+DutyBoost positions itself as a "Travel Retail Conversion Layer", creating a new commercial revenue stream for travel partners based on the travellers they bring to airports and travel retail environments.
 
-${partner.partner_company_name || "[PARTNER COMPANY NAME]"} operates as a travel partner within the travel, mobility and/or tourism industry and possesses relevant traveler flows and customer relationships that can contribute to additional commercial value within airport environments.
+${partner.partner_company_name || "[PARTNER COMPANY NAME]"} operates as a travel partner within the travel, mobility and/or tourism industry and possesses relevant traveller flows and customer relationships that can contribute to additional commercial value within airport environments.
 
-The Parties wish to explore opportunities for a commercial partnership whereby travelers introduced by the travel partner may contribute to additional commercial value and revenue opportunities within airport environments through DutyBoost.
+The Parties wish to explore opportunities for a commercial partnership whereby travellers introduced by the travel partner may contribute to additional commercial value and revenue opportunities within airport environments through DutyBoost.
 
-The objective of this collaboration is to create an additional revenue stream for the travel partner while simultaneously enhancing commercial performance within travel retail.
+The objective of this collaboration is to create an additional revenue stream for the travel partner whilst simultaneously enhancing commercial performance within travel retail.
 
 2. Purpose of this Letter of Intent
 
 The purpose of this Letter of Intent is to record the Parties' intention to engage in discussions, evaluations and potential commercial collaborations relating to:
-- creating additional commercial value based on traveler flows;
+- creating additional commercial value based on traveller flows;
 - creating additional revenue streams based on passenger traffic;
 - commercial cooperation between DutyBoost and the travel partner;
-- commercial revenue optimization within travel retail;
+- commercial revenue optimisation within travel retail;
 - revenue-enhancing strategies within airport retail;
-- engagement and conversion optimization;
+- engagement and conversion optimisation;
 - potential revenue-sharing models;
-- strategic positioning of DutyBoost within the traveler customer journey;
+- strategic positioning of DutyBoost within the traveller customer journey;
 - international commercial rollout opportunities.
 
-The Parties acknowledge that existing traveler flows within the travel industry can generate additional commercial opportunities within airport retail and travel retail environments.
+The Parties acknowledge that existing traveller flows within the travel industry can generate additional commercial opportunities within airport retail and travel retail environments.
 
-DutyBoost enables travel partners to create additional commercial value from existing traveler flows without impacting their core business operations.
+DutyBoost enables travel partners to create additional commercial value from existing traveller flows without impacting their core business operations.
 
 3. Exploratory Collaboration
 
 The Parties declare their intention to engage in good-faith discussions regarding a potential collaboration.
 
 Such collaboration between DutyBoost and the travel partner may include:
-- commercial cooperation based on existing traveler flows;
+- commercial cooperation based on existing traveller flows;
 - revenue-sharing models;
 - commercial positioning of DutyBoost within travel retail;
 - strategic collaboration surrounding airport retail;
 - international commercial rollout opportunities;
-- revenue optimization within travel retail environments.
+- revenue optimisation within travel retail environments.
 
 The Parties acknowledge that DutyBoost was developed from the vision of making travel retail smarter, more interactive and commercially more effective.
 
 The collaboration may focus on:
 - revenue-sharing models;
-- commercial revenue optimization;
+- commercial revenue optimisation;
 - strategic positioning within travel retail;
 - expansion of commercial opportunities within airport environments;
 - international commercial expansion.
@@ -131,7 +131,7 @@ Each Party shall bear its own costs and expenses relating to negotiations, meeti
 
 This Letter of Intent shall be governed exclusively by the laws of The Netherlands. Any dispute arising from or relating to this Letter of Intent shall be submitted to the competent courts of The Netherlands.
 
-The Parties declare that they enter into this Letter of Intent in a spirit of mutual trust and with the intention of exploring the possibilities of a long-term and valuable collaboration. Although this Letter of Intent does not constitute a definitive commercial agreement, the Parties emphasize their sincere intention to continue discussions and explore potential future collaborations.`;
+The Parties declare that they enter into this Letter of Intent in a spirit of mutual trust and with the intention of exploring the possibilities of a long-term and valuable collaboration. Although this Letter of Intent does not constitute a definitive commercial agreement, the Parties emphasise their sincere intention to continue discussions and explore potential future collaborations.`;
 };
 
 const FIELDS = [
