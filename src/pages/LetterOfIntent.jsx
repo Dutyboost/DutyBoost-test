@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Loader2 } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Link } from "react-router-dom";
@@ -140,6 +141,7 @@ const FIELDS = [
   { key: "partner_representative_name", label: "Representative Full Name", required: true, placeholder: "Legal signatory name" },
   { key: "partner_representative_title", label: "Representative Title / Function", required: false, placeholder: "e.g. CEO, Co-Founder, Director" },
   { key: "partner_email", label: "Email Address", required: true, placeholder: "your@company.com", type: "email" },
+  { key: "monthly_travelers", label: "Monthly Travelers to Airports", required: true, type: "number", placeholder: "e.g. 5000" },
   { key: "partner_type", label: "Partner Type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
 ];
 
@@ -160,13 +162,14 @@ export default function LetterOfIntentPage() {
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [loiOpen, setLoiOpen] = useState(false);
+  const [validatingKvk, setValidatingKvk] = useState(false);
 
   const handleChange = (key, value) => {
     setForm(f => ({ ...f, [key]: value }));
     if (errors[key]) setErrors(e => ({ ...e, [key]: false }));
   };
 
-  const validate = () => {
+  const validate = async () => {
     const newErrors = {};
     FIELDS.filter(f => f.required).forEach(f => {
       if (!form[f.key]?.trim()) newErrors[f.key] = true;
@@ -174,6 +177,24 @@ export default function LetterOfIntentPage() {
     if (form.partner_email && !isValidProfessionalEmail(form.partner_email)) {
       newErrors.partner_email = "email_domain_invalid";
     }
+    
+    // Validate KVK registration matches company name
+    if (form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
+      setValidatingKvk(true);
+      try {
+        const result = await base44.functions.invoke("validateKvk", {
+          kvkNumber: form.partner_registration_number.trim(),
+          companyName: form.partner_company_name.trim(),
+        });
+        if (!result.data.valid) {
+          newErrors.partner_registration_number = "kvk_mismatch";
+        }
+      } catch (error) {
+        newErrors.partner_registration_number = "kvk_validation_error";
+      }
+      setValidatingKvk(false);
+    }
+    
     if (!accepted) newErrors.accepted = true;
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -181,7 +202,7 @@ export default function LetterOfIntentPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!(await validate())) return;
     setSubmitting(true);
     await base44.entities.LetterOfIntent.create({
       ...form,
@@ -276,6 +297,10 @@ export default function LetterOfIntentPage() {
                     <p className="text-xs text-destructive mt-1">
                       {field.key === "partner_email" && errors[field.key] === "email_domain_invalid"
                         ? "Please use a professional company email address (not Gmail, Hotmail, Yahoo, etc.)"
+                        : field.key === "partner_registration_number" && errors[field.key] === "kvk_mismatch"
+                        ? "Company name does not match the Chamber of Commerce registration."
+                        : field.key === "partner_registration_number" && errors[field.key] === "kvk_validation_error"
+                        ? "Could not validate Chamber of Commerce number. Please check and try again."
                         : "This field is required."}
                     </p>
                   )}
@@ -339,10 +364,15 @@ export default function LetterOfIntentPage() {
 
           <Button
             type="submit"
-            disabled={submitting}
+            disabled={submitting || validatingKvk}
             className="w-full h-12 text-base font-semibold"
           >
-            {submitting ? "Submitting..." : "Submit Signed Letter of Intent"}
+            {submitting ? "Submitting..." : validatingKvk ? (
+              <div className="flex items-center justify-center gap-2">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                Verifying Chamber of Commerce...
+              </div>
+            ) : "Submit Signed Letter of Intent"}
           </Button>
 
           <p className="text-center text-xs text-muted-foreground">
