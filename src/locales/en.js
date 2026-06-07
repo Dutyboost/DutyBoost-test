@@ -840,7 +840,7 @@ export default {
       description_1: 'At DutyBoost, we\'re building a circular revenue ecosystem where everyone wins. You as a travel partner bring the travelers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.',
       description_2: 'What is DutyBoost? A "Travel Retail Conversion Layer" that creates new commercial value based on existing traveler flows. We turn your passengers into high-intent airport shoppers—and you earn from every transaction.',
       what_we_ask: 'What we\'re asking from you right now:',
-      from_you: '<strong>Sign this Letter of Intent</strong> to formalize our mutual intention to explore this collaboration and engage in good-faith discussions about how DutyBoost can create value for your travelers and your organization.',
+      from_you: 'Sign this Letter of Intent to formalize our mutual intention to explore this collaboration and engage in good-faith discussions about how DutyBoost can create value for your travelers and your organization.',
       from_travelers: '',
       from_retailers: '',
       the_outcome: 'The outcome:',
