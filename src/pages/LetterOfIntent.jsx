@@ -278,7 +278,7 @@ export default function LetterOfIntentPage() {
             </ul>
             <p className="text-sm text-blue-800 leading-relaxed pt-2"><strong>The outcome:</strong></p>
             <ul className="text-sm text-blue-800 space-y-1.5 ml-2">
-              <li><strong>For you:</strong> Earn 20% margin on every DutyCredit your travelers redeem — passive income with zero cost</li>
+              <li><strong>For you:</strong> Earn 20% margin on every DutyCredit your travelers redeem — funded by DutyBoost's 2.5% platform fee from airport retailers, creating passive income with zero cost</li>
               <li><strong>For your travelers:</strong> Exclusive airport discounts they'll remember and value</li>
               <li><strong>For airport retailers:</strong> High-intent shoppers arriving ready to spend</li>
             </ul>
