@@ -844,7 +844,7 @@ export default {
       from_travelers: 'From your travelers: Redeem their DutyCredits at participating airport retailers for exclusive discounts.',
       from_retailers: 'From airport retailers: Accept DutyCredits as payment and benefit from high-intent customers ready to spend.',
       the_outcome: 'The outcome:',
-      outcome_1: 'For you: Earn 20% margin on every DutyCredit your travelers redeem — funded by DutyBoost\'s 2.5% platform fee from airport retailers, creating passive income with zero cost',
+      outcome_1: 'For you: Earn 20% margin on every DutyCredit your travelers redeem — funded by DutyBoost\'s 2.5% platform fee from airport retailers, creating passive income with zero cost. Plus, you generate incredible loyalty through meaningful rewards: travelers receive tiered discounts from €2.50 (at €35 spend) up to €60 (at €300+ spend) — creating a feeling of substantial value that strengthens their connection to your brand.',
       outcome_2: 'For your travelers: Exclusive airport discounts they\'ll remember and value',
       outcome_3: 'For airport retailers: High-intent shoppers arriving ready to spend',
       closing: 'One booking. Three parties benefiting. That\'s the power of working hand in hand with DutyBoost.',

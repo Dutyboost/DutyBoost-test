@@ -642,7 +642,7 @@ export default {
       from_travelers: 'Van je reizigers: Wissel hun DutyCredits in bij deelnemende luchthavenwinkeliers voor exclusieve kortingen.',
       from_retailers: 'Van luchthavenwinkeliers: Accepteer DutyCredits als betaling en profiteer van koopgerichte klanten die klaar zijn om te besteden.',
       the_outcome: 'Het resultaat:',
-      outcome_1: 'Voor jou: Verdien 20% marge op elke DutyCredit die je reizigers inwisselen — gefinancierd door DutyBoost\'s 2,5% platformkosten van luchthavenwinkeliers, wat passief inkomen creëert zonder kosten',
+      outcome_1: 'Voor jou: Verdien 20% marge op elke DutyCredit die je reizigers inwisselen — gefinancierd door DutyBoost\'s 2,5% platformkosten van luchthavenwinkeliers, wat passief inkomen creëert zonder kosten. Plus, je genereer ongelooflijke loyaliteit door betekenisvolle beloningen: reizigers ontvangen gelaagde kortingen van €2,50 (bij €35 besteding) tot €60 (bij €300+ besteding) — wat een gevoel van aanzienlijke waarde creëert dat hun verbinding met je merk versterkt.',
       outcome_2: 'Voor je reizigers: Exclusieve luchthavenkorting en die ze waarschijnlijk zullen onthouden en waarderen',
       outcome_3: 'Voor luchthavenwinkeliers: Koopgerichte shoppers die klaar zijn om uit te geven',
       closing: 'Één boeking. Drie partijen profiteren. Dat is de kracht van hand in hand werken met DutyBoost.',
