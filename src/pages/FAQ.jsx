@@ -13,7 +13,7 @@ const content = {
     back_home: "← Back to Home", footer_rights: "© 2026 DutyBoost.", footer_back: "Back to Home",
     categories: [
       { cat: "DutyCredits", qs: [
-        { q: "What is a DutyCredit?", a: "A DutyCredit is a booking-earned incentive — a unique digital discount code automatically generated when a travel partner (flight, accommodation, or car rental) submits a booking through the DutyBoost platform. Travelers receive it as a QR code and can use it to get a discount at participating airport retailers." },
+        { q: "What is a DutyCredit?", a: "A DutyCredit is a booking-earned incentive — a unique digital discount code automatically generated when a travel partner (flight, accommodation, or car rental) submits a booking through the DutyBoost platform. Travelers receive it as a QR code directly in their booking confirmation email and can use it to get a discount at participating airport retailers." },
         { q: "How is my DutyCredit value calculated?", a: "Your DutyCredit provides a fixed euro discount at participating airport retailers — no complex calculation involved. The amount depends entirely on your basket size at checkout: €2.50 off at €35–€49, €5 off at €50–€74, €10 off at €75–€99, €15 off at €100–€149, €20 off at €150–€199, €35 off at €200–€299, and €60 off at €300 or more." },
         { q: "Can I use my DutyCredit at multiple shops?", a: "No. DutyCredits are redeemable in a single transaction at one point of sale and cannot be split across multiple shops." },
         { q: "Is there a minimum spend to redeem a DutyCredit?", a: "Yes. A minimum basket spend of €35 is required to activate your DutyCredit. The discount is a fixed euro amount that grows with your basket — from €2.50 at €35 spend up to €60 at €300 or more." },
@@ -51,7 +51,7 @@ const content = {
     back_home: "← Terug naar home", footer_rights: "© 2026 DutyBoost.", footer_back: "Terug naar home",
     categories: [
       { cat: "DutyCredits", qs: [
-        { q: "Wat is een DutyCredit?", a: "Een DutyCredit is een boeking-gedreven incentive — een unieke digitale kortingscode die automatisch wordt gegenereerd wanneer een reispartner (vlucht, accommodatie of autoverhuur) een boeking indient via DutyBoost. Reizigers ontvangen deze als QR-code." },
+        { q: "Wat is een DutyCredit?", a: "Een DutyCredit is een boeking-gedreven incentive — een unieke digitale kortingscode die automatisch wordt gegenereerd wanneer een reispartner (vlucht, accommodatie of autoverhuur) een boeking indient via DutyBoost. Reizigers ontvangen deze als QR-code rechtstreeks in hun boekingsbevestigingsmail." },
         { q: "Hoe wordt mijn DutyCredit berekend?", a: "Uw DutyCredit geeft u een vaste eurokorting bij deelnemende luchthavenwinkels. Het bedrag hangt af van de totale waarde van uw aankoop bij het afrekenen: €2,50 korting bij €35–€49, €5 bij €50–€74, €10 bij €75–€99, €15 bij €100–€149, €20 bij €150–€199, €35 bij €200–€299 en €60 bij €300 of meer." },
         { q: "Kan ik mijn DutyCredit bij meerdere winkels gebruiken?", a: "Nee. DutyCredits zijn inwisselbaar bij één transactie op één verkooppunt." },
         { q: "Is er een minimumbedrag?", a: "Ja. Er geldt een minimale besteding van €35 om een DutyCredit te activeren. De korting is een vast eurobedrag dat oploopt met uw aankoop — van €2,50 bij €35 tot €60 bij €300 of meer." },
@@ -89,7 +89,7 @@ const content = {
     back_home: "← Zurück zur Startseite", footer_rights: "© 2026 DutyBoost.", footer_back: "Zurück zur Startseite",
     categories: [
       { cat: "DutyCredits", qs: [
-        { q: "Was ist ein DutyCredit?", a: "Ein DutyCredit ist ein buchungsbasierter Anreiz — ein einzigartiger digitaler Rabattcode, der automatisch generiert wird, wenn ein Reisepartner (Flug, Unterkunft oder Mietwagen) eine Buchung über DutyBoost einreicht. Reisende erhalten ihn als QR-Code." },
+        { q: "Was ist ein DutyCredit?", a: "Ein DutyCredit ist ein buchungsbasierter Anreiz — ein einzigartiger digitaler Rabattcode, der automatisch generiert wird, wenn ein Reisepartner (Flug, Unterkunft oder Mietwagen) eine Buchung über DutyBoost einreicht. Reisende erhalten ihn als QR-Code direkt in ihrer Buchungsbestätigungs-E-Mail." },
         { q: "Wie wird mein DutyCredit berechnet?", a: "Ihr DutyCredit gewährt Ihnen einen festen Eurorabatt bei teilnehmenden Flughafenhändlern. Der Betrag richtet sich nach Ihrem Einkaufswert: €2,50 Rabatt bei €35–€49, €5 bei €50–€74, €10 bei €75–€99, €15 bei €100–€149, €20 bei €150–€199, €35 bei €200–€299 und €60 bei €300 oder mehr." },
         { q: "Kann ich meinen DutyCredit in mehreren Geschäften verwenden?", a: "Nein. DutyCredits sind für eine einzige Transaktion an einem Verkaufspunkt einlösbar." },
         { q: "Gibt es einen Mindestbetrag?", a: "Ja. Es gilt ein Mindesteinkauf von €35, um Ihren DutyCredit zu aktivieren. Der Rabatt ist ein fester Eurobetrag, der mit Ihrem Einkauf wächst — von €2,50 bei €35 bis €60 bei €300 oder mehr." },
@@ -127,7 +127,7 @@ const content = {
     back_home: "← Retour à l'accueil", footer_rights: "© 2026 DutyBoost.", footer_back: "Retour à l'accueil",
     categories: [
       { cat: "DutyCredits", qs: [
-        { q: "Qu'est-ce qu'un DutyCredit ?", a: "Un DutyCredit est un incentive lié à une réservation — un code de réduction numérique unique généré automatiquement lorsqu'un partenaire de voyage (vol, hébergement ou location de voiture) soumet une réservation via DutyBoost. Les voyageurs le reçoivent sous forme de QR code." },
+        { q: "Qu'est-ce qu'un DutyCredit ?", a: "Un DutyCredit est un incentive lié à une réservation — un code de réduction numérique unique généré automatiquement lorsqu'un partenaire de voyage (vol, hébergement ou location de voiture) soumet une réservation via DutyBoost. Les voyageurs le reçoivent sous forme de QR code directement dans leur e-mail de confirmation de réservation." },
         { q: "Comment mon DutyCredit est-il calculé ?", a: "Votre DutyCredit vous offre une réduction fixe en euros chez les détaillants aéroportuaires participants. Le montant dépend de votre panier au moment du paiement : €2,50 de réduction pour €35–€49, €5 pour €50–€74, €10 pour €75–€99, €15 pour €100–€149, €20 pour €150–€199, €35 pour €200–€299, et €60 pour €300 ou plus." },
         { q: "Puis-je utiliser mon DutyCredit dans plusieurs magasins ?", a: "Non. Les DutyCredits ne peuvent être échangés qu'en une seule transaction dans un seul point de vente." },
         { q: "Y a-t-il un montant minimum ?", a: "Oui. Un panier minimum de €35 est requis pour activer votre DutyCredit. La réduction est un montant fixe en euros qui augmente avec votre panier — de €2,50 à partir de €35 jusqu'à €60 à partir de €300." },
@@ -165,7 +165,7 @@ const content = {
     back_home: "← Volver al inicio", footer_rights: "© 2026 DutyBoost.", footer_back: "Volver al inicio",
     categories: [
       { cat: "DutyCredits", qs: [
-        { q: "¿Qué es un DutyCredit?", a: "Un DutyCredit es un incentivo vinculado a una reserva — un código de descuento digital único generado automáticamente cuando un socio de viajes (vuelo, alojamiento o alquiler de coche) envía una reserva a través de DutyBoost. Los viajeros lo reciben como código QR." },
+        { q: "¿Qué es un DutyCredit?", a: "Un DutyCredit es un incentivo vinculado a una reserva — un código de descuento digital único generado automáticamente cuando un socio de viajes (vuelo, alojamiento o alquiler de coche) envía una reserva a través de DutyBoost. Los viajeros lo reciben como código QR directamente en su correo electrónico de confirmación de reserva." },
         { q: "¿Cómo se calcula mi DutyCredit?", a: "Tu DutyCredit ofrece un descuento fijo en euros en las tiendas aeroportuarias participantes. El importe depende del valor de tu cesta en el momento del pago: €2,50 de descuento con €35–€49, €5 con €50–€74, €10 con €75–€99, €15 con €100–€149, €20 con €150–€199, €35 con €200–€299 y €60 con €300 o más." },
         { q: "¿Puedo usar mi DutyCredit en varios establecimientos?", a: "No. Los DutyCredits son canjeables en una sola transacción en un único punto de venta." },
         { q: "¿Hay un gasto mínimo?", a: "Sí. Se requiere un gasto mínimo de €35 para activar tu DutyCredit. El descuento es un importe fijo en euros que crece con tu compra — desde €2,50 a partir de €35 hasta €60 a partir de €300 o más." },
@@ -203,7 +203,7 @@ const content = {
     back_home: "← Torna alla home", footer_rights: "© 2026 DutyBoost.", footer_back: "Torna alla home",
     categories: [
       { cat: "DutyCredit", qs: [
-        { q: "Cos'è un DutyCredit?", a: "Un DutyCredit è un incentivo legato a una prenotazione — un codice sconto digitale unico generato automaticamente quando un partner di viaggio (volo, alloggio o noleggio auto) invia una prenotazione tramite DutyBoost. I viaggiatori lo ricevono come QR code." },
+        { q: "Cos'è un DutyCredit?", a: "Un DutyCredit è un incentivo legato a una prenotazione — un codice sconto digitale unico generato automaticamente quando un partner di viaggio (volo, alloggio o noleggio auto) invia una prenotazione tramite DutyBoost. I viaggiatori lo ricevono come QR code direttamente nell'e-mail di conferma della prenotazione." },
         { q: "Come viene calcolato il mio DutyCredit?", a: "Il tuo DutyCredit offre uno sconto fisso in euro presso i rivenditori aeroportuali partecipanti. L'importo dipende dal valore del tuo carrello alla cassa: €2,50 di sconto con €35–€49, €5 con €50–€74, €10 con €75–€99, €15 con €100–€149, €20 con €150–€199, €35 con €200–€299 e €60 con €300 o più." },
         { q: "Posso usare il mio DutyCredit in più negozi?", a: "No. I DutyCredit sono riscattabili in un'unica transazione presso un unico punto vendita." },
         { q: "C'è una spesa minima?", a: "Sì. È richiesta una spesa minima di €35 per attivare il tuo DutyCredit. Lo sconto è un importo fisso in euro che cresce con il tuo acquisto — da €2,50 a partire da €35 fino a €60 a partire da €300 o più." },
