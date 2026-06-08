@@ -1061,7 +1061,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
       stat2_desc: 'DutyCredit-Inhaber werden deutlich mehr ausgeben, dank Voraktivierung und dem Mindesteinkauf von €35.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'erwarteter zusätzlicher Umsatz pro Geschäft im Jahr',
-      stat3_desc: '100 DutyCredit-Inhaber/Tag × 15% Konversion × €30 Netto/Korb (€35 Mindestausgabe − €5 Rabatt) × 365 Tage = etwa €164K inkrementeller Nettoumsatz pro Geschäft pro Jahr — unser Ziel.',
+      stat3_desc: '100 DutyCredit-Inhaber/Tag × 15% Konversion × €32,50 Netto/Korb (€35 Mindestausgabe − €2,50 Rabatt) × 365 Tage = etwa €178K inkrementeller Nettoumsatz pro Geschäft pro Jahr — unser Ziel.',
       benefit1_title: '🛍️ Mehr Verkäufe von Reisenden, die sonst nicht kaufen würden',
       benefit1_desc: 'Voraktivierte Kaufabsicht wird Impulskäufe antreiben — Sie werden Verkäufe sichern, die sonst an Ihrem Geschäft vorbeigegangen wären.',
       benefit2_title: '📊 Höherer Transaktionswert',

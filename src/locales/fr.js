@@ -1061,7 +1061,7 @@ Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esp
       stat2_desc: "Les titulaires de DutyCredit dépenseront considérablement plus grâce à la pré-activation et au seuil d'achat minimum de €35.",
       stat3_value: "+€300K–€400K",
       stat3_label: "revenus annuels par magasin visés",
-      stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €30 net/panier (€35 min. dépense − €5 remise) × 365 jours = environ €164K de revenus nets supplémentaires par magasin par an — notre objectif.",
+      stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €32,50 net/panier (€35 min. dépense − €2,50 remise) × 365 jours = environ €178K de revenus nets supplémentaires par magasin par an — notre objectif.",
       benefit1_title: "🛍️ Plus de ventes de voyageurs qui n'achèteraient pas autrement",
       benefit1_desc: "L'intention pré-activée stimulera les achats d'impulsion — vous capturerez les ventes qui auraient autrement passé à côté sans DutyBoost.",
       benefit2_title: "📊 Valeur de transaction plus élevée",

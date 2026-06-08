@@ -1011,7 +1011,7 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
       stat2_desc: 'DutyCredit-houders zullen aanzienlijk meer besteden door vooractivering en de minimale aankoop van €35.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'verwachte extra omzet per winkel per jaar',
-      stat3_desc: '100 DutyCredit-houders/dag × 15% conversie × €30 netto mand (€35 min. besteding − €5 korting) × 365 dagen = circa €164K incrementele netto-omzet per winkel per jaar — ons doel.',
+      stat3_desc: '100 DutyCredit-houders/dag × 15% conversie × €32,50 netto mand (€35 min. besteding − €2,50 korting) × 365 dagen = circa €178K incrementele netto-omzet per winkel per jaar — ons doel.',
       benefit1_title: '🛍️ Meer verkopen van reizigers die anders niet zouden kopen',
       benefit1_desc: 'Voorgeactiveerde koopintentie zal impulsaankopen stimuleren — u pakt verkopen die anders voorbij uw winkel zouden zijn gelopen zonder DutyBoost.',
       benefit2_title: '📊 Hogere transactiewaarde',

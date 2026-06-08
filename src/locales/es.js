@@ -682,7 +682,7 @@ export default {
       stat2_desc: 'Los titulares de DutyCredit gastarán significativamente más gracias a la preactivación y el umbral mínimo de €35.',
       stat3_value: '+€300K–€400K',
       stat3_label: 'ingresos adicionales proyectados por tienda al año',
-      stat3_desc: '100 titulares DutyCredit/día × 15% conversión × €30 neto/cesta (€35 gasto mín. − €5 descuento) × 365 días = aproximadamente €164K ingresos netos incrementales por tienda al año — nuestro objetivo.',
+      stat3_desc: '100 titulares DutyCredit/día × 15% conversión × €32,50 neto/cesta (€35 gasto mín. − €2,50 descuento) × 365 días = aproximadamente €178K ingresos netos incrementales por tienda al año — nuestro objetivo.',
       benefit1_title: '🛍️ Más ventas de viajeros que no comprarían de otra forma',
       benefit1_desc: 'La intención preactivada impulsará compras por impulso — capturarás ventas que de otra forma habrían pasado de largo sin DutyBoost.',
       benefit2_title: '📊 Mayor valor de transacción',
