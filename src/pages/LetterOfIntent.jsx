@@ -218,10 +218,9 @@ export default function LetterOfIntentPage() {
           <div>
             <h1 className="text-2xl font-heading font-bold text-foreground mb-2">{t('letterOfIntent.success_title')}</h1>
             <p className="text-muted-foreground">
-              {t('letterOfIntent.success_subtitle', {
-                name: form.partner_representative_name,
-                company: form.partner_company_name
-              })}
+              {t('letterOfIntent.success_subtitle')
+                .replace('{name}', form.partner_representative_name)
+                .replace('{company}', form.partner_company_name)}
             </p>
           </div>
           <Link to="/" className="inline-block">
