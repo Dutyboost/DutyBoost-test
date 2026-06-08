@@ -381,7 +381,7 @@ export default {
         subtitle: 'DutyBoost will turn passing travellers into paying customers with personalised shopping incentives.',
         howItWorks: 'How It Will Work',
         step1: 'Customer Arrives',
-        step1Desc: "A traveller with a personalised DutyCredit incentive will walk into your store, already motivated to spend. They will have had this credit waiting in their email for days or weeks — ever since they booked their flight. They won't be browsing. They'll arrive with a mission: to spend their credit with you.",
+        step1Desc: "A traveller with a personalised DutyCredit incentive will walk into your store, already motivated to spend. They will have had this credit waiting in their email for days or weeks — ever since they booked their flight, accommodation or car rental. They won't be browsing. They'll arrive with a mission: to spend their credit with you.",
         step2: 'Scan & Validate',
         step2Desc: "They will present their unique QR code at checkout, and your staff will scan it via the integrated POS system. The system will instantly validate the code in real-time, verifying the credit is active, hasn't expired, and belongs to this traveller. No manual calculations. No friction.",
         step3: 'Apply Discount',
