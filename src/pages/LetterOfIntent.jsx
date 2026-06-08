@@ -389,15 +389,14 @@ export default function LetterOfIntentPage() {
                 </div>
               </div>
               <span className="text-sm text-foreground">
-                {t('letterOfIntent.acceptance_text', {
-                  name: form.partner_representative_name || "[your name]",
-                  company: form.partner_company_name || "[your company]",
-                  date: new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
-                })}
+                {t('letterOfIntent.acceptance_text')
+                  .replace('{name}', form.partner_representative_name || t('letterOfIntent.ph_representative_name'))
+                  .replace('{company}', form.partner_company_name || t('letterOfIntent.ph_company_name'))
+                  .replace('{date}', new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" }))}
               </span>
             </label>
             {errors.accepted && (
-              <p className="text-xs text-destructive">You must accept the Letter of Intent to submit.</p>
+              <p className="text-xs text-destructive">{t('letterOfIntent.error_required')}</p>
             )}
           </div>
 
