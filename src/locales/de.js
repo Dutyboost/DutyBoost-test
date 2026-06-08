@@ -604,7 +604,7 @@ export default {
       validating: 'Handelsregisternummer wird überprüft...',
       storage_info: 'Ihre Einreichung wird sicher gespeichert. DutyBoost · KvK 42053181 · hello@dutyboost.com',
       success_title: 'Absichtserklärung eingereicht',
-      success_subtitle: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Unser Team meldet sich bald.',
+      success_subtitle: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Mit Ihrer Unterstützung stehen wir stärker darin, Flughafenhändler zur Teilnahme an unserem Ökosystem zu überzeugen. Eine digital unterzeichnete Kopie wird Ihnen innerhalb von 24 Stunden per E-Mail zugesandt.',
       error_required: 'Dieses Feld ist erforderlich.',
       error_email_invalid: 'Bitte verwenden Sie eine professionelle Unternehmens-E-Mail (kein Gmail, Hotmail, Yahoo, iCloud, etc.)',
       error_domain_mismatch: 'Ihre E-Mail-Domain muss mit der Domain Ihrer Unternehmenswebsite übereinstimmen.',

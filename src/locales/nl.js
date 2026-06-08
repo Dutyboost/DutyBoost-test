@@ -699,7 +699,7 @@ export default {
       validating: 'KvK-nummer controleren...',
       storage_info: 'Uw indiening wordt veilig opgeslagen. DutyBoost · KvK 42053181 · hello@dutyboost.com',
       success_title: 'Intentieverklaring Ingediend',
-      success_subtitle: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Ons team zal binnenkort contact opnemen.',
+      success_subtitle: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Met uw steun staan wij sterker in het overtuigen van luchthavenwinkeliers om deel te nemen aan ons ecosysteem. Een digitaal ondertekende kopie ontvangt u binnen 24 uur per e-mail.',
       error_required: 'Dit veld is verplicht.',
       error_email_invalid: 'Gebruik alstublieft een zakelijk e-mailadres (geen Gmail, Hotmail, Yahoo, iCloud, enz.)',
       error_domain_mismatch: 'Uw e-maildomein moet overeenkomen met het domein van uw bedrijfswebsite.',

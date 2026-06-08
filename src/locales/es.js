@@ -822,7 +822,7 @@ export default {
       validating: 'Verificando número de registro mercantil...',
       storage_info: 'Tu envío se almacenará de forma segura. DutyBoost · KvK 42053181 · hello@dutyboost.com',
       success_title: 'Carta de Intención enviada',
-      success_subtitle: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Nuestro equipo se pondrá en contacto próximamente.',
+      success_subtitle: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Con tu apoyo, somos más fuertes para convencer a los comerciantes aeroportuarios de unirse a nuestro ecosistema. Una copia firmada digitalmente te será enviada por correo en 24 horas.',
       error_required: 'Este campo es obligatorio.',
       error_email_invalid: 'Por favor usa una dirección de correo profesional (no Gmail, Hotmail, Yahoo, iCloud, etc.)',
       error_domain_mismatch: 'El dominio de tu correo debe coincidir con el dominio del sitio web de tu empresa.',

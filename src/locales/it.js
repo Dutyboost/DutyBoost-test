@@ -622,7 +622,7 @@ export default {
       validating: 'Verifica numero registro imprese...',
       storage_info: 'La tua candidatura verrà archiviata in modo sicuro. DutyBoost · KvK 42053181 · hello@dutyboost.com',
       success_title: 'Lettera di Intenti inviata',
-      success_subtitle: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Il nostro team ti contatterà presto.',
+      success_subtitle: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Con il tuo supporto, siamo più forti nel convincere i retailer aeroportuali ad aderire al nostro ecosistema. Una copia firmata digitalmente ti verrà inviata via e-mail entro 24 ore.',
       error_required: 'Questo campo è obbligatorio.',
       error_email_invalid: 'Si prega di utilizzare un indirizzo e-mail professionale aziendale (non Gmail, Hotmail, Yahoo, iCloud, ecc.)',
       error_domain_mismatch: 'Il dominio della tua email deve corrispondere al dominio del sito web aziendale.',

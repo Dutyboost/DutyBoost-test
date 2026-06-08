@@ -604,7 +604,7 @@ export default {
       validating: 'Vérification du numéro de registre du commerce...',
       storage_info: 'Votre soumission sera stockée en toute sécurité. DutyBoost · KvK 42053181 · hello@dutyboost.com',
       success_title: 'Lettre d\'Intention soumise',
-      success_subtitle: 'Merci, {name}. Votre Lettre d\'Intention signée a été reçue au nom de {company}. Notre équipe vous contactera prochainement.',
+      success_subtitle: 'Merci, {name}. Votre Lettre d\'Intention signée a été reçue au nom de {company}. Avec votre soutien, nous sommes plus forts pour convaincre les détaillants aéroportuaires de rejoindre notre écosystème. Une copie signée numériquement vous sera envoyée par e-mail dans les 24 heures.',
       error_required: 'Ce champ est obligatoire.',
       error_email_invalid: 'Veuillez utiliser une adresse e-mail professionnelle (pas Gmail, Hotmail, Yahoo, iCloud, etc.)',
       error_domain_mismatch: 'Le domaine de votre e-mail doit correspondre au domaine de votre site web d\'entreprise.',
