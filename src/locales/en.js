@@ -900,7 +900,7 @@ export default {
       validating: 'Verifying Chamber of Commerce...',
       storage_info: 'Your submission will be securely stored. DutyBoost · KvK 42053181 · hello@dutyboost.com',
       success_title: 'Letter of Intent Submitted',
-      success_subtitle: 'Thank you, {name}. Your signed Letter of Intent has been received on behalf of {company}. Our team will follow up shortly.',
+      success_subtitle: 'Thank you, {name}. Your signed Letter of Intent has been received on behalf of {company}. With your support, we stand stronger in convincing airport retailers to join our ecosystem. A digitally signed copy will be emailed to you within 24 hours.',
       error_required: 'This field is required.',
       error_email_invalid: 'Please use a professional company email address (not Gmail, Hotmail, Yahoo, iCloud, etc.)',
       error_domain_mismatch: 'Your email domain must match your company website domain.',
