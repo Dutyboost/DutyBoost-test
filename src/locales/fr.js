@@ -575,6 +575,7 @@ export default {
       vat_number: 'Numéro TVA / Fiscal',
       representative_name: 'Nom Complet du Représentant',
       representative_title: 'Titre/Fonction du Représentant',
+      website: 'Site Web de l\'Entreprise',
       email_address: 'Adresse E-mail',
       monthly_travelers: 'Voyageurs Mensuels vers les Aéroports',
       partner_type: 'Type de Partenaire',
@@ -591,7 +592,8 @@ export default {
       success_title: 'Lettre d\'Intention soumise',
       success_subtitle: 'Merci, {name}. Votre Lettre d\'Intention signée a été reçue au nom de {company}. Notre équipe vous contactera prochainement.',
       error_required: 'Ce champ est obligatoire.',
-      error_email_invalid: 'Veuillez utiliser une adresse e-mail professionnelle (pas Gmail, Hotmail, Yahoo, etc.)',
+      error_email_invalid: 'Veuillez utiliser une adresse e-mail professionnelle (pas Gmail, Hotmail, Yahoo, iCloud, etc.)',
+      error_domain_mismatch: 'Le domaine de votre e-mail doit correspondre au domaine de votre site web d\'entreprise.',
       error_kvk_mismatch: 'Le nom de l\'entreprise ne correspond pas à l\'enregistrement du registre du commerce.',
       error_kvk_validation: 'Impossible de valider le numéro de registre du commerce. Veuillez vérifier et réessayer.',
       loi_document: `DUTYBOOST LETTRE D\'INTENTION

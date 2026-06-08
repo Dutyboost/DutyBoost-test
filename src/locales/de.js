@@ -575,6 +575,7 @@ export default {
       vat_number: 'USt-ID-Nummer',
       representative_name: 'Vollständiger Name des Vertreters',
       representative_title: 'Titel/Funktion des Vertreters',
+      website: 'Unternehmenswebsite',
       email_address: 'E-Mail-Adresse',
       monthly_travelers: 'Monatliche Reisende zu Flughäfen',
       partner_type: 'Partnertyp',
@@ -591,7 +592,8 @@ export default {
       success_title: 'Absichtserklärung eingereicht',
       success_subtitle: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Unser Team meldet sich bald.',
       error_required: 'Dieses Feld ist erforderlich.',
-      error_email_invalid: 'Bitte verwenden Sie eine professionelle Unternehmens-E-Mail (kein Gmail, Hotmail, Yahoo, etc.)',
+      error_email_invalid: 'Bitte verwenden Sie eine professionelle Unternehmens-E-Mail (kein Gmail, Hotmail, Yahoo, iCloud, etc.)',
+      error_domain_mismatch: 'Ihre E-Mail-Domain muss mit der Domain Ihrer Unternehmenswebsite übereinstimmen.',
       error_kvk_mismatch: 'Der Unternehmensname stimmt nicht mit der Handelsregistereintragung überein.',
       error_kvk_validation: 'Die Handelsregisternummer konnte nicht validiert werden. Bitte überprüfen und erneut versuchen.',
       loi_document: `DUTYBOOST ABSICHTSERKLÄRUNG

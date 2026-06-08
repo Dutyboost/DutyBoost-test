@@ -593,6 +593,7 @@ export default {
       vat_number: 'Numero IVA / Fiscale',
       representative_name: 'Nome Completo del Rappresentante',
       representative_title: 'Titolo/Funzione del Rappresentante',
+      website: 'Sito Web Aziendale',
       email_address: 'Indirizzo Email',
       monthly_travelers: 'Viaggiatori Mensili verso Aeroporti',
       partner_type: 'Tipo di Partner',
@@ -609,7 +610,8 @@ export default {
       success_title: 'Lettera di Intenti inviata',
       success_subtitle: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Il nostro team ti contatterà presto.',
       error_required: 'Questo campo è obbligatorio.',
-      error_email_invalid: 'Si prega di utilizzare un indirizzo e-mail professionale aziendale (non Gmail, Hotmail, Yahoo, ecc.)',
+      error_email_invalid: 'Si prega di utilizzare un indirizzo e-mail professionale aziendale (non Gmail, Hotmail, Yahoo, iCloud, ecc.)',
+      error_domain_mismatch: 'Il dominio della tua email deve corrispondere al dominio del sito web aziendale.',
       error_kvk_mismatch: 'Il nome dell\'azienda non corrisponde alla registrazione nel registro delle imprese.',
       error_kvk_validation: 'Impossibile validare il numero di registro imprese. Controlla e riprova.',
       loi_document: `DUTYBOOST LETTERA DI INTENTI

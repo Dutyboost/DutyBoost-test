@@ -11,17 +11,67 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const BLOCKED_EMAIL_DOMAINS = [
-  "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "yahoo.co.uk",
-  "yahoo.com.br", "yahoo.fr", "yahoo.de", "yahoo.es", "yahoo.it",
-  "aol.com", "mail.com", "protonmail.com", "icloud.com", "mail.ru",
-  "yandex.com", "163.com", "qq.com", "sina.com", "sohu.com",
-  "test.com", "example.com", "localhost.com"
+  // Google
+  "gmail.com", "googlemail.com",
+  // Microsoft
+  "hotmail.com", "hotmail.co.uk", "hotmail.fr", "hotmail.de", "hotmail.es", "hotmail.it",
+  "outlook.com", "outlook.co.uk", "outlook.fr", "outlook.de", "outlook.es", "outlook.it",
+  "live.com", "live.co.uk", "live.fr", "live.de", "msn.com",
+  // Apple
+  "icloud.com", "me.com", "mac.com",
+  // Yahoo
+  "yahoo.com", "yahoo.co.uk", "yahoo.com.br", "yahoo.fr", "yahoo.de",
+  "yahoo.es", "yahoo.it", "yahoo.ca", "yahoo.com.au", "yahoo.co.in",
+  "ymail.com",
+  // AOL / Verizon
+  "aol.com", "aol.co.uk",
+  // Other consumer providers
+  "mail.com", "email.com", "zohomail.com",
+  "protonmail.com", "protonmail.ch", "pm.me",
+  "tutanota.com", "tutanota.de", "tutamail.com", "tuta.io",
+  "mail.ru", "bk.ru", "inbox.ru", "list.ru",
+  "yandex.com", "yandex.ru",
+  "163.com", "126.com", "qq.com", "sina.com", "sohu.com",
+  "gmx.com", "gmx.de", "gmx.net", "gmx.at",
+  "web.de", "freenet.de", "t-online.de",
+  "libero.it", "virgilio.it", "tin.it",
+  "orange.fr", "wanadoo.fr", "free.fr", "sfr.fr",
+  "terra.com", "terra.com.br", "uol.com.br", "bol.com.br", "ig.com.br",
+  // Disposable / Test
+  "test.com", "example.com", "localhost.com", "mailinator.com",
+  "guerrillamail.com", "tempmail.com", "throwam.com", "sharklasers.com",
 ];
+
+const extractDomain = (url) => {
+  if (!url) return null;
+  try {
+    let cleaned = url.trim().toLowerCase();
+    if (!cleaned.startsWith("http")) cleaned = "https://" + cleaned;
+    const hostname = new URL(cleaned).hostname;
+    // Remove www. prefix
+    return hostname.replace(/^www\./, "");
+  } catch {
+    // Fallback: strip protocol and www manually
+    return url.trim().toLowerCase()
+      .replace(/^https?:\/\//, "")
+      .replace(/^www\./, "")
+      .split("/")[0];
+  }
+};
 
 const isValidProfessionalEmail = (email) => {
   if (!email) return false;
   const domain = email.split("@")[1]?.toLowerCase();
   return domain && !BLOCKED_EMAIL_DOMAINS.includes(domain);
+};
+
+const emailMatchesWebsite = (email, website) => {
+  if (!email || !website) return true; // only validate when both present
+  const emailDomain = email.split("@")[1]?.toLowerCase();
+  const websiteDomain = extractDomain(website);
+  if (!emailDomain || !websiteDomain) return true;
+  // Check if email domain matches or is a subdomain of the website domain
+  return emailDomain === websiteDomain || emailDomain.endsWith("." + websiteDomain) || websiteDomain.endsWith("." + emailDomain);
 };
 
 const generateLOI_TEXT = (partner, t) => {
@@ -50,6 +100,7 @@ const FIELDS = [
   { key: "partner_vat", labelKey: "letterOfIntent.vat_number", required: true, placeholder: "e.g. NL123456789B01" },
   { key: "partner_representative_name", labelKey: "letterOfIntent.representative_name", required: true, placeholder: "Legal signatory name" },
   { key: "partner_representative_title", labelKey: "letterOfIntent.representative_title", required: false, placeholder: "e.g. CEO, Co-Founder, Director" },
+  { key: "partner_website", labelKey: "letterOfIntent.website", required: true, placeholder: "https://yourcompany.com", type: "url" },
   { key: "partner_email", labelKey: "letterOfIntent.email_address", required: true, placeholder: "your@company.com", type: "email" },
   { key: "monthly_travelers", labelKey: "letterOfIntent.monthly_travelers", required: true, type: "number", placeholder: "e.g. 5000" },
   { key: "partner_type", labelKey: "letterOfIntent.partner_type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
@@ -65,6 +116,7 @@ export default function LetterOfIntentPage() {
     partner_vat: "",
     partner_representative_name: "",
     partner_representative_title: "",
+    partner_website: "",
     partner_email: "",
     partner_type: "",
   });
@@ -91,6 +143,8 @@ export default function LetterOfIntentPage() {
     });
     if (form.partner_email && !isValidProfessionalEmail(form.partner_email)) {
       newErrors.partner_email = "email_domain_invalid";
+    } else if (form.partner_email && form.partner_website && !emailMatchesWebsite(form.partner_email, form.partner_website)) {
+      newErrors.partner_email = "email_domain_mismatch";
     }
     
     if (form.partner_country?.toLowerCase() === "netherlands" && form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
@@ -265,6 +319,8 @@ export default function LetterOfIntentPage() {
                     <p className="text-xs text-destructive mt-1">
                       {field.key === "partner_email" && errors[field.key] === "email_domain_invalid"
                         ? t('letterOfIntent.error_email_invalid')
+                        : field.key === "partner_email" && errors[field.key] === "email_domain_mismatch"
+                        ? t('letterOfIntent.error_domain_mismatch')
                         : field.key === "partner_registration_number" && errors[field.key] === "kvk_mismatch"
                         ? t('letterOfIntent.error_kvk_mismatch')
                         : field.key === "partner_registration_number" && errors[field.key] === "kvk_validation_error"

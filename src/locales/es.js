@@ -793,6 +793,7 @@ export default {
       vat_number: 'Número de IVA / Fiscal',
       representative_name: 'Nombre Completo del Representante',
       representative_title: 'Título/Cargo del Representante',
+      website: 'Sitio Web de la Empresa',
       email_address: 'Dirección de Correo Electrónico',
       monthly_travelers: 'Viajeros Mensuales a Aeropuertos',
       partner_type: 'Tipo de Socio',
@@ -809,7 +810,8 @@ export default {
       success_title: 'Carta de Intención enviada',
       success_subtitle: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Nuestro equipo se pondrá en contacto próximamente.',
       error_required: 'Este campo es obligatorio.',
-      error_email_invalid: 'Por favor usa una dirección de correo profesional (no Gmail, Hotmail, Yahoo, etc.)',
+      error_email_invalid: 'Por favor usa una dirección de correo profesional (no Gmail, Hotmail, Yahoo, iCloud, etc.)',
+      error_domain_mismatch: 'El dominio de tu correo debe coincidir con el dominio del sitio web de tu empresa.',
       error_kvk_mismatch: 'El nombre de la empresa no coincide con el registro mercantil.',
       error_kvk_validation: 'No se pudo validar el número de registro mercantil. Por favor verifica e inténtalo de nuevo.',
       loi_document: `DUTYBOOST CARTA DE INTENCIÓN

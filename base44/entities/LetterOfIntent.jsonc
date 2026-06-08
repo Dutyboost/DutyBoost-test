@@ -30,6 +30,10 @@
       "type": "string",
       "title": "Representative Title"
     },
+    "partner_website": {
+      "type": "string",
+      "title": "Partner Website"
+    },
     "partner_email": {
       "type": "string",
       "title": "Partner Email"

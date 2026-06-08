@@ -670,6 +670,7 @@ export default {
       vat_number: 'BTW-nummer',
       representative_name: 'Volledige naam vertegenwoordiger',
       representative_title: 'Functie/Titel vertegenwoordiger',
+      website: 'Bedrijfswebsite',
       email_address: 'E-mailadres',
       monthly_travelers: 'Maandse reizigers naar luchthavens',
       partner_type: 'Partnertype',
@@ -686,7 +687,8 @@ export default {
       success_title: 'Intentieverklaring Ingediend',
       success_subtitle: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Ons team zal binnenkort contact opnemen.',
       error_required: 'Dit veld is verplicht.',
-      error_email_invalid: 'Gebruik alstublieft een zakelijk e-mailadres (geen Gmail, Hotmail, Yahoo, enz.)',
+      error_email_invalid: 'Gebruik alstublieft een zakelijk e-mailadres (geen Gmail, Hotmail, Yahoo, iCloud, enz.)',
+      error_domain_mismatch: 'Uw e-maildomein moet overeenkomen met het domein van uw bedrijfswebsite.',
       error_kvk_mismatch: 'Bedrijfsnaam komt niet overeen met de KvK-registratie.',
       error_kvk_validation: 'KvK-nummer kon niet worden geverifieerd. Controleer het en probeer opnieuw.',
       loi_document: `DUTYBOOST INTENTIEVERKLARING
