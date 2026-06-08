@@ -176,12 +176,8 @@ export default function LetterOfIntentPage() {
 
           {/* Opener Section */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3">
-            <p className="text-sm text-blue-800 leading-relaxed">
-              {t('letterOfIntent.description_1')}
-            </p>
-            <p className="text-sm text-blue-800 leading-relaxed">
-              {t('letterOfIntent.description_2')}
-            </p>
+            <p className="text-sm text-blue-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('letterOfIntent.description_1') }} />
+            <p className="text-sm text-blue-800 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('letterOfIntent.description_2') }} />
           </div>
 
           {/* Why Section */}
