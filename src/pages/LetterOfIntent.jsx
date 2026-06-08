@@ -99,18 +99,18 @@ const generateLOI_TEXT = (partner, t) => {
 };
 
 const FIELDS = [
-  { key: "partner_company_name", labelKey: "letterOfIntent.company_name", required: true, placeholder: "Your company legal name" },
-  { key: "partner_street", labelKey: "letterOfIntent.street_number", required: true, placeholder: "e.g. Keizersgracht 123" },
-  { key: "partner_postal_code", labelKey: "letterOfIntent.postal_code", required: true, placeholder: "e.g. 1015 CJ" },
-  { key: "partner_city", labelKey: "letterOfIntent.city", required: true, placeholder: "e.g. Amsterdam" },
-  { key: "partner_country", labelKey: "letterOfIntent.country", required: true, placeholder: "e.g. Netherlands, Spain, Germany" },
-  { key: "partner_registration_number", labelKey: "letterOfIntent.chamber_of_commerce", required: true, placeholder: "e.g. KvK, Trade Register, etc." },
-  { key: "partner_vat", labelKey: "letterOfIntent.vat_number", required: true, placeholder: "e.g. NL123456789B01" },
-  { key: "partner_representative_name", labelKey: "letterOfIntent.representative_name", required: true, placeholder: "Legal signatory name" },
-  { key: "partner_representative_title", labelKey: "letterOfIntent.representative_title", required: false, placeholder: "e.g. CEO, Co-Founder, Director" },
-  { key: "partner_website", labelKey: "letterOfIntent.website", required: true, placeholder: "https://yourcompany.com", type: "url" },
-  { key: "partner_email", labelKey: "letterOfIntent.email_address", required: true, placeholder: "your@company.com", type: "email" },
-  { key: "monthly_travelers", labelKey: "letterOfIntent.monthly_travelers", required: true, type: "number", placeholder: "e.g. 5000" },
+  { key: "partner_company_name", labelKey: "letterOfIntent.company_name", placeholderKey: "letterOfIntent.ph_company_name", required: true },
+  { key: "partner_street", labelKey: "letterOfIntent.street_number", placeholderKey: "letterOfIntent.ph_street_number", required: true },
+  { key: "partner_postal_code", labelKey: "letterOfIntent.postal_code", placeholderKey: "letterOfIntent.ph_postal_code", required: true },
+  { key: "partner_city", labelKey: "letterOfIntent.city", placeholderKey: "letterOfIntent.ph_city", required: true },
+  { key: "partner_country", labelKey: "letterOfIntent.country", placeholderKey: "letterOfIntent.ph_country", required: true },
+  { key: "partner_registration_number", labelKey: "letterOfIntent.chamber_of_commerce", placeholderKey: "letterOfIntent.ph_chamber_of_commerce", required: true },
+  { key: "partner_vat", labelKey: "letterOfIntent.vat_number", placeholderKey: "letterOfIntent.ph_vat_number", required: true },
+  { key: "partner_representative_name", labelKey: "letterOfIntent.representative_name", placeholderKey: "letterOfIntent.ph_representative_name", required: true },
+  { key: "partner_representative_title", labelKey: "letterOfIntent.representative_title", placeholderKey: "letterOfIntent.ph_representative_title", required: false },
+  { key: "partner_website", labelKey: "letterOfIntent.website", placeholderKey: "letterOfIntent.ph_website", required: true, type: "url" },
+  { key: "partner_email", labelKey: "letterOfIntent.email_address", placeholderKey: "letterOfIntent.ph_email_address", required: true, type: "email" },
+  { key: "monthly_travelers", labelKey: "letterOfIntent.monthly_travelers", placeholderKey: "letterOfIntent.ph_monthly_travelers", required: true, type: "number" },
   { key: "partner_type", labelKey: "letterOfIntent.partner_type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
 ];
 
@@ -312,7 +312,7 @@ export default function LetterOfIntentPage() {
                   ) : field.key === "monthly_travelers" ? (
                     <Input
                       type="text"
-                      placeholder={field.placeholder}
+                      placeholder={t(field.placeholderKey)}
                       value={form[field.key] ? parseInt(form[field.key]).toLocaleString("de-DE") : ""}
                       onChange={e => handleChange(field.key, e.target.value)}
                       className={errors[field.key] ? "border-destructive" : ""}
@@ -320,7 +320,7 @@ export default function LetterOfIntentPage() {
                   ) : (
                     <Input
                       type={field.type || "text"}
-                      placeholder={field.placeholder}
+                      placeholder={t(field.placeholderKey)}
                       value={form[field.key]}
                       onChange={e => handleChange(field.key, e.target.value)}
                       className={errors[field.key] ? "border-destructive" : ""}
