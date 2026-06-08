@@ -30,10 +30,14 @@ function namesMatch(a = '', b = '') {
 Deno.serve(async (req) => {
    const base44 = createClientFromRequest(req);
 
-   const { kvk, vat, company } = await req.json();
+   const body = await req.json();
+   // Support both calling conventions: {kvk, vat, company} and {kvkNumber, companyName}
+   const kvk = body.kvk || body.kvkNumber;
+   const vat = body.vat || null;
+   const company = body.company || body.companyName;
 
-   if (!kvk || !vat || !company) {
-     return Response.json({ error: 'Missing required fields: kvk, vat, company' }, { status: 400 });
+   if (!kvk || !company) {
+     return Response.json({ error: 'Missing required fields: kvk/kvkNumber, company/companyName' }, { status: 400 });
    }
 
    const KVK_API_KEY = Deno.env.get('KVK_API_KEY');
@@ -97,45 +101,46 @@ Deno.serve(async (req) => {
     }
   }
 
-  // ── 2. EU VIES VAT Validation ─────────────────────────────────────────────
-  const vatClean = vat.toUpperCase().replace(/\s/g, '');
-  const vatCountry = vatClean.slice(0, 2);
-  const vatNumber = vatClean.slice(2);
+  // ── 2. EU VIES VAT Validation (optional — only if vat is provided) ────────
+  if (vat) {
+    const vatClean = vat.toUpperCase().replace(/\s/g, '');
+    const vatCountry = vatClean.slice(0, 2);
+    const vatNumber = vatClean.slice(2);
 
-  if (vatCountry !== 'NL') {
-    errors.push({ field: 'vat', message: 'Only Dutch VAT numbers (NL…) are supported at this time.' });
-  } else {
-    try {
-      const viesRes = await fetch(
-        `https://ec.europa.eu/taxation_customs/vies/rest-api/ms/${vatCountry}/vat/${vatNumber}`,
-        { headers: { 'Accept': 'application/json' } }
-      );
+    if (vatCountry !== 'NL') {
+      errors.push({ field: 'vat', message: 'Only Dutch VAT numbers (NL…) are supported at this time.' });
+    } else {
+      try {
+        const viesRes = await fetch(
+          `https://ec.europa.eu/taxation_customs/vies/rest-api/ms/${vatCountry}/vat/${vatNumber}`,
+          { headers: { 'Accept': 'application/json' } }
+        );
 
-      if (!viesRes.ok) {
-        errors.push({ field: 'vat', message: 'VAT validation service unavailable. Please try again.' });
-      } else {
-        const viesData = await viesRes.json();
-
-        if (!viesData.isValid) {
-          errors.push({ field: 'vat', message: 'VAT number is not valid or not registered in the EU VIES system.' });
+        if (!viesRes.ok) {
+          errors.push({ field: 'vat', message: 'VAT validation service unavailable. Please try again.' });
         } else {
-          vatCompanyName = viesData.name || '';
+          const viesData = await viesRes.json();
 
-          // Cross-check VAT company name with KVK company name if we have both
-          if (!testMode && kvkCompanyName && vatCompanyName && vatCompanyName !== '---') {
-            if (!namesMatch(kvkCompanyName, vatCompanyName)) {
-              errors.push({
-                field: 'vat',
-                message: `VAT registration (${vatCompanyName}) does not match the KVK registration (${kvkCompanyName}). Please ensure your KVK and VAT numbers belong to the same company.`,
-              });
+          if (!viesData.isValid) {
+            errors.push({ field: 'vat', message: 'VAT number is not valid or not registered in the EU VIES system.' });
+          } else {
+            vatCompanyName = viesData.name || '';
+
+            // Cross-check VAT company name with KVK company name if we have both
+            if (!testMode && kvkCompanyName && vatCompanyName && vatCompanyName !== '---') {
+              if (!namesMatch(kvkCompanyName, vatCompanyName)) {
+                errors.push({
+                  field: 'vat',
+                  message: `VAT registration (${vatCompanyName}) does not match the KVK registration (${kvkCompanyName}). Please ensure your KVK and VAT numbers belong to the same company.`,
+                });
+              }
             }
           }
         }
+      } catch (e) {
+        console.error('[validateKvk] VIES error:', e.message);
+        console.warn('[validateKvk] VIES unreachable, skipping VAT check');
       }
-    } catch (e) {
-      console.error('[validateKvk] VIES error:', e.message);
-      // VIES can be flaky — soft error, don't block
-      console.warn('[validateKvk] VIES unreachable, skipping VAT check');
     }
   }
 
