@@ -11,16 +11,37 @@ import it from "../locales/it";
 
 const locales = { en, nl, fr, de, es, it };
 
+const KVK_PHRASES = {
+  en: (n) => `, registered under number ${n}`,
+  nl: (n) => `, ingeschreven onder nummer ${n}`,
+  fr: (n) => `, enregistrée sous le numéro ${n}`,
+  de: (n) => `, eingetragen unter der Nummer ${n}`,
+  es: (n) => `, registrada bajo el número ${n}`,
+  it: (n) => `, registrata con il numero ${n}`,
+};
+
+const VAT_PHRASES = {
+  en: (n) => `, VAT/Tax number ${n}`,
+  nl: (n) => `, BTW/belastingnummer ${n}`,
+  fr: (n) => `, numéro TVA/fiscal ${n}`,
+  de: (n) => `, Umsatzsteuer-/Steuernummer ${n}`,
+  es: (n) => `, número de IVA/fiscal ${n}`,
+  it: (n) => `, numero IVA/fiscale ${n}`,
+};
+
 const getLoiDocument = (lang, loi) => {
-  const locale = locales[lang] || locales.en;
+  const safeLang = lang?.split('-')[0] || 'en';
+  const locale = locales[safeLang] || locales.en;
   const template = locale?.translation?.letterOfIntent?.loi_document || locales.en.translation.letterOfIntent.loi_document;
 
   const today = loi.signed_date
     ? new Date(loi.signed_date).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
     : new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
 
-  const kvkText = loi.partner_registration_number ? `, registered under number ${loi.partner_registration_number}` : "";
-  const vatText = loi.partner_vat ? `, VAT/Tax number ${loi.partner_vat}` : "";
+  const kvkFn = KVK_PHRASES[safeLang] || KVK_PHRASES.en;
+  const vatFn = VAT_PHRASES[safeLang] || VAT_PHRASES.en;
+  const kvkText = loi.partner_registration_number ? kvkFn(loi.partner_registration_number) : "";
+  const vatText = loi.partner_vat ? vatFn(loi.partner_vat) : "";
   const titleText = loi.partner_representative_title ? ` – ${loi.partner_representative_title}` : "";
   const addressParts = [loi.partner_street, loi.partner_postal_code && loi.partner_city ? `${loi.partner_postal_code} ${loi.partner_city}` : loi.partner_city].filter(Boolean);
   const fullAddress = addressParts.join(", ") || "";
@@ -57,7 +78,7 @@ export default function LOITab() {
       ? new Date(loi.signed_date).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
       : new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
 
-    const lang = loi.language || "en";
+    const lang = (loi.language || "en").split('-')[0];
     const loiText = getLoiDocument(lang, loi);
 
     const footerText = "© 2026 DutyBoost  |  All rights reserved  |  Chamber of Commerce: 42053181  |  VAT Number: NL869492068B01";
