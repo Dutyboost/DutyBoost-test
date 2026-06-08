@@ -80,11 +80,17 @@ const generateLOI_TEXT = (partner, t) => {
    const vatText = partner.partner_vat ? `, VAT/Tax number ${partner.partner_vat}` : "";
    const titleText = partner.partner_representative_title ? ` – ${partner.partner_representative_title}` : "";
    
+   const addressParts = [
+     partner.partner_street,
+     partner.partner_postal_code && partner.partner_city ? `${partner.partner_postal_code} ${partner.partner_city}` : partner.partner_city,
+   ].filter(Boolean);
+   const fullAddress = addressParts.join(", ") || "[ADDRESS]";
+
    const template = t('letterOfIntent.loi_document');
    return template
      .replace(/{date}/g, today)
      .replace(/{company}/g, partner.partner_company_name || "[PARTNER COMPANY NAME]")
-     .replace(/{address}/g, partner.partner_address || "[ADDRESS]")
+     .replace(/{address}/g, fullAddress)
      .replace(/{country}/g, partner.partner_country || "[COUNTRY]")
      .replace(/{kvk_text}/g, kvkText)
      .replace(/{vat_text}/g, vatText)
@@ -94,7 +100,9 @@ const generateLOI_TEXT = (partner, t) => {
 
 const FIELDS = [
   { key: "partner_company_name", labelKey: "letterOfIntent.company_name", required: true, placeholder: "Your company legal name" },
-  { key: "partner_address", labelKey: "letterOfIntent.registered_address", required: true, placeholder: "Full street address" },
+  { key: "partner_street", labelKey: "letterOfIntent.street_number", required: true, placeholder: "e.g. Keizersgracht 123" },
+  { key: "partner_postal_code", labelKey: "letterOfIntent.postal_code", required: true, placeholder: "e.g. 1015 CJ" },
+  { key: "partner_city", labelKey: "letterOfIntent.city", required: true, placeholder: "e.g. Amsterdam" },
   { key: "partner_country", labelKey: "letterOfIntent.country", required: true, placeholder: "e.g. Netherlands, Spain, Germany" },
   { key: "partner_registration_number", labelKey: "letterOfIntent.chamber_of_commerce", required: true, placeholder: "e.g. KvK, Trade Register, etc." },
   { key: "partner_vat", labelKey: "letterOfIntent.vat_number", required: true, placeholder: "e.g. NL123456789B01" },
@@ -110,7 +118,9 @@ export default function LetterOfIntentPage() {
   const { t } = useTranslation();
   const [form, setForm] = useState({
     partner_company_name: "",
-    partner_address: "",
+    partner_street: "",
+    partner_postal_code: "",
+    partner_city: "",
     partner_country: "",
     partner_registration_number: "",
     partner_vat: "",
@@ -147,7 +157,8 @@ export default function LetterOfIntentPage() {
       newErrors.partner_email = "email_domain_mismatch";
     }
     
-    if (form.partner_country?.toLowerCase() === "netherlands" && form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
+    const isNetherlands = ["netherlands", "nederland", "niederlande", "pays-bas", "paesi bassi", "países bajos"].includes(form.partner_country?.toLowerCase()?.trim() || "");
+    if (isNetherlands && form.partner_registration_number?.trim() && form.partner_company_name?.trim()) {
       setValidatingKvk(true);
       try {
         const result = await base44.functions.invoke("validateKvk", {
@@ -284,7 +295,7 @@ export default function LetterOfIntentPage() {
             <h2 className="font-heading font-semibold text-lg text-foreground">{t('letterOfIntent.your_details')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {FIELDS.map(field => (
-                <div key={field.key} className={field.key === "partner_address" ? "md:col-span-2" : ""}>
+                <div key={field.key} className={field.key === "partner_street" ? "md:col-span-2" : ""}>
                   <label className="block text-sm font-medium text-foreground mb-1.5">
                     {t(field.labelKey)}
                     {field.required && <span className="text-destructive ml-1">*</span>}

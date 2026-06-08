@@ -6,9 +6,17 @@
       "type": "string",
       "title": "Partner Company Name"
     },
-    "partner_address": {
+    "partner_street": {
       "type": "string",
-      "title": "Partner Registered Address"
+      "title": "Partner Street + Number"
+    },
+    "partner_postal_code": {
+      "type": "string",
+      "title": "Partner Postal Code"
+    },
+    "partner_city": {
+      "type": "string",
+      "title": "Partner City"
     },
     "partner_country": {
       "type": "string",
@@ -74,7 +82,9 @@
   },
   "required": [
     "partner_company_name",
-    "partner_address",
+    "partner_street",
+    "partner_postal_code",
+    "partner_city",
     "partner_country",
     "partner_registration_number",
     "partner_vat",
