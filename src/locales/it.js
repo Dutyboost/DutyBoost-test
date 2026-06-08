@@ -735,6 +735,128 @@ Questa Lettera di Intenti è regolata esclusivamente dalle leggi dei Paesi Bassi
 
 Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fiducia reciproca e con l\'intenzione di esplorare le possibilità di una collaborazione a lungo termine e preziosa. Sebbene questa Lettera di Intenti non costituisca un accordo commerciale definitivo, le Parti sottolineano la loro sincera intenzione di continuare le discussioni ed esplorare potenziali collaborazioni future.`,
     },
+    letterOfIntentRetailer: {
+      title: 'Lettera di Intenti — Retailer Aeroportuale',
+      back_to_home: 'Torna alla home',
+      why_loi_title: 'Perché una Lettera di Intenti?',
+      why_loi_body: 'Ti chiediamo il tuo impegno per aiutarci a costruire la rete di retailer aeroportuali DutyBoost. Insieme, possiamo dimostrare ai partner di viaggio:',
+      why_loi_b1: '<strong>Acquirenti Pre-Attivati:</strong> I viaggiatori arrivano nel tuo negozio con un credito specifico nella loro email — settimane prima del volo.',
+      why_loi_b2: '<strong>Carrelli Più Alti:</strong> Il minimo di €35 eleva naturalmente il valore medio delle transazioni — generando entrate incrementali significative per visita.',
+      why_loi_b3: '<strong>Entrate Incrementali:</strong> €300K–€400K annui per sede — crescita reale e misurabile sul traffico che già hai.',
+      why_loi_footer: 'La tua firma dice ai partner di viaggio che i retailer aeroportuali sono pronti a partecipare. Questo è ciò che sblocca la loro fiducia nell\'emettere DutyCredits ai loro viaggiatori — e mandarli nel tuo negozio.',
+      how_title: 'Come questo avvantaggerà tutti',
+      how_step1: '<strong>1. Firmi:</strong> Esamina e firma digitalmente questa Lettera di Intenti.',
+      how_step2: '<strong>2. Usiamo la Tua Firma:</strong> La tua firma dimostra ai partner di viaggio che i retailer aeroportuali sono impegnati.',
+      how_step3: '<strong>3. I Partner di Viaggio Si Uniscono:</strong> Con la tua firma come prova di impegno, i partner di viaggio acquistano fiducia e iniziano a emettere DutyCredits.',
+      how_step4: '<strong>4. Arrivano Acquirenti Pre-Attivati:</strong> I viaggiatori con DutyCredits entrano nel tuo negozio pronti a spendere. Paghi solo una commissione di servizio del 2,5% (max €25) per ogni riscatto confermato — zero costi iniziali.',
+      description_1: 'Da DutyBoost, stiamo costruendo un <strong>ecosistema di entrate circolare</strong> dove tutti vincono. I partner di viaggio portano i viaggiatori. DutyBoost li connette con i retailer aeroportuali — il tuo negozio.',
+      description_2: 'Cos\'è DutyBoost? Un "<strong>Travel Retail Conversion Layer</strong>" che crea nuovo valore commerciale basato sui flussi di viaggiatori esistenti. Trasformiamo i passeggeri pre-attivati in acquirenti ad alta intenzione — e li inviamo direttamente al tuo negozio.',
+      what_we_ask: 'Cosa ti chiediamo adesso:',
+      from_you: 'Firma questa Lettera di Intenti per formalizzare la tua intenzione di partecipare alla rete di retailer DutyBoost e di impegnarti in discussioni in buona fede su come DutyBoost può generare entrate incrementali per il tuo negozio.',
+      important: 'Importante:',
+      disclaimer: 'Questa Lettera di Intenti non è vincolante e non genera obblighi finanziari a meno che un accordo vincolante definitivo non venga firmato separatamente da rappresentanti autorizzati di entrambe le parti.',
+      fill_details: 'Inserisci i dettagli del tuo negozio qui sotto. La Lettera di Intenti verrà compilata con le tue informazioni e inviata a DutyBoost all\'accettazione.',
+      your_details: 'Dettagli del Tuo Negozio',
+      company_name: 'Nome azienda / Entità legale',
+      store_name: 'Nome negozio / brand',
+      airport_location: 'Aeroporto e Terminal',
+      store_category: 'Categoria negozio',
+      street_number: 'Via + Numero Civico',
+      postal_code: 'Codice Postale',
+      city: 'Città',
+      country: 'Paese',
+      chamber_of_commerce: 'Numero Camera di Commercio',
+      vat_number: 'Partita IVA / Codice Fiscale',
+      representative_name: 'Nome Completo del Rappresentante',
+      representative_title: 'Titolo/Funzione del Rappresentante',
+      website: 'Sito web azienda / negozio',
+      email_address: 'Indirizzo Email',
+      monthly_visitors: 'Visitatori mensili stimati del negozio',
+      select_category: 'Seleziona categoria...',
+      ph_company_name: 'Ragione sociale della tua azienda',
+      ph_store_name: 'es. World of Whisky, InMotion',
+      ph_airport_location: 'es. Amsterdam Schiphol, Terminal 2',
+      ph_store_category: 'Seleziona la categoria del tuo negozio',
+      ph_street_number: 'es. Via Roma 123',
+      ph_postal_code: 'es. 20121',
+      ph_city: 'es. Milano',
+      ph_country: 'es. Italia, Paesi Bassi, Spagna',
+      ph_chamber_of_commerce: 'es. REA o numero registro imprese',
+      ph_vat_number: 'es. IT12345678901',
+      ph_representative_name: 'Nome completo del firmatario legale',
+      ph_representative_title: 'es. CEO, Responsabile Negozio, Direttore',
+      ph_website: 'https://tuonegozio.it',
+      ph_email_address: 'tu@tuonegozio.it',
+      ph_monthly_visitors: 'es. 12000',
+      preview_loi: 'Anteprima Lettera di Intenti',
+      live_preview: 'Anteprima live',
+      acceptance: 'Accettazione e Firma',
+      read_understood: 'Spuntando la casella qui sotto, confermi di aver letto, compreso e accettato i termini di questa Lettera di Intenti per conto della tua organizzazione.',
+      acceptance_text: 'Io, {name}, per conto di {company}, accetto e firmo digitalmente questa Lettera di Intenti con DutyBoost, datata {date}.',
+      submit_loi: 'Invia Lettera di Intenti Firmata',
+      submitting: 'Invio in corso...',
+      validating: 'Verifica numero Camera di Commercio...',
+      storage_info: 'Il tuo invio sarà archiviato in modo sicuro. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      success_title: 'Lettera di Intenti Inviata',
+      success_subtitle: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Con la tua partecipazione, siamo più forti nel costruire la rete di retailer aeroportuali di DutyBoost. Una copia firmata digitalmente ti verrà inviata via e-mail entro 24 ore.',
+      error_required: 'Questo campo è obbligatorio.',
+      error_email_invalid: 'Usa un indirizzo email aziendale professionale (non Gmail, Hotmail, Yahoo, iCloud, ecc.)',
+      error_domain_mismatch: 'Il dominio della tua email deve corrispondere al dominio del sito web aziendale.',
+      error_kvk_mismatch: 'Il nome dell\'azienda non corrisponde alla registrazione della Camera di Commercio.',
+      error_kvk_validation: 'Impossibile validare il numero della Camera di Commercio. Verifica e riprova.',
+      loi_document: `DUTYBOOST LETTERA DI INTENTI — PARTNERSHIP RETAILER AEROPORTUALE
+
+La presente Lettera di Intenti ("LDI") è stipulata il {date} tra:
+
+DutyBoost, con sede legale in DEK 32, 1319BB Almere, Paesi Bassi, registrata presso la Camera di Commercio olandese con il numero 42053181, partita IVA NL869492068B01, legalmente rappresentata da:
+Jaquelin Beliad Perez – Co-Fondatore
+Raël Martis – Co-Fondatore
+di seguito denominata "DutyBoost",
+
+E
+
+{company} con sede legale in {address} {country}{kvk_text}{vat_text}, legalmente rappresentata da:
+{representative}{title_text}
+di seguito denominata "{company}",
+
+DutyBoost e {company} di seguito congiuntamente denominate la "Parte" o le "Parti."
+
+1. Contesto
+
+DutyBoost ha sviluppato una soluzione innovativa di travel retail volta ad aumentare le performance commerciali negli ambienti di vendita al dettaglio degli aeroporti. La piattaforma crea valore commerciale aggiuntivo collegando i partner di viaggio con i retailer aeroportuali, attivando l'intenzione di acquisto dei viaggiatori prima della partenza.
+
+{company} opera come retailer aeroportuale e dispone di una presenza fisica in uno o più aeroporti, rendendolo un partecipante naturale nell'ecosistema DutyBoost per accettare e riscattare DutyCredits.
+
+2. Scopo di questa Lettera di Intenti
+
+Lo scopo di questa Lettera di Intenti è registrare l'intenzione delle Parti di avviare discussioni riguardanti:
+- la partecipazione di {company} come retailer accettante nella rete DutyBoost;
+- integrazione del riscatto QR DutyCredit al punto vendita;
+- crescita dei ricavi attraverso incentivi per viaggiatori pre-attivati;
+- cooperazione commerciale basata sulle performance tra DutyBoost e {company}.
+
+3. Riservatezza
+
+Tutte le informazioni condivise sono trattate come strettamente riservate per cinque (5) anni dalla firma.
+
+4. Esclusività
+
+Le Parti condurranno discussioni esclusive in buona fede per 365 giorni.
+
+5. Natura Non Vincolante
+
+Questa Lettera di Intenti è non vincolante, ad eccezione delle clausole di riservatezza, proprietà intellettuale ed esclusività.
+
+6. Proprietà Intellettuale
+
+Tutti i diritti di proprietà intellettuale relativi a DutyBoost rimangono di proprietà esclusiva di DutyBoost.
+
+7. Legge Applicabile
+
+Questa Lettera di Intenti è disciplinata dalle leggi dei Paesi Bassi.
+
+Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fiducia reciproca e con l'intenzione di esplorare le possibilità di una collaborazione a lungo termine e proficua.`,
+    },
     login: {
       page_title: 'Accedi',
       title: 'Accedi a DutyBoost',

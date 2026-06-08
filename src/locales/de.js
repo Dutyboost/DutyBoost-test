@@ -717,6 +717,127 @@ Diese Absichtserklärung unterliegt ausschließlich den Gesetzen der Niederlande
 
 Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertrauen eingehen und mit der Absicht, die Möglichkeiten einer langfristigen und wertvollen Zusammenarbeit zu erkunden. Obwohl diese Absichtserklärung kein verbindliches Handelsabkommen darstellt, betonen die Parteien ihre aufrichtige Absicht, Diskussionen fortzusetzen und potenzielle zukünftige Kooperationen zu erkunden.`,
     },
+    letterOfIntentRetailer: {
+      title: 'Absichtserklärung — Flughafenhändler',
+      back_to_home: 'Zurück zur Startseite',
+      why_loi_title: 'Warum eine Absichtserklärung?',
+      why_loi_body: 'Wir bitten um Ihr Engagement, uns beim Aufbau des DutyBoost Flughafeneinzelhändler-Netzwerks zu helfen. Gemeinsam können wir Reisepartnern demonstrieren:',
+      why_loi_b1: '<strong>Vorvoraktivierte Käufer:</strong> Reisende kommen mit einem spezifischen Guthaben in ihrer E-Mail in Ihr Geschäft — Wochen vor dem Flug.',
+      why_loi_b2: '<strong>Höhere Warenkörbe:</strong> Der Mindestbetrag von €35 erhöht den durchschnittlichen Transaktionswert — was zu bedeutsamen Zusatzeinnahmen pro Besuch führt.',
+      why_loi_b3: '<strong>Inkrementelle Einnahmen:</strong> €300K–€400K jährlich pro Standort — echtes, messbares Wachstum bei dem Besucheraufkommen, das Sie bereits haben.',
+      why_loi_footer: 'Ihre Unterschrift signalisiert Reisepartnern, dass Flughafenhändler zur Teilnahme bereit sind. Das stärkt ihr Vertrauen, DutyCredits an ihre Reisenden auszugeben — und sie in Ihr Geschäft zu schicken.',
+      how_title: 'Wie dies allen zugutekommen wird',
+      how_step1: '<strong>1. Sie Unterschreiben:</strong> Prüfen und unterzeichnen Sie diese Absichtserklärung digital.',
+      how_step2: '<strong>2. Wir Nutzen Ihre Unterschrift:</strong> Ihre Unterschrift zeigt Reisepartnern, dass Flughafenhändler engagiert sind.',
+      how_step3: '<strong>3. Reisepartner Treten Bei:</strong> Mit Ihrer Unterschrift als Beweis gewinnen Reisepartner Vertrauen und beginnen, DutyCredits auszustellen.',
+      how_step4: '<strong>4. Vorvoraktivierte Käufer Kommen:</strong> Reisende mit DutyCredits betreten Ihr Geschäft kaufbereit. Sie zahlen nur 2,5% Servicegebühr (max €25) pro bestätigter Einlösung — keine Vorabkosten.',
+      description_1: 'Bei DutyBoost bauen wir ein <strong>zirkuläres Umsatz-Ökosystem</strong> auf, bei dem alle gewinnen. Reisepartner bringen die Reisenden. DutyBoost verbindet sie mit Flughafenhändlern — Ihrem Geschäft.',
+      description_2: 'Was ist DutyBoost? Eine "<strong>Travel Retail Conversion Layer</strong>", die neuen kommerziellen Wert auf Basis bestehender Reisenden-Ströme schafft. Wir verwandeln vorvoraktivierte Passagiere in kaufbereite Shopper — und senden sie direkt in Ihr Geschäft.',
+      what_we_ask: 'Was wir jetzt von Ihnen bitten:',
+      from_you: 'Unterzeichnen Sie diese Absichtserklärung, um Ihre Absicht zu formalisieren, am DutyBoost Einzelhandelsnetzwerk teilzunehmen und in gutem Glauben darüber zu diskutieren, wie DutyBoost inkrementelle Einnahmen in Ihr Geschäft bringen kann.',
+      important: 'Wichtig:',
+      disclaimer: 'Diese Absichtserklärung ist unverbindlich und begründet keine finanziellen Verpflichtungen, es sei denn, eine endgültige verbindliche Vereinbarung wird separat von autorisierten Vertretern beider Parteien unterzeichnet.',
+      fill_details: 'Füllen Sie unten Ihre Shopdetails aus. Die Absichtserklärung wird mit Ihren Informationen befüllt und bei Akzeptanz an DutyBoost übermittelt.',
+      your_details: 'Ihre Shopdetails',
+      company_name: 'Firmen- / Rechtsträger-Name',
+      store_name: 'Shop- / Markenname',
+      airport_location: 'Flughafen & Terminal',
+      store_category: 'Shop-Kategorie',
+      street_number: 'Straße + Hausnummer',
+      postal_code: 'Postleitzahl',
+      city: 'Stadt',
+      country: 'Land',
+      chamber_of_commerce: 'Handelsregisternummer',
+      vat_number: 'USt-IdNr. / Steuernummer',
+      representative_name: 'Vollständiger Name des Vertreters',
+      representative_title: 'Titel/Funktion des Vertreters',
+      website: 'Firmen- / Shop-Website',
+      email_address: 'E-Mail-Adresse',
+      monthly_visitors: 'Geschätzte monatliche Shop-Besucher',
+      select_category: 'Kategorie auswählen...',
+      ph_company_name: 'Rechtlicher Firmenname',
+      ph_store_name: 'z.B. World of Whisky, InMotion',
+      ph_airport_location: 'z.B. Amsterdam Schiphol, Terminal 2',
+      ph_store_category: 'Ihre Shop-Kategorie auswählen',
+      ph_street_number: 'z.B. Hauptstraße 123',
+      ph_postal_code: 'z.B. 10115',
+      ph_city: 'z.B. Berlin',
+      ph_country: 'z.B. Deutschland, Niederlande, Spanien',
+      ph_chamber_of_commerce: 'z.B. HRB-Nummer',
+      ph_vat_number: 'z.B. DE123456789',
+      ph_representative_name: 'Vollständiger Name des rechtlichen Unterzeichners',
+      ph_representative_title: 'z.B. Geschäftsführer, Shop-Manager, Direktor',
+      ph_website: 'https://ihrshop.de',
+      ph_email_address: 'sie@ihrshop.de',
+      ph_monthly_visitors: 'z.B. 12000',
+      preview_loi: 'Absichtserklärung Vorschau',
+      live_preview: 'Live-Vorschau',
+      acceptance: 'Akzeptanz & Unterschrift',
+      read_understood: 'Durch Ankreuzen des untenstehenden Kästchens bestätigen Sie, dass Sie die Bedingungen dieser Absichtserklärung im Namen Ihrer Organisation gelesen, verstanden und akzeptiert haben.',
+      acceptance_text: 'Ich, {name}, im Namen von {company}, akzeptiere und unterzeichne diese Absichtserklärung mit DutyBoost digital, datiert {date}.',
+      submit_loi: 'Unterzeichnete Absichtserklärung Einreichen',
+      submitting: 'Einreichen...',
+      validating: 'Handelsregisternummer überprüfen...',
+      storage_info: 'Ihre Einreichung wird sicher gespeichert. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      success_title: 'Absichtserklärung Eingereicht',
+      success_subtitle: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Mit Ihrer Teilnahme stehen wir stärker beim Aufbau des DutyBoost Flughafeneinzelhändler-Netzwerks. Eine digital unterzeichnete Kopie wird Ihnen innerhalb von 24 Stunden per E-Mail zugesandt.',
+      error_required: 'Dieses Feld ist erforderlich.',
+      error_email_invalid: 'Bitte verwenden Sie eine professionelle Unternehmens-E-Mail (kein Gmail, Hotmail, Yahoo, iCloud, etc.)',
+      error_domain_mismatch: 'Ihre E-Mail-Domain muss mit der Domain Ihrer Unternehmenswebsite übereinstimmen.',
+      error_kvk_mismatch: 'Firmenname stimmt nicht mit dem Handelsregistereintrag überein.',
+      error_kvk_validation: 'Handelsregisternummer konnte nicht validiert werden. Bitte überprüfen und erneut versuchen.',
+      loi_document: `DUTYBOOST ABSICHTSERKLÄRUNG — FLUGHAFENHÄNDLER PARTNERSCHAFT
+
+Diese Absichtserklärung ("AE") wird am {date} zwischen folgenden Parteien geschlossen:
+
+DutyBoost, mit Sitz in DEK 32, 1319BB Almere, Niederlande, eingetragen beim niederländischen Handelskammer unter der Nummer 42053181, USt-IdNr. NL869492068B01, rechtlich vertreten durch:
+Jaquelin Beliad Perez – Mitgründer
+Raël Martis – Mitgründer
+im Folgenden als "DutyBoost" bezeichnet,
+
+UND
+
+{company} mit Sitz in {address} {country}{kvk_text}{vat_text}, rechtlich vertreten durch:
+{representative}{title_text}
+im Folgenden als "{company}" bezeichnet,
+
+DutyBoost und {company} im Folgenden gemeinsam als "Partei" oder "Parteien" bezeichnet.
+
+1. Hintergrund
+
+DutyBoost hat eine innovative Travel-Retail-Lösung entwickelt, die darauf abzielt, die kommerzielle Leistung in Flughafen-Einzelhandelsumgebungen zu steigern. Die Plattform schafft zusätzlichen kommerziellen Wert, indem sie Reisepartner mit Flughafenhändlern verbindet und die Kaufabsicht der Reisenden vor der Abreise aktiviert.
+
+{company} ist als Flughafenhändler tätig und verfügt über eine physische Präsenz an einem oder mehreren Flughäfen, was es zu einem natürlichen Teilnehmer im DutyBoost-Ökosystem macht.
+
+2. Zweck dieser Absichtserklärung
+
+Zweck dieser Absichtserklärung ist es, die Absicht der Parteien festzuhalten, Gespräche über:
+- die Teilnahme von {company} als akzeptierender Händler im DutyBoost-Netzwerk;
+- Integration der DutyCredit-QR-Einlösung am Point-of-Sale;
+- leistungsbasierte kommerzielle Zusammenarbeit zwischen DutyBoost und {company}.
+
+3. Vertraulichkeit
+
+Alle ausgetauschten Informationen werden als streng vertraulich behandelt. Diese Verpflichtung gilt fünf (5) Jahre nach Unterzeichnung dieser Absichtserklärung.
+
+4. Exklusivität
+
+Die Parteien führen 365 Tage lang exklusive Gespräche in gutem Glauben über die vorgeschlagene Zusammenarbeit.
+
+5. Unverbindlichkeit
+
+Diese Absichtserklärung ist unverbindlich, mit Ausnahme der Klauseln zu Vertraulichkeit, geistigem Eigentum und Exklusivität.
+
+6. Geistiges Eigentum
+
+Alle Rechte am geistigen Eigentum in Bezug auf DutyBoost verbleiben im alleinigen Eigentum von DutyBoost.
+
+7. Anwendbares Recht
+
+Diese Absichtserklärung unterliegt ausschließlich niederländischem Recht.
+
+Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitigen Vertrauens und mit der Absicht eingehen, die Möglichkeiten einer langfristigen und wertvollen Zusammenarbeit zu erkunden.`,
+    },
     login: {
       page_title: 'Anmelden',
       title: 'Bei DutyBoost anmelden',

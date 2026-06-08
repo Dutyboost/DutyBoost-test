@@ -812,6 +812,153 @@ Deze Intentieverklaring wordt uitsluitend beheerst door het recht van Nederland.
 
 De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van wederzijds vertrouwen en met de intentie om de mogelijkheden van een langdurige en waardevolle samenwerking te verkennen. Hoewel deze Intentieverklaring geen definitieve commerciële overeenkomst vormt, benadrukken de Partijen hun oprechte intentie om gesprekken voort te zetten en potentiële toekomstige samenwerkingen te verkennen.`,
     },
+    letterOfIntentRetailer: {
+      title: 'Intentieverklaring — Luchthaven Retailer',
+      back_to_home: 'Terug naar Home',
+      why_loi_title: 'Waarom een Intentieverklaring?',
+      why_loi_body: 'We vragen om uw commitment om ons te helpen het DutyBoost luchthavenwinkelnetwerk op te bouwen. Samen kunnen we reispartners aantonen:',
+      why_loi_b1: '<strong>Vooraf Geactiveerde Shoppers:</strong> Reizigers komen bij uw winkel aan met een specifiek tegoed in hun e-mail — weken voor vertrek.',
+      why_loi_b2: '<strong>Hogere Gemiddelde Orderwaarde:</strong> Het minimumbedrag van €35 verhoogt de gemiddelde transactiewaarde — wat leidt tot zinvolle extra omzet per bezoek.',
+      why_loi_b3: '<strong>Incrementele Omzet:</strong> €300K–€400K per jaar per locatie — echte, meetbare groei op het bezoekersaantal dat u al heeft.',
+      why_loi_footer: 'Uw handtekening vertelt reispartners dat luchthavenwinkeliers klaar zijn om deel te nemen. Dat is wat hun vertrouwen ontsluit om DutyCredits aan hun reizigers te geven — en hen naar uw winkel te sturen.',
+      how_title: 'Hoe dit iedereen ten goede komt',
+      how_step1: '<strong>1. U Tekent:</strong> Bekijk en onderteken digitaal deze Intentieverklaring.',
+      how_step2: '<strong>2. Wij Gebruiken Uw Handtekening:</strong> Uw handtekening toont reispartners dat luchthavenwinkeliers betrokken zijn, waardoor DutyBoost een geloofwaardige propositie wordt.',
+      how_step3: '<strong>3. Reispartners Sluiten Zich Aan:</strong> Met uw handtekening als bewijs van retailercommitment krijgen reispartners vertrouwen en beginnen ze DutyCredits aan hun reizigers te verstrekken.',
+      how_step4: '<strong>4. Vooraf Geactiveerde Shoppers Arriveren:</strong> Reizigers met DutyCredits lopen uw winkel in, klaar om te besteden. U betaalt slechts 2,5% servicekosten (max €25) per bevestigde inwisseling — geen vooruitkosten.',
+      description_1: 'Bij DutyBoost bouwen we een <strong>circulair omzetecosysteem</strong> waar iedereen wint. Reispartners brengen de reizigers. DutyBoost verbindt hen met luchthavenwinkeliers — uw winkel. Samen genereren we nieuwe incrementele omzet voor alle partijen.',
+      description_2: 'Wat is DutyBoost? Een "<strong>Travel Retail Conversion Layer</strong>" die nieuwe commerciële waarde creëert op basis van bestaande reizigersstromen. We zetten vooraf geactiveerde passagiers om in kopers met hoge koopintentie — en sturen hen rechtstreeks naar uw winkel.',
+      what_we_ask: 'Wat we nu van u vragen:',
+      from_you: 'Onderteken deze Intentieverklaring om uw intentie te formaliseren om deel te nemen aan het DutyBoost retailnetwerk en om in goed vertrouwen te bespreken hoe DutyBoost incrementele omzet naar uw winkel kan rijden.',
+      important: 'Belangrijk:',
+      disclaimer: 'Deze Intentieverklaring is niet-bindend en schept geen financiële verplichtingen tenzij een definitieve bindende overeenkomst afzonderlijk wordt ondertekend door bevoegde vertegenwoordigers van beide partijen.',
+      fill_details: 'Vul hieronder uw winkelgegevens in. De Intentieverklaring wordt gevuld met uw informatie en bij acceptatie ingediend bij DutyBoost.',
+      your_details: 'Uw Winkelgegevens',
+      company_name: 'Bedrijfs- / Rechtspersoonsnaam',
+      store_name: 'Winkel- / Merknaam',
+      airport_location: 'Luchthaven & Terminal',
+      store_category: 'Winkelcategorie',
+      street_number: 'Straat + Huisnummer',
+      postal_code: 'Postcode',
+      city: 'Stad',
+      country: 'Land',
+      chamber_of_commerce: 'KvK-nummer',
+      vat_number: 'BTW / Fiscaal Nummer',
+      representative_name: 'Volledige naam vertegenwoordiger',
+      representative_title: 'Functietitel vertegenwoordiger',
+      website: 'Bedrijfs- / Winkelwebsite',
+      email_address: 'E-mailadres',
+      monthly_visitors: 'Geschatte maandelijkse winkelbezoeken',
+      select_category: 'Selecteer categorie...',
+      ph_company_name: 'Juridische bedrijfsnaam',
+      ph_store_name: 'bijv. World of Whisky, InMotion',
+      ph_airport_location: 'bijv. Amsterdam Schiphol, Terminal 2',
+      ph_store_category: 'Selecteer uw winkelcategorie',
+      ph_street_number: 'bijv. Keizersgracht 123',
+      ph_postal_code: 'bijv. 1015 CJ',
+      ph_city: 'bijv. Amsterdam',
+      ph_country: 'bijv. Nederland, Spanje, Duitsland',
+      ph_chamber_of_commerce: 'bijv. KvK-nummer',
+      ph_vat_number: 'bijv. NL123456789B01',
+      ph_representative_name: 'Volledige naam wettelijk ondertekenaar',
+      ph_representative_title: 'bijv. CEO, Winkelmanager, Directeur',
+      ph_website: 'https://uwwinkel.nl',
+      ph_email_address: 'u@uwwinkel.nl',
+      ph_monthly_visitors: 'bijv. 12000',
+      preview_loi: 'Bekijk Intentieverklaring',
+      live_preview: 'Live voorbeeld',
+      acceptance: 'Acceptatie & Handtekening',
+      read_understood: 'Door het aanvinken van het onderstaande vakje bevestigt u dat u de voorwaarden van deze Intentieverklaring namens uw organisatie heeft gelezen, begrepen en ermee akkoord gaat. U erkent dat de vertrouwelijkheids-, intellectuele eigendoms- en exclusiviteitsclausules juridisch bindend zijn.',
+      acceptance_text: 'Ik, {name}, namens {company}, accepteer en onderteken digitaal deze Intentieverklaring met DutyBoost, gedateerd {date}.',
+      submit_loi: 'Ondertekende Intentieverklaring Indienen',
+      submitting: 'Indienen...',
+      validating: 'KvK-nummer verifiëren...',
+      storage_info: 'Uw inzending wordt veilig opgeslagen. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      success_title: 'Intentieverklaring Ingediend',
+      success_subtitle: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Met uw deelname staan wij sterker in het uitbouwen van het DutyBoost luchthavenwinkelnetwerk. Een digitaal ondertekende kopie ontvangt u binnen 24 uur per e-mail.',
+      error_required: 'Dit veld is verplicht.',
+      error_email_invalid: 'Gebruik een zakelijk e-mailadres (geen Gmail, Hotmail, Yahoo, iCloud, etc.)',
+      error_domain_mismatch: 'Het domein van uw e-mail moet overeenkomen met het domein van uw bedrijfswebsite.',
+      error_kvk_mismatch: 'Bedrijfsnaam komt niet overeen met de KvK-inschrijving.',
+      error_kvk_validation: 'KvK-nummer kon niet worden gevalideerd. Controleer en probeer opnieuw.',
+      loi_document: `DUTYBOOST INTENTIEVERKLARING — LUCHTHAVEN RETAILER PARTNERSCHAP
+
+Deze Intentieverklaring ("IV") wordt aangegaan op {date} door en tussen:
+
+DutyBoost, gevestigd aan DEK 32, 1319BB Almere, Nederland, ingeschreven bij de Kamer van Koophandel onder nummer 42053181, BTW-nummer NL869492068B01, wettelijk vertegenwoordigd door:
+Jaquelin Beliad Perez – Co-Founder
+Raël Martis – Co-Founder
+hierna te noemen "DutyBoost",
+
+EN
+
+{company} gevestigd aan {address} {country}{kvk_text}{vat_text}, wettelijk vertegenwoordigd door:
+{representative}{title_text}
+hierna te noemen "{company}",
+
+DutyBoost en {company} hierna gezamenlijk aangeduid als de "Partij" of "Partijen."
+
+1. Achtergrond
+
+DutyBoost heeft een innovatieve travel retail-oplossing ontwikkeld gericht op het verhogen van de commerciële prestaties in de luchthaven retailomgeving. Het platform creëert extra commerciële waarde door reispartners — airlines, OTA's, accommodaties en autoverhuurbedrijven — te verbinden met luchthavenwinkeliers, waardoor de koopintentie van reizigers vóór vertrek wordt geactiveerd.
+
+DutyBoost positioneert zich als een "Travel Retail Conversion Layer" die vooraf geactiveerde, koopbereidde shoppers rechtstreeks naar luchthaven retailwinkels brengt via gepersonaliseerde DutyCredit-incentives in reisbevestigingen.
+
+{company} is actief als luchthaven retailer en heeft een fysieke aanwezigheid op een of meer luchthavens, waardoor het een natuurlijke deelnemer is in het DutyBoost ecosysteem om DutyCredits te accepteren en in te wisselen namens kwalificerende reizigers.
+
+2. Doel van deze Intentieverklaring
+
+Het doel van deze Intentieverklaring is de intentie van de Partijen vast te leggen om deel te nemen aan discussies, evaluaties en potentiële commerciële samenwerkingen met betrekking tot:
+- deelname van {company} als accepterende retailer binnen het DutyBoost netwerk;
+- integratie van DutyCredit QR-inwisseling op het verkooppunt;
+- commerciële omzetgroei via vooraf geactiveerde reizigersincentieven;
+- op prestatie gebaseerde commerciële samenwerking tussen DutyBoost en {company};
+- analyse en rapportage van inwisselvolumes en mandprestaties.
+
+3. Verkennende Samenwerking
+
+De Partijen verklaren hun intentie om te goeder trouw besprekingen te voeren over een potentieel retailpartnerschap, inclusief:
+- technische integratie van DutyCredit QR-validatie bij de kassa;
+- commerciële samenwerking op basis van op prestatie gebaseerde servicekosten;
+- toegang tot het DutyBoost analysedashboard voor inwisseltracking.
+
+4. Vertrouwelijkheid
+
+4.1 Alle informatie die door een van de Partijen wordt gedeeld in verband met deze Intentieverklaring wordt behandeld als strikt vertrouwelijk.
+4.2 Vertrouwelijke informatie wordt niet aan derden verstrekt zonder voorafgaande schriftelijke toestemming van de andere Partij.
+4.3 Deze vertrouwelijkheidsverplichting blijft van kracht gedurende vijf (5) jaar na de uitvoering van deze Intentieverklaring.
+
+5. Exclusiviteit
+
+Gedurende een periode van 365 dagen vanaf de datum van uitvoering van deze Intentieverklaring zullen de Partijen te goeder trouw exclusieve besprekingen voeren over de voorgestelde samenwerking, tenzij schriftelijk anders overeengekomen.
+
+6. Niet-bindend Karakter
+
+6.1 Deze Intentieverklaring is niet-bindend met betrekking tot het aangaan van een definitieve samenwerkingsovereenkomst.
+6.2 Alleen de bepalingen met betrekking tot vertrouwelijkheid, intellectuele eigendom en exclusiviteit zijn juridisch bindend.
+6.3 Geen van de Partijen is verplicht een definitieve overeenkomst aan te gaan totdat een formele schriftelijke overeenkomst naar behoren is ondertekend.
+
+7. Intellectueel Eigendom
+
+7.1 Alle intellectuele eigendomsrechten met betrekking tot DutyBoost blijven de exclusieve eigendom van DutyBoost.
+7.2 Niets in deze Intentieverklaring mag worden uitgelegd als een overdracht van intellectuele eigendomsrechten.
+
+8. Kosten
+
+Elke Partij draagt zijn eigen kosten en uitgaven met betrekking tot onderhandelingen, vergaderingen en onderzoeken.
+
+9. Looptijd en Beëindiging
+
+9.1 Deze Intentieverklaring wordt van kracht op de datum van uitvoering.
+9.2 Deze Intentieverklaring verloopt automatisch na 36 maanden tenzij de Partijen schriftelijk overeenkomen deze te verlengen.
+9.3 Elke Partij kan deze Intentieverklaring op elk moment beëindigen door schriftelijke kennisgeving.
+
+10. Toepasselijk Recht
+
+Deze Intentieverklaring wordt uitsluitend beheerst door het Nederlandse recht. Geschillen worden voorgelegd aan de bevoegde Nederlandse rechtbanken.
+
+De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van wederzijds vertrouwen en met de intentie de mogelijkheden van een langdurige en waardevolle samenwerking te verkennen.`,
+    },
     login: {
       page_title: 'Inloggen',
       title: 'Inloggen bij DutyBoost',

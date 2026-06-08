@@ -935,6 +935,128 @@ Esta Carta de Intención será regida exclusivamente por las leyes de los Paíse
 
 Las Partes declaran que celebran esta Carta de Intención en un espíritu de confianza mutua y con la intención de explorar las posibilidades de una colaboración a largo plazo y valiosa. Aunque esta Carta de Intención no constituye un acuerdo comercial definitivo, las Partes enfatizan su intención sincera de continuar discusiones y explorar colaboraciones potenciales futuras.`,
     },
+    letterOfIntentRetailer: {
+      title: 'Carta de Intención — Minorista Aeroportuario',
+      back_to_home: 'Volver al inicio',
+      why_loi_title: '¿Por qué una Carta de Intención?',
+      why_loi_body: 'Te pedimos tu compromiso para ayudarnos a construir la red de minoristas aeroportuarios de DutyBoost. Juntos, podemos demostrar a los socios de viaje:',
+      why_loi_b1: '<strong>Compradores Pre-Activados:</strong> Los viajeros llegan a tu tienda con un crédito específico en su correo electrónico — semanas antes del vuelo.',
+      why_loi_b2: '<strong>Cestas Más Altas:</strong> El mínimo de €35 eleva naturalmente el valor promedio de las transacciones — generando ingresos adicionales significativos por visita.',
+      why_loi_b3: '<strong>Ingresos Incrementales:</strong> €300K–€400K anuales por ubicación — crecimiento real y medible sobre el tráfico que ya tienes.',
+      why_loi_footer: 'Tu firma le indica a los socios de viaje que los minoristas aeroportuarios están listos para participar. Eso es lo que desbloquea su confianza para emitir DutyCredits a sus viajeros — y enviarlos a tu tienda.',
+      how_title: 'Cómo esto beneficiará a todos',
+      how_step1: '<strong>1. Tú Firmas:</strong> Revisa y firma digitalmente esta Carta de Intención.',
+      how_step2: '<strong>2. Usamos Tu Firma:</strong> Tu firma demuestra a los socios de viaje que los minoristas aeroportuarios están comprometidos.',
+      how_step3: '<strong>3. Los Socios de Viaje Se Unen:</strong> Con tu firma como prueba de compromiso, los socios de viaje ganan confianza y comienzan a emitir DutyCredits.',
+      how_step4: '<strong>4. Llegan Compradores Pre-Activados:</strong> Los viajeros con DutyCredits entran a tu tienda listos para gastar. Solo pagas una tarifa de servicio del 2,5% (máx €25) por canje confirmado — cero costos iniciales.',
+      description_1: 'En DutyBoost, estamos construyendo un <strong>ecosistema de ingresos circular</strong> donde todos ganan. Los socios de viaje traen a los viajeros. DutyBoost los conecta con los minoristas aeroportuarios — tu tienda.',
+      description_2: '¿Qué es DutyBoost? Una "<strong>Travel Retail Conversion Layer</strong>" que crea nuevo valor comercial basado en flujos de viajeros existentes. Convertimos pasajeros pre-activados en compradores de alta intención — y los enviamos directamente a tu tienda.',
+      what_we_ask: 'Lo que te pedimos ahora mismo:',
+      from_you: 'Firma esta Carta de Intención para formalizar tu intención de participar en la red de minoristas DutyBoost y entablar discusiones de buena fe sobre cómo DutyBoost puede generar ingresos incrementales para tu tienda.',
+      important: 'Importante:',
+      disclaimer: 'Esta Carta de Intención no es vinculante y no genera ninguna obligación financiera a menos que un acuerdo vinculante definitivo sea firmado por separado por representantes autorizados de ambas partes.',
+      fill_details: 'Completa los datos de tu tienda a continuación. La Carta de Intención se rellenará con tu información y se enviará a DutyBoost al aceptar.',
+      your_details: 'Datos de Tu Tienda',
+      company_name: 'Nombre de la empresa / Entidad legal',
+      store_name: 'Nombre de la tienda / marca',
+      airport_location: 'Aeropuerto y Terminal',
+      store_category: 'Categoría de tienda',
+      street_number: 'Calle + Número',
+      postal_code: 'Código Postal',
+      city: 'Ciudad',
+      country: 'País',
+      chamber_of_commerce: 'Número de Registro Mercantil',
+      vat_number: 'Número de IVA / Fiscal',
+      representative_name: 'Nombre Completo del Representante',
+      representative_title: 'Título/Cargo del Representante',
+      website: 'Sitio web de la empresa / tienda',
+      email_address: 'Dirección de correo electrónico',
+      monthly_visitors: 'Visitantes mensuales estimados de la tienda',
+      select_category: 'Seleccionar categoría...',
+      ph_company_name: 'Razón social de tu empresa',
+      ph_store_name: 'ej. World of Whisky, InMotion',
+      ph_airport_location: 'ej. Ámsterdam Schiphol, Terminal 2',
+      ph_store_category: 'Selecciona tu categoría de tienda',
+      ph_street_number: 'ej. Calle Mayor 123',
+      ph_postal_code: 'ej. 28001',
+      ph_city: 'ej. Madrid',
+      ph_country: 'ej. España, Países Bajos, Alemania',
+      ph_chamber_of_commerce: 'ej. CIF, NIF, número de registro',
+      ph_vat_number: 'ej. ES12345678A',
+      ph_representative_name: 'Nombre completo del firmante legal',
+      ph_representative_title: 'ej. CEO, Gerente de Tienda, Director',
+      ph_website: 'https://tutienda.es',
+      ph_email_address: 'tu@tutienda.es',
+      ph_monthly_visitors: 'ej. 12000',
+      preview_loi: 'Vista previa de la Carta de Intención',
+      live_preview: 'Vista previa en vivo',
+      acceptance: 'Aceptación y Firma',
+      read_understood: 'Al marcar la casilla a continuación, confirmas que has leído, entendido y aceptado los términos de esta Carta de Intención en nombre de tu organización.',
+      acceptance_text: 'Yo, {name}, en nombre de {company}, acepto y firmo digitalmente esta Carta de Intención con DutyBoost, con fecha {date}.',
+      submit_loi: 'Enviar Carta de Intención Firmada',
+      submitting: 'Enviando...',
+      validating: 'Verificando número de registro mercantil...',
+      storage_info: 'Tu envío se almacenará de forma segura. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      success_title: 'Carta de Intención enviada',
+      success_subtitle: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Con tu participación, somos más fuertes para construir la red de minoristas aeroportuarios de DutyBoost. Una copia firmada digitalmente te será enviada por correo electrónico en 24 horas.',
+      error_required: 'Este campo es obligatorio.',
+      error_email_invalid: 'Por favor usa una dirección de correo profesional (no Gmail, Hotmail, Yahoo, iCloud, etc.)',
+      error_domain_mismatch: 'El dominio de tu correo debe coincidir con el dominio del sitio web de tu empresa.',
+      error_kvk_mismatch: 'El nombre de la empresa no coincide con el registro mercantil.',
+      error_kvk_validation: 'No se pudo validar el número de registro mercantil. Por favor verifica e inténtalo de nuevo.',
+      loi_document: `DUTYBOOST CARTA DE INTENCIÓN — ASOCIACIÓN CON MINORISTA AEROPORTUARIO
+
+La presente Carta de Intención ("CI") se celebra el {date} entre:
+
+DutyBoost, con domicilio social en DEK 32, 1319BB Almere, Países Bajos, registrada ante la Cámara de Comercio Holandesa bajo el número 42053181, número de IVA NL869492068B01, legalmente representada por:
+Jaquelin Beliad Perez – Cofundador
+Raël Martis – Cofundador
+en lo sucesivo denominada "DutyBoost",
+
+Y
+
+{company} con domicilio social en {address} {country}{kvk_text}{vat_text}, legalmente representada por:
+{representative}{title_text}
+en lo sucesivo denominada "{company}",
+
+DutyBoost y {company} en lo sucesivo conjuntamente denominadas la "Parte" o las "Partes."
+
+1. Antecedentes
+
+DutyBoost ha desarrollado una solución innovadora de venta minorista de viajes destinada a aumentar el desempeño comercial en entornos de venta minorista de aeropuertos. La plataforma crea valor comercial adicional conectando socios de viajes con minoristas aeroportuarios, activando la intención de compra de los viajeros antes de la salida.
+
+{company} opera como minorista aeroportuario y cuenta con presencia física en uno o más aeropuertos, convirtiéndolo en un participante natural del ecosistema DutyBoost para aceptar y canjear DutyCredits.
+
+2. Propósito de esta Carta de Intención
+
+El propósito de esta Carta de Intención es registrar la intención de las Partes de participar en discusiones relacionadas con:
+- la participación de {company} como minorista aceptante dentro de la red DutyBoost;
+- integración del canje QR DutyCredit en el punto de venta;
+- crecimiento de ingresos a través de incentivos para viajeros pre-activados;
+- cooperación comercial basada en rendimiento entre DutyBoost y {company}.
+
+3. Confidencialidad
+
+Toda la información compartida se trata como estrictamente confidencial durante cinco (5) años tras la firma.
+
+4. Exclusividad
+
+Las Partes mantendrán discusiones exclusivas de buena fe durante 365 días.
+
+5. Naturaleza No Vinculante
+
+Esta Carta de Intención es no vinculante, excepto las cláusulas de confidencialidad, propiedad intelectual y exclusividad.
+
+6. Propiedad Intelectual
+
+Todos los derechos de propiedad intelectual relativos a DutyBoost permanecen como propiedad exclusiva de DutyBoost.
+
+7. Ley Aplicable
+
+Esta Carta de Intención se rige por las leyes de los Países Bajos.
+
+Las Partes declaran que celebran esta Carta de Intención en un espíritu de confianza mutua y con la intención de explorar las posibilidades de una colaboración a largo plazo y valiosa.`,
+    },
     login: {
       page_title: 'Iniciar sesión',
       title: 'Iniciar sesión en DutyBoost',

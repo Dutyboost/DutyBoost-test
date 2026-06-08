@@ -32,7 +32,11 @@ const VAT_PHRASES = {
 const getLoiDocument = (lang, loi) => {
   const safeLang = lang?.split('-')[0] || 'en';
   const locale = locales[safeLang] || locales.en;
-  const template = locale?.translation?.letterOfIntent?.loi_document || locales.en.translation.letterOfIntent.loi_document;
+  const isRetailer = loi.partner_type === "Airport Retailer";
+  const template = (isRetailer
+    ? locale?.translation?.letterOfIntentRetailer?.loi_document
+    : locale?.translation?.letterOfIntent?.loi_document)
+    || locales.en.translation.letterOfIntent.loi_document;
 
   const today = loi.signed_date
     ? new Date(loi.signed_date).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
