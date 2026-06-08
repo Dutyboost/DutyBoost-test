@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
+import i18n from "../lib/i18n";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const BLOCKED_EMAIL_DOMAINS = [
@@ -199,6 +200,7 @@ export default function LetterOfIntentPage() {
       signed: true,
       signed_date: new Date().toISOString(),
       status: "pending",
+      language: i18n.language || "en",
     });
     setSubmitting(false);
     setSubmitted(true);

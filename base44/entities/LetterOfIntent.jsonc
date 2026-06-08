@@ -59,6 +59,11 @@
         "Other"
       ]
     },
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "default": "en"
+    },
     "signed": {
       "type": "boolean",
       "title": "Accepted & Signed",
