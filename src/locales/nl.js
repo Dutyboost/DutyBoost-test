@@ -689,6 +689,112 @@ export default {
       error_email_invalid: 'Gebruik alstublieft een zakelijk e-mailadres (geen Gmail, Hotmail, Yahoo, enz.)',
       error_kvk_mismatch: 'Bedrijfsnaam komt niet overeen met de KvK-registratie.',
       error_kvk_validation: 'KvK-nummer kon niet worden geverifieerd. Controleer het en probeer opnieuw.',
+      loi_document: `DUTYBOOST INTENTIEVERKLARING
+
+Deze Intentieverklaring ("IV") wordt gesloten op {date} tussen:
+
+DutyBoost, met statutaire zetel te DEK 32, 1319BB Almere, Nederland, ingeschreven bij de Nederlandse Kamer van Koophandel onder nummer 42053181, BTW-nummer NL869492068B01, wettelijk vertegenwoordigd door:
+Jaquelin Beliad Perez – Medeoprichter
+Raël Martis – Medeoprichter
+hierna te noemen "DutyBoost",
+
+EN
+
+{company} met statutaire zetel te {address} {country}{kvk_text}{vat_text}, wettelijk vertegenwoordigd door:
+{representative}{title_text}
+hierna te noemen "{company}",
+
+DutyBoost en {company} hierna gezamenlijk aangeduid als de "Partij" of de "Partijen".
+
+1. Achtergrond
+
+DutyBoost heeft een innovatieve travel retail-oplossing ontwikkeld gericht op het verbeteren van de commerciële prestaties binnen luchthaven-retailomgevingen. Het platform creëert aanvullende commerciële waarde op basis van bestaande reizigersstromen naar luchthavens en travel retail-locaties.
+
+DutyBoost positioneert zichzelf als een "Travel Retail Conversion Layer" en creëert een nieuwe commerciële inkomstenstroom voor reispartners op basis van de reizigers die zij naar luchthavens en travel retail-omgevingen brengen.
+
+{company} opereert als reispartner binnen de reis-, mobiliteits- en/of toerismesector en beschikt over relevante reizigersstromen en klantrelaties die kunnen bijdragen aan aanvullende commerciële waarde binnen luchthavenomgevingen.
+
+De Partijen wensen mogelijkheden te verkennen voor een commercieel partnerschap waarbij reizigers die door de reispartner worden ingebracht kunnen bijdragen aan aanvullende commerciële waarde en inkomstenopportuniteiten binnen luchthavenomgevingen via DutyBoost.
+
+Het doel van deze samenwerking is een aanvullende inkomstenstroom te creëren voor de reispartner en tegelijkertijd de commerciële prestaties binnen travel retail te verbeteren.
+
+2. Doel van deze Intentieverklaring
+
+Het doel van deze Intentieverklaring is de intentie van de Partijen vast te leggen om deel te nemen aan discussies, evaluaties en potentiële commerciële samenwerkingen met betrekking tot:
+- het creëren van aanvullende commerciële waarde op basis van reizigersstromen;
+- het creëren van aanvullende inkomstenstromen op basis van passagiersverkeer;
+- commerciële samenwerking tussen DutyBoost en de reispartner;
+- commerciële omzetoptimalisatie binnen travel retail;
+- omzetverbeterende strategieën binnen luchthaven-retail;
+- engagement- en conversieoptimalisatie;
+- potentiële omzetdelingsmodellen;
+- strategische positionering van DutyBoost binnen de klantreis van de reiziger;
+- internationale commerciële uitbreidingsopportuniteiten.
+
+De Partijen erkennen dat bestaande reizigersstromen binnen de reissector aanvullende commerciële opportuniteiten kunnen genereren binnen luchthaven- en travel retail-omgevingen.
+
+DutyBoost stelt reispartners in staat aanvullende commerciële waarde te creëren uit bestaande reizigersstromen zonder impact op hun kernbedrijfsactiviteiten.
+
+3. Verkennende Samenwerking
+
+De Partijen verklaren hun intentie om te goeder trouw deel te nemen aan discussies over een potentiële samenwerking.
+
+Een dergelijke samenwerking tussen DutyBoost en de reispartner kan omvatten:
+- commerciële samenwerking op basis van bestaande reizigersstromen;
+- omzetdelingsmodellen;
+- commerciële positionering van DutyBoost binnen travel retail;
+- strategische samenwerking rond luchthaven-retail;
+- internationale commerciële uitbreidingsopportuniteiten;
+- omzetoptimalisatie binnen travel retail-omgevingen.
+
+De Partijen erkennen dat DutyBoost is ontwikkeld vanuit de visie om travel retail slimmer, interactiever en commercieel effectiever te maken.
+
+De samenwerking kan zich richten op:
+- omzetdelingsmodellen;
+- commerciële omzetoptimalisatie;
+- strategische positionering binnen travel retail;
+- uitbreiding van commerciële opportuniteiten binnen luchthavenomgevingen;
+- internationale commerciële expansie.
+
+4. Vertrouwelijkheid
+
+4.1 Alle informatie die door een van de Partijen in verband met deze Intentieverklaring wordt bekendgemaakt, wordt als strikt vertrouwelijk behandeld.
+4.2 Geen vertrouwelijke informatie wordt aan derden bekendgemaakt zonder voorafgaande schriftelijke toestemming van de andere Partij.
+4.3 Vertrouwelijke informatie omvat onder meer: bedrijfsmodellen, strategieën, technologie, software, concepten, commerciële voorwaarden, financiële informatie, klantinformatie, presentaties, prototypes en marktpositionering.
+4.4 Deze vertrouwelijkheidsverplichting blijft van kracht gedurende een periode van vijf (5) jaar na ondertekening van deze Intentieverklaring.
+
+5. Exclusiviteit
+
+Gedurende een periode van 365 dagen vanaf de datum van ondertekening van deze Intentieverklaring zullen de Partijen te goeder trouw exclusieve gesprekken voeren over de voorgestelde samenwerking, tenzij schriftelijk anders overeengekomen.
+
+6. Niet-bindend Karakter
+
+6.1 Deze Intentieverklaring is niet-bindend met betrekking tot het aangaan van een definitieve samenwerkingsovereenkomst.
+6.2 Uitsluitend de bepalingen inzake vertrouwelijkheid, intellectuele eigendom en exclusiviteit zijn juridisch bindend, tenzij de Partijen schriftelijk anders overeenkomen.
+6.3 Geen van de Partijen is verplicht een definitieve overeenkomst aan te gaan totdat een formele schriftelijke overeenkomst naar behoren is ondertekend.
+
+7. Intellectueel Eigendom
+
+7.1 Alle intellectuele eigendomsrechten met betrekking tot DutyBoost, waaronder maar niet beperkt tot software, technologie, branding, strategieën, ontwerpen, concepten, presentaties, documentatie, gegevensbronnen, gebruikerservaringen, marketingmaterialen en bedrijfsmodellen, blijven het exclusieve eigendom van DutyBoost.
+7.2 Niets in deze Intentieverklaring kan worden uitgelegd als een overdracht van intellectuele eigendomsrechten.
+7.3 Zonder voorafgaande schriftelijke toestemming van DutyBoost mogen de Partijen geen enkel deel van het concept kopiëren, technologie reproduceren, vertrouwelijke commerciële informatie buiten de reikwijdte van de beoogde samenwerking gebruiken, of vergelijkbare concepten ontwikkelen op basis van door DutyBoost gedeelde vertrouwelijke informatie.
+7.4 Gezamenlijke ontwikkelingen of toekomstige samenwerkingsresultaten worden uitsluitend beheerst door een afzonderlijke schriftelijke overeenkomst.
+
+8. Kosten
+
+Elke Partij draagt haar eigen kosten en uitgaven met betrekking tot onderhandelingen, vergaderingen, onderzoeken en enig potentieel samenwerkingsproces.
+
+9. Looptijd en Beëindiging
+
+9.1 Deze Intentieverklaring treedt in werking op de datum van ondertekening.
+9.2 Deze Intentieverklaring vervalt automatisch na 36 maanden, tenzij de Partijen schriftelijk overeenkomen deze te verlengen.
+9.3 Elke Partij kan deze Intentieverklaring te allen tijde schriftelijk beëindigen.
+
+10. Toepasselijk Recht
+
+Deze Intentieverklaring wordt uitsluitend beheerst door het recht van Nederland. Elk geschil dat voortvloeit uit of verband houdt met deze Intentieverklaring wordt voorgelegd aan de bevoegde rechter in Nederland.
+
+De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van wederzijds vertrouwen en met de intentie om de mogelijkheden van een langdurige en waardevolle samenwerking te verkennen. Hoewel deze Intentieverklaring geen definitieve commerciële overeenkomst vormt, benadrukken de Partijen hun oprechte intentie om gesprekken voort te zetten en potentiële toekomstige samenwerkingen te verkennen.`,
     },
     login: {
       page_title: 'Inloggen',
