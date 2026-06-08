@@ -124,18 +124,15 @@ Date: ${today}
 
     const footerText = "© 2026 DutyBoost  |  All rights reserved  |  Chamber of Commerce: 42053181  |  VAT Number: NL869492068B01";
 
-    const addHeader = () => {
-      // Logo text in bold dark blue
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(16);
-      doc.setTextColor(10, 22, 40); // #0a1628
-      doc.text("DutyBoost", margin, 14);
+    const addHeader = (logoDataUrl) => {
+      if (logoDataUrl) {
+        // Draw logo image: width=40mm, height proportional (~40/4.8 ≈ 8.3mm)
+        doc.addImage(logoDataUrl, "JPEG", margin, 5, 40, 8.3);
+      }
       // Thin separator line
       doc.setDrawColor(200, 210, 225);
       doc.setLineWidth(0.4);
       doc.line(margin, 17, pageWidth - margin, 17);
-      // Reset color
-      doc.setTextColor(0, 0, 0);
     };
 
     const addFooter = (pageNum, totalPages) => {
@@ -150,39 +147,58 @@ Date: ${today}
       doc.setTextColor(0, 0, 0);
     };
 
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
+    const renderPDF = (logoDataUrl) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.setTextColor(0, 0, 0);
 
-    const headerHeight = 22; // space reserved at top for header
-    const footerHeight = 14; // space reserved at bottom for footer
-    const contentTop = margin + headerHeight - margin; // = headerHeight
-    const contentBottom = 297 - footerHeight - margin; // A4 = 297mm
+      const contentTop = 22;
+      const contentBottom = 297 - 14 - margin; // A4 = 297mm
 
-    const lines = doc.splitTextToSize(loiText, maxWidth);
-    let y = contentTop;
+      const lines = doc.splitTextToSize(loiText, maxWidth);
+      let y = contentTop;
 
-    // First page header
-    addHeader();
+      // First page header
+      addHeader(logoDataUrl);
 
-    lines.forEach((line) => {
-      if (y > contentBottom) {
-        doc.addPage();
-        addHeader();
-        y = contentTop;
+      lines.forEach((line) => {
+        if (y > contentBottom) {
+          doc.addPage();
+          addHeader(logoDataUrl);
+          // Reset font after header
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(10);
+          doc.setTextColor(0, 0, 0);
+          y = contentTop;
+        }
+        doc.text(line, margin, y);
+        y += 5;
+      });
+
+      // Add footers to all pages
+      const totalPages = doc.getNumberOfPages();
+      for (let i = 1; i <= totalPages; i++) {
+        doc.setPage(i);
+        addFooter(i, totalPages);
       }
-      doc.text(line, margin, y);
-      y += 5;
-    });
 
-    // Add footers to all pages
-    const totalPages = doc.getNumberOfPages();
-    for (let i = 1; i <= totalPages; i++) {
-      doc.setPage(i);
-      addFooter(i, totalPages);
-    }
+      const filename = `LOI_${(loi.partner_company_name || "DutyBoost").replace(/\s+/g, "_")}_${today.replace(/\s/g, "_")}.pdf`;
+      doc.save(filename);
+    };
 
-    const filename = `LOI_${(loi.partner_company_name || "DutyBoost").replace(/\s+/g, "_")}_${today.replace(/\s/g, "_")}.pdf`;
-    doc.save(filename);
+    // Load logo image then render
+    const logoUrl = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/3fd6a9f3c_UpdatedLogonew.jpg";
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+      renderPDF(canvas.toDataURL("image/jpeg"));
+    };
+    img.onerror = () => renderPDF(null);
+    img.src = logoUrl;
   };
 
   useEffect(() => {
