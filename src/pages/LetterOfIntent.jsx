@@ -68,7 +68,9 @@ const isValidProfessionalEmail = (email) => {
 const emailMatchesWebsite = (email, website) => {
   if (!email || !website) return true; // only validate when both present
   const emailDomain = email.split("@")[1]?.toLowerCase();
-  const websiteDomain = extractDomain(website);
+  // Normalize website before extracting domain (handle no-protocol input)
+  const normalizedWebsite = website.startsWith("http") ? website : `https://${website}`;
+  const websiteDomain = extractDomain(normalizedWebsite);
   if (!emailDomain || !websiteDomain) return true;
   // Check if email domain matches or is a subdomain of the website domain
   return emailDomain === websiteDomain || emailDomain.endsWith("." + websiteDomain) || websiteDomain.endsWith("." + emailDomain);
@@ -108,7 +110,7 @@ const FIELDS = [
   { key: "partner_vat", labelKey: "letterOfIntent.vat_number", placeholderKey: "letterOfIntent.ph_vat_number", required: true },
   { key: "partner_representative_name", labelKey: "letterOfIntent.representative_name", placeholderKey: "letterOfIntent.ph_representative_name", required: true },
   { key: "partner_representative_title", labelKey: "letterOfIntent.representative_title", placeholderKey: "letterOfIntent.ph_representative_title", required: false },
-  { key: "partner_website", labelKey: "letterOfIntent.website", placeholderKey: "letterOfIntent.ph_website", required: true, type: "url" },
+  { key: "partner_website", labelKey: "letterOfIntent.website", placeholderKey: "letterOfIntent.ph_website", required: true, type: "text" },
   { key: "partner_email", labelKey: "letterOfIntent.email_address", placeholderKey: "letterOfIntent.ph_email_address", required: true, type: "email" },
   { key: "monthly_travelers", labelKey: "letterOfIntent.monthly_travelers", placeholderKey: "letterOfIntent.ph_monthly_travelers", required: true, type: "number" },
   { key: "partner_type", labelKey: "letterOfIntent.partner_type", required: false, type: "select", options: ["Travel Agency", "Airline", "Accommodation", "Car Rental", "Tour Operator", "OTA", "Other"] },
@@ -179,12 +181,21 @@ export default function LetterOfIntentPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const normalizeWebsite = (url) => {
+    if (!url) return url;
+    const cleaned = url.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+    return cleaned;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!(await validate())) return;
     setSubmitting(true);
+    const websiteValue = form.partner_website?.trim();
+    const normalizedWebsite = websiteValue && !websiteValue.startsWith("http") ? `https://${websiteValue}` : websiteValue;
     await base44.entities.LetterOfIntent.create({
       ...form,
+      partner_website: normalizedWebsite,
       signed: true,
       signed_date: new Date().toISOString(),
       status: "pending",
