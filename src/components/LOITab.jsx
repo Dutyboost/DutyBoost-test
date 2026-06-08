@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { CheckCircle2, ChevronDown, Clock, Users, PenLine, Download } from "lucide-react";
+import { CheckCircle2, ChevronDown, Clock, Users, PenLine, Download, Trash2 } from "lucide-react";
 import { jsPDF } from "jspdf";
 
 const STATUS_COLOR = {
@@ -292,15 +292,31 @@ Date: ${today}
 
               {expanded === loi.id && (
                 <div className="border-t border-slate-700 px-5 py-4 space-y-4">
-                {loi.status === "accepted" && (
-                  <button
-                    onClick={() => downloadLOI(loi)}
-                    className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white text-xs font-semibold rounded-lg transition-colors"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    Download Executed Letter of Intent (PDF)
-                  </button>
-                )}
+                <div className="flex items-center gap-2 flex-wrap">
+                  {loi.status === "accepted" && (
+                    <button
+                      onClick={() => downloadLOI(loi)}
+                      className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white text-xs font-semibold rounded-lg transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Download Executed Letter of Intent (PDF)
+                    </button>
+                  )}
+                  {loi.status === "rejected" && (
+                    <button
+                      onClick={async () => {
+                        if (!confirm(`Delete LOI from ${loi.partner_company_name}? This cannot be undone.`)) return;
+                        await base44.entities.LetterOfIntent.delete(loi.id);
+                        setLois(prev => prev.filter(l => l.id !== loi.id));
+                        setExpanded(null);
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-lg transition-colors"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      Delete Rejected LOI
+                    </button>
+                  )}
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                   {[
                     ["Company", loi.partner_company_name],
