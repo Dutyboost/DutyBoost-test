@@ -208,7 +208,44 @@ export default function LetterOfIntentPage() {
 
   const loiText = generateLOI_TEXT(form, t);
 
+  const SUCCESS_SUBTITLES = {
+    en: 'Thank you, {name}. Your signed Letter of Intent has been received on behalf of {company}. With your support, we stand stronger in convincing airport retailers to join our ecosystem. A digitally signed copy will be emailed to you within 24 hours.',
+    nl: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Met uw steun staan wij sterker in het overtuigen van luchthavenwinkeliers om deel te nemen aan ons ecosysteem. Een digitaal ondertekende kopie ontvangt u binnen 24 uur per e-mail.',
+    fr: 'Merci, {name}. Votre Lettre d\'Intention signée a été reçue au nom de {company}. Avec votre soutien, nous sommes plus forts pour convaincre les détaillants aéroportuaires de rejoindre notre écosystème. Une copie signée numériquement vous sera envoyée par e-mail dans les 24 heures.',
+    de: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Mit Ihrer Unterstützung stehen wir stärker darin, Flughafenhändler zur Teilnahme an unserem Ökosystem zu überzeugen. Eine digital unterzeichnete Kopie wird Ihnen innerhalb von 24 Stunden per E-Mail zugesandt.',
+    es: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Con tu apoyo, somos más fuertes para convencer a los minoristas aeroportuarios de unirse a nuestro ecosistema. Una copia firmada digitalmente te será enviada por correo electrónico en 24 horas.',
+    it: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Con il tuo supporto, siamo più forti nel convincere i retailer aeroportuali ad aderire al nostro ecosistema. Una copia firmata digitalmente ti verrà inviata via e-mail entro 24 ore.',
+  };
+
+  const SUCCESS_TITLES = {
+    en: 'Letter of Intent Submitted',
+    nl: 'Intentieverklaring Ingediend',
+    fr: 'Lettre d\'Intention soumise',
+    de: 'Absichtserklärung eingereicht',
+    es: 'Carta de Intención enviada',
+    it: 'Lettera di Intenti inviata',
+  };
+
+  const BACK_TO_HOME = {
+    en: 'Back to Home',
+    nl: 'Terug naar Home',
+    fr: 'Retour à l\'accueil',
+    de: 'Zurück zur Startseite',
+    es: 'Volver al inicio',
+    it: 'Torna alla home',
+  };
+
+  const currentLang = i18n.language?.split('-')[0] || 'en';
+
   if (submitted) {
+    const firstName = form.partner_representative_name?.split(' ')[0] || form.partner_representative_name;
+    const subtitleTemplate = SUCCESS_SUBTITLES[currentLang] || SUCCESS_SUBTITLES.en;
+    const successSubtitle = subtitleTemplate
+      .replace('{name}', firstName)
+      .replace('{company}', form.partner_company_name);
+    const successTitle = SUCCESS_TITLES[currentLang] || SUCCESS_TITLES.en;
+    const backLabel = BACK_TO_HOME[currentLang] || BACK_TO_HOME.en;
+
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-6">
         <div className="max-w-lg w-full text-center space-y-6">
@@ -218,15 +255,11 @@ export default function LetterOfIntentPage() {
             </div>
           </div>
           <div>
-            <h1 className="text-2xl font-heading font-bold text-foreground mb-2">{t('letterOfIntent.success_title')}</h1>
-            <p className="text-muted-foreground">
-              {t('letterOfIntent.success_subtitle')
-                .replace('{name}', form.partner_representative_name?.split(' ')[0] || form.partner_representative_name)
-                .replace('{company}', form.partner_company_name)}
-            </p>
+            <h1 className="text-2xl font-heading font-bold text-foreground mb-2">{successTitle}</h1>
+            <p className="text-muted-foreground">{successSubtitle}</p>
           </div>
           <Link to="/" className="inline-block">
-            <Button variant="outline">← {t('letterOfIntent.back_to_home')}</Button>
+            <Button variant="outline">← {backLabel}</Button>
           </Link>
         </div>
       </div>
