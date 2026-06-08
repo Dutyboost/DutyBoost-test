@@ -724,7 +724,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Our mission: turn every passing traveller into a paying customer — automatically',
-      subtitle: 'DutyBoost is building a system that sends high-intent travellers directly to your store with a personalised DutyCredit. Fixed-tier rewards starting from €2.50 at €35 spend up to €60 at €300+. You will only pay commission when a sale actually takes place.',
+      subtitle: 'DutyBoost is building a solution that sends high-intent travellers directly to your store with a personalised DutyCredit. Fixed-tier rewards starting from €2.50 at €35 spend up to €60 at €300+. You will only pay commission when a sale actually takes place.',
       s1_title: '01 — Why DutyBoost Will Matter for Airport Retailers',
       why1_title: 'From browser to buyer — the psychological shift we\'ll create',
        why1_desc: 'Today, most travellers walk into airport stores in browsing mode. DutyBoost will flip that mindset. Once they know a personalised discount awaits them, they will stop looking and start buying. They will arrive mentally prepared to spend at your specific store — not wondering whether to shop.',

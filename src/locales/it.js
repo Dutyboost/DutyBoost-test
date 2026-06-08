@@ -1051,7 +1051,7 @@ Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fi
     },
     retaileronepager: {
       headline: 'La nostra missione: trasformare ogni viaggiatore di passaggio in un cliente pagante — automaticamente',
-      subtitle: "DutyBoost sta costruendo un sistema che invia viaggiatori ad alta intenzione direttamente nel tuo negozio con un DutyCredit personalizzato. Premi fissi a livelli da €2,50 con €35 di spesa fino a €60 con €300+. Pagherai commissione solo quando avverrà effettivamente una vendita.",
+      subtitle: "DutyBoost sta sviluppando una soluzione che invia viaggiatori ad alta intenzione di acquisto direttamente nel tuo negozio con un DutyCredit personalizzato. Premi fissi a livelli da €2,50 con €35 di spesa fino a €60 con €300+. Pagherai commissione solo quando avverrà effettivamente una vendita.",
       s1_title: '01 — Perché DutyBoost sarà importante per i rivenditori aeroportuali',
       why1_title: 'Da visitatore a compratore — il cambiamento psicologico che creeremo',
       why1_desc: 'Oggi, la maggior parte dei viaggiatori entra nei negozi aeroportuali in modalità esplorazione. DutyBoost ribalterà quella mentalità. Una volta che sapranno che li aspetta uno sconto personalizzato, smetteranno di guardare e inizieranno ad acquistare. Arriveranno mentalmente preparati a spendere nel tuo negozio specifico — senza chiedersi se fare acquisti.',

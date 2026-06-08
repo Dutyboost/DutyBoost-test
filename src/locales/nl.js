@@ -983,7 +983,7 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
     },
     retaileronepager: {
       headline: 'Onze missie: elke passerende reiziger omzetten in een betalende klant — automatisch',
-      subtitle: 'DutyBoost bouwt aan een systeem dat koopgerichte reizigers rechtstreeks naar uw winkel stuurt met een gepersonaliseerd DutyCredit. Vaste niveaubeloningen vanaf €2,50 bij €35 besteding tot €60 bij €300+. U zult alleen commissie betalen wanneer er daadwerkelijk een verkoop plaatsvindt.',
+      subtitle: 'DutyBoost bouwt aan een oplossing die koopgerichte reizigers rechtstreeks naar uw winkel stuurt met een gepersonaliseerd DutyCredit. Vaste niveaubeloningen vanaf €2,50 bij €35 besteding tot €60 bij €300+. U zult alleen commissie betalen wanneer er daadwerkelijk een verkoop plaatsvindt.',
       s1_title: '01 — Waarom DutyBoost belangrijk zal worden voor luchthavenwinkeliers',
       s2_title: '02 — Hoe DutyBoost zal werken voor luchthavenwinkeliers',
        why1_title: 'Van bezoeker naar koper — de psychologische omslag die we creëren',

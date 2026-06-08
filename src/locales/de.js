@@ -1033,7 +1033,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
     },
     retaileronepager: {
       headline: 'Unsere Mission: jeden vorbeilaufenden Reisenden in einen zahlenden Kunden verwandeln — automatisch',
-      subtitle: 'DutyBoost entwickelt ein System, das kaufbereite Reisende direkt in Ihr Geschäft schickt mit einem personalisierten DutyCredit. Feste Stufenprämien ab €2,50 bei €35 Ausgabe bis €60 bei €300+. Sie werden nur Provision zahlen, wenn tatsächlich ein Verkauf stattfindet.',
+      subtitle: 'DutyBoost entwickelt eine Lösung, die Reisende mit hoher Kaufabsicht direkt in Ihr Geschäft schickt mit einem personalisierten DutyCredit. Feste Stufenprämien ab €2,50 bei €35 Ausgabe bis €60 bei €300+. Sie werden nur Provision zahlen, wenn tatsächlich ein Verkauf stattfindet.',
       s1_title: '01 — Warum DutyBoost für Flughafenhändler wichtig sein wird',
       why1_title: 'Vom Browser zum Käufer — der psychologische Wandel, den wir schaffen',
       why1_desc: 'Heute betreten die meisten Reisenden Flughafengeschäfte im Browsing-Modus. DutyBoost wird diese Denkweise umdrehen. Sobald sie wissen, dass ein personalisierter Rabatt auf sie wartet, werden sie aufhören zu schauen und anfangen zu kaufen. Sie werden mental vorbereitet ankommen, in Ihrem Geschäft zu kaufen — ohne sich zu fragen, ob sie überhaupt einkaufen sollen.',

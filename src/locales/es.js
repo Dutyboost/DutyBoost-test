@@ -654,7 +654,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Nuestra misión: convertir cada viajero de paso en un cliente de pago — automáticamente',
-      subtitle: 'DutyBoost está construyendo un sistema que envía viajeros con alta intención directamente a tu tienda con un DutyCredit personalizado. Recompensas fijas desde €2,50 con €35 de gasto hasta €60 con €300+. Solo pagarás comisión cuando se produzca una venta real.',
+      subtitle: 'DutyBoost está construyendo una solución que envía viajeros con alta intención de compra directamente a tu tienda con un DutyCredit personalizado. Recompensas fijas desde €2,50 con €35 de gasto hasta €60 con €300+. Solo pagarás comisión cuando se produzca una venta real.',
       s1_title: '01 — Por qué DutyBoost importará a los minoristas aeroportuarios',
       why1_title: 'De visitante a comprador — el cambio psicológico que lograremos',
       why1_desc: 'Hoy, la mayoría de los viajeros entran en las tiendas del aeropuerto en modo exploración. DutyBoost cambiará esa mentalidad. Una vez que sepan que les espera un descuento personalizado, dejarán de mirar y empezarán a comprar. Llegarán mentalmente preparados para gastar en tu tienda específica — sin cuestionarse si van a comprar.',
