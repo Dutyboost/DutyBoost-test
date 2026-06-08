@@ -1032,9 +1032,9 @@ Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esp
       legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053181 | N° TVA : NL869492068B01',
     },
     retaileronepager: {
-      headline: "Transformer les voyageurs de passage en clients payants — automatiquement",
-      subtitle: "DutyBoost envoie des voyageurs à forte intention directement dans votre boutique avec un DutyCredit personnalisé. Récompenses fixes à partir de €2,50 à partir de €35 jusqu'à €60 à partir de €300+. Vous ne payez une commission que lorsqu'une vente a réellement lieu.",
-      s1_title: "01 — Pourquoi DutyBoost est important pour les commerçants aéroportuaires",
+      headline: "Notre mission : transformer chaque voyageur de passage en client payant — automatiquement",
+      subtitle: "DutyBoost construit un système qui envoie des voyageurs à forte intention directement dans votre boutique avec un DutyCredit personnalisé. Récompenses fixes à partir de €2,50 à partir de €35 jusqu'à €60 à partir de €300+. Vous ne paierez une commission que lorsqu'une vente aura réellement lieu.",
+      s1_title: "01 — Pourquoi DutyBoost sera important pour les commerçants aéroportuaires",
       why1_title: "Du visiteur à l'acheteur — le changement psychologique que nous créerons",
       why1_desc: "Aujourd'hui, la plupart des voyageurs sont en mode navigation. DutyBoost renversera cet état d'esprit : dès qu'ils sauront qu'une réduction les attend, ils commenceront à acheter. Ils arriveront mentalement préparés à dépenser dans votre boutique.",
       why2_title: "Arrivera dans leur e-mail de réservation — semaines avant le vol",

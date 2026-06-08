@@ -1032,9 +1032,9 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
       legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053181 | USt-IdNr.: NL869492068B01',
     },
     retaileronepager: {
-      headline: 'Vorbeilaufende Reisende in zahlende Kunden verwandeln — automatisch',
-      subtitle: 'DutyBoost schickt kaufbereite Reisende direkt in Ihr Geschäft mit einem personalisierten DutyCredit. Feste Stufenprämien ab €2,50 bei €35 Ausgabe bis €60 bei €300+. Sie zahlen nur Provision, wenn tatsächlich ein Verkauf stattfindet.',
-      s1_title: '01 — Warum DutyBoost für Flughafenhändler wichtig ist',
+      headline: 'Unsere Mission: jeden vorbeilaufenden Reisenden in einen zahlenden Kunden verwandeln — automatisch',
+      subtitle: 'DutyBoost entwickelt ein System, das kaufbereite Reisende direkt in Ihr Geschäft schickt mit einem personalisierten DutyCredit. Feste Stufenprämien ab €2,50 bei €35 Ausgabe bis €60 bei €300+. Sie werden nur Provision zahlen, wenn tatsächlich ein Verkauf stattfindet.',
+      s1_title: '01 — Warum DutyBoost für Flughafenhändler wichtig sein wird',
       why1_title: 'Vom Browser zum Käufer — der psychologische Wandel, den wir schaffen',
       why1_desc: 'Heute betreten die meisten Reisenden Flughafengeschäfte im Browsing-Modus. DutyBoost wird diese Denkweise umdrehen. Sobald sie wissen, dass ein personalisierter Rabatt auf sie wartet, werden sie aufhören zu schauen und anfangen zu kaufen. Sie werden mental vorbereitet ankommen, in Ihrem Geschäft zu kaufen — ohne sich zu fragen, ob sie überhaupt einkaufen sollen.',
       why2_title: 'Wird in ihrer Buchungs-E-Mail ankommen — Wochen vor dem Flug',

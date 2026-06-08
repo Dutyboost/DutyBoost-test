@@ -982,9 +982,9 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
       legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053181 | BTW: NL869492068B01',
     },
     retaileronepager: {
-      headline: 'Passerende reizigers omzetten in betalende klanten — automatisch',
-      subtitle: 'DutyBoost stuurt koopgerichte reizigers rechtstreeks naar uw winkel met een gepersonaliseerd DutyCredit. Vaste niveaubeloningen vanaf €2,50 bij €35 besteding tot €60 bij €300+. U betaalt alleen commissie wanneer er daadwerkelijk een verkoop plaatsvindt.',
-      s1_title: '01 — Waarom DutyBoost belangrijk is voor luchthavenwinkeliers',
+      headline: 'Onze missie: elke passerende reiziger omzetten in een betalende klant — automatisch',
+      subtitle: 'DutyBoost bouwt aan een systeem dat koopgerichte reizigers rechtstreeks naar uw winkel stuurt met een gepersonaliseerd DutyCredit. Vaste niveaubeloningen vanaf €2,50 bij €35 besteding tot €60 bij €300+. U zult alleen commissie betalen wanneer er daadwerkelijk een verkoop plaatsvindt.',
+      s1_title: '01 — Waarom DutyBoost belangrijk zal worden voor luchthavenwinkeliers',
       s2_title: '02 — Hoe DutyBoost zal werken voor luchthavenwinkeliers',
        why1_title: 'Van bezoeker naar koper — de psychologische omslag die we creëren',
       why1_desc: 'Vandaag betreden de meeste reizigers luchthavenswinkels in browsemodus. DutyBoost zal die mentaliteit omdraaien. Zodra ze weten dat er een gepersonaliseerde korting op hen wacht, zullen ze stoppen met kijken en beginnen te kopen. Ze zullen mentaal voorbereid aankomen om te besteden in uw specifieke winkel — niet twijfelend of ze überhaupt willen winkelen.',
