@@ -1245,7 +1245,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
         how_label: 'Wie DutyBoost',
         how_title: 'Einfach zu bedienen. Wirkungsvoll.',
         how_subtitle: 'Keine POS-Integration für den Start erforderlich. Sie scannen einen QR-Code. Wir kümmern uns um den Rest.',
-        step1_title: 'Reisepartner stellt DutyCredit aus', step1_desc: 'Wenn ein Reisender einen Flug, ein Hotel oder einen Mietwagen bucht, enthält seine Bestätigungs-E-Mail einen personalisierten DutyCredit-QR-Code — Wochen vor dem Abflug.',
+        step1_title: 'Reisepartner stellt DutyCredit aus', step1_desc: 'Wenn ein Reisender einen Flug, eine Unterkunft oder einen Mietwagen bucht, enthält seine Bestätigungs-E-Mail einen personalisierten DutyCredit-QR-Code — Wochen vor dem Abflug.',
         step2_title: 'Reisender kommt voractiviert an', step2_desc: 'Er betritt Ihr Geschäft bereits motiviert. Er hat ein spezifisches Guthaben bei einem Mindestkorb von €35 — und möchte es nutzen.',
         step3_title: 'Kassierer scannt den QR-Code', step3_desc: 'Ein Scan an der Kasse. Unser System validiert den QR sofort und wendet den gestaffelten Rabatt automatisch an.',
         step4_title: 'Höherer Umsatz. Monatliche Rechnung.', step4_desc: 'Sie erhalten eine einzige monatliche Rechnung für 2,5% des Bruttowertes der Einlösung (max. €25/Transaktion). Keine Vorabgebühren. Keine Abonnements.',

@@ -381,7 +381,7 @@ export default {
         subtitle: 'Travel partners — flight, accommodation and car rental companies — send every customer a personalised shopping reward in their booking confirmation email. Those pre-activated shoppers arrive at your store ready to spend.',
         howItWorks: 'How It Will Work',
         step1: 'Customer Arrives',
-        step1Desc: "A traveller walks into your store already motivated to spend. Their travel partner — an airline, hotel or car rental company — sent them a personalised DutyCredit QR code in their booking confirmation email, days or weeks before their flight. They won't be browsing. They'll arrive with a mission: to spend their reward with you.",
+        step1Desc: "A traveller walks into your store already motivated to spend. Their travel partner — a flight, accommodation or car rental company — sent them a personalised DutyCredit QR code in their booking confirmation email, days or weeks before their flight. They won't be browsing. They'll arrive with a mission: to spend their reward with you.",
         step2: 'Scan & Validate',
         step2Desc: "They will present their unique QR code at checkout, and your staff will scan it via the integrated POS system. The system will instantly validate the code in real-time, verifying the credit is active, hasn't expired, and belongs to this traveller. No manual calculations. No friction.",
         step3: 'Apply Discount',

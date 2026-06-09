@@ -311,7 +311,7 @@ export default {
         subtitle: 'Los socios de viaje — vuelos, alojamientos y alquiler de coches — envían a cada cliente una recompensa de compra personalizada en su correo de confirmación de reserva. Esos compradores preactivados llegan a tu tienda listos para gastar.',
         howItWorks: 'Cómo funcionará',
         step1: 'Cliente llega',
-        step1Desc: "Un viajero entra en tu tienda, ya motivado para gastar. Su socio de viaje — una aerolínea, hotel o empresa de alquiler de coches — les envió un código QR DutyCredit personalizado en su correo de confirmación de reserva, días o semanas antes de su vuelo. No estarán explorando. Habrán llegado con una misión: gastar su crédito contigo.",
+        step1Desc: "Un viajero entra en tu tienda, ya motivado para gastar. Su socio de viaje — una empresa de vuelos, alojamiento o alquiler de coches — les envió un código QR DutyCredit personalizado en su correo de confirmación de reserva, días o semanas antes de su vuelo. No estarán explorando. Habrán llegado con una misión: gastar su crédito contigo.",
         step2: 'Escanear y validar',
         step2Desc: "Presentarán su código QR único en la caja y tu personal lo escaneará a través del sistema POS integrado. El sistema validará instantáneamente el código en tiempo real, verificando que el crédito está activo, no ha caducado y pertenece a este viajero. Sin cálculos manuales. Sin fricciones.",
         step3: 'Aplicar descuento',
