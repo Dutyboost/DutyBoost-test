@@ -952,7 +952,7 @@ Las Partes declaran que celebran esta Carta de Intención en un espíritu de con
       description_1: 'En DutyBoost, estamos construyendo un <strong>ecosistema de ingresos circular</strong> donde todos ganan. Los socios de viaje traen a los viajeros. DutyBoost los conecta con los minoristas aeroportuarios — tu tienda.',
       description_2: '¿Qué es DutyBoost? Una "<strong>Travel Retail Conversion Layer</strong>" que crea nuevo valor comercial basado en flujos de viajeros existentes. Convertimos pasajeros pre-activados en compradores de alta intención — y los enviamos directamente a tu tienda.',
       what_we_ask: 'Lo que te pedimos ahora mismo:',
-      from_you: 'Firma esta Carta de Intención para formalizar tu intención de participar en la red de minoristas DutyBoost y entablar discusiones de buena fe sobre cómo DutyBoost puede generar ingresos incrementales para tu tienda.',
+      from_you: 'Firma esta Carta de Intención para formalizar tu intención de participar en la red de minoristas DutyBoost como operador de retail aeroportuario y entablar discusiones de buena fe sobre cómo DutyBoost puede generar ingresos incrementales en todas tus ubicaciones de marca.',
       important: 'Importante:',
       disclaimer: 'Esta Carta de Intención no es vinculante y no genera ninguna obligación financiera a menos que un acuerdo vinculante definitivo sea firmado por separado por representantes autorizados de ambas partes.',
       fill_details: 'Completa los datos de tu tienda a continuación. La Carta de Intención se rellenará con tu información y se enviará a DutyBoost al aceptar.',

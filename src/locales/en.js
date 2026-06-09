@@ -1030,7 +1030,7 @@ The Parties declare that they enter into this Letter of Intent in a spirit of mu
       description_1: 'At DutyBoost, we\'re building a <strong>circular revenue ecosystem</strong> where everyone wins. Travel partners bring the travellers. DutyBoost connects them with airport retailers — your store. Together, we generate new incremental revenue for all parties.',
       description_2: 'What is DutyBoost? A "<strong>Travel Retail Conversion Layer</strong>" that creates new commercial value based on existing traveller flows. We turn pre-activated passengers into high-intent shoppers — and send them directly to your store.',
       what_we_ask: 'What we\'re asking from you right now:',
-      from_you: 'Sign this Letter of Intent to formalise your intention to participate in the DutyBoost retail network and engage in good-faith discussions about how DutyBoost can drive incremental revenue to your store.',
+      from_you: 'Sign this Letter of Intent to formalise your intention to participate in the DutyBoost retail network as an airport retail operator and engage in good-faith discussions about how DutyBoost can drive incremental revenue across your brand locations.',
       important: 'Important:',
       disclaimer: 'This Letter of Intent is non-binding and does not generate any financial obligations unless and until a final binding agreement is separately executed by authorised representatives of both parties.',
       fill_details: 'Fill in your store details below. The Letter of Intent will be populated with your information and submitted to DutyBoost upon acceptance.',

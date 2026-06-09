@@ -829,7 +829,7 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
       description_1: 'Bij DutyBoost bouwen we een <strong>circulair omzetecosysteem</strong> waar iedereen wint. Reispartners brengen de reizigers. DutyBoost verbindt hen met luchthavenwinkeliers — uw winkel. Samen genereren we nieuwe incrementele omzet voor alle partijen.',
       description_2: 'Wat is DutyBoost? Een "<strong>Travel Retail Conversion Layer</strong>" die nieuwe commerciële waarde creëert op basis van bestaande reizigersstromen. We zetten vooraf geactiveerde passagiers om in kopers met hoge koopintentie — en sturen hen rechtstreeks naar uw winkel.',
       what_we_ask: 'Wat we nu van u vragen:',
-      from_you: 'Onderteken deze Intentieverklaring om uw intentie te formaliseren om deel te nemen aan het DutyBoost retailnetwerk en om in goed vertrouwen te bespreken hoe DutyBoost incrementele omzet naar uw winkel kan rijden.',
+      from_you: 'Onderteken deze Intentieverklaring om uw intentie te formaliseren om als luchthavenretailoperator deel te nemen aan het DutyBoost retailnetwerk en om in goed vertrouwen te bespreken hoe DutyBoost incrementele omzet kan rijden over al uw merklocaties.',
       important: 'Belangrijk:',
       disclaimer: 'Deze Intentieverklaring is niet-bindend en schept geen financiële verplichtingen tenzij een definitieve bindende overeenkomst afzonderlijk wordt ondertekend door bevoegde vertegenwoordigers van beide partijen.',
       fill_details: 'Vul hieronder uw winkelgegevens in. De Intentieverklaring wordt gevuld met uw informatie en bij acceptatie ingediend bij DutyBoost.',

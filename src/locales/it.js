@@ -752,7 +752,7 @@ Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fi
       description_1: 'Da DutyBoost, stiamo costruendo un <strong>ecosistema di entrate circolare</strong> dove tutti vincono. I partner di viaggio portano i viaggiatori. DutyBoost li connette con i retailer aeroportuali — il tuo negozio.',
       description_2: 'Cos\'è DutyBoost? Un "<strong>Travel Retail Conversion Layer</strong>" che crea nuovo valore commerciale basato sui flussi di viaggiatori esistenti. Trasformiamo i passeggeri pre-attivati in acquirenti ad alta intenzione — e li inviamo direttamente al tuo negozio.',
       what_we_ask: 'Cosa ti chiediamo adesso:',
-      from_you: 'Firma questa Lettera di Intenti per formalizzare la tua intenzione di partecipare alla rete di retailer DutyBoost e di impegnarti in discussioni in buona fede su come DutyBoost può generare entrate incrementali per il tuo negozio.',
+      from_you: 'Firma questa Lettera di Intenti per formalizzare la tua intenzione di partecipare alla rete di retailer DutyBoost come operatore retail aeroportuale e di impegnarti in discussioni in buona fede su come DutyBoost può generare entrate incrementali su tutte le tue sedi del brand.',
       important: 'Importante:',
       disclaimer: 'Questa Lettera di Intenti non è vincolante e non genera obblighi finanziari a meno che un accordo vincolante definitivo non venga firmato separatamente da rappresentanti autorizzati di entrambe le parti.',
       fill_details: 'Inserisci i dettagli del tuo negozio qui sotto. La Lettera di Intenti verrà compilata con le tue informazioni e inviata a DutyBoost all\'accettazione.',

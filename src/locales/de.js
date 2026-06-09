@@ -734,7 +734,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
       description_1: 'Bei DutyBoost bauen wir ein <strong>zirkuläres Umsatz-Ökosystem</strong> auf, bei dem alle gewinnen. Reisepartner bringen die Reisenden. DutyBoost verbindet sie mit Flughafenhändlern — Ihrem Geschäft.',
       description_2: 'Was ist DutyBoost? Eine "<strong>Travel Retail Conversion Layer</strong>", die neuen kommerziellen Wert auf Basis bestehender Reisenden-Ströme schafft. Wir verwandeln vorvoraktivierte Passagiere in kaufbereite Shopper — und senden sie direkt in Ihr Geschäft.',
       what_we_ask: 'Was wir jetzt von Ihnen bitten:',
-      from_you: 'Unterzeichnen Sie diese Absichtserklärung, um Ihre Absicht zu formalisieren, am DutyBoost Einzelhandelsnetzwerk teilzunehmen und in gutem Glauben darüber zu diskutieren, wie DutyBoost inkrementelle Einnahmen in Ihr Geschäft bringen kann.',
+      from_you: 'Unterzeichnen Sie diese Absichtserklärung, um Ihre Absicht zu formalisieren, als Flughafen-Einzelhandelsbetreiber am DutyBoost-Netzwerk teilzunehmen und in gutem Glauben darüber zu diskutieren, wie DutyBoost inkrementelle Einnahmen über all Ihre Markenstandorte generieren kann.',
       important: 'Wichtig:',
       disclaimer: 'Diese Absichtserklärung ist unverbindlich und begründet keine finanziellen Verpflichtungen, es sei denn, eine endgültige verbindliche Vereinbarung wird separat von autorisierten Vertretern beider Parteien unterzeichnet.',
       fill_details: 'Füllen Sie unten Ihre Shopdetails aus. Die Absichtserklärung wird mit Ihren Informationen befüllt und bei Akzeptanz an DutyBoost übermittelt.',
