@@ -725,7 +725,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
       why_loi_b1: '<strong>Vorvoraktivierte Käufer:</strong> Reisende kommen mit einem spezifischen Guthaben in ihrer E-Mail in Ihr Geschäft — Wochen vor dem Flug.',
       why_loi_b2: '<strong>Höhere Warenkörbe:</strong> Der Mindestbetrag von €35 erhöht den durchschnittlichen Transaktionswert — was zu bedeutsamen Zusatzeinnahmen pro Besuch führt.',
       why_loi_b3: '<strong>Inkrementelle Einnahmen:</strong> €300K–€400K jährlich pro Standort — echtes, messbares Wachstum bei dem Besucheraufkommen, das Sie bereits haben.',
-      why_loi_footer: 'Ihre Unterschrift signalisiert Reisepartnern, dass Flughafenhändler zur Teilnahme bereit sind. Das stärkt ihr Vertrauen, DutyCredits an ihre Reisenden auszugeben — und sie in Ihr Geschäft zu schicken.',
+      why_loi_footer: 'Ihre Unterschrift bestätigt Ihr Engagement, diese Chance zu nutzen — Besucher in Käufer zu verwandeln, Warenkörbe zu vergrößern und €300K–€400K inkrementellen Jahresumsatz freizuschalten.',
       how_title: 'Wie dies allen zugutekommen wird',
       how_step1: '<strong>1. Sie Unterschreiben:</strong> Prüfen und unterzeichnen Sie diese Absichtserklärung digital.',
       how_step2: '<strong>2. Wir Nutzen Ihre Unterschrift:</strong> Ihre Unterschrift zeigt Reisepartnern, dass Flughafenhändler engagiert sind.',

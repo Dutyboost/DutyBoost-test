@@ -943,7 +943,7 @@ Las Partes declaran que celebran esta Carta de Intención en un espíritu de con
       why_loi_b1: '<strong>Compradores Pre-Activados:</strong> Los viajeros llegan a tu tienda con un crédito específico en su correo electrónico — semanas antes del vuelo.',
       why_loi_b2: '<strong>Cestas Más Altas:</strong> El mínimo de €35 eleva naturalmente el valor promedio de las transacciones — generando ingresos adicionales significativos por visita.',
       why_loi_b3: '<strong>Ingresos Incrementales:</strong> €300K–€400K anuales por ubicación — crecimiento real y medible sobre el tráfico que ya tienes.',
-      why_loi_footer: 'Tu firma le indica a los socios de viaje que los minoristas aeroportuarios están listos para participar. Eso es lo que desbloquea su confianza para emitir DutyCredits a sus viajeros — y enviarlos a tu tienda.',
+      why_loi_footer: 'Tu firma confirma tu compromiso con esta oportunidad — convertir visitantes en compradores, aumentar el valor del carrito y desbloquear €300K–€400K en ingresos anuales incrementales.',
       how_title: 'Cómo esto beneficiará a todos',
       how_step1: '<strong>1. Tú Firmas:</strong> Revisa y firma digitalmente esta Carta de Intención.',
       how_step2: '<strong>2. Usamos Tu Firma:</strong> Tu firma demuestra a los socios de viaje que los minoristas aeroportuarios están comprometidos.',

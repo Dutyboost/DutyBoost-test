@@ -1021,7 +1021,7 @@ The Parties declare that they enter into this Letter of Intent in a spirit of mu
       why_loi_b1: '<strong>Pre-Activated Shoppers:</strong> Travellers arrive at your store with a specific spending credit already in their email — weeks before they fly.',
       why_loi_b2: '<strong>Higher Basket Sizes:</strong> The €35 minimum spend naturally elevates average transaction value — generating meaningful incremental revenue per visit.',
       why_loi_b3: '<strong>Incremental Revenue:</strong> €300K–€400K annual per location — real, measurable growth on the foot traffic you already have.',
-      why_loi_footer: 'Your signature tells travel partners that airport retailers are ready to participate. That\'s what unlocks their confidence to issue DutyCredits to their travellers — and send them to your store.',
+      why_loi_footer: 'Your signature confirms your commitment to capturing this opportunity — turning browsers into buyers, growing basket sizes, and unlocking €300K–€400K in incremental annual revenue.',
       how_title: 'How this will benefit everyone',
       how_step1: '<strong>1. You Sign:</strong> Review and digitally sign this Letter of Intent.',
       how_step2: '<strong>2. We Use Your Signature:</strong> Your signature demonstrates to travel partners that airport retailers are committed, making DutyBoost a credible proposition for them to join.',

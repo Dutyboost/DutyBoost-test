@@ -743,7 +743,7 @@ Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fi
       why_loi_b1: '<strong>Acquirenti Pre-Attivati:</strong> I viaggiatori arrivano nel tuo negozio con un credito specifico nella loro email — settimane prima del volo.',
       why_loi_b2: '<strong>Carrelli Più Alti:</strong> Il minimo di €35 eleva naturalmente il valore medio delle transazioni — generando entrate incrementali significative per visita.',
       why_loi_b3: '<strong>Entrate Incrementali:</strong> €300K–€400K annui per sede — crescita reale e misurabile sul traffico che già hai.',
-      why_loi_footer: 'La tua firma dice ai partner di viaggio che i retailer aeroportuali sono pronti a partecipare. Questo è ciò che sblocca la loro fiducia nell\'emettere DutyCredits ai loro viaggiatori — e mandarli nel tuo negozio.',
+      why_loi_footer: 'La tua firma conferma il tuo impegno a cogliere questa opportunità — trasformare i visitatori in acquirenti, aumentare il valore del carrello e sbloccare €300K–€400K di ricavi annuali incrementali.',
       how_title: 'Come questo avvantaggerà tutti',
       how_step1: '<strong>1. Firmi:</strong> Esamina e firma digitalmente questa Lettera di Intenti.',
       how_step2: '<strong>2. Usiamo la Tua Firma:</strong> La tua firma dimostra ai partner di viaggio che i retailer aeroportuali sono impegnati.',

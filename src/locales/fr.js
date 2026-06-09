@@ -725,7 +725,7 @@ Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esp
       why_loi_b1: '<strong>Acheteurs Pré-Activés :</strong> Les voyageurs arrivent dans votre boutique avec un crédit spécifique dans leur e-mail — des semaines avant le vol.',
       why_loi_b2: '<strong>Paniers Plus Élevés :</strong> Le minimum de €35 élève naturellement la valeur moyenne des transactions — générant des revenus supplémentaires significatifs par visite.',
       why_loi_b3: '<strong>Revenus Incrémentaux :</strong> €300K–€400K annuels par emplacement — une croissance réelle et mesurable sur la fréquentation que vous avez déjà.',
-      why_loi_footer: 'Votre signature indique aux partenaires de voyage que les détaillants aéroportuaires sont prêts à participer. C\'est ce qui débloque leur confiance pour émettre des DutyCredits à leurs voyageurs — et les envoyer dans votre boutique.',
+      why_loi_footer: 'Votre signature confirme votre engagement à saisir cette opportunité — transformer les visiteurs en acheteurs, augmenter la valeur des paniers et débloquer €300K–€400K de revenus annuels supplémentaires.',
       how_title: 'Comment cela bénéficiera à tous',
       how_step1: '<strong>1. Vous Signez :</strong> Examinez et signez numériquement cette Lettre d\'Intention.',
       how_step2: '<strong>2. Nous Utilisons Votre Signature :</strong> Votre signature démontre aux partenaires de voyage que les détaillants aéroportuaires sont engagés.',

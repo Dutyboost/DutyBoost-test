@@ -820,7 +820,7 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
       why_loi_b1: '<strong>Vooraf Geactiveerde Shoppers:</strong> Reizigers komen bij uw winkel aan met een specifiek tegoed in hun e-mail — weken voor vertrek.',
       why_loi_b2: '<strong>Hogere Gemiddelde Orderwaarde:</strong> Het minimumbedrag van €35 verhoogt de gemiddelde transactiewaarde — wat leidt tot zinvolle extra omzet per bezoek.',
       why_loi_b3: '<strong>Incrementele Omzet:</strong> €300K–€400K per jaar per locatie — echte, meetbare groei op het bezoekersaantal dat u al heeft.',
-      why_loi_footer: 'Uw handtekening vertelt reispartners dat luchthavenwinkeliers klaar zijn om deel te nemen. Dat is wat hun vertrouwen ontsluit om DutyCredits aan hun reizigers te geven — en hen naar uw winkel te sturen.',
+      why_loi_footer: 'Uw handtekening bevestigt uw toewijding aan deze kans — het omzetten van browsers naar kopers, het verhogen van de gemiddelde orderwaarde en het ontsluiten van €300K–€400K extra jaarlijkse omzet.',
       how_title: 'Hoe dit iedereen ten goede komt',
       how_step1: '<strong>1. U Tekent:</strong> Bekijk en onderteken digitaal deze Intentieverklaring.',
       how_step2: '<strong>2. Wij Gebruiken Uw Handtekening:</strong> Uw handtekening toont reispartners dat luchthavenwinkeliers betrokken zijn, waardoor DutyBoost een geloofwaardige propositie wordt.',
