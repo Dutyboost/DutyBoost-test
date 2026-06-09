@@ -308,7 +308,7 @@ export default {
       retailer: {
         titlePart1: 'Convierte más',
         titlePart2: 'viajeros',
-        subtitle: 'Los socios de viaje — aerolíneas, hoteles y empresas de alquiler de coches — envían a cada cliente una recompensa de compra personalizada en su correo de confirmación de reserva. DutyBoost dirige a esos compradores preactivados directamente a tu tienda.',
+        subtitle: 'Los socios de viaje — aerolíneas, alojamientos y empresas de alquiler de coches — envían a cada cliente una recompensa de compra personalizada en su correo de confirmación de reserva. DutyBoost dirige a esos compradores preactivados directamente a tu tienda.',
         howItWorks: 'Cómo funcionará',
         step1: 'Cliente llega',
         step1Desc: "Un viajero entra en tu tienda, ya motivado para gastar. Su socio de viaje — una aerolínea, hotel o empresa de alquiler de coches — les envió un código QR DutyCredit personalizado en su correo de confirmación de reserva, días o semanas antes de su vuelo. No estarán explorando. Habrán llegado con una misión: gastar su crédito contigo.",

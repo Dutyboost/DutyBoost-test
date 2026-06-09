@@ -296,7 +296,7 @@ export default {
       retailer: {
         titlePart1: 'Konvertieren Sie mehr',
         titlePart2: 'Reisende',
-        subtitle: 'Reisepartner — Fluggesellschaften, Hotels und Autovermieter — senden jedem Kunden eine personalisierte Einkaufsprämie in der Buchungsbestätigungs-E-Mail. DutyBoost leitet diese vorvoraktivierten Käufer direkt in Ihren Shop.',
+        subtitle: 'Reisepartner — Fluggesellschaften, Unterkünfte und Autovermieter — senden jedem Kunden eine personalisierte Einkaufsprämie in der Buchungsbestätigungs-E-Mail. DutyBoost leitet diese vorvoraktivierten Käufer direkt in Ihren Shop.',
         howItWorks: 'So wird es funktionieren',
         step1: 'Kunde kommt an',
         step1Desc: "Ein Reisender betritt Ihren Laden, bereits kaufbereit. Ihr Reisepartner — eine Fluggesellschaft, ein Hotel oder ein Autovermieter — hat ihnen einen personalisierten DutyCredit-QR-Code in der Buchungsbestätigungs-E-Mail geschickt, Tage oder Wochen vor ihrem Flug. Sie werden nicht bummeln. Sie werden mit einer Mission angekommen sein: ihr Guthaben bei Ihnen auszugeben.",
