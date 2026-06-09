@@ -378,7 +378,7 @@ export default {
       retailer: {
         titlePart1: 'Convert More',
         titlePart2: 'Travellers',
-        subtitle: 'DutyBoost will turn passing travellers into paying customers with personalised shopping incentives — rewards sent directly by their travel partner (airline, hotel, or car rental) in their booking confirmation email.',
+        subtitle: 'Travel partners — airlines, hotels and car rental companies — send every customer a personalised shopping reward in their booking confirmation email. DutyBoost routes those pre-activated shoppers straight to your store.',
         howItWorks: 'How It Will Work',
         step1: 'Customer Arrives',
         step1Desc: "A traveller walks into your store already motivated to spend. Their travel partner — an airline, hotel or car rental company — sent them a personalised DutyCredit QR code in their booking confirmation email, days or weeks before their flight. They won't be browsing. They'll arrive with a mission: to spend their reward with you.",

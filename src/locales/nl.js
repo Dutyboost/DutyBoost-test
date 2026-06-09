@@ -383,7 +383,7 @@ export default {
       retailer: {
         titlePart1: 'Converteer meer',
         titlePart2: 'reizigers',
-        subtitle: 'DutyBoost zal passerende reizigers omzetten in betalende klanten met gepersonaliseerde winkelprikkels — beloningen die hun reispartner (luchtvaartmaatschappij, hotel of autoverhuur) rechtstreeks naar hen stuurt in hun boekingsbevestigingsmail.',
+        subtitle: 'Reispartners — luchtvaartmaatschappijen, hotels en autoverhuurbedrijven — sturen elke klant een gepersonaliseerde winkelbeloning in hun boekingsbevestigingsmail. DutyBoost stuurt die vooraf geactiveerde shoppers rechtstreeks naar uw winkel.',
         howItWorks: 'Hoe het zal werken',
         step1: 'Klant arriveert',
         step1Desc: "Een reiziger loopt uw winkel binnen, al gemotiveerd om te besteden. Hun reispartner — een luchtvaartmaatschappij, hotel of autoverhuurbedrijf — heeft hen een gepersonaliseerde DutyCredit QR-code gestuurd in hun boekingsbevestigingsmail, dagen of weken voor hun vlucht. Ze zullen niet aan het browsen zijn. Ze zullen aankomen met een missie: hun tegoed bij u besteden.",
