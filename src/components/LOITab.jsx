@@ -206,10 +206,6 @@ export default function LOITab() {
       doc.setDrawColor(150, 160, 180);
       doc.setLineWidth(0.4);
       doc.line(margin, y, margin + colW, y);
-      doc.setFont("helvetica", "italic");
-      doc.setFontSize(8);
-      doc.setTextColor(130, 140, 160);
-      doc.text("Authorised signature – DutyBoost B.V.", margin, y + 4);
 
       // Partner column (right side, same y baseline)
       const partnerX = margin + colW + 10;
@@ -231,10 +227,6 @@ export default function LOITab() {
       // Signature line partner
       doc.setDrawColor(150, 160, 180);
       doc.line(partnerX, y, partnerX + colW, y);
-      doc.setFont("helvetica", "italic");
-      doc.setFontSize(8);
-      doc.setTextColor(130, 140, 160);
-      doc.text(`Authorised signature – ${loi.partner_company_name || "Partner"}`, partnerX, y + 4);
 
       // Add footers to all pages
       const totalPages = doc.getNumberOfPages();
