@@ -296,7 +296,7 @@ export default {
       retailer: {
         titlePart1: 'Convertissez plus de',
         titlePart2: 'voyageurs',
-        subtitle: 'Les partenaires de voyage — vols, hébergements et locations de voitures — envoient à chaque client une récompense shopping personnalisée dans leur e-mail de confirmation de réservation. DutyBoost dirige ces acheteurs pré-activés directement vers votre boutique.',
+        subtitle: 'Les partenaires de voyage — vols, hébergements et locations de voitures — envoient à chaque client une récompense shopping personnalisée dans leur e-mail de confirmation de réservation. Ces acheteurs pré-activés arrivent dans votre boutique prêts à dépenser.',
         howItWorks: 'Comment ça fonctionnera',
         step1: 'Le client arrive',
         step1Desc: "Un voyageur entre dans votre boutique, déjà motivé à dépenser. Son partenaire de voyage — une compagnie aérienne, un hôtel ou un loueur de voitures — lui a envoyé un code QR DutyCredit personnalisé dans son e-mail de confirmation de réservation, des jours ou des semaines avant son vol. Il ne fera pas de repérage. Il arrivera avec une mission : dépenser son crédit chez vous.",
