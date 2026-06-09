@@ -71,7 +71,7 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'You will be able to reward your customers with exclusive airport shopping credits on every booking they make with you — whether you\'re a travel agency, airline, accommodation, or car rental. Your integration with DutyBoost will automatically generate personalised DutyCredits, giving your customers a meaningful loyalty perk while you earn a commission on every redemption.',
+        description: 'Through DutyBoost you will be able to reward your customers with exclusive airport shopping credits on every booking they make with you — whether you\'re a travel agency, airline, accommodation, or car rental. A simple integration will automatically generate personalised DutyCredits delivered to your customers by email, giving them a meaningful loyalty perk while you earn a commission on every redemption.',
         b1: 'Stronger customer loyalty',
         b2: 'Zero operational effort',
         b3: 'New passive revenue stream',

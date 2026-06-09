@@ -72,7 +72,7 @@ export default {
       },
       agencies: {
         title: 'Partenaires de voyage',
-        description: 'Vous pourrez récompenser vos clients avec des crédits shopping exclusifs à l\'aéroport pour chaque réservation effectuée chez vous — que vous soyez une agence de voyage, une compagnie aérienne, un hébergement ou un loueur de voitures. Votre intégration avec DutyBoost générera automatiquement des DutyCredits personnalisés, offrant à vos clients un avantage fidélité concret pendant que vous toucherez une commission sur chaque utilisation.',
+        description: 'Grâce à DutyBoost, vous pourrez récompenser vos clients avec des crédits shopping exclusifs à l\'aéroport pour chaque réservation effectuée chez vous — que vous soyez une agence de voyage, une compagnie aérienne, un hébergement ou un loueur de voitures. Une simple intégration générera automatiquement des DutyCredits personnalisés livrés par e-mail à vos clients, leur offrant un avantage fidélité concret pendant que vous toucherez une commission sur chaque utilisation.',
         b1: 'Fidélité client renforcée',
         b2: 'Zéro effort opérationnel',
         b3: 'Nouveau flux de revenus passifs',
