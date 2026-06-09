@@ -308,10 +308,10 @@ export default {
       retailer: {
         titlePart1: 'Convierte más',
         titlePart2: 'viajeros',
-        subtitle: 'DutyBoost convertirá a viajeros que pasan en clientes pagadores con incentivos de compra personalizados.',
+        subtitle: 'DutyBoost convertirá a los viajeros que pasan en clientes de pago con incentivos de compra personalizados — recompensas enviadas directamente por su socio de viaje (aerolínea, hotel o alquiler de coches) en su correo de confirmación de reserva.',
         howItWorks: 'Cómo funcionará',
         step1: 'Cliente llega',
-        step1Desc: "Un viajero con un incentivo DutyCredit personalizado entrará en tu tienda, ya motivado para gastar. Habrán tenido este crédito esperando en su correo electrónico durante días o semanas — desde que reservaron su vuelo, alojamiento o alquiler de coche. No estarán explorando. Habrán llegado con una misión: gastar su crédito contigo.",
+        step1Desc: "Un viajero entra en tu tienda, ya motivado para gastar. Su socio de viaje — una aerolínea, hotel o empresa de alquiler de coches — les envió un código QR DutyCredit personalizado en su correo de confirmación de reserva, días o semanas antes de su vuelo. No estarán explorando. Habrán llegado con una misión: gastar su crédito contigo.",
         step2: 'Escanear y validar',
         step2Desc: "Presentarán su código QR único en la caja y tu personal lo escaneará a través del sistema POS integrado. El sistema validará instantáneamente el código en tiempo real, verificando que el crédito está activo, no ha caducado y pertenece a este viajero. Sin cálculos manuales. Sin fricciones.",
         step3: 'Aplicar descuento',

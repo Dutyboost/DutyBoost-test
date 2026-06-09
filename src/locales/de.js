@@ -296,10 +296,10 @@ export default {
       retailer: {
         titlePart1: 'Konvertieren Sie mehr',
         titlePart2: 'Reisende',
-        subtitle: 'DutyBoost wird vorbeigehende Reisende mit personalisierten Shopping-Anreizen in zahlende Kunden verwandeln.',
+        subtitle: 'DutyBoost wird passierende Reisende mit personalisierten Einkaufsanreizen in zahlende Kunden verwandeln — Prämien, die ihr Reisepartner (Fluggesellschaft, Hotel oder Autovermieter) direkt in der Buchungsbestätigungs-E-Mail mitschickt.',
         howItWorks: 'So wird es funktionieren',
         step1: 'Kunde kommt an',
-        step1Desc: "Ein Reisender mit einem personalisierten DutyCredit-Anreiz wird Ihren Laden betreten, bereits motiviert zu kaufen. Dieses Guthaben wird seit Tagen oder Wochen in ihrer E-Mail warten — seit sie ihren Flug, ihre Unterkunft oder ihren Mietwagen gebucht haben. Sie werden nicht bummeln. Sie werden mit einer Mission angekommen sein: ihr Guthaben bei Ihnen auszugeben.",
+        step1Desc: "Ein Reisender betritt Ihren Laden, bereits kaufbereit. Ihr Reisepartner — eine Fluggesellschaft, ein Hotel oder ein Autovermieter — hat ihnen einen personalisierten DutyCredit-QR-Code in der Buchungsbestätigungs-E-Mail geschickt, Tage oder Wochen vor ihrem Flug. Sie werden nicht bummeln. Sie werden mit einer Mission angekommen sein: ihr Guthaben bei Ihnen auszugeben.",
         step2: 'Scannen und validieren',
         step2Desc: "Sie werden ihren einzigartigen QR-Code an der Kasse vorzeigen, und Ihr Personal wird ihn über das integrierte Kassensystem scannen. Das System wird den Code sofort in Echtzeit validieren und überprüfen, ob das Guthaben aktiv ist, nicht abgelaufen ist und zu diesem Reisenden gehört. Keine manuellen Berechnungen. Keine Reibung.",
         step3: 'Rabatt anwenden',

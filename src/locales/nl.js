@@ -383,10 +383,10 @@ export default {
       retailer: {
         titlePart1: 'Converteer meer',
         titlePart2: 'reizigers',
-        subtitle: 'DutyBoost zal voorbijgaande reizigers omzetten in betalende klanten met gepersonaliseerde winkelprikkels.',
+        subtitle: 'DutyBoost zal passerende reizigers omzetten in betalende klanten met gepersonaliseerde winkelprikkels — beloningen die hun reispartner (luchtvaartmaatschappij, hotel of autoverhuur) rechtstreeks naar hen stuurt in hun boekingsbevestigingsmail.',
         howItWorks: 'Hoe het zal werken',
         step1: 'Klant arriveert',
-        step1Desc: "Een reiziger met een gepersonaliseerde DutyCredit-prikkel zal uw winkel binnenlopen, al gemotiveerd om te besteden. Ze zullen dit tegoed al dagen of weken in hun e-mail hebben staan — vanaf het moment dat ze hun vlucht, accommodatie of autoverhuur hebben geboekt. Ze zullen niet aan het browsen zijn. Ze zullen aankomen met een missie: hun tegoed bij u besteden.",
+        step1Desc: "Een reiziger loopt uw winkel binnen, al gemotiveerd om te besteden. Hun reispartner — een luchtvaartmaatschappij, hotel of autoverhuurbedrijf — heeft hen een gepersonaliseerde DutyCredit QR-code gestuurd in hun boekingsbevestigingsmail, dagen of weken voor hun vlucht. Ze zullen niet aan het browsen zijn. Ze zullen aankomen met een missie: hun tegoed bij u besteden.",
         step2: 'Scannen en valideren',
         step2Desc: "Ze zullen hun unieke QR-code tonen bij de kassa en uw medewerker zal het scannen via het geïntegreerde kassasysteem. Het systeem zal de code onmiddellijk valideren in realtime en verifiëren dat het tegoed actief is, niet verlopen is en bij deze reiziger hoort. Geen handmatige berekeningen. Geen frictie.",
         step3: 'Korting toepassen',
