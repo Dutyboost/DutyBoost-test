@@ -71,10 +71,10 @@ export default {
       },
       agencies: {
         title: 'Socios de viaje',
-        description: 'Tanto si eres una agencia de viajes, una aerolínea, un alojamiento o una empresa de alquiler de coches — DutyBoost convertirá cada reserva en un activo de fidelización. Generaremos automáticamente DutyCredits personalizados para tus clientes, recompensándolos con un incentivo de compra exclusivo. Ganarás una comisión en cada DutyCredit canjeado.',
-        b1: 'Mayor satisfacción del viajero',
-        b2: 'Cero fricción de integración',
-        b3: 'Más reservas repetidas',
+        description: 'Recompensa a tus clientes con créditos de compra exclusivos en el aeropuerto con cada reserva que realizan. Tu integración con DutyBoost genera automáticamente DutyCredits personalizados para tus viajeros, diferenciando tu marca y ganando comisión en cada canje.',
+        b1: 'Mayor lealtad del cliente',
+        b2: 'Cero trabajo operativo',
+        b3: 'Nuevos ingresos pasivos',
       },
     },
     cta: {
