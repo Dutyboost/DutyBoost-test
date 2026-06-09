@@ -71,10 +71,10 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Of u nu een reisagentschap, luchtvaartmaatschappij, accommodatie of autoverhuurbedrijf bent — DutyBoost zal elke boeking omzetten in een loyaliteitsmiddel. We zullen automatisch gepersonaliseerde DutyCredits genereren voor uw klanten en hen belonen met een exclusieve winkelkorting. U zult commissie verdienen op elke ingewisselde DutyCredit.',
-        b1: 'Meer tevredenheid bij reizigers',
-        b2: 'Nul integratiefrictie',
-        b3: 'Meer herhalingboekingen',
+        description: 'Beloon uw klanten met exclusieve luchthavenwinkelkredieten op elke boeking die zij bij u doen — of u nu een reisagentschap, luchtvaartmaatschappij, accommodatie of autoverhuurbedrijf bent. Uw integratie met DutyBoost genereert automatisch gepersonaliseerde DutyCredits, waardoor uw klanten een waardevol loyaliteitsvoordeel ontvangen terwijl u commissie verdient op elke inwisseling.',
+        b1: 'Sterkere klantloyaliteit',
+        b2: 'Nul operationele last',
+        b3: 'Nieuwe passieve inkomstenstroom',
       },
     },
     cta: {

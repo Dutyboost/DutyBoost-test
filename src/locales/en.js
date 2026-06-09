@@ -71,10 +71,10 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Whether you\'re a travel agency, airline, accommodation, or car rental — DutyBoost will turn every booking into a loyalty asset. We will automatically generate personalised DutyCredits for your customers, rewarding them with an exclusive shopping incentive. You will earn a commission on every DutyCredit redeemed.',
-        b1: 'Higher customer satisfaction',
-        b2: 'Zero integration friction',
-        b3: 'More repeat bookings',
+        description: 'Reward your customers with exclusive airport shopping credits on every booking they make with you — whether you\'re a travel agency, airline, accommodation, or car rental. Your integration with DutyBoost automatically generates personalised DutyCredits, giving your customers a meaningful loyalty perk while you earn a commission on every redemption.',
+        b1: 'Stronger customer loyalty',
+        b2: 'Zero operational effort',
+        b3: 'New passive revenue stream',
       },
     },
     cta: {
