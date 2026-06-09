@@ -138,6 +138,104 @@ export default function LOITab() {
         y += 5;
       });
 
+      // ── Signature & Acceptance block ─────────────────────────────────────
+      const signatureBlockHeight = 80;
+      if (y + signatureBlockHeight > contentBottom) {
+        doc.addPage();
+        addHeader(logoDataUrl);
+        y = contentTop;
+      } else {
+        y += 8;
+      }
+
+      // Divider
+      doc.setDrawColor(180, 190, 210);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, margin + maxWidth, y);
+      y += 7;
+
+      // Section heading
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.setTextColor(0, 0, 0);
+      doc.text("ACCEPTANCE & DIGITAL SIGNATURE", margin, y);
+      y += 6;
+
+      // Acceptance statement
+      const acceptanceDate = loi.signed_date
+        ? new Date(loi.signed_date).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
+        : today;
+      const acceptanceText = `I, ${loi.partner_representative_name || ""}${loi.partner_representative_title ? " – " + loi.partner_representative_title : ""}, on behalf of ${loi.partner_company_name || ""}, hereby accept and digitally sign this Letter of Intent with DutyBoost, dated ${acceptanceDate}.`;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.setTextColor(40, 40, 40);
+      const acceptLines = doc.splitTextToSize(acceptanceText, maxWidth);
+      doc.text(acceptLines, margin, y);
+      y += acceptLines.length * 5 + 4;
+
+      // Non-binding note
+      doc.setFontSize(8.5);
+      doc.setTextColor(100, 110, 130);
+      const disclaimerText = "This Letter of Intent is non-binding and creates no financial obligations unless a definitive binding agreement is separately signed by authorised representatives of both parties.";
+      const disclaimerLines = doc.splitTextToSize(disclaimerText, maxWidth);
+      doc.text(disclaimerLines, margin, y);
+      y += disclaimerLines.length * 4.5 + 8;
+
+      // Signature boxes side by side
+      const colW = (maxWidth - 10) / 2;
+
+      // DutyBoost column
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.setTextColor(0, 0, 0);
+      doc.text("DutyBoost B.V.", margin, y);
+      y += 5;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      doc.setTextColor(80, 90, 110);
+      doc.text("Jaquelin Beliad Perez – Co-Founder", margin, y);
+      y += 4;
+      doc.text("Raël Martis – Co-Founder", margin, y);
+      y += 4;
+      doc.text("DEK 32, 1319BB Almere, Netherlands", margin, y);
+      y += 4;
+      doc.text("KvK: 42053181  |  VAT: NL869492068B01", margin, y);
+      y += 8;
+
+      // Signature line DutyBoost
+      doc.setDrawColor(150, 160, 180);
+      doc.setLineWidth(0.4);
+      doc.line(margin, y, margin + colW, y);
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(8);
+      doc.setTextColor(130, 140, 160);
+      doc.text("Authorised signature – DutyBoost B.V.", margin, y + 4);
+
+      // Partner column (right side, same y baseline)
+      const partnerX = margin + colW + 10;
+      const partnerYStart = y - 25;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.setTextColor(0, 0, 0);
+      doc.text(loi.partner_company_name || "", partnerX, partnerYStart);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      doc.setTextColor(80, 90, 110);
+      doc.text(loi.partner_representative_name || "", partnerX, partnerYStart + 5);
+      if (loi.partner_representative_title) {
+        doc.text(loi.partner_representative_title, partnerX, partnerYStart + 9);
+      }
+      doc.text(loi.partner_email || "", partnerX, partnerYStart + (loi.partner_representative_title ? 13 : 9));
+      doc.text(`Signed: ${acceptanceDate}`, partnerX, partnerYStart + (loi.partner_representative_title ? 17 : 13));
+
+      // Signature line partner
+      doc.setDrawColor(150, 160, 180);
+      doc.line(partnerX, y, partnerX + colW, y);
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(8);
+      doc.setTextColor(130, 140, 160);
+      doc.text(`Authorised signature – ${loi.partner_company_name || "Partner"}`, partnerX, y + 4);
+
       // Add footers to all pages
       const totalPages = doc.getNumberOfPages();
       for (let i = 1; i <= totalPages; i++) {
