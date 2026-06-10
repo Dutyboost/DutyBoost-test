@@ -1068,7 +1068,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
     },
     accommodationonepager: {
       badge: 'Unterkunftspartner-Programm',
-      headline: 'Unsere Mission: Jeden Aufenthalt in eine Treuebelohnung für Ihre Gäste verwandeln — bei der Buchung und beim Check-out',
+      headline: 'Unsere Mission: Jeden Aufenthalt in eine Belohnung für Ihre Gäste verwandeln — bei der Buchung und beim Check-out',
       subtitle: 'DutyBoost entwickelt eine Lösung, die Ihre Gäste zweimal belohnt — einmal bei der Buchung und einmal beim Check-out. Feste Flughafen-Einkaufsbelohnungen von €2,50 bei €35 Ausgabe bis €60 bei €300+. Sie werden für jede Einlösung eine Provision verdienen — an beiden Touchpoints.',
       s1_title: '01 — Warum DutyBoost für Unterkunftspartner wichtig sein wird',
       why1_title: 'Jede Buchung wird ein Geschenk — und der Check-out auch', why1_desc: 'In dem Moment, in dem ein Gast über Ihre Unterkunft bucht, erhält er automatisch eine personalisierte Flughafen-Einkaufsbelohnung in seiner Bestätigungs-E-Mail — von Ihnen. Beim Check-out erhält er eine zweite. Zwei bedeutsame Dankeschöns: bei der aufregenden Buchung, und beim Abschied.',
