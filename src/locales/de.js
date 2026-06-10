@@ -1044,7 +1044,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
     },
     flightonepager: {
       badge: 'Flugpartner-Programm',
-      headline: 'Unsere Mission: Jede Buchung in eine Belohnung verwandeln — und einen neuen Einnahmestrom für Sie',
+      headline: 'Unsere Mission: Jede Buchung in eine Belohnung verwandeln — und einen neuen Einnahmestrom',
       subtitle: 'DutyBoost entwickelt eine Lösung, die eine personalisierte Flughafen-Einkaufsbelohnung in jede Buchungsbestätigung einbettet, die Sie versenden. Feste Stufenprämien von €2,50 bei €35 Ausgabe bis €60 bei €300+. Sie werden für jede Einlösung eine Provision verdienen.',
       s1_title: '01 — Warum DutyBoost für Flugpartner wichtig sein wird',
       why1_title: 'Jede Buchung wird ein Geschenk von Ihnen', why1_desc: 'In dem Moment, in dem jemand einen Flug über Ihre Plattform bucht, erhält er automatisch eine personalisierte Flughafen-Einkaufsbelohnung von Ihnen — kein zusätzlicher Aufwand, keine Kosten. Kein Rabattcode. Kein zukünftiges Angebot. Eine echte, einlösbare Belohnung, die am Abflughafen wartet. Ein Dankeschön, das in der Inbox landet, bevor sie überhaupt packen.',

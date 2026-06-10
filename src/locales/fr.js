@@ -1046,7 +1046,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
     },
     flightonepager: {
       badge: 'Programme Partenaire Vol',
-      headline: 'Notre mission : transformer chaque réservation en récompense — et une nouvelle source de revenus pour vous',
+      headline: 'Notre mission : transformer chaque réservation en récompense — et une nouvelle source de revenus',
       subtitle: 'DutyBoost développe une solution qui intègre une récompense shopping aéroportuaire personnalisée dans chaque confirmation de réservation que vous envoyez. Récompenses fixes de €2,50 à partir de €35 jusqu\'à €60 à partir de €300+. Vous gagnerez une commission sur chaque utilisation.',
       s1_title: '01 — Pourquoi DutyBoost sera important pour les partenaires de vol',
       why1_title: 'Chaque réservation deviendra un cadeau de votre part', why1_desc: 'Dès qu\'un voyageur réserve un vol via votre plateforme, il reçoit automatiquement une récompense shopping aéroportuaire personnalisée — envoyée en votre nom. Pas de code promo. Pas d\'offre future. Un vrai crédit qui l\'attend à son aéroport de départ. Un remerciement qui arrive dans sa boîte mail avant même qu\'il ne fasse sa valise.',

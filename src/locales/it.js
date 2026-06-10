@@ -1063,7 +1063,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
     },
     flightonepager: {
       badge: 'Programma Partner Voli',
-      headline: 'La nostra missione: trasformare ogni prenotazione in una ricompensa — e in un nuovo flusso di entrate per te',
+      headline: 'La nostra missione: trasformare ogni prenotazione in una ricompensa — e in un nuovo flusso di entrate',
       subtitle: 'DutyBoost sta sviluppando una soluzione che incorpora una ricompensa shopping aeroportuale personalizzata in ogni conferma di prenotazione che invii. Premi fissi da €2,50 a partire da €35 fino a €60 a partire da €300+. Guadagnerai una commissione ad ogni riscatto.',
       s1_title: '01 — Perché DutyBoost sarà importante per i partner di volo',
       why1_title: 'Ogni prenotazione diventerà un regalo da parte tua', why1_desc: 'Nel momento in cui qualcuno prenota un volo sulla tua piattaforma, riceve automaticamente una ricompensa shopping aeroportuale personalizzata — inviata a tuo nome. Nessun codice sconto. Nessuna offerta futura. Un vero credito che lo aspetta al suo aeroporto di partenza. Un ringraziamento che arriva nella sua inbox prima ancora che faccia le valigie.',
