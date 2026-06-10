@@ -1087,7 +1087,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
     },
     accommodationonepager: {
       badge: 'Programma Partner Alloggio',
-      headline: 'Nostra missione: trasformare ogni soggiorno in una ricompensa — alla prenotazione e al check-out',
+      headline: 'Nostra missione: trasformare ogni soggiorno in ricompensa — alla prenotazione e al check-out',
       subtitle: 'DutyBoost sta sviluppando una soluzione che premia i tuoi ospiti due volte — alla prenotazione e al check-out. Ricompense shopping aeroportuali fisse da €2,50 a partire da €35 fino a €60 a partire da €300+. Guadagnerai una commissione ad ogni riscatto, in entrambi i momenti.',
       s1_title: '01 — Perché DutyBoost sarà importante per i partner di alloggio',
       why1_title: 'Ogni prenotazione diventerà un regalo — e il check-out anche', why1_desc: 'Nel momento in cui un ospite prenota tramite la tua struttura, riceve automaticamente una ricompensa shopping aeroportuale personalizzata nella sua e-mail di conferma — da parte tua. Al check-out ne riceve una seconda. Due ringraziamenti sinceri: all\'emozione della prenotazione, e al saluto della partenza.',
