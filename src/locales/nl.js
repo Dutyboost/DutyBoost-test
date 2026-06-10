@@ -1020,7 +1020,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
     },
     flightonepager: {
       badge: 'Vliegpartner Programma',
-      headline: 'Onze missie: elke vluchtboeking omzetten in een loyaliteitsbeloning voor uw reizigers — en een nieuwe inkomstenstroom voor u',
+      headline: 'Onze missie: elke boeking omzetten in een beloning — en een nieuwe inkomstenstroom voor u',
       subtitle: 'DutyBoost bouwt aan een oplossing die een gepersonaliseerde luchthavenwinkelbeloning inbedt in elke boekingsbevestiging die u verstuurt. Vaste niveaubeloningen van €2,50 bij €35 besteding tot €60 bij €300+. U zult commissie verdienen op elke inwisseling.',
       s1_title: '01 — Waarom DutyBoost belangrijk zal worden voor vliegpartners',
       why1_title: 'Elke boeking wordt een cadeau van u', why1_desc: 'Op het moment dat iemand een vlucht boekt via uw platform, ontvangt hij automatisch een gepersonaliseerde luchthavenwinkelbeloning — verstuurd namens u. Geen kortingscode. Geen toekomstige aanbieding. Een echt tegoed dat hem wacht op het vertrekluchtvaart. Een bedankje dat in de inbox belandt voordat hij überhaupt zijn koffer pakt.',
