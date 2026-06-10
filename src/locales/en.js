@@ -598,7 +598,7 @@ export default {
     },
     flightonepager: {
       badge: 'Flight Partner Programme',
-      headline: 'Our mission: turn every flight booking into a loyalty reward for your travellers — and a new revenue stream for you',
+      headline: 'Our mission: turn every booking into a reward — and a new revenue stream for you',
       subtitle: 'DutyBoost is building a solution that embeds a personalised airport shopping reward into every booking confirmation you send. Fixed-tier rewards from €2.50 at €35 spend up to €60 at €300+. You will earn commission every time one of your travellers redeems theirs.',
       s1_title: '01 — Why DutyBoost Will Matter for Flight Partners',
       why1_title: 'Every booking will become a gift from you', why1_desc: 'The moment a traveller books a flight through your platform, they will automatically receive a personalised airport shopping reward — delivered in your name. Not a voucher code. Not a future discount. A real, spendable credit waiting at their departure airport. A thank-you that arrives before they even pack.',

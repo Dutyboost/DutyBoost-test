@@ -528,7 +528,7 @@ export default {
     },
     flightonepager: {
       badge: 'Programa de Socios de Vuelo',
-      headline: 'Nuestra misión: convertir cada reserva de vuelo en una recompensa de fidelidad para tus viajeros — y en un nuevo flujo de ingresos para ti',
+      headline: 'Nuestra misión: convertir cada reserva en una recompensa — y en un nuevo flujo de ingresos para ti',
       subtitle: 'DutyBoost está desarrollando una solución que incorpora una recompensa de compras aeroportuaria personalizada en cada confirmación de reserva que envías. Recompensas fijas desde €2,50 a €35 de gasto hasta €60 a €300+. Ganarás una comisión en cada canje.',
       s1_title: '01 — Por qué DutyBoost será importante para los socios de vuelo',
       why1_title: 'Cada reserva se convertirá en un regalo de tu parte', why1_desc: 'En el momento en que alguien reserva un vuelo en tu plataforma, recibe automáticamente una recompensa de compras aeroportuaria personalizada — enviada en tu nombre. Sin código de descuento. Sin oferta futura. Un crédito real que le espera en su aeropuerto de salida. Un gracias que llega a su bandeja antes de que haga la maleta.',
