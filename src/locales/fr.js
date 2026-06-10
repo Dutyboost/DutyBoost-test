@@ -1070,7 +1070,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
     },
     accommodationonepager: {
       badge: 'Programme Partenaire Hébergement',
-      headline: 'Notre mission : transformer chaque séjour en récompense pour vos clients — à la réservation et au check-out',
+      headline: 'Notre mission : transformer chaque séjour en récompense — à la réservation et au check-out',
       subtitle: 'DutyBoost développe une solution qui récompense vos clients deux fois — à la réservation et au check-out. Récompenses shopping aéroportuaires fixes de €2,50 à partir de €35 jusqu\'à €60 à partir de €300+. Vous gagnerez une commission sur chaque utilisation, aux deux moments.',
       s1_title: '01 — Pourquoi DutyBoost sera important pour les partenaires d\'hébergement',
       why1_title: 'Chaque réservation deviendra un cadeau — et le check-out aussi', why1_desc: 'Dès qu\'un client réserve via votre hébergement, il reçoit automatiquement une récompense shopping aéroportuaire personnalisée dans son e-mail de confirmation — de votre part. Au check-out, il en reçoit une deuxième. Deux remerciements sincères : à l\'excitation de la réservation, et au moment des adieux.',
