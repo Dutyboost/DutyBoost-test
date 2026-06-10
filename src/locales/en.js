@@ -622,7 +622,7 @@ export default {
     },
     accommodationonepager: {
       badge: 'Accommodation Partner Programme',
-      headline: 'Our mission: turn every stay into a loyalty reward for your guests — at booking and at check-out',
+      headline: 'Our mission: turn every stay into a reward for your guests — at booking and at check-out',
       subtitle: 'DutyBoost is building a solution that rewards your guests twice — once when they book, and once when they check out. Fixed-tier airport shopping rewards from €2.50 at €35 spend up to €60 at €300+. You will earn commission on every redemption, from both touchpoints.',
       s1_title: '01 — Why DutyBoost Will Matter for Accommodation Partners',
       why1_title: 'Every booking will become a gift — and so will check-out', why1_desc: 'The moment a guest books through your property, they will automatically receive a personalised airport shopping reward in their confirmation email — from you. When they check out, they will receive a second one. Two meaningful thank-yous at the two moments guests remember most: the excitement of booking, and the farewell of leaving.',
