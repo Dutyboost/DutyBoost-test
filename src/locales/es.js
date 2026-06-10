@@ -552,7 +552,7 @@ export default {
     },
     accommodationonepager: {
       badge: 'Programa de Socios de Alojamiento',
-      headline: 'Nuestra misión: convertir cada estancia en una recompensa a tus huéspedes — al reservar y al hacer check-out',
+      headline: 'Nuestra misión: convertir cada estancia en una recompensa — al reservar y al hacer check-out',
       subtitle: 'DutyBoost está desarrollando una solución que recompensa a tus huéspedes dos veces — al reservar y al hacer check-out. Recompensas de compras aeroportuarias fijas desde €2,50 a €35 de gasto hasta €60 a €300+. Ganarás una comisión en cada canje, en ambos momentos.',
       s1_title: '01 — Por qué DutyBoost será importante para los socios de alojamiento',
       why1_title: 'Cada reserva se convertirá en un regalo — y el check-out también', why1_desc: 'En el momento en que un huésped reserva en tu propiedad, recibe automáticamente una recompensa de compras aeroportuaria personalizada en su email de confirmación — de tu parte. Al hacer check-out, recibe una segunda. Dos agradecimientos sinceros: en la emoción de la reserva, y en la despedida.',
