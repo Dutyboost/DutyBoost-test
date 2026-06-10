@@ -1044,7 +1044,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
     },
     accommodationonepager: {
       badge: 'Accommodatie Partner Programma',
-      headline: 'Onze missie: elk verblijf omzetten in een loyaliteitsbeloning voor uw gasten — bij boeking én bij uitchecken',
+      headline: 'Onze missie: elk verblijf omzetten in een loyaliteitsbeloning voor gasten — bij boeking én bij uitchecken',
       subtitle: 'DutyBoost bouwt aan een oplossing die uw gasten op twee sleutelmomenten beloont: bij boeking en bij uitchecken. Vaste luchthavenwinkelbeloningen van €2,50 bij €35 besteding tot €60 bij €300+. U verdient commissie op elke inwisseling, op beide momenten.',
       s1_title: '01 — Waarom DutyBoost belangrijk zal worden voor accommodatiepartners',
       why1_title: 'Elke boeking wordt een cadeau — en het uitchecken ook', why1_desc: 'Op het moment dat een gast via uw accommodatie boekt, ontvangt hij automatisch een gepersonaliseerde luchthavenwinkelbeloning in zijn bevestigingsmail — van u. Bij uitchecken ontvangt hij een tweede. Twee oprechte bedankjes: bij de opwinding van de boeking, en bij het afscheid.',
