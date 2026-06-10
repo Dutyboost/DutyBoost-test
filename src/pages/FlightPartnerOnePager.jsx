@@ -1,3 +1,4 @@
+import { useState, useRef, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -13,8 +14,16 @@ const GradientDivider = () => (
 );
 
 export default function FlightPartnerOnePager() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const p = (k) => t(`flightonepager.${k}`);
+  const innerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    if (!innerRef.current) return;
+    const naturalHeight = innerRef.current.scrollHeight;
+    setScale(naturalHeight > 1122 ? 1122 / naturalHeight : 1);
+  }, [i18n.language]);
 
   const handleDownloadPDF = async () => {
     const element = document.querySelector('.print-content');
@@ -56,9 +65,19 @@ export default function FlightPartnerOnePager() {
       </div>
 
       <div
-        className="print-content max-w-[794px] mx-auto px-8 py-3 print:py-0 print:px-0 bg-white flex flex-col"
-        style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}
+        className="print-content max-w-[794px] mx-auto bg-white"
+        style={{ width: '794px', height: '1122px', overflow: 'hidden' }}
       >
+        <div
+          ref={innerRef}
+          className="px-8 py-3 flex flex-col"
+          style={{
+            width: '794px',
+            minHeight: '1122px',
+            transformOrigin: 'top center',
+            transform: `scale(${scale})`,
+          }}
+        >
         <div className="flex items-center justify-between pb-1">
           <OnePagerLogo height={40} />
           <span className="text-xs font-bold uppercase tracking-widest text-blue-700">{p('badge')}</span>
@@ -148,6 +167,7 @@ export default function FlightPartnerOnePager() {
 
         <div className="text-center pb-1">
           <p className="text-xs text-muted-foreground">{p('legal')}</p>
+        </div>
         </div>
       </div>
     </div>
