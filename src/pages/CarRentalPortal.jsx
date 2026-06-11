@@ -65,7 +65,7 @@ export default function CarRentalPortal() {
           <ChevronLeft className="w-4 h-4" /> {t('common.back')}
         </button>
         <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-          <DutyBoostLogo height={150} />
+          <DutyBoostLogo height={55} />
         </button>
         <LanguageSwitcher />
       </div>
