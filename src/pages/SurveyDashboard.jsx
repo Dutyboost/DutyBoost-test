@@ -1792,7 +1792,10 @@ export default function SurveyDashboard() {
     <div className="min-h-screen bg-slate-900 text-white px-4 py-10">
       <div className="max-w-5xl mx-auto space-y-8">
 
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-2 mb-4">
+          <div className="flex justify-center mb-4">
+            <img src="https://assets.dutyboost.com/dutyboost-logo-dark.png" alt="DutyBoost" style={{ height: '55px' }} />
+          </div>
           <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs tracking-widest uppercase">
             Survey Analytics
           </Badge>
