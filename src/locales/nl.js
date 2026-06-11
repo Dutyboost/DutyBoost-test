@@ -651,7 +651,7 @@ export default {
       description_1: 'Bij DutyBoost bouwen we een <strong>circulair omzetecosysteem</strong> waar iedereen wint. U als reispartner brengt de reizigers. DutyBoost verbindt hen met luchthavenwinkeliers. Samen genereren we nieuwe omzet voor alle partijen.',
       description_2: 'Wat is DutyBoost? Een "<strong>Travel Retail Conversion Layer</strong>" die nieuwe commerciële waarde creëert op basis van bestaande reizigersstromen. We zetten uw passagiers om in koopgerichte luchthavenkopers — en u verdient op elke transactie.',
       what_we_ask: 'Wat hebben wij nodig om het gezamenlijk doel te bereiken:',
-      from_you: 'Onderteken deze Intentieverklaring om onze wederzijdse bedoeling om deze samenwerking te verkennen te formaliseren en in goed-faith-gesprekken over hoe DutyBoost waarde kan creëren voor uw reizigers en uw organisatie.',
+      from_you: 'Onderteken deze Intentieverklaring om formeel vast te leggen dat u bereid bent deze samenwerking te verkennen en om met ons in gesprek te gaan over hoe DutyBoost waarde kan creëren voor uw reizigers en uw organisatie.',
       from_travelers: 'Van uw reizigers: Wissel hun DutyCredits in bij deelnemende luchthavenwinkeliers voor exclusieve kortingen.',
       from_retailers: 'Van luchthavenwinkeliers: Accepteer DutyCredits als betaling en profiteer van koopgerichte klanten die klaar zijn om te besteden.',
       the_outcome: 'Het resultaat:',
