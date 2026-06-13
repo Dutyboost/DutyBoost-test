@@ -1,0 +1,48 @@
+{
+  "name": "PageVisit",
+  "type": "object",
+  "properties": {
+    "page_path": {
+      "type": "string",
+      "title": "Page Path"
+    },
+    "referrer_domain": {
+      "type": "string",
+      "title": "Referrer Domain"
+    },
+    "utm_source": {
+      "type": "string",
+      "title": "UTM Source"
+    },
+    "utm_medium": {
+      "type": "string",
+      "title": "UTM Medium"
+    },
+    "utm_campaign": {
+      "type": "string",
+      "title": "UTM Campaign"
+    },
+    "utm_content": {
+      "type": "string",
+      "title": "UTM Content"
+    }
+  },
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

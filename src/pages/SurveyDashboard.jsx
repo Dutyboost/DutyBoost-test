@@ -6,10 +6,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search } from "lucide-react";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search, TrendingUp } from "lucide-react";
 import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+import TrafficDashboard from "../components/TrafficDashboard";
 
 const RETAILER_PREFIX = "Airport Retailer – ";
 const CHART_COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#a855f7", "#ef4444", "#06b6d4", "#ec4899", "#84cc16"];
@@ -1886,6 +1887,14 @@ export default function SurveyDashboard() {
           >
             <FileText className="w-4 h-4" /> Signed LOIs
           </button>
+          <button
+            onClick={() => setActiveTab("traffic")}
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
+              activeTab === "traffic" ? "bg-teal-600 text-white shadow" : "text-slate-400 hover:text-white"
+            }`}
+          >
+            <TrendingUp className="w-4 h-4" /> Traffic
+          </button>
         </div>
 
         {loading ? (
@@ -1900,6 +1909,8 @@ export default function SurveyDashboard() {
           <LeadsTab />
         ) : activeTab === "loi" ? (
           <LOITab />
+        ) : activeTab === "traffic" ? (
+          <TrafficDashboard />
         ) : (
           <GlobalPotentialsDashboard responses={partnerResponses} />
         )}

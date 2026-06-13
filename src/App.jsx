@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Layout from './components/Layout';
 import ScrollRestoration from './components/ScrollRestoration';
+import TrafficTracker from './components/TrafficTracker';
 import Home from './pages/Home';
 import LandingPage from './pages/LandingPage';
 import VouchersPage from './pages/VouchersPage';
@@ -154,6 +155,7 @@ const AuthenticatedApp = () => {
   return (
     <>
       <ScrollRestoration />
+      <TrafficTracker />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
