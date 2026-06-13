@@ -1,3 +1,4 @@
+import { useState, useRef, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,15 @@ import OnePagerLogo from "../components/OnePagerLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function RetailerOnePager() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const innerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    if (!innerRef.current) return;
+    const naturalHeight = innerRef.current.scrollHeight;
+    setScale(naturalHeight > 1122 ? 1122 / naturalHeight : 1);
+  }, [i18n.language]);
 
   const handleDownloadPDF = async () => {
     const element = document.querySelector('.print-content');
@@ -60,7 +69,8 @@ export default function RetailerOnePager() {
       </div>
 
       {/* A4-style content */}
-      <div className="print-content max-w-[794px] mx-auto px-8 py-2 print:py-0 print:px-0 bg-white flex flex-col" style={{ minHeight: '1122px', maxHeight: '1122px', overflow: 'hidden' }}>
+      <div className="print-content max-w-[794px] mx-auto bg-white" style={{ width: '794px', height: '1122px', overflow: 'hidden' }}>
+      <div ref={innerRef} className="px-8 py-2 flex flex-col" style={{ width: '794px', minHeight: '1122px', transformOrigin: 'top center', transform: `scale(${scale})` }}>
 
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-orange-500 pb-1">
@@ -169,6 +179,7 @@ export default function RetailerOnePager() {
           <p className="text-xs text-muted-foreground">{t('retaileronepager.legal')}</p>
         </div>
 
+      </div>
       </div>
     </div>
   );
