@@ -1844,57 +1844,59 @@ export default function SurveyDashboard() {
         </div>
 
         {/* Tab switcher */}
-        <div className="flex gap-2 bg-slate-800 border border-slate-700 rounded-2xl p-1.5">
-          <button
-            onClick={() => setActiveTab("retailer")}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "retailer" ? "bg-orange-500 text-white shadow" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            <Store className="w-4 h-4" /> Airport Retailer
-            <span className="ml-1 text-xs opacity-70">({retailerResponses.length})</span>
-          </button>
-          <button
-            onClick={() => setActiveTab("partner")}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "partner" ? "bg-green-600 text-white shadow" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            <Users className="w-4 h-4" /> Travel Partner
-            <span className="ml-1 text-xs opacity-70">({partnerResponses.length})</span>
-          </button>
-          <button
-            onClick={() => setActiveTab("global")}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "global" ? "bg-yellow-600 text-white shadow" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            <BarChart2 className="w-4 h-4" /> Global Potentials
-          </button>
-          <button
-            onClick={() => setActiveTab("leads")}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "leads" ? "bg-blue-600 text-white shadow" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            <Phone className="w-4 h-4" /> Leads
-          </button>
-          <button
-            onClick={() => setActiveTab("loi")}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "loi" ? "bg-indigo-600 text-white shadow" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            <FileText className="w-4 h-4" /> Signed LOIs
-          </button>
-          <button
-            onClick={() => setActiveTab("traffic")}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "traffic" ? "bg-teal-600 text-white shadow" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            <TrendingUp className="w-4 h-4" /> Traffic
-          </button>
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-1.5 overflow-x-auto">
+          <div className="flex gap-1.5 min-w-max">
+            <button
+              onClick={() => setActiveTab("retailer")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "retailer" ? "bg-orange-500 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Store className="w-3.5 h-3.5" /> Airport Retailer
+              <span className="text-xs opacity-70">({retailerResponses.length})</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("partner")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "partner" ? "bg-green-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Users className="w-3.5 h-3.5" /> Travel Partner
+              <span className="text-xs opacity-70">({partnerResponses.length})</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("global")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "global" ? "bg-yellow-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <BarChart2 className="w-3.5 h-3.5" /> Global Potentials
+            </button>
+            <button
+              onClick={() => setActiveTab("leads")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "leads" ? "bg-blue-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Phone className="w-3.5 h-3.5" /> Leads
+            </button>
+            <button
+              onClick={() => setActiveTab("loi")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "loi" ? "bg-indigo-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5" /> Signed LOIs
+            </button>
+            <button
+              onClick={() => setActiveTab("traffic")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "traffic" ? "bg-teal-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <TrendingUp className="w-3.5 h-3.5" /> Traffic
+            </button>
+          </div>
         </div>
 
         {loading ? (
