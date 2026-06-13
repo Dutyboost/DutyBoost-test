@@ -67,15 +67,21 @@ export default function TrafficDashboard() {
     );
   }
 
-  const totalVisits = visits.length;
-  const referrers = tally(visits.filter(v => v.referrer_domain), 'referrer_domain');
+  // Strip out all base44 builder / internal visits — only real external traffic
+  const realVisits = visits.filter(v =>
+    !v.referrer_domain?.includes('base44') &&
+    v.referrer_domain !== 'internal'
+  );
 
-  // External referrers only (exclude internal + direct)
-  const externalReferrers = referrers.filter(r => r.name !== 'internal');
+  const totalVisits = realVisits.length;
+  const referrers = tally(realVisits.filter(v => v.referrer_domain), 'referrer_domain');
+
+  // External referrers only (exclude direct for the "unique external domains" KPI)
+  const externalReferrers = referrers.filter(r => r.name !== 'direct');
 
   // Category breakdown
   const categoryMap = {};
-  visits.forEach(v => {
+  realVisits.forEach(v => {
     const cat = categorizeDomain(v.referrer_domain);
     categoryMap[cat] = (categoryMap[cat] || 0) + 1;
   });
@@ -84,8 +90,8 @@ export default function TrafficDashboard() {
     .sort((a, b) => b.value - a.value)
     .filter(c => c.name !== 'internal');
 
-  const utmSources = tally(visits.filter(v => v.utm_source), 'utm_source');
-  const utmCampaigns = tally(visits.filter(v => v.utm_campaign), 'utm_campaign');
+  const utmSources = tally(realVisits.filter(v => v.utm_source), 'utm_source');
+  const utmCampaigns = tally(realVisits.filter(v => v.utm_campaign), 'utm_campaign');
 
   return (
     <div className="space-y-6">

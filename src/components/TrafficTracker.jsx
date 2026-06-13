@@ -13,7 +13,7 @@ function initSession() {
     if (document.referrer) {
       const url = new URL(document.referrer);
       const own = window.location.hostname;
-      referrer_domain = (url.hostname === own || url.hostname.includes('base44.app'))
+      referrer_domain = (url.hostname === own || url.hostname.includes('base44'))
         ? 'internal'
         : url.hostname;
     }
