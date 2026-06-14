@@ -1198,7 +1198,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       stat2_value: "",
       stat2_label: "valeur moyenne du panier visée",
       stat2_desc: "Les titulaires de DutyCredit dépenseront considérablement plus grâce à la pré-activation et au seuil d'achat minimum de €35.",
-      stat3_value: "+€300K–€400K",
+      stat3_value: "~€178K",
       stat3_label: "revenus annuels par magasin visés",
       stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €32,50 net/panier (€35 min. dépense − €2,50 remise) × 365 jours = environ €178K de revenus nets supplémentaires par magasin par an — notre objectif.",
       benefit1_title: "🛍️ Plus de ventes de voyageurs qui n'achèteraient pas autrement",
