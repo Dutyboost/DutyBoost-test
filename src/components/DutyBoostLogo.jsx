@@ -1,27 +1,23 @@
 import { Link } from "react-router-dom";
 
-export default function DutyBoostLogo({ height = 100, inverted = false, linkTo = "/" }) {
-  const color = inverted ? '#ffffff' : '#0a1628';
-  const w = height * 3.8;
+const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/39dfee0b4_UpdatedLogo.svg";
 
-  const svg = (
-    <svg width={w} height={height} viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
-      <text
-        x="0" y="72"
-        fontFamily="Space Grotesk, Inter, sans-serif"
-        fontWeight="700"
-        fontSize="72"
-        fill={color}
-        letterSpacing="-2"
-      >
-        DutyBoost
-      </text>
-    </svg>
+export default function DutyBoostLogo({ height = 55, inverted = false, linkTo = null }) {
+  const img = (
+    <img
+      src={LOGO_URL}
+      alt="DutyBoost"
+      style={{ height: `${height}px`, width: 'auto', display: 'block' }}
+    />
   );
 
-  return (
-    <Link to={linkTo} className="hover:opacity-80 transition-opacity inline-flex items-center">
-      {svg}
-    </Link>
-  );
+  if (linkTo) {
+    return (
+      <Link to={linkTo} className="hover:opacity-80 transition-opacity inline-flex items-center">
+        {img}
+      </Link>
+    );
+  }
+
+  return img;
 }
