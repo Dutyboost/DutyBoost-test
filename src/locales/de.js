@@ -1177,7 +1177,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       why2_title: 'Wird in ihrer Buchungs-E-Mail ankommen — Wochen vor dem Flug',
       why2_desc: 'Keine Marketingkampagnen. Kein App-Download. Kein Tracking. Das DutyCredit wird in ihrer Flug-, Unterkunfts- oder Mietwagen-Bestätigung eingebettet sein — im Moment der Buchung. Tage oder Wochen mentales Engagement werden vergehen, bevor sie in Ihrem Geschäft ankommen. Die Voraktivierung wird automatisch in großem Maßstab über ihre eigene Buchungs-E-Mail erfolgen.',
       why3_title: 'Vorausaktivierte Absicht wird höhere Conversion antreiben',
-      why3_desc: 'Da Reisende bereits Tage vor der Ankunft mental auf Ihr Geschäft eingestellt sein werden, werden die Conversion-Raten dramatisch höher sein als bei zufälligem Laufpublikum. Pre-Aktivierung wird passive Besucher in motivierte Käufer verwandeln — ohne Vorabkosten für Sie.',
+      why3_desc: 'Da Reisende bereits Tage vor der Abreise mental auf Ihr Geschäft eingestellt sein werden, werden die Conversion-Raten dramatisch höher sein als bei zufälligem Laufpublikum. Pre-Aktivierung wird passive Besucher in motivierte Käufer verwandeln — ohne Vorabkosten für Sie.',
       why4_title: 'Einstellung bereits gesetzt: Sie werden kommen, um zu kaufen',
       why4_desc: 'Reisende werden herein kommen und genau wissen, wie viel sie sparen können. Das DutyCredit-Minimum von €35 bedeutet, dass sie mit einer Kaufbereitschaft ankommen werden, nicht im Browsing-Modus. Sie werden bereit sein zu kaufen — der Kauf wird bereits entschieden sein, bevor sie Ihr Geschäft betreten.',
       s2_title: '02 — Wie DutyBoost für Retailer funktionieren wird',

@@ -1179,7 +1179,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       why2_title: "Arrivera dans leur e-mail de réservation — semaines avant le vol",
       why2_desc: "Aucune campagne, aucune app, aucun suivi. Le DutyCredit sera intégré dans la confirmation de réservation — des jours ou semaines d'engagement mental passeront avant leur arrivée. La pré-activation se produira automatiquement.",
       why3_title: "L'intention pré-activée générera une conversion plus élevée",
-      why3_desc: "Les voyageurs se seront déjà engagés à dépenser des jours avant leur arrivée — les taux de conversion seront dramatiquement plus élevés. La pré-activation transformera les visiteurs passifs en acheteurs motivés.",
+      why3_desc: "Les voyageurs se seront déjà engagés à dépenser des jours avant leur départ — les taux de conversion seront dramatiquement plus élevés. La pré-activation transformera les visiteurs passifs en acheteurs motivés.",
       why4_title: "Mentalité déjà établie : ils viendront pour acheter",
       why4_desc: "Ils arriveront en sachant exactement combien ils peuvent économiser. Le minimum €35 les activera mentalement pour dépenser. L'achat sera déjà décidé avant d'entrer.",
       s2_title: "02 — Comment DutyBoost fonctionnera pour les Retailers",

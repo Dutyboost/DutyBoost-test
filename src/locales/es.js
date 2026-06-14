@@ -661,7 +661,7 @@ export default {
       why2_title: 'Llegará en su email de reserva — semanas antes del vuelo',
       why2_desc: 'Sin campañas de marketing. Sin descarga de app. Sin seguimiento. El DutyCredit estará integrado en la confirmación de su vuelo, alojamiento o alquiler de coche — en el momento de la reserva. Días o semanas de compromiso mental antes de llegar a tu tienda. La pre-activación ocurrirá automáticamente, a escala, a través de su propio email de reserva.',
       why3_title: 'La intención pre-activada impulsará mayor conversión',
-      why3_desc: 'Porque los viajeros se habrán comprometido a gastar en tu tienda días antes de llegar, las tasas de conversión serán dramáticamente más altas que el tráfico peatonal aleatorio. La pre-activación transformará a los visitantes pasivos en compradores motivados — sin ningún coste inicial para ti.',
+      why3_desc: 'Porque los viajeros se habrán comprometido a gastar en tu tienda días antes de su salida, las tasas de conversión serán dramáticamente más altas que el tráfico peatonal aleatorio. La pre-activación transformará a los visitantes pasivos en compradores motivados — sin ningún coste inicial para ti.',
       why4_title: 'Mentalidad ya establecida: vendrán a comprar',
       why4_desc: 'Los viajeros entrarán sabiendo exactamente cuánto pueden ahorrar. El mínimo DutyCredit de €35 significará que llegan con una mentalidad de gasto, no en modo exploración. Estarán listos para comprometerse — la compra ya estará decidida antes de que entren a tu tienda.',
       s2_title: '02 — Cómo funcionará DutyBoost para Retailers',

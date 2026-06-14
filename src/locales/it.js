@@ -1196,7 +1196,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       why2_title: 'Arriverà nella loro email di prenotazione — settimane prima del volo',
       why2_desc: 'Nessuna campagna di marketing. Nessun download di app. Nessun tracciamento. Il DutyCredit sarà incorporato nella conferma del loro volo, alloggio o noleggio auto — nel momento della prenotazione. Giorni o settimane di impegno mentale passeranno prima che arrivino nel tuo negozio. La pre-attivazione avverrà automaticamente, su scala, tramite la propria email di prenotazione.',
       why3_title: "L'intenzione pre-attivata guiderà una conversione più alta",
-      why3_desc: "Poiché i viaggiatori si saranno già impegnati a spendere nel tuo negozio giorni prima dell'arrivo, i tassi di conversione saranno drammaticamente più alti del traffico pedonale casuale. La pre-attivazione trasformerà i visitatori passivi in acquirenti motivati — senza costi iniziali per te.",
+      why3_desc: "Poiché i viaggiatori si saranno già impegnati a spendere nel tuo negozio giorni prima della partenza, i tassi di conversione saranno drammaticamente più alti del traffico pedonale casuale. La pre-attivazione trasformerà i visitatori passivi in acquirenti motivati — senza costi iniziali per te.",
       why4_title: 'Mentalità già impostata: verranno per acquistare',
       why4_desc: "I viaggiatori entreranno sapendo esattamente quanto possono risparmiare. Il minimo DutyCredit di €35 significa che arriveranno con una mentalità di spesa, non in modalità esplorazione. Saranno pronti a impegnarsi — l'acquisto sarà già deciso prima che entrino nel tuo negozio.",
       s2_title: '02 — Come DutyBoost funzionerà per i Retailer',
