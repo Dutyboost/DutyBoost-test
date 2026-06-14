@@ -752,7 +752,7 @@ export default {
       stat2_value: '',
       stat2_label: 'projected average basket size',
       stat2_desc: 'DutyCredit holders will spend significantly more due to pre-activation and minimum €35 purchase threshold.',
-      stat3_value: '~€178K',
+      stat3_value: '€150K–€200K',
       stat3_label: 'projected annual revenue per store',
       stat3_desc: '100 DutyCredit holders/day × 15% conversion × €32.50 net basket (€35 min spend − €2.50 discount) × 365 days = approximately €178K incremental net revenue per store per year — our goal.',
       benefit1_title: "🛍️ More sales from travellers who wouldn't buy otherwise",

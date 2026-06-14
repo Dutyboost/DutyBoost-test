@@ -680,7 +680,7 @@ export default {
       stat2_value: '',
       stat2_label: 'valor promedio de cesta proyectado',
       stat2_desc: 'Los titulares de DutyCredit gastarán significativamente más gracias a la preactivación y el umbral mínimo de €35.',
-      stat3_value: '~€178K',
+      stat3_value: '€150K–€200K',
       stat3_label: 'ingresos adicionales proyectados por tienda al año',
       stat3_desc: '100 titulares DutyCredit/día × 15% conversión × €32,50 neto/cesta (€35 gasto mín. − €2,50 descuento) × 365 días = aproximadamente €178K ingresos netos incrementales por tienda al año — nuestro objetivo.',
       benefit1_title: '🛍️ Más ventas de viajeros que no comprarían de otra forma',

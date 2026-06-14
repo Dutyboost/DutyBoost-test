@@ -1215,7 +1215,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       stat2_value: '',
       stat2_label: 'valore medio del carrello previsto',
       stat2_desc: 'I detentori di DutyCredit spenderanno significativamente di più grazie alla pre-attivazione e alla soglia minima di €35.',
-      stat3_value: '~€178K',
+      stat3_value: '€150K–€200K',
       stat3_label: 'ricavi aggiuntivi previsti per negozio all\'anno',
       stat3_desc: '100 titolari DutyCredit/giorno × 15% conversione × €32,50 netto/carrello (€35 spesa min. − €2,50 sconto) × 365 giorni = circa €178K ricavi netti incrementali per negozio per anno — il nostro obiettivo.',
       benefit1_title: '🛍️ Più vendite da viaggiatori che non comprerebbero altrimenti',

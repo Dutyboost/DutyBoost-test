@@ -1174,7 +1174,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       stat2_value: '',
       stat2_label: 'verwachte gemiddelde basketwaarde',
       stat2_desc: 'DutyCredit-houders zullen aanzienlijk meer besteden door vooractivering en de minimale aankoop van €35.',
-      stat3_value: '~€178K',
+      stat3_value: '€150K–€200K',
       stat3_label: 'verwachte extra omzet per winkel per jaar',
       stat3_desc: '100 DutyCredit-houders/dag × 15% conversie × €32,50 netto basket (€35 min. besteding − €2,50 korting) × 365 dagen = circa €178K incrementele netto-omzet per winkel per jaar — ons doel.',
       benefit1_title: '🛍️ Meer verkopen van reizigers die anders niet zouden kopen',
