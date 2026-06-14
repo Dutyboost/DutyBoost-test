@@ -25,7 +25,7 @@ export default function DemoHotelDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-heading font-bold">Hotel Partner Demo Dashboard</h1>
+        <h1 className="text-3xl font-heading font-bold">Accommodation Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track guest participation and DutyCredit earnings</p>
       </div>
 

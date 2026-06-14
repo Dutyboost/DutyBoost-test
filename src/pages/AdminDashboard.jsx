@@ -120,13 +120,13 @@ export default function AdminDashboard() {
   const fnbData = useMemo(() => {
     const fnbByCategory = {};
     filteredFnbCredits.forEach(c => {
-      const cat = c.traveler_name?.includes("HOTEL") || filteredFnbTransactions.some(t => t.token_id === c.token_id && t.category === "Hotel") ? "Hotel Partners" : "Car Rental Partners";
+      const cat = c.traveler_name?.includes("HOTEL") || filteredFnbTransactions.some(t => t.token_id === c.token_id && t.category === "Hotel") ? "Accommodation Partners" : "Car Rental Partners";
       if (!fnbByCategory[cat]) fnbByCategory[cat] = { category: cat, issued: 0, used: 0, revenue: 0 };
       fnbByCategory[cat].issued++;
       if (c.status === "used" || c.status === "partially_used") fnbByCategory[cat].used++;
     });
     filteredFnbTransactions.forEach(t => {
-      const cat = t.category === "Hotel" ? "Hotel Partners" : "Car Rental Partners";
+      const cat = t.category === "Hotel" ? "Accommodation Partners" : "Car Rental Partners";
       if (fnbByCategory[cat]) fnbByCategory[cat].revenue += t.amount || 0;
     });
     return Object.values(fnbByCategory);
@@ -407,11 +407,11 @@ export default function AdminDashboard() {
       {/* Spatial heatmap */}
       <RedemptionHeatmap vouchers={filteredVouchers} />
 
-      {/* Hotel Partners & Car Rental Partners */}
+      {/* Accommodation Partners & Car Rental Partners */}
       <div className="bg-card rounded-xl border border-border p-6">
-        <h2 className="font-heading font-semibold mb-4">Hotel Partners & Car Rental Partners Performance</h2>
+        <h2 className="font-heading font-semibold mb-4">Accommodation Partners & Car Rental Partners Performance</h2>
         {fnbData.length === 0 ? (
-          <p className="text-muted-foreground text-sm py-8 text-center">No hotel or car rental data yet.</p>
+          <p className="text-muted-foreground text-sm py-8 text-center">No accommodation or car rental data yet.</p>
         ) : (
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={fnbData} margin={{ top: 4, right: 16, bottom: 40, left: 0 }}>
