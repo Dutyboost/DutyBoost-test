@@ -1156,7 +1156,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       why2_title: 'Zal aankomen in hun boekingsmail — weken voor de vlucht',
       why2_desc: 'Geen marketingcampagnes. Geen app-download. Geen tracking. Het DutyCredit zal ingebed zijn in hun vlucht-, accommodatie- of autoverhuurbevestiging — op het moment dat ze boeken. Dagen of weken van mentale betrokkenheid zullen voorbijgaan voordat ze bij uw winkel aankomen. Pre-activering zal automatisch op schaal gebeuren via hun eigen boekingsmail.',
       why3_title: 'Voorgeactiveerde intentie zal tot hogere conversie leiden',
-      why3_desc: 'Omdat reizigers al dagen voor aankomst mentaal betrokken zullen zijn bij uw winkel, zullen de conversieratio\'s dramatisch hoger liggen dan bij willekeurig voetgangersverkeer. Pre-activering zal passieve bezoekers transformeren in gemotiveerde kopers — zonder enige vooruitkosten voor u.',
+      why3_desc: 'Omdat reizigers al dagen voor vertrek mentaal betrokken zullen zijn bij uw winkel, zullen de conversieratio\'s dramatisch hoger liggen dan bij willekeurig voetgangersverkeer. Pre-activering zal passieve bezoekers transformeren in gemotiveerde kopers — zonder enige vooruitkosten voor u.',
       why4_title: 'Mentaliteit al ingesteld: ze zullen komen om te kopen',
       why4_desc: 'Reizigers zullen binnenkomen wetend precies hoeveel ze kunnen besparen. Het DutyCredit minimum van €35 betekent dat ze aankomen met een uitgavebereidheid, niet in browsemodus. Ze zullen klaar zijn om te kopen — de aankoop zal al besloten zijn voordat ze uw winkel binnenlopen.',
       step1_title: 'Reiziger boekt',
