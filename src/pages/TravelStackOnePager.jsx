@@ -160,50 +160,50 @@ export default function TravelStackOnePager() {
             </div>
 
             {/* Section 1 — Why */}
-            <div style={{ flex: "0 0 auto", marginBottom: "6px" }}>
+            <div style={{ flex: "1 1 0", display: "flex", flexDirection: "column", marginBottom: "6px" }}>
               <h2 style={{ fontSize: "9px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "#1A6BFF", margin: "0 0 3px" }}>
                 {t("travelstackonepager.s1_title")}
               </h2>
               <div style={{ marginBottom: "4px" }}><GradientDivider /></div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
+              <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "6px" }}>
                 {[
                   { title: t("travelstackonepager.why1_title"), desc: t("travelstackonepager.why1_desc") },
                   { title: t("travelstackonepager.why2_title"), desc: t("travelstackonepager.why2_desc") },
                   { title: t("travelstackonepager.why3_title"), desc: t("travelstackonepager.why3_desc") },
                   { title: t("travelstackonepager.why4_title"), desc: t("travelstackonepager.why4_desc") },
                 ].map((c) => (
-                  <div key={c.title} style={{ background: "#f8fafc", borderRadius: "6px", padding: "7px 8px", border: "1px solid #e2e8f0" }}>
-                    <p style={{ fontWeight: 600, fontSize: "10px", margin: "0 0 2px" }}>{c.title}</p>
-                    <p style={{ fontSize: "9.5px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{c.desc}</p>
+                  <div key={c.title} style={{ background: "#f8fafc", borderRadius: "6px", padding: "8px 10px", border: "1px solid #e2e8f0" }}>
+                    <p style={{ fontWeight: 600, fontSize: "11px", margin: "0 0 3px" }}>{c.title}</p>
+                    <p style={{ fontSize: "10px", color: "#64748b", lineHeight: 1.45, margin: 0 }}>{c.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Section 2 — How it works per vertical */}
-            <div style={{ flex: "1 1 auto", display: "flex", flexDirection: "column", marginBottom: "6px" }}>
+            <div style={{ flex: "0 0 auto", marginBottom: "6px" }}>
               <h2 style={{ fontSize: "9px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "#7c3aed", margin: "0 0 3px" }}>
                 {t("travelstackonepager.s2_title")}
               </h2>
               <div style={{ marginBottom: "4px" }}><GradientDivider /></div>
-              <div style={{ flex: 1, display: "grid", gap: "6px", gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
+              <div style={{ display: "grid", gap: "6px", gridTemplateColumns: `repeat(${activeVerticals.length}, 1fr)` }}>
                 {activeVerticals.map((v) => (
-                  <div key={v.key} style={{ borderRadius: "6px", padding: "7px 8px", border: `1px solid ${v.borderColor}`, background: v.bgColor }}>
-                    <div style={{ display: "flex", alignItems: "center", marginBottom: "5px" }}>
-                      <span style={{ fontSize: "10px", fontWeight: 700, color: v.color }}>{v.label}</span>
+                  <div key={v.key} style={{ borderRadius: "6px", padding: "8px 10px", border: `1px solid ${v.borderColor}`, background: v.bgColor }}>
+                    <div style={{ display: "flex", alignItems: "center", marginBottom: "6px" }}>
+                      <span style={{ fontSize: "11px", fontWeight: 700, color: v.color }}>{v.label}</span>
                       <span style={{ marginLeft: "auto", fontSize: "9px", fontWeight: 600, color: v.color }}>{v.credits}</span>
                     </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                       {[
                         ...v.steps.map((s) => ({ label: s.title, desc: s.desc })),
                         { label: v.stepAtAirport, desc: t("travelstackonepager.step_at_airport_desc") },
                         { label: v.stepYouEarn, desc: t("travelstackonepager.step_you_earn_desc") },
                       ].map((item) => (
                         <div key={item.label}>
-                          <p style={{ fontWeight: 600, fontSize: "9.5px", lineHeight: 1.3, color: v.color, margin: 0 }}>
+                          <p style={{ fontWeight: 600, fontSize: "10px", lineHeight: 1.3, color: v.color, margin: 0 }}>
                             {item.label}
                           </p>
-                          <p style={{ fontSize: "9px", color: "#64748b", lineHeight: 1.35, margin: "1px 0 0", paddingLeft: "10px" }}>{item.desc}</p>
+                          <p style={{ fontSize: "9.5px", color: "#64748b", lineHeight: 1.4, margin: "1px 0 0", paddingLeft: "10px" }}>{item.desc}</p>
                         </div>
                       ))}
                     </div>
@@ -213,33 +213,33 @@ export default function TravelStackOnePager() {
             </div>
 
             {/* Section 3 — Revenue potential */}
-            <div style={{ flex: "0 0 auto", marginBottom: "6px" }}>
+            <div style={{ flex: "1 1 0", display: "flex", flexDirection: "column", marginBottom: "6px" }}>
               <h2 style={{ fontSize: "9px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", color: "#FF8000", margin: "0 0 3px" }}>
                 {t("travelstackonepager.s3_title")}
               </h2>
               <div style={{ marginBottom: "4px" }}><GradientDivider /></div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "6px", marginBottom: "6px" }}>
+              <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "6px", marginBottom: "6px" }}>
                 {[
                   { val: t("travelstackonepager.stat1_value"), label: t("travelstackonepager.stat1_label"), desc: t("travelstackonepager.stat1_desc"), color: "#1A6BFF" },
                   { val: t("travelstackonepager.stat2_value"), label: t("travelstackonepager.stat2_label"), desc: t("travelstackonepager.stat2_desc"), color: "#8b5cf6" },
                   { val: t("travelstackonepager.stat3_value"), label: t("travelstackonepager.stat3_label"), desc: t("travelstackonepager.stat3_desc"), color: "#FF8000" },
                 ].map((s) => (
-                  <div key={s.label} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "7px 8px", textAlign: "center" }}>
-                    <p style={{ fontSize: "20px", fontWeight: 700, lineHeight: 1.1, color: s.color, margin: 0, fontFamily: "var(--font-heading)" }}>{s.val}</p>
-                    <p style={{ fontSize: "9.5px", fontWeight: 600, margin: "3px 0 2px" }}>{s.label}</p>
-                    <p style={{ fontSize: "9px", color: "#64748b", lineHeight: 1.35, margin: 0 }}>{s.desc}</p>
+                  <div key={s.label} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px 10px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                    <p style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.1, color: s.color, margin: 0, fontFamily: "var(--font-heading)" }}>{s.val}</p>
+                    <p style={{ fontSize: "10px", fontWeight: 600, margin: "4px 0 3px" }}>{s.label}</p>
+                    <p style={{ fontSize: "9.5px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{s.desc}</p>
                   </div>
                 ))}
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "6px" }}>
+              <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "6px" }}>
                 {[
                   { title: t("travelstackonepager.benefit1_title"), desc: t("travelstackonepager.benefit1_desc") },
                   { title: t("travelstackonepager.benefit2_title"), desc: t("travelstackonepager.benefit2_desc") },
                   { title: t("travelstackonepager.benefit3_title"), desc: t("travelstackonepager.benefit3_desc") },
                 ].map((b) => (
-                  <div key={b.title} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "7px 8px" }}>
-                    <p style={{ fontSize: "10px", fontWeight: 700, margin: "0 0 2px" }}>{b.title}</p>
-                    <p style={{ fontSize: "9px", color: "#64748b", lineHeight: 1.35, margin: 0 }}>{b.desc}</p>
+                  <div key={b.title} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px 10px" }}>
+                    <p style={{ fontSize: "11px", fontWeight: 700, margin: "0 0 3px" }}>{b.title}</p>
+                    <p style={{ fontSize: "10px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{b.desc}</p>
                   </div>
                 ))}
               </div>
