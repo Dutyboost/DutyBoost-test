@@ -172,9 +172,9 @@ export default function TravelStackOnePager() {
                   { title: t("travelstackonepager.why3_title"), desc: t("travelstackonepager.why3_desc") },
                   { title: t("travelstackonepager.why4_title"), desc: t("travelstackonepager.why4_desc") },
                 ].map((c) => (
-                  <div key={c.title} style={{ background: "#f8fafc", borderRadius: "6px", padding: "10px 12px", border: "1px solid #e2e8f0" }}>
-                    <p style={{ fontWeight: 700, fontSize: "12.5px", margin: "0 0 5px" }}>{c.title}</p>
-                    <p style={{ fontSize: "11.5px", color: "#64748b", lineHeight: 1.5, margin: 0 }}>{c.desc}</p>
+                  <div key={c.title} style={{ background: "#f8fafc", borderRadius: "6px", padding: "9px 11px", border: "1px solid #e2e8f0" }}>
+                    <p style={{ fontWeight: 700, fontSize: "11px", margin: "0 0 4px" }}>{c.title}</p>
+                    <p style={{ fontSize: "10.5px", color: "#64748b", lineHeight: 1.45, margin: 0 }}>{c.desc}</p>
                   </div>
                 ))}
               </div>
