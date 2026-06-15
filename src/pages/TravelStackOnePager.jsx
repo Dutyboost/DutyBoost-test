@@ -81,7 +81,18 @@ export default function AgglomerationTravelPartnerOnePager() {
 
   const handleDownloadPDF = async () => {
     const element = document.querySelector(".print-content");
-    const canvas = await html2canvas(element, { scale: 2, allowTaint: true, useCORS: true });
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      allowTaint: true,
+      useCORS: true,
+      backgroundColor: "#ffffff",
+      removeContainer: true,
+      ignoreElements: (el) => {
+        // Skip elements with CSS gradient backgrounds that cause 0-size canvas errors
+        const bg = window.getComputedStyle(el).backgroundImage;
+        return bg && bg.includes("gradient") && el !== element;
+      },
+    });
     const imgData = canvas.toDataURL("image/png");
     const imgWidth = 210;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
