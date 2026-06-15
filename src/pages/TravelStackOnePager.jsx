@@ -56,7 +56,7 @@ const getVerticals = (t) => [
   },
 ];
 
-export default function TravelStackOnePager() {
+export default function AgglomerationTravelPartnerOnePager() {
   const { t, i18n } = useTranslation();
   const [selected, setSelected] = useState({ flight: true, accommodation: true, car: true });
   const innerRef = useRef(null);
@@ -87,7 +87,7 @@ export default function TravelStackOnePager() {
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
     const pdf = new jsPDF("p", "mm", "a4", { compress: true });
     pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-    pdf.save("travelstack-partner-one-pager.pdf");
+    pdf.save("agglomeration-travel-partner-one-pager.pdf");
   };
 
   return (
