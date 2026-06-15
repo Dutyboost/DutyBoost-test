@@ -88,9 +88,12 @@ export default function AgglomerationTravelPartnerOnePager() {
       backgroundColor: "#ffffff",
       removeContainer: true,
       ignoreElements: (el) => {
-        // Skip elements with CSS gradient backgrounds that cause 0-size canvas errors
-        const bg = window.getComputedStyle(el).backgroundImage;
-        return bg && bg.includes("gradient") && el !== element;
+        try {
+          const bg = window.getComputedStyle(el).backgroundImage;
+          return bg && bg.includes("gradient") && el !== element;
+        } catch {
+          return false;
+        }
       },
     });
     const imgData = canvas.toDataURL("image/png");
