@@ -43,10 +43,10 @@ export default function AccommodationPartnerOnePager() {
   ];
 
   const why = [
-    { title: p('why1_title'), desc: p('why1_desc') },
-    { title: p('why2_title'), desc: p('why2_desc') },
-    { title: p('why3_title'), desc: p('why3_desc') },
-    { title: p('why4_title'), desc: p('why4_desc') },
+    { num: 1, title: p('why1_title'), desc: p('why1_desc') },
+    { num: 2, title: p('why2_title'), desc: p('why2_desc') },
+    { num: 3, title: p('why3_title'), desc: p('why3_desc') },
+    { num: 4, title: p('why4_title'), desc: p('why4_desc') },
   ];
 
   return (
@@ -97,7 +97,7 @@ export default function AccommodationPartnerOnePager() {
               <div className="grid grid-cols-2 gap-1.5 flex-1">
                 {why.map(c => (
                   <div key={c.title} className="bg-slate-50 rounded p-2 border border-border">
-                    <p className="font-semibold text-xs mb-0.5">{c.title}</p>
+                    <p className="font-semibold text-xs mb-0.5"><span style={{ color: '#8b5cf6', marginRight: '4px' }}>{c.num}.</span>{c.title}</p>
                     <p className="text-xs text-muted-foreground leading-snug">{c.desc}</p>
                   </div>
                 ))}
@@ -123,16 +123,19 @@ export default function AccommodationPartnerOnePager() {
               <div className="mb-1"><GradientDivider /></div>
               <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
                 <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                  <p className="text-xs font-bold text-slate-400 mb-0.5">1.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#8b5cf6' }}>{p('stat1_value')}</p>
                   <p className="font-semibold text-xs mt-0.5">{p('stat1_label')}</p>
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat1_desc')}</p>
                 </div>
                 <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                  <p className="text-xs font-bold text-slate-400 mb-0.5">2.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#06b6d4' }}>{p('stat2_value')}</p>
                   <p className="font-semibold text-xs mt-0.5">{p('stat2_label')}</p>
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat2_desc')}</p>
                 </div>
                 <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                  <p className="text-xs font-bold text-slate-400 mb-0.5">3.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#10b981' }}>{p('stat3_value')}</p>
                   <p className="font-semibold text-xs mt-0.5">{p('stat3_label')}</p>
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat3_desc')}</p>
@@ -140,14 +143,17 @@ export default function AccommodationPartnerOnePager() {
               </div>
               <div className="grid grid-cols-3 gap-1.5 flex-1">
                 <div className="border border-border rounded p-2">
+                  <p className="text-xs font-bold text-slate-400 mb-0.5">4.</p>
                   <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit1_title')}</h3>
                   <p className="text-xs text-muted-foreground leading-snug">{p('benefit1_desc')}</p>
                 </div>
                 <div className="border border-border rounded p-2">
+                  <p className="text-xs font-bold text-slate-400 mb-0.5">5.</p>
                   <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit2_title')}</h3>
                   <p className="text-xs text-muted-foreground leading-snug">{p('benefit2_desc')}</p>
                 </div>
                 <div className="border border-border rounded p-2">
+                  <p className="text-xs font-bold text-slate-400 mb-0.5">6.</p>
                   <h3 className="font-heading font-bold text-xs mb-0.5">{p('benefit3_title')}</h3>
                   <p className="text-xs text-muted-foreground leading-snug">{p('benefit3_desc')}</p>
                 </div>
