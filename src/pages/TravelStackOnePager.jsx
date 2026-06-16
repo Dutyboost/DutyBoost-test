@@ -199,13 +199,15 @@ export default function AgglomerationTravelPartnerOnePager() {
               <div style={{ marginBottom: "4px" }}><GradientDivider /></div>
               <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "6px" }}>
                 {[
-                  { title: t("travelstackonepager.why1_title"), desc: t("travelstackonepager.why1_desc") },
-                  { title: t("travelstackonepager.why2_title"), desc: t("travelstackonepager.why2_desc") },
-                  { title: t("travelstackonepager.why3_title"), desc: t("travelstackonepager.why3_desc") },
-                  { title: t("travelstackonepager.why4_title"), desc: t("travelstackonepager.why4_desc") },
+                  { num: 1, title: t("travelstackonepager.why1_title"), desc: t("travelstackonepager.why1_desc") },
+                  { num: 2, title: t("travelstackonepager.why2_title"), desc: t("travelstackonepager.why2_desc") },
+                  { num: 3, title: t("travelstackonepager.why3_title"), desc: t("travelstackonepager.why3_desc") },
+                  { num: 4, title: t("travelstackonepager.why4_title"), desc: t("travelstackonepager.why4_desc") },
                 ].map((c) => (
                   <div key={c.title} style={{ background: "#f8fafc", borderRadius: "6px", padding: "9px 11px", border: "1px solid #e2e8f0" }}>
-                    <p style={{ fontWeight: 700, fontSize: "11px", margin: "0 0 4px" }}>{c.title}</p>
+                    <p style={{ fontWeight: 700, fontSize: "11px", margin: "0 0 4px" }}>
+                      <span style={{ color: "#1A6BFF", marginRight: "5px" }}>{c.num}.</span>{c.title}
+                    </p>
                     <p style={{ fontSize: "10.5px", color: "#64748b", lineHeight: 1.45, margin: 0 }}>{c.desc}</p>
                   </div>
                 ))}
@@ -252,11 +254,12 @@ export default function AgglomerationTravelPartnerOnePager() {
               <div style={{ marginBottom: "4px" }}><GradientDivider /></div>
               <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "6px", marginBottom: "6px" }}>
                 {[
-                  { val: t("travelstackonepager.stat1_value"), label: t("travelstackonepager.stat1_label"), desc: t("travelstackonepager.stat1_desc"), color: "#1A6BFF" },
-                  { val: t("travelstackonepager.stat2_value"), label: t("travelstackonepager.stat2_label"), desc: t("travelstackonepager.stat2_desc"), color: "#8b5cf6" },
-                  { val: t("travelstackonepager.stat3_value"), label: t("travelstackonepager.stat3_label"), desc: t("travelstackonepager.stat3_desc"), color: "#FF8000" },
+                  { num: 1, val: t("travelstackonepager.stat1_value"), label: t("travelstackonepager.stat1_label"), desc: t("travelstackonepager.stat1_desc"), color: "#1A6BFF" },
+                  { num: 2, val: t("travelstackonepager.stat2_value"), label: t("travelstackonepager.stat2_label"), desc: t("travelstackonepager.stat2_desc"), color: "#8b5cf6" },
+                  { num: 3, val: t("travelstackonepager.stat3_value"), label: t("travelstackonepager.stat3_label"), desc: t("travelstackonepager.stat3_desc"), color: "#FF8000" },
                 ].map((s) => (
                   <div key={s.label} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px 10px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                    <p style={{ fontSize: "9px", fontWeight: 700, color: "#94a3b8", margin: "0 0 2px" }}>{s.num}.</p>
                     <p style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.1, color: s.color, margin: 0, fontFamily: "var(--font-heading)" }}>{s.val}</p>
                     <p style={{ fontSize: "10px", fontWeight: 600, margin: "4px 0 3px" }}>{s.label}</p>
                     <p style={{ fontSize: "9.5px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{s.desc}</p>
@@ -265,11 +268,12 @@ export default function AgglomerationTravelPartnerOnePager() {
               </div>
               <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "6px" }}>
                 {[
-                  { title: t("travelstackonepager.benefit1_title"), desc: t("travelstackonepager.benefit1_desc") },
-                  { title: t("travelstackonepager.benefit2_title"), desc: t("travelstackonepager.benefit2_desc") },
-                  { title: t("travelstackonepager.benefit3_title"), desc: t("travelstackonepager.benefit3_desc") },
+                  { num: 4, title: t("travelstackonepager.benefit1_title"), desc: t("travelstackonepager.benefit1_desc") },
+                  { num: 5, title: t("travelstackonepager.benefit2_title"), desc: t("travelstackonepager.benefit2_desc") },
+                  { num: 6, title: t("travelstackonepager.benefit3_title"), desc: t("travelstackonepager.benefit3_desc") },
                 ].map((b) => (
                   <div key={b.title} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px 10px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <p style={{ fontSize: "9px", fontWeight: 700, color: "#94a3b8", margin: "0 0 2px" }}>{b.num}.</p>
                     <p style={{ fontSize: "11px", fontWeight: 700, margin: "0 0 3px" }}>{b.title}</p>
                     <p style={{ fontSize: "10px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{b.desc}</p>
                   </div>
