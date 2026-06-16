@@ -81,26 +81,44 @@ export default function AgglomerationTravelPartnerOnePager() {
 
   const handleDownloadPDF = async () => {
     const element = document.querySelector(".print-content");
+    if (!element) return;
+
+    // Temporarily reset transform so html2canvas captures at natural size
+    const inner = innerRef.current;
+    const prevTransform = inner ? inner.style.transform : null;
+    const prevOverflow = element.style.overflow;
+    const prevHeight = element.style.height;
+
+    if (inner) inner.style.transform = "scale(1)";
+    element.style.overflow = "visible";
+    element.style.height = "auto";
+
     const canvas = await html2canvas(element, {
       scale: 2,
-      allowTaint: true,
       useCORS: true,
       backgroundColor: "#ffffff",
-      removeContainer: true,
-      ignoreElements: (el) => {
-        try {
-          const bg = window.getComputedStyle(el).backgroundImage;
-          return bg && bg.includes("gradient") && el !== element;
-        } catch {
-          return false;
-        }
+      logging: false,
+      onclone: (doc) => {
+        // Remove all gradient backgrounds from cloned document to avoid canvas pattern errors
+        doc.querySelectorAll("*").forEach((el) => {
+          const bg = el.style.background || "";
+          const bgImage = el.style.backgroundImage || "";
+          if (bg.includes("gradient") || bgImage.includes("gradient")) {
+            el.style.background = "#ffffff";
+            el.style.backgroundImage = "none";
+          }
+        });
       },
     });
+
+    // Restore
+    if (inner && prevTransform !== null) inner.style.transform = prevTransform;
+    element.style.overflow = prevOverflow;
+    element.style.height = prevHeight;
+
     const imgData = canvas.toDataURL("image/png");
-    const imgWidth = 210;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
     const pdf = new jsPDF("p", "mm", "a4", { compress: true });
-    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.addImage(imgData, "PNG", 0, 0, 210, (canvas.height * 210) / canvas.width);
     pdf.save("agglomeration-travel-partner-one-pager.pdf");
   };
 
