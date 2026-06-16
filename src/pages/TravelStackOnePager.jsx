@@ -259,7 +259,7 @@ export default function AgglomerationTravelPartnerOnePager() {
                   { num: 3, val: t("travelstackonepager.stat3_value"), label: t("travelstackonepager.stat3_label"), desc: t("travelstackonepager.stat3_desc"), color: "#FF8000" },
                 ].map((s) => (
                   <div key={s.label} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px 10px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                    <p style={{ fontSize: "9px", fontWeight: 700, color: "#94a3b8", margin: "0 0 2px" }}>{s.num}.</p>
+                    <p style={{ fontSize: "12px", fontWeight: 700, color: "#94a3b8", margin: "0 0 2px" }}>{s.num}.</p>
                     <p style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.1, color: s.color, margin: 0, fontFamily: "var(--font-heading)" }}>{s.val}</p>
                     <p style={{ fontSize: "10px", fontWeight: 600, margin: "4px 0 3px" }}>{s.label}</p>
                     <p style={{ fontSize: "9.5px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{s.desc}</p>
@@ -273,7 +273,7 @@ export default function AgglomerationTravelPartnerOnePager() {
                   { num: 6, title: t("travelstackonepager.benefit3_title"), desc: t("travelstackonepager.benefit3_desc") },
                 ].map((b) => (
                   <div key={b.title} style={{ border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px 10px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <p style={{ fontSize: "9px", fontWeight: 700, color: "#94a3b8", margin: "0 0 2px" }}>{b.num}.</p>
+                    <p style={{ fontSize: "12px", fontWeight: 700, color: "#94a3b8", margin: "0 0 2px" }}>{b.num}.</p>
                     <p style={{ fontSize: "11px", fontWeight: 700, margin: "0 0 3px" }}>{b.title}</p>
                     <p style={{ fontSize: "10px", color: "#64748b", lineHeight: 1.4, margin: 0 }}>{b.desc}</p>
                   </div>
