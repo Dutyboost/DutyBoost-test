@@ -859,6 +859,10 @@ export default {
       potential_commission_mo: 'Potential commission/mo',
       potential_commission_yr: 'Potential commission/yr',
       potential_disclaimer: 'Estimates based on your selected redemption rate — actual results may vary.',
+      return_per_euro: 'Return per €1 invested',
+      commission_note: '0.5% of basket spend (max €5/tx)',
+      month_label: 'month',
+      mo_label: 'mo',
       partner_commission_info: 'Commission is 0.5% of the airport basket spend per redemption (max €5/tx). Minimum basket is €35. No upfront cost — you only earn when your travelers actually spend at the airport.',
     },
     letterOfIntent: {

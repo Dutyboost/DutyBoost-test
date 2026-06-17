@@ -137,7 +137,7 @@ function RetailerTab({ t }) {
             </div>
             <div className="bg-teal-700 rounded-xl p-4 text-center">
               <TrendingUp className="w-6 h-6 text-teal-100 mx-auto mb-2" />
-              <p className="text-xs text-teal-100 mb-1">Return per €1 invested</p>
+              <p className="text-xs text-teal-100 mb-1">{t('calculator.return_per_euro')}</p>
               <p className="text-2xl font-bold text-white">{totalCost > 0 ? Math.round((netRevenue / totalCost) * 10) / 10 : 0}x</p>
               <p className="text-xs text-teal-200 mt-0.5">ROI</p>
             </div>
@@ -332,15 +332,15 @@ function TravelPartnerTab({ t }) {
       {activeVerticals.map((v) => (
         <div key={v.key} className={`bg-white border rounded-2xl p-6 space-y-5 ${v.borderClass}`} style={{ borderLeftWidth: "4px", borderLeftColor: v.color }}>
           <div className="flex items-center gap-2">
-            <span className="text-base font-bold" style={{ color: v.color }}>{v.label}</span>
-            <span className="text-xs text-slate-400 ml-auto">{v.commissionNote}</span>
+            <span className="text-base font-bold" style={{ color: v.color }}>{t(`calculator.vertical_${v.key}`)}</span>
+            <span className="text-xs text-slate-400 ml-auto">{t('calculator.commission_note')}</span>
           </div>
 
           {/* Bookings slider → DutyCredits derived */}
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_x2_note_prefix')} / month</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_x2_note_prefix')} / {t('calculator.month_label')}</p>
                 <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
               </div>
               <div className="text-right text-sm text-slate-500">
@@ -451,7 +451,7 @@ function TravelPartnerTab({ t }) {
                     <span className="text-sm font-semibold block" style={{ color: v.color }}>{t(`calculator.vertical_${v.key}`)}</span>
                     <span className="text-xs text-slate-400 block">{fmtNum(stat.dutyCredits)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
                   </div>
-                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/mo</span>
+                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/{t('calculator.mo_label')}</span>
                 </div>
               );
             })}
