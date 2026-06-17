@@ -300,15 +300,15 @@ function TravelPartnerTab({ t }) {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-slate-900">Travel Partner ROI Calculator</h2>
+        <h2 className="text-xl font-bold text-slate-900">{t('calculator.partner_title')}</h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto">
-          Select your active verticals and set your DutyCredits issued per month. Accommodation &amp; Car Rental issue 2× DutyCredits per booking — double the redemption opportunities, double the commission potential.
+          {t('calculator.partner_subtitle_full')}
         </p>
       </div>
 
       {/* Vertical selector */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-4">
-        <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">Select your verticals</p>
+        <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">{t('calculator.select_verticals')}</p>
         <div className="flex flex-wrap gap-3">
           {VERTICALS_CONFIG.map((v) => {
             const isOn = selected[v.key];
@@ -319,12 +319,12 @@ function TravelPartnerTab({ t }) {
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all ${isOn ? v.activeClass : v.inactiveClass}`}
               >
                 {isOn && <Check className="w-3.5 h-3.5" />}
-                {v.label}
+                {t(`calculator.vertical_${v.key}`)}
               </button>
             );
           })}
         </div>
-        <p className="text-xs text-slate-400">Select one, two, or all three verticals you operate.</p>
+        <p className="text-xs text-slate-400">{t('calculator.select_verticals_hint')}</p>
       </div>
 
       {/* Per-vertical sliders */}
@@ -339,19 +339,19 @@ function TravelPartnerTab({ t }) {
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">DutyCredits Issued / month</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.dutycredits_issued_month')}</p>
                 <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
               </div>
               <div className="text-right">
                 <span className="text-slate-500 text-sm">DutyCredits</span>
                 {v.creditsPerBooking === 2 && (
-                  <p className="text-xs text-violet-600 font-semibold mt-0.5">2× per booking</p>
+                  <p className="text-xs text-violet-600 font-semibold mt-0.5">{t('calculator.two_x_per_booking')}</p>
                 )}
               </div>
             </div>
             {v.creditsPerBooking === 2 && (
               <p className="text-xs text-slate-400 italic">
-                ≈ {fmtNum(Math.round(bookings[v.key] / 2))} bookings × 2 DutyCredits (at booking + at {v.key === 'accommodation' ? 'checkout' : 'car return'})
+                ≈ {fmtNum(Math.round(bookings[v.key] / 2))} {t('calculator.bookings_x2_note_prefix')} × 2 DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
             <Slider min={0} max={500000} step={500} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
@@ -362,10 +362,10 @@ function TravelPartnerTab({ t }) {
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Redemption rate</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
                 <p className="text-3xl font-bold text-slate-900">{conversion[v.key]}%</p>
               </div>
-              <span className="text-slate-500 text-sm">of travelers redeem</span>
+              <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
             </div>
             <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} className="w-full" />
             <div className="flex justify-between text-xs text-slate-400"><span>1%</span><span>50%</span></div>
@@ -375,7 +375,7 @@ function TravelPartnerTab({ t }) {
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Avg. basket size</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.avg_basket')}</p>
                 <p className="text-3xl font-bold text-slate-900">€{avgBasket[v.key]}</p>
               </div>
               {getTier(avgBasket[v.key]) && (
@@ -395,15 +395,15 @@ function TravelPartnerTab({ t }) {
             return (
               <div className={`grid grid-cols-3 gap-2 pt-2 border-t ${v.borderClass}`}>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">Redemptions<br className="sm:hidden"/>/mo</p>
+                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.redemptions_month')}<br className="sm:hidden"/>/mo</p>
                   <p className="text-base font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
                 </div>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">Commission<br className="sm:hidden"/>/tx</p>
+                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.commission_tx')}<br className="sm:hidden"/>/tx</p>
                   <p className="text-base font-bold" style={{ color: v.color }}>€{fmtNum(stat.commPerTx, 2)}</p>
                 </div>
                 <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
-                  <p className="text-xs text-white/80 mb-0.5 leading-tight">You earn<br className="sm:hidden"/>/mo</p>
+                  <p className="text-xs text-white/80 mb-0.5 leading-tight">{t('calculator.you_earn')}<br className="sm:hidden"/>/mo</p>
                   <p className="text-base font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
                 </div>
               </div>
@@ -415,26 +415,26 @@ function TravelPartnerTab({ t }) {
       {/* Combined totals */}
       {activeVerticals.length > 1 && (
         <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
-          <h3 className="font-bold text-white text-lg">Combined Monthly Revenue</h3>
+          <h3 className="font-bold text-white text-lg">{t('calculator.combined_monthly_revenue')}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
               <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                 <Users className="w-4 h-4 text-slate-300" />
-                <p className="text-xs text-slate-400">Total redemptions/mo</p>
+                <p className="text-xs text-slate-400">{t('calculator.total_redemptions_mo')}</p>
               </div>
               <p className="text-2xl font-bold text-white">{fmtNum(totals.redemptions)}</p>
             </div>
             <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
               <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                 <TrendingUp className="w-4 h-4 text-emerald-200" />
-                <p className="text-xs text-emerald-200">Total commission/mo</p>
+                <p className="text-xs text-emerald-200">{t('calculator.total_commission_mo')}</p>
               </div>
               <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 0)}</p>
             </div>
             <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
               <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                 <TrendingUp className="w-4 h-4 text-emerald-100" />
-                <p className="text-xs text-emerald-100">Total commission/yr</p>
+                <p className="text-xs text-emerald-100">{t('calculator.total_commission_yr')}</p>
               </div>
               <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 0)}</p>
             </div>
@@ -445,8 +445,8 @@ function TravelPartnerTab({ t }) {
               return (
                 <div key={stat.key} className="bg-slate-800 rounded-xl px-4 py-3 flex items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <span className="text-sm font-semibold block" style={{ color: v.color }}>{v.label}</span>
-                    <span className="text-xs text-slate-400 block">{fmtNum(stat.b)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} redemptions</span>
+                    <span className="text-sm font-semibold block" style={{ color: v.color }}>{t(`calculator.vertical_${v.key}`)}</span>
+                    <span className="text-xs text-slate-400 block">{fmtNum(stat.b)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
                   </div>
                   <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/mo</span>
                 </div>
@@ -460,7 +460,7 @@ function TravelPartnerTab({ t }) {
       <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
         <Info className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
         <p className="text-sm text-blue-800 leading-relaxed">
-          Commission is <strong>0.5% of the airport basket spend per redemption (max €5/tx)</strong>. Minimum basket is €35. No upfront cost — you only earn when your travelers actually spend at the airport.
+          {t('calculator.partner_commission_info')}
         </p>
       </div>
     </div>
