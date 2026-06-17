@@ -227,6 +227,7 @@ const VERTICALS_CONFIG = [
     defaultBookings: 10000,
     defaultConversion: 15,
     defaultBasket: 150,
+    creditsPerBooking: 1,
   },
   {
     key: "accommodation",
@@ -242,6 +243,7 @@ const VERTICALS_CONFIG = [
     defaultBookings: 5000,
     defaultConversion: 20,
     defaultBasket: 185,
+    creditsPerBooking: 2, // booking + checkout
   },
   {
     key: "car",
@@ -257,6 +259,7 @@ const VERTICALS_CONFIG = [
     defaultBookings: 3000,
     defaultConversion: 18,
     defaultBasket: 170,
+    creditsPerBooking: 2, // booking + car return
   },
 ];
 
@@ -277,14 +280,14 @@ function TravelPartnerTab({ t }) {
   const verticalStats = useMemo(() => {
     return VERTICALS_CONFIG.map((v) => {
       if (!selected[v.key]) return null;
-      const b = bookings[v.key];
+      const b = bookings[v.key]; // DutyCredits issued / month
       const c = conversion[v.key];
       const basket = avgBasket[v.key];
       const redemptions = Math.round(b * (c / 100));
       const commPerTx = Math.min(Math.round(basket * AGENCY_COMMISSION_PCT * 100) / 100, AGENCY_COMMISSION_CAP);
       const monthlyComm = Math.round(redemptions * commPerTx * 100) / 100;
       const travelerSaving = Math.round(redemptions * calcSaving(basket) * 100) / 100;
-      return { key: v.key, redemptions, commPerTx, monthlyComm, travelerSaving, basket, b, c };
+      return { key: v.key, redemptions, commPerTx, monthlyComm, travelerSaving, basket, b, c, creditsPerBooking: v.creditsPerBooking };
     }).filter(Boolean);
   }, [selected, bookings, conversion, avgBasket]);
 
@@ -299,7 +302,7 @@ function TravelPartnerTab({ t }) {
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-slate-900">TravelStack Partner ROI Calculator</h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto">
-          Select your active verticals and adjust your volumes to see your combined monthly commission.
+          Select your active verticals and set your DutyCredits issued per month. Accommodation &amp; Car Rental issue 2× DutyCredits per booking — double the redemption opportunities, double the commission.
         </p>
       </div>
 
@@ -332,15 +335,25 @@ function TravelPartnerTab({ t }) {
             <span className="text-xs text-slate-400 ml-auto">{v.commissionNote}</span>
           </div>
 
-          {/* Bookings slider */}
+          {/* DutyCredits Issued slider */}
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Bookings / month</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">DutyCredits Issued / month</p>
                 <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
               </div>
-              <span className="text-slate-500 text-sm">travelers</span>
+              <div className="text-right">
+                <span className="text-slate-500 text-sm">DutyCredits</span>
+                {v.creditsPerBooking === 2 && (
+                  <p className="text-xs text-violet-600 font-semibold mt-0.5">2× per booking</p>
+                )}
+              </div>
             </div>
+            {v.creditsPerBooking === 2 && (
+              <p className="text-xs text-slate-400 italic">
+                ≈ {fmtNum(Math.round(bookings[v.key] / 2))} bookings × 2 DutyCredits (at booking + at {v.key === 'accommodation' ? 'checkout' : 'car return'})
+              </p>
+            )}
             <Slider min={0} max={500000} step={500} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
             <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>500.000</span></div>
           </div>
@@ -433,7 +446,7 @@ function TravelPartnerTab({ t }) {
                 <div key={stat.key} className="bg-slate-800 rounded-xl px-4 py-3 flex items-center justify-between gap-2">
                   <div className="min-w-0">
                     <span className="text-sm font-semibold block" style={{ color: v.color }}>{v.label}</span>
-                    <span className="text-xs text-slate-400 block">{fmtNum(stat.b)} × {stat.c}% = {fmtNum(stat.redemptions)}</span>
+                    <span className="text-xs text-slate-400 block">{fmtNum(stat.b)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} redemptions</span>
                   </div>
                   <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/mo</span>
                 </div>
