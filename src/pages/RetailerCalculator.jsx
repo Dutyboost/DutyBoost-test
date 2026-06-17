@@ -356,8 +356,8 @@ function TravelPartnerTab({ t }) {
                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={250000} step={500} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
-            <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>250.000 {t('calculator.bookings_x2_note_prefix')}</span></div>
+            <Slider min={0} max={1000000} step={1000} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>1.000.000 {t('calculator.bookings_x2_note_prefix')}</span></div>
           </div>
 
           {/* Conversion rate slider */}
