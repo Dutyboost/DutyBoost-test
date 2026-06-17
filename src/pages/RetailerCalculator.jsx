@@ -280,14 +280,15 @@ function TravelPartnerTab({ t }) {
   const verticalStats = useMemo(() => {
     return VERTICALS_CONFIG.map((v) => {
       if (!selected[v.key]) return null;
-      const b = bookings[v.key]; // DutyCredits issued / month
+      const bBookings = bookings[v.key]; // bookings / month (slider value)
+      const dutyCredits = bBookings * v.creditsPerBooking; // DutyCredits issued = bookings × creditsPerBooking
       const c = conversion[v.key];
       const basket = avgBasket[v.key];
-      const redemptions = Math.round(b * (c / 100));
+      const redemptions = Math.round(dutyCredits * (c / 100));
       const commPerTx = Math.min(Math.round(basket * AGENCY_COMMISSION_PCT * 100) / 100, AGENCY_COMMISSION_CAP);
       const monthlyComm = Math.round(redemptions * commPerTx * 100) / 100;
       const travelerSaving = Math.round(redemptions * calcSaving(basket) * 100) / 100;
-      return { key: v.key, redemptions, commPerTx, monthlyComm, travelerSaving, basket, b, c, creditsPerBooking: v.creditsPerBooking };
+      return { key: v.key, redemptions, commPerTx, monthlyComm, travelerSaving, basket, bBookings, dutyCredits, c, creditsPerBooking: v.creditsPerBooking };
     }).filter(Boolean);
   }, [selected, bookings, conversion, avgBasket]);
 
@@ -335,27 +336,28 @@ function TravelPartnerTab({ t }) {
             <span className="text-xs text-slate-400 ml-auto">{v.commissionNote}</span>
           </div>
 
-          {/* DutyCredits Issued slider */}
+          {/* Bookings slider → DutyCredits derived */}
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.dutycredits_issued_month')}</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_x2_note_prefix')} / month</p>
                 <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
               </div>
-              <div className="text-right">
-                <span className="text-slate-500 text-sm">DutyCredits</span>
+              <div className="text-right text-sm text-slate-500">
+                <span>{t('calculator.dutycredits_issued_month')}</span>
+                <p className="text-base font-bold" style={{ color: v.color }}>{fmtNum(bookings[v.key] * v.creditsPerBooking)}</p>
                 {v.creditsPerBooking === 2 && (
-                  <p className="text-xs text-violet-600 font-semibold mt-0.5">{t('calculator.two_x_per_booking')}</p>
+                  <p className="text-xs font-semibold mt-0.5" style={{ color: v.color }}>{t('calculator.two_x_per_booking')}</p>
                 )}
               </div>
             </div>
             {v.creditsPerBooking === 2 && (
               <p className="text-xs text-slate-400 italic">
-                ≈ {fmtNum(Math.round(bookings[v.key] / 2))} {t('calculator.bookings_x2_note_prefix')} × 2 DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
+                {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={500000} step={500} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
-            <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>500.000</span></div>
+            <Slider min={0} max={250000} step={500} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
+            <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>250.000 {t('calculator.bookings_x2_note_prefix')}</span></div>
           </div>
 
           {/* Conversion rate slider */}
@@ -446,7 +448,7 @@ function TravelPartnerTab({ t }) {
                 <div key={stat.key} className="bg-slate-800 rounded-xl px-4 py-3 flex items-center justify-between gap-2">
                   <div className="min-w-0">
                     <span className="text-sm font-semibold block" style={{ color: v.color }}>{t(`calculator.vertical_${v.key}`)}</span>
-                    <span className="text-xs text-slate-400 block">{fmtNum(stat.b)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
+                    <span className="text-xs text-slate-400 block">{fmtNum(stat.dutyCredits)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
                   </div>
                   <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/mo</span>
                 </div>
