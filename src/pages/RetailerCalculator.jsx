@@ -302,7 +302,7 @@ function TravelPartnerTab({ t }) {
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-slate-900">TravelStack Partner ROI Calculator</h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto">
-          Select your active verticals and set your DutyCredits issued per month. Accommodation &amp; Car Rental issue 2× DutyCredits per booking — double the redemption opportunities, double the commission.
+          Select your active verticals and set your DutyCredits issued per month. Accommodation &amp; Car Rental issue 2× DutyCredits per booking — double the redemption opportunities, double the commission potential.
         </p>
       </div>
 
