@@ -397,15 +397,15 @@ function TravelPartnerTab({ t }) {
             return (
               <div className={`grid grid-cols-3 gap-2 pt-2 border-t ${v.borderClass}`}>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">Potential redemptions/mo</p>
+                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_redemptions_mo')}</p>
                   <p className="text-base font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
                 </div>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">Potential commission/tx</p>
+                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_commission_tx')}</p>
                   <p className="text-base font-bold" style={{ color: v.color }}>€{fmtNum(stat.commPerTx, 2)}</p>
                 </div>
                 <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
-                  <p className="text-xs text-white/80 mb-0.5 leading-tight">Potential earned/mo</p>
+                  <p className="text-xs text-white/80 mb-0.5 leading-tight">{t('calculator.potential_earned_mo')}</p>
                   <p className="text-base font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
                 </div>
               </div>
@@ -418,26 +418,26 @@ function TravelPartnerTab({ t }) {
       {activeVerticals.length > 1 && (
         <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
           <h3 className="font-bold text-white text-lg">{t('calculator.combined_monthly_revenue')}</h3>
-          <p className="text-xs text-slate-400 -mt-2">Estimates based on your selected redemption rate — actual results may vary.</p>
+          <p className="text-xs text-slate-400 -mt-2">{t('calculator.potential_disclaimer')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
            <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                <Users className="w-4 h-4 text-slate-300" />
-               <p className="text-xs text-slate-400">Potential redemptions/mo</p>
+               <p className="text-xs text-slate-400">{t('calculator.potential_redemptions_mo')}</p>
              </div>
              <p className="text-2xl font-bold text-white">{fmtNum(totals.redemptions)}</p>
            </div>
            <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                <TrendingUp className="w-4 h-4 text-emerald-200" />
-               <p className="text-xs text-emerald-200">Potential commission/mo</p>
+               <p className="text-xs text-emerald-200">{t('calculator.potential_commission_mo')}</p>
              </div>
              <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 0)}</p>
            </div>
            <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                <TrendingUp className="w-4 h-4 text-emerald-100" />
-               <p className="text-xs text-emerald-100">Potential commission/yr</p>
+               <p className="text-xs text-emerald-100">{t('calculator.potential_commission_yr')}</p>
              </div>
              <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 0)}</p>
            </div>
