@@ -294,8 +294,8 @@ export default {
         ctaButton: 'Zum Reisepartner-Portal',
       },
       retailer: {
-        titlePart1: 'Tausende vorvoraktivierter Käufer',
-        titlePart2: 'kommen täglich zu Ihnen.',
+        titlePart1: 'Tausende Reisende mit Kaufabsicht',
+        titlePart2: 'kommen jeden Tag in Ihr Geschäft.',
         subtitle: 'Reisepartner — Fluggesellschaften, Unterkunftsanbieter und Autovermietungen — liefern ihren Kunden automatisch personalisierte Einkaufsprämien bei der Buchung und erneut vor der Rückreise.\n\nDas Ergebnis? Ein kontinuierlicher Strom vorvoraktivierter Käufer, die auf beiden Reiseabschnitten kaufbereit in Ihrem Geschäft ankommen — und inkrementelle Umsätze für Sie generieren.',
         howItWorks: 'So wird es funktionieren',
         step1: 'Kunde kommt an',
