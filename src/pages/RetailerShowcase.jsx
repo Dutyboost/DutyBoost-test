@@ -59,9 +59,11 @@ export default function RetailerShowcase() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             {t('showcase.retailer.titlePart1')} <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">{t('showcase.retailer.titlePart2')}</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t('showcase.retailer.subtitle')}
-          </p>
+          <div className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed space-y-4 text-center">
+            {t('showcase.retailer.subtitle').split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
         </div>
       </section>
 
