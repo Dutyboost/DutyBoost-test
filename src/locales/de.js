@@ -296,7 +296,7 @@ export default {
       retailer: {
         titlePart1: 'Konvertieren Sie mehr',
         titlePart2: 'Reisende',
-        subtitle: 'Reisepartner — Flug-, Unterkunfts- und Autovermietungsanbieter — senden jedem Kunden eine personalisierte Einkaufsprämie in der Buchungsbestätigungs-E-Mail und eine weitere in der Rückreise-Erinnerung, Check-out- oder Fahrzeugrückgabe-E-Mail. Diese vorvoraktivierten Käufer kommen kaufbereit in Ihren Shop — zweimal.',
+        subtitle: 'Reisepartner — Fluggesellschaften, Unterkunftsanbieter und Autovermietungen — liefern ihren Kunden automatisch personalisierte Einkaufsprämien bei der Buchung und erneut vor der Rückreise.\n\nDas Ergebnis? Ein kontinuierlicher Strom vorvoraktivierter Käufer, die auf beiden Reiseabschnitten kaufbereit in Flughafengeschäften ankommen — und inkrementelle Umsätze für Reisepartner, Händler und Flughäfen gleichermaßen generieren.',
         howItWorks: 'So wird es funktionieren',
         step1: 'Kunde kommt an',
         step1Desc: "Ein Reisender betritt Ihren Laden, bereits kaufbereit. Ihr Reisepartner — eine Fluggesellschaft, ein Hotel oder ein Autovermieter — hat ihnen einen personalisierten DutyCredit-QR-Code in der Buchungsbestätigungs-E-Mail geschickt, Tage oder Wochen vor ihrem Flug. Sie werden nicht bummeln. Sie werden mit einer Mission angekommen sein: ihr Guthaben bei Ihnen auszugeben.",

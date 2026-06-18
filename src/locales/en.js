@@ -378,7 +378,7 @@ export default {
       retailer: {
         titlePart1: 'Convert More',
         titlePart2: 'Travellers',
-        subtitle: 'Travel partners — flight, accommodation and car rental companies — send every customer a personalised shopping reward in their booking confirmation email and another in their return flight, check-out and car return email. Those pre-activated shoppers arrive at your store ready to spend — Twice.',
+        subtitle: 'Travel partners — airlines, accommodation providers, and car rental companies — automatically deliver personalised shopping rewards to their customers at booking and again before the return journey.\n\nThe result? A continuous flow of pre-activated shoppers arriving at airport stores ready to spend on both legs of their journey — generating incremental revenue for travel partners, retailers, and airports alike.',
         howItWorks: 'How It Will Work',
         step1: 'Customer Arrives',
         step1Desc: "A traveller walks into your store already motivated to spend. Their travel partner — a flight, accommodation or car rental company — sent them a personalised DutyCredit QR code in their booking confirmation email, days or weeks before their flight. They won't be browsing. They'll arrive with a mission: to spend their reward with you.",
