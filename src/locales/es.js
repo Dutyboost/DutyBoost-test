@@ -306,8 +306,8 @@ export default {
         ctaButton: 'Ir al portal de socio de viaje',
       },
       retailer: {
-        titlePart1: 'Miles de compradores pre-activados',
-        titlePart2: 'llegando a tu tienda — cada día.',
+        titlePart1: 'Miles de viajeros con intención de compra',
+        titlePart2: 'llegando a tu tienda cada día.',
         subtitle: 'Los socios de viaje — aerolíneas, proveedores de alojamiento y empresas de alquiler de coches — entregan automáticamente recompensas de compra personalizadas a sus clientes al reservar y de nuevo antes del viaje de vuelta.\n\n¿El resultado? Un flujo continuo de compradores pre-activados que llegan a tu tienda listos para gastar en ambos trayectos — generando ingresos incrementales para ti.',
         howItWorks: 'Cómo funcionará',
         step1: 'Cliente llega',
