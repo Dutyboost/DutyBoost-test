@@ -325,9 +325,9 @@ function TravelPartnerTab({ t }) {
                 onClick={() => toggleVertical(v.key)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all ${isOn ? v.activeClass : v.inactiveClass}`}
               >
-                <v.Icon className="w-4 h-4" />
+                <v.Icon className="w-5 h-5" />
                 {v.label}
-                {isOn && <Check className="w-3.5 h-3.5 ml-0.5" />}
+                {isOn && <Check className="w-4 h-4 ml-0.5" />}
               </button>
             );
           })}
