@@ -6,6 +6,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import DashboardPreview3D from "../components/showcase/DashboardPreview3D";
+import HotelIcon from "../components/HotelIcon";
 
 export default function HotelShowcase() {
   const { t } = useTranslation();
@@ -44,6 +45,14 @@ export default function HotelShowcase() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-background to-background pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
+          <div className="flex justify-center gap-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium border border-blue-200">
+              <HotelIcon className="w-4 h-4" /> 1st DutyCredit — At Booking
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-100 text-cyan-700 text-sm font-medium border border-cyan-200">
+              <HotelIcon className="w-4 h-4" /> 2nd DutyCredit — At Check-Out
+            </span>
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             {t('showcase.accommodation.titlePart1')} <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">{t('showcase.accommodation.titlePart2')}</span>
           </h1>

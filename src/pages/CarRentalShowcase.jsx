@@ -6,6 +6,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import DashboardPreview3D from "../components/showcase/DashboardPreview3D";
+import CarRentalIcon from "../components/CarRentalIcon";
 
 export default function CarRentalShowcase() {
   const { t } = useTranslation();
@@ -44,6 +45,14 @@ export default function CarRentalShowcase() {
         <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-background to-background pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
+          <div className="flex justify-center gap-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-medium border border-red-200">
+              <CarRentalIcon className="w-4 h-4" /> 1st DutyCredit — At Booking
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-sm font-medium border border-rose-200">
+              <CarRentalIcon className="w-4 h-4" /> 2nd DutyCredit — At Car Return
+            </span>
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             {t('showcase.car.titlePart1')} <span className="bg-gradient-to-r from-red-400 to-rose-600 bg-clip-text text-transparent">{t('showcase.car.titlePart2')}</span>
           </h1>
