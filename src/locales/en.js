@@ -377,7 +377,7 @@ export default {
       },
       retailer: {
         titlePart1: 'Thousands of pre-activated shoppers',
-        titlePart2: 'coming your way.',
+        titlePart2: 'coming your way — every day.',
         subtitle: 'Travel partners — airlines, accommodation providers, and car rental companies — will automatically deliver personalised shopping rewards to their customers at booking and again before the return journey.\n\nThe result? A continuous flow of pre-activated shoppers arriving at airport stores ready to spend on both legs of their journey — generating incremental revenue for travel partners, retailers, and airports alike.',
         howItWorks: 'How It Will Work',
         step1: 'Customer Arrives',
