@@ -381,8 +381,8 @@ export default {
         ctaButton: 'Ga naar Travel Partner Portal',
       },
       retailer: {
-        titlePart1: 'Converteer meer',
-        titlePart2: 'reizigers',
+        titlePart1: 'Duizenden vooraf geactiveerde shoppers',
+        titlePart2: 'op weg naar jou — elke dag.',
         subtitle: 'Reispartners — luchtvaartmaatschappijen, accommodatieverstrekkers en autoverhuurbedrijven — bezorgen hun klanten automatisch gepersonaliseerde winkelbeloningen bij boeking én opnieuw vóór de terugreis.\n\nHet resultaat? Een continue stroom vooraf geactiveerde shoppers die op beide reisdelen klaar zijn om te besteden in luchthavenwinkels — en zo extra omzet genereren voor reispartners, retailers en luchthavens.',
         howItWorks: 'Hoe het zal werken',
         step1: 'Klant arriveert',

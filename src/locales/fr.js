@@ -294,8 +294,8 @@ export default {
         ctaButton: 'Aller au portail partenaire de voyage',
       },
       retailer: {
-        titlePart1: 'Convertissez plus de',
-        titlePart2: 'voyageurs',
+        titlePart1: 'Des milliers d\'acheteurs pré-activés',
+        titlePart2: 'arrivent chez vous — chaque jour.',
         subtitle: 'Les partenaires de voyage — compagnies aériennes, hébergeurs et loueurs de voitures — livrent automatiquement des récompenses shopping personnalisées à leurs clients à la réservation et à nouveau avant le voyage retour.\n\nLe résultat ? Un flux continu d\'acheteurs pré-activés arrivant dans les boutiques aéroportuaires prêts à dépenser sur les deux trajets — générant des revenus incrémentaux pour les partenaires de voyage, les détaillants et les aéroports.',
         howItWorks: 'Comment ça fonctionnera',
         step1: 'Le client arrive',
