@@ -20,6 +20,11 @@ export default function AgencyShowcase() {
     { num: '04', titleKey: 'showcase.agency.step4', descKey: 'showcase.agency.step4Desc' },
   ];
 
+  const doubleDutyHighlight = {
+    flight: { label: t('travelstackonepager.at_booking'), color: 'bg-blue-50 border-blue-200 text-blue-700' },
+    reminder: { label: t('travelstackonepager.at_return_reminder') || 'Return Flight Reminder', color: 'bg-green-50 border-green-200 text-green-700' },
+  };
+
   const featureKeys = [
     { titleKey: 'features.f1_title', descKey: 'features.f1_desc' },
     { titleKey: 'features.f2_title', descKey: 'features.f2_desc' },
@@ -56,6 +61,14 @@ export default function AgencyShowcase() {
         <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-background to-background pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
+          <div className="flex justify-center gap-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium border border-blue-200">
+              ✈️ 1st DutyCredit — At Booking
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium border border-emerald-200">
+              🔔 2nd DutyCredit — Return Flight Reminder
+            </span>
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             {t('showcase.agency.titlePart1')} <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">{t('showcase.agency.titlePart2')}</span>
           </h1>
