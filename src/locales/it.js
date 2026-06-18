@@ -312,8 +312,8 @@ export default {
         ctaButton: 'Vai al portale partner di viaggio',
       },
       retailer: {
-        titlePart1: 'Migliaia di acquirenti pre-attivati',
-        titlePart2: 'in arrivo da te — ogni giorno.',
+        titlePart1: 'Migliaia di viaggiatori con intenzione d\'acquisto',
+        titlePart2: 'in arrivo nel tuo negozio, ogni giorno.',
         subtitle: 'I partner di viaggio — compagnie aeree, strutture ricettive e autonoleggi — consegnano automaticamente premi shopping personalizzati ai loro clienti alla prenotazione e di nuovo prima del viaggio di ritorno.\n\nIl risultato? Un flusso continuo di acquirenti pre-attivati che arrivano nel tuo negozio pronti a spendere in entrambe le tratte — generando ricavi incrementali per te.',
         howItWorks: 'Come funzionerà',
         step1: 'Il cliente arriva',
