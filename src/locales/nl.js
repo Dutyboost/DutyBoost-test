@@ -642,6 +642,7 @@ export default {
       two_x_per_booking: '2× per boeking',
       bookings_x2_note_prefix: 'boekingen',
       bookings_x2_note_at_booking: 'bij boeking',
+      bookings_x2_note_return_reminder: 'retourvlucht herinnering',
       bookings_x2_note_checkout: 'uitchecken',
       bookings_x2_note_car_return: 'autoretour',
       combined_monthly_revenue: 'Gecombineerde maandelijkse omzet',

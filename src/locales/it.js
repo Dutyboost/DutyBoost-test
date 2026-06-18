@@ -573,6 +573,7 @@ export default {
       two_x_per_booking: '2× per prenotazione',
       bookings_x2_note_prefix: 'prenotazioni',
       bookings_x2_note_at_booking: 'alla prenotazione',
+      bookings_x2_note_return_reminder: 'promemoria volo di ritorno',
       bookings_x2_note_checkout: 'al check-out',
       bookings_x2_note_car_return: 'alla restituzione auto',
       combined_monthly_revenue: 'Entrate mensili combinate',

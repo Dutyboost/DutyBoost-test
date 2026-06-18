@@ -555,6 +555,7 @@ export default {
       two_x_per_booking: '2× pro Buchung',
       bookings_x2_note_prefix: 'Buchungen',
       bookings_x2_note_at_booking: 'bei Buchung',
+      bookings_x2_note_return_reminder: 'Rückflug-Erinnerung',
       bookings_x2_note_checkout: 'Auschecken',
       bookings_x2_note_car_return: 'Fahrzeugrückgabe',
       combined_monthly_revenue: 'Kombinierter monatlicher Umsatz',

@@ -227,7 +227,7 @@ const VERTICALS_CONFIG = [
     defaultBookings: 10000,
     defaultConversion: 15,
     defaultBasket: 150,
-    creditsPerBooking: 1,
+    creditsPerBooking: 2, // booking confirmation + return flight reminder
   },
   {
     key: "accommodation",
@@ -353,7 +353,7 @@ function TravelPartnerTab({ t }) {
             </div>
             {v.creditsPerBooking === 2 && (
               <p className="text-xs text-slate-400 italic">
-                {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
+                {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
             <Slider min={0} max={1000000} step={1000} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />

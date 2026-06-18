@@ -848,6 +848,7 @@ export default {
       two_x_per_booking: '2× per booking',
       bookings_x2_note_prefix: 'bookings',
       bookings_x2_note_at_booking: 'at booking',
+      bookings_x2_note_return_reminder: 'return flight reminder',
       bookings_x2_note_checkout: 'checkout',
       bookings_x2_note_car_return: 'car return',
       combined_monthly_revenue: 'Combined Monthly Revenue',
