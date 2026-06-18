@@ -383,7 +383,7 @@ export default {
       retailer: {
         titlePart1: 'Elke dag duizenden reizigers met bewezen koopintentie',
         titlePart2: 'op weg naar jou.',
-        subtitle: 'Reispartners — luchtvaartmaatschappijen, accommodatieverstrekkers en autoverhuurbedrijven — bezorgen hun klanten automatisch gepersonaliseerde winkelbeloningen bij boeking én opnieuw vóór de terugreis.\n\nHet resultaat? Een continue stroom vooraf geactiveerde shoppers die op beide reisdelen klaar zijn om te besteden in luchthavenwinkels — en zo extra omzet genereren voor reispartners, retailers en luchthavens.',
+        subtitle: 'Reispartners — luchtvaartmaatschappijen, accommodatieverstrekkers en autoverhuurbedrijven — bezorgen hun klanten automatisch gepersonaliseerde winkelbeloningen bij boeking én opnieuw vóór de terugreis.\n\nHet resultaat? Een continue stroom vooraf geactiveerde shoppers die op beide reisdelen klaar zijn om te besteden in luchthavenwinkels — en zo extra omzet genereren voor jou.',
         howItWorks: 'Hoe het zal werken',
         step1: 'Klant arriveert',
         step1Desc: "Een reiziger loopt uw winkel binnen, al gemotiveerd om te besteden. Hun reispartner — een vliegticket-, accommodatie- of autoverhuurbedrijf — heeft hen een gepersonaliseerde DutyCredit QR-code gestuurd in hun boekingsbevestigingsmail, dagen of weken voor hun vlucht. Ze zullen niet aan het browsen zijn. Ze zullen aankomen met een missie: hun tegoed bij u besteden.",

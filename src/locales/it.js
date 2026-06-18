@@ -314,7 +314,7 @@ export default {
       retailer: {
         titlePart1: 'Migliaia di acquirenti pre-attivati',
         titlePart2: 'in arrivo da te — ogni giorno.',
-        subtitle: 'I partner di viaggio — compagnie aeree, strutture ricettive e autonoleggi — consegnano automaticamente premi shopping personalizzati ai loro clienti alla prenotazione e di nuovo prima del viaggio di ritorno.\n\nIl risultato? Un flusso continuo di acquirenti pre-attivati che arrivano nei negozi aeroportuali pronti a spendere in entrambe le tratte — generando ricavi incrementali per partner di viaggio, retailer e aeroporti.',
+        subtitle: 'I partner di viaggio — compagnie aeree, strutture ricettive e autonoleggi — consegnano automaticamente premi shopping personalizzati ai loro clienti alla prenotazione e di nuovo prima del viaggio di ritorno.\n\nIl risultato? Un flusso continuo di acquirenti pre-attivati che arrivano nel tuo negozio pronti a spendere in entrambe le tratte — generando ricavi incrementali per te.',
         howItWorks: 'Come funzionerà',
         step1: 'Il cliente arriva',
         step1Desc: "Un viaggiatore entra nel tuo negozio, già motivato a spendere. Il loro partner di viaggio — una piattaforma di volo, una struttura ricettiva o una società di autonoleggio — ha inviato loro un codice QR DutyCredit personalizzato nell'e-mail di conferma prenotazione, giorni o settimane prima del volo. Non staranno facendo vetrine. Arriveranno con una missione: spendere il loro credito con te.",

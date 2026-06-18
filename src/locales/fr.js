@@ -296,7 +296,7 @@ export default {
       retailer: {
         titlePart1: 'Des milliers d\'acheteurs pré-activés',
         titlePart2: 'arrivent chez vous — chaque jour.',
-        subtitle: 'Les partenaires de voyage — compagnies aériennes, hébergeurs et loueurs de voitures — livrent automatiquement des récompenses shopping personnalisées à leurs clients à la réservation et à nouveau avant le voyage retour.\n\nLe résultat ? Un flux continu d\'acheteurs pré-activés arrivant dans les boutiques aéroportuaires prêts à dépenser sur les deux trajets — générant des revenus incrémentaux pour les partenaires de voyage, les détaillants et les aéroports.',
+        subtitle: 'Les partenaires de voyage — compagnies aériennes, hébergeurs et loueurs de voitures — livrent automatiquement des récompenses shopping personnalisées à leurs clients à la réservation et à nouveau avant le voyage retour.\n\nLe résultat ? Un flux continu d\'acheteurs pré-activés arrivant dans votre boutique prêts à dépenser sur les deux trajets — générant des revenus incrémentaux pour vous.',
         howItWorks: 'Comment ça fonctionnera',
         step1: 'Le client arrive',
         step1Desc: "Un voyageur entre dans votre boutique, déjà motivé à dépenser. Son partenaire de voyage — une plateforme de vol, un hébergement ou un loueur de voitures — lui a envoyé un code QR DutyCredit personnalisé dans son e-mail de confirmation de réservation, des jours ou des semaines avant son vol. Il ne fera pas de repérage. Il arrivera avec une mission : dépenser son crédit chez vous.",
