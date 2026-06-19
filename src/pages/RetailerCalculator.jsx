@@ -137,7 +137,7 @@ function RetailerTab({ t }) {
               <p className="text-base font-bold text-slate-900">{fmtNum(dailyRedemptions)} / {t('calculator.day_label')}</p>
             </div>
           </div>
-          <Slider min={0} max={9} step={1} value={[TRAVELER_TIERS.findIndex((v) => v === dailyTravelers)]} onValueChange={([i]) => setDailyTravelers(TRAVELER_TIERS[i])} className="w-full" />
+          <Slider min={0} max={12} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => setDailyTravelers(TRAVELER_TIERS[i])} className="w-full" />
           <div className="flex justify-between text-xs text-slate-600"><span>100</span><span>500.000</span></div>
         </div>
 
