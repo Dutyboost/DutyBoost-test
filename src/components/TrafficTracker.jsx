@@ -4,6 +4,62 @@ import { base44 } from '@/api/base44Client';
 
 const SESSION_KEY = 'db_traffic_session';
 
+// Map IANA timezone → country name (focused on Europe + key global markets)
+const TIMEZONE_TO_COUNTRY = {
+  'Europe/Amsterdam': 'Netherlands',
+  'Europe/Brussels': 'Belgium',
+  'Europe/Paris': 'France',
+  'Europe/Berlin': 'Germany',
+  'Europe/Vienna': 'Austria',
+  'Europe/Zurich': 'Switzerland',
+  'Europe/Madrid': 'Spain',
+  'Europe/Lisbon': 'Portugal',
+  'Europe/Rome': 'Italy',
+  'Europe/Dublin': 'Ireland',
+  'Europe/London': 'United Kingdom',
+  'Europe/Oslo': 'Norway',
+  'Europe/Stockholm': 'Sweden',
+  'Europe/Copenhagen': 'Denmark',
+  'Europe/Helsinki': 'Finland',
+  'Europe/Warsaw': 'Poland',
+  'Europe/Prague': 'Czech Republic',
+  'Europe/Budapest': 'Hungary',
+  'Europe/Athens': 'Greece',
+  'Europe/Luxembourg': 'Luxembourg',
+  'Atlantic/Canary': 'Spain',
+  'America/New_York': 'United States',
+  'America/Chicago': 'United States',
+  'America/Denver': 'United States',
+  'America/Los_Angeles': 'United States',
+  'America/Toronto': 'Canada',
+  'America/Vancouver': 'Canada',
+  'America/Sao_Paulo': 'Brazil',
+  'America/Mexico_City': 'Mexico',
+  'Asia/Dubai': 'United Arab Emirates',
+  'Asia/Tokyo': 'Japan',
+  'Asia/Singapore': 'Singapore',
+  'Asia/Hong_Kong': 'Hong Kong',
+  'Asia/Shanghai': 'China',
+  'Asia/Kolkata': 'India',
+  'Australia/Sydney': 'Australia',
+  'Pacific/Auckland': 'New Zealand',
+};
+
+function detectCountry() {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz && TIMEZONE_TO_COUNTRY[tz]) return TIMEZONE_TO_COUNTRY[tz];
+    // Fallback: extract region from timezone (e.g. "Europe/Amsterdam" → "Amsterdam")
+    if (tz) return tz.split('/').pop().replace(/_/g, ' ');
+  } catch {}
+  // Final fallback: navigator.language region code
+  try {
+    const parts = navigator.language.split('-');
+    if (parts.length >= 2) return parts[1];
+  } catch {}
+  return 'Unknown';
+}
+
 function initSession() {
   const cached = sessionStorage.getItem(SESSION_KEY);
   if (cached) return JSON.parse(cached);
@@ -55,6 +111,7 @@ export default function TrafficTracker() {
     base44.entities.PageVisit.create({
       page_path,
       referrer_domain: session.referrer_domain,
+      country: detectCountry(),
       utm_source: session.utm_source,
       utm_medium: session.utm_medium,
       utm_campaign: session.utm_campaign,

@@ -3,7 +3,7 @@ import { base44 } from '@/api/base44Client';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts';
-import { Globe, TrendingUp, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin } from 'lucide-react';
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#64748b'];
 
@@ -92,12 +92,13 @@ export default function TrafficDashboard() {
 
   const utmSources = tally(realVisits.filter(v => v.utm_source), 'utm_source');
   const utmCampaigns = tally(realVisits.filter(v => v.utm_campaign), 'utm_campaign');
+  const countries = tally(realVisits.filter(v => v.country && v.country !== 'Unknown'), 'country');
 
   return (
     <div className="space-y-6">
 
       {/* Summary KPIs */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <TrendingUp className="w-4 h-4 mx-auto mb-2 text-blue-300" />
           <p className="text-xs text-slate-400 mb-1">Total visits tracked</p>
@@ -107,6 +108,11 @@ export default function TrafficDashboard() {
           <Globe className="w-4 h-4 mx-auto mb-2 text-green-300" />
           <p className="text-xs text-slate-400 mb-1">Unique referrer domains</p>
           <p className="text-2xl font-bold text-green-300">{new Set(externalReferrers.filter(r => r.name !== 'direct').map(r => r.name)).size}</p>
+        </div>
+        <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+          <MapPin className="w-4 h-4 mx-auto mb-2 text-teal-300" />
+          <p className="text-xs text-slate-400 mb-1">Visitor countries</p>
+          <p className="text-2xl font-bold text-teal-300">{countries.length}</p>
         </div>
         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
           <ExternalLink className="w-4 h-4 mx-auto mb-2 text-purple-300" />
@@ -163,6 +169,44 @@ export default function TrafficDashboard() {
           </div>
         )}
       </div>
+
+      {/* Countries of visitors */}
+      {countries.length > 0 && (
+        <div className="bg-slate-800 border border-teal-500/30 rounded-2xl p-5">
+          <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-1">
+            <MapPin className="w-4 h-4 inline mr-1.5 text-teal-300" />
+            Visitor countries
+          </h3>
+          <p className="text-xs text-slate-400 mb-5">Geographic origin of visitors, detected from browser timezone.</p>
+          <div className="space-y-2">
+            {countries.map((c, i) => {
+              const pct = totalVisits > 0 ? ((c.value / totalVisits) * 100).toFixed(1) : 0;
+              const barWidth = countries[0].value > 0 ? (c.value / countries[0].value) * 100 : 0;
+              const color = COLORS[i % COLORS.length];
+              return (
+                <div key={c.name} className="flex items-center gap-3">
+                  <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm font-semibold text-white truncate">{c.name}</span>
+                      <div className="flex items-center gap-3 shrink-0 ml-3">
+                        <span className="text-xs text-slate-400">{pct}%</span>
+                        <span className="text-sm font-bold" style={{ color }}>{c.value}</span>
+                      </div>
+                    </div>
+                    <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full transition-all duration-500"
+                        style={{ width: `${barWidth}%`, background: color }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Traffic category breakdown chart */}
       {categories.length > 0 && (
