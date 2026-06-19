@@ -105,7 +105,7 @@ function RetailerTab({ t }) {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={35} max={1000} step={1} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
+          <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-600">
           <span>€35</span>
           <span>€1.000</span>
@@ -434,7 +434,7 @@ function TravelPartnerTab({ t }) {
                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={1000000} step={1000} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
+            <Slider min={0} max={1000000} step={5000} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
             <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>1.000.000 {t('calculator.bookings_x2_note_prefix')}</span></div>
           </div>
 
