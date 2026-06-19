@@ -1129,6 +1129,8 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       flight_credits: '2 DutyCredits',
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
+      pill_1st: '1e',
+      pill_2nd: '2e',
       at_booking: 'Bij Boeking',
       at_return_reminder: 'Terugvluchtherinnering',
       at_checkout: 'Bij Uitchecken',

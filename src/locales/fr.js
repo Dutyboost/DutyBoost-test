@@ -1155,6 +1155,8 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       flight_credits: '2 DutyCredits',
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
+      pill_1st: '1er',
+      pill_2nd: '2e',
       at_booking: 'À la réservation',
       at_return_reminder: 'Rappel vol retour',
       at_checkout: 'Au check-out',

@@ -47,10 +47,10 @@ export default function CarRentalShowcase() {
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <div className="flex justify-center gap-3 flex-wrap">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-medium border border-red-200">
-              <CarRentalIcon className="w-4 h-4" /> 1st DutyCredit — {t('travelstackonepager.at_booking')}
+              <CarRentalIcon className="w-4 h-4" /> {t('travelstackonepager.pill_1st')} DutyCredit — {t('travelstackonepager.at_booking')}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-sm font-medium border border-rose-200">
-              <CarRentalIcon className="w-4 h-4" /> 2nd DutyCredit — {t('travelstackonepager.at_car_return')}
+              <CarRentalIcon className="w-4 h-4" /> {t('travelstackonepager.pill_2nd')} DutyCredit — {t('travelstackonepager.at_car_return')}
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">

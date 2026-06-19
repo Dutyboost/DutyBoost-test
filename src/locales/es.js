@@ -607,6 +607,8 @@ export default {
       flight_credits: '2 DutyCredits',
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
+      pill_1st: '1er',
+      pill_2nd: '2º',
       at_booking: 'Al Reservar',
       at_return_reminder: 'Recordatorio vuelo de vuelta',
       at_checkout: 'Al Hacer Check-out',

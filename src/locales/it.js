@@ -1172,6 +1172,8 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       flight_credits: '2 DutyCredits',
       accommodation_credits: '2 DutyCredit',
       car_credits: '2 DutyCredit',
+      pill_1st: '1°',
+      pill_2nd: '2°',
       at_booking: 'Alla Prenotazione',
       at_return_reminder: 'Promemoria volo di ritorno',
       at_checkout: 'Al Check-out',

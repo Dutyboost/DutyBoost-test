@@ -64,10 +64,10 @@ export default function AgencyShowcase() {
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <div className="flex justify-center gap-3 flex-wrap">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium border border-blue-200">
-              <TravelAgencyIcon className="w-4 h-4" /> 1st DutyCredit — {t('travelstackonepager.at_booking')}
+              <TravelAgencyIcon className="w-4 h-4" /> {t('travelstackonepager.pill_1st')} DutyCredit — {t('travelstackonepager.at_booking')}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium border border-emerald-200">
-              <BellRing className="w-4 h-4" /> 2nd DutyCredit — {t('travelstackonepager.at_return_reminder')}
+              <BellRing className="w-4 h-4" /> {t('travelstackonepager.pill_2nd')} DutyCredit — {t('travelstackonepager.at_return_reminder')}
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">

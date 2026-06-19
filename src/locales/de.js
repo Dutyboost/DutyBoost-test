@@ -1153,6 +1153,8 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       flight_credits: '2 DutyCredits',
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
+      pill_1st: '1.',
+      pill_2nd: '2.',
       at_booking: 'Bei Buchung',
       at_return_reminder: 'Rückflug-Erinnerung',
       at_checkout: 'Beim Check-out',
