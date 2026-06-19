@@ -1156,6 +1156,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
       at_booking: 'À la réservation',
+      at_return_reminder: 'Rappel vol retour',
       at_checkout: 'Au check-out',
       at_car_return: 'Au retour du véhicule',
       flight_step1_desc: "Le voyageur réserve un vol via la plateforme partenaire. DutyBoost génère automatiquement un QR code DutyCredit personnalisé et l'intègre dans l'email de confirmation — envoyé par le partenaire, aucune app requise.",

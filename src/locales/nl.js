@@ -1130,6 +1130,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
       at_booking: 'Bij Boeking',
+      at_return_reminder: 'Terugvluchtherinnering',
       at_checkout: 'Bij Uitchecken',
       at_car_return: 'Bij Teruggave Auto',
       flight_step1_desc: 'Reiziger boekt een vlucht via het partnerplatform. DutyBoost genereert automatisch een gepersonaliseerde DutyCredit QR-code en verwerkt deze in de boekingsbevestigingsmail — door de partner verstuurd, geen app vereist.',

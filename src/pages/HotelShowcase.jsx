@@ -47,10 +47,10 @@ export default function HotelShowcase() {
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <div className="flex justify-center gap-3 flex-wrap">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium border border-blue-200">
-              <HotelIcon className="w-4 h-4" /> 1st DutyCredit — At Booking
+              <HotelIcon className="w-4 h-4" /> 1st DutyCredit — {t('travelstackonepager.at_booking')}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-100 text-cyan-700 text-sm font-medium border border-cyan-200">
-              <HotelIcon className="w-4 h-4" /> 2nd DutyCredit — At Check-Out
+              <HotelIcon className="w-4 h-4" /> 2nd DutyCredit — {t('travelstackonepager.at_checkout')}
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">

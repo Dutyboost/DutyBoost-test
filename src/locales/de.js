@@ -1154,6 +1154,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
       at_booking: 'Bei Buchung',
+      at_return_reminder: 'Rückflug-Erinnerung',
       at_checkout: 'Beim Check-out',
       at_car_return: 'Bei Fahrzeugrückgabe',
       flight_step1_desc: 'Reisender bucht einen Flug über die Partnerplattform. DutyBoost generiert automatisch einen personalisierten DutyCredit-QR-Code und bettet ihn in die Buchungsbestätigungs-E-Mail ein — vom Partner gesendet, keine App erforderlich.',

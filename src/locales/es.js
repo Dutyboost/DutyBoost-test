@@ -608,6 +608,7 @@ export default {
       accommodation_credits: '2 DutyCredits',
       car_credits: '2 DutyCredits',
       at_booking: 'Al Reservar',
+      at_return_reminder: 'Recordatorio vuelo de vuelta',
       at_checkout: 'Al Hacer Check-out',
       at_car_return: 'Al Devolver el Coche',
       flight_step1_desc: 'El viajero reserva un vuelo a través de la plataforma del socio. DutyBoost genera automáticamente un código QR DutyCredit personalizado y lo incrusta en el email de confirmación — enviado por el socio, sin app necesaria.',
