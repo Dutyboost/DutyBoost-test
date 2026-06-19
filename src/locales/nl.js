@@ -671,7 +671,7 @@ export default {
       why_loi_body: 'Wij vragen uw hulp om luchthavenwinkeliers de echte waarde van DutyBoost te laten zien. Samen kunnen we het volgende aantonen:',
       why_loi_b1: '<strong>Conversie Uplift:</strong> Voorgeactiveerde reizigers converteren 2x zo hoog als gewone bezoekers — dit bewijzen we samen door echte resultaten te leveren.',
       why_loi_b2: '<strong>Groei van basketwaarde:</strong> De minimale besteding van €35 verhoogt de gemiddelde transactiewaarde — luchthavenwinkeliers zien dit onmiddellijk.',
-      why_loi_b3: '<strong>Incrementele omzet:</strong> €300K–€400K per jaar per locatie — echte, meetbare groei op verkeer dat ze al hebben.',
+      why_loi_b3: '<strong>Incrementele omzet:</strong> €165K–€180K per jaar per locatie — echte, meetbare groei op verkeer dat ze al hebben.',
       why_loi_footer: 'Uw handtekening vertelt luchthavenwinkeliers dat u bereid bent deel te nemen en te helpen bewijzen dat het model werkt. Dat is wat hun vertrouwen en deelname ontsluit.',
       how_title: 'Hoe dit iedereen ten goede komt',
       how_step1: '<strong>1. U Tekent:</strong> Bekijk en onderteken deze Intentieverklaring digitaal.',

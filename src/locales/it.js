@@ -773,7 +773,7 @@ Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fi
       why_loi_body: 'DutyBoost cambia il modo in cui i viaggiatori fanno acquisti negli aeroporti — passando dal semplice guardare all\'acquisto consapevole, ancora prima di entrare nel tuo negozio. Ecco cosa significa per te:',
       why_loi_b1: '<strong>Acquirenti Pre-Attivati:</strong> I viaggiatori arrivano nel tuo negozio con un credito specifico nella loro email — settimane prima del volo.',
       why_loi_b2: '<strong>Carrelli Più Alti:</strong> Il minimo di €35 eleva naturalmente il valore medio delle transazioni — generando entrate incrementali significative per visita.',
-      why_loi_b3: '<strong>Entrate Incrementali:</strong> €300K–€400K annui per sede — crescita reale e misurabile sul traffico che già hai.',
+      why_loi_b3: '<strong>Entrate Incrementali:</strong> €165K–€180K annui per sede — crescita reale e misurabile sul traffico che già hai.',
       why_loi_footer: 'Questa è l\'opportunità: i viaggiatori che prima passavano davanti al tuo negozio arriveranno ora pronti ad acquistare — con un credito specifico, un carrello minimo e l\'intenzione di spendere. DutyBoost lo rende possibile per te.',
       how_title: 'Come funziona DutyBoost per il tuo negozio',
       how_step1: '<strong>1. Registra il Tuo Interesse:</strong> Compila i dettagli del tuo negozio e invia questa Lettera di Intenti — richiede meno di 3 minuti.',
