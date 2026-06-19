@@ -379,6 +379,7 @@ function TravelPartnerTab({ t }) {
             </div>
             <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} className="w-full" />
             <div className="flex justify-between text-xs text-slate-400"><span>1%</span><span>50%</span></div>
+            <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
           </div>
 
           {/* Avg basket slider */}
