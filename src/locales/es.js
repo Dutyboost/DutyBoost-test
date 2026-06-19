@@ -768,7 +768,7 @@ export default {
       col_your_commission: 'Tu comisión',
       col_per_100: 'Por 100 canjes',
       partner_title: 'Calculadora ROI para Socios de Viaje',
-      partner_subtitle_full: 'Selecciona tus verticales activas y establece tus DutyCredits emitidos por mes. Todas las verticales emiten ahora 2× DutyCredits por reserva — Socios de vuelo envían uno al reservar y uno en el recordatorio de vuelo de vuelta. Alojamiento y Alquiler envían uno al reservar y uno al check-out/devolución. Doble oportunidades, doble potencial.',
+      partner_subtitle_full: 'Selecciona tus verticales activas y establece tus DutyCredits emitidos por mes. Con DutyBoost siempre ganas y nunca pagas. <strong>¡JAMÁS!</strong>',
       select_verticals: 'Selecciona tus verticales',
       select_verticals_hint: 'Selecciona una, dos o las tres verticales que operas.',
       vertical_flight: '✈️ Vuelo',

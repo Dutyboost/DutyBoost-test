@@ -309,9 +309,7 @@ function TravelPartnerTab({ t }) {
     <div className="space-y-6">
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-slate-900">{t('calculator.partner_title')}</h2>
-        <p className="text-slate-600 text-sm max-w-xl mx-auto">
-          {t('calculator.partner_subtitle_full')}
-        </p>
+        <p className="text-slate-600 text-sm max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('calculator.partner_subtitle_full') }} />
       </div>
 
       {/* Vertical selector */}

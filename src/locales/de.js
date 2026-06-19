@@ -546,7 +546,7 @@ export default {
       col_your_commission: 'Ihre Provision',
       col_per_100: 'Pro 100 Einlösungen',
       partner_title: 'ROI-Rechner für Reisepartner',
-      partner_subtitle_full: 'Wählen Sie Ihre aktiven Vertikalen und legen Sie Ihre monatlich ausgegebenen DutyCredits fest. Alle Vertikalen geben jetzt 2× DutyCredits pro Buchung — Flugpartner senden eines bei Buchung und eines in der Rückreise-Erinnerung. Unterkunft & Mietwagen senden eines bei Buchung und eines beim Check-out/Fahrzeugrückgabe. Doppelte Einlösemöglichkeiten, doppeltes Provisionspotenzial.',
+      partner_subtitle_full: 'Wählen Sie Ihre aktiven Vertikalen und legen Sie Ihre monatlich ausgegebenen DutyCredits fest. Mit DutyBoost verdienen Sie immer und zahlen nie. <strong>NIE!</strong>',
       select_verticals: 'Wählen Sie Ihre Vertikalen',
       select_verticals_hint: 'Wählen Sie eine, zwei oder alle drei Vertikalen, die Sie betreiben.',
       vertical_flight: '✈️ Flug',

@@ -841,7 +841,7 @@ export default {
       col_per_100: 'Per 100 redemptions',
       commission_footnote: "Commission = 20% of DutyBoost's 2,5% fee per redemption (max €5/tx), paid out monthly by DutyBoost.",
       partner_title: 'Travel Partner ROI Calculator',
-      partner_subtitle_full: 'Select your active verticals and set your DutyCredits issued per month. All verticals now issue 2× DutyCredits per booking — Flight partners send one at booking and one in the return flight reminder. Accommodation & Car Rental send one at booking and one at check-out/car return. Double the redemption opportunities, double the commission potential.',
+      partner_subtitle_full: 'Select your active verticals and set your DutyCredits issued per month. With DutyBoost you always earn and never pay. <strong>EVER!</strong>',
       select_verticals: 'Select your verticals',
       select_verticals_hint: 'Select one, two, or all three verticals you operate.',
       vertical_flight: '✈️ Flight',

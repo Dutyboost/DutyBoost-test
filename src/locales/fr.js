@@ -546,7 +546,7 @@ export default {
       col_your_commission: 'Votre commission',
       col_per_100: 'Pour 100 utilisations',
       partner_title: 'Calculateur ROI Partenaire Voyage',
-      partner_subtitle_full: 'Sélectionnez vos verticales actives et définissez vos DutyCredits émis par mois. Toutes les verticales émettent maintenant 2× DutyCredits par réservation — Partenaires vol envoient un à la réservation et un dans le rappel vol retour. Hébergement & Location envoient un à la réservation et un au check-out/retour véhicule. Double les opportunités, double le potentiel.',
+      partner_subtitle_full: 'Sélectionnez vos verticales actives et définissez vos DutyCredits émis par mois. Avec DutyBoost vous gagnez toujours et ne payez jamais. <strong>JAMAIS !</strong>',
       select_verticals: 'Sélectionnez vos verticales',
       select_verticals_hint: 'Sélectionnez une, deux ou les trois verticales que vous exploitez.',
       vertical_flight: '✈️ Vol',

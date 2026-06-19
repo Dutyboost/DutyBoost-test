@@ -633,7 +633,7 @@ export default {
       col_your_commission: 'Uw commissie',
       col_per_100: 'Per 100 inwisselingen',
       partner_title: 'ROI-calculator voor reispartners',
-      partner_subtitle_full: 'Selecteer uw actieve verticalen en stel uw uitgegeven DutyCredits per maand in. Alle verticalen geven nu 2× DutyCredits per boeking — Vliegpartners sturen één bij boeking en één in de terugvluchtherinnering. Accommodatie & Autoverhuur sturen één bij boeking en één bij uitchecken/autoretour. Dubbele inwisselmogelijkheden, dubbele commissiepotentie.',
+      partner_subtitle_full: 'Selecteer uw actieve verticalen en stel uw uitgegeven DutyCredits per maand in. Met DutyBoost verdient u altijd en betaalt u nooit. <strong>OOIT!</strong>',
       select_verticals: 'Selecteer uw verticalen',
       select_verticals_hint: 'Selecteer één, twee of alle drie de verticalen die u exploiteert.',
       vertical_flight: '✈️ Vlucht',
