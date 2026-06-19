@@ -486,6 +486,7 @@ export default {
       estimated_redemptions: 'Geschätzte Einlösungen',
       conversion_rate: 'Konversionsrate',
       conversion_hint: 'Voraktivierte Reisende konvertieren 2x höher',
+      conversion_avg_range: 'Globaler Flughafenhandel-Durchschnitt: 15–25% (m1nd-set / ETRC-Forschung)',
       revenue_projection_title: 'Ihre Umsatzprojektion',
       revenue_projection_desc: 'Schätzungen basierend auf Warenkorbgröße, täglichen Reisenden und Konversionsrate.',
       daily_net: 'Täglicher Netto-Umsatz',

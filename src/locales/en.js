@@ -780,6 +780,7 @@ export default {
       estimated_redemptions: 'Estimated redemptions',
       conversion_rate: 'Conversion rate',
       conversion_hint: 'Pre-activated travelers convert 2x higher',
+      conversion_avg_range: 'Global airport retail average: 15–25% (m1nd-set / ETRC research)',
       revenue_projection_title: 'Your revenue projection',
       revenue_projection_desc: 'Estimates based on your basket size, daily travelers and conversion rate.',
       daily_net: 'Daily net revenue',

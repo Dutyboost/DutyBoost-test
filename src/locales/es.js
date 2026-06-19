@@ -708,6 +708,7 @@ export default {
       estimated_redemptions: 'Canjes estimados',
       conversion_rate: 'Tasa de conversión',
       conversion_hint: 'Los viajeros pre-activados convierten 2x más',
+      conversion_avg_range: 'Promedio global de retail aeroportuario: 15–25% (investigación m1nd-set / ETRC)',
       revenue_projection_title: 'Su proyección de ingresos',
       revenue_projection_desc: 'Estimaciones basadas en tamaño de cesta, viajeros diarios y tasa de conversión.',
       daily_net: 'Ingresos netos diarios',

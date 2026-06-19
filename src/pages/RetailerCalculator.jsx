@@ -57,7 +57,7 @@ const TIER_BANDS = [
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
   const [dailyTravelers, setDailyTravelers] = useState(200000);
-  const [conversionRate, setConversionRate] = useState(15);
+  const [conversionRate, setConversionRate] = useState(20);
   // min basket is now €35
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
@@ -150,6 +150,7 @@ function RetailerTab({ t }) {
           </div>
           <Slider min={1} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-600"><span>1%</span><span>50%</span></div>
+          <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>
 

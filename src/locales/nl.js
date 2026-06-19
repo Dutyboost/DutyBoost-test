@@ -573,6 +573,7 @@ export default {
       estimated_redemptions: 'Geschatte inwisselingen',
       conversion_rate: 'Conversieratio',
       conversion_hint: 'Vooraf geactiveerde reizigers converteren 2x hoger',
+      conversion_avg_range: 'Wereldwijd luchthavenwinkel-gemiddelde: 15–25% (m1nd-set / ETRC-onderzoek)',
       revenue_projection_title: 'Uw omzetprojectie',
       revenue_projection_desc: 'Schattingen op basis van uw basketgrootte, dagelijkse reizigers en conversieratio.',
       daily_net: 'Dagelijkse netto-omzet',

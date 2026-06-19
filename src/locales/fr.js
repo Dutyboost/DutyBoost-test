@@ -486,6 +486,7 @@ export default {
       estimated_redemptions: 'Échanges estimés',
       conversion_rate: 'Taux de conversion',
       conversion_hint: 'Les voyageurs pré-activés convertissent 2x plus',
+      conversion_avg_range: 'Moyenne mondiale du retail aéroportuaire : 15–25% (recherche m1nd-set / ETRC)',
       revenue_projection_title: 'Votre projection de revenus',
       revenue_projection_desc: 'Estimations basées sur la taille du panier, les voyageurs quotidiens et le taux de conversion.',
       daily_net: 'Revenus nets quotidiens',
