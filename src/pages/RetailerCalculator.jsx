@@ -56,7 +56,7 @@ const TIER_BANDS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
-  const [dailyTravelers, setDailyTravelers] = useState(100);
+  const [dailyTravelers, setDailyTravelers] = useState(200000);
   const [conversionRate, setConversionRate] = useState(15);
   // min basket is now €35
 
@@ -136,8 +136,8 @@ function RetailerTab({ t }) {
               <p className="text-base font-bold text-slate-900">{fmtNum(dailyRedemptions)} / {t('calculator.day_label')}</p>
             </div>
           </div>
-          <Slider min={10} max={5000} step={10} value={[dailyTravelers]} onValueChange={([v]) => setDailyTravelers(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-600"><span>10</span><span>5.000</span></div>
+          <Slider min={10} max={500000} step={1000} value={[dailyTravelers]} onValueChange={([v]) => setDailyTravelers(v)} className="w-full" />
+          <div className="flex justify-between text-xs text-slate-600"><span>10</span><span>500.000</span></div>
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
