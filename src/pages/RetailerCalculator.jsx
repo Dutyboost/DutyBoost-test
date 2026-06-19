@@ -56,6 +56,8 @@ const TIER_BANDS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
+  const [dailyTravelers, setDailyTravelers] = useState(100);
+  const [conversionRate, setConversionRate] = useState(15);
   // min basket is now €35
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
@@ -64,6 +66,11 @@ function RetailerTab({ t }) {
   const discountPct = useMemo(() => spend > 0 ? Math.round((saving / spend) * 1000) / 10 : 0, [saving, spend]);
   const netRevenue = useMemo(() => Math.round((spend - saving - commission) * 100) / 100, [spend, saving, commission]);
   const tier = useMemo(() => getTier(spend), [spend]);
+
+  const dailyRedemptions = useMemo(() => Math.round(dailyTravelers * (conversionRate / 100)), [dailyTravelers, conversionRate]);
+  const dailyNet = useMemo(() => Math.round(dailyRedemptions * netRevenue * 100) / 100, [dailyRedemptions, netRevenue]);
+  const monthlyNet = useMemo(() => Math.round(dailyNet * 30 * 100) / 100, [dailyNet]);
+  const annualNet = useMemo(() => Math.round(dailyNet * 365 * 100) / 100, [dailyNet]);
 
   const tierProgress = useMemo(() => {
     if (spend < 35)  return 0;
@@ -114,6 +121,68 @@ function RetailerTab({ t }) {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Travelers & Conversion sliders */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.daily_travelers')}</p>
+              <p className="text-4xl font-bold text-slate-900">{fmtNum(dailyTravelers)}</p>
+            </div>
+            <div className="text-right text-sm text-slate-500">
+              <p>{t('calculator.estimated_redemptions')}</p>
+              <p className="text-base font-bold text-slate-900">{fmtNum(dailyRedemptions)} / {t('calculator.day_label')}</p>
+            </div>
+          </div>
+          <Slider min={10} max={5000} step={10} value={[dailyTravelers]} onValueChange={([v]) => setDailyTravelers(v)} className="w-full" />
+          <div className="flex justify-between text-xs text-slate-600"><span>10</span><span>5.000</span></div>
+        </div>
+
+        <div className="space-y-2 pt-2 border-t border-slate-100">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.conversion_rate')}</p>
+              <p className="text-4xl font-bold text-slate-900">{conversionRate}%</p>
+            </div>
+            <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
+          </div>
+          <Slider min={1} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
+          <div className="flex justify-between text-xs text-slate-600"><span>1%</span><span>50%</span></div>
+        </div>
+      </div>
+
+      {/* Revenue projection based on travelers */}
+      <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
+        <h3 className="font-bold text-white text-lg">{t('calculator.revenue_projection_title')}</h3>
+        <p className="text-xs text-slate-400 -mt-2">{t('calculator.revenue_projection_desc')}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <Users className="w-4 h-4 text-slate-300" />
+              <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(dailyNet, 0)}</p>
+          </div>
+          <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <TrendingUp className="w-4 h-4 text-emerald-200" />
+              <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 0)}</p>
+          </div>
+          <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <TrendingUp className="w-4 h-4 text-emerald-100" />
+              <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 0)}</p>
+          </div>
+        </div>
+        <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
+          <span className="text-slate-300 font-semibold">{fmtNum(dailyTravelers)}</span> {t('calculator.travelers_label')} × <span className="text-slate-300 font-semibold">{conversionRate}%</span> = <span className="text-slate-300 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} × €{fmtNum(netRevenue, 2)} {t('calculator.net_per_tx')}
+        </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
