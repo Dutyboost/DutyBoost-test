@@ -387,7 +387,7 @@ function TravelPartnerTab({ t }) {
           <div className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3">
             <Info className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
             <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.avg_basket')}: <span className="text-slate-900 font-bold text-base normal-case">€{FIXED_AVG_BASKET} 🟤 Entry DutyCredit</span></p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.avg_basket')}: <span className="text-slate-900 font-bold text-base normal-case">€100 🟤 Standard DutyCredit</span></p>
               <p className="text-xs text-slate-500 leading-relaxed">{t('calculator.avg_basket_fixed')}</p>
             </div>
           </div>
