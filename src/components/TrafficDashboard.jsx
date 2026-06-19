@@ -3,7 +3,10 @@ import { base44 } from '@/api/base44Client';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts';
-import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin } from 'lucide-react';
+import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin, Calendar } from 'lucide-react';
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue
+} from '@/components/ui/select';
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#64748b'];
 
@@ -51,6 +54,7 @@ const CATEGORY_CONFIG = {
 export default function TrafficDashboard() {
   const [visits, setVisits] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedMonth, setSelectedMonth] = useState('all');
 
   useEffect(() => {
     base44.entities.PageVisit.list('-created_date', 5000).then(data => {
@@ -73,15 +77,48 @@ export default function TrafficDashboard() {
     v.referrer_domain !== 'internal'
   );
 
-  const totalVisits = realVisits.length;
-  const referrers = tally(realVisits.filter(v => v.referrer_domain), 'referrer_domain');
+  // ── Build list of available months from visit data ──
+  const monthMap = {};
+  realVisits.forEach(v => {
+    if (!v.created_date) return;
+    const d = new Date(v.created_date);
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+    monthMap[key] = (monthMap[key] || 0) + 1;
+  });
+  const availableMonths = Object.entries(monthMap)
+    .map(([key, count]) => {
+      const [yr, mo] = key.split('-');
+      const label = new Date(parseInt(yr), parseInt(mo) - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      return { key, label, count };
+    })
+    .sort((a, b) => b.key.localeCompare(a.key));
+
+  // ── Monthly trend data for the chart ──
+  const monthlyTrend = [...availableMonths].reverse().map(m => ({
+    name: m.label.split(' ')[0].substring(0, 3) + ' ' + m.label.split(' ')[2]?.slice(2),
+    fullName: m.label,
+    visits: m.count,
+  }));
+
+  // ── Filter visits by selected month ──
+  const filteredVisits = selectedMonth === 'all'
+    ? realVisits
+    : realVisits.filter(v => {
+        if (!v.created_date) return false;
+        const d = new Date(v.created_date);
+        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+        return key === selectedMonth;
+      });
+
+  const totalVisits = filteredVisits.length;
+  const referrers = tally(filteredVisits.filter(v => v.referrer_domain), 'referrer_domain');
 
   // External referrers only (exclude direct for the "unique external domains" KPI)
   const externalReferrers = referrers.filter(r => r.name !== 'direct');
 
   // Category breakdown
   const categoryMap = {};
-  realVisits.forEach(v => {
+  filteredVisits.forEach(v => {
     const cat = categorizeDomain(v.referrer_domain);
     categoryMap[cat] = (categoryMap[cat] || 0) + 1;
   });
@@ -90,12 +127,67 @@ export default function TrafficDashboard() {
     .sort((a, b) => b.value - a.value)
     .filter(c => c.name !== 'internal');
 
-  const utmSources = tally(realVisits.filter(v => v.utm_source), 'utm_source');
-  const utmCampaigns = tally(realVisits.filter(v => v.utm_campaign), 'utm_campaign');
-  const countries = tally(realVisits.filter(v => v.country && v.country !== 'Unknown'), 'country');
+  const utmSources = tally(filteredVisits.filter(v => v.utm_source), 'utm_source');
+  const utmCampaigns = tally(filteredVisits.filter(v => v.utm_campaign), 'utm_campaign');
+  const countries = tally(filteredVisits.filter(v => v.country && v.country !== 'Unknown'), 'country');
 
   return (
     <div className="space-y-6">
+
+      {/* Month selector + trend chart */}
+      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5 space-y-4">
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5 flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-blue-300" />
+              Time period
+            </h3>
+            <p className="text-xs text-slate-400">
+              {selectedMonth === 'all'
+                ? `Showing all-time data — ${realVisits.length} visits`
+                : `Showing ${availableMonths.find(m => m.key === selectedMonth)?.label} — ${filteredVisits.length} visits`}
+            </p>
+          </div>
+          <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+            <SelectTrigger className="w-[200px] bg-slate-900 border-slate-600 text-white">
+              <SelectValue placeholder="Select month" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All time</SelectItem>
+              {availableMonths.map(m => (
+                <SelectItem key={m.key} value={m.key}>
+                  {m.label} ({m.count})
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Monthly trend bar chart */}
+        {monthlyTrend.length > 0 && (
+          <div>
+            <p className="text-xs text-slate-500 mb-2">Visits per month — click a month above to drill in:</p>
+            <ResponsiveContainer width="100%" height={140}>
+              <BarChart data={monthlyTrend} margin={{ left: -20, right: 10, top: 4, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                <XAxis dataKey="name" tick={{ fill: '#94a3b8', fontSize: 10 }} />
+                <YAxis tick={{ fill: '#94a3b8', fontSize: 10 }} allowDecimals={false} />
+                <Tooltip
+                  {...TOOLTIP_STYLE}
+                  formatter={(v) => [v, 'Visits']}
+                  labelFormatter={(l, payload) => payload?.[0]?.payload?.fullName || l}
+                />
+                <Bar
+                  dataKey="visits"
+                  fill={selectedMonth === 'all' ? '#3b82f6' : '#10b981'}
+                  radius={[4, 4, 0, 0]}
+                  cursor={{ fill: '#33415540' }}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        )}
+      </div>
 
       {/* Summary KPIs */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
@@ -131,7 +223,7 @@ export default function TrafficDashboard() {
         <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-1">
           Where visitors come from
         </h3>
-        <p className="text-xs text-slate-400 mb-5">Every domain that sent a visitor to DutyBoost, ranked by volume.</p>
+        <p className="text-xs text-slate-400 mb-5">Every domain that sent a visitor to DutyBoost, ranked by volume{selectedMonth !== 'all' ? ` in ${availableMonths.find(m => m.key === selectedMonth)?.label}` : ''}.</p>
         {externalReferrers.length === 0 ? (
           <p className="text-slate-500 text-sm text-center py-8">No referrer data yet — data accumulates as visitors arrive.</p>
         ) : (
