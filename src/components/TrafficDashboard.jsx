@@ -7,6 +7,7 @@ import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin, Calendar } from 
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue
 } from '@/components/ui/select';
+import CountryTimeline from './CountryTimeline';
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#64748b'];
 
@@ -262,43 +263,8 @@ export default function TrafficDashboard() {
         )}
       </div>
 
-      {/* Countries of visitors */}
-      {countries.length > 0 && (
-        <div className="bg-slate-800 border border-teal-500/30 rounded-2xl p-5">
-          <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-1">
-            <MapPin className="w-4 h-4 inline mr-1.5 text-teal-300" />
-            Visitor countries
-          </h3>
-          <p className="text-xs text-slate-400 mb-5">Geographic origin of visitors, detected from browser timezone.</p>
-          <div className="space-y-2">
-            {countries.map((c, i) => {
-              const pct = totalVisits > 0 ? ((c.value / totalVisits) * 100).toFixed(1) : 0;
-              const barWidth = countries[0].value > 0 ? (c.value / countries[0].value) * 100 : 0;
-              const color = COLORS[i % COLORS.length];
-              return (
-                <div key={c.name} className="flex items-center gap-3">
-                  <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-semibold text-white truncate">{c.name}</span>
-                      <div className="flex items-center gap-3 shrink-0 ml-3">
-                        <span className="text-xs text-slate-400">{pct}%</span>
-                        <span className="text-sm font-bold" style={{ color }}>{c.value}</span>
-                      </div>
-                    </div>
-                    <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full rounded-full transition-all duration-500"
-                        style={{ width: `${barWidth}%`, background: color }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
+      {/* Countries of visitors — interactive timeline with daily/weekly/monthly/yearly views */}
+      <CountryTimeline visits={realVisits} />
 
       {/* Traffic category breakdown chart */}
       {categories.length > 0 && (
