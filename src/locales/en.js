@@ -817,7 +817,7 @@ export default {
       travelers_redeem: 'of travellers redeem',
       industry_avg: 'Industry avg: 15–25%',
       avg_basket: 'Average basket size at airport store',
-      avg_basket_fixed: 'A DutyCredit is activated from a minimum spend of €35 (🟤 Entry tier). All commission calculations below are based conservatively on this €35 minimum basket — actual baskets are typically higher, so your real commission will likely be greater.',
+      avg_basket_fixed: 'A DutyCredit is activated from a minimum spend of €35 (🟤 Entry tier). All commission calculations below are based conservatively on this €35 minimum basket spend — actual baskets are typically higher, so your real commission will likely be greater.',
       redemptions_month: 'Redemptions / month',
       commission_tx: 'Commission / tx',
       monthly_commission: 'Monthly commission',
