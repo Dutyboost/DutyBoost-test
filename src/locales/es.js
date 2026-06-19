@@ -745,7 +745,7 @@ export default {
       travelers_redeem: 'de viajeros canjean',
       industry_avg: 'Promedio del sector: 15–25%',
       avg_basket: 'Tamaño promedio de cesta en tienda aeroportuaria',
-      avg_basket_fixed: 'Un DutyCredit se activa a partir de un gasto mínimo de €35 (🟤 nivel Entry). Todos los cálculos de comisión a continuación se basan de forma conservadora en esta cesta mínima de €35 — las cestas reales suelen ser mayores, por lo que su comisión real probablemente será superior.',
+      avg_basket_fixed: 'Un DutyCredit se activa a partir de un gasto mínimo de €35 (🟤 nivel Entry). Todos los cálculos de comisión a continuación se basan de forma conservadora en este gasto mínimo de cesta de €35 — las cestas reales suelen ser mayores, por lo que su comisión real probablemente será superior.',
       redemptions_month: 'Canjes / mes',
       commission_tx: 'Comisión / transacción',
       monthly_commission: 'Comisión mensual',

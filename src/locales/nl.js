@@ -610,7 +610,7 @@ export default {
       travelers_redeem: 'van reizigers lost in',
       industry_avg: 'Branchegemiddelde: 15–25%',
       avg_basket: 'Gemiddelde basketgrootte in luchthavenwinkel',
-      avg_basket_fixed: 'Een DutyCredit wordt geactiveerd vanaf een minimale besteding van €35 (🟤 Entry tier). Alle commissieberekeningen hieronder zijn conservatief gebaseerd op deze minimale basket van €35 — werkelijke baskets zijn doorgaans hoger, dus uw echte commissie zal waarschijnlijk hoger uitvallen.',
+      avg_basket_fixed: 'Een DutyCredit wordt geactiveerd vanaf een minimale besteding van €35 (🟤 Entry tier). Alle commissieberekeningen hieronder zijn conservatief gebaseerd op deze minimale basketbesteding van €35 — werkelijke baskets zijn doorgaans hoger, dus uw echte commissie zal waarschijnlijk hoger uitvallen.',
       redemptions_month: 'Inwisselingen / maand',
       commission_tx: 'Commissie / transactie',
       monthly_commission: 'Maandelijkse commissie',
