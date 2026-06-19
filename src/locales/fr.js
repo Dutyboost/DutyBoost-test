@@ -523,7 +523,7 @@ export default {
       travelers_redeem: 'des voyageurs utilisent',
       industry_avg: 'Moyenne du secteur : ~15–25%',
       avg_basket: 'Taille moyenne du panier en boutique aéroportuaire',
-      avg_basket_fixed: "L'activation d'un DutyCredit nécessite un achat minimum de €35. Selon les données ETRC, la taille moyenne mondiale du panier en boutique aéroportuaire est de €100 (🟡 tier Standard) — ce chiffre est utilisé dans tous les calculs de commission ci-dessous.",
+      avg_basket_fixed: "Un DutyCredit est activé à partir d'un achat minimum de €35 (🟤 niveau Entry). Tous les calculs de commission ci-dessous sont basés de manière prudente sur ce panier minimum de €35 — les paniers réels sont généralement plus élevés, votre commission réelle sera donc probablement supérieure.",
       redemptions_month: 'Utilisations / mois',
       commission_tx: 'Commission / transaction',
       monthly_commission: 'Commission mensuelle',

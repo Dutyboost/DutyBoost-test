@@ -745,7 +745,7 @@ export default {
       travelers_redeem: 'de viajeros canjean',
       industry_avg: 'Promedio del sector: 15–25%',
       avg_basket: 'Tamaño promedio de cesta en tienda aeroportuaria',
-      avg_basket_fixed: 'La activación de un DutyCredit requiere un gasto mínimo de €35. Según datos de ETRC, el tamaño medio global de la cesta en tiendas aeroportuarias es de €100 (🟡 nivel Standard) — esta cifra se utiliza en todos los cálculos de comisión a continuación.',
+      avg_basket_fixed: 'Un DutyCredit se activa a partir de un gasto mínimo de €35 (🟤 nivel Entry). Todos los cálculos de comisión a continuación se basan de forma conservadora en esta cesta mínima de €35 — las cestas reales suelen ser mayores, por lo que su comisión real probablemente será superior.',
       redemptions_month: 'Canjes / mes',
       commission_tx: 'Comisión / transacción',
       monthly_commission: 'Comisión mensual',
