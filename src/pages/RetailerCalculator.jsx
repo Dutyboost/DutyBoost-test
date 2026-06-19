@@ -289,7 +289,7 @@ function RetailerTab({ t }) {
 const VERTICALS_CONFIG = [
   {
     key: "flight",
-    label: "Flight",
+    labelKey: "vertical_flight",
     Icon: TravelAgencyIcon,
     color: "#1A6BFF",
     bgClass: "bg-blue-600",
@@ -306,7 +306,7 @@ const VERTICALS_CONFIG = [
   },
   {
     key: "accommodation",
-    label: "Accommodation",
+    labelKey: "vertical_accommodation",
     Icon: HotelIcon,
     color: "#8b5cf6",
     bgClass: "bg-violet-600",
@@ -323,7 +323,7 @@ const VERTICALS_CONFIG = [
   },
   {
     key: "car",
-    label: "Car Rental",
+    labelKey: "vertical_car",
     Icon: CarRentalIcon,
     color: "#FF8000",
     bgClass: "bg-orange-500",
@@ -396,7 +396,7 @@ function TravelPartnerTab({ t }) {
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all ${isOn ? v.activeClass : v.inactiveClass}`}
               >
                 <v.Icon className="w-5 h-5" />
-                {v.label}
+                {t('calculator.' + v.labelKey).replace(/^\P{L}+/u, '').trim()}
                 {isOn && <Check className="w-4 h-4 ml-0.5" />}
               </button>
             );
@@ -410,7 +410,7 @@ function TravelPartnerTab({ t }) {
         <div key={v.key} className={`bg-white border rounded-2xl p-6 space-y-5 ${v.borderClass}`} style={{ borderLeftWidth: "4px", borderLeftColor: v.color }}>
           <div className="flex items-center gap-2">
             <v.Icon className="w-4 h-4" style={{ color: v.color }} />
-            <span className="text-base font-bold" style={{ color: v.color }}>{v.label}</span>
+            <span className="text-base font-bold" style={{ color: v.color }}>{t('calculator.' + v.labelKey).replace(/^\P{L}+/u, '').trim()}</span>
             <span className="text-xs text-slate-400 ml-auto">{t('calculator.commission_note')}</span>
           </div>
 
@@ -519,7 +519,7 @@ function TravelPartnerTab({ t }) {
               return (
                 <div key={stat.key} className="bg-slate-800 rounded-xl px-4 py-3 flex items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <span className="text-sm font-semibold flex items-center gap-1.5" style={{ color: v.color }}><v.Icon className="w-3.5 h-3.5" />{v.label}</span>
+                    <span className="text-sm font-semibold flex items-center gap-1.5" style={{ color: v.color }}><v.Icon className="w-3.5 h-3.5" />{t('calculator.' + v.labelKey).replace(/^\P{L}+/u, '').trim()}</span>
                     <span className="text-xs text-slate-400 block">{fmtNum(stat.dutyCredits)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
                   </div>
                   <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/{t('calculator.mo_label')}</span>
