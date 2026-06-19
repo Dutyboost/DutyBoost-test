@@ -486,9 +486,13 @@ function TravelPartnerTab({ t }) {
       ))}
 
       {/* Combined totals */}
-      {activeVerticals.length > 1 && (
+      {activeVerticals.length >= 1 && (
         <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
-          <h3 className="font-bold text-white text-lg">{t('calculator.combined_monthly_revenue')}</h3>
+          <h3 className="font-bold text-white text-lg">
+            {activeVerticals.length === 1
+              ? `${t('calculator.' + activeVerticals[0].labelKey).replace(/^\P{L}+/u, '').trim()} — ${t('calculator.monthly_net')}`
+              : t('calculator.combined_monthly_revenue')}
+          </h3>
           <p className="text-xs text-slate-400 -mt-2">{t('calculator.potential_disclaimer')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
            <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
