@@ -817,6 +817,7 @@ export default {
       travelers_redeem: 'of travellers redeem',
       industry_avg: 'Industry avg: 15–25%',
       avg_basket: 'Average basket size at airport store',
+      avg_basket_fixed: 'Based on ETRC research, the global average basket spend at airport stores is €100. This figure is used in all commission calculations below.',
       redemptions_month: 'Redemptions / month',
       commission_tx: 'Commission / tx',
       monthly_commission: 'Monthly commission',

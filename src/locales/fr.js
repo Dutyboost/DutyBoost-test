@@ -523,6 +523,7 @@ export default {
       travelers_redeem: 'des voyageurs utilisent',
       industry_avg: 'Moyenne du secteur : ~15–25%',
       avg_basket: 'Taille moyenne du panier en boutique aéroportuaire',
+      avg_basket_fixed: 'Selon les données ETRC, la taille moyenne mondiale du panier en boutique aéroportuaire est de €100. Ce chiffre est utilisé dans tous les calculs de commission ci-dessous.',
       redemptions_month: 'Utilisations / mois',
       commission_tx: 'Commission / transaction',
       monthly_commission: 'Commission mensuelle',

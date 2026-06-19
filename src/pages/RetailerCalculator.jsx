@@ -274,7 +274,8 @@ function TravelPartnerTab({ t }) {
   const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
   const [bookings, setBookings] = useState({ flight: 10000, accommodation: 5000, car: 3000 });
   const [conversion, setConversion] = useState({ flight: 15, accommodation: 20, car: 18 });
-  const [avgBasket, setAvgBasket] = useState({ flight: 150, accommodation: 185, car: 170 });
+  const FIXED_AVG_BASKET = 100;
+  const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
 
   const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);
 
@@ -382,21 +383,13 @@ function TravelPartnerTab({ t }) {
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
           </div>
 
-          {/* Avg basket slider */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-end">
-              <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.avg_basket')}</p>
-                <p className="text-3xl font-bold text-slate-900">€{avgBasket[v.key]}</p>
-              </div>
-              {getTier(avgBasket[v.key]) && (
-                <div className="px-3 py-1.5 rounded-xl border border-slate-300 bg-slate-100 text-xs font-semibold text-slate-900">
-                  {getTier(avgBasket[v.key]).emoji} {getTier(avgBasket[v.key]).name}
-                </div>
-              )}
+          {/* Avg basket — static */}
+          <div className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3">
+            <Info className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
+            <div>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.avg_basket')}: <span className="text-slate-900 font-bold text-base normal-case">€{FIXED_AVG_BASKET} 🟡 Standard DutyCredit</span></p>
+              <p className="text-xs text-slate-500 leading-relaxed">{t('calculator.avg_basket_fixed')}</p>
             </div>
-            <Slider min={35} max={1000} step={5} value={[avgBasket[v.key]]} onValueChange={([val]) => setAvgBasket((a) => ({ ...a, [v.key]: val }))} className="w-full" />
-            <div className="flex justify-between text-xs text-slate-400"><span>€35 (min)</span><span>€1.000+</span></div>
           </div>
 
           {/* Per-vertical mini result */}

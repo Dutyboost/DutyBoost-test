@@ -745,6 +745,7 @@ export default {
       travelers_redeem: 'de viajeros canjean',
       industry_avg: 'Promedio del sector: 15–25%',
       avg_basket: 'Tamaño promedio de cesta en tienda aeroportuaria',
+      avg_basket_fixed: 'Según datos de ETRC, el tamaño medio global de la cesta en tiendas aeroportuarias es de €100. Esta cifra se utiliza en todos los cálculos de comisión a continuación.',
       redemptions_month: 'Canjes / mes',
       commission_tx: 'Comisión / transacción',
       monthly_commission: 'Comisión mensual',
