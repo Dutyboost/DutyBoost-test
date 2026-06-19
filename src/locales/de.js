@@ -523,7 +523,7 @@ export default {
       travelers_redeem: 'der Reisenden lösen ein',
       industry_avg: 'Branchendurchschnitt: ~15–25%',
       avg_basket: 'Durchschnittliche Korbgröße im Flughafengeschäft',
-      avg_basket_fixed: 'Laut ETRC-Forschung beträgt der weltweite Durchschnittseinkauf in Flughafengeschäften €100. Dieser Wert wird in allen Provisionsberechnungen unten verwendet.',
+      avg_basket_fixed: 'Die Aktivierung eines DutyCredits erfordert einen Mindesteinkauf von €35. Laut ETRC-Forschung beträgt der weltweite Durchschnittseinkauf in Flughafengeschäften €100 (🟡 Standard-Stufe) — dieser Wert wird in allen Provisionsberechnungen unten verwendet.',
       redemptions_month: 'Einlösungen / Monat',
       commission_tx: 'Provision / Transaktion',
       monthly_commission: 'Monatliche Provision',

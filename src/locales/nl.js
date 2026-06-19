@@ -610,7 +610,7 @@ export default {
       travelers_redeem: 'van reizigers lost in',
       industry_avg: 'Branchegemiddelde: 15–25%',
       avg_basket: 'Gemiddelde basketgrootte in luchthavenwinkel',
-      avg_basket_fixed: 'Op basis van ETRC-onderzoek bedraagt de wereldwijde gemiddelde besteding in luchthavenwinkels €100. Dit cijfer wordt gebruikt in alle commissieberekeningen hieronder.',
+      avg_basket_fixed: 'Activering van een DutyCredit vereist een minimale besteding van €35. Op basis van ETRC-onderzoek bedraagt de wereldwijde gemiddelde besteding in luchthavenwinkels €100 (🟡 Standard tier) — dit cijfer wordt gebruikt in alle commissieberekeningen hieronder.',
       redemptions_month: 'Inwisselingen / maand',
       commission_tx: 'Commissie / transactie',
       monthly_commission: 'Maandelijkse commissie',

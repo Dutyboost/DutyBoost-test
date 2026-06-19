@@ -541,7 +541,7 @@ export default {
       travelers_redeem: 'dei viaggiatori riscatta',
       industry_avg: 'Media del settore: ~15–25%',
       avg_basket: 'Dimensione media del carrello nel negozio aeroportuale',
-      avg_basket_fixed: 'Secondo i dati ETRC, la dimensione media globale del carrello nei negozi aeroportuali è di €100. Questo valore è utilizzato in tutti i calcoli delle commissioni di seguito.',
+      avg_basket_fixed: "L'attivazione di un DutyCredit richiede una spesa minima di €35. Secondo i dati ETRC, la dimensione media globale del carrello nei negozi aeroportuali è di €100 (🟡 livello Standard) — questo valore è utilizzato in tutti i calcoli delle commissioni di seguito.",
       redemptions_month: 'Riscatti / mese',
       commission_tx: 'Commissione / transazione',
       monthly_commission: 'Commissione mensile',
