@@ -461,41 +461,6 @@ function TravelPartnerTab({ t }) {
         </div>
       )}
 
-      {/* All tiers at a glance */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
-        <h3 className="font-bold text-slate-900 text-sm uppercase tracking-widest">{t('calculator.tiers_title')}</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-xs text-slate-600 border-b border-slate-200">
-                <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
-                <th className="pb-2 pr-4">{t('calculator.col_spend')}</th>
-                <th className="pb-2 pr-4">{t('calculator.col_saving')}</th>
-                <th className="pb-2 pr-4">{t('calculator.col_fee')}</th>
-                <th className="pb-2">{t('calculator.col_net_pct')}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-200">
-              {TIER_BANDS.map((tier) => {
-                const midSpend = tier.min === 300 ? 350 : Math.round((tier.min + tier.max) / 2);
-                const midFee = Math.min(Math.round(midSpend * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
-                const midNet = Math.round(((midSpend - tier.saving - midFee) / midSpend) * 1000) / 10;
-                return (
-                  <tr key={tier.label}>
-                    <td className={`py-2.5 pr-4 font-medium ${tier.textColor}`}>{tier.label}</td>
-                    <td className="py-2.5 pr-4 text-slate-700">€{tier.min}{tier.max === 1000 ? "+" : `–€${tier.max}`}</td>
-                    <td className="py-2.5 pr-4 text-slate-700">€{tier.saving.toFixed(2)}</td>
-                    <td className="py-2.5 pr-4 text-orange-600">€{fmtNum(Math.min(tier.min * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP), 2)}</td>
-                    <td className="py-2.5 text-green-600">{fmtNum(midNet, 1)}%</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-slate-600">{t('calculator.tiers_footnote')}</p>
-      </div>
-
       {/* Info note */}
       <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
         <Info className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
