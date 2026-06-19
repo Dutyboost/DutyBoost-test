@@ -56,7 +56,7 @@ const TIER_BANDS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(150);
-  const TRAVELER_TIERS = [100, 500, 1500, 2500, 5000, 10000, 25000, 50000, ...Array.from({length: 41}, (_, i) => 100000 + i * 10000)];
+  const TRAVELER_TIERS = [100, 500, 1500, 2500, 5000, 10000, 25000, 50000, ...Array.from({length: 91}, (_, i) => 100000 + i * 10000)];
   const [dailyTravelers, setDailyTravelers] = useState(2500);
   const [conversionRate, setConversionRate] = useState(20);
   // min basket is now €35
@@ -138,7 +138,7 @@ function RetailerTab({ t }) {
             </div>
           </div>
           <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => setDailyTravelers(TRAVELER_TIERS[i])} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-600"><span>100</span><span>500.000</span></div>
+          <div className="flex justify-between text-xs text-slate-600"><span>100</span><span>1.000.000</span></div>
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
