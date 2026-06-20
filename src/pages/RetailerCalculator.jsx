@@ -55,10 +55,10 @@ const TIER_BANDS = [
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
-  const [spend, setSpend] = useState(150);
+  const [spend, setSpend] = useState(35);
   const TRAVELER_TIERS = [100, 500, 1500, 2500, 5000, 10000, 25000, 50000, ...Array.from({length: 91}, (_, i) => 100000 + i * 10000)];
-  const [dailyTravelers, setDailyTravelers] = useState(2500);
-  const [conversionRate, setConversionRate] = useState(20);
+  const [dailyTravelers, setDailyTravelers] = useState(TRAVELER_TIERS[0]);
+  const [conversionRate, setConversionRate] = useState(1);
   // min basket is now €35
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
@@ -392,8 +392,8 @@ const VERTICALS_CONFIG = [
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 function TravelPartnerTab({ t }) {
   const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
-  const [bookings, setBookings] = useState({ flight: 10000, accommodation: 5000, car: 3000 });
-  const [conversion, setConversion] = useState({ flight: 15, accommodation: 20, car: 18 });
+  const [bookings, setBookings] = useState({ flight: 0, accommodation: 0, car: 0 });
+  const [conversion, setConversion] = useState({ flight: 1, accommodation: 1, car: 1 });
   const FIXED_AVG_BASKET = 35;
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
 
