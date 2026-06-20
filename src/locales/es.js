@@ -721,6 +721,8 @@ export default {
       basket_spend: 'Valor de la cesta',
       below_minimum: 'Por debajo del mínimo (€35)',
       min_basket: 'Cesta mínima: €35',
+      basket_avg_ref: 'Cesta media en aeropuerto: €100 (m1nd-set / ETRC)',
+      dutycredit_activation: 'Un DutyCredit se activa con un gasto mínimo de €35',
       progress_within: 'Progreso dentro de',
       basket_value: 'Valor de la cesta',
       traveler_saving: 'Ahorro del viajero',

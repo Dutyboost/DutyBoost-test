@@ -115,6 +115,16 @@ function RetailerTab({ t }) {
           <span>€1.000</span>
           </div>
         </div>
+        <div className="flex flex-col sm:flex-row gap-2 pt-1">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
+            <Info className="w-3 h-3 text-blue-500 shrink-0" />
+            <span>{t('calculator.basket_avg_ref')}</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
+            <Info className="w-3 h-3 text-amber-500 shrink-0" />
+            <span>{t('calculator.dutycredit_activation')}</span>
+          </div>
+        </div>
         {tier && (
           <div className="space-y-1.5">
           <div className="flex justify-between text-xs text-slate-600">

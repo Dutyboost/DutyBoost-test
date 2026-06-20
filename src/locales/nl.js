@@ -586,6 +586,8 @@ export default {
       basket_spend: 'Basketwaarde',
       below_minimum: 'Onder minimum (€35)',
       min_basket: 'Minimale basket: €35',
+      basket_avg_ref: 'Gem. luchthavenmandje: €100 (m1nd-set / ETRC)',
+      dutycredit_activation: 'Een DutyCredit wordt geactiveerd bij een minimum besteding van €35',
       progress_within: 'Voortgang binnen',
       basket_value: 'Basketwaarde',
       traveler_saving: 'Besparing reiziger',

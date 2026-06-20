@@ -499,6 +499,8 @@ export default {
       basket_spend: 'Korbwert',
       below_minimum: 'Unter Minimum (€35)',
       min_basket: 'Mindestkorb: €35',
+      basket_avg_ref: 'Ø Flughafenkorb: €100 (m1nd-set / ETRC)',
+      dutycredit_activation: 'Ein DutyCredit wird ab einer Mindestausgabe von €35 aktiviert',
       progress_within: 'Fortschritt innerhalb',
       basket_value: 'Korbwert',
       traveler_saving: 'Reisenden-Ersparnis',

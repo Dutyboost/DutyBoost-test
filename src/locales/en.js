@@ -793,6 +793,8 @@ export default {
       basket_spend: 'Basket Spend',
       below_minimum: 'Below minimum (€35)',
       min_basket: 'Min basket: €35',
+      basket_avg_ref: 'Avg airport basket: €100 (m1nd-set / ETRC)',
+      dutycredit_activation: 'A DutyCredit is activated at a minimum spend of €35',
       progress_within: 'Progress within',
       basket_value: 'Basket Value',
       traveler_saving: 'Traveller Saving',
