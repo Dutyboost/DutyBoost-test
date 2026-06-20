@@ -884,6 +884,12 @@ export default {
       month_label: 'month',
       mo_label: 'mo',
       partner_commission_info: 'Commission is 0.5% of the airport basket spend per redemption (max €5/tx). Minimum basket is €35. No upfront cost — you only earn when your travelers actually spend at the airport.',
+      platform_fee_projection_title: 'Your DutyBoost Platform Fee',
+      platform_fee_projection_desc: 'What you pay DutyBoost (2.5% per transaction, max €25) based on your daily redemptions.',
+      daily_fee: 'Daily platform fee',
+      monthly_fee: 'Monthly platform fee',
+      annual_fee: 'Annual platform fee',
+      fee_per_tx: 'fee / tx',
     },
     letterOfIntent: {
       title: 'Letter of Intent',

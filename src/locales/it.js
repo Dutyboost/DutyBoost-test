@@ -607,6 +607,12 @@ export default {
       month_label: 'mese',
       mo_label: 'mese',
       partner_commission_info: 'La commissione è lo 0,5% della spesa in aeroporto per riscatto (max €5/tx). Carrello minimo €35. Nessun costo iniziale — guadagni solo quando i tuoi viaggiatori spendono effettivamente in aeroporto.',
+      platform_fee_projection_title: 'La tua commissione di piattaforma DutyBoost',
+      platform_fee_projection_desc: 'Quanto paghi a DutyBoost (2,5% per transazione, max €25) in base ai tuoi riscatti giornalieri.',
+      daily_fee: 'Commissione giornaliera di piattaforma',
+      monthly_fee: 'Commissione mensile di piattaforma',
+      annual_fee: 'Commissione annuale di piattaforma',
+      fee_per_tx: 'commissione / tx',
       commission_footnote: "Commissione = 20% della commissione del 2,5% di DutyBoost per riscatto (max €5/tx), pagata mensilmente da DutyBoost.",
     },
     letterOfIntent: {

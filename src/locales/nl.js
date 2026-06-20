@@ -676,6 +676,12 @@ export default {
       month_label: 'maand',
       mo_label: 'mnd',
       partner_commission_info: 'Commissie is 0,5% van de winkelbesteding per inwisseling (max €5/transactie). Minimale besteding is €35. Geen vooruitkosten — u verdient alleen wanneer uw reizigers daadwerkelijk besteden op het vliegveld.',
+      platform_fee_projection_title: 'Uw DutyBoost Platformkosten',
+      platform_fee_projection_desc: 'Wat u DutyBoost betaalt (2,5% per transactie, max €25) op basis van uw dagelijkse inwisselingen.',
+      daily_fee: 'Dagelijkse platformkosten',
+      monthly_fee: 'Maandelijkse platformkosten',
+      annual_fee: 'Jaarlijkse platformkosten',
+      fee_per_tx: 'kosten / tx',
       commission_footnote: "Commissie = 20% van DutyBoost's 2,5% fee per inwisseling (max €5/tx), maandelijks uitbetaald door DutyBoost.",
     },
     letterOfIntent: {

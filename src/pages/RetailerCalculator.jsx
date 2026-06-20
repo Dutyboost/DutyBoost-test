@@ -73,6 +73,10 @@ function RetailerTab({ t }) {
   const monthlyNet = useMemo(() => Math.round(dailyNet * 30 * 100) / 100, [dailyNet]);
   const annualNet = useMemo(() => Math.round(dailyNet * 365 * 100) / 100, [dailyNet]);
 
+  const dailyFee = useMemo(() => Math.round(dailyRedemptions * commission * 100) / 100, [dailyRedemptions, commission]);
+  const monthlyFee = useMemo(() => Math.round(dailyFee * 30 * 100) / 100, [dailyFee]);
+  const annualFee = useMemo(() => Math.round(dailyFee * 365 * 100) / 100, [dailyFee]);
+
   const tierProgress = useMemo(() => {
     if (spend < 35)  return 0;
     if (spend >= 300) return 100;
@@ -152,6 +156,41 @@ function RetailerTab({ t }) {
           <Slider min={1} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
           <div className="flex justify-between text-xs text-slate-600"><span>1%</span><span>50%</span></div>
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
+        </div>
+      </div>
+
+      {/* Platform fee projection based on redemptions */}
+      <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 space-y-4">
+        <div className="flex items-center gap-2">
+          <Euro className="w-5 h-5 text-orange-600" />
+          <h3 className="font-bold text-slate-900 text-lg">{t('calculator.platform_fee_projection_title')}</h3>
+        </div>
+        <p className="text-xs text-slate-600 -mt-2">{t('calculator.platform_fee_projection_desc')}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="bg-white border border-orange-200 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <Euro className="w-4 h-4 text-orange-500" />
+              <p className="text-xs text-slate-500">{t('calculator.daily_fee')}</p>
+            </div>
+            <p className="text-2xl font-bold text-orange-600">{fmtEur(dailyFee, 0)}</p>
+          </div>
+          <div className="bg-orange-500 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <Euro className="w-4 h-4 text-orange-100" />
+              <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyFee, 0)}</p>
+          </div>
+          <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <Euro className="w-4 h-4 text-orange-50" />
+              <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualFee, 0)}</p>
+          </div>
+        </div>
+        <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
+          <span className="text-slate-800 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} / {t('calculator.day_label')} × €{fmtNum(commission, 2)} {t('calculator.fee_per_tx')} = <span className="text-orange-600 font-semibold">{fmtEur(dailyFee, 0)}</span> / {t('calculator.day_label')}
         </div>
       </div>
 

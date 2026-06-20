@@ -589,6 +589,12 @@ export default {
       month_label: 'Monat',
       mo_label: 'Mo.',
       partner_commission_info: 'Provision beträgt 0,5% des Flughafeneinkaufs pro Einlösung (max. €5/Tx). Mindestkorb ist €35. Keine Vorabkosten — Sie verdienen nur, wenn Ihre Reisenden tatsächlich am Flughafen ausgeben.',
+      platform_fee_projection_title: 'Ihre DutyBoost-Plattformgebühr',
+      platform_fee_projection_desc: 'Was Sie DutyBoost zahlen (2,5% pro Transaktion, max €25) basierend auf Ihren täglichen Einlösungen.',
+      daily_fee: 'Tägliche Plattformgebühr',
+      monthly_fee: 'Monatliche Plattformgebühr',
+      annual_fee: 'Jährliche Plattformgebühr',
+      fee_per_tx: 'Gebühr / Tx',
       commission_footnote: "Provision = 20% von DutyBoosts 2,5% Gebühr pro Einlösung (max €5/tx), monatlich durch DutyBoost ausgezahlt.",
     },
     letterOfIntent: {

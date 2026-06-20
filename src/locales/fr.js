@@ -589,6 +589,12 @@ export default {
       month_label: 'mois',
       mo_label: 'mois',
       partner_commission_info: 'La commission est de 0,5% du panier aéroportuaire par rachat (max €5/tx). Panier minimum de €35. Aucun coût initial — vous ne gagnez que lorsque vos voyageurs dépensent réellement à l\'aéroport.',
+      platform_fee_projection_title: 'Vos frais de plateforme DutyBoost',
+      platform_fee_projection_desc: 'Ce que vous payez à DutyBoost (2,5% par transaction, max €25) sur la base de vos rachats quotidiens.',
+      daily_fee: 'Frais quotidien de plateforme',
+      monthly_fee: 'Frais mensuel de plateforme',
+      annual_fee: 'Frais annuel de plateforme',
+      fee_per_tx: 'frais / tx',
       commission_footnote: "Commission = 20% des frais 2,5% de DutyBoost par utilisation (max €5/tx), versée mensuellement par DutyBoost.",
     },
     letterOfIntent: {

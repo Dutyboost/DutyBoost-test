@@ -811,6 +811,12 @@ export default {
       month_label: 'mes',
       mo_label: 'mes',
       partner_commission_info: 'La comisión es el 0,5% del gasto en el aeropuerto por canje (máx €5/tx). Cesta mínima de €35. Sin costes iniciales — solo ganas cuando tus viajeros gastan realmente en el aeropuerto.',
+      platform_fee_projection_title: 'Tu tarifa de plataforma DutyBoost',
+      platform_fee_projection_desc: 'Lo que pagas a DutyBoost (2,5% por transacción, máx €25) según tus canjes diarios.',
+      daily_fee: 'Tarifa diaria de plataforma',
+      monthly_fee: 'Tarifa mensual de plataforma',
+      annual_fee: 'Tarifa anual de plataforma',
+      fee_per_tx: 'tarifa / tx',
       commission_footnote: "Comisión = 20% de la tarifa del 2,5% de DutyBoost por canje (máx €5/tx), pagada mensualmente por DutyBoost.",
     },
     letterOfIntent: {
