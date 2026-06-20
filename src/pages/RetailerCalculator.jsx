@@ -159,6 +159,38 @@ function RetailerTab({ t }) {
         </div>
       </div>
 
+      {/* Revenue projection based on travelers */}
+      <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
+        <h3 className="font-bold text-white text-lg">{t('calculator.revenue_projection_title')}</h3>
+        <p className="text-xs text-slate-400 -mt-2">{t('calculator.revenue_projection_desc')}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <Users className="w-4 h-4 text-slate-300" />
+              <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(dailyNet, 0)}</p>
+          </div>
+          <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <TrendingUp className="w-4 h-4 text-emerald-200" />
+              <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 0)}</p>
+          </div>
+          <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
+              <TrendingUp className="w-4 h-4 text-emerald-100" />
+              <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
+            </div>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 0)}</p>
+          </div>
+        </div>
+        <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
+          <span className="text-slate-300 font-semibold">{fmtNum(dailyTravelers)}</span> {t('calculator.travelers_label')} × <span className="text-slate-300 font-semibold">{conversionRate}%</span> = <span className="text-slate-300 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} × €{fmtNum(netRevenue, 2)} {t('calculator.net_per_tx')}
+        </div>
+      </div>
+
       {/* Platform fee projection based on redemptions */}
       <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 space-y-4">
         <div className="flex items-center gap-2">
@@ -191,38 +223,6 @@ function RetailerTab({ t }) {
         </div>
         <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
           <span className="text-slate-800 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} / {t('calculator.day_label')} × €{fmtNum(commission, 2)} {t('calculator.fee_per_tx')} = <span className="text-orange-600 font-semibold">{fmtEur(dailyFee, 0)}</span> / {t('calculator.day_label')}
-        </div>
-      </div>
-
-      {/* Revenue projection based on travelers */}
-      <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
-        <h3 className="font-bold text-white text-lg">{t('calculator.revenue_projection_title')}</h3>
-        <p className="text-xs text-slate-400 -mt-2">{t('calculator.revenue_projection_desc')}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <Users className="w-4 h-4 text-slate-300" />
-              <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
-            </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(dailyNet, 0)}</p>
-          </div>
-          <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <TrendingUp className="w-4 h-4 text-emerald-200" />
-              <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
-            </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 0)}</p>
-          </div>
-          <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <TrendingUp className="w-4 h-4 text-emerald-100" />
-              <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
-            </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 0)}</p>
-          </div>
-        </div>
-        <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
-          <span className="text-slate-300 font-semibold">{fmtNum(dailyTravelers)}</span> {t('calculator.travelers_label')} × <span className="text-slate-300 font-semibold">{conversionRate}%</span> = <span className="text-slate-300 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} × €{fmtNum(netRevenue, 2)} {t('calculator.net_per_tx')}
         </div>
       </div>
 
