@@ -481,7 +481,7 @@ export default {
       tab_retailer: 'Détaillant aéroportuaire',
       tab_partner: 'Partenaire de voyage',
       retailer_title: 'À quoi ressemble une transaction DutyBoost pour vous ?',
-      retailer_subtitle: "Faites glisser les curseurs sur n'importe quelle taille de panier ou DutyCredits quotidiens pour voir une analyse claire de vos revenus nets sur une base quotidienne, mensuelle et annuelle.",
+      retailer_subtitle: "Faites glisser les curseurs sur n'importe quelle taille de panier ou DutyCredits quotidiens pour voir une analyse claire de vos revenus nets potentiels sur une base quotidienne, mensuelle et annuelle.",
       daily_travelers: 'Voyageurs DutyBoost quotidiens passant devant votre magasin',
       estimated_redemptions: 'Échanges estimés',
       conversion_rate: 'Taux de conversion',

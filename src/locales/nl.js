@@ -568,7 +568,7 @@ export default {
       tab_retailer: 'Luchthavenretailer',
       tab_partner: 'Reispartner',
       retailer_title: 'Hoe ziet een DutyBoost-transactie eruit voor u?',
-      retailer_subtitle: 'Sleep de schuifregelaars naar een willekeurige basketgrootte of dagelijkse DutyCredits om een duidelijk overzicht te zien van uw netto-omzet op dagelijkse, maandelijkse en jaarlijkse basis.',
+      retailer_subtitle: 'Sleep de schuifregelaars naar een willekeurige basketgrootte of dagelijkse DutyCredits om een duidelijk overzicht te zien van uw potentiële netto-omzet op dagelijkse, maandelijkse en jaarlijkse basis.',
       daily_travelers: 'Dagelijkse DutyCredit-reizigers langs uw winkel',
       estimated_redemptions: 'Geschatte inwisselingen',
       conversion_rate: 'Conversieratio',

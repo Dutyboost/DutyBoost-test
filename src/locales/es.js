@@ -703,7 +703,7 @@ export default {
       tab_retailer: 'Minorista aeroportuario',
       tab_partner: 'Socio de viaje',
       retailer_title: '¿Cómo se ve una transacción DutyBoost para ti?',
-      retailer_subtitle: 'Arrastra los controles deslizantes a cualquier tamaño de cesta o DutyCredits diarios para ver un desglose claro de tus ingresos netos en una base diaria, mensual y anual.',
+      retailer_subtitle: 'Arrastra los controles deslizantes a cualquier tamaño de cesta o DutyCredits diarios para ver un desglose claro de tus ingresos netos potenciales en una base diaria, mensual y anual.',
       daily_travelers: 'Viajeros diarios de DutyBoost que pasan por su tienda',
       estimated_redemptions: 'Canjes estimados',
       conversion_rate: 'Tasa de conversión',
