@@ -205,29 +205,23 @@ function RetailerTab({ t }) {
 
       {/* Platform fee projection based on redemptions */}
       <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 space-y-4">
-        <div className="flex items-center gap-2">
-          <Euro className="w-5 h-5 text-orange-600" />
-          <h3 className="font-bold text-slate-900 text-lg">{t('calculator.platform_fee_projection_title')}</h3>
-        </div>
+        <h3 className="font-bold text-slate-900 text-lg">{t('calculator.platform_fee_projection_title')}</h3>
         <p className="text-xs text-slate-600 -mt-2">{t('calculator.platform_fee_projection_desc')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="bg-white border border-orange-200 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <Euro className="w-4 h-4 text-orange-500" />
               <p className="text-xs text-slate-500">{t('calculator.daily_fee')}</p>
             </div>
             <p className="text-lg sm:text-2xl font-bold text-orange-600 whitespace-nowrap">{fmtEur(dailyFee, 2)}</p>
           </div>
           <div className="bg-orange-500 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <Euro className="w-4 h-4 text-orange-100" />
               <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
             </div>
             <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(monthlyFee, 2)}</p>
           </div>
           <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <Euro className="w-4 h-4 text-orange-50" />
               <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
             </div>
             <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(annualFee, 2)}</p>
