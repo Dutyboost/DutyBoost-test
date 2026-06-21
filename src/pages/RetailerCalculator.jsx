@@ -56,7 +56,7 @@ const TIER_BANDS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(35);
-  const TRAVELER_TIERS = [100, 500, 1000, 1500, 2000, 2500, 3000, 4000, 5000, 10000, 25000, 50000, ...Array.from({length: 91}, (_, i) => 100000 + i * 10000)];
+  const TRAVELER_TIERS = [100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000)];
   const [dailyTravelers, setDailyTravelers] = useState(TRAVELER_TIERS[0]);
   const [conversionRate, setConversionRate] = useState(1);
   // min basket is now €35
