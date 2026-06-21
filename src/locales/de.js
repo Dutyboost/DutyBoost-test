@@ -481,7 +481,7 @@ export default {
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
       retailer_title: 'Wie wird eine DutyBoost-Transaktion für Sie aussehen?',
-      retailer_subtitle: 'Ziehen Sie die Schieberegler auf eine beliebige Korbgröße oder tägliche DutyCredits, um eine klare Aufschlüsselung Ihres potenziellen Nettoumsatzes auf täglicher, monatlicher und jährlicher Basis zu sehen.',
+      retailer_subtitle: 'Ziehen Sie die Schieberegler auf eine beliebige Korbgröße oder tägliche DutyCredits, um eine klare Aufschlüsselung zu sehen, wie Ihr potenzieller Nettoumsatz auf täglicher, monatlicher und jährlicher Basis aussehen wird.',
       daily_travelers: 'Tägliche DutyBoost-Reisende an Ihrem Laden',
       estimated_redemptions: 'Geschätzte Einlösungen (m1nd-set / ETRC)',
       conversion_rate: 'Konversionsrate',

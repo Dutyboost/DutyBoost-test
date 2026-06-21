@@ -775,7 +775,7 @@ export default {
       tab_retailer: 'Airport Retailer',
       tab_partner: 'Travel Partner',
       retailer_title: 'What will a DutyBoost transaction look like for you?',
-      retailer_subtitle: "Drag the sliders to any basket size or Daily DutyCredits to see a clear breakdown of your potential net revenue on a daily/monthly and yearly bases.",
+      retailer_subtitle: "Drag the sliders to any basket size or Daily DutyCredits to see a clear breakdown of what your potential net revenue will be on a daily, monthly and yearly basis.",
       daily_travelers: 'Daily DutyCredit travelers passing your store',
       estimated_redemptions: 'Estimated redemptions (m1nd-set / ETRC)',
       conversion_rate: 'Conversion rate',
