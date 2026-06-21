@@ -774,7 +774,7 @@ export default {
       subtitle: "Whether you're an airport retailer or a travel partner — DutyBoost adds a measurable revenue stream. Pick your role below.",
       tab_retailer: 'Airport Retailer',
       tab_partner: 'Travel Partner',
-      retailer_title: 'What does a DutyBoost transaction look like for you?',
+      retailer_title: 'What will a DutyBoost transaction look like for you?',
       retailer_subtitle: "Drag the sliders to any basket size or Daily DutyCredits to see a clear breakdown of your potential net revenue on a daily/monthly and yearly bases.",
       daily_travelers: 'Daily DutyCredit travelers passing your store',
       estimated_redemptions: 'Estimated redemptions (m1nd-set / ETRC)',

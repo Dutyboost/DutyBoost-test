@@ -702,7 +702,7 @@ export default {
       subtitle: 'Ya seas un minorista aeroportuario o un socio de viaje — DutyBoost añade un flujo de ingresos medible. Elige tu rol a continuación.',
       tab_retailer: 'Minorista aeroportuario',
       tab_partner: 'Socio de viaje',
-      retailer_title: '¿Cómo se ve una transacción DutyBoost para ti?',
+      retailer_title: '¿Cómo se verá una transacción DutyBoost para ti?',
       retailer_subtitle: 'Arrastra los controles deslizantes a cualquier tamaño de cesta o DutyCredits diarios para ver un desglose claro de tus ingresos netos potenciales en una base diaria, mensual y anual.',
       daily_travelers: 'Viajeros diarios de DutyBoost que pasan por su tienda',
       estimated_redemptions: 'Canjes estimados (m1nd-set / ETRC)',

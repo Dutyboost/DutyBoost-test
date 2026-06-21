@@ -567,7 +567,7 @@ export default {
       subtitle: 'Of u nu een luchthavenretailer of reispartner bent — DutyBoost voegt een meetbare inkomstenstroom toe. Kies uw rol hieronder.',
       tab_retailer: 'Luchthavenretailer',
       tab_partner: 'Reispartner',
-      retailer_title: 'Hoe ziet een DutyBoost-transactie eruit voor u?',
+      retailer_title: 'Hoe zal een DutyBoost-transactie eruitzien voor u?',
       retailer_subtitle: 'Sleep de schuifregelaars naar een willekeurige basketgrootte of dagelijkse DutyCredits om een duidelijk overzicht te zien van uw potentiële netto-omzet op dagelijkse, maandelijkse en jaarlijkse basis.',
       daily_travelers: 'Dagelijkse DutyCredit-reizigers langs uw winkel',
       estimated_redemptions: 'Geschatte inwisselingen (m1nd-set / ETRC)',
