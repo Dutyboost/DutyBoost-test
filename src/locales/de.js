@@ -480,7 +480,7 @@ export default {
       subtitle: 'Egal ob Flughafenhändler oder Reisepartner — DutyBoost fügt einen messbaren Umsatzstrom hinzu. Wählen Sie Ihre Rolle unten.',
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
-      retailer_title: 'Wie wird eine DutyBoost-Transaktion für Sie aussehen?',
+      retailer_title: 'Wie würde eine DutyBoost-Transaktion für Sie aussehen?',
       retailer_subtitle: 'Ziehen Sie die Schieberegler auf eine beliebige Korbgröße oder tägliche DutyCredits, um eine klare Aufschlüsselung zu sehen, wie Ihr potenzieller Nettoumsatz aussehen wird.',
       daily_travelers: 'Tägliche DutyBoost-Reisende an Ihrem Laden',
       estimated_redemptions: 'Geschätzte Einlösungen (m1nd-set / ETRC)',

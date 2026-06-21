@@ -480,7 +480,7 @@ export default {
       subtitle: "Que vous soyez un détaillant aéroportuaire ou un partenaire de voyage — DutyBoost ajoute un flux de revenus mesurable. Choisissez votre rôle ci-dessous.",
       tab_retailer: 'Détaillant aéroportuaire',
       tab_partner: 'Partenaire de voyage',
-      retailer_title: 'À quoi ressemblera une transaction DutyBoost pour vous ?',
+      retailer_title: 'À quoi ressemblerait une transaction DutyBoost pour vous ?',
       retailer_subtitle: "Faites glisser les curseurs sur n'importe quelle taille de panier ou DutyCredits quotidiens pour voir une analyse claire de ce que ressembleront vos revenus nets potentiels.",
       daily_travelers: 'Voyageurs DutyBoost quotidiens passant devant votre magasin',
       estimated_redemptions: 'Échanges estimés (m1nd-set / ETRC)',
