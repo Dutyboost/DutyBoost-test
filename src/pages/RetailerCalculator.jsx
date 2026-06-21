@@ -69,13 +69,15 @@ function RetailerTab({ t }) {
   const tier = useMemo(() => getTier(spend), [spend]);
 
   const dailyRedemptions = useMemo(() => Math.round(dailyTravelers * (conversionRate / 100)), [dailyTravelers, conversionRate]);
-  const dailyNet = useMemo(() => Math.round(dailyRedemptions * netRevenue * 100) / 100, [dailyRedemptions, netRevenue]);
-  const monthlyNet = useMemo(() => Math.round(dailyNet * 30 * 100) / 100, [dailyNet]);
-  const annualNet = useMemo(() => Math.round(monthlyNet * 12 * 100) / 100, [monthlyNet]);
 
-  const dailyFee = useMemo(() => Math.round(dailyRedemptions * commission * 100) / 100, [dailyRedemptions, commission]);
-  const monthlyFee = useMemo(() => Math.round(dailyFee * 30 * 100) / 100, [dailyFee]);
-  const annualFee = useMemo(() => Math.round(monthlyFee * 12 * 100) / 100, [monthlyFee]);
+  // All projections derived from 365 days/year so daily × 365 = annual and annual ÷ 12 = monthly
+  const annualNetRaw = useMemo(() => dailyRedemptions * netRevenue * 365, [dailyRedemptions, netRevenue]);
+  const monthlyNetRaw = useMemo(() => annualNetRaw / 12, [annualNetRaw]);
+  const dailyNet = useMemo(() => annualNetRaw / 365, [annualNetRaw]);
+
+  const annualFeeRaw = useMemo(() => dailyRedemptions * commission * 365, [dailyRedemptions, commission]);
+  const monthlyFeeRaw = useMemo(() => annualFeeRaw / 12, [annualFeeRaw]);
+  const dailyFee = useMemo(() => annualFeeRaw / 365, [annualFeeRaw]);
 
   const tierProgress = useMemo(() => {
     if (spend < 35)  return 0;
@@ -186,14 +188,14 @@ function RetailerTab({ t }) {
               <TrendingUp className="w-4 h-4 text-emerald-200" />
               <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 2)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNetRaw, 2)}</p>
           </div>
           <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-100" />
               <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 2)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualNetRaw, 2)}</p>
           </div>
         </div>
         <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
@@ -221,14 +223,14 @@ function RetailerTab({ t }) {
               <Euro className="w-4 h-4 text-orange-100" />
               <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyFee, 2)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyFeeRaw, 2)}</p>
           </div>
           <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <Euro className="w-4 h-4 text-orange-50" />
               <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualFee, 2)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualFeeRaw, 2)}</p>
           </div>
         </div>
         <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
