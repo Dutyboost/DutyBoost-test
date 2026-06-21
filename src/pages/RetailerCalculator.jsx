@@ -71,11 +71,11 @@ function RetailerTab({ t }) {
   const dailyRedemptions = useMemo(() => Math.round(dailyTravelers * (conversionRate / 100)), [dailyTravelers, conversionRate]);
   const dailyNet = useMemo(() => Math.round(dailyRedemptions * netRevenue * 100) / 100, [dailyRedemptions, netRevenue]);
   const monthlyNet = useMemo(() => Math.round(dailyNet * 30 * 100) / 100, [dailyNet]);
-  const annualNet = useMemo(() => Math.round(dailyNet * 365 * 100) / 100, [dailyNet]);
+  const annualNet = useMemo(() => Math.round(monthlyNet * 12 * 100) / 100, [monthlyNet]);
 
   const dailyFee = useMemo(() => Math.round(dailyRedemptions * commission * 100) / 100, [dailyRedemptions, commission]);
   const monthlyFee = useMemo(() => Math.round(dailyFee * 30 * 100) / 100, [dailyFee]);
-  const annualFee = useMemo(() => Math.round(dailyFee * 365 * 100) / 100, [dailyFee]);
+  const annualFee = useMemo(() => Math.round(monthlyFee * 12 * 100) / 100, [monthlyFee]);
 
   const tierProgress = useMemo(() => {
     if (spend < 35)  return 0;
