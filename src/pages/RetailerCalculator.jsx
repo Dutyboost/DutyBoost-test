@@ -179,21 +179,21 @@ function RetailerTab({ t }) {
               <Users className="w-4 h-4 text-slate-300" />
               <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(dailyNet, 0)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(dailyNet, 2)}</p>
           </div>
           <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-200" />
               <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 0)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 2)}</p>
           </div>
           <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-100" />
               <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 0)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 2)}</p>
           </div>
         </div>
         <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
@@ -214,25 +214,25 @@ function RetailerTab({ t }) {
               <Euro className="w-4 h-4 text-orange-500" />
               <p className="text-xs text-slate-500">{t('calculator.daily_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-orange-600">{fmtEur(dailyFee, 0)}</p>
+            <p className="text-2xl font-bold text-orange-600">{fmtEur(dailyFee, 2)}</p>
           </div>
           <div className="bg-orange-500 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <Euro className="w-4 h-4 text-orange-100" />
               <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyFee, 0)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(monthlyFee, 2)}</p>
           </div>
           <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <Euro className="w-4 h-4 text-orange-50" />
               <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualFee, 0)}</p>
+            <p className="text-2xl font-bold text-white">{fmtEur(annualFee, 2)}</p>
           </div>
         </div>
         <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
-          <span className="text-slate-800 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} / {t('calculator.day_label')} × €{fmtNum(commission, 2)} {t('calculator.fee_per_tx')} = <span className="text-orange-600 font-semibold">{fmtEur(dailyFee, 0)}</span> / {t('calculator.day_label')}
+          <span className="text-slate-800 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} / {t('calculator.day_label')} × €{fmtNum(commission, 2)} {t('calculator.fee_per_tx')} = <span className="text-orange-600 font-semibold">{fmtEur(dailyFee, 2)}</span> / {t('calculator.day_label')}
         </div>
       </div>
 
@@ -556,14 +556,14 @@ function TravelPartnerTab({ t }) {
                <TrendingUp className="w-4 h-4 text-emerald-200" />
                <p className="text-xs text-emerald-200">{t('calculator.potential_commission_mo')}</p>
              </div>
-             <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 0)}</p>
-           </div>
-           <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
+             <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 2)}</p>
+             </div>
+             <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                <TrendingUp className="w-4 h-4 text-emerald-100" />
                <p className="text-xs text-emerald-100">{t('calculator.potential_commission_yr')}</p>
              </div>
-             <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 0)}</p>
+             <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 2)}</p>
            </div>
           </div>
           <div className="grid gap-2">
@@ -575,7 +575,7 @@ function TravelPartnerTab({ t }) {
                     <span className="text-sm font-semibold flex items-center gap-1.5" style={{ color: v.color }}><v.Icon className="w-3.5 h-3.5" />{t('calculator.' + v.labelKey).replace(/^\P{L}+/u, '').trim()}</span>
                     <span className="text-xs text-slate-400 block">{fmtNum(stat.dutyCredits)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
                   </div>
-                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 0)}/{t('calculator.mo_label')}</span>
+                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 2)}/{t('calculator.mo_label')}</span>
                 </div>
               );
             })}
