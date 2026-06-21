@@ -181,21 +181,21 @@ function RetailerTab({ t }) {
               <Users className="w-4 h-4 text-slate-300" />
               <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(dailyNet, 2)}</p>
+            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(dailyNet, 2)}</p>
           </div>
           <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-200" />
               <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyNet, 2)}</p>
+            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(monthlyNet, 2)}</p>
           </div>
           <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-100" />
               <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualNet, 2)}</p>
+            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(annualNet, 2)}</p>
           </div>
         </div>
         <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
@@ -216,21 +216,21 @@ function RetailerTab({ t }) {
               <Euro className="w-4 h-4 text-orange-500" />
               <p className="text-xs text-slate-500">{t('calculator.daily_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-orange-600">{fmtEur(dailyFee, 2)}</p>
+            <p className="text-lg sm:text-2xl font-bold text-orange-600 whitespace-nowrap">{fmtEur(dailyFee, 2)}</p>
           </div>
           <div className="bg-orange-500 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <Euro className="w-4 h-4 text-orange-100" />
               <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(monthlyFee, 2)}</p>
+            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(monthlyFee, 2)}</p>
           </div>
           <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <Euro className="w-4 h-4 text-orange-50" />
               <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
             </div>
-            <p className="text-2xl font-bold text-white">{fmtEur(annualFee, 2)}</p>
+            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(annualFee, 2)}</p>
           </div>
         </div>
         <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
@@ -558,14 +558,14 @@ function TravelPartnerTab({ t }) {
                <TrendingUp className="w-4 h-4 text-emerald-200" />
                <p className="text-xs text-emerald-200">{t('calculator.potential_commission_mo')}</p>
              </div>
-             <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm, 2)}</p>
+             <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm, 2)}</p>
              </div>
              <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center">
                <TrendingUp className="w-4 h-4 text-emerald-100" />
                <p className="text-xs text-emerald-100">{t('calculator.potential_commission_yr')}</p>
              </div>
-             <p className="text-2xl font-bold text-white">{fmtEur(totals.monthlyComm * 12, 2)}</p>
+             <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm * 12, 2)}</p>
            </div>
           </div>
           <div className="grid gap-2">
