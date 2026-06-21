@@ -540,26 +540,26 @@ function TravelPartnerTab({ t }) {
           </h3>
           <p className="text-xs text-slate-400 -mt-2">{t('calculator.potential_disclaimer')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-           <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-               <Users className="w-4 h-4 text-slate-300" />
+           <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2 overflow-hidden">
+             <div className="flex items-center gap-2 sm:flex-col sm:items-center min-w-0">
+               <Users className="w-4 h-4 text-slate-300 shrink-0" />
                <p className="text-xs text-slate-400">{t('calculator.potential_redemptions_mo')}</p>
              </div>
-             <p className="text-2xl font-bold text-white">{fmtNum(totals.redemptions)}</p>
+             <p className="text-base sm:text-2xl font-bold text-white whitespace-nowrap">{fmtNum(totals.redemptions)}</p>
            </div>
-           <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-               <TrendingUp className="w-4 h-4 text-emerald-200" />
+           <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2 overflow-hidden">
+             <div className="flex items-center gap-2 sm:flex-col sm:items-center min-w-0">
+               <TrendingUp className="w-4 h-4 text-emerald-200 shrink-0" />
                <p className="text-xs text-emerald-200">{t('calculator.potential_commission_mo')}</p>
              </div>
-             <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm, 2)}</p>
+             <p className="text-base sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm, 2)}</p>
              </div>
-             <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-               <TrendingUp className="w-4 h-4 text-emerald-100" />
+             <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2 overflow-hidden">
+             <div className="flex items-center gap-2 sm:flex-col sm:items-center min-w-0">
+               <TrendingUp className="w-4 h-4 text-emerald-100 shrink-0" />
                <p className="text-xs text-emerald-100">{t('calculator.potential_commission_yr')}</p>
              </div>
-             <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm * 12, 2)}</p>
+             <p className="text-base sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm * 12, 2)}</p>
            </div>
           </div>
           <div className="grid gap-2">
