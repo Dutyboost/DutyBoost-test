@@ -72,11 +72,14 @@ export default function TrafficDashboard() {
     );
   }
 
-  // Strip out all base44 builder / internal visits — only real external traffic
-  const realVisits = visits.filter(v =>
-    !v.referrer_domain?.includes('base44') &&
-    v.referrer_domain !== 'internal'
-  );
+  // Strip out all builder preview traffic — only real external traffic
+  const realVisits = visits.filter(v => {
+    if (!v.referrer_domain) return false; // Exclude null/empty (local preview)
+    if (v.referrer_domain.includes('base44')) return false;
+    if (v.referrer_domain === 'internal') return false;
+    if (/localhost|127\.0\.0\.1/i.test(v.referrer_domain)) return false;
+    return true;
+  });
 
   // ── Build list of available months from visit data ──
   const monthMap = {};
