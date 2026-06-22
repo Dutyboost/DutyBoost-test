@@ -74,11 +74,11 @@ const BOOKING_TIERS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(35);
-  const [spendInput, setSpendInput] = useState("35");
+  const [spendInput, setSpendInput] = useState(fmtNum(35));
   const [spendError, setSpendError] = useState("");
   const TRAVELER_TIERS = [100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000)];
   const [dailyTravelers, setDailyTravelers] = useState(TRAVELER_TIERS[0]);
-  const [travelersInput, setTravelersInput] = useState("100");
+  const [travelersInput, setTravelersInput] = useState(fmtNum(TRAVELER_TIERS[0]));
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(1);
   // min basket is now €35
@@ -144,13 +144,16 @@ function RetailerTab({ t }) {
                 onBlur={() => {
                   const n = parseFloat(spendInput.replace(",", "."));
                   if (!spendInput || isNaN(n) || n < 35) {
-                    setSpendInput(String(spend));
+                    setSpendInput(fmtNum(spend));
                     setSpendError("");
                   } else {
-                    setSpendInput(String(Math.min(n, 1000)));
+                    const clamped = Math.min(n, 1000);
+                    setSpend(clamped);
+                    setSpendInput(fmtNum(clamped));
                   }
                 }}
-                className={`text-5xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-32 ${spendError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
+                style={{ width: `${Math.max(3, String(spendInput).length)}ch` }}
+                className={`text-5xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${spendError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
               />
             </div>
             {spendError && <p className="text-xs text-red-500 mt-1 font-medium">{spendError}</p>}
@@ -162,7 +165,7 @@ function RetailerTab({ t }) {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(String(v)); setSpendError(""); }} className="w-full" />
+          <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(fmtNum(v)); setSpendError(""); }} className="w-full" />
         </div>
         <div className="flex flex-col sm:flex-row gap-2 pt-1">
           <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
@@ -198,8 +201,8 @@ function RetailerTab({ t }) {
                 inputMode="numeric"
                 value={travelersInput}
                 onChange={(e) => {
-                  const raw = e.target.value.replace(",", ".");
-                  setTravelersInput(raw);
+                  const raw = e.target.value.replace(/\./g, "").replace(",", ".");
+                  setTravelersInput(e.target.value);
                   const n = parseFloat(raw);
                   if (!raw || isNaN(n) || n < 100) {
                     setTravelersError("Minimum DutyCredits per day must be 100");
@@ -210,13 +213,19 @@ function RetailerTab({ t }) {
                   }
                 }}
                 onBlur={() => {
-                  const n = parseFloat(travelersInput.replace(",", "."));
+                  const raw = (travelersInput || "").replace(/\./g, "").replace(",", ".");
+                  const n = parseFloat(raw);
                   if (!travelersInput || isNaN(n) || n < 100) {
-                    setTravelersInput(String(dailyTravelers));
+                    setTravelersInput(fmtNum(dailyTravelers));
                     setTravelersError("");
+                  } else {
+                    const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
+                    setDailyTravelers(nearest);
+                    setTravelersInput(fmtNum(nearest));
                   }
                 }}
-                className={`text-4xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-40 ${travelersError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
+                style={{ width: `${Math.max(3, String(travelersInput).length)}ch` }}
+                className={`text-4xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${travelersError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
               />
               {travelersError && <p className="text-xs text-red-500 mt-1 font-medium">{travelersError}</p>}
             </div>
@@ -225,7 +234,7 @@ function RetailerTab({ t }) {
               <p className="text-base font-bold text-slate-900">{fmtNum(dailyRedemptions)} / {t('calculator.day_label')}</p>
             </div>
           </div>
-          <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(String(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
+          <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(fmtNum(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
@@ -541,8 +550,8 @@ function TravelPartnerTab({ t }) {
                  inputMode="numeric"
                  value={bookingsInput[v.key]}
                  onChange={(e) => {
-                   const raw = e.target.value.replace(",", ".");
-                   setBookingsInput((bi) => ({ ...bi, [v.key]: raw }));
+                   const raw = e.target.value.replace(/\./g, "").replace(",", ".");
+                   setBookingsInput((bi) => ({ ...bi, [v.key]: e.target.value }));
                    const n = parseFloat(raw);
                    if (!raw || isNaN(n) || n < 1) {
                      setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" }));
@@ -553,13 +562,19 @@ function TravelPartnerTab({ t }) {
                    }
                  }}
                  onBlur={() => {
-                   const n = parseFloat((bookingsInput[v.key] || "").replace(",", "."));
+                   const raw = (bookingsInput[v.key] || "").replace(/\./g, "").replace(",", ".");
+                   const n = parseFloat(raw);
                    if (!bookingsInput[v.key] || isNaN(n) || n < 1) {
-                     setBookingsInput((bi) => ({ ...bi, [v.key]: String(bookings[v.key]) }));
+                     setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(bookings[v.key]) }));
                      setBookingsError((be) => ({ ...be, [v.key]: "" }));
+                   } else {
+                     const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
+                     setBookings((bk) => ({ ...bk, [v.key]: nearest }));
+                     setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(nearest) }));
                    }
                  }}
-                  className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-36 ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
+                 style={{ width: `${Math.max(3, String(bookingsInput[v.key]).length)}ch` }}
+                  className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
                 />
                 {bookingsError[v.key] && <p className="text-xs text-red-500 mt-1 font-medium">{bookingsError[v.key]}</p>}
               </div>
@@ -576,7 +591,7 @@ function TravelPartnerTab({ t }) {
                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => { setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] })); setBookingsInput((bi) => ({ ...bi, [v.key]: String(BOOKING_TIERS[i]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }} className="w-full" />
+            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => { setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] })); setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(BOOKING_TIERS[i]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }} className="w-full" />
           </div>
 
           {/* Conversion rate slider */}
