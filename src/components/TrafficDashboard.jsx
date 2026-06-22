@@ -354,14 +354,20 @@ export default function TrafficDashboard() {
       {(() => {
         const pages = tally(filteredVisits.filter(v => v.page_path), 'page_path');
         if (pages.length === 0) return null;
+        const periodLabel = selectedMonth === 'all' ? 'All time' : availableMonths.find(m => m.key === selectedMonth)?.label;
         return (
           <div className="bg-slate-800 border border-teal-500/30 rounded-2xl p-5">
-            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-1">
-              Pages visited on DutyBoost
-            </h3>
-            <p className="text-xs text-slate-400 mb-5">
-              Which pages visitors land on{selectedMonth !== 'all' ? ` in ${availableMonths.find(m => m.key === selectedMonth)?.label}` : ''}, ranked by volume.
-            </p>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">
+                  Pages visited on DutyBoost
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Which pages visitors land on, ranked by volume.
+                </p>
+              </div>
+              <span className="text-xs px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 whitespace-nowrap">{periodLabel}</span>
+            </div>
             <div className="space-y-2">
               {pages.map((r, i) => {
                 const pct = totalVisits > 0 ? ((r.value / totalVisits) * 100).toFixed(1) : 0;
