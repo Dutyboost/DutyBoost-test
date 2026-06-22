@@ -444,6 +444,8 @@ const VERTICALS_CONFIG = [
 function TravelPartnerTab({ t }) {
   const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
   const [bookings, setBookings] = useState({ flight: 0, accommodation: 0, car: 0 });
+  const [bookingsInput, setBookingsInput] = useState({ flight: "0", accommodation: "0", car: "0" });
+  const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [conversion, setConversion] = useState({ flight: 1, accommodation: 1, car: 1 });
   const FIXED_AVG_BASKET = 35;
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
@@ -519,7 +521,30 @@ function TravelPartnerTab({ t }) {
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_x2_note_prefix')} / {t('calculator.month_label')}</p>
-                <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
+                <input
+                  type="number"
+                  value={bookingsInput[v.key]}
+                  onChange={(e) => {
+                    setBookingsInput((bi) => ({ ...bi, [v.key]: e.target.value }));
+                    const n = Number(e.target.value);
+                    if (!e.target.value || isNaN(n) || n < 1) {
+                      setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" }));
+                    } else {
+                      setBookingsError((be) => ({ ...be, [v.key]: "" }));
+                      const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
+                      setBookings((bk) => ({ ...bk, [v.key]: nearest }));
+                    }
+                  }}
+                  onBlur={() => {
+                    const n = Number(bookingsInput[v.key]);
+                    if (!bookingsInput[v.key] || isNaN(n) || n < 1) {
+                      setBookingsInput((bi) => ({ ...bi, [v.key]: String(bookings[v.key]) }));
+                      setBookingsError((be) => ({ ...be, [v.key]: "" }));
+                    }
+                  }}
+                  className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-36 ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
+                />
+                {bookingsError[v.key] && <p className="text-xs text-red-500 mt-1 font-medium">{bookingsError[v.key]}</p>}
               </div>
               <div className="text-right text-sm text-slate-500">
                 <span>{t('calculator.dutycredits_issued_month')}</span>
@@ -534,7 +559,7 @@ function TravelPartnerTab({ t }) {
                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] }))} className="w-full" />
+            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => { setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] })); setBookingsInput((bi) => ({ ...bi, [v.key]: String(BOOKING_TIERS[i]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }} className="w-full" />
           </div>
 
           {/* Conversion rate slider */}
