@@ -121,10 +121,6 @@ function RetailerTab({ t }) {
         </div>
         <div className="space-y-2">
           <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
-          <div className="flex items-center justify-between">
-            <SliderInput value={spend} min={35} max={1000} step={5} onChange={setSpend} prefix="€" />
-            <span className="text-xs text-slate-600">€35 – €1.000</span>
-          </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-2 pt-1">
           <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
@@ -163,10 +159,6 @@ function RetailerTab({ t }) {
             </div>
           </div>
           <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => setDailyTravelers(TRAVELER_TIERS[i])} className="w-full" />
-          <div className="flex items-center justify-between">
-            <SliderInput value={dailyTravelers} min={100} max={1000000} onChange={setDailyTravelers} tiers={TRAVELER_TIERS} />
-            <span className="text-xs text-slate-600">100 – 1.000.000</span>
-          </div>
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
@@ -178,10 +170,6 @@ function RetailerTab({ t }) {
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
           </div>
           <Slider min={1} max={75} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
-          <div className="flex items-center justify-between">
-            <SliderInput value={conversionRate} min={1} max={75} onChange={setConversionRate} suffix="%" />
-            <span className="text-xs text-slate-600">1% – 75%</span>
-          </div>
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>
@@ -495,10 +483,6 @@ function TravelPartnerTab({ t }) {
               </p>
             )}
             <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] }))} className="w-full" />
-            <div className="flex items-center justify-between">
-              <SliderInput value={bookings[v.key]} min={0} max={10000000} onChange={(val) => setBookings((b) => ({ ...b, [v.key]: val }))} tiers={BOOKING_TIERS} />
-              <span className="text-xs text-slate-400">0 – 10.000.000</span>
-            </div>
           </div>
 
           {/* Conversion rate slider */}
@@ -511,10 +495,6 @@ function TravelPartnerTab({ t }) {
               <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
             </div>
             <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} className="w-full" />
-            <div className="flex items-center justify-between">
-              <SliderInput value={conversion[v.key]} min={1} max={50} onChange={(val) => setConversion((c) => ({ ...c, [v.key]: val }))} suffix="%" />
-              <span className="text-xs text-slate-400">1% – 50%</span>
-            </div>
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
           </div>
 
