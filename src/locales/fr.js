@@ -597,6 +597,9 @@ export default {
       monthly_fee: 'Frais mensuel de plateforme',
       annual_fee: 'Frais annuel de plateforme',
       fee_per_tx: 'frais / tx',
+      error_min_basket: 'Le panier minimum est de €35',
+      error_min_travelers: 'Minimum 100 DutyCredits par jour',
+      error_min_bookings: 'Minimum 500 réservations / mois',
       commission_footnote: "Commission = 20% des frais 2,5% de DutyBoost par utilisation (max €5/tx), versée mensuellement par DutyBoost.",
     },
     letterOfIntent: {

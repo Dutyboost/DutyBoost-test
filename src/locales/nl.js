@@ -684,6 +684,9 @@ export default {
       monthly_fee: 'Maandelijkse platformkosten',
       annual_fee: 'Jaarlijkse platformkosten',
       fee_per_tx: 'kosten / tx',
+      error_min_basket: 'Minimale basketuitgave is €35',
+      error_min_travelers: 'Minimum is 100 DutyCredits per dag',
+      error_min_bookings: 'Minimaal 500 boekingen / maand',
       commission_footnote: "Commissie = 20% van DutyBoost's 2,5% fee per inwisseling (max €5/tx), maandelijks uitbetaald door DutyBoost.",
     },
     letterOfIntent: {

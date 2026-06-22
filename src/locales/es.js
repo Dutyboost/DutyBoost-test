@@ -819,6 +819,9 @@ export default {
       monthly_fee: 'Tarifa mensual de plataforma',
       annual_fee: 'Tarifa anual de plataforma',
       fee_per_tx: 'tarifa / tx',
+      error_min_basket: 'El gasto mínimo de cesta es €35',
+      error_min_travelers: 'Mínimo 100 DutyCredits por día',
+      error_min_bookings: 'Mínimo 500 reservas / mes',
       commission_footnote: "Comisión = 20% de la tarifa del 2,5% de DutyBoost por canje (máx €5/tx), pagada mensualmente por DutyBoost.",
     },
     letterOfIntent: {

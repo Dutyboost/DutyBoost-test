@@ -133,10 +133,10 @@ function RetailerTab({ t }) {
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
                   const n = digits === "" ? NaN : parseInt(digits, 10);
-                  if (digits === "") { setSpendInput(""); setSpendError("Minimum basket spend is €35"); return; }
+                  if (digits === "") { setSpendInput(""); setSpendError(t('calculator.error_min_basket')); return; }
                   const clamped = Math.min(n, 1000);
                   setSpendInput(fmtNum(clamped));
-                  if (n < 35) { setSpendError("Minimum basket spend is €35"); } else { setSpendError(""); setSpend(clamped); }
+                  if (n < 35) { setSpendError(t('calculator.error_min_basket')); } else { setSpendError(""); setSpend(clamped); }
                 }}
                 onBlur={() => {
                   const digits = (spendInput || "").replace(/[^\d]/g, "");
@@ -193,10 +193,10 @@ function RetailerTab({ t }) {
                 value={travelersInput}
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
-                   if (digits === "") { setTravelersInput(""); setTravelersError("Minimum is 100 DutyCredits per day"); return; }
+                   if (digits === "") { setTravelersInput(""); setTravelersError(t('calculator.error_min_travelers')); return; }
                    const n = parseInt(digits, 10);
                    setTravelersInput(fmtNum(n));
-                   if (n < 100) { setTravelersError("Minimum is 100 DutyCredits per day"); } else { setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest); }
+                   if (n < 100) { setTravelersError(t('calculator.error_min_travelers')); } else { setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest); }
                 }}
                 onBlur={() => {
                   const digits = (travelersInput || "").replace(/[^\d]/g, "");
@@ -530,10 +530,10 @@ function TravelPartnerTab({ t }) {
                  value={bookingsInput[v.key]}
                  onChange={(e) => {
                    const digits = e.target.value.replace(/[^\d]/g, "");
-                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: "Minimum 500 bookings / month" })); return; }
+                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: t('calculator.error_min_bookings') })); return; }
                    const n = parseInt(digits, 10);
                    setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(n) }));
-                   if (n < 500) { setBookingsError((be) => ({ ...be, [v.key]: "Minimum 500 bookings / month" })); } else { setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest })); }
+                   if (n < 500) { setBookingsError((be) => ({ ...be, [v.key]: t('calculator.error_min_bookings') })); } else { setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest })); }
                  }}
                  onBlur={() => {
                    const digits = (bookingsInput[v.key] || "").replace(/[^\d]/g, "");
@@ -544,7 +544,7 @@ function TravelPartnerTab({ t }) {
                   className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
                 />
                 {bookingsError[v.key] && <p className="text-xs text-red-500 mt-1 font-medium">{bookingsError[v.key]}</p>}
-                <p className="text-xs text-slate-400 mt-1">Minimum 500 bookings / month</p>
+                <p className="text-xs text-slate-400 mt-1">{t('calculator.error_min_bookings')}</p>
                 </div>
               <div className="text-right text-sm text-slate-500">
                 <span>{t('calculator.dutycredits_issued_month')}</span>

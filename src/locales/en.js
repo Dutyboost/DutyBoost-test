@@ -892,6 +892,9 @@ export default {
       monthly_fee: 'Monthly platform fee',
       annual_fee: 'Annual platform fee',
       fee_per_tx: 'fee / tx',
+      error_min_basket: 'Minimum basket spend is €35',
+      error_min_travelers: 'Minimum is 100 DutyCredits per day',
+      error_min_bookings: 'Minimum 500 bookings / month',
     },
     letterOfIntent: {
       title: 'Letter of Intent',

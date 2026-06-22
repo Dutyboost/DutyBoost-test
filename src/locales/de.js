@@ -597,6 +597,9 @@ export default {
       monthly_fee: 'Monatliche Plattformgebühr',
       annual_fee: 'Jährliche Plattformgebühr',
       fee_per_tx: 'Gebühr / Tx',
+      error_min_basket: 'Mindestwarenwert beträgt €35',
+      error_min_travelers: 'Mindestens 100 DutyCredits pro Tag',
+      error_min_bookings: 'Mindestens 500 Buchungen / Monat',
       commission_footnote: "Provision = 20% von DutyBoosts 2,5% Gebühr pro Einlösung (max €5/tx), monatlich durch DutyBoost ausgezahlt.",
     },
     letterOfIntent: {

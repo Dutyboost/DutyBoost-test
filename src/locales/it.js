@@ -615,6 +615,9 @@ export default {
       monthly_fee: 'Commissione mensile di piattaforma',
       annual_fee: 'Commissione annuale di piattaforma',
       fee_per_tx: 'commissione / tx',
+      error_min_basket: 'La spesa minima del carrello è €35',
+      error_min_travelers: 'Minimo 100 DutyCredits al giorno',
+      error_min_bookings: 'Minimo 500 prenotazioni / mese',
       commission_footnote: "Commissione = 20% della commissione del 2,5% di DutyBoost per riscatto (max €5/tx), pagata mensilmente da DutyBoost.",
     },
     letterOfIntent: {
