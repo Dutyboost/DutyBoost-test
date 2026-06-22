@@ -347,6 +347,46 @@ export default function TrafficDashboard() {
         </div>
       )}
 
+      {/* Pages visited on DutyBoost */}
+      {(() => {
+        const pages = tally(filteredVisits.filter(v => v.page_path), 'page_path');
+        if (pages.length === 0) return null;
+        return (
+          <div className="bg-slate-800 border border-teal-500/30 rounded-2xl p-5">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-1">
+              Pages visited on DutyBoost
+            </h3>
+            <p className="text-xs text-slate-400 mb-5">
+              Which pages visitors land on{selectedMonth !== 'all' ? ` in ${availableMonths.find(m => m.key === selectedMonth)?.label}` : ''}, ranked by volume.
+            </p>
+            <div className="space-y-2">
+              {pages.map((r, i) => {
+                const pct = totalVisits > 0 ? ((r.value / totalVisits) * 100).toFixed(1) : 0;
+                const barWidth = pages[0].value > 0 ? (r.value / pages[0].value) * 100 : 0;
+                const color = COLORS[i % COLORS.length];
+                return (
+                  <div key={r.name} className="flex items-center gap-3">
+                    <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-medium text-slate-200 truncate">{r.name || '/'}</span>
+                        <div className="flex items-center gap-3 shrink-0 ml-3">
+                          <span className="text-xs text-slate-400">{pct}%</span>
+                          <span className="text-sm font-bold" style={{ color }}>{r.value}</span>
+                        </div>
+                      </div>
+                      <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full rounded-full transition-all duration-500" style={{ width: `${barWidth}%`, background: color }} />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Note about UTM */}
       {utmSources.length === 0 && (
         <div className="bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 text-xs text-slate-400">
