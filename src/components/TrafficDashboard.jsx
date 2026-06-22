@@ -56,6 +56,7 @@ export default function TrafficDashboard() {
   const [visits, setVisits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedMonth, setSelectedMonth] = useState('all');
+  const [pagesPeriod, setPagesPeriod] = useState('month');
 
   useEffect(() => {
     base44.entities.PageVisit.list('-created_date', 5000).then(data => {
@@ -352,12 +353,33 @@ export default function TrafficDashboard() {
 
       {/* Pages visited on DutyBoost */}
       {(() => {
-        const pages = tally(filteredVisits.filter(v => v.page_path), 'page_path');
+        // Filter visits by pagesPeriod (day/week/month/year)
+        const getPeriodFilter = () => {
+          const now = new Date();
+          let cutoff = new Date();
+          if (pagesPeriod === 'day') {
+            cutoff.setDate(cutoff.getDate() - 1);
+          } else if (pagesPeriod === 'week') {
+            cutoff.setDate(cutoff.getDate() - 7);
+          } else if (pagesPeriod === 'month') {
+            cutoff.setMonth(cutoff.getMonth() - 1);
+          } else if (pagesPeriod === 'year') {
+            cutoff.setFullYear(cutoff.getFullYear() - 1);
+          }
+          return cutoff;
+        };
+        const cutoffDate = getPeriodFilter();
+        const pageVisits = filteredVisits.filter(v => {
+          if (!v.page_path || !v.created_date) return false;
+          return new Date(v.created_date) >= cutoffDate;
+        });
+        const pages = tally(pageVisits, 'page_path');
         if (pages.length === 0) return null;
-        const periodLabel = selectedMonth === 'all' ? 'All time' : availableMonths.find(m => m.key === selectedMonth)?.label;
+        const monthLabel = selectedMonth === 'all' ? 'All time' : availableMonths.find(m => m.key === selectedMonth)?.label;
+        const periodLabels = { day: 'Last 24h', week: 'Last 7 days', month: 'Last 30 days', year: 'Last 12 months' };
         return (
           <div className="bg-slate-800 border border-teal-500/30 rounded-2xl p-5">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
               <div>
                 <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-0.5">
                   Pages visited on DutyBoost
@@ -366,7 +388,20 @@ export default function TrafficDashboard() {
                   Which pages visitors land on, ranked by volume.
                 </p>
               </div>
-              <span className="text-xs px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 whitespace-nowrap">{periodLabel}</span>
+              <div className="flex items-center gap-2">
+                <Select value={pagesPeriod} onValueChange={setPagesPeriod}>
+                  <SelectTrigger className="w-[140px] bg-slate-900 border-slate-600 text-white text-xs h-8">
+                    <SelectValue placeholder="Period" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="day">Last 24h</SelectItem>
+                    <SelectItem value="week">Last 7 days</SelectItem>
+                    <SelectItem value="month">Last 30 days</SelectItem>
+                    <SelectItem value="year">Last 12 months</SelectItem>
+                  </SelectContent>
+                </Select>
+                <span className="text-xs px-2 py-1 rounded-full bg-slate-700 text-slate-300">{monthLabel}</span>
+              </div>
             </div>
             <div className="space-y-2">
               {pages.map((r, i) => {
