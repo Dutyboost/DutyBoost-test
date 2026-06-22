@@ -530,13 +530,15 @@ function TravelPartnerTab({ t }) {
                  value={bookingsInput[v.key]}
                  onChange={(e) => {
                    const digits = e.target.value.replace(/[^\d]/g, "");
-                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: "" })); return; }
+                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: "Minimum 500 bookings / month" })); return; }
                    const n = parseInt(digits, 10);
                    setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(n) }));
-                   setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest }));
+                   if (n < 500) { setBookingsError((be) => ({ ...be, [v.key]: "Minimum 500 bookings / month" })); } else { setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest })); }
                  }}
                  onBlur={() => {
-                   if (!bookingsInput[v.key]) { setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(bookings[v.key]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }
+                   const digits = (bookingsInput[v.key] || "").replace(/[^\d]/g, "");
+                   const n = digits === "" ? 0 : parseInt(digits, 10);
+                   if (n < 500) { setBookings((bk) => ({ ...bk, [v.key]: 500 })); setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(500) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }
                  }}
                  style={{ width: `${Math.max(3, String(bookingsInput[v.key]).length)}ch` }}
                   className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
