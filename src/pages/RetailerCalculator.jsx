@@ -127,12 +127,14 @@ function RetailerTab({ t }) {
             <div className="flex items-center gap-1">
               <span className="text-5xl font-bold text-slate-900">€</span>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 value={spendInput}
                 onChange={(e) => {
-                  setSpendInput(e.target.value);
-                  const n = Number(e.target.value);
-                  if (!e.target.value || isNaN(n) || n < 35) {
+                  const raw = e.target.value.replace(",", ".");
+                  setSpendInput(raw);
+                  const n = parseFloat(raw);
+                  if (!raw || isNaN(n) || n < 35) {
                     setSpendError("Minimum basket spend is €35");
                   } else {
                     setSpendError("");
@@ -140,10 +142,12 @@ function RetailerTab({ t }) {
                   }
                 }}
                 onBlur={() => {
-                  const n = Number(spendInput);
+                  const n = parseFloat(spendInput.replace(",", "."));
                   if (!spendInput || isNaN(n) || n < 35) {
                     setSpendInput(String(spend));
                     setSpendError("");
+                  } else {
+                    setSpendInput(String(Math.min(n, 1000)));
                   }
                 }}
                 className={`text-5xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-32 ${spendError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
@@ -190,12 +194,14 @@ function RetailerTab({ t }) {
             <div>
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.daily_travelers')}</p>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 value={travelersInput}
                 onChange={(e) => {
-                  setTravelersInput(e.target.value);
-                  const n = Number(e.target.value);
-                  if (!e.target.value || isNaN(n) || n < 100) {
+                  const raw = e.target.value.replace(",", ".");
+                  setTravelersInput(raw);
+                  const n = parseFloat(raw);
+                  if (!raw || isNaN(n) || n < 100) {
                     setTravelersError("Minimum DutyCredits per day must be 100");
                   } else {
                     setTravelersError("");
@@ -204,7 +210,7 @@ function RetailerTab({ t }) {
                   }
                 }}
                 onBlur={() => {
-                  const n = Number(travelersInput);
+                  const n = parseFloat(travelersInput.replace(",", "."));
                   if (!travelersInput || isNaN(n) || n < 100) {
                     setTravelersInput(String(dailyTravelers));
                     setTravelersError("");
@@ -305,18 +311,18 @@ function RetailerTab({ t }) {
             <div className="bg-rose-600 rounded-xl p-4 text-center">
               <Percent className="w-6 h-6 text-rose-100 mx-auto mb-2" />
               <p className="text-xs text-rose-100 mb-1">{t('calculator.traveler_saving')}</p>
-              <p className="text-2xl font-bold text-white">€{fmtNum(saving, 2)}</p>
+              <p className="text-2xl font-bold text-white">{fmtEur(saving, 2)}</p>
               <p className="text-xs text-rose-200 mt-0.5">{fmtNum(discountPct, 1)}% off</p>
             </div>
             <div className="bg-orange-500 rounded-xl p-4 text-center">
               <Euro className="w-6 h-6 text-orange-100 mx-auto mb-2" />
               <p className="text-xs text-orange-100 mb-1">{t('calculator.dutboost_fee')}</p>
-              <p className="text-2xl font-bold text-white">€{fmtNum(commission, 2)}</p>
+              <p className="text-2xl font-bold text-white">{fmtEur(commission, 2)}</p>
             </div>
             <div className="bg-emerald-600 rounded-xl p-4 text-center">
               <TrendingUp className="w-6 h-6 text-emerald-100 mx-auto mb-2" />
               <p className="text-xs text-emerald-100 mb-1">{t('calculator.net_revenue')}</p>
-              <p className="text-2xl font-bold text-white">€{fmtNum(netRevenue, 2)}</p>
+              <p className="text-2xl font-bold text-white">{fmtEur(netRevenue, 2)}</p>
             </div>
             <div className="bg-teal-700 rounded-xl p-4 text-center">
               <TrendingUp className="w-6 h-6 text-teal-100 mx-auto mb-2" />
@@ -347,7 +353,7 @@ function RetailerTab({ t }) {
             <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <p className="text-xs text-slate-500">{t('calculator.total_cost_label')}</p>
-                <p className="text-2xl font-bold text-slate-900">€{fmtNum(totalCost, 2)} <span className="text-sm font-normal text-slate-600">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
+                <p className="text-2xl font-bold text-slate-900">{fmtEur(totalCost, 2)} <span className="text-sm font-normal text-slate-600">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
               </div>
 
             </div>
@@ -379,7 +385,7 @@ function RetailerTab({ t }) {
                         <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
                         <td className="py-2.5 pr-4 text-slate-700">{fmtEur(t.min)}{t.max === 1000 ? "+" : `–${fmtEur(t.max)}`}</td>
                         <td className="py-2.5 pr-4 text-slate-700">{fmtEur(t.saving, 2)}</td>
-                        <td className="py-2.5 pr-4 text-orange-600">€{fmtNum(Math.min(t.min * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP), 2)}</td>
+                        <td className="py-2.5 pr-4 text-orange-600">{fmtEur(Math.min(t.min * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP), 2)}</td>
                         <td className="py-2.5 text-green-600">{fmtNum(midNet, 1)}%</td>
                       </tr>
                     );
@@ -531,26 +537,28 @@ function TravelPartnerTab({ t }) {
               <div>
                 <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_x2_note_prefix')} / {t('calculator.month_label')}</p>
                 <input
-                  type="number"
-                  value={bookingsInput[v.key]}
-                  onChange={(e) => {
-                    setBookingsInput((bi) => ({ ...bi, [v.key]: e.target.value }));
-                    const n = Number(e.target.value);
-                    if (!e.target.value || isNaN(n) || n < 1) {
-                      setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" }));
-                    } else {
-                      setBookingsError((be) => ({ ...be, [v.key]: "" }));
-                      const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
-                      setBookings((bk) => ({ ...bk, [v.key]: nearest }));
-                    }
-                  }}
-                  onBlur={() => {
-                    const n = Number(bookingsInput[v.key]);
-                    if (!bookingsInput[v.key] || isNaN(n) || n < 1) {
-                      setBookingsInput((bi) => ({ ...bi, [v.key]: String(bookings[v.key]) }));
-                      setBookingsError((be) => ({ ...be, [v.key]: "" }));
-                    }
-                  }}
+                 type="text"
+                 inputMode="numeric"
+                 value={bookingsInput[v.key]}
+                 onChange={(e) => {
+                   const raw = e.target.value.replace(",", ".");
+                   setBookingsInput((bi) => ({ ...bi, [v.key]: raw }));
+                   const n = parseFloat(raw);
+                   if (!raw || isNaN(n) || n < 1) {
+                     setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" }));
+                   } else {
+                     setBookingsError((be) => ({ ...be, [v.key]: "" }));
+                     const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
+                     setBookings((bk) => ({ ...bk, [v.key]: nearest }));
+                   }
+                 }}
+                 onBlur={() => {
+                   const n = parseFloat((bookingsInput[v.key] || "").replace(",", "."));
+                   if (!bookingsInput[v.key] || isNaN(n) || n < 1) {
+                     setBookingsInput((bi) => ({ ...bi, [v.key]: String(bookings[v.key]) }));
+                     setBookingsError((be) => ({ ...be, [v.key]: "" }));
+                   }
+                 }}
                   className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-36 ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
                 />
                 {bookingsError[v.key] && <p className="text-xs text-red-500 mt-1 font-medium">{bookingsError[v.key]}</p>}
@@ -605,7 +613,7 @@ function TravelPartnerTab({ t }) {
                 </div>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
                   <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_commission_tx')}</p>
-                  <p className="text-base font-bold" style={{ color: v.color }}>€{fmtNum(stat.commPerTx, 2)}</p>
+                  <p className="text-base font-bold" style={{ color: v.color }}>{fmtEur(stat.commPerTx, 2)}</p>
                 </div>
                 <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
                   <p className="text-xs text-white/80 mb-0.5 leading-tight">{t('calculator.potential_earned_mo')}</p>
