@@ -94,7 +94,7 @@ function RetailerTab({ t }) {
     <div className="space-y-6">
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-slate-900">{t('calculator.retailer_title')}</h2>
-        <p className="text-slate-600 text-sm max-w-xl mx-auto">{t('calculator.retailer_subtitle')}</p>
+        <p className="text-slate-600 text-sm max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('calculator.retailer_subtitle') }} />
       </div>
 
       {/* Slider Card */}

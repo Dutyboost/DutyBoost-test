@@ -481,7 +481,7 @@ export default {
       tab_retailer: 'Détaillant aéroportuaire',
       tab_partner: 'Partenaire de voyage',
       retailer_title: 'À quoi ressemblerait une transaction DutyBoost pour vous ?',
-      retailer_subtitle: "Faites glisser les curseurs sur n'importe quelle taille de panier ou DutyCredits quotidiens pour voir une analyse claire de ce que ressembleront vos revenus nets potentiels. Il n'y a aucun coût d'implémentation, aucune licence logicielle ni frais d'abonnement. Les détaillants ne paient que lorsqu'une vente incrémentale réelle est générée.",
+      retailer_subtitle: "Faites glisser les curseurs sur n'importe quelle taille de panier ou DutyCredits quotidiens pour voir une analyse claire de ce que ressembleront vos revenus nets potentiels. Il n'y a <strong>aucun coût d'implémentation, aucune licence logicielle ni frais d'abonnement</strong>. Les détaillants ne paient que lorsqu'une <strong>vente incrémentale réelle</strong> est générée.",
       daily_travelers: 'Voyageurs DutyBoost quotidiens passant devant votre magasin',
       estimated_redemptions: 'Échanges estimés (m1nd-set / ETRC)',
       conversion_rate: 'Taux de conversion',
