@@ -133,10 +133,10 @@ function RetailerTab({ t }) {
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
                   const n = digits === "" ? NaN : parseInt(digits, 10);
-                  if (digits === "") { setSpendInput(""); setSpendError(""); return; }
+                  if (digits === "") { setSpendInput(""); setSpendError("Minimum basket spend is €35"); return; }
                   const clamped = Math.min(n, 1000);
                   setSpendInput(fmtNum(clamped));
-                  setSpendError(""); setSpend(clamped);
+                  if (n < 35) { setSpendError("Minimum basket spend is €35"); } else { setSpendError(""); setSpend(clamped); }
                 }}
                 onBlur={() => {
                   const digits = (spendInput || "").replace(/[^\d]/g, "");
@@ -193,10 +193,10 @@ function RetailerTab({ t }) {
                 value={travelersInput}
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
-                   if (digits === "") { setTravelersInput(""); setTravelersError(""); return; }
+                   if (digits === "") { setTravelersInput(""); setTravelersError("Minimum is 100 DutyCredits per day"); return; }
                    const n = parseInt(digits, 10);
                    setTravelersInput(fmtNum(n));
-                   setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest);
+                   if (n < 100) { setTravelersError("Minimum is 100 DutyCredits per day"); } else { setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest); }
                 }}
                 onBlur={() => {
                   const digits = (travelersInput || "").replace(/[^\d]/g, "");
