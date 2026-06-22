@@ -51,6 +51,14 @@ const TIER_BANDS = [
   { label: "VIP",      min: 300, max: 1000,saving: 60.00, color: "bg-purple-400", textColor: "text-purple-600" },
 ];
 
+// Bookings/month slider tiers: 0 → 100→1000 (×100) → 2000→100000 (×1000) → 105000→10M (×5000)
+const BOOKING_TIERS = [
+  0,
+  ...Array.from({ length: 10 }, (_, i) => (i + 1) * 100),
+  ...Array.from({ length: 99 }, (_, i) => (i + 2) * 1000),
+  ...Array.from({ length: 1980 }, (_, i) => 105000 + i * 5000),
+];
+
 
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
@@ -479,7 +487,7 @@ function TravelPartnerTab({ t }) {
                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={10000000} step={5000} value={[bookings[v.key]]} onValueChange={([val]) => setBookings((b) => ({ ...b, [v.key]: val }))} className="w-full" />
+            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] }))} className="w-full" />
             <div className="flex justify-between text-xs text-slate-400"><span>0</span><span>10.000.000 {t('calculator.bookings_x2_note_prefix')}</span></div>
           </div>
 
