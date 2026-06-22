@@ -49,7 +49,8 @@ export default function CountryTimeline({ visits }) {
     const map = {};
     visits.forEach(v => {
       if (!v.created_date) return;
-      const country = v.country && v.country !== 'Unknown' ? v.country : 'Unknown';
+      const country = v.country && v.country !== 'Unknown' ? v.country : null;
+      if (!country) return;
       const pk = getPeriodKey(v.created_date, granularity);
       if (!map[pk]) map[pk] = {};
       map[pk][country] = (map[pk][country] || 0) + 1;
