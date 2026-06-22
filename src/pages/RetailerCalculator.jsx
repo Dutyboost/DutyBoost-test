@@ -165,8 +165,8 @@ function RetailerTab({ t }) {
             </div>
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
           </div>
-          <Slider min={1} max={50} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
-          <div className="flex justify-between text-xs text-slate-600"><span>1%</span><span>50%</span></div>
+          <Slider min={1} max={75} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
+          <div className="flex justify-between text-xs text-slate-600"><span>1%</span><span>75%</span></div>
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>
