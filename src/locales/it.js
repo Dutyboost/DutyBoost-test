@@ -499,7 +499,7 @@ export default {
       tab_retailer: 'Retailer aeroportuale',
       tab_partner: 'Partner di viaggio',
       retailer_title: 'Come apparirebbe una transazione DutyBoost per te?',
-      retailer_subtitle: 'Trascina i cursori su qualsiasi dimensione del carrello o DutyCredit giornalieri per vedere una ripartizione chiara di come apparirà il tuo potenziale ricavo netto. Non ci sono <strong>costi di implementazione, licenze software o canoni di abbonamento</strong>. I retailer pagano solo quando viene generata una <strong>vera vendita incrementale</strong>.',
+      retailer_subtitle: 'Inserisci un importo in euro per la dimensione del carrello e imposta il numero di viaggiatori giornalieri con un DutyCredit che passano davanti al tuo negozio per vedere una ripartizione chiara del tuo potenziale ricavo netto. Non ci sono <strong>costi di implementazione, licenze software o canoni di abbonamento</strong>. I retailer pagano solo quando viene generata una <strong>vera vendita incrementale</strong>.',
       daily_travelers: 'Viaggiatori DutyBoost giornalieri che passano dal tuo negozio',
       estimated_redemptions: 'Riscatti stimati (m1nd-set / ETRC)',
       conversion_rate: 'Tasso di conversione',

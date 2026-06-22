@@ -481,7 +481,7 @@ export default {
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
       retailer_title: 'Wie würde eine DutyBoost-Transaktion für Sie aussehen?',
-      retailer_subtitle: 'Ziehen Sie die Schieberegler auf eine beliebige Korbgröße oder tägliche DutyCredits, um eine klare Aufschlüsselung zu sehen, wie Ihr potenzieller Nettoumsatz aussehen wird. Es gibt <strong>keine Implementierungskosten, Softwarelizenzen oder Abonnementgebühren</strong>. Händler zahlen nur, wenn ein <strong>echter inkrementeller Verkauf</strong> generiert wird.',
+      retailer_subtitle: 'Geben Sie einen Euro-Betrag für die Korbgröße ein und stellen Sie die Anzahl der täglichen Reisenden mit einem DutyCredit an Ihrem Geschäft ein, um eine klare Aufschlüsselung Ihres potenziellen Nettoumsatzes zu sehen. Es gibt <strong>keine Implementierungskosten, Softwarelizenzen oder Abonnementgebühren</strong>. Händler zahlen nur, wenn ein <strong>echter inkrementeller Verkauf</strong> generiert wird.',
       daily_travelers: 'Tägliche DutyBoost-Reisende an Ihrem Laden',
       estimated_redemptions: 'Geschätzte Einlösungen (m1nd-set / ETRC)',
       conversion_rate: 'Konversionsrate',

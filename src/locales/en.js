@@ -775,7 +775,7 @@ export default {
       tab_retailer: 'Airport Retailer',
       tab_partner: 'Travel Partner',
       retailer_title: 'What would a DutyBoost transaction look like for you?',
-      retailer_subtitle: "Set the amount to any basket size or Daily DutyCredits to see a clear breakdown of what your potential net revenue will look like. There are <strong>no implementation costs, software licenses, or subscription fees</strong>. Retailers only pay when a <strong>genuine incremental sale</strong> is generated.",
+      retailer_subtitle: "Enter any basket euro amount and set the number of daily travelers with a DutyCredit passing your store to see a clear breakdown of your potential net revenue. There are <strong>no implementation costs, software licenses, or subscription fees</strong>. Retailers only pay when a <strong>genuine incremental sale</strong> is generated.",
       daily_travelers: 'Daily DutyCredit travelers passing your store',
       estimated_redemptions: 'Estimated redemptions (m1nd-set / ETRC)',
       conversion_rate: 'Conversion rate',
