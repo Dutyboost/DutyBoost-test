@@ -496,7 +496,10 @@ function TravelPartnerTab({ t }) {
             )}
             <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] }))} className="w-full" />
             <div className="flex items-center justify-between">
-              <SliderInput value={bookings[v.key]} min={0} max={10000000} onChange={(val) => setBookings((b) => ({ ...b, [v.key]: val }))} tiers={BOOKING_TIERS} />
+              <div className="flex items-center gap-2 bg-slate-100 border border-slate-300 rounded-lg px-3 py-1.5">
+                <span className="text-xs text-slate-500">{t('calculator.dutycredits_issued_month')}:</span>
+                <span className="text-sm font-bold" style={{ color: v.color }}>{fmtNum(bookings[v.key] * v.creditsPerBooking)}</span>
+              </div>
               <span className="text-xs text-slate-400">0 – 10.000.000</span>
             </div>
           </div>
