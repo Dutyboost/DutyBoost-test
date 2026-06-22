@@ -12,6 +12,15 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
 
+// ── Responsive font size for large numbers ─────────────────────────────────────
+function numFontClass(str) {
+  const len = String(str).length;
+  if (len <= 8)  return "text-2xl";
+  if (len <= 11) return "text-xl";
+  if (len <= 14) return "text-lg";
+  return "text-base";
+}
+
 // ── Shared discount logic ──────────────────────────────────────────────────────
 // Fixed reward per tier — minimum basket €35
 function calcSaving(spend) {
@@ -236,21 +245,21 @@ function RetailerTab({ t }) {
               <Users className="w-4 h-4 text-slate-300" />
               <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
             </div>
-            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(dailyNet, 2)}</p>
+            <p className={`${numFontClass(fmtEur(dailyNet, 2))} font-bold text-white break-all`}>{fmtEur(dailyNet, 2)}</p>
           </div>
           <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-200" />
               <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
             </div>
-            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(monthlyNet, 2)}</p>
+            <p className={`${numFontClass(fmtEur(monthlyNet, 2))} font-bold text-white break-all`}>{fmtEur(monthlyNet, 2)}</p>
           </div>
           <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <TrendingUp className="w-4 h-4 text-emerald-100" />
               <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
             </div>
-            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(annualNet, 2)}</p>
+            <p className={`${numFontClass(fmtEur(annualNet, 2))} font-bold text-white break-all`}>{fmtEur(annualNet, 2)}</p>
           </div>
         </div>
         <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
@@ -267,19 +276,19 @@ function RetailerTab({ t }) {
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <p className="text-xs text-slate-500">{t('calculator.daily_fee')}</p>
             </div>
-            <p className="text-lg sm:text-2xl font-bold text-orange-600 whitespace-nowrap">{fmtEur(dailyFee, 2)}</p>
+            <p className={`${numFontClass(fmtEur(dailyFee, 2))} font-bold text-orange-600 break-all`}>{fmtEur(dailyFee, 2)}</p>
           </div>
           <div className="bg-orange-500 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
             </div>
-            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(monthlyFee, 2)}</p>
+            <p className={`${numFontClass(fmtEur(monthlyFee, 2))} font-bold text-white break-all`}>{fmtEur(monthlyFee, 2)}</p>
           </div>
           <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:flex-col sm:items-center">
               <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
             </div>
-            <p className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(annualFee, 2)}</p>
+            <p className={`${numFontClass(fmtEur(annualFee, 2))} font-bold text-white break-all`}>{fmtEur(annualFee, 2)}</p>
           </div>
         </div>
         <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
@@ -623,21 +632,21 @@ function TravelPartnerTab({ t }) {
                <Users className="w-4 h-4 text-slate-300 shrink-0" />
                <p className="text-xs text-slate-400">{t('calculator.potential_redemptions_mo')}</p>
              </div>
-             <p className="text-base sm:text-2xl font-bold text-white whitespace-nowrap">{fmtNum(totals.redemptions)}</p>
+             <p className={`${numFontClass(fmtNum(totals.redemptions))} font-bold text-white break-all`}>{fmtNum(totals.redemptions)}</p>
            </div>
            <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2 overflow-hidden">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center min-w-0">
                <TrendingUp className="w-4 h-4 text-emerald-200 shrink-0" />
                <p className="text-xs text-emerald-200">{t('calculator.potential_commission_mo')}</p>
              </div>
-             <p className="text-base sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm, 2)}</p>
+             <p className={`${numFontClass(fmtEur(totals.monthlyComm, 2))} font-bold text-white break-all`}>{fmtEur(totals.monthlyComm, 2)}</p>
              </div>
              <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2 overflow-hidden">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center min-w-0">
                <TrendingUp className="w-4 h-4 text-emerald-100 shrink-0" />
                <p className="text-xs text-emerald-100">{t('calculator.potential_commission_yr')}</p>
              </div>
-             <p className="text-base sm:text-2xl font-bold text-white whitespace-nowrap">{fmtEur(totals.monthlyComm * 12, 2)}</p>
+             <p className={`${numFontClass(fmtEur(totals.monthlyComm * 12, 2))} font-bold text-white break-all`}>{fmtEur(totals.monthlyComm * 12, 2)}</p>
            </div>
           </div>
           <div className="grid gap-2">
@@ -649,7 +658,7 @@ function TravelPartnerTab({ t }) {
                     <span className="text-sm font-semibold flex items-center gap-1.5" style={{ color: v.color }}><v.Icon className="w-3.5 h-3.5" />{t('calculator.' + v.labelKey).replace(/^\P{L}+/u, '').trim()}</span>
                     <span className="text-xs text-slate-400 block">{fmtNum(stat.dutyCredits)} DutyCredits × {stat.c}% = {fmtNum(stat.redemptions)} {t('calculator.redemptions_label')}</span>
                   </div>
-                  <span className="text-sm font-bold text-white shrink-0">{fmtEur(stat.monthlyComm, 2)}/{t('calculator.mo_label')}</span>
+                  <span className={`${numFontClass(fmtEur(stat.monthlyComm, 2))} font-bold text-white shrink-0 break-all text-right`}>{fmtEur(stat.monthlyComm, 2)}/{t('calculator.mo_label')}</span>
                 </div>
               );
             })}
