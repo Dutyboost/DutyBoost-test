@@ -374,6 +374,18 @@ export default function TrafficDashboard() {
           return new Date(v.created_date) >= cutoffDate;
         });
         const pages = tally(pageVisits, 'page_path');
+        // Count unique visitors per page
+        const uniqueVisitorsByPage = {};
+        pageVisits.forEach(v => {
+          if (v.page_path) {
+            if (!uniqueVisitorsByPage[v.page_path]) uniqueVisitorsByPage[v.page_path] = new Set();
+            if (v.created_by_id) uniqueVisitorsByPage[v.page_path].add(v.created_by_id);
+          }
+        });
+        const uniqueCounts = {};
+        Object.keys(uniqueVisitorsByPage).forEach(page => {
+          uniqueCounts[page] = uniqueVisitorsByPage[page].size;
+        });
         if (pages.length === 0) return null;
         const monthLabel = selectedMonth === 'all' ? 'All time' : availableMonths.find(m => m.key === selectedMonth)?.label;
         const periodLabels = { day: 'Last 24h', week: 'Last 7 days', month: 'Last 30 days', year: 'Last 12 months' };
@@ -403,29 +415,36 @@ export default function TrafficDashboard() {
                 <span className="text-xs px-2 py-1 rounded-full bg-slate-700 text-slate-300">{monthLabel}</span>
               </div>
             </div>
-            <div className="space-y-2">
-              {pages.map((r, i) => {
-                const pct = totalVisits > 0 ? ((r.value / totalVisits) * 100).toFixed(1) : 0;
-                const barWidth = pages[0].value > 0 ? (r.value / pages[0].value) * 100 : 0;
-                const color = COLORS[i % COLORS.length];
-                return (
-                  <div key={r.name} className="flex items-center gap-3">
-                    <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-medium text-slate-200 truncate">{r.name || '/'}</span>
-                        <div className="flex items-center gap-3 shrink-0 ml-3">
-                          <span className="text-xs text-slate-400">{pct}%</span>
-                          <span className="text-sm font-bold" style={{ color }}>{r.value}</span>
-                        </div>
-                      </div>
-                      <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                        <div className="h-full rounded-full transition-all duration-500" style={{ width: `${barWidth}%`, background: color }} />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="space-y-3">
+               {pages.map((r, i) => {
+                 const pct = totalVisits > 0 ? ((r.value / totalVisits) * 100).toFixed(1) : 0;
+                 const barWidth = pages[0].value > 0 ? (r.value / pages[0].value) * 100 : 0;
+                 const color = COLORS[i % COLORS.length];
+                 const uniqueVisitors = uniqueCounts[r.name] || 0;
+                 return (
+                   <div key={r.name} className="flex items-center gap-3">
+                     <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
+                     <div className="flex-1 min-w-0">
+                       <div className="flex items-center justify-between mb-1">
+                         <span className="text-sm font-medium text-slate-200 truncate">{r.name || '/'}</span>
+                         <div className="flex items-center gap-4 shrink-0 ml-3 text-xs">
+                           <div className="text-right">
+                             <div className="text-slate-400">Visits</div>
+                             <div className="text-sm font-bold" style={{ color }}>{r.value}</div>
+                           </div>
+                           <div className="text-right">
+                             <div className="text-slate-400">Unique</div>
+                             <div className="font-bold text-teal-300">{uniqueVisitors}</div>
+                           </div>
+                         </div>
+                       </div>
+                       <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                         <div className="h-full rounded-full transition-all duration-500" style={{ width: `${barWidth}%`, background: color }} />
+                       </div>
+                     </div>
+                   </div>
+                 );
+               })}
             </div>
           </div>
         );
