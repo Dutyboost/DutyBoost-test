@@ -116,6 +116,15 @@ export default function TrafficTracker() {
       utm_medium: session.utm_medium,
       utm_campaign: session.utm_campaign,
       utm_content: session.utm_content,
+    }).then(async (visit) => {
+      // 3. Enrich with IP → org lookup (fire and forget)
+      try {
+        const ipResp = await fetch('https://api.ipify.org?format=json');
+        const { ip } = await ipResp.json();
+        if (ip && visit?.id) {
+          base44.functions.invoke('enrichPageVisit', { visit_id: visit.id, ip_address: ip }).catch(() => {});
+        }
+      } catch {}
     }).catch(() => {});
 
   }, [location.pathname]);

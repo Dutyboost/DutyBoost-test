@@ -3,7 +3,7 @@ import { base44 } from '@/api/base44Client';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts';
-import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin, Calendar } from 'lucide-react';
+import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin, Calendar, Building2 } from 'lucide-react';
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue
 } from '@/components/ui/select';
@@ -446,6 +446,56 @@ export default function TrafficDashboard() {
                  );
                })}
             </div>
+          </div>
+        );
+      })()}
+
+      {/* Company Visitors — powered by IPinfo reverse lookup */}
+      {(() => {
+        const orgs = tally(filteredVisits.filter(v => v.org_name), 'org_name');
+        if (orgs.length === 0) return null;
+        return (
+          <div className="bg-slate-800 border border-indigo-500/30 rounded-2xl p-5">
+            <div className="flex items-center gap-2 mb-1">
+              <Building2 className="w-4 h-4 text-indigo-300" />
+              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">Company Visitors</h3>
+            </div>
+            <p className="text-xs text-slate-400 mb-4">Organisations identified via reverse IP lookup. Best accuracy for corporate office networks.</p>
+            <div className="space-y-2">
+              {orgs.slice(0, 20).map((r, i) => {
+                const barWidth = orgs[0].value > 0 ? (r.value / orgs[0].value) * 100 : 0;
+                const color = COLORS[i % COLORS.length];
+                // Find a domain for this org
+                const domainVisit = filteredVisits.find(v => v.org_name === r.name && v.org_domain);
+                return (
+                  <div key={r.name} className="flex items-center gap-3">
+                    <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-sm font-medium text-slate-200 truncate">{r.name}</span>
+                          {domainVisit?.org_domain && (
+                            <a
+                              href={`https://${domainVisit.org_domain}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-indigo-400 hover:text-indigo-300 shrink-0 flex items-center gap-0.5"
+                            >
+                              {domainVisit.org_domain} <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
+                        </div>
+                        <span className="text-sm font-bold shrink-0 ml-3" style={{ color }}>{r.value}</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full rounded-full transition-all duration-500" style={{ width: `${barWidth}%`, background: color }} />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-xs text-slate-500 mt-3">⚠️ Home workers, VPNs, and mobile users typically won't resolve to a company.</p>
           </div>
         );
       })()}

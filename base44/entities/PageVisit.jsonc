@@ -29,6 +29,18 @@
     "utm_content": {
       "type": "string",
       "title": "UTM Content"
+    },
+    "ip_address": {
+      "type": "string",
+      "title": "IP Address"
+    },
+    "org_name": {
+      "type": "string",
+      "title": "Organisation Name"
+    },
+    "org_domain": {
+      "type": "string",
+      "title": "Organisation Domain"
     }
   },
   "rls": {
