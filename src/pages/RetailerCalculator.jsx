@@ -131,26 +131,15 @@ function RetailerTab({ t }) {
                 inputMode="numeric"
                 value={spendInput}
                 onChange={(e) => {
-                  const raw = e.target.value.replace(",", ".");
-                  setSpendInput(raw);
-                  const n = parseFloat(raw);
-                  if (!raw || isNaN(n) || n < 35) {
-                    setSpendError("Minimum basket spend is €35");
-                  } else {
-                    setSpendError("");
-                    setSpend(Math.min(n, 1000));
-                  }
+                  const digits = e.target.value.replace(/[^\d]/g, "");
+                  const n = digits === "" ? NaN : parseInt(digits, 10);
+                  if (digits === "") { setSpendInput(""); setSpendError("Minimum basket spend is €35"); return; }
+                  const clamped = Math.min(n, 1000);
+                  setSpendInput(fmtNum(clamped));
+                  if (isNaN(n) || n < 35) { setSpendError("Minimum basket spend is €35"); } else { setSpendError(""); setSpend(clamped); }
                 }}
                 onBlur={() => {
-                  const n = parseFloat(spendInput.replace(",", "."));
-                  if (!spendInput || isNaN(n) || n < 35) {
-                    setSpendInput(fmtNum(spend));
-                    setSpendError("");
-                  } else {
-                    const clamped = Math.min(n, 1000);
-                    setSpend(clamped);
-                    setSpendInput(fmtNum(clamped));
-                  }
+                  if (!spendInput) { setSpendInput(fmtNum(spend)); setSpendError(""); }
                 }}
                 style={{ width: `${Math.max(3, String(spendInput).length)}ch` }}
                 className={`text-5xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${spendError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
@@ -201,28 +190,14 @@ function RetailerTab({ t }) {
                 inputMode="numeric"
                 value={travelersInput}
                 onChange={(e) => {
-                  const raw = e.target.value.replace(/\./g, "").replace(",", ".");
-                  setTravelersInput(e.target.value);
-                  const n = parseFloat(raw);
-                  if (!raw || isNaN(n) || n < 100) {
-                    setTravelersError("Minimum DutyCredits per day must be 100");
-                  } else {
-                    setTravelersError("");
-                    const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
-                    setDailyTravelers(nearest);
-                  }
+                  const digits = e.target.value.replace(/[^\d]/g, "");
+                  if (digits === "") { setTravelersInput(""); setTravelersError("Minimum DutyCredits per day must be 100"); return; }
+                  const n = parseInt(digits, 10);
+                  setTravelersInput(fmtNum(n));
+                  if (n < 100) { setTravelersError("Minimum DutyCredits per day must be 100"); } else { setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest); }
                 }}
                 onBlur={() => {
-                  const raw = (travelersInput || "").replace(/\./g, "").replace(",", ".");
-                  const n = parseFloat(raw);
-                  if (!travelersInput || isNaN(n) || n < 100) {
-                    setTravelersInput(fmtNum(dailyTravelers));
-                    setTravelersError("");
-                  } else {
-                    const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
-                    setDailyTravelers(nearest);
-                    setTravelersInput(fmtNum(nearest));
-                  }
+                  if (!travelersInput) { setTravelersInput(fmtNum(dailyTravelers)); setTravelersError(""); }
                 }}
                 style={{ width: `${Math.max(3, String(travelersInput).length)}ch` }}
                 className={`text-4xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${travelersError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
@@ -550,28 +525,14 @@ function TravelPartnerTab({ t }) {
                  inputMode="numeric"
                  value={bookingsInput[v.key]}
                  onChange={(e) => {
-                   const raw = e.target.value.replace(/\./g, "").replace(",", ".");
-                   setBookingsInput((bi) => ({ ...bi, [v.key]: e.target.value }));
-                   const n = parseFloat(raw);
-                   if (!raw || isNaN(n) || n < 1) {
-                     setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" }));
-                   } else {
-                     setBookingsError((be) => ({ ...be, [v.key]: "" }));
-                     const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
-                     setBookings((bk) => ({ ...bk, [v.key]: nearest }));
-                   }
+                   const digits = e.target.value.replace(/[^\d]/g, "");
+                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" })); return; }
+                   const n = parseInt(digits, 10);
+                   setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(n) }));
+                   if (n < 1) { setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" })); } else { setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest })); }
                  }}
                  onBlur={() => {
-                   const raw = (bookingsInput[v.key] || "").replace(/\./g, "").replace(",", ".");
-                   const n = parseFloat(raw);
-                   if (!bookingsInput[v.key] || isNaN(n) || n < 1) {
-                     setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(bookings[v.key]) }));
-                     setBookingsError((be) => ({ ...be, [v.key]: "" }));
-                   } else {
-                     const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
-                     setBookings((bk) => ({ ...bk, [v.key]: nearest }));
-                     setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(nearest) }));
-                   }
+                   if (!bookingsInput[v.key]) { setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(bookings[v.key]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }
                  }}
                  style={{ width: `${Math.max(3, String(bookingsInput[v.key]).length)}ch` }}
                   className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
