@@ -73,12 +73,12 @@ const BOOKING_TIERS = [
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
-  const [spend, setSpend] = useState(35);
-  const [spendInput, setSpendInput] = useState(fmtNum(35));
+  const [spend, setSpend] = useState(0);
+  const [spendInput, setSpendInput] = useState("0");
   const [spendError, setSpendError] = useState("");
-  const TRAVELER_TIERS = [100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000)];
-  const [dailyTravelers, setDailyTravelers] = useState(TRAVELER_TIERS[0]);
-  const [travelersInput, setTravelersInput] = useState(fmtNum(TRAVELER_TIERS[0]));
+  const TRAVELER_TIERS = [0, 100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000)];
+  const [dailyTravelers, setDailyTravelers] = useState(0);
+  const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(1);
   // min basket is now €35
@@ -133,10 +133,10 @@ function RetailerTab({ t }) {
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
                   const n = digits === "" ? NaN : parseInt(digits, 10);
-                  if (digits === "") { setSpendInput(""); setSpendError("Minimum basket spend is €35"); return; }
+                  if (digits === "") { setSpendInput(""); setSpendError(""); return; }
                   const clamped = Math.min(n, 1000);
                   setSpendInput(fmtNum(clamped));
-                  if (isNaN(n) || n < 35) { setSpendError("Minimum basket spend is €35"); } else { setSpendError(""); setSpend(clamped); }
+                  setSpendError(""); setSpend(clamped);
                 }}
                 onBlur={() => {
                   if (!spendInput) { setSpendInput(fmtNum(spend)); setSpendError(""); }
@@ -154,7 +154,7 @@ function RetailerTab({ t }) {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(fmtNum(v)); setSpendError(""); }} className="w-full" />
+          <Slider min={0} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(fmtNum(v)); setSpendError(""); }} className="w-full" />
         </div>
         <div className="flex flex-col sm:flex-row gap-2 pt-1">
           <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
@@ -191,10 +191,10 @@ function RetailerTab({ t }) {
                 value={travelersInput}
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
-                  if (digits === "") { setTravelersInput(""); setTravelersError("Minimum DutyCredits per day must be 100"); return; }
-                  const n = parseInt(digits, 10);
-                  setTravelersInput(fmtNum(n));
-                  if (n < 100) { setTravelersError("Minimum DutyCredits per day must be 100"); } else { setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest); }
+                   if (digits === "") { setTravelersInput(""); setTravelersError(""); return; }
+                   const n = parseInt(digits, 10);
+                   setTravelersInput(fmtNum(n));
+                   setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest);
                 }}
                 onBlur={() => {
                   if (!travelersInput) { setTravelersInput(fmtNum(dailyTravelers)); setTravelersError(""); }
@@ -526,10 +526,10 @@ function TravelPartnerTab({ t }) {
                  value={bookingsInput[v.key]}
                  onChange={(e) => {
                    const digits = e.target.value.replace(/[^\d]/g, "");
-                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" })); return; }
+                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: "" })); return; }
                    const n = parseInt(digits, 10);
                    setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(n) }));
-                   if (n < 1) { setBookingsError((be) => ({ ...be, [v.key]: "Minimum bookings per month must be 1" })); } else { setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest })); }
+                   setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest }));
                  }}
                  onBlur={() => {
                    if (!bookingsInput[v.key]) { setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(bookings[v.key]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }
@@ -538,7 +538,8 @@ function TravelPartnerTab({ t }) {
                   className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
                 />
                 {bookingsError[v.key] && <p className="text-xs text-red-500 mt-1 font-medium">{bookingsError[v.key]}</p>}
-              </div>
+                <p className="text-xs text-slate-400 mt-1">Minimum 500 bookings / month</p>
+                </div>
               <div className="text-right text-sm text-slate-500">
                 <span>{t('calculator.dutycredits_issued_month')}</span>
                 <p className="text-base font-bold" style={{ color: v.color }}>{fmtNum(bookings[v.key] * v.creditsPerBooking)}</p>
