@@ -139,7 +139,9 @@ function RetailerTab({ t }) {
                   setSpendError(""); setSpend(clamped);
                 }}
                 onBlur={() => {
-                  if (!spendInput) { setSpendInput(fmtNum(spend)); setSpendError(""); }
+                  const digits = (spendInput || "").replace(/[^\d]/g, "");
+                  const n = digits === "" ? 0 : parseInt(digits, 10);
+                  if (n < 35) { setSpend(35); setSpendInput(fmtNum(35)); setSpendError(""); }
                 }}
                 style={{ width: `${Math.max(3, String(spendInput).length)}ch` }}
                 className={`text-5xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${spendError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
@@ -197,7 +199,9 @@ function RetailerTab({ t }) {
                    setTravelersError(""); const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setDailyTravelers(nearest);
                 }}
                 onBlur={() => {
-                  if (!travelersInput) { setTravelersInput(fmtNum(dailyTravelers)); setTravelersError(""); }
+                  const digits = (travelersInput || "").replace(/[^\d]/g, "");
+                  const n = digits === "" ? 0 : parseInt(digits, 10);
+                  if (n < 100) { setDailyTravelers(100); setTravelersInput(fmtNum(100)); setTravelersError(""); }
                 }}
                 style={{ width: `${Math.max(3, String(travelersInput).length)}ch` }}
                 className={`text-4xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${travelersError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
