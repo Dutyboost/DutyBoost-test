@@ -111,7 +111,20 @@ function RetailerTab({ t }) {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.basket_spend')}</p>
-            <p className="text-5xl font-bold text-slate-900">€{spend}</p>
+            <div className="flex items-center gap-1">
+              <span className="text-5xl font-bold text-slate-900">€</span>
+              <input
+                type="number"
+                min={35}
+                max={1000}
+                value={spend}
+                onChange={(e) => {
+                  const v = Math.min(1000, Math.max(35, Number(e.target.value) || 35));
+                  setSpend(v);
+                }}
+                className="text-5xl font-bold text-slate-900 bg-transparent border-b-2 border-slate-300 focus:border-primary outline-none w-32"
+              />
+            </div>
           </div>
           {tier && (
             <div className="px-4 py-2 rounded-xl border text-sm font-semibold border-slate-300 bg-slate-100 text-slate-900">
@@ -151,7 +164,19 @@ function RetailerTab({ t }) {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.daily_travelers')}</p>
-              <p className="text-4xl font-bold text-slate-900">{fmtNum(dailyTravelers)}</p>
+              <input
+                type="number"
+                min={100}
+                max={1000000}
+                value={dailyTravelers}
+                onChange={(e) => {
+                  const val = Math.min(1000000, Math.max(100, Number(e.target.value) || 100));
+                  // snap to nearest tier
+                  const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - val) < Math.abs(a - val) ? b : a);
+                  setDailyTravelers(nearest);
+                }}
+                className="text-4xl font-bold text-slate-900 bg-transparent border-b-2 border-slate-300 focus:border-primary outline-none w-40"
+              />
             </div>
             <div className="text-right text-sm text-slate-500">
               <p>{t('calculator.estimated_redemptions')}</p>
