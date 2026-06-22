@@ -65,8 +65,12 @@ const BOOKING_TIERS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [spend, setSpend] = useState(35);
+  const [spendInput, setSpendInput] = useState("35");
+  const [spendError, setSpendError] = useState("");
   const TRAVELER_TIERS = [100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000)];
   const [dailyTravelers, setDailyTravelers] = useState(TRAVELER_TIERS[0]);
+  const [travelersInput, setTravelersInput] = useState("100");
+  const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(1);
   // min basket is now €35
 
@@ -115,16 +119,28 @@ function RetailerTab({ t }) {
               <span className="text-5xl font-bold text-slate-900">€</span>
               <input
                 type="number"
-                min={35}
-                max={1000}
-                value={spend}
+                value={spendInput}
                 onChange={(e) => {
-                  const v = Math.min(1000, Math.max(35, Number(e.target.value) || 35));
-                  setSpend(v);
+                  setSpendInput(e.target.value);
+                  const n = Number(e.target.value);
+                  if (!e.target.value || isNaN(n) || n < 35) {
+                    setSpendError("Minimum basket spend is €35");
+                  } else {
+                    setSpendError("");
+                    setSpend(Math.min(n, 1000));
+                  }
                 }}
-                className="text-5xl font-bold text-slate-900 bg-transparent border-b-2 border-slate-300 focus:border-primary outline-none w-32"
+                onBlur={() => {
+                  const n = Number(spendInput);
+                  if (!spendInput || isNaN(n) || n < 35) {
+                    setSpendInput(String(spend));
+                    setSpendError("");
+                  }
+                }}
+                className={`text-5xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-32 ${spendError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
               />
             </div>
+            {spendError && <p className="text-xs text-red-500 mt-1 font-medium">{spendError}</p>}
           </div>
           {tier && (
             <div className="px-4 py-2 rounded-xl border text-sm font-semibold border-slate-300 bg-slate-100 text-slate-900">
@@ -133,7 +149,7 @@ function RetailerTab({ t }) {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => setSpend(v)} className="w-full" />
+          <Slider min={35} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(String(v)); setSpendError(""); }} className="w-full" />
         </div>
         <div className="flex flex-col sm:flex-row gap-2 pt-1">
           <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
@@ -166,24 +182,35 @@ function RetailerTab({ t }) {
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.daily_travelers')}</p>
               <input
                 type="number"
-                min={100}
-                max={1000000}
-                value={dailyTravelers}
+                value={travelersInput}
                 onChange={(e) => {
-                  const val = Math.min(1000000, Math.max(100, Number(e.target.value) || 100));
-                  // snap to nearest tier
-                  const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - val) < Math.abs(a - val) ? b : a);
-                  setDailyTravelers(nearest);
+                  setTravelersInput(e.target.value);
+                  const n = Number(e.target.value);
+                  if (!e.target.value || isNaN(n) || n < 100) {
+                    setTravelersError("Minimum DutyCredits per day must be 100");
+                  } else {
+                    setTravelersError("");
+                    const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a);
+                    setDailyTravelers(nearest);
+                  }
                 }}
-                className="text-4xl font-bold text-slate-900 bg-transparent border-b-2 border-slate-300 focus:border-primary outline-none w-40"
+                onBlur={() => {
+                  const n = Number(travelersInput);
+                  if (!travelersInput || isNaN(n) || n < 100) {
+                    setTravelersInput(String(dailyTravelers));
+                    setTravelersError("");
+                  }
+                }}
+                className={`text-4xl font-bold text-slate-900 bg-transparent border-b-2 outline-none w-40 ${travelersError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
               />
+              {travelersError && <p className="text-xs text-red-500 mt-1 font-medium">{travelersError}</p>}
             </div>
             <div className="text-right text-sm text-slate-500">
               <p>{t('calculator.estimated_redemptions')}</p>
               <p className="text-base font-bold text-slate-900">{fmtNum(dailyRedemptions)} / {t('calculator.day_label')}</p>
             </div>
           </div>
-          <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => setDailyTravelers(TRAVELER_TIERS[i])} className="w-full" />
+          <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(String(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
