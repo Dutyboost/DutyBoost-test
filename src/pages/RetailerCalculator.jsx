@@ -13,6 +13,7 @@ import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
 import AirportSelector from "../components/AirportSelector";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
+import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
 // ── Responsive font size for large numbers ─────────────────────────────────────
 function numFontClass(str) {
@@ -93,6 +94,11 @@ function RetailerTab({ t }) {
       setDailyTravelers(nearest);
       setTravelersInput(fmtNum(nearest));
       setTravelersError("");
+      // Auto-populate basket spend with estimated avg duty-free transaction for this airport
+      const estBasket = estimateAvgBasketSpend(airport);
+      setSpend(estBasket);
+      setSpendInput(fmtNum(estBasket));
+      setSpendError("");
     }
   };
   // min basket is now €35
@@ -183,6 +189,12 @@ function RetailerTab({ t }) {
             <Info className="w-3 h-3 text-amber-500 shrink-0" />
             <span>{t('calculator.dutycredit_activation')}</span>
           </div>
+          {selectedAirport && (
+            <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-lg px-2.5 py-1.5">
+              <Info className="w-3 h-3 shrink-0" />
+              <span>{t('calculator.basket_auto_set')}</span>
+            </div>
+          )}
         </div>
         {tier && (
           <div className="space-y-1.5">

@@ -526,6 +526,7 @@ export default {
       below_minimum: 'Sotto il minimo (€35)',
       min_basket: 'Carrello minimo: €35',
       basket_avg_ref: 'Carrello medio in aeroporto: €100 (m1nd-set / ETRC)',
+      basket_auto_set: 'Impostato automaticamente dai dati dell\'aeroporto — modifica se necessario',
       dutycredit_activation: 'Un DutyCredit viene attivato con una spesa minima di €35',
       progress_within: 'Progresso all\'interno di',
       basket_value: 'Valore del carrello',

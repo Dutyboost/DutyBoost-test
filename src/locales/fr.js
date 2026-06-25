@@ -508,6 +508,7 @@ export default {
       below_minimum: 'En dessous du minimum (€35)',
       min_basket: 'Panier minimum : €35',
       basket_avg_ref: 'Panier aéroport moyen: €100 (m1nd-set / ETRC)',
+      basket_auto_set: 'Défini automatiquement à partir des données de l\'aéroport — ajustez si nécessaire',
       dutycredit_activation: 'Un DutyCredit est activé à partir d\'une dépense minimum de €35',
       progress_within: 'Progression dans',
       basket_value: 'Valeur du panier',

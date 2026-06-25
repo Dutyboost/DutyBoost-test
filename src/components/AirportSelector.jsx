@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Search, MapPin, Plane, X } from "lucide-react";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import { fmtNum } from "../utils/formatNumber";
+import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
 export default function AirportSelector({ selectedAirport, onSelect, t }) {
   const [query, setQuery] = useState("");
@@ -172,6 +173,7 @@ export default function AirportSelector({ selectedAirport, onSelect, t }) {
             <p className="text-xs text-slate-500">{t('calculator.airport_daily_pax')}</p>
             <p className="text-2xl font-bold text-blue-600">{fmtNum(selectedAirport.daily_pax)}</p>
             <p className="text-xs text-slate-400">{t('calculator.airport_annual_pax')}: {fmtNum(selectedAirport.annual_pax)}</p>
+            <p className="text-xs text-slate-500 mt-1">{t('calculator.basket_spend')}: <span className="font-bold text-blue-600">€{estimateAvgBasketSpend(selectedAirport)}</span></p>
           </div>
         </div>
       )}
