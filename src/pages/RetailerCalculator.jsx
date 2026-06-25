@@ -12,6 +12,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
 import AirportSelector from "../components/AirportSelector";
+import TravelPartnerSelector from "../components/TravelPartnerSelector";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
@@ -477,6 +478,7 @@ function TravelPartnerTab({ t }) {
   const [bookings, setBookings] = useState({ flight: 0, accommodation: 0, car: 0 });
   const [bookingsInput, setBookingsInput] = useState({ flight: "0", accommodation: "0", car: "0" });
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
+  const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
   const [conversion, setConversion] = useState({ flight: 15, accommodation: 15, car: 15 });
   const FIXED_AVG_BASKET = 35;
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
@@ -486,6 +488,17 @@ function TravelPartnerTab({ t }) {
   const toggleVertical = (key) => {
     const next = { ...selected, [key]: !selected[key] };
     if (Object.values(next).some(Boolean)) setSelected(next);
+  };
+
+  const handlePartnerSelect = (vertical, partner) => {
+    setSelectedPartners(prev => ({ ...prev, [vertical]: partner }));
+    if (partner) {
+      const monthlyBookings = Math.round(partner.annual_bookings / 12);
+      const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - monthlyBookings) < Math.abs(a - monthlyBookings) ? b : a);
+      setBookings(prev => ({ ...prev, [vertical]: nearest }));
+      setBookingsInput(prev => ({ ...prev, [vertical]: fmtNum(nearest) }));
+      setBookingsError(prev => ({ ...prev, [vertical]: "" }));
+    }
   };
 
   const verticalStats = useMemo(() => {
@@ -546,6 +559,13 @@ function TravelPartnerTab({ t }) {
             <span className="text-base font-bold" style={{ color: v.color }}>{t('calculator.' + v.labelKey).replace(/^\P{L}+/u, '').trim()}</span>
             <span className="text-xs text-slate-400 ml-auto">{t('calculator.commission_note')}</span>
           </div>
+
+          <TravelPartnerSelector
+            vertical={v.key}
+            selectedPartner={selectedPartners[v.key]}
+            onSelect={(partner) => handlePartnerSelect(v.key, partner)}
+            t={t}
+          />
 
           {/* Bookings slider → DutyCredits derived */}
           <div className="space-y-2">
