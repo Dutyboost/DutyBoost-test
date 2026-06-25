@@ -1,8 +1,9 @@
 import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store, Check } from "lucide-react";
+import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store, Check, MessageCircle } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
@@ -413,6 +414,21 @@ function RetailerTab({ t }) {
             <p className="text-xs text-slate-600">{t('calculator.tiers_footnote')}</p>
           </div>
 
+      {/* Request more information CTA */}
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-center sm:text-left">
+          <h3 className="font-bold text-white text-lg">{t('common.request_more_info')}</h3>
+          <p className="text-orange-50 text-sm mt-0.5">{t('cta.description')}</p>
+        </div>
+        <Link
+          to="/request-more-information"
+          className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-6 py-3 rounded-xl hover:bg-orange-50 transition-colors shrink-0"
+        >
+          <MessageCircle className="w-5 h-5" />
+          {t('common.request_more_info')}
+        </Link>
+      </div>
+
     </div>
   );
 }
@@ -711,6 +727,21 @@ function TravelPartnerTab({ t }) {
         <p className="text-sm text-blue-800 leading-relaxed">
           {t('calculator.partner_commission_info')}
         </p>
+      </div>
+
+      {/* Request more information CTA */}
+      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-center sm:text-left">
+          <h3 className="font-bold text-white text-lg">{t('common.request_more_info')}</h3>
+          <p className="text-green-50 text-sm mt-0.5">{t('cta.description')}</p>
+        </div>
+        <Link
+          to="/request-more-information"
+          className="inline-flex items-center gap-2 bg-white text-green-600 font-bold px-6 py-3 rounded-xl hover:bg-green-50 transition-colors shrink-0"
+        >
+          <MessageCircle className="w-5 h-5" />
+          {t('common.request_more_info')}
+        </Link>
       </div>
     </div>
   );
