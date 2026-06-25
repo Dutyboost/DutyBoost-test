@@ -515,7 +515,7 @@ export default {
       redemptions_label: 'riscatti',
       net_per_tx: 'netto / tx',
       airport_select_label: "Passo 1 — Scegli il tuo aeroporto",
-      airport_select_title: "In quale aeroporto sei?",
+      airport_select_title: "Seleziona il tuo aeroporto",
       airport_select_desc: "Seleziona il tuo aeroporto per compilare automaticamente il volume giornaliero di viaggiatori. Cerca per nome, città o codice IATA.",
       airport_search_placeholder: "Digita un nome di aeroporto, città o codice (es. Fiumicino, FCO, Roma)...",
       airport_no_results: "Nessun aeroporto trovato. Prova con un altro termine di ricerca.",

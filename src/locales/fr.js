@@ -497,7 +497,7 @@ export default {
       redemptions_label: 'échanges',
       net_per_tx: 'net / tx',
       airport_select_label: "Étape 1 — Choisissez votre aéroport",
-      airport_select_title: "Dans quel aéroport êtes-vous ?",
+      airport_select_title: "Sélectionnez votre aéroport",
       airport_select_desc: "Sélectionnez votre aéroport pour remplir automatiquement le volume quotidien de voyageurs. Recherchez par nom, ville ou code IATA.",
       airport_search_placeholder: "Tapez un nom d'aéroport, une ville ou un code (ex. Roissy, CDG, Madrid)...",
       airport_no_results: "Aucun aéroport trouvé. Essayez un autre terme de recherche.",

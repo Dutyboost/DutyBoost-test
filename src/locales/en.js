@@ -791,7 +791,7 @@ export default {
       redemptions_label: 'redemptions',
       net_per_tx: 'net / tx',
       airport_select_label: "Step 1 — Choose your airport",
-      airport_select_title: "Which airport are you at?",
+      airport_select_title: "Select your airport",
       airport_select_desc: "Select your airport to auto-fill daily traveler volume. Search by name, city, or IATA code.",
       airport_search_placeholder: "Type an airport name, city, or code (e.g. Schiphol, LHR, Madrid)...",
       airport_no_results: "No airports found. Try a different search term.",

@@ -497,7 +497,7 @@ export default {
       redemptions_label: 'Einlösungen',
       net_per_tx: 'Netto / Tx',
       airport_select_label: "Schritt 1 — Wählen Sie Ihren Flughafen",
-      airport_select_title: "An welchem Flughafen sind Sie?",
+      airport_select_title: "Wählen Sie Ihren Flughafen",
       airport_select_desc: "Wählen Sie Ihren Flughafen, um das tägliche Reisendaufkommen automatisch auszufüllen. Suche nach Name, Stadt oder IATA-Code.",
       airport_search_placeholder: "Geben Sie einen Flughafennamen, eine Stadt oder einen Code ein (z.B. Frankfurt, FRA, München)...",
       airport_no_results: "Keine Flughäfen gefunden. Versuchen Sie einen anderen Suchbegriff.",

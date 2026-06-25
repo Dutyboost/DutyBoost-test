@@ -584,7 +584,7 @@ export default {
       redemptions_label: 'inwisselingen',
       net_per_tx: 'netto / tx',
       airport_select_label: "Stap 1 — Kies uw vliegveld",
-      airport_select_title: "Op welk vliegveld bent u?",
+      airport_select_title: "Selecteer uw vliegveld",
       airport_select_desc: "Selecteer uw vliegveld om het dagelijkse reizigersaantal automatisch in te vullen. Zoek op naam, stad of IATA-code.",
       airport_search_placeholder: "Typ een vliegveldnaam, stad of code (bijv. Schiphol, LHR, Madrid)...",
       airport_no_results: "Geen vliegvelden gevonden. Probeer een andere zoekterm.",

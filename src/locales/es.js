@@ -719,7 +719,7 @@ export default {
       redemptions_label: 'canjes',
       net_per_tx: 'neto / tx',
       airport_select_label: "Paso 1 — Elige tu aeropuerto",
-      airport_select_title: "¿En qué aeropuerto estás?",
+      airport_select_title: "Selecciona tu aeropuerto",
       airport_select_desc: "Selecciona tu aeropuerto para rellenar automáticamente el volumen diario de viajeros. Busca por nombre, ciudad o código IATA.",
       airport_search_placeholder: "Escribe un nombre de aeropuerto, ciudad o código (ej. Barajas, MAD, Madrid)...",
       airport_no_results: "No se encontraron aeropuertos. Prueba con otro término de búsqueda.",
