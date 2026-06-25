@@ -8,16 +8,19 @@ const VERTICAL_CONFIG = {
   flight: {
     label: "airline, OTA, tour operator, or travel agency that sells flight tickets",
     placeholder: "Search airlines, OTAs, tour operators, travel agencies…",
+    searchHeading: "Search your organisation to calculate your potential revenue",
     searchDesc: "Not listed above? Search any airline, OTA, tour operator, or travel agency worldwide",
   },
   accommodation: {
     label: "hotel chain, booking platform, or accommodation provider",
     placeholder: "Search hotel chains, booking platforms, resorts…",
+    searchHeading: "Search your property to calculate your potential revenue",
     searchDesc: "Not listed above? Search any hotel chain or accommodation provider worldwide",
   },
   car: {
     label: "car rental company",
     placeholder: "Search car rental companies…",
+    searchHeading: "Search your company to calculate your potential revenue",
     searchDesc: "Not listed above? Search any car rental company worldwide",
   },
 };
@@ -276,7 +279,7 @@ If the company is a small/regional operator without public data, estimate based 
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-blue-700">
-                    {webSearching ? t('calculator.partner_web_searching') : t('calculator.partner_web_search')}
+                    {webSearching ? t('calculator.partner_web_searching') : VERTICAL_CONFIG[vertical].searchHeading}
                   </p>
                   <p className="text-xs text-slate-500">
                     {webSearching ? t('calculator.partner_web_searching_desc') : VERTICAL_CONFIG[vertical].searchDesc}
