@@ -12,7 +12,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
 import AirportSelector from "../components/AirportSelector";
-import { EUROPEAN_AIRPORTS } from "../data/europeanAirports";
+import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 
 // ── Responsive font size for large numbers ─────────────────────────────────────
 function numFontClass(str) {
