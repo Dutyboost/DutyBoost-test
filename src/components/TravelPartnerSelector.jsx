@@ -292,7 +292,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
                       <MapPin className="w-3 h-3" />
                       {partner.country}
                       {partner.hubs && partner.hubs.length > 0 && (
-                        <span className="text-slate-400">· Hubs: {partner.hubs.join(", ")}</span>
+                        <span className="text-slate-400">· {t('calculator.partner_hubs')}: {partner.hubs.join(", ")}</span>
                       )}
                     </p>
                   </div>
@@ -325,7 +325,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
                   </p>
                   {webSearching && (
                     <p className="text-xs text-amber-600 font-medium mt-1">
-                      This can take up to 20 seconds — hang tight!
+                      {t('calculator.partner_web_loading_note')}
                     </p>
                   )}
                 </div>
