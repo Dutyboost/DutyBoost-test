@@ -323,11 +323,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
                   <p className="text-xs text-slate-500">
                     {webSearching ? t('calculator.partner_web_searching_desc') : VERTICAL_CONFIG[vertical].searchDesc}
                   </p>
-                  {webSearching && (
-                    <p className="text-xs text-amber-600 font-medium mt-1">
-                      {t('calculator.partner_web_loading_note')}
-                    </p>
-                  )}
+
                 </div>
               </button>
             )}
