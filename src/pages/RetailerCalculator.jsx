@@ -418,7 +418,7 @@ function RetailerTab({ t }) {
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
           <h3 className="font-bold text-white text-lg">{t('common.request_more_info')}</h3>
-          <p className="text-orange-50 text-sm mt-0.5">Travel partners pre-activate shoppers before they reach your store — turning passing traffic into ready-to-buy customers. Be part of the Circular Revenue Ecosystem where retailers increase sales, travellers maximise rewards, and partners earn passive income — all through one intelligent platform.</p>
+          <p className="text-orange-50 text-sm mt-0.5">Travel partners pre-activate shoppers before they reach your store — turning passing traffic into ready-to-buy customers. Be part of the Circular Revenue Ecosystem where retailers increase sales, travellers maximise rewards, and travel partners earn passive income — all through one intelligent platform.</p>
         </div>
         <Link
           to="/request-more-information"
