@@ -1,13 +1,22 @@
 import { useState, useRef, useEffect } from "react";
-import { Search, MapPin, X, Plane } from "lucide-react";
+import { Search, MapPin, X, Plane, Globe, Loader2 } from "lucide-react";
 import { TRAVEL_PARTNERS, PARTNER_CONTINENTS } from "../data/travelPartners";
 import { fmtNum } from "../utils/formatNumber";
+import { base44 } from "@/api/base44Client";
+
+const VERTICAL_LABELS = {
+  flight: "airline",
+  accommodation: "hotel or accommodation chain",
+  car: "car rental company",
+};
 
 export default function TravelPartnerSelector({ vertical, selectedPartner, onSelect, t }) {
   const [query, setQuery] = useState("");
   const [continent, setContinent] = useState("all");
   const [isOpen, setIsOpen] = useState(false);
   const [highlightIndex, setHighlightIndex] = useState(0);
+  const [webSearching, setWebSearching] = useState(false);
+  const [webError, setWebError] = useState("");
   const containerRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -37,16 +46,80 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
       }).slice(0, 30)
     : baseList.slice(0, 30);
 
+  const hasStaticResults = filtered.length > 0;
+  const canSearchWeb = query.trim().length >= 2 && !webSearching;
+
+  const handleWebSearch = async () => {
+    if (!canSearchWeb) return;
+    setWebSearching(true);
+    setWebError("");
+    try {
+      const prompt = `I need to find the annual booking/passenger/reservation volume for a specific ${VERTICAL_LABELS[vertical]} company.
+
+Company searched: "${query.trim()}"
+
+Please search the web and find this company's most recent publicly reported annual volume. Return:
+- company_name: the official brand name
+- country: headquarters country
+- continent: one of "Europe", "North America", "Latin America", "Asia", "Middle East", "Africa", "Oceania"
+- annual_bookings: the annual volume as a number (passengers for airlines, reservations for hotels, rentals for car companies)
+- booking_unit: "passengers" for airlines, "reservations" for hotels, "rentals" for car rentals
+- hubs: array of IATA codes of main hub airports (empty array for non-airlines)
+- description: one short sentence about the company
+- found: true if you found this company and its volume, false if you could not find it or the company does not exist
+
+If the company is a small/regional operator without public data, estimate based on available information and set found to true with a note in the description that it's an estimate. Only set found to false if the company genuinely does not exist or cannot be identified.`;
+
+      const response = await base44.integrations.Core.InvokeLLM({
+        prompt,
+        add_context_from_internet: true,
+        model: "gemini_3_flash",
+        response_json_schema: {
+          type: "object",
+          properties: {
+            company_name: { type: "string" },
+            country: { type: "string" },
+            continent: { type: "string" },
+            annual_bookings: { type: "number" },
+            booking_unit: { type: "string" },
+            hubs: { type: "array", items: { type: "string" } },
+            description: { type: "string" },
+            found: { type: "boolean" },
+          },
+          required: ["company_name", "country", "continent", "annual_bookings", "booking_unit", "found"],
+        },
+      });
+
+      if (response.found && response.annual_bookings > 0) {
+        const partner = {
+          ...response,
+          vertical,
+          annual_bookings: Math.round(response.annual_bookings),
+          monthly_bookings: Math.round(response.annual_bookings / 12),
+        };
+        handleSelect(partner);
+      } else {
+        setWebError(t('calculator.partner_web_not_found'));
+      }
+    } catch (err) {
+      setWebError(t('calculator.partner_web_error'));
+    } finally {
+      setWebSearching(false);
+    }
+  };
+
   const handleSelect = (partner) => {
     onSelect(partner);
     setQuery("");
     setIsOpen(false);
     setHighlightIndex(0);
+    setWebError("");
   };
 
   const handleClear = () => {
     onSelect(null);
     setQuery("");
+    setWebError("");
     inputRef.current?.focus();
   };
 
@@ -122,6 +195,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
               } else {
                 setQuery(e.target.value);
               }
+              setWebError("");
               setIsOpen(true);
               setHighlightIndex(0);
             }}
@@ -141,12 +215,8 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
         </div>
 
         {isOpen && (
-          <div className="absolute z-50 mt-1 w-full max-h-72 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg">
-            {filtered.length === 0 ? (
-              <div className="px-4 py-6 text-sm text-slate-500 text-center">
-                {t('calculator.partner_no_results')}
-              </div>
-            ) : (
+          <div className="absolute z-50 mt-1 w-full max-h-80 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg">
+            {hasStaticResults && (
               filtered.map((partner, idx) => (
                 <button
                   key={partner.company_name + idx}
@@ -176,6 +246,47 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
                 </button>
               ))
             )}
+
+            {/* Web search fallback — search any of the ~5K airlines / 750K hotels / 20K car rentals */}
+            {canSearchWeb && (
+              <button
+                onClick={handleWebSearch}
+                disabled={webSearching}
+                className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors border-t-2 border-blue-100 ${
+                  webSearching ? "bg-blue-50 opacity-70 cursor-wait" : "hover:bg-blue-50 cursor-pointer"
+                }`}
+              >
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 shrink-0">
+                  {webSearching ? <Loader2 className="w-4 h-4 animate-spin" /> : <Globe className="w-4 h-4" />}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-blue-700">
+                    {webSearching ? t('calculator.partner_web_searching') : t('calculator.partner_web_search')}
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    {webSearching ? t('calculator.partner_web_searching_desc') : t('calculator.partner_web_search_desc')}
+                  </p>
+                </div>
+              </button>
+            )}
+
+            {webSearching && (
+              <div className="px-4 py-3 text-xs text-blue-600 bg-blue-50/50 border-t border-slate-100">
+                {t('calculator.partner_web_loading_note')}
+              </div>
+            )}
+
+            {webError && (
+              <div className="px-4 py-3 text-sm text-red-600 bg-red-50 border-t border-slate-100">
+                {webError}
+              </div>
+            )}
+
+            {!hasStaticResults && !canSearchWeb && !webSearching && (
+              <div className="px-4 py-6 text-sm text-slate-500 text-center">
+                {t('calculator.partner_no_results')}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -187,6 +298,9 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
               <div className="flex items-center gap-2">
                 <p className="font-bold text-slate-900">{selectedPartner.company_name}</p>
                 <span className="text-[10px] font-medium text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded">{selectedPartner.continent}</span>
+                {selectedPartner.found === false && (
+                  <span className="text-[10px] font-medium text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">AI</span>
+                )}
               </div>
               <p className="text-xs text-slate-600 flex items-center gap-1">
                 <MapPin className="w-3 h-3" />

@@ -918,6 +918,13 @@ export default {
       partner_unit_rentals: 'rentals/yr',
       partner_hubs: 'Main hubs',
       partner_estimated_note: 'Figures based on publicly available data — adjust if needed',
+      partner_web_search: 'Search the web for "{{query}}"',
+      partner_web_search_desc: 'Not listed above? Search any of ~5,000 airlines, ~750K hotels, or ~20K car rental companies worldwide',
+      partner_web_searching: 'Searching the web…',
+      partner_web_searching_desc: 'Looking up company data via AI-powered web search',
+      partner_web_loading_note: 'This uses 1 integration credit per search. Publicly reported annual volumes are estimates.',
+      partner_web_not_found: 'Could not find this company or its public volume data. Try a different name or search term.',
+      partner_web_error: 'Web search failed. Please try again or enter the volume manually.',
     },
     letterOfIntent: {
       title: 'Letter of Intent',
