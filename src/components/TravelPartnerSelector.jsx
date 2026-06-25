@@ -270,12 +270,6 @@ If the company is a small/regional operator without public data, estimate based 
               </button>
             )}
 
-            {webSearching && (
-              <div className="px-4 py-3 text-xs text-blue-600 bg-blue-50/50 border-t border-slate-100">
-                {t('calculator.partner_web_loading_note')}
-              </div>
-            )}
-
             {webError && (
               <div className="px-4 py-3 text-sm text-red-600 bg-red-50 border-t border-slate-100">
                 {webError}
