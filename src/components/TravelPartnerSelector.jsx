@@ -4,10 +4,22 @@ import { TRAVEL_PARTNERS, PARTNER_CONTINENTS } from "../data/travelPartners";
 import { fmtNum } from "../utils/formatNumber";
 import { base44 } from "@/api/base44Client";
 
-const VERTICAL_LABELS = {
-  flight: "airline",
-  accommodation: "hotel or accommodation chain",
-  car: "car rental company",
+const VERTICAL_CONFIG = {
+  flight: {
+    label: "airline, OTA, tour operator, or travel agency that sells flight tickets",
+    placeholder: "Search airlines, OTAs, tour operators, travel agencies…",
+    searchDesc: "Not listed above? Search any airline, OTA, tour operator, or travel agency worldwide",
+  },
+  accommodation: {
+    label: "hotel chain, booking platform, or accommodation provider",
+    placeholder: "Search hotel chains, booking platforms, resorts…",
+    searchDesc: "Not listed above? Search any hotel chain or accommodation provider worldwide",
+  },
+  car: {
+    label: "car rental company",
+    placeholder: "Search car rental companies…",
+    searchDesc: "Not listed above? Search any car rental company worldwide",
+  },
 };
 
 export default function TravelPartnerSelector({ vertical, selectedPartner, onSelect, t }) {
@@ -54,16 +66,18 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
     setWebSearching(true);
     setWebError("");
     try {
-      const prompt = `I need to find the annual booking/passenger/reservation volume for a specific ${VERTICAL_LABELS[vertical]} company.
+      const prompt = `I need to find the annual volume for a specific ${VERTICAL_CONFIG[vertical].label}.
 
 Company searched: "${query.trim()}"
 
-Please search the web and find this company's most recent publicly reported annual volume. Return:
+Please search the web and find this company's most recent publicly reported annual volume. This is a "${vertical}" vertical company — only search for ${vertical}-related businesses (e.g. ${vertical === "flight" ? "airlines, OTAs, tour operators, travel agencies that sell flights" : vertical === "accommodation" ? "hotel chains, resort groups, booking platforms" : "car rental companies"}). Do NOT return companies from other travel verticals.
+
+Return:
 - company_name: the official brand name
 - country: headquarters country
 - continent: one of "Europe", "North America", "Latin America", "Asia", "Middle East", "Africa", "Oceania"
-- annual_bookings: the annual volume as a number (passengers for airlines, reservations for hotels, rentals for car companies)
-- booking_unit: "passengers" for airlines, "reservations" for hotels, "rentals" for car rentals
+- annual_bookings: the annual volume as a number (${vertical === "flight" ? "passengers for airlines, flight bookings for OTAs/tour operators/agencies" : vertical === "accommodation" ? "room reservations" : "rentals"})
+- booking_unit: "passengers" for airlines, "bookings" for OTAs/tour operators/travel agencies, "reservations" for hotels, "rentals" for car companies
 - hubs: array of IATA codes of main hub airports (empty array for non-airlines)
 - description: one short sentence about the company
 - found: true if you found this company and its volume, false if you could not find it or the company does not exist
@@ -147,6 +161,7 @@ If the company is a small/regional operator without public data, estimate based 
 
   const unitLabel = (unit) => {
     if (unit === "passengers") return t('calculator.partner_unit_passengers');
+    if (unit === "bookings") return t('calculator.partner_unit_bookings', { defaultValue: 'bookings / yr' });
     if (unit === "reservations") return t('calculator.partner_unit_reservations');
     return t('calculator.partner_unit_rentals');
   };
@@ -201,7 +216,7 @@ If the company is a small/regional operator without public data, estimate based 
             }}
             onFocus={() => setIsOpen(true)}
             onKeyDown={handleKeyDown}
-            placeholder={t('calculator.partner_search_placeholder')}
+            placeholder={VERTICAL_CONFIG[vertical].placeholder}
             className="w-full pl-10 pr-10 py-3.5 text-sm font-medium text-slate-900 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:border-blue-500 focus:bg-white transition-colors"
           />
           {selectedPartner && (
@@ -264,7 +279,7 @@ If the company is a small/regional operator without public data, estimate based 
                     {webSearching ? t('calculator.partner_web_searching') : t('calculator.partner_web_search')}
                   </p>
                   <p className="text-xs text-slate-500">
-                    {webSearching ? t('calculator.partner_web_searching_desc') : t('calculator.partner_web_search_desc')}
+                    {webSearching ? t('calculator.partner_web_searching_desc') : VERTICAL_CONFIG[vertical].searchDesc}
                   </p>
                 </div>
               </button>

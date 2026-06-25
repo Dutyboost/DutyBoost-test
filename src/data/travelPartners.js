@@ -93,6 +93,50 @@ const FLIGHT_PARTNERS = [
   { company_name: "Ethiopian Airlines", country: "Ethiopia", continent: "Africa", annual_bookings: 12000000, booking_unit: "passengers", hubs: ["ADD"], description: "Flag carrier of Ethiopia" },
   { company_name: "Royal Air Maroc", country: "Morocco", continent: "Africa", annual_bookings: 7000000, booking_unit: "passengers", hubs: ["CMN"], description: "Flag carrier of Morocco" },
   { company_name: "Kenya Airways", country: "Kenya", continent: "Africa", annual_bookings: 4000000, booking_unit: "passengers", hubs: ["NBO"], description: "Flag carrier of Kenya" },
+
+  // ── OTAs & Metasearch (flight ticket sellers — no planes) ──────────
+  { company_name: "Booking.com", country: "Netherlands", continent: "Europe", annual_bookings: 20000000, booking_unit: "bookings", hubs: [], description: "World's largest OTA (Booking Holdings)" },
+  { company_name: "Expedia Group", country: "United States", continent: "North America", annual_bookings: 40000000, booking_unit: "bookings", hubs: [], description: "Major US OTA (Expedia, Hotels.com)" },
+  { company_name: "Trip.com Group", country: "China", continent: "Asia", annual_bookings: 100000000, booking_unit: "bookings", hubs: [], description: "Largest OTA in Asia (Ctrip)" },
+  { company_name: "eDreams ODIGEO", country: "Spain", continent: "Europe", annual_bookings: 25000000, booking_unit: "bookings", hubs: [], description: "Largest European flight OTA (eDreams, Opodo, Travellink)" },
+  { company_name: "Kiwi.com", country: "Czech Republic", continent: "Europe", annual_bookings: 15000000, booking_unit: "bookings", hubs: [], description: "Virtual interlining flight OTA" },
+  { company_name: "Skyscanner", country: "United Kingdom", continent: "Europe", annual_bookings: 30000000, booking_unit: "bookings", hubs: [], description: "Flight metasearch leader (Trip.com Group)" },
+  { company_name: "Kayak", country: "United States", continent: "North America", annual_bookings: 30000000, booking_unit: "bookings", hubs: [], description: "Travel metasearch (Booking Holdings)" },
+  { company_name: "Opodo", country: "United Kingdom", continent: "Europe", annual_bookings: 10000000, booking_unit: "bookings", hubs: [], description: "European OTA (eDreams ODIGEO)" },
+  { company_name: "Lastminute.com", country: "Switzerland", continent: "Europe", annual_bookings: 5000000, booking_unit: "bookings", hubs: [], description: "European OTA for flights & hotels" },
+  { company_name: "Travelgenio", country: "Spain", continent: "Europe", annual_bookings: 4000000, booking_unit: "bookings", hubs: [], description: "Spanish international flight OTA" },
+  { company_name: "Logitravel", country: "Spain", continent: "Europe", annual_bookings: 3000000, booking_unit: "bookings", hubs: [], description: "Spanish leisure OTA" },
+  { company_name: "Tripadvisor", country: "United States", continent: "North America", annual_bookings: 10000000, booking_unit: "bookings", hubs: [], description: "Travel platform with flight booking" },
+  { company_name: "Webjet", country: "Australia", continent: "Oceania", annual_bookings: 5000000, booking_unit: "bookings", hubs: [], description: "Australian OTA" },
+  { company_name: "Priceline", country: "United States", continent: "North America", annual_bookings: 15000000, booking_unit: "bookings", hubs: [], description: "US OTA (Booking Holdings)" },
+  { company_name: "MakeMyTrip", country: "India", continent: "Asia", annual_bookings: 20000000, booking_unit: "bookings", hubs: [], description: "Largest OTA in India" },
+  { company_name: "Agoda", country: "Singapore", continent: "Asia", annual_bookings: 8000000, booking_unit: "bookings", hubs: [], description: "Asian OTA (Booking Holdings)" },
+
+  // ── Tour Operators (sell flight-inclusive packages) ────────────────
+  { company_name: "TUI Group", country: "Germany", continent: "Europe", annual_bookings: 20000000, booking_unit: "bookings", hubs: [], description: "World's largest tour operator" },
+  { company_name: "Corendon Tour Operator", country: "Netherlands", continent: "Europe", annual_bookings: 2000000, booking_unit: "bookings", hubs: [], description: "Dutch-Turkish leisure tour operator" },
+  { company_name: "Sunweb Group", country: "Netherlands", continent: "Europe", annual_bookings: 3000000, booking_unit: "bookings", hubs: [], description: "Dutch package travel operator" },
+  { company_name: "DER Touristik", country: "Germany", continent: "Europe", annual_bookings: 8000000, booking_unit: "bookings", hubs: [], description: "German tour operator (REWE Group)" },
+  { company_name: "Schauinsland Reisen", country: "Germany", continent: "Europe", annual_bookings: 4000000, booking_unit: "bookings", hubs: [], description: "German leisure tour operator" },
+  { company_name: "Alltours", country: "Germany", continent: "Europe", annual_bookings: 3000000, booking_unit: "bookings", hubs: [], description: "German package holiday operator" },
+  { company_name: "D-Reizen", country: "Netherlands", continent: "Europe", annual_bookings: 1500000, booking_unit: "bookings", hubs: [], description: "Dutch travel agency chain" },
+  { company_name: "Thomas Cook Netherlands", country: "Netherlands", continent: "Europe", annual_bookings: 1000000, booking_unit: "bookings", hubs: [], description: "Dutch package travel brand" },
+  { company_name: "Jetairfly / TUI Belgium", country: "Belgium", continent: "Europe", annual_bookings: 2000000, booking_unit: "bookings", hubs: [], description: "Belgian TUI tour operator" },
+  { company_name: "FTI Group", country: "Germany", continent: "Europe", annual_bookings: 6000000, booking_unit: "bookings", hubs: [], description: "German tour operator (5vorFlug, BigXtra)" },
+  { company_name: "Globus Family of Brands", country: "United States", continent: "North America", annual_bookings: 2000000, booking_unit: "bookings", hubs: [], description: "US tour operator (Globus, Cosmos)" },
+  { company_name: "Insight Vacations", country: "United Kingdom", continent: "Europe", annual_bookings: 1500000, booking_unit: "bookings", hubs: [], description: "UK escorted tour operator (TC)" },
+
+  // ── Travel Agencies (corporate & leisure — sell flight tickets) ─────
+  { company_name: "Flight Centre Travel Group", country: "Australia", continent: "Oceania", annual_bookings: 5000000, booking_unit: "bookings", hubs: [], description: "Global travel agency network" },
+  { company_name: "Amex GBT (American Express Global Business Travel)", country: "United States", continent: "North America", annual_bookings: 12000000, booking_unit: "bookings", hubs: [], description: "Corporate travel management leader" },
+  { company_name: "BCD Travel", country: "Netherlands", continent: "Europe", annual_bookings: 15000000, booking_unit: "bookings", hubs: [], description: "Global corporate travel agency" },
+  { company_name: "CWT (Carlson Wagonlit Travel)", country: "United States", continent: "North America", annual_bookings: 10000000, booking_unit: "bookings", hubs: [], description: "Corporate travel management company" },
+  { company_name: "Egencia", country: "United States", continent: "North America", annual_bookings: 5000000, booking_unit: "bookings", hubs: [], description: "Corporate travel (Expedia Group)" },
+  { company_name: "Corporate Travel Management (CTM)", country: "Australia", continent: "Oceania", annual_bookings: 3000000, booking_unit: "bookings", hubs: [], description: "Corporate travel management" },
+  { company_name: "ATG Travel Worldwide", country: "Netherlands", continent: "Europe", annual_bookings: 1000000, booking_unit: "bookings", hubs: [], description: "Dutch business travel agency" },
+  { company_name: "BCD Meetings & Events", country: "Netherlands", continent: "Europe", annual_bookings: 1000000, booking_unit: "bookings", hubs: [], description: "Meetings & events travel (BCD)" },
+  { company_name: "Uniglobe Travel", country: "Canada", continent: "North America", annual_bookings: 2000000, booking_unit: "bookings", hubs: [], description: "Global travel agency franchise" },
+  { company_name: "Voyageurs du Monde", country: "France", continent: "Europe", annual_bookings: 1500000, booking_unit: "bookings", hubs: [], description: "French luxury tailor-made travel" },
 ];
 
 const ACCOMMODATION_PARTNERS = [
