@@ -906,7 +906,7 @@ export default {
       error_min_bookings: 'Minimum 500 bookings / month',
       partner_select_label: 'Step 1 — Find your company',
       partner_select_title: 'Search your company',
-      partner_select_desc: 'Select your company to auto-fill booking volume from public data. Search by name, country, or hub.',
+      partner_select_desc: 'Select your company to auto-fill booking volume from public data.',
       partner_search_placeholder: 'Type a company name, country, or hub (e.g. KLM, Marriott, Hertz)...',
       partner_no_results: 'No companies found. Try a different search term.',
       partner_auto_applied: 'Monthly bookings auto-set from company data',
