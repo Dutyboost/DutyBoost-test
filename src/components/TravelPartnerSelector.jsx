@@ -354,9 +354,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
               <div className="flex items-center gap-2">
                 <p className="font-bold text-slate-900">{selectedPartner.company_name}</p>
                 <span className="text-[10px] font-medium text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded">{selectedPartner.continent}</span>
-                {selectedPartner.found === false && (
-                  <span className="text-[10px] font-medium text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">AI</span>
-                )}
+
               </div>
               <p className="text-xs text-slate-600 flex items-center gap-1">
                 <MapPin className="w-3 h-3" />
