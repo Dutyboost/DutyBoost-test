@@ -69,23 +69,9 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
     setWebSearching(true);
     setWebError("");
     try {
-      const prompt = `I need to find the annual volume for a specific ${VERTICAL_CONFIG[vertical].label}.
+      const prompt = `Find "${query.trim()}" annual volume. Vertical: ${vertical} (${vertical === "flight" ? "airline/OTA/tour operator/travel agency" : vertical === "accommodation" ? "hotel/accommodation" : "car rental"} only).
 
-Company searched: "${query.trim()}"
-
-Please search the web and find this company's most recent publicly reported annual volume. This is a "${vertical}" vertical company — only search for ${vertical}-related businesses (e.g. ${vertical === "flight" ? "airlines, OTAs, tour operators, travel agencies that sell flights" : vertical === "accommodation" ? "hotel chains, resort groups, booking platforms" : "car rental companies"}). Do NOT return companies from other travel verticals.
-
-Return:
-- company_name: the official brand name
-- country: headquarters country
-- continent: one of "Europe", "North America", "Latin America", "Asia", "Middle East", "Africa", "Oceania"
-- annual_bookings: the annual volume as a number (${vertical === "flight" ? "passengers for airlines, flight bookings for OTAs/tour operators/agencies" : vertical === "accommodation" ? "room reservations" : "rentals"})
-- booking_unit: "passengers" for airlines, "bookings" for OTAs/tour operators/travel agencies, "reservations" for hotels, "rentals" for car companies
-- hubs: array of IATA codes of main hub airports (empty array for non-airlines)
-- description: one short sentence about the company
-- found: true if you found this company and its volume, false if you could not find it or the company does not exist
-
-If the company is a small/regional operator without public data, estimate based on available information and set found to true with a note in the description that it's an estimate. Only set found to false if the company genuinely does not exist or cannot be identified.`;
+Return JSON with: company_name, country, continent (Europe/North America/Latin America/Asia/Middle East/Africa/Oceania), annual_bookings (number), booking_unit ("passengers"/"bookings"/"reservations"/"rentals"), hubs (IATA array, empty if none), description (one sentence), found (boolean). Estimate if no public data. found=false only if company doesn't exist.`;
 
       const response = await base44.integrations.Core.InvokeLLM({
         prompt,
