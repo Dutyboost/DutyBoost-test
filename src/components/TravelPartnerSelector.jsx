@@ -305,9 +305,9 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
             )}
 
             {/* Web search fallback — search any of the ~5K airlines / 750K hotels / 20K car rentals */}
-            {canSearchWeb && (
+            {(canSearchWeb || webSearching) && (
               <button
-                onClick={() => handleWebSearch()}
+                onClick={() => !webSearching && handleWebSearch()}
                 disabled={webSearching}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors border-t-2 border-blue-100 ${
                   webSearching ? "bg-blue-50 opacity-70 cursor-wait" : "hover:bg-blue-50 cursor-pointer"
