@@ -77,7 +77,7 @@ export default function AirportSelector({ selectedAirport, onSelect, t }) {
           <h3 className="font-bold text-slate-900 text-lg">{t('calculator.airport_select_title')}</h3>
           <p className="text-slate-600 text-sm mt-0.5">{t('calculator.airport_select_desc')}</p>
         </div>
-        <Store className="w-8 h-8 text-blue-500" />
+        <Store className="w-8 h-8 text-orange-500" />
       </div>
 
       <div ref={containerRef} className="relative">
