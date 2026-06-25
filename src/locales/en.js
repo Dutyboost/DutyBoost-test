@@ -922,7 +922,7 @@ export default {
       partner_web_search_desc: 'Not listed above? Search any company worldwide',
       partner_unit_bookings: 'bookings / yr',
       partner_web_searching: 'Searching the web…',
-      partner_web_searching_desc: 'Looking up your company data on the web',
+      partner_web_searching_desc: 'Looking up your company data in our database',
       partner_web_loading_note: 'This uses 1 integration credit per search. Publicly reported annual volumes are estimates.',
       partner_web_not_found: 'Could not find this company or its public volume data. Try a different name or search term.',
       partner_web_error: 'Web search failed. Please try again or enter the volume manually.',
