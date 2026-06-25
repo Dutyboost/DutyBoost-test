@@ -11,6 +11,8 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
+import AirportSelector from "../components/AirportSelector";
+import { EUROPEAN_AIRPORTS } from "../data/europeanAirports";
 
 // ── Responsive font size for large numbers ─────────────────────────────────────
 function numFontClass(str) {
@@ -73,6 +75,7 @@ const BOOKING_TIERS = [
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
+  const [selectedAirport, setSelectedAirport] = useState(null);
   const [spend, setSpend] = useState(0);
   const [spendInput, setSpendInput] = useState("0");
   const [spendError, setSpendError] = useState("");
@@ -81,6 +84,17 @@ function RetailerTab({ t }) {
   const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(15);
+
+  const handleAirportSelect = (airport) => {
+    setSelectedAirport(airport);
+    if (airport) {
+      // Snap to nearest tier on the traveler slider
+      const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - airport.daily_pax) < Math.abs(a - airport.daily_pax) ? b : a);
+      setDailyTravelers(nearest);
+      setTravelersInput(fmtNum(nearest));
+      setTravelersError("");
+    }
+  };
   // min basket is now €35
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
@@ -118,6 +132,8 @@ function RetailerTab({ t }) {
         <h2 className="text-xl font-bold text-slate-900">{t('calculator.retailer_title')}</h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('calculator.retailer_subtitle') }} />
       </div>
+
+      <AirportSelector selectedAirport={selectedAirport} onSelect={handleAirportSelect} t={t} />
 
       {/* Slider Card */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
