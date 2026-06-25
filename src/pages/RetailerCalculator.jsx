@@ -733,7 +733,7 @@ function TravelPartnerTab({ t }) {
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
           <h3 className="font-bold text-white text-lg">{t('common.request_more_info')}</h3>
-          <p className="text-green-50 text-sm mt-0.5">{t('cta.description')}</p>
+          <p className="text-green-50 text-sm mt-0.5">Be part of building a new ecosystem where flight, accommodation, and car rental partners boost customer loyalty and earn a new passive income stream — travellers maximise rewards, and retailers increase revenue. All through one intelligent platform. With DutyBoost you always earn and never pay. EVER!</p>
         </div>
         <Link
           to="/request-more-information"
