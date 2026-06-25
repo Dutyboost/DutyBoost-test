@@ -633,6 +633,8 @@ export default {
       partner_web_loading_note: "Dies verbraucht 1 Integrationsguthaben pro Suche. Öffentliche Jahresvolumen sind Schätzungen.",
       partner_web_not_found: "Dieses Unternehmen oder seine öffentlichen Volumendaten konnten nicht gefunden werden. Versuchen Sie einen anderen Namen oder Suchbegriff.",
       partner_web_error: "Websuche fehlgeschlagen. Bitte erneut versuchen oder das Volumen manuell eingeben.",
+      retailer_cta_desc: "Reisepartner aktivieren Käufer, bevor sie Ihr Geschäft erreichen — sie verwandeln vorbeigehenden Verkehr in kaufbereite Kunden. Werden Sie Teil des Circular Revenue Ecosystems, in dem Einzelhändler den Umsatz steigern, Reisende Belohnungen maximieren und Reisepartner passives Einkommen verdienen — alles über eine intelligente Plattform.",
+      partner_cta_desc: "Bis jetzt floss der Umsatz, den Reisende in Flughafengeschäften ausgaben, nie an Sie zurück. Mit DutyBoost erschließt jede Buchung, die Sie ausstellen, eine neue Einnahmequelle — verdienen Sie passive Provision, sobald Ihre Reisenden DutyCredits bei Flughafenhändlern einlösen, ohne Kosten für Sie. Stärken Sie die Kundenbindung und monetarisieren Sie Reisen auf eine Weise, die bisher einfach nicht möglich war.",
     },
     letterOfIntent: {
       title: 'Absichtserklärung',
