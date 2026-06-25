@@ -855,7 +855,7 @@ export default {
       partner_web_loading_note: "Esto usa 1 crédito de integración por búsqueda. Los volúmenes anuales publicados son estimaciones.",
       partner_web_not_found: "No se pudo encontrar esta empresa o sus datos de volumen público. Prueba con otro nombre o término de búsqueda.",
       partner_web_error: "La búsqueda web falló. Inténtalo de nuevo o introduce el volumen manualmente.",
-      retailer_cta_desc: "Los socios de viaje pre-activan a los viajeros antes de que lleguen a tu tienda — convirtiendo el tráfico de paso en clientes listos para comprar. Sé parte del Ecosistema de Ingresos Circulares donde los minoristas aumentan las ventas, los viajeros maximizan las recompensas y los socios de viaje ganan ingresos pasivos — todo a través de una plataforma inteligente.",
+      retailer_cta_desc: "Los socios de viaje pre-activan a los viajeros antes de que lleguen a tu tienda — convirtiendo el tráfico de paso en clientes listos para comprar. Sé parte del Ecosistema de Ingresos Circulares donde los minoristas aumentan las ventas, los viajeros canjean las recompensas recibidas de los socios de viaje y los socios de viaje ganan ingresos pasivos — todo a través de una plataforma inteligente.",
       partner_cta_desc: "Hasta ahora, los ingresos que los viajeros gastaban en las tiendas de los aeropuertos nunca volvían a ti. Con DutyBoost, cada reserva que emites desbloquea una nueva fuente de ingresos — gana comisión pasiva cada vez que tus viajeros canjean DutyCredits en los minoristas del aeropuerto, sin coste para ti. Refuerza la fidelidad y monetiza los viajes de una manera que antes simplemente no era posible.",
     },
     letterOfIntent: {

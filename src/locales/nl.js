@@ -720,7 +720,7 @@ export default {
       partner_web_loading_note: "Dit gebruikt 1 integratiecredit per zoekopdracht. Jaarlijks gerapporteerde volumes zijn schattingen.",
       partner_web_not_found: "Kon dit bedrijf of zijn openbare volumegegevens niet vinden. Probeer een andere naam of zoekterm.",
       partner_web_error: "Webzoekactie mislukt. Probeer opnieuw of voer het volume handmatig in.",
-      retailer_cta_desc: "Reispartners activeren shoppers voordat ze uw winkel bereiken — ze veranderen passerend verkeer in klaar-om-te-kopen klanten. Word deel van het Circulair Omzetecosysteem waar retailers de verkoop verhogen, reizigers beloningen maximaliseren en reispartners passief inkomen verdienen — allemaal via één intelligent platform.",
+      retailer_cta_desc: "Reispartners activeren shoppers voordat ze uw winkel bereiken — ze veranderen passerend verkeer in klaar-om-te-kopen klanten. Word deel van het Circulair Omzetecosysteem waar retailers de verkoop verhogen, reizigers de beloningen inwisselen die ze van reispartners hebben ontvangen en reispartners passief inkomen verdienen — allemaal via één intelligent platform.",
       partner_cta_desc: "Tot nu toe vloeide de omzet die reizigers in luchthavenwinkels besteedden nooit terug naar u. Met DutyBoost ontgrendelt elke boeking die u uitgeeft een nieuwe inkomstenstroom — verdien passieve commissie telkens wanneer uw reizigers DutyCredits inwisselen bij luchthavenretailers, zonder kosten voor u. Versterk loyaliteit en monetiseer reizen op een manier die voorheen simpelweg niet mogelijk was.",
     },
     letterOfIntent: {
