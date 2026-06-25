@@ -168,9 +168,11 @@ export const ASIAN_AIRPORTS_EXTRA = [
   { name: "Ramon Airport", code: "ETM", city: "Eilat", country: "Israel", annual_pax: 1000000 },
   { name: "Ras Al Khaimah International Airport", code: "RKT", city: "Ras Al Khaimah", country: "United Arab Emirates", annual_pax: 450000 },
   { name: "King Hussein International Airport", code: "AQJ", city: "Aqaba", country: "Jordan", annual_pax: 350000 },
-];
+  // Mongolia
+  { name: "Chinggis Khaan International Airport", code: "ULN", city: "Ulaanbaatar", country: "Mongolia", annual_pax: 4000000 },
+  ];
 
-ASIAN_AIRPORTS_EXTRA.forEach(a => {
+  ASIAN_AIRPORTS_EXTRA.forEach(a => {
   a.daily_pax = Math.round(a.annual_pax / 365);
   a.region = "Asia";
 });
