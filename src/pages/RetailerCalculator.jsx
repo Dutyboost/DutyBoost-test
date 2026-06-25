@@ -146,7 +146,7 @@ function RetailerTab({ t }) {
       <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.basket_spend')}</p>
+            <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{selectedAirport ? `${selectedAirport.code} ${t('calculator.basket_spend')}` : t('calculator.basket_spend')}</p>
             <div className="flex items-center gap-1">
               <span className="text-5xl font-bold text-slate-900">€</span>
               <input
