@@ -1,8 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Search, MapPin, X, Plane, Globe, Loader2 } from "lucide-react";
 import { TRAVEL_PARTNERS, PARTNER_CONTINENTS } from "../data/travelPartners";
 import { fmtNum } from "../utils/formatNumber";
 import { base44 } from "@/api/base44Client";
+
+// Shared cache across all selector instances — repeated searches return instantly
+const webSearchCache = {};
 
 const VERTICAL_CONFIG = {
   flight: {
@@ -34,6 +37,8 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
   const [webError, setWebError] = useState("");
   const containerRef = useRef(null);
   const inputRef = useRef(null);
+  const debounceRef = useRef(null);
+  const searchIdRef = useRef(0);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -44,6 +49,31 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Auto-trigger web search with debounce when no static results match
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    const q = query.trim();
+    if (q.length < 3 || !isOpen || selectedPartner) return;
+    // Only auto-search if no static results
+    const qLower = q.toLowerCase();
+    const hasMatches = TRAVEL_PARTNERS
+      .filter((p) => p.vertical === vertical && (continent === "all" || p.continent === continent))
+      .some((p) =>
+        p.company_name.toLowerCase().includes(qLower) ||
+        p.country.toLowerCase().includes(qLower) ||
+        (p.hubs || []).some((h) => h.toLowerCase().includes(qLower))
+      );
+    if (hasMatches) return;
+
+    debounceRef.current = setTimeout(() => {
+      handleWebSearch(q);
+    }, 400);
+
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+  }, [query, isOpen, selectedPartner, vertical, continent]);
 
   const baseList = TRAVEL_PARTNERS.filter(
     (p) => p.vertical === vertical && (continent === "all" || p.continent === continent)
@@ -64,14 +94,28 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
   const hasStaticResults = filtered.length > 0;
   const canSearchWeb = query.trim().length >= 2 && !webSearching;
 
-  const handleWebSearch = async () => {
-    if (!canSearchWeb) return;
+  const handleWebSearch = useCallback(async (searchQuery) => {
+    const q = (searchQuery ?? query).trim();
+    if (q.length < 2) return;
+
+    const cacheKey = `${vertical}:${q.toLowerCase()}`;
+
+    // Instant return from cache
+    if (webSearchCache[cacheKey]) {
+      const cached = webSearchCache[cacheKey];
+      if (cached.found && cached.annual_bookings > 0) {
+        handleSelect(cached);
+      } else {
+        setWebError(t('calculator.partner_web_not_found'));
+      }
+      return;
+    }
+
+    const mySearchId = ++searchIdRef.current;
     setWebSearching(true);
     setWebError("");
     try {
-      const prompt = `Find "${query.trim()}" annual volume. Vertical: ${vertical} (${vertical === "flight" ? "airline/OTA/tour operator/travel agency" : vertical === "accommodation" ? "hotel/accommodation" : "car rental"} only).
-
-Return JSON with: company_name, country, continent (Europe/North America/Latin America/Asia/Middle East/Africa/Oceania), annual_bookings (number), booking_unit ("passengers"/"bookings"/"reservations"/"rentals"), hubs (IATA array, empty if none), description (one sentence), found (boolean). Estimate if no public data. found=false only if company doesn't exist.`;
+      const prompt = `Find "${q}" annual volume. Vertical: ${vertical} only. Return: company_name, country, continent, annual_bookings (number), booking_unit, hubs (array), description, found (boolean). Estimate if no public data.`;
 
       const response = await base44.integrations.Core.InvokeLLM({
         prompt,
@@ -93,23 +137,32 @@ Return JSON with: company_name, country, continent (Europe/North America/Latin A
         },
       });
 
+      // Stale guard — a newer search superseded this one
+      if (mySearchId !== searchIdRef.current) return;
+
+      const partner = {
+        ...response,
+        vertical,
+        annual_bookings: Math.round(response.annual_bookings) || 0,
+        monthly_bookings: Math.round((response.annual_bookings || 0) / 12),
+      };
+
+      webSearchCache[cacheKey] = partner;
+
       if (response.found && response.annual_bookings > 0) {
-        const partner = {
-          ...response,
-          vertical,
-          annual_bookings: Math.round(response.annual_bookings),
-          monthly_bookings: Math.round(response.annual_bookings / 12),
-        };
         handleSelect(partner);
       } else {
         setWebError(t('calculator.partner_web_not_found'));
       }
     } catch (err) {
+      if (mySearchId !== searchIdRef.current) return;
       setWebError(t('calculator.partner_web_error'));
     } finally {
-      setWebSearching(false);
+      if (mySearchId === searchIdRef.current) {
+        setWebSearching(false);
+      }
     }
-  };
+  }, [query, vertical, t]);
 
   const handleSelect = (partner) => {
     onSelect(partner);
@@ -254,7 +307,7 @@ Return JSON with: company_name, country, continent (Europe/North America/Latin A
             {/* Web search fallback — search any of the ~5K airlines / 750K hotels / 20K car rentals */}
             {canSearchWeb && (
               <button
-                onClick={handleWebSearch}
+                onClick={() => handleWebSearch()}
                 disabled={webSearching}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors border-t-2 border-blue-100 ${
                   webSearching ? "bg-blue-50 opacity-70 cursor-wait" : "hover:bg-blue-50 cursor-pointer"
