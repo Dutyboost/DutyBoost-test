@@ -3,7 +3,7 @@ import { base44 } from '@/api/base44Client';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts';
-import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin, Calendar, Building2 } from 'lucide-react';
+import { Globe, TrendingUp, ExternalLink, ArrowUpRight, MapPin, Calendar, Building2, ChevronDown, ChevronUp } from 'lucide-react';
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue
 } from '@/components/ui/select';
@@ -59,6 +59,7 @@ export default function TrafficDashboard() {
   const [loading, setLoading] = useState(true);
   const [selectedMonth, setSelectedMonth] = useState('all');
   const [pagesPeriod, setPagesPeriod] = useState('month');
+  const [referrersExpanded, setReferrersExpanded] = useState(false);
 
   useEffect(() => {
     base44.entities.PageVisit.list('-created_date', 5000).then(data => {
@@ -234,38 +235,50 @@ export default function TrafficDashboard() {
         {externalReferrers.length === 0 ? (
           <p className="text-slate-500 text-sm text-center py-8">No referrer data yet — data accumulates as visitors arrive.</p>
         ) : (
-          <div className="space-y-2">
-            {externalReferrers.map((r, i) => {
-              const pct = totalVisits > 0 ? ((r.value / totalVisits) * 100).toFixed(1) : 0;
-              const barWidth = totalVisits > 0 ? (r.value / externalReferrers[0].value) * 100 : 0;
-              const color = COLORS[i % COLORS.length];
-              const cat = categorizeDomain(r.name);
-              const catLabel = CATEGORY_CONFIG[cat]?.label || '';
-              return (
-                <div key={r.name} className="flex items-center gap-3 group">
-                  <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="text-sm font-semibold text-white truncate">{r.name}</span>
-                        <span className="text-xs text-slate-500 shrink-0">{catLabel}</span>
+          <>
+            <div className="space-y-2">
+              {(referrersExpanded ? externalReferrers : externalReferrers.slice(0, 3)).map((r, i) => {
+                const pct = totalVisits > 0 ? ((r.value / totalVisits) * 100).toFixed(1) : 0;
+                const barWidth = totalVisits > 0 ? (r.value / externalReferrers[0].value) * 100 : 0;
+                const color = COLORS[i % COLORS.length];
+                const cat = categorizeDomain(r.name);
+                const catLabel = CATEGORY_CONFIG[cat]?.label || '';
+                return (
+                  <div key={r.name} className="flex items-center gap-3 group">
+                    <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-sm font-semibold text-white truncate">{r.name}</span>
+                          <span className="text-xs text-slate-500 shrink-0">{catLabel}</span>
+                        </div>
+                        <div className="flex items-center gap-3 shrink-0 ml-3">
+                          <span className="text-xs text-slate-400">{pct}%</span>
+                          <span className="text-sm font-bold" style={{ color }}>{r.value}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-3 shrink-0 ml-3">
-                        <span className="text-xs text-slate-400">{pct}%</span>
-                        <span className="text-sm font-bold" style={{ color }}>{r.value}</span>
+                      <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                        <div
+                          className="h-full rounded-full transition-all duration-500"
+                          style={{ width: `${barWidth}%`, background: color }}
+                        />
                       </div>
-                    </div>
-                    <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full rounded-full transition-all duration-500"
-                        style={{ width: `${barWidth}%`, background: color }}
-                      />
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+            {externalReferrers.length > 3 && (
+              <button
+                onClick={() => setReferrersExpanded(!referrersExpanded)}
+                className="mt-4 w-full flex items-center justify-center gap-1.5 text-xs font-semibold text-blue-300 hover:text-blue-200 transition-colors py-2 border-t border-slate-700/50"
+              >
+                {referrersExpanded
+                  ? <>Show top 3 <ChevronUp className="w-3.5 h-3.5" /></>
+                  : <>Show all {externalReferrers.length} sources <ChevronDown className="w-3.5 h-3.5" /></>}
+              </button>
+            )}
+          </>
         )}
       </div>
 
@@ -391,7 +404,7 @@ export default function TrafficDashboard() {
         if (pages.length === 0) return null;
         const monthLabel = selectedMonth === 'all' ? 'All time' : availableMonths.find(m => m.key === selectedMonth)?.label;
         const periodLabels = { day: 'Last 24h', week: 'Last 7 days', month: 'Last 30 days', year: 'Last 12 months' };
-        const hasMore = pages.length > 10;
+        const hasMore = pages.length > 5;
         return (
           <PagesVisitedCard
             pages={pages}

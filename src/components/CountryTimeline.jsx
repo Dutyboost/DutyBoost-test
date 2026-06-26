@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#64748b'];
 
@@ -41,6 +41,7 @@ export default function CountryTimeline({ visits }) {
   const [granularity, setGranularity] = useState('monthly');
   const [offset, setOffset] = useState(0);
   const [selectedPeriod, setSelectedPeriod] = useState(null);
+  const [detailExpanded, setDetailExpanded] = useState(false);
 
   const config = GRANULARITIES.find(g => g.key === granularity);
 
@@ -214,7 +215,7 @@ export default function CountryTimeline({ visits }) {
             Countries — {formatPeriodLabel(effectiveSelected, granularity)}
           </p>
           <div className="space-y-2">
-            {detailCountries.map((c, i) => {
+            {(detailExpanded ? detailCountries : detailCountries.slice(0, 3)).map((c, i) => {
               const pct = detailTotal > 0 ? ((c.value / detailTotal) * 100).toFixed(1) : 0;
               const barWidth = detailCountries[0].value > 0 ? (c.value / detailCountries[0].value) * 100 : 0;
               const colorIdx = topCountries.indexOf(c.name);
@@ -238,6 +239,16 @@ export default function CountryTimeline({ visits }) {
               );
             })}
           </div>
+          {detailCountries.length > 3 && (
+            <button
+              onClick={() => setDetailExpanded(!detailExpanded)}
+              className="mt-3 w-full flex items-center justify-center gap-1.5 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors py-2"
+            >
+              {detailExpanded
+                ? <>Show top 3 <ChevronUp className="w-3.5 h-3.5" /></>
+                : <>Show all {detailCountries.length} countries <ChevronDown className="w-3.5 h-3.5" /></>}
+            </button>
+          )}
         </div>
       )}
     </div>

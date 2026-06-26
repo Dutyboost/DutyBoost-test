@@ -23,7 +23,8 @@ export default function PagesVisitedCard({
   hasMore,
 }) {
   const [expanded, setExpanded] = useState(false);
-  const visiblePages = expanded ? pages : pages.slice(0, 10);
+  const TOP_N = 5;
+  const visiblePages = expanded ? pages : pages.slice(0, TOP_N);
 
   return (
     <div className="bg-slate-800 border border-teal-500/30 rounded-2xl p-5">
@@ -88,7 +89,7 @@ export default function PagesVisitedCard({
           className="mt-4 w-full flex items-center justify-center gap-1.5 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors py-2 border-t border-slate-700/50"
         >
           {expanded ? (
-            <>Show top 10 <ChevronUp className="w-3.5 h-3.5" /></>
+            <>Show top 5 <ChevronUp className="w-3.5 h-3.5" /></>
           ) : (
             <>Show all {pages.length} pages <ChevronDown className="w-3.5 h-3.5" /></>
           )}
