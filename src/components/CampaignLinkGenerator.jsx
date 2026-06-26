@@ -41,7 +41,7 @@ export default function CampaignLinkGenerator() {
   const [mergeTool, setMergeTool] = useState('lemlist');
   const [copied, setCopied] = useState(false);
 
-  const BASE = typeof window !== 'undefined' ? window.location.origin : 'https://dutyboost.com';
+  const BASE = 'https://dutyboost.com';
 
   // Single mode: one concrete link for one company
   const campaignSlug = slugify(company);
