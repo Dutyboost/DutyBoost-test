@@ -100,7 +100,10 @@ const OTAS_AND_PLATFORMS = [
   { company_name: "Uniglobe Travel", country: "Canada", continent: "North America", annual_bookings: 2000000, booking_unit: "bookings", vertical: "flight", hubs: [], description: "Global travel agency franchise" },
   { company_name: "Voyageurs du Monde", country: "France", continent: "Europe", annual_bookings: 1500000, booking_unit: "bookings", vertical: "flight", hubs: [], description: "French luxury tailor-made travel" },
   { company_name: "Lufthansa City Center", country: "Germany", continent: "Europe", annual_bookings: 2000000, booking_unit: "bookings", vertical: "flight", hubs: [], description: "German travel agency franchise" },
+];
 
+// ── Flight-only partners (cruise lines & sightseeing — no accommodation/car packages) ──
+const FLIGHT_ONLY_PARTNERS = [
   // ── Cruise Lines ────────────────────────────────────────────────────
   { company_name: "Carnival Corporation & plc", country: "United States", continent: "North America", annual_bookings: 13000000, booking_unit: "bookings", vertical: "flight", hubs: [], description: "World's largest cruise company (9 brands)" },
   { company_name: "Royal Caribbean Group", country: "United States", continent: "North America", annual_bookings: 8000000, booking_unit: "bookings", vertical: "flight", hubs: [], description: "Global cruise company (Royal Caribbean, Celebrity, Silversea)" },
@@ -153,11 +156,16 @@ const OTAS_AND_PLATFORMS = [
 ];
 
 // ── Combine all sources ──────────────────────────────────────────────
+// OTAs that sell package deals appear in all three verticals so users
+// searching the accommodation or car rental calculator can also find them.
 const ALL_PARTNERS = [
   ...AIRLINES.map((p) => ({ ...p, vertical: "flight" })),
   ...HOTEL_CHAINS.map((p) => ({ ...p, vertical: "accommodation" })),
   ...CAR_RENTAL_COMPANIES.map((p) => ({ ...p, vertical: "car" })),
-  ...OTAS_AND_PLATFORMS,
+  ...OTAS_AND_PLATFORMS.map((p) => ({ ...p, vertical: "flight" })),
+  ...OTAS_AND_PLATFORMS.map((p) => ({ ...p, vertical: "accommodation" })),
+  ...OTAS_AND_PLATFORMS.map((p) => ({ ...p, vertical: "car" })),
+  ...FLIGHT_ONLY_PARTNERS.map((p) => ({ ...p, vertical: "flight" })),
 ];
 
 export const TRAVEL_PARTNERS = ALL_PARTNERS.map((p) => ({
