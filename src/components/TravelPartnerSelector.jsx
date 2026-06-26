@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { Search, MapPin, X, Plane, Globe, Loader2 } from "lucide-react";
 import { TRAVEL_PARTNERS, PARTNER_CONTINENTS } from "../data/travelPartners";
 import { fmtNum } from "../utils/formatNumber";
@@ -50,46 +50,48 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Memoized base list — only recomputes when vertical or continent changes
+  const baseList = useMemo(
+    () => TRAVEL_PARTNERS.filter(
+      (p) => p.vertical === vertical && (continent === "all" || p.continent === continent)
+    ),
+    [vertical, continent]
+  );
+
+  // Pre-built lowercase search index — avoids calling .toLowerCase() on every field of every entry per keystroke
+  const searchIndex = useMemo(
+    () => baseList.map((p) => ({
+      partner: p,
+      searchText: `${p.company_name} ${p.country} ${p.continent} ${(p.hubs || []).join(" ")}`.toLowerCase(),
+    })),
+    [baseList]
+  );
+
+  // Memoized filtered results — recomputes only when query or baseList changes, not on hover/highlight changes
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return baseList.slice(0, 30);
+    return searchIndex
+      .filter((entry) => entry.searchText.includes(q))
+      .map((entry) => entry.partner)
+      .slice(0, 30);
+  }, [query, searchIndex, baseList]);
+
   // Auto-trigger web search with debounce when no static results match
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
     const q = query.trim();
     if (q.length < 3 || !isOpen || selectedPartner) return;
-    // Only auto-search if no static results
-    const qLower = q.toLowerCase();
-    const hasMatches = TRAVEL_PARTNERS
-      .filter((p) => p.vertical === vertical && (continent === "all" || p.continent === continent))
-      .some((p) =>
-        p.company_name.toLowerCase().includes(qLower) ||
-        p.country.toLowerCase().includes(qLower) ||
-        (p.hubs || []).some((h) => h.toLowerCase().includes(qLower))
-      );
-    if (hasMatches) return;
+    if (filtered.length > 0) return; // use memoized result — no redundant scan
 
     debounceRef.current = setTimeout(() => {
       handleWebSearch(q);
-    }, 400);
+    }, 250);
 
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
-  }, [query, isOpen, selectedPartner, vertical, continent]);
-
-  const baseList = TRAVEL_PARTNERS.filter(
-    (p) => p.vertical === vertical && (continent === "all" || p.continent === continent)
-  );
-
-  const filtered = query.trim()
-    ? baseList.filter((p) => {
-        const q = query.toLowerCase();
-        return (
-          p.company_name.toLowerCase().includes(q) ||
-          p.country.toLowerCase().includes(q) ||
-          p.continent.toLowerCase().includes(q) ||
-          (p.hubs || []).some((h) => h.toLowerCase().includes(q))
-        );
-      }).slice(0, 30)
-    : baseList.slice(0, 30);
+  }, [query, isOpen, selectedPartner, vertical, continent, filtered.length]);
 
   const hasStaticResults = filtered.length > 0;
   const canSearchWeb = query.trim().length >= 2 && !webSearching;
