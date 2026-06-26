@@ -263,6 +263,27 @@ export const HOTEL_CHAINS = [
   { company_name: "Selina", country: "Panama", continent: "Latin America", annual_bookings: 2000000, booking_unit: "reservations", hubs: [], description: "Panamanian lifestyle hostel-hotel brand (120+ properties, 20 countries)" },
   { company_name: "a&o Hostels", country: "Germany", continent: "Europe", annual_bookings: 3000000, booking_unit: "reservations", hubs: [], description: "German budget hostel chain (40+ properties, Europe)" },
   { company_name: "Wombat's City Hostels", country: "Germany", continent: "Europe", annual_bookings: 1000000, booking_unit: "reservations", hubs: [], description: "German hostel chain (10+ properties, Europe)" },
+
+  // ── Holiday Park Operators (European bungalow/vacation parks) ──────
+  { company_name: "EuroParcs", country: "Netherlands", continent: "Europe", annual_bookings: 300000, booking_unit: "reservations", hubs: [], description: "Dutch holiday park operator (65+ parks across NL, BE, DE, AT, LU; 1M+ guests)" },
+  { company_name: "Landal GreenParks", country: "Netherlands", continent: "Europe", annual_bookings: 1200000, booking_unit: "reservations", hubs: [], description: "Leading European holiday park chain (200+ parks; 3.2M guests, 15.6M overnight stays)" },
+  { company_name: "Roompot", country: "Netherlands", continent: "Europe", annual_bookings: 1000000, booking_unit: "reservations", hubs: [], description: "Dutch holiday park operator (17,000+ accommodations; 3M guests, 13M overnight stays; merged with Landal)" },
+  { company_name: "Center Parcs Europe", country: "France", continent: "Europe", annual_bookings: 4000000, booking_unit: "reservations", hubs: [], description: "Pan-European holiday park chain (28 parks; part of Pierre & Vacances-Center Parcs Group)" },
+  { company_name: "Center Parcs UK", country: "United Kingdom", continent: "Europe", annual_bookings: 1500000, booking_unit: "reservations", hubs: [], description: "UK short-break holiday village operator (5 villages; ~2M guests)" },
+  { company_name: "Pierre & Vacances", country: "France", continent: "Europe", annual_bookings: 4000000, booking_unit: "reservations", hubs: [], description: "French vacation rental & residence brand (Pierre & Vacances-Center Parcs Group; ~8M group guests)" },
+  { company_name: "Sunparks", country: "Belgium", continent: "Europe", annual_bookings: 200000, booking_unit: "reservations", hubs: [], description: "Belgian-Dutch holiday village brand (8 parks; Center Parcs Europe)" },
+  { company_name: "TopParken", country: "Netherlands", continent: "Europe", annual_bookings: 150000, booking_unit: "reservations", hubs: [], description: "Dutch holiday park operator (14 parks across the Netherlands)" },
+  { company_name: "Hogenboom Vakantieparken", country: "Netherlands", continent: "Europe", annual_bookings: 300000, booking_unit: "reservations", hubs: [], description: "Dutch bungalow park operator (50 parks across NL, BE, DE, CZ)" },
+  { company_name: "Dormio", country: "Netherlands", continent: "Europe", annual_bookings: 250000, booking_unit: "reservations", hubs: [], description: "Dutch holiday park operator (30+ parks acquired from Landal/Roompot merger)" },
+  { company_name: "Eurocamp", country: "United Kingdom", continent: "Europe", annual_bookings: 500000, booking_unit: "reservations", hubs: [], description: "UK-based European camping & holiday park operator (400+ parcs across 12 countries)" },
+  { company_name: "Suncamp", country: "Netherlands", continent: "Europe", annual_bookings: 300000, booking_unit: "reservations", hubs: [], description: "Dutch camping & mobile home holiday operator (14 European countries)" },
+  { company_name: "Siblu", country: "United Kingdom", continent: "Europe", annual_bookings: 200000, booking_unit: "reservations", hubs: [], description: "Family holiday park operator (24 parks in France & Netherlands)" },
+  { company_name: "Marvilla Parks", country: "France", continent: "Europe", annual_bookings: 150000, booking_unit: "reservations", hubs: [], description: "French-Dutch mobile home & camping park operator" },
+  { company_name: "Butlin's", country: "United Kingdom", continent: "Europe", annual_bookings: 500000, booking_unit: "reservations", hubs: [], description: "UK seaside holiday resort chain (3 resorts; ~1.5M guests)" },
+  { company_name: "Haven Holidays", country: "United Kingdom", continent: "Europe", annual_bookings: 700000, booking_unit: "reservations", hubs: [], description: "UK coastal caravan & holiday park chain (41 parks; ~2M guests)" },
+  { company_name: "Parkdean Resorts", country: "United Kingdom", continent: "Europe", annual_bookings: 700000, booking_unit: "reservations", hubs: [], description: "UK holiday park operator (66 parks; ~2M guests)" },
+  { company_name: "Park Holidays", country: "United Kingdom", continent: "Europe", annual_bookings: 350000, booking_unit: "reservations", hubs: [], description: "UK caravan & holiday park chain (40+ parks; ~1M guests)" },
+  { company_name: "Pontins", country: "United Kingdom", continent: "Europe", annual_bookings: 200000, booking_unit: "reservations", hubs: [], description: "UK seaside holiday camp chain (6 parks)" },
 ];
 
 export const HOTEL_CHAIN_DEFAULTS = {
