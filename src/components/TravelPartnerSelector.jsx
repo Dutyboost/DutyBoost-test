@@ -37,7 +37,6 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
   const [webError, setWebError] = useState("");
   const containerRef = useRef(null);
   const inputRef = useRef(null);
-  const debounceRef = useRef(null);
   const searchIdRef = useRef(0);
 
   useEffect(() => {
@@ -77,21 +76,8 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
       .slice(0, 30);
   }, [query, searchIndex, baseList]);
 
-  // Auto-trigger web search with debounce when no static results match
-  useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    const q = query.trim();
-    if (q.length < 3 || !isOpen || selectedPartner) return;
-    if (filtered.length > 0) return; // use memoized result — no redundant scan
-
-    debounceRef.current = setTimeout(() => {
-      handleWebSearch(q);
-    }, 250);
-
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
-  }, [query, isOpen, selectedPartner, vertical, continent, filtered.length]);
+  // Web search is manual-only — the LLM call takes seconds, so auto-firing on every
+  // keystroke with no static match made typing feel frozen. Static search is instant.
 
   const hasStaticResults = filtered.length > 0;
   const canSearchWeb = query.trim().length >= 2 && !webSearching;
@@ -306,8 +292,8 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
               ))
             )}
 
-            {/* Web search fallback — search any of the ~5K airlines / 750K hotels / 20K car rentals */}
-            {(canSearchWeb || webSearching) && (
+            {/* Web search — manual click. LLM call takes seconds, so never auto-fire. */}
+            {query.trim().length >= 2 && (canSearchWeb || webSearching) && (
               <button
                 onClick={() => !webSearching && handleWebSearch()}
                 disabled={webSearching}
