@@ -451,64 +451,6 @@ export default function TrafficDashboard() {
         );
       })()}
 
-      {/* ISP / Network Visitors — powered by IPinfo reverse lookup */}
-      {(() => {
-        const orgs = tally(filteredVisits.filter(v => v.org_name), 'org_name');
-        if (orgs.length === 0) return null;
-        return (
-          <div className="bg-slate-800 border border-slate-600 rounded-2xl p-5">
-            <div className="flex items-center gap-2 mb-1">
-              <Building2 className="w-4 h-4 text-slate-400" />
-              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">Visitor Networks (ISPs)</h3>
-            </div>
-            <p className="text-xs text-slate-400 mb-2">
-              These are the <strong className="text-slate-300">Internet Service Providers</strong> your visitors use
-              (e.g. KPN, Vodafone, Ziggo) — <strong className="text-amber-400">not</strong> the names of the travel
-              companies visiting DutyBoost. IP lookup resolves to whoever owns the network, which is the ISP.
-            </p>
-            <p className="text-xs text-blue-300 mb-4">
-              💡 To see <strong className="text-blue-200">which travel company</strong> visited, use tagged campaign links —
-              see the generator below.
-            </p>
-            <div className="space-y-2">
-              {orgs.slice(0, 20).map((r, i) => {
-                const barWidth = orgs[0].value > 0 ? (r.value / orgs[0].value) * 100 : 0;
-                const color = COLORS[i % COLORS.length];
-                // Find a domain for this org
-                const domainVisit = filteredVisits.find(v => v.org_name === r.name && v.org_domain);
-                return (
-                  <div key={r.name} className="flex items-center gap-3">
-                    <span className="text-xs text-slate-500 w-5 shrink-0 text-right">{i + 1}</span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-sm font-medium text-slate-200 truncate">{r.name}</span>
-                          {domainVisit?.org_domain && (
-                            <a
-                              href={`https://${domainVisit.org_domain}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-indigo-400 hover:text-indigo-300 shrink-0 flex items-center gap-0.5"
-                            >
-                              {domainVisit.org_domain} <ExternalLink className="w-3 h-3" />
-                            </a>
-                          )}
-                        </div>
-                        <span className="text-sm font-bold shrink-0 ml-3" style={{ color }}>{r.value}</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                        <div className="h-full rounded-full transition-all duration-500" style={{ width: `${barWidth}%`, background: color }} />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="text-xs text-slate-500 mt-3">⚠️ Most travel companies don't own their IP block, so they'll show as their ISP here. Tag your outreach links (below) to attribute visits to specific companies.</p>
-          </div>
-        );
-      })()}
-
       {/* Campaign Link Generator — tag outreach links so visits attribute to a specific company */}
       <CampaignLinkGenerator />
 
