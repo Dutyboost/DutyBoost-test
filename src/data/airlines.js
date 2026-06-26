@@ -378,18 +378,6 @@ export const AIRLINES = [
   { company_name: "Bearskin Airlines", country: "Canada", continent: "North America", annual_bookings: 200000, booking_unit: "passengers", hubs: ["YQT"], description: "Canadian regional carrier (Perimeter)" },
   { company_name: "PAL Airlines", country: "Canada", continent: "North America", annual_bookings: 500000, booking_unit: "passengers", hubs: ["YYT"], description: "Canadian regional carrier (PAL Group)" },
   { company_name: "Air Labrador", country: "Canada", continent: "North America", annual_bookings: 200000, booking_unit: "passengers", hubs: ["YYT"], description: "Canadian regional carrier" },
-
-  // ── Cargo Airlines (significant scheduled carriers) ────────────────
-  { company_name: "FedEx Express", country: "United States", continent: "North America", annual_bookings: 15000000, booking_unit: "passengers", hubs: ["MEM", "IND"], description: "World's largest cargo airline (FedEx)" },
-  { company_name: "UPS Airlines", country: "United States", continent: "North America", annual_bookings: 10000000, booking_unit: "passengers", hubs: ["SDF", "ONT"], description: "Major US cargo airline (UPS)" },
-  { company_name: "DHL Aviation", country: "Germany", continent: "Europe", annual_bookings: 8000000, booking_unit: "passengers", hubs: ["LEJ", "BRU"], description: "Global cargo airline (Deutsche Post DHL)" },
-  { company_name: "Cathay Cargo", country: "Hong Kong", continent: "Asia", annual_bookings: 3000000, booking_unit: "passengers", hubs: ["HKG"], description: "Cargo division of Cathay Pacific" },
-  { company_name: "Korean Air Cargo", country: "South Korea", continent: "Asia", annual_bookings: 2000000, booking_unit: "passengers", hubs: ["ICN"], description: "Cargo division of Korean Air" },
-  { company_name: "Emirates SkyCargo", country: "United Arab Emirates", continent: "Middle East", annual_bookings: 2000000, booking_unit: "passengers", hubs: ["DXB"], description: "Cargo division of Emirates" },
-  { company_name: "Qatar Airways Cargo", country: "Qatar", continent: "Middle East", annual_bookings: 2000000, booking_unit: "passengers", hubs: ["DOH"], description: "Cargo division of Qatar Airways" },
-  { company_name: "Lufthansa Cargo", country: "Germany", continent: "Europe", annual_bookings: 1500000, booking_unit: "passengers", hubs: ["FRA"], description: "Cargo division of Lufthansa Group" },
-  { company_name: "Cargolux", country: "Luxembourg", continent: "Europe", annual_bookings: 1000000, booking_unit: "passengers", hubs: ["LUX"], description: "European all-cargo airline" },
-  { company_name: "Atlas Air", country: "United States", continent: "North America", annual_bookings: 1000000, booking_unit: "passengers", hubs: ["SDF", "MIA"], description: "US cargo and ACMI carrier" },
 ];
 
 export const AIRLINE_DEFAULTS = {
