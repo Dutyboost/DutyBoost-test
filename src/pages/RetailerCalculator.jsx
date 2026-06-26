@@ -357,12 +357,12 @@ function RetailerTab({ t }) {
               {[
                 { label: t('calculator.label_saving'), value: saving, pct: fmtNum(discountPct, 1), barColor: "bg-rose-600", textColor: "text-rose-600" },
                 { label: t('calculator.label_fee'), value: commission, pct: fmtNum(spend > 0 ? Math.round((commission / spend) * 1000) / 10 : 2.5, 1), barColor: "bg-orange-500", textColor: "text-orange-500" },
-                { label: t('calculator.label_net'), value: netRevenue, pct: fmtNum(Math.round((netRevenue / spend) * 1000) / 10, 1), barColor: "bg-emerald-600", textColor: "text-emerald-600" },
+                { label: t('calculator.label_net'), value: netRevenue, pct: fmtNum(spend > 0 ? Math.round((netRevenue / spend) * 1000) / 10 : 0, 1), barColor: "bg-emerald-600", textColor: "text-emerald-600" },
               ].map(({ label, value, pct, barColor, textColor }) => (
                 <div key={label} className="flex items-center gap-3">
                   <div className="w-28 text-xs text-slate-500 shrink-0">{label}</div>
                   <div className="flex-1 h-6 bg-slate-200 rounded-lg overflow-hidden">
-                    <div className={`h-full ${barColor} rounded-lg transition-all duration-300`} style={{ width: `${Math.min(100, (value / spend) * 100)}%` }} />
+                    <div className={`h-full ${barColor} rounded-lg transition-all duration-300`} style={{ width: `${spend > 0 ? Math.min(100, (value / spend) * 100) : 0}%` }} />
                     </div>
                     <div className={`w-12 text-xs text-right shrink-0 font-semibold ${textColor}`}>{pct}%</div>
                 </div>
@@ -371,7 +371,7 @@ function RetailerTab({ t }) {
             <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <p className="text-xs text-slate-500">{t('calculator.total_cost_label')}</p>
-                <p className="text-2xl font-bold text-slate-900">{fmtEur(totalCost, 2)} <span className="text-sm font-normal text-slate-600">/ {fmtNum(Math.round((totalCost / spend) * 1000) / 10, 1)}% {t('calculator.of_basket')}</span></p>
+                <p className="text-2xl font-bold text-slate-900">{fmtEur(totalCost, 2)} <span className="text-sm font-normal text-slate-600">/ {fmtNum(spend > 0 ? Math.round((totalCost / spend) * 1000) / 10 : 0, 1)}% {t('calculator.of_basket')}</span></p>
               </div>
 
             </div>
