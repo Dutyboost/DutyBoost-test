@@ -8,6 +8,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue
 } from '@/components/ui/select';
 import CountryTimeline from './CountryTimeline';
+import CampaignLinkGenerator from './CampaignLinkGenerator';
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#64748b'];
 
@@ -450,17 +451,25 @@ export default function TrafficDashboard() {
         );
       })()}
 
-      {/* Company Visitors — powered by IPinfo reverse lookup */}
+      {/* ISP / Network Visitors — powered by IPinfo reverse lookup */}
       {(() => {
         const orgs = tally(filteredVisits.filter(v => v.org_name), 'org_name');
         if (orgs.length === 0) return null;
         return (
-          <div className="bg-slate-800 border border-indigo-500/30 rounded-2xl p-5">
+          <div className="bg-slate-800 border border-slate-600 rounded-2xl p-5">
             <div className="flex items-center gap-2 mb-1">
-              <Building2 className="w-4 h-4 text-indigo-300" />
-              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">Company Visitors</h3>
+              <Building2 className="w-4 h-4 text-slate-400" />
+              <h3 className="text-sm font-semibold text-white uppercase tracking-widest">Visitor Networks (ISPs)</h3>
             </div>
-            <p className="text-xs text-slate-400 mb-4">Organisations identified via reverse IP lookup. Best accuracy for corporate office networks.</p>
+            <p className="text-xs text-slate-400 mb-2">
+              These are the <strong className="text-slate-300">Internet Service Providers</strong> your visitors use
+              (e.g. KPN, Vodafone, Ziggo) — <strong className="text-amber-400">not</strong> the names of the travel
+              companies visiting DutyBoost. IP lookup resolves to whoever owns the network, which is the ISP.
+            </p>
+            <p className="text-xs text-blue-300 mb-4">
+              💡 To see <strong className="text-blue-200">which travel company</strong> visited, use tagged campaign links —
+              see the generator below.
+            </p>
             <div className="space-y-2">
               {orgs.slice(0, 20).map((r, i) => {
                 const barWidth = orgs[0].value > 0 ? (r.value / orgs[0].value) * 100 : 0;
@@ -495,10 +504,13 @@ export default function TrafficDashboard() {
                 );
               })}
             </div>
-            <p className="text-xs text-slate-500 mt-3">⚠️ Home workers, VPNs, and mobile users typically won't resolve to a company.</p>
+            <p className="text-xs text-slate-500 mt-3">⚠️ Most travel companies don't own their IP block, so they'll show as their ISP here. Tag your outreach links (below) to attribute visits to specific companies.</p>
           </div>
         );
       })()}
+
+      {/* Campaign Link Generator — tag outreach links so visits attribute to a specific company */}
+      <CampaignLinkGenerator />
 
       {/* Note about UTM */}
       {utmSources.length === 0 && (
