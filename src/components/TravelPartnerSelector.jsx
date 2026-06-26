@@ -293,7 +293,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
             )}
 
             {/* Web search — manual click. LLM call takes seconds, so never auto-fire. */}
-            {query.trim().length >= 2 && (canSearchWeb || webSearching) && (
+            {!hasStaticResults && query.trim().length >= 2 && (canSearchWeb || webSearching) && (
               <button
                 onClick={() => !webSearching && handleWebSearch()}
                 disabled={webSearching}
