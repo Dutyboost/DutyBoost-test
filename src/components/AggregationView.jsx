@@ -89,7 +89,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <div className="flex items-center gap-2 flex-wrap mt-4">
           <Calendar className="w-4 h-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground font-medium">Period</span>
-          {["day", "month", "year", "custom"].map(p => (
+          {["day", "month", "year"].map(p => (
             <button
               key={p}
               onClick={() => onPeriodChange(p)}
