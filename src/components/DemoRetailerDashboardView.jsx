@@ -154,12 +154,17 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
           <AggregationView 
-            transactions={RETAILERS.map(r => ({ 
-              transaction_value: r.revenue,
-              discount_applied: 15,
-              airport: r.airport,
-              count: r.redemptions,
-            }))}
+            transactions={RETAILERS.map(r => {
+              const saving = calcSaving(r.avg_sale);
+              const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
+              return {
+                transaction_value: r.revenue,
+                total_savings: saving * r.redemptions,
+                total_commission: commission * r.redemptions,
+                airport: r.airport,
+                count: r.redemptions,
+              };
+            })}
             vouchers={RETAILERS}
             period={period}
             entityType="retailer"

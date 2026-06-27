@@ -24,25 +24,27 @@ export default function AggregationView({ transactions, vouchers, period, custom
   const aggregatedMetrics = useMemo(() => {
     let totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);
     let grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
-    
+    let totalSavings = filteredTransactions.reduce((sum, t) => sum + (t.total_savings || 0), 0);
+    let totalCommission = filteredTransactions.reduce((sum, t) => sum + (t.total_commission || 0), 0);
+
     // Apply period divisors for day/month projections
     let divisor = 1;
     if (period === "day") divisor = 365;
     else if (period === "month") divisor = 12;
-    
+
     if (divisor > 1) {
       totalRedemptions = Math.round(totalRedemptions / divisor);
       grossRevenue = grossRevenue / divisor;
+      totalSavings = totalSavings / divisor;
+      totalCommission = totalCommission / divisor;
     }
-    
+
     const platformFee = entityType === "retailer"
-      ? grossRevenue * 0.025
+      ? totalCommission
       : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0) / divisor;
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
-    const avgDiscount = totalRedemptions > 0
-      ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || 0) * (t.count || 1), 0) / totalRedemptions)
-      : 0;
-    const totalSavings = totalRedemptions * avgDiscount * avgSalesPerCredit / 100;
+    const avgDiscountEur = totalRedemptions > 0 ? (totalSavings / totalRedemptions) : 0;
+    const avgDiscountPct = avgSalesPerCredit > 0 ? (avgDiscountEur / avgSalesPerCredit * 100) : 0;
     const netRevenue = grossRevenue - totalSavings - platformFee;
 
     return {
@@ -50,7 +52,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       grossRevenue: grossRevenue.toFixed(2),
       platformFee: platformFee.toFixed(2),
       avgSalesPerCredit: avgSalesPerCredit.toFixed(2),
-      avgDiscount: avgDiscount.toFixed(1),
+      avgDiscount: avgDiscountPct.toFixed(1),
       vouchersIssued: vouchers.length,
       totalSavings: totalSavings.toFixed(2),
       netRevenue: netRevenue.toFixed(2),
