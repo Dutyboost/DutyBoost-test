@@ -84,6 +84,27 @@ export default function AggregationView({ transactions, vouchers, period, custom
        <div>
         <h2 className="text-xl font-heading font-bold mb-2">{t('common.custom_aggregation') || 'Custom Aggregation — All Stores'}</h2>
         <p className="text-muted-foreground text-sm mb-4">{t('common.aggregation_desc') || 'Combined metrics across all your retail locations.'}</p>
+        
+        {/* Period selector */}
+        <div className="flex items-center gap-2 flex-wrap mt-4">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">{t('demo.period') || 'Period'}</span>
+          {[
+            { v: "day", l: t('demo.daily') },
+            { v: "month", l: t('demo.monthly') },
+            { v: "year", l: t('demo.yearly') },
+          ].map(({ v, l }) => (
+            <button
+              key={v}
+              onClick={() => onPeriodChange(v)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
       </div>
 
 
