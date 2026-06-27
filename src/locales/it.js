@@ -57,9 +57,9 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viaggiatori',
-        description: 'Ottieni un DutyCredit del valore di €5–€60 da spendere presso i rivenditori aeroportuali partecipanti. Se il tuo partner di viaggio ha già incluso un DutyCredit nella tua email di conferma prenotazione, usa quello — genera qui solo se non ne hai ancora ricevuto uno. Nessuna registrazione, nessun upload della carta d\'imbarco. Seleziona il tuo aeroporto, richiedi e scansiona per risparmiare.',
-        b1: 'Credito di acquisto in aeroporto €5–€60',
-        b2: 'Solo se il tuo partner non ne ha inviato uno',
+        description: 'Se il tuo partner di viaggio non ha incluso un DutyCredit nella tua email di conferma prenotazione, richiedi il tuo facilmente qui — nessuna registrazione, nessun upload della carta d\'imbarco. Inserisci i dati del volo, seleziona il tuo aeroporto di partenza e scansiona per risparmiare presso i rivenditori partecipanti.',
+        b1: 'Credito di acquisto in aeroporto €2,50–€60',
+        b2: 'Richiedi qui se il tuo partner non ne ha inviato uno',
         b3: 'Senza registrazione — scansiona e risparmia',
       },
       retailers: {

@@ -57,9 +57,9 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viajeros',
-        description: 'Obtén un DutyCredit de valor €5–€60 para gastar en minoristas aeroportuarios participantes. Si tu socio de viaje ya incluyó un DutyCredit en tu email de confirmación de reserva, usa ese — solo genera uno aquí si aún no has recibido ninguno. Sin registro, sin subir tarjeta de embarque. Selecciona tu aeropuerto, reclama y escanea para ahorrar.',
-        b1: 'Crédito de compra en aeropuerto de €5–€60',
-        b2: 'Solo si tu socio no envió uno',
+        description: 'Si tu socio de viaje no incluyó un DutyCredit en tu email de confirmación de reserva, reclama el tuyo fácilmente aquí — sin registro, sin subir tarjeta de embarque. Introduce los datos de tu vuelo, selecciona tu aeropuerto de salida y escanea para ahorrar en minoristas participantes.',
+        b1: 'Crédito de compra en aeropuerto de €2,50–€60',
+        b2: 'Reclama aquí si tu socio no envió uno',
         b3: 'Sin registro — escanea y ahorra',
       },
       retailers: {

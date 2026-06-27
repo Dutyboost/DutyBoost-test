@@ -57,9 +57,9 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Travellers',
-        description: 'Get a DutyCredit worth €5–€60 to spend at participating airport retailers. If your travel partner already included a DutyCredit in your booking confirmation email, use that one — only generate one here if you haven\'t received one yet. No sign-up, no boarding pass upload. Just select your airport, claim, and scan to save.',
-        b1: '€5–€60 airport shopping credit',
-        b2: 'Only if your partner hasn\'t sent one',
+        description: 'If your travel partner didn\'t include a DutyCredit in your booking confirmation email, claim yours easily here — no sign-up, no boarding pass upload. Just enter your flight details, select your departure airport, and scan to save at participating retailers.',
+        b1: '€2.50–€60 airport shopping credit',
+        b2: 'Claim here if your partner didn\'t send one',
         b3: 'No sign-up — scan & save',
       },
       retailers: {

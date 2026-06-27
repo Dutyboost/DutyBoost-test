@@ -58,9 +58,9 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reisende',
-        description: 'Erhalten Sie ein DutyCredit im Wert von 5–60 € zum Ausgeben bei teilnehmenden Flughafenhändlern. Wenn Ihr Reisepartner bereits ein DutyCredit in Ihrer Buchungsbestätigungs-E-Mail enthalten hat, verwenden Sie dieses — generieren Sie hier nur eines, wenn Sie noch keines erhalten haben. Keine Anmeldung, kein Boardingpass-Upload. Wählen Sie Ihren Flughafen, beanspruchen Sie und scannen Sie zum Sparen.',
-        b1: '5–60 € Flughafen-Einkaufsguthaben',
-        b2: 'Nur wenn Ihr Partner keins gesendet hat',
+        description: 'Wenn Ihr Reisepartner kein DutyCredit in Ihrer Buchungsbestätigungs-E-Mail enthalten hat, beanspruchen Sie Ihres ganz einfach hier — keine Anmeldung, kein Boardingpass-Upload. Geben Sie Ihre Flugdaten ein, wählen Sie Ihren Abflughafen und scannen Sie, um bei teilnehmenden Händlern zu sparen.',
+        b1: '2,50–60 € Flughafen-Einkaufsguthaben',
+        b2: 'Hier beanspruchen, wenn Ihr Partner keins gesendet hat',
         b3: 'Ohne Anmeldung — scannen & sparen',
       },
       retailers: {

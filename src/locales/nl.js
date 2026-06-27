@@ -57,9 +57,9 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reizigers',
-        description: 'Krijg een DutyCredit ter waarde van €5–€60 om te besteden bij deelnemende luchthavenretailers. Als uw reispartner al een DutyCredit in uw boekingsbevestigingsmail heeft toegevoegd, gebruik die dan — genereer er hier alleen een als u er nog geen heeft ontvangen. Geen aanmelding, geen instapkaart uploaden. Selecteer uw luchthaven, claim en scan om te besparen.',
-        b1: '€5–€60 luchthaven-winkeltegoed',
-        b2: 'Alleen als uw partner er geen stuurde',
+        description: 'Als uw reispartner geen DutyCredit in uw boekingsbevestigingsmail heeft toegevoegd, claim dan hier eenvoudig de uwe — geen aanmelding, geen instapkaart uploaden. Vul uw vluchtgegevens in, selecteer uw vertrekluchthaven en scan om te besparen bij deelnemende retailers.',
+        b1: '€2,50–€60 luchthaven-winkeltegoed',
+        b2: 'Claim hier als uw partner er geen stuurde',
         b3: 'Geen aanmelding — scan & bespaar',
       },
       retailers: {
