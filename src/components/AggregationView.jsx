@@ -27,21 +27,9 @@ export default function AggregationView({ transactions, vouchers, period, custom
     let totalSavings = filteredTransactions.reduce((sum, t) => sum + (t.total_savings || 0), 0);
     let totalCommission = filteredTransactions.reduce((sum, t) => sum + (t.total_commission || 0), 0);
 
-    // Apply period divisors for day/month projections
-    let divisor = 1;
-    if (period === "day") divisor = 365;
-    else if (period === "month") divisor = 12;
-
-    if (divisor > 1) {
-      totalRedemptions = Math.round(totalRedemptions / divisor);
-      grossRevenue = grossRevenue / divisor;
-      totalSavings = totalSavings / divisor;
-      totalCommission = totalCommission / divisor;
-    }
-
     const platformFee = entityType === "retailer"
       ? totalCommission
-      : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0) / divisor;
+      : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0);
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
     const avgDiscountEur = totalRedemptions > 0 ? (totalSavings / totalRedemptions) : 0;
     const avgDiscountPct = avgSalesPerCredit > 0 ? (avgDiscountEur / avgSalesPerCredit * 100) : 0;
@@ -85,21 +73,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       breakdown[airport].revenue += t.transaction_value || 0;
     });
     
-    // Apply period divisors for projections
-    let divisor = 1;
-    if (period === "day") divisor = 365;
-    else if (period === "month") divisor = 12;
-    
-    const scaled = airportOrder.map(airport => {
-      const item = breakdown[airport];
-      return {
-        ...item,
-        redemptions: divisor > 1 ? Math.round(item.redemptions / divisor) : item.redemptions,
-        revenue: divisor > 1 ? item.revenue / divisor : item.revenue,
-      };
-    });
-    
-    return scaled;
+    return airportOrder.map(airport => breakdown[airport]);
   }, [filteredTransactions, period]);
 
   const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899", "#06b6d4"];
