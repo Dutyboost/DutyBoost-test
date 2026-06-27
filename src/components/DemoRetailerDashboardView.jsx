@@ -99,7 +99,22 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const recentScans = useMemo(() => {
     const retailerId = selectedRetailer.id.replace(/\D/g, '') || '1000';
     const baseCodes = [4821, 4790, 4744, 4710, 4688];
-    const times = ["Today, 14:32", "Today, 11:08", "Yesterday, 17:45", "Yesterday, 09:12", "2 Apr, 16:20"];
+    
+    const generateTime = (daysAgo) => {
+      if (daysAgo === 0) {
+        const hour = Math.floor(Math.random() * 24);
+        const min = Math.floor(Math.random() * 60);
+        return `Today, ${String(hour).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
+      } else if (daysAgo === 1) {
+        const hour = Math.floor(Math.random() * 24);
+        const min = Math.floor(Math.random() * 60);
+        return `Yesterday, ${String(hour).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
+      } else {
+        const date = new Date();
+        date.setDate(date.getDate() - daysAgo);
+        return `${date.getDate()} ${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][date.getMonth()]}, ${String(Math.floor(Math.random() * 24)).padStart(2, '0')}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}`;
+      }
+    };
     
     return baseCodes.map((code, i) => {
       const saleValue = 50 + Math.floor(Math.random() * 400);
@@ -107,7 +122,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
       const discountPct = saleValue > 0 ? Math.round((saving / saleValue) * 100) : 0;
       return {
         code: `DC-${selectedAirport}-${retailerId}${code}`,
-        time: times[i],
+        time: generateTime(i),
         discount: `${discountPct}%`,
         sale: `€ ${saleValue}`,
         saved: `€ ${saving.toFixed(0)}`
