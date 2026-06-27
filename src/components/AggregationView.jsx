@@ -61,11 +61,13 @@ export default function AggregationView({ transactions, vouchers, period, custom
 
   const airportBreakdown = useMemo(() => {
     const breakdown = {};
-    // Initialize all airports from full dataset
+    const airportOrder = [];
+    // Initialize all airports from full dataset in order
     transactions.forEach(t => {
       const airport = t.airport || "Unknown";
       if (!breakdown[airport]) {
         breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
+        airportOrder.push(airport);
       }
     });
     // Add filtered transaction data
@@ -80,11 +82,14 @@ export default function AggregationView({ transactions, vouchers, period, custom
     if (period === "day") divisor = 365;
     else if (period === "month") divisor = 12;
     
-    const scaled = Object.values(breakdown).map(item => ({
-      ...item,
-      redemptions: divisor > 1 ? Math.round(item.redemptions / divisor) : item.redemptions,
-      revenue: divisor > 1 ? item.revenue / divisor : item.revenue,
-    }));
+    const scaled = airportOrder.map(airport => {
+      const item = breakdown[airport];
+      return {
+        ...item,
+        redemptions: divisor > 1 ? Math.round(item.redemptions / divisor) : item.redemptions,
+        revenue: divisor > 1 ? item.revenue / divisor : item.revenue,
+      };
+    });
     
     return scaled;
   }, [filteredTransactions, period]);
