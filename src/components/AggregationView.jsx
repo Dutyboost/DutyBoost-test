@@ -225,14 +225,14 @@ export default function AggregationView({ transactions, vouchers, period, custom
                 {airportBreakdown.map((ap, i) => (
                   <tr key={ap.airport} className="border-b border-border last:border-0 hover:bg-muted/30">
                     <td className="py-2.5 px-3 font-semibold text-foreground">{ap.airport}</td>
-                    <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions}</td>
+                    <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions.toLocaleString("de-DE")}</td>
                     <td className="py-2.5 px-3 text-right font-semibold">€{ap.revenue.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                     <td className="py-2.5 px-3 text-right text-muted-foreground">€{(ap.revenue / ap.redemptions).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                   </tr>
                 ))}
                 <tr className="border-t-2 border-border bg-muted/20 font-semibold">
                   <td className="py-2.5 px-3">{t('common.total_label') || 'TOTAL'}</td>
-                  <td className="py-2.5 px-3 text-right">{aggregatedMetrics.totalRedemptions}</td>
+                  <td className="py-2.5 px-3 text-right">{parseInt(aggregatedMetrics.totalRedemptions).toLocaleString("de-DE")}</td>
                   <td className="py-2.5 px-3 text-right">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                   <td className="py-2.5 px-3 text-right">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                 </tr>
