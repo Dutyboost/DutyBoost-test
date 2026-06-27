@@ -101,7 +101,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
       <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-4">
           <Link to="/demo" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="w-4 h-4" /> {t('demo.back')}
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={45} />
@@ -158,7 +158,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {/* Welcome */}
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-heading font-bold">Airport Retailer Dashboard — {selectedRetailer.name}</h1>
+            <h1 className="text-2xl font-heading font-bold">{t('demo.title_retailer').replace('{name}', selectedRetailer.name)}</h1>
             <p className="text-muted-foreground text-sm mt-1">
               {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
             </p>
@@ -192,9 +192,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
-            { label: "Net Revenue", value: fmtEur(periodNetRevenue), icon: Euro, color: "text-orange-500" },
+            { label: t('demo.net_revenue'), value: fmtEur(periodNetRevenue), icon: Euro, color: "text-orange-500" },
             { label: t('demo.avg_sale'), value: fmtEur(periodAvg), icon: TrendingUp, color: "text-emerald-500" },
-            { label: "Platform Fee", value: fmtEur(periodFee), icon: Store, color: "text-purple-500" },
+            { label: t('demo.platform_fee'), value: fmtEur(periodFee), icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -247,11 +247,11 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 <span className="font-semibold">{fmtEur(periodGrossRevenue)}</span>
                 </div>
                 <div className="flex justify-between items-center text-rose-600">
-                <span>Traveler Savings (DutyCredit)</span>
+                <span>{t('demo.traveler_savings_dc')}</span>
                 <span className="font-semibold">- {fmtEur(periodSavings)}</span>
                 </div>
                 <div className="flex justify-between items-center text-destructive">
-                <span>DutyBoost Fee</span>
+                <span>{t('demo.dutyboost_fee')}</span>
                 <span className="font-semibold">- {fmtEur(periodFee)}</span>
                 </div>
                 <div className="border-t border-border pt-2 flex justify-between items-center">

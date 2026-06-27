@@ -90,6 +90,12 @@ export default {
       cookie_policy: 'Cookie Policy',
     },
     demo: {
+       back: 'Back',
+       net_revenue: 'Net Revenue',
+       platform_fee: 'Platform Fee',
+       traveler_savings_dc: 'Traveler Savings (DutyCredit)',
+       dutyboost_fee: 'DutyBoost Fee',
+       title_retailer: 'Airport Retailer Dashboard — {name}',
       mode_badge: 'Demo Mode',
       title: 'Explore DutyBoost',
       subtitle: 'See how DutyBoost works for Travel Partners and Airport Retailers',

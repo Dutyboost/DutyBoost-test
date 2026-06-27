@@ -165,6 +165,12 @@ export default {
        reviews: 'Reseñas',
        recent_comments: 'Comentarios Recientes',
        active_partner: 'Socio Activo',
+       back: 'Atrás',
+       net_revenue: 'Ingresos Netos',
+       platform_fee: 'Comisión de Plataforma',
+       traveler_savings_dc: 'Ahorros del Viajero (DutyCredit)',
+       dutyboost_fee: 'Comisión DutyBoost',
+       title_retailer: 'Panel de Minorista Aeroportuario — {name}',
     },
 
     getstarted: {
