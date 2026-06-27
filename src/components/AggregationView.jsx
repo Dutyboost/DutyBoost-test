@@ -59,8 +59,20 @@ export default function AggregationView({ transactions, vouchers, period, custom
       breakdown[airport].redemptions += t.count || 1;
       breakdown[airport].revenue += t.transaction_value || 0;
     });
-    return Object.values(breakdown).sort((a, b) => b.revenue - a.revenue);
-  }, [filteredTransactions]);
+    
+    // Apply period divisors for projections
+    let divisor = 1;
+    if (period === "day") divisor = 365;
+    else if (period === "month") divisor = 12;
+    
+    const scaled = Object.values(breakdown).map(item => ({
+      ...item,
+      redemptions: divisor > 1 ? Math.round(item.redemptions / divisor) : item.redemptions,
+      revenue: divisor > 1 ? item.revenue / divisor : item.revenue,
+    }));
+    
+    return scaled.sort((a, b) => b.revenue - a.revenue);
+  }, [filteredTransactions, period]);
 
   const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899", "#06b6d4"];
 
