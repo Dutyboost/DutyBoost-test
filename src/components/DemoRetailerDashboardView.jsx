@@ -293,14 +293,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                   r.id === selectedRetailer.id ? "bg-primary/10 border border-primary/30" : "hover:bg-muted/40"
                 }`}
               >
-                <div>
-                  <p className="text-sm font-medium">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">{r.category}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
-                  <p className="text-xs text-muted-foreground">€ {r.avg_sale} {t('demo.avg_sale_label')}</p>
-                </div>
+                <p className="text-sm font-medium">{r.name}</p>
+                <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
               </div>
             ))}
           </div>
