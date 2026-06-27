@@ -70,9 +70,22 @@ export default function AggregationView({ transactions, vouchers, period, custom
        <div>
         <h2 className="text-xl font-heading font-bold mb-2">Custom Aggregation — All Stores</h2>
         <p className="text-muted-foreground text-sm mb-4">Combined metrics across all your {entityType === "retailer" ? "retail locations" : "bookings"}.</p>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Calendar className="w-4 h-4" />
-          <span>{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • {period.charAt(0).toUpperCase() + period.slice(1)} view</span>
+        
+        {/* Period selector */}
+        <div className="flex items-center gap-2 flex-wrap mt-4">
+          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground font-medium">Period</span>
+          {["day", "month", "year", "custom"].map(p => (
+            <button
+              key={p}
+              onClick={() => onPeriodChange(p)}
+              className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
+                period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+              }`}
+            >
+              {p.charAt(0).toUpperCase() + p.slice(1)}
+            </button>
+          ))}
         </div>
       </div>
 
