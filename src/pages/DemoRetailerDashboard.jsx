@@ -16,7 +16,7 @@ const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
 
 export default function DemoRetailerDashboard() {
   const { t } = useTranslation();
-  const [selectedAirport, setSelectedAirport] = useState("AMS");
+  const [selectedAirport, setSelectedAirport] = useState("MAD");
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
   const [showRedemptions, setShowRedemptions] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
@@ -74,11 +74,11 @@ export default function DemoRetailerDashboard() {
 
   // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20% (cap €25)
   const recentScans = [
-    { code: "DC-AMS-4821", time: "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 25" },
-    { code: "DC-AMS-4790", time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
-    { code: "DC-AMS-4744", time: "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 25" },
-    { code: "DC-AMS-4710", time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
-    { code: "DC-AMS-4688", time: "2 Apr, 16:20",      discount: "10%", sale: "€ 98",  saved: "€ 10" },
+    { code: "DC-MAD-4821", time: "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 25" },
+    { code: "DC-MAD-4790", time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
+    { code: "DC-MAD-4744", time: "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 25" },
+    { code: "DC-MAD-4710", time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
+    { code: "DC-MAD-4688", time: "2 Apr, 16:20",      discount: "10%", sale: "€ 98",  saved: "€ 10" },
   ];
 
   return (
