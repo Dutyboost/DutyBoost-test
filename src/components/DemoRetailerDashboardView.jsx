@@ -357,44 +357,67 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {/* Traveler Ratings */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
           <p className="font-semibold">{t('demo.traveler_ratings')} — {selectedRetailer.name}</p>
-          <div className="flex items-center gap-6 flex-wrap">
-            <div className="text-center">
-              <p className="text-5xl font-heading font-bold">4.4</p>
-              <div className="flex gap-0.5 justify-center mt-1">
-                {[1,2,3,4,5].map(s => (
-                  <Star key={s} className={`w-5 h-5 ${s <= 4 ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">87 {t('demo.reviews')}</p>
-            </div>
-            <div className="flex-1 space-y-1.5 min-w-[160px]">
-              {[{star:5,count:41},{star:4,count:28},{star:3,count:11},{star:2,count:5},{star:1,count:2}].map(({ star, count }) => (
-                <div key={star} className="flex items-center gap-2 text-xs">
-                  <span className="w-3 text-right text-muted-foreground">{star}</span>
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
-                    <div className="h-2 bg-amber-400 rounded-full" style={{ width: `${(count/87)*100}%` }} />
+          {(() => {
+            const seed = parseInt(selectedRetailer.id.replace(/\D/g, '')) || 0;
+            const baseRating = 3.8 + ((seed % 12) * 0.1);
+            const totalReviews = 40 + ((seed % 80) * 1.5);
+            const ratingDist = [
+              Math.round(totalReviews * (0.35 + ((seed % 20) / 100))),
+              Math.round(totalReviews * (0.28 + ((seed % 15) / 100))),
+              Math.round(totalReviews * (0.18 + ((seed % 12) / 100))),
+              Math.round(totalReviews * (0.12 + ((seed % 8) / 100))),
+              Math.round(totalReviews * (0.07 + ((seed % 5) / 100)))
+            ];
+            const comments = [
+              { rating: 5, comment: "Excellent service! The staff was very helpful and the discount process was seamless." },
+              { rating: 5, comment: "Great shopping experience. Very quick and professional." },
+              { rating: 4, comment: "Good experience overall. Quick scan and friendly staff." },
+              { rating: 4, comment: "Really enjoyed my visit. Would come back again." },
+              { rating: 3, comment: "It was fine. Took a bit longer than expected to process the DutyCredit." },
+              { rating: 3, comment: "Average experience, nothing special." },
+              { rating: 2, comment: "Could improve the waiting time at checkout." },
+            ];
+            const selectedComments = comments.slice((seed % 4), (seed % 4) + 3);
+            
+            return (
+              <>
+                <div className="flex items-center gap-6 flex-wrap">
+                  <div className="text-center">
+                    <p className="text-5xl font-heading font-bold">{baseRating.toFixed(1)}</p>
+                    <div className="flex gap-0.5 justify-center mt-1">
+                      {[1,2,3,4,5].map(s => (
+                        <Star key={s} className={`w-5 h-5 ${s <= Math.round(baseRating) ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1">{Math.round(totalReviews)} {t('demo.reviews')}</p>
                   </div>
-                  <span className="text-muted-foreground w-5 text-right">{count}</span>
+                  <div className="flex-1 space-y-1.5 min-w-[160px]">
+                    {[{star:5},{star:4},{star:3},{star:2},{star:1}].map(({ star }, idx) => (
+                      <div key={star} className="flex items-center gap-2 text-xs">
+                        <span className="w-3 text-right text-muted-foreground">{star}</span>
+                        <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                        <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
+                          <div className="h-2 bg-amber-400 rounded-full" style={{ width: `${(ratingDist[5-star]/totalReviews)*100}%` }} />
+                        </div>
+                        <span className="text-muted-foreground w-5 text-right">{ratingDist[5-star]}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-2 pt-2 border-t border-border">
-            <p className="text-sm font-medium">{t('demo.recent_comments')}</p>
-            {[
-            { rating: 5, comment: "Excellent service! The staff was very helpful and the discount process was seamless." },
-            { rating: 4, comment: "Good experience overall. Quick scan and friendly staff." },
-            { rating: 3, comment: "It was fine. Took a bit longer than expected to process the DutyCredit." },
-            ].map((f, i) => (
-              <div key={i} className="bg-muted/40 rounded-lg p-3 text-sm">
-                <div className="flex gap-0.5 mb-1">
-                  {[1,2,3,4,5].map(s => <Star key={s} className={`w-3 h-3 ${s <= f.rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />)}
+                <div className="space-y-2 pt-2 border-t border-border">
+                  <p className="text-sm font-medium">{t('demo.recent_comments')}</p>
+                  {selectedComments.map((f, i) => (
+                    <div key={i} className="bg-muted/40 rounded-lg p-3 text-sm">
+                      <div className="flex gap-0.5 mb-1">
+                        {[1,2,3,4,5].map(s => <Star key={s} className={`w-3 h-3 ${s <= f.rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />)}
+                      </div>
+                      <p className="text-muted-foreground">{f.comment}</p>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-muted-foreground">{f.comment}</p>
-              </div>
-            ))}
-          </div>
+              </>
+            );
+          })()}
         </div>
 
 
