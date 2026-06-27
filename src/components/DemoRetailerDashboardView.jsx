@@ -167,12 +167,12 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {/* Welcome */}
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-heading font-bold">{t('demo.title_retailer').replace('{name}', selectedRetailer.name)}</h1>
+            <h1 className="text-2xl font-heading font-bold">{region === 'es' ? `Panel de Minorista Aeroportuario — ${selectedRetailer.name}` : t('demo.title_retailer').replace('{name}', selectedRetailer.name)}</h1>
             <p className="text-muted-foreground text-sm mt-1">
               {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
             </p>
           </div>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">{t('demo.active_partner')}</span>
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">{region === 'es' ? 'Socio Activo' : t('demo.active_partner')}</span>
         </div>
 
         {/* Period selector */}
@@ -277,7 +277,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {/* Airport overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">{t('demo.all_stores_at')} {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
+            <p className="font-semibold">{region === 'es' ? 'Todas las tiendas en' : t('demo.all_stores_at')} {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
             <div className="overflow-y-auto max-h-64 space-y-2">
               {airportRetailers.map(r => (
                 <div
@@ -292,8 +292,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                     <p className="text-xs text-muted-foreground">{r.category}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
-                    <p className="text-xs text-muted-foreground">€ {r.avg_sale} {t('demo.avg_sale_label')}</p>
+                    <p className="text-sm font-semibold">{r.redemptions} {region === 'es' ? 'escaneos' : t('demo.scans')}</p>
+                    <p className="text-xs text-muted-foreground">€ {r.avg_sale} {region === 'es' ? 'cesta promedio' : t('demo.avg_sale_label')}</p>
                   </div>
                 </div>
               ))}
@@ -301,7 +301,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">{t('demo.redemptions_by_category')} {selectedAirport}</p>
+            <p className="font-semibold">{region === 'es' ? 'Canjes por Categoría en' : t('demo.redemptions_by_category')} {selectedAirport}</p>
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie data={catBreakdown} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={75} label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} fontSize={11}>
@@ -315,7 +315,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {/* Recent scans */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">{t('demo.recent_scans')} — {selectedRetailer.name}</p>
+          <p className="font-semibold">{region === 'es' ? 'Escaneos Recientes' : t('demo.recent_scans')} — {selectedRetailer.name}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -344,7 +344,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {/* Traveler Ratings */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">{t('demo.traveler_ratings')} — {selectedRetailer.name}</p>
+          <p className="font-semibold">{region === 'es' ? 'Calificaciones de Viajeros' : t('demo.traveler_ratings')} — {selectedRetailer.name}</p>
           <div className="flex items-center gap-6 flex-wrap">
             <div className="text-center">
               <p className="text-5xl font-heading font-bold">4.4</p>
@@ -353,7 +353,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                   <Star key={s} className={`w-5 h-5 ${s <= 4 ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground mt-1">87 {t('demo.reviews')}</p>
+              <p className="text-xs text-muted-foreground mt-1">87 {region === 'es' ? 'reseñas' : t('demo.reviews')}</p>
             </div>
             <div className="flex-1 space-y-1.5 min-w-[160px]">
               {[{star:5,count:41},{star:4,count:28},{star:3,count:11},{star:2,count:5},{star:1,count:2}].map(({ star, count }) => (
@@ -369,7 +369,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             </div>
           </div>
           <div className="space-y-2 pt-2 border-t border-border">
-            <p className="text-sm font-medium">{t('demo.recent_comments')}</p>
+            <p className="text-sm font-medium">{region === 'es' ? 'Comentarios Recientes' : t('demo.recent_comments')}</p>
             {[
             { rating: 5, comment: region === 'es' ? "Excelente servicio. El personal fue muy útil y el proceso de descuento fue sin problemas." : "Excellent service! The staff was very helpful and the discount process was seamless." },
             { rating: 4, comment: region === 'es' ? "Buena experiencia general. Escaneo rápido y personal amable." : "Good experience overall. Quick scan and friendly staff." },
@@ -387,13 +387,13 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {/* How it works */}
         <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 border border-orange-200 rounded-xl p-6 space-y-4">
-          <p className="font-semibold font-heading text-lg">{t('demo.how_redemption_works')}</p>
+          <p className="font-semibold font-heading text-lg">{region === 'es' ? '¿Cómo funciona el canje?' : t('demo.how_redemption_works')}</p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { step: "1", title: t('demo.rw_step1_title'), desc: t('demo.rw_step1_desc') },
-              { step: "2", title: t('demo.rw_step2_title'), desc: t('demo.rw_step2_desc') },
-              { step: "3", title: t('demo.rw_step3_title'), desc: t('demo.rw_step3_desc') },
-              { step: "4", title: t('demo.rw_step4_title'), desc: t('demo.rw_step4_desc') },
+              { step: "1", title: region === 'es' ? 'Viajero Llega' : t('demo.rw_step1_title'), desc: region === 'es' ? 'Con código QR DutyCredit en su email' : t('demo.rw_step1_desc') },
+              { step: "2", title: region === 'es' ? 'Presenta QR' : t('demo.rw_step2_title'), desc: region === 'es' ? 'Lo muestra en caja' : t('demo.rw_step2_desc') },
+              { step: "3", title: region === 'es' ? 'Se Escanea' : t('demo.rw_step3_title'), desc: region === 'es' ? 'Sistema valida al instante' : t('demo.rw_step3_desc') },
+              { step: "4", title: region === 'es' ? 'Se Aplica Descuento' : t('demo.rw_step4_title'), desc: region === 'es' ? 'Automático en la transacción' : t('demo.rw_step4_desc') },
             ].map(({ step, title, desc }) => (
               <div key={step} className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-sm font-bold flex items-center justify-center shrink-0">{step}</div>
