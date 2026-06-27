@@ -96,17 +96,23 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
     value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
   })).filter(c => c.value > 0);
 
-  // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20% (cap €25)
   const recentScans = useMemo(() => {
     const retailerId = selectedRetailer.id.replace(/\D/g, '') || '1000';
     const baseCodes = [4821, 4790, 4744, 4710, 4688];
-    return [
-      { code: `DC-${selectedAirport}-${retailerId}${baseCodes[0]}`, time: "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 25" },
-      { code: `DC-${selectedAirport}-${retailerId}${baseCodes[1]}`, time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
-      { code: `DC-${selectedAirport}-${retailerId}${baseCodes[2]}`, time: "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 25" },
-      { code: `DC-${selectedAirport}-${retailerId}${baseCodes[3]}`, time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
-      { code: `DC-${selectedAirport}-${retailerId}${baseCodes[4]}`, time: "2 Apr, 16:20",      discount: "10%", sale: "€ 98",  saved: "€ 10" },
-    ];
+    const times = ["Today, 14:32", "Today, 11:08", "Yesterday, 17:45", "Yesterday, 09:12", "2 Apr, 16:20"];
+    
+    return baseCodes.map((code, i) => {
+      const saleValue = 50 + Math.floor(Math.random() * 400);
+      const saving = calcSaving(saleValue);
+      const discountPct = saleValue > 0 ? Math.round((saving / saleValue) * 100) : 0;
+      return {
+        code: `DC-${selectedAirport}-${retailerId}${code}`,
+        time: times[i],
+        discount: `${discountPct}%`,
+        sale: `€ ${saleValue}`,
+        saved: `€ ${saving.toFixed(0)}`
+      };
+    });
   }, [selectedRetailer, selectedAirport]);
 
   return (
