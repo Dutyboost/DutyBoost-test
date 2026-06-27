@@ -12,6 +12,7 @@ import {
   Search, MapPin, Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
   ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles
 } from "lucide-react";
+import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -203,15 +204,13 @@ export default function ClaimDutyCredit() {
 
               {/* Always visible: airline, booking number, departure date */}
               <div className="space-y-4 pt-2 border-t border-border">
-                <div>
-                  <Label className="text-sm font-medium mb-1.5 block">{tr('airline_label')}</Label>
-                  <Input
-                    type="text"
-                    value={airline}
-                    onChange={(e) => setAirline(e.target.value)}
-                    placeholder={tr('airline_placeholder')}
-                  />
-                </div>
+                <AirlineSelector
+                  value={airline}
+                  onChange={setAirline}
+                  label={tr('airline_label')}
+                  placeholder={tr('airline_placeholder')}
+                  noResultsText={tr('airline_no_results')}
+                />
                 <div>
                   <Label className="text-sm font-medium mb-1.5 block">{tr('booking_ref_label')}</Label>
                   <Input
