@@ -97,11 +97,11 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
   // Tiered: €50–€99 → 10%, €100–€299 → 15%, €300+ → 20% (cap €25)
   const recentScans = [
-    { code: `DC-${selectedAirport}-4821`, time: "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 25" },
-    { code: `DC-${selectedAirport}-4790`, time: "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
-    { code: `DC-${selectedAirport}-4744`, time: "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 25" },
-    { code: `DC-${selectedAirport}-4710`, time: "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
-    { code: `DC-${selectedAirport}-4688`, time: "2 Apr, 16:20",      discount: "10%", sale: "€ 98",  saved: "€ 10" },
+    { code: `DC-${selectedAirport}-4821`, time: region === 'es' ? "Hoy, 14:32" : "Today, 14:32",      discount: "15%", sale: "€ 214", saved: "€ 25" },
+    { code: `DC-${selectedAirport}-4790`, time: region === 'es' ? "Hoy, 11:08" : "Today, 11:08",      discount: "20%", sale: "€ 340", saved: "€ 25" },
+    { code: `DC-${selectedAirport}-4744`, time: region === 'es' ? "Ayer, 17:45" : "Yesterday, 17:45",  discount: "15%", sale: "€ 175", saved: "€ 25" },
+    { code: `DC-${selectedAirport}-4710`, time: region === 'es' ? "Ayer, 09:12" : "Yesterday, 09:12",  discount: "20%", sale: "€ 420", saved: "€ 25" },
+    { code: `DC-${selectedAirport}-4688`, time: region === 'es' ? "2 Abr, 16:20" : "2 Apr, 16:20",      discount: "10%", sale: "€ 98",  saved: "€ 10" },
   ];
 
   return (
@@ -116,7 +116,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           <DutyBoostLogo height={45} />
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.retailer_badge')}</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{region === 'es' ? t('demo.retailer_badge') : 'Retailer'}</span>
           <select
             className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
             value={selectedAirport}
@@ -140,7 +140,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {/* Tabs */}
          <div className="flex gap-1 border-b border-border overflow-x-auto">
-            {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Aggregation", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (
+            {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: region === 'es' ? 'Agregación' : 'Aggregation', icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
@@ -242,8 +242,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip />
-                {showRedemptions && <Bar yAxisId="left" dataKey="redemptions" name="Redemptions" fill="#dbeafe" radius={[4,4,0,0]} />}
-                {showRevenue && <Bar yAxisId="right" dataKey="revenue" name="Revenue (€)" fill="#2563eb" radius={[4,4,0,0]} />}
+                {showRedemptions && <Bar yAxisId="left" dataKey="redemptions" name={t('demo.redemptions')} fill="#dbeafe" radius={[4,4,0,0]} />}
+                {showRevenue && <Bar yAxisId="right" dataKey="revenue" name={`${t('demo.revenue')} (€)`} fill="#2563eb" radius={[4,4,0,0]} />}
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -321,10 +321,10 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_code')}</th>
-                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_scanned')}</th>
-                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_discount')}</th>
-                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_sale_value')}</th>
-                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">{t('demo.col_traveler_saved')}</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{region === 'es' ? 'Escaneado' : t('demo.col_scanned')}</th>
+                  <th className="text-left py-2 px-3 text-xs text-muted-foreground font-medium">{region === 'es' ? 'Descuento' : t('demo.col_discount')}</th>
+                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">{region === 'es' ? 'Valor de Venta' : t('demo.col_sale_value')}</th>
+                  <th className="text-right py-2 px-3 text-xs text-muted-foreground font-medium">{region === 'es' ? 'Ahorros del Viajero' : t('demo.col_traveler_saved')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -371,9 +371,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           <div className="space-y-2 pt-2 border-t border-border">
             <p className="text-sm font-medium">{t('demo.recent_comments')}</p>
             {[
-              { rating: 5, comment: "Excellent service! The staff was very helpful and the discount process was seamless." },
-              { rating: 4, comment: "Good experience overall. Quick scan and friendly staff." },
-              { rating: 3, comment: "It was fine. Took a bit longer than expected to process the DutyCredit." },
+            { rating: 5, comment: region === 'es' ? "Excelente servicio. El personal fue muy útil y el proceso de descuento fue sin problemas." : "Excellent service! The staff was very helpful and the discount process was seamless." },
+            { rating: 4, comment: region === 'es' ? "Buena experiencia general. Escaneo rápido y personal amable." : "Good experience overall. Quick scan and friendly staff." },
+            { rating: 3, comment: region === 'es' ? "Estuvo bien. Tomó un poco más de tiempo del esperado procesar el DutyCredit." : "It was fine. Took a bit longer than expected to process the DutyCredit." },
             ].map((f, i) => (
               <div key={i} className="bg-muted/40 rounded-lg p-3 text-sm">
                 <div className="flex gap-0.5 mb-1">
