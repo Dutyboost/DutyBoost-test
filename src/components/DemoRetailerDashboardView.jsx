@@ -8,6 +8,7 @@ import AggregationView from "./AggregationView";
 import RedemptionHeatmap from "./RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "./DutyBoostLogo";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
@@ -131,6 +132,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           >
             {airportRetailers.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
           </select>
+          <LanguageSwitcher />
           <button onClick={() => base44.auth.logout('/')} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-destructive transition-colors border border-input rounded-lg px-3 py-1.5 bg-background hover:bg-destructive/5">
             <LogOut className="w-4 h-4" /> {t('demo.logout')}
           </button>

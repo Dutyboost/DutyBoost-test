@@ -8,6 +8,7 @@ import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY, AGENCY_YEARLY } from "../data/demoData";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 
@@ -99,6 +100,7 @@ export default function DemoAgencyDashboard() {
           >
             {TRAVEL_AGENCIES.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
           </select>
+          <LanguageSwitcher />
           <button onClick={() => base44.auth.logout('/')} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-destructive transition-colors border border-input rounded-lg px-3 py-1.5 bg-background hover:bg-destructive/5">
             <LogOut className="w-4 h-4" /> {t('demo.logout')}
           </button>
