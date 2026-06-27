@@ -1,0 +1,101 @@
+{
+  "name": "DutyCreditToken",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "title": "Token ID"
+    },
+    "qr_token": {
+      "type": "string",
+      "title": "QR Token"
+    },
+    "airport": {
+      "type": "string",
+      "title": "Airport"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "redeemed",
+        "expired"
+      ],
+      "default": "active"
+    },
+    "source": {
+      "type": "string",
+      "title": "Source",
+      "enum": [
+        "dutyboost",
+        "partner"
+      ],
+      "default": "dutyboost"
+    },
+    "commission_partner": {
+      "type": "string",
+      "title": "Commission Partner"
+    },
+    "ref_code": {
+      "type": "string",
+      "title": "Partner Referral Code"
+    },
+    "traveler_email": {
+      "type": "string",
+      "title": "Traveler Email"
+    },
+    "flight_number": {
+      "type": "string",
+      "title": "Flight Number"
+    },
+    "campaign_source": {
+      "type": "string",
+      "title": "Campaign Source"
+    },
+    "expiry": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expiry"
+    },
+    "redeemed_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Redeemed At"
+    },
+    "redeemed_retailer_id": {
+      "type": "string",
+      "title": "Redeemed At Retailer ID"
+    },
+    "basket_value": {
+      "type": "number",
+      "title": "Basket Value at Redemption (EUR)"
+    }
+  },
+  "required": [
+    "token_id",
+    "qr_token",
+    "airport",
+    "status",
+    "source",
+    "expiry"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

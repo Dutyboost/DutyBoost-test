@@ -128,8 +128,8 @@ export default function LandingPage() {
                          AdditionalIcons = [HotelIcon, CarRentalIcon];
                        }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'travelers';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/claim-duty-credit' : '/get-started';
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-3 mb-5`}>
