@@ -163,6 +163,7 @@ export default {
       retailer_badge: 'Retailer',
       logout: 'Logout',
       tabs_dashboard: 'Dashboard',
+      tabs_aggregation: 'Aggregation',
       tabs_profile: 'Profile',
       tabs_scan: 'Scan',
       your_performance: 'Your performance',

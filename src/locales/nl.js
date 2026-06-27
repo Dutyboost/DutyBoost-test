@@ -123,6 +123,7 @@ export default {
       retailer_badge: 'Retailer',
       logout: 'Uitloggen',
       tabs_dashboard: 'Dashboard',
+      tabs_aggregation: 'Aggregatie',
       tabs_profile: 'Profiel',
       tabs_scan: 'Scannen',
       your_performance: 'Uw prestaties',

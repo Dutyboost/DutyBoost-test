@@ -121,6 +121,7 @@ export default {
        retailer_badge: 'Demo de Minorista',
        logout: 'Cerrar sesión',
        tabs_dashboard: 'Panel',
+       tabs_aggregation: 'Agregación',
        tabs_profile: 'Perfil',
        tabs_scan: 'Escanear',
        period: 'Período',
