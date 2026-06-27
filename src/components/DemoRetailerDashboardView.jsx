@@ -25,7 +25,7 @@ function calcSaving(spend) {
   return 2.50;
 }
 
-export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport }) {
+export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl" }) {
   const { t } = useTranslation();
   const [selectedAirport, setSelectedAirport] = useState(defaultAirport);
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
@@ -141,7 +141,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           ))}
         </div>
 
-        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "custom" ? (
+        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
           <AggregationView 
             transactions={RETAILERS.map(r => ({ 
               transaction_value: r.revenue,

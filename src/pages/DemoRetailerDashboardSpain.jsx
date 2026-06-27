@@ -10,6 +10,7 @@ export default function DemoRetailerDashboardSpain() {
       DAILY_DATA={DAILY_DATA}
       YEARLY_DATA={YEARLY_DATA}
       defaultAirport="MAD"
+      region="es"
     />
   );
 }
