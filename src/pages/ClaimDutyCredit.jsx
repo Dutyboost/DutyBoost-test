@@ -115,11 +115,6 @@ export default function ClaimDutyCredit() {
           <Link to="/"><DutyBoostLogo height={45} /></Link>
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
-            <Link to="/get-started">
-              <Button size="sm" variant="outline" className="text-primary border-primary hover:text-primary/80">
-                {tr('nav_partner')}
-              </Button>
-            </Link>
           </div>
         </div>
       </nav>
