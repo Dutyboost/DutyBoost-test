@@ -16,6 +16,9 @@ const REGION_CONFIG = {
     vatLabel: "VAT Number",
     dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
     dutyboostFooter: "DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300",
+    copyrightLine: "© 2026 DutyBoost. All rights reserved.",
+    kvkLine: "Chamber of Commerce (KvK): 42053181",
+    vatLine: "VAT Number: NL869492068B01",
     invoiceTitle: "Invoice",
     retailerLabel: "Retailer",
     issuedLabel: "Issued",
@@ -61,6 +64,9 @@ const REGION_CONFIG = {
     vatLabel: "NIF-IVA",
     dutyboostHeader: "DutyBoost Spain S.L. · hola@dutyboost.com · dutyboost.com",
     dutyboostFooter: "DutyBoost Spain S.L. · CIF: B87654321 · IVA: ESB87654321 · IBAN: ES9121000418450200051332",
+    copyrightLine: "© 2026 DutyBoost. Todos los derechos reservados.",
+    kvkLine: "Cámara de Comercio (KvK): 42053181",
+    vatLine: "N.º IVA: NL869492068B01",
     invoiceTitle: "Factura",
     retailerLabel: "Comercio",
     issuedLabel: "Emitida",
@@ -328,9 +334,11 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFontSize(20);
   doc.setTextColor(31, 111, 255);
   doc.text("DutyBoost", 20, 20);
-  doc.setFontSize(10);
+  doc.setFontSize(9);
   doc.setTextColor(100);
-  doc.text(cfg.dutyboostHeader, 20, 28);
+  doc.text(cfg.copyrightLine, 20, 28);
+  doc.text(cfg.kvkLine, 20, 33);
+  doc.text(cfg.vatLine, 20, 38);
 
   doc.setFontSize(15);
   doc.setTextColor(31, 111, 255);
