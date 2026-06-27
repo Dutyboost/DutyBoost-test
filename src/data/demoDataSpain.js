@@ -127,6 +127,10 @@ export const RETAILERS = spanishAirportData.flatMap(airport => {
       redemptions,
       avg_sale: basket,
       revenue,
+      contact_person: "Raul Lorenzo Gomez Garcia-Carpintero",
+      email: "rgomez@aena.es",
+      company: "AENA S.A.",
+      phone: "+34 91 321 10 00",
     };
   });
 });
