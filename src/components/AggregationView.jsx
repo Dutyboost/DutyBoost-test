@@ -132,7 +132,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.gross_revenue') || 'Gross Revenue'}</p>
             <Euro className="w-4 h-4 text-orange-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL")}</p>
+          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -140,7 +140,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.avg_sale_label') || 'Avg. Sales per DutyCredit'}</p>
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL")}</p>
+          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -148,7 +148,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{entityType === "retailer" ? (t('demo.platform_fee') || 'Platform Fee (2.5%)') : (t('demo.commission_earned') || 'Commission Earned')}</p>
             <Store className="w-4 h-4 text-purple-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL")}</p>
+          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
       </div>
 
@@ -173,19 +173,19 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <div className="space-y-3 text-sm">
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground">{t('demo.gross_sales') || 'Gross Sales'}</span>
-            <span className="font-semibold">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL")}</span>
+            <span className="font-semibold">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </div>
           <div className="flex justify-between items-center text-rose-600">
             <span>{t('demo.traveler_savings_dc') || 'Traveler Savings (DutyCredit)'}</span>
-            <span className="font-semibold">- €{parseFloat(aggregatedMetrics.totalSavings).toLocaleString("nl-NL")}</span>
+            <span className="font-semibold">- €{parseFloat(aggregatedMetrics.totalSavings).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </div>
           <div className="flex justify-between items-center text-destructive">
             <span>{entityType === "retailer" ? (t('demo.platform_fee') || 'Platform Fee') : (t('demo.commission_earned') || 'Commission')}</span>
-            <span className="font-semibold">- €{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL")}</span>
+            <span className="font-semibold">- €{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </div>
           <div className="border-t border-border pt-2 flex justify-between items-center">
             <span className="font-semibold">{t('demo.your_net_revenue') || 'Your Net Revenue'}</span>
-            <span className="font-bold text-emerald-600">€{parseFloat(aggregatedMetrics.netRevenue).toLocaleString("nl-NL")}</span>
+            <span className="font-bold text-emerald-600">€{parseFloat(aggregatedMetrics.netRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </div>
         </div>
       </div>
@@ -226,8 +226,8 @@ export default function AggregationView({ transactions, vouchers, period, custom
                   <tr key={ap.airport} className="border-b border-border last:border-0 hover:bg-muted/30">
                     <td className="py-2.5 px-3 font-semibold text-foreground">{ap.airport}</td>
                     <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions.toLocaleString("de-DE")}</td>
-                    <td className="py-2.5 px-3 text-right font-semibold">€{ap.revenue.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                    <td className="py-2.5 px-3 text-right text-muted-foreground">€{(ap.revenue / ap.redemptions).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    <td className="py-2.5 px-3 text-right font-semibold">€{parseFloat(ap.revenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    <td className="py-2.5 px-3 text-right text-muted-foreground">€{parseFloat(ap.revenue / ap.redemptions).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                   </tr>
                 ))}
                 <tr className="border-t-2 border-border bg-muted/20 font-semibold">
