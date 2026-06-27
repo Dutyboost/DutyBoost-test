@@ -484,7 +484,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
     ? buildEsRetailerProfile(entity)
     : (entityType === "agency" ? AGENCY_PROFILES : RETAILER_PROFILES_NL)[entity?.id] || RETAILER_PROFILES_NL.default;
 
-  const [profile, setProfile] = useState({ ...initialProfile, contactName: "Demo User", email: "demo@dutyboost.com", phone: initialProfile.phone });
+  const [profile, setProfile] = useState({ ...initialProfile, contactName: entity?.contact_person || "Demo User", email: entity?.email || "demo@dutyboost.com", phone: entity?.phone || initialProfile.phone });
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
@@ -510,7 +510,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
         onChange={updateField}
         fields={[
           { key: "contactName", label: cfg.contactPerson },
-          { key: "email", label: cfg.email, readonly: true },
+          { key: "email", label: cfg.email, readonly: region === "nl" },
           { key: "company", label: cfg.company },
           { key: "phone", label: cfg.phone },
         ]}
