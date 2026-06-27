@@ -140,9 +140,8 @@ const AENA_OFFICIAL = {
 };
 
 function buildEsRetailerProfile(entity) {
-  const name = entity?.name || "Comercio Aeropuerto";
   return {
-    company: name,
+    company: "AENA S.A.",
     cif: AENA_OFFICIAL.cif,
     vat: AENA_OFFICIAL.vat,
     address: AENA_OFFICIAL.address,
