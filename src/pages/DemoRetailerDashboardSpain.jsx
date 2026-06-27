@@ -13,7 +13,7 @@ export default function DemoRetailerDashboardSpain() {
     if (langParam) {
       i18n.changeLanguage(langParam);
     } else {
-      i18n.changeLanguage("es");
+      i18n.changeLanguage("en");
     }
   }, [i18n, searchParams]);
 
