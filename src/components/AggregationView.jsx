@@ -61,11 +61,16 @@ export default function AggregationView({ transactions, vouchers, period, custom
 
   const airportBreakdown = useMemo(() => {
     const breakdown = {};
-    filteredTransactions.forEach(t => {
+    // Initialize all airports from full dataset
+    transactions.forEach(t => {
       const airport = t.airport || "Unknown";
       if (!breakdown[airport]) {
         breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
       }
+    });
+    // Add filtered transaction data
+    filteredTransactions.forEach(t => {
+      const airport = t.airport || "Unknown";
       breakdown[airport].redemptions += t.count || 1;
       breakdown[airport].revenue += t.transaction_value || 0;
     });
