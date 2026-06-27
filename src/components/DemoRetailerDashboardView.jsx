@@ -209,7 +209,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
             { label: t('demo.net_revenue'), value: fmtEur(periodNetRevenue), icon: Euro, color: "text-orange-500" },
-            { label: t('demo.avg_sale'), value: fmtEur(periodAvg), icon: TrendingUp, color: "text-emerald-500" },
+            { label: t('demo.avg_sale'), value: fmtEur(parseFloat(periodAvg).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })), icon: TrendingUp, color: "text-emerald-500" },
             { label: t('demo.platform_fee'), value: fmtEur(periodFee), icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
