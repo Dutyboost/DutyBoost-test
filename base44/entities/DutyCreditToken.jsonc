@@ -45,6 +45,15 @@
       "type": "string",
       "title": "Partner Booking Reference (PNR)"
     },
+    "airline": {
+      "type": "string",
+      "title": "Airline"
+    },
+    "departure_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Departure Date"
+    },
     "traveler_email": {
       "type": "string",
       "title": "Traveler Email"

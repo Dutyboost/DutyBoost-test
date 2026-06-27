@@ -6,13 +6,16 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
  * Public endpoint — no auth required.
  *
  * Direct flow (no ref code):
- *   DutyBoost is the commission partner. No email/flight needed.
+ *   DutyBoost is the commission partner. Airline + booking number + departure date required.
  *
  * Partner flow (ref code present):
- *   Traveler provides flight_number + traveler_email.
+ *   Traveler provides flight_number + traveler_email for duplicate check.
+ *   Airline + booking number + departure date also required.
  *   If a DutyCredit already exists for that email+flight combo,
  *   returns { already_exists: true } so the frontend can inform the traveler.
  *   Otherwise, generates a new DutyCredit with the partner as commission partner.
+ *
+ * Expiry is calculated as departure_date + 30 days (not generation date + 30).
  *
  * Also creates a Voucher record so the existing retailer redemption
  * flow (ScanVoucher / RetailerScanQR) works unchanged.
@@ -56,7 +59,7 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
 
     const body = await req.json();
-    const { airport, ref, traveler_email, flight_number, partner_booking_ref, campaign_source } = body;
+    const { airport, airline, departure_date, ref, traveler_email, flight_number, partner_booking_ref, campaign_source } = body;
 
     if (!airport) {
       return Response.json({ error: 'Airport is required' }, { status: 400 });
@@ -93,8 +96,17 @@ Deno.serve(async (req) => {
     // ── Generate token ───────────────────────────────────────────────
     const tokenId = generateTokenId();
     const qrToken = generateQrToken();
-    const expiry = new Date();
-    expiry.setDate(expiry.getDate() + 30); // rolling 30-day expiry
+
+    // Expiry: departure_date + 30 days (if departure date provided),
+    // otherwise generation date + 30 days as fallback.
+    let expiry;
+    if (departure_date) {
+      expiry = new Date(departure_date + 'T00:00:00Z');
+      expiry.setDate(expiry.getDate() + 30);
+    } else {
+      expiry = new Date();
+      expiry.setDate(expiry.getDate() + 30);
+    }
 
     const source = isPartnerFlow ? 'partner' : 'dutyboost';
     const commissionPartner = isPartnerFlow ? ref : 'DutyBoost';
@@ -112,6 +124,8 @@ Deno.serve(async (req) => {
       commission_partner: commissionPartner,
       ref_code: ref || null,
       partner_booking_ref: partner_booking_ref ? partner_booking_ref.trim().toUpperCase() : null,
+      airline: airline ? airline.trim() : null,
+      departure_date: departure_date || null,
       traveler_email: normalizedEmail,
       flight_number: normalizedFlight,
       campaign_source: campaign_source || null,

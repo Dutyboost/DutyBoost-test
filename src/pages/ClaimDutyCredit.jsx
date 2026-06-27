@@ -27,6 +27,8 @@ export default function ClaimDutyCredit() {
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
   const [bookingRef, setBookingRef] = useState('');
+  const [airline, setAirline] = useState('');
+  const [departureDate, setDepartureDate] = useState('');
   const [generated, setGenerated] = useState(null);
   const [error, setError] = useState('');
   const airportRef = useRef(null);
@@ -63,7 +65,10 @@ export default function ClaimDutyCredit() {
   };
 
   const handleClaim = async () => {
-    if (!airport) return;
+    if (!airport || !airline || !bookingRef || !departureDate) {
+      setError(tr('error_missing_fields'));
+      return;
+    }
     setError('');
 
     // Partner flow requires email + flight number for duplicate check
@@ -76,6 +81,8 @@ export default function ClaimDutyCredit() {
     try {
       const response = await base44.functions.invoke('generatePublicDutyCredit', {
         airport,
+        airline: airline || undefined,
+        departure_date: departureDate || undefined,
         ref: refCode || undefined,
         traveler_email: travelerEmail || undefined,
         flight_number: flightNumber || undefined,
@@ -194,6 +201,37 @@ export default function ClaimDutyCredit() {
                 </div>
               </div>
 
+              {/* Always visible: airline, booking number, departure date */}
+              <div className="space-y-4 pt-2 border-t border-border">
+                <div>
+                  <Label className="text-sm font-medium mb-1.5 block">{tr('airline_label')}</Label>
+                  <Input
+                    type="text"
+                    value={airline}
+                    onChange={(e) => setAirline(e.target.value)}
+                    placeholder={tr('airline_placeholder')}
+                  />
+                </div>
+                <div>
+                  <Label className="text-sm font-medium mb-1.5 block">{tr('booking_ref_label')}</Label>
+                  <Input
+                    type="text"
+                    value={bookingRef}
+                    onChange={(e) => setBookingRef(e.target.value.toUpperCase())}
+                    placeholder={tr('booking_ref_placeholder')}
+                    className="font-mono"
+                  />
+                </div>
+                <div>
+                  <Label className="text-sm font-medium mb-1.5 block">{tr('departure_date_label')}</Label>
+                  <Input
+                    type="date"
+                    value={departureDate}
+                    onChange={(e) => setDepartureDate(e.target.value)}
+                  />
+                </div>
+              </div>
+
               {/* Partner flow: email + flight number for duplicate check */}
               {isPartnerFlow && (
                 <div className="space-y-4 pt-2 border-t border-border">
@@ -209,17 +247,6 @@ export default function ClaimDutyCredit() {
                       placeholder={tr('flight_number_placeholder')}
                       className="font-mono"
                     />
-                  </div>
-                  <div>
-                    <Label className="text-sm font-medium mb-1.5 block">{tr('booking_ref_label')}</Label>
-                    <Input
-                      type="text"
-                      value={bookingRef}
-                      onChange={(e) => setBookingRef(e.target.value.toUpperCase())}
-                      placeholder={tr('booking_ref_placeholder')}
-                      className="font-mono"
-                    />
-                    <p className="text-xs text-muted-foreground mt-1">{tr('booking_ref_hint')}</p>
                   </div>
                   <div>
                     <Label className="text-sm font-medium mb-1.5 block">{tr('email_label')}</Label>
@@ -242,7 +269,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport}
+                disabled={!airport || !airline || !bookingRef || !departureDate || (isPartnerFlow && (!travelerEmail || !flightNumber))}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
@@ -370,9 +397,21 @@ export default function ClaimDutyCredit() {
                   <span>{tr('tier3')}</span>
                   <span className="font-bold text-primary">{tr('tier3_save')}</span>
                 </div>
-                <div className="flex justify-between items-center py-2">
+                <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier4')}</span>
-                  <span className="font-bold text-green-600">{tr('tier4_save')}</span>
+                  <span className="font-bold text-primary">{tr('tier4_save')}</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-border">
+                  <span>{tr('tier5')}</span>
+                  <span className="font-bold text-primary">{tr('tier5_save')}</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-border">
+                  <span>{tr('tier6')}</span>
+                  <span className="font-bold text-primary">{tr('tier6_save')}</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span>{tr('tier7')}</span>
+                  <span className="font-bold text-green-600">{tr('tier7_save')}</span>
                 </div>
               </div>
             </div>
