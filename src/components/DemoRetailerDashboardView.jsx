@@ -182,14 +182,13 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             transactions={RETAILERS.map(r => {
               const saving = calcSaving(r.avg_sale);
               const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
-              const scaledRedemptions = Math.round(r.redemptions * periodMultiplier);
-              const scaledRevenue = scaledRedemptions * r.avg_sale;
+              const scaled = Math.round(r.redemptions * periodMultiplier);
               return {
-                transaction_value: scaledRevenue,
-                total_savings: saving * scaledRedemptions,
-                total_commission: commission * scaledRedemptions,
+                transaction_value: Math.round(scaled * r.avg_sale),
+                total_savings: Math.round(saving * scaled),
+                total_commission: Math.round(commission * scaled),
                 airport: r.airport,
-                count: scaledRedemptions,
+                count: scaled,
               };
             })}
             vouchers={RETAILERS}
