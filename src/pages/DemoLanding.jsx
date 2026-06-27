@@ -35,7 +35,7 @@ export default function DemoLanding() {
             </div>
           </Link>
 
-          <Link to="/demo/retailer" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
+          <Link to="/demo/retailer-spain" className="group p-8 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
               <Store className="w-6 h-6 text-primary" />
             </div>
