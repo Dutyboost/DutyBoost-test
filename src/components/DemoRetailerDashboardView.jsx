@@ -31,7 +31,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
   const [showRedemptions, setShowRedemptions] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
-  const [period, setPeriod] = useState("monthly");
+  const [period, setPeriod] = useState("day");
   const [activeTab, setActiveTab] = useState("dashboard");
   const [customStart, setCustomStart] = useState("2025-10-01");
   const [customEnd, setCustomEnd] = useState("2026-03-31");
