@@ -118,38 +118,32 @@ const RETAILER_PROFILES_NL = {
   default: { company: "Demo Retailer B.V.", kvk: "55566677", vat: "NL777888999B01", address: "Airport Terminal 1", postal_city: "1118 AV Schiphol", website: "www.demoretailer.nl", phone: "+31 20 000 1111", iban: "NL18INGB0001234567", holder: "Demo Retailer B.V.", airport: "AMS" },
 };
 
-// ─── Spanish airport address data ───────────────────────────────────────────
-
-const ES_AIRPORT_INFO = {
-  MAD: { address: "Aeropuerto Adolfo Suárez Madrid-Barajas, T4", postal: "28042 Madrid", phone: "+34 91 321 0000" },
-  BCN: { address: "Aeropuerto Josep Tarradellas Barcelona-El Prat, T1", postal: "08820 El Prat de Llobregat", phone: "+34 93 321 0000" },
-  PMI: { address: "Aeropuerto de Palma de Mallorca", postal: "07611 Palma de Mallorca", phone: "+34 971 789 000" },
-  AGP: { address: "Aeropuerto de Málaga-Costa del Sol, T3", postal: "29004 Málaga", phone: "+34 952 048 000" },
-  ALC: { address: "Aeropuerto de Alicante-Elche", postal: "03195 Alicante", phone: "+34 965 689 000" },
-  TFS: { address: "Aeropuerto de Tenerife Sur, T1", postal: "38610 Granadilla", phone: "+34 922 759 000" },
-  LPA: { address: "Aeropuerto de Gran Canaria, T1", postal: "35230 Las Palmas", phone: "+34 928 579 000" },
-  VLC: { address: "Aeropuerto de Valencia, T1", postal: "46940 Manises", phone: "+34 961 521 000" },
-  IBZ: { address: "Aeropuerto de Ibiza", postal: "07830 Ibiza", phone: "+34 971 801 000" },
-  MAH: { address: "Aeropuerto de Menorca", postal: "07748 Mahón", phone: "+34 971 157 000" },
-  default: { address: "Terminal del Aeropuerto", postal: "28042 Madrid", phone: "+34 91 000 0000" },
+// ─── Aena official corporate details (source: aena.es legal notice) ──────────
+// Aena SME, S.A. is the airport operator for the entire Spanish Aena network.
+// All retail concessionaires operate under Aena's umbrella; the official
+// registered office and fiscal details are used for billing purposes.
+const AENA_OFFICIAL = {
+  company: "Aena SME, S.A.",
+  address: "Calle Peonías, 12",
+  postal_city: "28042 Madrid",
+  cif: "A86212420",
+  vat: "ESA86212420",
+  phone: "+34 91 321 10 00",
+  website: "www.aena.es",
 };
 
 function buildEsRetailerProfile(entity) {
-  const info = ES_AIRPORT_INFO[entity?.airport] || ES_AIRPORT_INFO.default;
   const name = entity?.name || "Comercio Aeropuerto";
-  const slug = name.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 20) || "comercio";
-  const seed = (entity?.id || entity?.name || "").split("").reduce((s, c) => s + c.charCodeAt(0), 0);
-  const cifNum = String(10000000 + (seed * 7919) % 89999999).slice(0, 8);
   return {
     company: name,
-    cif: `B${cifNum}`,
-    vat: `ESB${cifNum}`,
-    address: info.address,
-    postal_city: info.postal,
-    website: `www.${slug}.es`,
-    phone: info.phone,
+    cif: AENA_OFFICIAL.cif,
+    vat: AENA_OFFICIAL.vat,
+    address: AENA_OFFICIAL.address,
+    postal_city: AENA_OFFICIAL.postal_city,
+    website: AENA_OFFICIAL.website,
+    phone: AENA_OFFICIAL.phone,
     iban: "ES9121000418450200051332",
-    holder: `${name} S.L.`,
+    holder: AENA_OFFICIAL.company,
     airport: entity?.airport || "MAD",
   };
 }
