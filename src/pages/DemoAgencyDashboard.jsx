@@ -79,7 +79,7 @@ export default function DemoAgencyDashboard() {
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <span className="text-border">|</span>
-          <DutyBoostLogo height={110} />
+          <DutyBoostLogo height={55} />
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.agency_badge')}</span>

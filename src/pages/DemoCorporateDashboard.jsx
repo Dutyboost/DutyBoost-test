@@ -169,7 +169,7 @@ export default function DemoCorporateDashboard() {
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-card/80">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <DutyBoostLogo height={100} />
+            <DutyBoostLogo height={55} />
             <span className="text-sm font-medium text-muted-foreground border-l border-border pl-3">Corporate Dashboard</span>
             <Badge className="bg-amber-100 text-amber-700 border-amber-200 text-xs">Demo Mode</Badge>
           </div>
