@@ -282,41 +282,27 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         </div>
 
         {/* Airport overview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">{t('demo.all_stores_at')} {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
-            <div className="overflow-y-auto max-h-64 space-y-2">
-              {airportRetailers.map(r => (
-                <div
-                  key={r.id}
-                  onClick={() => setSelectedRetailer(r)}
-                  className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${
-                    r.id === selectedRetailer.id ? "bg-primary/10 border border-primary/30" : "hover:bg-muted/40"
-                  }`}
-                >
-                  <div>
-                    <p className="text-sm font-medium">{r.name}</p>
-                    <p className="text-xs text-muted-foreground">{r.category}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
-                    <p className="text-xs text-muted-foreground">€ {r.avg_sale} {t('demo.avg_sale_label')}</p>
-                  </div>
+        <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+          <p className="font-semibold">{t('demo.all_stores_at')} {AIRPORTS.find(a => a.code === selectedAirport)?.name}</p>
+          <div className="overflow-y-auto max-h-64 space-y-2">
+            {airportRetailers.map(r => (
+              <div
+                key={r.id}
+                onClick={() => setSelectedRetailer(r)}
+                className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${
+                  r.id === selectedRetailer.id ? "bg-primary/10 border border-primary/30" : "hover:bg-muted/40"
+                }`}
+              >
+                <div>
+                  <p className="text-sm font-medium">{r.name}</p>
+                  <p className="text-xs text-muted-foreground">{r.category}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-            <p className="font-semibold">{t('demo.redemptions_by_category')} {selectedAirport}</p>
-            <ResponsiveContainer width="100%" height={200}>
-              <PieChart>
-                <Pie data={catBreakdown} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={75} label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} fontSize={11}>
-                  {catBreakdown.map((c, i) => <Cell key={i} fill={CAT_COLORS[c.name] || COLORS[i]} />)}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
+                <div className="text-right">
+                  <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
+                  <p className="text-xs text-muted-foreground">€ {r.avg_sale} {t('demo.avg_sale_label')}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
