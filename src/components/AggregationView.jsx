@@ -40,6 +40,8 @@ export default function AggregationView({ transactions, vouchers, period, custom
     const avgDiscount = totalRedemptions > 0
       ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || 0) * (t.count || 1), 0) / totalRedemptions)
       : 0;
+    const totalSavings = totalRedemptions * avgDiscount * avgSalesPerCredit / 100;
+    const netRevenue = grossRevenue - totalSavings - platformFee;
 
     return {
       totalRedemptions,
@@ -48,6 +50,8 @@ export default function AggregationView({ transactions, vouchers, period, custom
       avgSalesPerCredit: avgSalesPerCredit.toFixed(2),
       avgDiscount: avgDiscount.toFixed(1),
       vouchersIssued: vouchers.length,
+      totalSavings: totalSavings.toFixed(2),
+      netRevenue: netRevenue.toFixed(2),
     };
   }, [filteredTransactions, vouchers, entityType, period]);
 
@@ -152,6 +156,29 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <p className="text-sm font-semibold">Average Discount Applied</p>
           <p className="text-3xl font-heading font-bold">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
           <p className="text-xs text-muted-foreground mt-2">Per transaction</p>
+        </div>
+      </div>
+
+      {/* Revenue Breakdown */}
+      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+        <p className="font-semibold">Revenue Breakdown</p>
+        <div className="space-y-3 text-sm">
+          <div className="flex justify-between items-center">
+            <span className="text-muted-foreground">Gross Sales</span>
+            <span className="font-semibold">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL")}</span>
+          </div>
+          <div className="flex justify-between items-center text-rose-600">
+            <span>Traveler Savings (DutyCredit)</span>
+            <span className="font-semibold">- €{parseFloat(aggregatedMetrics.totalSavings).toLocaleString("nl-NL")}</span>
+          </div>
+          <div className="flex justify-between items-center text-destructive">
+            <span>{entityType === "retailer" ? "Platform Fee" : "Commission"}</span>
+            <span className="font-semibold">- €{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL")}</span>
+          </div>
+          <div className="border-t border-border pt-2 flex justify-between items-center">
+            <span className="font-semibold">Your Net Revenue</span>
+            <span className="font-bold text-emerald-600">€{parseFloat(aggregatedMetrics.netRevenue).toLocaleString("nl-NL")}</span>
+          </div>
         </div>
       </div>
 
