@@ -62,17 +62,25 @@ export default function AggregationView({ transactions, vouchers, period, custom
   const airportBreakdown = useMemo(() => {
     const breakdown = {};
     const airportOrder = [];
-    // Initialize all airports from full dataset in order
-    transactions.forEach(t => {
-      const airport = t.airport || "Unknown";
+    
+    // Get unique airports from vouchers (represents all available airports)
+    const allAirports = [...new Set(vouchers.map(v => v.airport || "Unknown"))];
+    
+    // Initialize all airports in order, then add filtered transaction data
+    allAirports.forEach(airport => {
       if (!breakdown[airport]) {
         breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
         airportOrder.push(airport);
       }
     });
+    
     // Add filtered transaction data
     filteredTransactions.forEach(t => {
       const airport = t.airport || "Unknown";
+      if (!breakdown[airport]) {
+        breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
+        airportOrder.push(airport);
+      }
       breakdown[airport].redemptions += t.count || 1;
       breakdown[airport].revenue += t.transaction_value || 0;
     });
