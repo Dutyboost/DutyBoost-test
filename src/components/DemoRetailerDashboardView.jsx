@@ -180,8 +180,14 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
           <AggregationView 
             transactions={(() => {
-              const baseData = period === "daily" ? DAILY_DATA : period === "yearly" ? YEARLY_DATA : MONTHLY_DATA;
-              const multiplier = baseData[0]?.mult || 1;
+              let multiplier = 1;
+              if (period === "yearly") {
+                multiplier = YEARLY_DATA.reduce((sum, d) => sum + d.mult, 0);
+              } else if (period === "daily") {
+                multiplier = DAILY_DATA.reduce((sum, d) => sum + d.mult, 0) / DAILY_DATA.length;
+              } else {
+                multiplier = MONTHLY_DATA.reduce((sum, d) => sum + d.mult, 0) / MONTHLY_DATA.length;
+              }
               return RETAILERS.map(r => {
                 const saving = calcSaving(r.avg_sale);
                 const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
