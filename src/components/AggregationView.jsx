@@ -144,7 +144,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{entityType === "retailer" ? "Total Redeemable DutyCredits Available for your Airports" : "Total DutyCredits Issued"}</p>
-          <p className="text-3xl font-heading font-bold">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 30).toLocaleString() : aggregatedMetrics.vouchersIssued}</p>
+          <p className="text-3xl font-heading font-bold">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 15).toLocaleString() : aggregatedMetrics.vouchersIssued}</p>
           {entityType === "retailer" && <p className="text-xs text-muted-foreground">Across all retailers in your region</p>}
         </div>
 
