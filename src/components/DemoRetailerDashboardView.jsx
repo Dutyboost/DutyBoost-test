@@ -392,7 +392,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             ))}
           </div>
         </div>
-        <RedemptionHeatmap />
         </> )}
       </div>
     </div>
