@@ -131,7 +131,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {/* Tabs */}
          <div className="flex gap-1 border-b border-border overflow-x-auto">
-            {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Aggregation", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }, { id: "scan", label: t('demo.tabs_scan'), icon: ScanLine }].map(({ id, label, icon: Icon }) => (
+            {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Aggregation", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
@@ -154,11 +154,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             entityType="retailer"
             onPeriodChange={setPeriod}
           />
-        ) : activeTab === "scan" ? (
-          <div className="space-y-4">
-            <p className="text-muted-foreground text-sm">{t('demo.scan_desc')}</p>
-            <Link to="/retailer-scan-only" target="_blank" className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all">{t('demo.open_scan')}</Link>
-          </div>
         ) : (<>
         {/* Welcome */}
         <div className="flex items-start justify-between">
