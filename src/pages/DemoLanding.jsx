@@ -10,7 +10,7 @@ export default function DemoLanding() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <DutyBoostLogo height={55} />
+        <DutyBoostLogo height={45} />
         <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.mode_badge')}</span>
         <LanguageSwitcher />
       </nav>

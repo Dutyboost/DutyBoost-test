@@ -89,7 +89,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
           <span className="text-border">|</span>
-          <DutyBoostLogo height={55} />
+          <DutyBoostLogo height={45} />
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.retailer_badge')}</span>
