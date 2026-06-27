@@ -363,6 +363,24 @@ export default {
       vat: 'N° TVA : NL869492068B01',
       cookie_policy: 'Politique en matière de cookies',
     },
+    months: {
+      january: 'Janvier 2026',
+      february: 'Février 2026',
+      march: 'Mars 2026',
+      april: 'Avril 2026',
+      may: 'Mai 2026',
+      june: 'Juin 2026',
+      december: 'Décembre 2025',
+    },
+    dates: {
+      january: '1 jan 2026',
+      february: '1 fév 2026',
+      march: '1 mar 2026',
+      april: '1 avr 2026',
+      may: '1 mai 2026',
+      june: '1 jun 2026',
+      july: '1 jul 2026',
+    },
     showcase: {
       agency: {
         titlePart1: 'Deux DutyCredits par client.',

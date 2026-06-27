@@ -363,6 +363,24 @@ export default {
       vat: 'USt-IdNr.: NL869492068B01',
       cookie_policy: 'Cookie-Richtlinie',
     },
+    months: {
+      january: 'Januar 2026',
+      february: 'Februar 2026',
+      march: 'März 2026',
+      april: 'April 2026',
+      may: 'Mai 2026',
+      june: 'Juni 2026',
+      december: 'Dezember 2025',
+    },
+    dates: {
+      january: '1. Jan 2026',
+      february: '1. Feb 2026',
+      march: '1. Mär 2026',
+      april: '1. Apr 2026',
+      may: '1. Mai 2026',
+      june: '1. Jun 2026',
+      july: '1. Jul 2026',
+    },
     showcase: {
       agency: {
         titlePart1: 'Zwei DutyCredits pro Kunde.',

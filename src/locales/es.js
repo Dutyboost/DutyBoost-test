@@ -378,6 +378,24 @@ export default {
       vat: 'N.º IVA: NL869492068B01',
       cookie_policy: 'Política de cookies',
     },
+    months: {
+      january: 'Enero 2026',
+      february: 'Febrero 2026',
+      march: 'Marzo 2026',
+      april: 'Abril 2026',
+      may: 'Mayo 2026',
+      june: 'Junio 2026',
+      december: 'Diciembre 2025',
+    },
+    dates: {
+      january: '1 ene 2026',
+      february: '1 feb 2026',
+      march: '1 mar 2026',
+      april: '1 abr 2026',
+      may: '1 may 2026',
+      june: '1 jun 2026',
+      july: '1 jul 2026',
+    },
     showcase: {
       agency: {
         titlePart1: 'Dos DutyCredits por cliente.',

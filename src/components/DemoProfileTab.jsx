@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { jsPDF } from "jspdf";
 import { Building2, Download, Landmark, User, FileText, CheckCircle2, Pencil, X, Save } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -156,24 +157,37 @@ function buildEsRetailerProfile(entity) {
 
 // ─── Seasonality + invoice builder ──────────────────────────────────────────
 
-const RETAILER_SEASONALITY = [
-  { month: "March 2026", date: "1 Apr 2026", mult: 0.90 },
-  { month: "April 2026", date: "1 May 2026", mult: 0.95 },
-  { month: "May 2026", date: "1 Jun 2026", mult: 1.00 },
-  { month: "June 2026", date: "1 Jul 2026", mult: 1.10 },
+const RETAILER_SEASONALITY_DATA = [
+  { monthKey: "month_march", dateKey: "date_april", mult: 0.90 },
+  { monthKey: "month_april", dateKey: "date_may", mult: 0.95 },
+  { monthKey: "month_may", dateKey: "date_june", mult: 1.00 },
+  { monthKey: "month_june", dateKey: "date_july", mult: 1.10 },
 ];
 
-function buildRetailerInvoices(entity, locale) {
+function buildRetailerInvoices(entity, locale, t) {
+  function getMonthLabel(key) {
+    const monthTranslations = {
+      month_march: t('months.march') || 'March 2026',
+      month_april: t('months.april') || 'April 2026',
+      month_may: t('months.may') || 'May 2026',
+      month_june: t('months.june') || 'June 2026',
+      date_april: t('dates.april') || '1 Apr 2026',
+      date_may: t('dates.may') || '1 May 2026',
+      date_june: t('dates.june') || '1 Jun 2026',
+      date_july: t('dates.july') || '1 Jul 2026',
+    };
+    return monthTranslations[key] || key;
+  }
   if (!entity || !entity.redemptions || !entity.avg_sale) return [];
   const basket = entity.avg_sale;
   const feePerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
-  return RETAILER_SEASONALITY.map(({ month, date, mult }) => {
+  return RETAILER_SEASONALITY_DATA.map(({ monthKey, dateKey, mult }) => {
     const redemptions = Math.round(entity.redemptions * mult);
     const transactionValue = Math.round(redemptions * basket);
     const platformFee = Math.round(redemptions * feePerTx * 100) / 100;
     return {
-      month,
-      date,
+      month: getMonthLabel(monthKey),
+      date: getMonthLabel(dateKey),
       status: "Paid",
       amount: `€ ${platformFee.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       breakdown: [{ airport: entity.airport || "—", vouchers: redemptions, transactionValue }],
@@ -182,12 +196,32 @@ function buildRetailerInvoices(entity, locale) {
 }
 
 // Agency invoices: commission model (NL only — no ES agency demo)
-const DEMO_INVOICES = [
-  { month: "March 2026", status: "Paid", date: "1 Apr 2026", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 45, transactionValue: 18750 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 30, transactionValue: 7500 }, { airport: "Eindhoven Airport (EIN)", vouchers: 25, transactionValue: 5000 }] },
-  { month: "February 2026", status: "Paid", date: "1 Mar 2026", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 39, transactionValue: 16250 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 25, transactionValue: 6250 }, { airport: "Eindhoven Airport (EIN)", vouchers: 20, transactionValue: 5000 }] },
-  { month: "January 2026", status: "Paid", date: "1 Feb 2026", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 27, transactionValue: 11250 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 20, transactionValue: 4375 }, { airport: "Eindhoven Airport (EIN)", vouchers: 18, transactionValue: 4250 }] },
-  { month: "December 2025", status: "Paid", date: "1 Jan 2026", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 58, transactionValue: 24500 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 36, transactionValue: 9000 }, { airport: "Eindhoven Airport (EIN)", vouchers: 30, transactionValue: 7500 }] },
-].map(inv => ({ ...inv, amount: `€ ${(inv.breakdown.reduce((s, r) => s + r.transactionValue * 0.01, 0)).toFixed(2)}` }));
+const DEMO_INVOICES_DATA = [
+  { monthKey: "month_march", dateKey: "date_april", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 45, transactionValue: 18750 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 30, transactionValue: 7500 }, { airport: "Eindhoven Airport (EIN)", vouchers: 25, transactionValue: 5000 }] },
+  { monthKey: "month_february", dateKey: "date_march", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 39, transactionValue: 16250 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 25, transactionValue: 6250 }, { airport: "Eindhoven Airport (EIN)", vouchers: 20, transactionValue: 5000 }] },
+  { monthKey: "month_january", dateKey: "date_february", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 27, transactionValue: 11250 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 20, transactionValue: 4375 }, { airport: "Eindhoven Airport (EIN)", vouchers: 18, transactionValue: 4250 }] },
+  { monthKey: "month_december", dateKey: "date_january", breakdown: [{ airport: "Amsterdam Schiphol (AMS)", vouchers: 58, transactionValue: 24500 }, { airport: "Rotterdam The Hague (RTM)", vouchers: 36, transactionValue: 9000 }, { airport: "Eindhoven Airport (EIN)", vouchers: 30, transactionValue: 7500 }] },
+];
+
+function buildAgencyInvoices(t) {
+  const monthTranslations = {
+    month_march: t('months.march') || 'March 2026',
+    month_february: t('months.february') || 'February 2026',
+    month_january: t('months.january') || 'January 2026',
+    month_december: t('months.december') || 'December 2025',
+    date_april: t('dates.april') || '1 Apr 2026',
+    date_march: t('dates.march') || '1 Mar 2026',
+    date_february: t('dates.february') || '1 Feb 2026',
+    date_january: t('dates.january') || '1 Jan 2026',
+  };
+  return DEMO_INVOICES_DATA.map(inv => ({
+    month: monthTranslations[inv.monthKey],
+    date: monthTranslations[inv.dateKey],
+    status: "Paid",
+    breakdown: inv.breakdown,
+    amount: `€ ${(inv.breakdown.reduce((s, r) => s + r.transactionValue * 0.01, 0)).toFixed(2)}`,
+  }));
+}
 
 // ─── Editable section ──────────────────────────────────────────────────────
 
@@ -443,6 +477,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
 // ─── Main component ───────────────────────────────────────────────────────
 
 export default function DemoProfileTab({ entity, entityType = "agency", region = "nl" }) {
+  const { t } = useTranslation();
   const cfg = REGION_CONFIG[region] || REGION_CONFIG.nl;
 
   const initialProfile = entityType === "retailer" && region === "es"
@@ -453,7 +488,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
-  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale) : DEMO_INVOICES;
+  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t) : buildAgencyInvoices(t);
 
   const [bankEditing, setBankEditing] = useState(false);
   const [bankDraft, setBankDraft] = useState({ iban: profile.iban, holder: profile.holder });
