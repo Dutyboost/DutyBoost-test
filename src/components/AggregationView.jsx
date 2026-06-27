@@ -95,15 +95,19 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <div className="flex items-center gap-2 flex-wrap mt-4">
           <Calendar className="w-4 h-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground font-medium">{t('demo.period') || 'Period'}</span>
-          {["day", "month", "year"].map(p => (
+          {[
+            { v: "day", l: t('demo.daily') },
+            { v: "month", l: t('demo.monthly') },
+            { v: "year", l: t('demo.yearly') },
+          ].map(({ v, l }) => (
             <button
-              key={p}
-              onClick={() => onPeriodChange(p)}
+              key={v}
+              onClick={() => onPeriodChange(v)}
               className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-                period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
               }`}
             >
-              {p.charAt(0).toUpperCase() + p.slice(1)}
+              {l}
             </button>
           ))}
         </div>
@@ -151,7 +155,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{entityType === "retailer" ? (t('common.total_redeemable') || 'Total Redeemable DutyCredits Available for your Airports') : (t('demo.dutycredits_issued') || 'Total DutyCredits Issued')}</p>
           <p className="text-3xl font-heading font-bold">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString() : aggregatedMetrics.vouchersIssued}</p>
-          {entityType === "retailer" && <p className="text-xs text-muted-foreground">Across all retailers in your region</p>}
+          {entityType === "retailer" && <p className="text-xs text-muted-foreground">{t('common.across_all_retailers')}</p>}
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
