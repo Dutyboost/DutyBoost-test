@@ -3,29 +3,20 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { TrendingUp, Euro, Store, ScanLine, Calendar } from "lucide-react";
 
 export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange }) {
-  // Filter transactions by period
+  // Filter transactions only for custom period; others use full data with divisors
   const filteredTransactions = useMemo(() => {
-    const now = new Date();
-    let start, end;
-    if (period === "day") {
-      start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      end = new Date(start); end.setDate(end.getDate() + 1);
-    } else if (period === "month") {
-      start = new Date(now.getFullYear(), now.getMonth(), 1);
-      end = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-    } else if (period === "year") {
-      start = new Date(now.getFullYear(), 0, 1);
-      end = new Date(now.getFullYear() + 1, 0, 1);
-    } else if (period === "custom" && customStart && customEnd) {
-      start = new Date(customStart);
-      end = new Date(customEnd); end.setDate(end.getDate() + 1);
-    } else {
-      return transactions; // no filter
+    // Only filter for custom period with dates
+    if (period === "custom" && customStart && customEnd) {
+      const start = new Date(customStart);
+      const end = new Date(customEnd); 
+      end.setDate(end.getDate() + 1);
+      return transactions.filter(t => {
+        const d = new Date(t.created_date);
+        return d >= start && d < end;
+      });
     }
-    return transactions.filter(t => {
-      const d = new Date(t.created_date);
-      return d >= start && d < end;
-    });
+    // For day/month/year, use all transactions and apply divisors in display
+    return transactions;
   }, [transactions, period, customStart, customEnd]);
 
   const aggregatedMetrics = useMemo(() => {
