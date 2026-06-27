@@ -86,7 +86,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       revenue: divisor > 1 ? item.revenue / divisor : item.revenue,
     }));
     
-    return scaled.sort((a, b) => b.revenue - a.revenue);
+    return scaled;
   }, [filteredTransactions, period]);
 
   const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899", "#06b6d4"];
