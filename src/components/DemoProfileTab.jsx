@@ -15,7 +15,7 @@ const REGION_CONFIG = {
     regLabel: "KVK Number",
     vatLabel: "VAT Number",
     dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
-    dutyboostFooter: "DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300",
+    dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300",
     copyrightLine: "© 2026 DutyBoost. All rights reserved.",
     kvkLine: "Chamber of Commerce (KvK): 42053181",
     vatLine: "VAT Number: NL869492068B01",
@@ -63,7 +63,7 @@ const REGION_CONFIG = {
     regLabel: "CIF",
     vatLabel: "NIF-IVA",
     dutyboostHeader: "DutyBoost Spain S.L. · hola@dutyboost.com · dutyboost.com",
-    dutyboostFooter: "DutyBoost Spain S.L. · CIF: B87654321 · IVA: ESB87654321 · IBAN: ES9121000418450200051332",
+    dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300",
     copyrightLine: "© 2026 DutyBoost. Todos los derechos reservados.",
     kvkLine: "Cámara de Comercio (KvK): 42053181",
     vatLine: "N.º IVA: NL869492068B01",
@@ -81,7 +81,7 @@ const REGION_CONFIG = {
     totalDue: "Total a pagar (IVA incl.):",
     statusLabel: "Estado:",
     footer1: "Todas las comisiones de DutyBoost excluyen IVA. El IVA (21%) se añade aparte como se muestra arriba.",
-    footer2: "Esta factura es emitida por DutyBoost Spain S.L. para fines fiscales y contables.",
+    footer2: "Esta factura es emitida por DutyBoost B.V. para fines fiscales y contables.",
     accountInfo: "Información de la cuenta",
     contactPerson: "Persona de contacto",
     email: "Correo electrónico",
@@ -324,7 +324,7 @@ function downloadPayoutPDF(inv, entity, profile) {
   const payoutLineY = abY + 4;
   doc.line(20, payoutLineY, 190, payoutLineY);
   doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
-  doc.text("DutyBoost B.V. · KVK: 12345678 · VAT: NL123456789B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
+  doc.text("DutyBoost B.V. · KvK: 42053181 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
 
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
 }
