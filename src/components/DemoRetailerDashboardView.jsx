@@ -372,26 +372,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           </div>
         </div>
 
-        {/* How it works */}
-        <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 border border-orange-200 rounded-xl p-6 space-y-4">
-          <p className="font-semibold font-heading text-lg">{t('demo.how_redemption_works')}</p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {[
-              { step: "1", title: t('demo.rw_step1_title'), desc: t('demo.rw_step1_desc') },
-              { step: "2", title: t('demo.rw_step2_title'), desc: t('demo.rw_step2_desc') },
-              { step: "3", title: t('demo.rw_step3_title'), desc: t('demo.rw_step3_desc') },
-              { step: "4", title: t('demo.rw_step4_title'), desc: t('demo.rw_step4_desc') },
-            ].map(({ step, title, desc }) => (
-              <div key={step} className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-sm font-bold flex items-center justify-center shrink-0">{step}</div>
-                <div>
-                  <p className="font-semibold text-sm">{title}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
         </> )}
       </div>
     </div>
