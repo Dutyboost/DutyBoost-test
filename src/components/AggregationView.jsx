@@ -156,7 +156,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{entityType === "retailer" ? (t('common.total_redeemable') || 'Total Redeemable DutyCredits Available for your Airports') : (t('demo.dutycredits_issued') || 'Total DutyCredits Issued')}</p>
-          <p className="text-3xl font-heading font-bold">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString() : aggregatedMetrics.vouchersIssued}</p>
+          <p className="text-3xl font-heading font-bold">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString("de-DE") : aggregatedMetrics.vouchersIssued}</p>
           {entityType === "retailer" && <p className="text-xs text-muted-foreground">{t('common.across_all_retailers')}</p>}
         </div>
 
