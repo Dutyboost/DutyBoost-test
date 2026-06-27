@@ -57,10 +57,10 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viajeros',
-        description: 'Podrás disfrutar de un descuento exclusivo en el aeropuerto de salida — ganado automáticamente al reservar un vuelo, hotel o alquiler de coche. Podrás usar tu DutyCredit en tu aeropuerto de salida antes de embarcar. Sin registros, sin papeleo. Solo escanea y ahorra. Válido en compras de €35 o más en un solo punto de venta.',
-        b1: 'DutyCredit móvil instantáneo',
-        b2: 'Descuento completo en una tienda',
-        b3: 'Experiencia QR sin fricciones',
+        description: 'Obtén un DutyCredit de valor €5–€60 para gastar en minoristas aeroportuarios participantes. Si tu socio de viaje ya incluyó un DutyCredit en tu email de confirmación de reserva, usa ese — solo genera uno aquí si aún no has recibido ninguno. Sin registro, sin subir tarjeta de embarque. Selecciona tu aeropuerto, reclama y escanea para ahorrar.',
+        b1: 'Crédito de compra en aeropuerto de €5–€60',
+        b2: 'Solo si tu socio no envió uno',
+        b3: 'Sin registro — escanea y ahorra',
       },
       retailers: {
         title: 'Socios minoristas aeroportuarios',

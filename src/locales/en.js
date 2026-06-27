@@ -57,10 +57,10 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Travellers',
-        description: 'You will enjoy an exclusive airport discount — automatically earned when you book a flight, accommodation or car rental. You will be able to use your DutyCredit at your departure airport before you board. No sign-ups, no paperwork. Just scan and save. Valid on purchases of €35+ at a single retail location.',
-        b1: 'Instant mobile DutyCredit',
-        b2: 'Full discount at one shop',
-        b3: 'Seamless QR experience',
+        description: 'Get a DutyCredit worth €5–€60 to spend at participating airport retailers. If your travel partner already included a DutyCredit in your booking confirmation email, use that one — only generate one here if you haven\'t received one yet. No sign-up, no boarding pass upload. Just select your airport, claim, and scan to save.',
+        b1: '€5–€60 airport shopping credit',
+        b2: 'Only if your partner hasn\'t sent one',
+        b3: 'No sign-up — scan & save',
       },
       retailers: {
         title: 'Airport Retail Partners',

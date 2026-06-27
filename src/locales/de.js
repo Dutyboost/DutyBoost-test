@@ -58,10 +58,10 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reisende',
-        description: 'Sie werden exklusive Rabatte am Abflughafen genießen können — automatisch verdient, wenn Sie einen Flug, eine Unterkunft oder einen Mietwagen buchen. Sie werden Ihr DutyCredit am Abflughafen vor dem Einsteigen nutzen können. Keine Anmeldungen, kein Papierkram. Scannen und sparen. Gültig für Einkäufe ab €35 an einem einzigen Verkaufspunkt.',
-        b1: 'Sofortiges mobiles DutyCredit',
-        b2: 'Voller Rabatt in einem Geschäft',
-        b3: 'Reibungslose QR-Erfahrung',
+        description: 'Erhalten Sie ein DutyCredit im Wert von 5–60 € zum Ausgeben bei teilnehmenden Flughafenhändlern. Wenn Ihr Reisepartner bereits ein DutyCredit in Ihrer Buchungsbestätigungs-E-Mail enthalten hat, verwenden Sie dieses — generieren Sie hier nur eines, wenn Sie noch keines erhalten haben. Keine Anmeldung, kein Boardingpass-Upload. Wählen Sie Ihren Flughafen, beanspruchen Sie und scannen Sie zum Sparen.',
+        b1: '5–60 € Flughafen-Einkaufsguthaben',
+        b2: 'Nur wenn Ihr Partner keins gesendet hat',
+        b3: 'Ohne Anmeldung — scannen & sparen',
       },
       retailers: {
         title: 'Flughafen Retailpartner',

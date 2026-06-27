@@ -41,6 +41,10 @@
       "type": "string",
       "title": "Partner Referral Code"
     },
+    "partner_booking_ref": {
+      "type": "string",
+      "title": "Partner Booking Reference (PNR)"
+    },
     "traveler_email": {
       "type": "string",
       "title": "Traveler Email"

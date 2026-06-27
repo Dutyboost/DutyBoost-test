@@ -57,10 +57,10 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viaggiatori',
-        description: 'Potrai godere di uno sconto esclusivo all\'aeroporto di partenza — guadagnato automaticamente prenotando un volo, alloggio o noleggio auto. Potrai usare il tuo DutyCredit al tuo aeroporto di partenza prima di imbarcarti. Nessuna registrazione, nessuna burocrazia. Scansiona e risparmia. Valido per acquisti di €35 o più in un unico punto vendita.',
-        b1: 'DutyCredit mobile immediato',
-        b2: 'Sconto completo in un negozio',
-        b3: 'Esperienza QR senza attrito',
+        description: 'Ottieni un DutyCredit del valore di €5–€60 da spendere presso i rivenditori aeroportuali partecipanti. Se il tuo partner di viaggio ha già incluso un DutyCredit nella tua email di conferma prenotazione, usa quello — genera qui solo se non ne hai ancora ricevuto uno. Nessuna registrazione, nessun upload della carta d\'imbarco. Seleziona il tuo aeroporto, richiedi e scansiona per risparmiare.',
+        b1: 'Credito di acquisto in aeroporto €5–€60',
+        b2: 'Solo se il tuo partner non ne ha inviato uno',
+        b3: 'Senza registrazione — scansiona e risparmia',
       },
       retailers: {
         title: 'Partner retailer aeroportuali',

@@ -26,6 +26,7 @@ export default function ClaimDutyCredit() {
   const [airportOpen, setAirportOpen] = useState(false);
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
+  const [bookingRef, setBookingRef] = useState('');
   const [generated, setGenerated] = useState(null);
   const [error, setError] = useState('');
   const airportRef = useRef(null);
@@ -78,6 +79,7 @@ export default function ClaimDutyCredit() {
         ref: refCode || undefined,
         traveler_email: travelerEmail || undefined,
         flight_number: flightNumber || undefined,
+        partner_booking_ref: bookingRef || undefined,
         campaign_source: campaign || undefined,
       });
 
@@ -207,6 +209,17 @@ export default function ClaimDutyCredit() {
                       placeholder={tr('flight_number_placeholder')}
                       className="font-mono"
                     />
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium mb-1.5 block">{tr('booking_ref_label')}</Label>
+                    <Input
+                      type="text"
+                      value={bookingRef}
+                      onChange={(e) => setBookingRef(e.target.value.toUpperCase())}
+                      placeholder={tr('booking_ref_placeholder')}
+                      className="font-mono"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">{tr('booking_ref_hint')}</p>
                   </div>
                   <div>
                     <Label className="text-sm font-medium mb-1.5 block">{tr('email_label')}</Label>
