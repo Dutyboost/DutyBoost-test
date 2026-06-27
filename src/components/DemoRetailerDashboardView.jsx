@@ -179,17 +179,23 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
           <AggregationView 
-            transactions={RETAILERS.map(r => {
-              const saving = calcSaving(r.avg_sale);
-              const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
-              return {
-                transaction_value: r.revenue,
-                total_savings: saving * r.redemptions,
-                total_commission: commission * r.redemptions,
-                airport: r.airport,
-                count: r.redemptions,
-              };
-            })}
+            transactions={(() => {
+              const baseData = period === "daily" ? DAILY_DATA : period === "yearly" ? YEARLY_DATA : MONTHLY_DATA;
+              const multiplier = baseData[0]?.mult || 1;
+              return RETAILERS.map(r => {
+                const saving = calcSaving(r.avg_sale);
+                const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
+                const scaledRedemptions = Math.round(r.redemptions * multiplier);
+                const scaledRevenue = scaledRedemptions * r.avg_sale;
+                return {
+                  transaction_value: scaledRevenue,
+                  total_savings: saving * scaledRedemptions,
+                  total_commission: commission * scaledRedemptions,
+                  airport: r.airport,
+                  count: scaledRedemptions,
+                };
+              });
+            })()}
             vouchers={RETAILERS}
             period={period}
             entityType="retailer"
