@@ -1,13 +1,21 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import DemoRetailerDashboardView from "../components/DemoRetailerDashboardView";
 import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoData";
 
 export default function DemoRetailerDashboard() {
   const { i18n } = useTranslation();
+  const [searchParams] = useSearchParams();
+  
   useEffect(() => {
-    i18n.changeLanguage("nl");
-  }, [i18n]);
+    const langParam = searchParams.get('lang');
+    if (langParam) {
+      i18n.changeLanguage(langParam);
+    } else {
+      i18n.changeLanguage("nl");
+    }
+  }, [i18n, searchParams]);
   return (
     <DemoRetailerDashboardView
       AIRPORTS={AIRPORTS}
