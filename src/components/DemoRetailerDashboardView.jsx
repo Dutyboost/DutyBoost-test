@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
@@ -26,8 +26,17 @@ function calcSaving(spend) {
 }
 
 export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl" }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [, setLanguage] = useState(i18n.language);
   const [selectedAirport, setSelectedAirport] = useState(defaultAirport);
+  
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+    };
+    i18n.on('languageChanged', handleLanguageChange);
+    return () => i18n.off('languageChanged', handleLanguageChange);
+  }, [i18n]);
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
   const [showRedemptions, setShowRedemptions] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);

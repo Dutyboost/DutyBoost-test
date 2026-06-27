@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
@@ -16,8 +16,17 @@ const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const agencyOptions = TRAVEL_AGENCIES;
 
 export default function DemoAgencyDashboard() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [, setLanguage] = useState(i18n.language);
   const [selectedAgency, setSelectedAgency] = useState(TRAVEL_AGENCIES[0]);
+  
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+    };
+    i18n.on('languageChanged', handleLanguageChange);
+    return () => i18n.off('languageChanged', handleLanguageChange);
+  }, [i18n]);
   const [showBookings, setShowBookings] = useState(true);
   const [showRedeemed, setShowRedeemed] = useState(true);
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -76,7 +85,7 @@ export default function DemoAgencyDashboard() {
       <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-4">
           <Link to="/demo" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="w-4 h-4" /> {t('demo.back')}
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={55} />
@@ -126,7 +135,7 @@ export default function DemoAgencyDashboard() {
         ) : (<>
         {/* Welcome */}
         <div>
-          <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — Travel Partner Dashboard</h1>
+          <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — {t('demo.agency_dashboard')}</h1>
           <p className="text-muted-foreground text-sm mt-1">{t('demo.your_performance')} · {selectedAgency.city}</p>
         </div>
 
