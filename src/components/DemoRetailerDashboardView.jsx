@@ -179,29 +179,17 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
           <AggregationView 
-            transactions={(() => {
-              let multiplier = 1;
-              if (period === "yearly") {
-                multiplier = YEARLY_DATA.reduce((sum, d) => sum + d.mult, 0);
-              } else if (period === "daily") {
-                multiplier = DAILY_DATA.reduce((sum, d) => sum + d.mult, 0) / DAILY_DATA.length;
-              } else {
-                multiplier = MONTHLY_DATA.reduce((sum, d) => sum + d.mult, 0) / MONTHLY_DATA.length;
-              }
-              return RETAILERS.map(r => {
-                const saving = calcSaving(r.avg_sale);
-                const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
-                const scaledRedemptions = Math.round(r.redemptions * multiplier);
-                const scaledRevenue = scaledRedemptions * r.avg_sale;
-                return {
-                  transaction_value: scaledRevenue,
-                  total_savings: saving * scaledRedemptions,
-                  total_commission: commission * scaledRedemptions,
-                  airport: r.airport,
-                  count: scaledRedemptions,
-                };
-              });
-            })()}
+            transactions={RETAILERS.map(r => {
+              const saving = calcSaving(r.avg_sale);
+              const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
+              return {
+                transaction_value: r.revenue,
+                total_savings: saving * r.redemptions,
+                total_commission: commission * r.redemptions,
+                airport: r.airport,
+                count: r.redemptions,
+              };
+            })}
             vouchers={RETAILERS}
             period={period}
             entityType="retailer"
