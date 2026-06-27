@@ -19,8 +19,34 @@ const RETAILER_PROFILES = {
   default: { company: "Demo Retailer B.V.", kvk: "55566677", vat: "NL777888999B01", address: "Airport Terminal 1", postal_city: "1118 AV Schiphol", website: "www.demoretailer.nl", phone: "+31 20 000 1111", iban: "NL18INGB0001234567", holder: "Demo Retailer B.V.", airport: "AMS" },
 };
 
-// Commission model: transaction value × 5% (DutyBoost fee) × 20% (agency share) = payout
-// So commission per airport = transactionValue × 0.01
+// Retailer invoices: 2.5% platform fee (capped at €25/tx), computed dynamically
+// from the retailer's actual monthly redemptions and basket value.
+const RETAILER_SEASONALITY = [
+  { month: "March 2026", date: "1 Apr 2026", mult: 0.90 },
+  { month: "April 2026", date: "1 May 2026", mult: 0.95 },
+  { month: "May 2026", date: "1 Jun 2026", mult: 1.00 },
+  { month: "June 2026", date: "1 Jul 2026", mult: 1.10 },
+];
+
+function buildRetailerInvoices(entity) {
+  if (!entity || !entity.redemptions || !entity.avg_sale) return [];
+  const basket = entity.avg_sale;
+  const feePerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
+  return RETAILER_SEASONALITY.map(({ month, date, mult }) => {
+    const redemptions = Math.round(entity.redemptions * mult);
+    const transactionValue = Math.round(redemptions * basket);
+    const platformFee = Math.round(redemptions * feePerTx * 100) / 100;
+    return {
+      month,
+      date,
+      status: "Paid",
+      amount: `€ ${platformFee.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+      breakdown: [{ airport: entity.airport || "—", vouchers: redemptions, transactionValue }],
+    };
+  });
+}
+
+// Agency invoices: commission model — transaction value × 5% × 20% = payout
 const DEMO_INVOICES = [
   {
     month: "March 2026", status: "Paid", date: "1 Apr 2026",
@@ -242,12 +268,12 @@ function downloadInvoicePDF(inv, entity, profile) {
   doc.text("Airport", 22, tableY + 12);
   doc.text("Vouchers", 100, tableY + 12);
   doc.text("Trans. Value", 120, tableY + 12);
-  doc.text("5% Platform Fee", 158, tableY + 12);
+  doc.text("2.5% Platform Fee", 150, tableY + 12);
 
   let ty = tableY + 22;
   (inv.breakdown || []).forEach(({ airport, vouchers, transactionValue }, i) => {
     if (i % 2 === 0) { doc.setFillColor(245, 249, 255); doc.rect(20, ty - 5, 170, 8, "F"); }
-    const fee = transactionValue * 0.05;
+    const fee = transactionValue * 0.025;
     doc.setFontSize(8);
     doc.setTextColor(28, 28, 60);
     doc.text(airport, 22, ty);
@@ -255,13 +281,13 @@ function downloadInvoicePDF(inv, entity, profile) {
     doc.text(String(vouchers), 100, ty);
     doc.text(`€ ${transactionValue.toLocaleString("nl-NL")}`, 120, ty);
     doc.setTextColor(31, 111, 255);
-    doc.text(`€ ${fee.toFixed(2)}`, 158, ty);
+    doc.text(`€ ${fee.toFixed(2)}`, 150, ty);
     ty += 8;
   });
 
   // Totals row
   const totalTrans = (inv.breakdown || []).reduce((s, r) => s + r.transactionValue, 0);
-  const totalFee = totalTrans * 0.05;
+  const totalFee = totalTrans * 0.025;
   const totalVat = totalFee * 0.21;
   const totalDue = totalFee + totalVat;
 
@@ -320,6 +346,8 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
+  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity) : DEMO_INVOICES;
+
   const [bankEditing, setBankEditing] = useState(false);
   const [bankDraft, setBankDraft] = useState({ iban: profile.iban, holder: profile.holder });
 
@@ -360,7 +388,8 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
         ]}
       />
 
-      {/* Bank Details */}
+      {/* Bank Details — agencies only (retailers pay DutyBoost, no payouts) */}
+      {entityType === "agency" && (
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="font-heading font-semibold text-base flex items-center gap-2">
@@ -396,6 +425,7 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
           </form>
         )}
       </div>
+      )}
 
       {/* Payout History */}
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
@@ -403,7 +433,7 @@ export default function DemoProfileTab({ entity, entityType = "agency" }) {
           <FileText className="w-4 h-4 text-primary" /> {entityType === "agency" ? "Payout History" : "Invoice History"}
         </h3>
         <div className="space-y-2">
-          {DEMO_INVOICES.map(inv => (
+          {invoices.map(inv => (
             <div key={inv.month} className="flex items-center justify-between p-3 rounded-lg bg-muted/40 hover:bg-muted/60 transition-colors">
               <div>
                 <p className="text-sm font-medium">{inv.month}</p>
