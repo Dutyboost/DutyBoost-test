@@ -29,14 +29,14 @@ export default function AggregationView({ transactions, vouchers, period, custom
   }, [transactions, period, customStart, customEnd]);
 
   const aggregatedMetrics = useMemo(() => {
-    const totalRedemptions = filteredTransactions.length;
+    const totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);
     const grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
     const platformFee = entityType === "retailer"
       ? grossRevenue * 0.025
       : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0);
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
-    const avgDiscount = filteredTransactions.length > 0
-      ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || 0), 0) / filteredTransactions.length)
+    const avgDiscount = totalRedemptions > 0
+      ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || 0) * (t.count || 1), 0) / totalRedemptions)
       : 0;
 
     return {
@@ -56,7 +56,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       if (!breakdown[airport]) {
         breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
       }
-      breakdown[airport].redemptions += 1;
+      breakdown[airport].redemptions += t.count || 1;
       breakdown[airport].revenue += t.transaction_value || 0;
     });
     return Object.values(breakdown).sort((a, b) => b.revenue - a.revenue);

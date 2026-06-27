@@ -1,88 +1,147 @@
-export const AIRPORTS = [
-  { code: "MAD", name: "Madrid Barajas", city: "Madrid" },
-  { code: "BCN", name: "Barcelona El Prat", city: "Barcelona" },
-  { code: "PMI", name: "Palma de Mallorca", city: "Palma" },
-  { code: "AGP", name: "Málaga Costa del Sol", city: "Málaga" },
-  { code: "ALC", name: "Alicante-Elche", city: "Alicante" },
+// Spanish airport retailer demo data — generated from the same databases
+// used by the RetailerCalculator (GLOBAL_AIRPORTS + estimateAvgBasketSpend).
+//
+// All 42 Spanish airports with travel retail are pulled from GLOBAL_AIRPORTS.
+// Revenue is calculated using the calculator's model:
+//   dailyRedemptions = daily_pax × conversionRate (15%)
+//   monthlyRedemptions = dailyRedemptions × 365 / 12
+//   avgSale = estimateAvgBasketSpend(airport)  → [€35, €150]
+//   revenue = redemptions × avgSale
+
+import { GLOBAL_AIRPORTS } from "./globalAirports";
+import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
+
+// ── Calculator constants (mirror RetailerCalculator defaults) ──────────────────
+const CONVERSION_RATE = 15;          // 15% of daily passengers
+const PLATFORM_FEE_PCT = 0.025;      // 2.5% of basket
+
+// ── Spanish retailer name pools ───────────────────────────────────────────────
+const RETAIL_NAMES = [
+  "El Viajero Duty Free", "Ibérica Boutique", "Casa del Sol", "Andalucía Gifts",
+  "Madrid Moda", "Cataluña Souvenirs", "La Tienda del Vuelo", "Boutique España",
+  "Costa Duty Free", "Plaza Mayor Retail", "Don Quijote Souvenirs", "Alhambra Gifts",
+  "Sevillana Boutique", "Gaudí Fashion", "Olé Apparel", "Iberia Luxe",
+  "Gran Vía Retail", "El Corte Inglés Travel", "Sunglass Hut España", "Cottet Óptica",
+  "Relay España", "Inoteca Wine Shop", "Aldeasa Duty Free", "Diversia Retail",
 ];
 
-export const RETAILERS = [
-  // Madrid Barajas (15) - 50% of DutyBoost volume
-  { id: "r1",  name: "The Style Loft",           airport: "MAD", category: "Retail",          redemptions: 3230,  avg_sale: 185, revenue: 597550 },
-  { id: "r2",  name: "Tulip & Souvenir Co.",     airport: "MAD", category: "Retail",          redemptions: 4850,  avg_sale: 68,  revenue: 329800 },
-  { id: "r3",  name: "The Amber Tap",            airport: "MAD", category: "Food & Beverage", redemptions: 6840,  avg_sale: 32,  revenue: 218880 },
-  { id: "r4",  name: "Gateway Duty Free",        airport: "MAD", category: "Retail",          redemptions: 11780, avg_sale: 220, revenue: 2591600 },
-  { id: "r5",  name: "Bloom Beauty Shop",        airport: "MAD", category: "Retail",          redemptions: 4560,  avg_sale: 95,  revenue: 433200 },
-  { id: "r6",  name: "Le Petit Bistro",          airport: "MAD", category: "Food & Beverage", redemptions: 3700,  avg_sale: 28,  revenue: 103600 },
-  { id: "r7",  name: "Prestige Wines & Spirits", airport: "MAD", category: "Retail",          redemptions: 8170,  avg_sale: 145, revenue: 1184650 },
-  { id: "r8",  name: "Elara Fashion MAD",        airport: "MAD", category: "Retail",          redemptions: 2040,  avg_sale: 310, revenue: 632400 },
-  { id: "r9",  name: "Riviera Apparel",          airport: "MAD", category: "Retail",          redemptions: 1810,  avg_sale: 180, revenue: 325800 },
-  { id: "r10", name: "Lumière Jewels",           airport: "MAD", category: "Retail",          redemptions: 900,   avg_sale: 780, revenue: 702000 },
-  { id: "r11", name: "QuickBite Terminal 2",      airport: "MAD", category: "Food & Beverage", redemptions: 8650,  avg_sale: 18,  revenue: 155700 },
-  { id: "r12", name: "Frost & Cream",            airport: "MAD", category: "Food & Beverage", redemptions: 6080,  avg_sale: 14,  revenue: 85120 },
-  { id: "r13", name: "Cacao House",              airport: "MAD", category: "Retail",          redemptions: 2950,  avg_sale: 55,  revenue: 162250 },
-  { id: "r14", name: "Chronos Boutique",         airport: "MAD", category: "Retail",          redemptions: 680,   avg_sale: 940, revenue: 639200 },
-  { id: "r15", name: "Crystal & Co.",            airport: "MAD", category: "Retail",          redemptions: 2520,  avg_sale: 120, revenue: 302400 },
-
-  // Barcelona El Prat (7) - 20% of DutyBoost volume
-  { id: "r16", name: "Harbor Duty Free",         airport: "BCN", category: "Retail",          redemptions: 3230,  avg_sale: 130, revenue: 419900 },
-  { id: "r17", name: "Fresh Stop BCN",           airport: "BCN", category: "Food & Beverage", redemptions: 2280,  avg_sale: 22,  revenue: 50160 },
-  { id: "r18", name: "Metro Style",              airport: "BCN", category: "Retail",          redemptions: 1660,  avg_sale: 95,  revenue: 157700 },
-  { id: "r19", name: "Delta Gifts",              airport: "BCN", category: "Retail",          redemptions: 2020,  avg_sale: 35,  revenue: 70700 },
-  { id: "r20", name: "The Hop House BCN",        airport: "BCN", category: "Food & Beverage", redemptions: 2900,  avg_sale: 25,  revenue: 72500 },
-  { id: "r21", name: "Noir Parfumerie",          airport: "BCN", category: "Retail",          redemptions: 1450,  avg_sale: 175, revenue: 253750 },
-  { id: "r22", name: "Brewpoint Café",           airport: "BCN", category: "Food & Beverage", redemptions: 3640,  avg_sale: 16,  revenue: 58240 },
-
-  // Palma de Mallorca (6) - 15% of DutyBoost volume
-  { id: "r23", name: "Innovate Duty Free",       airport: "PMI", category: "Retail",          redemptions: 2560,  avg_sale: 110, revenue: 281600 },
-  { id: "r24", name: "Pixel & Craft Gifts",      airport: "PMI", category: "Retail",          redemptions: 1350,  avg_sale: 42,  revenue: 56700 },
-  { id: "r25", name: "Runway Lounge Bar",        airport: "PMI", category: "Food & Beverage", redemptions: 1990,  avg_sale: 24,  revenue: 47760 },
-  { id: "r26", name: "Stratos Apparel",          airport: "PMI", category: "Retail",          redemptions: 930,   avg_sale: 160, revenue: 148800 },
-  { id: "r27", name: "The Boarding Pantry",      airport: "PMI", category: "Food & Beverage", redemptions: 2520,  avg_sale: 19,  revenue: 47880 },
-  { id: "r28", name: "Crafted Works PMI",        airport: "PMI", category: "Retail",          redemptions: 1210,  avg_sale: 78,  revenue: 94380 },
-
-  // Málaga Costa del Sol (4) - 10% of DutyBoost volume
-  { id: "r29", name: "Northgate Duty Free",      airport: "AGP", category: "Retail",          redemptions: 1000,  avg_sale: 98,  revenue: 98000 },
-  { id: "r30", name: "Costa del Sol Mementos",   airport: "AGP", category: "Retail",          redemptions: 735,   avg_sale: 30,  revenue: 22050 },
-  { id: "r31", name: "Café Andaluz",             airport: "AGP", category: "Food & Beverage", redemptions: 1140,  avg_sale: 18,  revenue: 20520 },
-  { id: "r32", name: "Iberian Spirits",          airport: "AGP", category: "Retail",          redemptions: 880,   avg_sale: 120, revenue: 105600 },
-
-  // Alicante-Elche (3) - 5% of DutyBoost volume
-  { id: "r33", name: "Southgate Duty Free",      airport: "ALC", category: "Retail",          redemptions: 1260,  avg_sale: 105, revenue: 132300 },
-  { id: "r34", name: "Côte d'Or Bistro",         airport: "ALC", category: "Food & Beverage", redemptions: 1620,  avg_sale: 30,  revenue: 48600 },
-  { id: "r35", name: "Moselle Gift House",       airport: "ALC", category: "Retail",          redemptions: 950,   avg_sale: 48,  revenue: 45600 },
+const FNB_NAMES = [
+  "Café Madrid", "La Taberna del Aeropuerto", "Bocaditos & Co.", "El Rincón del Jamón",
+  "Tapas Terminal", "Cafetería del Sol", "La Cantina Española", "Barcelona Bites",
+  "Zumo Natural", "Churros & Chocolate", "El Patio F&B", "Paella Express",
+  "La Barraca", "Café Gijón", "Mesón del Vuelo", "Bocata & Cía",
+  "Rodilla Café", "VIPS Express", "Áreas Food Court", "SSP España",
+  "Cervecería Santa Bárbara", "Jamón & Jamón", "El Mediterráneo", "Tapería del Aire",
 ];
 
-export const MONTHLY_DATA = [
-  { month: "Oct", redemptions: 12580, revenue: 2224500, commission: 55612.50 },
-  { month: "Nov", redemptions: 15960, revenue: 2826000, commission: 70650.00 },
-  { month: "Dec", redemptions: 24160, revenue: 4305000, commission: 107625.00 },
-  { month: "Jan", redemptions: 14060, revenue: 2488500, commission: 62212.50 },
-  { month: "Feb", redemptions: 16820, revenue: 2979000, commission: 74475.00 },
-  { month: "Mar", redemptions: 21080, revenue: 3735000, commission: 93375.00 },
+// ── Number of retailers per airport, based on annual passenger volume ─────────
+function retailerCount(annualPax) {
+  if (annualPax >= 40_000_000) return 6;
+  if (annualPax >= 20_000_000) return 5;
+  if (annualPax >= 10_000_000) return 4;
+  if (annualPax >= 5_000_000)  return 3;
+  if (annualPax >= 1_000_000)  return 2;
+  return 1;
+}
+
+// Revenue distribution weights among retailers at the same airport
+const WEIGHTS = {
+  1: [1.0],
+  2: [0.55, 0.45],
+  3: [0.40, 0.35, 0.25],
+  4: [0.32, 0.28, 0.22, 0.18],
+  5: [0.28, 0.24, 0.20, 0.16, 0.12],
+  6: [0.24, 0.21, 0.18, 0.15, 0.12, 0.10],
+};
+
+// ── Filter all Spanish airports from the global database ──────────────────────
+const spanishAirportData = GLOBAL_AIRPORTS.filter(a => a.country === "Spain");
+
+// ── Generate AIRPORTS list ────────────────────────────────────────────────────
+export const AIRPORTS = spanishAirportData.map(a => ({
+  code: a.code,
+  name: a.name,
+  city: a.city,
+}));
+
+// ── Generate RETAILERS with Spanish names and calculator-based revenue ───────
+let _retailIdx = 0;
+let _fnbIdx = 0;
+let _idCounter = 0;
+
+export const RETAILERS = spanishAirportData.flatMap(airport => {
+  const count = retailerCount(airport.annual_pax);
+  const retailBasket = estimateAvgBasketSpend(airport);     // [35, 150] — calculator model
+  const fnbBasket = Math.max(15, Math.min(45, Math.round(retailBasket * 0.35))); // F&B ~35% of retail
+  const dailyRedemptions = Math.round(airport.daily_pax * (CONVERSION_RATE / 100));
+  const monthlyRedemptions = Math.round(dailyRedemptions * 365 / 12);
+  const weights = WEIGHTS[count];
+
+  return Array.from({ length: count }, (_, i) => {
+    const isRetail = i % 2 === 0; // alternate: retail, F&B, retail, ...
+    const namePool = isRetail ? RETAIL_NAMES : FNB_NAMES;
+    const name = namePool[isRetail ? _retailIdx++ : _fnbIdx++];
+    const avgSale = isRetail ? retailBasket : fnbBasket;
+    const redemptions = Math.round(monthlyRedemptions * weights[i]);
+    const revenue = redemptions * avgSale;
+
+    _idCounter++;
+    return {
+      id: `r${_idCounter}`,
+      name,
+      airport: airport.code,
+      category: isRetail ? "Retail" : "Food & Beverage",
+      redemptions,
+      avg_sale: avgSale,
+      revenue,
+    };
+  });
+});
+
+// ── Aggregate base figures (average month across all Spanish airports) ────────
+const baseMonthlyRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
+const baseMonthlyRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
+const baseDailyRedemptions = Math.round(baseMonthlyRedemptions * 12 / 365);
+const baseDailyRevenue = Math.round(baseMonthlyRevenue * 12 / 365);
+
+// ── Seasonal multipliers (Spanish travel patterns) ────────────────────────────
+const MONTHLY_SEASONALITY = [
+  { month: "Jan", mult: 0.75 }, { month: "Feb", mult: 0.80 }, { month: "Mar", mult: 0.90 },
+  { month: "Apr", mult: 0.95 }, { month: "May", mult: 1.00 }, { month: "Jun", mult: 1.10 },
+  { month: "Jul", mult: 1.20 }, { month: "Aug", mult: 1.25 }, { month: "Sep", mult: 1.00 },
+  { month: "Oct", mult: 0.90 }, { month: "Nov", mult: 0.85 }, { month: "Dec", mult: 1.15 },
 ];
 
+// Last 6 months: Jan–Jun (current month is Jun 2026)
+export const MONTHLY_DATA = MONTHLY_SEASONALITY.slice(0, 6).map(({ month, mult }) => {
+  const redemptions = Math.round(baseMonthlyRedemptions * mult);
+  const revenue = Math.round(baseMonthlyRevenue * mult);
+  return { month, redemptions, revenue, commission: Math.round(revenue * PLATFORM_FEE_PCT * 100) / 100 };
+});
+
+// Full 12 months: Jul–Jun
 export const YEARLY_DATA = [
-  { month: "Apr", redemptions: 9760, revenue: 1728000, commission: 43200 },
-  { month: "May", redemptions: 10840, revenue: 1920000, commission: 48000 },
-  { month: "Jun", redemptions: 13580, revenue: 2406000, commission: 60150 },
-  { month: "Jul", redemptions: 19220, revenue: 3405000, commission: 85125 },
-  { month: "Aug", redemptions: 21640, revenue: 3834000, commission: 95850 },
-  { month: "Sep", redemptions: 14940, revenue: 2646000, commission: 66150 },
-  { month: "Oct", redemptions: 12580, revenue: 2224500, commission: 55612.50 },
-  { month: "Nov", redemptions: 15960, revenue: 2826000, commission: 70650.00 },
-  { month: "Dec", redemptions: 24160, revenue: 4305000, commission: 107625.00 },
-  { month: "Jan", redemptions: 14060, revenue: 2488500, commission: 62212.50 },
-  { month: "Feb", redemptions: 16820, revenue: 2979000, commission: 74475.00 },
-  { month: "Mar", redemptions: 21080, revenue: 3735000, commission: 93375.00 },
+  ...MONTHLY_SEASONALITY.slice(6),  // Jul–Dec
+  ...MONTHLY_SEASONALITY.slice(0, 6), // Jan–Jun
+].map(({ month, mult }) => {
+  const redemptions = Math.round(baseMonthlyRedemptions * mult);
+  const revenue = Math.round(baseMonthlyRevenue * mult);
+  return { month, redemptions, revenue, commission: Math.round(revenue * PLATFORM_FEE_PCT * 100) / 100 };
+});
+
+// Last 7 days (day-of-week variation; 27 Jun 2026 is Saturday)
+const DAILY_SEASONALITY = [
+  { day: "21 Jun", mult: 1.10 }, // Sun
+  { day: "22 Jun", mult: 0.85 }, // Mon
+  { day: "23 Jun", mult: 0.80 }, // Tue
+  { day: "24 Jun", mult: 0.85 }, // Wed
+  { day: "25 Jun", mult: 0.95 }, // Thu
+  { day: "26 Jun", mult: 1.10 }, // Fri
+  { day: "27 Jun", mult: 1.20 }, // Sat
 ];
 
-export const DAILY_DATA = [
-  { day: "28 Mar", redemptions: 640, revenue: 113400 },
-  { day: "29 Mar", redemptions: 580, revenue: 102900 },
-  { day: "30 Mar", redemptions: 840, revenue: 148800 },
-  { day: "31 Mar", redemptions: 930, revenue: 164700 },
-  { day: "1 Apr", redemptions: 745, revenue: 132000 },
-  { day: "2 Apr", redemptions: 1020, revenue: 180900 },
-  { day: "3 Apr", redemptions: 1110, revenue: 196800 },
-];
+export const DAILY_DATA = DAILY_SEASONALITY.map(({ day, mult }) => ({
+  day,
+  redemptions: Math.round(baseDailyRedemptions * mult),
+  revenue: Math.round(baseDailyRevenue * mult),
+}));

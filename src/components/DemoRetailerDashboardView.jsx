@@ -128,13 +128,12 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" /> : activeTab === "custom" ? (
           <AggregationView 
-            transactions={RETAILERS.flatMap(r => 
-              Array(r.redemptions).fill(null).map(() => ({ 
-                transaction_value: r.avg_sale,
-                discount_applied: 15,
-                airport: r.airport
-              }))
-            )}
+            transactions={RETAILERS.map(r => ({ 
+              transaction_value: r.revenue,
+              discount_applied: 15,
+              airport: r.airport,
+              count: r.redemptions,
+            }))}
             vouchers={RETAILERS}
             period={period}
             entityType="retailer"
