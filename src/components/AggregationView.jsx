@@ -20,11 +20,22 @@ export default function AggregationView({ transactions, vouchers, period, custom
   }, [transactions, period, customStart, customEnd]);
 
   const aggregatedMetrics = useMemo(() => {
-    const totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);
-    const grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
+    let totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);
+    let grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
+    
+    // Apply period divisors for day/month projections
+    let divisor = 1;
+    if (period === "day") divisor = 365;
+    else if (period === "month") divisor = 12;
+    
+    if (divisor > 1) {
+      totalRedemptions = Math.round(totalRedemptions / divisor);
+      grossRevenue = grossRevenue / divisor;
+    }
+    
     const platformFee = entityType === "retailer"
       ? grossRevenue * 0.025
-      : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0);
+      : filteredTransactions.reduce((sum, t) => sum + (t.platform_revenue || 0), 0) / divisor;
     const avgSalesPerCredit = totalRedemptions > 0 ? (grossRevenue / totalRedemptions) : 0;
     const avgDiscount = totalRedemptions > 0
       ? (filteredTransactions.reduce((sum, t) => sum + (t.discount_applied || 0) * (t.count || 1), 0) / totalRedemptions)
@@ -38,7 +49,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       avgDiscount: avgDiscount.toFixed(1),
       vouchersIssued: vouchers.length,
     };
-  }, [filteredTransactions, vouchers, entityType]);
+  }, [filteredTransactions, vouchers, entityType, period]);
 
   const airportBreakdown = useMemo(() => {
     const breakdown = {};
