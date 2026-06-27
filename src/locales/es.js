@@ -168,6 +168,7 @@ export default {
        active_partner: 'Socio Activo',
        back: 'Atrás',
        net_revenue: 'Ingresos Netos',
+       gross_revenue: 'Ingresos Brutos',
        platform_fee: 'Comisión de Plataforma',
        traveler_savings_dc: 'Ahorros del Viajero (DutyCredit)',
        dutyboost_fee: 'Comisión DutyBoost',
