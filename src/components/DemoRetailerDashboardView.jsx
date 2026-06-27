@@ -13,6 +13,18 @@ import { fmtNum, fmtEur } from "../utils/formatNumber";
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
 
+// Tiered DutyCredit saving per transaction — mirrors RetailerCalculator model
+function calcSaving(spend) {
+  if (spend < 35)  return 0;
+  if (spend >= 300) return 60.00;
+  if (spend >= 250) return 45.00;
+  if (spend >= 200) return 30.00;
+  if (spend >= 150) return 20.00;
+  if (spend >= 100) return 10.00;
+  if (spend >= 70)  return 5.00;
+  return 2.50;
+}
+
 export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport }) {
   const { t } = useTranslation();
   const [selectedAirport, setSelectedAirport] = useState(defaultAirport);
@@ -32,23 +44,25 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
     if (first) setSelectedRetailer(first);
   };
 
-  const platformFee = fmtNum(selectedRetailer.revenue * 0.025, 2);
-  const netRevenue = fmtNum(selectedRetailer.revenue * 0.975, 2);
-  const avgPerRedemption = fmtNum(selectedRetailer.revenue / selectedRetailer.redemptions, 0);
+  const basket = selectedRetailer.avg_sale;
+  const savingPerTx = calcSaving(basket);
+  const commissionPerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
+  const netPerTx = Math.round((basket - savingPerTx - commissionPerTx) * 100) / 100;
 
   const totalRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
-  const totalRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
   const redemptionRatio = selectedRetailer.redemptions / totalRedemptions;
-  const revenueRatio = selectedRetailer.revenue / totalRevenue;
 
   const baseData = period === "daily" ? DAILY_DATA : period === "yearly" ? YEARLY_DATA : MONTHLY_DATA;
   const dataKey = period === "daily" ? "day" : "month";
 
-  const scaledMonthly = baseData.map(m => ({
-    ...m,
-    redemptions: Math.round(m.redemptions * redemptionRatio),
-    revenue: Math.round(m.revenue * revenueRatio),
-  }));
+  const scaledMonthly = baseData.map(m => {
+    const redemptions = Math.round(m.redemptions * redemptionRatio);
+    return {
+      ...m,
+      redemptions,
+      revenue: Math.round(redemptions * netPerTx),
+    };
+  });
 
   const periodMultiplier = useMemo(() => {
     if (period === "daily") return 7 / 30;
@@ -61,10 +75,11 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   }, [period, customStart, customEnd]);
 
   const periodRedemptions = Math.round(selectedRetailer.redemptions * periodMultiplier);
-  const periodRevenue = Math.round(selectedRetailer.revenue * periodMultiplier);
-  const periodFee = fmtNum(periodRevenue * 0.025, 2);
-  const periodNetRevenue = fmtNum(periodRevenue * 0.975, 2);
-  const periodAvg = periodRedemptions > 0 ? fmtNum(periodRevenue / periodRedemptions, 0) : avgPerRedemption;
+  const periodGrossRevenue = Math.round(periodRedemptions * basket);
+  const periodSavings = Math.round(periodRedemptions * savingPerTx * 100) / 100;
+  const periodFee = Math.round(periodRedemptions * commissionPerTx * 100) / 100;
+  const periodNetRevenue = Math.round((periodGrossRevenue - periodSavings - periodFee) * 100) / 100;
+  const periodAvg = basket;
 
   const catBreakdown = ["Retail", "Food & Beverage"].map(cat => ({
     name: cat,
@@ -182,9 +197,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
-            { label: t('demo.gross_revenue'), value: fmtEur(periodRevenue), icon: Euro, color: "text-orange-500" },
+            { label: "Net Revenue", value: fmtEur(periodNetRevenue), icon: Euro, color: "text-orange-500" },
             { label: t('demo.avg_sale'), value: fmtEur(periodAvg), icon: TrendingUp, color: "text-emerald-500" },
-            { label: t('demo.platform_fee'), value: fmtEur(parseFloat(periodFee), 2), icon: Store, color: "text-purple-500" },
+            { label: "Platform Fee", value: fmtEur(periodFee), icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -234,15 +249,19 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">{t('demo.gross_sales')}</span>
-                <span className="font-semibold">{fmtEur(periodRevenue)}</span>
+                <span className="font-semibold">{fmtEur(periodGrossRevenue)}</span>
+                </div>
+                <div className="flex justify-between items-center text-rose-600">
+                <span>Traveler Savings (DutyCredit)</span>
+                <span className="font-semibold">- {fmtEur(periodSavings)}</span>
                 </div>
                 <div className="flex justify-between items-center text-destructive">
-                <span>DutyBoost fee (2.5%)</span>
-                <span className="font-semibold">- {fmtEur(parseFloat(periodFee), 2)}</span>
+                <span>DutyBoost Fee</span>
+                <span className="font-semibold">- {fmtEur(periodFee)}</span>
                 </div>
                 <div className="border-t border-border pt-2 flex justify-between items-center">
                 <span className="font-semibold">{t('demo.your_net_revenue')}</span>
-                <span className="font-bold text-emerald-600">{fmtEur(parseFloat(periodNetRevenue), 2)}</span>
+                <span className="font-bold text-emerald-600">{fmtEur(periodNetRevenue)}</span>
               </div>
             </div>
             <div className="bg-blue-50 text-blue-700 rounded-lg p-3 text-xs">
