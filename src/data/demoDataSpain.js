@@ -88,13 +88,7 @@ const WEIGHTS = {
 };
 
 // ── Filter all Spanish airports from the global database ─────────────────────
-const spanishAirportData = GLOBAL_AIRPORTS.filter(a => a.country === "Spain")
-  .sort((a, b) => {
-    // Madrid first, then rest alphabetically
-    if (a.code === "MAD") return -1;
-    if (b.code === "MAD") return 1;
-    return a.code.localeCompare(b.code);
-  });
+const spanishAirportData = GLOBAL_AIRPORTS.filter(a => a.country === "Spain");
 
 export const AIRPORTS = spanishAirportData.map(a => ({
   code: a.code,
