@@ -51,11 +51,11 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   }));
 
   const periodMultiplier = useMemo(() => {
-    if (period === "daily") return 7 / (MONTHLY_DATA.length * 30);
-    if (period === "yearly") return 2;
+    if (period === "daily") return 7 / 30;
+    if (period === "yearly") return 12;
     if (period === "custom") {
       const days = Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000);
-      return days / (MONTHLY_DATA.length * 30);
+      return days / 30;
     }
     return 1;
   }, [period, customStart, customEnd]);

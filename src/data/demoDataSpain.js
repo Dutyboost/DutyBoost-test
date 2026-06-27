@@ -72,7 +72,7 @@ let _idCounter = 0;
 export const RETAILERS = spanishAirportData.flatMap(airport => {
   const count = retailerCount(airport.annual_pax);
   const retailBasket = estimateAvgBasketSpend(airport);     // [35, 150] — calculator model
-  const fnbBasket = Math.max(15, Math.min(45, Math.round(retailBasket * 0.35))); // F&B ~35% of retail
+  const fnbBasket = Math.max(35, Math.round(retailBasket * 0.50)); // F&B ~50% of retail, min €35 (DutyCredit activation minimum)
   const dailyRedemptions = Math.round(airport.daily_pax * (CONVERSION_RATE / 100));
   const monthlyRedemptions = Math.round(dailyRedemptions * 365 / 12);
   const weights = WEIGHTS[count];
