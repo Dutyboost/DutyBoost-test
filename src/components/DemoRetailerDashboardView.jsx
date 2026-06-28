@@ -190,6 +190,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
         {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
           <AggregationView 
+            airports={AIRPORTS}
             transactions={RETAILERS.map(r => {
               const saving = calcSaving(r.avg_sale);
               const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);

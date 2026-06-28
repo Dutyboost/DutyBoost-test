@@ -65,6 +65,11 @@ const AENA_RETAIL_CHAINS = [
   "InMotion",
   "Point",
   "Natura",
+  "World Duty Free",
+  "Dufry",
+  "Lotte Duty Free",
+  "Hudson",
+  "Travelista",
 ];
 
 // ── Number of retailers per airport, based on annual passenger volume ────────
@@ -87,20 +92,38 @@ const WEIGHTS = {
   8: [0.20, 0.16, 0.13, 0.12, 0.10, 0.10, 0.09, 0.10],
 };
 
-// ── Filter all Spanish airports from the global database ─────────────────────
-const spanishAirportData = GLOBAL_AIRPORTS.filter(a => a.country === "Spain");
+// ── Filter all Aena-managed airports from the global database ────────────────
+// Aena manages ~80 airports worldwide: 46 in Spain, 1 in UK (London Luton),
+// 17 in Brazil, 12 in Mexico, 2 in Jamaica.
+const AENA_AIRPORT_CODES = [
+  // Spain (46)
+  "MAD","BCN","PMI","AGP","ALC","LPA","VLC","SVQ","BIO","TFS","TFN","SCQ","GRO",
+  "OVD","VGO","MAH","IBZ","FUE","ACE","SPC","GMZ","XRY","ODB","RJL","SLZ","BJZ",
+  "EAS","GRX","VLL","VDE","RGS",
+  // United Kingdom (London Luton)
+  "LTN",
+  // Brazil (17)
+  "GRU","GIG","BSB","CNF","POA","CGB","MAO","BEL","FOR","NAT","MCZ","VCP","SSA","REC","FLN",
+  // Mexico (12)
+  "MEX","CUN","GDL","MTY","TIJ","PVR","SJD","MID","BJX",
+  // Jamaica (2)
+  "MBJ","KIN",
+];
 
-export const AIRPORTS = spanishAirportData.map(a => ({
+const aenaAirportData = GLOBAL_AIRPORTS.filter(a => AENA_AIRPORT_CODES.includes(a.code));
+
+export const AIRPORTS = aenaAirportData.map(a => ({
   code: a.code,
   name: a.name,
   city: a.city,
+  country: a.country,
 }));
 
 // ── Generate RETAILERS with real store names ────────────────────────────────
 let _idCounter = 0;
 let _chainIdx = 0;
 
-export const RETAILERS = spanishAirportData.flatMap(airport => {
+export const RETAILERS = aenaAirportData.flatMap(airport => {
   const count = retailerCount(airport.annual_pax);
   const basket = estimateAvgBasketSpend(airport);
   const dailyRedemptions = Math.round(airport.daily_pax * (CONVERSION_RATE / 100));

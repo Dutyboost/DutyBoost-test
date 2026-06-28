@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange }) {
+export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, airports = [] }) {
   const { t } = useTranslation();
   // Filter transactions only for custom period; others use full data with divisors
   const filteredTransactions = useMemo(() => {
@@ -73,8 +73,20 @@ export default function AggregationView({ transactions, vouchers, period, custom
       breakdown[airport].revenue += t.transaction_value || 0;
     });
     
-    return airportOrder.map(airport => breakdown[airport]);
-  }, [filteredTransactions, period]);
+    const sorted = airportOrder
+      .map(airport => breakdown[airport])
+      .sort((a, b) => b.redemptions - a.redemptions);
+
+    const airportNameMap = {};
+    airports.forEach(a => { airportNameMap[a.code] = a; });
+    return sorted.map(ap => {
+      const info = airportNameMap[ap.airport];
+      return {
+        ...ap,
+        airportLabel: info ? `${info.name} (${info.country})` : ap.airport,
+      };
+    });
+  }, [filteredTransactions, period, airports]);
 
   const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899", "#06b6d4"];
 
@@ -202,11 +214,11 @@ export default function AggregationView({ transactions, vouchers, period, custom
       {/* Airport breakdown chart */}
       {airportBreakdown.length > 0 && (
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">{t('demo.redemptions_by_airport') || 'Redemptions by Airport'}</p>
-          <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={airportBreakdown} margin={{ top: 4, right: 16, bottom: 40, left: 0 }}>
+          <p className="font-semibold">{t('demo.redemptions_by_airport') || 'Redemptions by Airport'} <span className="text-xs font-normal text-muted-foreground ml-1">(Top 15)</span></p>
+          <ResponsiveContainer width="100%" height={320}>
+            <BarChart data={airportBreakdown.slice(0, 15)} margin={{ top: 4, right: 16, bottom: 80, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="airport" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" height={80} />
+              <XAxis dataKey="airportLabel" tick={{ fontSize: 10 }} angle={-45} textAnchor="end" height={100} interval={0} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
               <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => n === "revenue" ? [`€${v}`, "Revenue"] : [v, "Redemptions"]} />
               <Bar dataKey="redemptions" fill="#dbeafe" radius={[4, 4, 0, 0]} name="Redemptions" />
@@ -220,7 +232,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       {airportBreakdown.length > 0 && (
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
           <p className="font-semibold">{t('common.airport_performance') || 'Airport Performance Summary'}</p>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto max-h-96 overflow-y-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
@@ -233,7 +245,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
               <tbody>
                 {airportBreakdown.map((ap, i) => (
                   <tr key={ap.airport} className="border-b border-border last:border-0 hover:bg-muted/30">
-                    <td className="py-2.5 px-3 font-semibold text-foreground">{ap.airport}</td>
+                    <td className="py-2.5 px-3 font-semibold text-foreground">{ap.airportLabel}</td>
                     <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions.toLocaleString("de-DE")}</td>
                     <td className="py-2.5 px-3 text-right font-semibold">€{parseFloat(ap.revenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                     <td className="py-2.5 px-3 text-right text-muted-foreground">€{parseFloat(ap.revenue / ap.redemptions).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
