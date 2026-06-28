@@ -111,7 +111,7 @@ export default {
     demo: {
       mode_badge: 'Demomodus',
       title: 'Verken DutyBoost',
-      subtitle: 'De meeste passagiers kopen niet op de luchthaven. DutyBoost bouwt koopintentie vóór aankomst — en zet passief verkeer om in extra omzet.',
+      subtitle: 'De meeste passagiers kopen niet. DutyBoost bouwt koopintentie vóór aankomst — passief verkeer wordt extra omzet.',
       agency_title: 'Travel Partner Demo',
       agency_desc: 'Zie hoe travel partners DutyBoost gebruiken om klantloyaliteit te verhogen en commissies te verdienen',
       view_agency: 'Demo bekijken',
