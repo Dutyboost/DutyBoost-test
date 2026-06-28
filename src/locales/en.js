@@ -151,7 +151,7 @@ export default {
        rs_step4_desc: 'You receive 20% of platform fee',
       mode_badge: 'Demo Mode',
       title: 'Explore DutyBoost',
-      subtitle: 'Most passengers never shop. DutyBoost builds Buyer-Intent before arrival — turning passive footfall into incremental revenue.',
+      subtitle: "DutyBoost's goal: build Buyer-Intent before arrival — convert more passengers into buyers and passive footfall into incremental revenue.",
       agency_title: 'Travel Partner Demo',
       agency_desc: 'See how travel partners use DutyBoost to boost customer loyalty and earn commissions',
       view_agency: 'View Demo',

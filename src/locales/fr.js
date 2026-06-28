@@ -268,7 +268,7 @@ export default {
     demo: {
       mode_badge: 'Mode Démo',
       title: 'Démo de la plateforme DutyBoost',
-      subtitle: "La plupart n'achètent pas. DutyBoost forge l'intention d'achat avant l'arrivée — le trafic passif devient des revenus incrémentaux.",
+      subtitle: "L'objectif de DutyBoost : forger l'intention d'achat avant l'arrivée — convertir plus de passagers en acheteurs et le trafic passif en revenus incrémentaux.",
       agency_title: 'Agence de voyage',
       agency_desc: 'Découvrez comment les agences gagnent des revenus passifs en émettant des DutyCredits aux voyageurs.',
       view_agency: 'Voir le tableau de bord Agence',
