@@ -142,21 +142,32 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           <DutyBoostLogo height={45} />
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{region === 'es' ? t('demo.retailer_badge') : 'Retailer'}</span>
-          <select
-            className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
-            value={selectedAirport}
-            onChange={e => handleAirportChange(e.target.value)}
-          >
-            {AIRPORTS.map(a => <option key={a.code} value={a.code}>{a.name}</option>)}
-          </select>
-          <select
-            className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
-            value={selectedRetailer.id}
-            onChange={e => setSelectedRetailer(RETAILERS.find(r => r.id === e.target.value))}
-          >
-            {airportRetailers.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
-          </select>
+          {activeTab === "custom" ? (
+            <>
+              <span className="text-xs font-semibold uppercase tracking-widest text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">{t('demo.tabs_aggregation')}</span>
+              <span className="text-sm text-muted-foreground font-medium px-3 py-1.5 bg-muted rounded-lg">
+                {AIRPORTS.length} {region === 'es' ? 'aeropuertos' : 'airports'} · {RETAILERS.length} {region === 'es' ? 'tiendas' : 'stores'}
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{region === 'es' ? t('demo.retailer_badge') : 'Retailer'}</span>
+              <select
+                className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
+                value={selectedAirport}
+                onChange={e => handleAirportChange(e.target.value)}
+              >
+                {AIRPORTS.map(a => <option key={a.code} value={a.code}>{a.name}</option>)}
+              </select>
+              <select
+                className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
+                value={selectedRetailer.id}
+                onChange={e => setSelectedRetailer(RETAILERS.find(r => r.id === e.target.value))}
+              >
+                {airportRetailers.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
+              </select>
+            </>
+          )}
           <LanguageSwitcher />
           <button onClick={() => base44.auth.logout('/')} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-destructive transition-colors border border-input rounded-lg px-3 py-1.5 bg-background hover:bg-destructive/5">
             <LogOut className="w-4 h-4" /> {t('demo.logout')}
