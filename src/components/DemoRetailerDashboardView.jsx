@@ -164,7 +164,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             </>
           ) : (
             <>
-              <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{region === 'es' ? t('demo.retailer_badge') : 'Retailer'}</span>
               <select
                 className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
                 value={selectedCountry}
