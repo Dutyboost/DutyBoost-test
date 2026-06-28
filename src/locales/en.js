@@ -865,6 +865,7 @@ export default {
       conversion_avg_range: 'Global airport retail average: 15–25% (m1nd-set / ETRC research)',
       revenue_projection_title: 'Your revenue projection',
       revenue_projection_desc: 'Estimates based on your basket size, daily travelers and conversion rate. Sources: m1nd-set / ETRC research.',
+      goal_3pct: "DutyBoost's goal is to increase your conversion and basket value by at least 3%.",
       daily_net: 'Daily net revenue',
       monthly_net: 'Monthly net revenue',
       annual_net: 'Annual net revenue',

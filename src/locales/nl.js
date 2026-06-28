@@ -618,6 +618,7 @@ export default {
       conversion_avg_range: 'Wereldwijd luchthavenwinkel-gemiddelde: 15–25% (m1nd-set / ETRC-onderzoek)',
       revenue_projection_title: 'Uw omzetprojectie',
       revenue_projection_desc: 'Schattingen op basis van uw basketgrootte, dagelijkse reizigers en conversieratio. Bronnen: m1nd-set / ETRC-onderzoek.',
+      goal_3pct: "Het doel van DutyBoost is om uw conversie en mandwaarde met ten minste 3% te verhogen.",
       daily_net: 'Dagelijkse netto-omzet',
       monthly_net: 'Maandelijkse netto-omzet',
       annual_net: 'Jaarlijkse netto-omzet',

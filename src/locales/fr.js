@@ -610,6 +610,7 @@ export default {
       conversion_avg_range: 'Moyenne mondiale du retail aéroportuaire : 15–25% (recherche m1nd-set / ETRC)',
       revenue_projection_title: 'Votre projection de revenus',
       revenue_projection_desc: 'Estimations basées sur la taille du panier, les voyageurs quotidiens et le taux de conversion. Sources : recherche m1nd-set / ETRC.',
+      goal_3pct: "L'objectif de DutyBoost est d'augmenter votre conversion et la valeur du panier d'au moins 3%.",
       daily_net: 'Revenus nets quotidiens',
       monthly_net: 'Revenus nets mensuels',
       annual_net: 'Revenus nets annuels',

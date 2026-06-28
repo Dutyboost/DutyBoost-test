@@ -291,6 +291,12 @@ function RetailerTab({ t }) {
         </div>
       </div>
 
+      {/* 3% goal note */}
+      <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5">
+        <Info className="w-4 h-4 text-blue-600 shrink-0" />
+        <p className="text-xs text-blue-700">{t('calculator.goal_3pct')}</p>
+      </div>
+
       {/* Platform fee projection based on redemptions */}
       <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 space-y-4">
         <h3 className="font-bold text-slate-900 text-lg">{t('calculator.platform_fee_projection_title')}</h3>

@@ -610,6 +610,7 @@ export default {
       conversion_avg_range: 'Globaler Flughafenhandel-Durchschnitt: 15–25% (m1nd-set / ETRC-Forschung)',
       revenue_projection_title: 'Ihre Umsatzprojektion',
       revenue_projection_desc: 'Schätzungen basierend auf Warenkorbgröße, täglichen Reisenden und Konversionsrate. Quellen: m1nd-set / ETRC-Forschung.',
+      goal_3pct: "DutyBoosts Ziel ist es, Ihre Conversion und den Warenkorbwert um mindestens 3% zu erhöhen.",
       daily_net: 'Täglicher Netto-Umsatz',
       monthly_net: 'Monatlicher Netto-Umsatz',
       annual_net: 'Jährlicher Netto-Umsatz',
