@@ -120,7 +120,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.total_redemptions') || 'Total Redemptions'}</p>
             <ScanLine className="w-4 h-4 text-blue-500" />
           </div>
-          <p className="text-xl md:text-2xl font-heading font-bold break-words">{parseInt(aggregatedMetrics.totalRedemptions).toLocaleString()}</p>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{parseInt(aggregatedMetrics.totalRedemptions).toLocaleString()}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -128,7 +128,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.gross_revenue') || 'Gross Revenue'}</p>
             <Euro className="w-4 h-4 text-orange-500" />
           </div>
-          <p className="text-lg md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -136,7 +136,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.avg_sale_label') || 'Avg. Sales per DutyCredit'}</p>
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
-          <p className="text-xl md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -144,7 +144,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{entityType === "retailer" ? (t('demo.platform_fee') || 'Platform Fee (2.5%)') : (t('demo.commission_earned') || 'Commission Earned')}</p>
             <Store className="w-4 h-4 text-purple-500" />
           </div>
-          <p className="text-lg md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         {/* DutyBoost Potential tile — Avg Sale with +3% uplift */}
@@ -153,7 +153,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">DutyBoost Potential Increase</p>
             <Sparkles className="w-4 h-4 text-indigo-500" />
           </div>
-          <p className="text-lg md:text-2xl font-heading font-bold break-words">
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">
             €{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
             <span className="text-indigo-600">€{(parseFloat(aggregatedMetrics.avgSalesPerCredit) * 1.03).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
@@ -165,13 +165,13 @@ export default function AggregationView({ transactions, vouchers, period, custom
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{entityType === "retailer" ? (t('common.total_redeemable') || 'Total Redeemable DutyCredits Available for your Airports') : (t('demo.dutycredits_issued') || 'Total DutyCredits Issued')}</p>
-          <p className="text-xl md:text-3xl font-heading font-bold break-words">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString("de-DE") : aggregatedMetrics.vouchersIssued}</p>
+          <p className="text-xl md:text-3xl font-heading font-bold whitespace-nowrap">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString("de-DE") : aggregatedMetrics.vouchersIssued}</p>
           {entityType === "retailer" && <p className="text-xs text-muted-foreground">{t('common.across_all_retailers')}</p>}
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{t('common.avg_discount') || 'Average Discount Applied'}</p>
-          <p className="text-xl md:text-3xl font-heading font-bold break-words">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
+          <p className="text-xl md:text-3xl font-heading font-bold whitespace-nowrap">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
           <p className="text-xs text-muted-foreground mt-2">{t('common.per_transaction') || 'Per transaction'}</p>
         </div>
       </div>
