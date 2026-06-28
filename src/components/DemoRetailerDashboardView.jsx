@@ -58,6 +58,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
   const handleAirportChange = (code) => {
     setSelectedAirport(code);
+    const ap = AIRPORTS.find(a => a.code === code);
+    if (ap) setSelectedCountry(ap.country);
     const first = RETAILERS.find(r => r.airport === code);
     if (first) setSelectedRetailer(first);
   };
@@ -173,11 +175,17 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 {countries.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
               <select
-                className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
+                className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background max-w-[220px]"
                 value={selectedAirport}
                 onChange={e => handleAirportChange(e.target.value)}
               >
-                {airportsInCountry.map(a => <option key={a.code} value={a.code}>{a.name}</option>)}
+                {countries.map(country => (
+                  <optgroup key={country} label={country}>
+                    {AIRPORTS.filter(a => a.country === country).map(a => (
+                      <option key={a.code} value={a.code}>{a.name} ({a.code})</option>
+                    ))}
+                  </optgroup>
+                ))}
               </select>
               <select
                 className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
