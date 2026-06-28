@@ -143,6 +143,12 @@ function RetailerTab({ t }) {
 
       <AirportSelector selectedAirport={selectedAirport} onSelect={handleAirportSelect} t={t} />
 
+      {/* 3% goal note */}
+      <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5">
+        <Info className="w-4 h-4 text-blue-600 shrink-0" />
+        <p className="text-xs text-blue-700">{t('calculator.goal_3pct')}</p>
+      </div>
+
       {/* Slider Card */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
         <div className="flex items-center justify-between">
@@ -289,12 +295,6 @@ function RetailerTab({ t }) {
         <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
           <span className="text-slate-300 font-semibold">{fmtNum(dailyTravelers)}</span> {t('calculator.travelers_label')} × <span className="text-slate-300 font-semibold">{conversionRate}%</span> = <span className="text-slate-300 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} × {fmtEur(netRevenue, 2)} {t('calculator.net_per_tx')}
         </div>
-      </div>
-
-      {/* 3% goal note */}
-      <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5">
-        <Info className="w-4 h-4 text-blue-600 shrink-0" />
-        <p className="text-xs text-blue-700">{t('calculator.goal_3pct')}</p>
       </div>
 
       {/* Platform fee projection based on redemptions */}
