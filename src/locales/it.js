@@ -615,7 +615,7 @@ export default {
       conversion_avg_range: 'Media globale del retail aeroportuale: 15–25% (ricerca m1nd-set / ETRC)',
       revenue_projection_title: 'La tua proiezione di entrate',
       revenue_projection_desc: 'Stime basate su dimensione del carrello, viaggiatori giornalieri e tasso di conversione. Fonti: ricerca m1nd-set / ETRC.',
-      goal_3pct: "L'obiettivo di DutyBoost è aumentare la conversione e il valore del carrello di almeno il 3%.",
+      goal_3pct: "L'obiettivo di DutyBoost è aumentare la tua conversione e il valore del tuo carrello di almeno il 3%.",
       daily_net: 'Entrate nette giornaliere',
       monthly_net: 'Entrate nette mensili',
       annual_net: 'Entrate nette annuali',
