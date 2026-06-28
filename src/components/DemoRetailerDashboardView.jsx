@@ -256,7 +256,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           {/* DutyBoost Potential tile — Avg Sale with +3% uplift */}
           <div className="bg-card border border-border rounded-xl p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential') || 'DutyBoost Potential Increase'}</p>
+              <p className="text-xs text-muted-foreground font-medium">DutyBoost Potential Increase</p>
               <Sparkles className="w-4 h-4 text-indigo-500" />
             </div>
             <p className="text-lg md:text-2xl font-heading font-bold">
