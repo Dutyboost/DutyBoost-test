@@ -216,7 +216,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
           <p className="font-semibold">{t('demo.redemptions_by_airport') || 'Redemptions by Airport'} <span className="text-xs font-normal text-muted-foreground ml-1">(Top 15)</span></p>
           <ResponsiveContainer width="100%" height={320}>
-            <BarChart data={airportBreakdown.slice(0, 15)} margin={{ top: 4, right: 16, bottom: 80, left: 0 }}>
+            <BarChart data={airportBreakdown.slice(0, 15)} margin={{ top: 4, right: 16, bottom: 80, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="airportLabel" tick={{ fontSize: 10 }} angle={-45} textAnchor="end" height={100} interval={0} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
