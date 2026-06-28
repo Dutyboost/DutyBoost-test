@@ -90,9 +90,9 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <Calendar className="w-4 h-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground font-medium">{t('demo.period') || 'Period'}</span>
           {[
-            { v: "day", l: t('demo.daily') },
-            { v: "month", l: t('demo.monthly') },
-            { v: "year", l: t('demo.yearly') },
+            { v: "daily", l: t('demo.daily') },
+            { v: "monthly", l: t('demo.monthly') },
+            { v: "yearly", l: t('demo.yearly') },
           ].map(({ v, l }) => (
             <button
               key={v}
