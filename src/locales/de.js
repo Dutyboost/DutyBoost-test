@@ -268,7 +268,7 @@ export default {
     demo: {
       mode_badge: 'Demo-Modus',
       title: 'DutyBoost Plattform-Demo',
-      subtitle: 'Erkunden Sie die Plattform aus jeder Perspektive. Alle Daten sind illustrativ.',
+      subtitle: 'Die meisten Passagiere kaufen am Flughafen nicht ein. DutyBoost baut Kaufabsicht vor der Ankunft auf — und wandelt passiven Traffic in inkrementellen Umsatz um.',
       agency_title: 'Reisebüro',
       agency_desc: 'Sehen Sie, wie Agenturen passive Provisionen verdienen, indem sie DutyCredits an Reisende ausgeben.',
       view_agency: 'Agentur-Dashboard ansehen',

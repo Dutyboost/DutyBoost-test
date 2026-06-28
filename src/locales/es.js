@@ -110,7 +110,7 @@ export default {
     demo: {
        mode_badge: 'Modo Demo',
        title: 'Explora DutyBoost',
-       subtitle: 'Descubre cómo DutyBoost funciona para retailers de aeropuerto',
+       subtitle: 'La mayoría de los pasajeros no compra en el aeropuerto. DutyBoost genera intención de compra antes de la llegada — convirtiendo tráfico pasivo en ingresos incrementales.',
        agency_title: 'Demo de Partner de Viaje',
        agency_desc: 'Descubre cómo los partners de viaje utilizan DutyBoost para aumentar la lealtad del cliente y ganar comisiones',
        view_agency: 'Ver Demo',
@@ -225,7 +225,7 @@ export default {
        col_traveler_saved: 'Ahorros del Viajero',
        mode_badge: 'Modo Demo',
        title: 'Explora DutyBoost',
-       subtitle: 'Descubre cómo DutyBoost funciona para retailers de aeropuerto',
+       subtitle: 'La mayoría de los pasajeros no compra en el aeropuerto. DutyBoost genera intención de compra antes de la llegada — convirtiendo tráfico pasivo en ingresos incrementales.',
        agency_title: 'Demo de Partner de Viaje',
        agency_desc: 'Descubre cómo los partners de viaje utilizan DutyBoost para aumentar la lealtad del cliente y ganar comisiones',
        view_agency: 'Ver Demo',
