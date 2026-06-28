@@ -268,7 +268,7 @@ export default {
     demo: {
       mode_badge: 'Mode Démo',
       title: 'Démo de la plateforme DutyBoost',
-      subtitle: "La plupart des passagers n'achètent pas à l'aéroport. DutyBoost forge l'intention d'achat avant l'arrivée — dans le but de transformer le trafic passif en revenus incrémentaux.",
+      subtitle: "Le trafic aéroportuaire existe déjà. DutyBoost en convertit davantage en acheteurs en créant l'intention d'achat avant l'arrivée, générant une conversion, un panier moyen et des revenus incrémentaux plus élevés.",
       agency_title: 'Agence de voyage',
       agency_desc: 'Découvrez comment les agences gagnent des revenus passifs en émettant des DutyCredits aux voyageurs.',
       view_agency: 'Voir le tableau de bord Agence',
