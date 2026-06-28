@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine, Calendar, Info } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange }) {
@@ -114,7 +114,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-xs text-muted-foreground font-medium">{t('demo.total_redemptions') || 'Total Redemptions'}</p>
@@ -145,6 +145,19 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <Store className="w-4 h-4 text-purple-500" />
           </div>
           <p className="text-lg md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        </div>
+
+        {/* DutyBoost Potential tile — Avg Sale with +3% uplift */}
+        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential') || 'DutyBoost Potential (+3%)'}</p>
+            <Sparkles className="w-4 h-4 text-indigo-500" />
+          </div>
+          <p className="text-lg md:text-2xl font-heading font-bold break-words">
+            €{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
+            <span className="text-indigo-600">€{(parseFloat(aggregatedMetrics.avgSalesPerCredit) * 1.03).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+          </p>
         </div>
       </div>
 

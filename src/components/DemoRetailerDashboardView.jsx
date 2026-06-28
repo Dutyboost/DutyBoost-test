@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard, Settings, Info } from "lucide-react";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard, Settings, Info, Sparkles } from "lucide-react";
 import DemoProfileTab from "./DemoProfileTab";
 import AggregationView from "./AggregationView";
 import RedemptionHeatmap from "./RedemptionHeatmap";
@@ -238,7 +238,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         </div>
 
         {/* KPI cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
             { label: t('demo.net_revenue'), value: fmtEur(periodNetRevenue), icon: Euro, color: "text-orange-500" },
@@ -253,6 +253,18 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               <p className="text-2xl font-heading font-bold">{value}</p>
             </div>
           ))}
+          {/* DutyBoost Potential tile — Avg Sale with +3% uplift */}
+          <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential') || 'DutyBoost Potential (+3%)'}</p>
+              <Sparkles className="w-4 h-4 text-indigo-500" />
+            </div>
+            <p className="text-lg md:text-2xl font-heading font-bold">
+              €{parseFloat(periodAvg).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
+              <span className="text-indigo-600">€{(periodAvg * 1.03).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            </p>
+          </div>
         </div>
 
         {/* Net vs fee breakdown */}
