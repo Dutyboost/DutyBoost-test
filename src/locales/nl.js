@@ -122,7 +122,7 @@ export default {
       agency_badge: 'Travel Partner',
       retailer_badge: 'Retailer',
       logout: 'Uitloggen',
-      conversion_note: "ETRC- en m1nd-set benchmarks tonen aan dat 15–25% van de reizigers inkopen doet voor vertrek. DutyBoost's doel is om conversie en mandwaarde te verhogen.",
+      conversion_note: "ETRC- en m1nd-set benchmarks tonen aan dat 15–25% van de reizigers inkopen doet voor vertrek. DutyBoost's doel is om conversie en mandwaarde met ten minste 3–5% te verhogen.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregatie',
       tabs_profile: 'Profiel',

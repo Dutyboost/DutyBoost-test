@@ -1,3 +1,14 @@
+// DutyBoost demo data — Netherlands airports.
+//
+// Conversion rate: percentage of departing travelers who convert through DutyBoost.
+// ETRC/m1nd-Set benchmark: 15–25% of travelers shop before departure.
+// DutyBoost target: 3–5% uplift (4% midpoint used here).
+// Retailer data below is scaled from a 15% baseline to reflect the 4% target.
+// Agency data uses a separate DutyCredit redemption rate (~12%) — unchanged.
+
+const CONVERSION_RATE = 4;
+const SCALE = CONVERSION_RATE / 15; // scale from original 15% baseline
+
 export const AIRPORTS = [
   { code: "AMS", name: "Amsterdam Schiphol", city: "Amsterdam" },
   { code: "RTM", name: "Rotterdam The Hague", city: "Rotterdam" },
@@ -6,6 +17,7 @@ export const AIRPORTS = [
   { code: "MST", name: "Maastricht Aachen Airport", city: "Maastricht" },
 ];
 
+// Travel agencies use DutyCredit redemption rate (~12%), not airport conversion — unchanged
 export const TRAVEL_AGENCIES = [
   // Based on 2025 Netherlands travel agency market data (€35.9B, ~20M bookings annually)
   { id: "ag1", name: "Horizon Travel Group", city: "Rotterdam", bookings: 8420, travelers: 16840, redeemed: 3856, commission: 2313.60 },
@@ -21,10 +33,9 @@ export const TRAVEL_AGENCIES = [
   { id: "ag11", name: "Palmera Reizen", city: "Amsterdam", bookings: 4100, travelers: 8200, redeemed: 1861, commission: 1116.60 },
 ];
 
-export const RETAILERS = [
+// ── Base retailer data (at 15% baseline) — scaled to 4% at export ─────────────
+const _RETAILERS = [
   // Total market: 78.4M passengers, €1.05B retail sales
-  // 15% through DutyBoost = 11.76M passengers, €157.5M retail sales
-  // Airport traffic distribution: AMS 50% (5.88M), RTM 20% (2.352M), EIN 15% (1.764M), GRQ 10% (1.176M), MST 5% (0.588M)
   // 35 shops total: 15 AMS, 7 RTM, 6 EIN, 4 GRQ, 3 MST
 
   // Amsterdam Schiphol (15) - 50% of DutyBoost volume
@@ -73,10 +84,15 @@ export const RETAILERS = [
   { id: "r35", name: "Moselle Gift House",       airport: "MST", category: "Retail",          redemptions: 950,   avg_sale: 48,  revenue: 45600 },
 ];
 
+// Scale retailer data from 15% baseline to 4% target conversion rate
+export const RETAILERS = _RETAILERS.map(r => ({
+  ...r,
+  redemptions: Math.round(r.redemptions * SCALE),
+  revenue: Math.round(r.redemptions * SCALE) * r.avg_sale,
+}));
 
-
-export const MONTHLY_DATA = [
-  // Calculated from real retailer data: sum of all redemptions and revenue across all 35 stores
+// ── Base monthly data (at 15% baseline) — scaled to 4% at export ──────────────
+const _MONTHLY_DATA = [
   { month: "Oct", redemptions: 12580, revenue: 2224500, commission: 55612.50 },
   { month: "Nov", redemptions: 15960, revenue: 2826000, commission: 70650.00 },
   { month: "Dec", redemptions: 24160, revenue: 4305000, commission: 107625.00 },
@@ -85,8 +101,14 @@ export const MONTHLY_DATA = [
   { month: "Mar", redemptions: 21080, revenue: 3735000, commission: 93375.00 },
 ];
 
-export const YEARLY_DATA = [
-  // Full year aggregated from all 35 retailers
+export const MONTHLY_DATA = _MONTHLY_DATA.map(m => ({
+  ...m,
+  redemptions: Math.round(m.redemptions * SCALE),
+  revenue: Math.round(m.revenue * SCALE),
+  commission: Math.round(m.revenue * SCALE * 0.025 * 100) / 100,
+}));
+
+const _YEARLY_DATA = [
   { month: "Apr", redemptions: 9760, revenue: 1728000, commission: 43200 },
   { month: "May", redemptions: 10840, revenue: 1920000, commission: 48000 },
   { month: "Jun", redemptions: 13580, revenue: 2406000, commission: 60150 },
@@ -101,6 +123,30 @@ export const YEARLY_DATA = [
   { month: "Mar", redemptions: 21080, revenue: 3735000, commission: 93375.00 },
 ];
 
+export const YEARLY_DATA = _YEARLY_DATA.map(m => ({
+  ...m,
+  redemptions: Math.round(m.redemptions * SCALE),
+  revenue: Math.round(m.revenue * SCALE),
+  commission: Math.round(m.revenue * SCALE * 0.025 * 100) / 100,
+}));
+
+const _DAILY_DATA = [
+  { day: "28 Mar", redemptions: 640, revenue: 113400 },
+  { day: "29 Mar", redemptions: 580, revenue: 102900 },
+  { day: "30 Mar", redemptions: 840, revenue: 148800 },
+  { day: "31 Mar", redemptions: 930, revenue: 164700 },
+  { day: "1 Apr", redemptions: 745, revenue: 132000 },
+  { day: "2 Apr", redemptions: 1020, revenue: 180900 },
+  { day: "3 Apr", redemptions: 1110, revenue: 196800 },
+];
+
+export const DAILY_DATA = _DAILY_DATA.map(d => ({
+  ...d,
+  redemptions: Math.round(d.redemptions * SCALE),
+  revenue: Math.round(d.revenue * SCALE),
+}));
+
+// ── Agency data (DutyCredit redemption rate ~12%, not airport conversion) ────
 export const AGENCY_YEARLY = [
   // Based on all 11 travel agencies aggregated (avg 12% redemption rate, €0.60 per booking commission)
   { month: "Apr", bookings: 42840, redeemed: 5140, earned: 25704 },
@@ -124,17 +170,6 @@ export const AGENCY_MONTHLY = [
   { month: "Jan", bookings: 61380, redeemed: 7366, earned: 36828 },
   { month: "Feb", bookings: 73500, redeemed: 8820, earned: 44100 },
   { month: "Mar", bookings: 90480, redeemed: 10858, earned: 54288 },
-];
-
-export const DAILY_DATA = [
-  // Aggregated daily from all 35 retailers
-  { day: "28 Mar", redemptions: 640, revenue: 113400 },
-  { day: "29 Mar", redemptions: 580, revenue: 102900 },
-  { day: "30 Mar", redemptions: 840, revenue: 148800 },
-  { day: "31 Mar", redemptions: 930, revenue: 164700 },
-  { day: "1 Apr", redemptions: 745, revenue: 132000 },
-  { day: "2 Apr", redemptions: 1020, revenue: 180900 },
-  { day: "3 Apr", redemptions: 1110, revenue: 196800 },
 ];
 
 export const AGENCY_DAILY = [
