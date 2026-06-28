@@ -162,7 +162,7 @@ export default {
       agency_badge: 'Travel Partner',
       retailer_badge: 'Retailer',
       logout: 'Logout',
-      conversion_note: 'According to the ETRC/M1nd-Set global statistic: 15% to 25% of travelers do purchase at their airport of departure.',
+      conversion_note: 'ETRC and m1nd-set benchmarks show that 15–25% of travelers shop before departure. DutyBoost increases conversion and basket value.',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',
       tabs_profile: 'Profile',

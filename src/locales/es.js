@@ -120,7 +120,7 @@ export default {
        disclaimer: 'Los datos de demostración son solo con fines ilustrativos',
        retailer_badge: 'Minorista',
        logout: 'Cerrar sesión',
-       conversion_note: 'Según la estadística global de ETRC/M1nd-Set: del 15% al 25% de los viajeros realizan compras en su aeropuerto de salida.',
+       conversion_note: 'Los benchmarks de ETRC y m1nd-set muestran que el 15–25% de los viajeros compra antes de la salida. DutyBoost aumenta la conversión y el valor de la cesta.',
        tabs_dashboard: 'Panel',
        tabs_aggregation: 'Agregación',
        tabs_profile: 'Perfil',

@@ -279,7 +279,7 @@ export default {
       back: 'Zurück',
       retailer_badge: 'Händler',
       logout: 'Abmelden',
-      conversion_note: 'Laut der ETRC/M1nd-Set globalen Statistik: 15% bis 25% der Reisenden kaufen an ihrem Abflughafen ein.',
+      conversion_note: 'ETRC- und m1nd-set-Benchmarks zeigen, dass 15–25% der Reisenden vor dem Abflug einkaufen. DutyBoost erhöht Conversion und Warenkorbwert.',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',
       tabs_profile: 'Profil',
