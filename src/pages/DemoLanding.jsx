@@ -27,7 +27,7 @@ export default function DemoLanding() {
               <Store className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <p className="font-heading font-bold text-xl">Airport Retailer Demo Lagardère Travel Retail Netherlands</p>
+              <p className="font-heading font-bold text-xl">Airport Retailer Demo Lagardère</p>
               <p className="text-muted-foreground text-sm mt-1">{t('demo.retailer_desc')}</p>
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">

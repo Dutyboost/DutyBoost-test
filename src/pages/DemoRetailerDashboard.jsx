@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import DemoRetailerDashboardView from "../components/DemoRetailerDashboardView";
-import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoData";
+import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoDataLagardere";
 
 export default function DemoRetailerDashboard() {
   const { i18n } = useTranslation();
