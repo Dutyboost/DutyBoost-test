@@ -116,7 +116,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.total_redemptions') || 'Total Redemptions'}</p>
             <ScanLine className="w-4 h-4 text-blue-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">{parseInt(aggregatedMetrics.totalRedemptions).toLocaleString()}</p>
+          <p className="text-xl md:text-2xl font-heading font-bold break-words">{parseInt(aggregatedMetrics.totalRedemptions).toLocaleString()}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -124,7 +124,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.gross_revenue') || 'Gross Revenue'}</p>
             <Euro className="w-4 h-4 text-orange-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-lg md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.grossRevenue).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -132,7 +132,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.avg_sale_label') || 'Avg. Sales per DutyCredit'}</p>
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-xl md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -140,7 +140,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{entityType === "retailer" ? (t('demo.platform_fee') || 'Platform Fee (2.5%)') : (t('demo.commission_earned') || 'Commission Earned')}</p>
             <Store className="w-4 h-4 text-purple-500" />
           </div>
-          <p className="text-2xl font-heading font-bold">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-lg md:text-2xl font-heading font-bold break-words">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
       </div>
 
@@ -148,13 +148,13 @@ export default function AggregationView({ transactions, vouchers, period, custom
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{entityType === "retailer" ? (t('common.total_redeemable') || 'Total Redeemable DutyCredits Available for your Airports') : (t('demo.dutycredits_issued') || 'Total DutyCredits Issued')}</p>
-          <p className="text-3xl font-heading font-bold">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString("de-DE") : aggregatedMetrics.vouchersIssued}</p>
+          <p className="text-xl md:text-3xl font-heading font-bold break-words">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString("de-DE") : aggregatedMetrics.vouchersIssued}</p>
           {entityType === "retailer" && <p className="text-xs text-muted-foreground">{t('common.across_all_retailers')}</p>}
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <p className="text-sm font-semibold">{t('common.avg_discount') || 'Average Discount Applied'}</p>
-          <p className="text-3xl font-heading font-bold">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
+          <p className="text-xl md:text-3xl font-heading font-bold break-words">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
           <p className="text-xs text-muted-foreground mt-2">{t('common.per_transaction') || 'Per transaction'}</p>
         </div>
       </div>
