@@ -279,6 +279,7 @@ export default {
       back: 'Zurück',
       retailer_badge: 'Händler',
       logout: 'Abmelden',
+      conversion_note: 'Daten basieren auf der ETRC/M1nd-Set globalen Statistik: 15% der abfliegenden Reisenden lösen einen DutyCredit ein.',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',
       tabs_profile: 'Profil',

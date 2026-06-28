@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine, Calendar } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar, Info } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange }) {
@@ -107,7 +107,11 @@ export default function AggregationView({ transactions, vouchers, period, custom
         </div>
       </div>
 
-
+      {/* Conversion note */}
+      <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5">
+        <Info className="w-4 h-4 text-blue-600 shrink-0" />
+        <p className="text-xs text-blue-700">{t('demo.conversion_note')}</p>
+      </div>
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

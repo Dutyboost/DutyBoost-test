@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard, Settings } from "lucide-react";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard, Settings, Info } from "lucide-react";
 import DemoProfileTab from "./DemoProfileTab";
 import AggregationView from "./AggregationView";
 import RedemptionHeatmap from "./RedemptionHeatmap";
@@ -229,6 +229,12 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
             </div>
           )}
+        </div>
+
+        {/* Conversion note */}
+        <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5">
+          <Info className="w-4 h-4 text-blue-600 shrink-0" />
+          <p className="text-xs text-blue-700">{t('demo.conversion_note')}</p>
         </div>
 
         {/* KPI cards */}

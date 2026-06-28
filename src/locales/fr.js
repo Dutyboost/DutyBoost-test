@@ -279,6 +279,7 @@ export default {
       back: 'Retour',
       retailer_badge: 'Détaillant',
       logout: 'Déconnexion',
+      conversion_note: 'Données basées sur la statistique mondiale ETRC/M1nd-Set : 15% des voyageurs au départ échangent un DutyCredit.',
       tabs_dashboard: 'Tableau de bord',
       tabs_aggregation: 'Agrégation',
       tabs_profile: 'Profil',

@@ -302,6 +302,7 @@ export default {
       back: 'Indietro',
       retailer_badge: 'Retailer',
       logout: 'Disconnetti',
+      conversion_note: 'Dati basati sulla statistica globale ETRC/M1nd-Set: il 15% dei viaggiatori in partenza riscatta un DutyCredit.',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregazione',
       tabs_profile: 'Profilo',

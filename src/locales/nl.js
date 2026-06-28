@@ -122,6 +122,7 @@ export default {
       agency_badge: 'Travel Partner',
       retailer_badge: 'Retailer',
       logout: 'Uitloggen',
+      conversion_note: 'Gegevens gebaseerd op de ETRC/M1nd-Set wereldwijde statistiek: 15% van de vertrekkende reizigers wisselt een DutyCredit in.',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregatie',
       tabs_profile: 'Profiel',
