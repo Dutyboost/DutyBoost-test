@@ -159,7 +159,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <>
               <span className="text-xs font-semibold uppercase tracking-widest text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">{t('demo.tabs_aggregation')}</span>
               <span className="text-sm text-muted-foreground font-medium px-3 py-1.5 bg-muted rounded-lg">
-                {countries.length} {region === 'es' ? 'países' : 'countries'} · {AIRPORTS.length} {region === 'es' ? 'aeropuertos' : 'airports'} · {RETAILERS.length} {region === 'es' ? 'tiendas' : 'stores'}
+                {countries.length} {t('demo.countries')} · {AIRPORTS.length} {t('demo.airports')} · {RETAILERS.length} {t('demo.stores')}
               </span>
             </>
           ) : (
