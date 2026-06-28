@@ -162,7 +162,7 @@ export default {
       agency_badge: 'Travel Partner',
       retailer_badge: 'Retailer',
       logout: 'Logout',
-      conversion_note: 'ETRC and m1nd-set benchmarks show that 15–25% of travelers shop before departure. DutyBoost increases conversion and basket value.',
+      conversion_note: "ETRC and m1nd-set benchmarks show that 15–25% of travelers shop before departure. DutyBoost's intention is to increase conversion and basket value.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',
       tabs_profile: 'Profile',
