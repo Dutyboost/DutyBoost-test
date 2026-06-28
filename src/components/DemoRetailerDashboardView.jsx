@@ -5,6 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, LogOut, CreditCard, Settings, Info, Sparkles } from "lucide-react";
 import DemoProfileTab from "./DemoProfileTab";
 import AggregationView from "./AggregationView";
+import CountryAggregation from "./CountryAggregation";
 import RedemptionHeatmap from "./RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "./DutyBoostLogo";
@@ -356,6 +357,15 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             </div>
           </div>
         </div>
+
+        {/* Country Aggregation */}
+        <CountryAggregation
+          AIRPORTS={AIRPORTS}
+          RETAILERS={RETAILERS}
+          periodMultiplier={periodMultiplier}
+          selectedCountry={selectedCountry}
+          onSelectCountry={handleCountryChange}
+        />
 
         {/* Airport overview */}
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
