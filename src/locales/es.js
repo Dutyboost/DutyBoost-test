@@ -118,7 +118,7 @@ export default {
        retailer_desc: 'Descubre cómo los retailers convierten viajeros en clientes con incentivos DutyBoost',
        view_retailer: 'Ver Demo',
        disclaimer: 'Los datos de demostración son solo con fines ilustrativos',
-       retailer_badge: 'Demo de Minorista',
+       retailer_badge: 'Minorista',
        logout: 'Cerrar sesión',
        tabs_dashboard: 'Panel',
        tabs_aggregation: 'Agregación',
