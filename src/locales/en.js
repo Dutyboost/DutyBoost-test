@@ -161,6 +161,7 @@ export default {
       disclaimer: 'Demo data is for illustrative purposes only',
       agency_badge: 'Travel Partner',
       retailer_badge: 'Retailer',
+      dutyboost_potential: 'DutyBoost Potential Increase',
       logout: 'Logout',
       conversion_note: "ETRC and m1nd-set benchmarks show that 15–25% of travelers shop before departure. DutyBoost's goal is to increase conversion and basket value by at least 3%.",
       tabs_dashboard: 'Dashboard',

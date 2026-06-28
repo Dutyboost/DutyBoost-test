@@ -278,6 +278,7 @@ export default {
       disclaimer: 'Dies ist eine Demo-Umgebung. Es werden keine echten Transaktionen verarbeitet.',
       back: 'Zurück',
       retailer_badge: 'Händler',
+      dutyboost_potential: 'DutyBoost potenzielle Steigerung',
       logout: 'Abmelden',
       conversion_note: "ETRC- und m1nd-set-Benchmarks zeigen, dass 15–25% der Reisenden vor dem Abflug einkaufen. DutyBoosts Ziel ist es, Conversion und Warenkorbwert um mindestens 3% zu erhöhen.",
       tabs_dashboard: 'Dashboard',

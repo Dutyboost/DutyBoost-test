@@ -301,6 +301,7 @@ export default {
       disclaimer: 'Questo è un ambiente demo. Non vengono elaborate transazioni reali.',
       back: 'Indietro',
       retailer_badge: 'Retailer',
+      dutyboost_potential: 'Aumento potenziale DutyBoost',
       logout: 'Disconnetti',
       conversion_note: "I benchmark ETRC e m1nd-set mostrano che il 15–25% dei viaggiatori fa acquisti prima della partenza. L'obiettivo di DutyBoost è aumentare la conversione e il valore del carrello di almeno il 3%.",
       tabs_dashboard: 'Dashboard',
