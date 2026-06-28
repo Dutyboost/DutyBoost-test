@@ -162,7 +162,7 @@ export default {
       agency_badge: 'Travel Partner',
       retailer_badge: 'Retailer',
       logout: 'Logout',
-      conversion_note: 'Data based on the ETRC/M1nd-Set global statistic: 15% of departing travelers redeem a DutyCredit.',
+      conversion_note: 'According to the ETRC/M1nd-Set global statistic: 15% to 25% of travelers do purchase at their airport of departure.',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',
       tabs_profile: 'Profile',

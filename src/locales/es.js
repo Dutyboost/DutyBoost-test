@@ -120,7 +120,7 @@ export default {
        disclaimer: 'Los datos de demostración son solo con fines ilustrativos',
        retailer_badge: 'Minorista',
        logout: 'Cerrar sesión',
-       conversion_note: 'Datos basados en la estadística global de ETRC/M1nd-Set: el 15% de los viajeros que salen canjean un DutyCredit.',
+       conversion_note: 'Según la estadística global de ETRC/M1nd-Set: del 15% al 25% de los viajeros realizan compras en su aeropuerto de salida.',
        tabs_dashboard: 'Panel',
        tabs_aggregation: 'Agregación',
        tabs_profile: 'Perfil',
