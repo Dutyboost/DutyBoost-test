@@ -168,8 +168,10 @@ const AuthenticatedApp = () => {
 
         <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
-        <Route path="/demo/retailer" element={<DemoRetailerDashboard />} />
-        <Route path="/demo/retailer-spain" element={<DemoRetailerDashboardSpain />} />
+        <Route path="/demo/retailer" element={<Navigate to="/demo/retailer-lagardere" replace />} />
+        <Route path="/demo/retailer-lagardere" element={<DemoRetailerDashboard />} />
+        <Route path="/demo/retailer-spain" element={<Navigate to="/demo/retailer-aena" replace />} />
+        <Route path="/demo/retailer-aena" element={<DemoRetailerDashboardSpain />} />
         <Route path="/demo/retailer-heinemann" element={<DemoRetailerDashboardHeinemann />} />
         <Route path="/demo/retailer-avolta" element={<DemoRetailerDashboardAvolta />} />
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
