@@ -86,7 +86,7 @@ function RetailerTab({ t }) {
   const [dailyTravelers, setDailyTravelers] = useState(0);
   const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
-  const [conversionRate, setConversionRate] = useState(4);
+  const [conversionRate, setConversionRate] = useState(3);
 
   const handleAirportSelect = (airport) => {
     setSelectedAirport(airport);
@@ -448,7 +448,7 @@ const VERTICALS_CONFIG = [
     inactiveClass: "bg-white text-slate-600 border-slate-300",
     commissionNote: "0.5% of basket spend (max €5/tx)",
     defaultBookings: 10000,
-    defaultConversion: 4,
+    defaultConversion: 3,
     defaultBasket: 150,
     creditsPerBooking: 2, // booking confirmation + return flight reminder
   },
@@ -465,7 +465,7 @@ const VERTICALS_CONFIG = [
     inactiveClass: "bg-white text-slate-600 border-slate-300",
     commissionNote: "0.5% of basket spend (max €5/tx)",
     defaultBookings: 5000,
-    defaultConversion: 4,
+    defaultConversion: 3,
     defaultBasket: 185,
     creditsPerBooking: 2, // booking + checkout
   },
@@ -482,7 +482,7 @@ const VERTICALS_CONFIG = [
     inactiveClass: "bg-white text-slate-600 border-slate-300",
     commissionNote: "0.5% of basket spend (max €5/tx)",
     defaultBookings: 3000,
-    defaultConversion: 4,
+    defaultConversion: 3,
     defaultBasket: 170,
     creditsPerBooking: 2, // booking + car return
   },
@@ -495,7 +495,7 @@ function TravelPartnerTab({ t }) {
   const [bookingsInput, setBookingsInput] = useState({ flight: "0", accommodation: "0", car: "0" });
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
-  const [conversion, setConversion] = useState({ flight: 4, accommodation: 4, car: 4 });
+  const [conversion, setConversion] = useState({ flight: 3, accommodation: 3, car: 3 });
   const FIXED_AVG_BASKET = 35;
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
 

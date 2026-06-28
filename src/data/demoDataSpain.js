@@ -3,7 +3,7 @@
 // Retailer names are real stores operating across the Aena airport network
 // (source: aena.es shop directories). Revenue is calculated using the same
 // model as the RetailerCalculator:
-//   dailyRedemptions = daily_pax × 4%
+//   dailyRedemptions = daily_pax × 3%
 //   monthlyRedemptions = dailyRedemptions × 365 / 12
 //   basket = estimateAvgBasketSpend(airport)  → [€35, €150]
 //   grossRevenue = redemptions × basket
@@ -12,7 +12,7 @@
 import { GLOBAL_AIRPORTS } from "./globalAirports";
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
-const CONVERSION_RATE = 4;
+const CONVERSION_RATE = 3;
 const PLATFORM_FEE_PCT = 0.025;
 
 // ── Real retail stores at Madrid Barajas (Aena directory, Retail only) ───────

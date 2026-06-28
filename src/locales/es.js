@@ -120,7 +120,7 @@ export default {
        disclaimer: 'Los datos de demostración son solo con fines ilustrativos',
        retailer_badge: 'Minorista',
        logout: 'Cerrar sesión',
-       conversion_note: "Los benchmarks de ETRC y m1nd-set muestran que el 15–25% de los viajeros compra antes de la salida. El objetivo de DutyBoost es aumentar la conversión y el valor de la cesta en al menos un 3–5%.",
+       conversion_note: "Los benchmarks de ETRC y m1nd-set muestran que el 15–25% de los viajeros compra antes de la salida. El objetivo de DutyBoost es aumentar la conversión y el valor de la cesta en al menos un 3%.",
        tabs_dashboard: 'Panel',
        tabs_aggregation: 'Agregación',
        tabs_profile: 'Perfil',

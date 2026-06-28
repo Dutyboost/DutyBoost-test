@@ -302,7 +302,7 @@ export default {
       back: 'Indietro',
       retailer_badge: 'Retailer',
       logout: 'Disconnetti',
-      conversion_note: "I benchmark ETRC e m1nd-set mostrano che il 15–25% dei viaggiatori fa acquisti prima della partenza. L'obiettivo di DutyBoost è aumentare la conversione e il valore del carrello di almeno il 3–5%.",
+      conversion_note: "I benchmark ETRC e m1nd-set mostrano che il 15–25% dei viaggiatori fa acquisti prima della partenza. L'obiettivo di DutyBoost è aumentare la conversione e il valore del carrello di almeno il 3%.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregazione',
       tabs_profile: 'Profilo',

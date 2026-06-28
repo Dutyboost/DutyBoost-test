@@ -2,11 +2,11 @@
 //
 // Conversion rate: percentage of departing travelers who convert through DutyBoost.
 // ETRC/m1nd-Set benchmark: 15–25% of travelers shop before departure.
-// DutyBoost target: 3–5% uplift (4% midpoint used here).
+// DutyBoost target: 3% uplift.
 // Retailer data below is scaled from a 15% baseline to reflect the 4% target.
 // Agency data uses a separate DutyCredit redemption rate (~12%) — unchanged.
 
-const CONVERSION_RATE = 4;
+const CONVERSION_RATE = 3;
 const SCALE = CONVERSION_RATE / 15; // scale from original 15% baseline
 
 export const AIRPORTS = [
