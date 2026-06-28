@@ -268,7 +268,7 @@ export default {
     demo: {
       mode_badge: 'Demo-Modus',
       title: 'DutyBoost Plattform-Demo',
-      subtitle: 'Flughafen-Traffic existiert bereits. DutyBoost wandelt mehr davon in Käufer um, indem es Kaufabsicht vor der Ankunft schafft — für höhere Konversion, Warenkorbwert und inkrementellen Umsatz.',
+      subtitle: 'Flughafen-Traffic existiert bereits. DutyBoost wandelt mehr davon in Käufer um, indem es Kaufabsicht vor der Ankunft schafft — für mehr Konversionen, höheren Warenkorbwert und inkrementellen Umsatz.',
       agency_title: 'Reisebüro',
       agency_desc: 'Sehen Sie, wie Agenturen passive Provisionen verdienen, indem sie DutyCredits an Reisende ausgeben.',
       view_agency: 'Agentur-Dashboard ansehen',

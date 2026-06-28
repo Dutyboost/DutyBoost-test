@@ -151,7 +151,7 @@ export default {
        rs_step4_desc: 'You receive 20% of platform fee',
       mode_badge: 'Demo Mode',
       title: 'Explore DutyBoost',
-      subtitle: "Airport traffic already exists. DutyBoost turns more of it into buyers by creating purchase intent before arrival, driving higher conversion, basket value, and incremental revenue.",
+      subtitle: "Airport traffic already exists. DutyBoost turns more of it into buyers by creating purchase intent before arrival, driving more conversions, higher basket value, and incremental revenue.",
       agency_title: 'Travel Partner Demo',
       agency_desc: 'See how travel partners use DutyBoost to boost customer loyalty and earn commissions',
       view_agency: 'View Demo',

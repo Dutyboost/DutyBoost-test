@@ -111,7 +111,7 @@ export default {
     demo: {
       mode_badge: 'Demomodus',
       title: 'Verken DutyBoost',
-      subtitle: 'Luchthavenverkeer bestaat al. DutyBoost zet er meer van om in kopers door koopintentie vóór aankomst te creëren, voor hogere conversie, basketwaarde en extra omzet.',
+      subtitle: 'Luchthavenverkeer bestaat al. DutyBoost zet er meer van om in kopers door koopintentie vóór aankomst te creëren, voor meer conversies, hogere basketwaarde en extra omzet.',
       agency_title: 'Travel Partner Demo',
       agency_desc: 'Zie hoe travel partners DutyBoost gebruiken om klantloyaliteit te verhogen en commissies te verdienen',
       view_agency: 'Demo bekijken',

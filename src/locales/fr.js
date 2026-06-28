@@ -268,7 +268,7 @@ export default {
     demo: {
       mode_badge: 'Mode Démo',
       title: 'Démo de la plateforme DutyBoost',
-      subtitle: "Le trafic aéroportuaire existe déjà. DutyBoost en convertit davantage en acheteurs en créant l'intention d'achat avant l'arrivée, générant une conversion, un panier moyen et des revenus incrémentaux plus élevés.",
+      subtitle: "Le trafic aéroportuaire existe déjà. DutyBoost en convertit davantage en acheteurs en créant l'intention d'achat avant l'arrivée, générant plus de conversions, un panier moyen plus élevé et des revenus incrémentaux.",
       agency_title: 'Agence de voyage',
       agency_desc: 'Découvrez comment les agences gagnent des revenus passifs en émettant des DutyCredits aux voyageurs.',
       view_agency: 'Voir le tableau de bord Agence',
