@@ -139,15 +139,15 @@ function RetailerTab({ t }) {
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-slate-900">{t('calculator.retailer_title')}</h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('calculator.retailer_subtitle') }} />
-      </div>
+        </div>
 
-      <AirportSelector selectedAirport={selectedAirport} onSelect={handleAirportSelect} t={t} />
+        {/* 3% goal banner */}
+        <div className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-6 py-4">
+        <Info className="w-6 h-6 text-blue-600 shrink-0" />
+        <p className="text-base text-blue-800 font-medium leading-relaxed">{t('calculator.goal_3pct')}</p>
+        </div>
 
-      {/* 3% goal note */}
-      <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2.5">
-        <Info className="w-4 h-4 text-blue-600 shrink-0" />
-        <p className="text-xs text-blue-700">{t('calculator.goal_3pct')}</p>
-      </div>
+        <AirportSelector selectedAirport={selectedAirport} onSelect={handleAirportSelect} t={t} />
 
       {/* Slider Card */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
