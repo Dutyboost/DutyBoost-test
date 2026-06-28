@@ -24,6 +24,7 @@ export default function DemoRetailerDashboard() {
       DAILY_DATA={DAILY_DATA}
       YEARLY_DATA={YEARLY_DATA}
       defaultAirport="AMS"
+      region="nl"
     />
   );
 }

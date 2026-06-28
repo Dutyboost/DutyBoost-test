@@ -10,11 +10,11 @@ const CONVERSION_RATE = 3;
 const SCALE = CONVERSION_RATE / 15; // scale from original 15% baseline
 
 export const AIRPORTS = [
-  { code: "AMS", name: "Amsterdam Schiphol", city: "Amsterdam" },
-  { code: "RTM", name: "Rotterdam The Hague", city: "Rotterdam" },
-  { code: "EIN", name: "Eindhoven Airport", city: "Eindhoven" },
-  { code: "GRQ", name: "Groningen Airport Eelde", city: "Groningen" },
-  { code: "MST", name: "Maastricht Aachen Airport", city: "Maastricht" },
+  { code: "AMS", name: "Amsterdam Schiphol", city: "Amsterdam", country: "Netherlands" },
+  { code: "RTM", name: "Rotterdam The Hague", city: "Rotterdam", country: "Netherlands" },
+  { code: "EIN", name: "Eindhoven Airport", city: "Eindhoven", country: "Netherlands" },
+  { code: "GRQ", name: "Groningen Airport Eelde", city: "Groningen", country: "Netherlands" },
+  { code: "MST", name: "Maastricht Aachen Airport", city: "Maastricht", country: "Netherlands" },
 ];
 
 // Travel agencies use DutyCredit redemption rate (~12%), not airport conversion — unchanged
@@ -89,6 +89,10 @@ export const RETAILERS = _RETAILERS.map(r => ({
   ...r,
   redemptions: Math.round(r.redemptions * SCALE),
   revenue: Math.round(r.redemptions * SCALE) * r.avg_sale,
+  contact_person: "Sofie van der Meer",
+  email: "sofie.vandermeer@lagardere-travel.com",
+  company: "Lagardère Travel Retail Netherlands",
+  phone: "+31 20 653 55 55",
 }));
 
 // ── Base monthly data (at 15% baseline) — scaled to 4% at export ──────────────
