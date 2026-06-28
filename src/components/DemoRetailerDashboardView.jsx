@@ -39,6 +39,10 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
     return () => i18n.off('languageChanged', handleLanguageChange);
   }, [i18n]);
   const [selectedRetailer, setSelectedRetailer] = useState(RETAILERS[0]);
+  const [selectedCountry, setSelectedCountry] = useState(() => {
+    const ap = AIRPORTS.find(a => a.code === defaultAirport);
+    return ap?.country || AIRPORTS[0]?.country || "Spain";
+  });
   const [showRedemptions, setShowRedemptions] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
   const [period, setPeriod] = useState("daily");
@@ -48,10 +52,19 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 
+  const countries = useMemo(() => [...new Set(AIRPORTS.map(a => a.country))].sort(), [AIRPORTS]);
+  const airportsInCountry = useMemo(() => AIRPORTS.filter(a => a.country === selectedCountry), [AIRPORTS, selectedCountry]);
+
   const handleAirportChange = (code) => {
     setSelectedAirport(code);
     const first = RETAILERS.find(r => r.airport === code);
     if (first) setSelectedRetailer(first);
+  };
+
+  const handleCountryChange = (country) => {
+    setSelectedCountry(country);
+    const firstAirport = AIRPORTS.find(a => a.country === country);
+    if (firstAirport) handleAirportChange(firstAirport.code);
   };
 
   const basket = selectedRetailer.avg_sale;
@@ -146,7 +159,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <>
               <span className="text-xs font-semibold uppercase tracking-widest text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">{t('demo.tabs_aggregation')}</span>
               <span className="text-sm text-muted-foreground font-medium px-3 py-1.5 bg-muted rounded-lg">
-                {AIRPORTS.length} {region === 'es' ? 'aeropuertos' : 'airports'} · {RETAILERS.length} {region === 'es' ? 'tiendas' : 'stores'}
+                {countries.length} {region === 'es' ? 'países' : 'countries'} · {AIRPORTS.length} {region === 'es' ? 'aeropuertos' : 'airports'} · {RETAILERS.length} {region === 'es' ? 'tiendas' : 'stores'}
               </span>
             </>
           ) : (
@@ -154,10 +167,17 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{region === 'es' ? t('demo.retailer_badge') : 'Retailer'}</span>
               <select
                 className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
+                value={selectedCountry}
+                onChange={e => handleCountryChange(e.target.value)}
+              >
+                {countries.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+              <select
+                className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
                 value={selectedAirport}
                 onChange={e => handleAirportChange(e.target.value)}
               >
-                {AIRPORTS.map(a => <option key={a.code} value={a.code}>{a.name}</option>)}
+                {airportsInCountry.map(a => <option key={a.code} value={a.code}>{a.name}</option>)}
               </select>
               <select
                 className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background"
