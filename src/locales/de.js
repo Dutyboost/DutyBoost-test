@@ -243,6 +243,9 @@ export default {
       total_label: 'GESAMT',
       across_all_retailers: 'Über alle Geschäfte in Ihrer Region',
     },
+    demo: {
+      retailer_badge: 'Einzelhändler',
+    },
     portal: {
       signed_in_as: 'Angemeldet als',
       go_to_dashboard: 'Zum Dashboard',

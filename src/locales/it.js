@@ -266,6 +266,9 @@ export default {
       total_label: 'TOTALE',
       across_all_retailers: 'In tutti i negozi della tua regione',
     },
+    demo: {
+      retailer_badge: 'Rivenditore',
+    },
     portal: {
       signed_in_as: 'Accesso come',
       go_to_dashboard: 'Vai alla dashboard',
