@@ -380,7 +380,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 }`}
               >
                 <p className="text-sm font-medium">{r.name}</p>
-                <p className="text-sm font-semibold">{r.redemptions} {t('demo.scans')}</p>
+                <p className="text-sm font-semibold">{fmtNum(Math.round(r.redemptions * periodMultiplier))} {t('demo.scans')}</p>
               </div>
             ))}
           </div>
