@@ -122,6 +122,8 @@ export default {
        dutyboost_potential: 'Aumento potencial con DutyBoost',
        logout: 'Cerrar sesión',
        conversion_note: "Los benchmarks de ETRC y m1nd-set muestran que el 15–25% de los viajeros compra antes de la salida. El objetivo de DutyBoost es aumentar la conversión y el valor de la cesta en al menos un 3%.",
+       incremental_revenue_label: "Ingresos incrementales:",
+       incremental_revenue_note: "Las cifras a continuación representan el objetivo de DutyBoost para el rendimiento incremental — un 3% adicional de viajeros que compran porque fueron pre-activados con un DutyCredit. Esto se suma a la tasa de compra base del 15–25%. Los ingresos brutos reflejan el valor total de las transacciones de estos canjes de DutyCredit; los ingresos netos son lo que el minorista conserva tras el descuento al viajero y la tarifa de plataforma. Algunos de estos compradores podrían haber gastado dinero de todos modos, por lo que los ingresos netos reales podrían ser inferiores a las cifras mostradas.",
        tabs_dashboard: 'Panel',
        tabs_aggregation: 'Agregación Global',
        country_aggregation_title: 'Rendimiento del País',

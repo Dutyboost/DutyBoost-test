@@ -277,6 +277,15 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           <p className="text-xs text-blue-700">{t('demo.conversion_note')}</p>
         </div>
 
+        {/* Incremental revenue note */}
+        <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2.5">
+          <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+          <p className="text-xs text-amber-700">
+            <span className="font-semibold">{t('demo.incremental_revenue_label') || 'Incremental revenue:'}</span>{' '}
+            {t('demo.incremental_revenue_note') || 'The figures below represent DutyBoost\u2019s target for incremental performance \u2014 an additional 3% of pre-departure travelers who shop because they were pre-activated by a DutyCredit. This sits on top of the existing 15\u201325% baseline shopping rate. Gross revenue reflects the full transaction value of those DutyCredit redemptions; net revenue is what the retailer keeps after the traveler discount and platform fee. Some of these shoppers may have spent money anyway, so actual net-new revenue could be lower than the figures shown.'}
+          </p>
+        </div>
+
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[

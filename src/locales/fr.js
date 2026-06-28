@@ -281,6 +281,8 @@ export default {
       dutyboost_potential: 'Augmentation potentielle DutyBoost',
       logout: 'Déconnexion',
       conversion_note: "Les benchmarks ETRC et m1nd-set montrent que 15–25% des voyageurs font des achats avant le départ. L'objectif de DutyBoost est d'augmenter la conversion et la valeur du panier d'au moins 3%.",
+      incremental_revenue_label: "Chiffre d'affaires incrémental :",
+      incremental_revenue_note: "Les chiffres ci-dessous représentent l'objectif de DutyBoost en matière de performance incrémentale — 3% supplémentaires de voyageurs qui achètent parce qu'ils ont été pré-activés par un DutyCredit. Cela s'ajoute au taux d'achat de base de 15–25%. Le chiffre d'affaires brut reflète la valeur totale des transactions de ces remboursements DutyCredit ; le chiffre d'affaires net est ce que le détaillant conserve après la remise voyageur et les frais de plateforme. Certains de ces acheteurs auraient peut-être dépensé de l'argent de toute façon, le revenu net réel pourrait donc être inférieur aux chiffres affichés.",
       tabs_dashboard: 'Tableau de bord',
       tabs_aggregation: 'Agrégation',
       countries: 'pays',
