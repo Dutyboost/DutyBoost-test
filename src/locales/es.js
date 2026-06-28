@@ -349,7 +349,7 @@ export default {
       download: 'Descargar',
       sign_in: 'Iniciar sesión',
       request_more_info: 'Solicitar más información',
-      custom_aggregation: 'Agregación Personalizada — Todas las Tiendas',
+      custom_aggregation: 'Agregación Personalizada — Todas las Tiendas Retail de todos los Aeropuertos',
       aggregation_desc: 'Métricas combinadas en todas sus ubicaciones minoristas.',
       total_redeemable: 'Total de DutyCredits Canjeables Disponibles para sus Aeropuertos',
       avg_discount: 'Descuento Promedio Aplicado',

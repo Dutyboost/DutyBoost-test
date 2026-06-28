@@ -239,7 +239,7 @@ export default {
       download: 'Downloaden',
       sign_in: 'Inloggen',
       request_more_info: 'Meer informatie aanvragen',
-      custom_aggregation: 'Aangepaste Aggregatie — Alle Winkels',
+      custom_aggregation: 'Aangepaste Aggregatie — Alle Retailwinkels van alle Luchthavens',
       aggregation_desc: 'Gecombineerde metrics voor alle uw winkellocaties.',
       total_redeemable: 'Totaal Inwisselbare DutyCredits Beschikbaar voor Uw Luchthavens',
       avg_discount: 'Gemiddelde Toegepaste Korting',

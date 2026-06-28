@@ -282,7 +282,7 @@ export default {
       download: 'Download',
       sign_in: 'Sign In',
       request_more_info: 'Request More Information',
-      custom_aggregation: 'Custom Aggregation — All Stores',
+      custom_aggregation: 'Custom Aggregation — All Retail Stores of all Airports',
       aggregation_desc: 'Combined metrics across all your retail locations.',
       total_redeemable: 'Total Redeemable DutyCredits Available for your Airports',
       avg_discount: 'Average Discount Applied',
