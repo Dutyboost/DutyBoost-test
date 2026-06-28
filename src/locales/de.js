@@ -268,7 +268,7 @@ export default {
     demo: {
       mode_badge: 'Demo-Modus',
       title: 'DutyBoost Plattform-Demo',
-      subtitle: 'Das Ziel von DutyBoost: Kaufabsicht vor der Ankunft aufbauen — mehr Passagiere in Käufer verwandeln und passiven Traffic in inkrementellen Umsatz.',
+      subtitle: 'Die meisten Passagiere kaufen am Flughafen nicht ein. DutyBoost baut Kaufabsicht vor der Ankunft auf — mit dem Ziel, passiven Traffic in inkrementellen Umsatz zu verwandeln.',
       agency_title: 'Reisebüro',
       agency_desc: 'Sehen Sie, wie Agenturen passive Provisionen verdienen, indem sie DutyCredits an Reisende ausgeben.',
       view_agency: 'Agentur-Dashboard ansehen',

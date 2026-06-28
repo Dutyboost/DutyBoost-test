@@ -110,7 +110,7 @@ export default {
     demo: {
        mode_badge: 'Modo Demo',
        title: 'Explora DutyBoost',
-       subtitle: 'El objetivo de DutyBoost: generar intención de compra antes de la llegada — convertir más pasajeros en compradores y tráfico pasivo en ingresos incrementales.',
+       subtitle: 'La mayoría de los pasajeros no compra en el aeropuerto. DutyBoost genera intención de compra antes de la llegada — con el objetivo de convertir el tráfico pasivo en ingresos incrementales.',
        agency_title: 'Demo de Partner de Viaje',
        agency_desc: 'Descubre cómo los partners de viaje utilizan DutyBoost para aumentar la lealtad del cliente y ganar comisiones',
        view_agency: 'Ver Demo',
@@ -225,7 +225,7 @@ export default {
        col_traveler_saved: 'Ahorros del Viajero',
        mode_badge: 'Modo Demo',
        title: 'Explora DutyBoost',
-       subtitle: 'El objetivo de DutyBoost: generar intención de compra antes de la llegada — convertir más pasajeros en compradores y tráfico pasivo en ingresos incrementales.',
+       subtitle: 'La mayoría de los pasajeros no compra en el aeropuerto. DutyBoost genera intención de compra antes de la llegada — con el objetivo de convertir el tráfico pasivo en ingresos incrementales.',
        agency_title: 'Demo de Partner de Viaje',
        agency_desc: 'Descubre cómo los partners de viaje utilizan DutyBoost para aumentar la lealtad del cliente y ganar comisiones',
        view_agency: 'Ver Demo',

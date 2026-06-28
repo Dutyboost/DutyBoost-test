@@ -111,7 +111,7 @@ export default {
     demo: {
       mode_badge: 'Demomodus',
       title: 'Verken DutyBoost',
-      subtitle: 'Het doel van DutyBoost: koopintentie opbouwen vóór aankomst — meer passagiers omzetten in kopers en passief verkeer in extra omzet.',
+      subtitle: 'De meeste passagiers kopen niet op de luchthaven. DutyBoost bouwt koopintentie vóór aankomst — met als doel passief verkeer om te zetten in extra omzet.',
       agency_title: 'Travel Partner Demo',
       agency_desc: 'Zie hoe travel partners DutyBoost gebruiken om klantloyaliteit te verhogen en commissies te verdienen',
       view_agency: 'Demo bekijken',
