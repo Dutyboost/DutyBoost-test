@@ -151,7 +151,7 @@ export default {
        rs_step4_desc: 'You receive 20% of platform fee',
       mode_badge: 'Demo Mode',
       title: 'Explore DutyBoost',
-      subtitle: 'See how DutyBoost works for Travel Partners and Airport Retailers',
+      subtitle: 'See how DutyBoost works for Airport Retailers',
       agency_title: 'Travel Partner Demo',
       agency_desc: 'See how travel partners use DutyBoost to boost customer loyalty and earn commissions',
       view_agency: 'View Demo',

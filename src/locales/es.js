@@ -110,7 +110,7 @@ export default {
     demo: {
        mode_badge: 'Modo Demo',
        title: 'Explora DutyBoost',
-       subtitle: 'Descubre cómo DutyBoost funciona para Partners de Viajes y Retailers de Aeropuerto',
+       subtitle: 'Descubre cómo DutyBoost funciona para retailers de aeropuerto',
        agency_title: 'Demo de Partner de Viaje',
        agency_desc: 'Descubre cómo los partners de viaje utilizan DutyBoost para aumentar la lealtad del cliente y ganar comisiones',
        view_agency: 'Ver Demo',
@@ -225,7 +225,7 @@ export default {
        col_traveler_saved: 'Ahorros del Viajero',
        mode_badge: 'Modo Demo',
        title: 'Explora DutyBoost',
-       subtitle: 'Descubre cómo DutyBoost funciona para Partners de Viajes y Retailers de Aeropuerto',
+       subtitle: 'Descubre cómo DutyBoost funciona para retailers de aeropuerto',
        agency_title: 'Demo de Partner de Viaje',
        agency_desc: 'Descubre cómo los partners de viaje utilizan DutyBoost para aumentar la lealtad del cliente y ganar comisiones',
        view_agency: 'Ver Demo',

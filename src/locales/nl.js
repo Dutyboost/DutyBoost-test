@@ -111,7 +111,7 @@ export default {
     demo: {
       mode_badge: 'Demomodus',
       title: 'Verken DutyBoost',
-      subtitle: 'Zie hoe DutyBoost werkt voor Travel Partners en Luchthaven Retailers',
+      subtitle: 'Zie hoe DutyBoost werkt voor luchthavenretailers',
       agency_title: 'Travel Partner Demo',
       agency_desc: 'Zie hoe travel partners DutyBoost gebruiken om klantloyaliteit te verhogen en commissies te verdienen',
       view_agency: 'Demo bekijken',
