@@ -243,9 +243,6 @@ export default {
       total_label: 'GESAMT',
       across_all_retailers: 'Über alle Geschäfte in Ihrer Region',
     },
-    demo: {
-      retailer_badge: 'Einzelhändler',
-    },
     portal: {
       signed_in_as: 'Angemeldet als',
       go_to_dashboard: 'Zum Dashboard',
@@ -280,7 +277,7 @@ export default {
       view_retailer: 'Händler-Dashboard ansehen',
       disclaimer: 'Dies ist eine Demo-Umgebung. Es werden keine echten Transaktionen verarbeitet.',
       back: 'Zurück',
-      retailer_badge: 'Händler-Demo',
+      retailer_badge: 'Händler',
       logout: 'Abmelden',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',

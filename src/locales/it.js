@@ -266,9 +266,6 @@ export default {
       total_label: 'TOTALE',
       across_all_retailers: 'In tutti i negozi della tua regione',
     },
-    demo: {
-      retailer_badge: 'Rivenditore',
-    },
     portal: {
       signed_in_as: 'Accesso come',
       go_to_dashboard: 'Vai alla dashboard',
@@ -303,7 +300,7 @@ export default {
       view_retailer: 'Vedi dashboard Retailer',
       disclaimer: 'Questo è un ambiente demo. Non vengono elaborate transazioni reali.',
       back: 'Indietro',
-      retailer_badge: 'Demo Retailer',
+      retailer_badge: 'Retailer',
       logout: 'Disconnetti',
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregazione',

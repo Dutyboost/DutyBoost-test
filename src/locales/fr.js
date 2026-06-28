@@ -243,9 +243,6 @@ export default {
       total_label: 'TOTAL',
       across_all_retailers: 'Dans tous les magasins de votre région',
     },
-    demo: {
-      retailer_badge: 'Détaillant',
-    },
     portal: {
       signed_in_as: 'Connecté en tant que',
       go_to_dashboard: 'Aller au tableau de bord',
@@ -280,7 +277,7 @@ export default {
       view_retailer: 'Voir le tableau de bord Détaillant',
       disclaimer: 'Ceci est un environnement de démo. Aucune transaction réelle n\'est traitée.',
       back: 'Retour',
-      retailer_badge: 'Démo Détaillant',
+      retailer_badge: 'Détaillant',
       logout: 'Déconnexion',
       tabs_dashboard: 'Tableau de bord',
       tabs_aggregation: 'Agrégation',
