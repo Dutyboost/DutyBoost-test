@@ -362,6 +362,8 @@ const avoltaAirportData = AVOLTA_AIRPORTS_RAW.map(([name, code, city, country, a
   daily_pax: Math.round(annualPax / 365),
 }));
 
+export const AIRPORTS_FULL = avoltaAirportData;
+
 export const AIRPORTS = avoltaAirportData.map(a => ({
   code: a.code,
   name: a.name,

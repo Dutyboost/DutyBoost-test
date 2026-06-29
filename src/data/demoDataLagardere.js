@@ -416,6 +416,8 @@ const ltrAirportData = LTR_AIRPORTS_RAW.map(([name, code, city, country, annualP
   daily_pax: Math.round(annualPax / 365),
 }));
 
+export const AIRPORTS_FULL = ltrAirportData;
+
 export const AIRPORTS = ltrAirportData.map(a => ({
   code: a.code,
   name: a.name,

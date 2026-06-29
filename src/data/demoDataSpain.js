@@ -129,6 +129,8 @@ const AENA_EXTRA_AIRPORTS = [
 
 const aenaAirportData = [...GLOBAL_AIRPORTS.filter(a => AENA_AIRPORT_CODES.includes(a.code)), ...AENA_EXTRA_AIRPORTS];
 
+export const AIRPORTS_FULL = aenaAirportData;
+
 export const AIRPORTS = aenaAirportData.map(a => ({
   code: a.code,
   name: a.name,

@@ -282,6 +282,8 @@ const heinemannAirportData = HEINEMANN_AIRPORTS_RAW.map(([name, code, city, coun
   daily_pax: Math.round(annualPax / 365),
 }));
 
+export const AIRPORTS_FULL = heinemannAirportData;
+
 export const AIRPORTS = heinemannAirportData.map(a => ({
   code: a.code,
   name: a.name,

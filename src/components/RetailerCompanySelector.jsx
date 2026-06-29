@@ -3,6 +3,7 @@ import { Search, Globe, TrendingUp, Store, Building2, Check, ChevronDown, Chevro
 import { fmtNum, fmtEur } from "@/utils/formatNumber";
 import { Slider } from "@/components/ui/slider";
 import { AIRPORT_RETAIL_COMPANIES, RETAIL_AIRPORTS } from "@/data/airportRetailCompanies";
+import { estimateAvgBasketSpend } from "@/utils/airportBasketEstimate";
 
 const PLATFORM_FEE_PCT = 0.025;
 const PLATFORM_FEE_CAP = 25;
@@ -18,15 +19,6 @@ function calcSaving(spend) {
   return 2.5;
 }
 
-function estimateBasket(dailyPax) {
-  if (dailyPax > 200000) return 130;
-  if (dailyPax > 120000) return 115;
-  if (dailyPax > 80000) return 100;
-  if (dailyPax > 40000) return 88;
-  if (dailyPax > 20000) return 78;
-  return 70;
-}
-
 function numFontClass(str) {
   const len = String(str).length;
   if (len <= 8) return "text-2xl";
@@ -36,7 +28,7 @@ function numFontClass(str) {
 }
 
 function computeAirport(airport, conversionRate) {
-  const basket = estimateBasket(airport.daily_pax);
+  const basket = estimateAvgBasketSpend(airport);
   const saving = calcSaving(basket);
   const commission = Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
   const netRevenue = Math.round((basket - saving - commission) * 100) / 100;
