@@ -101,16 +101,16 @@ export default function LandingPage() {
               {t('hero.title_2')}
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-4xl mx-auto leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
+          <p className="text-lg sm:text-2xl text-muted-foreground max-w-4xl mx-auto leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
         </div>
       </section>
 
       {/* Lead-in narrative */}
       <section className="relative px-4 sm:px-6 pb-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
-          <p className="text-base sm:text-lg text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
-          <p className="text-base sm:text-lg text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
-          <p className="text-sm sm:text-base font-semibold text-primary">{t('hero.tagline')}</p>
+          <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
+          <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
+          <p className="text-base sm:text-xl font-semibold text-primary">{t('hero.tagline')}</p>
         </div>
       </section>
 
