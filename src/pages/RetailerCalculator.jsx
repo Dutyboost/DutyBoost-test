@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store, Check, MessageCircle } from "lucide-react";
+import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store, Check, MessageCircle, Plus } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
@@ -13,6 +13,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
 import AirportSelector from "../components/AirportSelector";
+import RetailerPortfolio from "../components/RetailerPortfolio";
 import TravelPartnerSelector from "../components/TravelPartnerSelector";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
@@ -87,6 +88,20 @@ function RetailerTab({ t }) {
   const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(3);
+  const [portfolio, setPortfolio] = useState([]);
+
+  const addToPortfolio = () => {
+    if (!selectedAirport) return;
+    const id = selectedAirport.code;
+    setPortfolio((prev) => {
+      const entry = { id, airport: selectedAirport, dailyTravelers, basketSpend: spend, conversionRate };
+      const existing = prev.find((p) => p.id === id);
+      return existing ? prev.map((p) => (p.id === id ? entry : p)) : [...prev, entry];
+    });
+  };
+  const updateEntry = (id, updates) => setPortfolio((prev) => prev.map((p) => (p.id === id ? { ...p, ...updates } : p)));
+  const removeEntry = (id) => setPortfolio((prev) => prev.filter((p) => p.id !== id));
+  const isInPortfolio = !!selectedAirport && portfolio.some((p) => p.id === selectedAirport.code);
 
   const handleAirportSelect = (airport) => {
     setSelectedAirport(airport);
@@ -419,6 +434,25 @@ function RetailerTab({ t }) {
             </div>
             <p className="text-xs text-slate-600">{t('calculator.tiers_footnote')}</p>
           </div>
+
+      {/* Add to portfolio button */}
+      {selectedAirport && (
+        <div className="flex justify-center">
+          <button
+            onClick={addToPortfolio}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all ${
+              isInPortfolio
+                ? "bg-emerald-100 text-emerald-700 border border-emerald-300"
+                : "bg-slate-900 text-white hover:bg-slate-800"
+            }`}
+          >
+            <Plus className="w-5 h-5" />
+            {isInPortfolio ? t("calculator.in_portfolio") : t("calculator.add_to_portfolio")}
+          </button>
+        </div>
+      )}
+
+      <RetailerPortfolio portfolio={portfolio} onUpdate={updateEntry} onRemove={removeEntry} t={t} />
 
       {/* Request more information CTA */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
