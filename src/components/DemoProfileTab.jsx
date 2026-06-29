@@ -249,7 +249,7 @@ function buildRetailerInvoices(entity, locale, t, retailers) {
     return {
       month: getMonthLabel(monthKey),
       date: getMonthLabel(dateKey),
-      status: "Paid",
+      status: "Pending",
       amount: `€ ${platformFee.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       platformFee,
       breakdown,
@@ -279,9 +279,9 @@ function buildAgencyInvoices(t) {
   return DEMO_INVOICES_DATA.map(inv => ({
     month: monthTranslations[inv.monthKey],
     date: monthTranslations[inv.dateKey],
-    status: "Paid",
+    status: "Pending",
     breakdown: inv.breakdown,
-    amount: `€ ${(inv.breakdown.reduce((s, r) => s + r.transactionValue * 0.01, 0)).toFixed(2)}`,
+    amount: `€ ${(inv.breakdown.reduce((s, r) => s + r.transactionValue * 0.01, 0)).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
   }));
 }
 
@@ -389,10 +389,10 @@ function downloadPayoutPDF(inv, entity, profile) {
     doc.text(airport, 22, abY);
     doc.setTextColor(80);
     doc.text(String(vouchers), 88, abY);
-    doc.text(`€ ${transactionValue.toLocaleString("nl-NL")}`, 108, abY);
-    doc.text(`€ ${fee.toFixed(2)}`, 140, abY);
+    doc.text(`€ ${transactionValue.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, 108, abY);
+    doc.text(`€ ${fee.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 140, abY);
     doc.setTextColor(0, 140, 80);
-    doc.text(`€ ${commission.toFixed(2)}`, 163, abY);
+    doc.text(`€ ${commission.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 163, abY);
     abY += 8;
   });
 
@@ -405,10 +405,10 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.setFont(undefined, "bold");
   doc.setTextColor(28, 28, 60);
   doc.text("Total", 22, abY + 2);
-  doc.text(`€ ${totalTrans.toLocaleString("nl-NL")}`, 108, abY + 2);
-  doc.text(`€ ${totalFeeAll.toFixed(2)}`, 140, abY + 2);
+  doc.text(`€ ${totalTrans.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, 108, abY + 2);
+  doc.text(`€ ${totalFeeAll.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 140, abY + 2);
   doc.setTextColor(0, 140, 80);
-  doc.text(`€ ${totalCommAll.toFixed(2)}`, 163, abY + 2);
+  doc.text(`€ ${totalCommAll.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 163, abY + 2);
   doc.setFont(undefined, "normal");
   abY += 14;
 
@@ -474,9 +474,9 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
     doc.text(airport, 22, ty);
     doc.setTextColor(80);
     doc.text(String(vouchers), 100, ty);
-    doc.text(`€ ${transactionValue.toLocaleString(cfg.locale)}`, 120, ty);
+    doc.text(`€ ${transactionValue.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, 120, ty);
     doc.setTextColor(31, 111, 255);
-    doc.text(`€ ${rowFee.toFixed(2)}`, 150, ty);
+    doc.text(`€ ${rowFee.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 150, ty);
     ty += 8;
   });
 
@@ -491,9 +491,9 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFont(undefined, "bold");
   doc.setTextColor(28, 28, 60);
   doc.text(cfg.totalLabel, 22, ty + 2);
-  doc.text(`€ ${totalTrans.toLocaleString(cfg.locale)}`, 120, ty + 2);
+  doc.text(`€ ${totalTrans.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, 120, ty + 2);
   doc.setTextColor(31, 111, 255);
-  doc.text(`€ ${totalFee.toFixed(2)}`, 158, ty + 2);
+  doc.text(`€ ${totalFee.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 158, ty + 2);
   doc.setFont(undefined, "normal");
   ty += 14;
 
@@ -501,13 +501,13 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFont(undefined, "bold");
   doc.setTextColor(31, 111, 255);
   doc.text(cfg.totalDue, 110, ty);
-  doc.text(`€ ${totalDue.toFixed(2)}`, 186, ty, { align: "right" });
+  doc.text(`€ ${totalDue.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 186, ty, { align: "right" });
   doc.setFont(undefined, "normal");
   ty += 8;
   doc.setFontSize(10);
   doc.setTextColor(80);
   doc.text(cfg.statusLabel, 110, ty);
-  doc.setTextColor(0, 140, 80);
+  doc.setTextColor(80);
   doc.text(inv.status, 135, ty);
   ty += 12;
 
