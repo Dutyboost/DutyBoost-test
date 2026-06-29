@@ -114,8 +114,8 @@ export default function RetailerCompanySelector({ conversionRate, setConversionR
           />
         </div>
 
-        {/* Results */}
-        {filtered.length === 0 ? (
+        {/* Results — only shown when searching */}
+        {query.trim() === "" ? null : filtered.length === 0 ? (
           <p className="text-center text-sm text-slate-500 py-4">{t("calculator.company_no_results")}</p>
         ) : (
           <div className="space-y-2">
