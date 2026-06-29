@@ -9,6 +9,22 @@ import { AIRPORTS_FULL as LTR_AIRPORTS_FULL } from "./demoDataLagardere";
 import { AIRPORTS_FULL as AVOLTA_AIRPORTS_FULL } from "./demoDataAvolta";
 import { AIRPORTS_FULL as HEINEMANN_AIRPORTS_FULL } from "./demoDataHeinemann";
 import { AIRPORTS_FULL as AENA_AIRPORTS_FULL } from "./demoDataSpain";
+import { AIRPORTS_FULL as DFS_AIRPORTS_FULL } from "./demoDataDFS";
+import { AIRPORTS_FULL as LOTTE_AIRPORTS_FULL } from "./demoDataLotte";
+import { AIRPORTS_FULL as SHILLA_AIRPORTS_FULL } from "./demoDataShilla";
+import { AIRPORTS_FULL as CDFG_AIRPORTS_FULL } from "./demoDataCDFG";
+import { AIRPORTS_FULL as DUBAI_DF_AIRPORTS_FULL } from "./demoDataDubaiDF";
+import { AIRPORTS_FULL as QATAR_DF_AIRPORTS_FULL } from "./demoDataQatarDF";
+import { AIRPORTS_FULL as WHSMITH_AIRPORTS_FULL } from "./demoDataWHSmith";
+import { AIRPORTS_FULL as ARI_AIRPORTS_FULL } from "./demoDataARI";
+import { AIRPORTS_FULL as FLEMINGO_AIRPORTS_FULL } from "./demoDataFlemingo";
+import { AIRPORTS_FULL as EMIRATES_LEISURE_AIRPORTS_FULL } from "./demoDataEmiratesLeisure";
+import { AIRPORTS_FULL as TAV_AIRPORTS_FULL } from "./demoDataTAV";
+import { AIRPORTS_FULL as RIMAS_AIRPORTS_FULL } from "./demoDataRimasColombia";
+import { AIRPORTS_FULL as TRAVELRETAIL_SWEDEN_AIRPORTS_FULL } from "./demoDataTravelRetailSweden";
+import { AIRPORTS_FULL as INTERSHOP_AIRPORTS_FULL } from "./demoDataIntershop";
+import { AIRPORTS_FULL as JAT_AIRPORTS_FULL } from "./demoDataJAT";
+import { AIRPORTS_FULL as FLEMINGO_INDIA_AIRPORTS_FULL } from "./demoDataFlemingIndiadf";
 
 // ── Region resolver (mirrors estimateAvgBasketSpend logic) ───────────────────
 function regionForCountry(country) {
@@ -176,69 +192,69 @@ export const AIRPORT_RETAIL_COMPANIES = [
     name: "Aena (Spanish Airport Retail)",
     airports: AENA_AIRPORTS_FULL,
   },
-  // ── Curated companies ──
+  // ── Full dataset companies ──
   {
     name: "DFS Group",
-    airports: ["LAX", "SFO", "JFK", "HKG", "SIN", "SYD", "ICN", "NRT", "AKL", "BKK"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: DFS_AIRPORTS_FULL,
   },
   {
     name: "Lotte Duty Free",
-    airports: ["ICN", "NRT", "HND", "SIN", "SYD", "AKL", "BKK", "DEL", "DXB", "LAX", "JFK"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: LOTTE_AIRPORTS_FULL,
   },
   {
     name: "The Shilla Duty Free",
-    airports: ["ICN", "SIN", "HKG", "BKK", "JFK", "LAX"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: SHILLA_AIRPORTS_FULL,
   },
   {
     name: "China Duty Free Group (CDFG)",
-    airports: ["PEK", "PVG", "CAN", "HKG", "HAK"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: CDFG_AIRPORTS_FULL,
   },
   {
     name: "Dubai Duty Free",
-    airports: ["DXB"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: DUBAI_DF_AIRPORTS_FULL,
   },
   {
     name: "Qatar Duty Free",
-    airports: ["DOH"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: QATAR_DF_AIRPORTS_FULL,
   },
   {
     name: "WHSmith Travel",
-    airports: ["LHR", "LGW", "MAN", "STN", "BRS", "GLA", "EDI", "BHX", "CDG", "AMS", "FRA", "MAD", "BCN", "FCO", "SIN", "HKG", "SYD", "MEL"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: WHSMITH_AIRPORTS_FULL,
   },
   {
     name: "Aer Rianta International (ARI)",
-    airports: ["DUB", "BFS", "GLA", "EDI", "MAN", "CMB", "BEY", "BAH", "MUS"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: ARI_AIRPORTS_FULL,
   },
   {
     name: "Flemingo Travel Retail",
-    airports: ["DXB", "DOH", "MUS", "CMB", "NBO", "DAR", "ACC", "LOS", "MNL"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: FLEMINGO_AIRPORTS_FULL,
   },
   {
     name: "Emirates Leisure Retail",
-    airports: ["DXB", "AUH", "DOH"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: EMIRATES_LEISURE_AIRPORTS_FULL,
   },
   {
     name: "TAV Airports Retail",
-    airports: ["IST", "SAW", "TLV", "TBS", "SKP", "RIX", "KIV"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: TAV_AIRPORTS_FULL,
   },
   {
     name: "Rimas Colombia",
-    airports: ["BOG", "CTG", "MDE"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: RIMAS_AIRPORTS_FULL,
   },
   {
     name: "Travel Retail Sweden",
-    airports: ["ARN", "CPH", "OSL", "HEL"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: TRAVELRETAIL_SWEDEN_AIRPORTS_FULL,
   },
   {
     name: "Intershop (Switzerland)",
-    airports: ["ZRH", "GVA", "BSL"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: INTERSHOP_AIRPORTS_FULL,
   },
   {
     name: "JAT Retail",
-    airports: ["BEG", "ZAG"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: JAT_AIRPORTS_FULL,
   },
   {
     name: "Flemingo India",
-    airports: ["DEL", "BOM", "BLR", "HYD", "MAA", "CCU"].map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+    airports: FLEMINGO_INDIA_AIRPORTS_FULL,
   },
 ];
