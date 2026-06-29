@@ -243,10 +243,6 @@ function RetailerTab({ t }) {
               />
               {travelersError && <p className="text-xs text-red-500 mt-1 font-medium">{travelersError}</p>}
             </div>
-            <div className="text-right text-sm text-slate-500">
-              <p>{t('calculator.estimated_redemptions')}</p>
-              <p className="text-base font-bold text-slate-900">{fmtNum(dailyRedemptions)} / {t('calculator.day_label')}</p>
-            </div>
           </div>
           <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(fmtNum(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
         </div>
