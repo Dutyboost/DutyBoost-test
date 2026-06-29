@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Search, Building2, Store, Check, ChevronDown, ChevronUp } from "lucide-react";
-import { fmtNum, fmtEur } from "@/utils/formatNumber";
+import { fmtNum } from "@/utils/formatNumber";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { computeCompanyTotals } from "@/utils/retailerCalc";
 
@@ -65,13 +65,9 @@ export default function CompanySearch({ selectedCompany, onSelect, conversionRat
                     <div className="min-w-0">
                       <p className={`font-semibold truncate ${isSelected ? "text-white" : "text-slate-900"}`}>{c.name}</p>
                       <p className={`text-xs ${isSelected ? "text-blue-100" : "text-slate-500"}`}>
-                        {c.airports.length} {t("calculator.company_airports")} · {fmtNum(c.totalDailyTravelers)} {t("calculator.travelers_label")}
+                        {c.airports.length} {t("calculator.company_airports")} · {fmtNum(c.totalDailyTravelers)} {t("calculator.travelers_label")} / {t("calculator.day_label")}
                       </p>
                     </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <p className={`text-xs ${isSelected ? "text-blue-100" : "text-slate-500"}`}>{t("calculator.company_col_annual")}</p>
-                    <p className={`text-sm font-bold ${isSelected ? "text-white" : "text-emerald-700"}`}>{fmtEur(c.annualNet, 0)}</p>
                   </div>
                   {isSelected && <Check className="w-4 h-4 text-white shrink-0" />}
                 </button>
