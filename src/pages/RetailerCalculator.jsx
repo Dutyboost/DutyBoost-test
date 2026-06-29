@@ -12,11 +12,11 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
-import AirportSelector from "../components/AirportSelector";
-import RetailerCompanySelector from "../components/RetailerCompanySelector";
 import TravelPartnerSelector from "../components/TravelPartnerSelector";
+import CompanySearch from "../components/CompanySearch";
+import CompanyNetworkView from "../components/CompanyNetworkView";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
-import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
+import { computeCompanyTotals } from "../utils/retailerCalc";
 
 // ── Responsive font size for large numbers ─────────────────────────────────────
 function numFontClass(str) {
@@ -79,32 +79,30 @@ const BOOKING_TIERS = [
 
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
-  const [selectedAirport, setSelectedAirport] = useState(null);
+  const [selectedCompany, setSelectedCompany] = useState(null);
   const [spend, setSpend] = useState(0);
   const [spendInput, setSpendInput] = useState("0");
   const [spendError, setSpendError] = useState("");
-  const TRAVELER_TIERS = [0, 100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000)];
+  const TRAVELER_TIERS = [0, 100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000), ...Array.from({length: 1800}, (_, i) => 1050000 + i * 5000)];
   const [dailyTravelers, setDailyTravelers] = useState(0);
   const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(3);
 
-  const handleAirportSelect = (airport) => {
-    setSelectedAirport(airport);
-    if (airport) {
-      // Snap to nearest tier on the traveler slider
-      const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - airport.daily_pax) < Math.abs(a - airport.daily_pax) ? b : a);
+  const handleCompanySelect = (company) => {
+    setSelectedCompany(company);
+    if (company) {
+      const totals = computeCompanyTotals(company.airports, conversionRate);
+      const basket = totals.avgBasket || 35;
+      setSpend(basket);
+      setSpendInput(fmtNum(basket));
+      setSpendError("");
+      const nearest = TRAVELER_TIERS.reduce((a, b) => Math.abs(b - totals.totalDailyTravelers) < Math.abs(a - totals.totalDailyTravelers) ? b : a);
       setDailyTravelers(nearest);
       setTravelersInput(fmtNum(nearest));
       setTravelersError("");
-      // Auto-populate basket spend with estimated avg duty-free transaction for this airport
-      const estBasket = estimateAvgBasketSpend(airport);
-      setSpend(estBasket);
-      setSpendInput(fmtNum(estBasket));
-      setSpendError("");
     }
   };
-  // min basket is now €35
 
   const saving = useMemo(() => calcSaving(spend), [spend]);
   const commission = useMemo(() => Math.min(Math.round(spend * 0.025 * 100) / 100, PLATFORM_FEE_CAP), [spend]);
@@ -148,13 +146,13 @@ function RetailerTab({ t }) {
         <p className="text-base text-blue-800 font-medium leading-relaxed">{t('calculator.goal_3pct')}</p>
         </div>
 
-        <AirportSelector selectedAirport={selectedAirport} onSelect={handleAirportSelect} t={t} />
+        <CompanySearch selectedCompany={selectedCompany} onSelect={handleCompanySelect} conversionRate={conversionRate} t={t} />
 
       {/* Slider Card */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{selectedAirport ? `${selectedAirport.code} ${t('calculator.basket_spend')}` : t('calculator.basket_spend')}</p>
+            <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{selectedCompany ? `${selectedCompany.name} — ${t('calculator.basket_spend')}` : t('calculator.basket_spend')}</p>
             <div className="flex items-center gap-1">
               <span className="text-5xl font-bold text-slate-900">€</span>
               <input
@@ -198,7 +196,7 @@ function RetailerTab({ t }) {
             <Info className="w-3 h-3 text-amber-500 shrink-0" />
             <span>{t('calculator.dutycredit_activation')}</span>
           </div>
-          {selectedAirport && (
+          {selectedCompany && (
             <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-lg px-2.5 py-1.5">
               <Info className="w-3 h-3 shrink-0" />
               <span>{t('calculator.basket_auto_set')}</span>
@@ -251,6 +249,12 @@ function RetailerTab({ t }) {
             </div>
           </div>
           <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(fmtNum(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
+          {selectedCompany && (
+            <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-lg px-2.5 py-1.5 mt-1">
+              <Info className="w-3 h-3 shrink-0" />
+              <span>{selectedCompany.airports.length} {t('calculator.company_airports')} — {t('calculator.basket_auto_set')}</span>
+            </div>
+          )}
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
@@ -263,67 +267,6 @@ function RetailerTab({ t }) {
           </div>
           <Slider min={1} max={75} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
-        </div>
-      </div>
-
-      {/* Revenue projection based on travelers */}
-      <div className="bg-slate-900 rounded-2xl p-6 space-y-4">
-        <h3 className="font-bold text-white text-lg">{t('calculator.revenue_projection_title')}</h3>
-        <p className="text-xs text-slate-400 -mt-2">{t('calculator.revenue_projection_desc')}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <Users className="w-4 h-4 text-slate-300" />
-              <p className="text-xs text-slate-400">{t('calculator.daily_net')}</p>
-            </div>
-            <p className={`${numFontClass(fmtEur(dailyNet, 2))} font-bold text-white break-all`}>{fmtEur(dailyNet, 2)}</p>
-          </div>
-          <div className="bg-emerald-700 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <TrendingUp className="w-4 h-4 text-emerald-200" />
-              <p className="text-xs text-emerald-200">{t('calculator.monthly_net')}</p>
-            </div>
-            <p className={`${numFontClass(fmtEur(monthlyNet, 2))} font-bold text-white break-all`}>{fmtEur(monthlyNet, 2)}</p>
-          </div>
-          <div className="bg-emerald-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <TrendingUp className="w-4 h-4 text-emerald-100" />
-              <p className="text-xs text-emerald-100">{t('calculator.annual_net')}</p>
-            </div>
-            <p className={`${numFontClass(fmtEur(annualNet, 2))} font-bold text-white break-all`}>{fmtEur(annualNet, 2)}</p>
-          </div>
-        </div>
-        <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
-          <span className="text-slate-300 font-semibold">{fmtNum(dailyTravelers)}</span> {t('calculator.travelers_label')} × <span className="text-slate-300 font-semibold">{conversionRate}%</span> = <span className="text-slate-300 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} × {fmtEur(netRevenue, 2)} {t('calculator.net_per_tx')}
-        </div>
-      </div>
-
-      {/* Platform fee projection based on redemptions */}
-      <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 space-y-4">
-        <h3 className="font-bold text-slate-900 text-lg">{t('calculator.platform_fee_projection_title')}</h3>
-        <p className="text-xs text-slate-600 -mt-2">{t('calculator.platform_fee_projection_desc')}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="bg-white border border-orange-200 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <p className="text-xs text-slate-500">{t('calculator.daily_fee')}</p>
-            </div>
-            <p className={`${numFontClass(fmtEur(dailyFee, 2))} font-bold text-orange-600 break-all`}>{fmtEur(dailyFee, 2)}</p>
-          </div>
-          <div className="bg-orange-500 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <p className="text-xs text-orange-100">{t('calculator.monthly_fee')}</p>
-            </div>
-            <p className={`${numFontClass(fmtEur(monthlyFee, 2))} font-bold text-white break-all`}>{fmtEur(monthlyFee, 2)}</p>
-          </div>
-          <div className="bg-orange-600 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:flex-col sm:items-center">
-              <p className="text-xs text-orange-50">{t('calculator.annual_fee')}</p>
-            </div>
-            <p className={`${numFontClass(fmtEur(annualFee, 2))} font-bold text-white break-all`}>{fmtEur(annualFee, 2)}</p>
-          </div>
-        </div>
-        <div className="bg-white border border-orange-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
-          <span className="text-slate-800 font-semibold">{fmtNum(dailyRedemptions)}</span> {t('calculator.redemptions_label')} / {t('calculator.day_label')} × {fmtEur(commission, 2)} {t('calculator.fee_per_tx')} = <span className="text-orange-600 font-semibold">{fmtEur(dailyFee, 2)}</span> / {t('calculator.day_label')}
         </div>
       </div>
 
@@ -421,7 +364,9 @@ function RetailerTab({ t }) {
             <p className="text-xs text-slate-600">{t('calculator.tiers_footnote')}</p>
           </div>
 
-      <RetailerCompanySelector conversionRate={conversionRate} setConversionRate={setConversionRate} t={t} />
+      {selectedCompany && (
+        <CompanyNetworkView company={selectedCompany} conversionRate={conversionRate} t={t} />
+      )}
 
       {/* Request more information CTA */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
