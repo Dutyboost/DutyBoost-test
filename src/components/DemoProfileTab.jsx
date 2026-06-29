@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import { Building2, Download, Landmark, User, FileText, CheckCircle2, Pencil, X, Save } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -357,7 +357,7 @@ function downloadPayoutPDF(inv, entity, profile) {
   let ay = 55;
   if (profile?.address) { ay += 7; doc.text(profile.address, 20, ay); }
   if (profile?.postal_city) { ay += 7; doc.text(profile.postal_city, 20, ay); }
-  if (profile?.kvk) { ay += 7; doc.text(`KVK: ${profile.kvk}`, 20, ay); }
+  if (profile?.regNumber) { ay += 7; doc.text(`${profile.regLabel || "Registration No."}: ${profile.regNumber}`, 20, ay); }
   doc.setTextColor(80);
   ay += 7; doc.text(`Paid out: ${inv.date}`, 20, ay);
   ay += 6; doc.text(`Generated: ${new Date().toLocaleDateString("nl-NL")}`, 20, ay);
@@ -463,7 +463,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.rect(20, tableY + 6, 170, 8, "F");
   doc.setFontSize(8);
   doc.setTextColor(80);
-  doc.text("Aeropuerto", 22, tableY + 12);
+  doc.text("Airport", 22, tableY + 12);
   doc.text(cfg.vouchers, 100, tableY + 12);
   doc.text(cfg.transValue, 120, tableY + 12);
   doc.text(cfg.feeHeader, 150, tableY + 12);
@@ -544,6 +544,12 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
     : companyProfile;
 
   const [profile, setProfile] = useState({ ...initialProfile, contactName: initialProfile.contactName || entity?.contact_person || "Demo User", email: initialProfile.email || entity?.email || "demo@dutyboost.com", phone: initialProfile.phone || entity?.phone });
+
+  useEffect(() => {
+    if (entityType === "retailer" && companyProfile) {
+      setProfile({ ...companyProfile, contactName: companyProfile.contactName || entity?.contact_person || "Demo User", email: companyProfile.email || entity?.email || "demo@dutyboost.com", phone: companyProfile.phone || entity?.phone });
+    }
+  }, [companyKey, entityType]);
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
