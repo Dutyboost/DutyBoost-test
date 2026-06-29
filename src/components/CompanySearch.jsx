@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Search, Building2, Store, Check, ChevronDown, ChevronUp } from "lucide-react";
+import { Search, Store, Check, ChevronDown, ChevronUp } from "lucide-react";
 import { fmtNum } from "@/utils/formatNumber";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { computeCompanyTotals } from "@/utils/retailerCalc";
@@ -28,7 +28,7 @@ export default function CompanySearch({ selectedCompany, onSelect, conversionRat
     <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-slate-900 flex items-center justify-center gap-2">
-          <Building2 className="w-5 h-5 text-blue-600" />
+          <Store className="w-5 h-5 text-blue-600" />
           {t("calculator.company_search_title")}
         </h2>
         <p className="text-slate-600 text-sm max-w-xl mx-auto">{t("calculator.company_search_desc")}</p>

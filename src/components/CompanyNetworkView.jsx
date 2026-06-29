@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Globe, TrendingUp, Building2, Store } from "lucide-react";
+import { Globe, TrendingUp, PlaneTakeoff, Store } from "lucide-react";
 import { fmtNum, fmtEur } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount, numFontClass } from "@/utils/retailerCalc";
 
@@ -29,7 +29,7 @@ export default function CompanyNetworkView({ company, conversionRate, t }) {
       {/* Airports & stores stats */}
       <div className="grid grid-cols-2 gap-3">
         <div className="bg-slate-800 rounded-xl p-4 flex items-center gap-3">
-          <Building2 className="w-8 h-8 text-blue-400 shrink-0" />
+          <PlaneTakeoff className="w-8 h-8 text-blue-400 shrink-0" />
           <div className="min-w-0">
             <p className="text-2xl font-bold text-white leading-tight">{fmtNum(airportCount)}</p>
             <p className="text-xs text-slate-400">{t("calculator.company_airports")}</p>
