@@ -585,7 +585,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
         title={cfg.companyBilling}
         icon={Building2}
         labels={cfg}
-        form={{ company: profile.company, regNumber: profile.regNumber, address: profile.address, postal_city: profile.postal_city, website: profile.website, ...(entityType === "retailer" ? { airport: profile.airport } : {}) }}
+        form={{ company: profile.company, regNumber: profile.regNumber, address: profile.address, postal_city: profile.postal_city, website: profile.website }}
         onChange={updateField}
         fields={[
           { key: "company", label: cfg.company },
@@ -593,7 +593,6 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
           { key: "address", label: cfg.address },
           { key: "postal_city", label: cfg.postalCity },
           { key: "website", label: cfg.website },
-          ...(entityType === "retailer" ? [{ key: "airport", label: cfg.airportCode }] : []),
         ]}
       />
 
