@@ -22,7 +22,7 @@ export default {
       title_2: 'finanziellen Wert — für alle',
       subtitle_1: 'Wir erschließen den <strong>verborgenen</strong> finanziellen Wert in jedem Flug, Übernachtung und Mietwagen. Wir nennen sie <strong>The Travel Retail Conversion Layer</strong>.',
       subtitle_2: 'DutyBoost macht Reisende zu kaufbereiten Kunden Tage oder Wochen vor der Ankunft am Flughafen. Ihr Reisepartner sendet ein DutyCredit automatisch, oder sie beanspruchen es in Sekunden — ohne Konto.',
-      subtitle_3: 'Mehr passives Einkommen für Partner, mehr Konversionen für Händler. Und echte Ersparnisse für jeden Reisenden.',
+      subtitle_3: '',
       tagline: 'Warum? Weil jede Reise ein DutyCredit verdient. So einfach ist das.',
     },
     ecosystem: {
