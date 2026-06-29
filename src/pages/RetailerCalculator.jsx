@@ -693,7 +693,7 @@ export default function RetailerCalculator() {
                 : "text-slate-700 hover:text-slate-900"
             }`}
           >
-            <Store className="w-4 h-4" /> {t('calculator.tab_retailer')}
+            <Store className="w-4 h-4 text-orange-500" /> {t('calculator.tab_retailer')}
           </button>
           <button
             onClick={() => setActiveTab("partner")}

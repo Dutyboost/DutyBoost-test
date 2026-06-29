@@ -61,7 +61,7 @@ export default function CompanySearch({ selectedCompany, onSelect, conversionRat
                   }`}
                 >
                   <div className="min-w-0 flex items-center gap-3">
-                    <Store className={`w-5 h-5 shrink-0 ${isSelected ? "text-white" : "text-slate-400"}`} />
+                    <Store className={`w-5 h-5 shrink-0 ${isSelected ? "text-white" : "text-orange-500"}`} />
                     <div className="min-w-0">
                       <p className={`font-semibold truncate ${isSelected ? "text-white" : "text-slate-900"}`}>{c.name}</p>
                       <p className={`text-xs ${isSelected ? "text-blue-100" : "text-slate-500"}`}>
