@@ -22,7 +22,7 @@ export default {
        subtitle_1: 'We ontsluiten de <strong>verborgen</strong> financiële waarde in elke vlucht, overnachting en autoverhuur. We noemen het The Travel Retail Conversion Layer.',
        subtitle_2: 'DutyBoost maakt van reizigers koopklare klanten vóór de gate. Hun partner stuurt automatisch een DutyCredit, of ze claimen er een in seconden — geen account nodig.',
        subtitle_3: 'Meer passief inkomen voor partners, meer conversies voor retailers. En echte besparingen voor elke reiziger.',
-       tagline: 'Waarom? Omdat elke reis een DutyCredit verdient. Het is zo simpel.',
+       tagline: 'Waarom? Omdat elke reis een DutyCredit verdient. Zo eenvoudig is het.',
      },
     ecosystem: {
       title: '1 Oplossing, drie winnaars',
