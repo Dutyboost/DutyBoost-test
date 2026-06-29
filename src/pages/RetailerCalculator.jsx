@@ -329,41 +329,6 @@ function RetailerTab({ t }) {
 
 
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
-            <h3 className="font-bold text-slate-900 text-sm uppercase tracking-widest">{t('calculator.tiers_title')}</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-xs text-slate-600 border-b border-slate-200">
-                    <th className="pb-2 pr-4">{t('calculator.col_tier')}</th>
-                    <th className="pb-2 pr-4">{t('calculator.col_spend')}</th>
-                    <th className="pb-2 pr-4">{t('calculator.col_saving')}</th>
-                    <th className="pb-2 pr-4">{t('calculator.col_fee')}</th>
-                    <th className="pb-2">{t('calculator.col_net_pct')}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200">
-                  {TIER_BANDS.map((t) => {
-                    const midSpend = t.min === 300 ? 350 : Math.round((t.min + t.max) / 2);
-                    const midFee = Math.min(Math.round(midSpend * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
-                    const midNet = Math.round(((midSpend - t.saving - midFee) / midSpend) * 1000) / 10;
-                    const isActive = tier?.name.startsWith(t.label);
-                    return (
-                      <tr key={t.label} className={`transition-colors ${isActive ? "bg-slate-100" : ""}`}>
-                        <td className={`py-2.5 pr-4 font-medium ${t.textColor}`}>{t.label}</td>
-                        <td className="py-2.5 pr-4 text-slate-700">{fmtEur(t.min)}{t.max === 1000 ? "+" : `–${fmtEur(t.max)}`}</td>
-                        <td className="py-2.5 pr-4 text-slate-700">{fmtEur(t.saving, 2)}</td>
-                        <td className="py-2.5 pr-4 text-orange-600">{fmtEur(Math.min(t.min * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP), 2)}</td>
-                        <td className="py-2.5 text-green-600">{fmtNum(midNet, 1)}%</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-slate-600">{t('calculator.tiers_footnote')}</p>
-          </div>
-
       {selectedCompany && (
         <CompanyNetworkView company={selectedCompany} conversionRate={conversionRate} t={t} />
       )}
