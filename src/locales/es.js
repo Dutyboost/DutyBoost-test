@@ -837,7 +837,7 @@ export default {
       tab_retailer: 'Minorista aeroportuario',
       tab_partner: 'Socio de viaje',
       retailer_title: '¿Cómo se vería una transacción DutyBoost para ti?',
-      retailer_subtitle: 'Introduce un importe en euros para el tamaño de la cesta y establece el número de viajeros diarios con un DutyCredit que pasan por tu tienda para ver un desglose claro de tus ingresos netos potenciales. No hay <strong>costes de implementación, licencias de software ni cuotas de suscripción</strong>. Los minoristas solo pagan cuando se genera una <strong>venta incremental real</strong>.',
+      retailer_subtitle: 'Busca tu empresa de retail aeroportuario y rellenaremos al instante tu cesta media global y el volumen combinado de viajeros con DutyCredit en todos los aeropuertos donde operas — para ver un desglose claro del potencial de ingresos combinado de tu red. No hay <strong>costes de implementación, licencias de software ni cuotas de suscripción</strong>. DutyBoost es totalmente <strong>basado en rendimiento</strong> — los minoristas solo pagan una pequeña tarifa cuando un <strong>DutyCredit se canjea realmente</strong> en su tienda, no antes.',
       daily_travelers: 'Viajeros diarios de DutyBoost que pasan por tu tienda',
       estimated_redemptions: 'Canjes estimados (m1nd-set / ETRC)',
       conversion_rate: 'Tasa de conversión',

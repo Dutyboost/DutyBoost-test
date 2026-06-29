@@ -866,7 +866,7 @@ export default {
       tab_retailer: 'Airport Retailer',
       tab_partner: 'Travel Partner',
       retailer_title: 'What would a DutyBoost transaction look like for you?',
-      retailer_subtitle: "Select your airport and we'll instantly pre-fill your average basket spend and daily DutyCredit traveler volume — to see a clear breakdown of your potential net revenue. There are <strong>no implementation costs, software licenses, or subscription fees</strong>. DutyBoost is fully <strong>performance-based</strong> — retailers only pay a small fee when a <strong>DutyCredit is actually redeemed</strong> in their store, not before.",
+      retailer_subtitle: "Search your airport retail company and we'll instantly pre-fill your global average basket spend and combined DutyCredit traveler volume across all airports where you operate — to see a clear breakdown of your combined network revenue potential. There are <strong>no implementation costs, software licenses, or subscription fees</strong>. DutyBoost is fully <strong>performance-based</strong> — retailers only pay a small fee when a <strong>DutyCredit is actually redeemed</strong> in their store, not before.",
       daily_travelers: 'Daily DutyCredit travelers passing your store',
       estimated_redemptions: 'Estimated redemptions (m1nd-set / ETRC)',
       conversion_rate: 'Conversion rate',
