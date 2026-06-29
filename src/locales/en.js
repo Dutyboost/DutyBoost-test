@@ -18,8 +18,8 @@ export default {
     },
     hero: {
       title_1: 'Turning every travel & hospitality booking into',
-      title_2: 'revenue - for everyone',
-      subtitle: 'We are building a solution to unlock the <strong>hidden</strong> revenue in every flight, accommodation or car rental booking — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost will turn travellers into high-intent buyers before they reach their gate of departure.',
+      title_2: 'financial value — for everyone',
+      subtitle: 'We are building a solution to unlock the <strong>hidden</strong> financial value in every flight, accommodation or car rental booking — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost will turn travellers into high-intent buyers before they reach their gate of departure — whether their travel partner sends them a DutyCredit automatically, or they claim one themselves in seconds, no account needed. A new passive income stream for travel partners, more conversions for airport retailers, and real airport savings for every traveller.',
     },
     ecosystem: {
       title: '1 Solution, three winners',

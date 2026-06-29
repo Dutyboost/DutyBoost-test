@@ -19,8 +19,8 @@ export default {
     },
     hero: {
       title_1: 'Jede Online-Reise- und Hospitality-Buchung verwandeln in',
-      title_2: 'Umsatz — für alle',
-      subtitle: 'Wir entwickeln eine Lösung, um den <strong>verborgenen</strong> Umsatz in jeder Flug-, Unterkunfts- oder Mietwagenreservierung zu erschließen — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost wird Reisende in kaufbereite Käufer verwandeln, bevor sie ihr Abfluggate erreichen.',
+      title_2: 'finanziellen Wert — für alle',
+      subtitle: 'Wir entwickeln eine Lösung, um den <strong>verborgenen</strong> finanziellen Wert in jeder Flug-, Unterkunfts- oder Mietwagenreservierung zu erschließen — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost wird Reisende in kaufbereite Käufer verwandeln, bevor sie ihr Abfluggate erreichen — egal ob ihr Reisepartner ihnen automatisch ein DutyCredit sendet oder sie selbst in Sekunden eines beanspruchen, ohne Konto nötig. Ein neuer passiver Einkommensstrom für Reisepartner, mehr Konversionen für Flughafenhändler und echte Flughafenersparnisse für jeden Reisenden.',
     },
     ecosystem: {
       title: '1 Lösung, drei Gewinner',

@@ -19,8 +19,8 @@ export default {
     },
     hero: {
       title_1: 'Transformer chaque réservation de voyage et d\'hôtellerie en ligne en',
-      title_2: 'revenus — pour tout le monde',
-      subtitle: 'Nous développons une solution pour débloquer les revenus <strong>cachés</strong> dans chaque vol, hébergement ou location de voiture — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost transformera les voyageurs en acheteurs à forte intention avant qu\'ils n\'atteignent leur porte d\'embarquement.',
+      title_2: 'valeur financière — pour tout le monde',
+      subtitle: 'Nous développons une solution pour débloquer la valeur financière <strong>cachée</strong> dans chaque vol, hébergement ou location de voiture — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost transformera les voyageurs en acheteurs à forte intention avant qu\'ils n\'atteignent leur porte d\'embarquement — que leur partenaire de voyage leur envoie automatiquement un DutyCredit ou qu\'ils en réclament un eux-mêmes en quelques secondes, sans compte nécessaire. Un nouveau flux de revenus passifs pour les partenaires de voyage, plus de conversions pour les détaillants aéroportuaires et de véritables économies aéroportuaires pour chaque voyageur.',
     },
     ecosystem: {
       title: '1 Solution, trois gagnants',
