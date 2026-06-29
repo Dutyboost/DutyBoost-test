@@ -90,23 +90,27 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-16 pb-24 px-4 sm:px-6">
+      <section className="relative overflow-hidden pt-12 pb-10 px-4 sm:px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative max-w-3xl mx-auto text-center space-y-10">
+        <div className="relative max-w-3xl mx-auto text-center space-y-6">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold tracking-tight leading-tight">
             {t('hero.title_1')}{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {t('hero.title_2')}
             </span>
           </h1>
-          <div className="space-y-6">
-            <p className="text-2xl text-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
-          </div>
-          <p className="text-lg font-semibold text-primary">{t('hero.tagline')}</p>
+          <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
+        </div>
+      </section>
+
+      {/* Lead-in narrative */}
+      <section className="relative px-4 sm:px-6 pb-4">
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
+          <p className="text-base sm:text-lg font-semibold text-primary">{t('hero.tagline')}</p>
         </div>
       </section>
 
