@@ -6,8 +6,54 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 
 // ─── Region configuration ───────────────────────────────────────────────────
+
+const _enLabels = {
+  dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
+  dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · IBAN: NL91ABNA0417164300",
+  copyrightLine: "© 2026 DutyBoost. All rights reserved.",
+  kvkLine: "Chamber of Commerce (KvK): 42053181",
+  vatLine: "",
+  invoiceTitle: "Invoice",
+  retailerLabel: "Retailer",
+  issuedLabel: "Issued",
+  generatedLabel: "Generated",
+  breakdownTitle: "Redemption Breakdown by Airport",
+  vouchers: "Vouchers",
+  transValue: "Trans. Value",
+  feeHeader: "2.5% Platform Fee",
+  totalLabel: "Total",
+  feeExclVat: "",
+  vatPdf: "",
+  totalDue: "Total Due:",
+  statusLabel: "Status:",
+  footer1: "",
+  footer2: "This invoice is issued by DutyBoost B.V. for accounting purposes.",
+  accountInfo: "Account Information",
+  contactPerson: "Contact Person",
+  email: "Email",
+  company: "Company",
+  phone: "Phone Number",
+  companyBilling: "Company & Billing Details",
+  address: "Street Address",
+  postalCity: "Postal Code & City",
+  website: "Website",
+  airportCode: "Airport Code",
+  invoiceHistory: "Invoice History",
+  issued: "Issued",
+  edit: "Edit",
+  save: "Save",
+  cancel: "Cancel",
+  savedMsg: "Saved successfully!",
+  bankTitle: "Bank Account (Payout)",
+  accountHolder: "Account Holder",
+  iban: "IBAN",
+  bankOnFile: "Bank details on file:",
+  payoutHistory: "Payout History",
+  paidOut: "Paid out",
+};
 
 const REGION_CONFIG = {
   nl: {
@@ -106,6 +152,8 @@ const REGION_CONFIG = {
     payoutHistory: "Historial de pagos",
     paidOut: "Pagado",
   },
+  de: { ..._enLabels, locale: "de-DE", regKey: "regNumber", regLabel: "Commercial Register", vatLabel: "" },
+  ch: { ..._enLabels, locale: "de-CH", regKey: "regNumber", regLabel: "CHE Number", vatLabel: "" },
 };
 
 // ─── Agency profiles (NL only) ──────────────────────────────────────────────
@@ -295,9 +343,6 @@ function EditableSection({ title, icon: Icon, fields, form, onChange, labels }) 
 
 function downloadPayoutPDF(inv, entity, profile) {
   const doc = new jsPDF();
-  doc.setFontSize(20);
-  doc.setTextColor(31, 111, 255);
-  doc.text("DutyBoost", 20, 20);
   doc.setFontSize(10);
   doc.setTextColor(100);
   doc.text("DutyBoost B.V. · hello@dutyboost.com · dutyboost.com", 20, 28);
@@ -374,14 +419,19 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
   doc.text("DutyBoost B.V. · KvK: 42053181 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
 
+  const _pageCount = doc.internal.getNumberOfPages();
+  for (let _pi = 1; _pi <= _pageCount; _pi++) {
+    doc.setPage(_pi);
+    doc.setFontSize(20);
+    doc.setTextColor(31, 111, 255);
+    doc.text("DutyBoost", 105, 20, { align: "center" });
+  }
+
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
 }
 
 function downloadInvoicePDF(inv, entity, profile, cfg) {
   const doc = new jsPDF();
-  doc.setFontSize(20);
-  doc.setTextColor(31, 111, 255);
-  doc.text("DutyBoost", 20, 20);
   doc.setFontSize(9);
   doc.setTextColor(100);
   doc.text(cfg.copyrightLine, 20, 28);
@@ -397,8 +447,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   let iy = 55;
   if (profile?.address) { iy += 7; doc.text(profile.address, 20, iy); }
   if (profile?.postal_city) { iy += 7; doc.text(profile.postal_city, 20, iy); }
-  const regVal = profile?.[cfg.regKey];
-  if (regVal) { iy += 7; doc.text(`${cfg.regLabel}: ${regVal}`, 20, iy); }
+  if (profile?.regNumber) { iy += 7; doc.text(`${profile.regLabel || "Registration No."}: ${profile.regNumber}`, 20, iy); }
   doc.setTextColor(80);
   iy += 7; doc.text(`${cfg.issuedLabel}: ${inv.date}`, 20, iy);
   iy += 6; doc.text(`${cfg.generatedLabel}: ${new Date().toLocaleDateString(cfg.locale)}`, 20, iy);
@@ -472,20 +521,29 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.text(cfg.footer2, 20, ty + 7);
   doc.text(cfg.dutyboostFooter, 20, ty + 14);
 
+  const _pageCount = doc.internal.getNumberOfPages();
+  for (let _pi = 1; _pi <= _pageCount; _pi++) {
+    doc.setPage(_pi);
+    doc.setFontSize(20);
+    doc.setTextColor(31, 111, 255);
+    doc.text("DutyBoost", 105, 20, { align: "center" });
+  }
+
   doc.save(`DutyBoost_${cfg.invoiceTitle.replace(/ /g, "_")}_${inv.month.replace(/ /g, "_")}.pdf`);
 }
 
 // ─── Main component ───────────────────────────────────────────────────────
 
-export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [] }) {
+export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [], companyKey }) {
   const { t } = useTranslation();
   const cfg = REGION_CONFIG[region] || REGION_CONFIG.nl;
 
-  const initialProfile = entityType === "retailer" && region === "es"
-    ? buildEsRetailerProfile(entity)
-    : (entityType === "agency" ? AGENCY_PROFILES : RETAILER_PROFILES_NL)[entity?.id] || RETAILER_PROFILES_NL.default;
+  const companyProfile = RETAILER_COMPANY_PROFILES[companyKey] || RETAILER_COMPANY_PROFILES.lagardere;
+  const initialProfile = entityType === "agency"
+    ? AGENCY_PROFILES[entity?.id] || AGENCY_PROFILES.default
+    : companyProfile;
 
-  const [profile, setProfile] = useState({ ...initialProfile, contactName: entity?.contact_person || "Demo User", email: entity?.email || "demo@dutyboost.com", phone: entity?.phone || initialProfile.phone });
+  const [profile, setProfile] = useState({ ...initialProfile, contactName: initialProfile.contactName || entity?.contact_person || "Demo User", email: initialProfile.email || entity?.email || "demo@dutyboost.com", phone: initialProfile.phone || entity?.phone });
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
@@ -521,12 +579,11 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
         title={cfg.companyBilling}
         icon={Building2}
         labels={cfg}
-        form={{ company: profile.company, [cfg.regKey]: profile[cfg.regKey], vat: profile.vat, address: profile.address, postal_city: profile.postal_city, website: profile.website, ...(entityType === "retailer" ? { airport: profile.airport } : {}) }}
+        form={{ company: profile.company, regNumber: profile.regNumber, address: profile.address, postal_city: profile.postal_city, website: profile.website, ...(entityType === "retailer" ? { airport: profile.airport } : {}) }}
         onChange={updateField}
         fields={[
           { key: "company", label: cfg.company },
-          { key: cfg.regKey, label: cfg.regLabel },
-          { key: "vat", label: cfg.vatLabel },
+          { key: "regNumber", label: profile.regLabel || "Registration No." },
           { key: "address", label: cfg.address },
           { key: "postal_city", label: cfg.postalCity },
           { key: "website", label: cfg.website },

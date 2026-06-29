@@ -26,6 +26,7 @@ export default function DemoRetailerDashboardSpain() {
       YEARLY_DATA={YEARLY_DATA}
       defaultAirport="MAD"
       region="es"
+      companyKey="aena"
     />
   );
 }

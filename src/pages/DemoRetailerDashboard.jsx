@@ -25,6 +25,7 @@ export default function DemoRetailerDashboard() {
       YEARLY_DATA={YEARLY_DATA}
       defaultAirport="AMS"
       region="nl"
+      companyKey="lagardere"
     />
   );
 }

@@ -26,6 +26,7 @@ export default function DemoRetailerDashboardHeinemann() {
       YEARLY_DATA={YEARLY_DATA}
       defaultAirport="FRA"
       region="de"
+      companyKey="heinemann"
     />
   );
 }

@@ -26,6 +26,7 @@ export default function DemoRetailerDashboardAvolta() {
       YEARLY_DATA={YEARLY_DATA}
       defaultAirport="LHR"
       region="ch"
+      companyKey="avolta"
     />
   );
 }
