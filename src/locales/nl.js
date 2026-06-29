@@ -630,7 +630,7 @@ export default {
       goal_3pct: "DutyBoost streeft ernaar om uw conversie en mandwaarde met ten minste 3% te verhogen.",
       company_search_title: "Zoek uw luchthaven retailbedrijf",
       company_search_desc: "Vind uw bedrijf om direct het gecombineerde DutyBoost-omzetpotentieel over alle luchthavens waar u actief bent te zien.",
-      company_search_placeholder: "Typ een bedrijfsnaam (bijv. Lagardère, Avolta, Heinemann, Dufry)...",
+      company_search_placeholder: "Typ uw bedrijfsnaam...",
       company_no_results: "Geen bedrijven gevonden. Probeer een andere zoekterm.",
       company_show_all: "Toon alle {{count}} bedrijven",
       company_network_title: "Gecombineerd netwerkomzetpotentieel",

@@ -848,7 +848,7 @@ export default {
       goal_3pct: "DutyBoost aspira a aumentar tu conversión y valor de cesta en al menos un 3%.",
       company_search_title: "Busca tu empresa de retail de aeropuerto",
       company_search_desc: "Encuentra tu empresa para ver al instante el potencial de ingresos combinado de DutyBoost en todos los aeropuertos donde operas.",
-      company_search_placeholder: "Escribe el nombre de una empresa (p. ej. Lagardère, Avolta, Heinemann, Dufry)...",
+      company_search_placeholder: "Escribe el nombre de tu empresa...",
       company_no_results: "No se encontraron empresas. Prueba con otro término de búsqueda.",
       company_show_all: "Mostrar las {{count}} empresas",
       company_network_title: "Potencial de ingresos combinado de la red",

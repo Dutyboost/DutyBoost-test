@@ -618,7 +618,7 @@ export default {
       goal_3pct: "DutyBoost strebt an, Ihre Conversion und den Warenkorbwert um mindestens 3% zu erhöhen.",
       company_search_title: "Suchen Sie Ihr Flughafen-Einzelhandelsunternehmen",
       company_search_desc: "Finden Sie Ihr Unternehmen, um sofort das kombinierte DutyBoost-Umsatzpotenzial über alle Flughäfen zu sehen, an denen Sie tätig sind.",
-      company_search_placeholder: "Geben Sie einen Firmennamen ein (z. B. Lagardère, Avolta, Heinemann, Dufry)...",
+      company_search_placeholder: "Geben Sie Ihren Firmennamen ein...",
       company_no_results: "Keine Unternehmen gefunden. Versuchen Sie einen anderen Suchbegriff.",
       company_show_all: "Alle {{count}} Unternehmen anzeigen",
       company_network_title: "Kombiniertes Netzwerk-Umsatzpotenzial",
