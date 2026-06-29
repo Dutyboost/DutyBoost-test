@@ -46,7 +46,7 @@ export default function RetailerCompanySelector({ conversionRate, setConversionR
 
   const companies = useMemo(() => {
     return AIRPORT_RETAIL_COMPANIES.map((c) => {
-      const airports = c.airports.map((code) => RETAIL_AIRPORTS[code]).filter(Boolean);
+      const airports = c.airports;
       const totals = airports.reduce(
         (acc, a) => {
           const r = computeAirport(a, conversionRate);
