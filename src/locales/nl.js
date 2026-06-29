@@ -20,7 +20,7 @@ export default {
        title_1: 'Elke reis- en hospitalityboeking omzettend in',
        title_2: 'financiële waarde — voor iedereen',
        subtitle_1: 'We ontsluiten de <strong>verborgen</strong> financiële waarde in elke vlucht, overnachting en autoverhuur. We noemen het <strong>The Travel Retail Conversion Layer</strong>.',
-       subtitle_2: 'DutyBoost maakt van reizigers <strong>klanten met hoge koopintentie</strong> dagen of weken vóór aankomst op de luchthaven. Hun reispartner stuurt automatisch een DutyCredit, of ze claimen er een in seconden op het platform, zonder account nodig.',
+       subtitle_2: 'DutyBoost maakt van <strong>reizigers klanten met hoge koopintentie</strong> dagen of weken vóór aankomst op de luchthaven. Hun reispartner stuurt automatisch een DutyCredit, of ze claimen er een in seconden op het platform, zonder account nodig.',
        subtitle_3: '',
        tagline: 'Waarom? Omdat elke reis een DutyCredit verdient. Zo eenvoudig is het.',
      },
