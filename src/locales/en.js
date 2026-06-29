@@ -883,6 +883,7 @@ export default {
       company_network_title: "Combined Network Revenue Potential",
       company_network_desc: "Aggregated DutyBoost revenue across all airports where {{company}} operates.",
       company_airports: "airports",
+      company_stores: "stores",
       company_col_airport: "Airport",
       company_col_travelers: "Daily travelers",
       company_col_redemptions: "Redemptions/day",

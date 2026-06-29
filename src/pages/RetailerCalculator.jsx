@@ -87,7 +87,7 @@ function RetailerTab({ t }) {
   const [dailyTravelers, setDailyTravelers] = useState(0);
   const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
-  const [conversionRate, setConversionRate] = useState(3);
+  const [conversionRate, setConversionRate] = useState(1);
 
   const handleCompanySelect = (company) => {
     setSelectedCompany(company);

@@ -624,6 +624,7 @@ export default {
       company_network_title: "Kombiniertes Netzwerk-Umsatzpotenzial",
       company_network_desc: "Aggregierter DutyBoost-Umsatz über alle Flughäfen, an denen {{company}} tätig ist.",
       company_airports: "Flughäfen",
+      company_stores: "Geschäfte",
       company_col_airport: "Flughafen",
       company_col_travelers: "Tägliche Reisende",
       company_col_redemptions: "Einlösungen/Tag",

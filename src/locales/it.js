@@ -629,6 +629,7 @@ export default {
       company_network_title: "Potenziale di ricavi combinati della rete",
       company_network_desc: "Ricavi aggregati di DutyBoost in tutti gli aeroporti in cui opera {{company}}.",
       company_airports: "aeroporti",
+      company_stores: "negozi",
       company_col_airport: "Aeroporto",
       company_col_travelers: "Viaggiatori giornalieri",
       company_col_redemptions: "Riscatti/giorno",

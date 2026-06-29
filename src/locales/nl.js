@@ -636,6 +636,7 @@ export default {
       company_network_title: "Gecombineerd netwerkomzetpotentieel",
       company_network_desc: "Geaggregeerde DutyBoost-omzet over alle luchthavens waar {{company}} actief is.",
       company_airports: "luchthavens",
+      company_stores: "winkels",
       company_col_airport: "Luchthaven",
       company_col_travelers: "Dagelijkse reizigers",
       company_col_redemptions: "Inlossingen/dag",
