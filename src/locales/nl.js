@@ -128,7 +128,7 @@ export default {
       logout: 'Uitloggen',
       conversion_note: "ETRC- en m1nd-set benchmarks tonen aan dat 15–25% van de reizigers inkopen doet voor vertrek. DutyBoost streeft ernaar om conversie en mandwaarde met ten minste 3% te verhogen.",
       incremental_revenue_label: "Incrementele omzet:",
-      incremental_revenue_note: "De onderstaande cijfers vertegenwoordigen het doel van DutyBoost voor incrementele prestaties — een extra 3% van de reizigers die inkopen doet omdat zij vooraf zijn geactiveerd met een DutyCredit. Dit komt bovenop de bestaande baseline van 15–25% die al inkopen doet. De bruto-omzet weerspiegelt de volledige transactiewaarde van deze DutyCredit-inlossingen; netto-omzet is wat de retailer overhoudt na de reizigerskorting en platformvergoeding. Sommige van deze shoppers zouden mogelijk toch geld hebben uitgegeven, dus de werkelijke nieuwe omzet kan lager uitvallen dan de getoonde cijfers.",
+      incremental_revenue_note: "Gebaseerd op een extra 3% van de reizigers die winkelt via DutyBoost, bovenop de bestaande luchthavenwinkelrate van 15–25%. De werkelijke incrementele omzet kan variëren.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Globale Aggregatie',
       country_aggregation_title: 'Landprestaties',

@@ -168,7 +168,7 @@ export default {
       logout: 'Logout',
       conversion_note: "ETRC and m1nd-set benchmarks show that 15–25% of travelers shop before departure. DutyBoost aims to increase conversion and basket value by at least 3%.",
       incremental_revenue_label: "Incremental revenue:",
-      incremental_revenue_note: "The figures below represent DutyBoost's target for incremental performance — an additional 3% of pre-departure travelers who shop because they were pre-activated by a DutyCredit. This sits on top of the existing 15–25% baseline shopping rate. Gross revenue reflects the full transaction value of those DutyCredit redemptions; net revenue is what the retailer keeps after the traveler discount and platform fee. Some of these shoppers may have spent money anyway, so actual net-new revenue could be lower than the figures shown.",
+      incremental_revenue_note: "Based on an additional 3% of travelers shopping through DutyBoost, on top of the existing 15–25% airport shopping rate. Actual incremental revenue may vary.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Global Aggregation',
       country_aggregation_title: 'Country Performance',

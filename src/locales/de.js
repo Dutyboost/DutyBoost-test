@@ -285,7 +285,7 @@ export default {
       logout: 'Abmelden',
       conversion_note: "ETRC- und m1nd-set-Benchmarks zeigen, dass 15–25% der Reisenden vor dem Abflug einkaufen. DutyBoost strebt an, Conversion und Warenkorbwert um mindestens 3% zu erhöhen.",
       incremental_revenue_label: "Inkrementeller Umsatz:",
-      incremental_revenue_note: "Die untenstehenden Zahlen stellen DutyBoosts Ziel für inkrementelle Leistung dar — zusätzliche 3% der Reisenden, die einkaufen, weil sie durch einen DutyCredit voraktiviert wurden. Dies liegt zusätzlich zur bestehenden Basis-Kaufrate von 15–25%. Der Bruttoumsatz spiegelt den vollen Transaktionswert dieser DutyCredit-Einlösungen wider; der Nettoumsatz ist, was der Einzelhändler nach dem Rabatt für Reisende und der Plattformgebühr behält. Einige dieser Käufer hätten möglicherweise ohnehin Geld ausgegeben, sodass der tatsächliche Netto-neu-Umsatz niedriger sein könnte als die angezeigten Zahlen.",
+      incremental_revenue_note: "Basierend auf zusätzlichen 3% der Reisenden, die über DutyBoost einkaufen, zusätzlich zur bestehenden Flughafen-Einkaufsrate von 15–25%. Der tatsächliche inkrementelle Umsatz kann variieren.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregation',
       countries: 'Länder',

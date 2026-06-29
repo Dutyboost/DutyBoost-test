@@ -308,7 +308,7 @@ export default {
       logout: 'Disconnetti',
       conversion_note: "I benchmark ETRC e m1nd-set mostrano che il 15–25% dei viaggiatori fa acquisti prima della partenza. DutyBoost mira ad aumentare la conversione e il valore del carrello di almeno il 3%.",
       incremental_revenue_label: "Ricavi incrementali:",
-      incremental_revenue_note: "I dati seguenti rappresentano l'obiettivo di DutyBoost per le prestazioni incrementali — un ulteriore 3% di viaggiatori che effettua acquisti perché pre-attivato da un DutyCredit. Questo si aggiunge al tasso di acquisto base del 15–25%. I ricavi lordi riflettono il valore totale delle transazioni di questi riscatti DutyCredit; i ricavi netti sono ciò che il dettagliante conserva dopo lo sconto per il viaggiatore e la tariffa della piattaforma. Alcuni di questi acquirenti avrebbero potuto spendere denaro in ogni caso, quindi i ricavi netti effettivamente nuovi potrebbero essere inferiori ai dati mostrati.",
+      incremental_revenue_note: "Basato su un 3% aggiuntivo di viaggiatori che acquistano tramite DutyBoost, oltre al tasso di acquisto in aeroporto esistente del 15–25%. I ricavi incrementali effettivi possono variare.",
       tabs_dashboard: 'Dashboard',
       tabs_aggregation: 'Aggregazione',
       countries: 'paesi',
