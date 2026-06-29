@@ -612,7 +612,7 @@ export default {
       tab_retailer: 'Retailer aeroportuale',
       tab_partner: 'Partner di viaggio',
       retailer_title: 'Calcola il tuo potenziale di ricavi DutyBoost globale sull\'intera rete aeroportuale',
-      retailer_subtitle: "Cerca la tua azienda di retail di aeroporto, e compileremo automaticamente il valore medio del tuo carrello globale e il numero combinato di viaggiatori DutyCredit in tutti gli aeroporti dove operi—dandoti una chiara visione del tuo potenziale di ricavi su tutta la rete. Non ci sono costi di implementazione, licenze software o canoni di abbonamento. DutyBoost è completamente basato sulla performance—i rivenditori pagano solo il 2,5% quando un DutyCredit viene effettivamente riscattato in uno dei loro negozi, non prima.", // replacedi sono <strong>costi di implementazione, licenze software o canoni di abbonamento</strong>. DutyBoost è completamente <strong>basato sulle prestazioni</strong> — i retailer pagano solo una piccola commissione quando un <strong>DutyCredit viene effettivamente riscattato</strong> nel loro negozio, non prima.",
+      retailer_subtitle: "Cerca la tua azienda di retail aeroportuale per compilare automaticamente il valore del carrello e il volume di viaggiatori DutyCredit sulla tua rete. Nessun costo di configurazione, licenze o abbonamenti — solo il 2,5% per ogni riscatto effettivo. Niente finché non consegniamo.",
       daily_travelers: 'Viaggiatori DutyBoost giornalieri che passano dai tuoi negozi',
       estimated_redemptions: 'Riscatti stimati (m1nd-set / ETRC)',
       conversion_rate: 'Tasso di conversione',

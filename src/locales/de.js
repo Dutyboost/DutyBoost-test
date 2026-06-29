@@ -607,7 +607,7 @@ export default {
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
       retailer_title: 'Berechnen Sie Ihr globales DutyBoost-Umsatzpotenzial über Ihr gesamtes Flughafennetzwerk',
-      retailer_subtitle: 'Suchen Sie nach Ihrem Flughafeneinzelhandelsunternehmen, und wir füllen automatisch Ihren globalen durchschnittlichen Warenkorb und die kombinierte Anzahl der DutyCredit-Reisenden an allen Flughäfen, an denen Sie tätig sind, aus – und geben Ihnen einen klaren Überblick über Ihr netzwerkweites Ertragspotenzial. Es gibt keine Implementierungskosten, Softwarelizenzen oder Abonnementgebühren. DutyBoost ist vollständig leistungsbasiert—Einzelhändler zahlen nur 2,5%, wenn ein DutyCredit tatsächlich in einem ihrer Geschäfte eingelöst wird, nicht vorher.',
+      retailer_subtitle: 'Suchen Sie Ihr Flughafeneinzelhandelsunternehmen, um Ihren netzwerkweiten Korbwert und das DutyCredit-Reisendenvolumen automatisch auszufüllen. Keine Einrichtungskosten, keine Lizenzen, keine Abonnements — nur 2,5% pro tatsächlicher Einlösung. Nichts, bis wir liefern.',
       daily_travelers: 'Tägliche DutyBoost-Reisende an Ihren Läden',
       estimated_redemptions: 'Geschätzte Einlösungen (m1nd-set / ETRC)',
       conversion_rate: 'Konversionsrate',
