@@ -234,8 +234,12 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             })}
             vouchers={RETAILERS}
             period={period}
+            customStart={customStart}
+            customEnd={customEnd}
             entityType="retailer"
             onPeriodChange={setPeriod}
+            onCustomStartChange={setCustomStart}
+            onCustomEndChange={setCustomEnd}
           />
         ) : (<>
         {/* Welcome */}

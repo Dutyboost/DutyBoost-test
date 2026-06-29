@@ -3,23 +3,10 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, airports = [] }) {
+export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [] }) {
   const { t } = useTranslation();
-  // Filter transactions only for custom period; others use full data with divisors
-  const filteredTransactions = useMemo(() => {
-    // Only filter for custom period with dates
-    if (period === "custom" && customStart && customEnd) {
-      const start = new Date(customStart);
-      const end = new Date(customEnd); 
-      end.setDate(end.getDate() + 1);
-      return transactions.filter(t => {
-        const d = new Date(t.created_date);
-        return d >= start && d < end;
-      });
-    }
-    // For day/month/year, use all transactions and apply divisors in display
-    return transactions;
-  }, [transactions, period, customStart, customEnd]);
+  // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
+  const filteredTransactions = transactions;
 
   const aggregatedMetrics = useMemo(() => {
     let totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);
@@ -105,6 +92,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             { v: "daily", l: t('demo.daily') },
             { v: "monthly", l: t('demo.monthly') },
             { v: "yearly", l: t('demo.yearly') },
+            { v: "custom", l: t('demo.custom') },
           ].map(({ v, l }) => (
             <button
               key={v}
@@ -116,6 +104,15 @@ export default function AggregationView({ transactions, vouchers, period, custom
               {l}
             </button>
           ))}
+          {period === "custom" && (
+            <div className="flex items-center gap-2 ml-2">
+              <input type="date" value={customStart || ""} onChange={e => onCustomStartChange?.(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+              <span className="text-xs text-muted-foreground">{t('demo.to') || 'to'}</span>
+              <input type="date" value={customEnd || ""} onChange={e => onCustomEndChange?.(e.target.value)}
+                className="text-xs border border-input rounded-lg px-2 py-1.5 bg-background" />
+            </div>
+          )}
         </div>
       </div>
 
