@@ -85,7 +85,7 @@ export default function CompanyNetworkView({ company, conversionRate, t }) {
       </div>
 
       <div className="bg-slate-800 rounded-xl px-4 py-3 text-xs text-slate-400 leading-relaxed">
-        <span className="text-slate-300 font-semibold">{fmtNum(totals.totalDailyTravelers)}</span> {t("calculator.travelers_label")} → <span className="text-slate-300 font-semibold">{fmtNum(totals.dailyRedemptions)}</span> {t("calculator.redemptions_label")} / {t("calculator.day_label")}
+        <span className="text-slate-300 font-semibold">{fmtNum(totals.totalDailyTravelers)}</span> {t("calculator.travelers_label")} / {t("calculator.day_label")} → <span className="text-slate-300 font-semibold">{fmtNum(totals.dailyRedemptions)}</span> {t("calculator.redemptions_label")} / {t("calculator.day_label")}
       </div>
     </div>
   );
