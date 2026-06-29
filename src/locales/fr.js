@@ -607,7 +607,7 @@ export default {
       tab_retailer: 'Détaillant aéroportuaire',
       tab_partner: 'Partenaire de voyage',
       retailer_title: 'Calculez votre potentiel de revenus DutyBoost mondial sur l\'ensemble de votre réseau aéroportuaire',
-      retailer_subtitle: "Recherchez votre entreprise de commerce aéroportuaire et nous remplirons instantanément votre panier moyen global et le volume combiné de voyageurs DutyCredit sur tous les aéroports où vous opérez — pour une analyse claire du potentiel de revenus combiné de votre réseau. Il n'y a <strong>aucun coût d'implémentation, aucune licence logicielle ni frais d'abonnement</strong>. DutyBoost est entièrement <strong>basé sur la performance</strong> — les détaillants ne paient qu'une petite commission lorsqu'un <strong>DutyCredit est effectivement échangé</strong> dans leur magasin, et pas avant.",
+      retailer_subtitle: "Recherchez votre entreprise de commerce de détail aéroportuaire, et nous remplirons automatiquement votre panier moyen mondial et le nombre combiné de voyageurs DutyCredit sur tous les aéroports où vous opérez—vous donnant un aperçu clair de votre potentiel de revenus sur le réseau. Il n'y a pas de coûts de mise en œuvre, de licences logicielles ou de frais d'abonnement. DutyBoost est entièrement basé sur la performance—les détaillants ne paient que 2,5% lorsqu'un DutyCredit est réellement remboursé dans l'un de leurs magasins, et non avant.",
       daily_travelers: 'Voyageurs DutyBoost quotidiens passant devant vos magasins',
       estimated_redemptions: 'Échanges estimés (m1nd-set / ETRC)',
       conversion_rate: 'Taux de conversion',
