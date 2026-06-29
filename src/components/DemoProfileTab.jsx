@@ -16,7 +16,7 @@ const REGION_CONFIG = {
     regLabel: "KVK Number",
     vatLabel: "VAT Number",
     dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
-    dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300",
+    dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · IBAN: NL91ABNA0417164300",
     copyrightLine: "© 2026 DutyBoost. All rights reserved.",
     kvkLine: "Chamber of Commerce (KvK): 42053181",
     vatLine: "VAT Number: NL869492068B01",
@@ -31,7 +31,7 @@ const REGION_CONFIG = {
     totalLabel: "Total",
     feeExclVat: "Platform fee excl. VAT:",
     vatPdf: "VAT 21%:",
-    totalDue: "Total Due (incl. VAT):",
+    totalDue: "Total Due:",
     statusLabel: "Status:",
     footer1: "All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.",
     footer2: "This invoice is issued by DutyBoost B.V. for tax and accounting purposes.",
@@ -64,7 +64,7 @@ const REGION_CONFIG = {
     regLabel: "CIF",
     vatLabel: "NIF-IVA",
     dutyboostHeader: "DutyBoost Spain S.L. · hola@dutyboost.com · dutyboost.com",
-    dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300",
+    dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · IBAN: NL91ABNA0417164300",
     copyrightLine: "© 2026 DutyBoost. Todos los derechos reservados.",
     kvkLine: "Cámara de Comercio (KvK): 42053181",
     vatLine: "N.º IVA: NL869492068B01",
@@ -79,7 +79,7 @@ const REGION_CONFIG = {
     totalLabel: "Total",
     feeExclVat: "Comisión sin IVA:",
     vatPdf: "IVA 21%:",
-    totalDue: "Total a pagar (IVA incl.):",
+    totalDue: "Total a pagar:",
     statusLabel: "Estado:",
     footer1: "Todas las comisiones de DutyBoost excluyen IVA. El IVA (21%) se añade aparte como se muestra arriba.",
     footer2: "Esta factura es emitida por DutyBoost B.V. para fines fiscales y contables.",
@@ -386,7 +386,6 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setTextColor(100);
   doc.text(cfg.copyrightLine, 20, 28);
   doc.text(cfg.kvkLine, 20, 33);
-  doc.text(cfg.vatLine, 20, 38);
 
   doc.setFontSize(15);
   doc.setTextColor(31, 111, 255);
@@ -400,7 +399,6 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   if (profile?.postal_city) { iy += 7; doc.text(profile.postal_city, 20, iy); }
   const regVal = profile?.[cfg.regKey];
   if (regVal) { iy += 7; doc.text(`${cfg.regLabel}: ${regVal}`, 20, iy); }
-  if (profile?.vat) { iy += 7; doc.text(`${cfg.vatLabel}: ${profile.vat}`, 20, iy); }
   doc.setTextColor(80);
   iy += 7; doc.text(`${cfg.issuedLabel}: ${inv.date}`, 20, iy);
   iy += 6; doc.text(`${cfg.generatedLabel}: ${new Date().toLocaleDateString(cfg.locale)}`, 20, iy);
@@ -440,8 +438,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   if (ty > 250) { doc.addPage(); ty = 20; }
   const totalTrans = (inv.breakdown || []).reduce((s, r) => s + r.transactionValue, 0);
   const totalFee = inv.platformFee != null ? inv.platformFee : totalTrans * 0.025;
-  const totalVat = totalFee * 0.21;
-  const totalDue = totalFee + totalVat;
+  const totalDue = totalFee;
 
   doc.setFillColor(220, 235, 255);
   doc.rect(20, ty - 4, 170, 9, "F");
@@ -455,17 +452,6 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFont(undefined, "normal");
   ty += 14;
 
-  doc.setFontSize(10);
-  doc.setTextColor(80);
-  doc.text(cfg.feeExclVat, 110, ty);
-  doc.setTextColor(28, 28, 60);
-  doc.text(`€ ${totalFee.toFixed(2)}`, 186, ty, { align: "right" });
-  ty += 8;
-  doc.setTextColor(80);
-  doc.text(cfg.vatPdf, 110, ty);
-  doc.setTextColor(28, 28, 60);
-  doc.text(`€ ${totalVat.toFixed(2)}`, 186, ty, { align: "right" });
-  ty += 8;
   doc.setFontSize(11);
   doc.setFont(undefined, "bold");
   doc.setTextColor(31, 111, 255);
@@ -483,9 +469,8 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFontSize(9);
   doc.setTextColor(150);
   doc.line(20, ty, 190, ty);
-  doc.text(cfg.footer1, 20, ty + 7);
-  doc.text(cfg.footer2, 20, ty + 13);
-  doc.text(cfg.dutyboostFooter, 20, ty + 20);
+  doc.text(cfg.footer2, 20, ty + 7);
+  doc.text(cfg.dutyboostFooter, 20, ty + 14);
 
   doc.save(`DutyBoost_${cfg.invoiceTitle.replace(/ /g, "_")}_${inv.month.replace(/ /g, "_")}.pdf`);
 }
