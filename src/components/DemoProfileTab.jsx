@@ -421,7 +421,7 @@ function downloadPayoutPDF(inv, entity, profile) {
 
   // Add logo only on first page, centered
   doc.setPage(1);
-  doc.addImage("https://media.base44.com/images/public/69c97dcd1c1950fa88424690/39dfee0b4_UpdatedLogo.svg", "SVG", 75, 8, 60, 15);
+  doc.addImage("https://media.base44.com/images/public/69c97dcd1c1950fa88424690/c7531bda1_WhatsAppImage2026-06-01at160510.jpeg", "JPEG", 65, 8, 80, 15);
 
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
 }
@@ -519,7 +519,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
 
   // Add logo only on first page, centered
   doc.setPage(1);
-  doc.addImage("https://media.base44.com/images/public/69c97dcd1c1950fa88424690/39dfee0b4_UpdatedLogo.svg", "SVG", 75, 8, 60, 15);
+  doc.addImage("https://media.base44.com/images/public/69c97dcd1c1950fa88424690/c7531bda1_WhatsAppImage2026-06-01at160510.jpeg", "JPEG", 65, 8, 80, 15);
 
   doc.save(`DutyBoost_${cfg.invoiceTitle.replace(/ /g, "_")}_${inv.month.replace(/ /g, "_")}.pdf`);
 }
