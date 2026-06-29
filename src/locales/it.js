@@ -611,7 +611,7 @@ export default {
       subtitle: 'Che tu sia un retailer aeroportuale o un partner di viaggio — DutyBoost aggiunge un flusso di ricavi misurabile. Scegli il tuo ruolo qui sotto.',
       tab_retailer: 'Retailer aeroportuale',
       tab_partner: 'Partner di viaggio',
-      retailer_title: 'Calcola il tuo potenziale di ricavi DutyBoost globale sull\'intera rete aeroportuale',
+      retailer_title: 'Calcola il tuo potenziale di ricavi DutyBoost — dopo la commissione di piattaforma del 2,5%',
       retailer_subtitle: "Cerca la tua azienda di retail aeroportuale e compileremo istantaneamente il tuo carrello medio globale e il volume combinato di viaggiatori DutyCredit in tutti gli aeroporti in cui operi — per una ripartizione chiara del potenziale di ricavi combinati della tua rete. Non ci sono <strong>costi di implementazione, licenze software o canoni di abbonamento</strong>. DutyBoost è completamente <strong>basato sulle prestazioni</strong> — i retailer pagano solo una piccola commissione quando un <strong>DutyCredit viene effettivamente riscattato</strong> nel loro negozio, non prima.",
       daily_travelers: 'Viaggiatori DutyBoost giornalieri che passano dai tuoi negozi',
       estimated_redemptions: 'Riscatti stimati (m1nd-set / ETRC)',
