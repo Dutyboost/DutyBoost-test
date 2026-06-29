@@ -249,12 +249,6 @@ function RetailerTab({ t }) {
             </div>
           </div>
           <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(fmtNum(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
-          {selectedCompany && (
-            <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-lg px-2.5 py-1.5 mt-1">
-              <Info className="w-3 h-3 shrink-0" />
-              <span>{selectedCompany.airports.length} {t('calculator.company_airports')} — {t('calculator.basket_auto_set')}</span>
-            </div>
-          )}
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
