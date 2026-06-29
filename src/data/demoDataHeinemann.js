@@ -82,33 +82,43 @@ function retailerCount(annualPax, code) {
   const EXPLICIT = {
     "FRA": 27,   // FAR JV — 27 Heinemann stores
     "IST": 15,   // Unifree JV — major Istanbul presence
+    "AYT": 8,    // Unifree JV — Antalya resort hub
     "TLV": 8,    // ATU JV — Tel Aviv duty free
     "VIE": 6,    // Austria's largest duty free
     "OSL": 5,    // Heinemann Duty Free Norway (TRN JV)
     "CPH": 5,    // Copenhagen Heinemann stores
     "SYD": 5,    // Heinemann Duty Free Sydney
+    "MXP": 4,    // Milan Malpensa
+    "FCO": 4,    // Rome Fiumicino
+    "AUH": 4,    // Abu Dhabi
     "BER": 4,    // Berlin Brandenburg
     "HAM": 4,    // Hamburg (HQ city)
     "DUS": 4,    // Düsseldorf
     "BUD": 4,    // Budapest
+    "MEL": 4,    // Melbourne
+    "BNE": 3,    // Brisbane
+    "KEF": 3,    // Keflavík (new concession 2025)
     "HEL": 3,    // Helsinki
     "BRU": 3,    // Brussels
     "WAW": 3,    // Warsaw
-    "MEL": 4,    // Melbourne
+    "KRK": 3,    // Kraków
+    "LIS": 3,    // Lisbon
+    "RIX": 2,    // Riga
     "BGO": 2,    // Bergen
     "SVG": 2,    // Stavanger
     "TRD": 2,    // Trondheim
     "SZG": 2,    // Salzburg
     "BLQ": 2,    // Bologna
     "PRG": 2,    // Prague
-    "LIS": 3,    // Lisbon
     "OPO": 2,    // Porto
+    "FAO": 2,    // Faro
     "MLA": 2,    // Malta
     "LCA": 2,    // Larnaca
     "AKL": 2,    // Auckland
     "DTM": 1,    // Dortmund
     "HAJ": 1,    // Hanover
     "GRZ": 1,    // Graz
+    "INN": 1,    // Innsbruck
   };
   if (EXPLICIT[code]) return EXPLICIT[code];
 
@@ -147,7 +157,10 @@ function generateStoreNames(airport, count) {
   return stores;
 }
 
-// ── Heinemann airport list across ~30 countries ──────────────────────────────
+// ── Heinemann airport list — ~82 airports across 28+ countries ───────────────
+// Gebr. Heinemann operates ~300 Duty Free & Travel Value shops, licensed brand
+// boutiques and concept stores at ~78 airports in 28 countries
+// (gebr-heinemann.com / Heinemann Annual Report / heinemann-shop.com).
 // Each entry: [name, code, city, country, annual_pax]
 const HEINEMANN_AIRPORTS_RAW = [
   // ── Germany ──
@@ -157,20 +170,26 @@ const HEINEMANN_AIRPORTS_RAW = [
   ["Düsseldorf Airport", "DUS", "Düsseldorf", "Germany", 19200000],
   ["Dortmund Airport", "DTM", "Dortmund", "Germany", 3000000],
   ["Hannover Airport", "HAJ", "Hanover", "Germany", 6000000],
+  ["Stuttgart Airport", "STR", "Stuttgart", "Germany", 11000000],
+  ["Cologne Bonn Airport", "CGN", "Cologne", "Germany", 10000000],
 
   // ── Austria ──
   ["Vienna International Airport", "VIE", "Vienna", "Austria", 31700000],
   ["Salzburg Airport", "SZG", "Salzburg", "Austria", 4700000],
   ["Graz Airport", "GRZ", "Graz", "Austria", 1500000],
+  ["Innsbruck Airport", "INN", "Innsbruck", "Austria", 1000000],
 
   // ── Norway ──
   ["Oslo Airport, Gardermoen", "OSL", "Oslo", "Norway", 28500000],
   ["Bergen Airport, Flesland", "BGO", "Bergen", "Norway", 6300000],
   ["Stavanger Airport, Sola", "SVG", "Stavanger", "Norway", 4500000],
   ["Trondheim Airport, Værnes", "TRD", "Trondheim", "Norway", 4500000],
+  ["Kristiansand Airport, Kjevik", "KRS", "Kristiansand", "Norway", 1100000],
+  ["Tromsø Airport, Langnes", "TOS", "Tromsø", "Norway", 2300000],
 
   // ── Denmark ──
   ["Copenhagen Airport", "CPH", "Copenhagen", "Denmark", 30200000],
+  ["Billund Airport", "BLL", "Billund", "Denmark", 4000000],
 
   // ── Finland ──
   ["Helsinki Airport", "HEL", "Helsinki", "Finland", 15300000],
@@ -187,36 +206,102 @@ const HEINEMANN_AIRPORTS_RAW = [
 
   // ── Poland ──
   ["Warsaw Chopin Airport", "WAW", "Warsaw", "Poland", 21200000],
+  ["Kraków John Paul II Airport", "KRK", "Kraków", "Poland", 9400000],
+  ["Gdańsk Lech Wałęsa Airport", "GDN", "Gdańsk", "Poland", 5400000],
+  ["Wrocław Copernicus Airport", "WRO", "Wrocław", "Poland", 3800000],
 
   // ── Belgium ──
   ["Brussels Airport", "BRU", "Brussels", "Belgium", 22100000],
 
   // ── Italy ──
   ["Bologna Guglielmo Marconi Airport", "BLQ", "Bologna", "Italy", 10000000],
+  ["Milan Malpensa Airport", "MXP", "Milan", "Italy", 29000000],
+  ["Rome Fiumicino Airport", "FCO", "Rome", "Italy", 40000000],
 
   // ── Portugal ──
   ["Lisbon Humberto Delgado Airport", "LIS", "Lisbon", "Portugal", 33700000],
   ["Porto Airport", "OPO", "Porto", "Portugal", 15600000],
+  ["Faro Airport", "FAO", "Faro", "Portugal", 9000000],
 
   // ── Malta ──
   ["Malta International Airport", "MLA", "Luqa", "Malta", 7800000],
 
   // ── Cyprus ──
   ["Larnaca International Airport", "LCA", "Larnaca", "Cyprus", 8700000],
+  ["Paphos International Airport", "PFO", "Paphos", "Cyprus", 3000000],
+
+  // ── Switzerland ──
+  ["Zurich Airport", "ZRH", "Zurich", "Switzerland", 31800000],
+  ["Geneva Airport", "GVA", "Geneva", "Switzerland", 17800000],
+  ["EuroAirport Basel-Mulhouse", "BSL", "Basel", "Switzerland", 900000],
+
+  // ── Romania ──
+  ["Bucharest Henri Coandă Airport", "OTP", "Bucharest", "Romania", 15500000],
+  ["Cluj-Napoca Airport", "CLJ", "Cluj-Napoca", "Romania", 3000000],
+
+  // ── Ukraine ──
+  ["Boryspil International Airport", "KBP", "Kyiv", "Ukraine", 9000000],
+
+  // ── Croatia ──
+  ["Zagreb Airport", "ZAG", "Zagreb", "Croatia", 3700000],
+  ["Split Airport", "SPU", "Split", "Croatia", 3400000],
+  ["Dubrovnik Airport", "DBV", "Dubrovnik", "Croatia", 2300000],
+
+  // ── Iceland ──
+  ["Keflavík International Airport", "KEF", "Reykjavík", "Iceland", 9800000],
+
+  // ── Lithuania ──
+  ["Vilnius Airport", "VNO", "Vilnius", "Lithuania", 5000000],
+  ["Kaunas Airport", "KUN", "Kaunas", "Lithuania", 1000000],
+
+  // ── Latvia ──
+  ["Riga Airport", "RIX", "Riga", "Latvia", 7000000],
+
+  // ── Estonia ──
+  ["Tallinn Lennart Meri Airport", "TLL", "Tallinn", "Estonia", 2600000],
+
+  // ── Slovenia ──
+  ["Ljubljana Jože Pučnik Airport", "LJU", "Ljubljana", "Slovenia", 1600000],
+
+  // ── Slovakia ──
+  ["Bratislava M. R. Štefánik Airport", "BTS", "Bratislava", "Slovakia", 2300000],
+
+  // ── Bulgaria ──
+  ["Sofia Airport", "SOF", "Sofia", "Bulgaria", 7700000],
 
   // ── Turkey (Unifree JV) ──
   ["Istanbul Airport", "IST", "Istanbul", "Turkey", 64000000],
   ["Sabiha Gökçen International Airport", "SAW", "Istanbul", "Turkey", 35000000],
+  ["İzmir Adnan Menderes Airport", "ADB", "İzmir", "Turkey", 13000000],
+  ["Antalya Airport", "AYT", "Antalya", "Turkey", 35000000],
 
   // ── Israel (ATU JV) ──
   ["Ben Gurion Airport", "TLV", "Tel Aviv", "Israel", 24000000],
 
+  // ── Bahrain ──
+  ["Bahrain International Airport", "BAH", "Manama", "Bahrain", 9800000],
+
+  // ── Kuwait ──
+  ["Kuwait International Airport", "KWI", "Kuwait City", "Kuwait", 16000000],
+
+  // ── Saudi Arabia (supply + warehouse) ──
+  ["King Abdulaziz International Airport", "JED", "Jeddah", "Saudi Arabia", 41000000],
+  ["King Khalid International Airport", "RUH", "Riyadh", "Saudi Arabia", 32100000],
+  ["King Fahd International Airport", "DMM", "Dammam", "Saudi Arabia", 12000000],
+
+  // ── UAE (regional HQ Dubai) ──
+  ["Dubai International Airport", "DXB", "Dubai", "United Arab Emirates", 87100000],
+  ["Zayed International Airport", "AUH", "Abu Dhabi", "United Arab Emirates", 22000000],
+
   // ── Australia ──
   ["Sydney Kingsford Smith Airport", "SYD", "Sydney", "Australia", 44400000],
   ["Melbourne Airport", "MEL", "Melbourne", "Australia", 36700000],
+  ["Brisbane Airport", "BNE", "Brisbane", "Australia", 22000000],
+  ["Perth Airport", "PER", "Perth", "Australia", 14000000],
 
   // ── New Zealand ──
   ["Auckland Airport", "AKL", "Auckland", "New Zealand", 20500000],
+  ["Christchurch Airport", "CHC", "Christchurch", "New Zealand", 6900000],
 
   // ── Singapore (limited) ──
   ["Singapore Changi Airport", "SIN", "Singapore", "Singapore", 58900000],
@@ -224,32 +309,13 @@ const HEINEMANN_AIRPORTS_RAW = [
   // ── Hong Kong (limited) ──
   ["Hong Kong International Airport", "HKG", "Hong Kong", "Hong Kong", 47000000],
 
-  // ── Saudi Arabia (supply + warehouse) ──
-  ["King Abdulaziz International Airport", "JED", "Jeddah", "Saudi Arabia", 41000000],
-  ["King Khalid International Airport", "RUH", "Riyadh", "Saudi Arabia", 32100000],
-
-  // ── UAE (regional HQ Dubai) ──
-  ["Dubai International Airport", "DXB", "Dubai", "United Arab Emirates", 87100000],
-
-  // ── Switzerland ──
-  ["Zurich Airport", "ZRH", "Zurich", "Switzerland", 31800000],
-  ["Geneva Airport", "GVA", "Geneva", "Switzerland", 17800000],
-
-  // ── Romania ──
-  ["Bucharest Henri Coandă Airport", "OTP", "Bucharest", "Romania", 15500000],
-
-  // ── Ukraine ──
-  ["Boryspil International Airport", "KBP", "Kyiv", "Ukraine", 9000000],
-
-  // ── Croatia ──
-  ["Zagreb Airport", "ZAG", "Zagreb", "Croatia", 3700000],
-
   // ── United States (Heinemann Americas) ──
   ["Miami International Airport", "MIA", "Miami", "United States", 50000000],
 
   // ── Canada ──
   ["Toronto Pearson International Airport", "YYZ", "Toronto", "Canada", 50500000],
   ["Vancouver International Airport", "YVR", "Vancouver", "Canada", 26400000],
+  ["Montréal-Trudeau International Airport", "YUL", "Montreal", "Canada", 21000000],
 
   // ── Brazil ──
   ["São Paulo–Guarulhos International Airport", "GRU", "São Paulo", "Brazil", 42000000],
@@ -264,8 +330,11 @@ const COUNTRY_REGION = {
   "Finland": "Europe", "Sweden": "Europe", "Hungary": "Europe", "Czech Republic": "Europe",
   "Poland": "Europe", "Belgium": "Europe", "Italy": "Europe", "Portugal": "Europe",
   "Malta": "Europe", "Cyprus": "Europe", "Switzerland": "Europe", "Romania": "Europe",
-  "Ukraine": "Europe", "Croatia": "Europe",
-  "Turkey": "Middle East", "Israel": "Middle East",
+  "Ukraine": "Europe", "Croatia": "Europe", "Iceland": "Europe", "Lithuania": "Europe",
+  "Latvia": "Europe", "Estonia": "Europe", "Slovenia": "Europe", "Slovakia": "Europe",
+  "Bulgaria": "Europe",
+  "Turkey": "Middle East", "Israel": "Middle East", "Bahrain": "Middle East",
+  "Kuwait": "Middle East",
   "Saudi Arabia": "Middle East", "United Arab Emirates": "Middle East",
   "Australia": "Oceania", "New Zealand": "Oceania",
   "Singapore": "Asia", "Hong Kong": "Asia",
