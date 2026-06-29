@@ -837,7 +837,7 @@ export default {
       tab_retailer: 'Minorista aeroportuario',
       tab_partner: 'Socio de viaje',
       retailer_title: 'Calcula tu potencial de ingresos DutyBoost global en toda tu red de aeropuertos',
-      retailer_subtitle: 'Busca tu empresa de retail aeroportuario para rellenar automáticamente el valor de tu cesta y el volumen de viajeros DutyCredit en toda tu red. Sin costes de configuración, licencias ni suscripciones — solo un 2,5% por canje real. Nada hasta que entreguemos.',
+      retailer_subtitle: 'Busca tu empresa de retail aeroportuario para <strong>rellenar automáticamente el valor de tu cesta y el volumen de viajeros DutyCredit en toda tu red</strong>. <strong>Sin costes de configuración, licencias ni suscripciones</strong> — solo <strong>un 2,5% por canje real</strong>. <strong>Nada hasta que entreguemos.</strong>',
       daily_travelers: 'Viajeros diarios de DutyBoost que pasan por tus tiendas',
       estimated_redemptions: 'Canjes estimados (m1nd-set / ETRC)',
       conversion_rate: 'Tasa de conversión',

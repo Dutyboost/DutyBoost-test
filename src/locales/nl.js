@@ -619,7 +619,7 @@ export default {
       tab_retailer: 'Luchthavenretailer',
       tab_partner: 'Reispartner',
       retailer_title: 'Bereken uw wereldwijde DutyBoost-omzetpotentieel over uw gehele luchthavennetwerk',
-      retailer_subtitle: 'Zoek uw luchthaven retailbedrijf om uw netwerkbrede basketwaarde en DutyCredit-reizigers automatisch in te vullen. Geen installatiekosten, geen licenties, geen abonnementen — alleen 2,5% per werkelijke inwisseling. Niets totdat wij leveren.',
+      retailer_subtitle: 'Zoek uw luchthaven retailbedrijf om <strong>uw netwerkbrede basketwaarde en DutyCredit-reizigers automatisch in te vullen</strong>. <strong>Geen installatiekosten, geen licenties, geen abonnementen</strong> — alleen <strong>2,5% per werkelijke inwisseling</strong>. <strong>Niets totdat wij leveren.</strong>',
       daily_travelers: 'Dagelijkse DutyCredit-reizigers langs uw winkels',
       estimated_redemptions: 'Geschatte inwisselingen (m1nd-set / ETRC)',
       conversion_rate: 'Conversieratio',
