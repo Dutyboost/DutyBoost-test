@@ -19,7 +19,10 @@ export default {
     hero: {
        title_1: 'Trasforma ogni prenotazione di viaggi e ospitalità in',
        title_2: 'valore finanziario — per tutti',
-       subtitle: 'Stiamo creando una soluzione che sblocca il valore finanziario <strong>nascosto</strong> in ogni volo, soggiorno o noleggio auto — <strong>The Travel Retail Conversion Layer</strong>. DutyBoost trasforma i viaggiatori in acquirenti decisi prima di arrivare al loro gate: il loro partner di viaggio invia automaticamente un DutyCredit, oppure lo richiedono loro stessi in pochi secondi, senza account. Il risultato? Un nuovo flusso di entrate passive per i partner di viaggio, più conversioni per i retailer aeroportuali e veri risparmi in aeroporto per ogni viaggiatore.',
+       subtitle_1: 'Stiamo creando una soluzione che sblocca il valore finanziario <strong>nascosto</strong> in ogni volo, soggiorno o noleggio auto — <strong>The Travel Retail Conversion Layer</strong>.',
+       subtitle_2: 'DutyBoost trasforma i viaggiatori in acquirenti decisi prima di arrivare al loro gate: il loro partner di viaggio invia automaticamente un DutyCredit, oppure lo richiedono loro stessi in pochi secondi, senza account.',
+       subtitle_3: 'Il risultato? Un nuovo flusso di entrate passive per i partner di viaggio, più conversioni per i retailer aeroportuali e veri risparmi in aeroporto per ogni viaggiatore.',
+       tagline: 'Perché ogni viaggiatore merita un DutyCredit.',
      },
     ecosystem: {
       title: '1 Soluzione, tre vincitori',
