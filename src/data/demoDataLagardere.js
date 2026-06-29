@@ -48,7 +48,7 @@ const SCHIPHOL_STORES = [
   "Walk in Harmony", "World News", "Readshop",
   "Dutch Souvenirs (Schiphol Plaza)", "Dutch Souvenirs (Lounge 2)",
   "L'Occitane", "MAC Cosmetics",
-  "Destination Netherlands", "Schiphol Fashion", "See Buy Fly",
+  "Destination Netherlands", "Schiphol Fashion",
 ];
 
 // ── LTR retail store brands operating across all other airports (NO F&B) ────
