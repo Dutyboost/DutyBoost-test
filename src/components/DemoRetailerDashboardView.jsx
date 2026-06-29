@@ -216,7 +216,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           ))}
         </div>
 
-        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} /> : activeTab === "custom" ? (
+        {activeTab === "profile" ? <DemoProfileTab entity={selectedRetailer} entityType="retailer" region={region} retailers={RETAILERS} /> : activeTab === "custom" ? (
           <AggregationView 
             airports={AIRPORTS}
             transactions={RETAILERS.map(r => {

@@ -163,7 +163,7 @@ const RETAILER_SEASONALITY_DATA = [
   { monthKey: "month_june", dateKey: "date_july", mult: 1.10 },
 ];
 
-function buildRetailerInvoices(entity, locale, t) {
+function buildRetailerInvoices(entity, locale, t, retailers) {
   function getMonthLabel(key) {
     const monthTranslations = {
       month_march: t('months.march') || 'March 2026',
@@ -177,19 +177,34 @@ function buildRetailerInvoices(entity, locale, t) {
     };
     return monthTranslations[key] || key;
   }
-  if (!entity || !entity.redemptions || !entity.avg_sale) return [];
-  const basket = entity.avg_sale;
-  const feePerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
+  if (!retailers || retailers.length === 0) return [];
+  // Aggregate platform fee by airport — mirrors the Global Aggregation view
+  const airportMap = {};
+  retailers.forEach(r => {
+    const ap = r.airport || "—";
+    if (!airportMap[ap]) airportMap[ap] = { airport: ap, redemptions: 0, transactionValue: 0, feeBase: 0 };
+    const basket = r.avg_sale || 0;
+    const feePerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
+    airportMap[ap].redemptions += r.redemptions || 0;
+    airportMap[ap].transactionValue += basket * (r.redemptions || 0);
+    airportMap[ap].feeBase += Math.round(feePerTx * (r.redemptions || 0));
+  });
+  const airportRows = Object.values(airportMap);
   return RETAILER_SEASONALITY_DATA.map(({ monthKey, dateKey, mult }) => {
-    const redemptions = Math.round(entity.redemptions * mult);
-    const transactionValue = Math.round(redemptions * basket);
-    const platformFee = Math.round(redemptions * feePerTx * 100) / 100;
+    const breakdown = airportRows.map(a => ({
+      airport: a.airport,
+      vouchers: Math.round(a.redemptions * mult),
+      transactionValue: Math.round(a.transactionValue * mult),
+      fee: Math.round(a.feeBase * mult * 100) / 100,
+    }));
+    const platformFee = Math.round(breakdown.reduce((s, r) => s + r.fee, 0) * 100) / 100;
     return {
       month: getMonthLabel(monthKey),
       date: getMonthLabel(dateKey),
       status: "Paid",
       amount: `€ ${platformFee.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-      breakdown: [{ airport: entity.airport || "—", vouchers: redemptions, transactionValue }],
+      platformFee,
+      breakdown,
     };
   });
 }
@@ -407,9 +422,10 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.text(cfg.feeHeader, 150, tableY + 12);
 
   let ty = tableY + 22;
-  (inv.breakdown || []).forEach(({ airport, vouchers, transactionValue }, i) => {
+  (inv.breakdown || []).forEach(({ airport, vouchers, transactionValue, fee }, i) => {
+    if (ty > 270) { doc.addPage(); ty = 20; }
     if (i % 2 === 0) { doc.setFillColor(245, 249, 255); doc.rect(20, ty - 5, 170, 8, "F"); }
-    const fee = transactionValue * 0.025;
+    const rowFee = fee != null ? fee : transactionValue * 0.025;
     doc.setFontSize(8);
     doc.setTextColor(28, 28, 60);
     doc.text(airport, 22, ty);
@@ -417,12 +433,13 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
     doc.text(String(vouchers), 100, ty);
     doc.text(`€ ${transactionValue.toLocaleString(cfg.locale)}`, 120, ty);
     doc.setTextColor(31, 111, 255);
-    doc.text(`€ ${fee.toFixed(2)}`, 150, ty);
+    doc.text(`€ ${rowFee.toFixed(2)}`, 150, ty);
     ty += 8;
   });
 
+  if (ty > 250) { doc.addPage(); ty = 20; }
   const totalTrans = (inv.breakdown || []).reduce((s, r) => s + r.transactionValue, 0);
-  const totalFee = totalTrans * 0.025;
+  const totalFee = inv.platformFee != null ? inv.platformFee : totalTrans * 0.025;
   const totalVat = totalFee * 0.21;
   const totalDue = totalFee + totalVat;
 
@@ -475,7 +492,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
 
 // ─── Main component ───────────────────────────────────────────────────────
 
-export default function DemoProfileTab({ entity, entityType = "agency", region = "nl" }) {
+export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [] }) {
   const { t } = useTranslation();
   const cfg = REGION_CONFIG[region] || REGION_CONFIG.nl;
 
@@ -487,7 +504,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
-  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t) : buildAgencyInvoices(t);
+  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t, retailers) : buildAgencyInvoices(t);
 
   const [bankEditing, setBankEditing] = useState(false);
   const [bankDraft, setBankDraft] = useState({ iban: profile.iban, holder: profile.holder });
