@@ -836,7 +836,7 @@ export default {
       subtitle: 'Ya seas un minorista aeroportuario o un socio de viaje — DutyBoost añade un flujo de ingresos medible. Elige tu rol a continuación.',
       tab_retailer: 'Minorista aeroportuario',
       tab_partner: 'Socio de viaje',
-      retailer_title: 'Descubre tu potencial de ingresos DutyBoost global en toda tu red de aeropuertos',
+      retailer_title: 'Descubre cuántos ingresos incrementales podría generar DutyBoost en tu red mundial de aeropuertos',
       retailer_subtitle: 'Busca tu empresa de retail aeroportuario para rellenar automáticamente el valor de tu cesta y el volumen de viajeros DutyCredit en toda tu red. <strong>Sin costes de configuración, licencias ni suscripciones</strong> — solo <strong>un 2,5% por canje real</strong>.',
       daily_travelers: 'Viajeros diarios de DutyBoost que pasan por tus tiendas',
       estimated_redemptions: 'Canjes estimados (m1nd-set / ETRC)',
