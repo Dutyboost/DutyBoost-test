@@ -17,7 +17,7 @@ export default {
       letter_of_intent: 'Intentieverklaring',
     },
     hero: {
-       title_1: 'Zet elke reis- en hospitalityboeking om in',
+       title_1: 'Elke reis- en hospitalityboeking omzettend in',
        title_2: 'financiële waarde — voor iedereen',
        subtitle_1: 'We ontsluiten de <strong>verborgen</strong> financiële waarde in elke vlucht, overnachting en autoverhuur. We noemen het The Travel Retail Conversion Layer.',
        subtitle_2: 'DutyBoost maakt van reizigers koopklare klanten vóór de gate. Hun partner stuurt automatisch een DutyCredit, of ze claimen er een in seconden — geen account nodig.',

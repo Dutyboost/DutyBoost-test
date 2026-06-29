@@ -17,7 +17,7 @@ export default {
       letter_of_intent: 'Lettera di Intenti',
     },
     hero: {
-       title_1: 'Trasforma ogni prenotazione di viaggi e ospitalità in',
+       title_1: 'Trasformando ogni prenotazione di viaggi e ospitalità in',
        title_2: 'valore finanziario — per tutti',
        subtitle_1: 'Sblocchiamo il valore finanziario <strong>nascosto</strong> in ogni volo, soggiorno e noleggio auto. La chiamiamo The Travel Retail Conversion Layer.',
        subtitle_2: 'DutyBoost trasforma i viaggiatori in acquirenti decisi prima del gate. Il loro partner invia un DutyCredit automaticamente, o lo richiedono in secondi — senza account.',

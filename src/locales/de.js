@@ -18,7 +18,7 @@ export default {
       letter_of_intent: 'Absichtserklärung',
     },
     hero: {
-      title_1: 'Jede Online-Reise- und Hospitality-Buchung verwandeln in',
+      title_1: 'Jede Online-Reise- und Hospitality-Buchung verwandelnd in',
       title_2: 'finanziellen Wert — für alle',
       subtitle_1: 'Wir erschließen den <strong>verborgenen</strong> finanziellen Wert in jedem Flug, Übernachtung und Mietwagen. Wir nennen sie The Travel Retail Conversion Layer.',
       subtitle_2: 'DutyBoost macht Reisende zu kaufbereiten Kunden vor dem Gate. Ihr Partner sendet ein DutyCredit automatisch, oder sie beanspruchen es in Sekunden — ohne Konto.',

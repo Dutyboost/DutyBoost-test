@@ -17,7 +17,7 @@ export default {
       letter_of_intent: 'Carta de Intención',
     },
     hero: {
-       title_1: 'Convierte cada reserva de viajes y hospitalidad en',
+       title_1: 'Convirtiendo cada reserva de viajes y hospitalidad en',
        title_2: 'valor financiero — para todos',
        subtitle_1: 'Desbloqueamos el valor financiero <strong>oculto</strong> en cada vuelo, estancia y alquiler de coche. Lo llamamos The Travel Retail Conversion Layer.',
    subtitle_2: 'DutyBoost convierte a los viajeros en compradores decididos antes de su puerta de embarque. Su socio envía un DutyCredit automáticamente, o lo reclaman en segundos — sin cuenta.',
