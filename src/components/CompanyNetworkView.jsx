@@ -36,7 +36,7 @@ export default function CompanyNetworkView({ company, conversionRate, t }) {
           </div>
         </div>
         <div className="bg-slate-800 rounded-xl p-4 flex items-center gap-3">
-          <Store className="w-8 h-8 text-emerald-400 shrink-0" />
+          <Store className="w-8 h-8 text-orange-500 shrink-0" />
           <div className="min-w-0">
             <p className="text-2xl font-bold text-white leading-tight">{fmtNum(storeCount)}</p>
             <p className="text-xs text-slate-400">{t("calculator.company_stores")}</p>
