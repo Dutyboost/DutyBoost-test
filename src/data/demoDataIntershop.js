@@ -26,9 +26,9 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "ZRH", name: "Zürich Airport", city: "Zürich", country: "Switzerland", annual_pax: 31799895, stores: assignStoresToAirport(87123) },
-  { code: "GVA", name: "Geneva Airport", city: "Geneva", country: "Switzerland", annual_pax: 17799955, stores: assignStoresToAirport(48767) },
-  { code: "BSL", name: "Basel EuroAirport", city: "Basel", country: "Switzerland", annual_pax: 4745000, stores: assignStoresToAirport(13000) },
+  { code: "ZRH", name: "Zürich Airport", city: "Zürich", country: "Switzerland", daily_pax: 87123, annual_pax: 31799895, stores: assignStoresToAirport(87123) },
+  { code: "GVA", name: "Geneva Airport", city: "Geneva", country: "Switzerland", daily_pax: 48767, annual_pax: 17799955, stores: assignStoresToAirport(48767) },
+  { code: "BSL", name: "Basel EuroAirport", city: "Basel", country: "Switzerland", daily_pax: 13000, annual_pax: 4745000, stores: assignStoresToAirport(13000) },
 ];
 
 export function getIntershopRetailerData() {

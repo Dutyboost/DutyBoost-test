@@ -24,8 +24,8 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "BEG", name: "Belgrade Nikola Tesla", city: "Belgrade", country: "Serbia", annual_pax: 7499820, stores: assignStoresToAirport(20548) },
-  { code: "ZAG", name: "Zagreb Airport", city: "Zagreb", country: "Croatia", annual_pax: 3700005, stores: assignStoresToAirport(10137) },
+  { code: "BEG", name: "Belgrade Nikola Tesla", city: "Belgrade", country: "Serbia", daily_pax: 20548, annual_pax: 7499820, stores: assignStoresToAirport(20548) },
+  { code: "ZAG", name: "Zagreb Airport", city: "Zagreb", country: "Croatia", daily_pax: 10137, annual_pax: 3700005, stores: assignStoresToAirport(10137) },
 ];
 
 export function getJATRetailerData() {

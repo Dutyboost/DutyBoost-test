@@ -32,6 +32,7 @@ export const AIRPORTS_FULL = [
     name: "Dubai International",
     city: "Dubai",
     country: "United Arab Emirates",
+    daily_pax: 238630,
     annual_pax: 87000950,
     stores: assignStoresToAirport(238630),
   },

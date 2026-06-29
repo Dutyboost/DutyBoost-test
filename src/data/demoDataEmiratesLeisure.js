@@ -27,9 +27,9 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "DXB", name: "Dubai International", city: "Dubai", country: "United Arab Emirates", annual_pax: 87000950, stores: assignStoresToAirport(238630) },
-  { code: "AUH", name: "Abu Dhabi International", city: "Abu Dhabi", country: "United Arab Emirates", annual_pax: 22400050, stores: assignStoresToAirport(61370) },
-  { code: "DOH", name: "Hamad International Airport", city: "Doha", country: "Qatar", annual_pax: 45874545, stores: assignStoresToAirport(125753) },
+  { code: "DXB", name: "Dubai International", city: "Dubai", country: "United Arab Emirates", daily_pax: 238630, annual_pax: 87000950, stores: assignStoresToAirport(238630) },
+  { code: "AUH", name: "Abu Dhabi International", city: "Abu Dhabi", country: "United Arab Emirates", daily_pax: 61370, annual_pax: 22400050, stores: assignStoresToAirport(61370) },
+  { code: "DOH", name: "Hamad International Airport", city: "Doha", country: "Qatar", daily_pax: 125753, annual_pax: 45874545, stores: assignStoresToAirport(125753) },
 ];
 
 export function getEmiratesLeisureRetailerData() {

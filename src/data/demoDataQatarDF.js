@@ -30,6 +30,7 @@ export const AIRPORTS_FULL = [
     name: "Hamad International Airport",
     city: "Doha",
     country: "Qatar",
+    daily_pax: 125753,
     annual_pax: 45874545,
     stores: assignStoresToAirport(125753),
   },

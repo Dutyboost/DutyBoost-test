@@ -28,15 +28,15 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "DXB", name: "Dubai International", city: "Dubai", country: "United Arab Emirates", annual_pax: 87000950, stores: assignStoresToAirport(238630) },
-  { code: "DOH", name: "Hamad International Airport", city: "Doha", country: "Qatar", annual_pax: 45874545, stores: assignStoresToAirport(125753) },
-  { code: "MUS", name: "Muscat International", city: "Muscat", country: "Oman", annual_pax: 9999805, stores: assignStoresToAirport(27397) },
-  { code: "CMB", name: "Colombo Bandaranaike", city: "Colombo", country: "Sri Lanka", annual_pax: 7999770, stores: assignStoresToAirport(21918) },
-  { code: "NBO", name: "Nairobi Jomo Kenyatta", city: "Nairobi", country: "Kenya", annual_pax: 7399910, stores: assignStoresToAirport(20274) },
-  { code: "DAR", name: "Dar es Salaam", city: "Dar es Salaam", country: "Tanzania", annual_pax: 4380000, stores: assignStoresToAirport(12000) },
-  { code: "ACC", name: "Accra Kotoka", city: "Accra", country: "Ghana", annual_pax: 4380000, stores: assignStoresToAirport(12000) },
-  { code: "LOS", name: "Lagos Murtala Muhammed", city: "Lagos", country: "Nigeria", annual_pax: 6299900, stores: assignStoresToAirport(17260) },
-  { code: "MNL", name: "Manila Ninoy Aquino", city: "Manila", country: "Philippines", annual_pax: 45299150, stores: assignStoresToAirport(124110) },
+  { code: "DXB", name: "Dubai International", city: "Dubai", country: "United Arab Emirates", daily_pax: 238630, annual_pax: 87000950, stores: assignStoresToAirport(238630) },
+  { code: "DOH", name: "Hamad International Airport", city: "Doha", country: "Qatar", daily_pax: 125753, annual_pax: 45874545, stores: assignStoresToAirport(125753) },
+  { code: "MUS", name: "Muscat International", city: "Muscat", country: "Oman", daily_pax: 27397, annual_pax: 9999805, stores: assignStoresToAirport(27397) },
+  { code: "CMB", name: "Colombo Bandaranaike", city: "Colombo", country: "Sri Lanka", daily_pax: 21918, annual_pax: 7999770, stores: assignStoresToAirport(21918) },
+  { code: "NBO", name: "Nairobi Jomo Kenyatta", city: "Nairobi", country: "Kenya", daily_pax: 20274, annual_pax: 7399910, stores: assignStoresToAirport(20274) },
+  { code: "DAR", name: "Dar es Salaam", city: "Dar es Salaam", country: "Tanzania", daily_pax: 12000, annual_pax: 4380000, stores: assignStoresToAirport(12000) },
+  { code: "ACC", name: "Accra Kotoka", city: "Accra", country: "Ghana", daily_pax: 12000, annual_pax: 4380000, stores: assignStoresToAirport(12000) },
+  { code: "LOS", name: "Lagos Murtala Muhammed", city: "Lagos", country: "Nigeria", daily_pax: 17260, annual_pax: 6299900, stores: assignStoresToAirport(17260) },
+  { code: "MNL", name: "Manila Ninoy Aquino", city: "Manila", country: "Philippines", daily_pax: 124110, annual_pax: 45299150, stores: assignStoresToAirport(124110) },
 ];
 
 export function getFlemingoDFRetailerData() {

@@ -26,9 +26,9 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "BOG", name: "Bogotá El Dorado", city: "Bogotá", country: "Colombia", annual_pax: 35399490, stores: assignStoresToAirport(96986) },
-  { code: "CTG", name: "Cartagena", city: "Cartagena", country: "Colombia", annual_pax: 4745000, stores: assignStoresToAirport(13000) },
-  { code: "MDE", name: "Medellín", city: "Medellín", country: "Colombia", annual_pax: 4745000, stores: assignStoresToAirport(13000) },
+  { code: "BOG", name: "Bogotá El Dorado", city: "Bogotá", country: "Colombia", daily_pax: 96986, annual_pax: 35399490, stores: assignStoresToAirport(96986) },
+  { code: "CTG", name: "Cartagena", city: "Cartagena", country: "Colombia", daily_pax: 13000, annual_pax: 4745000, stores: assignStoresToAirport(13000) },
+  { code: "MDE", name: "Medellín", city: "Medellín", country: "Colombia", daily_pax: 13000, annual_pax: 4745000, stores: assignStoresToAirport(13000) },
 ];
 
 export function getRimasColombiaRetailerData() {

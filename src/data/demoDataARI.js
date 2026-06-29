@@ -29,15 +29,15 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "DUB", name: "Dublin Airport", city: "Dublin", country: "Ireland", annual_pax: 32900050, stores: assignStoresToAirport(90137) },
-  { code: "BFS", name: "Belfast International", city: "Belfast", country: "United Kingdom", annual_pax: 5999880, stores: assignStoresToAirport(16438) },
-  { code: "GLA", name: "Glasgow", city: "Glasgow", country: "United Kingdom", annual_pax: 7699040, stores: assignStoresToAirport(21096) },
-  { code: "EDI", name: "Edinburgh", city: "Edinburgh", country: "United Kingdom", annual_pax: 14500590, stores: assignStoresToAirport(39726) },
-  { code: "MAN", name: "Manchester", city: "Manchester", country: "United Kingdom", annual_pax: 29999080, stores: assignStoresToAirport(82192) },
-  { code: "CMB", name: "Colombo Bandaranaike", city: "Colombo", country: "Sri Lanka", annual_pax: 7999770, stores: assignStoresToAirport(21918) },
-  { code: "BEY", name: "Beirut Rafic Hariri", city: "Beirut", country: "Lebanon", annual_pax: 7999770, stores: assignStoresToAirport(21918) },
-  { code: "BAH", name: "Bahrain International", city: "Manama", country: "Bahrain", annual_pax: 9799885, stores: assignStoresToAirport(26849) },
-  { code: "MUS", name: "Muscat International", city: "Muscat", country: "Oman", annual_pax: 9999805, stores: assignStoresToAirport(27397) },
+  { code: "DUB", name: "Dublin Airport", city: "Dublin", country: "Ireland", daily_pax: 90137, annual_pax: 32900050, stores: assignStoresToAirport(90137) },
+  { code: "BFS", name: "Belfast International", city: "Belfast", country: "United Kingdom", daily_pax: 16438, annual_pax: 5999880, stores: assignStoresToAirport(16438) },
+  { code: "GLA", name: "Glasgow", city: "Glasgow", country: "United Kingdom", daily_pax: 21096, annual_pax: 7699040, stores: assignStoresToAirport(21096) },
+  { code: "EDI", name: "Edinburgh", city: "Edinburgh", country: "United Kingdom", daily_pax: 39726, annual_pax: 14500590, stores: assignStoresToAirport(39726) },
+  { code: "MAN", name: "Manchester", city: "Manchester", country: "United Kingdom", daily_pax: 82192, annual_pax: 29999080, stores: assignStoresToAirport(82192) },
+  { code: "CMB", name: "Colombo Bandaranaike", city: "Colombo", country: "Sri Lanka", daily_pax: 21918, annual_pax: 7999770, stores: assignStoresToAirport(21918) },
+  { code: "BEY", name: "Beirut Rafic Hariri", city: "Beirut", country: "Lebanon", daily_pax: 21918, annual_pax: 7999770, stores: assignStoresToAirport(21918) },
+  { code: "BAH", name: "Bahrain International", city: "Manama", country: "Bahrain", daily_pax: 26849, annual_pax: 9799885, stores: assignStoresToAirport(26849) },
+  { code: "MUS", name: "Muscat International", city: "Muscat", country: "Oman", daily_pax: 27397, annual_pax: 9999805, stores: assignStoresToAirport(27397) },
 ];
 
 export function getARIRetailerData() {

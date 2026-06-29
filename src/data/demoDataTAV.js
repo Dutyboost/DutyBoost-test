@@ -27,13 +27,13 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "IST", name: "Istanbul Airport", city: "Istanbul", country: "Turkey", annual_pax: 63949830, stores: assignStoresToAirport(175342) },
-  { code: "SAW", name: "Istanbul Sabiha Gökçen", city: "Istanbul", country: "Turkey", annual_pax: 34974350, stores: assignStoresToAirport(95890) },
-  { code: "TLV", name: "Tel Aviv Ben Gurion", city: "Tel Aviv", country: "Israel", annual_pax: 23999885, stores: assignStoresToAirport(65753) },
-  { code: "TBS", name: "Tbilisi International", city: "Tbilisi", country: "Georgia", annual_pax: 3285000, stores: assignStoresToAirport(9000) },
-  { code: "SKP", name: "Skopje International", city: "Skopje", country: "North Macedonia", annual_pax: 2555000, stores: assignStoresToAirport(7000) },
-  { code: "RIX", name: "Riga International", city: "Riga", country: "Latvia", annual_pax: 4745000, stores: assignStoresToAirport(13000) },
-  { code: "KIV", name: "Chișinău International", city: "Chișinău", country: "Moldova", annual_pax: 1460000, stores: assignStoresToAirport(4000) },
+  { code: "IST", name: "Istanbul Airport", city: "Istanbul", country: "Turkey", daily_pax: 175342, annual_pax: 63949830, stores: assignStoresToAirport(175342) },
+  { code: "SAW", name: "Istanbul Sabiha Gökçen", city: "Istanbul", country: "Turkey", daily_pax: 95890, annual_pax: 34974350, stores: assignStoresToAirport(95890) },
+  { code: "TLV", name: "Tel Aviv Ben Gurion", city: "Tel Aviv", country: "Israel", daily_pax: 65753, annual_pax: 23999885, stores: assignStoresToAirport(65753) },
+  { code: "TBS", name: "Tbilisi International", city: "Tbilisi", country: "Georgia", daily_pax: 9000, annual_pax: 3285000, stores: assignStoresToAirport(9000) },
+  { code: "SKP", name: "Skopje International", city: "Skopje", country: "North Macedonia", daily_pax: 7000, annual_pax: 2555000, stores: assignStoresToAirport(7000) },
+  { code: "RIX", name: "Riga International", city: "Riga", country: "Latvia", daily_pax: 13000, annual_pax: 4745000, stores: assignStoresToAirport(13000) },
+  { code: "KIV", name: "Chișinău International", city: "Chișinău", country: "Moldova", daily_pax: 4000, annual_pax: 1460000, stores: assignStoresToAirport(4000) },
 ];
 
 export function getTAVRetailerData() {

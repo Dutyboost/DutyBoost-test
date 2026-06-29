@@ -26,10 +26,10 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "ARN", name: "Stockholm Arlanda", city: "Stockholm", country: "Sweden", annual_pax: 25097455, stores: assignStoresToAirport(68767) },
-  { code: "CPH", name: "Copenhagen Airport", city: "Copenhagen", country: "Denmark", annual_pax: 30200100, stores: assignStoresToAirport(82740) },
-  { code: "OSL", name: "Oslo Gardermoen", city: "Oslo", country: "Norway", annual_pax: 28499970, stores: assignStoresToAirport(78082) },
-  { code: "HEL", name: "Helsinki Airport", city: "Helsinki", country: "Finland", annual_pax: 15299570, stores: assignStoresToAirport(41918) },
+  { code: "ARN", name: "Stockholm Arlanda", city: "Stockholm", country: "Sweden", daily_pax: 68767, annual_pax: 25097455, stores: assignStoresToAirport(68767) },
+  { code: "CPH", name: "Copenhagen Airport", city: "Copenhagen", country: "Denmark", daily_pax: 82740, annual_pax: 30200100, stores: assignStoresToAirport(82740) },
+  { code: "OSL", name: "Oslo Gardermoen", city: "Oslo", country: "Norway", daily_pax: 78082, annual_pax: 28499970, stores: assignStoresToAirport(78082) },
+  { code: "HEL", name: "Helsinki Airport", city: "Helsinki", country: "Finland", daily_pax: 41918, annual_pax: 15299570, stores: assignStoresToAirport(41918) },
 ];
 
 export function getTravelRetailSwedenData() {
