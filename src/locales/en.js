@@ -865,7 +865,7 @@ export default {
       subtitle: "Whether you're an airport retailer or a travel partner — DutyBoost adds a measurable revenue stream. Pick your role below.",
       tab_retailer: 'Airport Retailer',
       tab_partner: 'Travel Partner',
-      retailer_title: 'Calculate your global DutyBoost revenue potential across your entire airport network',
+      retailer_title: 'Discover your global DutyBoost revenue potential across your entire airport network',
       retailer_subtitle: "Search your airport retail company to auto-fill your network-wide basket value and DutyCredit traveler volume. <strong>No setup costs, no licenses, no subscriptions</strong>—just a <strong>2.5% fee per actual redemption</strong>.",
       daily_travelers: 'Daily DutyCredit travelers passing your stores',
       estimated_redemptions: 'Estimated redemptions (m1nd-set / ETRC)',

@@ -606,7 +606,7 @@ export default {
       subtitle: 'Egal ob Flughafenhändler oder Reisepartner — DutyBoost fügt einen messbaren Umsatzstrom hinzu. Wählen Sie Ihre Rolle unten.',
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
-      retailer_title: 'Berechnen Sie Ihr globales DutyBoost-Umsatzpotenzial über Ihr gesamtes Flughafennetzwerk',
+      retailer_title: 'Entdecken Sie Ihr globales DutyBoost-Umsatzpotenzial über Ihr gesamtes Flughafennetzwerk',
       retailer_subtitle: 'Suchen Sie Ihr Flughafeneinzelhandelsunternehmen, um Ihren netzwerkweiten Korbwert und das DutyCredit-Reisendenvolumen automatisch auszufüllen. <strong>Keine Einrichtungskosten, keine Lizenzen, keine Abonnements</strong> — nur <strong>2,5% pro tatsächlicher Einlösung</strong>.',
       daily_travelers: 'Tägliche DutyBoost-Reisende an Ihren Läden',
       estimated_redemptions: 'Geschätzte Einlösungen (m1nd-set / ETRC)',
