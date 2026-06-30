@@ -70,7 +70,7 @@ function retailerCount(annualPax, code) {
     // Greece (Hellenic Duty Free)
     "ATH": 20, "SKG": 8, "HER": 6, "RHO": 6, "KGS": 4, "CFU": 4, "CHQ": 4,
     "KVA": 2, "JMK": 2, "MJT": 2, "JTR": 2, "JSI": 2, "ZTH": 3,
-    "KLX": 2, "AOK": 2, "KZS": 1, "LXS": 2, "EFL": 2, "PVK": 2,
+    "KLX": 2, "AOK": 2, "KZS": 2, "LXS": 2, "EFL": 2, "PVK": 2,
     "AXD": 2, "VOL": 2, "GPA": 1,
     // Switzerland (Nuance)
     "ZRH": 15, "GVA": 8, "BSL": 6,
@@ -120,7 +120,16 @@ function retailerCount(annualPax, code) {
     // Croatia & Serbia
     "ZAG": 4, "SPU": 3, "DBV": 2, "BEG": 4,
   };
-  if (EXPLICIT[code]) return EXPLICIT[code];
+  if (EXPLICIT[code]) {
+    // Avolta is the world's largest airport retailer (~5,100 outlets) — scale
+    // up explicit store counts to reflect the full outlet footprint per airport
+    const base = EXPLICIT[code];
+    if (base >= 30) return base + Math.ceil(base * 0.17);
+    if (base >= 15) return base + 4;
+    if (base >= 8)  return base + 2;
+    if (base >= 4)  return base + 1;
+    return base;
+  }
 
   // Tiered by passenger volume — Avolta is the world's largest airport retailer,
   // so store density exceeds Lagardère at every tier
