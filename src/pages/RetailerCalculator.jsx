@@ -83,7 +83,7 @@ function RetailerTab({ t }) {
   const [spend, setSpend] = useState(0);
   const [spendInput, setSpendInput] = useState("0");
   const [spendError, setSpendError] = useState("");
-  const TRAVELER_TIERS = [0, 100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000), ...Array.from({length: 1800}, (_, i) => 1050000 + i * 5000)];
+  const TRAVELER_TIERS = [0, 100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000), ...Array.from({length: 4791}, (_, i) => 1050000 + i * 5000)];
   const [dailyTravelers, setDailyTravelers] = useState(0);
   const [travelersInput, setTravelersInput] = useState("0");
   const [travelersError, setTravelersError] = useState("");
