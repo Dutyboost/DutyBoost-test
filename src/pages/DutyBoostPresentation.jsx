@@ -95,7 +95,7 @@ export default function DutyBoostPresentation() {
         <section className="space-y-8">
           <div className="border-l-4 border-accent pl-6">
             <p className="text-xs font-bold uppercase tracking-widest text-accent mb-1">Why</p>
-            <h2 className="text-3xl font-heading font-bold">Thousands walk by daily. Most don't stop.</h2>
+            <h2 className="text-3xl font-heading font-bold">Millions walk by daily. Most don't stop.</h2>
             <p className="text-muted-foreground mt-2">Airport retail has a conversion problem. Travelers arrive with no intent to buy.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -134,7 +134,7 @@ export default function DutyBoostPresentation() {
               The DutyBoost opportunity
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              DutyBoost pre-activates just <span className="font-bold text-foreground">3%</span> of departing travelers — turning browsers into motivated buyers before they reach your store. They arrive with a DutyCredit in hand, ready to spend. You only pay when they do.
+              DutyBoost pre-activates just <span className="font-bold text-foreground">1%</span> of departing travelers — turning browsers into motivated buyers before they reach your store. They arrive with a DutyCredit in hand, ready to spend. You only pay when they do.
             </p>
           </div>
         </section>
@@ -246,7 +246,7 @@ export default function DutyBoostPresentation() {
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { title: "Store signage", desc: "Counter signage and entrance stands inform travelers that you accept DutyCredits — increasing footfall.", stat: "+3%", statLabel: "incremental conversion" },
+                { title: "Store signage", desc: "Counter signage and entrance stands inform travelers that you accept DutyCredits — increasing footfall.", stat: "+1%", statLabel: "incremental conversion" },
                 { title: "Scan & redeem", desc: "Cashier scans the traveler's QR code. Two API calls. Discount applied automatically at the till.", stat: "2 calls", statLabel: "to integrate" },
                 { title: "In-store QR stands", desc: "Place QR code signage in-store so walking travelers can claim a DutyBoost credit — increasing basket size.", stat: "+1%", statLabel: "basket uplift" },
               ].map(({ title, desc, stat, statLabel }, i) => (
@@ -273,15 +273,7 @@ export default function DutyBoostPresentation() {
 
           <div className="bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <label className="text-sm font-semibold text-muted-foreground shrink-0">Company:</label>
-            <select
-              className="text-sm border border-input rounded-lg px-3 py-2 bg-background w-full sm:max-w-md"
-              value={selectedCompanyIdx}
-              onChange={e => setSelectedCompanyIdx(Number(e.target.value))}
-            >
-              {AIRPORT_RETAIL_COMPANIES.map((c, i) => (
-                <option key={c.name} value={i}>{c.name}</option>
-              ))}
-            </select>
+            <p className="text-sm font-semibold text-foreground px-3 py-2">Crème Duty Free</p>
             <div className="flex gap-4 text-sm text-muted-foreground ml-auto">
               <span><strong className="text-foreground">{fmtNum(company.airports.length)}</strong> airports</span>
               <span><strong className="text-foreground">{fmtNum(storeCount)}</strong> stores</span>
@@ -291,12 +283,6 @@ export default function DutyBoostPresentation() {
 
           <PresentationAggregation company={company} conversionRate={conversionRate} />
 
-          <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2.5">
-            <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-            <p className="text-xs text-amber-700">
-              <span className="font-semibold">Incremental revenue:</span> These figures represent DutyBoost's target for incremental performance — an additional 3% of pre-departure travelers who shop because they were pre-activated by a DutyCredit. This sits on top of the existing 15–25% baseline shopping rate. Net revenue is what the retailer keeps after the traveler discount and platform fee (2.5%, capped at €25).
-            </p>
-          </div>
         </section>
 
         {/* WHAT — POS Implementation */}
@@ -307,11 +293,9 @@ export default function DutyBoostPresentation() {
             <p className="text-muted-foreground mt-2">Two API calls. Works with any POS system. No overhaul needed.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-1 gap-6">
             {[
-              { icon: Terminal, label: "Recommended", labelColor: "bg-green-100 text-green-700", title: "Option A — API Integration", desc: "Your POS software calls the DutyBoost API directly. Full automation, real-time validation, no manual steps. Requires a developer to add ~50 lines of code." },
-              { icon: Monitor, label: "No dev needed", labelColor: "bg-blue-100 text-blue-700", title: "Option B — DutyBoost Terminal", desc: "We provide a dedicated tablet at your till. Cashier enters or scans the code on the DutyBoost device. No changes to your existing POS." },
-              { icon: Smartphone, label: "Simple fallback", labelColor: "bg-amber-100 text-amber-700", title: "Option C — Manual Dashboard", desc: "Log into your DutyBoost retailer dashboard on any device and look up voucher codes manually. No tech integration required — best for low-volume stores." },
+              { icon: Terminal, label: "Recommended", labelColor: "bg-green-100 text-green-700", title: "Option A — API Integration", desc: "Your POS software calls the DutyBoost API directly. Full automation, real-time validation, no manual steps. Requires a developer to add 1 line of code." },
             ].map(({ icon: Icon, label, labelColor, title, desc }, i) => (
               <div key={i} className="bg-card border border-border rounded-2xl p-5 space-y-3 hover:shadow-lg transition-shadow">
                 <div className="flex items-center justify-between">
@@ -434,7 +418,7 @@ export default function DutyBoostPresentation() {
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-2">
                 <p className="text-xs font-semibold text-muted-foreground">Company</p>
-                <p className="font-semibold text-sm">{company.name}</p>
+                <p className="font-semibold text-sm">Crème Duty Free</p>
               </div>
               <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-2">
                 <p className="text-xs font-semibold text-muted-foreground">Network</p>
@@ -453,7 +437,7 @@ export default function DutyBoostPresentation() {
               <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/70">Ready to boost your retail?</p>
               <h2 className="text-3xl font-heading font-bold">Start converting voucher traffic into revenue</h2>
               <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-                Connect with our team to discuss integration, see a live demo, and see what DutyBoost can do for {company.name}.
+                Connect with our team to discuss integration, see a live demo, and see what DutyBoost can do for Crème Duty Free.
               </p>
               <div className="flex flex-wrap justify-center gap-3 pt-2">
                 <a href="mailto:rael@dutyboost.com">

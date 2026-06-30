@@ -17,7 +17,7 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
   const totals = computeCompanyTotals(company.airports, conversionRate);
   const storeCount = company.storeCount ?? computeCompanyStoreCount(company.airports);
   const airportCount = company.airports.length;
-  const companyName = company.name;
+  const companyName = "Crème Duty Free";
 
   // --- SLIDE 1: Cover ---
   {
@@ -35,7 +35,7 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
     const s = pptx.addSlide();
     s.background = { color: DARK };
     s.addText("WHY", { x: 1, y: 0.5, w: 11.3, h: 0.4, fontSize: 11, bold: true, color: "94A3B8", align: "center", fontFace: "Calibri", charSpacing: 4 });
-    s.addText("Thousands walk by daily.\nMost don't stop.", { x: 1, y: 1.1, w: 11.3, h: 1.6, fontSize: 30, bold: true, color: "F1F5F9", align: "center", fontFace: "Calibri" });
+    s.addText("Millions walk by daily.\nMost don't stop.", { x: 1, y: 1.1, w: 11.3, h: 1.6, fontSize: 30, bold: true, color: "F1F5F9", align: "center", fontFace: "Calibri" });
     const problems = [
       { title: "Low conversion", desc: "Only 15–25% of departing passengers shop at airport retail. The rest walk past your stores." },
       { title: "No pre-activation", desc: "Travelers arrive with no intent to buy. Generic ads don't influence purchase decisions." },
@@ -68,7 +68,7 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
       s.addText(label, { x: x + 0.15, y: 3.5, w: 2.7, h: 1.0, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri" });
     });
     s.addShape(pptx.ShapeType.roundRect, { x: 1.5, y: 5.3, w: 10.3, h: 1.0, fill: { color: "FFF7ED" }, line: { color: ORANGE, width: 1 }, rectRadius: 0.12 });
-    s.addText("DutyBoost pre-activates just 3% of these travelers — turning browsers into motivated buyers before they reach your store.", { x: 1.8, y: 5.4, w: 9.7, h: 0.8, fontSize: 12, color: DARK, align: "center", fontFace: "Calibri" });
+    s.addText("DutyBoost pre-activates just 1% of these travelers — turning browsers into motivated buyers before they reach your store.", { x: 1.8, y: 5.4, w: 9.7, h: 0.8, fontSize: 12, color: DARK, align: "center", fontFace: "Calibri" });
   }
 
   // --- SLIDE 4: HOW — The Ecosystem ---
@@ -142,7 +142,7 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
     s.addText("The Airport Retailer", { x: 1, y: 1.1, w: 11.3, h: 0.9, fontSize: 32, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
     s.addText("Inform passing travelers with signage. Scan them in-store. Use QR code stands to activate walkers.", { x: 1.5, y: 2.2, w: 10.3, h: 0.6, fontSize: 14, color: SLATE, align: "center", fontFace: "Calibri" });
     const wins = [
-      { title: "Store signage", desc: "Counter signage and entrance stands inform travelers that you accept DutyCredits — increasing footfall." },
+      { title: "Store signage", desc: "Counter signage and entrance stands inform travelers that you accept DutyCredits — increasing footfall.", stat: "+1%", statLabel: "incremental conversion" },
       { title: "Scan & redeem", desc: "Cashier scans the traveler's QR code. Two API calls. Discount applied automatically at the till." },
       { title: "In-store QR stands", desc: "Place QR code signage in-store so walking travelers can claim a DutyBoost credit on the spot — increasing basket size." },
     ];
@@ -196,16 +196,14 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
     s.addText("Go live in 1–2 days.", { x: 1, y: 0.95, w: 11.3, h: 0.7, fontSize: 28, bold: true, color: "F1F5F9", align: "center", fontFace: "Calibri" });
     s.addText("Two API calls. Works with any POS system. No overhaul needed.", { x: 1.5, y: 1.7, w: 10.3, h: 0.4, fontSize: 14, color: "94A3B8", align: "center", fontFace: "Calibri" });
     const options = [
-      { title: "Option A — API Integration", badge: "Recommended", desc: "Your POS calls the DutyBoost API directly. ~50 lines of code. Full automation." },
-      { title: "Option B — DutyBoost Terminal", badge: "No dev needed", desc: "We provide a tablet at your till. Cashier scans on our device. No POS changes." },
-      { title: "Option C — Manual Dashboard", badge: "Simple fallback", desc: "Look up voucher codes manually in your retailer dashboard. Best for low-volume stores." },
+      { title: "Option A — API Integration", badge: "Recommended", desc: "Your POS calls the DutyBoost API directly. 1 line of code. Full automation." },
     ];
     options.forEach(({ title, badge, desc }, i) => {
-      const x = 0.5 + i * 4.1;
-      s.addShape(pptx.ShapeType.roundRect, { x, y: 2.5, w: 3.8, h: 3.5, fill: { color: "1E293B" }, line: { color: i === 0 ? ORANGE : "334155", width: i === 0 ? 2 : 1 }, rectRadius: 0.15 });
-      s.addText(badge, { x: x + 0.2, y: 2.7, w: 3.4, h: 0.3, fontSize: 9, bold: true, color: i === 0 ? ORANGE : "94A3B8", fontFace: "Calibri", charSpacing: 1 });
-      s.addText(title, { x: x + 0.2, y: 3.1, w: 3.4, h: 0.5, fontSize: 13, bold: true, color: "F1F5F9", fontFace: "Calibri" });
-      s.addText(desc, { x: x + 0.2, y: 3.7, w: 3.4, h: 2.0, fontSize: 11, color: "94A3B8", fontFace: "Calibri", valign: "top" });
+      const x = 3.5;
+      s.addShape(pptx.ShapeType.roundRect, { x, y: 2.5, w: 5.0, h: 3.5, fill: { color: "1E293B" }, line: { color: ORANGE, width: 2 }, rectRadius: 0.15 });
+      s.addText(badge, { x: x + 0.3, y: 2.7, w: 4.4, h: 0.3, fontSize: 9, bold: true, color: ORANGE, fontFace: "Calibri", charSpacing: 1 });
+      s.addText(title, { x: x + 0.3, y: 3.1, w: 4.4, h: 0.5, fontSize: 13, bold: true, color: "F1F5F9", fontFace: "Calibri" });
+      s.addText(desc, { x: x + 0.3, y: 3.7, w: 4.4, h: 2.0, fontSize: 11, color: "94A3B8", fontFace: "Calibri", valign: "top" });
     });
     const steps = ["1. Customer presents QR", "2. Cashier scans & validates", "3. Basket entered at checkout", "4. Discount applied automatically"];
     steps.forEach((step, i) => {
