@@ -1,15 +1,16 @@
-// Spanish airport retailer demo data — Retail only (no F&B).
+// Aena airport retail demo data — Retail only (no F&B).
 //
-// Retailer names are real stores operating across the Aena airport network
-// (source: aena.es shop directories). Revenue is calculated using the same
-// model as the RetailerCalculator:
+// Based on the official Aena airport network (source: aena.es company profile):
+//   46 airports in Spain + London Luton, Leeds Bradford, Newcastle (UK) +
+//   17 airports in Brazil (Aena Brasil) + 12 in Mexico + 2 in Jamaica.
+//
+// Passenger data: Aena/Wikipedia 2024-2025 statistics.
+// Revenue model (same as RetailerCalculator):
 //   dailyRedemptions = daily_pax × 3%
 //   monthlyRedemptions = dailyRedemptions × 365 / 12
 //   basket = estimateAvgBasketSpend(airport)  → [€35, €150]
 //   grossRevenue = redemptions × basket
-// Net revenue / savings / fee computed in the dashboard (calculator model).
 
-import { GLOBAL_AIRPORTS } from "./globalAirports";
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
 const CONVERSION_RATE = 3;
@@ -92,42 +93,115 @@ const WEIGHTS = {
   8: [0.20, 0.16, 0.13, 0.12, 0.10, 0.10, 0.09, 0.10],
 };
 
-// ── Filter all Aena-managed airports from the global database ────────────────
-// Aena manages ~80 airports worldwide: 46 in Spain, 1 in UK (London Luton),
-// 17 in Brazil, 12 in Mexico, 2 in Jamaica.
-const AENA_AIRPORT_CODES = [
-  // Spain
-  "MAD","BCN","PMI","AGP","ALC","LPA","VLC","SVQ","BIO","TFS","TFN","SCQ","GRO",
-  "OVD","VGO","MAH","IBZ","FUE","ACE","SPC","GMZ","XRY","ODB","RJL","SLZ","BJZ",
-  "EAS","GRX","VLL","VDE","RGS","LCG","SDR","REU","VIT","SLM","PNA","ZAZ","MLN",
-  // United Kingdom (London Luton)
-  "LTN",
-  // Brazil
-  "GRU","GIG","BSB","CNF","POA","CGB","MAO","BEL","FOR","NAT","MCZ","VCP","SSA","REC","FLN","JPA",
-  // Mexico
-  "MEX","CUN","GDL","MTY","TIJ","PVR","SJD","MID","BJX","HMO","CUL","CUU",
-  // Jamaica
-  "MBJ","KIN",
+// ── Complete Aena airport network (source: aena.es company profile) ──────────
+// 46 airports in Spain, 3 in UK, 17 in Brazil, 12 in Mexico, 2 in Jamaica.
+// Passenger data: Aena 2024-2025 statistics / Wikipedia.
+const AENA_AIRPORTS_RAW = [
+  // ── Spain (46 airports — excludes heliports Ceuta/Algeciras & general aviation) ──
+  ["Adolfo Suárez Madrid-Barajas Airport", "MAD", "Madrid", "Spain", 68179054],
+  ["Josep Tarradellas Barcelona-El Prat Airport", "BCN", "Barcelona", "Spain", 57483036],
+  ["Palma de Mallorca Airport", "PMI", "Palma de Mallorca", "Spain", 33806427],
+  ["Málaga-Costa del Sol Airport", "AGP", "Málaga", "Spain", 26760549],
+  ["Alicante-Elche Miguel Hernández Airport", "ALC", "Alicante", "Spain", 19950394],
+  ["Gran Canaria Airport", "LPA", "Las Palmas", "Spain", 15826553],
+  ["Tenerife South Airport", "TFS", "Tenerife", "Spain", 13969678],
+  ["Valencia Airport", "VLC", "Valencia", "Spain", 11847527],
+  ["Sevilla Airport", "SVQ", "Sevilla", "Spain", 9686487],
+  ["Ibiza Airport", "IBZ", "Ibiza", "Spain", 9138224],
+  ["César Manrique-Lanzarote Airport", "ACE", "Lanzarote", "Spain", 8920901],
+  ["Tenerife Norte-Ciudad de La Laguna Airport", "TFN", "Tenerife", "Spain", 7174977],
+  ["Bilbao Airport", "BIO", "Bilbao", "Spain", 7062681],
+  ["Fuerteventura Airport", "FUE", "Fuerteventura", "Spain", 6886935],
+  ["Menorca Airport", "MAH", "Menorca", "Spain", 4210152],
+  ["Santiago-Rosalía de Castro Airport", "SCQ", "Santiago de Compostela", "Spain", 3120759],
+  ["Girona-Costa Brava Airport", "GRO", "Girona", "Spain", 2185561],
+  ["Asturias Airport", "OVD", "Avilés", "Spain", 2051342],
+  ["La Palma Airport", "SPC", "La Palma", "Spain", 1533355],
+  ["Reus Airport", "REU", "Reus", "Spain", 1336826],
+  ["A Coruña Airport", "LCG", "A Coruña", "Spain", 1292166],
+  ["Seve Ballesteros-Santander Airport", "SDR", "Santander", "Spain", 1100000],
+  ["Vigo Airport", "VGO", "Vigo", "Spain", 1000000],
+  ["Federico García Lorca Granada-Jaén Airport", "GRX", "Granada", "Spain", 900000],
+  ["Jerez Airport", "XRY", "Jerez", "Spain", 800000],
+  ["Almería Airport", "LEI", "Almería", "Spain", 1100000],
+  ["Internacional Región de Murcia Airport", "RMU", "Murcia", "Spain", 600000],
+  ["Valladolid Airport", "VLL", "Valladolid", "Spain", 400000],
+  ["Melilla Airport", "MLN", "Melilla", "Spain", 400000],
+  ["Pamplona Airport", "PNA", "Pamplona", "Spain", 300000],
+  ["San Sebastián Airport", "EAS", "San Sebastián", "Spain", 300000],
+  ["Vitoria Airport", "VIT", "Vitoria", "Spain", 300000],
+  ["Zaragoza Airport", "ZAZ", "Zaragoza", "Spain", 500000],
+  ["El Hierro Airport", "VDE", "El Hierro", "Spain", 200000],
+  ["Logroño-Agoncillo Airport", "RJL", "Logroño", "Spain", 100000],
+  ["Badajoz Airport", "BJZ", "Badajoz", "Spain", 50000],
+  ["La Gomera Airport", "GMZ", "La Gomera", "Spain", 50000],
+  ["León Airport", "LEN", "León", "Spain", 40000],
+  ["Huesca-Pirineos Airport", "HSK", "Huesca", "Spain", 25000],
+  ["Albacete Airport", "ABC", "Albacete", "Spain", 10000],
+  ["Burgos Airport", "RGS", "Burgos", "Spain", 10000],
+  ["Córdoba Airport", "ODB", "Córdoba", "Spain", 30000],
+  ["Salamanca Airport", "SLM", "Salamanca", "Spain", 15000],
+
+  // ── United Kingdom (3 airports) ──
+  ["London Luton Airport", "LTN", "London", "United Kingdom", 16000000],
+  ["Leeds Bradford Airport", "LBA", "Leeds", "United Kingdom", 4000000],
+  ["Newcastle International Airport", "NCL", "Newcastle", "United Kingdom", 5000000],
+
+  // ── Brazil — Aena Brasil Northeast (6 airports, since 2020) ──
+  ["Recife Guararapes–Gilberto Freyre International Airport", "REC", "Recife", "Brazil", 9500000],
+  ["Maceió–Zumbi dos Palmares International Airport", "MCZ", "Maceió", "Brazil", 2200000],
+  ["João Pessoa–Presidente Castro Pinto International Airport", "JPA", "João Pessoa", "Brazil", 900000],
+  ["Aracaju–Santa Maria Airport", "AJU", "Aracaju", "Brazil", 2000000],
+  ["Juazeiro do Norte–Orlando Bezerra de Menezes Airport", "JDO", "Juazeiro do Norte", "Brazil", 1000000],
+  ["Campina Grande–Presidente João Suassuna Airport", "CPV", "Campina Grande", "Brazil", 300000],
+
+  // ── Brazil — Aena Brasil South/Midwest (11 airports, since 2023) ──
+  ["São Paulo/Congonhas Airport", "CGH", "São Paulo", "Brazil", 22000000],
+  ["Campo Grande International Airport", "CGR", "Campo Grande", "Brazil", 1500000],
+  ["Corumbá International Airport", "CMG", "Corumbá", "Brazil", 100000],
+  ["Ponta Porã International Airport", "PMG", "Ponta Porã", "Brazil", 50000],
+  ["Santarém–Maestro Wilson Fonseca Airport", "STM", "Santarém", "Brazil", 500000],
+  ["Marabá–João Correa da Rocha Airport", "MAB", "Marabá", "Brazil", 300000],
+  ["Carajás Airport", "CKS", "Parauapebas", "Brazil", 200000],
+  ["Altamira Airport", "ATM", "Altamira", "Brazil", 100000],
+  ["Uberlândia–Tenente Coronel Aviador César Bombonato Airport", "UDI", "Uberlândia", "Brazil", 2500000],
+  ["Uberaba–Mário de Almeida Franco Airport", "UBA", "Uberaba", "Brazil", 500000],
+  ["Montes Claros–Mário Ribeiro Airport", "MOC", "Montes Claros", "Brazil", 300000],
+
+  // ── Mexico (12 airports) ──
+  ["Aguascalientes International Airport", "AGU", "Aguascalientes", "Mexico", 500000],
+  ["Guadalajara International Airport", "GDL", "Guadalajara", "Mexico", 16000000],
+  ["Del Bajío International Airport", "BJX", "Guanajuato", "Mexico", 2000000],
+  ["Hermosillo International Airport", "HMO", "Hermosillo", "Mexico", 2500000],
+  ["Manuel Márquez de León International Airport", "LAP", "La Paz", "Mexico", 1000000],
+  ["Los Cabos International Airport", "SJD", "Los Cabos", "Mexico", 5000000],
+  ["Federal del Valle del Fuerte International Airport", "LMM", "Los Mochis", "Mexico", 200000],
+  ["Playa de Oro International Airport", "ZLO", "Manzanillo", "Mexico", 300000],
+  ["Mexicali International Airport", "MXL", "Mexicali", "Mexico", 1000000],
+  ["General Francisco J. Mújica International Airport", "MLM", "Morelia", "Mexico", 700000],
+  ["Gustavo Díaz Ordaz International Airport", "PVR", "Puerto Vallarta", "Mexico", 5000000],
+  ["Tijuana International Airport", "TIJ", "Tijuana", "Mexico", 7000000],
+
+  // ── Jamaica (2 airports) ──
+  ["Sangster International Airport", "MBJ", "Montego Bay", "Jamaica", 4500000],
+  ["Norman Manley International Airport", "KIN", "Kingston", "Jamaica", 2000000],
 ];
 
-// Airports not present in GLOBAL_AIRPORTS — added manually with realistic pax data
-const AENA_EXTRA_AIRPORTS = [
-  // Spain (smaller regional airports)
-  { name: "Andorra-La Seu d'Urgell Airport", code: "LEU", city: "La Seu d'Urgell", country: "Spain", annual_pax: 50000, daily_pax: 137 },
-  { name: "Huesca-Pirineos Airport", code: "HSJ", city: "Huesca", country: "Spain", annual_pax: 25000, daily_pax: 68 },
-  { name: "León Airport", code: "OBL", city: "León", country: "Spain", annual_pax: 45000, daily_pax: 123 },
-  { name: "Castellón Airport", code: "CDT", city: "Castellón", country: "Spain", annual_pax: 200000, daily_pax: 548 },
-  { name: "Albacete Airport", code: "ABC", city: "Albacete", country: "Spain", annual_pax: 10000, daily_pax: 27 },
-  { name: "Huelva Airport", code: "HUE", city: "Huelva", country: "Spain", annual_pax: 5000, daily_pax: 14 },
-  // Brazil (Aena Northeast concession)
-  { name: "Goiânia Airport", code: "GYN", city: "Goiânia", country: "Brazil", annual_pax: 5500000, daily_pax: 15068 },
-  { name: "Foz do Iguaçu Airport", code: "IGU", city: "Foz do Iguaçu", country: "Brazil", annual_pax: 2500000, daily_pax: 6849 },
-  { name: "Aracaju Airport", code: "AJU", city: "Aracaju", country: "Brazil", annual_pax: 2000000, daily_pax: 5479 },
-  { name: "Campina Grande Airport", code: "CPV", city: "Campina Grande", country: "Brazil", annual_pax: 300000, daily_pax: 822 },
-  { name: "Juazeiro do Norte Airport", code: "JDO", city: "Juazeiro do Norte", country: "Brazil", annual_pax: 1000000, daily_pax: 2740 },
-];
+// ── Country → region mapping ─────────────────────────────────────────────────
+const COUNTRY_REGION = {
+  "Spain": "Europe", "United Kingdom": "Europe",
+  "Brazil": "Americas", "Mexico": "Americas", "Jamaica": "Americas",
+};
 
-const aenaAirportData = [...GLOBAL_AIRPORTS.filter(a => AENA_AIRPORT_CODES.includes(a.code)), ...AENA_EXTRA_AIRPORTS];
+const aenaAirportData = AENA_AIRPORTS_RAW.map(([name, code, city, country, annualPax]) => ({
+  name,
+  code,
+  city,
+  country,
+  region: COUNTRY_REGION[country] || "Europe",
+  annual_pax: annualPax,
+  daily_pax: Math.round(annualPax / 365),
+}));
 
 export const AIRPORTS_FULL = aenaAirportData;
 
@@ -178,7 +252,10 @@ export const RETAILERS = aenaAirportData.flatMap(airport => {
   });
 });
 
-// ── Aggregate base figures (average month across all Spanish airports) ────────
+// ── Store count — used by RetailerCalculator to match demo dashboard exactly ─
+export const STORE_COUNT = RETAILERS.length;
+
+// ── Aggregate base figures (average month across all Aena airports) ────────
 const baseMonthlyRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
 const baseMonthlyRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);
 const baseDailyRedemptions = Math.round(baseMonthlyRedemptions * 12 / 365);

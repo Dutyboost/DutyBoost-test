@@ -6,9 +6,9 @@
 // RETAIL_AIRPORTS registry below (approximate daily departing/transfer volumes).
 
 import { AIRPORTS_FULL as LTR_AIRPORTS_FULL, STORE_COUNT as LTR_STORE_COUNT } from "./demoDataLagardere";
-import { AIRPORTS_FULL as AVOLTA_AIRPORTS_FULL } from "./demoDataAvolta";
+import { AIRPORTS_FULL as AVOLTA_AIRPORTS_FULL, STORE_COUNT as AVOLTA_STORE_COUNT } from "./demoDataAvolta";
 import { AIRPORTS_FULL as HEINEMANN_AIRPORTS_FULL } from "./demoDataHeinemann";
-import { AIRPORTS_FULL as AENA_AIRPORTS_FULL } from "./demoDataSpain";
+import { AIRPORTS_FULL as AENA_AIRPORTS_FULL, STORE_COUNT as AENA_STORE_COUNT } from "./demoDataSpain";
 import { AIRPORTS_FULL as DFS_AIRPORTS_FULL } from "./demoDataDFS";
 import { AIRPORTS_FULL as LOTTE_AIRPORTS_FULL } from "./demoDataLotte";
 import { AIRPORTS_FULL as SHILLA_AIRPORTS_FULL } from "./demoDataShilla";
@@ -184,6 +184,7 @@ export const AIRPORT_RETAIL_COMPANIES = [
   {
     name: "Avolta (incl. World Duty Free, Hudson, Dufry)",
     airports: AVOLTA_AIRPORTS_FULL,
+    storeCount: AVOLTA_STORE_COUNT,
   },
   {
     name: "Gebr. Heinemann",
@@ -192,6 +193,7 @@ export const AIRPORT_RETAIL_COMPANIES = [
   {
     name: "Aena (Spanish Airport Retail)",
     airports: AENA_AIRPORTS_FULL,
+    storeCount: AENA_STORE_COUNT,
   },
   // ── Full dataset companies ──
   {
