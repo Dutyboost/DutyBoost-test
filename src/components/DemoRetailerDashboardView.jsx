@@ -8,6 +8,7 @@ import AggregationView from "./AggregationView";
 import CountryAggregation from "./CountryAggregation";
 import RedemptionHeatmap from "./RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
+import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
@@ -29,6 +30,7 @@ function calcSaving(spend) {
 
 export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey }) {
   const { t, i18n } = useTranslation();
+  const companyName = companyKey ? RETAILER_COMPANY_PROFILES[companyKey]?.company : null;
   const [, setLanguage] = useState(i18n.language);
   const [selectedAirport, setSelectedAirport] = useState(defaultAirport);
   
@@ -156,6 +158,12 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={45} />
+          {companyName && (
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-full">
+              <Store className="w-3.5 h-3.5 text-orange-500" />
+              {companyName}
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-3">
           {activeTab === "custom" ? (
@@ -219,6 +227,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {activeTab === "profile" ? <DemoProfileTab key={companyKey} entity={selectedRetailer} entityType="retailer" region={region} retailers={RETAILERS} companyKey={companyKey} /> : activeTab === "custom" ? (
           <AggregationView 
             airports={AIRPORTS}
+            companyName={companyName}
             transactions={RETAILERS.map(r => {
               const saving = calcSaving(r.avg_sale);
               const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
