@@ -255,7 +255,7 @@ function RetailerTab({ t }) {
             </div>
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
           </div>
-          <Slider min={1} max={75} step={1} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
+          <Slider min={0.5} max={75} step={0.5} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>
