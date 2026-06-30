@@ -11,7 +11,7 @@ export default function CompanySearch({ selectedCompany, onSelect, conversionRat
   const companies = useMemo(() => {
     return AIRPORT_RETAIL_COMPANIES.map((c) => {
       const totals = computeCompanyTotals(c.airports, conversionRate);
-      return { name: c.name, airports: c.airports, ...totals };
+      return { name: c.name, airports: c.airports, storeCount: c.storeCount, ...totals };
     });
   }, [conversionRate]);
 
