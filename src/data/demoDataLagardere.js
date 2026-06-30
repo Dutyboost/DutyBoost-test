@@ -746,6 +746,9 @@ export const RETAILERS = ltrAirportData.flatMap(airport => {
   });
 });
 
+// ── Store count — used by RetailerCalculator to match demo dashboard exactly ─
+export const STORE_COUNT = RETAILERS.length;
+
 // ── Aggregate base figures (average month across all LTR airports) ───────────
 const baseMonthlyRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
 const baseMonthlyRevenue = RETAILERS.reduce((s, r) => s + r.revenue, 0);

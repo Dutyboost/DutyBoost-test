@@ -5,7 +5,7 @@
 // revenue figures always match the demos. Other companies use the curated
 // RETAIL_AIRPORTS registry below (approximate daily departing/transfer volumes).
 
-import { AIRPORTS_FULL as LTR_AIRPORTS_FULL } from "./demoDataLagardere";
+import { AIRPORTS_FULL as LTR_AIRPORTS_FULL, STORE_COUNT as LTR_STORE_COUNT } from "./demoDataLagardere";
 import { AIRPORTS_FULL as AVOLTA_AIRPORTS_FULL } from "./demoDataAvolta";
 import { AIRPORTS_FULL as HEINEMANN_AIRPORTS_FULL } from "./demoDataHeinemann";
 import { AIRPORTS_FULL as AENA_AIRPORTS_FULL } from "./demoDataSpain";
@@ -179,6 +179,7 @@ export const AIRPORT_RETAIL_COMPANIES = [
   {
     name: "Lagardère Travel Retail",
     airports: LTR_AIRPORTS_FULL,
+    storeCount: LTR_STORE_COUNT,
   },
   {
     name: "Avolta (incl. World Duty Free, Hudson, Dufry)",
