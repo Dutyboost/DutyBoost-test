@@ -49,52 +49,90 @@ const LOCATION_SUFFIXES = [
   "(Departures)", "(Duty Free Area)", "(Pier A)", "(Pier B)",
 ];
 
-// ── Store count per airport — based on Avolta's actual retail presence ──────
+// ── Store count per airport — Avolta is the world's largest airport retailer
+// (~1,700 retail stores across 400+ airports in 70+ countries). Counts reflect
+// the combined footprint of World Duty Free, Dufry, Hudson, Hellenic Duty Free,
+// Nuance, and RegStaer brands at each airport.
 function retailerCount(annualPax, code) {
   const EXPLICIT = {
-    // UK (World Duty Free)
-    "LHR": 25, "LGW": 10, "STN": 6, "MAN": 8, "EDI": 6, "BHX": 5,
-    "BRS": 4, "GLA": 4, "LBA": 3, "LTN": 5, "BFS": 4, "NCL": 4,
+    // UK (World Duty Free) — LHR alone has 25+ WDF outlets across 4 terminals
+    "LHR": 45, "LGW": 20, "STN": 12, "MAN": 15, "EDI": 10, "BHX": 10,
+    "BRS": 8, "GLA": 8, "LBA": 5, "LTN": 8, "BFS": 6, "NCL": 5,
+    "EMA": 4, "BOH": 3, "HUY": 2, "NWI": 2, "SOU": 3, "DSA": 2,
+    "SEN": 2, "PIK": 2, "ABZ": 3, "CWL": 3,
     // Spain (World Duty Free)
-    "MAD": 12, "BCN": 10, "PMI": 6, "AGP": 5, "ALC": 4, "LPA": 4,
-    "TFS": 3, "VLC": 3, "SVQ": 3, "IBZ": 3, "ACE": 3, "TFN": 3,
-    // Italy
-    "MXP": 10, "LIN": 4, "BGY": 2, "NAP": 2, "FLR": 2, "GOA": 2, "PSA": 2, "VRN": 2,
+    "MAD": 40, "BCN": 35, "PMI": 18, "AGP": 15, "ALC": 10, "LPA": 10,
+    "TFS": 10, "VLC": 8, "SVQ": 8, "IBZ": 8, "ACE": 8, "TFN": 6,
+    "FUE": 6, "MAH": 6, "SCQ": 5, "GRO": 4, "OVD": 3, "SPC": 3,
+    "REU": 3, "LCG": 3, "SDR": 3, "GRX": 2, "XRY": 2, "RMU": 2,
+    // Italy (World Duty Free / Dufry)
+    "MXP": 25, "LIN": 10, "BGY": 6, "NAP": 6, "FLR": 4, "GOA": 4, "PSA": 4, "VRN": 4,
     // Greece (Hellenic Duty Free)
-    "ATH": 8, "SKG": 4, "HER": 3, "RHO": 3, "KGS": 2, "CFU": 2, "CHQ": 2,
-    // Switzerland
-    "ZRH": 6, "GVA": 3,
+    "ATH": 20, "SKG": 8, "HER": 6, "RHO": 6, "KGS": 4, "CFU": 4, "CHQ": 4,
+    "KVA": 2, "JMK": 2, "MJT": 2, "JTR": 2, "JSI": 2, "ZTH": 3,
+    "KLX": 2, "AOK": 2, "KZS": 1, "LXS": 2, "EFL": 2, "PVK": 2,
+    "AXD": 2, "VOL": 2, "GPA": 1,
+    // Switzerland (Nuance)
+    "ZRH": 15, "GVA": 8, "BSL": 6,
     // Other Europe
-    "CPH": 5, "HEL": 3, "NCE": 4, "TLS": 3,
+    "CPH": 10, "HEL": 8, "NCE": 10, "TLS": 6, "JER": 3, "JKG": 1,
     // Russia (RegStaer)
-    "DME": 5, "SVO": 5, "VKO": 3, "LED": 4,
+    "DME": 10, "SVO": 12, "VKO": 6, "LED": 8,
     // Middle East & Africa
-    "KWI": 2, "NBO": 2, "AMM": 2, "SHJ": 2, "EVN": 2,
+    "KWI": 5, "NBO": 4, "AMM": 5, "SHJ": 5, "EVN": 3, "AQJ": 2, "ABJ": 3,
+    "SID": 3, "BVC": 2, "RAI": 2,
     // Asia Pacific
-    "SIN": 3, "HKG": 6, "PVG": 5, "WUH": 4, "PUS": 2, "PNH": 2, "CMB": 2, "BLR": 3,
-    // USA (Hudson Group) — major hubs
-    "ATL": 20, "JFK": 15, "LAX": 15, "ORD": 12, "MIA": 15, "DFW": 10, "DEN": 10,
-    "BOS": 8, "LAS": 8, "MCO": 10, "EWR": 8, "PHL": 6, "IAH": 6, "PHX": 6,
-    "SEA": 6, "SFO": 6, "MSP": 5, "DTW": 5, "CLT": 8, "FLL": 5, "BWI": 4,
-    "SLC": 4, "SAN": 4, "MDW": 5, "LGA": 6, "IAD": 4, "DCA": 4,
+    "SIN": 15, "HKG": 15, "PVG": 12, "WUH": 8, "PUS": 4, "PNH": 3, "CMB": 4, "BLR": 8,
+    // USA (Hudson Group) — ATL has 50+ Hudson outlets alone
+    "ATL": 50, "JFK": 35, "LAX": 40, "ORD": 35, "MIA": 30, "DFW": 30, "DEN": 28,
+    "BOS": 20, "LAS": 25, "MCO": 25, "EWR": 22, "PHL": 15, "IAH": 18, "PHX": 18,
+    "SEA": 18, "SFO": 18, "MSP": 15, "DTW": 12, "CLT": 20, "FLL": 12, "BWI": 10,
+    "SLC": 10, "SAN": 10, "MDW": 12, "LGA": 15, "IAD": 10, "DCA": 8,
+    "BNA": 8, "MSY": 8, "PDX": 6, "SJC": 6, "TPA": 10, "PIT": 5, "CLE": 5,
+    "IND": 4, "SMF": 5, "AUS": 6, "STL": 5, "MCI": 4, "SNA": 5, "SAT": 5,
+    "RDU": 5, "CVG": 4, "CMH": 4, "RSW": 5, "HOU": 6, "OAK": 4, "OGG": 4,
+    "HNL": 8, "ONT": 4, "MKE": 4, "MEM": 4, "RIC": 3, "BHM": 2, "MDT": 2,
+    "ABQ": 3, "ANC": 3, "LIT": 2, "ACY": 2, "BUR": 3, "BTV": 1, "CHS": 3,
+    "CRP": 1, "DAL": 5, "DSM": 2, "FAT": 2, "GRR": 2, "ROC": 2, "GSP": 2,
+    "JAN": 1, "LBB": 1, "MHT": 2, "MOB": 1, "MYR": 2, "PHF": 1, "ORF": 2,
+    "OMA": 2, "SFB": 2, "PBI": 4, "PSP": 3, "PNS": 2, "PWM": 2, "ROA": 1,
+    "SAV": 3, "PIE": 2, "SWF": 1, "TUS": 2, "TUL": 2, "OKC": 3, "COS": 2,
+    "ELP": 2, "JAX": 3, "SDF": 3, "XNA": 2, "TYS": 2, "RNO": 3, "BOI": 2,
+    "BDL": 4, "CAE": 2, "DAY": 2, "MSN": 2, "HSV": 2,
     // Canada (Hudson)
-    "YYZ": 6, "YVR": 4, "YUL": 3, "YYC": 3, "YOW": 2,
+    "YYZ": 15, "YVR": 12, "YUL": 10, "YYC": 8, "YOW": 5, "YTZ": 3,
     // Latin America (Dufry)
-    "GRU": 6, "GIG": 4, "EZE": 4, "MVD": 2, "SCL": 4, "GYE": 2,
+    "GRU": 15, "GIG": 10, "BSB": 8, "CNF": 6, "SSA": 6, "POA": 5, "FOR": 5,
+    "CWB": 5, "REC": 5, "FLN": 3, "BEL": 3, "MAO": 3, "GYN": 3, "VIX": 2,
+    "NAT": 2, "CGB": 2,
+    "EZE": 10, "AEP": 8, "BRC": 3, "COR": 3, "MDZ": 2, "ROS": 2,
+    "MVD": 5, "SCL": 10, "GYE": 4, "UIO": 4, "LPB": 3,
+    "BOG": 8, "CTG": 4, "MDE": 4, "CLO": 3, "LIM": 8, "ASU": 3,
     // Mexico
-    "MEX": 4, "CUN": 4, "GDL": 3, "MTY": 3, "PVR": 3, "SJD": 3,
-    // Caribbean
-    "AUA": 2, "ANU": 1, "NAS": 1, "BGI": 1, "POP": 1,
-    // Tunisia (15 stores across 5 airports)
-    "TUN": 4, "DJE": 2, "MIR": 2,
+    "MEX": 10, "CUN": 12, "GDL": 6, "MTY": 6, "PVR": 6, "SJD": 6,
+    "ACA": 2, "CZM": 2, "BJX": 2, "ZIH": 2, "MZT": 2,
+    // Central America & Caribbean
+    "SJO": 4, "GUA": 3, "PTY": 8, "SAL": 2, "SAP": 2, "MGA": 2,
+    "AUA": 4, "ANU": 3, "NAS": 4, "BGI": 3, "POP": 3, "SXM": 3, "CUR": 3,
+    "GND": 2, "UVF": 2, "SKB": 2, "DOM": 1, "EIS": 1, "GDT": 1,
+    // Tunisia
+    "TUN": 6, "DJE": 4, "MIR": 4, "SFA": 2, "TZE": 2,
+    // Croatia & Serbia
+    "ZAG": 4, "SPU": 3, "DBV": 2, "BEG": 4,
   };
   if (EXPLICIT[code]) return EXPLICIT[code];
 
-  if (annualPax >= 60_000_000) return 6;
-  if (annualPax >= 30_000_000) return 4;
-  if (annualPax >= 15_000_000) return 3;
-  if (annualPax >= 5_000_000)  return 2;
-  return 1;
+  // Tiered by passenger volume — Avolta is the world's largest retailer
+  if (annualPax >= 80_000_000) return 25;
+  if (annualPax >= 60_000_000) return 18;
+  if (annualPax >= 40_000_000) return 12;
+  if (annualPax >= 30_000_000) return 8;
+  if (annualPax >= 20_000_000) return 6;
+  if (annualPax >= 15_000_000) return 5;
+  if (annualPax >= 10_000_000) return 4;
+  if (annualPax >= 5_000_000)  return 3;
+  if (annualPax >= 1_000_000)  return 2;
+  return 2;
 }
 
 // ── Zipf-like weight distribution ───────────────────────────────────────────
@@ -482,6 +520,139 @@ const AVOLTA_AIRPORTS_RAW = [
 
   // ── Bolivia ──
   ["El Alto International Airport", "LPB", "La Paz", "Bolivia", 2000000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // ADDITIONAL AIRPORTS — Post-2022 expansion & brochure completeness
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Colombia (Dufry South America) ──
+  ["El Dorado International Airport", "BOG", "Bogotá", "Colombia", 35000000],
+  ["Rafael Núñez International Airport", "CTG", "Cartagena", "Colombia", 5000000],
+  ["José María Córdova International Airport", "MDE", "Medellín", "Colombia", 7000000],
+  ["Alfonso Bonilla Aragón International Airport", "CLO", "Cali", "Colombia", 3000000],
+
+  // ── Peru ──
+  ["Jorge Chávez International Airport", "LIM", "Lima", "Peru", 23000000],
+
+  // ── Paraguay ──
+  ["Silvio Pettirossi International Airport", "ASU", "Asunción", "Paraguay", 1000000],
+
+  // ── Costa Rica ──
+  ["Juan Santamaría International Airport", "SJO", "San José", "Costa Rica", 5000000],
+
+  // ── Guatemala ──
+  ["La Aurora International Airport", "GUA", "Guatemala City", "Guatemala", 3000000],
+
+  // ── Panama ──
+  ["Tocumen International Airport", "PTY", "Panama City", "Panama", 16000000],
+
+  // ── El Salvador ──
+  ["Monseñor Óscar Arnulfo Romero International Airport", "SAL", "San Salvador", "El Salvador", 2000000],
+
+  // ── Honduras ──
+  ["Ramón Villeda Morales International Airport", "SAP", "San Pedro Sula", "Honduras", 1000000],
+
+  // ── Nicaragua ──
+  ["Augusto C. Sandino International Airport", "MGA", "Managua", "Nicaragua", 1000000],
+
+  // ── Caribbean (Dufry) ──
+  ["Princess Juliana International Airport", "SXM", "Sint Maarten", "Sint Maarten", 1500000],
+  ["Curaçao International Airport", "CUR", "Willemstad", "Curaçao", 2000000],
+  ["Maurice Bishop International Airport", "GND", "St. George's", "Grenada", 500000],
+  ["Hewanorra International Airport", "UVF", "Vieux Fort", "Saint Lucia", 500000],
+  ["Robert L. Bradshaw International Airport", "SKB", "Basseterre", "Saint Kitts and Nevis", 300000],
+  ["Douglas-Charles Airport", "DOM", "Marigot", "Dominica", 100000],
+  ["Terrance B. Lettsome International Airport", "EIS", "Tortola", "British Virgin Islands", 200000],
+
+  // ── Croatia (Dufry) ──
+  ["Zagreb Airport", "ZAG", "Zagreb", "Croatia", 3500000],
+  ["Split Airport", "SPU", "Split", "Croatia", 3000000],
+  ["Dubrovnik Airport", "DBV", "Dubrovnik", "Croatia", 2000000],
+
+  // ── Serbia (Dufry) ──
+  ["Belgrade Nikola Tesla Airport", "BEG", "Belgrade", "Serbia", 3500000],
+
+  // ── Brazil — additional Dufry South America airports ──
+  ["Belém/Val de Cans International Airport", "BEL", "Belém", "Brazil", 3000000],
+  ["Manaus/Eduardo Gomes International Airport", "MAO", "Manaus", "Brazil", 3000000],
+  ["Goiânia/Santa Genoveva Airport", "GYN", "Goiânia", "Brazil", 3000000],
+  ["Vitória Airport", "VIX", "Vitória", "Brazil", 2000000],
+  ["Greater Natal International Airport", "NAT", "Natal", "Brazil", 2000000],
+  ["Marechal Rondon International Airport", "CGB", "Cuiabá", "Brazil", 1500000],
+
+  // ── Argentina — additional Duty Free Shop Argentina airports ──
+  ["Martín Miguel de Güemes International Airport", "SLA", "Salta", "Argentina", 500000],
+  ["Cataratas del Iguazú International Airport", "IGR", "Puerto Iguazú", "Argentina", 500000],
+  ["Malvinas Argentinas International Airport", "USH", "Ushuaia", "Argentina", 300000],
+  ["General Enrique Mosconi International Airport", "CRD", "Comodoro Rivadavia", "Argentina", 400000],
+  ["Comandante Armando Tola International Airport", "FTE", "El Calafate", "Argentina", 400000],
+
+  // ── Ecuador — additional ──
+  ["Mariscal Sucre International Airport", "UIO", "Quito", "Ecuador", 5000000],
+  ["Seymour Airport", "GPS", "Baltra", "Ecuador", 300000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // ADDITIONAL US AIRPORTS (Hudson Group — 100+ locations)
+  // ════════════════════════════════════════════════════════════════════════════
+  ["Albany International Airport", "ALB", "Albany", "United States", 1500000],
+  ["Buffalo Niagara International Airport", "BUF", "Buffalo", "United States", 3000000],
+  ["Bozeman Yellowstone International Airport", "BZN", "Bozeman", "United States", 2000000],
+  ["Yeager Airport", "CRW", "Charleston", "United States", 700000],
+  ["Chattanooga Metropolitan Airport", "CHA", "Chattanooga", "United States", 500000],
+  ["Duluth International Airport", "DLH", "Duluth", "United States", 400000],
+  ["Eugene Airport", "EUG", "Eugene", "United States", 1000000],
+  ["Evansville Regional Airport", "EVV", "Evansville", "United States", 300000],
+  ["Fairbanks International Airport", "FAI", "Fairbanks", "United States", 500000],
+  ["Hector International Airport", "FAR", "Fargo", "United States", 900000],
+  ["Grand Forks International Airport", "GFK", "Grand Forks", "United States", 200000],
+  ["Great Falls International Airport", "GTF", "Great Falls", "United States", 300000],
+  ["Green Bay–Austin Straubel International Airport", "GRB", "Green Bay", "United States", 600000],
+  ["Gulfport–Biloxi International Airport", "GPT", "Gulfport", "United States", 400000],
+  ["Hilo International Airport", "ITO", "Hilo", "United States", 600000],
+  ["Jackson Hole Airport", "JAC", "Jackson", "United States", 600000],
+  ["Kalamazoo/Battle Creek International Airport", "AZO", "Kalamazoo", "United States", 1000000],
+  ["Glacier Park International Airport", "FCA", "Kalispell", "United States", 1000000],
+  ["Key West International Airport", "EYW", "Key West", "United States", 500000],
+  ["Long Beach Airport", "LGB", "Long Beach", "United States", 3000000],
+  ["Long Island MacArthur Airport", "ISP", "Long Island", "United States", 2000000],
+  ["Rogue Valley International–Medford Airport", "MFR", "Medford", "United States", 700000],
+  ["Orlando Melbourne International Airport", "MLB", "Melbourne", "United States", 400000],
+  ["Quad City International Airport", "MLI", "Moline", "United States", 400000],
+  ["Monterey Regional Airport", "MRY", "Monterey", "United States", 500000],
+  ["Northwest Florida Beaches International Airport", "ECP", "Panama City", "United States", 1000000],
+  ["Tri-Cities Airport", "PSC", "Pasco", "United States", 400000],
+  ["General Wayne A. Downing Peoria International Airport", "PIA", "Peoria", "United States", 400000],
+  ["T. F. Green International Airport", "PVD", "Providence", "United States", 2000000],
+  ["Rapid City Regional Airport", "RAP", "Rapid City", "United States", 500000],
+  ["Roberts Field", "RDM", "Redmond", "United States", 500000],
+  ["Shreveport Regional Airport", "SHV", "Shreveport", "United States", 400000],
+  ["Sioux Falls Regional Airport", "FSD", "Sioux Falls", "United States", 700000],
+  ["South Bend International Airport", "SBN", "South Bend", "United States", 500000],
+  ["Spokane International Airport", "GEG", "Spokane", "United States", 2000000],
+  ["Springfield–Branson National Airport", "SGF", "Springfield", "United States", 1000000],
+  ["Syracuse Hancock International Airport", "SYR", "Syracuse", "United States", 1000000],
+  ["Tallahassee International Airport", "TLH", "Tallahassee", "United States", 500000],
+  ["Toledo Express Airport", "TOL", "Toledo", "United States", 400000],
+  ["Cherry Capital Airport", "TVC", "Traverse City", "United States", 500000],
+  ["Tri-Cities Airport", "TRI", "Bristol", "United States", 400000],
+  ["Westchester County Airport", "HPN", "White Plains", "United States", 1500000],
+  ["Wichita Dwight D. Eisenhower National Airport", "ICT", "Wichita", "United States", 800000],
+  ["Wilmington International Airport", "ILM", "Wilmington", "United States", 500000],
+  ["Santa Barbara Airport", "SBA", "Santa Barbara", "United States", 1000000],
+  ["Bangor International Airport", "BGR", "Bangor", "United States", 500000],
+  ["Bismarck Airport", "BIS", "Bismarck", "United States", 250000],
+  ["Fort Wayne International Airport", "FWA", "Fort Wayne", "United States", 400000],
+  ["Grand Junction Regional Airport", "GJT", "Grand Junction", "United States", 400000],
+  ["Helena Regional Airport", "HLN", "Helena", "United States", 200000],
+  ["Idaho Falls Regional Airport", "IDA", "Idaho Falls", "United States", 300000],
+  ["Capital Region International Airport", "LAN", "Lansing", "United States", 400000],
+  ["Lincoln Airport", "LNK", "Lincoln", "United States", 400000],
+  ["Midland International Air and Space Port", "MAF", "Midland", "United States", 500000],
+  ["Missoula International Airport", "MSO", "Missoula", "United States", 600000],
+  ["University Park Airport", "SCE", "State College", "United States", 200000],
+  ["Twin Falls Airport", "TWF", "Twin Falls", "United States", 100000],
+  ["Yakima Air Terminal", "YKM", "Yakima", "United States", 200000],
+  ["Naples Municipal Airport", "APF", "Naples", "United States", 200000],
 ];
 
 // ── Country → region mapping ────────────────────────────────────────────────
@@ -505,6 +676,14 @@ const COUNTRY_REGION = {
   "Ecuador": "Americas", "Mexico": "Americas", "Dominican Republic": "Americas",
   "Aruba": "Americas", "Antigua": "Americas", "Bahamas": "Americas",
   "Barbados": "Americas", "Bolivia": "Americas", "Turks and Caicos Islands": "Americas",
+  "Colombia": "Americas", "Peru": "Americas", "Paraguay": "Americas",
+  "Costa Rica": "Americas", "Guatemala": "Americas", "Panama": "Americas",
+  "El Salvador": "Americas", "Honduras": "Americas", "Nicaragua": "Americas",
+  "Sint Maarten": "Americas", "Curaçao": "Americas", "Grenada": "Americas",
+  "Saint Lucia": "Americas", "Saint Kitts and Nevis": "Americas",
+  "Dominica": "Americas", "British Virgin Islands": "Americas",
+  // Additional European countries
+  "Croatia": "Europe", "Serbia": "Europe",
   // French territories
   "French Guiana": "Americas", "Martinique": "Americas", "Guadeloupe": "Americas",
 };
