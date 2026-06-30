@@ -146,9 +146,10 @@ function generateStoreNames(airport, count) {
   return stores;
 }
 
-// ── Comprehensive Lagardère airport list across ~40 countries ────────────────
+// ── Comprehensive Lagardère airport list — 290+ airports across 51 countries ─
 // Each entry: [name, code, city, country, annual_pax]
-// Source: lagardere-tr.com locations + ACI passenger data (2023–2024)
+// Source: lagardere-tr.com (official: +290 airports, +4,800 stores, 51 countries),
+// paradieslagardere.com (92 North American airports), ACI passenger data (2023–2024)
 const LTR_AIRPORTS_RAW = [
   // ── Netherlands ──
   ["Amsterdam Airport Schiphol", "AMS", "Amsterdam", "Netherlands", 61900000],
@@ -379,6 +380,289 @@ const LTR_AIRPORTS_RAW = [
 
   // ── Colombia ──
   ["El Dorado International Airport", "BOG", "Bogotá", "Colombia", 35400000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // PARADIES LAGARDÈRE — North America (92 airports, 700+ stores)
+  // Source: paradieslagardere.com/na-locations/
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── United States — Paradies Lagardère (additional) ──
+  ["Albany International Airport", "ALB", "Albany", "United States", 1500000],
+  ["Asheville Regional Airport", "AVL", "Asheville", "United States", 1900000],
+  ["Austin-Bergstrom International Airport", "AUS", "Austin", "United States", 21000000],
+  ["Baton Rouge Metropolitan Airport", "BTR", "Baton Rouge", "United States", 900000],
+  ["Blue Grass Airport", "LEX", "Lexington", "United States", 1600000],
+  ["Boise Airport", "BOI", "Boise", "United States", 2100000],
+  ["Boston Logan International Airport", "BOS", "Boston", "United States", 42500000],
+  ["Bradley International Airport", "BDL", "Hartford", "United States", 8200000],
+  ["Birmingham-Shuttlesworth International Airport", "BHM", "Birmingham", "United States", 1500000],
+  ["Hollywood Burbank Airport", "BUR", "Burbank", "United States", 6000000],
+  ["Charleston International Airport", "CHS", "Charleston", "United States", 5800000],
+  ["Charlotte Douglas International Airport", "CLT", "Charlotte", "United States", 53000000],
+  ["Cincinnati/Northern Kentucky International Airport", "CVG", "Cincinnati", "United States", 9800000],
+  ["Cleveland Hopkins International Airport", "CLE", "Cleveland", "United States", 10000000],
+  ["Columbia Metropolitan Airport", "CAE", "Columbia", "United States", 1500000],
+  ["John Glenn Columbus International Airport", "CMH", "Columbus", "United States", 8800000],
+  ["Colorado Springs Airport", "COS", "Colorado Springs", "United States", 2500000],
+  ["Cyril E. King Airport", "STT", "St. Thomas", "United States", 700000],
+  ["Dallas Fort Worth International Airport", "DFW", "Dallas", "United States", 81000000],
+  ["Dane County Regional Airport", "MSN", "Madison", "United States", 2000000],
+  ["Dayton International Airport", "DAY", "Dayton", "United States", 1400000],
+  ["Denver International Airport", "DEN", "Denver", "United States", 69000000],
+  ["Detroit Metropolitan Wayne County Airport", "DTW", "Detroit", "United States", 31400000],
+  ["El Paso International Airport", "ELP", "El Paso", "United States", 3800000],
+  ["Newark Liberty International Airport", "EWR", "Newark", "United States", 48500000],
+  ["Fort Lauderdale-Hollywood International Airport", "FLL", "Fort Lauderdale", "United States", 35100000],
+  ["Gerald R. Ford International Airport", "GRR", "Grand Rapids", "United States", 3800000],
+  ["Greenville-Spartanburg International Airport", "GSP", "Greer", "United States", 2600000],
+  ["Harrisburg International Airport", "MDT", "Harrisburg", "United States", 1400000],
+  ["Daniel K. Inouye International Airport", "HNL", "Honolulu", "United States", 21000000],
+  ["William P. Hobby Airport", "HOU", "Houston", "United States", 14800000],
+  ["Huntsville International Airport", "HSV", "Huntsville", "United States", 1300000],
+  ["Wichita Dwight D. Eisenhower National Airport", "ICT", "Wichita", "United States", 1700000],
+  ["Washington Dulles International Airport", "IAD", "Washington", "United States", 25800000],
+  ["George Bush Intercontinental Airport", "IAH", "Houston", "United States", 45000000],
+  ["Indianapolis International Airport", "IND", "Indianapolis", "United States", 9700000],
+  ["Jacksonville International Airport", "JAX", "Jacksonville", "United States", 7200000],
+  ["Jackson-Medgar Wiley Evers International Airport", "JAN", "Jackson", "United States", 900000],
+  ["Harry Reid International Airport", "LAS", "Las Vegas", "United States", 52700000],
+  ["Kansas City International Airport", "MCI", "Kansas City", "United States", 11800000],
+  ["Orlando International Airport", "MCO", "Orlando", "United States", 57700000],
+  ["Chicago Midway International Airport", "MDW", "Chicago", "United States", 31800000],
+  ["Manchester-Boston Regional Airport", "MHT", "Manchester", "United States", 1800000],
+  ["Memphis International Airport", "MEM", "Memphis", "United States", 14000000],
+  ["Miami International Airport", "MIA", "Miami", "United States", 50700000],
+  ["Milwaukee Mitchell International Airport", "MKE", "Milwaukee", "United States", 6500000],
+  ["Minneapolis-Saint Paul International Airport", "MSP", "Minneapolis", "United States", 34000000],
+  ["Louis Armstrong New Orleans International Airport", "MSY", "New Orleans", "United States", 14800000],
+  ["Myrtle Beach International Airport", "MYR", "Myrtle Beach", "United States", 3500000],
+  ["Oakland International Airport", "OAK", "Oakland", "United States", 7000000],
+  ["Kahului Airport", "OGG", "Kahului", "United States", 7500000],
+  ["Will Rogers World Airport", "OKC", "Oklahoma City", "United States", 4400000],
+  ["Eppley Airfield", "OMA", "Omaha", "United States", 5000000],
+  ["Ontario International Airport", "ONT", "Ontario", "United States", 6500000],
+  ["Palm Beach International Airport", "PBI", "West Palm Beach", "United States", 7400000],
+  ["Palm Springs International Airport", "PSP", "Palm Springs", "United States", 3200000],
+  ["Philadelphia International Airport", "PHL", "Philadelphia", "United States", 30800000],
+  ["Phoenix Sky Harbor International Airport", "PHX", "Phoenix", "United States", 48700000],
+  ["Pittsburgh International Airport", "PIT", "Pittsburgh", "United States", 9600000],
+  ["Portland International Airport", "PDX", "Portland", "United States", 18500000],
+  ["Pensacola International Airport", "PNS", "Pensacola", "United States", 2600000],
+  ["Raleigh-Durham International Airport", "RDU", "Raleigh", "United States", 14500000],
+  ["Richmond International Airport", "RIC", "Richmond", "United States", 4900000],
+  ["Reno-Tahoe International Airport", "RNO", "Reno", "United States", 4400000],
+  ["Roanoke-Blacksburg Regional Airport", "ROA", "Roanoke", "United States", 900000],
+  ["Greater Rochester International Airport", "ROC", "Rochester", "United States", 2500000],
+  ["Southwest Florida International Airport", "RSW", "Fort Myers", "United States", 10200000],
+  ["San Antonio International Airport", "SAT", "San Antonio", "United States", 10700000],
+  ["San Diego International Airport", "SAN", "San Diego", "United States", 24100000],
+  ["Louisville Muhammad Ali International Airport", "SDF", "Louisville", "United States", 9000000],
+  ["Seattle-Tacoma International Airport", "SEA", "Seattle", "United States", 50900000],
+  ["Norman Y. Mineta San José International Airport", "SJC", "San Jose", "United States", 15700000],
+  ["Salt Lake City International Airport", "SLC", "Salt Lake City", "United States", 26800000],
+  ["Sacramento International Airport", "SMF", "Sacramento", "United States", 13000000],
+  ["John Wayne Airport", "SNA", "Santa Ana", "United States", 12000000],
+  ["St. Louis Lambert International Airport", "STL", "St. Louis", "United States", 15400000],
+  ["Savannah/Hilton Head International Airport", "SAV", "Savannah", "United States", 5400000],
+  ["Abraham Lincoln Capital Airport", "SPI", "Springfield", "United States", 500000],
+  ["Syracuse Hancock International Airport", "SYR", "Syracuse", "United States", 2600000],
+  ["Tampa International Airport", "TPA", "Tampa", "United States", 22700000],
+  ["Tulsa International Airport", "TUL", "Tulsa", "United States", 3200000],
+  ["Tucson International Airport", "TUS", "Tucson", "United States", 4300000],
+  ["McGhee Tyson Airport", "TYS", "Knoxville", "United States", 2900000],
+  ["Northwest Arkansas National Airport", "XNA", "Bentonville", "United States", 1800000],
+
+  // ── Canada — Paradies Lagardère (additional) ──
+  ["Calgary International Airport", "YYC", "Calgary", "Canada", 18000000],
+  ["Ottawa Macdonald-Cartier International Airport", "YOW", "Ottawa", "Canada", 5100000],
+  ["Edmonton International Airport", "YEG", "Edmonton", "Canada", 8200000],
+  ["Montréal-Trudeau International Airport", "YUL", "Montreal", "Canada", 21100000],
+  ["Halifax Stanfield International Airport", "YHZ", "Halifax", "Canada", 4100000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // EUROPE — Additional airports
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Albania (new country) ──
+  ["Tirana International Airport (Mother Teresa)", "TIA", "Tirana", "Albania", 3500000],
+
+  // ── Croatia (new country) ──
+  ["Zagreb Airport", "ZAG", "Zagreb", "Croatia", 3800000],
+  ["Split Airport", "SPU", "Split", "Croatia", 3300000],
+  ["Dubrovnik Airport", "DBV", "Dubrovnik", "Croatia", 2400000],
+
+  // ── Slovenia (new country) ──
+  ["Ljubljana Jože Pučnik Airport", "LJU", "Ljubljana", "Slovenia", 1700000],
+
+  // ── Additional France ──
+  ["Bastia-Poretta Airport", "BIA", "Bastia", "France", 1500000],
+  ["Biarritz Pays Basque Airport", "BIQ", "Biarritz", "France", 1200000],
+  ["Brest Bretagne Airport", "BES", "Brest", "France", 1000000],
+  ["Strasbourg Airport", "SXB", "Strasbourg", "France", 1300000],
+  ["Montpellier-Méditerranée Airport", "MPL", "Montpellier", "France", 2000000],
+
+  // ── Additional Germany ──
+  ["Leipzig/Halle Airport", "LEJ", "Leipzig", "Germany", 2700000],
+  ["Nuremberg Airport", "NUE", "Nuremberg", "Germany", 4500000],
+  ["Hannover Airport", "HAJ", "Hanover", "Germany", 6000000],
+  ["Bremen Airport", "BRE", "Bremen", "Germany", 2000000],
+  ["Dresden Airport", "DRS", "Dresden", "Germany", 1800000],
+
+  // ── Additional Spain ──
+  ["Santiago de Compostela Airport", "SCQ", "Santiago de Compostela", "Spain", 2900000],
+  ["Sevilla Airport", "SVQ", "Sevilla", "Spain", 7500000],
+  ["Bilbao Airport", "BIO", "Bilbao", "Spain", 6500000],
+  ["Fuerteventura Airport", "FUE", "Puerto del Rosario", "Spain", 6000000],
+  ["Lanzarote Airport", "ACE", "Arrecife", "Spain", 8000000],
+  ["Tenerife South Airport", "TFS", "Tenerife", "Spain", 11000000],
+  ["Ibiza Airport", "IBZ", "Ibiza", "Spain", 3500000],
+  ["Gran Canaria Airport", "LPA", "Las Palmas", "Spain", 13000000],
+  ["Asturias Airport", "OVD", "Oviedo", "Spain", 1500000],
+
+  // ── Additional Italy ──
+  ["Milan Bergamo Airport", "BGY", "Bergamo", "Italy", 14000000],
+  ["Catania-Fontanarossa Airport", "CTA", "Catania", "Italy", 10000000],
+  ["Bari Karol Wojtyła Airport", "BRI", "Bari", "Italy", 5500000],
+  ["Turin Airport", "TRN", "Turin", "Italy", 4000000],
+
+  // ── Additional United Kingdom ──
+  ["London Heathrow Airport", "LHR", "London", "United Kingdom", 79000000],
+  ["London Gatwick Airport", "LGW", "London", "United Kingdom", 33000000],
+  ["London Stansted Airport", "STN", "London", "United Kingdom", 28500000],
+  ["Liverpool John Lennon Airport", "LPL", "Liverpool", "United Kingdom", 4000000],
+  ["Newcastle International Airport", "NCL", "Newcastle", "United Kingdom", 5600000],
+  ["Aberdeen International Airport", "ABZ", "Aberdeen", "United Kingdom", 3000000],
+
+  // ── Additional Poland ──
+  ["Katowice Airport", "KTW", "Katowice", "Poland", 4800000],
+  ["Poznań-Ławica Airport", "POZ", "Poznań", "Poland", 3500000],
+  ["Wrocław Copernicus Airport", "WRO", "Wrocław", "Poland", 3800000],
+
+  // ── Additional Romania ──
+  ["Iași International Airport", "IAS", "Iași", "Romania", 1800000],
+  ["Timișoara Airport", "TSR", "Timișoara", "Romania", 1500000],
+  ["Sibiu International Airport", "SBZ", "Sibiu", "Romania", 700000],
+
+  // ── Additional Denmark ──
+  ["Aarhus Airport", "AAR", "Aarhus", "Denmark", 500000],
+
+  // ── Additional Sweden ──
+  ["Malmö Airport", "MMX", "Malmö", "Sweden", 2200000],
+  ["Umeå Airport", "UME", "Umeå", "Sweden", 1400000],
+
+  // ── Additional Norway ──
+  ["Trondheim Airport, Værnes", "TRD", "Trondheim", "Norway", 4500000],
+  ["Kristiansand Airport, Kjevik", "KRS", "Kristiansand", "Norway", 1100000],
+  ["Tromsø Airport, Langnes", "TOS", "Tromsø", "Norway", 2300000],
+  ["Bodø Airport", "BOO", "Bodø", "Norway", 1700000],
+  ["Ålesund Airport, Vigra", "AES", "Ålesund", "Norway", 1200000],
+
+  // ── Additional Austria ──
+  ["Innsbruck Airport", "INN", "Innsbruck", "Austria", 1100000],
+  ["Graz Airport", "GRZ", "Graz", "Austria", 1500000],
+
+  // ── Additional Switzerland ──
+  ["EuroAirport Basel-Mulhouse-Freiburg", "BSL", "Basel", "Switzerland", 9000000],
+
+  // ── Additional Belgium ──
+  ["Antwerp International Airport", "ANR", "Antwerp", "Belgium", 300000],
+  ["Liège Airport", "LGG", "Liège", "Belgium", 400000],
+
+  // ── Additional Greece ──
+  ["Rhodes International Airport", "RHO", "Rhodes", "Greece", 5500000],
+  ["Kavala International Airport", "KVA", "Kavala", "Greece", 500000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // ASIA-PACIFIC — Additional airports
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Cambodia (new country) ──
+  ["Phnom Penh International Airport", "PNH", "Phnom Penh", "Cambodia", 6000000],
+  ["Siem Reap-Angkor International Airport", "REP", "Siem Reap", "Cambodia", 4500000],
+
+  // ── Additional Australia ──
+  ["Perth Airport", "PER", "Perth", "Australia", 14000000],
+  ["Adelaide Airport", "ADL", "Adelaide", "Australia", 8000000],
+  ["Cairns Airport", "CNS", "Cairns", "Australia", 5000000],
+  ["Gold Coast Airport", "OOL", "Gold Coast", "Australia", 7000000],
+
+  // ── Additional New Zealand ──
+  ["Wellington International Airport", "WLG", "Wellington", "New Zealand", 6500000],
+  ["Queenstown Airport", "ZQN", "Queenstown", "New Zealand", 2500000],
+
+  // ── Additional Malaysia ──
+  ["Kuching International Airport", "KCH", "Kuching", "Malaysia", 2500000],
+  ["Kota Kinabalu International Airport", "BKI", "Kota Kinabalu", "Malaysia", 2000000],
+
+  // ── Additional Thailand ──
+  ["Don Mueang International Airport", "DMK", "Bangkok", "Thailand", 25000000],
+
+  // ── Additional Vietnam ──
+  ["Da Nang International Airport", "DAD", "Da Nang", "Vietnam", 6000000],
+
+  // ── Additional India ──
+  ["Kempegowda International Airport", "BLR", "Bengaluru", "India", 37000000],
+  ["Chennai International Airport", "MAA", "Chennai", "India", 22500000],
+  ["Rajiv Gandhi International Airport", "HYD", "Hyderabad", "India", 24000000],
+  ["Netaji Subhas Chandra Bose International Airport", "CCU", "Kolkata", "India", 19000000],
+
+  // ── Additional China ──
+  ["Shenzhen Bao'an International Airport", "SZX", "Shenzhen", "China", 40000000],
+  ["Chengdu Tianfu International Airport", "TFU", "Chengdu", "China", 30000000],
+
+  // ── Additional Japan ──
+  ["Tokyo Haneda Airport", "HND", "Tokyo", "Japan", 87000000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // MIDDLE EAST — Additional airports
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Additional Saudi Arabia ──
+  ["Prince Mohammad bin Abdulaziz Airport", "MED", "Madinah", "Saudi Arabia", 8000000],
+  ["Tabuk Regional Airport", "TUU", "Tabuk", "Saudi Arabia", 1500000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // LATIN AMERICA — Additional airports
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Peru (new country) ──
+  ["Jorge Chávez International Airport", "LIM", "Lima", "Peru", 25000000],
+
+  // ── Argentina (new country) ──
+  ["Ministro Pistarini International Airport", "EZE", "Buenos Aires", "Argentina", 10000000],
+  ["Aeroparque Jorge Newbery", "AEP", "Buenos Aires", "Argentina", 13000000],
+
+  // ── Additional Brazil ──
+  ["Brasília International Airport", "BSB", "Brasília", "Brazil", 16000000],
+  ["Tancredo Neves International Airport", "CNF", "Belo Horizonte", "Brazil", 10000000],
+  ["Deputado Luís Eduardo Magalhães Airport", "SSA", "Salvador", "Brazil", 10000000],
+  ["Pinto Martins International Airport", "FOR", "Fortaleza", "Brazil", 8000000],
+  ["Guararapes–Gilberto Freyre International Airport", "REC", "Recife", "Brazil", 9000000],
+
+  // ── Additional Colombia ──
+  ["Cartagena International Airport", "CTG", "Cartagena", "Colombia", 6000000],
+  ["José María Córdova International Airport", "MDE", "Medellín", "Colombia", 7000000],
+
+  // ════════════════════════════════════════════════════════════════════════════
+  // AFRICA — Additional airports
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Gabon (new country) ──
+  ["Libreville International Airport", "LBV", "Libreville", "Gabon", 1000000],
+
+  // ── Additional South Africa ──
+  ["King Shaka International Airport", "DUR", "Durban", "South Africa", 6000000],
+
+  // ── Additional Morocco ──
+  ["Al Massira Airport", "AGA", "Agadir", "Morocco", 2000000],
+  ["Rabat-Salé Airport", "RBA", "Rabat", "Morocco", 1500000],
+
+  // ── Additional Egypt ──
+  ["Sharm El Sheikh International Airport", "SSH", "Sharm El Sheikh", "Egypt", 7000000],
+  ["Luxor International Airport", "LXR", "Luxor", "Egypt", 4000000],
+
+  // ── Additional Kenya ──
+  ["Moi International Airport", "MBA", "Mombasa", "Kenya", 1500000],
 ];
 
 // ── Country → region mapping (for basket estimation) ─────────────────────────
@@ -390,20 +674,24 @@ const COUNTRY_REGION = {
   "Denmark": "Europe", "Sweden": "Europe", "Norway": "Europe", "Finland": "Europe",
   "Hungary": "Europe", "Slovakia": "Europe", "Greece": "Europe", "Portugal": "Europe",
   "Ireland": "Europe", "Luxembourg": "Europe", "Bulgaria": "Europe",
+  "Albania": "Europe", "Croatia": "Europe", "Slovenia": "Europe",
   // Middle East
   "United Arab Emirates": "Middle East", "Saudi Arabia": "Middle East",
   "Qatar": "Middle East", "Kuwait": "Middle East", "Bahrain": "Middle East", "Oman": "Middle East",
   // Africa
   "South Africa": "Africa", "Morocco": "Africa", "Egypt": "Africa", "Kenya": "Africa", "Nigeria": "Africa",
+  "Gabon": "Africa",
   // Asia
   "Singapore": "Asia", "Malaysia": "Asia", "China": "Asia", "Hong Kong": "Asia",
   "Japan": "Asia", "South Korea": "Asia", "Taiwan": "Asia", "Thailand": "Asia",
   "Indonesia": "Asia", "Philippines": "Asia", "Vietnam": "Asia", "India": "Asia",
+  "Cambodia": "Asia",
   // Oceania
   "Australia": "Oceania", "New Zealand": "Oceania",
   // Americas
   "United States": "Americas", "Canada": "Americas", "Brazil": "Americas",
   "Mexico": "Americas", "Chile": "Americas", "Colombia": "Americas",
+  "Peru": "Americas", "Argentina": "Americas",
 };
 
 const ltrAirportData = LTR_AIRPORTS_RAW.map(([name, code, city, country, annualPax]) => ({
