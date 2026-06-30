@@ -81,14 +81,8 @@ export default function AggregationView({ transactions, vouchers, period, custom
     <div className="space-y-6">
       {/* Aggregation metrics header */}
        <div>
-        <h2 className="text-xl font-heading font-bold mb-2 flex items-center gap-2 flex-wrap">
-          {companyName && (
-            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-full">
-              <Store className="w-3.5 h-3.5 text-orange-500" />
-              {companyName}
-            </span>
-          )}
-          {companyName ? (t('common.custom_aggregation') || 'Global Aggregation') : (t('common.custom_aggregation') || 'Custom Aggregation — All Retail Stores of all Airports')}
+        <h2 className="text-xl font-heading font-bold mb-2">
+          {t('common.custom_aggregation') || 'Custom Aggregation — All Retail Stores of all Airports'}
         </h2>
         <p className="text-muted-foreground text-sm mb-4">{t('common.aggregation_desc') || 'Combined metrics across all your retail locations.'}</p>
         
