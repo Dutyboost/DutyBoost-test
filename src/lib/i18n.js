@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { travelerStrings } from './i18nTraveler';
 import { claimDutyCreditStrings } from './i18nClaimDutyCredit';
+import { presentationStrings } from './i18nPresentation';
 import en from '../locales/en';
 import nl from '../locales/nl';
 import fr from '../locales/fr';
@@ -11,11 +12,11 @@ import es from '../locales/es';
 import it from '../locales/it';
 
 const resources = {
-  en: { translation: { ...en.translation, traveler: travelerStrings.en, claimDutyCredit: claimDutyCreditStrings.en } },
-  nl: { translation: { ...nl.translation, claimDutyCredit: claimDutyCreditStrings.nl } },
+  en: { translation: { ...en.translation, traveler: travelerStrings.en, claimDutyCredit: claimDutyCreditStrings.en, presentation: presentationStrings.en } },
+  nl: { translation: { ...nl.translation, claimDutyCredit: claimDutyCreditStrings.nl, presentation: presentationStrings.nl } },
   fr: { translation: { ...fr.translation, traveler: travelerStrings.fr, claimDutyCredit: claimDutyCreditStrings.fr } },
   de: { translation: { ...de.translation, traveler: travelerStrings.de, claimDutyCredit: claimDutyCreditStrings.de } },
-  es: { translation: { ...es.translation, traveler: travelerStrings.es, claimDutyCredit: claimDutyCreditStrings.es } },
+  es: { translation: { ...es.translation, traveler: travelerStrings.es, claimDutyCredit: claimDutyCreditStrings.es, presentation: presentationStrings.es } },
   it: { translation: { ...it.translation, traveler: travelerStrings.it, claimDutyCredit: claimDutyCreditStrings.it } },
   old_en: {
     translation: {
