@@ -306,7 +306,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               <p className="text-2xl font-heading font-bold">{value}</p>
             </div>
           ))}
-          {/* DutyBoost Potential tile — Avg Sale with +3% uplift */}
+          {/* DutyBoost Potential tile — Avg Sale with +1% uplift */}
           <div className="bg-card border border-border rounded-xl p-5 space-y-3">
             <div className="flex items-center justify-between">
               <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential')}</p>
@@ -315,7 +315,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <p className="text-lg md:text-2xl font-heading font-bold">
               €{parseFloat(periodAvg).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-              <span className="text-indigo-600">€{(periodAvg * 1.03).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+              <span className="text-indigo-600">€{(periodAvg * 1.01).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
             </p>
           </div>
         </div>
