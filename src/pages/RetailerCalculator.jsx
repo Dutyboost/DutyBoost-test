@@ -140,7 +140,7 @@ function RetailerTab({ t }) {
         <p className="text-slate-600 text-sm max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('calculator.retailer_subtitle') }} />
         </div>
 
-        {/* 3% goal banner */}
+        {/* 1% goal banner */}
         <div className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl px-6 py-4">
         <Info className="w-6 h-6 text-blue-600 shrink-0" />
         <p className="text-base text-blue-800 font-medium leading-relaxed">{t('calculator.goal_3pct')}</p>
