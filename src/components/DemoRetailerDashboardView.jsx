@@ -207,11 +207,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
         {companyName && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm">
             <Store className="w-4 h-4 text-orange-500" />
             <span className="font-heading font-bold text-foreground">{companyName}</span>
-            <span className="text-border">·</span>
-            <span>{t('demo.dashboard_title') || 'Retailer Dashboard'}</span>
           </div>
         )}
         {/* Tabs */}
