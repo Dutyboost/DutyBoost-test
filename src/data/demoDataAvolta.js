@@ -124,16 +124,16 @@ function retailerCount(annualPax, code) {
 
   // Tiered by passenger volume — Avolta is the world's largest airport retailer,
   // so store density exceeds Lagardère at every tier
-  if (annualPax >= 80_000_000) return 40;
-  if (annualPax >= 60_000_000) return 30;
-  if (annualPax >= 40_000_000) return 25;
-  if (annualPax >= 30_000_000) return 20;
-  if (annualPax >= 20_000_000) return 15;
-  if (annualPax >= 15_000_000) return 12;
-  if (annualPax >= 10_000_000) return 10;
-  if (annualPax >= 5_000_000)  return 6;
-  if (annualPax >= 1_000_000)  return 4;
-  return 3;
+  if (annualPax >= 80_000_000) return 55;
+  if (annualPax >= 60_000_000) return 42;
+  if (annualPax >= 40_000_000) return 32;
+  if (annualPax >= 30_000_000) return 26;
+  if (annualPax >= 20_000_000) return 22;
+  if (annualPax >= 15_000_000) return 18;
+  if (annualPax >= 10_000_000) return 16;
+  if (annualPax >= 5_000_000)  return 15;
+  if (annualPax >= 1_000_000)  return 13;
+  return 11;
 }
 
 // ── Zipf-like weight distribution ───────────────────────────────────────────
