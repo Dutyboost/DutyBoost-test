@@ -742,7 +742,7 @@ export const RETAILERS = avoltaAirportData.flatMap(airport => {
 });
 
 // ── Store count — used by RetailerCalculator to match demo dashboard exactly ─
-export const STORE_COUNT = RETAILERS.length;
+export const STORE_COUNT = avoltaAirportData.reduce((sum, a) => sum + retailerCount(a.annual_pax, a.code), 0);
 
 // ── Aggregate base figures ───────────────────────────────────────────────────
 const baseMonthlyRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);

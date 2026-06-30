@@ -63,16 +63,16 @@ export function computeCompanyTotals(airports, conversionRate) {
 // Estimate store count per airport based on passenger volume (tiered heuristic)
 export function estimateStoreCount(airport) {
   const pax = airport.annual_pax || (airport.daily_pax * 365);
-  if (pax >= 80_000_000) return 35;
-  if (pax >= 60_000_000) return 28;
-  if (pax >= 40_000_000) return 22;
-  if (pax >= 30_000_000) return 18;
-  if (pax >= 20_000_000) return 14;
-  if (pax >= 15_000_000) return 10;
-  if (pax >= 10_000_000) return 8;
-  if (pax >= 5_000_000)  return 5;
-  if (pax >= 1_000_000)  return 3;
-  return 2;
+  if (pax >= 80_000_000) return 55;
+  if (pax >= 60_000_000) return 42;
+  if (pax >= 40_000_000) return 32;
+  if (pax >= 30_000_000) return 26;
+  if (pax >= 20_000_000) return 22;
+  if (pax >= 15_000_000) return 18;
+  if (pax >= 10_000_000) return 16;
+  if (pax >= 5_000_000)  return 15;
+  if (pax >= 1_000_000)  return 13;
+  return 11;
 }
 
 export function computeCompanyStoreCount(airports) {
