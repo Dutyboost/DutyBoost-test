@@ -46,7 +46,7 @@ export default function DutyBoostPresentation() {
     <div className="min-h-screen bg-background font-body">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
-          <DutyBoostLogo height={100} />
+          <DutyBoostLogo height={55} />
           <div className="flex items-center gap-2">
             <select
               className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background max-w-[200px] hidden md:block"
@@ -449,7 +449,7 @@ export default function DutyBoostPresentation() {
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <DutyBoostLogo height={100} />
+            <DutyBoostLogo height={55} />
             <div className="text-right">
               <p>{t('presentation.footer.rights')}</p>
               <p className="text-xs mt-0.5">{t('presentation.footer.kvk')}</p>
