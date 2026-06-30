@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProfileTab from "../components/ProfileTab";
 import {
@@ -10,6 +10,7 @@ import {
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import RetailerStrategyTab from "../components/RetailerStrategyTab";
+import PartialRefundManager from "../components/PartialRefundManager";
 import AggregationView from "../components/AggregationView";
 import { Button } from "@/components/ui/button";
 import { Compass } from "lucide-react";
@@ -196,6 +197,7 @@ export default function RetailerDashboard() {
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "custom", label: "Custom Aggregation", icon: BarChartIcon },
+    { id: "refunds", label: "Returns & Refunds", icon: RotateCcw },
     { id: "strategy", label: "Define your Airport Retail strategy", icon: Compass },
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
@@ -251,6 +253,8 @@ export default function RetailerDashboard() {
             <p className="text-muted-foreground">Contact our integration team at <a href="mailto:integrations@dutyboost.com" className="text-primary underline">integrations@dutyboost.com</a> — we can assist with POS setup, provide sandbox credentials, or connect you with your POS vendor's developer.</p>
           </div>
         </div>
+      ) : activeTab === "refunds" ? (
+        <PartialRefundManager transactions={transactions} onRefundProcessed={loadData} />
       ) : activeTab === "strategy" ? (
         <RetailerStrategyTab vouchers={vouchers} user={user} />
       ) : (<>

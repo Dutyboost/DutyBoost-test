@@ -49,6 +49,37 @@
     "airport": {
       "type": "string",
       "title": "Airport"
+    },
+    "refund_status": {
+      "type": "string",
+      "title": "Refund Status",
+      "enum": [
+        "none",
+        "partial",
+        "full"
+      ],
+      "default": "none"
+    },
+    "refunded_amount": {
+      "type": "number",
+      "title": "Refunded Amount (EUR)",
+      "default": 0
+    },
+    "adjusted_transaction_value": {
+      "type": "number",
+      "title": "Adjusted Transaction Value (EUR)"
+    },
+    "adjusted_discount_amount": {
+      "type": "number",
+      "title": "Adjusted Discount Amount (EUR)"
+    },
+    "adjusted_platform_revenue": {
+      "type": "number",
+      "title": "Adjusted Platform Revenue (EUR)"
+    },
+    "refund_due_to_traveler": {
+      "type": "number",
+      "title": "Refund Due to Traveler (EUR)"
     }
   },
   "required": [
