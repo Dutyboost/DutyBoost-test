@@ -410,31 +410,31 @@ export default function ClaimDutyCredit() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier1')}</span>
-                  <span className="font-bold text-primary">{tr('tier1_save')}</span>
+                  <span className="font-bold text-amber-600">{tr('tier1_save')}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier2')}</span>
-                  <span className="font-bold text-primary">{tr('tier2_save')}</span>
+                  <span className="font-bold text-slate-500">{tr('tier2_save')}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier3')}</span>
-                  <span className="font-bold text-primary">{tr('tier3_save')}</span>
+                  <span className="font-bold text-yellow-600">{tr('tier3_save')}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier4')}</span>
-                  <span className="font-bold text-primary">{tr('tier4_save')}</span>
+                  <span className="font-bold text-blue-600">{tr('tier4_save')}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier5')}</span>
-                  <span className="font-bold text-primary">{tr('tier5_save')}</span>
+                  <span className="font-bold text-green-600">{tr('tier5_save')}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span>{tr('tier6')}</span>
-                  <span className="font-bold text-primary">{tr('tier6_save')}</span>
+                  <span className="font-bold text-pink-600">{tr('tier6_save')}</span>
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span>{tr('tier7')}</span>
-                  <span className="font-bold text-green-600">{tr('tier7_save')}</span>
+                  <span className="font-bold text-purple-600">{tr('tier7_save')}</span>
                 </div>
               </div>
             </div>
