@@ -132,7 +132,7 @@ export default function LandingPage() {
                        }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'travelers';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/claim-duty-credit' : '/get-started';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : '/get-started';
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-3 mb-5`}>
