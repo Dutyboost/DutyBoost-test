@@ -472,12 +472,10 @@ export default function ClaimDutyCredit() {
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">
                 <QrCode className="w-4 h-4" /> {tr('btn_print')}
               </Button>
-              {walletPlatform !== 'unknown' && (
-                <Button onClick={handleAddToWallet} disabled={walletLoading} className="flex-1 gap-2">
-                  {walletLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
-                  {walletPlatform === 'ios' ? 'Add to Apple Wallet' : 'Add to Google Wallet'}
-                </Button>
-              )}
+              <Button onClick={handleAddToWallet} disabled={walletLoading} className="flex-1 gap-2">
+                {walletLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
+                {walletPlatform === 'ios' ? 'Add to Apple Wallet' : walletPlatform === 'android' ? 'Add to Google Wallet' : 'Add to Wallet'}
+              </Button>
             </div>
           </div>
         )}
