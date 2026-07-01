@@ -99,13 +99,12 @@ export default function EligibilityShowcase() {
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-xl mx-auto">
           <div className="bg-card rounded-3xl border border-border shadow-sm p-6 sm:p-8 space-y-6">
-            <div className="text-center space-y-1">
-              <h2 className="text-xl font-heading font-bold">{tr('check_title')}</h2>
-              <p className="text-sm text-muted-foreground">{tr('check_subtitle')}</p>
-            </div>
-
             {!checked ? (
               <div className="space-y-5">
+                <div className="text-center space-y-1">
+                  <h2 className="text-xl font-heading font-bold">{tr('check_title')}</h2>
+                  <p className="text-sm text-muted-foreground">{tr('check_subtitle')}</p>
+                </div>
                 <div>
                   <Label className="text-sm font-semibold mb-2 block">{tr('airport_label')}</Label>
                   <div className="relative">
