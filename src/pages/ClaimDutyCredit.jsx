@@ -321,7 +321,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !bookingRef || !departureDate || !flightNumber || (isPartnerFlow && !travelerEmail)}
+                disabled={!airport || !airline || !bookingRef || !departureDate || !flightNumber || !flightNumberValid || !bookingRefValid || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
