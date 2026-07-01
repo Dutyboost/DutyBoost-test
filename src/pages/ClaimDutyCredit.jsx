@@ -10,7 +10,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
   Search, MapPin, Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
-  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles
+  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet
 } from "lucide-react";
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
 import { getAirlineFormat } from "../data/airlineFormats";
@@ -33,6 +33,8 @@ export default function ClaimDutyCredit() {
   const [departureDate, setDepartureDate] = useState('');
   const [generated, setGenerated] = useState(null);
   const [error, setError] = useState('');
+  const [walletPlatform, setWalletPlatform] = useState('unknown');
+  const [walletLoading, setWalletLoading] = useState(false);
   const airportRef = useRef(null);
 
   const isPartnerFlow = !!refCode;
@@ -62,6 +64,12 @@ export default function ClaimDutyCredit() {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const ua = navigator.userAgent || '';
+    if (/iPhone|iPad|iPod/i.test(ua)) setWalletPlatform('ios');
+    else if (/Android/i.test(ua)) setWalletPlatform('android');
   }, []);
 
   const handleAirportSelect = (a) => {
@@ -109,6 +117,27 @@ export default function ClaimDutyCredit() {
     } catch (err) {
       setError(tr('error_generic'));
       setStep('claim');
+    }
+  };
+
+  const handleAddToWallet = async () => {
+    if (!generated?.token_id) return;
+    setWalletLoading(true);
+    try {
+      const response = await base44.functions.invoke('generateWalletPass', {
+        token_id: generated.token_id,
+        platform: walletPlatform,
+      });
+      const data = response.data;
+      if (data.save_url) {
+        window.location.href = data.save_url;
+      } else if (data.pkpass_url) {
+        window.location.href = data.pkpass_url;
+      }
+    } catch (err) {
+      setError(tr('error_generic'));
+    } finally {
+      setWalletLoading(false);
     }
   };
 
@@ -443,11 +472,12 @@ export default function ClaimDutyCredit() {
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">
                 <QrCode className="w-4 h-4" /> {tr('btn_print')}
               </Button>
-              <Link to="/" className="flex-1">
-                <Button variant="outline" className="w-full gap-2">
-                  {tr('btn_home')} <ArrowRight className="w-4 h-4" />
+              {walletPlatform !== 'unknown' && (
+                <Button onClick={handleAddToWallet} disabled={walletLoading} className="flex-1 gap-2">
+                  {walletLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
+                  {walletPlatform === 'ios' ? 'Add to Apple Wallet' : 'Add to Google Wallet'}
                 </Button>
-              </Link>
+              )}
             </div>
           </div>
         )}
