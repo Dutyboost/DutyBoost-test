@@ -8,7 +8,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import {
   Search, MapPin, Plane, CheckCircle2, ArrowRight, Sparkles,
-  TrendingUp, Lightbulb, MousePointerClick, Gift, Wand2
+  MousePointerClick, Gift, Wand2
 } from "lucide-react";
 
 export default function EligibilityShowcase() {
@@ -60,20 +60,17 @@ export default function EligibilityShowcase() {
       <section className="relative overflow-hidden pt-12 pb-10 px-4 sm:px-6">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-700 text-sm font-medium border border-amber-200">
-            <Lightbulb className="w-4 h-4" />
-            The idea with the greatest viral potential
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-medium border border-blue-200">
+            <Plane className="w-4 h-4" />
+            Traveling soon?
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             Check if you're{" "}
             <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">eligible</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Instead of asking users to generate a DutyCredit immediately, ask them a simple question:
-            are you traveling within the next 30 days?
-          </p>
-          <p className="text-lg text-foreground/80 max-w-2xl mx-auto font-medium">
-            Check if you're eligible for a free DutyCredit.
+            Are you traveling within the next 30 days? See if you qualify for a free DutyCredit —
+            airport shopping credit you can spend at participating airport retailers.
           </p>
         </div>
       </section>
@@ -83,8 +80,8 @@ export default function EligibilityShowcase() {
         <div className="max-w-xl mx-auto">
           <div className="bg-card rounded-3xl border border-border shadow-sm p-6 sm:p-8 space-y-6">
             <div className="text-center space-y-1">
-              <h2 className="text-xl font-heading font-bold">Try the experience</h2>
-              <p className="text-sm text-muted-foreground">See how a traveler discovers their eligibility.</p>
+              <h2 className="text-xl font-heading font-bold">Check your eligibility</h2>
+              <p className="text-sm text-muted-foreground">Enter your departure details to find out.</p>
             </div>
 
             {!checked ? (
@@ -168,21 +165,20 @@ export default function EligibilityShowcase() {
         </div>
       </section>
 
-      {/* Why it works */}
+      {/* Why it's free */}
       <section className="py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            <TrendingUp className="w-4 h-4" />
-            The psychology behind it
+            <Gift className="w-4 h-4" />
+            No catch, no cost
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold">
-            Discovery beats promotion
+            Your DutyCredit is completely free
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            People are much more willing to check whether they're eligible than they are to claim a reward.
-            That subtle change in messaging can significantly improve conversion rates — because users feel
-            they are <strong className="text-foreground">discovering a benefit</strong> rather than responding
-            to a promotional offer.
+            DutyCredit is airport shopping credit provided through your travel partner — no payment, no
+            subscription, no strings attached. Just show your QR code at a participating airport retailer
+            and the discount is applied to your purchase instantly.
           </p>
         </div>
       </section>
@@ -191,14 +187,14 @@ export default function EligibilityShowcase() {
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 space-y-2">
-            <h2 className="text-3xl font-heading font-bold">How the flow works</h2>
-            <p className="text-muted-foreground">Three steps from curiosity to conversion.</p>
+            <h2 className="text-3xl font-heading font-bold">How it works</h2>
+            <p className="text-muted-foreground">Three simple steps to your airport savings.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: MousePointerClick, title: "Ask, don't push", desc: "Travelers check if they're eligible by entering their departure airport and date." },
-              { icon: CheckCircle2, title: "Reveal the benefit", desc: "The system confirms eligibility — the user discovers they qualify for a free DutyCredit." },
-              { icon: Gift, title: "Generate on demand", desc: "A clear CTA invites them to generate their personalized DutyCredit, linking to the claim page." },
+              { icon: MousePointerClick, title: "Check your trip", desc: "Enter your departure airport and date to see if you qualify." },
+              { icon: CheckCircle2, title: "Get confirmed", desc: "We'll let you know instantly if you're eligible for a free DutyCredit." },
+              { icon: Gift, title: "Generate & save", desc: "Generate your personalized DutyCredit and use it at participating airport retailers." },
             ].map((step, i) => (
               <div key={i} className="bg-card rounded-2xl border border-border p-6 space-y-3 text-center">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
@@ -217,8 +213,8 @@ export default function EligibilityShowcase() {
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto bg-gradient-to-br from-primary to-blue-600 rounded-3xl p-8 sm:p-12 text-center text-primary-foreground space-y-5">
           <Sparkles className="w-10 h-10 mx-auto" />
-          <h2 className="text-3xl font-heading font-bold">Ready to let travelers discover their benefit?</h2>
-          <p className="text-primary-foreground/90 text-lg">A small shift in messaging. A big shift in conversion.</p>
+          <h2 className="text-3xl font-heading font-bold">Ready to check your eligibility?</h2>
+          <p className="text-primary-foreground/90 text-lg">It takes 10 seconds — and it could save you money at the airport.</p>
           <Link to="/claim-duty-credit">
             <Button size="lg" variant="secondary" className="gap-2">
               Go to DutyCredit claim <ArrowRight className="w-4 h-4" />
