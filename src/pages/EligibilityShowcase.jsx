@@ -179,32 +179,6 @@ export default function EligibilityShowcase() {
         </div>
       </section>
 
-      {/* Flow */}
-      <section className="py-12 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10 space-y-2">
-            <h2 className="text-3xl font-heading font-bold">{tr('how_title')}</h2>
-            <p className="text-muted-foreground">{tr('how_subtitle')}</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: MousePointerClick, title: tr('step1_title'), desc: tr('step1_desc') },
-              { icon: CheckCircle2, title: tr('step2_title'), desc: tr('step2_desc') },
-              { icon: Gift, title: tr('step3_title'), desc: tr('step3_desc') },
-            ].map((step, i) => (
-              <div key={i} className="bg-card rounded-2xl border border-border p-6 space-y-3 text-center">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
-                  <step.icon className="w-6 h-6 text-primary" />
-                </div>
-                <p className="text-sm font-heading font-bold text-primary/40">{tr('step_label')} {i + 1}</p>
-                <h4 className="font-heading font-semibold">{step.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto bg-gradient-to-br from-primary to-blue-600 rounded-3xl p-8 sm:p-12 text-center text-primary-foreground space-y-5">
