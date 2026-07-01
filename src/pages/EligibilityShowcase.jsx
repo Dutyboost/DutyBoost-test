@@ -161,7 +161,7 @@ export default function EligibilityShowcase() {
                   onClick={handleCheck}
                   disabled={!airport || !departureDate}
                   size="lg"
-                  className="w-full h-14 text-base gap-2"
+                  className="w-full min-h-14 py-4 text-base gap-2 whitespace-normal text-center leading-snug"
                 >
                   <Wand2 className="w-5 h-5" />
                   {tr('btn_check')}
@@ -177,7 +177,7 @@ export default function EligibilityShowcase() {
                   <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('eligible_desc', { airport, date: new Date(departureDate).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" }) }) }} />
                 </div>
                 <Link to="/claim-duty-credit">
-                  <Button size="lg" className="w-full h-14 text-base gap-2">
+                  <Button size="lg" className="w-full min-h-14 py-4 text-base gap-2 whitespace-normal text-center leading-snug">
                     <Gift className="w-5 h-5" />
                     {tr('btn_generate')}
                     <ArrowRight className="w-4 h-4" />
@@ -197,7 +197,7 @@ export default function EligibilityShowcase() {
                   <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('not_eligible_desc', { airport }) }} />
                 </div>
                 <Link to="/claim-duty-credit">
-                  <Button size="lg" variant="outline" className="w-full h-14 text-base gap-2">
+                  <Button size="lg" variant="outline" className="w-full min-h-14 py-4 text-base gap-2 whitespace-normal text-center leading-snug">
                     {tr('not_eligible_btn')}
                     <ArrowRight className="w-4 h-4" />
                   </Button>
