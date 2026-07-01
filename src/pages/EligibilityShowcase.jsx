@@ -9,7 +9,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import {
   Search, MapPin, Plane, CheckCircle2, ArrowRight, Sparkles,
-  MousePointerClick, Gift, Wand2
+  MousePointerClick, Gift, Wand2, AlertCircle
 } from "lucide-react";
 
 export default function EligibilityShowcase() {
@@ -19,6 +19,13 @@ export default function EligibilityShowcase() {
   const [airport, setAirport] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [checked, setChecked] = useState(false);
+  const [dateError, setDateError] = useState("");
+
+  const isPastDate = (dateStr) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return new Date(dateStr) < today;
+  };
 
   const filteredAirports = (() => {
     const q = airportQuery.trim().toLowerCase();
@@ -36,8 +43,18 @@ export default function EligibilityShowcase() {
     setAirportQuery("");
   };
 
+  const handleDateChange = (e) => {
+    setDepartureDate(e.target.value);
+    setDateError("");
+  };
+
   const handleCheck = () => {
-    if (airport && departureDate) setChecked(true);
+    if (!airport || !departureDate) return;
+    if (isPastDate(departureDate)) {
+      setDateError(tr('date_past_error'));
+      return;
+    }
+    setChecked(true);
   };
 
   const reset = () => {
@@ -45,6 +62,7 @@ export default function EligibilityShowcase() {
     setAirport("");
     setAirportQuery("");
     setDepartureDate("");
+    setDateError("");
   };
 
   return (
@@ -124,9 +142,15 @@ export default function EligibilityShowcase() {
                   <Input
                     type="date"
                     value={departureDate}
-                    onChange={(e) => setDepartureDate(e.target.value)}
+                    onChange={handleDateChange}
                     className="h-12 text-base"
                   />
+                  {dateError && (
+                    <div className="mt-2 flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                      <span>{dateError}</span>
+                    </div>
+                  )}
                 </div>
                 <Button
                   onClick={handleCheck}
