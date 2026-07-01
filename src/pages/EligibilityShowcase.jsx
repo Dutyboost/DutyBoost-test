@@ -8,7 +8,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import {
-  Search, MapPin, Plane, CheckCircle2, ArrowRight, Sparkles,
+  Search, MapPin, Plane, CheckCircle2, ArrowRight,
   MousePointerClick, Gift, Wand2, AlertCircle
 } from "lucide-react";
 
@@ -183,36 +183,6 @@ export default function EligibilityShowcase() {
               </div>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* Why it's free */}
-      <section className="py-12 px-4 sm:px-6 bg-card/30 border-y border-border">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            <Gift className="w-4 h-4" />
-            {tr('free_badge')}
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold">
-            {tr('free_title')}
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {tr('free_desc')}
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-12 px-4 sm:px-6">
-        <div className="max-w-2xl mx-auto bg-gradient-to-br from-primary to-blue-600 rounded-3xl p-8 sm:p-12 text-center text-primary-foreground space-y-5">
-          <Sparkles className="w-10 h-10 mx-auto" />
-          <h2 className="text-3xl font-heading font-bold">{tr('cta_title')}</h2>
-          <p className="text-primary-foreground/90 text-lg">{tr('cta_desc')}</p>
-          <Link to="/claim-duty-credit">
-            <Button size="lg" variant="secondary" className="gap-2">
-              {tr('cta_btn')} <ArrowRight className="w-4 h-4" />
-            </Button>
-          </Link>
         </div>
       </section>
 
