@@ -120,13 +120,13 @@ export default function ClaimDutyCredit() {
     }
   };
 
-  const handleAddToWallet = async () => {
+  const handleAddToWallet = async (platform) => {
     if (!generated?.token_id) return;
-    setWalletLoading(true);
+    setWalletLoading(platform);
     try {
       const response = await base44.functions.invoke('generateWalletPass', {
         token_id: generated.token_id,
-        platform: walletPlatform,
+        platform,
       });
       const data = response.data;
       if (data.save_url) {
@@ -137,7 +137,7 @@ export default function ClaimDutyCredit() {
     } catch (err) {
       setError(tr('error_generic'));
     } finally {
-      setWalletLoading(false);
+      setWalletLoading(null);
     }
   };
 
@@ -472,9 +472,13 @@ export default function ClaimDutyCredit() {
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">
                 <QrCode className="w-4 h-4" /> {tr('btn_print')}
               </Button>
-              <Button onClick={handleAddToWallet} disabled={walletLoading} className="flex-1 gap-2">
-                {walletLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
-                {walletPlatform === 'ios' ? 'Add to Apple Wallet' : walletPlatform === 'android' ? 'Add to Google Wallet' : 'Add to Wallet'}
+              <Button onClick={() => handleAddToWallet('ios')} disabled={!!walletLoading} className="flex-1 gap-2">
+                {walletLoading === 'ios' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
+                Add to Apple Wallet
+              </Button>
+              <Button onClick={() => handleAddToWallet('android')} disabled={!!walletLoading} className="flex-1 gap-2">
+                {walletLoading === 'android' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
+                Add to Google Wallet
               </Button>
             </div>
           </div>
