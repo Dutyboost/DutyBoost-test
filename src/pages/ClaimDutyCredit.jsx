@@ -13,6 +13,7 @@ import {
   ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles
 } from "lucide-react";
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
+import { getAirlineFormat } from "../data/airlineFormats";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -36,6 +37,10 @@ export default function ClaimDutyCredit() {
 
   const isPartnerFlow = !!refCode;
   const tr = (key, opts) => t(`claimDutyCredit.${key}`, opts, { returnObjects: false });
+
+  const airlineFormat = useMemo(() => getAirlineFormat(airline), [airline]);
+  const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
+  const bookingRefValid = !!(airlineFormat?.bookingPattern && airlineFormat.bookingPattern.test(bookingRef));
 
   // Airport search
   const filteredAirports = useMemo(() => {
@@ -66,14 +71,14 @@ export default function ClaimDutyCredit() {
   };
 
   const handleClaim = async () => {
-    if (!airport || !airline || !bookingRef || !departureDate) {
+    if (!airport || !airline || !bookingRef || !departureDate || !flightNumber) {
       setError(tr('error_missing_fields'));
       return;
     }
     setError('');
 
-    // Partner flow requires email + flight number for duplicate check
-    if (isPartnerFlow && (!travelerEmail || !flightNumber)) {
+    // Partner flow requires email for duplicate check
+    if (isPartnerFlow && !travelerEmail) {
       setError(tr('error_missing_fields'));
       return;
     }
@@ -197,7 +202,7 @@ export default function ClaimDutyCredit() {
                 </div>
               </div>
 
-              {/* Always visible: airline, booking number, departure date */}
+              {/* Always visible: airline, flight number, booking ref, departure date */}
               <div className="space-y-4 pt-2 border-t border-border">
                 <AirlineSelector
                   value={airline}
@@ -207,14 +212,48 @@ export default function ClaimDutyCredit() {
                   noResultsText={tr('airline_no_results')}
                 />
                 <div>
+                  <Label className="text-sm font-medium mb-1.5 block">{tr('flight_number_label')}</Label>
+                  <Input
+                    type="text"
+                    value={flightNumber}
+                    onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
+                    placeholder={airlineFormat?.flightExample || tr('flight_number_placeholder')}
+                    className="font-mono"
+                  />
+                  {airlineFormat && (
+                    <div className="flex items-center gap-1.5 mt-1 text-xs">
+                      {flightNumberValid ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" />
+                      ) : (
+                        <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      )}
+                      <span className={flightNumberValid ? "text-green-600" : "text-muted-foreground"}>
+                        {airlineFormat.flightHint} · e.g. {airlineFormat.flightExample}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div>
                   <Label className="text-sm font-medium mb-1.5 block">{tr('booking_ref_label')}</Label>
                   <Input
                     type="text"
                     value={bookingRef}
                     onChange={(e) => setBookingRef(e.target.value.toUpperCase())}
-                    placeholder={tr('booking_ref_placeholder')}
+                    placeholder={airlineFormat?.bookingExample || tr('booking_ref_placeholder')}
                     className="font-mono"
                   />
+                  {airlineFormat && (
+                    <div className="flex items-center gap-1.5 mt-1 text-xs">
+                      {bookingRefValid ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" />
+                      ) : (
+                        <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      )}
+                      <span className={bookingRefValid ? "text-green-600" : "text-muted-foreground"}>
+                        e.g. {airlineFormat.bookingExample} · {airlineFormat.bookingHint}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div>
                   <Label className="text-sm font-medium mb-1.5 block">{tr('departure_date_label')}</Label>
@@ -226,22 +265,12 @@ export default function ClaimDutyCredit() {
                 </div>
               </div>
 
-              {/* Partner flow: email + flight number for duplicate check */}
+              {/* Partner flow: email for duplicate check */}
               {isPartnerFlow && (
                 <div className="space-y-4 pt-2 border-t border-border">
                   <p className="text-sm text-muted-foreground">
                     {tr('partner_flow_text')}
                   </p>
-                  <div>
-                    <Label className="text-sm font-medium mb-1.5 block">{tr('flight_number_label')}</Label>
-                    <Input
-                      type="text"
-                      value={flightNumber}
-                      onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
-                      placeholder={tr('flight_number_placeholder')}
-                      className="font-mono"
-                    />
-                  </div>
                   <div>
                     <Label className="text-sm font-medium mb-1.5 block">{tr('email_label')}</Label>
                     <Input
@@ -263,7 +292,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !bookingRef || !departureDate || (isPartnerFlow && (!travelerEmail || !flightNumber))}
+                disabled={!airport || !airline || !bookingRef || !departureDate || !flightNumber || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
