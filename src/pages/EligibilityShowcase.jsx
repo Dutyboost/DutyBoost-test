@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,6 +13,8 @@ import {
 } from "lucide-react";
 
 export default function EligibilityShowcase() {
+  const { t } = useTranslation();
+  const tr = (key, opts) => t(`eligibility.${key}`, opts, { returnObjects: false });
   const [airportQuery, setAirportQuery] = useState("");
   const [airport, setAirport] = useState("");
   const [departureDate, setDepartureDate] = useState("");
@@ -62,15 +65,14 @@ export default function EligibilityShowcase() {
         <div className="relative max-w-3xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-medium border border-blue-200">
             <Plane className="w-4 h-4" />
-            Traveling soon?
+            {tr('hero_badge')}
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            Check if you're{" "}
-            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">eligible</span>
+            {tr('hero_title_pre')}{" "}
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">{tr('hero_title_highlight')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Are you traveling within the next 30 days? See if you qualify for a free DutyCredit —
-            airport shopping credit you can spend at participating airport retailers.
+            {tr('hero_subtitle')}
           </p>
         </div>
       </section>
@@ -80,21 +82,21 @@ export default function EligibilityShowcase() {
         <div className="max-w-xl mx-auto">
           <div className="bg-card rounded-3xl border border-border shadow-sm p-6 sm:p-8 space-y-6">
             <div className="text-center space-y-1">
-              <h2 className="text-xl font-heading font-bold">Check your eligibility</h2>
-              <p className="text-sm text-muted-foreground">Enter your departure details to find out.</p>
+              <h2 className="text-xl font-heading font-bold">{tr('check_title')}</h2>
+              <p className="text-sm text-muted-foreground">{tr('check_subtitle')}</p>
             </div>
 
             {!checked ? (
               <div className="space-y-5">
                 <div>
-                  <Label className="text-sm font-semibold mb-2 block">Departure airport</Label>
+                  <Label className="text-sm font-semibold mb-2 block">{tr('airport_label')}</Label>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <Input
                       type="text"
                       value={airportQuery || airport}
                       onChange={(e) => { setAirportQuery(e.target.value); setAirport(""); }}
-                      placeholder="Search airport, city, or IATA code…"
+                      placeholder={tr('airport_placeholder')}
                       className="pl-10 h-12 text-base"
                     />
                   </div>
@@ -118,7 +120,7 @@ export default function EligibilityShowcase() {
                   )}
                 </div>
                 <div>
-                  <Label className="text-sm font-semibold mb-2 block">Departure date</Label>
+                  <Label className="text-sm font-semibold mb-2 block">{tr('date_label')}</Label>
                   <Input
                     type="date"
                     value={departureDate}
@@ -133,7 +135,7 @@ export default function EligibilityShowcase() {
                   className="w-full h-14 text-base gap-2"
                 >
                   <Wand2 className="w-5 h-5" />
-                  Check my eligibility
+                  {tr('btn_check')}
                 </Button>
               </div>
             ) : (
@@ -142,22 +144,18 @@ export default function EligibilityShowcase() {
                   <CheckCircle2 className="w-12 h-12 text-green-600" />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-2xl font-heading font-bold text-green-700">You're eligible!</p>
-                  <p className="text-sm text-muted-foreground">
-                    Based on your departure from <strong>{airport}</strong> on{" "}
-                    <strong>{new Date(departureDate).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}</strong>,
-                    you qualify for a free DutyCredit.
-                  </p>
+                  <p className="text-2xl font-heading font-bold text-green-700">{tr('eligible_title')}</p>
+                  <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('eligible_desc', { airport, date: new Date(departureDate).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" }) }) }} />
                 </div>
                 <Link to="/claim-duty-credit">
                   <Button size="lg" className="w-full h-14 text-base gap-2">
                     <Gift className="w-5 h-5" />
-                    Generate your personalized DutyCredit now
+                    {tr('btn_generate')}
                     <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
                 <button onClick={reset} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Check another trip
+                  {tr('check_another')}
                 </button>
               </div>
             )}
@@ -170,15 +168,13 @@ export default function EligibilityShowcase() {
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
             <Gift className="w-4 h-4" />
-            No catch, no cost
+            {tr('free_badge')}
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold">
-            Your DutyCredit is completely free
+            {tr('free_title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            DutyCredit is airport shopping credit provided through your travel partner — no payment, no
-            subscription, no strings attached. Just show your QR code at a participating airport retailer
-            and the discount is applied to your purchase instantly.
+            {tr('free_desc')}
           </p>
         </div>
       </section>
@@ -187,20 +183,20 @@ export default function EligibilityShowcase() {
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 space-y-2">
-            <h2 className="text-3xl font-heading font-bold">How it works</h2>
-            <p className="text-muted-foreground">Three simple steps to your airport savings.</p>
+            <h2 className="text-3xl font-heading font-bold">{tr('how_title')}</h2>
+            <p className="text-muted-foreground">{tr('how_subtitle')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: MousePointerClick, title: "Check your trip", desc: "Enter your departure airport and date to see if you qualify." },
-              { icon: CheckCircle2, title: "Get confirmed", desc: "We'll let you know instantly if you're eligible for a free DutyCredit." },
-              { icon: Gift, title: "Generate & save", desc: "Generate your personalized DutyCredit and use it at participating airport retailers." },
+              { icon: MousePointerClick, title: tr('step1_title'), desc: tr('step1_desc') },
+              { icon: CheckCircle2, title: tr('step2_title'), desc: tr('step2_desc') },
+              { icon: Gift, title: tr('step3_title'), desc: tr('step3_desc') },
             ].map((step, i) => (
               <div key={i} className="bg-card rounded-2xl border border-border p-6 space-y-3 text-center">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
                   <step.icon className="w-6 h-6 text-primary" />
                 </div>
-                <p className="text-sm font-heading font-bold text-primary/40">Step {i + 1}</p>
+                <p className="text-sm font-heading font-bold text-primary/40">{tr('step_label')} {i + 1}</p>
                 <h4 className="font-heading font-semibold">{step.title}</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
               </div>
@@ -213,11 +209,11 @@ export default function EligibilityShowcase() {
       <section className="py-12 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto bg-gradient-to-br from-primary to-blue-600 rounded-3xl p-8 sm:p-12 text-center text-primary-foreground space-y-5">
           <Sparkles className="w-10 h-10 mx-auto" />
-          <h2 className="text-3xl font-heading font-bold">Ready to check your eligibility?</h2>
-          <p className="text-primary-foreground/90 text-lg">It takes 10 seconds — and it could save you money at the airport.</p>
+          <h2 className="text-3xl font-heading font-bold">{tr('cta_title')}</h2>
+          <p className="text-primary-foreground/90 text-lg">{tr('cta_desc')}</p>
           <Link to="/claim-duty-credit">
             <Button size="lg" variant="secondary" className="gap-2">
-              Go to DutyCredit claim <ArrowRight className="w-4 h-4" />
+              {tr('cta_btn')} <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>
@@ -227,7 +223,7 @@ export default function EligibilityShowcase() {
       <footer className="border-t border-border py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Link to="/"><DutyBoostLogo height={40} /></Link>
-          <p>© {new Date().getFullYear()} DutyBoost B.V. — The Travel Retail Conversion Layer</p>
+          <p>{tr('footer', { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>
