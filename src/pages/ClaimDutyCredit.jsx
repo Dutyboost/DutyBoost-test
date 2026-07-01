@@ -125,7 +125,7 @@ export default function ClaimDutyCredit() {
       </nav>
 
       {/* Main */}
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16 print:py-4 print:px-4">
         {/* ── CLAIM STEP ── */}
         {step === 'claim' && (
           <div className="space-y-8">
@@ -355,7 +355,7 @@ export default function ClaimDutyCredit() {
 
         {/* ── SUCCESS STEP ── */}
         {step === 'success' && generated && (
-          <div className="space-y-6">
+          <div className="space-y-6 print:space-y-3">
             <div className="text-center space-y-2">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium">
                 <CheckCircle2 className="w-4 h-4" />
@@ -371,11 +371,11 @@ export default function ClaimDutyCredit() {
                 <p className="text-xs uppercase tracking-widest opacity-80">{tr('qr_card_label')}</p>
                 <p className="text-lg font-bold font-mono mt-1">{generated.token_id}</p>
               </div>
-              <div className="p-6 flex flex-col items-center gap-4">
+              <div className="p-6 flex flex-col items-center gap-4 print:p-3 print:gap-2">
                 <img
                   src={generated.qr_image_url}
                   alt="DutyCredit QR Code"
-                  className="w-64 h-64 rounded-xl border border-border"
+                  className="w-44 h-44 rounded-xl border border-border print:w-36 print:h-36"
                 />
                 <div className="w-full grid grid-cols-2 gap-3 text-sm">
                   <div className="bg-muted/50 rounded-lg p-3">
@@ -402,7 +402,7 @@ export default function ClaimDutyCredit() {
             </div>
 
             {/* Discount tiers */}
-            <div className="bg-card rounded-2xl border border-border p-6 space-y-3">
+            <div className="bg-card rounded-2xl border border-border p-6 space-y-3 print:p-3 print:space-y-1">
               <p className="text-sm font-semibold flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-primary" />
                 {tr('savings_title')}
@@ -439,7 +439,7 @@ export default function ClaimDutyCredit() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 print:hidden">
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">
                 <QrCode className="w-4 h-4" /> {tr('btn_print')}
               </Button>
