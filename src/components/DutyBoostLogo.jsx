@@ -13,7 +13,7 @@ export default function DutyBoostLogo({ height = 55, inverted = false, linkTo = 
 
   if (linkTo) {
     return (
-      <Link to={linkTo} className="hover:opacity-80 transition-opacity inline-flex items-center">
+      <Link to={linkTo} aria-label="DutyBoost — Home" className="hover:opacity-80 transition-opacity inline-flex items-center">
         {img}
       </Link>
     );

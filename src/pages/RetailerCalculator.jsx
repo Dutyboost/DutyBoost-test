@@ -80,12 +80,12 @@ const BOOKING_TIERS = [
 // ── Retailer tab ───────────────────────────────────────────────────────────────
 function RetailerTab({ t }) {
   const [selectedCompany, setSelectedCompany] = useState(null);
-  const [spend, setSpend] = useState(0);
-  const [spendInput, setSpendInput] = useState("0");
+  const [spend, setSpend] = useState(100);
+  const [spendInput, setSpendInput] = useState(fmtNum(100));
   const [spendError, setSpendError] = useState("");
   const TRAVELER_TIERS = [0, 100, 500, ...Array.from({length: 1000}, (_, i) => (i + 1) * 1000), ...Array.from({length: 4791}, (_, i) => 1050000 + i * 5000)];
-  const [dailyTravelers, setDailyTravelers] = useState(0);
-  const [travelersInput, setTravelersInput] = useState("0");
+  const [dailyTravelers, setDailyTravelers] = useState(1000);
+  const [travelersInput, setTravelersInput] = useState(fmtNum(1000));
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(0.5);
 
@@ -158,6 +158,7 @@ function RetailerTab({ t }) {
               <input
                 type="text"
                 inputMode="numeric"
+                aria-label={t('calculator.basket_spend')}
                 value={spendInput}
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
@@ -185,7 +186,7 @@ function RetailerTab({ t }) {
           )}
         </div>
         <div className="space-y-2">
-          <Slider min={0} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(fmtNum(v)); setSpendError(""); }} className="w-full" />
+          <Slider min={0} max={1000} step={5} value={[spend]} onValueChange={([v]) => { setSpend(v); setSpendInput(fmtNum(v)); setSpendError(""); }} aria-label={t('calculator.basket_spend')} className="w-full" />
         </div>
         <div className="flex flex-col sm:flex-row gap-2 pt-1">
           <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5">
@@ -225,6 +226,7 @@ function RetailerTab({ t }) {
               <input
                 type="text"
                 inputMode="numeric"
+                aria-label={t('calculator.daily_travelers')}
                 value={travelersInput}
                 onChange={(e) => {
                   const digits = e.target.value.replace(/[^\d]/g, "");
@@ -244,7 +246,7 @@ function RetailerTab({ t }) {
               {travelersError && <p className="text-xs text-red-500 mt-1 font-medium">{travelersError}</p>}
             </div>
           </div>
-          <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(fmtNum(TRAVELER_TIERS[i])); setTravelersError(""); }} className="w-full" />
+          <Slider min={0} max={TRAVELER_TIERS.length - 1} step={1} value={[Math.max(0, TRAVELER_TIERS.findIndex((v) => v === dailyTravelers))]} onValueChange={([i]) => { setDailyTravelers(TRAVELER_TIERS[i]); setTravelersInput(fmtNum(TRAVELER_TIERS[i])); setTravelersError(""); }} aria-label={t('calculator.daily_travelers')} className="w-full" />
         </div>
 
         <div className="space-y-2 pt-2 border-t border-slate-100">
@@ -255,7 +257,7 @@ function RetailerTab({ t }) {
             </div>
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
           </div>
-          <Slider min={0.5} max={75} step={0.5} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} className="w-full" />
+          <Slider min={0.5} max={75} step={0.5} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} aria-label={t('calculator.conversion_rate')} className="w-full" />
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>
@@ -400,8 +402,8 @@ const VERTICALS_CONFIG = [
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 function TravelPartnerTab({ t }) {
   const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
-  const [bookings, setBookings] = useState({ flight: 0, accommodation: 0, car: 0 });
-  const [bookingsInput, setBookingsInput] = useState({ flight: "0", accommodation: "0", car: "0" });
+  const [bookings, setBookings] = useState({ flight: 10000, accommodation: 0, car: 0 });
+  const [bookingsInput, setBookingsInput] = useState({ flight: fmtNum(10000), accommodation: "0", car: "0" });
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
   const [conversion, setConversion] = useState({ flight: 3, accommodation: 3, car: 3 });
@@ -500,6 +502,7 @@ function TravelPartnerTab({ t }) {
                 <input
                  type="text"
                  inputMode="numeric"
+                 aria-label={t('calculator.bookings_x2_note_prefix') + ' / ' + t('calculator.month_label')}
                  value={bookingsInput[v.key]}
                  onChange={(e) => {
                    const digits = e.target.value.replace(/[^\d]/g, "");
@@ -532,7 +535,7 @@ function TravelPartnerTab({ t }) {
                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
               </p>
             )}
-            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => { setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] })); setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(BOOKING_TIERS[i]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }} className="w-full" />
+            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => { setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] })); setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(BOOKING_TIERS[i]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }} aria-label={t('calculator.bookings_x2_note_prefix')} className="w-full" />
           </div>
 
           {/* Conversion rate slider */}
@@ -544,7 +547,7 @@ function TravelPartnerTab({ t }) {
               </div>
               <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
             </div>
-            <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} className="w-full" />
+            <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} aria-label={t('calculator.redemption_rate')} className="w-full" />
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
           </div>
 
@@ -662,7 +665,7 @@ export default function RetailerCalculator() {
   const [activeTab, setActiveTab] = useState("retailer");
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
+    <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
       <div className="max-w-3xl mx-auto space-y-8">
 
         {/* Header */}
@@ -687,6 +690,7 @@ export default function RetailerCalculator() {
         <div className="flex gap-2 bg-slate-100 border border-slate-300 rounded-2xl p-1.5">
           <button
             onClick={() => setActiveTab("retailer")}
+            aria-pressed={activeTab === "retailer"}
             className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
               activeTab === "retailer"
                 ? "bg-orange-500 text-white shadow"
@@ -697,6 +701,7 @@ export default function RetailerCalculator() {
           </button>
           <button
             onClick={() => setActiveTab("partner")}
+            aria-pressed={activeTab === "partner"}
             className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
               activeTab === "partner"
                 ? "bg-green-600 text-white shadow"
@@ -711,6 +716,6 @@ export default function RetailerCalculator() {
 
       </div>
       <PageFooter />
-    </div>
+    </main>
   );
 }
