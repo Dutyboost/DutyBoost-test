@@ -3,7 +3,7 @@ export const eligibilityStrings = {
     hero_badge: "Traveling soon?",
     hero_title_pre: "Check if you're",
     hero_title_highlight: "eligible",
-    hero_subtitle: "Are you traveling within the next 30 days? See if you qualify for a free DutyCredit — airport shopping credit you can spend at participating airport retailers.",
+    hero_subtitle: "Are you traveling within the next 30 days? See if you qualify for a free DutyCredit — shopping credit you can spend at participating airport retailers.",
     check_title: "Check your eligibility",
     check_subtitle: "Enter your departure details to find out.",
     airport_label: "Departure airport",
