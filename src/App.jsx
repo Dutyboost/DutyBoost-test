@@ -108,6 +108,7 @@ import LetterOfIntent from './pages/LetterOfIntent';
 import LetterOfIntentRetailer from './pages/LetterOfIntentRetailer';
 import BrandGuidelines from './pages/BrandGuidelines';
 import ClaimDutyCredit from './pages/ClaimDutyCredit';
+import EligibilityShowcase from './pages/EligibilityShowcase';
 import DutyBoostPresentation from './pages/DutyBoostPresentation';
 
 const AuthenticatedApp = () => {
@@ -226,6 +227,7 @@ const AuthenticatedApp = () => {
         <Route path="/letter-of-intent-retailer" element={<LetterOfIntentRetailer />} />
         <Route path="/brand-guidelines" element={<BrandGuidelines />} />
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
+        <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentation />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
