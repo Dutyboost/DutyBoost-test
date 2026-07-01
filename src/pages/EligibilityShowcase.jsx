@@ -7,9 +7,10 @@ import { Label } from "@/components/ui/label";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
+import { isAirportDutyBoostEnabled } from "../lib/retailerEligibility";
 import {
   Search, MapPin, Plane, CheckCircle2, ArrowRight,
-  MousePointerClick, Gift, Wand2, AlertCircle
+  MousePointerClick, Gift, Wand2, AlertCircle, XCircle
 } from "lucide-react";
 
 export default function EligibilityShowcase() {
@@ -19,6 +20,7 @@ export default function EligibilityShowcase() {
   const [airport, setAirport] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [checked, setChecked] = useState(false);
+  const [eligible, setEligible] = useState(false);
   const [dateError, setDateError] = useState("");
 
   const isPastDate = (dateStr) => {
@@ -54,11 +56,15 @@ export default function EligibilityShowcase() {
       setDateError(tr('date_past_error'));
       return;
     }
+    // Extract IATA code from "CODE — City" format
+    const airportCode = airport.split(" — ")[0];
+    setEligible(isAirportDutyBoostEnabled(airportCode));
     setChecked(true);
   };
 
   const reset = () => {
     setChecked(false);
+    setEligible(false);
     setAirport("");
     setAirportQuery("");
     setDepartureDate("");
@@ -161,7 +167,7 @@ export default function EligibilityShowcase() {
                   {tr('btn_check')}
                 </Button>
               </div>
-            ) : (
+            ) : eligible ? (
               <div className="text-center space-y-6 py-4">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100">
                   <CheckCircle2 className="w-12 h-12 text-green-600" />
@@ -174,6 +180,25 @@ export default function EligibilityShowcase() {
                   <Button size="lg" className="w-full h-14 text-base gap-2">
                     <Gift className="w-5 h-5" />
                     {tr('btn_generate')}
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+                <button onClick={reset} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {tr('check_another')}
+                </button>
+              </div>
+            ) : (
+              <div className="text-center space-y-6 py-4">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100">
+                  <XCircle className="w-12 h-12 text-amber-600" />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-2xl font-heading font-bold text-amber-700">{tr('not_eligible_title')}</p>
+                  <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('not_eligible_desc', { airport }) }} />
+                </div>
+                <Link to="/claim-duty-credit">
+                  <Button size="lg" variant="outline" className="w-full h-14 text-base gap-2">
+                    {tr('not_eligible_btn')}
                     <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>

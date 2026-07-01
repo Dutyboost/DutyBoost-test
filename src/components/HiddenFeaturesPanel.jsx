@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Ship, Train, Bus } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Ship, Train, Bus, Store } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -303,6 +303,34 @@ Phase 3 — OTA integration: FlixBus, Omio — auto-generate DutyCredits for all
       "pages/BusTripSignup.jsx",
       "pages/DemoBusTripDashboard.jsx",
       "functions/generateBusTripCredit.js",
+    ],
+  },
+  {
+    id: "pos-eligibility-gate",
+    icon: Store,
+    title: "Retailer POS Eligibility Gate",
+    status: "hidden",
+    reason: "Feature built and wired — disabled until retail partners go live with DutyBoost POS integration",
+    description: `DutyCredits are only truly redeemable at airports where a retail company operating there has implemented DutyBoost in their POS. This feature gates the eligibility check: when a traveler checks eligibility, the system looks up the departing airport's IATA code against the registry of retail companies that have gone live with DutyBoost (src/data/airportRetailCompanies.js). If a live retailer operates at that airport, the traveler is eligible. If not, they see a "not available at this airport yet" message with a notify-me CTA.
+
+The logic lives in src/lib/retailerEligibility.js:
+• POS_ELIGIBILITY_CHECK_ENABLED — master flag (false = any future departure qualifies, as today)
+• DUTYBOOST_LIVE_RETAILERS — array of retail company names that have integrated DutyBoost into their POS
+• isAirportDutyBoostEnabled(code) — returns true if any live retailer operates at the given IATA code
+
+While the flag is false, the eligibility page behaves exactly as before. Flip it to true and populate DUTYBOOST_LIVE_RETAILERS as partners go live to enforce the gate.`,
+    pages: [
+      { label: "Eligibility Showcase", path: "/eligibility-showcase" },
+    ],
+    howToRestore: [
+      "In src/lib/retailerEligibility.js: set POS_ELIGIBILITY_CHECK_ENABLED = true.",
+      "In src/lib/retailerEligibility.js: add retail company names (matching AIRPORT_RETAIL_COMPANIES exactly) to DUTYBOOST_LIVE_RETAILERS as each partner goes live.",
+      "Optionally wire the 'Notify me when live' button to a real signup/newsletter flow (currently links to /claim-duty-credit).",
+    ],
+    files: [
+      "lib/retailerEligibility.js",
+      "pages/EligibilityShowcase.jsx",
+      "lib/i18nEligibility.js",
     ],
   },
 ];
