@@ -87,8 +87,8 @@ export const presentationStrings = {
       stat_free_label: "for every traveler",
       stat_seconds: "10s",
       stat_seconds_label: "to claim",
-      stat_discount: "Up to €60",
-      stat_discount_label: "saved per basket",
+      stat_discount: "20%",
+      stat_discount_label: "avg discount",
     },
     what: {
       agg_label: "What — Revenue Projection",
@@ -235,8 +235,8 @@ export const presentationStrings = {
       stat_free_label: "voor elke reiziger",
       stat_seconds: "10s",
       stat_seconds_label: "om te claimen",
-      stat_discount: "Tot €60",
-      stat_discount_label: "bespaard per mandje",
+      stat_discount: "20%",
+      stat_discount_label: "gem. korting",
     },
     what: {
       agg_label: "Wat — Omzetprojectie",
@@ -383,8 +383,8 @@ export const presentationStrings = {
       stat_free_label: "para cada viajero",
       stat_seconds: "10s",
       stat_seconds_label: "para reclamar",
-      stat_discount: "Hasta €60",
-      stat_discount_label: "ahorrado por cesta",
+      stat_discount: "20%",
+      stat_discount_label: "desc. medio",
     },
     what: {
       agg_label: "Qué — Proyección de Ingresos",
