@@ -17,7 +17,7 @@ export const presentationStrings = {
     why: {
       label: "The Challenge",
       title: "Millions walk by daily. Most don't stop.",
-      subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. And it can be activated without spending more on acquisition.",
+      subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. How can we change this behaviour without spending more on acquisition?",
       problem_1_title: "Average conversion",
       problem_1_desc: "Only 15–25% of departing passengers shop at airport retail. The rest walk past your stores with wallets closed. How can we change this behaviour?",
       problem_2_title: "No pre-activation",
@@ -171,7 +171,7 @@ export const presentationStrings = {
     why: {
       label: "De Uitdaging",
       title: "Miljoenen lopen dagelijks voorbij. De meesten stoppen niet.",
-      subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. En die is te activeren zonder meer uit te geven aan acquisitie.",
+      subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. Hoe kunnen we dit gedrag veranderen zonder meer uit te geven aan acquisitie?",
       problem_1_title: "Gemiddelde conversie",
       problem_1_desc: "Slechts 15–25% van de vertrekkende passagiers koopt iets op de luchthaven. De rest loopt langs uw winkels met gesloten portemonnees. Hoe kunnen we dit gedrag veranderen?",
       problem_2_title: "Geen pre-activatie",
@@ -325,7 +325,7 @@ export const presentationStrings = {
     why: {
       label: "El Desafío",
       title: "Millones pasan cada día. La mayoría no se detiene.",
-      subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. Y se puede activar sin gastar más en adquisición.",
+      subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo podríamos cambiar este comportamiento sin gastar más en adquisición?",
       problem_1_title: "Conversión media",
       problem_1_desc: "Solamente el 15–25% de los pasajeros compran. El resto pasa por delante de las tiendas con la cartera cerrada. ¿Cómo podemos cambiar este comportamiento?",
       problem_2_title: "Sin pre-activación",
