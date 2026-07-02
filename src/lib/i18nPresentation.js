@@ -407,7 +407,7 @@ export const presentationStrings = {
     what: {
       agg_label: "Qué — Proyección de Ingresos",
       agg_title: "Ingresos de Agregación Global",
-      agg_subtitle: "Seleccione una empresa para ver los ingresos potenciales en toda su red de aeropuertos con una conversión del 1%.",
+      agg_subtitle: "Ver los ingresos potenciales de toda la red de aeropuertos que manejan con una conversión del 1% incremental.",
       company_label: "Empresa:",
       airports: "aeropuertos",
       stores: "tiendas",
