@@ -192,16 +192,16 @@ export default function DutyBoostPresentation() {
 
             <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
               <div className="text-center space-y-1">
+                <p className="text-2xl font-heading font-bold text-accent">{t('presentation.journey.stat_discount')}</p>
+                <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_discount_label')}</p>
+              </div>
+              <div className="text-center space-y-1">
                 <p className="text-2xl font-heading font-bold text-emerald-600">{t('presentation.journey.stat_free')}</p>
                 <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_free_label')}</p>
               </div>
               <div className="text-center space-y-1">
                 <p className="text-2xl font-heading font-bold text-blue-600">{t('presentation.journey.stat_seconds')}</p>
                 <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_seconds_label')}</p>
-              </div>
-              <div className="text-center space-y-1">
-                <p className="text-2xl font-heading font-bold text-accent">{t('presentation.journey.stat_discount')}</p>
-                <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_discount_label')}</p>
               </div>
             </div>
 
