@@ -135,6 +135,14 @@ export default function DutyBoostPresentation() {
             <p className="text-sm text-muted-foreground leading-relaxed">
               {t('presentation.why.opportunity_text')}
             </p>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {t('presentation.why.opportunity_bullets', { returnObjects: true }).map((bullet, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                  <span className="leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
