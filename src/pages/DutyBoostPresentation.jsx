@@ -82,9 +82,6 @@ export default function DutyBoostPresentation() {
               {t('presentation.hero.title_1')}
               <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('presentation.hero.title_2')}</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              {t('presentation.hero.subtitle')}
-            </p>
             <div className="flex flex-wrap gap-3 justify-center pt-2">
               <span className="px-4 py-2 rounded-full bg-card border border-border text-foreground text-sm font-medium">{t('presentation.hero.pill_1')}</span>
               <span className="px-4 py-2 rounded-full bg-card border border-border text-foreground text-sm font-medium">{t('presentation.hero.pill_2')}</span>
@@ -228,9 +225,7 @@ export default function DutyBoostPresentation() {
                 <TravelerIcon className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">{t('presentation.how.flow1_label')}</p>
                 <h3 className="text-2xl font-heading font-bold">{t('presentation.how.flow1_title')}</h3>
-                <span className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">{t('presentation.how.flow1_phase')}</span>
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed">{t('presentation.how.flow1_desc')}</p>
