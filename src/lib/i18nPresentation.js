@@ -320,7 +320,7 @@ export const presentationStrings = {
       stat_2_label: "Viajeros que salen diariamente a nivel mundial",
       stat_3_val: "1h 10m",
       stat_3_label: "Tiempo medio de espera en la puerta",
-      stat_4_val: "€95B",
+      stat_4_val: "€95MM",
       stat_4_label: "Mercado global de retail aeroportuario",
       opportunity_title: "La oportunidad de DutyBoost",
       opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros que salen — convirtiendo este porcentaje de navegantes en compradores motivados antes de que lleguen a las tiendas. Llegan con DutyCredits en mano, listos para gastar.",
