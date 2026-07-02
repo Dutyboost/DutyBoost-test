@@ -11,11 +11,12 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import PresentationAggregation from "@/components/presentation/PresentationAggregation";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
-import { fmtNum, fmtEur } from "@/utils/formatNumber";
+import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
 
 export default function DutyBoostPresentation() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
   const [selectedCompanyIdx, setSelectedCompanyIdx] = useState(1);
   const [conversionRate] = useState(1);
@@ -115,8 +116,8 @@ export default function DutyBoostPresentation() {
 
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { val: fmtNum(totals.totalDailyTravelers * 365), label: t('presentation.why.stat_1_label', { company: company.name }) },
-              { val: fmtNum(totals.totalDailyTravelers), label: t('presentation.why.stat_2_label', { company: company.name }) },
+              { val: fmtCompact(totals.totalDailyTravelers * 365, lang), label: t('presentation.why.stat_1_label', { company: company.name }) },
+              { val: fmtCompact(totals.totalDailyTravelers, lang), label: t('presentation.why.stat_2_label', { company: company.name }) },
               { val: t('presentation.why.stat_3_val'), label: t('presentation.why.stat_3_label') },
               { val: t('presentation.why.stat_4_val'), label: t('presentation.why.stat_4_label') },
             ].map(({ val, label }, i) => (

@@ -1,5 +1,5 @@
 import pptxgen from "pptxgenjs";
-import { fmtNum, fmtEur } from "@/utils/formatNumber";
+import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
 
 const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/195c01c5f_ChatGPT_Image_May_4__2026__10_58_20_AM-removebg-preview.png";
@@ -56,8 +56,8 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
     s.addText("WHY — THE OPPORTUNITY", { x: 1, y: 0.4, w: 11.3, h: 0.4, fontSize: 11, bold: true, color: ORANGE, align: "center", fontFace: "Calibri", charSpacing: 2 });
     s.addText("A massive, untapped market.", { x: 1, y: 0.95, w: 11.3, h: 0.7, fontSize: 28, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
     const stats = [
-      { num: fmtNum(totals.totalDailyTravelers * 365), label: `Annual air passengers — ${company.name}` },
-      { num: fmtNum(totals.totalDailyTravelers), label: `Daily departing travelers — ${company.name}` },
+      { num: fmtCompact(totals.totalDailyTravelers * 365, "en"), label: `Annual air passengers — ${company.name}` },
+      { num: fmtCompact(totals.totalDailyTravelers, "en"), label: `Daily departing travelers — ${company.name}` },
       { num: "1h 10m", label: "Average dwell time at gate" },
       { num: "€95B", label: "Global airport retail market" },
     ];
