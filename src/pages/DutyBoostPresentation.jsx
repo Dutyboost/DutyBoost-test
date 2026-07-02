@@ -209,37 +209,8 @@ export default function DutyBoostPresentation() {
           </div>
         </section>
 
-        {/* HOW — The Ecosystem */}
+        {/* HOW — Flows */}
         <section className="space-y-8">
-          <div className="border-l-4 border-primary pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">{t('presentation.how.label')}</p>
-            <h2 className="text-3xl font-heading font-bold">{t('presentation.how.title')}</h2>
-            <p className="text-muted-foreground mt-2">{t('presentation.how.subtitle')}</p>
-          </div>
-
-          <div className="bg-card border border-border rounded-2xl p-8">
-            <div className="grid md:grid-cols-3 gap-6 items-center">
-              {[
-                { Icon: TravelAgencyIcon, bg: "bg-green-50", iconColor: "text-green-600", label: t('presentation.how.eco_partner_label'), desc: t('presentation.how.eco_partner_desc'), arrow: true },
-                { Icon: TravelerIcon, bg: "bg-blue-50", iconColor: "text-blue-600", label: t('presentation.how.eco_traveler_label'), desc: t('presentation.how.eco_traveler_desc'), arrow: true },
-                { Icon: AirportRetailerIcon, bg: "bg-orange-50", iconColor: "text-orange-600", label: t('presentation.how.eco_retailer_label'), desc: t('presentation.how.eco_retailer_desc'), arrow: false },
-              ].map(({ Icon, bg, iconColor, label, desc, arrow }, i) => (
-                <div key={i} className="relative space-y-3 text-center">
-                  <div className={`w-16 h-16 rounded-2xl ${bg} flex items-center justify-center mx-auto`}>
-                    <Icon className={`w-9 h-9 ${iconColor}`} />
-                  </div>
-                  <p className="font-heading font-bold">{label}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed max-w-[200px] mx-auto">{desc}</p>
-                  {arrow && (
-                    <div className="hidden md:flex absolute top-8 -right-3 items-center">
-                      <ArrowRight className="w-5 h-5 text-primary/50" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Flow 1 — Traveller */}
           <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 space-y-6">
             <div className="flex items-center gap-4">
