@@ -321,7 +321,7 @@ export const presentationStrings = {
       problem_2_title: "Sin pre-activación",
       problem_2_desc: "Los viajeros llegan sin incentivo para comprar. Los anuncios genéricos y la señalización de la terminal no influyen en las decisiones de compra porque no despiertan la curiosidad.",
       problem_3_title: "Alto coste de adquisición",
-      problem_3_desc: "Las promociones y los programas de fidelidad cuestan por adelantado sin garantía de retorno. Usted paga tanto si alguien compra como si no. Muy tradicional",
+      problem_3_desc: "Las promociones y los programas de fidelidad cuestan por adelantado sin garantía de retorno. Pagas tanto si alguien compra como si no. Muy tradicional",
       stat_1_val: "4,8MM",
       stat_1_label: "Pasajeros aéreos anuales a nivel mundial",
       stat_2_val: "68,8M",
