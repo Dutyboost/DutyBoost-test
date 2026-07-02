@@ -382,7 +382,7 @@ export const presentationStrings = {
     journey: {
       label: "La Solución",
       title: "La Jornada del Viajero",
-      subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos minoristas incrementales. ¿Cómo lo hacemos?",
+      subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos incrementales. ¿Cómo lo hacemos?",
       step1_badge: "Paso 1",
       step1_title: "Comprueba si clasificas",
       step1_desc: "El viajero introduce su aeropuerto de salida y fecha. Confirmamos al instante si clasifica para un DutyCredit gratuito.",
@@ -394,7 +394,7 @@ export const presentationStrings = {
       step3_desc: "En caja, el viajero muestra su código QR. El descuento se aplica al instante. Ahorro real, fricción cero.",
       step4_badge: "El Resultado",
       step4_title: "Conversión y Aumento de Ingresos",
-      step4_desc: "Los viajeros pre-activados llegan listos para gastar. Las tiendas ven mayor conversión e ingresos incrementales — sin gastar más en adquisición.",
+      step4_desc: "Los viajeros pre-activados llegan listos para comprar. Las tiendas ven mayor conversión e ingresos incrementales — sin gastar más en adquisición.",
       cta: "Prueba la comprobación de si clasificas",
       stat_free: "Gratis",
       stat_free_label: "para cada viajero",
