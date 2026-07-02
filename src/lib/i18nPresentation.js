@@ -89,6 +89,7 @@ export const presentationStrings = {
       stat_seconds_label: "to claim",
       stat_discount: "Pre-activated",
       stat_discount_label: "Curiosity Sparked",
+      efficiency_note: "Every step is designed for speed. DutyBoost is all about simplification and obviousness — the process must be swift, because a curious traveler shouldn't have to wait.",
     },
     what: {
       agg_label: "What — Revenue Projection",
@@ -237,6 +238,7 @@ export const presentationStrings = {
       stat_seconds_label: "om te claimen",
       stat_discount: "Vooraf geactiveerd",
       stat_discount_label: "Nieuwsgierigheid Gewekt",
+      efficiency_note: "Elke stap is ontworpen voor snelheid. DutyBoost draait om vereenvoudiging en vanzelfsprekendheid — het proces moet vlot verlopen, want een nieuwsgierige reiziger hoeft niet te wachten.",
     },
     what: {
       agg_label: "Wat — Omzetprojectie",
@@ -385,6 +387,7 @@ export const presentationStrings = {
       stat_seconds_label: "para reclamar",
       stat_discount: "Pre-activado",
       stat_discount_label: "Curiosidad Despertada",
+      efficiency_note: "Cada paso está diseñado para la velocidad. DutyBoost se basa en la simplificación y la obviedad — el proceso debe ser ágil, porque un viajero curioso no debería esperar.",
     },
     what: {
       agg_label: "Qué — Proyección de Ingresos",

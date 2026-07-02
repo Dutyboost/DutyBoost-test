@@ -205,6 +205,10 @@ export default function DutyBoostPresentation() {
               </div>
             </div>
 
+            <p className="text-center text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
+              {t('presentation.journey.efficiency_note')}
+            </p>
+
             <div className="text-center">
               <Link to="/eligibility-showcase">
                 <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
