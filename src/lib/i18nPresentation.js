@@ -317,7 +317,7 @@ export const presentationStrings = {
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
       subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. Y se puede activar sin gastar más en adquisición.",
       problem_1_title: "Conversión media",
-      problem_1_desc: "Solo el 15–25% de los pasajeros que salen compra en el retail del aeropuerto. El resto pasa por delante de sus tiendas con la cartera cerrada. ¿Cómo podemos cambiar este comportamiento?",
+      problem_1_desc: "Solamente el 15–25% de los pasajeros compran. El resto pasa por delante de las tiendas con la cartera cerrada. ¿Cómo podemos cambiar este comportamiento?",
       problem_2_title: "Sin pre-activación",
       problem_2_desc: "Los viajeros llegan sin incentivo para comprar. Los anuncios genéricos y la señalización de la terminal no influyen en las decisiones de compra porque no despiertan la curiosidad.",
       problem_3_title: "Alto coste de adquisición",
