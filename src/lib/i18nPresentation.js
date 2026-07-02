@@ -331,7 +331,7 @@ export const presentationStrings = {
       stat_4_val: "€95MM",
       stat_4_label: "Mercado global de retail aeroportuario",
       opportunity_title: "La oportunidad de DutyBoost",
-      opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros en sus aeropuertos de Salida — convirtiendo este porcentaje en compradores motivados antes de que lleguen a las tiendas. Llegan con DutyCredits en mano, listos para comprar.",
+      opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros que salen — convirtiendo este porcentaje de navegantes en compradores motivados antes de que lleguen a las tiendas. Llegan con DutyCredits en mano, listos para comprar.",
     },
     how: {
       label: "Cómo",
