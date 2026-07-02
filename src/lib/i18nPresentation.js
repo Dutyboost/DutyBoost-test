@@ -17,7 +17,7 @@ export const presentationStrings = {
     why: {
       label: "Why",
       title: "Millions walk by daily. Most don't stop.",
-      subtitle: "Airport retail has a conversion problem. Travelers arrive with no intent to buy.",
+      subtitle: "Airport retail has a conversion challenge. Travelers arrive with no intent to buy. How can we influence that behaviour?",
       problem_1_title: "Low conversion",
       problem_1_desc: "Only 15–25% of departing passengers shop at airport retail. The rest walk past your stores with wallets closed.",
       problem_2_title: "No pre-activation",
@@ -162,7 +162,7 @@ export const presentationStrings = {
     why: {
       label: "Waarom",
       title: "Miljoenen lopen dagelijks voorbij. De meesten stoppen niet.",
-      subtitle: "Luchthavenretail heeft een conversieprobleem. Reizigers komen zonder koopintentie.",
+      subtitle: "Luchthavenretail heeft een conversie-uitdaging. Reizigers komen zonder koopintentie. Hoe kunnen we dat gedrag beïnvloeden?",
       problem_1_title: "Lage conversie",
       problem_1_desc: "Slechts 15–25% van de vertrekkende passagiers koopt iets op de luchthaven. De rest loopt langs uw winkels met gesloten portemonnees.",
       problem_2_title: "Geen pre-activatie",
@@ -307,7 +307,7 @@ export const presentationStrings = {
     why: {
       label: "Por qué",
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
-      subtitle: "El retail aeroportuario tiene un problema de conversión. Los viajeros llegan sin intención de comprar.",
+      subtitle: "El retail aeroportuario tiene un reto de conversión. Los viajeros llegan sin intención de comprar. ¿Cómo podemos influir en ese comportamiento?",
       problem_1_title: "Baja conversión",
       problem_1_desc: "Solo el 15–25% de los pasajeros que salen compra en el retail del aeropuerto. El resto pasa por delante de sus tiendas con la cartera cerrada.",
       problem_2_title: "Sin pre-activación",
