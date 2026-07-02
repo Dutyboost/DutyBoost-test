@@ -33,7 +33,7 @@ export const presentationStrings = {
       stat_4_val: "€95B",
       stat_4_label: "Global airport retail market",
       opportunity_title: "The DutyBoost opportunity",
-      opportunity_text: "DutyBoost aims to pre-activate at least 1% of departing travelers — turning this percentage of browsers into motivated buyers before they reach the stores. They arrive with DutyCredits in hand, ready to spend.",
+      opportunity_text: "DutyBoost aims to pre-activate at least 1% of departing travelers — turning this percentage of browsers into motivated buyers before they reach the stores. Each DutyCredit is valid for 30 days, giving every traveler at least 4 redemption moments across a round trip — departure, arrival, return departure, and return arrival. They simply claim a new DutyCredit and redeem it at each leg. They arrive with DutyCredits in hand, ready to spend.",
     },
     how: {
       label: "How",
@@ -94,7 +94,7 @@ export const presentationStrings = {
     what: {
       agg_label: "What — Revenue Projection",
       agg_title: "Global Aggregation Revenue",
-      agg_subtitle: "Select a company to see the potential revenue across their entire airport network at 3% conversion.",
+      agg_subtitle: "Select a company to see the potential revenue across their entire airport network at 1% conversion.",
       company_label: "Company:",
       airports: "airports",
       stores: "stores",
@@ -182,7 +182,7 @@ export const presentationStrings = {
       stat_4_val: "€95 MM",
       stat_4_label: "Wereldwijde luchthavenretailmarkt",
       opportunity_title: "De DutyBoost mogelijkheid",
-      opportunity_text: "DutyBoost wil minstens 1% van de vertrekkende reizigers pre-activeren — dit percentage browsers omzetten in gemotiveerde kopers voordat ze de winkels bereiken. Ze komen aan met DutyCredits op zak, klaar om te besteden.",
+      opportunity_text: "DutyBoost wil minstens 1% van de vertrekkende reizigers pre-activeren — dit percentage browsers omzetten in gemotiveerde kopers voordat ze de winkels bereiken. Elke DutyCredit is 30 dagen geldig, wat elke reiziger minstens 4 inlossingsmomenten geeft tijdens een retourreis — vertrek, aankomst, terugvertrek en terugaankomst. Ze claimen gewoon een nieuwe DutyCredit en wisselen deze in bij elke etappe. Ze komen aan met DutyCredits op zak, klaar om te besteden.",
     },
     how: {
       label: "Hoe",
@@ -243,7 +243,7 @@ export const presentationStrings = {
     what: {
       agg_label: "Wat — Omzetprojectie",
       agg_title: "Globale Aggregatie Omzet",
-      agg_subtitle: "Selecteer een bedrijf om de potentiële omzet over hun hele luchthavennetwerk te zien bij 3% conversie.",
+      agg_subtitle: "Selecteer een bedrijf om de potentiële omzet over hun hele luchthavennetwerk te zien bij 1% conversie.",
       company_label: "Bedrijf:",
       airports: "luchthavens",
       stores: "winkels",
@@ -331,7 +331,7 @@ export const presentationStrings = {
       stat_4_val: "€95 MM",
       stat_4_label: "Mercado global de retail aeroportuario",
       opportunity_title: "La oportunidad de DutyBoost",
-      opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros que salen — convirtiendo este porcentaje de navegantes en compradores motivados antes de que lleguen a las tiendas. Llegan con DutyCredits en mano, listos para comprar.",
+      opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros que salen — convirtiendo este porcentaje de navegantes en compradores motivados antes de que lleguen a las tiendas. Cada DutyCredit es válido durante 30 días, lo que da a cada viajero al menos 4 momentos de canje durante un viaje de ida y vuelta — salida, llegada, salida de regreso y llegada de regreso. Simplemente reclaman un nuevo DutyCredit y lo canjean en cada tramo. Llegan con DutyCredits en mano, listos para comprar.",
     },
     how: {
       label: "Cómo",
@@ -392,7 +392,7 @@ export const presentationStrings = {
     what: {
       agg_label: "Qué — Proyección de Ingresos",
       agg_title: "Ingresos de Agregación Global",
-      agg_subtitle: "Seleccione una empresa para ver los ingresos potenciales en toda su red de aeropuertos con una conversión del 3%.",
+      agg_subtitle: "Seleccione una empresa para ver los ingresos potenciales en toda su red de aeropuertos con una conversión del 1%.",
       company_label: "Empresa:",
       airports: "aeropuertos",
       stores: "tiendas",
