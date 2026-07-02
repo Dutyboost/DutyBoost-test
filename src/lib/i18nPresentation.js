@@ -236,7 +236,7 @@ export const presentationStrings = {
       stat_free_label: "voor elke reiziger",
       stat_seconds: "10s",
       stat_seconds_label: "om te claimen",
-      stat_discount: "Vooraf geactiveerd",
+      stat_discount: "Pre-activatie",
       stat_discount_label: "Nieuwsgierigheid Gewekt",
       efficiency_note: "Elke stap is ontworpen voor snelheid. DutyBoost draait om vereenvoudiging en vanzelfsprekendheid — het proces moet vlot verlopen, want een nieuwsgierige reiziger hoeft niet te wachten.",
     },
