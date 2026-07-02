@@ -128,7 +128,7 @@ export const presentationStrings = {
       profile_company: "Company", profile_network: "Network",
       cta_label: "Ready to boost your retail?",
       cta_title: "Start converting voucher traffic into revenue",
-      cta_desc: "Connect with our team to discuss integration, see a live demo, and see what DutyBoost can do for Crème Duty Free.",
+      cta_desc: "Connect with our team to discuss integration, see a live demo, and see what DutyBoost can do for {{company}}.",
       cta_download: "Download as PPTX",
     },
     agg: {
@@ -273,7 +273,7 @@ export const presentationStrings = {
       profile_company: "Bedrijf", profile_network: "Netwerk",
       cta_label: "Klaar om uw retail te boosten?",
       cta_title: "Begin vouchertraffic om te zetten in omzet",
-      cta_desc: "Neem contact op met ons team om integratie te bespreken, een live demo te zien en te ontdekken wat DutyBoost voor Crème Duty Free kan doen.",
+      cta_desc: "Neem contact op met ons team om integratie te bespreken, een live demo te zien en te ontdekken wat DutyBoost voor {{company}} kan doen.",
       cta_download: "Download als PPTX",
     },
     agg: {
@@ -418,7 +418,7 @@ export const presentationStrings = {
       profile_company: "Empresa", profile_network: "Red",
       cta_label: "¿Listo para impulsar su retail?",
       cta_title: "Empiece a convertir el tráfico de vales en ingresos",
-      cta_desc: "Conecte con nuestro equipo para hablar de integración, ver una demo en vivo y descubrir lo que DutyBoost puede hacer por Crème Duty Free.",
+      cta_desc: "Conecte con nuestro equipo para hablar de integración, ver una demo en vivo y descubrir lo que DutyBoost puede hacer por {{company}}.",
       cta_download: "Descargar como PPTX",
     },
     agg: {

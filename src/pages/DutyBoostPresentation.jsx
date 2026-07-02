@@ -337,7 +337,7 @@ export default function DutyBoostPresentation() {
 
           <div className="bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <label className="text-sm font-semibold text-muted-foreground shrink-0">{t('presentation.what.company_label')}</label>
-            <p className="text-sm font-semibold text-foreground px-3 py-2">Crème Duty Free</p>
+            <p className="text-sm font-semibold text-foreground px-3 py-2">{company.name}</p>
             <div className="flex gap-4 text-sm text-muted-foreground ml-auto">
               <span><strong className="text-foreground">{fmtNum(company.airports.length)}</strong> {t('presentation.what.airports')}</span>
               <span><strong className="text-foreground">{fmtNum(storeCount)}</strong> {t('presentation.what.stores')}</span>
@@ -481,7 +481,7 @@ export default function DutyBoostPresentation() {
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-2">
                 <p className="text-xs font-semibold text-muted-foreground">{t('presentation.what.profile_company')}</p>
-                <p className="font-semibold text-sm">Crème Duty Free</p>
+                <p className="font-semibold text-sm">{company.name}</p>
               </div>
               <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-2">
                 <p className="text-xs font-semibold text-muted-foreground">{t('presentation.what.profile_network')}</p>
@@ -499,7 +499,7 @@ export default function DutyBoostPresentation() {
             <div className="relative space-y-4">
               <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/70">{t('presentation.what.cta_label')}</p>
               <h2 className="text-3xl font-heading font-bold">{t('presentation.what.cta_title')}</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">{t('presentation.what.cta_desc')}</p>
+              <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">{t('presentation.what.cta_desc', { company: company.name })}</p>
               <div className="flex flex-wrap justify-center gap-3 pt-2">
                 <a href="mailto:rael@dutyboost.com">
                   <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8">
