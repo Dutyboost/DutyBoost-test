@@ -373,7 +373,7 @@ export const presentationStrings = {
       flow2_stat2: "€2–5", flow2_stat2_label: "por canje", flow2_title2: "Ingresos pasivos", flow2_desc2: "Gane comisión por cada canje de DutyCredit que sus viajeros hagan en el retail aeroportuario.",
       flow2_stat3: "1 clic", flow2_stat3_label: "para integrar", flow2_title3: "Cero esfuerzo", flow2_desc3: "Integración API con un clic. No se necesita desarrollo — lo gestionamos todo.",
       flow3_label: "Flujo 3",
-      flow3_title: "El Minorista Aeroportuario",
+      flow3_title: "El retailer Aeroportuario",
       flow3_desc: "DutyBoost es completamente basado en rendimiento — solo paga cuando un viajero gasta. El esfuerzo por su parte es mínimo. Esto es lo que debe hacer para atender a los viajeros que llegan con un DutyCredit.",
       flow3_stat1: "1", flow3_stat1_label: "llamada API para integrar", flow3_title1: "Conecte su POS", flow3_desc1: "Una llamada API enlaza su sistema POS con DutyBoost. Sin reformas, sin hardware nuevo — funciona con lo que ya tiene.",
       flow3_stat2: "2 min", flow3_stat2_label: "formación de personal", flow3_title2: "Entrene a sus cajeros", flow3_desc2: "Muestre a sus cajeros cómo escanear el código QR del DutyCredit del viajero en caja. El descuento se aplica automáticamente — un escaneo, listo.",
