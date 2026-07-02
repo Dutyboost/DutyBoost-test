@@ -380,8 +380,8 @@ export const presentationStrings = {
       flow3_stat3: "0", flow3_stat3_label: "cuotas mensuales", flow3_title3: "Sin suscripción", flow3_desc3: "Sin costes de configuración, sin cuotas mensuales de plataforma. Precios puramente basados en rendimiento — solo paga cuando se canjea un DutyCredit.",
     },
     journey: {
-      label: "La Solución de Adquisición de Consumidores de DutyBoost",
-      title: "El Viaje del Viajero",
+      label: "La Solución",
+      title: "La Jornada del Viajero",
       subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos minoristas incrementales. ¿Cómo lo hacemos?",
       step1_badge: "Paso 1",
       step1_title: "Comprueba si clasificas",
