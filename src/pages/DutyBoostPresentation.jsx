@@ -104,7 +104,7 @@ export default function DutyBoostPresentation() {
             {[
               { icon: Target, title: t('presentation.why.problem_1_title'), desc: t('presentation.why.problem_1_desc') },
               { icon: Users, title: t('presentation.why.problem_2_title'), desc: t('presentation.why.problem_2_desc') },
-              { icon: DollarSign, title: t('presentation.why.problem_3_title'), desc: t('presentation.why.problem_3_desc') },
+              { icon: Euro, title: t('presentation.why.problem_3_title'), desc: t('presentation.why.problem_3_desc') },
             ].map(({ icon: Icon, title, desc }, i) => (
               <div key={i} className="bg-card border border-border rounded-2xl p-6 space-y-4 hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center">
