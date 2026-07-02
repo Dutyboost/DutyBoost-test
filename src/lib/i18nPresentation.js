@@ -69,7 +69,7 @@ export const presentationStrings = {
     journey: {
       label: "The DutyBoost Consumer Acquisition Solution",
       title: "The Traveller Journey",
-      subtitle: "DutyBoost pre-activates travellers before they reach the airport. By claiming a free DutyCredit, they arrive with purchase intent—driving higher conversion, larger basket values and incremental retail revenue.",
+      subtitle: "DutyBoost pre-activates travellers before they reach the airport. By claiming a free DutyCredit, they arrive with purchase intent—driving higher conversion, larger basket values and incremental retail revenue. How do we do it?",
       step1_badge: "Step 1",
       step1_title: "Check eligibility",
       step1_desc: "The traveler enters their departure airport and date. We confirm instantly whether they qualify for a free DutyCredit.",
@@ -218,7 +218,7 @@ export const presentationStrings = {
     journey: {
       label: "De DutyBoost Consumentenacquisitie Oplossing",
       title: "De Reis van de Reiziger",
-      subtitle: "DutyBoost pre-activeert reizigers voordat ze de luchthaven bereiken. Door een gratis DutyCredit te claimen, komen ze aan met koopintentie — wat leidt tot hogere conversie, grotere mandjewaarden en extra retailomzet.",
+      subtitle: "DutyBoost pre-activeert reizigers voordat ze de luchthaven bereiken. Door een gratis DutyCredit te claimen, komen ze aan met koopintentie — wat leidt tot hogere conversie, grotere mandjewaarden en extra retailomzet. Hoe doen we dat?",
       step1_badge: "Stap 1",
       step1_title: "Controleer uw recht",
       step1_desc: "De reiziger voert zijn vertrekluchthaven en -datum in. We bevestigen direct of hij in aanmerking komt voor een gratis DutyCredit.",
@@ -367,7 +367,7 @@ export const presentationStrings = {
     journey: {
       label: "La Solución de Adquisición de Consumidores de DutyBoost",
       title: "El Viaje del Viajero",
-      subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos minoristas incrementales.",
+      subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos minoristas incrementales. ¿Cómo lo hacemos?",
       step1_badge: "Paso 1",
       step1_title: "Comprueba tu elegibilidad",
       step1_desc: "El viajero introduce su aeropuerto de salida y fecha. Confirmamos al instante si clasifica para un DutyCredit gratuito.",
