@@ -68,7 +68,7 @@ export const presentationStrings = {
       flow3_title: "The Airport Retailer",
       flow3_desc: "DutyBoost is completely performance-based — you only pay when a traveler spends. The effort on your side is minimal. Here's what you need to do to serve travelers arriving with a DutyCredit.",
       flow3_stat1: "1", flow3_stat1_label: "API call to integrate", flow3_title1: "Connect your POS", flow3_desc1: "One API call links your POS system to DutyBoost. No overhaul, no new hardware — works with what you already have.",
-      flow3_stat2: "2 min", flow3_stat2_label: "staff training", flow3_title2: "Train your cashiers", flow3_desc2: "Show your cashiers how to scan the traveler's DutyCredit QR code at checkout. The discount applies automatically — one scan, done.",
+      flow3_stat2: "2", flow3_stat2_label: "staff training", flow3_title2: "Train your cashiers", flow3_desc2: "Show your cashiers how to scan the traveler's DutyCredit QR code at checkout. The discount applies automatically — one scan, done.",
       flow3_stat3: "0", flow3_stat3_label: "monthly fees", flow3_title3: "No subscription", flow3_desc3: "No setup fees, no monthly platform costs. Pure performance-based pricing — you only pay when a DutyCredit is redeemed.",
     },
     journey: {
@@ -222,7 +222,7 @@ export const presentationStrings = {
       flow3_title: "De Luchthaven Retailer",
       flow3_desc: "DutyBoost is volledig prestatiegebaseerd — u betaalt alleen wanneer een reiziger iets koopt. De inspanning aan uw kant is minimaal. Dit moet u doen om reizigers met een DutyCredit te helpen.",
       flow3_stat1: "1", flow3_stat1_label: "API-call om te integreren", flow3_title1: "Koppel uw POS", flow3_desc1: "Eén API-call koppelt uw POS-systeem aan DutyBoost. Geen verbouwing, geen nieuwe hardware — werkt met wat u al heeft.",
-      flow3_stat2: "2 min", flow3_stat2_label: "personeelstraining", flow3_title2: "Train uw kassamedewerkers", flow3_desc2: "Laat uw kassamedewerkers zien hoe ze de DutyCredit QR-code van de reiziger scannen aan de kassa. De korting wordt automatisch toegepast — één scan, klaar.",
+      flow3_stat2: "2", flow3_stat2_label: "personeelstraining", flow3_title2: "Train uw kassamedewerkers", flow3_desc2: "Laat uw kassamedewerkers zien hoe ze de DutyCredit QR-code van de reiziger scannen aan de kassa. De korting wordt automatisch toegepast — één scan, klaar.",
       flow3_stat3: "0", flow3_stat3_label: "maandelijkse kosten", flow3_title3: "Geen abonnement", flow3_desc3: "Geen setupkosten, geen maandelijkse platformkosten. Puur prestatiegebaseerde prijsstelling — u betaalt alleen wanneer een DutyCredit wordt ingewisseld.",
     },
     journey: {
@@ -376,7 +376,7 @@ export const presentationStrings = {
       flow3_title: "El retailer Aeroportuario",
       flow3_desc: "DutyBoost es completamente basado en rendimiento — solo pagas cuando un viajero gasta. El esfuerzo por parte del retailer es mínimo. Esto es lo que debe hacer para atender a los viajeros que llegan con un DutyCredit.",
       flow3_stat1: "1", flow3_stat1_label: "llamada API para integrar",       flow3_title1: "Conectar POS", flow3_desc1: "Una llamada API enlaza al sistema POS con DutyBoost. Sin reformas, sin hardware nuevo — funciona con lo sistemas actuales.",
-      flow3_stat2: "2 min", flow3_stat2_label: "formación de personal",       flow3_title2: "Entrenamiento de los cajeros", flow3_desc2: "Mostrar a cajeros cómo escanear el código QR del DutyCredit del viajero en caja. El descuento se aplica automáticamente — un escaneo, listo.",
+      flow3_stat2: "2", flow3_stat2_label: "formación de personal",       flow3_title2: "Entrenamiento de los cajeros", flow3_desc2: "Mostrar a cajeros cómo escanear el código QR del DutyCredit del viajero en caja. El descuento se aplica automáticamente — un escaneo, listo.",
       flow3_stat3: "0", flow3_stat3_label: "cuotas mensuales",       flow3_title3: "Sin suscripción", flow3_desc3: "Sin costes de configuración, sin cuotas mensuales de plataforma. Precios puramente basados en rendimiento — solo pagas cuando se canjea un DutyCredit.",
     },
     journey: {
