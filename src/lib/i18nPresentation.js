@@ -324,7 +324,7 @@ export const presentationStrings = {
     },
     why: {
       label: "El Desafío",
-      title: "Millones pasan de largo cada día. La mayoría no se detiene.",
+      title: "Millones pasan cada día. La mayoría no se detiene.",
       subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. Y se puede activar sin gastar más en adquisición.",
       problem_1_title: "Conversión media",
       problem_1_desc: "Solamente el 15–25% de los pasajeros compran. El resto pasa por delante de las tiendas con la cartera cerrada. ¿Cómo podemos cambiar este comportamiento?",
