@@ -87,8 +87,8 @@ export const presentationStrings = {
       stat_free_label: "for every traveler",
       stat_seconds: "10s",
       stat_seconds_label: "to claim",
-      stat_discount: "1%",
-      stat_discount_label: "curiosity sparked",
+      stat_discount: "Pre-activated",
+      stat_discount_label: "before arrival",
     },
     what: {
       agg_label: "What — Revenue Projection",
@@ -235,8 +235,8 @@ export const presentationStrings = {
       stat_free_label: "voor elke reiziger",
       stat_seconds: "10s",
       stat_seconds_label: "om te claimen",
-      stat_discount: "1%",
-      stat_discount_label: "nieusgierigheid gewekt",
+      stat_discount: "Vooraf geactiveerd",
+      stat_discount_label: "voor aankomst",
     },
     what: {
       agg_label: "Wat — Omzetprojectie",
@@ -383,8 +383,8 @@ export const presentationStrings = {
       stat_free_label: "para cada viajero",
       stat_seconds: "10s",
       stat_seconds_label: "para reclamar",
-      stat_discount: "1%",
-      stat_discount_label: "curiosidad despertada",
+      stat_discount: "Pre-activado",
+      stat_discount_label: "antes de llegar",
     },
     what: {
       agg_label: "Qué — Proyección de Ingresos",
