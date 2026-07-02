@@ -17,7 +17,7 @@ export const presentationStrings = {
     why: {
       label: "The Challenge",
       title: "Millions walk by daily. Most don't stop.",
-      subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. How can you increase it without increasing customer acquisition costs?",
+      subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. How can this intention increase without having to spend more?",
       problem_1_title: "Average conversion",
       problem_1_desc: "Only 15–25% of departing passengers shop at airport retail. The rest walk past your stores with wallets closed. How can we change this behaviour?",
       problem_2_title: "No pre-activation",
@@ -162,7 +162,7 @@ export const presentationStrings = {
     why: {
       label: "De Uitdaging",
       title: "Miljoenen lopen dagelijks voorbij. De meesten stoppen niet.",
-      subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. Hoe kunt u deze verhogen zonder de klantacquisitiekosten te verhogen?",
+      subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. Hoe kan deze intentie toenemen zonder meer te hoeven uitgeven?",
       problem_1_title: "Gemiddelde conversie",
       problem_1_desc: "Slechts 15–25% van de vertrekkende passagiers koopt iets op de luchthaven. De rest loopt langs uw winkels met gesloten portemonnees. Hoe kunnen we dit gedrag veranderen?",
       problem_2_title: "Geen pre-activatie",
@@ -307,7 +307,7 @@ export const presentationStrings = {
     why: {
       label: "El Reto",
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
-      subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo podríamos aumentar esa intención sin incrementar los costes de adquisición de clientes?",
+      subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo puede aumentar esa intención sin tener que gastar más?",
       problem_1_title: "Conversión media",
       problem_1_desc: "Solo el 15–25% de los pasajeros que salen compra en el retail del aeropuerto. El resto pasa por delante de sus tiendas con la cartera cerrada. ¿Cómo podemos cambiar este comportamiento?",
       problem_2_title: "Sin pre-activación",
