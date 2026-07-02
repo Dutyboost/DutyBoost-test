@@ -15,7 +15,7 @@ export const presentationStrings = {
       pill_3: "Live in 1–2 days",
     },
     why: {
-      label: "Why",
+      label: "The Challenge",
       title: "Millions walk by daily. Most don't stop.",
       subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. How can you increase it without increasing customer acquisition costs?",
       problem_1_title: "Average conversion",
@@ -160,7 +160,7 @@ export const presentationStrings = {
       pill_3: "Live in 1–2 dagen",
     },
     why: {
-      label: "Waarom",
+      label: "De Uitdaging",
       title: "Miljoenen lopen dagelijks voorbij. De meesten stoppen niet.",
       subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. Hoe kunt u deze verhogen zonder de klantacquisitiekosten te verhogen?",
       problem_1_title: "Gemiddelde conversie",
@@ -305,7 +305,7 @@ export const presentationStrings = {
       pill_3: "Operativo en 1–2 días",
     },
     why: {
-      label: "Por qué",
+      label: "El Reto",
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
       subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo podríamos aumentar esa intención sin incrementar los costes de adquisición de clientes?",
       problem_1_title: "Conversión media",
