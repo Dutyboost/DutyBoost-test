@@ -17,7 +17,7 @@ export const presentationStrings = {
     why: {
       label: "Why",
       title: "Millions walk by daily. Most don't stop.",
-      subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. How can you influence it before travellers reach the airport?",
+      subtitle: "The biggest challenge in airport retail isn't footfall — it's purchase intent. How can you increase it without increasing customer acquisition costs?",
       problem_1_title: "Low conversion",
       problem_1_desc: "Only 15–25% of departing passengers shop at airport retail. The rest walk past your stores with wallets closed.",
       problem_2_title: "No pre-activation",
@@ -162,7 +162,7 @@ export const presentationStrings = {
     why: {
       label: "Waarom",
       title: "Miljoenen lopen dagelijks voorbij. De meesten stoppen niet.",
-      subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. Hoe kunt u dit beïnvloeden voordat reizigers de luchthaven bereiken?",
+      subtitle: "De grootste uitdaging in luchthavenretail is niet het bezoekersaantal — het is de koopintentie. Hoe kunt u deze verhogen zonder de klantacquisitiekosten te verhogen?",
       problem_1_title: "Lage conversie",
       problem_1_desc: "Slechts 15–25% van de vertrekkende passagiers koopt iets op de luchthaven. De rest loopt langs uw winkels met gesloten portemonnees.",
       problem_2_title: "Geen pre-activatie",
@@ -307,7 +307,7 @@ export const presentationStrings = {
     why: {
       label: "Por qué",
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
-      subtitle: "El mayor reto en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo puede influir en ella antes de que los viajeros lleguen al aeropuerto?",
+      subtitle: "El mayor reto en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo puede aumentarla sin incrementar los costes de adquisición de clientes?",
       problem_1_title: "Baja conversión",
       problem_1_desc: "Solo el 15–25% de los pasajeros que salen compra en el retail del aeropuerto. El resto pasa por delante de sus tiendas con la cartera cerrada.",
       problem_2_title: "Sin pre-activación",
