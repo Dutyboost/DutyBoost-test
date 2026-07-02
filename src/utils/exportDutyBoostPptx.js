@@ -56,8 +56,8 @@ export async function exportDutyBoostPptx(company, conversionRate = 3) {
     s.addText("WHY — THE OPPORTUNITY", { x: 1, y: 0.4, w: 11.3, h: 0.4, fontSize: 11, bold: true, color: ORANGE, align: "center", fontFace: "Calibri", charSpacing: 2 });
     s.addText("A massive, untapped market.", { x: 1, y: 0.95, w: 11.3, h: 0.7, fontSize: 28, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
     const stats = [
-      { num: "4.8B", label: "Annual air passengers globally" },
-      { num: "68.8M", label: "Daily departing travelers" },
+      { num: fmtNum(totals.totalDailyTravelers * 365), label: `Annual air passengers — ${company.name}` },
+      { num: fmtNum(totals.totalDailyTravelers), label: `Daily departing travelers — ${company.name}` },
       { num: "1h 10m", label: "Average dwell time at gate" },
       { num: "€95B", label: "Global airport retail market" },
     ];
