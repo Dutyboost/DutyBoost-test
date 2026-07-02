@@ -1,8 +1,17 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Globe, PlaneTakeoff, Store, TrendingUp, Euro, ScanLine, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Globe, PlaneTakeoff, Store, TrendingUp, Euro, ScanLine, Users, BarChart3 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { fmtNum, fmtEur } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount, numFontClass } from "@/utils/retailerCalc";
+
+const DEMO_DASHBOARD_ROUTES = {
+  "Lagardère Travel Retail": "/demo/retailer-lagardere",
+  "Avolta (incl. World Duty Free, Hudson, Dufry)": "/demo/retailer-avolta",
+  "Gebr. Heinemann": "/demo/retailer-heinemann",
+  "Aena (Spanish Airport Retail)": "/demo/retailer-aena",
+};
 
 export default function PresentationAggregation({ company, conversionRate = 3, compact = false }) {
   const { t } = useTranslation();
@@ -106,15 +115,23 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
         </div>
       </div>
 
-      <div className="bg-card border border-border rounded-xl p-5 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Globe className="w-5 h-5 text-blue-500" />
-          <div>
-            <p className="text-sm font-semibold">{t('presentation.agg.avg_basket')}</p>
-            <p className="text-xs text-muted-foreground">{t('presentation.agg.across_all', { count: fmtNum(airportCount) })}</p>
+      <div className="bg-card border border-border rounded-xl p-5 space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Globe className="w-5 h-5 text-blue-500" />
+            <div>
+              <p className="text-sm font-semibold">{t('presentation.agg.avg_basket')}</p>
+              <p className="text-xs text-muted-foreground">{t('presentation.agg.across_all', { count: fmtNum(airportCount) })}</p>
+            </div>
           </div>
+          <p className="text-2xl font-heading font-bold text-primary">€{totals.avgBasket.toFixed(2)}</p>
         </div>
-        <p className="text-2xl font-heading font-bold text-primary">€{totals.avgBasket.toFixed(2)}</p>
+        <Link to={DEMO_DASHBOARD_ROUTES[company.name] || "/demo"}>
+          <Button variant="outline" className="w-full gap-2">
+            <BarChart3 className="w-4 h-4" />
+            {t('presentation.agg.view_dashboard')}
+          </Button>
+        </Link>
       </div>
     </div>
   );

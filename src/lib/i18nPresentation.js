@@ -146,6 +146,7 @@ export const presentationStrings = {
       daily_fee: "Daily Fee (2.5%)", monthly_fee: "Monthly Fee", annual_fee: "Annual Fee",
       avg_basket: "Traffic-Weighted Avg Basket",       across_all: "Across all {{count}} airports",
       annual_net_revenue: "Annual Net Revenue", annual_platform_fee: "Annual Platform Fee",
+      view_dashboard: "View Full Dashboard",
     },
     footer: {
       rights: "© 2026 DutyBoost. All rights reserved.",
@@ -300,6 +301,7 @@ export const presentationStrings = {
       daily_fee: "Dagelijkse Fee (2,5%)", monthly_fee: "Maandelijkse Fee", annual_fee: "Jaarlijkse Fee",
       avg_basket: "Verkeersgewogen Gem. Mandje",       across_all: "Over alle {{count}} luchthavens",
       annual_net_revenue: "Jaarlijkse Netto Omzet", annual_platform_fee: "Jaarlijkse Platform Fee",
+      view_dashboard: "Bekijk Volledig Dashboard",
     },
     footer: {
       rights: "© 2026 DutyBoost. Alle rechten voorbehouden.",
@@ -454,6 +456,7 @@ export const presentationStrings = {
       daily_fee: "Comisión Diaria (2,5%)", monthly_fee: "Comisión Mensual", annual_fee: "Comisión Anual",
       avg_basket: "Cesta Media Ponderada por Tráfico",       across_all: "En todos los {{count}} aeropuertos",
       annual_net_revenue: "Ingresos Netos Anuales", annual_platform_fee: "Comisión Anual de Plataforma",
+      view_dashboard: "Ver Panel Completo",
     },
     footer: {
       rights: "© 2026 DutyBoost. Todos los derechos reservados.",
