@@ -299,7 +299,7 @@ export const presentationStrings = {
       badge: "La Capa de Conversión de Retail de Viajes",
       title_1: "Convertir pasajeros",
       title_2: "en compradores",
-      subtitle: "DutyBoost pre-activa la intención de compra. Los viajeros reciben DutyCredits gratuitos antes de llegar a su tienda — llegan listos para gastar.",
+      subtitle: "DutyBoost pre-activa la intención de compra. Los viajeros reciben DutyCredits gratuitos antes de llegar a tu tienda — llegan listos para comprar.",
       pill_1: "Precios basados en rendimiento",
       pill_2: "1 llamada API para integrar",
       pill_3: "Operativo en 1–2 días",
