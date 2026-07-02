@@ -222,33 +222,6 @@ export default function DutyBoostPresentation() {
 
         {/* HOW — Flows */}
         <section className="space-y-8">
-          {/* Flow 1 — Traveller */}
-          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center">
-                <TravelerIcon className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-heading font-bold">{t('presentation.how.flow1_title')}</h3>
-              </div>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">{t('presentation.how.flow1_desc')}</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { stat: t('presentation.how.flow1_stat1'), statLabel: t('presentation.how.flow1_stat1_label'), title: t('presentation.how.flow1_title1'), desc: t('presentation.how.flow1_desc1') },
-                { stat: t('presentation.how.flow1_stat2'), statLabel: t('presentation.how.flow1_stat2_label'), title: t('presentation.how.flow1_title2'), desc: t('presentation.how.flow1_desc2') },
-                { stat: t('presentation.how.flow1_stat3'), statLabel: t('presentation.how.flow1_stat3_label'), title: t('presentation.how.flow1_title3'), desc: t('presentation.how.flow1_desc3') },
-              ].map(({ title, desc, stat, statLabel }, i) => (
-                <div key={i} className="bg-card border border-emerald-200 rounded-xl p-5 space-y-3">
-                  <p className="text-3xl font-heading font-bold text-emerald-600">{stat}</p>
-                  <p className="text-xs text-muted-foreground">{statLabel}</p>
-                  <p className="font-semibold text-sm">{title}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Flow 3 — Airport Retailer */}
           <div className="bg-orange-50 border border-orange-200 rounded-2xl p-8 space-y-6">
             <div className="flex items-center gap-4">
