@@ -9,7 +9,7 @@ export const presentationStrings = {
       badge: "The Travel Retail Conversion Layer",
       title_1: "Turning Pre-Departure",
       title_2: "Passengers into Shoppers",
-      subtitle: "DutyBoost pre-activates purchase intent. Travellers receive free DutyCredits before they reach your store — arriving ready to spend.",
+      subtitle: "DutyBoost pre-activates purchase intent. Travellers receive free DutyCredits before they reach the store — arriving ready to spend.",
       pill_1: "Performance-based pricing",
       pill_2: "1 API call to integrate",
       pill_3: "Live in 1–2 days",
