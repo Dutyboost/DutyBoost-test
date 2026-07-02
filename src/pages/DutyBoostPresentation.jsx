@@ -150,7 +150,7 @@ export default function DutyBoostPresentation() {
           </div>
 
           <div className="bg-gradient-to-br from-emerald-50 via-blue-50 to-primary/5 border border-emerald-200 rounded-3xl p-6 sm:p-10 space-y-8">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-card border border-emerald-200 rounded-2xl p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center">
@@ -180,6 +180,16 @@ export default function DutyBoostPresentation() {
                 </div>
                 <p className="font-heading font-bold text-lg">{t('presentation.journey.step3_title')}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step3_desc')}</p>
+              </div>
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/30 rounded-2xl p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">{t('presentation.journey.step4_badge')}</span>
+                </div>
+                <p className="font-heading font-bold text-lg">{t('presentation.journey.step4_title')}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step4_desc')}</p>
               </div>
             </div>
 
