@@ -33,7 +33,7 @@ export const presentationStrings = {
       stat_4_val: "€95B",
       stat_4_label: "Global airport retail market",
       opportunity_title: "The DutyBoost opportunity",
-      opportunity_text: "DutyBoost aims to pre-activate at least 1% of departing travelers — turning this percentage of browsers into motivated buyers before they reach the stores. Each DutyCredit is valid for 30 days, giving every traveler at least 4 redemption moments across a round trip — departure, arrival, return departure, and return arrival. They simply claim a new DutyCredit and redeem it at each leg. They arrive with DutyCredits in hand, ready to spend.",
+      opportunity_text: "DutyBoost pre-activates at least 1% of departing travelers — turning browsers into buyers before they reach the stores. Each DutyCredit is valid 30 days, giving every round trip 4 redemption moments: departure, arrival, return departure, and return arrival. Travelers claim a new one at each leg — always ready to spend.",
     },
     how: {
       label: "How",
@@ -182,7 +182,7 @@ export const presentationStrings = {
       stat_4_val: "€95 MM",
       stat_4_label: "Wereldwijde luchthavenretailmarkt",
       opportunity_title: "De DutyBoost mogelijkheid",
-      opportunity_text: "DutyBoost wil minstens 1% van de vertrekkende reizigers pre-activeren — dit percentage browsers omzetten in gemotiveerde kopers voordat ze de winkels bereiken. Elke DutyCredit is 30 dagen geldig, wat elke reiziger minstens 4 inlossingsmomenten geeft tijdens een retourreis — vertrek, aankomst, terugvertrek en terugaankomst. Ze claimen gewoon een nieuwe DutyCredit en wisselen deze in bij elke etappe. Ze komen aan met DutyCredits op zak, klaar om te besteden.",
+      opportunity_text: "DutyBoost pre-activeert minstens 1% van de vertrekkende reizigers — browsers omzetten in kopers voordat ze de winkels bereiken. Elke DutyCredit is 30 dagen geldig, wat elke retourreis 4 inlossingsmomenten geeft: vertrek, aankomst, terugvertrek en terugaankomst. Reizigers claimen bij elke etappe een nieuwe — altijd klaar om te besteden.",
     },
     how: {
       label: "Hoe",
@@ -331,7 +331,7 @@ export const presentationStrings = {
       stat_4_val: "€95 MM",
       stat_4_label: "Mercado global de retail aeroportuario",
       opportunity_title: "La oportunidad de DutyBoost",
-      opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros que salen — convirtiendo este porcentaje de navegantes en compradores motivados antes de que lleguen a las tiendas. Cada DutyCredit es válido durante 30 días, lo que da a cada viajero al menos 4 momentos de canje durante un viaje de ida y vuelta — salida, llegada, salida de regreso y llegada de regreso. Simplemente reclaman un nuevo DutyCredit y lo canjean en cada tramo. Llegan con DutyCredits en mano, listos para comprar.",
+      opportunity_text: "DutyBoost pre-activa al menos el 1% de los viajeros que salen — convirtiendo navegantes en compradores antes de que lleguen a las tiendas. Cada DutyCredit es válido 30 días, dando a cada viaje de ida y vuelta 4 momentos de canje: salida, llegada, salida de regreso y llegada de regreso. Los viajeros reclaman uno nuevo en cada tramo — siempre listos para gastar.",
     },
     how: {
       label: "Cómo",
