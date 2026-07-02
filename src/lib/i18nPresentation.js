@@ -405,7 +405,7 @@ export const presentationStrings = {
       efficiency_note: "Cada paso está diseñado para la velocidad. DutyBoost se basa en la simplificación y la obviedad — el proceso debe ser ágil, porque un viajero curioso no debería esperar.",
     },
     what: {
-      agg_label: "Qué — Proyección de Ingresos",
+      agg_label: "Proyección de Ingresos",
       agg_title: "Ingresos de Agregación Global",
       agg_subtitle: "Ver los ingresos potenciales de toda la red de aeropuertos que manejan con una conversión del 1% incremental.",
       company_label: "Empresa:",
