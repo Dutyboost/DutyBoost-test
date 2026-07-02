@@ -307,7 +307,7 @@ export const presentationStrings = {
     why: {
       label: "Por qué",
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
-      subtitle: "El mayor reto en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo puede aumentarla sin incrementar los costes de adquisición de clientes?",
+      subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. ¿Cómo podríamos aumentar esa intención sin incrementar los costes de adquisición de clientes?",
       problem_1_title: "Baja conversión",
       problem_1_desc: "Solo el 15–25% de los pasajeros que salen compra en el retail del aeropuerto. El resto pasa por delante de sus tiendas con la cartera cerrada.",
       problem_2_title: "Sin pre-activación",
