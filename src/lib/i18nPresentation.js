@@ -323,7 +323,7 @@ export const presentationStrings = {
       pill_3: "Operativo en 1–2 días",
     },
     why: {
-      label: "El Reto",
+      label: "El Desafío",
       title: "Millones pasan de largo cada día. La mayoría no se detiene.",
       subtitle: "El mayor desafío en el retail aeroportuario no es el tráfico de visitantes — es la intención de compra. Y se puede activar sin gastar más en adquisición.",
       problem_1_title: "Conversión media",
