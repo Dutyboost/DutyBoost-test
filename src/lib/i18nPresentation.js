@@ -88,7 +88,7 @@ export const presentationStrings = {
       stat_seconds: "10s",
       stat_seconds_label: "to claim",
       stat_discount: "Pre-activated",
-      stat_discount_label: "before arrival",
+      stat_discount_label: "Curiosity Sparked",
     },
     what: {
       agg_label: "What — Revenue Projection",
@@ -236,7 +236,7 @@ export const presentationStrings = {
       stat_seconds: "10s",
       stat_seconds_label: "om te claimen",
       stat_discount: "Vooraf geactiveerd",
-      stat_discount_label: "voor aankomst",
+      stat_discount_label: "Nieuwsgierigheid Gewekt",
     },
     what: {
       agg_label: "Wat — Omzetprojectie",
@@ -384,7 +384,7 @@ export const presentationStrings = {
       stat_seconds: "10s",
       stat_seconds_label: "para reclamar",
       stat_discount: "Pre-activado",
-      stat_discount_label: "antes de llegar",
+      stat_discount_label: "Curiosidad Despertada",
     },
     what: {
       agg_label: "Qué — Proyección de Ingresos",
