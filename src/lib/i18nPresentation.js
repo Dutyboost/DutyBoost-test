@@ -33,7 +33,7 @@ export const presentationStrings = {
       stat_4_val: "€95B",
       stat_4_label: "Global airport retail market",
       opportunity_title: "The DutyBoost opportunity",
-      opportunity_text: "DutyBoost pre-activates at least 1% of departing travelers — turning browsers into buyers before they reach the stores.",
+      opportunity_text: "DutyBoost pre-activates at least 1% of passengers — turning them into potential buyers before they reach the stores.",
       opportunity_bullets: [
         "Each DutyCredit is valid 30 days",
         "4 redemption moments per round trip: departure, arrival, return departure, and return arrival",
@@ -187,7 +187,7 @@ export const presentationStrings = {
       stat_4_val: "€95 MM",
       stat_4_label: "Wereldwijde luchthavenretailmarkt",
       opportunity_title: "De DutyBoost mogelijkheid",
-      opportunity_text: "DutyBoost pre-activeert minstens 1% van de vertrekkende reizigers — browsers omzetten in kopers voordat ze de winkels bereiken.",
+      opportunity_text: "DutyBoost pre-activeert minstens 1% van de passagiers — en zet ze om in potentiële kopers voordat ze de winkels bereiken.",
       opportunity_bullets: [
         "Elke DutyCredit is 30 dagen geldig",
         "4 inlossingsmomenten per retourreis: vertrek, aankomst, terugvertrek en terugaankomst",
@@ -341,7 +341,7 @@ export const presentationStrings = {
       stat_4_val: "€95 MM",
       stat_4_label: "Mercado global de retail aeroportuario",
       opportunity_title: "La oportunidad de DutyBoost",
-      opportunity_text: "DutyBoost pre-activa al menos el 1% de los viajeros que salen — convirtiendo navegantes en compradores antes de que lleguen a las tiendas.",
+      opportunity_text: "DutyBoost pre-activa al menos el 1% de los pasajeros — convirtiéndolos en potenciales compradores antes de que lleguen a las tiendas.",
       opportunity_bullets: [
         "Cada DutyCredit es válido 30 días",
         "4 momentos de canje por viaje de ida y vuelta: salida, llegada, salida de regreso y llegada de regreso",
