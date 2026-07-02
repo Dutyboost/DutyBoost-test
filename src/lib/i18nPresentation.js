@@ -231,7 +231,7 @@ export const presentationStrings = {
       step4_badge: "Het Resultaat",
       step4_title: "Conversie & Omzetstijging",
       step4_desc: "Voor-geactiveerde reizigers komen klaar om te kopen. Winkels zien hogere conversie en extra omzet — zonder meer uit te geven aan acquisitie.",
-      cta: "Probeer de rechtcontrole",
+      cta: "Probeer de in aanmerking check",
       stat_free: "Gratis",
       stat_free_label: "voor elke reiziger",
       stat_seconds: "10s",
