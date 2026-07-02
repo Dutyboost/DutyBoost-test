@@ -69,7 +69,7 @@ export const presentationStrings = {
     journey: {
       label: "Phase 1 — Consumer Acquisition",
       title: "The Traveller Journey",
-      subtitle: "DutyBoost is a consumer platform first. Travelers check eligibility, claim a free DutyCredit, and spend it at the airport — no app, no signup, no cost. The real value is pre-activation: by giving travelers a reason to shop before they reach the store, we increase purchase intent, lift conversion rates, and drive incremental revenue for retailers.",
+      subtitle: "DutyBoost pre-activates travellers before they reach the airport. By claiming a free DutyCredit, they arrive with purchase intent—driving higher conversion, larger basket values and incremental retail revenue.",
       step1_badge: "Step 1",
       step1_title: "Check eligibility",
       step1_desc: "The traveler enters their departure airport and date. We confirm instantly whether they qualify for a free DutyCredit.",
