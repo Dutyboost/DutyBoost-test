@@ -269,35 +269,6 @@ export default function DutyBoostPresentation() {
             </div>
           </div>
 
-          {/* Flow 2 — Travel Partner */}
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center">
-                <TravelAgencyIcon className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-600">{t('presentation.how.flow2_label')}</p>
-                <h3 className="text-2xl font-heading font-bold">{t('presentation.how.flow2_title')}</h3>
-                <span className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700">{t('presentation.how.flow2_phase')}</span>
-              </div>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">{t('presentation.how.flow2_desc')}</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { stat: t('presentation.how.flow2_stat1'), statLabel: t('presentation.how.flow2_stat1_label'), title: t('presentation.how.flow2_title1'), desc: t('presentation.how.flow2_desc1') },
-                { stat: t('presentation.how.flow2_stat2'), statLabel: t('presentation.how.flow2_stat2_label'), title: t('presentation.how.flow2_title2'), desc: t('presentation.how.flow2_desc2') },
-                { stat: t('presentation.how.flow2_stat3'), statLabel: t('presentation.how.flow2_stat3_label'), title: t('presentation.how.flow2_title3'), desc: t('presentation.how.flow2_desc3') },
-              ].map(({ title, desc, stat, statLabel }, i) => (
-                <div key={i} className="bg-card border border-blue-200 rounded-xl p-5 space-y-3">
-                  <p className="text-3xl font-heading font-bold text-blue-600">{stat}</p>
-                  <p className="text-xs text-muted-foreground">{statLabel}</p>
-                  <p className="font-semibold text-sm">{title}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Flow 3 — Airport Retailer */}
           <div className="bg-orange-50 border border-orange-200 rounded-2xl p-8 space-y-6">
             <div className="flex items-center gap-4">
