@@ -345,7 +345,7 @@ export const presentationStrings = {
       opportunity_bullets: [
         "Cada DutyCredit es válido 30 días",
         "4 momentos de canje por viaje de ida y vuelta: salida, llegada, salida de regreso y llegada de regreso",
-        "Los viajeros reclaman uno nuevo en cada tramo — siempre listos para gastar",
+        "Los viajeros reclaman uno nuevo en cada tramo — siempre listos para comprar",
       ],
     },
     how: {
