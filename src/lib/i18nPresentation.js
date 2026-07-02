@@ -175,7 +175,7 @@ export const presentationStrings = {
       stat_2_label: "Dagelijks vertrekkende reizigers wereldwijd",
       stat_3_val: "1u 10m",
       stat_3_label: "Gemiddelde wachttijd bij de gate",
-      stat_4_val: "€95B",
+      stat_4_val: "€95M",
       stat_4_label: "Wereldwijde luchthavenretailmarkt",
       opportunity_title: "De DutyBoost mogelijkheid",
       opportunity_text: "DutyBoost wil minstens 1% van de vertrekkende reizigers pre-activeren — dit percentage browsers omzetten in gemotiveerde kopers voordat ze de winkels bereiken. Ze komen aan met DutyCredits op zak, klaar om te besteden.",
