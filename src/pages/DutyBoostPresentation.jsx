@@ -229,7 +229,6 @@ export default function DutyBoostPresentation() {
                 <AirportRetailerIcon className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-orange-600">{t('presentation.how.flow3_label')}</p>
                 <h3 className="text-2xl font-heading font-bold">{t('presentation.how.flow3_title')}</h3>
               </div>
             </div>
