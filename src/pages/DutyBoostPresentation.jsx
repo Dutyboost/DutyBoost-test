@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Download, ArrowRight, Users, Target, DollarSign, BarChart3, Store, TrendingUp, Euro, ScanLine, Terminal, Globe, Sparkles } from "lucide-react";
+import { Download, ArrowRight, Users, Target, DollarSign, BarChart3, Store, TrendingUp, Euro, ScanLine, Terminal, Globe, Sparkles, MapPin, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -141,6 +141,74 @@ export default function DutyBoostPresentation() {
           </div>
         </section>
 
+        {/* THE TRAVELLER JOURNEY — Consumer Acquisition */}
+        <section className="space-y-8">
+          <div className="border-l-4 border-emerald-500 pl-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-1">{t('presentation.journey.label')}</p>
+            <h2 className="text-3xl font-heading font-bold">{t('presentation.journey.title')}</h2>
+            <p className="text-muted-foreground mt-2 max-w-3xl">{t('presentation.journey.subtitle')}</p>
+          </div>
+
+          <div className="bg-gradient-to-br from-emerald-50 via-blue-50 to-primary/5 border border-emerald-200 rounded-3xl p-6 sm:p-10 space-y-8">
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-card border border-emerald-200 rounded-2xl p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">{t('presentation.journey.step1_badge')}</span>
+                </div>
+                <p className="font-heading font-bold text-lg">{t('presentation.journey.step1_title')}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step1_desc')}</p>
+              </div>
+              <div className="bg-card border border-blue-200 rounded-2xl p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
+                    <Gift className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">{t('presentation.journey.step2_badge')}</span>
+                </div>
+                <p className="font-heading font-bold text-lg">{t('presentation.journey.step2_title')}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step2_desc')}</p>
+              </div>
+              <div className="bg-card border border-accent/30 rounded-2xl p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
+                    <ScanLine className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent">{t('presentation.journey.step3_badge')}</span>
+                </div>
+                <p className="font-heading font-bold text-lg">{t('presentation.journey.step3_title')}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step3_desc')}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="text-center space-y-1">
+                <p className="text-2xl font-heading font-bold text-emerald-600">{t('presentation.journey.stat_free')}</p>
+                <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_free_label')}</p>
+              </div>
+              <div className="text-center space-y-1">
+                <p className="text-2xl font-heading font-bold text-blue-600">{t('presentation.journey.stat_seconds')}</p>
+                <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_seconds_label')}</p>
+              </div>
+              <div className="text-center space-y-1">
+                <p className="text-2xl font-heading font-bold text-accent">{t('presentation.journey.stat_discount')}</p>
+                <p className="text-xs text-muted-foreground">{t('presentation.journey.stat_discount_label')}</p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link to="/eligibility-showcase">
+                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
+                  {t('presentation.journey.cta')}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* HOW — The Ecosystem */}
         <section className="space-y-8">
           <div className="border-l-4 border-primary pl-6">
@@ -181,6 +249,7 @@ export default function DutyBoostPresentation() {
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">{t('presentation.how.flow1_label')}</p>
                 <h3 className="text-2xl font-heading font-bold">{t('presentation.how.flow1_title')}</h3>
+                <span className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700">{t('presentation.how.flow1_phase')}</span>
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed">{t('presentation.how.flow1_desc')}</p>
@@ -209,6 +278,7 @@ export default function DutyBoostPresentation() {
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-blue-600">{t('presentation.how.flow2_label')}</p>
                 <h3 className="text-2xl font-heading font-bold">{t('presentation.how.flow2_title')}</h3>
+                <span className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700">{t('presentation.how.flow2_phase')}</span>
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed">{t('presentation.how.flow2_desc')}</p>
