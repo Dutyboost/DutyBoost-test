@@ -33,7 +33,7 @@ export const presentationStrings = {
       stat_4_val: "€95B",
       stat_4_label: "Global airport retail market",
       opportunity_title: "The DutyBoost opportunity",
-      opportunity_text: "DutyBoost pre-activates just 1% of departing travelers — turning browsers into motivated buyers before they reach your store. They arrive with a DutyCredit in hand, ready to spend. You only pay when they do",
+      opportunity_text: "DutyBoost aims to pre-activate at least 1% of departing travelers — turning this percentage of browsers into motivated buyers before they reach the stores. They arrive with DutyCredits in hand, ready to spend.",
     },
     how: {
       label: "How",
@@ -178,7 +178,7 @@ export const presentationStrings = {
       stat_4_val: "€95B",
       stat_4_label: "Wereldwijde luchthavenretailmarkt",
       opportunity_title: "De DutyBoost mogelijkheid",
-      opportunity_text: "DutyBoost pre-activeert slechts 1% van de vertrekkende reizigers — van browsers gemotiveerde kopers gemaakt voordat ze uw winkel bereiken. Ze komen aan met een DutyCredit op zak, klaar om te besteden. U betaalt alleen wanneer ze dat doen",
+      opportunity_text: "DutyBoost wil minstens 1% van de vertrekkende reizigers pre-activeren — dit percentage browsers omzetten in gemotiveerde kopers voordat ze de winkels bereiken. Ze komen aan met DutyCredits op zak, klaar om te besteden.",
     },
     how: {
       label: "Hoe",
@@ -323,7 +323,7 @@ export const presentationStrings = {
       stat_4_val: "€95B",
       stat_4_label: "Mercado global de retail aeroportuario",
       opportunity_title: "La oportunidad de DutyBoost",
-      opportunity_text: "DutyBoost pre-activa solo el 1% de los viajeros que salen — convirtiendo navegantes en compradores motivados antes de que lleguen a su tienda. Llegan con un DutyCredit en mano, listos para gastar. Usted solo paga cuando lo hacen",
+      opportunity_text: "DutyBoost busca pre-activar al menos el 1% de los viajeros que salen — convirtiendo este porcentaje de navegantes en compradores motivados antes de que lleguen a las tiendas. Llegan con DutyCredits en mano, listos para gastar.",
     },
     how: {
       label: "Cómo",
