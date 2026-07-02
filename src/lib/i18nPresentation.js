@@ -218,7 +218,7 @@ export const presentationStrings = {
     journey: {
       label: "De DutyBoost Consumentenacquisitie Oplossing",
       title: "De Reis van de Reiziger",
-      subtitle: "DutyBoost is allereerst een consumentenplatform. Reizigers controleren hun recht, claimen een gratis DutyCredit en besteden deze op de luchthaven — geen app, geen registratie, geen kosten. De echte waarde is pre-activatie: door reizigers een reden te geven om te kopen voordat ze de winkel bereiken, vergroten we de koopintentie, verhogen we de conversie en genereren we extra omzet voor retailers.",
+      subtitle: "DutyBoost pre-activeert reizigers voordat ze de luchthaven bereiken. Door een gratis DutyCredit te claimen, komen ze aan met koopintentie — wat leidt tot hogere conversie, grotere mandjewaarden en extra retailomzet.",
       step1_badge: "Stap 1",
       step1_title: "Controleer uw recht",
       step1_desc: "De reiziger voert zijn vertrekluchthaven en -datum in. We bevestigen direct of hij in aanmerking komt voor een gratis DutyCredit.",
@@ -367,7 +367,7 @@ export const presentationStrings = {
     journey: {
       label: "La Solución de Adquisición de Consumidores de DutyBoost",
       title: "El Viaje del Viajero",
-      subtitle: "DutyBoost es ante todo una plataforma de consumidores. Los viajeros comprueban su elegibilidad, reclaman un DutyCredit gratuito y lo gastan en el aeropuerto — sin app, sin registro, sin coste. El valor real es la pre-activación: al dar a los viajeros una razón para comprar antes de llegar a la tienda, aumentamos la intención de compra, elevamos las tasas de conversión y generamos ingresos incrementales para los minoristas.",
+      subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos minoristas incrementales.",
       step1_badge: "Paso 1",
       step1_title: "Comprueba tu elegibilidad",
       step1_desc: "El viajero introduce su aeropuerto de salida y fecha. Confirmamos al instante si clasifica para un DutyCredit gratuito.",
