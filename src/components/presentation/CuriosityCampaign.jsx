@@ -62,7 +62,6 @@ export default function CuriosityCampaign() {
       </div>
 
       <div className="space-y-3">
-        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground text-center">{t('presentation.campaign.phase1_label')}</p>
         <p className="text-center text-xs text-muted-foreground">{t('presentation.campaign.phase1_subtitle')}</p>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
           {PHASE1_COUNTRIES.map(c => (
