@@ -429,8 +429,8 @@ export const presentationStrings = {
     },
     journey: {
       label: "La Solución",
-      title: "DutyBoost pre-activa al menos el 1% de los pasajeros — convirtiéndolos en potenciales compradores antes de que lleguen a las tiendas.",
-      subtitle: "Cada DutyCredit es válido 30 días · 4 momentos de canje por viaje de ida y vuelta: salida, llegada, salida de regreso y llegada de regreso · Los viajeros pueden reclamar DutyCredits en cada salida o llegada — siempre listos para comprar",
+      title: "",
+      subtitle: "",
       step1_badge: "Paso 1",
       step1_title: "Comprueba si clasificas",
       step1_desc: "El viajero introduce su aeropuerto de salida y fecha. Confirmamos al instante si clasificas para un DutyCredit gratuito.",
