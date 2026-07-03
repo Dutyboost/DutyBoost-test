@@ -473,7 +473,7 @@ export const presentationStrings = {
       funnel_7: "Canjea en el retail aeroportuario",
       channels_label: "Canales de audiencia que utilizaremos",
       principle_label: "Principio Fundamental",
-      principle: "Curiosidad → DutyCredit → Intención de Compra → Venta en Retail Aeroportuario → Ingresos Incrementales",
+      principle: "Curiosidad → DutyCredit → Intención de Compra → Venta en Retail Aeroportuario → Ingresos",
     },
     what: {
       agg_label: "Proyección de Ingresos",
