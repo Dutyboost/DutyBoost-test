@@ -60,9 +60,6 @@ export default function DutyBoostPresentation() {
               ))}
             </select>
             <LanguageSwitcher />
-            <Link to="/">
-              <Button size="sm" variant="ghost" className="text-muted-foreground">{t('presentation.nav.home')}</Button>
-            </Link>
 
           </div>
         </div>
