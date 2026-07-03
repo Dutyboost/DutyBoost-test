@@ -220,7 +220,7 @@ export default function DutyBoostPresentation() {
             </p>
 
             <div className="text-center">
-              <Link to="/eligibility-showcase" target="_blank" rel="noopener noreferrer">
+              <Link to="/eligibility-showcase" target="_blank" rel="noopener noreferrer" onClick={() => localStorage.setItem('i18nextLng', 'es')}>
                 <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
                   {t('presentation.journey.cta')}
                   <ArrowRight className="w-4 h-4" />

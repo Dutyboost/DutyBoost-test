@@ -127,7 +127,7 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
       </div>
 
       <div className="text-center">
-        <Link to={DEMO_DASHBOARD_ROUTES[company.name] || "/demo"} target="_blank" rel="noopener noreferrer">
+        <Link to={DEMO_DASHBOARD_ROUTES[company.name] || "/demo"} target="_blank" rel="noopener noreferrer" onClick={() => localStorage.setItem('i18nextLng', 'es')}>
           <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
             <BarChart3 className="w-4 h-4" />
             {t('presentation.agg.view_dashboard')}
