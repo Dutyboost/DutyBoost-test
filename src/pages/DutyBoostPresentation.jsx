@@ -63,10 +63,7 @@ export default function DutyBoostPresentation() {
             <Link to="/">
               <Button size="sm" variant="ghost" className="text-muted-foreground">{t('presentation.nav.home')}</Button>
             </Link>
-            <Button onClick={handleDownload} disabled={downloading} size="sm" className="gap-1.5 bg-primary text-primary-foreground hover:bg-primary/90">
-              <Download className="w-3.5 h-3.5" />
-              {downloading ? t('presentation.nav.generating') : t('presentation.nav.download')}
-            </Button>
+
           </div>
         </div>
       </nav>
