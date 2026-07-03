@@ -459,7 +459,7 @@ export const presentationStrings = {
       label: "Campaña de Curiosidad",
       title: "Cómo Generamos Ingresos Incrementales",
       subtitle: "No anunciamos compras en el aeropuerto — anunciamos curiosidad.",
-      traveler_thought: "\"¿Qué es un DutyCredit y si clasifico si o no?\"",
+      traveler_thought: "\"¿Qué es un DutyCredit y cómo sé si califico para obtenerlo?\"",
       market_label: "Mercado Potencial — AENA España",
       stat_passengers_val: "321,6M", stat_passengers_label: "Pasajeros anuales",
       stat_departures_val: "222M", stat_departures_label: "Pasajeros con vuelos internacionales",
