@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,8 +14,16 @@ import {
 } from "lucide-react";
 
 export default function EligibilityShowcase() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [searchParams] = useSearchParams();
   const tr = (key, opts) => t(`eligibility.${key}`, opts, { returnObjects: false });
+
+  useEffect(() => {
+    const langParam = searchParams.get('lang');
+    if (langParam) {
+      i18n.changeLanguage(langParam);
+    }
+  }, [i18n, searchParams]);
   const [airportQuery, setAirportQuery] = useState("");
   const [airport, setAirport] = useState("");
   const [departureDate, setDepartureDate] = useState("");
