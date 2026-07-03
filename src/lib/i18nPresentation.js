@@ -429,8 +429,8 @@ export const presentationStrings = {
     },
     journey: {
       label: "La Solución",
-      title: "La Jornada del Viajero",
-      subtitle: "DutyBoost pre-activa a los viajeros antes de que lleguen al aeropuerto. Al reclamar un DutyCredit gratuito, llegan con intención de compra — impulsando una mayor conversión, cestas más grandes e ingresos incrementales. ¿Cómo lo hacemos?",
+      title: "La Solución de Adquisición de Consumidores de DutyBoost",
+      subtitle: "¿Cómo lo hacemos?",
       step1_badge: "Paso 1",
       step1_title: "Comprueba si clasificas",
       step1_desc: "El viajero introduce su aeropuerto de salida y fecha. Confirmamos al instante si clasificas para un DutyCredit gratuito.",
