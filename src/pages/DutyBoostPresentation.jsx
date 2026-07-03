@@ -129,23 +129,6 @@ export default function DutyBoostPresentation() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-2xl p-6 space-y-3">
-            <p className="font-heading font-bold text-lg flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-primary" />
-              {t('presentation.why.opportunity_title')}
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {t('presentation.why.opportunity_text')}
-            </p>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {t('presentation.why.opportunity_bullets', { returnObjects: true }).map((bullet, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                  <span className="leading-relaxed">{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </section>
 
         {/* THE TRAVELLER JOURNEY — Consumer Acquisition */}
