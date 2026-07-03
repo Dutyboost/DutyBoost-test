@@ -39,6 +39,7 @@ export const presentationStrings = {
         "4 redemption moments per round trip: departure, arrival, return departure, and return arrival",
         "Travelers claim a new one at each leg — always ready to spend",
       ],
+      how_question: "How will we do it?",
     },
     how: {
       label: "How",
@@ -217,6 +218,7 @@ export const presentationStrings = {
         "4 inlossingsmomenten per retourreis: vertrek, aankomst, terugvertrek en terugaankomst",
         "Reizigers claimen bij elke etappe een nieuwe — altijd klaar om te besteden",
       ],
+      how_question: "Hoe doen we dat?",
     },
     how: {
       label: "Hoe",
@@ -395,6 +397,7 @@ export const presentationStrings = {
         "4 momentos de canje por viaje de ida y vuelta: salida, llegada, salida de regreso y llegada de regreso",
         "Los viajeros pueden reclamar DutyCredits en cada salida o llegada — siempre listos para comprar",
       ],
+      how_question: "¿Cómo lo haremos?",
     },
     how: {
       label: "Cómo",

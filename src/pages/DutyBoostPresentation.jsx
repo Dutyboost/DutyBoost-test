@@ -151,6 +151,8 @@ export default function DutyBoostPresentation() {
             </ul>
           </div>
 
+          <p className="text-center text-2xl font-heading font-bold text-primary">{t('presentation.why.how_question')}</p>
+
           <div className="bg-gradient-to-br from-emerald-50 via-blue-50 to-primary/5 border border-emerald-200 rounded-3xl p-6 sm:p-10 space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-card border border-emerald-200 rounded-2xl p-6 space-y-4">
