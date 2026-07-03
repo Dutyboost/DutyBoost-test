@@ -126,12 +126,14 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
         <p className="text-2xl font-heading font-bold text-primary">€{totals.avgBasket.toFixed(2)}</p>
       </div>
 
-      <Link to={DEMO_DASHBOARD_ROUTES[company.name] || "/demo"}>
-        <Button variant="outline" className="w-full gap-2 h-auto py-4">
-          <BarChart3 className="w-5 h-5 text-primary" />
-          <span className="font-semibold">{t('presentation.agg.view_dashboard')}</span>
-        </Button>
-      </Link>
+      <div className="text-center">
+        <Link to={DEMO_DASHBOARD_ROUTES[company.name] || "/demo"}>
+          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
+            <BarChart3 className="w-4 h-4" />
+            {t('presentation.agg.view_dashboard')}
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }
