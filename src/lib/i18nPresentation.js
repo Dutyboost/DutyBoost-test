@@ -424,7 +424,7 @@ export const presentationStrings = {
       stat_3_label: "Tiempo medio de espera en la puerta de embarque",
       stat_4_val: "€95 MM",
       stat_4_label: "Mercado global de retail aeroportuario",
-      stat_5_val: "€679,2 MM",
+      stat_5_val: "€679 M",
       stat_5_label: "Ingresos Totales Duty Free",
       opportunity_title: "La oportunidad de DutyBoost",
       opportunity_text: "Nuestro objetivo con DutyBoost es pre-activar al menos el 1% de los pasajeros — convirtiéndolos en potenciales compradores antes de que lleguen a las tiendas.",
