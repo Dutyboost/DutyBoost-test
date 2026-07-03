@@ -471,7 +471,7 @@ export const presentationStrings = {
       funnel_5: "Reclama su DutyCredit gratis",
       funnel_6: "Llega con intención de compra",
       funnel_7: "Canjea en el retail aeroportuario",
-      channels_label: "Canales Orgánicos — €0 Gasto en Medios",
+      channels_label: "Canales de audiencia que utilizaremos",
       principle_label: "Principio Fundamental",
       principle: "Curiosidad → DutyCredit → Intención de Compra → Venta en Retail Aeroportuario → Ingresos Incrementales",
     },
