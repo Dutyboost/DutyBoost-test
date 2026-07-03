@@ -457,7 +457,7 @@ export const presentationStrings = {
       title: "Cómo Generamos Ingresos Incrementales",
       subtitle: "100% orgánico · €0 gasto en medios. No anunciamos compras en el aeropuerto — anunciamos curiosidad.",
       traveler_thought: "\"¿Qué es un DutyCredit y clasifico?\"",
-      market_label: "Mercado Adresable — AENA España",
+      market_label: "Mercado Potencial — AENA España",
       stat_passengers_val: "309,3M", stat_passengers_label: "Pasajeros anuales",
       stat_departures_val: "154,7M", stat_departures_label: "Salidas anuales",
       stat_intl_val: "~106M", stat_intl_label: "Salidas internacionales",
