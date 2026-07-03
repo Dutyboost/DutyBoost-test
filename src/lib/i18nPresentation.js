@@ -477,7 +477,7 @@ export const presentationStrings = {
     },
     what: {
       agg_label: "Proyección de Ingresos",
-      agg_title: "Analíticas en tiempo real a tu alcance",
+      agg_title: "Datos en tiempo real a tu alcance",
       agg_subtitle: "Ver los ingresos potenciales de toda la red de aeropuertos que manejan con una conversión del 1% incremental.",
       company_label: "Empresa:",
       airports: "aeropuertos",
