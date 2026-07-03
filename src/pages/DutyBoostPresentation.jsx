@@ -314,26 +314,39 @@ export default function DutyBoostPresentation() {
           <p className="text-xs text-muted-foreground">{t('presentation.what.fee_note')}</p>
         </section>
 
-        {/* CTA */}
+        {/* Q&A + Thank You */}
         <section>
-          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden text-center space-y-6">
+          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-8 sm:p-12 text-primary-foreground shadow-2xl relative overflow-hidden space-y-10">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-            <div className="relative space-y-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/70">{t('presentation.what.cta_label')}</p>
-              <h2 className="text-3xl font-heading font-bold">{t('presentation.what.cta_title')}</h2>
-              <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">{t('presentation.what.cta_desc', { company: company.name })}</p>
-              <div className="flex flex-wrap justify-center gap-3 pt-2">
-                <a href="mailto:rael@dutyboost.com">
-                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8">
-                    rael@dutyboost.com <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </a>
-                <Button onClick={handleDownload} disabled={downloading} size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 gap-2 px-8">
-                  <Download className="w-4 h-4" />
-                  {downloading ? t('presentation.nav.generating') : t('presentation.what.cta_download')}
-                </Button>
+
+            {/* Q&A */}
+            <div className="relative space-y-6">
+              <div className="text-center space-y-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/70">{t('presentation.qa.label')}</p>
+                <h2 className="text-3xl font-heading font-bold">{t('presentation.qa.title')}</h2>
               </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                {[
+                  { q: t('presentation.qa.q1'), a: t('presentation.qa.a1') },
+                  { q: t('presentation.qa.q2'), a: t('presentation.qa.a2') },
+                  { q: t('presentation.qa.q3'), a: t('presentation.qa.a3') },
+                ].map(({ q, a }, i) => (
+                  <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 space-y-3">
+                    <p className="font-heading font-bold text-lg leading-snug">{q}</p>
+                    <p className="text-sm text-primary-foreground/80 leading-relaxed">{a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative border-t border-white/20" />
+
+            {/* Thank You */}
+            <div className="relative text-center space-y-4">
+              <h3 className="text-2xl font-heading font-bold">{t('presentation.thank.title')}</h3>
+              <p className="text-primary-foreground/90 text-lg max-w-2xl mx-auto leading-relaxed">{t('presentation.thank.warm', { company: company.name })}</p>
+              <p className="text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed">{t('presentation.thank.closing')}</p>
             </div>
           </div>
         </section>
