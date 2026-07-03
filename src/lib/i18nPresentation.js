@@ -455,7 +455,7 @@ export const presentationStrings = {
     campaign: {
       label: "Campaña de Curiosidad",
       title: "Cómo Generamos Ingresos Incrementales",
-      subtitle: "100% orgánico · €0 gasto en medios. No anunciamos compras en el aeropuerto — anunciamos curiosidad.",
+      subtitle: "No anunciamos compras en el aeropuerto — anunciamos curiosidad.",
       traveler_thought: "\"¿Qué es un DutyCredit y clasifico?\"",
       market_label: "Mercado Potencial — AENA España",
       stat_passengers_val: "309,3M", stat_passengers_label: "Pasajeros anuales",
