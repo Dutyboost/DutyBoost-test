@@ -294,6 +294,7 @@ export default function DutyBoostPresentation() {
               </thead>
               <tbody>
                 {[
+                  { tier: t('presentation.what.tier_0_basket'), save: t('presentation.what.tier_0_discount'), fee: t('presentation.what.tier_0_fee'), net: t('presentation.what.tier_0_net') },
                   { tier: t('presentation.what.tier_1_basket'), save: t('presentation.what.tier_1_discount'), fee: t('presentation.what.tier_1_fee'), net: t('presentation.what.tier_1_net') },
                   { tier: t('presentation.what.tier_2_basket'), save: t('presentation.what.tier_2_discount'), fee: t('presentation.what.tier_2_fee'), net: t('presentation.what.tier_2_net') },
                   { tier: t('presentation.what.tier_3_basket'), save: t('presentation.what.tier_3_discount'), fee: t('presentation.what.tier_3_fee'), net: t('presentation.what.tier_3_net') },
