@@ -285,47 +285,6 @@ export default function DutyBoostPresentation() {
 
         {/* WHAT — POS Implementation */}
         <section className="space-y-8">
-          <div className="border-l-4 border-primary pl-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">{t('presentation.what.pos_label')}</p>
-            <h2 className="text-3xl font-heading font-bold">{t('presentation.what.pos_title')}</h2>
-            <p className="text-muted-foreground mt-2">{t('presentation.what.pos_subtitle')}</p>
-          </div>
-
-          <div className="grid md:grid-cols-1 gap-6">
-            {[
-              { icon: Terminal, label: t('presentation.what.option_a_badge'), labelColor: "bg-green-100 text-green-700", title: t('presentation.what.option_a_title'), desc: t('presentation.what.option_a_desc') },
-            ].map(({ icon: Icon, label, labelColor, title, desc }, i) => (
-              <div key={i} className="bg-card border border-border rounded-2xl p-5 space-y-3 hover:shadow-lg transition-shadow">
-                <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-primary" />
-                  </div>
-                  <span className={`text-xs font-semibold px-2 py-1 rounded-full ${labelColor}`}>{label}</span>
-                </div>
-                <p className="font-semibold text-sm">{title}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-            <p className="font-semibold">{t('presentation.what.how_title')}</p>
-            <div className="grid md:grid-cols-4 gap-3">
-              {[
-                { num: "1", title: t('presentation.what.step1_title'), desc: t('presentation.what.step1_desc') },
-                { num: "2", title: t('presentation.what.step2_title'), desc: t('presentation.what.step2_desc') },
-                { num: "3", title: t('presentation.what.step3_title'), desc: t('presentation.what.step3_desc') },
-                { num: "4", title: t('presentation.what.step4_title'), desc: t('presentation.what.step4_desc') },
-              ].map(s => (
-                <div key={s.num} className="bg-muted/30 border border-border rounded-xl p-4 space-y-2">
-                  <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">{s.num}</div>
-                  <p className="font-semibold text-sm">{s.title}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="overflow-hidden rounded-2xl border border-border">
             <table className="w-full text-sm">
               <thead>
