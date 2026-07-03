@@ -156,6 +156,24 @@ export default function DutyBoostPresentation() {
             <p className="text-muted-foreground mt-2 max-w-3xl">{t('presentation.journey.subtitle')}</p>
           </div>
 
+          <div className="bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-2xl p-6 space-y-3">
+            <p className="font-heading font-bold text-lg flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-primary" />
+              {t('presentation.why.opportunity_title')}
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {t('presentation.why.opportunity_text')}
+            </p>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {t('presentation.why.opportunity_bullets', { returnObjects: true }).map((bullet, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                  <span className="leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="bg-gradient-to-br from-emerald-50 via-blue-50 to-primary/5 border border-emerald-200 rounded-3xl p-6 sm:p-10 space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-card border border-emerald-200 rounded-2xl p-6 space-y-4">
