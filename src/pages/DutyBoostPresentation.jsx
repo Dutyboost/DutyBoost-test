@@ -10,6 +10,7 @@ import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import PresentationAggregation from "@/components/presentation/PresentationAggregation";
+import CuriosityCampaign from "@/components/presentation/CuriosityCampaign";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
@@ -226,6 +227,8 @@ export default function DutyBoostPresentation() {
                 </Button>
               </Link>
             </div>
+
+            <CuriosityCampaign />
           </div>
         </section>
 
