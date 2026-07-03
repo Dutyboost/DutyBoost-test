@@ -453,7 +453,7 @@ export const presentationStrings = {
       stat_seconds_label: "para reclamar",
       stat_discount: "Pre-activado",
       stat_discount_label: "Curiosidad Despertada",
-      efficiency_note: "Cada paso está diseñado para la velocidad. DutyBoost se basa en la simplificación y la obviedad — el proceso debe ser ágil, porque un viajero curioso no debería esperar.",
+      efficiency_note: "Cada paso está diseñado para la velocidad. DutyBoost se basa en la simplificación — el proceso debe ser ágil, porque un viajero curioso no debería esperar.",
     },
     campaign: {
       label: "Campaña de Curiosidad",
