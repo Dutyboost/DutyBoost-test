@@ -118,7 +118,7 @@ export default function DutyBoostPresentation() {
           <div className="grid md:grid-cols-4 gap-4">
             {[
               { val: fmtCompact(totals.totalDailyTravelers * 365, lang), label: t('presentation.why.stat_1_label', { company: company.name }) },
-              { val: fmtCompact(totals.totalDailyTravelers, lang), label: t('presentation.why.stat_2_label', { company: company.name }) },
+              { val: fmtCompact(totals.totalDailyTravelers, lang, 2), label: t('presentation.why.stat_2_label', { company: company.name }) },
               { val: t('presentation.why.stat_3_val'), label: t('presentation.why.stat_3_label') },
               { val: t('presentation.why.stat_4_val'), label: t('presentation.why.stat_4_label') },
             ].map(({ val, label }, i) => (

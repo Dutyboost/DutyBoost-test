@@ -25,12 +25,12 @@ export function fmtEur(value, decimals = 0) {
  * Examples (lang="en"):  1200000000 → "1.2B", 437300000 → "437.3M"
  * Examples (lang="es"):  1200000000 → "1,2 MM", 437300000 → "437,3 M"
  */
-export function fmtCompact(value, lang = "en") {
+export function fmtCompact(value, lang = "en", decimals = 1) {
   const num = Number(value);
   const abs = Math.abs(num);
   const useComma = lang === "es" || lang === "nl";
   const fmt = (v) => {
-    const s = v.toFixed(1);
+    const s = v.toFixed(decimals);
     return useComma ? s.replace(".", ",") : s;
   };
   if (abs >= 1e9) return `${fmt(num / 1e9)}${useComma ? " MM" : "B"}`;

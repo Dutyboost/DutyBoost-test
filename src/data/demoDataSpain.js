@@ -193,15 +193,24 @@ const COUNTRY_REGION = {
   "Brazil": "Americas", "Mexico": "Americas", "Jamaica": "Americas",
 };
 
-const aenaAirportData = AENA_AIRPORTS_RAW.map(([name, code, city, country, annualPax]) => ({
-  name,
-  code,
-  city,
-  country,
-  region: COUNTRY_REGION[country] || "Europe",
-  annual_pax: annualPax,
-  daily_pax: Math.round(annualPax / 365),
-}));
+// Normalize per-airport figures to Aena's reported network total of
+// 384.8M annual passengers (~1.05M daily) so the presentation and dashboards
+// reflect the official figure rather than the sum of inflated raw estimates.
+const AENA_TARGET_ANNUAL_PAX = 384_800_000;
+const AENA_PAX_SCALE = AENA_TARGET_ANNUAL_PAX / AENA_AIRPORTS_RAW.reduce((s, a) => s + a[4], 0);
+
+const aenaAirportData = AENA_AIRPORTS_RAW.map(([name, code, city, country, annualPax]) => {
+  const scaledAnnual = Math.round(annualPax * AENA_PAX_SCALE);
+  return {
+    name,
+    code,
+    city,
+    country,
+    region: COUNTRY_REGION[country] || "Europe",
+    annual_pax: scaledAnnual,
+    daily_pax: Math.round(scaledAnnual / 365),
+  };
+});
 
 export const AIRPORTS_FULL = aenaAirportData;
 
