@@ -444,7 +444,7 @@ export const presentationStrings = {
       step3_title: "Compra y ahorra en el aeropuerto",
       step3_desc: "En caja, el viajero muestra su código QR. El descuento se aplica al instante. Ahorro real, fricción cero.",
       step4_badge: "El Resultado",
-      step4_title: "Conversión y Aumento de Ingresos",
+      step4_title: "Potencial Aumento de Ingresos",
       step4_desc: "Los viajeros pre-activados llegan listos para comprar. Las tiendas ven mayor conversión e ingresos incrementales — sin gastar más en adquisición.",
       cta: "Prueba la comprobación de si clasificas",
       stat_free: "Gratis",
