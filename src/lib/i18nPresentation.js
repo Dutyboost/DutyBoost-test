@@ -32,6 +32,8 @@ export const presentationStrings = {
       stat_3_label: "Average dwell time at the gate",
       stat_4_val: "€95B",
       stat_4_label: "Global airport retail market",
+      stat_5_val: "€679.2M",
+      stat_5_label: "Duty Free Total Revenue",
       opportunity_title: "The DutyBoost opportunity",
       opportunity_text: "Our goal with DutyBoost is to pre-activate at least 1% of passengers — turning them into potential buyers before they reach the stores.",
       opportunity_bullets: [
@@ -226,6 +228,8 @@ export const presentationStrings = {
       stat_3_label: "Gemiddelde wachttijd bij de gate",
       stat_4_val: "€95 MM",
       stat_4_label: "Wereldwijde luchthavenretailmarkt",
+      stat_5_val: "€679,2 MM",
+      stat_5_label: "Totale Duty Free Omzet",
       opportunity_title: "De DutyBoost mogelijkheid",
       opportunity_text: "Ons doel met DutyBoost is om minstens 1% van de passagiers te pre-activeren — en ze om te zetten in potentiële kopers voordat ze de winkels bereiken.",
       opportunity_bullets: [
@@ -420,6 +424,8 @@ export const presentationStrings = {
       stat_3_label: "Tiempo medio de espera en la puerta de embarque",
       stat_4_val: "€95 MM",
       stat_4_label: "Mercado global de retail aeroportuario",
+      stat_5_val: "€679,2 MM",
+      stat_5_label: "Ingresos Totales Duty Free",
       opportunity_title: "La oportunidad de DutyBoost",
       opportunity_text: "Nuestro objetivo con DutyBoost es pre-activar al menos el 1% de los pasajeros — convirtiéndolos en potenciales compradores antes de que lleguen a las tiendas.",
       opportunity_bullets: [
