@@ -133,21 +133,16 @@ export default function DutyBoostPresentation() {
 
         {/* THE TRAVELLER JOURNEY — Consumer Acquisition */}
         <section className="space-y-8">
-          <div className="border-l-4 border-emerald-500 pl-6">
+          <div className="border-l-4 border-emerald-500 pl-6 space-y-3">
             <p className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-1">{t('presentation.journey.label')}</p>
-            <h2 className="text-3xl font-heading font-bold">{t('presentation.journey.title')}</h2>
-            <p className="text-muted-foreground mt-2 max-w-3xl">{t('presentation.journey.subtitle')}</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 border border-border rounded-2xl p-6 space-y-3">
             <p className="font-heading font-bold text-lg flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-primary" />
               {t('presentation.why.opportunity_title')}
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
               {t('presentation.why.opportunity_text')}
             </p>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-2 text-sm text-muted-foreground max-w-3xl">
               {t('presentation.why.opportunity_bullets', { returnObjects: true }).map((bullet, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
