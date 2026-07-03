@@ -100,7 +100,14 @@ export default function CuriosityCampaign() {
 
       <div className="bg-gradient-to-r from-primary to-accent rounded-xl p-4 text-center space-y-1">
         <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/80">{t('presentation.campaign.principle_label')}</p>
-        <p className="text-sm font-semibold text-primary-foreground">{t('presentation.campaign.principle')}</p>
+        <p className="text-base font-semibold text-primary-foreground">
+          {t('presentation.campaign.principle').split('→').map((part, i, arr) => (
+            <Fragment key={i}>
+              {i > 0 && <span className="mx-1.5">→</span>}
+              <span className={i === 0 || i === arr.length - 1 ? 'font-extrabold' : ''}>{part.trim()}</span>
+            </Fragment>
+          ))}
+        </p>
       </div>
     </div>
   );
