@@ -156,7 +156,7 @@ export default function DutyBoostPresentation() {
           <div className="bg-gradient-to-br from-emerald-50 via-blue-50 to-primary/5 border border-emerald-200 rounded-3xl p-6 sm:p-10 space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-card border border-emerald-200 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3">
                   <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
@@ -166,7 +166,7 @@ export default function DutyBoostPresentation() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step1_desc')}</p>
               </div>
               <div className="bg-card border border-blue-200 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3">
                   <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
                     <Gift className="w-6 h-6 text-white" />
                   </div>
@@ -176,7 +176,7 @@ export default function DutyBoostPresentation() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step2_desc')}</p>
               </div>
               <div className="bg-card border border-accent/30 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
                     <ScanLine className="w-6 h-6 text-white" />
                   </div>
@@ -186,7 +186,7 @@ export default function DutyBoostPresentation() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('presentation.journey.step3_desc')}</p>
               </div>
               <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/30 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3">
                   <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
