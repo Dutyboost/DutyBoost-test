@@ -217,15 +217,6 @@ export default function DutyBoostPresentation() {
               {t('presentation.journey.efficiency_note')}
             </p>
 
-            <div className="text-center">
-              <Link to="/eligibility-showcase?lang=es" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
-                  {t('presentation.journey.cta')}
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
-
             <CuriosityCampaign />
           </div>
         </section>
