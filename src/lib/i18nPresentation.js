@@ -73,7 +73,7 @@ export const presentationStrings = {
     },
     journey: {
       label: "The DutyBoost Consumer Acquisition Solution",
-      title: "The Traveller Journey",
+      title: "The Solution DutyBoost Offers",
       subtitle: "DutyBoost pre-activates travellers before they reach the airport. By claiming a free DutyCredit, they arrive with purchase intent—driving higher conversion, larger basket values and incremental retail revenue. How do we do it?",
       step1_badge: "Step 1",
       step1_title: "Check eligibility",
@@ -251,7 +251,7 @@ export const presentationStrings = {
     },
     journey: {
       label: "De DutyBoost Consumentenacquisitie Oplossing",
-      title: "De Reis van de Reiziger",
+      title: "De Oplossing van DutyBoost",
       subtitle: "DutyBoost pre-activeert reizigers voordat ze de luchthaven bereiken. Door een gratis DutyCredit te claimen, komen ze aan met koopintentie — wat leidt tot hogere conversie, grotere mandjewaarden en extra retailomzet. Hoe doen we dat?",
       step1_badge: "Stap 1",
       step1_title: "Controleer uw recht",
@@ -429,7 +429,7 @@ export const presentationStrings = {
     },
     journey: {
       label: "La Solución",
-      title: "",
+      title: "La Solución que ofrece DutyBoost",
       subtitle: "",
       step1_badge: "Paso 1",
       step1_title: "Comprueba si clasificas",
