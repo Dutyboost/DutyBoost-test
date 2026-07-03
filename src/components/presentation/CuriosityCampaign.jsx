@@ -39,14 +39,6 @@ export default function CuriosityCampaign() {
         <p className="text-xs font-bold uppercase tracking-widest text-primary">{t('presentation.campaign.label')}</p>
         <h3 className="text-2xl font-heading font-bold">{t('presentation.campaign.title')}</h3>
         <p className="text-sm text-muted-foreground max-w-2xl mx-auto">{t('presentation.campaign.subtitle')}</p>
-        <div className="pt-2">
-          <Link to="/eligibility-showcase?lang=es" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
-              {t('presentation.journey.cta')}
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
       </div>
 
       <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 text-center">
@@ -118,6 +110,15 @@ export default function CuriosityCampaign() {
             </Fragment>
           ))}
         </p>
+      </div>
+
+      <div className="text-center pt-2">
+        <Link to="/eligibility-showcase?lang=es" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
+            {t('presentation.journey.cta')}
+            <ArrowRight className="w-4 h-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   );
