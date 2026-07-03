@@ -10,7 +10,7 @@ const DEMO_DASHBOARD_ROUTES = {
   "Lagardère Travel Retail": "/demo/retailer-lagardere",
   "Avolta (incl. World Duty Free, Hudson, Dufry)": "/demo/retailer-avolta",
   "Gebr. Heinemann": "/demo/retailer-heinemann",
-  "Aena (Spanish Airport Retail)": "/demo/retailer-aena",
+  "Aena SME, S.A.": "/demo/retailer-aena",
 };
 
 export default function PresentationAggregation({ company, conversionRate = 3, compact = false }) {

@@ -191,7 +191,7 @@ export const AIRPORT_RETAIL_COMPANIES = [
     airports: HEINEMANN_AIRPORTS_FULL,
   },
   {
-    name: "Aena (Spanish Airport Retail)",
+    name: "Aena SME, S.A.",
     airports: AENA_AIRPORTS_FULL,
     storeCount: AENA_STORE_COUNT,
   },
