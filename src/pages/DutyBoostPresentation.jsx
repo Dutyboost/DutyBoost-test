@@ -306,8 +306,8 @@ export default function DutyBoostPresentation() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
             <div className="relative text-center space-y-6">
-              <h2 className="text-6xl sm:text-7xl font-heading font-bold">THANK YOU!</h2>
-              <p className="font-heading font-bold leading-none" style={{ fontSize: '130px' }}>Q&amp;A</p>
+              <h2 className="text-6xl sm:text-7xl font-heading font-bold">{t('presentation.thank.short')}</h2>
+              <p className="font-heading font-bold leading-none" style={{ fontSize: '130px' }}>{t('presentation.qa.short')}</p>
             </div>
           </div>
         </section>

@@ -168,6 +168,7 @@ export const presentationStrings = {
     },
     qa: {
       label: "Questions & Answers",
+      short: "Q&A",
       title: "Everything you need to know",
       q1: "How long does integration take?",
       a1: "One API call and 1–2 days. Your POS connects to DutyBoost with a single integration — no overhaul, no new hardware.",
@@ -178,6 +179,7 @@ export const presentationStrings = {
     },
     thank: {
       title: "Thank you for your time",
+      short: "THANK YOU!",
       warm: "We look forward to partnering with {{company}} to turn passengers into customers.",
       closing: "Our team is ready to guide you through integration, schedule a live demo, and adapt DutyBoost to your airport network.",
     },
@@ -364,6 +366,7 @@ export const presentationStrings = {
     },
     qa: {
       label: "Vragen & Antwoorden",
+      short: "V&A",
       title: "Alles wat u moet weten",
       q1: "Hoe lang duurt de integratie?",
       a1: "Eén API-call en 1–2 dagen. Uw POS koppelt aan DutyBoost met één integratie — geen verbouwing, geen nieuwe hardware.",
@@ -374,6 +377,7 @@ export const presentationStrings = {
     },
     thank: {
       title: "Bedankt voor uw tijd",
+      short: "BEDANKT!",
       warm: "We kijken ernaar uit om samen te werken met {{company}} om passagiers om te zetten in klanten.",
       closing: "Ons team staat klaar om u door de integratie te begeleiden, een live demo in te plannen en DutyBoost af te stemmen op uw luchthavennetwerk.",
     },
@@ -560,6 +564,7 @@ export const presentationStrings = {
     },
     qa: {
       label: "Preguntas y Respuestas",
+      short: "P&R",
       title: "Todo lo que necesitas saber",
       q1: "¿Cuánto tiempo toma la integración?",
       a1: "Una llamada API y 1–2 días. Tu POS se conecta a DutyBoost con una sola integración — sin reformas, sin hardware nuevo.",
@@ -570,6 +575,7 @@ export const presentationStrings = {
     },
     thank: {
       title: "Gracias por tu tiempo",
+      short: "¡GRACIAS!",
       warm: "Esperamos colaborar con {{company}} para convertir a los pasajeros en clientes.",
       closing: "Nuestro equipo está listo para guiarte en la integración, programar una demo en vivo y adaptar DutyBoost a tu red de aeropuertos.",
     },
