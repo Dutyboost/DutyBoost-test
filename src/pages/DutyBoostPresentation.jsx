@@ -301,29 +301,13 @@ export default function DutyBoostPresentation() {
         </section>
 
         {/* Q&A + Thank You */}
-        <section className="space-y-10">
-          <div className="text-center">
-            <h2 className="text-6xl sm:text-7xl font-heading font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('presentation.thank.title')}
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div className="text-center space-y-2">
-              <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('presentation.qa.label')}</p>
-              <h3 className="text-4xl font-heading font-bold">{t('presentation.qa.title')}</h3>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { q: t('presentation.qa.q1'), a: t('presentation.qa.a1') },
-                { q: t('presentation.qa.q2'), a: t('presentation.qa.a2') },
-                { q: t('presentation.qa.q3'), a: t('presentation.qa.a3') },
-              ].map(({ q, a }, i) => (
-                <div key={i} className="bg-card border border-border rounded-2xl p-6 space-y-3 hover:shadow-lg transition-shadow">
-                  <p className="font-heading font-bold text-lg leading-snug">{q}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{a}</p>
-                </div>
-              ))}
+        <section>
+          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-8 sm:p-16 text-primary-foreground shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+            <div className="relative text-center space-y-6">
+              <h2 className="text-6xl sm:text-7xl font-heading font-bold">THANK YOU!</h2>
+              <p className="font-heading font-bold leading-none" style={{ fontSize: '130px' }}>Q&amp;A</p>
             </div>
           </div>
         </section>
