@@ -97,7 +97,7 @@ export const presentationStrings = {
       stat_seconds_label: "to claim",
       stat_discount: "Pre-activated",
       stat_discount_label: "Curiosity Awakened",
-      efficiency_note: "Every step is designed for speed. DutyBoost is based on simplification — the process must be agile, because a curious traveler shouldn't have to wait.",
+      efficiency_note: "Every step is designed for performance. DutyBoost is 100% performance-based — even the customer acquisition cost is paid only after a traveler redeems a DutyCredit and makes a purchase. You pay nothing until you've been paid.",
     },
     campaign: {
       label: "Curiosity Campaign",
@@ -295,7 +295,7 @@ export const presentationStrings = {
       stat_seconds_label: "om te claimen",
       stat_discount: "Pre-activatie",
       stat_discount_label: "Nieuwsgierigheid Gewekt",
-      efficiency_note: "Elke stap is ontworpen voor snelheid. DutyBoost draait om vereenvoudiging — het proces moet vlot verlopen, want een nieuwsgierige reiziger hoeft niet te wachten.",
+      efficiency_note: "Elke stap is ontworpen voor prestaties. DutyBoost is 100% prestatiegebaseerd — zelfs de kosten voor klantacquisitie worden pas betaald nadat een reiziger een DutyCredit inwisselt en een aankoop doet. U betaalt niets totdat u betaald heeft gekregen.",
     },
     campaign: {
       label: "Nieuwsgierigheidscampagne",
@@ -493,7 +493,7 @@ export const presentationStrings = {
       stat_seconds_label: "para reclamar",
       stat_discount: "Pre-activado",
       stat_discount_label: "Curiosidad Despertada",
-      efficiency_note: "Cada paso está diseñado para la velocidad. DutyBoost se basa en la simplificación — el proceso debe ser ágil, porque un viajero curioso no debería esperar.",
+      efficiency_note: "Cada paso está diseñado para el rendimiento. DutyBoost es 100% basado en rendimiento — incluso el coste de adquisición de clientes se paga únicamente después de que un viajero canjea un DutyCredit y realiza una compra. No pagas nada hasta que cobras.",
     },
     campaign: {
       label: "Campaña de Curiosidad",
