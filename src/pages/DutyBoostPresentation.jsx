@@ -301,38 +301,29 @@ export default function DutyBoostPresentation() {
         </section>
 
         {/* Q&A + Thank You */}
-        <section>
-          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-8 sm:p-12 text-primary-foreground shadow-2xl relative overflow-hidden space-y-10">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+        <section className="space-y-10">
+          <div className="text-center">
+            <h2 className="text-6xl sm:text-7xl font-heading font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              {t('presentation.thank.title')}
+            </h2>
+          </div>
 
-            {/* Q&A */}
-            <div className="relative space-y-6">
-              <div className="text-center space-y-2">
-                <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/70">{t('presentation.qa.label')}</p>
-                <h2 className="text-3xl font-heading font-bold">{t('presentation.qa.title')}</h2>
-              </div>
-              <div className="grid md:grid-cols-3 gap-4">
-                {[
-                  { q: t('presentation.qa.q1'), a: t('presentation.qa.a1') },
-                  { q: t('presentation.qa.q2'), a: t('presentation.qa.a2') },
-                  { q: t('presentation.qa.q3'), a: t('presentation.qa.a3') },
-                ].map(({ q, a }, i) => (
-                  <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 space-y-3">
-                    <p className="font-heading font-bold text-lg leading-snug">{q}</p>
-                    <p className="text-sm text-primary-foreground/80 leading-relaxed">{a}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="space-y-6">
+            <div className="text-center space-y-2">
+              <p className="text-xs font-bold uppercase tracking-widest text-accent">{t('presentation.qa.label')}</p>
+              <h3 className="text-4xl font-heading font-bold">{t('presentation.qa.title')}</h3>
             </div>
-
-            <div className="relative border-t border-white/20" />
-
-            {/* Thank You */}
-            <div className="relative text-center space-y-4">
-              <h3 className="text-2xl font-heading font-bold">{t('presentation.thank.title')}</h3>
-              <p className="text-primary-foreground/90 text-lg max-w-2xl mx-auto leading-relaxed">{t('presentation.thank.warm', { company: company.name })}</p>
-              <p className="text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed">{t('presentation.thank.closing')}</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { q: t('presentation.qa.q1'), a: t('presentation.qa.a1') },
+                { q: t('presentation.qa.q2'), a: t('presentation.qa.a2') },
+                { q: t('presentation.qa.q3'), a: t('presentation.qa.a3') },
+              ].map(({ q, a }, i) => (
+                <div key={i} className="bg-card border border-border rounded-2xl p-6 space-y-3 hover:shadow-lg transition-shadow">
+                  <p className="font-heading font-bold text-lg leading-snug">{q}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
