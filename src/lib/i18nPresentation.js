@@ -398,9 +398,9 @@ export const presentationStrings = {
       generating: "Generando...",
     },
     hero: {
-      badge: "La Capa de Conversión de Retail de Viajes",
-      title_1: "Convertir pasajeros",
-      title_2: "en compradores",
+      badge: "DutyBoost: Una Nueva Capa de Ingresos para el Sector Travel",
+      title_1: "¿Cómo convertimos a más",
+      title_2: "pasajeros en compradores?",
       subtitle: "DutyBoost pre-activa la intención de compra. Los viajeros reciben DutyCredits gratuitos antes de llegar a la tienda — listos para comprar.",
       pill_1: "Precios basados en rendimiento",
       pill_2: "1 llamada API para integrar",
