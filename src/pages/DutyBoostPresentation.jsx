@@ -267,10 +267,11 @@ export default function DutyBoostPresentation() {
           <div className="bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <label className="text-sm font-semibold text-muted-foreground shrink-0">{t('presentation.what.company_label')}</label>
             <p className="text-sm font-semibold text-foreground px-3 py-2">{company.name}</p>
-            <div className="flex gap-4 text-sm text-muted-foreground ml-auto">
+            <div className="flex gap-4 text-sm text-muted-foreground ml-auto flex-wrap">
               <span><strong className="text-foreground">{fmtNum(company.airports.length)}</strong> {t('presentation.what.airports')}</span>
               <span><strong className="text-foreground">{fmtNum(storeCount)}</strong> {t('presentation.what.stores')}</span>
               <span><strong className="text-foreground">{fmtNum(totals.totalDailyTravelers)}</strong> {t('presentation.what.daily_travelers')}</span>
+              <span><strong className="text-foreground">{fmtEur(totals.avgBasket)}</strong> {t('presentation.agg.avg_basket')}</span>
             </div>
           </div>
 
