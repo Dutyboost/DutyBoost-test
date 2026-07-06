@@ -56,7 +56,7 @@ export default function ConversionRateSlider({ value, onChange }) {
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-5 space-y-4">
+    <div className="space-y-4">
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{t('presentation.what.conversion_label', { defaultValue: 'Conversion Rate' })}</p>
@@ -69,7 +69,7 @@ export default function ConversionRateSlider({ value, onChange }) {
               value={inputValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
-              className="w-24 h-12 text-2xl font-heading font-bold text-primary text-center"
+              className="w-24 h-12 text-2xl font-heading font-bold text-primary text-center border-0 px-0 focus-visible:ring-0"
             />
             <span className="text-2xl font-heading font-bold text-primary">%</span>
           </div>
