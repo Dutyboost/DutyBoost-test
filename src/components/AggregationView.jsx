@@ -174,13 +174,14 @@ export default function AggregationView({ transactions, vouchers, period, custom
 
       {/* Secondary metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
-          <p className="text-sm font-semibold">{entityType === "retailer" ? (t('common.total_redeemable') || 'Total Redeemable DutyCredits Available for your Airports') : (t('demo.dutycredits_issued') || 'Total DutyCredits Issued')}</p>
-          <p className="text-xl md:text-3xl font-heading font-bold whitespace-nowrap">{entityType === "retailer" ? (aggregatedMetrics.vouchersIssued * 450).toLocaleString("de-DE") : aggregatedMetrics.vouchersIssued}</p>
-          {entityType === "retailer" && <p className="text-xs text-muted-foreground">{t('common.across_all_retailers')}</p>}
-        </div>
+        {entityType !== "retailer" && (
+          <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+            <p className="text-sm font-semibold">{t('demo.dutycredits_issued') || 'Total DutyCredits Issued'}</p>
+            <p className="text-xl md:text-3xl font-heading font-bold whitespace-nowrap">{aggregatedMetrics.vouchersIssued}</p>
+          </div>
+        )}
 
-        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+        <div className={`bg-card border border-border rounded-xl p-5 space-y-3 ${entityType === "retailer" ? "md:col-span-2" : ""}`}>
           <p className="text-sm font-semibold">{t('common.avg_discount') || 'Average Discount Applied'}</p>
           <p className="text-xl md:text-3xl font-heading font-bold whitespace-nowrap">{parseFloat(aggregatedMetrics.avgDiscount).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
           <p className="text-xs text-muted-foreground mt-2">{t('common.per_transaction') || 'Per transaction'}</p>
