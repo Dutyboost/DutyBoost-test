@@ -8,7 +8,7 @@
 import { AIRPORTS_FULL as LTR_AIRPORTS_FULL, STORE_COUNT as LTR_STORE_COUNT } from "./demoDataLagardere";
 import { AIRPORTS_FULL as AVOLTA_AIRPORTS_FULL, STORE_COUNT as AVOLTA_STORE_COUNT } from "./demoDataAvolta";
 import { AIRPORTS_FULL as HEINEMANN_AIRPORTS_FULL } from "./demoDataHeinemann";
-import { AIRPORTS_FULL as AENA_AIRPORTS_FULL, STORE_COUNT as AENA_STORE_COUNT } from "./demoDataSpain";
+import { AIRPORTS_FULL as AENA_AIRPORTS_FULL } from "./demoDataSpain";
 import { AIRPORTS_FULL as DFS_AIRPORTS_FULL } from "./demoDataDFS";
 import { AIRPORTS_FULL as LOTTE_AIRPORTS_FULL } from "./demoDataLotte";
 import { AIRPORTS_FULL as SHILLA_AIRPORTS_FULL } from "./demoDataShilla";
@@ -193,7 +193,9 @@ export const AIRPORT_RETAIL_COMPANIES = [
   {
     name: "Aena SME, S.A.",
     airports: AENA_AIRPORTS_FULL,
-    storeCount: AENA_STORE_COUNT,
+    // Official figure: 335 retail shops across 26 commercially-active airports
+    // in the Spanish network (source: aena.es/en/business-opportunities/new-opportunities/shops.html)
+    storeCount: 335,
   },
   // ── Full dataset companies ──
   {
