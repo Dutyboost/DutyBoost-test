@@ -28,7 +28,7 @@ function calcSaving(spend) {
   return 2.50;
 }
 
-export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey }) {
+export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey, storeCount }) {
   const { t, i18n } = useTranslation();
   const companyName = companyKey ? RETAILER_COMPANY_PROFILES[companyKey]?.company : null;
   const [, setLanguage] = useState(i18n.language);
@@ -164,7 +164,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <>
               <span className="text-xs font-semibold uppercase tracking-widest text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">{t('demo.tabs_aggregation')}</span>
               <span className="text-sm text-muted-foreground font-medium px-3 py-1.5 bg-muted rounded-lg">
-                {countries.length} {t('demo.countries')} · {AIRPORTS.length} {t('demo.airports')} · {RETAILERS.length} {t('demo.stores')}
+                {countries.length} {t('demo.countries')} · {AIRPORTS.length} {t('demo.airports')} · {storeCount ?? RETAILERS.length} {t('demo.stores')}
               </span>
             </>
           ) : (

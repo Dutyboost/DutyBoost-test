@@ -266,8 +266,8 @@ export const RETAILERS = aenaAirportData.flatMap(airport => {
   });
 });
 
-// ── Store count — used by RetailerCalculator to match demo dashboard exactly ─
-export const STORE_COUNT = RETAILERS.length;
+// ── Store count — official Aena figure: 335 retail shops across its network
+export const STORE_COUNT = 335;
 
 // ── Aggregate base figures (average month across all Aena airports) ────────
 const baseMonthlyRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);

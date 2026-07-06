@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import DemoRetailerDashboardView from "../components/DemoRetailerDashboardView";
-import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA } from "../data/demoDataSpain";
+import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, STORE_COUNT } from "../data/demoDataSpain";
 
 export default function DemoRetailerDashboardSpain() {
   const { i18n } = useTranslation();
@@ -27,6 +27,7 @@ export default function DemoRetailerDashboardSpain() {
       defaultAirport="MAD"
       region="es"
       companyKey="aena"
+      storeCount={STORE_COUNT}
     />
   );
 }
