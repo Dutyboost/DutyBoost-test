@@ -87,7 +87,7 @@ function RetailerTab({ t }) {
   const [dailyTravelers, setDailyTravelers] = useState(1000);
   const [travelersInput, setTravelersInput] = useState(fmtNum(1000));
   const [travelersError, setTravelersError] = useState("");
-  const [conversionRate, setConversionRate] = useState(0.5);
+  const [conversionRate, setConversionRate] = useState(0.01);
 
   const handleCompanySelect = (company) => {
     setSelectedCompany(company);
@@ -257,7 +257,7 @@ function RetailerTab({ t }) {
             </div>
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
           </div>
-          <Slider min={0.5} max={75} step={0.5} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} aria-label={t('calculator.conversion_rate')} className="w-full" />
+          <Slider min={0.01} max={75} step={0.01} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} aria-label={t('calculator.conversion_rate')} className="w-full" />
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>
@@ -406,7 +406,7 @@ function TravelPartnerTab({ t }) {
   const [bookingsInput, setBookingsInput] = useState({ flight: fmtNum(10000), accommodation: "0", car: "0" });
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
-  const [conversion, setConversion] = useState({ flight: 3, accommodation: 3, car: 3 });
+  const [conversion, setConversion] = useState({ flight: 0.01, accommodation: 0.01, car: 0.01 });
   const FIXED_AVG_BASKET = 35;
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
 
@@ -547,7 +547,7 @@ function TravelPartnerTab({ t }) {
               </div>
               <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
             </div>
-            <Slider min={1} max={50} step={1} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} aria-label={t('calculator.redemption_rate')} className="w-full" />
+            <Slider min={0.01} max={50} step={0.01} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} aria-label={t('calculator.redemption_rate')} className="w-full" />
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
           </div>
 
