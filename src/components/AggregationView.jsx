@@ -158,7 +158,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">€{parseFloat(aggregatedMetrics.platformFee).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
-        {/* DutyBoost Potential tile — Avg Sale with +1% uplift */}
+        {/* DutyBoost Potential tile — Avg Sale with +0.01% uplift */}
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential')}</p>
@@ -167,7 +167,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">
             €{parseFloat(aggregatedMetrics.avgSalesPerCredit).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-            <span className="text-indigo-600">€{(parseFloat(aggregatedMetrics.avgSalesPerCredit) * 1.01).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            <span className="text-indigo-600">€{(parseFloat(aggregatedMetrics.avgSalesPerCredit) * 1.0001).toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </p>
         </div>
       </div>
