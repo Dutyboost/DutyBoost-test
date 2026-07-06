@@ -14,7 +14,6 @@ export default function WhyDutyBoostSummary() {
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
         <div className="relative space-y-10">
           <div className="text-center space-y-3">
-            <p className="text-xs font-bold uppercase tracking-widest text-white/70">{t('presentation.why_summary.label')}</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold leading-tight">{t('presentation.why_summary.title')}</h2>
           </div>
           {groups.map((group, gi) => {
