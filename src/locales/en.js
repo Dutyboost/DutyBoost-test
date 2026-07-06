@@ -867,7 +867,7 @@ export default {
       tab_partner: 'Travel Partner',
       retailer_title: 'Discover how much incremental revenue DutyBoost could generate across your global airport network',
       retailer_subtitle: "Search your airport retail company to auto-fill your network-wide basket value and DutyCredit traveler volume. <strong>No setup costs, no licenses, no subscriptions</strong>—just a <strong>2.5% fee per actual redemption</strong>.",
-      daily_travelers: 'Daily DutyCredit travelers passing your stores',
+      daily_travelers: 'Daily travelers passing your stores',
       estimated_redemptions: 'Estimated redemptions (m1nd-set / ETRC)',
       conversion_rate: 'Conversion rate',
       conversion_hint: 'Pre-activated travelers convert 2x higher',

@@ -838,7 +838,7 @@ export default {
       tab_partner: 'Socio de viaje',
       retailer_title: 'Descubre cuántos ingresos incrementales podría generar DutyBoost en tu red mundial de aeropuertos',
       retailer_subtitle: 'Busca tu empresa de retail aeroportuario para rellenar automáticamente el valor de tu cesta y el volumen de viajeros DutyCredit en toda tu red. <strong>Sin costes de configuración, licencias ni suscripciones</strong> — solo <strong>un 2,5% por canje real</strong>.',
-      daily_travelers: 'Viajeros diarios de DutyBoost que pasan por tus tiendas',
+      daily_travelers: 'Viajeros diarios que pasan por tus tiendas',
       estimated_redemptions: 'Canjes estimados (m1nd-set / ETRC)',
       conversion_rate: 'Tasa de conversión',
       conversion_hint: 'Los viajeros pre-activados convierten 2x más',
