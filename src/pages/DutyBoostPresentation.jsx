@@ -24,7 +24,7 @@ export default function DutyBoostPresentation() {
   const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
   const [selectedCompanyIdx, setSelectedCompanyIdx] = useState(3);
-  const [conversionRate, setConversionRate] = useState(0.05);
+  const [conversionRate, setConversionRate] = useState(0.01);
 
   const company = AIRPORT_RETAIL_COMPANIES[selectedCompanyIdx];
   const totals = useMemo(
