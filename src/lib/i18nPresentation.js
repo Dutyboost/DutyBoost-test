@@ -128,7 +128,7 @@ export const presentationStrings = {
     what: {
       agg_label: "Revenue Projection",
       agg_title: "Real-time data at your fingertips",
-      agg_subtitle: "See the revenue potential of the entire airport network they manage if we manage to convert 1% more.",
+      agg_subtitle: "See the revenue potential of the entire airport network if we manage to convert 1% more.",
       company_label: "Company:",
       airports: "airports",
       stores: "stores",
@@ -330,7 +330,7 @@ export const presentationStrings = {
     what: {
       agg_label: "Omzetprojectie",
       agg_title: "Real-time data binnen handbereik",
-      agg_subtitle: "Bekijk het omzetcapaciteitspotentieel van het hele luchthavennetwerk dat ze beheren als we erin slagen 1% meer te converteren.",
+      agg_subtitle: "Bekijk het omzetpotentieel van het hele luchthavennetwerk als we erin slagen 1% meer te converteren.",
       company_label: "Bedrijf:",
       airports: "luchthavens",
       stores: "winkels",
@@ -532,7 +532,7 @@ export const presentationStrings = {
     what: {
       agg_label: "Proyección de Ingresos",
       agg_title: "Datos en tiempo real a tu alcance",
-      agg_subtitle: "Ver el potencial de los ingresos de toda la red de aeropuertos que manejan si logramos convertir 1% mas.",
+      agg_subtitle: "Ver el potencial de ingresos de toda la red de aeropuertos si logramos convertir 1% más.",
       company_label: "Empresa:",
       airports: "aeropuertos",
       stores: "tiendas",
