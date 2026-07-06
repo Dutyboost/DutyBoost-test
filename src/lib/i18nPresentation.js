@@ -39,7 +39,7 @@ export const presentationStrings = {
       stat_5_val: "€679M",
       stat_5_label: "Duty Free Total Revenue",
       opportunity_title: "The DutyBoost opportunity",
-      opportunity_text: "Our goal with DutyBoost is to pre-activate at least 1% of passengers — turning them into potential buyers before they reach the stores.",
+      opportunity_text: "Our goal with DutyBoost is to pre-activate at least 0.01% of passengers — turning them into potential buyers before they reach the stores.",
       opportunity_bullets: [
         "Each DutyCredit is valid 30 days",
         "4 redemption moments per round trip: departure, arrival, return departure, and return arrival",
@@ -316,7 +316,7 @@ export const presentationStrings = {
       stat_5_val: "€679 M",
       stat_5_label: "Totale Duty Free Omzet",
       opportunity_title: "De DutyBoost mogelijkheid",
-      opportunity_text: "Ons doel met DutyBoost is om minstens 1% van de passagiers te pre-activeren — en ze om te zetten in potentiële kopers voordat ze de winkels bereiken.",
+      opportunity_text: "Ons doel met DutyBoost is om minstens 0,01% van de passagiers te pre-activeren — en ze om te zetten in potentiële kopers voordat ze de winkels bereiken.",
       opportunity_bullets: [
         "Elke DutyCredit is 30 dagen geldig",
         "4 inlossingsmomenten per retourreis: vertrek, aankomst, terugvertrek en terugaankomst",
@@ -593,7 +593,7 @@ export const presentationStrings = {
       stat_5_val: "€679 M",
       stat_5_label: "Ingresos Totales Duty Free",
       opportunity_title: "La oportunidad de DutyBoost",
-      opportunity_text: "Nuestro objetivo con DutyBoost es pre-activar al menos el 1% de los pasajeros — convirtiéndolos en potenciales compradores antes de que lleguen a las tiendas.",
+      opportunity_text: "Nuestro objetivo con DutyBoost es pre-activar al menos el 0,01% de los pasajeros — convirtiéndolos en potenciales compradores antes de que lleguen a las tiendas.",
       opportunity_bullets: [
         "Cada DutyCredit es válido 30 días",
         "4 momentos de canje por viaje de ida y vuelta: salida, llegada, salida de regreso y llegada de regreso",
