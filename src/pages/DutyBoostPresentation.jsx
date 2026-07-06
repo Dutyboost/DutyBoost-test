@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Download, ArrowRight, Users, Target, DollarSign, BarChart3, Store, TrendingUp, Euro, ScanLine, Terminal, Globe, Sparkles, MapPin, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
+import ConversionRateSlider from "@/components/presentation/ConversionRateSlider";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FooterLinks from "@/components/FooterLinks";
@@ -274,16 +274,7 @@ export default function DutyBoostPresentation() {
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-xl p-5 space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{t('presentation.what.conversion_label', { defaultValue: 'Conversion Rate' })}</p>
-                <p className="text-3xl font-heading font-bold text-primary">{conversionRate}%</p>
-              </div>
-              <p className="text-xs text-muted-foreground text-right max-w-xs">{t('presentation.what.conversion_hint', { defaultValue: 'Adjust to see how conversion impacts revenue potential' })}</p>
-            </div>
-            <Slider min={0.5} max={10} step={0.5} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} aria-label={t('presentation.what.conversion_label', { defaultValue: 'Conversion Rate' })} className="w-full" />
-          </div>
+          <ConversionRateSlider value={conversionRate} onChange={setConversionRate} />
 
           <PresentationAggregation company={company} conversionRate={conversionRate} />
         </section>
