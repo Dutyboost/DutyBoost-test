@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 
+// 20 steps of 0.05% across the 0–1% range (0.05% → 1.00%)
 const TICKS = [
-  0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1,
-  1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6,
-  6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10
+  0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50,
+  0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00
 ];
 
 function nearestTickIndex(value) {
@@ -36,19 +36,19 @@ export default function ConversionRateSlider({ value, onChange }) {
     const raw = e.target.value;
     setInputValue(raw);
     const parsed = parseFloat(raw);
-    if (!isNaN(parsed) && parsed >= 0.1 && parsed <= 10) {
+    if (!isNaN(parsed) && parsed >= 0.01 && parsed <= 1) {
       onChange(parsed);
     }
   };
 
   const handleInputBlur = () => {
     const parsed = parseFloat(inputValue);
-    if (isNaN(parsed) || parsed < 0.1) {
-      onChange(0.1);
-      setInputValue("0.1");
-    } else if (parsed > 10) {
-      onChange(10);
-      setInputValue("10");
+    if (isNaN(parsed) || parsed < 0.01) {
+      onChange(0.01);
+      setInputValue("0.01");
+    } else if (parsed > 1) {
+      onChange(1);
+      setInputValue("1");
     } else {
       onChange(parsed);
       setInputValue(String(parsed));
@@ -63,9 +63,9 @@ export default function ConversionRateSlider({ value, onChange }) {
           <div className="flex items-center gap-2 mt-1">
             <Input
               type="number"
-              min={0.1}
-              max={10}
-              step={0.1}
+              min={0.01}
+              max={1}
+              step={0.01}
               value={inputValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
