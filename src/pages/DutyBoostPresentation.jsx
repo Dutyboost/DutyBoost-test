@@ -12,6 +12,7 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import PresentationAggregation from "@/components/presentation/PresentationAggregation";
 import PosIntegrationSection from "@/components/presentation/PosIntegrationSection";
+import WhyDutyBoostSummary from "@/components/presentation/WhyDutyBoostSummary";
 import CuriosityCampaign from "@/components/presentation/CuriosityCampaign";
 import PresentationNav from "@/components/presentation/PresentationNav";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
@@ -321,17 +322,8 @@ export default function DutyBoostPresentation() {
           <p className="text-xs text-muted-foreground">{t('presentation.what.fee_note')}</p>
         </section>
 
-        {/* Q&A + Thank You */}
-        <section>
-          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-8 sm:p-16 text-primary-foreground shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-            <div className="relative text-center space-y-6">
-              <h2 className="text-6xl sm:text-7xl font-heading font-bold">{t('presentation.thank.short')}</h2>
-              <p className="font-heading font-bold leading-none" style={{ fontSize: '130px' }}>{t('presentation.qa.short')}</p>
-            </div>
-          </div>
-        </section>
+        {/* Why Airport Retailers Need DutyBoost */}
+        <WhyDutyBoostSummary />
       </div>
 
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6 mt-10">

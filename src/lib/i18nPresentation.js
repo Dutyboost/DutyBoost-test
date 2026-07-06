@@ -211,6 +211,17 @@ export const presentationStrings = {
       warm: "We look forward to partnering with {{company}} to turn passengers into customers.",
       closing: "Our team is ready to guide you through integration, schedule a live demo, and adapt DutyBoost to your airport network.",
     },
+    why_summary: {
+      label: "Why DutyBoost",
+      title: "Why Airport Retailers Need DutyBoost",
+      closing: "You pay nothing until you've been paid.",
+      reasons: [
+        { title: "Incremental Revenue", desc: "Convert the 75–85% of passengers who walk past your stores into paying customers." },
+        { title: "Zero Risk", desc: "Pure performance-based. You only pay when a traveler redeems and purchases — no setup fees, no subscriptions." },
+        { title: "Live in 1 Day", desc: "One API call connects your POS. No overhaul, no new hardware — live tomorrow." },
+        { title: "Pre-Activated Shoppers", desc: "Travelers arrive with DutyCredits in hand, purchase intent already awakened before they reach your store." },
+      ],
+    },
     agg: {
       airports: "Airports", stores: "Stores", daily_travelers: "Daily Travelers", daily_redemptions: "Daily Redemptions",
       daily_net: "Daily Net Revenue", monthly_net: "Monthly Net Revenue", annual_net: "Annual Net Revenue",
@@ -437,6 +448,17 @@ export const presentationStrings = {
       warm: "We kijken ernaar uit om samen te werken met {{company}} om passagiers om te zetten in klanten.",
       closing: "Ons team staat klaar om u door de integratie te begeleiden, een live demo in te plannen en DutyBoost af te stemmen op uw luchthavennetwerk.",
     },
+    why_summary: {
+      label: "Waarom DutyBoost",
+      title: "Waarom Luchthaven Retailers DutyBoost nodig hebben",
+      closing: "U betaalt niets totdat u betaald heeft gekregen.",
+      reasons: [
+        { title: "Extra Omzet", desc: "Zet de 75–85% van de passagiers die langs uw winkels lopen om in betalende klanten." },
+        { title: "Nul Risico", desc: "Puur prestatiegebaseerd. U betaalt alleen wanneer een reiziger inwisselt en koopt — geen setupkosten, geen abonnementen." },
+        { title: "Live in 1 dag", desc: "Eén API-call koppelt uw POS. Geen verbouwing, geen nieuwe hardware — morgen live." },
+        { title: "Voor-geactiveerde Kopers", desc: "Reizigers komen met DutyCredits in handen, koopintentie al gewekt voordat ze de winkel bereiken." },
+      ],
+    },
     agg: {
       airports: "Luchthavens", stores: "Winkels", daily_travelers: "Dagelijkse Reizigers", daily_redemptions: "Dagelijkse Inningen",
       daily_net: "Dagelijkse Netto Omzet", monthly_net: "Maandelijkse Netto Omzet", annual_net: "Jaarlijkse Netto Omzet",
@@ -662,6 +684,17 @@ export const presentationStrings = {
       short: "¡GRACIAS!",
       warm: "Esperamos colaborar con {{company}} para convertir a los pasajeros en clientes.",
       closing: "Nuestro equipo está listo para guiarte en la integración, programar una demo en vivo y adaptar DutyBoost a tu red de aeropuertos.",
+    },
+    why_summary: {
+      label: "Por qué DutyBoost",
+      title: "Por qué los Retailers Aeroportuarios necesitan DutyBoost",
+      closing: "No pagas nada hasta que cobras.",
+      reasons: [
+        { title: "Ingresos Incrementales", desc: "Convierte al 75–85% de los pasajeros que pasan por delante de tus tiendas en clientes que compran." },
+        { title: "Riesgo Cero", desc: "Puramente basado en rendimiento. Solo pagas cuando un viajero canjea y compra — sin costes de configuración, sin suscripciones." },
+        { title: "Operativo en 1 día", desc: "Una llamada API conecta tu POS. Sin reformas, sin hardware nuevo — operativo mañana." },
+        { title: "Compradores Pre-Activados", desc: "Los viajeros llegan con DutyCredits en mano, la intención de compra ya despertada antes de llegar a la tienda." },
+      ],
     },
     agg: {
       airports: "Aeropuertos", stores: "Tiendas", daily_travelers: "Viajeros Diarios", daily_redemptions: "Canjes Diarios",
