@@ -215,11 +215,51 @@ export const presentationStrings = {
       label: "Why DutyBoost",
       title: "Why Airport Retailers Need DutyBoost",
       closing: "You pay nothing until you've been paid.",
-      reasons: [
-        { title: "Incremental Revenue", desc: "Convert the 75–85% of passengers who walk past your stores into paying customers." },
-        { title: "Zero Risk", desc: "We take on the customer acquisition cost — you only pay when a sale actually happens." },
-        { title: "Live in 1 Day", desc: "One API call connects your POS. No overhaul, no new hardware — live tomorrow." },
-        { title: "Pre-Activated Shoppers", desc: "Travelers arrive with DutyCredits in hand, purchase intent already awakened before they reach your store." },
+      groups: [
+        {
+          label: "Revenue & Growth",
+          items: [
+            { title: "Incremental Revenue", desc: "Convert the 75–85% of passengers who walk past your stores into paying customers." },
+            { title: "Higher Basket Value", desc: "Tiered discounts encourage travelers to spend more per transaction." },
+            { title: "Higher Conversion Rate", desc: "Pre-qualified shoppers arrive with buying intent already activated." },
+            { title: "Network-wide Reach", desc: "Works across your entire airport network, not just one location." },
+          ],
+        },
+        {
+          label: "Risk & Cost",
+          items: [
+            { title: "Zero Risk", desc: "We take on the customer acquisition cost; you only pay when a sale happens." },
+            { title: "No Setup Fees", desc: "Zero upfront cost to get started." },
+            { title: "No Subscriptions", desc: "No monthly platform fees, ever." },
+            { title: "Performance-based Pricing", desc: "Pure pay-on-results model." },
+          ],
+        },
+        {
+          label: "Speed & Simplicity",
+          items: [
+            { title: "Live in 1 Day", desc: "One API call connects your POS; live tomorrow." },
+            { title: "No Hardware Overhaul", desc: "Works with your existing POS systems." },
+            { title: "One QR Scan", desc: "Cashier scans, discount applies automatically. Zero friction." },
+            { title: "No App for Travelers", desc: "QR code works from any phone wallet or printout." },
+          ],
+        },
+        {
+          label: "Marketing & Acquisition",
+          items: [
+            { title: "We Handle Acquisition", desc: "DutyBoost runs the curiosity campaign and brings shoppers to you." },
+            { title: "Pre-Activated Shoppers", desc: "Travelers arrive with DutyCredits in hand, intent already awakened." },
+            { title: "4 Redemption Moments", desc: "Per round trip: departure, arrival, return departure, return arrival." },
+            { title: "30-Day Validity", desc: "DutyCredits stay active, giving travelers time to shop." },
+          ],
+        },
+        {
+          label: "Data & Control",
+          items: [
+            { title: "Real-time Dashboard", desc: "Full visibility into redemptions, revenue, and fees." },
+            { title: "Aggregated Insights", desc: "Performance across all airports in one view." },
+            { title: "Transparent Fees", desc: "2.5% capped at €25; everything above €1,000 basket is yours." },
+          ],
+        },
       ],
     },
     agg: {
@@ -452,11 +492,51 @@ export const presentationStrings = {
       label: "Waarom DutyBoost",
       title: "Waarom Luchthaven Retailers DutyBoost nodig hebben",
       closing: "U betaalt niets totdat u betaald heeft gekregen.",
-      reasons: [
-        { title: "Extra Omzet", desc: "Zet de 75–85% van de passagiers die langs uw winkels lopen om in betalende klanten." },
-        { title: "Nul Risico", desc: "Wij dragen de kosten voor klantacquisitie — u betaalt alleen wanneer er een verkoop plaatsvindt." },
-        { title: "Live in 1 dag", desc: "Eén API-call koppelt uw POS. Geen verbouwing, geen nieuwe hardware — morgen live." },
-        { title: "Voor-geactiveerde Kopers", desc: "Reizigers komen met DutyCredits in handen, koopintentie al gewekt voordat ze de winkel bereiken." },
+      groups: [
+        {
+          label: "Omzet & Groei",
+          items: [
+            { title: "Extra Omzet", desc: "Zet de 75–85% van de passagiers die langs uw winkels lopen om in betalende klanten." },
+            { title: "Hogere Mandjewaarde", desc: "Trapsgewijze kortingen stimuleren reizigers om meer per transactie uit te geven." },
+            { title: "Hogere Conversieratio", desc: "Voor-gekwalificeerde kopers komen met al geactiveerde koopintentie." },
+            { title: "Netwerkbreed Bereik", desc: "Werkt over uw hele luchthavennetwerk, niet slechts één locatie." },
+          ],
+        },
+        {
+          label: "Risico & Kosten",
+          items: [
+            { title: "Nul Risico", desc: "Wij dragen de kosten voor klantacquisitie; u betaalt alleen wanneer er een verkoop plaatsvindt." },
+            { title: "Geen Setupkosten", desc: "Nul vooraf kost om te starten." },
+            { title: "Geen Abonnementen", desc: "Geen maandelijkse platformkosten, ooit." },
+            { title: "Prestatiegebaseerde Prijsstelling", desc: "Puur betaal-bij-resultaat model." },
+          ],
+        },
+        {
+          label: "Snelheid & Eenvoud",
+          items: [
+            { title: "Live in 1 dag", desc: "Eén API-call koppelt uw POS; morgen live." },
+            { title: "Geen Hardware Verbouwing", desc: "Werkt met uw bestaande POS-systemen." },
+            { title: "Eén QR-scan", desc: "Kassamedewerker scant, korting wordt automatisch toegepast. Nul frictie." },
+            { title: "Geen App voor Reizigers", desc: "QR-code werkt vanaf elke telefoonwallet of print." },
+          ],
+        },
+        {
+          label: "Marketing & Acquisitie",
+          items: [
+            { title: "Wij Regelen Acquisitie", desc: "DutyBoost draait de nieuwsgierigheidscampagne en brengt kopers naar u." },
+            { title: "Voor-geactiveerde Kopers", desc: "Reizigers komen met DutyCredits in handen, intentie al gewekt." },
+            { title: "4 Inlossingsmomenten", desc: "Per retourreis: vertrek, aankomst, terugvertrek en terugaankomst." },
+            { title: "30-dagen Geldigheid", desc: "DutyCredits blijven actief, zodat reizigers tijd hebben om te winkelen." },
+          ],
+        },
+        {
+          label: "Data & Controle",
+          items: [
+            { title: "Real-time Dashboard", desc: "Volledig inzicht in inningen, omzet en kosten." },
+            { title: "Geaggregeerde Inzichten", desc: "Prestaties over alle luchthavens in één overzicht." },
+            { title: "Transparante Kosten", desc: "2,5% gemaximeerd op €25; alles boven €1.000 mandje is van u." },
+          ],
+        },
       ],
     },
     agg: {
@@ -689,11 +769,51 @@ export const presentationStrings = {
       label: "Por qué DutyBoost",
       title: "Por qué los Retailers Aeroportuarios necesitan DutyBoost",
       closing: "No pagas nada hasta que cobras.",
-      reasons: [
-        { title: "Ingresos Incrementales", desc: "Convierte al 75–85% de los pasajeros que pasan por delante de tus tiendas en clientes que compran." },
-        { title: "Riesgo Cero", desc: "Nosotros asumimos el coste de adquisición de clientes — solo pagas cuando se produce una venta." },
-        { title: "Operativo en 1 día", desc: "Una llamada API conecta tu POS. Sin reformas, sin hardware nuevo — operativo mañana." },
-        { title: "Compradores Pre-Activados", desc: "Los viajeros llegan con DutyCredits en mano, la intención de compra ya despertada antes de llegar a la tienda." },
+      groups: [
+        {
+          label: "Ingresos & Crecimiento",
+          items: [
+            { title: "Ingresos Incrementales", desc: "Convierte al 75–85% de los pasajeros que pasan por delante de tus tiendas en clientes que compran." },
+            { title: "Mayor Valor de Cesta", desc: "Los descuentos escalonados animan a los viajeros a gastar más por transacción." },
+            { title: "Mayor Tasa de Conversión", desc: "Compradores pre-calificados llegan con la intención de compra ya activada." },
+            { title: "Alcance en Toda la Red", desc: "Funciona en toda tu red de aeropuertos, no solo en una ubicación." },
+          ],
+        },
+        {
+          label: "Riesgo & Coste",
+          items: [
+            { title: "Riesgo Cero", desc: "Nosotros asumimos el coste de adquisición de clientes; solo pagas cuando se produce una venta." },
+            { title: "Sin Costes de Configuración", desc: "Cero coste inicial para empezar." },
+            { title: "Sin Suscripciones", desc: "Sin cuotas mensuales de plataforma, nunca." },
+            { title: "Precios Basados en Rendimiento", desc: "Modelo puro de pago por resultados." },
+          ],
+        },
+        {
+          label: "Velocidad & Simplicidad",
+          items: [
+            { title: "Operativo en 1 día", desc: "Una llamada API conecta tu POS; operativo mañana." },
+            { title: "Sin Reforma de Hardware", desc: "Funciona con tus sistemas POS actuales." },
+            { title: "Un Escaneo QR", desc: "El cajero escanea, el descuento se aplica automáticamente. Cero fricción." },
+            { title: "Sin App para Viajeros", desc: "El código QR funciona desde cualquier cartera de teléfono o impresión." },
+          ],
+        },
+        {
+          label: "Marketing & Adquisición",
+          items: [
+            { title: "Gestionamos la Adquisición", desc: "DutyBoost ejecuta la campaña de curiosidad y trae compradores a ti." },
+            { title: "Compradores Pre-Activados", desc: "Los viajeros llegan con DutyCredits en mano, la intención ya despertada." },
+            { title: "4 Momentos de Canje", desc: "Por viaje de ida y vuelta: salida, llegada, salida de regreso y llegada de regreso." },
+            { title: "Validez de 30 días", desc: "Los DutyCredits permanecen activos, dando tiempo a los viajeros para comprar." },
+          ],
+        },
+        {
+          label: "Datos & Control",
+          items: [
+            { title: "Panel en Tiempo Real", desc: "Visibilidad total de canjes, ingresos y comisiones." },
+            { title: "Información Agregada", desc: "Rendimiento en todos los aeropuertos en una vista." },
+            { title: "Comisiones Transparentes", desc: "2,5% limitado a €25; todo lo superior a €1.000 de cesta es tuyo." },
+          ],
+        },
       ],
     },
     agg: {
