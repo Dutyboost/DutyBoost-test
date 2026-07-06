@@ -126,6 +126,8 @@ export const presentationStrings = {
       principle: "Curiosity → DutyCredit → Purchase Intent → Airport Retail Sale → Revenue",
     },
     what: {
+      conversion_label: "Conversion Rate",
+      conversion_hint: "Adjust to see how conversion impacts revenue potential",
       agg_label: "Revenue Projection",
       agg_title: "Real-time data at your fingertips",
       agg_subtitle: "See the revenue potential of the entire airport network if we manage to convert 1% more.",
@@ -403,6 +405,8 @@ export const presentationStrings = {
       principle: "Nieuwsgierigheid → DutyCredit → Koopintentie → Luchthavenretailverkoop → Omzet",
     },
     what: {
+      conversion_label: "Conversieratio",
+      conversion_hint: "Pas aan om te zien hoe conversie de omzetpotentieel beïnvloedt",
       agg_label: "Omzetprojectie",
       agg_title: "Real-time data binnen handbereik",
       agg_subtitle: "Bekijk het omzetpotentieel van het hele luchthavennetwerk als we erin slagen 1% meer te converteren.",
@@ -680,6 +684,8 @@ export const presentationStrings = {
       principle: "Curiosidad → DutyCredit → Intención de Compra → Venta en Retail Aeroportuario → Ingresos",
     },
     what: {
+      conversion_label: "Tasa de conversión",
+      conversion_hint: "Ajusta para ver cómo la conversión impacta el potencial de ingresos",
       agg_label: "Proyección de Ingresos",
       agg_title: "Datos en tiempo real a tu alcance",
       agg_subtitle: "Ver el potencial de ingresos de toda la red de aeropuertos si logramos convertir 1% más.",
