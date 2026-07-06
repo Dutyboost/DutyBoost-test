@@ -11,6 +11,7 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import PresentationAggregation from "@/components/presentation/PresentationAggregation";
 import CuriosityCampaign from "@/components/presentation/CuriosityCampaign";
+import PresentationNav from "@/components/presentation/PresentationNav";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
@@ -65,6 +66,8 @@ export default function DutyBoostPresentation() {
         </div>
       </nav>
 
+      <PresentationNav />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-24">
 
         {/* HERO */}
@@ -87,7 +90,7 @@ export default function DutyBoostPresentation() {
         </section>
 
         {/* WHY — The Problem */}
-        <section className="space-y-8">
+        <section id="challenge" className="space-y-8 scroll-mt-36">
           <div className="border-l-4 border-accent pl-6">
             <p className="text-xs font-bold uppercase tracking-widest text-accent mb-1">{t('presentation.why.label')}</p>
             <h2 className="text-3xl font-heading font-bold">{t('presentation.why.title')}</h2>
@@ -127,7 +130,7 @@ export default function DutyBoostPresentation() {
         </section>
 
         {/* THE TRAVELLER JOURNEY — Consumer Acquisition */}
-        <section className="space-y-8">
+        <section id="solution" className="space-y-8 scroll-mt-36">
           <div className="border-l-4 border-emerald-500 pl-6 space-y-3">
             <p className="font-heading font-bold text-2xl flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-primary" />
@@ -216,7 +219,7 @@ export default function DutyBoostPresentation() {
         </section>
 
         {/* HOW — Flows */}
-        <section className="space-y-8">
+        <section id="retailers" className="space-y-8 scroll-mt-36">
           {/* Flow 3 — Airport Retailer */}
           <div className="bg-orange-50 border border-orange-200 rounded-2xl p-8 space-y-6">
             <div className="flex items-center gap-4">
@@ -246,7 +249,7 @@ export default function DutyBoostPresentation() {
         </section>
 
         {/* WHAT — Global Aggregation */}
-        <section className="space-y-8">
+        <section id="projection" className="space-y-8 scroll-mt-36">
           <div className="border-l-4 border-accent pl-6">
             <p className="text-xs font-bold uppercase tracking-widest text-accent mb-1">{t('presentation.what.agg_label')}</p>
             <h2 className="text-3xl font-heading font-bold">{t('presentation.what.agg_title')}</h2>

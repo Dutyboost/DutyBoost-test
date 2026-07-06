@@ -4,6 +4,10 @@ export const presentationStrings = {
       home: "Home",
       download: "Download PPTX",
       generating: "Generating...",
+      challenge: "The Challenge",
+      solution: "The Solution",
+      retailers: "Retailers",
+      projection: "Projection",
     },
     hero: {
       badge: "DutyBoost: A New Revenue Layer for the Travel Sector",
@@ -202,6 +206,10 @@ export const presentationStrings = {
       home: "Home",
       download: "Download PPTX",
       generating: "Genereren...",
+      challenge: "De Uitdaging",
+      solution: "De Oplossing",
+      retailers: "Retailers",
+      projection: "Projectie",
     },
     hero: {
       badge: "DutyBoost: Een Nieuwe Inkomstenlaag voor de Travel Sector",
@@ -400,6 +408,10 @@ export const presentationStrings = {
       home: "Inicio",
       download: "Descargar PPTX",
       generating: "Generando...",
+      challenge: "El Desafío",
+      solution: "La Solución",
+      retailers: "Retailers",
+      projection: "Proyección",
     },
     hero: {
       badge: "DutyBoost: Una Nueva Capa de Ingresos para el Sector Travel",
