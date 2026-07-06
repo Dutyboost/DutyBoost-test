@@ -88,6 +88,8 @@ function RetailerTab({ t }) {
   const [travelersInput, setTravelersInput] = useState(fmtNum(1000));
   const [travelersError, setTravelersError] = useState("");
   const [conversionRate, setConversionRate] = useState(0.01);
+  const [conversionInput, setConversionInput] = useState("0.01");
+  const [conversionError, setConversionError] = useState("");
 
   const handleCompanySelect = (company) => {
     setSelectedCompany(company);
@@ -253,11 +255,36 @@ function RetailerTab({ t }) {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.conversion_rate')}</p>
-              <p className="text-4xl font-bold text-slate-900">{conversionRate}%</p>
+              <div className="flex items-center gap-1">
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  aria-label={t('calculator.conversion_rate')}
+                  value={conversionInput}
+                  onChange={(e) => {
+                    const raw = e.target.value.replace(/[^\d.]/g, "");
+                    if (raw === "") { setConversionInput(""); setConversionError(t('calculator.error_min_conversion') || 'Minimum is 0.01%'); return; }
+                    const n = parseFloat(raw);
+                    if (isNaN(n)) { setConversionInput(raw); return; }
+                    const clamped = Math.min(n, 75);
+                    setConversionInput(String(clamped));
+                    if (n < 0.01) { setConversionError(t('calculator.error_min_conversion') || 'Minimum is 0.01%'); } else { setConversionError(""); setConversionRate(clamped); }
+                  }}
+                  onBlur={() => {
+                    const raw = (conversionInput || "").replace(/[^\d.]/g, "");
+                    const n = raw === "" ? NaN : parseFloat(raw);
+                    if (isNaN(n) || n < 0.01) { setConversionRate(0.01); setConversionInput("0.01"); setConversionError(""); }
+                  }}
+                  style={{ width: `${Math.max(4, String(conversionInput).length)}ch` }}
+                  className={`text-4xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[4ch] max-w-full ${conversionError ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
+                />
+                <span className="text-4xl font-bold text-slate-900">%</span>
+              </div>
+              {conversionError && <p className="text-xs text-red-500 mt-1 font-medium">{conversionError}</p>}
             </div>
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.conversion_hint')}</p>
           </div>
-          <Slider min={0.01} max={75} step={0.01} value={[conversionRate]} onValueChange={([v]) => setConversionRate(v)} aria-label={t('calculator.conversion_rate')} className="w-full" />
+          <Slider min={0.01} max={75} step={0.01} value={[conversionRate]} onValueChange={([v]) => { setConversionRate(v); setConversionInput(String(v)); setConversionError(""); }} aria-label={t('calculator.conversion_rate')} className="w-full" />
           <p className="text-xs text-slate-500">{t('calculator.conversion_avg_range')}</p>
         </div>
       </div>

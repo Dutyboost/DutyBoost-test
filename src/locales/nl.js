@@ -766,6 +766,7 @@ export default {
       error_min_basket: 'Minimale basketuitgave is €35',
       error_min_travelers: 'Minimum is 100 DutyCredits per dag',
       error_min_bookings: 'Minimaal 500 boekingen / maand',
+      error_min_conversion: 'Minimale conversieratio is 0,01%',
       commission_footnote: "Commissie = 20% van DutyBoost's 2,5% fee per inwisseling (max €5/tx), maandelijks uitbetaald door DutyBoost.",
       partner_select_label: "Stap 1 — Vind uw bedrijf",
       partner_select_title: "Zoek uw bedrijf",
