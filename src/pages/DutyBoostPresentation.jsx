@@ -11,6 +11,7 @@ import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import PresentationAggregation from "@/components/presentation/PresentationAggregation";
+import PosIntegrationSection from "@/components/presentation/PosIntegrationSection";
 import CuriosityCampaign from "@/components/presentation/CuriosityCampaign";
 import PresentationNav from "@/components/presentation/PresentationNav";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
@@ -247,6 +248,11 @@ export default function DutyBoostPresentation() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* POS Integration Technical Section */}
+        <section className="scroll-mt-36">
+          <PosIntegrationSection />
         </section>
 
         {/* WHAT — Global Aggregation */}
