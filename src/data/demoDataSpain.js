@@ -3,6 +3,7 @@
 // Based on the official Aena airport network (source: aena.es company profile):
 //   46 airports in Spain + London Luton, Leeds Bradford, Newcastle (UK) +
 //   17 airports in Brazil (Aena Brasil) + 12 in Mexico + 2 in Jamaica.
+//   Total: 80 airports (source: aena.es/en/corporative/about-aena/annual-figures.html)
 //
 // Passenger data: Aena/Wikipedia 2024-2025 statistics.
 // Revenue model (same as RetailerCalculator):
@@ -94,10 +95,11 @@ const WEIGHTS = {
 };
 
 // ── Complete Aena airport network (source: aena.es company profile) ──────────
-// 46 airports in Spain, 3 in UK, 17 in Brazil, 12 in Mexico, 2 in Jamaica.
+// 46 airports in Spain (excludes 2 heliports: Ceuta, Algeciras), 3 in UK,
+// 17 in Brazil, 12 in Mexico, 2 in Jamaica. Total: 80 airports.
 // Passenger data: Aena 2024-2025 statistics / Wikipedia.
 const AENA_AIRPORTS_RAW = [
-  // ── Spain (46 airports — excludes heliports Ceuta/Algeciras & general aviation) ──
+  // ── Spain (46 airports — excludes heliports Ceuta & Algeciras only) ──
   ["Adolfo Suárez Madrid-Barajas Airport", "MAD", "Madrid", "Spain", 68179054],
   ["Josep Tarradellas Barcelona-El Prat Airport", "BCN", "Barcelona", "Spain", 57483036],
   ["Palma de Mallorca Airport", "PMI", "Palma de Mallorca", "Spain", 33806427],
@@ -141,6 +143,9 @@ const AENA_AIRPORTS_RAW = [
   ["Burgos Airport", "RGS", "Burgos", "Spain", 10000],
   ["Córdoba Airport", "ODB", "Córdoba", "Spain", 30000],
   ["Salamanca Airport", "SLM", "Salamanca", "Spain", 15000],
+  ["Madrid-Cuatro Vientos Airport", "MCV", "Madrid", "Spain", 67360],
+  ["Sabadell Airport", "QSA", "Sabadell", "Spain", 1000],
+  ["Son Bonet Airport", "SBO", "Mallorca", "Spain", 1000],
 
   // ── United Kingdom (3 airports) ──
   ["London Luton Airport", "LTN", "London", "United Kingdom", 16000000],
