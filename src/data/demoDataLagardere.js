@@ -154,7 +154,7 @@ function generateStoreNames(airport, count) {
 // paradieslagardere.com (92 North American airports), ACI passenger data (2023–2024)
 const LTR_AIRPORTS_RAW = [
   // ── Netherlands ──
-  ["Amsterdam Airport Schiphol", "AMS", "Amsterdam", "Netherlands", 61900000],
+  ["Amsterdam Airport Schiphol", "AMS", "Amsterdam", "Netherlands", 68800000],
   ["Eindhoven Airport", "EIN", "Eindhoven", "Netherlands", 6500000],
   ["Rotterdam The Hague Airport", "RTM", "Rotterdam", "Netherlands", 2100000],
 
