@@ -78,21 +78,25 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
                 </button>
               )}
             </div>
-            {filteredCountries.length > 0 ? (
-              filteredCountries.map((c) => (
-                <CountryNode
-                  key={c.country}
-                  country={c.country}
-                  airports={c.airports}
-                  selectedCodes={selectedCodes}
-                  onToggleCodes={onToggleCodes}
-                  airportOwners={airportOwners}
-                  onSetAirportOwner={onSetAirportOwner}
-                  forceExpanded={hasSearch}
-                />
-              ))
+            {hasSearch ? (
+              filteredCountries.length > 0 ? (
+                filteredCountries.map((c) => (
+                  <CountryNode
+                    key={c.country}
+                    country={c.country}
+                    airports={c.airports}
+                    selectedCodes={selectedCodes}
+                    onToggleCodes={onToggleCodes}
+                    airportOwners={airportOwners}
+                    onSetAirportOwner={onSetAirportOwner}
+                    forceExpanded
+                  />
+                ))
+              ) : (
+                <p className="text-xs text-slate-400 py-3 text-center">{t("entCalc.search_no_results")}</p>
+              )
             ) : (
-              <p className="text-xs text-slate-400 py-3 text-center">{t("entCalc.search_no_results")}</p>
+              <p className="text-xs text-slate-400 py-2 text-center">{t("entCalc.search_country_placeholder")}</p>
             )}
           </motion.div>
         )}
