@@ -15,25 +15,24 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
 
   return (
     <div className="ml-4 border-l border-slate-200">
-      <div className="flex items-center gap-2 py-1.5 pl-2">
+      <div className="flex items-center gap-2 py-2 pl-2">
+        <input
+          type="checkbox"
+          checked={allSelected}
+          ref={(el) => { if (el) el.indeterminate = someSelected; }}
+          onChange={() => onToggleCodes(codes, !allSelected)}
+          className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
+        />
         <button
           onClick={() => setExpanded(!expanded)}
-          className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 shrink-0"
+          className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 flex-1 min-w-0 text-left rounded-lg px-2 py-1.5 hover:bg-slate-50 transition-colors"
         >
-          <ChevronRight className={`w-3.5 h-3.5 transition-transform ${expanded ? "rotate-90" : ""}`} />
-          <MapPin className="w-3.5 h-3.5 text-slate-400" />
-        </button>
-        <label className="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
-          <input
-            type="checkbox"
-            checked={allSelected}
-            ref={(el) => { if (el) el.indeterminate = someSelected; }}
-            onChange={() => onToggleCodes(codes, !allSelected)}
-            className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
-          />
-          <span className="text-sm font-medium text-slate-700 truncate">{country}</span>
+          <ChevronRight className={`w-4 h-4 transition-transform shrink-0 ${expanded ? "rotate-90" : ""}`} />
+          <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+          <span className="truncate">{country}</span>
           <span className="text-xs text-slate-400 shrink-0">({airports.length})</span>
-        </label>
+          {selectedCount > 0 && <span className="text-xs text-primary shrink-0 ml-auto">{selectedCount}/{codes.length}</span>}
+        </button>
       </div>
       <AnimatePresence initial={false}>
         {expanded && (
