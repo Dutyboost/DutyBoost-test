@@ -38,7 +38,7 @@ export default function EnterpriseCalculator() {
       const r = getRetailerByKey(rKey);
       if (r) {
         setRetailerKey(r.key);
-        setSelectedCodes(new Set(r.airports.map((a) => a.code)));
+        setSelectedCodes(new Set());
         setMode("enterprise");
       }
     }
@@ -48,11 +48,7 @@ export default function EnterpriseCalculator() {
 
   const handleRetailerSelect = (r) => {
     setRetailerKey(r?.key || null);
-    if (r) {
-      setSelectedCodes(new Set(r.airports.map((a) => a.code)));
-    } else {
-      setSelectedCodes(new Set());
-    }
+    setSelectedCodes(new Set());
     setScenarios([]);
     setAirportOwners({});
   };
