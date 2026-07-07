@@ -831,6 +831,7 @@ export default {
       commission_note: '2,5% · max €25/Trans.',
       retailer_net_rev: 'Retailer-Nettoerlös',
       after_savings: 'nach Rabatt + Gebühr',
+      traveler_savings: 'Reisende Ersparnis',
       est_dc_travelers: 'Geschätzte DutyCredit-Reisende',
       preactivated_shoppers: 'Vorab aktivierte Käufer, die bereit sind auszugeben',
       per_tx_net: '/Trans. netto',

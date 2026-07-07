@@ -844,6 +844,7 @@ export default {
       commission_note: '2,5% · max €25/tx',
       retailer_net_rev: 'Retailer Netto-omzet',
       after_savings: 'na korting + fee',
+      traveler_savings: 'Reizigersbesparing',
       est_dc_travelers: 'Geschatte DutyCredit Reizigers',
       preactivated_shoppers: 'Vooraf geactiveerde shoppers klaar om te besteden',
       per_tx_net: '/tx netto',

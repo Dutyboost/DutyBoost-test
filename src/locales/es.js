@@ -1062,6 +1062,7 @@ export default {
       commission_note: '2,5% · máx €25/tx',
       retailer_net_rev: 'Ingreso Neto del Retailer',
       after_savings: 'tras descuento + comisión',
+      traveler_savings: 'Ahorro del Viajero',
       est_dc_travelers: 'Viajeros DutyCredit Estimados',
       preactivated_shoppers: 'Compradores pre-activados listos para gastar',
       per_tx_net: '/tx neto',

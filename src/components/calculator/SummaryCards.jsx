@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Building2, MapPin, Plane, Users, ShoppingBag, TrendingUp, Euro, Award } from "lucide-react";
+import { Building2, MapPin, Plane, Users, ShoppingBag, TrendingUp, Euro, Award, Gift } from "lucide-react";
 import ConfidenceBadge from "./ConfidenceBadge";
 import { translateRetailerDesc } from "./i18nHelpers";
 import { fmtCompact, fmtEurCompact } from "@/data/enterpriseCalculator";
@@ -53,12 +53,18 @@ export default function SummaryCards({ retailer, selectedCount, countryCount, be
         <StatCard icon={ShoppingBag} label={t("entCalc.avg_basket")} value={fmtEurCompact(benchmarks.avgBasket)} sub={t("entCalc.per_basket")} confidence={benchmarks.confidence?.avgBasket} />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-5 text-white">
           <TrendingUp className="w-5 h-5 text-blue-200 mb-2" />
           <p className="text-xs text-blue-200 mb-1">{t("entCalc.potential_sales")}</p>
           <p className="text-2xl font-bold">{fmtEurCompact(projections.potentialIncrementalSales)}</p>
-          <p className="text-[10px] text-blue-300 mt-1">{fmtCompact(projections.annualRedemptions)} {t("entCalc.redemptions_yr")}</p>
+          <p className="text-[10px] text-blue-300 mt-1">{fmtCompact(projections.annualRedemptions)} · {t("entCalc.redemptions_yr")}</p>
+        </div>
+        <div className="bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl p-5 text-white">
+          <Gift className="w-5 h-5 text-violet-200 mb-2" />
+          <p className="text-xs text-violet-200 mb-1">{t("entCalc.traveler_savings")}</p>
+          <p className="text-2xl font-bold">{fmtEurCompact(projections.annualRedemptions * projections.saving)}</p>
+          <p className="text-[10px] text-violet-300 mt-1">€{projections.saving} · /tx · /yr</p>
         </div>
         <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white">
           <Euro className="w-5 h-5 text-orange-200 mb-2" />
