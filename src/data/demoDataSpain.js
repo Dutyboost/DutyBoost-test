@@ -6,15 +6,18 @@
 //   Total: 80 airports (source: aena.es/en/corporative/about-aena/annual-figures.html)
 //
 // Passenger data: Aena/Wikipedia 2024-2025 statistics.
-// Revenue model (same as RetailerCalculator):
-//   dailyRedemptions = daily_pax × 3%
+// Revenue model (incremental uplift from DutyBoost):
+//   dailyRedemptions = daily_pax × 0.01%   (DutyBoost's incremental shopper uplift)
 //   monthlyRedemptions = dailyRedemptions × 365 / 12
 //   basket = estimateAvgBasketSpend(airport)  → [€35, €150]
 //   grossRevenue = redemptions × basket
+//
+// 0.01% reflects DutyBoost's stated minimum incremental uplift on top of the
+// existing 15–25% airport shopping rate (ETRC / m1nd-set research).
 
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
-const CONVERSION_RATE = 3;
+const CONVERSION_RATE = 0.01; // 0.01% — DutyBoost incremental uplift
 const PLATFORM_FEE_PCT = 0.025;
 
 // ── Real retail stores at Madrid Barajas (Aena directory, Retail only) ───────
