@@ -722,7 +722,7 @@ export const RETAILERS = ltrAirportData.flatMap(airport => {
   const count = retailerCount(airport.annual_pax, airport.code);
   const basket = estimateAvgBasketSpend(airport);
   const dailyPax = airport.daily_pax || Math.round((airport.annual_pax || 0) / 365);
-  const dailyRedemptions = Math.round(dailyPax * (CONVERSION_RATE / 100));
+  const dailyRedemptions = dailyPax * (CONVERSION_RATE / 100);
   const monthlyRedemptions = Math.round(dailyRedemptions * 365 / 12);
   const weights = generateWeights(count);
   const storeNames = generateStoreNames(airport, count);
