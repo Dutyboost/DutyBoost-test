@@ -806,6 +806,7 @@ export default {
       airports_selected: '{{selected}} / {{total}} Flughäfen ausgewählt',
       benchmark_title: 'Vorgeladene Benchmark-Daten',
       benchmark_adjust_hint: 'Klicken Sie auf Werte, um Annahmen anzupassen',
+    benchmark_confidence_hint: 'Punkte zeigen Datenverlässlichkeit: grün = händlerspezifisch, bernstein = Landesdurchschnitt, grau = geschätzt',
       bm_annual_pax: 'Jährliche Passagiere',
       bm_intl_pax: 'Internationale Passagiere',
       bm_domestic_pax: 'Inländische Passagiere',

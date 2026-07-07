@@ -819,6 +819,7 @@ export default {
       airports_selected: '{{selected}} / {{total}} luchthavens geselecteerd',
       benchmark_title: 'Vooraf Geladen Benchmarkgegevens',
       benchmark_adjust_hint: 'Klik op waarden om aannames aan te passen',
+    benchmark_confidence_hint: 'Stippen tonen databetrouwbaarheid: groen = retailerspecifiek, oranje = landelijk gemiddelde, grijs = geschat',
       bm_annual_pax: 'Jaarlijkse Passagiers',
       bm_intl_pax: 'Internationale Passagiers',
       bm_domestic_pax: 'Binnenlandse Passagiers',

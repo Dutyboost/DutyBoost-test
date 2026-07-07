@@ -1037,6 +1037,7 @@ export default {
       airports_selected: '{{selected}} / {{total}} aeropuertos seleccionados',
       benchmark_title: 'Datos de Benchmark Pre-cargados',
       benchmark_adjust_hint: 'Haga clic en los valores para ajustar supuestos',
+    benchmark_confidence_hint: 'Los puntos indican la confiabilidad: verde = específico del minorista, ámbar = promedio nacional, gris = estimado',
       bm_annual_pax: 'Pasajeros Anuales',
       bm_intl_pax: 'Pasajeros Internacionales',
       bm_domestic_pax: 'Pasajeros Nacionales',

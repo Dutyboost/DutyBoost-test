@@ -30,14 +30,22 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-      <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 bg-slate-50">
-        <div className="flex items-center gap-2">
-          <TrendingUp className="w-4 h-4 text-primary" />
-          <h3 className="font-semibold text-slate-900 text-sm">{t("entCalc.benchmark_title")}</h3>
+      <div className="px-5 py-3.5 border-b border-slate-100 bg-slate-50">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-primary" />
+            <h3 className="font-semibold text-slate-900 text-sm">{t("entCalc.benchmark_title")}</h3>
+          </div>
+          {editable && (
+            <span className="text-xs text-slate-500">{t("entCalc.benchmark_adjust_hint")}</span>
+          )}
         </div>
-        {editable && (
-          <span className="text-xs text-slate-500">{t("entCalc.benchmark_adjust_hint")}</span>
-        )}
+        <p className="text-[11px] text-slate-400 mt-1.5 flex items-center gap-1.5 flex-wrap">
+          <span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />{t("entCalc.confidence_high")}</span>
+          <span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-amber-500" />{t("entCalc.confidence_medium")}</span>
+          <span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-slate-400" />{t("entCalc.confidence_estimated")}</span>
+          <span className="text-slate-400">— {t("entCalc.benchmark_confidence_hint")}</span>
+        </p>
       </div>
       <div className="px-5 py-2">
         <BenchmarkRow icon={Users} label={t("entCalc.bm_annual_pax")} value={fmtCompact(benchmarks.annualPax)} confidence={benchmarks.confidence?.annualPax} />

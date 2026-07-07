@@ -1066,6 +1066,7 @@ export default {
       airports_selected: '{{selected}} / {{total}} airports selected',
       benchmark_title: 'Preloaded Benchmark Data',
       benchmark_adjust_hint: 'Click values to adjust assumptions',
+    benchmark_confidence_hint: 'Dots show data confidence: green = retailer-specific, amber = country average, grey = estimated',
       bm_annual_pax: 'Annual Passengers',
       bm_intl_pax: 'International Passengers',
       bm_domestic_pax: 'Domestic Passengers',
