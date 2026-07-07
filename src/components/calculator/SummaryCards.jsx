@@ -64,13 +64,13 @@ export default function SummaryCards({ retailer, selectedCount, countryCount, be
           <Euro className="w-5 h-5 text-orange-200 mb-2" />
           <p className="text-xs text-orange-200 mb-1">{t("entCalc.db_commission")}</p>
           <p className="text-2xl font-bold">{fmtEurCompact(projections.dutyBoostCommission)}</p>
-          <p className="text-[10px] text-orange-300 mt-1">{t("entCalc.commission_note")}</p>
+          <p className="text-[10px] text-orange-300 mt-1">{t("entCalc.commission_note")} · /yr</p>
         </div>
         <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-xl p-5 text-white">
           <Award className="w-5 h-5 text-emerald-200 mb-2" />
           <p className="text-xs text-emerald-200 mb-1">{t("entCalc.retailer_net_rev")}</p>
           <p className="text-2xl font-bold">{fmtEurCompact(projections.retailerNetRevenue)}</p>
-          <p className="text-[10px] text-emerald-300 mt-1">{t("entCalc.after_savings")}</p>
+          <p className="text-[10px] text-emerald-300 mt-1">{t("entCalc.after_savings")} · /yr</p>
         </div>
       </div>
 
