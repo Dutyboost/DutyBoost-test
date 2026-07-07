@@ -781,9 +781,9 @@ export default {
       partner_cta_desc: "Bis jetzt floss der Umsatz, den Reisende in Flughafengeschäften ausgaben, nie an Sie zurück. Mit DutyBoost erschließt jede Buchung, die Sie ausstellen, eine neue Einnahmequelle — verdienen Sie passive Provision, sobald Ihre Reisenden DutyCredits bei Flughafenhändlern einlösen, ohne Kosten für Sie. Stärken Sie die Kundenbindung und monetarisieren Sie Reisen auf eine Weise, die bisher einfach nicht möglich war.",
     },
     entCalc: {
-      mode_quick: 'Schnellschätzung',
-      mode_detailed: 'Detaillierte Schätzung',
-      mode_enterprise: 'Enterprise',
+      mode_quick: 'Sofort-Überblick',
+      mode_detailed: 'Eigene Auswahl',
+      mode_enterprise: 'Vergleichen & Exportieren',
       mode_quick_desc: 'Retailer + Region',
       mode_detailed_desc: 'Volle Kontrolle',
       mode_enterprise_desc: 'Multi-Szenario + Export',
