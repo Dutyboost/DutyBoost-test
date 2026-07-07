@@ -803,7 +803,7 @@ export default {
       mode_quick_info: 'Snelle modus: selecteer een retailer en regio — alle benchmarks worden automatisch ingevuld. Geen handmatige invoer nodig.',
       mode_detailed_info: 'Gedetailleerde modus: pas aannames aan, selecteer specifieke landen en luchthavens, stel conversieratio\'s bij.',
       mode_enterprise_info: 'Enterprise modus: sla meerdere scenario\'s op, vergelijk zij-aan-zij, exporteer branded PDF, deel rapporten en vraag meetings aan.',
-      etrc_note: 'ETRC/m1nd-set: 15–25% van de reizigers winkelt vóór vertrek — DutyBoost verhoogt conversie & mandwaarde ≥0,01% zonder CAC-stijging, 100% prestatiegebaseerd.',
+      etrc_note: 'ETRC/m1nd-set: 15–25% van de reizigers winkelt vóór vertrek — DutyBoost wil conversie & mandwaarde verhogen zonder stijging van klantverwervingskosten — 100% prestatiegebaseerd.',
       step1: 'Stap 1 — Luchthaven Retailer',
       step2: 'Stap 2 — Selecteer Netwerkbereik',
       step3: 'Stap 3 — Automatische Benchmarks',
