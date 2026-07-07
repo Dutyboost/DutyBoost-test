@@ -27,15 +27,29 @@ const KING_POWER_AIRPORTS = [
 const OTHER_AIRPORTS = Object.values(RETAIL_AIRPORTS);
 
 export const ENTERPRISE_RETAILERS = [
+  // ── Demo-backed companies (exact airport lists from the demos) ──
   { key: "lagardere", name: "Lagardère Travel Retail", airports: byName["Lagardère Travel Retail"]?.airports || [], storeCount: LTR_STORE_COUNT, demoRetailers: LTR_RETAILERS, hqCountry: "France", description: "Global travel retailer across 51 countries" },
   { key: "avolta", name: "Avolta", airports: byName["Avolta (incl. World Duty Free, Hudson, Dufry)"]?.airports || [], storeCount: AVOLTA_STORE_COUNT, demoRetailers: AVOLTA_RETAILERS, hqCountry: "Switzerland", description: "World's largest airport retailer — 5,100+ outlets in 70+ countries" },
   { key: "heinemann", name: "Gebr. Heinemann", airports: byName["Gebr. Heinemann"]?.airports || [], storeCount: HEINEMANN_RETAILERS.length, demoRetailers: HEINEMANN_RETAILERS, hqCountry: "Germany", description: "Family-owned duty free retailer across 50+ countries" },
-  { key: "whsmith", name: "WHSmith Travel", airports: byName["WHSmith Travel"]?.airports || [], hqCountry: "United Kingdom", description: "Travel essentials and duty free across global airports" },
+  { key: "aena", name: "Aena SME, S.A.", airports: byName["Aena SME, S.A."]?.airports || [], storeCount: 335, hqCountry: "Spain", description: "Spain's airport retail operator — 335 shops across 26 airports" },
   { key: "dfs", name: "DFS Group", airports: byName["DFS Group"]?.airports || [], hqCountry: "Hong Kong", description: "Luxury travel retailer — LVMH-owned" },
-  { key: "ari", name: "Aer Rianta International", airports: byName["Aer Rianta International (ARI)"]?.airports || [], hqCountry: "Ireland", description: "Airport retail specialist in 30+ countries" },
-  { key: "king_power", name: "King Power", airports: KING_POWER_AIRPORTS, hqCountry: "Thailand", description: "Thailand's leading duty free retailer" },
+  { key: "lotte", name: "Lotte Duty Free", airports: byName["Lotte Duty Free"]?.airports || [], hqCountry: "South Korea", description: "Leading Asian duty free retailer" },
+  { key: "shilla", name: "The Shilla Duty Free", airports: byName["The Shilla Duty Free"]?.airports || [], hqCountry: "South Korea", description: "Samsung affiliate — luxury duty free" },
+  { key: "cdfg", name: "China Duty Free Group (CDFG)", airports: byName["China Duty Free Group (CDFG)"]?.airports || [], hqCountry: "China", description: "China's state-owned duty free group" },
   { key: "dubai_df", name: "Dubai Duty Free", airports: byName["Dubai Duty Free"]?.airports || [], hqCountry: "United Arab Emirates", description: "One of the world's largest single-airport duty free operations" },
   { key: "qatar_df", name: "Qatar Duty Free", airports: byName["Qatar Duty Free"]?.airports || [], hqCountry: "Qatar", description: "Luxury duty free at Hamad International Airport" },
+  { key: "whsmith", name: "WHSmith Travel", airports: byName["WHSmith Travel"]?.airports || [], hqCountry: "United Kingdom", description: "Travel essentials and duty free across global airports" },
+  { key: "ari", name: "Aer Rianta International (ARI)", airports: byName["Aer Rianta International (ARI)"]?.airports || [], hqCountry: "Ireland", description: "Airport retail specialist in 30+ countries" },
+  { key: "flemingo", name: "Flemingo Travel Retail", airports: byName["Flemingo Travel Retail"]?.airports || [], hqCountry: "United Arab Emirates", description: "Duty free retailer across Middle East & Asia" },
+  { key: "emirates_leisure", name: "Emirates Leisure Retail", airports: byName["Emirates Leisure Retail"]?.airports || [], hqCountry: "United Arab Emirates", description: "Dubai-based airport F&B and retail operator" },
+  { key: "tav", name: "TAV Airports Retail", airports: byName["TAV Airports Retail"]?.airports || [], hqCountry: "Turkey", description: "Turkish airport retail operator" },
+  { key: "rimas", name: "Rimas Colombia", airports: byName["Rimas Colombia"]?.airports || [], hqCountry: "Colombia", description: "Colombian airport retail specialist" },
+  { key: "travel_retail_sweden", name: "Travel Retail Sweden", airports: byName["Travel Retail Sweden"]?.airports || [], hqCountry: "Sweden", description: "Swedish airport travel retail operator" },
+  { key: "intershop", name: "Intershop (Switzerland)", airports: byName["Intershop (Switzerland)"]?.airports || [], hqCountry: "Switzerland", description: "Swiss duty free and travel retailer" },
+  { key: "jat", name: "JAT Retail", airports: byName["JAT Retail"]?.airports || [], hqCountry: "Serbia", description: "Belgrade-based airport retail operator" },
+  { key: "flemingo_india", name: "Flemingo India", airports: byName["Flemingo India"]?.airports || [], hqCountry: "India", description: "Indian airport duty free operator" },
+  // ── Additional ──
+  { key: "king_power", name: "King Power", airports: KING_POWER_AIRPORTS, hqCountry: "Thailand", description: "Thailand's leading duty free retailer" },
   { key: "other", name: "Other", airports: OTHER_AIRPORTS, hqCountry: null, description: "Custom — select from global airport network" },
 ];
 
