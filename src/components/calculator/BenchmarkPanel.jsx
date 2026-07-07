@@ -114,6 +114,11 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
           confidence={benchmarks.confidence?.dutyCreditTravelers}
         />
       </div>
+      <div className="px-5 py-3 bg-slate-50 border-t border-slate-100">
+        <p className="text-xs text-slate-500 leading-relaxed">
+          ETRC and m1nd-set benchmarks show that 15–25% of travelers shop before departure. DutyBoost aims to increase conversion and basket value by at least 0.01%.
+        </p>
+      </div>
     </div>
   );
 }
