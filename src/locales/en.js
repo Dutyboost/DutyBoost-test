@@ -862,7 +862,7 @@ export default {
     calculator: {
       badge: 'DutyBoost ROI Calculator',
       title: 'See the numbers for yourself',
-      subtitle: "Whether you're an airport retailer or a travel partner — DutyBoost adds a measurable revenue stream. Pick your role below.",
+      subtitle: "DutyBoost adds a measurable revenue stream for airport retailers — estimate yours below.",
       tab_retailer: 'Airport Retailer',
       tab_partner: 'Travel Partner',
       retailer_title: 'Discover how much incremental revenue DutyBoost could generate across your global airport network',

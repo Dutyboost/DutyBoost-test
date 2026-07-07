@@ -833,7 +833,7 @@ export default {
     calculator: {
       badge: 'Calculadora ROI DutyBoost',
       title: 'Ve los números por ti mismo',
-      subtitle: 'Ya seas un minorista aeroportuario o un socio de viaje — DutyBoost añade un flujo de ingresos medible. Elige tu rol a continuación.',
+      subtitle: 'DutyBoost añade un flujo de ingresos medible para minoristas aeroportuarios — estime el suyo a continuación.',
       tab_retailer: 'Minorista aeroportuario',
       tab_partner: 'Socio de viaje',
       retailer_title: 'Descubre cuántos ingresos incrementales podría generar DutyBoost en tu red mundial de aeropuertos',

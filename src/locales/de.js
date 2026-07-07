@@ -603,7 +603,7 @@ export default {
     calculator: {
       badge: 'DutyBoost ROI-Rechner',
       title: 'Sehen Sie die Zahlen selbst',
-      subtitle: 'Egal ob Flughafenhändler oder Reisepartner — DutyBoost fügt einen messbaren Umsatzstrom hinzu. Wählen Sie Ihre Rolle unten.',
+      subtitle: 'DutyBoost fügt einen messbaren Umsatzstrom für Flughafenhändler hinzu — schätzen Sie Ihren unten ein.',
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
       retailer_title: 'Entdecken Sie, wie viel inkrementelle Einnahmen DutyBoost in Ihrem globalen Flughafennetzwerk generieren könnte',
