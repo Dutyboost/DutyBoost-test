@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Search, Check, Building2 } from "lucide-react";
+import { Search, Check, Building2, X } from "lucide-react";
 import { ENTERPRISE_RETAILERS } from "@/data/enterpriseCalculator";
 
 export default function RetailerSearchDropdown({ selected, onSelect }) {
@@ -55,7 +55,14 @@ export default function RetailerSearchDropdown({ selected, onSelect }) {
               <p className="text-xs text-slate-500 truncate">{selected.description}</p>
             </div>
           </div>
-          <Check className="w-4 h-4 text-primary shrink-0" />
+          <button
+            type="button"
+            onClick={() => onSelect(null)}
+            className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors shrink-0"
+            aria-label="Clear selection"
+          >
+            <X className="w-4 h-4" />
+          </button>
         </div>
       )}
 
