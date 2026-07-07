@@ -1050,7 +1050,7 @@ export default {
       mode_quick_info: 'Quick mode: select a retailer and region — all benchmarks auto-populate. No manual input required.',
       mode_detailed_info: 'Detailed mode: fine-tune assumptions, select specific countries and airports, adjust conversion rates.',
       mode_enterprise_info: 'Enterprise mode: save multiple scenarios, compare side-by-side, export branded PDF, share reports, and request meetings.',
-      etrc_note: 'ETRC/m1nd-set: 15–25% of travelers shop — DutyBoost aims to increase conversion & basket with zero increase in Customer Acquisition Cost — 100% performance-based.',
+      etrc_note: 'ETRC: 15–25% of travelers shop — DutyBoost aims to increase conversion & basket with zero increase in Customer Acquisition Cost — 100% performance-based.',
       step1: 'Step 1 — Airport Retailer',
       step2: 'Step 2 — Select Network Scope',
       step3: 'Step 3 — Auto-Preloaded Benchmarks',

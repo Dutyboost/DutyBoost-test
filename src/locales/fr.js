@@ -790,7 +790,7 @@ export default {
       mode_quick_info: 'Mode rapide : sélectionnez un détaillant et une région — tous les benchmarks se remplissent automatiquement. Aucune saisie manuelle requise.',
       mode_detailed_info: 'Mode détaillé : ajustez les hypothèses, sélectionnez des pays et aéroports spécifiques, modifiez les taux de conversion.',
       mode_enterprise_info: 'Mode enterprise : enregistrez plusieurs scénarios, comparez côte à côte, exportez un PDF personnalisé, partagez des rapports et demandez des réunions.',
-      etrc_note: 'ETRC/m1nd-set : 15–25 % des voyageurs achètent — DutyBoost vise à augmenter la conversion et la valeur du panier sans augmenter le coût d\'acquisition client — 100% basé sur la performance.',
+      etrc_note: 'ETRC : 15–25 % des voyageurs achètent — DutyBoost vise à augmenter la conversion et la valeur du panier sans augmenter le coût d\'acquisition client — 100% basé sur la performance.',
       step1: 'Étape 1 — Détaillant d\'aéroport',
       step2: 'Étape 2 — Sélectionner la portée du réseau',
       step3: 'Étape 3 — Benchmarks automatiques',
