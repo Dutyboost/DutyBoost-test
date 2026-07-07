@@ -1,7 +1,7 @@
 // DFS Group — duty free operations in Americas, Asia-Pacific, and select European hubs
 // Airports: LAX, SFO, JFK, HKG, SIN, SYD, ICN, NRT, AKL, BKK
 
-const RETAIL_CONVERSION_RATE = 0.03; // 3% conversion rate
+const RETAIL_CONVERSION_RATE = 0.0001; // 0.01% — DutyBoost incremental uplift
 const STORE_NAMES = [
   "DFS Galeria",
   "DFS T Galleria",

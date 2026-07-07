@@ -6,17 +6,19 @@
 // Sources: gebr-heinemann.de (Facts & Figures), Heinemann Annual Report 2024,
 // heinemann-shop.com locations, press releases.
 //
-// Revenue model (same as RetailerCalculator):
-//   dailyRedemptions = daily_pax × 3%
+// Revenue model (incremental uplift from DutyBoost):
+//   dailyRedemptions = daily_pax × 0.01%   (DutyBoost's incremental shopper uplift)
 //   monthlyRedemptions = dailyRedemptions × 365 / 12
 //   basket = estimateAvgBasketSpend(airport)  → [€35, €150]
 //   grossRevenue = redemptions × basket
+// 0.01% reflects DutyBoost's stated minimum incremental uplift on top of the
+// existing 15–25% airport shopping rate (ETRC / m1nd-set research).
 // Weights use a Zipf-like long-tail distribution so the flagship duty-free
 // store gets the largest share, tapering to small specialty kiosks.
 
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 
-const CONVERSION_RATE = 3;
+const CONVERSION_RATE = 0.01; // 0.01% — DutyBoost incremental uplift
 const PLATFORM_FEE_PCT = 0.025;
 
 // ── Frankfurt Airport: 27 Heinemann retail stores (via FAR JV) ──────────────
