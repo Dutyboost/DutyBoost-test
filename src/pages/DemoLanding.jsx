@@ -35,19 +35,6 @@ export default function DemoLanding() {
             </div>
           </Link>
 
-          <Link to={`/demo/retailer-aena?lang=${i18n.language}`} className="group p-6 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <Store className="w-6 h-6 text-primary" />
-            </div>
-            <div>
-              <p className="font-heading font-bold text-xl">Airport Retailer Demo Aena</p>
-              <p className="text-muted-foreground text-sm mt-1">{t('demo.retailer_desc')}</p>
-            </div>
-            <div className="flex items-center gap-2 text-primary font-semibold text-sm">
-              <Eye className="w-4 h-4" /> {t('demo.view_retailer')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-
           <Link to={`/demo/retailer-heinemann?lang=${i18n.language}`} className="group p-6 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
               <Store className="w-6 h-6 text-primary" />

@@ -36,7 +36,6 @@ import DemoLanding from './pages/DemoLanding';
 import LeadsAdmin from './pages/LeadsAdmin';
 import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
 import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
-import DemoRetailerDashboardSpain from './pages/DemoRetailerDashboardSpain';
 import DemoRetailerDashboardHeinemann from './pages/DemoRetailerDashboardHeinemann';
 import DemoRetailerDashboardAvolta from './pages/DemoRetailerDashboardAvolta';
 import DemoAdminDashboard from './pages/DemoAdminDashboard';
@@ -172,8 +171,6 @@ const AuthenticatedApp = () => {
         <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
         <Route path="/demo/retailer" element={<Navigate to="/demo/retailer-lagardere" replace />} />
         <Route path="/demo/retailer-lagardere" element={<DemoRetailerDashboard />} />
-        <Route path="/demo/retailer-spain" element={<Navigate to="/demo/retailer-aena" replace />} />
-        <Route path="/demo/retailer-aena" element={<DemoRetailerDashboardSpain />} />
         <Route path="/demo/retailer-heinemann" element={<DemoRetailerDashboardHeinemann />} />
         <Route path="/demo/retailer-avolta" element={<DemoRetailerDashboardAvolta />} />
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
