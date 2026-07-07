@@ -832,6 +832,8 @@ export default {
       retailer_net_rev: 'Retailer-Nettoerlös',
       after_savings: 'nach Rabatt + Gebühr',
       traveler_savings: 'Reisende Ersparnis',
+      roi: 'ROI',
+      roi_sub: 'pro €1 investiert',
       est_dc_travelers: 'Geschätzte DutyCredit-Reisende',
       preactivated_shoppers: 'Vorab aktivierte Käufer, die bereit sind auszugeben',
       per_tx_net: '/Trans. netto',

@@ -837,6 +837,8 @@ export default {
       retailer_net_rev: 'Ricavo netto del retailer',
       after_savings: 'dopo sconto + commissione',
       traveler_savings: 'Risparmio del Viaggiatore',
+      roi: 'ROI',
+      roi_sub: 'per €1 investito',
       est_dc_travelers: 'Viaggiatori DutyCredit stimati',
       preactivated_shoppers: 'Acquirenti pre-attivati pronti a spendere',
       per_tx_net: '/tx netto',

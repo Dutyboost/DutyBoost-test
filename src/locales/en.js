@@ -1092,6 +1092,8 @@ export default {
       retailer_net_rev: 'Retailer Net Revenue',
       after_savings: 'after savings + fee',
       traveler_savings: 'Traveler Savings',
+      roi: 'ROI',
+      roi_sub: 'per €1 invested',
       est_dc_travelers: 'Estimated DutyCredit Travelers',
       preactivated_shoppers: 'Pre-activated shoppers ready to spend',
       per_tx_net: '/tx net',

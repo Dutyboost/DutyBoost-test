@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Building2, MapPin, Plane, Users, ShoppingBag, TrendingUp, Euro, Award, Gift } from "lucide-react";
+import { Building2, MapPin, Plane, Users, ShoppingBag, TrendingUp, Euro, Award, Gift, Target } from "lucide-react";
 import ConfidenceBadge from "./ConfidenceBadge";
 import { translateRetailerDesc } from "./i18nHelpers";
 import { fmtCompact, fmtEurCompact } from "@/data/enterpriseCalculator";
@@ -20,6 +20,7 @@ function StatCard({ icon: Icon, label, value, sub, confidence, accent = "text-sl
 
 export default function SummaryCards({ retailer, selectedCount, countryCount, benchmarks, projections }) {
   const { t } = useTranslation();
+  const roi = projections.dutyBoostCommission > 0 ? projections.retailerNetRevenue / projections.dutyBoostCommission : 0;
   return (
     <div className="space-y-3">
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-6 text-white relative overflow-hidden">
@@ -53,7 +54,7 @@ export default function SummaryCards({ retailer, selectedCount, countryCount, be
         <StatCard icon={ShoppingBag} label={t("entCalc.avg_basket")} value={fmtEurCompact(benchmarks.avgBasket)} sub={t("entCalc.per_basket")} confidence={benchmarks.confidence?.avgBasket} />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
         <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-5 text-white">
           <TrendingUp className="w-5 h-5 text-blue-200 mb-2" />
           <p className="text-xs text-blue-200 mb-1">{t("entCalc.potential_sales")}</p>
@@ -77,6 +78,12 @@ export default function SummaryCards({ retailer, selectedCount, countryCount, be
           <p className="text-xs text-emerald-200 mb-1">{t("entCalc.retailer_net_rev")}</p>
           <p className="text-2xl font-bold">{fmtEurCompact(projections.retailerNetRevenue)}</p>
           <p className="text-[10px] text-emerald-300 mt-1">{t("entCalc.after_savings")} · /yr</p>
+        </div>
+        <div className="bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl p-5 text-white">
+          <Target className="w-5 h-5 text-rose-200 mb-2" />
+          <p className="text-xs text-rose-200 mb-1">{t("entCalc.roi")}</p>
+          <p className="text-2xl font-bold">{roi > 0 ? `€${Math.round(roi)}` : '—'}</p>
+          <p className="text-[10px] text-rose-300 mt-1">{t("entCalc.roi_sub")}</p>
         </div>
       </div>
 

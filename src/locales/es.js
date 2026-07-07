@@ -1063,6 +1063,8 @@ export default {
       retailer_net_rev: 'Ingreso Neto del Retailer',
       after_savings: 'tras descuento + comisión',
       traveler_savings: 'Ahorro del Viajero',
+      roi: 'ROI',
+      roi_sub: 'por €1 invertido',
       est_dc_travelers: 'Viajeros DutyCredit Estimados',
       preactivated_shoppers: 'Compradores pre-activados listos para gastar',
       per_tx_net: '/tx neto',
