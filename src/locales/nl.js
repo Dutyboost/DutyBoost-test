@@ -863,6 +863,8 @@ export default {
       countries_count: '{{count}} landen',
       airports_count_short: '{{count}} luchthavens',
       selected_count: '{{count}} geselecteerd',
+      search_country_placeholder: 'Zoek land, stad of luchthavencode…',
+      search_no_results: 'Geen overeenkomende landen of luchthavens',
       confidence_high: 'Hoog',
       confidence_medium: 'Gemiddeld',
       confidence_estimated: 'Geschat',

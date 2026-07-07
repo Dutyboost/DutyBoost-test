@@ -1081,6 +1081,8 @@ export default {
       countries_count: '{{count}} países',
       airports_count_short: '{{count}} aeropuertos',
       selected_count: '{{count}} seleccionados',
+      search_country_placeholder: 'Buscar país, ciudad o código de aeropuerto…',
+      search_no_results: 'Sin países o aeropuertos coincidentes',
       confidence_high: 'Alto',
       confidence_medium: 'Medio',
       confidence_estimated: 'Estimado',

@@ -850,6 +850,8 @@ export default {
       countries_count: '{{count}} Länder',
       airports_count_short: '{{count}} Flughäfen',
       selected_count: '{{count}} ausgewählt',
+      search_country_placeholder: 'Land, Stadt oder Flughafencode suchen…',
+      search_no_results: 'Keine passenden Länder oder Flughäfen',
       confidence_high: 'Hoch',
       confidence_medium: 'Mittel',
       confidence_estimated: 'Geschätzt',

@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
 import { fmtCompact } from "@/data/enterpriseCalculator";
 import AirportOwnerField from "./AirportOwnerField";
 
-export default function CountryNode({ country, airports, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner }) {
+export default function CountryNode({ country, airports, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner, forceExpanded }) {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
+  const isExpanded = forceExpanded || expanded;
   const codes = airports.map((a) => a.code);
   const selectedCount = codes.filter((c) => selectedCodes.has(c)).length;
   const allSelected = selectedCount === codes.length;
@@ -27,7 +28,7 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
           onClick={() => setExpanded(!expanded)}
           className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 flex-1 min-w-0 text-left rounded-lg px-2 py-1.5 hover:bg-slate-50 transition-colors"
         >
-          <ChevronRight className={`w-4 h-4 transition-transform shrink-0 ${expanded ? "rotate-90" : ""}`} />
+          <ChevronRight className={`w-4 h-4 transition-transform shrink-0 ${isExpanded ? "rotate-90" : ""}`} />
           <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
           <span className="truncate">{country}</span>
           <span className="text-xs text-slate-400 shrink-0">({airports.length})</span>
@@ -35,7 +36,7 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
         </button>
       </div>
       <AnimatePresence initial={false}>
-        {expanded && (
+        {isExpanded && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}

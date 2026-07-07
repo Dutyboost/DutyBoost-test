@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Globe2 } from "lucide-react";
+import { ChevronRight, Globe2, Search, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { translateRegion } from "./i18nHelpers";
 import CountryNode from "./CountryNode";
@@ -12,6 +12,21 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
   const selectedCount = allCodes.filter((c) => selectedCodes.has(c)).length;
   const allSelected = selectedCount === allCodes.length;
   const someSelected = selectedCount > 0 && !allSelected;
+
+  const [search, setSearch] = useState("");
+  const hasSearch = search.trim().length > 0;
+  const filteredCountries = useMemo(() => {
+    if (!hasSearch) return countries;
+    const q = search.trim().toLowerCase();
+    return countries.filter((c) =>
+      c.country.toLowerCase().includes(q) ||
+      c.airports.some((a) =>
+        (a.city || "").toLowerCase().includes(q) ||
+        (a.name || "").toLowerCase().includes(q) ||
+        (a.code || "").toLowerCase().includes(q)
+      )
+    );
+  }, [countries, search, hasSearch]);
 
   return (
     <div className="border border-slate-200 rounded-lg overflow-hidden">
@@ -45,17 +60,40 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
             transition={{ duration: 0.2 }}
             className="overflow-hidden px-3 py-2"
           >
-            {countries.map((c) => (
-              <CountryNode
-                key={c.country}
-                country={c.country}
-                airports={c.airports}
-                selectedCodes={selectedCodes}
-                onToggleCodes={onToggleCodes}
-                airportOwners={airportOwners}
-                onSetAirportOwner={onSetAirportOwner}
+            <div className="relative mb-2">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder={t("entCalc.search_country_placeholder")}
+                className="w-full pl-8 pr-8 py-1.5 text-sm border border-slate-200 rounded-lg outline-none focus:border-primary bg-white"
               />
-            ))}
+              {hasSearch && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+            {filteredCountries.length > 0 ? (
+              filteredCountries.map((c) => (
+                <CountryNode
+                  key={c.country}
+                  country={c.country}
+                  airports={c.airports}
+                  selectedCodes={selectedCodes}
+                  onToggleCodes={onToggleCodes}
+                  airportOwners={airportOwners}
+                  onSetAirportOwner={onSetAirportOwner}
+                  forceExpanded={hasSearch}
+                />
+              ))
+            ) : (
+              <p className="text-xs text-slate-400 py-3 text-center">{t("entCalc.search_no_results")}</p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
