@@ -900,7 +900,7 @@ export default {
       owner_breakdown_empty: 'Nog geen leidinggevenden toegewezen. Vouw een land uit om per luchthaven een commercial lead toe te wijzen.',
       owner_unassigned_group: 'Niet toegewezen',
       retailer_desc: {
-        lagardere: 'Wereldwijde reisretailer in 51 landen',
+        lagardere: 'Wereldwijde reisretailer in 61 landen',
         avolta: 'Werelds grootste luchthavenretailer — 5.100+ verkooppunten in 70+ landen',
         heinemann: 'Familiebedrijf in dutyfree in 50+ landen',
         dfs: 'Luxereisretailer — eigendom van LVMH',

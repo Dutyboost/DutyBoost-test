@@ -887,7 +887,7 @@ export default {
       owner_breakdown_empty: 'Noch keine Verantwortlichen zugewiesen. Klappen Sie ein Land auf, um jedem Flughafen einen Commercial Lead zuzuweisen.',
       owner_unassigned_group: 'Nicht zugewiesen',
       retailer_desc: {
-        lagardere: 'Globaler Reisehändler in 51 Ländern',
+        lagardere: 'Globaler Reisehändler in 61 Ländern',
         avolta: 'Größter Flughafenhändler der Welt — 5.100+ Verkaufsstellen in 70+ Ländern',
         heinemann: 'Familiengeführter Duty-Free-Händler in 50+ Ländern',
         dfs: 'Luxus-Reisehändler — gehört zu LVMH',

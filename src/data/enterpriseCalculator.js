@@ -28,7 +28,7 @@ const OTHER_AIRPORTS = Object.values(RETAIL_AIRPORTS);
 
 export const ENTERPRISE_RETAILERS = [
   // ── Demo-backed companies (exact airport lists from the demos) ──
-  { key: "lagardere", name: "Lagardère Travel Retail", airports: byName["Lagardère Travel Retail"]?.airports || [], storeCount: LTR_STORE_COUNT, demoRetailers: LTR_RETAILERS, hqCountry: "France", description: "Global travel retailer across 51 countries" },
+  { key: "lagardere", name: "Lagardère Travel Retail", airports: byName["Lagardère Travel Retail"]?.airports || [], storeCount: LTR_STORE_COUNT, demoRetailers: LTR_RETAILERS, hqCountry: "France", description: "Global travel retailer across 61 countries" },
   { key: "avolta", name: "Avolta", airports: byName["Avolta (incl. World Duty Free, Hudson, Dufry)"]?.airports || [], storeCount: AVOLTA_STORE_COUNT, demoRetailers: AVOLTA_RETAILERS, hqCountry: "Switzerland", description: "World's largest airport retailer — 5,100+ outlets in 70+ countries" },
   { key: "heinemann", name: "Gebr. Heinemann", airports: byName["Gebr. Heinemann"]?.airports || [], storeCount: HEINEMANN_RETAILERS.length, demoRetailers: HEINEMANN_RETAILERS, hqCountry: "Germany", description: "Family-owned duty free retailer across 50+ countries" },
   { key: "dfs", name: "DFS Group", airports: byName["DFS Group"]?.airports || [], hqCountry: "Hong Kong", description: "Luxury travel retailer — LVMH-owned" },

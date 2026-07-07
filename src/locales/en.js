@@ -1147,7 +1147,7 @@ export default {
       owner_breakdown_empty: 'No leads assigned yet. Expand a country to assign a commercial lead to each airport.',
       owner_unassigned_group: 'Unassigned',
       retailer_desc: {
-        lagardere: 'Global travel retailer across 51 countries',
+        lagardere: 'Global travel retailer across 61 countries',
         avolta: "World's largest airport retailer — 5,100+ outlets in 70+ countries",
         heinemann: 'Family-owned duty free retailer across 50+ countries',
         dfs: 'Luxury travel retailer — LVMH-owned',

@@ -892,7 +892,7 @@ export default {
       owner_breakdown_empty: 'Nessun responsabile assegnato. Espandi un paese per assegnare un responsabile commerciale a ogni aeroporto.',
       owner_unassigned_group: 'Non assegnato',
       retailer_desc: {
-        lagardere: 'Retailer di viaggio globale in 51 paesi',
+        lagardere: 'Retailer di viaggio globale in 61 paesi',
         avolta: 'Il più grande retailer aeroportuale del mondo — 5.100+ punti vendita in 70+ paesi',
         heinemann: 'Retailer duty free a conduzione familiare in 50+ paesi',
         dfs: 'Retailer di viaggio di lusso — di proprietà di LVMH',

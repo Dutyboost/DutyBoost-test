@@ -148,9 +148,9 @@ function generateStoreNames(airport, count) {
   return stores;
 }
 
-// ── Comprehensive Lagardère airport list — 290+ airports across 51 countries ─
+// ── Comprehensive Lagardère airport list — 290+ airports across 61 countries ─
 // Each entry: [name, code, city, country, annual_pax]
-// Source: lagardere-tr.com (official: +290 airports, +4,800 stores, 51 countries),
+// Source: lagardere-tr.com (official: +290 airports, +4,800 stores, 61 countries),
 // paradieslagardere.com (92 North American airports), ACI passenger data (2023–2024)
 const LTR_AIRPORTS_RAW = [
   // ── Netherlands ──
