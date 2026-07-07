@@ -790,7 +790,7 @@ export default {
       mode_quick_info: 'Schnellmodus: Wählen Sie einen Retailer und eine Region — alle Benchmarks werden automatisch ausgefüllt. Keine manuelle Eingabe erforderlich.',
       mode_detailed_info: 'Detaillierter Modus: Passen Sie Annahmen an, wählen Sie bestimmte Länder und Flughäfen, passen Sie Konversionsraten an.',
       mode_enterprise_info: 'Enterprise-Modus: Speichern Sie mehrere Szenarien, vergleichen Sie nebeneinander, exportieren Sie Marken-PDF, teilen Sie Berichte und fordern Sie Meetings an.',
-      etrc_note: 'ETRC/m1nd-set: 15–25% der Reisenden kaufen vor dem Abflug — DutyBoost will Konversion & Kassenwert erhöhen ohne Steigerung der Kundenakquisekosten — 100% leistungsbasiert.',
+      etrc_note: 'ETRC/m1nd-set: 15–25% der Reisenden kaufen — DutyBoost will Konversion & Kassenwert erhöhen ohne Steigerung der Kundenakquisekosten — 100% leistungsbasiert.',
       step1: 'Schritt 1 — Flughafen-Retailer',
       step2: 'Schritt 2 — Netzwerkbereich auswählen',
       step3: 'Schritt 3 — Automatische Benchmarks',

@@ -795,7 +795,7 @@ export default {
       mode_quick_info: 'Modalità rapida: seleziona un retailer e una regione — tutti i benchmark si compilano automaticamente. Nessun inserimento manuale richiesto.',
       mode_detailed_info: 'Modalità dettagliata: modifica le ipotesi, seleziona paesi e aeroporti specifici, regola i tassi di conversione.',
       mode_enterprise_info: 'Modalità enterprise: salva più scenari, confrontali affiancati, esporta PDF brandizzato, condividi report e richiedi riunioni.',
-      etrc_note: 'ETRC/m1nd-set: il 15–25% dei viaggiatori acquista prima della partenza — DutyBoost mira ad aumentare conversione e valore dello scontrino senza aumentare il costo di acquisizione clienti — 100% basato sulle prestazioni.',
+      etrc_note: 'ETRC/m1nd-set: il 15–25% dei viaggiatori acquista — DutyBoost mira ad aumentare conversione e valore dello scontrino senza aumentare il costo di acquisizione clienti — 100% basato sulle prestazioni.',
       step1: 'Passo 1 — Retailer aeroportuale',
       step2: 'Passo 2 — Seleziona ambito di rete',
       step3: 'Passo 3 — Benchmark automatici',
