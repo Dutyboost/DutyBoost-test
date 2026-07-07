@@ -44,11 +44,12 @@ export default function SummaryCards({ retailer, selectedCount, countryCount, be
       </div>
 
       {/* Selection stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
         <StatCard icon={MapPin} label="Countries" value={countryCount} confidence="high" />
         <StatCard icon={Plane} label="Airports" value={selectedCount} confidence="high" />
+        <StatCard icon={Building2} label="Stores" value={benchmarks.storeCount} confidence={benchmarks.confidence?.storeCount} />
         <StatCard icon={Users} label="Est. Passengers" value={fmtCompact(benchmarks.annualPax)} sub="annual" confidence="high" />
-        <StatCard icon={ShoppingBag} label="Avg Spend" value={fmtEurCompact(benchmarks.avgBasket)} sub="per basket" confidence="medium" />
+        <StatCard icon={ShoppingBag} label="Avg Basket" value={fmtEurCompact(benchmarks.avgBasket)} sub="per basket" confidence={benchmarks.confidence?.avgBasket} />
       </div>
 
       {/* Financial projections */}

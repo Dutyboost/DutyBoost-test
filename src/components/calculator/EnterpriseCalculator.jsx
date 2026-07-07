@@ -72,9 +72,9 @@ export default function EnterpriseCalculator() {
     return retailer.airports.filter((a) => selectedCodes.has(a.code));
   }, [retailer, selectedCodes]);
 
-  const benchmarks = useMemo(() => computeSelectionBenchmarks(selectedAirports), [selectedAirports]);
+  const benchmarks = useMemo(() => computeSelectionBenchmarks(selectedAirports, retailer?.demoRetailers), [selectedAirports, retailer]);
   const projections = useMemo(() => computeProjections(benchmarks, assumptions), [benchmarks, assumptions]);
-  const regionBreakdown = useMemo(() => computeRegionBreakdown(selectedAirports, assumptions), [selectedAirports, assumptions]);
+  const regionBreakdown = useMemo(() => computeRegionBreakdown(selectedAirports, assumptions, retailer?.demoRetailers), [selectedAirports, assumptions, retailer]);
   const topAirports = useMemo(() => computeTopAirports(selectedAirports), [selectedAirports]);
   const countryCount = useMemo(() => getSelectedCountries(selectedAirports), [selectedAirports]);
 

@@ -5,6 +5,11 @@ import { AIRPORT_RETAIL_COMPANIES, RETAIL_AIRPORTS } from "./airportRetailCompan
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 import { calcSaving, PLATFORM_FEE_PCT, PLATFORM_FEE_CAP } from "../utils/retailerCalc";
 
+// Demo data exports — real retailer store data (names, redemptions, baskets, revenue)
+import { RETAILERS as LTR_RETAILERS, STORE_COUNT as LTR_STORE_COUNT } from "./demoDataLagardere";
+import { RETAILERS as AVOLTA_RETAILERS, STORE_COUNT as AVOLTA_STORE_COUNT } from "./demoDataAvolta";
+import { RETAILERS as HEINEMANN_RETAILERS } from "./demoDataHeinemann";
+
 const byName = Object.fromEntries(AIRPORT_RETAIL_COMPANIES.map((c) => [c.name, c]));
 
 // ── King Power (Thailand-focused — not in existing dataset) ──────────────────
@@ -22,9 +27,9 @@ const KING_POWER_AIRPORTS = [
 const OTHER_AIRPORTS = Object.values(RETAIL_AIRPORTS);
 
 export const ENTERPRISE_RETAILERS = [
-  { key: "lagardere", name: "Lagardère Travel Retail", airports: byName["Lagardère Travel Retail"]?.airports || [], storeCount: byName["Lagardère Travel Retail"]?.storeCount, hqCountry: "France", description: "Global travel retailer across 51 countries" },
-  { key: "avolta", name: "Avolta", airports: byName["Avolta (incl. World Duty Free, Hudson, Dufry)"]?.airports || [], storeCount: byName["Avolta (incl. World Duty Free, Hudson, Dufry)"]?.storeCount, hqCountry: "Switzerland", description: "World's largest airport retailer — 5,100+ outlets in 70+ countries" },
-  { key: "heinemann", name: "Gebr. Heinemann", airports: byName["Gebr. Heinemann"]?.airports || [], hqCountry: "Germany", description: "Family-owned duty free retailer across 50+ countries" },
+  { key: "lagardere", name: "Lagardère Travel Retail", airports: byName["Lagardère Travel Retail"]?.airports || [], storeCount: LTR_STORE_COUNT, demoRetailers: LTR_RETAILERS, hqCountry: "France", description: "Global travel retailer across 51 countries" },
+  { key: "avolta", name: "Avolta", airports: byName["Avolta (incl. World Duty Free, Hudson, Dufry)"]?.airports || [], storeCount: AVOLTA_STORE_COUNT, demoRetailers: AVOLTA_RETAILERS, hqCountry: "Switzerland", description: "World's largest airport retailer — 5,100+ outlets in 70+ countries" },
+  { key: "heinemann", name: "Gebr. Heinemann", airports: byName["Gebr. Heinemann"]?.airports || [], storeCount: HEINEMANN_RETAILERS.length, demoRetailers: HEINEMANN_RETAILERS, hqCountry: "Germany", description: "Family-owned duty free retailer across 50+ countries" },
   { key: "whsmith", name: "WHSmith Travel", airports: byName["WHSmith Travel"]?.airports || [], hqCountry: "United Kingdom", description: "Travel essentials and duty free across global airports" },
   { key: "dfs", name: "DFS Group", airports: byName["DFS Group"]?.airports || [], hqCountry: "Hong Kong", description: "Luxury travel retailer — LVMH-owned" },
   { key: "ari", name: "Aer Rianta International", airports: byName["Aer Rianta International (ARI)"]?.airports || [], hqCountry: "Ireland", description: "Airport retail specialist in 30+ countries" },
@@ -110,14 +115,54 @@ function estimateStoreCount(airport) {
 }
 
 // ── Benchmark computation ────────────────────────────────────────────────────
-export function computeSelectionBenchmarks(airports) {
+// When demoRetailers is provided (Lagardère, Avolta, Heinemann), use the real
+// store-level data: actual store names, redemption counts, basket values, and
+// revenue figures from the demo datasets. Otherwise fall back to heuristics.
+export function computeSelectionBenchmarks(airports, demoRetailers) {
   if (!airports || airports.length === 0) {
-    return { annualPax: 0, intlPax: 0, domesticPax: 0, avgBasket: 0, avgRetailSpend: 0, dutyCreditTravelers: 0, storeCount: 0, confidence: {} };
+    return { annualPax: 0, intlPax: 0, domesticPax: 0, avgBasket: 0, avgRetailSpend: 0, dutyCreditTravelers: 0, storeCount: 0, monthlyRedemptions: 0, confidence: {} };
   }
   const totalAnnualPax = airports.reduce((s, a) => s + (a.annual_pax || 0), 0);
   const totalDailyPax = airports.reduce((s, a) => s + (a.daily_pax || Math.round((a.annual_pax || 0) / 365)), 0);
   const intlPax = airports.reduce((s, a) => s + (a.annual_pax || 0) * estimateIntlPct(a) / 100, 0);
 
+  // ── Demo-backed path: use real store data ──
+  if (demoRetailers && demoRetailers.length > 0) {
+    const selectedCodes = new Set(airports.map((a) => a.code));
+    const matchingStores = demoRetailers.filter((r) => selectedCodes.has(r.airport));
+    const storeCount = matchingStores.length;
+
+    // Traffic-weighted avg basket (weighted by redemptions per store)
+    let weightedBasketSum = 0, totalRedemptions = 0, totalRevenue = 0;
+    matchingStores.forEach((r) => {
+      weightedBasketSum += r.redemptions * r.avg_sale;
+      totalRedemptions += r.redemptions;
+      totalRevenue += r.revenue;
+    });
+    const avgBasket = totalRedemptions > 0 ? weightedBasketSum / totalRedemptions : 0;
+    const monthlyRedemptions = totalRedemptions;
+    const avgRetailSpend = avgBasket * SHOP_RATE;
+    const dutyCreditTravelers = Math.round(totalAnnualPax * 0.01 / 100);
+
+    return {
+      annualPax: totalAnnualPax,
+      intlPax: Math.round(intlPax),
+      domesticPax: Math.round(totalAnnualPax - intlPax),
+      avgBasket: Math.round(avgBasket * 100) / 100,
+      avgRetailSpend: Math.round(avgRetailSpend * 100) / 100,
+      dutyCreditTravelers,
+      storeCount,
+      monthlyRedemptions,
+      monthlyRevenue: Math.round(totalRevenue * 100) / 100,
+      confidence: {
+        annualPax: "high", intlPax: "estimated", domesticPax: "estimated",
+        avgBasket: "high", avgRetailSpend: "high",
+        dutyCreditTravelers: "high", storeCount: "high",
+      },
+    };
+  }
+
+  // ── Heuristic path (non-demo retailers) ──
   let weightedBasket = 0;
   airports.forEach((a) => {
     const dp = a.daily_pax || Math.round((a.annual_pax || 0) / 365);
@@ -136,6 +181,7 @@ export function computeSelectionBenchmarks(airports) {
     avgRetailSpend: Math.round(avgRetailSpend * 100) / 100,
     dutyCreditTravelers,
     storeCount,
+    monthlyRedemptions: 0,
     confidence: {
       annualPax: "high", intlPax: "estimated", domesticPax: "estimated",
       avgBasket: "medium", avgRetailSpend: "estimated",
@@ -149,7 +195,13 @@ export function computeProjections(benchmarks, assumptions) {
   const basket = assumptions.customBasket || benchmarks.avgBasket || 50;
   const redemptionRate = assumptions.redemptionRate ?? 0.01;
   const annualPax = benchmarks.annualPax || 0;
-  const annualRedemptions = Math.round(annualPax * redemptionRate / 100);
+
+  // When demo data provides baseline monthly redemptions (at 0.01% conversion),
+  // scale proportionally with the user's chosen redemption rate.
+  const annualRedemptions = benchmarks.monthlyRedemptions > 0
+    ? Math.round(benchmarks.monthlyRedemptions * 12 * (redemptionRate / 0.01))
+    : Math.round(annualPax * redemptionRate / 100);
+
   const saving = calcSaving(basket);
   const commission = Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
   const netRevenuePerTx = Math.round((basket - saving - commission) * 100) / 100;
@@ -164,11 +216,11 @@ export function computeProjections(benchmarks, assumptions) {
   return { basket, saving, commission, netRevenuePerTx, annualRedemptions, potentialIncrementalSales, dutyBoostCommission, retailerNetRevenue, monthlyData };
 }
 
-export function computeRegionBreakdown(airports, assumptions) {
+export function computeRegionBreakdown(airports, assumptions, demoRetailers) {
   const groups = groupAirportsByRegion(airports);
   return groups.map((g) => {
     const regionAirports = g.countries.flatMap((c) => c.airports);
-    const bm = computeSelectionBenchmarks(regionAirports);
+    const bm = computeSelectionBenchmarks(regionAirports, demoRetailers);
     const proj = computeProjections(bm, assumptions);
     return { region: g.region, airportCount: regionAirports.length, annualPax: bm.annualPax, netRevenue: proj.retailerNetRevenue, redemptions: proj.annualRedemptions };
   });
