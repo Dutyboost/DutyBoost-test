@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { translateRegion } from "./i18nHelpers";
 import CountryNode from "./CountryNode";
 
-export default function RegionNode({ region, countries, selectedCodes, onToggleCodes }) {
+export default function RegionNode({ region, countries, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner }) {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const allCodes = countries.flatMap((c) => c.airports.map((a) => a.code));
@@ -54,6 +54,8 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
                 airports={c.airports}
                 selectedCodes={selectedCodes}
                 onToggleCodes={onToggleCodes}
+                airportOwners={airportOwners}
+                onSetAirportOwner={onSetAirportOwner}
               />
             ))}
           </motion.div>

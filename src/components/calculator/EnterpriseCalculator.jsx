@@ -29,6 +29,7 @@ export default function EnterpriseCalculator() {
   const [selectedCodes, setSelectedCodes] = useState(new Set());
   const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null });
   const [scenarios, setScenarios] = useState([]);
+  const [airportOwners, setAirportOwners] = useState({});
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -53,6 +54,7 @@ export default function EnterpriseCalculator() {
       setSelectedCodes(new Set());
     }
     setScenarios([]);
+    setAirportOwners({});
   };
 
   const handleToggleCodes = (codes, select) => {
@@ -66,6 +68,15 @@ export default function EnterpriseCalculator() {
 
   const handleAssumptionChange = (key, value) => {
     setAssumptions((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleSetAirportOwner = (code, owner) => {
+    setAirportOwners((prev) => {
+      const next = { ...prev };
+      if (owner) next[code] = owner;
+      else delete next[code];
+      return next;
+    });
   };
 
   const selectedAirports = useMemo(() => {
@@ -153,6 +164,8 @@ export default function EnterpriseCalculator() {
                 selectedCodes={selectedCodes}
                 onToggleCodes={handleToggleCodes}
                 mode={mode}
+                airportOwners={airportOwners}
+                onSetAirportOwner={handleSetAirportOwner}
               />
             </div>
           </div>

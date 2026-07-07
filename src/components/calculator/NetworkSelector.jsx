@@ -1,11 +1,12 @@
 import { useMemo } from "react";
-import { Globe, Check, Map } from "lucide-react";
+import { Globe, Check, Map, Info } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { groupAirportsByRegion } from "@/data/enterpriseCalculator";
 import { translateRegion } from "./i18nHelpers";
 import RegionNode from "./RegionNode";
+import OwnerBreakdown from "./OwnerBreakdown";
 
-export default function NetworkSelector({ airports, selectedCodes, onToggleCodes, mode }) {
+export default function NetworkSelector({ airports, selectedCodes, onToggleCodes, mode, airportOwners, onSetAirportOwner }) {
   const { t } = useTranslation();
   const regions = useMemo(() => groupAirportsByRegion(airports), [airports]);
   const allCodes = useMemo(() => airports.map((a) => a.code), [airports]);
@@ -69,6 +70,10 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
           {t("entCalc.airports_selected", { selected: selectedCount, total: totalCount })}
         </span>
       </div>
+      <p className="text-[11px] text-slate-400 flex items-start gap-1 mb-1">
+        <Info className="w-3 h-3 mt-0.5 shrink-0" />
+        {t("entCalc.owner_hint")}
+      </p>
       {regions.map((r) => (
         <RegionNode
           key={r.region}
@@ -76,8 +81,14 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
           countries={r.countries}
           selectedCodes={selectedCodes}
           onToggleCodes={onToggleCodes}
+          airportOwners={airportOwners}
+          onSetAirportOwner={onSetAirportOwner}
         />
       ))}
+      <OwnerBreakdown
+        selectedAirports={airports.filter((a) => selectedCodes.has(a.code))}
+        airportOwners={airportOwners}
+      />
     </div>
   );
 }

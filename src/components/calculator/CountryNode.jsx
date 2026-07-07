@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fmtCompact } from "@/data/enterpriseCalculator";
+import AirportOwnerField from "./AirportOwnerField";
 
-export default function CountryNode({ country, airports, selectedCodes, onToggleCodes }) {
+export default function CountryNode({ country, airports, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner }) {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const codes = airports.map((a) => a.code);
@@ -44,17 +45,22 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
             className="overflow-hidden ml-4"
           >
             {airports.map((a) => (
-              <label key={a.code} className="flex items-center gap-2 py-1.5 pl-2 cursor-pointer hover:bg-slate-50 rounded">
-                <input
-                  type="checkbox"
-                  checked={selectedCodes.has(a.code)}
-                  onChange={() => onToggleCodes([a.code], !selectedCodes.has(a.code))}
-                  className="w-3.5 h-3.5 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
-                />
-                <span className="text-xs text-slate-600 truncate">{a.city || a.name}</span>
-                <span className="text-[10px] text-slate-400 font-mono shrink-0">{a.code}</span>
-                <span className="text-[10px] text-slate-400 ml-auto shrink-0">{fmtCompact(a.annual_pax || 0)} {t("entCalc.pax")}</span>
-              </label>
+              <div key={a.code} className="flex items-center gap-2 py-1.5 pl-2 hover:bg-slate-50 rounded">
+                <label className="flex items-center gap-2 cursor-pointer min-w-0">
+                  <input
+                    type="checkbox"
+                    checked={selectedCodes.has(a.code)}
+                    onChange={() => onToggleCodes([a.code], !selectedCodes.has(a.code))}
+                    className="w-3.5 h-3.5 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
+                  />
+                  <span className="text-xs text-slate-600 truncate">{a.city || a.name}</span>
+                  <span className="text-[10px] text-slate-400 font-mono shrink-0">{a.code}</span>
+                </label>
+                <div className="flex items-center gap-2 ml-auto shrink-0">
+                  <span className="text-[10px] text-slate-400">{fmtCompact(a.annual_pax || 0)} {t("entCalc.pax")}</span>
+                  <AirportOwnerField code={a.code} owner={airportOwners?.[a.code]} onSetOwner={onSetAirportOwner} />
+                </div>
+              </div>
             ))}
           </motion.div>
         )}
