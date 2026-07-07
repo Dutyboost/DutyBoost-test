@@ -129,6 +129,14 @@ export default function EnterpriseCalculator() {
         </span>
       </div>
 
+      {/* Benchmark context note */}
+      <div className="bg-slate-900 text-white rounded-xl px-4 py-3 flex items-start gap-2.5">
+        <Info className="w-4 h-4 text-blue-300 shrink-0 mt-0.5" />
+        <p className="text-xs leading-relaxed text-slate-200">
+          ETRC and m1nd-set benchmarks show that <span className="font-semibold text-white">15–25% of travelers shop before departure</span>. DutyBoost aims to increase conversion and basket value by at least 0.01%.
+        </p>
+      </div>
+
       {/* Step 1: Retailer selector */}
       <div>
         <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Step 1 — Airport Retailer</p>
