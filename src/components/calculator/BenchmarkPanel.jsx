@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Users, Plane, ShoppingBag, Percent, Store, TrendingUp, RotateCcw } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import ConfidenceBadge from "./ConfidenceBadge";
@@ -23,6 +24,7 @@ function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, 
 }
 
 export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable }) {
+  const { t } = useTranslation();
   const { redemptionRate, customBasket } = assumptions;
   const hasOverride = customBasket !== null;
 
@@ -31,21 +33,21 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 bg-slate-50">
         <div className="flex items-center gap-2">
           <TrendingUp className="w-4 h-4 text-primary" />
-          <h3 className="font-semibold text-slate-900 text-sm">Preloaded Benchmark Data</h3>
+          <h3 className="font-semibold text-slate-900 text-sm">{t("entCalc.benchmark_title")}</h3>
         </div>
         {editable && (
-          <span className="text-xs text-slate-500">Click values to adjust assumptions</span>
+          <span className="text-xs text-slate-500">{t("entCalc.benchmark_adjust_hint")}</span>
         )}
       </div>
       <div className="px-5 py-2">
-        <BenchmarkRow icon={Users} label="Annual Passengers" value={fmtCompact(benchmarks.annualPax)} confidence={benchmarks.confidence?.annualPax} />
-        <BenchmarkRow icon={Plane} label="International Passengers" value={fmtCompact(benchmarks.intlPax)} confidence={benchmarks.confidence?.intlPax} />
-        <BenchmarkRow icon={Users} label="Domestic Passengers" value={fmtCompact(benchmarks.domesticPax)} confidence={benchmarks.confidence?.domesticPax} />
-        <BenchmarkRow icon={ShoppingBag} label="Avg Airport Retail Spend / Pax" value={fmtEurCompact(benchmarks.avgRetailSpend)} confidence={benchmarks.confidence?.avgRetailSpend} />
-        <BenchmarkRow icon={Store} label="Estimated Stores" value={benchmarks.storeCount} confidence={benchmarks.confidence?.storeCount} />
+        <BenchmarkRow icon={Users} label={t("entCalc.bm_annual_pax")} value={fmtCompact(benchmarks.annualPax)} confidence={benchmarks.confidence?.annualPax} />
+        <BenchmarkRow icon={Plane} label={t("entCalc.bm_intl_pax")} value={fmtCompact(benchmarks.intlPax)} confidence={benchmarks.confidence?.intlPax} />
+        <BenchmarkRow icon={Users} label={t("entCalc.bm_domestic_pax")} value={fmtCompact(benchmarks.domesticPax)} confidence={benchmarks.confidence?.domesticPax} />
+        <BenchmarkRow icon={ShoppingBag} label={t("entCalc.bm_avg_spend")} value={fmtEurCompact(benchmarks.avgRetailSpend)} confidence={benchmarks.confidence?.avgRetailSpend} />
+        <BenchmarkRow icon={Store} label={t("entCalc.bm_stores")} value={benchmarks.storeCount} confidence={benchmarks.confidence?.storeCount} />
         <BenchmarkRow
           icon={ShoppingBag}
-          label="Average Basket Value"
+          label={t("entCalc.bm_avg_basket")}
           value={fmtEurCompact(benchmarks.avgBasket)}
           confidence={benchmarks.confidence?.avgBasket}
           editable={editable}
@@ -71,7 +73,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         />
         <BenchmarkRow
           icon={Percent}
-          label="Estimated Redemption Rate"
+          label={t("entCalc.bm_redemption_rate")}
           value={redemptionRate}
           suffix="%"
           confidence="estimated"
@@ -94,7 +96,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         {editable && (
           <div className="pt-3">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs text-slate-500">Redemption Rate Slider</span>
+              <span className="text-xs text-slate-500">{t("entCalc.bm_redemption_slider")}</span>
               <span className="text-xs font-semibold text-primary">{redemptionRate}%</span>
             </div>
             <Slider
@@ -109,7 +111,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         )}
         <BenchmarkRow
           icon={TrendingUp}
-          label="Est. DutyCredit Travelers"
+          label={t("entCalc.bm_dc_travelers")}
           value={fmtCompact(benchmarks.dutyCreditTravelers)}
           confidence={benchmarks.confidence?.dutyCreditTravelers}
         />

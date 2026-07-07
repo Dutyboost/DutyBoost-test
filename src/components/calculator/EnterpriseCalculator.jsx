@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Zap, SlidersHorizontal, Briefcase, Building2, Info } from "lucide-react";
 import RetailerSearchDropdown from "./RetailerSearchDropdown";
 import NetworkSelector from "./NetworkSelector";
@@ -16,19 +17,19 @@ import {
 } from "@/data/enterpriseCalculator";
 
 const MODES = [
-  { key: "quick", label: "Quick Estimate", icon: Zap, desc: "Retailer + region only" },
-  { key: "detailed", label: "Detailed Estimate", icon: SlidersHorizontal, desc: "Full control" },
-  { key: "enterprise", label: "Enterprise", icon: Briefcase, desc: "Multi-scenario + export" },
+  { key: "quick", labelKey: "entCalc.mode_quick", icon: Zap, descKey: "entCalc.mode_quick_desc" },
+  { key: "detailed", labelKey: "entCalc.mode_detailed", icon: SlidersHorizontal, descKey: "entCalc.mode_detailed_desc" },
+  { key: "enterprise", labelKey: "entCalc.mode_enterprise", icon: Briefcase, descKey: "entCalc.mode_enterprise_desc" },
 ];
 
 export default function EnterpriseCalculator() {
+  const { t } = useTranslation();
   const [mode, setMode] = useState("quick");
   const [retailerKey, setRetailerKey] = useState(null);
   const [selectedCodes, setSelectedCodes] = useState(new Set());
   const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null });
   const [scenarios, setScenarios] = useState([]);
 
-  // Load from URL params (shared links)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const rKey = params.get("retailer");
@@ -98,7 +99,6 @@ export default function EnterpriseCalculator() {
 
   return (
     <div className="space-y-6">
-      {/* Mode tabs */}
       <div className="grid grid-cols-3 gap-2 bg-slate-100 border border-slate-200 rounded-2xl p-1.5">
         {MODES.map((m) => {
           const active = mode === m.key;
@@ -112,47 +112,41 @@ export default function EnterpriseCalculator() {
               }`}
             >
               <Icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{m.label}</span>
-              <span className="sm:hidden">{m.label.split(" ")[0]}</span>
+              <span className="hidden sm:inline">{t(m.labelKey)}</span>
+              <span className="sm:hidden">{t(m.labelKey).split(" ")[0]}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Mode description */}
       <div className="flex items-center gap-2 text-xs text-slate-500 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2">
         <Info className="w-3.5 h-3.5 text-blue-500 shrink-0" />
         <span>
-          {mode === "quick" && "Quick mode: select a retailer and region — all benchmarks auto-populate. No manual input required."}
-          {mode === "detailed" && "Detailed mode: fine-tune assumptions, select specific countries and airports, adjust conversion rates."}
-          {mode === "enterprise" && "Enterprise mode: save multiple scenarios, compare side-by-side, export branded PDF, share reports, and request meetings."}
+          {mode === "quick" && t("entCalc.mode_quick_info")}
+          {mode === "detailed" && t("entCalc.mode_detailed_info")}
+          {mode === "enterprise" && t("entCalc.mode_enterprise_info")}
         </span>
       </div>
 
-      {/* Benchmark context note */}
       <div className="bg-slate-900 text-white rounded-xl px-4 py-3 flex items-start gap-2.5">
         <Info className="w-4 h-4 text-blue-300 shrink-0 mt-0.5" />
-        <p className="text-xs leading-relaxed text-slate-200">
-          ETRC and m1nd-set benchmarks show that <span className="font-semibold text-white">15–25% of travelers shop before departure</span>. DutyBoost aims to increase conversion and basket value by at least 0.01%.
-        </p>
+        <p className="text-xs leading-relaxed text-slate-200" dangerouslySetInnerHTML={{ __html: t("entCalc.etrc_note") }} />
       </div>
 
-      {/* Step 1: Retailer selector */}
       <div>
-        <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Step 1 — Airport Retailer</p>
+        <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step1")}</p>
         <RetailerSearchDropdown selected={retailer} onSelect={handleRetailerSelect} />
       </div>
 
       {!retailer ? (
         <div className="bg-white border border-dashed border-slate-300 rounded-2xl p-12 text-center">
           <Building2 className="w-10 h-10 text-slate-300 mx-auto mb-3" />
-          <p className="text-slate-400 text-sm">Select an airport retailer above to auto-load network data</p>
+          <p className="text-slate-400 text-sm">{t("entCalc.select_retailer_placeholder")}</p>
         </div>
       ) : (
         <>
-          {/* Step 2-3: Network selector */}
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Step 2 — Select Network Scope</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step2")}</p>
             <div className="bg-white border border-slate-200 rounded-2xl p-5">
               <NetworkSelector
                 airports={retailer.airports}
@@ -163,9 +157,8 @@ export default function EnterpriseCalculator() {
             </div>
           </div>
 
-          {/* Step 4: Benchmark panel */}
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Step 3 — Auto-Preloaded Benchmarks</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step3")}</p>
             <BenchmarkPanel
               benchmarks={benchmarks}
               assumptions={assumptions}
@@ -174,9 +167,8 @@ export default function EnterpriseCalculator() {
             />
           </div>
 
-          {/* Step 5: Summary cards */}
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Step 4 — Live Summary</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step4")}</p>
             <SummaryCards
               retailer={retailer}
               selectedCount={selectedAirports.length}
@@ -186,9 +178,8 @@ export default function EnterpriseCalculator() {
             />
           </div>
 
-          {/* Charts */}
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Analytics</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.analytics")}</p>
             <CalculatorCharts
               regionBreakdown={regionBreakdown}
               monthlyData={projections.monthlyData}
@@ -196,10 +187,9 @@ export default function EnterpriseCalculator() {
             />
           </div>
 
-          {/* Step 6: Enterprise actions */}
           {mode === "enterprise" && (
             <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Step 5 — Enterprise Tools</p>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step5")}</p>
               <EnterpriseActions
                 retailer={retailer}
                 benchmarks={benchmarks}

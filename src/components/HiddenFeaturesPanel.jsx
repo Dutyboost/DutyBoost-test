@@ -1,7 +1,27 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Ship, Train, Bus, Store } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Ship, Train, Bus, Store, Users } from "lucide-react";
 
 const HIDDEN_FEATURES = [
+  {
+    id: "travel-partner-calculator",
+    icon: Users,
+    title: "Travel Partner ROI Calculator (Tab Hidden)",
+    status: "hidden",
+    reason: "Not currently pursuing travel partners — tab hidden, code preserved for future re-enablement",
+    description: `The Travel Partner ROI Calculator tab was hidden from the Retailer Calculator page. The full TravelPartnerTab component, including the vertical selector (flight, accommodation, car rental), booking sliders, conversion rate controls, and combined revenue projections, is still defined in src/pages/RetailerCalculator.jsx — it is just not rendered.`,
+    pages: [
+      { label: "Retailer Calculator", path: "/roi-calculator" },
+    ],
+    howToRestore: [
+      "In src/pages/RetailerCalculator.jsx: re-add the useState for activeTab (const [activeTab, setActiveTab] = useState(\"retailer\")).",
+      "In src/pages/RetailerCalculator.jsx: re-add the tab switcher JSX (two buttons: 'Airport Retailer' and 'Travel Partner') right before the <EnterpriseCalculator /> line.",
+      "In src/pages/RetailerCalculator.jsx: replace <EnterpriseCalculator /> with the conditional: {activeTab === \"retailer\" ? <EnterpriseCalculator /> : <TravelPartnerTab t={t} />}.",
+      "In src/pages/RetailerCalculator.jsx: re-add the Store icon to the lucide-react import if it was removed.",
+    ],
+    files: [
+      "pages/RetailerCalculator.jsx",
+    ],
+  },
   {
     id: "business-travel",
     icon: Briefcase,

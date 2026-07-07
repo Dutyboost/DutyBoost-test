@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { fmtCompact } from "@/data/enterpriseCalculator";
 
 export default function CountryNode({ country, airports, selectedCodes, onToggleCodes }) {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const codes = airports.map((a) => a.code);
   const selectedCount = codes.filter((c) => selectedCodes.has(c)).length;
@@ -51,7 +53,7 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
                 />
                 <span className="text-xs text-slate-600 truncate">{a.city || a.name}</span>
                 <span className="text-[10px] text-slate-400 font-mono shrink-0">{a.code}</span>
-                <span className="text-[10px] text-slate-400 ml-auto shrink-0">{fmtCompact(a.annual_pax || 0)} pax</span>
+                <span className="text-[10px] text-slate-400 ml-auto shrink-0">{fmtCompact(a.annual_pax || 0)} {t("entCalc.pax")}</span>
               </label>
             ))}
           </motion.div>

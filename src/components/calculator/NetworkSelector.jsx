@@ -1,9 +1,12 @@
 import { useMemo } from "react";
 import { Globe, Check, Map } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { groupAirportsByRegion } from "@/data/enterpriseCalculator";
+import { translateRegion } from "./i18nHelpers";
 import RegionNode from "./RegionNode";
 
 export default function NetworkSelector({ airports, selectedCodes, onToggleCodes, mode }) {
+  const { t } = useTranslation();
   const regions = useMemo(() => groupAirportsByRegion(airports), [airports]);
   const allCodes = useMemo(() => airports.map((a) => a.code), [airports]);
   const allSelected = allCodes.length > 0 && allCodes.every((c) => selectedCodes.has(c));
@@ -21,9 +24,9 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
         >
           <div className="flex items-center gap-3">
             <Globe className={`w-5 h-5 ${allSelected ? "text-primary" : "text-slate-400"}`} />
-            <span className="font-semibold text-slate-900">Entire Global Network</span>
+            <span className="font-semibold text-slate-900">{t("entCalc.entire_network")}</span>
           </div>
-          <span className="text-sm text-slate-500">{totalCount} airports</span>
+          <span className="text-sm text-slate-500">{t("entCalc.airports_count", { count: totalCount })}</span>
         </button>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {regions.map((r) => {
@@ -39,7 +42,7 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
               >
                 <div className="flex items-center gap-2 min-w-0">
                   <Map className={`w-4 h-4 shrink-0 ${regionSelected ? "text-primary" : "text-slate-400"}`} />
-                  <span className="text-sm font-medium text-slate-700 truncate">{r.region}</span>
+                  <span className="text-sm font-medium text-slate-700 truncate">{translateRegion(t, r.region)}</span>
                 </div>
                 <span className="text-xs text-slate-400 shrink-0">{regionCodes.length}</span>
               </button>
@@ -60,10 +63,10 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
           <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${allSelected ? "border-primary bg-primary" : "border-slate-300"}`}>
             {allSelected && <Check className="w-3 h-3 text-white" />}
           </div>
-          Entire Global Network
+          {t("entCalc.entire_network")}
         </button>
         <span className="text-xs text-slate-500">
-          {selectedCount} / {totalCount} airports selected
+          {t("entCalc.airports_selected", { selected: selectedCount, total: totalCount })}
         </span>
       </div>
       {regions.map((r) => (

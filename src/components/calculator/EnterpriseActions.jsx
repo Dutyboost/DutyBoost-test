@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FileDown, Share2, CalendarPlus, Save, Trash2, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
@@ -7,6 +8,7 @@ import { fmtEurCompact } from "@/data/enterpriseCalculator";
 const CHART_COLORS = ["#1A6BFF", "#FF8000", "#10b981", "#8b5cf6", "#ef4444", "#06b6d4"];
 
 export default function EnterpriseActions({ retailer, benchmarks, projections, scenarios, onSaveScenario, onDeleteScenario }) {
+  const { t } = useTranslation();
   const [shared, setShared] = useState(false);
 
   const handleExportPDF = () => {
@@ -16,33 +18,33 @@ export default function EnterpriseActions({ retailer, benchmarks, projections, s
       doc.rect(0, 0, 210, 35, "F");
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(22);
-      doc.text("DutyBoost ROI Report", 20, 18);
+      doc.text(t("entCalc.pdf_title"), 20, 18);
       doc.setFontSize(10);
       doc.setTextColor(148, 163, 184);
-      doc.text(`Retailer: ${retailer?.name || "—"}`, 20, 26);
-      doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, 31);
+      doc.text(`${t("entCalc.pdf_retailer")}: ${retailer?.name || "—"}`, 20, 26);
+      doc.text(`${t("entCalc.pdf_generated")}: ${new Date().toLocaleDateString()}`, 20, 31);
 
       doc.setTextColor(15, 23, 42);
       doc.setFontSize(14);
-      doc.text("Executive Summary", 20, 50);
+      doc.text(t("entCalc.pdf_exec_summary"), 20, 50);
       doc.setFontSize(10);
       const lines = [
-        `Annual Passengers:      ${benchmarks.annualPax.toLocaleString()}`,
-        `Estimated Stores:       ${benchmarks.storeCount}`,
-        `DutyCredit Travelers:   ${benchmarks.dutyCreditTravelers.toLocaleString()}`,
-        `Average Basket Value:   EUR ${benchmarks.avgBasket.toFixed(2)}`,
+        `${t("entCalc.pdf_annual_pax")}:      ${benchmarks.annualPax.toLocaleString()}`,
+        `${t("entCalc.pdf_stores")}:       ${benchmarks.storeCount}`,
+        `${t("entCalc.pdf_dc_travelers")}:   ${benchmarks.dutyCreditTravelers.toLocaleString()}`,
+        `${t("entCalc.pdf_avg_basket")}:   EUR ${benchmarks.avgBasket.toFixed(2)}`,
         ``,
-        `Potential Incremental Sales:  EUR ${projections.potentialIncrementalSales.toLocaleString()}`,
-        `DutyBoost Commission:         EUR ${projections.dutyBoostCommission.toLocaleString()}`,
-        `Estimated Retailer Net Rev:   EUR ${projections.retailerNetRevenue.toLocaleString()}`,
+        `${t("entCalc.pdf_potential_sales")}:  EUR ${projections.potentialIncrementalSales.toLocaleString()}`,
+        `${t("entCalc.pdf_db_commission")}:         EUR ${projections.dutyBoostCommission.toLocaleString()}`,
+        `${t("entCalc.pdf_net_rev")}:   EUR ${projections.retailerNetRevenue.toLocaleString()}`,
       ];
       lines.forEach((line, i) => doc.text(line, 20, 60 + i * 7));
 
       doc.setFontSize(8);
       doc.setTextColor(148, 163, 184);
-      doc.text("Confidence levels: High = retailer/airport-specific | Medium = country averages | Estimated = regional/industry benchmarks", 20, 130);
-      doc.text("Projections are estimates based on industry data (ETRC, m1nd-set) and DutyBoost's 0.01% incremental uplift model.", 20, 135);
-      doc.text("© 2026 DutyBoost. All rights reserved.", 20, 145);
+      doc.text(t("entCalc.pdf_confidence_note"), 20, 130);
+      doc.text(t("entCalc.pdf_projection_note"), 20, 135);
+      doc.text(t("entCalc.pdf_copyright"), 20, 145);
       doc.save(`dutyboost-roi-${retailer?.key || "report"}.pdf`);
     });
   };
@@ -58,28 +60,26 @@ export default function EnterpriseActions({ retailer, benchmarks, projections, s
 
   return (
     <div className="space-y-4">
-      {/* Action buttons */}
       <div className="flex flex-wrap gap-3">
         <button onClick={handleExportPDF} className="inline-flex items-center gap-2 bg-slate-900 text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-slate-800 transition-colors">
-          <FileDown className="w-4 h-4" /> Export Branded PDF
+          <FileDown className="w-4 h-4" /> {t("entCalc.export_pdf")}
         </button>
         <button onClick={handleShare} className="inline-flex items-center gap-2 bg-white border border-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl hover:border-primary transition-colors">
-          <Share2 className="w-4 h-4" /> {shared ? "Link Copied!" : "Share Report"}
+          <Share2 className="w-4 h-4" /> {shared ? t("entCalc.link_copied") : t("entCalc.share_report")}
         </button>
         <button onClick={onSaveScenario} className="inline-flex items-center gap-2 bg-white border border-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl hover:border-primary transition-colors">
-          <Save className="w-4 h-4" /> Save as Scenario
+          <Save className="w-4 h-4" /> {t("entCalc.save_scenario")}
         </button>
         <Link to="/request-more-information" className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-colors">
-          <CalendarPlus className="w-4 h-4" /> Request Meeting
+          <CalendarPlus className="w-4 h-4" /> {t("entCalc.request_meeting")}
         </Link>
       </div>
 
-      {/* Scenario comparison */}
       {scenarios.length > 0 && (
         <div className="bg-white border border-slate-200 rounded-2xl p-5">
           <div className="flex items-center gap-2 mb-4">
             <BarChart3 className="w-4 h-4 text-primary" />
-            <h3 className="font-semibold text-slate-900 text-sm">Scenario Comparison</h3>
+            <h3 className="font-semibold text-slate-900 text-sm">{t("entCalc.scenario_comparison")}</h3>
           </div>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={scenarios} margin={{ left: 0, right: 10, top: 0, bottom: 0 }}>
@@ -100,7 +100,7 @@ export default function EnterpriseActions({ retailer, benchmarks, projections, s
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: CHART_COLORS[i % CHART_COLORS.length] }} />
                   <span className="font-medium text-slate-700 truncate">{s.name}</span>
-                  <span className="text-xs text-slate-400 shrink-0">{s.airportCount} airports</span>
+                  <span className="text-xs text-slate-400 shrink-0">{t("entCalc.airports_count", { count: s.airportCount })}</span>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   <span className="font-semibold text-slate-900">{fmtEurCompact(s.netRevenue)}</span>

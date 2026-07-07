@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Globe2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { translateRegion } from "./i18nHelpers";
 import CountryNode from "./CountryNode";
 
 export default function RegionNode({ region, countries, selectedCodes, onToggleCodes }) {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const allCodes = countries.flatMap((c) => c.airports.map((a) => a.code));
   const selectedCount = allCodes.filter((c) => selectedCodes.has(c)).length;
@@ -28,12 +31,12 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
             onChange={() => onToggleCodes(allCodes, !allSelected)}
             className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
           />
-          <span className="text-sm font-semibold text-slate-800">{region}</span>
+          <span className="text-sm font-semibold text-slate-800">{translateRegion(t, region)}</span>
           <span className="text-xs text-slate-400 shrink-0">
-            {countries.length} countries · {allCodes.length} airports
+            {t("entCalc.countries_count", { count: countries.length })} · {t("entCalc.airports_count_short", { count: allCodes.length })}
           </span>
         </label>
-        <span className="text-xs font-medium text-primary shrink-0">{selectedCount} selected</span>
+        <span className="text-xs font-medium text-primary shrink-0">{t("entCalc.selected_count", { count: selectedCount })}</span>
       </div>
       <AnimatePresence initial={false}>
         {expanded && (

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Store, Check, MessageCircle } from "lucide-react";
+import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Check, MessageCircle } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
@@ -396,7 +396,6 @@ function TravelPartnerTab({ t }) {
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function RetailerCalculator() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState("retailer");
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
@@ -420,33 +419,7 @@ export default function RetailerCalculator() {
           </p>
         </div>
 
-        {/* Tab switcher */}
-        <div className="flex gap-2 bg-slate-100 border border-slate-300 rounded-2xl p-1.5">
-          <button
-            onClick={() => setActiveTab("retailer")}
-            aria-pressed={activeTab === "retailer"}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "retailer"
-                ? "bg-orange-500 text-white shadow"
-                : "text-slate-700 hover:text-slate-900"
-            }`}
-          >
-            <Store className="w-4 h-4 text-orange-500" /> {t('calculator.tab_retailer')}
-          </button>
-          <button
-            onClick={() => setActiveTab("partner")}
-            aria-pressed={activeTab === "partner"}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
-              activeTab === "partner"
-                ? "bg-green-600 text-white shadow"
-                : "text-slate-700 hover:text-slate-900"
-            }`}
-          >
-            <Users className="w-4 h-4" /> {t('calculator.tab_partner')}
-          </button>
-        </div>
-
-        {activeTab === "retailer" ? <EnterpriseCalculator /> : <TravelPartnerTab t={t} />}
+        <EnterpriseCalculator />
 
       </div>
       <PageFooter />
