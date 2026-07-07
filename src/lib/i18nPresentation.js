@@ -215,6 +215,7 @@ export const presentationStrings = {
     },
     why_summary: {
       label: "Why DutyBoost",
+      summary_label: "SUMMARY",
       title: "Why Airport Retailers will quickly benefit with DutyBoost",
       closing: "You pay nothing until you've been paid.",
       groups: [
@@ -494,6 +495,7 @@ export const presentationStrings = {
     },
     why_summary: {
       label: "Waarom DutyBoost",
+      summary_label: "SAMENVATTING",
       title: "Waarom Luchthaven Retailers snel zullen profiteren met DutyBoost",
       closing: "U betaalt niets totdat u betaald heeft gekregen.",
       groups: [
@@ -773,6 +775,7 @@ export const presentationStrings = {
     },
     why_summary: {
       label: "Por qué DutyBoost",
+      summary_label: "RESUMEN",
       title: "Por qué los Retailers Aeroportuarios se beneficiarán rápidamente con DutyBoost",
       closing: "No pagas nada hasta que cobras.",
       groups: [
