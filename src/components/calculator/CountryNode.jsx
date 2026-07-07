@@ -1,0 +1,62 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, MapPin } from "lucide-react";
+import { fmtCompact } from "@/data/enterpriseCalculator";
+
+export default function CountryNode({ country, airports, selectedCodes, onToggleCodes }) {
+  const [expanded, setExpanded] = useState(false);
+  const codes = airports.map((a) => a.code);
+  const selectedCount = codes.filter((c) => selectedCodes.has(c)).length;
+  const allSelected = selectedCount === codes.length;
+  const someSelected = selectedCount > 0 && !allSelected;
+
+  return (
+    <div className="ml-4 border-l border-slate-200">
+      <div className="flex items-center gap-2 py-1.5 pl-2">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 shrink-0"
+        >
+          <ChevronRight className={`w-3.5 h-3.5 transition-transform ${expanded ? "rotate-90" : ""}`} />
+          <MapPin className="w-3.5 h-3.5 text-slate-400" />
+        </button>
+        <label className="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
+          <input
+            type="checkbox"
+            checked={allSelected}
+            ref={(el) => { if (el) el.indeterminate = someSelected; }}
+            onChange={() => onToggleCodes(codes, !allSelected)}
+            className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
+          />
+          <span className="text-sm font-medium text-slate-700 truncate">{country}</span>
+          <span className="text-xs text-slate-400 shrink-0">({airports.length})</span>
+        </label>
+      </div>
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden ml-4"
+          >
+            {airports.map((a) => (
+              <label key={a.code} className="flex items-center gap-2 py-1.5 pl-2 cursor-pointer hover:bg-slate-50 rounded">
+                <input
+                  type="checkbox"
+                  checked={selectedCodes.has(a.code)}
+                  onChange={() => onToggleCodes([a.code], !selectedCodes.has(a.code))}
+                  className="w-3.5 h-3.5 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
+                />
+                <span className="text-xs text-slate-600 truncate">{a.city || a.name}</span>
+                <span className="text-[10px] text-slate-400 font-mono shrink-0">{a.code}</span>
+                <span className="text-[10px] text-slate-400 ml-auto shrink-0">{fmtCompact(a.annual_pax || 0)} pax</span>
+              </label>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
