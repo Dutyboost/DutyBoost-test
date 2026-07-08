@@ -36,7 +36,10 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
           type="checkbox"
           checked={allSelected}
           ref={(el) => { if (el) el.indeterminate = someSelected; }}
-          onChange={() => onToggleCodes(allCodes, !allSelected)}
+          onChange={() => {
+            onToggleCodes(allCodes, !allSelected);
+            if (!allSelected) setExpanded(true);
+          }}
           className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
         />
         <button
