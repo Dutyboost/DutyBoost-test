@@ -17,14 +17,14 @@ import {
 } from "@/data/enterpriseCalculator";
 
 const MODES = [
-  { key: "quick", labelKey: "entCalc.mode_quick", icon: Zap, descKey: "entCalc.mode_quick_desc" },
   { key: "detailed", labelKey: "entCalc.mode_detailed", icon: SlidersHorizontal, descKey: "entCalc.mode_detailed_desc" },
   { key: "enterprise", labelKey: "entCalc.mode_enterprise", icon: Briefcase, descKey: "entCalc.mode_enterprise_desc" },
+  { key: "quick", labelKey: "entCalc.mode_quick", icon: Zap, descKey: "entCalc.mode_quick_desc" },
 ];
 
 export default function EnterpriseCalculator() {
   const { t } = useTranslation();
-  const [mode, setMode] = useState("quick");
+  const [mode, setMode] = useState("detailed");
   const [retailerKey, setRetailerKey] = useState(null);
   const [selectedCodes, setSelectedCodes] = useState(new Set());
   const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null });
@@ -39,7 +39,7 @@ export default function EnterpriseCalculator() {
       if (r) {
         setRetailerKey(r.key);
         setSelectedCodes(new Set());
-        setMode("enterprise");
+        setMode("detailed");
       }
     }
   }, []);
