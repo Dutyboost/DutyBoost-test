@@ -6,7 +6,7 @@ import { translateRegion } from "./i18nHelpers";
 import RegionNode from "./RegionNode";
 import OwnerBreakdown from "./OwnerBreakdown";
 
-export default function NetworkSelector({ airports, selectedCodes, onToggleCodes, mode, airportOwners, onSetAirportOwner }) {
+export default function NetworkSelector({ airports, selectedCodes, onToggleCodes, onSelectOnly, mode, airportOwners, onSetAirportOwner }) {
   const { t } = useTranslation();
   const regions = useMemo(() => groupAirportsByRegion(airports), [airports]);
   const allCodes = useMemo(() => airports.map((a) => a.code), [airports]);
@@ -81,6 +81,7 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
           countries={r.countries}
           selectedCodes={selectedCodes}
           onToggleCodes={onToggleCodes}
+          onSelectOnly={onSelectOnly}
           airportOwners={airportOwners}
           onSetAirportOwner={onSetAirportOwner}
         />

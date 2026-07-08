@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { translateRegion, translateCountry } from "./i18nHelpers";
 import CountryNode from "./CountryNode";
 
-export default function RegionNode({ region, countries, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner }) {
+export default function RegionNode({ region, countries, selectedCodes, onToggleCodes, onSelectOnly, airportOwners, onSetAirportOwner }) {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const allCodes = countries.flatMap((c) => c.airports.map((a) => a.code));
@@ -91,6 +91,8 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
                     airports={c.airports}
                     selectedCodes={selectedCodes}
                     onToggleCodes={onToggleCodes}
+                    onSelectOnly={onSelectOnly}
+                    searchActive={hasSearch}
                     airportOwners={airportOwners}
                     onSetAirportOwner={onSetAirportOwner}
                     forceExpanded

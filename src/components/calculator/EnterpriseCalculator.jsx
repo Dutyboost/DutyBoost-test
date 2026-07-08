@@ -66,6 +66,11 @@ export default function EnterpriseCalculator() {
     if (select && codes.length === 1) setFocusedAirportCode(codes[0]);
   };
 
+  const handleSelectOnly = (codes) => {
+    setSelectedCodes(new Set(codes));
+    if (codes.length === 1) setFocusedAirportCode(codes[0]);
+  };
+
   const handleAssumptionChange = (key, value) => {
     setAssumptions((prev) => ({ ...prev, [key]: value }));
   };
@@ -175,6 +180,7 @@ export default function EnterpriseCalculator() {
                 airports={retailer.airports}
                 selectedCodes={selectedCodes}
                 onToggleCodes={handleToggleCodes}
+                onSelectOnly={handleSelectOnly}
                 mode={mode}
                 airportOwners={airportOwners}
                 onSetAirportOwner={handleSetAirportOwner}

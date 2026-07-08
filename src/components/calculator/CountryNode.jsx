@@ -6,7 +6,7 @@ import { fmtCompact } from "@/data/enterpriseCalculator";
 import AirportOwnerField from "./AirportOwnerField";
 import { translateCountry } from "./i18nHelpers";
 
-export default function CountryNode({ country, airports, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner, forceExpanded }) {
+export default function CountryNode({ country, airports, selectedCodes, onToggleCodes, onSelectOnly, searchActive, airportOwners, onSetAirportOwner, forceExpanded }) {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const isExpanded = forceExpanded || expanded;
@@ -15,6 +15,33 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
   const allSelected = selectedCount === codes.length;
   const someSelected = selectedCount > 0 && !allSelected;
 
+  const isSoleSelection = (cs) => cs.length > 0 && cs.length === selectedCodes.size && cs.every((c) => selectedCodes.has(c));
+
+  const handleCountryToggle = () => {
+    if (searchActive) {
+      if (allSelected && isSoleSelection(codes)) {
+        onToggleCodes(codes, false);
+      } else {
+        onSelectOnly(codes);
+      }
+    } else {
+      onToggleCodes(codes, !allSelected);
+    }
+  };
+
+  const handleAirportToggle = (code) => {
+    const isSelected = selectedCodes.has(code);
+    if (searchActive) {
+      if (isSelected && isSoleSelection([code])) {
+        onToggleCodes([code], false);
+      } else {
+        onSelectOnly([code]);
+      }
+    } else {
+      onToggleCodes([code], !isSelected);
+    }
+  };
+
   return (
     <div className="ml-4 border-l border-slate-200">
       <div className="flex items-center gap-2 py-2 pl-2">
@@ -22,7 +49,7 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
           type="checkbox"
           checked={allSelected}
           ref={(el) => { if (el) el.indeterminate = someSelected; }}
-          onChange={() => onToggleCodes(codes, !allSelected)}
+          onChange={handleCountryToggle}
           className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
         />
         <button
@@ -51,7 +78,7 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
                   <input
                     type="checkbox"
                     checked={selectedCodes.has(a.code)}
-                    onChange={() => onToggleCodes([a.code], !selectedCodes.has(a.code))}
+                    onChange={() => handleAirportToggle(a.code)}
                     className="w-3.5 h-3.5 rounded border-slate-300 text-primary focus:ring-primary shrink-0"
                   />
                   <span className="text-xs text-slate-600 truncate">{a.city || a.name}</span>
