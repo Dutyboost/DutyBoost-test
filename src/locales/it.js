@@ -800,6 +800,7 @@ export default {
       step2: 'Passo 2 — Seleziona ambito di rete',
       step3: 'Passo 3 — Benchmark automatici',
       dutycredit_psychology_note: 'Un DutyCredit si attiva su carrelli superiori a 35 € — quindi ogni viaggiatore DutyCredit arriva con un impegno di spesa psicologico minimo di 35 €, già pronto ad acquistare.',
+      bm_adjust_note: 'Modifica il valore medio del carrello e il tasso di riscatto qui sotto per vedere i tuoi numeri aggiornarsi all\'istante.',
       step4: 'Passo 4 — Riepilogo in tempo reale',
       step5: 'Passo 5 — Strumenti Enterprise',
       analytics: 'Analitica',

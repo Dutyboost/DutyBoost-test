@@ -1055,6 +1055,7 @@ export default {
       step2: 'Step 2 — Select Network Scope',
       step3: 'Step 3 — Auto-Preloaded Benchmarks',
       dutycredit_psychology_note: 'A DutyCredit activates on baskets above €35 — so every DutyCredit traveler arrives with a minimum psychological spend commitment of €35, already primed and ready to buy.',
+      bm_adjust_note: 'Adjust the average basket value and redemption rate below to see your numbers update instantly.',
       step4: 'Step 4 — Live Summary',
       step5: 'Step 5 — Enterprise Tools',
       analytics: 'Analytics',
