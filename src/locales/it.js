@@ -893,7 +893,7 @@ export default {
       owner_email_ph: 'Email',
       owner_save: 'Salva',
       owner_cancel: 'Annulla',
-      owner_hint: 'Ogni aeroporto può avere il proprio responsabile vendite o commerciale — assegnane uno per aeroporto per report dettagliati.',
+      owner_hint: 'Per una granularità maggiore, clicca su una regione per cercare a livello di paese, città o aeroporto e vedere i tuoi ricavi incrementali potenziali.',
       owner_breakdown_title: 'Per responsabile',
       owner_breakdown_empty: 'Nessun responsabile assegnato. Espandi un paese per assegnare un responsabile commerciale a ogni aeroporto.',
       owner_unassigned_group: 'Non assegnato',

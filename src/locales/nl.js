@@ -901,7 +901,7 @@ export default {
       owner_email_ph: 'E-mail',
       owner_save: 'Opslaan',
       owner_cancel: 'Annuleren',
-      owner_hint: 'Elke luchthaven kan een eigen sales- of commercial lead hebben — wijs er één per luchthaven toe voor gedetailleerde rapportage.',
+      owner_hint: 'Klik voor meer detail op een regio om te zoeken op land-, stad- of luchthavenniveau en uw potentiële incrementele omzet te zien.',
       owner_breakdown_title: 'Per verantwoordelijke',
       owner_breakdown_empty: 'Nog geen leidinggevenden toegewezen. Vouw een land uit om per luchthaven een commercial lead toe te wijzen.',
       owner_unassigned_group: 'Niet toegewezen',

@@ -888,7 +888,7 @@ export default {
       owner_email_ph: 'E-Mail',
       owner_save: 'Speichern',
       owner_cancel: 'Abbrechen',
-      owner_hint: 'Jeder Flughafen kann einen eigenen Sales- oder Commercial-Verantwortlichen haben — weisen Sie pro Flughafen einen zu für granulare Berichte.',
+      owner_hint: 'Klicken Sie für eine detailliertere Granularität auf eine Region, um auf Länder-, Stadt- oder Flughafenebene zu suchen und Ihren potenziellen inkrementellen Umsatz zu sehen.',
       owner_breakdown_title: 'Nach Verantwortlichem',
       owner_breakdown_empty: 'Noch keine Verantwortlichen zugewiesen. Klappen Sie ein Land auf, um jedem Flughafen einen Commercial Lead zuzuweisen.',
       owner_unassigned_group: 'Nicht zugewiesen',

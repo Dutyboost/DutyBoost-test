@@ -1148,7 +1148,7 @@ export default {
       owner_email_ph: 'Email',
       owner_save: 'Save',
       owner_cancel: 'Cancel',
-      owner_hint: 'Each airport can have its own sales or commercial lead — assign one per airport for granular reporting.',
+      owner_hint: 'For deeper granularity click on a region to search on country, city or airport level to see your potential incremental revenue.',
       owner_breakdown_title: 'By Responsible Person',
       owner_breakdown_empty: 'No leads assigned yet. Expand a country to assign a commercial lead to each airport.',
       owner_unassigned_group: 'Unassigned',

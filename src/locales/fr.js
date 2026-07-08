@@ -888,7 +888,7 @@ export default {
       owner_email_ph: 'E-mail',
       owner_save: 'Enregistrer',
       owner_cancel: 'Annuler',
-      owner_hint: 'Chaque aéroport peut avoir son propre responsable des ventes ou commercial — assignez-en un par aéroport pour des rapports détaillés.',
+      owner_hint: "Pour une granularité plus fine, cliquez sur une région pour rechercher au niveau du pays, de la ville ou de l'aéroport afin de voir votre chiffre d'affaires incrémental potentiel.",
       owner_breakdown_title: 'Par responsable',
       owner_breakdown_empty: 'Aucun responsable assigné pour le moment. Déroulez un pays pour assigner un responsable commercial à chaque aéroport.',
       owner_unassigned_group: 'Non assigné',
