@@ -70,8 +70,8 @@ export default function NetworkSelector({ airports, selectedCodes, onToggleCodes
           {t("entCalc.airports_selected", { selected: selectedCount, total: totalCount })}
         </span>
       </div>
-      <p className="text-[11px] text-slate-400 flex items-start gap-1 mb-1">
-        <Info className="w-3 h-3 mt-0.5 shrink-0" />
+      <p className="text-sm text-slate-900 font-medium flex items-start gap-1.5 mb-1">
+        <Info className="w-4 h-4 mt-0.5 shrink-0 text-slate-700" />
         {t("entCalc.owner_hint")}
       </p>
       {regions.map((r) => (
