@@ -31,6 +31,7 @@ export default function EnterpriseCalculator() {
   const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null });
   const [scenarios, setScenarios] = useState([]);
   const [airportOwners, setAirportOwners] = useState({});
+  const [focusedAirportCode, setFocusedAirportCode] = useState(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -52,6 +53,7 @@ export default function EnterpriseCalculator() {
     setSelectedCodes(new Set());
     setScenarios([]);
     setAirportOwners({});
+    setFocusedAirportCode(null);
   };
 
   const handleToggleCodes = (codes, select) => {
@@ -74,6 +76,7 @@ export default function EnterpriseCalculator() {
       else delete next[code];
       return next;
     });
+    if (owner) setFocusedAirportCode(code);
   };
 
   const selectedAirports = useMemo(() => {
@@ -82,7 +85,18 @@ export default function EnterpriseCalculator() {
   }, [retailer, selectedCodes]);
 
   const benchmarks = useMemo(() => computeSelectionBenchmarks(selectedAirports, retailer?.demoRetailers), [selectedAirports, retailer]);
-  const projections = useMemo(() => computeProjections(benchmarks, assumptions), [benchmarks, assumptions]);
+  const focusedAirport = useMemo(
+    () => (focusedAirportCode ? selectedAirports.find((a) => a.code === focusedAirportCode) || null : null),
+    [focusedAirportCode, selectedAirports]
+  );
+  const focusedBasket = useMemo(
+    () => (focusedAirport ? computeSelectionBenchmarks([focusedAirport], retailer?.demoRetailers).avgBasket : null),
+    [focusedAirport, retailer]
+  );
+  const projections = useMemo(
+    () => computeProjections(benchmarks, { ...assumptions, customBasket: assumptions.customBasket ?? focusedBasket }),
+    [benchmarks, assumptions, focusedBasket]
+  );
   const regionBreakdown = useMemo(() => computeRegionBreakdown(selectedAirports, assumptions, retailer?.demoRetailers), [selectedAirports, assumptions, retailer]);
   const topAirports = useMemo(() => computeTopAirports(selectedAirports), [selectedAirports]);
   const countryCount = useMemo(() => getSelectedCountries(selectedAirports), [selectedAirports]);
@@ -174,6 +188,8 @@ export default function EnterpriseCalculator() {
               assumptions={assumptions}
               onAssumptionChange={handleAssumptionChange}
               editable={mode !== "quick"}
+              focusedAirport={focusedAirport}
+              focusedBasket={focusedBasket}
             />
           </div>
 

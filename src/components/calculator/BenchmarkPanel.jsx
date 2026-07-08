@@ -37,10 +37,14 @@ function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, 
   );
 }
 
-export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable }) {
+export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable, focusedAirport, focusedBasket }) {
   const { t } = useTranslation();
   const { redemptionRate, customBasket } = assumptions;
   const hasOverride = customBasket !== null;
+  const displayBasket = focusedBasket || benchmarks.avgBasket;
+  const avgBasketLabel = focusedAirport
+    ? `${t("entCalc.bm_avg_basket")} · ${focusedAirport.city || focusedAirport.name} (${focusedAirport.code})`
+    : t("entCalc.bm_avg_basket");
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
@@ -74,9 +78,9 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         )}
         <BenchmarkRow
           icon={ShoppingBag}
-          label={t("entCalc.bm_avg_basket")}
-          value={fmtEurCompact(benchmarks.avgBasket)}
-          confidence={benchmarks.confidence?.avgBasket}
+          label={avgBasketLabel}
+          value={fmtEurCompact(displayBasket)}
+          confidence={focusedAirport ? "high" : benchmarks.confidence?.avgBasket}
           accent="blue"
           editable={editable}
           editControl={editable ? (
@@ -84,7 +88,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
               <input
                 type="number"
                 value={hasOverride ? customBasket : ""}
-                placeholder={Math.round(benchmarks.avgBasket)}
+                placeholder={Math.round(displayBasket)}
                 onChange={(e) => onAssumptionChange("customBasket", e.target.value === "" ? null : parseFloat(e.target.value))}
                 className="w-20 px-2 py-1 text-sm text-right border border-blue-200 rounded-lg outline-none focus:border-blue-500 bg-white"
                 min="35"
