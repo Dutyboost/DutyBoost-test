@@ -808,7 +808,7 @@ export default {
       step2: 'Stap 2 — Selecteer Netwerkbereik',
       step3: 'Stap 3 — Automatische Benchmarks',
       dutycredit_psychology_note: 'Een DutyCredit wordt geactiveerd bij een mandje boven €35 — dus elke DutyCredit-reiziger komt met een minimale psychologische bestedingsintentie van €35, al klaar om te kopen.',
-      bm_adjust_note: 'Pas hieronder de gemiddelde mandwaarde en het inwisselpercentage aan om uw cijfers direct te zien veranderen.',
+      bm_adjust_note: 'Pas, indien nodig, hieronder de gemiddelde mandwaarde en het inwisselpercentage aan om uw cijfers direct te zien veranderen.',
       step4: 'Stap 4 — Live Overzicht',
       step5: 'Stap 5 — Enterprise Tools',
       analytics: 'Analytics',
