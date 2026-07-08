@@ -820,6 +820,8 @@ export default {
       bm_avg_spend: 'Spesa media retail / Pax',
       bm_stores: 'Negozi stimati',
       bm_avg_basket: 'Valore medio scontrino',
+      bm_your_airports: 'I tuoi aeroporti — valori scontrino',
+      bm_per_airport_hint: 'Valori trovati per gli aeroporti che gestisci. Modifica se necessario.',
       bm_redemption_rate: 'Tasso di rimborso stimato',
       bm_redemption_slider: 'Cursore tasso di rimborso',
       bm_dc_travelers: 'Viaggiatori DutyCredit stimati',

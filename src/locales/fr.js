@@ -815,6 +815,8 @@ export default {
       bm_avg_spend: 'Dépense retail moyenne / Pax',
       bm_stores: 'Boutiques estimées',
       bm_avg_basket: 'Valeur moyenne du panier',
+      bm_your_airports: 'Vos aéroports — valeurs du panier',
+      bm_per_airport_hint: 'Valeurs trouvées pour les aéroports que vous gérez. Ajustez si nécessaire.',
       bm_redemption_rate: 'Taux d\'échange estimé',
       bm_redemption_slider: 'Curseur du taux d\'échange',
       bm_dc_travelers: 'Voyageurs DutyCredit estimés',
