@@ -4,17 +4,31 @@ import { Slider } from "@/components/ui/slider";
 import ConfidenceBadge from "./ConfidenceBadge";
 import { fmtCompact, fmtEurCompact } from "@/data/enterpriseCalculator";
 
-function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, onEdit, editControl }) {
+const ACCENTS = {
+  blue: { chip: "bg-blue-100 text-blue-600", row: "bg-blue-50/60", bar: "border-l-blue-400", value: "text-blue-700" },
+  violet: { chip: "bg-violet-100 text-violet-600", row: "bg-violet-50/60", bar: "border-l-violet-400", value: "text-violet-700" },
+  amber: { chip: "bg-amber-100 text-amber-600", row: "bg-amber-50/60", bar: "border-l-amber-400", value: "text-amber-700" },
+  emerald: { chip: "bg-emerald-100 text-emerald-600", row: "bg-emerald-50/60", bar: "border-l-emerald-400", value: "text-emerald-700" },
+};
+
+function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, onEdit, editControl, accent }) {
+  const a = accent ? ACCENTS[accent] : null;
   return (
-    <div className="flex items-center justify-between gap-3 py-2.5 border-b border-slate-100 last:border-0">
+    <div className={`flex items-center justify-between gap-3 py-2.5 px-3 -mx-3 rounded-lg border-l-2 ${a ? `${a.row} ${a.bar}` : "border-l-transparent"}`}>
       <div className="flex items-center gap-2 min-w-0">
-        <Icon className="w-4 h-4 text-slate-400 shrink-0" />
-        <span className="text-sm text-slate-600 truncate">{label}</span>
+        {a ? (
+          <span className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${a.chip}`}>
+            <Icon className="w-4 h-4" />
+          </span>
+        ) : (
+          <Icon className="w-4 h-4 text-slate-400 shrink-0" />
+        )}
+        <span className="text-sm text-slate-700 truncate">{label}</span>
         <ConfidenceBadge level={confidence} size="xs" showLabel={false} />
       </div>
       <div className="flex items-center gap-2 shrink-0">
         {editControl || (
-          <span className="text-sm font-semibold text-slate-900">
+          <span className={`text-sm font-semibold ${a ? a.value : "text-slate-900"}`}>
             {value}{suffix && <span className="text-xs text-slate-400 ml-0.5">{suffix}</span>}
           </span>
         )}
@@ -58,6 +72,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
           label={t("entCalc.bm_avg_basket")}
           value={fmtEurCompact(benchmarks.avgBasket)}
           confidence={benchmarks.confidence?.avgBasket}
+          accent="blue"
           editable={editable}
           editControl={editable ? (
             <div className="flex items-center gap-2 w-40">
@@ -66,7 +81,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
                 value={hasOverride ? customBasket : ""}
                 placeholder={Math.round(benchmarks.avgBasket)}
                 onChange={(e) => onAssumptionChange("customBasket", e.target.value === "" ? null : parseFloat(e.target.value))}
-                className="w-20 px-2 py-1 text-sm text-right border border-slate-200 rounded-lg outline-none focus:border-primary"
+                className="w-20 px-2 py-1 text-sm text-right border border-blue-200 rounded-lg outline-none focus:border-blue-500 bg-white"
                 min="35"
                 max="1000"
               />
@@ -85,6 +100,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
           value={redemptionRate}
           suffix="%"
           confidence="estimated"
+          accent="violet"
           editable={editable}
           editControl={editable ? (
             <div className="flex items-center gap-2 w-40">
@@ -92,7 +108,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
                 type="number"
                 value={redemptionRate}
                 onChange={(e) => onAssumptionChange("redemptionRate", parseFloat(e.target.value) || 0.01)}
-                className="w-16 px-2 py-1 text-sm text-right border border-slate-200 rounded-lg outline-none focus:border-primary"
+                className="w-16 px-2 py-1 text-sm text-right border border-violet-200 rounded-lg outline-none focus:border-violet-500 bg-white"
                 min="0.01"
                 max="75"
                 step="0.01"
@@ -102,10 +118,10 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
           ) : undefined}
         />
         {editable && (
-          <div className="pt-3">
+          <div className="pt-3 px-3 -mx-3 py-3 rounded-lg bg-amber-50/60 border-l-2 border-l-amber-400">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs text-slate-500">{t("entCalc.bm_redemption_slider")}</span>
-              <span className="text-xs font-semibold text-primary">{redemptionRate}%</span>
+              <span className="text-xs text-slate-600">{t("entCalc.bm_redemption_slider")}</span>
+              <span className="text-xs font-semibold text-amber-700">{redemptionRate}%</span>
             </div>
             <Slider
               min={0.01}
@@ -122,6 +138,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
           label={t("entCalc.bm_dc_travelers")}
           value={fmtCompact(benchmarks.dutyCreditTravelers)}
           confidence={benchmarks.confidence?.dutyCreditTravelers}
+          accent="emerald"
         />
       </div>
     </div>
