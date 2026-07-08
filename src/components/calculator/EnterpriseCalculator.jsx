@@ -63,6 +63,7 @@ export default function EnterpriseCalculator() {
       else codes.forEach((c) => next.delete(c));
       return next;
     });
+    if (select && codes.length === 1) setFocusedAirportCode(codes[0]);
   };
 
   const handleAssumptionChange = (key, value) => {
