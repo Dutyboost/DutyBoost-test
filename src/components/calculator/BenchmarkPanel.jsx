@@ -68,7 +68,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         <BenchmarkRow icon={ShoppingBag} label={t("entCalc.bm_avg_spend")} value={fmtEurCompact(benchmarks.avgRetailSpend)} confidence={benchmarks.confidence?.avgRetailSpend} />
         <BenchmarkRow icon={Store} label={t("entCalc.bm_stores")} value={benchmarks.storeCount} confidence={benchmarks.confidence?.storeCount} />
         {editable && (
-          <p className="text-xs text-slate-500 italic px-3 py-1.5 my-1 bg-slate-50 rounded-lg border border-slate-100">
+          <p className="text-sm text-slate-900 font-medium px-3 py-1.5 my-1 bg-slate-50 rounded-lg border border-slate-100">
             {t("entCalc.bm_adjust_note")}
           </p>
         )}
