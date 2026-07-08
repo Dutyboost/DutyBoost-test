@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Globe2, Search, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { translateRegion } from "./i18nHelpers";
+import { translateRegion, translateCountry } from "./i18nHelpers";
 import CountryNode from "./CountryNode";
 
 export default function RegionNode({ region, countries, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner }) {
@@ -20,6 +20,7 @@ export default function RegionNode({ region, countries, selectedCodes, onToggleC
     const q = search.trim().toLowerCase();
     return countries.filter((c) =>
       c.country.toLowerCase().includes(q) ||
+      translateCountry(c.country).toLowerCase().includes(q) ||
       c.airports.some((a) =>
         (a.city || "").toLowerCase().includes(q) ||
         (a.name || "").toLowerCase().includes(q) ||

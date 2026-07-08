@@ -4,6 +4,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fmtCompact } from "@/data/enterpriseCalculator";
 import AirportOwnerField from "./AirportOwnerField";
+import { translateCountry } from "./i18nHelpers";
 
 export default function CountryNode({ country, airports, selectedCodes, onToggleCodes, airportOwners, onSetAirportOwner, forceExpanded }) {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ export default function CountryNode({ country, airports, selectedCodes, onToggle
         >
           <ChevronRight className={`w-4 h-4 transition-transform shrink-0 ${isExpanded ? "rotate-90" : ""}`} />
           <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-          <span className="truncate">{country}</span>
+          <span className="truncate">{translateCountry(country)}</span>
           <span className="text-xs text-slate-400 shrink-0">({airports.length})</span>
           {selectedCount > 0 && <span className="text-xs text-primary shrink-0 ml-auto">{selectedCount}/{codes.length}</span>}
         </button>
