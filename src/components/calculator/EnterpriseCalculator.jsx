@@ -15,8 +15,6 @@ import {
   computeRegionBreakdown,
   computeTopAirports,
   getSelectedCountries,
-  computePerAirportBaskets,
-  computeEffectiveBasket,
 } from "@/data/enterpriseCalculator";
 
 const MODES = [
@@ -30,7 +28,7 @@ export default function EnterpriseCalculator() {
   const [mode, setMode] = useState("detailed");
   const [retailerKey, setRetailerKey] = useState(null);
   const [selectedCodes, setSelectedCodes] = useState(new Set());
-  const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null, customBasketPerAirport: {} });
+  const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null });
   const [scenarios, setScenarios] = useState([]);
   const [airportOwners, setAirportOwners] = useState({});
 
@@ -54,7 +52,6 @@ export default function EnterpriseCalculator() {
     setSelectedCodes(new Set());
     setScenarios([]);
     setAirportOwners({});
-    setAssumptions((prev) => ({ ...prev, customBasket: null, customBasketPerAirport: {} }));
   };
 
   const handleToggleCodes = (codes, select) => {
@@ -68,15 +65,6 @@ export default function EnterpriseCalculator() {
 
   const handleAssumptionChange = (key, value) => {
     setAssumptions((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const handleSetAirportBasket = (code, value) => {
-    setAssumptions((prev) => {
-      const next = { ...prev.customBasketPerAirport };
-      if (value == null) delete next[code];
-      else next[code] = value;
-      return { ...prev, customBasketPerAirport: next };
-    });
   };
 
   const handleSetAirportOwner = (code, owner) => {
@@ -94,16 +82,7 @@ export default function EnterpriseCalculator() {
   }, [retailer, selectedCodes]);
 
   const benchmarks = useMemo(() => computeSelectionBenchmarks(selectedAirports, retailer?.demoRetailers), [selectedAirports, retailer]);
-  const airportBaskets = useMemo(() => computePerAirportBaskets(selectedAirports, retailer?.demoRetailers), [selectedAirports, retailer]);
-  const effectiveBasket = useMemo(
-    () => computeEffectiveBasket(selectedAirports, airportBaskets, assumptions.customBasketPerAirport, assumptions.customBasket, benchmarks.avgBasket),
-    [selectedAirports, airportBaskets, assumptions, benchmarks]
-  );
-  const ownedAirportBaskets = useMemo(
-    () => selectedAirports.filter((a) => airportOwners[a.code]).map((a) => ({ code: a.code, name: a.name, city: a.city, basket: airportBaskets[a.code]?.basket || 0, confidence: airportBaskets[a.code]?.confidence })),
-    [selectedAirports, airportOwners, airportBaskets]
-  );
-  const projections = useMemo(() => computeProjections(benchmarks, { ...assumptions, customBasket: effectiveBasket }), [benchmarks, assumptions, effectiveBasket]);
+  const projections = useMemo(() => computeProjections(benchmarks, assumptions), [benchmarks, assumptions]);
   const regionBreakdown = useMemo(() => computeRegionBreakdown(selectedAirports, assumptions, retailer?.demoRetailers), [selectedAirports, assumptions, retailer]);
   const topAirports = useMemo(() => computeTopAirports(selectedAirports), [selectedAirports]);
   const countryCount = useMemo(() => getSelectedCountries(selectedAirports), [selectedAirports]);
@@ -195,9 +174,6 @@ export default function EnterpriseCalculator() {
               assumptions={assumptions}
               onAssumptionChange={handleAssumptionChange}
               editable={mode !== "quick"}
-              ownedAirportBaskets={ownedAirportBaskets}
-              customBasketPerAirport={assumptions.customBasketPerAirport}
-              onSetAirportBasket={handleSetAirportBasket}
             />
           </div>
 

@@ -828,8 +828,6 @@ export default {
       bm_avg_spend: 'Gem. Luchthaven Retail Besteding / Pax',
       bm_stores: 'Geschatte Winkels',
       bm_avg_basket: 'Gemiddelde Mandwaarde',
-      bm_your_airports: 'Jouw luchthavens — mandwaarden',
-      bm_per_airport_hint: 'Gevonden waarden voor luchthavens die u beheert. Pas indien nodig aan.',
       bm_redemption_rate: 'Geschatte Inlossingsratio',
       bm_redemption_slider: 'Inlossingsratio Schuifregelaar',
       bm_dc_travelers: 'Geschatte DutyCredit Reizigers',

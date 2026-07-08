@@ -815,8 +815,6 @@ export default {
       bm_avg_spend: 'Ø Flughafen-Einzelhandelsumsatz / Pax',
       bm_stores: 'Geschätzte Geschäfte',
       bm_avg_basket: 'Durchschnittlicher Kassenwert',
-      bm_your_airports: 'Ihre Flughäfen — Kassenwerte',
-      bm_per_airport_hint: 'Gefundene Werte für von Ihnen verwaltete Flughäfen. Bei Bedarf anpassen.',
       bm_redemption_rate: 'Geschätzte Einlöserate',
       bm_redemption_slider: 'Einlöserate-Schieberegler',
       bm_dc_travelers: 'Geschätzte DutyCredit-Reisende',

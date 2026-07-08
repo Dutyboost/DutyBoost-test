@@ -1046,8 +1046,6 @@ export default {
       bm_avg_spend: 'Gasto Medio Retail por Pax',
       bm_stores: 'Tiendas Estimadas',
       bm_avg_basket: 'Valor Medio de Compra',
-      bm_your_airports: 'Tus aeropuertos — valores de compra',
-      bm_per_airport_hint: 'Valores encontrados para los aeropuertos que gestionas. Ajusta si es necesario.',
       bm_redemption_rate: 'Tasa de Canje Estimada',
       bm_redemption_slider: 'Deslizador de Tasa de Canje',
       bm_dc_travelers: 'Viajeros DutyCredit Estimados',

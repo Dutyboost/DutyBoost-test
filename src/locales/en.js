@@ -1075,8 +1075,6 @@ export default {
       bm_avg_spend: 'Avg Airport Retail Spend / Pax',
       bm_stores: 'Estimated Stores',
       bm_avg_basket: 'Average Basket Value',
-      bm_your_airports: 'Your airports — basket values',
-      bm_per_airport_hint: 'Values found for airports you manage. Adjust if needed.',
       bm_redemption_rate: 'Estimated Redemption Rate',
       bm_redemption_slider: 'Redemption Rate Slider',
       bm_dc_travelers: 'Est. DutyCredit Travelers',

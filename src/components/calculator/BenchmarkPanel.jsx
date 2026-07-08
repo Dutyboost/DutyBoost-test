@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Users, Plane, ShoppingBag, Percent, Store, TrendingUp, RotateCcw, MapPin } from "lucide-react";
+import { Users, Plane, ShoppingBag, Percent, Store, TrendingUp, RotateCcw } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import ConfidenceBadge from "./ConfidenceBadge";
 import { fmtCompact, fmtEurCompact } from "@/data/enterpriseCalculator";
@@ -37,7 +37,7 @@ function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, 
   );
 }
 
-export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable, ownedAirportBaskets, customBasketPerAirport, onSetAirportBasket }) {
+export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable }) {
   const { t } = useTranslation();
   const { redemptionRate, customBasket } = assumptions;
   const hasOverride = customBasket !== null;
@@ -99,35 +99,6 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
             </div>
           ) : undefined}
         />
-        {ownedAirportBaskets && ownedAirportBaskets.length > 0 && (
-          <div className="mt-1 mb-1 px-3 -mx-3 py-2.5 rounded-lg bg-blue-50/50 border border-blue-100">
-            <p className="text-xs font-semibold text-slate-600 mb-0.5">{t("entCalc.bm_your_airports")}</p>
-            <p className="text-[11px] text-slate-400 mb-2">{t("entCalc.bm_per_airport_hint")}</p>
-            <div className="space-y-1.5">
-              {ownedAirportBaskets.map((a) => (
-                <div key={a.code} className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
-                    <span className="text-xs text-slate-700 truncate">{a.city || a.name}</span>
-                    <span className="text-[10px] text-slate-400 font-mono shrink-0">{a.code}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <input
-                      type="number"
-                      value={customBasketPerAirport?.[a.code] != null ? customBasketPerAirport[a.code] : ""}
-                      placeholder={Math.round(a.basket)}
-                      onChange={(e) => onSetAirportBasket(a.code, e.target.value === "" ? null : parseFloat(e.target.value))}
-                      className="w-20 px-2 py-1 text-xs text-right border border-blue-200 rounded-lg outline-none focus:border-blue-500 bg-white"
-                      min="35"
-                      max="1000"
-                    />
-                    <span className="text-[11px] text-slate-400">EUR</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
         <BenchmarkRow
           icon={Percent}
           label={t("entCalc.bm_redemption_rate")}

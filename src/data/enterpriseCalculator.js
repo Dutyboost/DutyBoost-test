@@ -247,53 +247,6 @@ export function getSelectedCountries(airports) {
   return [...new Set(airports.map((a) => a.country))].length;
 }
 
-// ── Per-airport basket values (for airports a user manages) ──────────────────
-export function computePerAirportBaskets(airports, demoRetailers) {
-  if (!airports || airports.length === 0) return {};
-  const result = {};
-  if (demoRetailers && demoRetailers.length > 0) {
-    const byCode = {};
-    demoRetailers.forEach((r) => {
-      if (!byCode[r.airport]) byCode[r.airport] = [];
-      byCode[r.airport].push(r);
-    });
-    airports.forEach((a) => {
-      const stores = byCode[a.code] || [];
-      let ws = 0, red = 0;
-      stores.forEach((r) => { ws += r.redemptions * r.avg_sale; red += r.redemptions; });
-      const basket = red > 0 ? ws / red : 0;
-      result[a.code] = {
-        basket: Math.round(basket * 100) / 100,
-        confidence: stores.length > 0 ? "high" : "estimated",
-        dailyPax: a.daily_pax || Math.round((a.annual_pax || 0) / 365),
-      };
-    });
-  } else {
-    airports.forEach((a) => {
-      result[a.code] = {
-        basket: estimateAvgBasketSpend(a),
-        confidence: "medium",
-        dailyPax: a.daily_pax || Math.round((a.annual_pax || 0) / 365),
-      };
-    });
-  }
-  return result;
-}
-
-export function computeEffectiveBasket(airports, airportBaskets, customBasketPerAirport, globalCustomBasket, fallbackAvgBasket) {
-  const overrides = customBasketPerAirport || {};
-  const hasOverrides = airports.some((a) => overrides[a.code] != null);
-  if (!hasOverrides) return globalCustomBasket || fallbackAvgBasket || 50;
-  let ws = 0, tw = 0;
-  airports.forEach((a) => {
-    const w = airportBaskets[a.code]?.dailyPax || 1;
-    const v = overrides[a.code] != null ? overrides[a.code] : (airportBaskets[a.code]?.basket || fallbackAvgBasket || 50);
-    ws += w * v;
-    tw += w;
-  });
-  return tw > 0 ? Math.round((ws / tw) * 100) / 100 : (globalCustomBasket || fallbackAvgBasket || 50);
-}
-
 // ── Formatting helpers ───────────────────────────────────────────────────────
 export function fmtCompact(n) {
   if (n >= 1_000_000_000) return (n / 1_000_000_000).toFixed(1) + "B";
