@@ -1025,6 +1025,7 @@ export default {
       step1: 'Paso 1 — Retailer de Aeropuerto',
       step2: 'Paso 2 — Seleccionar Alcance de Red',
       step3: 'Paso 3 — Benchmarks Automáticos',
+      dutycredit_psychology_note: 'Un DutyCredit se activa en cestas superiores a 35 € — por lo que cada viajero DutyCredit llega con un compromiso mínimo de gasto psicológico de 35 €, ya predispuesto y listo para comprar.',
       step4: 'Paso 4 — Resumen en Vivo',
       step5: 'Paso 5 — Herramientas Enterprise',
       analytics: 'Analíticas',

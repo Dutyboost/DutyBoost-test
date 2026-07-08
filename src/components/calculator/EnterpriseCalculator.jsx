@@ -176,6 +176,11 @@ export default function EnterpriseCalculator() {
             />
           </div>
 
+          <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex items-start gap-2.5">
+            <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="text-sm text-amber-900 font-medium leading-relaxed">{t("entCalc.dutycredit_psychology_note")}</p>
+          </div>
+
           <div>
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step4")}</p>
             <SummaryCards

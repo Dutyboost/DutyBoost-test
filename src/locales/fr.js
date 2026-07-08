@@ -794,6 +794,7 @@ export default {
       step1: 'Étape 1 — Détaillant d\'aéroport',
       step2: 'Étape 2 — Sélectionner la portée du réseau',
       step3: 'Étape 3 — Benchmarks automatiques',
+      dutycredit_psychology_note: "Un DutyCredit s'active sur les paniers supérieurs à 35 € — ainsi, chaque voyageur DutyCredit arrive avec un engagement de dépense psychologique minimum de 35 €, déjà prêt à acheter.",
       step4: 'Étape 4 — Résumé en direct',
       step5: 'Étape 5 — Outils Enterprise',
       analytics: 'Analytique',
