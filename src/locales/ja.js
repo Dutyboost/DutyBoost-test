@@ -74,5 +74,10 @@ export default {
       title: 'DutyBoostを始めよう',
       subtitle_default: 'あなたの役割を選択して、DutyBoostのメリットにアクセスしてください。',
     },
+    calculator: {
+      badge: 'DutyBoost ROI計算ツール',
+      title: '数字で確かめてください',
+      subtitle: 'DutyBoostは空港小売業者に測定可能な収益源をもたらします — 設定費ゼロ、サブスクリプションなし、販売が発生した時にのみ支払う純粋な成果報酬型の価格設定。潜在的な増分収益を以下で見積もってください。',
+    },
   },
 };

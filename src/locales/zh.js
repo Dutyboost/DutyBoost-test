@@ -74,5 +74,10 @@ export default {
       title: '开始使用 DutyBoost',
       subtitle_default: '选择您的角色，访问 DutyBoost 的所有优势。',
     },
+    calculator: {
+      badge: 'DutyBoost ROI计算器',
+      title: '亲自看看这些数字',
+      subtitle: 'DutyBoost为机场零售商带来可衡量的收益流 — 零设置费、无订阅、纯绩效定价，仅在销售发生时付费。在下方估算您的潜在增量收益。',
+    },
   },
 };

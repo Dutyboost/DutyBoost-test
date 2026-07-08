@@ -74,5 +74,10 @@ export default {
       title: 'DutyBoost 시작하기',
       subtitle_default: '역할을 선택하여 DutyBoost의 혜택을 누리세요.',
     },
+    calculator: {
+      badge: 'DutyBoost ROI 계산기',
+      title: '직접 숫자로 확인하세요',
+      subtitle: 'DutyBoost는 공항 소매업체에 측정 가능한 수익 흐름을 추가합니다 — 설정비 없음, 구독 없음, 판매가 발생할 때만 지불하는 순수 성과 기반 가격 책정. 아래에서 잠재적 증분 수익을 추정해 보세요.',
+    },
   },
 };
