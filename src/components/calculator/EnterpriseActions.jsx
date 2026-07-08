@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FileDown, Share2, CalendarPlus, Save, Trash2, BarChart3 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { FileDown, Share2, Save, Trash2, BarChart3 } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { fmtEurCompact } from "@/data/enterpriseCalculator";
 
@@ -70,9 +69,6 @@ export default function EnterpriseActions({ retailer, benchmarks, projections, s
         <button onClick={onSaveScenario} className="inline-flex items-center gap-2 bg-white border border-slate-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl hover:border-primary transition-colors">
           <Save className="w-4 h-4" /> {t("entCalc.save_scenario")}
         </button>
-        <Link to="/request-more-information" className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-colors">
-          <CalendarPlus className="w-4 h-4" /> {t("entCalc.request_meeting")}
-        </Link>
       </div>
 
       {scenarios.length > 0 && (

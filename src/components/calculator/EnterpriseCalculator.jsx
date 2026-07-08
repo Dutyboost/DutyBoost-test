@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Zap, SlidersHorizontal, Briefcase, Building2, Info } from "lucide-react";
+import { Zap, SlidersHorizontal, Briefcase, Building2, Info, CalendarPlus } from "lucide-react";
+import { Link } from "react-router-dom";
 import RetailerSearchDropdown from "./RetailerSearchDropdown";
 import NetworkSelector from "./NetworkSelector";
 import BenchmarkPanel from "./BenchmarkPanel";
@@ -199,6 +200,20 @@ export default function EnterpriseCalculator() {
               monthlyData={projections.monthlyData}
               topAirports={topAirports}
             />
+          </div>
+
+          <div className="bg-gradient-to-r from-primary to-blue-600 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <h3 className="font-bold text-white text-base">{t("entCalc.request_meeting")}</h3>
+              <p className="text-blue-50 text-sm mt-0.5">{t("entCalc.mode_enterprise_info")}</p>
+            </div>
+            <Link
+              to="/request-more-information"
+              className="inline-flex items-center gap-2 bg-white text-primary font-bold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors shrink-0"
+            >
+              <CalendarPlus className="w-4 h-4" />
+              {t("entCalc.request_meeting")}
+            </Link>
           </div>
 
           {mode === "enterprise" && (
