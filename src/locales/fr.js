@@ -603,7 +603,7 @@ export default {
     calculator: {
       badge: 'Calculateur ROI DutyBoost',
       title: 'Voyez les chiffres vous-même',
-      subtitle: "DutyBoost ajoute un flux de revenus mesurable pour les détaillants aéroportuaires — estimez le vôtre ci-dessous.",
+      subtitle: "DutyBoost ajoute un flux de revenus mesurable pour les détaillants aéroportuaires — aucun frais d'installation, aucun abonnement et une tarification purement basée sur les résultats, où vous ne payez que lorsqu'une vente est réalisée. Estimez le vôtre ci-dessous.",
       tab_retailer: 'Détaillant aéroportuaire',
       tab_partner: 'Partenaire de voyage',
       retailer_title: 'Découvrez combien de revenus supplémentaires DutyBoost pourrait générer sur votre réseau aéroportuaire mondial',

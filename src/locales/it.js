@@ -608,7 +608,7 @@ export default {
     calculator: {
       badge: 'Calcolatore ROI DutyBoost',
       title: 'Guarda i numeri tu stesso',
-      subtitle: 'DutyBoost aggiunge un flusso di ricavi misurabile per i retailer aeroportuali — stima il tuo qui sotto.',
+      subtitle: 'DutyBoost aggiunge un flusso di ricavi misurabile per i retailer aeroportuali — nessun costo di attivazione, nessun abbonamento e prezzi puramente basati sui risultati, dove paghi solo quando avviene una vendita. Stima il tuo qui sotto.',
       tab_retailer: 'Retailer aeroportuale',
       tab_partner: 'Partner di viaggio',
       retailer_title: 'Scopri quanti ricavi incrementali DutyBoost potrebbe generare sulla tua rete aeroportuale globale',
