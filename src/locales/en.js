@@ -1041,9 +1041,9 @@ export default {
       partner_cta_desc: 'Until now, the revenue travellers spent at airport shops never flowed back to you. With DutyBoost, every booking you issue unlocks a new income stream — earn passive commission each time your travellers redeem DutyCredits at airport retailers, at zero cost to you. Boost loyalty and monetise journeys in a way that simply wasn\u2019t possible before.',
     },
     entCalc: {
-      mode_quick: 'Instant Overview',
+      mode_quick: 'Instant View',
       mode_detailed: 'Custom Selection',
-      mode_enterprise: 'Compare & Export',
+      mode_enterprise: 'Compare & Reporting',
       mode_quick_desc: 'Retailer + region only',
       mode_detailed_desc: 'Full control',
       mode_enterprise_desc: 'Multi-scenario + export',

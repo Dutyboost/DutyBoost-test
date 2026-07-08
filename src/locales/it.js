@@ -786,9 +786,9 @@ export default {
       partner_cta_desc: "Fino ad ora, i ricavi che i viaggiatori spendevano nei negozi aeroportuali non ti tornavano mai indietro. Con DutyBoost, ogni prenotazione che emetti sblocca un nuovo flusso di entrate — guadagni commissioni passive ogni volta che i tuoi viaggiatori riscattano i DutyCredits presso i rivenditori aeroportuali, senza alcun costo per te. Rafforza la fedeltà e monetizza i viaggi in un modo che prima semplicemente non era possibile.",
     },
     entCalc: {
-      mode_quick: 'Panoramica istantanea',
+      mode_quick: 'Vista istantanea',
       mode_detailed: 'Selezione personalizzata',
-      mode_enterprise: 'Confronta ed esporta',
+      mode_enterprise: 'Confronta e report',
       mode_quick_desc: 'Retailer + regione',
       mode_detailed_desc: 'Controllo completo',
       mode_enterprise_desc: 'Multi-scenario + esportazione',

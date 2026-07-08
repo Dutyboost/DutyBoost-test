@@ -202,14 +202,10 @@ export default function EnterpriseCalculator() {
             />
           </div>
 
-          <div className="bg-gradient-to-r from-primary to-blue-600 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-center sm:text-left">
-              <h3 className="font-bold text-white text-base">{t("entCalc.request_meeting")}</h3>
-              <p className="text-blue-50 text-sm mt-0.5">{t("entCalc.mode_enterprise_info")}</p>
-            </div>
+          <div className="flex justify-center pt-2">
             <Link
               to="/request-more-information"
-              className="inline-flex items-center gap-2 bg-white text-primary font-bold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors shrink-0"
+              className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
             >
               <CalendarPlus className="w-4 h-4" />
               {t("entCalc.request_meeting")}

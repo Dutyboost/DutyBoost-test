@@ -794,9 +794,9 @@ export default {
       partner_cta_desc: "Tot nu toe vloeide de omzet die reizigers in luchthavenwinkels besteedden nooit terug naar u. Met DutyBoost ontgrendelt elke boeking die u uitgeeft een nieuwe inkomstenstroom — verdien passieve commissie telkens wanneer uw reizigers DutyCredits inwisselen bij luchthavenretailers, zonder kosten voor u. Versterk loyaliteit en monetiseer reizen op een manier die voorheen simpelweg niet mogelijk was.",
     },
     entCalc: {
-      mode_quick: 'Direct overzicht',
+      mode_quick: 'Directe weergave',
       mode_detailed: 'Eigen selectie',
-      mode_enterprise: 'Vergelijk & exporteer',
+      mode_enterprise: 'Vergelijk & rapportage',
       mode_quick_desc: 'Retailer + regio',
       mode_detailed_desc: 'Volledige controle',
       mode_enterprise_desc: 'Meerdere scenario\'s + export',
