@@ -7,6 +7,7 @@ import DemoProfileTab from "./DemoProfileTab";
 import AggregationView from "./AggregationView";
 import CountryAggregation from "./CountryAggregation";
 import RedemptionHeatmap from "./RedemptionHeatmap";
+import RedemptionRateSlider from "./RedemptionRateSlider";
 import { base44 } from "@/api/base44Client";
 import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
@@ -52,6 +53,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const [activeTab, setActiveTab] = useState("dashboard");
   const [customStart, setCustomStart] = useState("2025-10-01");
   const [customEnd, setCustomEnd] = useState("2026-03-31");
+  const [redemptionRate, setRedemptionRate] = useState(0.01);
+  const rateMultiplier = redemptionRate / 0.01;
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 
@@ -84,7 +87,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const dataKey = period === "daily" ? "day" : "month";
 
   const scaledMonthly = baseData.map(m => {
-    const redemptions = Math.round(m.redemptions * redemptionRatio);
+    const redemptions = Math.round(m.redemptions * redemptionRatio * rateMultiplier);
     return {
       ...m,
       redemptions,
@@ -102,7 +105,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
     return 1;
   }, [period, customStart, customEnd]);
 
-  const periodRedemptions = Math.round(selectedRetailer.redemptions * periodMultiplier);
+  const periodRedemptions = Math.round(selectedRetailer.redemptions * periodMultiplier * rateMultiplier);
   const periodGrossRevenue = Math.round(periodRedemptions * basket);
   const periodSavings = Math.round(periodRedemptions * savingPerTx * 100) / 100;
   const periodFee = Math.round(periodRedemptions * commissionPerTx * 100) / 100;
@@ -231,8 +234,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             transactions={RETAILERS.map(r => {
               const saving = calcSaving(r.avg_sale);
               const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
-              const scaledRevenue = Math.round(r.revenue * periodMultiplier);
-              const scaledRedemptions = Math.round(r.redemptions * periodMultiplier);
+              const scaledRevenue = Math.round(r.revenue * periodMultiplier * rateMultiplier);
+              const scaledRedemptions = Math.round(r.redemptions * periodMultiplier * rateMultiplier);
               return {
                 transaction_value: scaledRevenue,
                 total_savings: Math.round(saving * scaledRedemptions),
@@ -249,6 +252,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             onPeriodChange={setPeriod}
             onCustomStartChange={setCustomStart}
             onCustomEndChange={setCustomEnd}
+            redemptionRate={redemptionRate}
+            onRedemptionRateChange={setRedemptionRate}
           />
         ) : (<>
         {/* Welcome */}
@@ -298,6 +303,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             {t('demo.incremental_revenue_note') || 'The figures below represent DutyBoost\u2019s target for incremental performance \u2014 an additional 3% of pre-departure travelers who shop because they were pre-activated by a DutyCredit. This sits on top of the existing 15\u201325% baseline shopping rate. Gross revenue reflects the full transaction value of those DutyCredit redemptions; net revenue is what the retailer keeps after the traveler discount and platform fee. Some of these shoppers may have spent money anyway, so actual net-new revenue could be lower than the figures shown.'}
           </p>
         </div>
+
+        {/* Redemption rate slider */}
+        <RedemptionRateSlider rate={redemptionRate} onChange={setRedemptionRate} />
 
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -392,7 +400,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         <CountryAggregation
           AIRPORTS={AIRPORTS}
           RETAILERS={RETAILERS}
-          periodMultiplier={periodMultiplier}
+          periodMultiplier={periodMultiplier * rateMultiplier}
           selectedCountry={selectedCountry}
           onSelectCountry={handleCountryChange}
         />
@@ -410,7 +418,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 }`}
               >
                 <p className="text-sm font-medium">{r.name}</p>
-                <p className="text-sm font-semibold">{fmtNum(Math.round(r.redemptions * periodMultiplier))} {t('demo.scans')}</p>
+                <p className="text-sm font-semibold">{fmtNum(Math.round(r.redemptions * periodMultiplier * rateMultiplier))} {t('demo.scans')}</p>
               </div>
             ))}
           </div>

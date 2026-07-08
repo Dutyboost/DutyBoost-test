@@ -2,8 +2,9 @@ import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import RedemptionRateSlider from "./RedemptionRateSlider";
 
-export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [], companyName }) {
+export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [], companyName, redemptionRate, onRedemptionRateChange }) {
   const { t } = useTranslation();
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
   const filteredTransactions = transactions;
@@ -123,6 +124,11 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <Info className="w-4 h-4 text-blue-600 shrink-0" />
         <p className="text-xs text-blue-700">{t('demo.conversion_note')}</p>
       </div>
+
+      {/* Redemption rate slider */}
+      {onRedemptionRateChange && (
+        <RedemptionRateSlider rate={redemptionRate} onChange={onRedemptionRateChange} />
+      )}
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
