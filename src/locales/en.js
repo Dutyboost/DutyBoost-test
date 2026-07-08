@@ -1043,7 +1043,7 @@ export default {
     entCalc: {
       mode_quick: 'Instant View',
       mode_detailed: 'Custom Selection',
-      mode_enterprise: 'Compare & Reporting',
+      mode_enterprise: 'Compare & Export',
       mode_quick_desc: 'Retailer + region only',
       mode_detailed_desc: 'Full control',
       mode_enterprise_desc: 'Multi-scenario + export',

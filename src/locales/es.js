@@ -1014,7 +1014,7 @@ export default {
     entCalc: {
       mode_quick: 'Vista instantánea',
       mode_detailed: 'Selección personalizada',
-      mode_enterprise: 'Comparar y reportes',
+      mode_enterprise: 'Comparar y exportar',
       mode_quick_desc: 'Retailer + región',
       mode_detailed_desc: 'Control total',
       mode_enterprise_desc: 'Multi-escenario + exportación',

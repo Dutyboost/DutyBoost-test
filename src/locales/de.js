@@ -783,7 +783,7 @@ export default {
     entCalc: {
       mode_quick: 'Sofort-Ansicht',
       mode_detailed: 'Eigene Auswahl',
-      mode_enterprise: 'Vergleichen & Reporting',
+      mode_enterprise: 'Vergleichen & Exportieren',
       mode_quick_desc: 'Retailer + Region',
       mode_detailed_desc: 'Volle Kontrolle',
       mode_enterprise_desc: 'Multi-Szenario + Export',

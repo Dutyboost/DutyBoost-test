@@ -796,7 +796,7 @@ export default {
     entCalc: {
       mode_quick: 'Directe weergave',
       mode_detailed: 'Eigen selectie',
-      mode_enterprise: 'Vergelijk & rapportage',
+      mode_enterprise: 'Vergelijk & exporteer',
       mode_quick_desc: 'Retailer + regio',
       mode_detailed_desc: 'Volledige controle',
       mode_enterprise_desc: 'Meerdere scenario\'s + export',
