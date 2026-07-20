@@ -1574,7 +1574,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       stat2_desc: 'DutyCredit-Inhaber geben deutlich mehr aus — sie kommen mit Guthaben zum Ausgeben und einem Mindesteinkauf von €20.',
       stat3_value: '€165K–€180K',
       stat3_label: 'erwarteter zusätzlicher Umsatz pro Geschäft im Jahr',
-      stat3_desc: '100 DutyCredit-Inhaber/Tag × 15% Konversion × €31,63 Netto/Korb (€20 Mindestausgabe − €2,50 Rabatt − 2,5% DutyBoost-Gebühr) × 365 Tage = etwa €93K inkrementeller Nettoumsatz pro Geschäft pro Jahr — unser Ziel.',
+      stat3_desc: '100 DutyCredit-Inhaber/Tag × 15% Konversion × €31,93 Netto/Korb (€35 Ø-Ausgabe − 6,25% progressiver Rabatt − 2,5% DutyBoost-Gebühr) × 365 Tage = etwa €175K inkrementeller Nettoumsatz pro Geschäft pro Jahr — unser Ziel.',
       benefit1_title: '🛍️ Mehr Verkäufe von Reisenden, die sonst nicht kaufen würden',
       benefit1_desc: 'Reisende kommen bereits mit Kaufabsicht — Sie sichern Impulskäufe, die sonst an Ihrem Geschäft vorbeigegangen wären.',
       benefit2_title: '📊 Höherer Transaktionswert',

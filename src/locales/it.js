@@ -1580,7 +1580,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       stat2_desc: "I detentori di DutyCredit spenderanno significativamente di più — arrivano con credito da spendere e una soglia minima di €20.",
       stat3_value: '€165K–€180K',
       stat3_label: 'ricavi aggiuntivi previsti per negozio all\'anno',
-      stat3_desc: '100 titolari DutyCredit/giorno × 15% conversione × €31,63 netto/carrello (€20 spesa min. − €2,50 sconto − commissione DutyBoost 2,5%) × 365 giorni = circa €93K ricavi netti incrementali per negozio per anno — il nostro obiettivo.',
+      stat3_desc: '100 titolari DutyCredit/giorno × 15% conversione × €31,93 netto/carrello (€35 spesa media − 6,25% sconto progressivo − 2,5% commissione DutyBoost) × 365 giorni = circa €175K ricavi netti incrementali per negozio per anno — il nostro obiettivo.',
       benefit1_title: '🛍️ Più vendite da viaggiatori che non comprerebbero altrimenti',
       benefit1_desc: "I viaggiatori arrivano già con l'intenzione di spendere — catturerai acquisti d'impulso che altrimenti sarebbero passati davanti al tuo negozio senza DutyBoost.",
       benefit2_title: '📊 Valore di transazione più elevato',

@@ -1576,7 +1576,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       stat2_desc: "Les titulaires de DutyCredit dépensent considérablement plus — ils arrivent avec du crédit à dépenser et un seuil d'achat minimum de €20.",
       stat3_value: "€165K–€180K",
       stat3_label: "revenus annuels par magasin visés",
-      stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €31,63 net/panier (€20 min. dépense − €2,50 remise − frais DutyBoost 2,5%) × 365 jours = environ €93K de revenus nets supplémentaires par magasin par an — notre objectif.",
+      stat3_desc: "100 titulaires DutyCredit/jour × 15% conversion × €31,93 net/panier (€35 dépense moyenne − 6,25% remise progressive − 2,5% frais DutyBoost) × 365 jours = environ €175K de revenus nets supplémentaires par magasin par an — notre objectif.",
       benefit1_title: "🛍️ Plus de ventes de voyageurs qui n'achèteraient pas autrement",
       benefit1_desc: "Les voyageurs arrivent déjà avec l'intention de dépenser — vous capturerez les achats d'impulsion qui auraient autrement passé à côté sans DutyBoost.",
       benefit2_title: "📊 Valeur de transaction plus élevée",

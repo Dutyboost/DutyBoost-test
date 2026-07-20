@@ -849,7 +849,7 @@ export default {
       stat2_desc: 'DutyCredit holders spend significantly more — they arrive with credit to spend and a €20 minimum purchase threshold.',
       stat3_value: '€165K–€180K',
       stat3_label: 'projected annual revenue per store',
-      stat3_desc: '100 DutyCredit holders/day × 15% conversion × €17.00 net basket (€20 min. spend − €2.50 discount − 2.5% DutyBoost fee) × 365 days = approx. €93K incremental net revenue per store per year — our goal.',
+      stat3_desc: '100 DutyCredit holders/day × 15% conversion × €31.93 net basket (€35 avg. spend − 6.25% progressive discount − 2.5% DutyBoost fee) × 365 days = approx. €175K incremental net revenue per store per year — our goal.',
       benefit1_title: "🛍️ More sales from travellers who wouldn't buy otherwise",
       benefit1_desc: 'Travellers arrive already intending to spend — you capture impulse purchases that would have walked past your store without DutyBoost.',
       benefit2_title: '📊 Higher transaction value',

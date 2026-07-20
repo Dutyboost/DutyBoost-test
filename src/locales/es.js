@@ -820,7 +820,7 @@ export default {
       stat2_desc: 'Los titulares de DutyCredit gastan significativamente más — llegan con crédito para gastar y un umbral mínimo de €20.',
       stat3_value: '€165K–€180K',
       stat3_label: 'ingresos adicionales proyectados por tienda al año',
-      stat3_desc: '100 titulares DutyCredit/día × 15% conversión × €31,63 neto/cesta (€20 gasto mín. − €2,50 descuento − tarifa DutyBoost 2,5%) × 365 días = aproximadamente €93K ingresos netos incrementales por tienda al año — nuestro objetivo.',
+      stat3_desc: '100 titulares DutyCredit/día × 15% conversión × €31,93 neto/cesta (€35 gasto medio − 6,25% descuento progresivo − 2,5% tarifa DutyBoost) × 365 días = aproximadamente €175K ingresos netos incrementales por tienda al año — nuestro objetivo.',
       benefit1_title: '🛍️ Más ventas de viajeros que no comprarían de otra forma',
       benefit1_desc: 'Los viajeros llegan ya con intención de gastar — capturarás compras por impulso que de otra forma habrían pasado de largo sin DutyBoost.',
       benefit2_title: '📊 Mayor valor de transacción',
