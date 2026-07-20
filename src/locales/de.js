@@ -603,7 +603,7 @@ export default {
     calculator: {
       badge: 'DutyBoost ROI-Rechner',
       title: 'Sehen Sie die Zahlen selbst',
-      subtitle: 'DutyBoost fügt einen messbaren Umsatzstrom für Flughafenhändler hinzu — keine Einrichtungsgebühren, keine Abonnements und rein erfolgsbasierte Preise, bei denen Sie nur zahlen, wenn ein Verkauf stattfindet. Schätzen Sie Ihren potenziellen inkrementellen Umsatz unten ein.',
+      subtitle: 'DutyBoost erreicht Reisende, bevor sie den Flughafen erreichen, und verwandelt mehr Besucher in Käufer. Keine Einrichtungsgebühren. Keine Abonnements. 100% erfolgsbasiert. Schätzen Sie unten Ihren potenziellen Umsatz.',
       tab_retailer: 'Flughafenhändler',
       tab_partner: 'Reisepartner',
       retailer_title: 'Entdecken Sie, wie viel inkrementelle Einnahmen DutyBoost in Ihrem globalen Flughafennetzwerk generieren könnte',

@@ -615,7 +615,7 @@ export default {
     calculator: {
       badge: 'DutyBoost ROI Calculator',
       title: 'Bekijk de cijfers zelf',
-      subtitle: 'DutyBoost voegt een meetbare inkomstenstroom toe voor luchthavenretailers — geen opstartkosten, geen abonnementen en puur resultaatgericht prijzen waarbij u alleen betaalt als er een verkoop plaatsvindt. Schat uw potentiële incrementele omzet hieronder.',
+      subtitle: 'DutyBoost bereikt reizigers voordat zij op de luchthaven aankomen, en zet meer bezoekers om in kopers. Geen opstartkosten. Geen abonnementen. 100% prestatiegericht. Schat hieronder uw potentiële omzet.',
       tab_retailer: 'Luchthavenretailer',
       tab_partner: 'Reispartner',
       retailer_title: 'Ontdek hoeveel incrementele inkomsten DutyBoost in uw mondiale luchthavennnetwerk zou kunnen genereren',

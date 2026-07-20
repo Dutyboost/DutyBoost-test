@@ -77,7 +77,7 @@ export default {
     calculator: {
       badge: 'DutyBoost ROI计算器',
       title: '亲自看看这些数字',
-      subtitle: 'DutyBoost为机场零售商带来可衡量的收益流 — 零设置费、无订阅、纯绩效定价，仅在销售发生时付费。在下方估算您的潜在增量收益。',
+      subtitle: 'DutyBoost在旅客到达机场之前就触达他们，将更多访客转化为买家。零设置费。无订阅。100%绩效导向。在下方估算您的潜在收益。',
     },
   },
 };
