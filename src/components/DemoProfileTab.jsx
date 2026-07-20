@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
+import { fmtMoney } from "../utils/formatNumber";
 
 // ─── Region configuration ───────────────────────────────────────────────────
 
@@ -211,7 +212,7 @@ const RETAILER_SEASONALITY_DATA = [
   { monthKey: "month_june", dateKey: "date_july", mult: 1.10 },
 ];
 
-function buildRetailerInvoices(entity, locale, t, retailers) {
+function buildRetailerInvoices(entity, locale, t, retailers, currency = "EUR") {
   function getMonthLabel(key) {
     const monthTranslations = {
       month_march: t('months.march') || 'March 2026',
@@ -226,31 +227,35 @@ function buildRetailerInvoices(entity, locale, t, retailers) {
     return monthTranslations[key] || key;
   }
   if (!retailers || retailers.length === 0) return [];
-  // Aggregate platform fee by airport — mirrors the Global Aggregation view
-  const airportMap = {};
-  retailers.forEach(r => {
-    const ap = r.airport || "—";
-    if (!airportMap[ap]) airportMap[ap] = { airport: ap, redemptions: 0, transactionValue: 0, feeBase: 0 };
-    const basket = r.avg_sale || 0;
-    const feePerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
-    airportMap[ap].redemptions += r.redemptions || 0;
-    airportMap[ap].transactionValue += basket * (r.redemptions || 0);
-    airportMap[ap].feeBase += Math.round(feePerTx * (r.redemptions || 0));
-  });
-  const airportRows = Object.values(airportMap);
+  // Per-retailer platform fee — mirrors the AggregationView methodology so the
+  // invoice reconciles with the aggregated monthly platform fee:
+  //   commission = min(round(basket*2.5%)/100, 25)
+  //   scaledRedemptions = round(redemptions * monthMult)
+  //   fee = round(commission * scaledRedemptions)
   return RETAILER_SEASONALITY_DATA.map(({ monthKey, dateKey, mult }) => {
-    const breakdown = airportRows.map(a => ({
+    const perAirport = {};
+    retailers.forEach(r => {
+      const ap = r.airport || "—";
+      if (!perAirport[ap]) perAirport[ap] = { airport: ap, vouchers: 0, transactionValue: 0, fee: 0 };
+      const basket = r.avg_sale || 0;
+      const commission = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
+      const scaledRedemptions = Math.round((r.redemptions || 0) * mult);
+      perAirport[ap].vouchers += scaledRedemptions;
+      perAirport[ap].transactionValue += Math.round(basket * (r.redemptions || 0) * mult);
+      perAirport[ap].fee += Math.round(commission * scaledRedemptions);
+    });
+    const breakdown = Object.values(perAirport).map(a => ({
       airport: a.airport,
-      vouchers: Math.round(a.redemptions * mult),
-      transactionValue: Math.round(a.transactionValue * mult),
-      fee: Math.round(a.feeBase * mult * 100) / 100,
+      vouchers: a.vouchers,
+      transactionValue: a.transactionValue,
+      fee: a.fee,
     }));
-    const platformFee = Math.round(breakdown.reduce((s, r) => s + r.fee, 0) * 100) / 100;
+    const platformFee = breakdown.reduce((s, r) => s + r.fee, 0);
     return {
       month: getMonthLabel(monthKey),
       date: getMonthLabel(dateKey),
       status: "Pending",
-      amount: `€ ${platformFee.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+      amount: fmtMoney(platformFee, currency, 2),
       platformFee,
       breakdown,
     };
@@ -426,8 +431,11 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.save(`DutyBoost_Payout_${inv.month.replace(/ /g, "_")}.pdf`);
 }
 
-function downloadInvoicePDF(inv, entity, profile, cfg) {
+function downloadInvoicePDF(inv, entity, profile, cfg, currency = "EUR") {
   const doc = new jsPDF();
+  const _sym = currency === "AWG" ? "Afl." : "€";
+  const _conv = currency === "AWG" ? 1.99 : 1;
+  const fmtAmt = (v, dec) => `${_sym} ${(v * _conv).toLocaleString("de-DE", { minimumFractionDigits: dec, maximumFractionDigits: dec })}`;
   doc.setFontSize(9);
   doc.setTextColor(100);
   doc.text(cfg.copyrightLine, 20, 28);
@@ -474,9 +482,9 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
     doc.text(airport, 22, ty);
     doc.setTextColor(80);
     doc.text(String(vouchers), 100, ty);
-    doc.text(`€ ${transactionValue.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, 120, ty);
+    doc.text(fmtAmt(transactionValue, 0), 120, ty);
     doc.setTextColor(31, 111, 255);
-    doc.text(`€ ${rowFee.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 150, ty);
+    doc.text(fmtAmt(rowFee, 2), 150, ty);
     ty += 8;
   });
 
@@ -491,9 +499,9 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFont(undefined, "bold");
   doc.setTextColor(28, 28, 60);
   doc.text(cfg.totalLabel, 22, ty + 2);
-  doc.text(`€ ${totalTrans.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, 120, ty + 2);
+  doc.text(fmtAmt(totalTrans, 0), 120, ty + 2);
   doc.setTextColor(31, 111, 255);
-  doc.text(`€ ${totalFee.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 158, ty + 2);
+  doc.text(fmtAmt(totalFee, 2), 158, ty + 2);
   doc.setFont(undefined, "normal");
   ty += 14;
 
@@ -501,7 +509,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
   doc.setFont(undefined, "bold");
   doc.setTextColor(31, 111, 255);
   doc.text(cfg.totalDue, 110, ty);
-  doc.text(`€ ${totalDue.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 186, ty, { align: "right" });
+  doc.text(fmtAmt(totalDue, 2), 186, ty, { align: "right" });
   doc.setFont(undefined, "normal");
   ty += 8;
   doc.setFontSize(10);
@@ -526,7 +534,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg) {
 
 // ─── Main component ───────────────────────────────────────────────────────
 
-export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [], companyKey }) {
+export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [], companyKey, currency = "EUR" }) {
   const { t } = useTranslation();
   const cfg = REGION_CONFIG[region] || REGION_CONFIG.nl;
 
@@ -545,7 +553,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
-  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t, retailers) : buildAgencyInvoices(t);
+  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t, retailers, currency) : buildAgencyInvoices(t);
 
   const [bankEditing, setBankEditing] = useState(false);
   const [bankDraft, setBankDraft] = useState({ iban: profile.iban, holder: profile.holder });
@@ -643,7 +651,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
                 <span className="text-sm font-semibold">{inv.amount}</span>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold">{inv.status}</span>
                 <button
-                  onClick={() => entityType === "agency" ? downloadPayoutPDF(inv, entity, profile) : downloadInvoicePDF(inv, entity, profile, cfg)}
+                  onClick={() => entityType === "agency" ? downloadPayoutPDF(inv, entity, profile) : downloadInvoicePDF(inv, entity, profile, cfg, currency)}
                   className="text-xs text-primary hover:underline flex items-center gap-1">
                   <Download className="w-3 h-3" /> PDF
                 </button>
