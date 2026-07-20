@@ -145,7 +145,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         <BenchmarkRow
           icon={TrendingUp}
           label={t("entCalc.bm_dc_travelers")}
-          value={fmtCompact(benchmarks.dutyCreditTravelers)}
+          value={fmtCompact(Math.round((benchmarks.annualPax || 0) * (redemptionRate || 0.01) / 100))}
           confidence={benchmarks.confidence?.dutyCreditTravelers}
           accent="emerald"
         />
