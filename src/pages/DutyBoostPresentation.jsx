@@ -19,14 +19,14 @@ import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
 
-export default function DutyBoostPresentation() {
+export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat5Val, hideCompanySelector = false } = {}) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
   const [selectedCompanyIdx, setSelectedCompanyIdx] = useState(3);
   const [conversionRate, setConversionRate] = useState(0.01);
 
-  const company = AIRPORT_RETAIL_COMPANIES[selectedCompanyIdx];
+  const company = providedCompany ?? AIRPORT_RETAIL_COMPANIES[selectedCompanyIdx];
   const totals = useMemo(
     () => computeCompanyTotals(company.airports, conversionRate),
     [company, conversionRate]
@@ -54,6 +54,7 @@ export default function DutyBoostPresentation() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <DutyBoostLogo height={55} />
           <div className="flex items-center gap-2">
+            {!hideCompanySelector && (
             <select
               className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background max-w-[200px] hidden md:block"
               value={selectedCompanyIdx}
@@ -63,6 +64,7 @@ export default function DutyBoostPresentation() {
                 <option key={c.name} value={i}>{c.name}</option>
               ))}
             </select>
+            )}
             <LanguageSwitcher />
 
           </div>
@@ -119,8 +121,8 @@ export default function DutyBoostPresentation() {
             {[
               { val: fmtCompact(totals.totalDailyTravelers * 365, lang), label: t('presentation.why.stat_1_label', { company: company.name }) },
               { val: fmtCompact(totals.totalDailyTravelers, lang, 2), label: t('presentation.why.stat_2_label', { company: company.name }) },
-              { val: t('presentation.why.stat_3_val'), label: t('presentation.why.stat_3_label') },
-              { val: t('presentation.why.stat_5_val'), label: t('presentation.why.stat_5_label') },
+              { val: stat3Val ?? t('presentation.why.stat_3_val'), label: t('presentation.why.stat_3_label') },
+              { val: stat5Val ?? t('presentation.why.stat_5_val'), label: t('presentation.why.stat_5_label') },
               { val: t('presentation.why.stat_4_val'), label: t('presentation.why.stat_4_label') },
             ].map(({ val, label }, i) => (
               <div key={i} className="bg-card border border-border rounded-2xl p-5 text-center space-y-1 hover:shadow-md transition-shadow">

@@ -109,6 +109,7 @@ import BrandGuidelines from './pages/BrandGuidelines';
 import ClaimDutyCredit from './pages/ClaimDutyCredit';
 import EligibilityShowcase from './pages/EligibilityShowcase';
 import DutyBoostPresentation from './pages/DutyBoostPresentation';
+import DutyBoostPresentationAruba from './pages/DutyBoostPresentationAruba';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -226,6 +227,7 @@ const AuthenticatedApp = () => {
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentation />} />
+        <Route path="/dutyboost-presentation-aruba" element={<DutyBoostPresentationAruba />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
