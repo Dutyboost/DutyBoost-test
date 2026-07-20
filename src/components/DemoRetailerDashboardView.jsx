@@ -13,21 +13,10 @@ import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
+import { calcSaving } from "@/utils/retailerCalc";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
 const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
-
-// Tiered DutyCredit saving per transaction — mirrors RetailerCalculator model
-function calcSaving(spend) {
-  if (spend < 20)  return 0;
-  if (spend >= 300) return 60.00;
-  if (spend >= 250) return 45.00;
-  if (spend >= 200) return 30.00;
-  if (spend >= 150) return 20.00;
-  if (spend >= 100) return 10.00;
-  if (spend >= 50)  return 5.00;
-  return 2.50;
-}
 
 function calcPlatformFee(basket) {
   if (basket > 1000) return 0;

@@ -1,18 +1,24 @@
-// DutyCredit Redemption Model — Fixed rewards per spend tier
+// DutyCredit Redemption Model — Progressive percentage discount
 //
-// Tier structure (minimum basket: €20):
-//   Entry DutyCredit     — €20–€49    → €2.50 flat
-//   Boarding DutyCredit  — €50–€99    → €5.00 flat
-//   Standard DutyCredit  — €100–€149  → €10.00 flat
-//   Plus DutyCredit      — €150–€199  → €20.00 flat
-//   Lounge DutyCredit    — €200–€249  → €30.00 flat
-//   Premium DutyCredit   — €250–€299  → €45.00 flat
-//   VIP DutyCredit       — €300–€1000 → €60.00 flat
-//   Beyond €1000         → €60 discount, €0 platform fee
+// Discount scales from 5% at €20 up to 20% at €300+ (capped at 20%).
+// Linear interpolation between breakpoints:
+//   €20 → 5%   €50 → 7.5%   €100 → 10%   €150 → 12.5%
+//   €200 → 15%   €250 → 17.5%   €300+ → 20%
+// Beyond €1000 → 20% discount, €0 platform fee
 //
 // DutyBoost platform fee: 2.5% of gross spend (paid by retailer), waived above €1000.
 // Travel Partner share:   0.5% of gross spend (paid from platform fee).
 // DutyBoost revenue:      2.0% of gross spend (retained after partner share).
+
+const DISCOUNT_BREAKPOINTS = [
+  { spend: 20,  pct: 0.05 },
+  { spend: 50,  pct: 0.075 },
+  { spend: 100, pct: 0.10 },
+  { spend: 150, pct: 0.125 },
+  { spend: 200, pct: 0.15 },
+  { spend: 250, pct: 0.175 },
+  { spend: 300, pct: 0.20 },
+];
 
 export const DUTY_CREDIT_CONFIG = {
   shortHaul: { basePerTraveler: 2.50 },
@@ -36,29 +42,30 @@ export function calcPlatformFee(basket) {
   return Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
 }
 
-// Fixed reward per tier
+// Progressive percentage discount — scales from 5% at €20 to 20% at €300+
 export function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 20) return 0;
-  if (basketValue >= 300) return 60.00;  // VIP
-  if (basketValue >= 250) return 45.00;  // Premium
-  if (basketValue >= 200) return 30.00;  // Lounge
-  if (basketValue >= 150) return 20.00;  // Plus
-  if (basketValue >= 100) return 10.00;  // Standard
-  if (basketValue >= 50)  return 5.00;   // Boarding
-  return 2.50;                           // Entry (€20–€49)
+  if (basketValue >= 300) return Math.round(basketValue * 0.20 * 100) / 100;
+  let lower = DISCOUNT_BREAKPOINTS[0];
+  let upper = DISCOUNT_BREAKPOINTS[DISCOUNT_BREAKPOINTS.length - 1];
+  for (let i = 0; i < DISCOUNT_BREAKPOINTS.length - 1; i++) {
+    if (basketValue >= DISCOUNT_BREAKPOINTS[i].spend && basketValue < DISCOUNT_BREAKPOINTS[i + 1].spend) {
+      lower = DISCOUNT_BREAKPOINTS[i];
+      upper = DISCOUNT_BREAKPOINTS[i + 1];
+      break;
+    }
+  }
+  const t = (basketValue - lower.spend) / (upper.spend - lower.spend);
+  const pct = lower.pct + t * (upper.pct - lower.pct);
+  return Math.round(basketValue * pct * 100) / 100;
 }
 
-// Return the tier name for display purposes
+// Return a label showing the reward and effective percentage
 export function getBasketTierLabel(basketValue) {
   if (!basketValue || basketValue < 20) return null;
   const credit = calcBasketCredit(basketValue).toFixed(2);
-  if (basketValue >= 300) return `VIP DutyCredit — €60.00 reward`;
-  if (basketValue >= 250) return `Premium DutyCredit — €45.00 reward`;
-  if (basketValue >= 200) return `Lounge DutyCredit — €30.00 reward`;
-  if (basketValue >= 150) return `Plus DutyCredit — €20.00 reward`;
-  if (basketValue >= 100) return `Standard DutyCredit — €10.00 reward`;
-  if (basketValue >= 50)  return `Boarding DutyCredit — €5.00 reward`;
-  return `Entry DutyCredit — €2.50 reward`;
+  const pct = ((credit / basketValue) * 100).toFixed(1);
+  return `DutyCredit — €${credit} reward (${pct}% off)`;
 }
 
 export function calculateDutyCredit({ ticketPrice, travelers, travelType }) {

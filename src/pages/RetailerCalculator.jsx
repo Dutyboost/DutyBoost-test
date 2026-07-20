@@ -31,20 +31,29 @@ function numFontClass(str) {
 }
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
-// Fixed reward per tier — minimum basket €20
+// Progressive percentage discount — scales from 5% at €20 to 20% at €300+
+const DISCOUNT_BREAKPOINTS = [
+  { spend: 20,  pct: 0.05 },   { spend: 50,  pct: 0.075 },
+  { spend: 100, pct: 0.10 },   { spend: 150, pct: 0.125 },
+  { spend: 200, pct: 0.15 },   { spend: 250, pct: 0.175 },
+  { spend: 300, pct: 0.20 },
+];
 function calcSaving(spend) {
-  if (spend < 20)  return 0;
-  if (spend >= 300) return 60.00; // VIP
-  if (spend >= 250) return 45.00; // Premium
-  if (spend >= 200) return 30.00; // Lounge
-  if (spend >= 150) return 20.00; // Plus
-  if (spend >= 100) return 10.00; // Standard
-  if (spend >= 50)  return 5.00;  // Boarding
-  return 2.50;                    // Entry (€20–€49)
+  if (!spend || spend < 20) return 0;
+  if (spend >= 300) return Math.round(spend * 0.20 * 100) / 100;
+  let lower = DISCOUNT_BREAKPOINTS[0], upper = DISCOUNT_BREAKPOINTS[DISCOUNT_BREAKPOINTS.length - 1];
+  for (let i = 0; i < DISCOUNT_BREAKPOINTS.length - 1; i++) {
+    if (spend >= DISCOUNT_BREAKPOINTS[i].spend && spend < DISCOUNT_BREAKPOINTS[i + 1].spend) {
+      lower = DISCOUNT_BREAKPOINTS[i]; upper = DISCOUNT_BREAKPOINTS[i + 1]; break;
+    }
+  }
+  const t = (spend - lower.spend) / (upper.spend - lower.spend);
+  const pct = lower.pct + t * (upper.pct - lower.pct);
+  return Math.round(spend * pct * 100) / 100;
 }
 
 function getTier(spend) {
-  if (spend < 20)  return null;
+  if (!spend || spend < 20) return null;
   if (spend >= 300) return { name: "VIP DutyCredit",     emoji: "🟣", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/30", bar: "bg-purple-400" };
   if (spend >= 250) return { name: "Premium DutyCredit", emoji: "💎", color: "text-pink-400",   bg: "bg-pink-500/10 border-pink-500/30",   bar: "bg-pink-400" };
   if (spend >= 200) return { name: "Lounge DutyCredit",  emoji: "🟢", color: "text-green-400",  bg: "bg-green-500/10 border-green-500/30",  bar: "bg-green-400" };

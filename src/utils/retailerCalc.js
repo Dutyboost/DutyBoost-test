@@ -3,15 +3,34 @@ import { estimateAvgBasketSpend } from "./airportBasketEstimate";
 export const PLATFORM_FEE_PCT = 0.025;
 export const PLATFORM_FEE_CAP = 25;
 
+// Progressive percentage discount: scales from 5% at €20 up to 20% at €300+ (capped at 20%).
+// Linear interpolation between breakpoints. Discount = spend × effective percentage.
+const DISCOUNT_BREAKPOINTS = [
+  { spend: 20,  pct: 0.05 },
+  { spend: 50,  pct: 0.075 },
+  { spend: 100, pct: 0.10 },
+  { spend: 150, pct: 0.125 },
+  { spend: 200, pct: 0.15 },
+  { spend: 250, pct: 0.175 },
+  { spend: 300, pct: 0.20 },
+];
+
 export function calcSaving(spend) {
-  if (spend < 20) return 0;
-  if (spend >= 300) return 60.0;
-  if (spend >= 250) return 45.0;
-  if (spend >= 200) return 30.0;
-  if (spend >= 150) return 20.0;
-  if (spend >= 100) return 10.0;
-  if (spend >= 50) return 5.0;
-  return 2.5;
+  if (!spend || spend < 20) return 0;
+  if (spend >= 300) return Math.round(spend * 0.20 * 100) / 100;
+  // Linear interpolation between the two surrounding breakpoints
+  let lower = DISCOUNT_BREAKPOINTS[0];
+  let upper = DISCOUNT_BREAKPOINTS[DISCOUNT_BREAKPOINTS.length - 1];
+  for (let i = 0; i < DISCOUNT_BREAKPOINTS.length - 1; i++) {
+    if (spend >= DISCOUNT_BREAKPOINTS[i].spend && spend < DISCOUNT_BREAKPOINTS[i + 1].spend) {
+      lower = DISCOUNT_BREAKPOINTS[i];
+      upper = DISCOUNT_BREAKPOINTS[i + 1];
+      break;
+    }
+  }
+  const t = (spend - lower.spend) / (upper.spend - lower.spend);
+  const pct = lower.pct + t * (upper.pct - lower.pct);
+  return Math.round(spend * pct * 100) / 100;
 }
 
 // Platform fee: 2.5% of basket, capped at €25, waived entirely above €1000

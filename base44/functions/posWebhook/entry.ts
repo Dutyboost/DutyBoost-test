@@ -16,18 +16,26 @@ const AGENCY_COMMISSION_SHARE = 0.20;   // 20% of DutyBoost fee goes to agency (
 const PLATFORM_FEE_CAP = 25;            // Maximum DutyBoost fee per transaction
 const AGENCY_COMMISSION_CAP = 5;        // Maximum agency commission per transaction (20% of €25 cap)
 
-// Fixed reward per tier (minimum basket: €20)
-// Entry: €20–€49 → €2.50 | Boarding: €50–€99 → €5 | Standard: €100–€149 → €10
-// Plus: €150–€199 → €20 | Lounge: €200–€249 → €30 | Premium: €250–€299 → €45 | VIP: €300+ → €60
+// Progressive percentage discount (minimum basket: €20)
+// Scales from 5% at €20 up to 20% at €300+ with linear interpolation between breakpoints.
+// Discount = basket × effective percentage.
+const DISCOUNT_BREAKPOINTS = [
+  { spend: 20, pct: 0.05 }, { spend: 50, pct: 0.075 }, { spend: 100, pct: 0.10 },
+  { spend: 150, pct: 0.125 }, { spend: 200, pct: 0.15 }, { spend: 250, pct: 0.175 },
+  { spend: 300, pct: 0.20 },
+];
 function calcBasketCredit(basketValue) {
   if (!basketValue || basketValue < 20) return 0;
-  if (basketValue >= 300) return 60;
-  if (basketValue >= 250) return 45;
-  if (basketValue >= 200) return 30;
-  if (basketValue >= 150) return 20;
-  if (basketValue >= 100) return 10;
-  if (basketValue >= 50) return 5;
-  return 2.5;
+  if (basketValue >= 300) return Math.round(basketValue * 0.20 * 100) / 100;
+  let lower = DISCOUNT_BREAKPOINTS[0], upper = DISCOUNT_BREAKPOINTS[DISCOUNT_BREAKPOINTS.length - 1];
+  for (let i = 0; i < DISCOUNT_BREAKPOINTS.length - 1; i++) {
+    if (basketValue >= DISCOUNT_BREAKPOINTS[i].spend && basketValue < DISCOUNT_BREAKPOINTS[i + 1].spend) {
+      lower = DISCOUNT_BREAKPOINTS[i]; upper = DISCOUNT_BREAKPOINTS[i + 1]; break;
+    }
+  }
+  const t = (basketValue - lower.spend) / (upper.spend - lower.spend);
+  const pct = lower.pct + t * (upper.pct - lower.pct);
+  return Math.round(basketValue * pct * 100) / 100;
 }
 
 Deno.serve(async (req) => {

@@ -3,18 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Globe, TrendingUp, Euro, ScanLine, Store } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
-
-// Tiered DutyCredit saving per transaction — mirrors dashboard model
-function calcSaving(spend) {
-  if (spend < 20)  return 0;
-  if (spend >= 300) return 60.00;
-  if (spend >= 250) return 45.00;
-  if (spend >= 200) return 30.00;
-  if (spend >= 150) return 20.00;
-  if (spend >= 100) return 10.00;
-  if (spend >= 50)  return 5.00;
-  return 2.50;
-}
+import { calcSaving } from "@/utils/retailerCalc";
 
 function calcPlatformFee(basket) {
   if (basket > 1000) return 0;
