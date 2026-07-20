@@ -269,6 +269,7 @@ export const presentationStrings = {
     agg: {
       airports: "Airports", stores: "Stores", daily_travelers: "Daily Travelers", daily_redemptions: "Daily Redemptions",
       daily_net: "Daily Net Revenue", monthly_net: "Monthly Net Revenue", annual_net: "Annual Net Revenue",
+      daily_gross: "Daily Gross Revenue", monthly_gross: "Monthly Gross Revenue", annual_gross: "Annual Gross Revenue",
       daily_fee: "Daily Fee (2.5%)", monthly_fee: "Monthly Fee", annual_fee: "Annual Fee",
       avg_basket: "Avg Global Basket", across_all: "Across all {{count}} airports",
       annual_net_revenue: "Annual Net Revenue", annual_platform_fee: "Annual Platform Fee",
@@ -550,6 +551,7 @@ export const presentationStrings = {
     agg: {
       airports: "Luchthavens", stores: "Winkels", daily_travelers: "Dagelijkse Reizigers", daily_redemptions: "Dagelijkse Inningen",
       daily_net: "Dagelijkse Netto Omzet", monthly_net: "Maandelijkse Netto Omzet", annual_net: "Jaarlijkse Netto Omzet",
+      daily_gross: "Dagelijkse Bruto Omzet", monthly_gross: "Maandelijkse Bruto Omzet", annual_gross: "Jaarlijkse Bruto Omzet",
       daily_fee: "Dagelijkse Fee (2,5%)", monthly_fee: "Maandelijkse Fee", annual_fee: "Jaarlijkse Fee",
       avg_basket: "Gem. Globale Mandje", across_all: "Over alle {{count}} luchthavens",
       annual_net_revenue: "Jaarlijkse Netto Omzet", annual_platform_fee: "Jaarlijkse Platform Fee",
@@ -831,6 +833,7 @@ export const presentationStrings = {
     agg: {
       airports: "Aeropuertos", stores: "Tiendas", daily_travelers: "Viajeros Diarios", daily_redemptions: "Canjes Diarios",
       daily_net: "Ingresos Netos Diarios", monthly_net: "Ingresos Netos Mensuales", annual_net: "Ingresos Netos Anuales",
+      daily_gross: "Ingresos Brutos Diarios", monthly_gross: "Ingresos Brutos Mensuales", annual_gross: "Ingresos Brutos Anuales",
       daily_fee: "Comisión Diaria (2,5%)", monthly_fee: "Comisión Mensual", annual_fee: "Comisión Anual",
       avg_basket: "Cesta Media Global", across_all: "En todos los {{count}} aeropuertos",
       annual_net_revenue: "Ingresos Netos Anuales", annual_platform_fee: "Comisión Anual de Plataforma",

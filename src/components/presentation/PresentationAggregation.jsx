@@ -87,16 +87,16 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-card border border-border rounded-xl p-5 space-y-2">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.daily_net')}</p>
-          <p className={`font-heading font-bold text-foreground ${numFontClass(fmtMoney(totals.dailyNet, currency, 0))}`}>{fmtMoney(totals.dailyNet, currency, 0)}</p>
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.daily_gross')}</p>
+          <p className={`font-heading font-bold text-foreground ${numFontClass(fmtMoney(totals.dailyGross, currency, 0))}`}>{fmtMoney(totals.dailyGross, currency, 0)}</p>
         </div>
         <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 space-y-2">
-          <p className="text-xs text-emerald-600 uppercase tracking-widest">{t('presentation.agg.monthly_net')}</p>
-          <p className={`font-heading font-bold text-emerald-700 ${numFontClass(fmtMoney(totals.monthlyNet, currency, 0))}`}>{fmtMoney(totals.monthlyNet, currency, 0)}</p>
+          <p className="text-xs text-emerald-600 uppercase tracking-widest">{t('presentation.agg.monthly_gross')}</p>
+          <p className={`font-heading font-bold text-emerald-700 ${numFontClass(fmtMoney(totals.monthlyGross, currency, 0))}`}>{fmtMoney(totals.monthlyGross, currency, 0)}</p>
         </div>
         <div className="bg-emerald-100 border border-emerald-300 rounded-xl p-5 space-y-2">
-          <p className="text-xs text-emerald-700 uppercase tracking-widest">{t('presentation.agg.annual_net')}</p>
-          <p className={`font-heading font-bold text-emerald-800 ${numFontClass(fmtMoney(totals.annualNet, currency, 0))}`}>{fmtMoney(totals.annualNet, currency, 0)}</p>
+          <p className="text-xs text-emerald-700 uppercase tracking-widest">{t('presentation.agg.annual_gross')}</p>
+          <p className={`font-heading font-bold text-emerald-800 ${numFontClass(fmtMoney(totals.annualGross, currency, 0))}`}>{fmtMoney(totals.annualGross, currency, 0)}</p>
         </div>
       </div>
 
