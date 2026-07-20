@@ -1552,7 +1552,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
     },
     retaileronepager: {
       headline: 'La nostra missione: trasformare ogni viaggiatore di passaggio in un cliente pagante — automaticamente',
-      subtitle: "DutyBoost sta sviluppando una soluzione che invia viaggiatori ad alta intenzione di acquisto direttamente nel tuo negozio con un DutyCredit personalizzato. Premi fissi a livelli da €2,50 con €20 di spesa fino a €60 con €300+. Pagherai commissione solo quando avverrà effettivamente una vendita.",
+      subtitle: "DutyBoost sta sviluppando una soluzione che invia viaggiatori ad alta intenzione di acquisto direttamente nel tuo negozio con un DutyCredit personalizzato. Premi progressivi da 5% con €20 di spesa fino a 20% con €300+. Pagherai commissione solo quando avverrà effettivamente una vendita.",
       s1_title: '01 — Perché DutyBoost sarà importante per i rivenditori aeroportuali',
       why1_title: 'Da visitatore a compratore — il cambiamento psicologico che creeremo',
       why1_desc: 'Oggi, la maggior parte dei viaggiatori entra nei negozi aeroportuali in modalità esplorazione. DutyBoost ribalterà quella mentalità. Una volta che sapranno che li aspetta uno sconto personalizzato, smetteranno di guardare e inizieranno ad acquistare. Arriveranno mentalmente preparati a spendere nel tuo negozio specifico — senza chiedersi se fare acquisti.',
@@ -1566,7 +1566,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       step1_title: 'Il viaggiatore prenota',
       step1_desc: 'Un viaggiatore prenoterà un volo, un alloggio o un noleggio auto tramite un partner di viaggio connesso a DutyBoost. Il suo DutyCredit verrà generato automaticamente in quel momento — giorni o settimane prima che raggiunga l\'aeroporto.',
       step2_title: 'Credito inviato via e-mail',
-      step2_desc: 'Il viaggiatore riceverà un codice QR personalizzato con un credito di spesa incorporato nell\'email di conferma prenotazione — nessun download di app, nessuna registrazione. Premi fissi a livelli da €2,50 con €20 di spesa fino a €60 con €300+.',
+      step2_desc: 'Il viaggiatore riceverà un codice QR personalizzato con un credito di spesa incorporato nell\'email di conferma prenotazione — nessun download di app, nessuna registrazione. Premi progressivi da 5% con €20 di spesa fino a 20% con €300+.',
       step3_title: 'Visitano il tuo negozio',
       step3_desc: "Il viaggiatore arriverà nel tuo negozio già motivato a spendere — avrà un credito specifico che lo aspetta. Presenterà il suo codice QR alla cassa. Sarà richiesta una semplice integrazione POS per validare e applicare lo sconto.",
       step4_title: 'Transazione registrata',

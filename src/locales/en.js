@@ -821,7 +821,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Our mission: turn every passing traveller into a paying customer — automatically',
-      subtitle: 'DutyBoost is building a solution that sends high-intent travellers directly to your store with a personalised DutyCredit. Fixed-tier rewards starting from €2.50 at €20 spend up to €60 at €300+. You will only pay commission when a sale actually takes place.',
+      subtitle: 'DutyBoost is building a solution that sends high-intent travellers directly to your store with a personalised DutyCredit. Progressive rewards starting from 5% at €20 spend up to 20% at €300+. You will only pay commission when a sale actually takes place.',
       s1_title: '01 — Why DutyBoost Will Matter for Airport Retailers',
       why1_title: 'From browser to buyer — the psychological shift we\'ll create',
        why1_desc: 'Today, most travellers walk into airport stores in browsing mode. DutyBoost will flip that mindset. Once they know a personalised discount awaits them, they will stop looking and start buying. They will arrive mentally prepared to spend at your specific store — not wondering whether to shop.',
@@ -835,7 +835,7 @@ export default {
       step1_title: 'Traveller books',
       step1_desc: 'A traveller will book a flight, accommodation or car rental through any DutyBoost-connected travel partner. Their DutyCredit will be generated automatically at that moment — days or weeks before they reach the airport.',
       step2_title: 'Credit sent by email',
-      step2_desc: 'The traveller will receive a personalised QR code with a spending credit embedded in their booking confirmation email — no app download, no sign-up. Fixed-tier rewards from €2.50 at €20 spend up to €60 at €300+.',
+      step2_desc: 'The traveller will receive a personalised QR code with a spending credit embedded in their booking confirmation email — no app download, no sign-up. Progressive rewards from 5% at €20 spend up to 20% at €300+.',
       step3_title: 'They visit your store',
       step3_desc: 'The traveller will arrive at your store already motivated to spend — they will have a specific credit waiting. They will present their QR code at checkout. A simple POS integration will be required to validate and apply the discount.',
       step4_title: 'Transaction recorded',

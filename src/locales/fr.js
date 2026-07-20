@@ -1548,7 +1548,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
     },
     retaileronepager: {
       headline: "Notre mission : transformer chaque voyageur de passage en client payant — automatiquement",
-      subtitle: "DutyBoost développe une solution qui envoie des voyageurs à forte intention d'achat directement dans votre boutique avec un DutyCredit personnalisé. Récompenses fixes à partir de €2,50 à partir de €20 jusqu'à €60 à partir de €300+. Vous ne paierez une commission que lorsqu'une vente aura réellement lieu.",
+      subtitle: "DutyBoost développe une solution qui envoie des voyageurs à forte intention d'achat directement dans votre boutique avec un DutyCredit personnalisé. Récompenses progressives à partir de 5% à partir de €20 jusqu'à 20% à partir de €300+. Vous ne paierez une commission que lorsqu'une vente aura réellement lieu.",
       s1_title: "01 — Pourquoi DutyBoost sera important pour les commerçants aéroportuaires",
       why1_title: "Du visiteur à l'acheteur — le changement psychologique que nous créerons",
       why1_desc: "Aujourd'hui, la plupart des voyageurs sont en mode navigation. DutyBoost renversera cet état d'esprit : dès qu'ils sauront qu'une réduction les attend, ils commenceront à acheter. Ils arriveront mentalement préparés à dépenser dans votre boutique.",
@@ -1562,7 +1562,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       step1_title: "Le voyageur réserve",
       step1_desc: "Un voyageur réservera un vol, un hébergement ou une location de voiture via un partenaire de voyage connecté à DutyBoost. Son DutyCredit sera généré automatiquement à ce moment — des jours ou des semaines avant qu'il n'atteigne l'aéroport.",
       step2_title: "Crédit envoyé par e-mail",
-      step2_desc: "Le voyageur recevra un QR code personnalisé avec un crédit de dépense intégré dans son e-mail de confirmation de réservation — sans téléchargement d'app, sans inscription. Récompenses fixes à partir de €2,50 à partir de €20 jusqu'à €60 à partir de €300+.",
+      step2_desc: "Le voyageur recevra un QR code personnalisé avec un crédit de dépense intégré dans son e-mail de confirmation de réservation — sans téléchargement d'app, sans inscription. Récompenses progressives à partir de 5% à partir de €20 jusqu'à 20% à partir de €300+.",
       step3_title: "Ils visitent votre boutique",
       step3_desc: "Le voyageur arrivera dans votre boutique déjà motivé à dépenser — il aura un crédit spécifique qui l'attend. Il présentera son QR code à la caisse. Une intégration POS simple sera requise pour valider et appliquer la remise.",
       step4_title: "Transaction enregistrée",

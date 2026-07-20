@@ -1449,7 +1449,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
     },
     retaileronepager: {
       headline: 'Onze missie: elke passerende reiziger omzetten in een betalende klant — automatisch',
-      subtitle: 'DutyBoost bouwt aan een oplossing die koopgerichte reizigers rechtstreeks naar uw winkel stuurt met een gepersonaliseerd DutyCredit. Vaste niveaubeloningen vanaf €2,50 bij €20 besteding tot €60 bij €300+. U zult alleen commissie betalen wanneer er daadwerkelijk een verkoop plaatsvindt.',
+      subtitle: 'DutyBoost bouwt aan een oplossing die koopgerichte reizigers rechtstreeks naar uw winkel stuurt met een gepersonaliseerd DutyCredit. Progressieve beloningen vanaf 5% bij €20 besteding tot 20% bij €300+. U zult alleen commissie betalen wanneer er daadwerkelijk een verkoop plaatsvindt.',
       s1_title: '01 — Waarom DutyBoost belangrijk zal worden voor luchthavenwinkeliers',
       s2_title: '02 — Hoe DutyBoost zal werken voor luchthavenwinkeliers',
        why1_title: 'Van bezoeker naar koper — de psychologische omslag die we creëren',
@@ -1463,7 +1463,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       step1_title: 'Reiziger boekt',
       step1_desc: 'Een reiziger zal een vlucht, accommodatie of huurauto boeken via een DutyBoost-verbonden reispartner. Hun DutyCredit zal op dat moment automatisch worden aangemaakt — dagen of weken vóór ze de luchthaven bereiken.',
       step2_title: 'Tegoed per e-mail verstuurd',
-      step2_desc: 'De reiziger zal een gepersonaliseerde QR-code ontvangen met uitgeeftegoed ingebed in hun boekingsbevestigingsmail — geen app-download, geen aanmelding. Vaste niveaubeloningen vanaf €2,50 bij €20 besteding tot €60 bij €300+.',
+      step2_desc: 'De reiziger zal een gepersonaliseerde QR-code ontvangen met uitgeeftegoed ingebed in hun boekingsbevestigingsmail — geen app-download, geen aanmelding. Progressieve beloningen vanaf 5% bij €20 besteding tot 20% bij €300+.',
       step3_title: 'Ze bezoeken uw winkel',
       step3_desc: 'De reiziger zal in uw winkel aankomen al gemotiveerd om te besteden — ze zullen een specifiek tegoed hebben wachten. Ze zullen hun QR-code bij de kassa tonen. Een eenvoudige POS-integratie zal vereist zijn om de korting te valideren en toe te passen.',
       step4_title: 'Transactie geregistreerd',

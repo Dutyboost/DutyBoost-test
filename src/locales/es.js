@@ -792,7 +792,7 @@ export default {
     },
     retaileronepager: {
       headline: 'Nuestra misión: convertir cada viajero de paso en un cliente de pago — automáticamente',
-      subtitle: 'DutyBoost está construyendo una solución que envía viajeros con alta intención de compra directamente a tu tienda con un DutyCredit personalizado. Recompensas fijas desde €2,50 con €20 de gasto hasta €60 con €300+. Solo pagarás comisión cuando se produzca una venta real.',
+      subtitle: 'DutyBoost está construyendo una solución que envía viajeros con alta intención de compra directamente a tu tienda con un DutyCredit personalizado. Recompensas progresivas desde 5% con €20 de gasto hasta 20% con €300+. Solo pagarás comisión cuando se produzca una venta real.',
       s1_title: '01 — Por qué DutyBoost importará a los minoristas aeroportuarios',
       why1_title: 'De visitante a comprador — el cambio psicológico que lograremos',
       why1_desc: 'Hoy, la mayoría de los viajeros entran en las tiendas del aeropuerto en modo exploración. DutyBoost cambiará esa mentalidad. Una vez que sepan que les espera un descuento personalizado, dejarán de mirar y empezarán a comprar. Llegarán mentalmente preparados para gastar en tu tienda específica — sin cuestionarse si van a comprar.',
@@ -806,7 +806,7 @@ export default {
       step1_title: 'El viajero reserva',
       step1_desc: 'Un viajero reservará un vuelo, alojamiento o alquiler de coche a través de un socio de viaje conectado a DutyBoost. Su DutyCredit se generará automáticamente en ese momento — días o semanas antes de llegar al aeropuerto.',
       step2_title: 'Crédito enviado por correo',
-      step2_desc: 'El viajero recibirá un código QR personalizado con un crédito de gasto integrado en su email de confirmación de reserva — sin descarga de app, sin registro. Recompensas fijas desde €2,50 con €20 de gasto hasta €60 con €300+.',
+      step2_desc: 'El viajero recibirá un código QR personalizado con un crédito de gasto integrado en su email de confirmación de reserva — sin descarga de app, sin registro. Recompensas progresivas desde 5% con €20 de gasto hasta 20% con €300+.',
       step3_title: 'Visitan tu tienda',
       step3_desc: 'El viajero llegará a tu tienda ya motivado para gastar — tendrá un crédito específico esperándole. Presentará su código QR en caja. Se requerirá una integración POS sencilla para validar y aplicar el descuento.',
       step4_title: 'Transacción registrada',

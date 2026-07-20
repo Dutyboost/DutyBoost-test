@@ -1546,7 +1546,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
     },
     retaileronepager: {
       headline: 'Unsere Mission: jeden vorbeilaufenden Reisenden in einen zahlenden Kunden verwandeln — automatisch',
-      subtitle: 'DutyBoost entwickelt eine Lösung, die Reisende mit hoher Kaufabsicht direkt in Ihr Geschäft schickt mit einem personalisierten DutyCredit. Feste Stufenprämien ab €2,50 bei €20 Ausgabe bis €60 bei €300+. Sie werden nur Provision zahlen, wenn tatsächlich ein Verkauf stattfindet.',
+      subtitle: 'DutyBoost entwickelt eine Lösung, die Reisende mit hoher Kaufabsicht direkt in Ihr Geschäft schickt mit einem personalisierten DutyCredit. Progressive Prämien ab 5% bei €20 Ausgabe bis 20% bei €300+. Sie werden nur Provision zahlen, wenn tatsächlich ein Verkauf stattfindet.',
       s1_title: '01 — Warum DutyBoost für Flughafenhändler wichtig sein wird',
       why1_title: 'Vom Browser zum Käufer — der psychologische Wandel, den wir schaffen',
       why1_desc: 'Heute betreten die meisten Reisenden Flughafengeschäfte im Browsing-Modus. DutyBoost wird diese Denkweise umdrehen. Sobald sie wissen, dass ein personalisierter Rabatt auf sie wartet, werden sie aufhören zu schauen und anfangen zu kaufen. Sie werden mental vorbereitet ankommen, in Ihrem Geschäft zu kaufen — ohne sich zu fragen, ob sie überhaupt einkaufen sollen.',
@@ -1560,7 +1560,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       step1_title: 'Reisender bucht',
       step1_desc: 'Ein Reisender wird einen Flug, eine Unterkunft oder einen Mietwagen über einen DutyBoost-verbundenen Reisepartner buchen. Ihr DutyCredit wird in diesem Moment automatisch generiert — Tage oder Wochen bevor sie den Flughafen erreichen.',
       step2_title: 'Guthaben per E-Mail gesendet',
-      step2_desc: 'Der Reisende wird einen personalisierten QR-Code mit einem Ausgabenguthaben erhalten, das in der Buchungsbestätigungs-E-Mail eingebettet ist — kein App-Download, keine Anmeldung. Feste Stufenprämien ab €2,50 bei €20 Ausgabe bis €60 bei €300+.',
+      step2_desc: 'Der Reisende wird einen personalisierten QR-Code mit einem Ausgabenguthaben erhalten, das in der Buchungsbestätigungs-E-Mail eingebettet ist — kein App-Download, keine Anmeldung. Progressive Prämien ab 5% bei €20 Ausgabe bis 20% bei €300+.',
       step3_title: 'Sie besuchen Ihr Geschäft',
       step3_desc: 'Der Reisende wird Ihr Geschäft bereits kaufbereit betreten — er wird ein spezifisches Guthaben haben, das auf ihn wartet. Er wird seinen QR-Code an der Kasse vorzeigen. Eine einfache POS-Integration wird erforderlich sein, um den Rabatt zu validieren und anzuwenden.',
       step4_title: 'Transaktion erfasst',
