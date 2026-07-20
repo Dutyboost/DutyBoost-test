@@ -217,6 +217,7 @@ export default function EnterpriseCalculator() {
               editable={mode !== "quick"}
               focusedAirport={focusedAirport}
               focusedBasket={focusedBasket}
+              annualRedemptions={projections.annualRedemptions}
             />
           </div>
 

@@ -38,7 +38,7 @@ function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, 
   );
 }
 
-export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable, focusedAirport, focusedBasket }) {
+export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable, focusedAirport, focusedBasket, annualRedemptions }) {
   const { t } = useTranslation();
   const { redemptionRate, customBasket } = assumptions;
   const { fmtCompact, fmt, convert, currency, rate } = useCurrency();
@@ -147,7 +147,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         <BenchmarkRow
           icon={TrendingUp}
           label={t("entCalc.bm_dc_travelers")}
-          value={fmtPaxCompact(Math.round((benchmarks.annualPax || 0) * (redemptionRate || 0.01) / 100))}
+          value={fmtPaxCompact(annualRedemptions || 0)}
           confidence={benchmarks.confidence?.dutyCreditTravelers}
           accent="emerald"
         />

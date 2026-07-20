@@ -100,7 +100,7 @@ export default function SummaryCards({ retailer, selectedCount, countryCount, be
           </div>
         </div>
         <div className="text-right">
-          <p className="text-2xl font-bold text-primary">{fmtPaxCompact(benchmarks.dutyCreditTravelers)}</p>
+          <p className="text-2xl font-bold text-primary">{fmtPaxCompact(projections.annualRedemptions)}</p>
           <div className="flex items-center justify-end gap-1.5 mt-0.5">
             <ConfidenceBadge level="estimated" size="xs" showLabel={false} />
             <span className="text-[10px] text-slate-400">{fmtCompact(projections.netRevenuePerTx)}{t("entCalc.per_tx_net")}</span>
