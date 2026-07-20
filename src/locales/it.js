@@ -1578,7 +1578,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       stat2_value: '',
       stat2_label: 'valore medio del carrello previsto',
       stat2_desc: "I detentori di DutyCredit spenderanno significativamente di più — arrivano con credito da spendere e una soglia minima di €20.",
-      stat3_value: '€354K +/-',
+      stat3_value: '+/- €354K',
       stat3_label: 'ricavi aggiuntivi previsti per aeroporto all\'anno',
       stat3_desc: '50M passeggeri annuali in un grande hub × 0,01% tasso di riscatto DutyCredit × €70,80 netto/carrello (€80 spesa media − 9% sconto progressivo − 2,5% commissione DutyBoost) = +/- €354K ricavi netti incrementali per aeroporto per anno — il nostro obiettivo.',
       benefit1_title: '🛍️ Più vendite da viaggiatori che non comprerebbero altrimenti',

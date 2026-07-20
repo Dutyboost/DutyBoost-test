@@ -1475,7 +1475,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       stat2_value: '',
       stat2_label: 'verwachte gemiddelde basketwaarde',
       stat2_desc: 'DutyCredit-houders besteden aanzienlijk meer — ze komen met tegoed om uit te geven en een minimale aankoop van €20.',
-      stat3_value: '€354K +/-',
+      stat3_value: '+/- €354K',
       stat3_label: 'verwachte extra omzet per luchthaven per jaar',
       stat3_desc: '50M jaarlijkse passagiers op een grote hub × 0,01% DutyCredit-inwisselingspercentage × €70,80 netto basket (€80 gem. besteding − 9% progressieve korting − 2,5% DutyBoost fee) = +/- €354K verwachte extra netto-omzet per luchthaven per jaar — ons doel.',
       benefit1_title: '🛍️ Meer verkopen van reizigers die anders niet zouden kopen',

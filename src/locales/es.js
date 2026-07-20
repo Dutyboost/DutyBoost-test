@@ -818,7 +818,7 @@ export default {
       stat2_value: '',
       stat2_label: 'valor promedio de cesta proyectado',
       stat2_desc: 'Los titulares de DutyCredit gastan significativamente más — llegan con crédito para gastar y un umbral mínimo de €20.',
-      stat3_value: '€354K +/-',
+      stat3_value: '+/- €354K',
       stat3_label: 'ingresos adicionales proyectados por aeropuerto al año',
       stat3_desc: '50M pasajeros anuales en un gran hub × 0,01% tasa de canje DutyCredit × €70,80 neto/cesta (€80 gasto medio − 9% descuento progresivo − 2,5% tarifa DutyBoost) = +/- €354K ingresos netos incrementales por aeropuerto al año — nuestro objetivo.',
       benefit1_title: '🛍️ Más ventas de viajeros que no comprarían de otra forma',
