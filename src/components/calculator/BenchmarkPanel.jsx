@@ -93,7 +93,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
                 placeholder={Math.round(convert(displayBasket))}
                 onChange={(e) => onAssumptionChange("customBasket", e.target.value === "" ? null : parseFloat(e.target.value) / rate)}
                 className="w-20 px-2 py-1 text-sm text-right border border-blue-200 rounded-lg outline-none focus:border-blue-500 bg-white"
-                min={Math.round(convert(35))}
+                min={Math.round(convert(20))}
                 max={Math.round(convert(1000))}
               />
               <span className="text-xs text-slate-400">{currency}</span>

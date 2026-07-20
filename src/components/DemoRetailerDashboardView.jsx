@@ -19,14 +19,19 @@ const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
 
 // Tiered DutyCredit saving per transaction — mirrors RetailerCalculator model
 function calcSaving(spend) {
-  if (spend < 35)  return 0;
+  if (spend < 20)  return 0;
   if (spend >= 300) return 60.00;
   if (spend >= 250) return 45.00;
   if (spend >= 200) return 30.00;
   if (spend >= 150) return 20.00;
   if (spend >= 100) return 10.00;
-  if (spend >= 70)  return 5.00;
+  if (spend >= 50)  return 5.00;
   return 2.50;
+}
+
+function calcPlatformFee(basket) {
+  if (basket > 1000) return 0;
+  return Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
 }
 
 export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey, storeCount }) {
@@ -77,7 +82,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
 
   const basket = selectedRetailer.avg_sale;
   const savingPerTx = calcSaving(basket);
-  const commissionPerTx = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
+  const commissionPerTx = calcPlatformFee(basket);
   const netPerTx = Math.round((basket - savingPerTx - commissionPerTx) * 100) / 100;
 
   const totalRedemptions = RETAILERS.reduce((s, r) => s + r.redemptions, 0);
@@ -233,7 +238,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             companyName={companyName}
             transactions={RETAILERS.map(r => {
               const saving = calcSaving(r.avg_sale);
-              const commission = Math.min(Math.round(r.avg_sale * 0.025 * 100) / 100, 25);
+              const commission = calcPlatformFee(r.avg_sale);
               const scaledRevenue = Math.round(r.revenue * periodMultiplier * rateMultiplier);
               const scaledRedemptions = Math.round(r.redemptions * periodMultiplier * rateMultiplier);
               return {

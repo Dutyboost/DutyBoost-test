@@ -16,18 +16,18 @@ const AGENCY_COMMISSION_SHARE = 0.20;   // 20% of DutyBoost fee goes to agency (
 const PLATFORM_FEE_CAP = 25;            // Maximum DutyBoost fee per transaction
 const AGENCY_COMMISSION_CAP = 5;        // Maximum agency commission per transaction (20% of €25 cap)
 
-// Linear interpolation within each tier
-// Boarding: €70–€99 → €5–€10 | Priority: €100–€199 → €10–€30 | Lounge: €200–€299 → €30–€60 | VIP: €300+ → €60
-function lerp(value, minVal, maxVal, minOut, maxOut) {
-  const pct = Math.min(1, (value - minVal) / (maxVal - minVal));
-  return Math.round((minOut + pct * (maxOut - minOut)) * 100) / 100;
-}
+// Fixed reward per tier (minimum basket: €20)
+// Entry: €20–€49 → €2.50 | Boarding: €50–€99 → €5 | Standard: €100–€149 → €10
+// Plus: €150–€199 → €20 | Lounge: €200–€249 → €30 | Premium: €250–€299 → €45 | VIP: €300+ → €60
 function calcBasketCredit(basketValue) {
-  if (!basketValue || basketValue < 70) return 0;
+  if (!basketValue || basketValue < 20) return 0;
   if (basketValue >= 300) return 60;
-  if (basketValue >= 200) return lerp(basketValue, 200, 299, 30, 60);
-  if (basketValue >= 100) return lerp(basketValue, 100, 199, 10, 30);
-  return lerp(basketValue, 70, 99, 5, 10);
+  if (basketValue >= 250) return 45;
+  if (basketValue >= 200) return 30;
+  if (basketValue >= 150) return 20;
+  if (basketValue >= 100) return 10;
+  if (basketValue >= 50) return 5;
+  return 2.5;
 }
 
 Deno.serve(async (req) => {
@@ -67,12 +67,12 @@ Deno.serve(async (req) => {
 
     // 2. Calculate financials
     const txnValue = parseFloat(transaction_value);
-    if (txnValue < 70) {
-      return Response.json({ error: 'Minimum basket value is €70 to redeem a DutyCredit' }, { status: 400 });
+    if (txnValue < 20) {
+      return Response.json({ error: 'Minimum basket value is €20 to redeem a DutyCredit' }, { status: 400 });
     }
     const discountAmount = parseFloat(calcBasketCredit(txnValue).toFixed(2));
     const effectiveDiscount = parseFloat(((discountAmount / txnValue) * 100).toFixed(2));
-    const platformRevenue = parseFloat(Math.min(txnValue * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP).toFixed(2));
+    const platformRevenue = parseFloat((txnValue > 1000 ? 0 : Math.min(txnValue * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP)).toFixed(2));
     const agencyCommission = parseFloat(Math.min(platformRevenue * AGENCY_COMMISSION_SHARE, AGENCY_COMMISSION_CAP).toFixed(2));
     const amountDue = parseFloat((txnValue - discountAmount).toFixed(2));
 

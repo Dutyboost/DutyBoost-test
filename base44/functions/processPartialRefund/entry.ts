@@ -18,17 +18,16 @@ const PLATFORM_FEE_CAP = 25;
 const AGENCY_COMMISSION_SHARE = 0.20;
 const AGENCY_COMMISSION_CAP = 5;
 
-// Linear interpolation within each tier — mirrors posWebhook calcBasketCredit
-function lerp(value, minVal, maxVal, minOut, maxOut) {
-  const pct = Math.min(1, (value - minVal) / (maxVal - minVal));
-  return Math.round((minOut + pct * (maxOut - minOut)) * 100) / 100;
-}
+// Fixed reward per tier — mirrors posWebhook calcBasketCredit (minimum basket: €20)
 function calcBasketCredit(basketValue) {
-  if (!basketValue || basketValue < 70) return 0;
+  if (!basketValue || basketValue < 20) return 0;
   if (basketValue >= 300) return 60;
-  if (basketValue >= 200) return lerp(basketValue, 200, 299, 30, 60);
-  if (basketValue >= 100) return lerp(basketValue, 100, 199, 10, 30);
-  return lerp(basketValue, 70, 99, 5, 10);
+  if (basketValue >= 250) return 45;
+  if (basketValue >= 200) return 30;
+  if (basketValue >= 150) return 20;
+  if (basketValue >= 100) return 10;
+  if (basketValue >= 50) return 5;
+  return 2.5;
 }
 
 Deno.serve(async (req) => {
@@ -85,7 +84,7 @@ Deno.serve(async (req) => {
     const originalCommission = transaction.platform_revenue;
 
     const newDiscount = parseFloat(calcBasketCredit(newBasket).toFixed(2));
-    const newCommission = parseFloat(Math.min(newBasket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP).toFixed(2));
+    const newCommission = parseFloat((newBasket > 1000 ? 0 : Math.min(newBasket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP)).toFixed(2));
     const newAgencyCommission = parseFloat(Math.min(newCommission * AGENCY_COMMISSION_SHARE, AGENCY_COMMISSION_CAP).toFixed(2));
 
     // 5. Calculate refund due to traveler

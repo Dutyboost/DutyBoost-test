@@ -109,7 +109,7 @@ export async function exportTravelPartnerPptx() {
     s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 1.6, w: 11.7, h: 4.2, fill: { color: "FFFFFF" }, line: { color: "E0E7FF", width: 1 }, rectRadius: 0.1 });
     
     const tiers = [
-      { tier: "Boarding", basket: "€70–€99", saving: "€5–€10", meaning: "Entry-level value. Converts price-conscious travelers." },
+      { tier: "Boarding", basket: "€50–€99", saving: "€5–€10", meaning: "Entry-level value. Converts price-conscious travelers." },
       { tier: "Priority", basket: "€100–€199", saving: "€15–€30", meaning: "Most popular tier. Strong conversion incentive for mid-market travelers." },
       { tier: "Lounge", basket: "€200–€299", saving: "€35–€45", meaning: "Premium travelers. Higher basket, bigger savings." },
       { tier: "VIP", basket: "€300+", saving: "€60", meaning: "Top spenders. Flat €60 reward = maximum retailer revenue." },

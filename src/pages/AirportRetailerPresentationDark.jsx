@@ -38,7 +38,7 @@ export default function AirportRetailerPresentationDark() {
   };
 
   const tiers = [
-    { tier: "🟡 Boarding", basket: "€70–€99", save: "€5–€10", fee: "€1.75–€2.50", net: "€56–€86" },
+    { tier: "🟡 Boarding", basket: "€50–€99", save: "€5–€10", fee: "€1.25–€2.50", net: "€44–€92" },
     { tier: "🔵 Priority", basket: "€100–€199", save: "€10–€30", fee: "€2.50–€5", net: "€83–€169" },
     { tier: "🟢 Lounge", basket: "€200–€299", save: "€30–€60", fee: "€5–€7.50", net: "€150–€234" },
     { tier: "🟣 VIP", basket: "€300+", save: "€60 flat", fee: "max €25", net: "€215+ net" },

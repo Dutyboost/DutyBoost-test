@@ -4,14 +4,20 @@ export const PLATFORM_FEE_PCT = 0.025;
 export const PLATFORM_FEE_CAP = 25;
 
 export function calcSaving(spend) {
-  if (spend < 35) return 0;
+  if (spend < 20) return 0;
   if (spend >= 300) return 60.0;
   if (spend >= 250) return 45.0;
   if (spend >= 200) return 30.0;
   if (spend >= 150) return 20.0;
   if (spend >= 100) return 10.0;
-  if (spend >= 70) return 5.0;
+  if (spend >= 50) return 5.0;
   return 2.5;
+}
+
+// Platform fee: 2.5% of basket, capped at €25, waived entirely above €1000
+export function calcPlatformFee(basket) {
+  if (basket > 1000) return 0;
+  return Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
 }
 
 export function numFontClass(str) {
@@ -25,7 +31,7 @@ export function numFontClass(str) {
 export function computeAirport(airport, conversionRate) {
   const basket = estimateAvgBasketSpend(airport);
   const saving = calcSaving(basket);
-  const commission = Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
+  const commission = calcPlatformFee(basket);
   const netRevenue = Math.round((basket - saving - commission) * 100) / 100;
   const dailyRedemptions = Math.round(airport.daily_pax * (conversionRate / 100));
   const monthlyNet = Math.round((dailyRedemptions * netRevenue * 365) / 12 * 100) / 100;

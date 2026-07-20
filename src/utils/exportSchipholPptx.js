@@ -168,7 +168,7 @@ export async function exportSchipholPptx() {
     });
 
     const tiers = [
-      { tier: "Boarding", basket: "€70–€99", discount: "€5–€10", relevance: "Transit & short-haul intra-EU travelers", highlight: false },
+      { tier: "Boarding", basket: "€50–€99", discount: "€5–€10", relevance: "Transit & short-haul intra-EU travelers", highlight: false },
       { tier: "Priority ★", basket: "€100–€199", discount: "€15–€30", relevance: "Core Schiphol segment — most common basket range", highlight: true },
       { tier: "Lounge", basket: "€200–€299", discount: "€35–€45", relevance: "Business & long-haul travelers to/from AMS", highlight: false },
       { tier: "VIP", basket: "€300+", discount: "€60", relevance: "Asia-Pacific / Americas / Middle East high spenders", highlight: false },

@@ -207,7 +207,7 @@ export default function TravelPartnerPresentation() {
               </thead>
               <tbody>
                 {[
-                  { tier: '🟡 Boarding', basket: '€70–€99', saving: '€5–€10', comm: 'up to €2.50' },
+                  { tier: '🟡 Boarding', basket: '€50–€99', saving: '€5–€10', comm: 'up to €2.50' },
                   { tier: '🔵 Priority', basket: '€100–€199', saving: '€10–€30', comm: 'up to €5' },
                   { tier: '🟢 Lounge', basket: '€200–€299', saving: '€30–€60', comm: 'up to €5' },
                   { tier: '🟣 VIP', basket: '€300+', saving: '€60 flat', comm: 'up to €5 (capped)' },

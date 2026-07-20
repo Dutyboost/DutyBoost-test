@@ -31,26 +31,26 @@ function numFontClass(str) {
 }
 
 // ── Shared discount logic ──────────────────────────────────────────────────────
-// Fixed reward per tier — minimum basket €35
+// Fixed reward per tier — minimum basket €20
 function calcSaving(spend) {
-  if (spend < 35)  return 0;
+  if (spend < 20)  return 0;
   if (spend >= 300) return 60.00; // VIP
   if (spend >= 250) return 45.00; // Premium
   if (spend >= 200) return 30.00; // Lounge
   if (spend >= 150) return 20.00; // Plus
   if (spend >= 100) return 10.00; // Standard
-  if (spend >= 70)  return 5.00;  // Boarding
-  return 2.50;                    // Entry (€35–€69)
+  if (spend >= 50)  return 5.00;  // Boarding
+  return 2.50;                    // Entry (€20–€49)
 }
 
 function getTier(spend) {
-  if (spend < 35)  return null;
+  if (spend < 20)  return null;
   if (spend >= 300) return { name: "VIP DutyCredit",     emoji: "🟣", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/30", bar: "bg-purple-400" };
   if (spend >= 250) return { name: "Premium DutyCredit", emoji: "💎", color: "text-pink-400",   bg: "bg-pink-500/10 border-pink-500/30",   bar: "bg-pink-400" };
   if (spend >= 200) return { name: "Lounge DutyCredit",  emoji: "🟢", color: "text-green-400",  bg: "bg-green-500/10 border-green-500/30",  bar: "bg-green-400" };
   if (spend >= 150) return { name: "Plus DutyCredit",    emoji: "🔵", color: "text-blue-400",   bg: "bg-blue-500/10 border-blue-500/30",    bar: "bg-blue-400" };
   if (spend >= 100) return { name: "Standard DutyCredit",emoji: "🟡", color: "text-yellow-500", bg: "bg-yellow-500/10 border-yellow-500/30", bar: "bg-yellow-400" };
-  if (spend >= 70)  return { name: "Boarding DutyCredit",emoji: "⚪", color: "text-slate-400",  bg: "bg-slate-500/10 border-slate-500/30",  bar: "bg-slate-400" };
+  if (spend >= 50)  return { name: "Boarding DutyCredit",emoji: "⚪", color: "text-slate-400",  bg: "bg-slate-500/10 border-slate-500/30",  bar: "bg-slate-400" };
   return               { name: "Entry DutyCredit",    emoji: "🟤", color: "text-amber-600",  bg: "bg-amber-500/10 border-amber-500/30",  bar: "bg-amber-400" };
 }
 
@@ -61,8 +61,8 @@ const AGENCY_COMMISSION_PCT = 0.005; // 0.5% of basket
 const AGENCY_COMMISSION_CAP = 5;     // €5 max per transaction
 
 const TIER_BANDS = [
-  { label: "Entry",    min: 35,  max: 69,  saving: 2.50,  color: "bg-amber-400",  textColor: "text-amber-600" },
-  { label: "Boarding", min: 70,  max: 99,  saving: 5.00,  color: "bg-slate-400",  textColor: "text-slate-500" },
+  { label: "Entry",    min: 20,  max: 49,  saving: 2.50,  color: "bg-amber-400",  textColor: "text-amber-600" },
+  { label: "Boarding", min: 50,  max: 99,  saving: 5.00,  color: "bg-slate-400",  textColor: "text-slate-500" },
   { label: "Standard", min: 100, max: 149, saving: 10.00, color: "bg-yellow-400", textColor: "text-yellow-600" },
   { label: "Plus",     min: 150, max: 199, saving: 20.00, color: "bg-blue-400",   textColor: "text-blue-600" },
   { label: "Lounge",   min: 200, max: 249, saving: 30.00, color: "bg-green-400",  textColor: "text-green-600" },
@@ -143,7 +143,7 @@ function TravelPartnerTab({ t }) {
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
   const [conversion, setConversion] = useState({ flight: 0.01, accommodation: 0.01, car: 0.01 });
-  const FIXED_AVG_BASKET = 35;
+  const FIXED_AVG_BASKET = 20;
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
 
   const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);

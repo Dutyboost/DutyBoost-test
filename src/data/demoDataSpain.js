@@ -9,7 +9,7 @@
 // Revenue model (incremental uplift from DutyBoost):
 //   dailyRedemptions = daily_pax × 0.01%   (DutyBoost's incremental shopper uplift)
 //   monthlyRedemptions = dailyRedemptions × 365 / 12
-//   basket = estimateAvgBasketSpend(airport)  → [€35, €150]
+//   basket = estimateAvgBasketSpend(airport)  → [€20, €150]
 //   grossRevenue = redemptions × basket
 //
 // 0.01% reflects DutyBoost's stated minimum incremental uplift on top of the

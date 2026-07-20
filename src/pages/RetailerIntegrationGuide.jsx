@@ -363,7 +363,7 @@ export default function RetailerIntegrationGuide() {
                    </tr>
                  </thead>
                  <tbody className="divide-y divide-blue-200">
-                   <tr><td className="py-2 px-2 font-semibold">€70–€99</td><td className="py-2 px-2">€5</td><td className="py-2 px-2">≤ €25 cap</td></tr>
+                   <tr><td className="py-2 px-2 font-semibold">€50–€99</td><td className="py-2 px-2">€5</td><td className="py-2 px-2">≤ €25 cap</td></tr>
                    <tr><td className="py-2 px-2 font-semibold">€100–€199</td><td className="py-2 px-2">€10+</td><td className="py-2 px-2">≤ €25 cap</td></tr>
                    <tr><td className="py-2 px-2 font-semibold">€200–€299</td><td className="py-2 px-2">€30+</td><td className="py-2 px-2">≤ €25 cap</td></tr>
                    <tr><td className="py-2 px-2 font-semibold">€300–€1,000</td><td className="py-2 px-2">Up to €60</td><td className="py-2 px-2">≤ €25 cap</td></tr>

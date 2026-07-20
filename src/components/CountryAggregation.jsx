@@ -6,14 +6,19 @@ import { fmtNum, fmtEur } from "../utils/formatNumber";
 
 // Tiered DutyCredit saving per transaction — mirrors dashboard model
 function calcSaving(spend) {
-  if (spend < 35)  return 0;
+  if (spend < 20)  return 0;
   if (spend >= 300) return 60.00;
   if (spend >= 250) return 45.00;
   if (spend >= 200) return 30.00;
   if (spend >= 150) return 20.00;
   if (spend >= 100) return 10.00;
-  if (spend >= 70)  return 5.00;
+  if (spend >= 50)  return 5.00;
   return 2.50;
+}
+
+function calcPlatformFee(basket) {
+  if (basket > 1000) return 0;
+  return Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
 }
 
 const PLATFORM_FEE_PCT = 0.025;
@@ -55,7 +60,7 @@ export default function CountryAggregation({ AIRPORTS, RETAILERS, periodMultipli
       const scaledRevenue = Math.round(g.revenue * periodMultiplier);
       const avgBasket = scaledRedemptions > 0 ? scaledRevenue / scaledRedemptions : 0;
       const saving = calcSaving(avgBasket);
-      const commission = Math.min(Math.round(avgBasket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
+      const commission = calcPlatformFee(avgBasket);
       const grossRevenue = scaledRedemptions * avgBasket;
       const totalSavings = Math.round(scaledRedemptions * saving * 100) / 100;
       const totalFee = Math.round(scaledRedemptions * commission * 100) / 100;

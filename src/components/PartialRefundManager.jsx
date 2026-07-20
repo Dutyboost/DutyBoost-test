@@ -16,11 +16,14 @@ function lerp(value, minVal, maxVal, minOut, maxOut) {
   return Math.round((minOut + pct * (maxOut - minOut)) * 100) / 100;
 }
 function calcBasketCredit(basketValue) {
-  if (!basketValue || basketValue < 70) return 0;
+  if (!basketValue || basketValue < 20) return 0;
   if (basketValue >= 300) return 60;
-  if (basketValue >= 200) return lerp(basketValue, 200, 299, 30, 60);
-  if (basketValue >= 100) return lerp(basketValue, 100, 199, 10, 30);
-  return lerp(basketValue, 70, 99, 5, 10);
+  if (basketValue >= 250) return 45;
+  if (basketValue >= 200) return 30;
+  if (basketValue >= 150) return 20;
+  if (basketValue >= 100) return 10;
+  if (basketValue >= 50) return 5;
+  return 2.5;
 }
 
 export default function PartialRefundManager({ transactions, onRefundProcessed }) {
@@ -53,7 +56,7 @@ export default function PartialRefundManager({ transactions, onRefundProcessed }
   const discountAdjustment = originalDiscount - newDiscount;
   const refundDueToTraveler = refundAmount - discountAdjustment;
   const originalCommission = selectedTxn?.platform_revenue || 0;
-  const newCommission = Math.min(newBasket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP);
+  const newCommission = newBasket > 1000 ? 0 : Math.min(newBasket * PLATFORM_FEE_PCT, PLATFORM_FEE_CAP);
   const maxRefundable = remainingBasket;
 
   const handleConfirm = async () => {

@@ -3,7 +3,7 @@
 
 import { AIRPORT_RETAIL_COMPANIES, RETAIL_AIRPORTS } from "./airportRetailCompanies";
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
-import { calcSaving, PLATFORM_FEE_PCT, PLATFORM_FEE_CAP } from "../utils/retailerCalc";
+import { calcSaving, calcPlatformFee, PLATFORM_FEE_PCT, PLATFORM_FEE_CAP } from "../utils/retailerCalc";
 
 // Demo data exports — real retailer store data (names, redemptions, baskets, revenue)
 import { RETAILERS as LTR_RETAILERS, STORE_COUNT as LTR_STORE_COUNT } from "./demoDataLagardere";
@@ -242,7 +242,7 @@ export function computeProjections(benchmarks, assumptions) {
     : Math.round(annualPax * redemptionRate / 100);
 
   const saving = calcSaving(basket);
-  const commission = Math.min(Math.round(basket * PLATFORM_FEE_PCT * 100) / 100, PLATFORM_FEE_CAP);
+  const commission = calcPlatformFee(basket);
   const netRevenuePerTx = Math.round((basket - saving - commission) * 100) / 100;
   const potentialIncrementalSales = Math.round(annualRedemptions * basket * 100) / 100;
   const dutyBoostCommission = Math.round(annualRedemptions * commission * 100) / 100;

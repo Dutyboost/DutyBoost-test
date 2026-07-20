@@ -260,7 +260,7 @@ export default function SchipholRetailerPresentation() {
           <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/50 rounded-xl p-6">
             <h3 className="font-semibold text-slate-100 mb-4">Annual Impact — Single Schiphol Location</h3>
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-slate-400">Current: ~70 daily conversions × €35 margin</span><span className="text-slate-300 font-semibold">€2,450/day</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">Current: ~70 daily conversions × €20 margin</span><span className="text-slate-300 font-semibold">€2,450/day</span></div>
               <div className="flex justify-between"><span className="text-slate-400">With DutyBoost: ~100 conversions × €32.50 (net of fee)</span><span className="text-green-400 font-semibold">€3,250/day</span></div>
               <div className="flex justify-between pt-2 border-t border-green-700/30 text-base">
                 <span className="text-slate-100 font-semibold">Annual additional revenue (1 Schiphol location):</span>
@@ -353,9 +353,9 @@ export default function SchipholRetailerPresentation() {
               </thead>
               <tbody>
                 {[
-                  { tier: 'Boarding', basket: '€70–€99', discount: '€5–€10', relevance: 'Transit & short-haul intra-EU travelers', highlight: false },
+                  { tier: 'Boarding', basket: '€50–€99', discount: '€5–€10', relevance: 'Transit & short-haul intra-EU travelers', highlight: false },
                   { tier: 'Priority', basket: '€100–€199', discount: '€15–€30', relevance: 'Core Schiphol segment — most common basket range', highlight: true },
-                  { tier: 'Lounge', basket: '€200–€299', discount: '€35–€45', relevance: 'Business & long-haul travelers to/from AMS', highlight: false },
+                  { tier: 'Lounge', basket: '€200–€299', discount: '€20–€45', relevance: 'Business & long-haul travelers to/from AMS', highlight: false },
                   { tier: 'VIP', basket: '€300+', discount: '€60', relevance: 'Asia-Pacific / Americas / Middle East high spenders', highlight: false },
                 ].map(({ tier, basket, discount, relevance, highlight }, i) => (
                   <tr key={tier} className={`border-b border-slate-700 hover:bg-slate-800/30 transition-colors ${highlight ? 'bg-orange-900/10' : i % 2 === 0 ? 'bg-slate-900/20' : 'bg-slate-800/10'}`}>
