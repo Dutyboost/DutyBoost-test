@@ -1560,7 +1560,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       step1_title: 'Reisender erhält DutyCredit',
       step1_desc: 'Ein Reisender auf dem Weg zu Ihrem Flughafen aktiviert ein DutyCredit vor dem Flug — ein Ausgabenguthaben, Tage oder Wochen vor der Ankunft bereit.',
       step2_title: 'Guthaben auf dem Handy',
-      step2_desc: 'Er erhält einen personalisierten QR-Code mit Guthaben — keine App, keine Anmeldung. Progressive Prämien ab 5% bei €20 bis 20% bei €300+.',
+      step2_desc: 'Er erhält einen personalisierten QR-Code mit Guthaben — keine App, keine Anmeldung. Progressive Prämien ab 5% bei €20 (€1) bis 20% bei €300+ (€60).',
       step3_title: 'Sie besuchen Ihr Geschäft',
       step3_desc: 'Er betritt Ihr Geschäft bereits kaufbereit — ein spezifisches Guthaben wartet. Er zeigt seinen QR-Code an der Kasse. Eine einfache POS-Integration validiert und wendet den Rabatt an.',
       step4_title: 'Transaktion erfasst',

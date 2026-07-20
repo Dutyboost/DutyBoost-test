@@ -1463,7 +1463,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       step1_title: 'Reiziger krijgt DutyCredit',
       step1_desc: 'Een reiziger op weg naar uw luchthaven activeert een DutyCredit vóór de vlucht — een bestedingskrediet dagen of weken voor aankomst klaar.',
       step2_title: 'Tegoed op hun telefoon',
-      step2_desc: 'Ze ontvangen een gepersonaliseerde QR-code met tegoed — geen app, geen aanmelding. Progressieve beloningen vanaf 5% bij €20 tot 20% bij €300+.',
+      step2_desc: 'Ze ontvangen een gepersonaliseerde QR-code met tegoed — geen app, geen aanmelding. Progressieve beloningen vanaf 5% bij €20 (€1) tot 20% bij €300+ (€60).',
       step3_title: 'Ze bezoeken uw winkel',
       step3_desc: 'Ze komen gemotiveerd uw winkel binnen — een specifiek tegoed wachtend. Ze tonen hun QR-code bij de kassa. Een eenvoudige POS-integratie valideert en past de korting toe.',
       step4_title: 'Transactie geregistreerd',

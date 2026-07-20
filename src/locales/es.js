@@ -806,7 +806,7 @@ export default {
       step1_title: 'El viajero obtiene un DutyCredit',
       step1_desc: 'Un viajero con destino a tu aeropuerto activa un DutyCredit antes de volar — un crédito de gasto listo días o semanas antes de llegar.',
       step2_title: 'Crédito en su móvil',
-      step2_desc: 'Recibe un código QR personalizado con crédito de gasto — sin app, sin registro. Recompensas progresivas desde 5% a €20 hasta 20% a €300+.',
+      step2_desc: 'Recibe un código QR personalizado con crédito de gasto — sin app, sin registro. Recompensas progresivas desde 5% a €20 (€1) hasta 20% a €300+ (€60).',
       step3_title: 'Visitan tu tienda',
       step3_desc: 'Llega a tu tienda ya motivado — un crédito específico esperándole. Muestra su código QR en caja. Una integración POS sencilla valida y aplica el descuento.',
       step4_title: 'Transacción registrada',

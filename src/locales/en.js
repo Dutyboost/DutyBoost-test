@@ -835,7 +835,7 @@ export default {
       step1_title: 'Traveller gets a DutyCredit',
       step1_desc: 'A traveller heading to your airport activates a DutyCredit before they fly — a spending credit ready days or weeks before arrival.',
       step2_title: 'Credit on their phone',
-      step2_desc: 'They receive a personalised QR code with spending credit — no app, no sign-up. Progressive rewards from 5% at €20 up to 20% at €300+.',
+      step2_desc: 'They receive a personalised QR code with spending credit — no app, no sign-up. Progressive rewards from 5% at €20 (€1) up to 20% at €300+ (€60).',
       step3_title: 'They visit your store',
       step3_desc: 'They arrive at your store already motivated — a specific credit waiting. They show their QR code at checkout. A simple POS integration validates and applies the discount.',
       step4_title: 'Transaction recorded',

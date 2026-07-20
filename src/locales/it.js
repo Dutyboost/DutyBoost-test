@@ -1566,7 +1566,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       step1_title: 'Il viaggiatore ottiene un DutyCredit',
       step1_desc: "Un viaggiatore diretto al tuo aeroporto attiva un DutyCredit prima di volare — un credito di spesa pronto giorni o settimane prima dell'arrivo.",
       step2_title: 'Credito sul telefono',
-      step2_desc: 'Riceve un codice QR personalizzato con credito di spesa — niente app, niente registrazione. Premi progressivi da 5% a €20 fino a 20% a €300+.',
+      step2_desc: 'Riceve un codice QR personalizzato con credito di spesa — niente app, niente registrazione. Premi progressivi da 5% a €20 (€1) fino a 20% a €300+ (€60).',
       step3_title: 'Visitano il tuo negozio',
       step3_desc: 'Arriva nel tuo negozio già motivato — un credito specifico che lo aspetta. Mostra il suo codice QR alla cassa. Una semplice integrazione POS valida e applica lo sconto.',
       step4_title: 'Transazione registrata',

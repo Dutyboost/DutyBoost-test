@@ -1562,7 +1562,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       step1_title: "Le voyageur obtient un DutyCredit",
       step1_desc: "Un voyageur à destination de votre aéroport active un DutyCredit avant de voler — un crédit de dépense prêt des jours ou semaines avant l'arrivée.",
       step2_title: "Crédit sur son téléphone",
-      step2_desc: "Il reçoit un QR code personnalisé avec crédit de dépense — sans app, sans inscription. Récompenses progressives dès 5% à €20 jusqu'à 20% à €300+.",
+      step2_desc: "Il reçoit un QR code personnalisé avec crédit de dépense — sans app, sans inscription. Récompenses progressives dès 5% à €20 (€1) jusqu'à 20% à €300+ (€60).",
       step3_title: "Ils visitent votre boutique",
       step3_desc: "Il arrive dans votre boutique déjà motivé — un crédit spécifique l'attend. Il montre son QR code à la caisse. Une intégration POS simple valide et applique la remise.",
       step4_title: "Transaction enregistrée",
