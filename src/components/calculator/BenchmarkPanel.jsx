@@ -71,7 +71,6 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         <BenchmarkRow icon={Users} label={t("entCalc.bm_annual_pax")} value={fmtPaxCompact(benchmarks.annualPax)} confidence={benchmarks.confidence?.annualPax} />
         <BenchmarkRow icon={Plane} label={t("entCalc.bm_intl_pax")} value={fmtPaxCompact(benchmarks.intlPax)} confidence={benchmarks.confidence?.intlPax} />
         <BenchmarkRow icon={Users} label={t("entCalc.bm_domestic_pax")} value={fmtPaxCompact(benchmarks.domesticPax)} confidence={benchmarks.confidence?.domesticPax} />
-        <BenchmarkRow icon={ShoppingBag} label={t("entCalc.bm_avg_spend")} value={fmtCompact(benchmarks.avgRetailSpend)} confidence={benchmarks.confidence?.avgRetailSpend} />
         <BenchmarkRow icon={Store} label={t("entCalc.bm_stores")} value={benchmarks.storeCount} confidence={benchmarks.confidence?.storeCount} />
         {editable && (
           <p className="text-sm text-slate-900 font-medium px-3 py-1.5 my-1 bg-slate-50 rounded-lg border border-slate-100">
