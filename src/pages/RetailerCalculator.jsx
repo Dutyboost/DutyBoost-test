@@ -18,6 +18,8 @@ import CompanyNetworkView from "../components/CompanyNetworkView";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import { computeCompanyTotals } from "../utils/retailerCalc";
 import EnterpriseCalculator from "../components/calculator/EnterpriseCalculator";
+import { CurrencyProvider } from "../components/calculator/CurrencyContext";
+import CurrencySwitcher from "../components/calculator/CurrencySwitcher";
 
 // ── Responsive font size for large numbers ─────────────────────────────────────
 function numFontClass(str) {
@@ -399,6 +401,7 @@ export default function RetailerCalculator() {
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
+      <CurrencyProvider>
       <div className="max-w-6xl mx-auto space-y-8">
 
         {/* Header */}
@@ -406,7 +409,8 @@ export default function RetailerCalculator() {
           <div className="flex justify-between items-center mb-2">
             <div className="w-24" />
             <DutyBoostLogo height={55} />
-            <div className="w-24 flex justify-end">
+            <div className="flex justify-end gap-2">
+              <CurrencySwitcher />
               <LanguageSwitcher />
             </div>
           </div>
@@ -423,6 +427,7 @@ export default function RetailerCalculator() {
 
       </div>
       <PageFooter />
+      </CurrencyProvider>
     </main>
   );
 }

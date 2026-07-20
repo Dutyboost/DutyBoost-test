@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import { Users, Plane, ShoppingBag, Percent, Store, TrendingUp, RotateCcw } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import ConfidenceBadge from "./ConfidenceBadge";
-import { fmtCompact, fmtEurCompact } from "@/data/enterpriseCalculator";
+import { fmtCompact as fmtPaxCompact } from "@/data/enterpriseCalculator";
+import { useCurrency } from "./CurrencyContext";
 
 const ACCENTS = {
   blue: { chip: "bg-blue-100 text-blue-600", row: "bg-blue-50/60", bar: "border-l-blue-400", value: "text-blue-700" },
@@ -40,6 +41,7 @@ function BenchmarkRow({ icon: Icon, label, value, suffix, confidence, editable, 
 export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionChange, editable, focusedAirport, focusedBasket }) {
   const { t } = useTranslation();
   const { redemptionRate, customBasket } = assumptions;
+  const { fmtCompact, fmt, convert, currency, rate } = useCurrency();
   const hasOverride = customBasket !== null;
   const displayBasket = focusedBasket || benchmarks.avgBasket;
   const avgBasketLabel = focusedAirport
@@ -66,10 +68,10 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         </p>
       </div>
       <div className="px-5 py-2">
-        <BenchmarkRow icon={Users} label={t("entCalc.bm_annual_pax")} value={fmtCompact(benchmarks.annualPax)} confidence={benchmarks.confidence?.annualPax} />
-        <BenchmarkRow icon={Plane} label={t("entCalc.bm_intl_pax")} value={fmtCompact(benchmarks.intlPax)} confidence={benchmarks.confidence?.intlPax} />
-        <BenchmarkRow icon={Users} label={t("entCalc.bm_domestic_pax")} value={fmtCompact(benchmarks.domesticPax)} confidence={benchmarks.confidence?.domesticPax} />
-        <BenchmarkRow icon={ShoppingBag} label={t("entCalc.bm_avg_spend")} value={fmtEurCompact(benchmarks.avgRetailSpend)} confidence={benchmarks.confidence?.avgRetailSpend} />
+        <BenchmarkRow icon={Users} label={t("entCalc.bm_annual_pax")} value={fmtPaxCompact(benchmarks.annualPax)} confidence={benchmarks.confidence?.annualPax} />
+        <BenchmarkRow icon={Plane} label={t("entCalc.bm_intl_pax")} value={fmtPaxCompact(benchmarks.intlPax)} confidence={benchmarks.confidence?.intlPax} />
+        <BenchmarkRow icon={Users} label={t("entCalc.bm_domestic_pax")} value={fmtPaxCompact(benchmarks.domesticPax)} confidence={benchmarks.confidence?.domesticPax} />
+        <BenchmarkRow icon={ShoppingBag} label={t("entCalc.bm_avg_spend")} value={fmtCompact(benchmarks.avgRetailSpend)} confidence={benchmarks.confidence?.avgRetailSpend} />
         <BenchmarkRow icon={Store} label={t("entCalc.bm_stores")} value={benchmarks.storeCount} confidence={benchmarks.confidence?.storeCount} />
         {editable && (
           <p className="text-sm text-slate-900 font-medium px-3 py-1.5 my-1 bg-slate-50 rounded-lg border border-slate-100">
@@ -79,7 +81,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         <BenchmarkRow
           icon={ShoppingBag}
           label={avgBasketLabel}
-          value={fmtEurCompact(displayBasket)}
+          value={fmtCompact(displayBasket)}
           confidence={focusedAirport ? "high" : benchmarks.confidence?.avgBasket}
           accent="blue"
           editable={editable}
@@ -87,14 +89,14 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
             <div className="flex items-center gap-2 w-40">
               <input
                 type="number"
-                value={hasOverride ? customBasket : ""}
-                placeholder={Math.round(displayBasket)}
-                onChange={(e) => onAssumptionChange("customBasket", e.target.value === "" ? null : parseFloat(e.target.value))}
+                value={hasOverride ? parseFloat(convert(customBasket).toFixed(2)) : ""}
+                placeholder={Math.round(convert(displayBasket))}
+                onChange={(e) => onAssumptionChange("customBasket", e.target.value === "" ? null : parseFloat(e.target.value) / rate)}
                 className="w-20 px-2 py-1 text-sm text-right border border-blue-200 rounded-lg outline-none focus:border-blue-500 bg-white"
-                min="35"
-                max="1000"
+                min={Math.round(convert(35))}
+                max={Math.round(convert(1000))}
               />
-              <span className="text-xs text-slate-400">EUR</span>
+              <span className="text-xs text-slate-400">{currency}</span>
               {hasOverride && (
                 <button onClick={() => onAssumptionChange("customBasket", null)} className="text-slate-400 hover:text-slate-600">
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -145,7 +147,7 @@ export default function BenchmarkPanel({ benchmarks, assumptions, onAssumptionCh
         <BenchmarkRow
           icon={TrendingUp}
           label={t("entCalc.bm_dc_travelers")}
-          value={fmtCompact(Math.round((benchmarks.annualPax || 0) * (redemptionRate || 0.01) / 100))}
+          value={fmtPaxCompact(Math.round((benchmarks.annualPax || 0) * (redemptionRate || 0.01) / 100))}
           confidence={benchmarks.confidence?.dutyCreditTravelers}
           accent="emerald"
         />
