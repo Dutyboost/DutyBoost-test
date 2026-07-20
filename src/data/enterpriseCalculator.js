@@ -52,6 +52,30 @@ export const ENTERPRISE_RETAILERS = [
   { key: "other", name: "Other", airports: OTHER_AIRPORTS, hqCountry: null, description: "Custom — select from global airport network" },
 ];
 
+// ── Single-airport island territories ────────────────────────────────────────
+// Small islands and territories with only 1 commercial airport have no domestic
+// flights — 100% of passengers are international. Curated from all airport data
+// files (caribbean, oceania, african, european, asian). Countries with multiple
+// airports (Jamaica, Dominican Republic, UK, Cuba, etc.) are NOT included.
+const SINGLE_AIRPORT_COUNTRIES = new Set([
+  // Caribbean single-airport territories
+  "Aruba", "Curacao", "Curaçao", "Bonaire", "Sint Maarten",
+  "Saint Barthelemy", "Saint Martin", "Guadeloupe", "Martinique",
+  "French Guiana", "Barbados", "Grenada",
+  "Saint Vincent and the Grenadines", "Anguilla",
+  "British Virgin Islands", "Antigua", "Antigua and Barbuda",
+  // Pacific / Oceania single-airport territories
+  "New Caledonia", "Samoa", "Tonga", "Guam",
+  "Northern Mariana Islands", "American Samoa",
+  "Cook Islands", "Solomon Islands", "Vanuatu",
+  // African island nations
+  "Seychelles", "Mauritius",
+  // European island territories
+  "Malta", "Jersey",
+  // Asian island nations
+  "Maldives",
+]);
+
 export function getRetailerByKey(key) {
   return ENTERPRISE_RETAILERS.find((r) => r.key === key) || null;
 }
@@ -85,6 +109,8 @@ export function groupAirportsByRegion(airports) {
 // ── International passenger % estimation by country ──────────────────────────
 function estimateIntlPct(airport) {
   const c = airport.country;
+  // Single-airport territories have no domestic flights — 100% international
+  if (SINGLE_AIRPORT_COUNTRIES.has(c)) return 100;
   const HUBS = ["Singapore", "Hong Kong", "United Arab Emirates", "Qatar", "Bahrain", "Kuwait", "Oman"];
   if (HUBS.includes(c)) return 95;
   const SMALL = ["Netherlands", "Belgium", "Switzerland", "Luxembourg", "Ireland", "Denmark", "Norway", "Sweden", "Finland", "Portugal", "Greece", "Croatia", "Slovenia", "Slovakia", "Estonia", "Latvia", "Lithuania", "Iceland", "Malta", "Cyprus", "Jersey", "Armenia", "Cape Verde", "Mauritius"];
