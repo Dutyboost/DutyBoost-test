@@ -1477,7 +1477,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       stat2_desc: 'DutyCredit-houders besteden aanzienlijk meer — ze komen met tegoed om uit te geven en een minimale aankoop van €20.',
       stat3_value: '€450K–€500K',
       stat3_label: 'verwachte extra omzet per luchthaven per jaar',
-      stat3_desc: '~67M jaarlijkse Schiphol-passagiers × 0,01% DutyCredit-inwisselingspercentage × €70,80 netto basket (€80 gem. besteding − 9% progressieve korting − 2,5% DutyBoost fee) = circa €475K verwachte extra netto-omzet per luchthaven per jaar — ons doel.',
+      stat3_desc: '~67M jaarlijkse passagiers op een grote hub × 0,01% DutyCredit-inwisselingspercentage × €70,80 netto basket (€80 gem. besteding − 9% progressieve korting − 2,5% DutyBoost fee) = circa €475K verwachte extra netto-omzet per luchthaven per jaar — ons doel.',
       benefit1_title: '🛍️ Meer verkopen van reizigers die anders niet zouden kopen',
       benefit1_desc: 'Reizigers komen al met koopintentie binnen — u pakt impulsaankopen die anders voorbij uw winkel zouden zijn gelopen zonder DutyBoost.',
       benefit2_title: '📊 Hogere transactiewaarde',

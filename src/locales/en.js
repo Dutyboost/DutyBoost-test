@@ -849,7 +849,7 @@ export default {
       stat2_desc: 'DutyCredit holders spend significantly more — they arrive with credit to spend and a €20 minimum purchase threshold.',
       stat3_value: '€450K–€500K',
       stat3_label: 'projected annual revenue per airport',
-      stat3_desc: '~67M annual Schiphol passengers × 0.01% DutyCredit redemption rate × €70.80 net basket (€80 avg. spend − 9% progressive discount − 2.5% DutyBoost fee) = approx. €475K projected annual net revenue per airport — our goal.',
+      stat3_desc: '~67M annual passengers at a major hub × 0.01% DutyCredit redemption rate × €70.80 net basket (€80 avg. spend − 9% progressive discount − 2.5% DutyBoost fee) = approx. €475K projected annual net revenue per airport — our goal.',
       benefit1_title: "🛍️ More sales from travellers who wouldn't buy otherwise",
       benefit1_desc: 'Travellers arrive already intending to spend — you capture impulse purchases that would have walked past your store without DutyBoost.',
       benefit2_title: '📊 Higher transaction value',
