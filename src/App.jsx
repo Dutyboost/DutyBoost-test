@@ -38,6 +38,7 @@ import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
 import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
 import DemoRetailerDashboardHeinemann from './pages/DemoRetailerDashboardHeinemann';
 import DemoRetailerDashboardAvolta from './pages/DemoRetailerDashboardAvolta';
+import DemoRetailerDashboardAvoltaAruba from './pages/DemoRetailerDashboardAvoltaAruba';
 import DemoAdminDashboard from './pages/DemoAdminDashboard';
 import RetailerScanQR from './pages/RetailerScanQR';
 import BusinessTravel from './pages/BusinessTravel';
@@ -174,6 +175,7 @@ const AuthenticatedApp = () => {
         <Route path="/demo/retailer-lagardere" element={<DemoRetailerDashboard />} />
         <Route path="/demo/retailer-heinemann" element={<DemoRetailerDashboardHeinemann />} />
         <Route path="/demo/retailer-avolta" element={<DemoRetailerDashboardAvolta />} />
+        <Route path="/demo/retailer-avolta-aruba" element={<DemoRetailerDashboardAvoltaAruba />} />
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
         <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
         <Route path="/demo/cruise" element={<DemoCruiseDashboard />} />

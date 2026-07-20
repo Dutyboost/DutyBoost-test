@@ -9,6 +9,7 @@ import { computeCompanyTotals, computeCompanyStoreCount, numFontClass } from "@/
 const DEMO_DASHBOARD_ROUTES = {
   "Lagardère Travel Retail": "/demo/retailer-lagardere",
   "Avolta (incl. World Duty Free, Hudson, Dufry)": "/demo/retailer-avolta",
+  "Avolta (Aruba)": "/demo/retailer-avolta-aruba",
   "Gebr. Heinemann": "/demo/retailer-heinemann",
   "Aena SME, S.A.": "/demo/retailer-aena",
 };
