@@ -19,7 +19,7 @@ import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
 
-export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat5Val, hideCompanySelector = false, campaignData } = {}) {
+export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData } = {}) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
@@ -254,9 +254,11 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
         </section>
 
         {/* POS Integration Technical Section */}
+        {!hidePosIntegration && (
         <section className="scroll-mt-36">
           <PosIntegrationSection />
         </section>
+        )}
 
         {/* WHAT — Global Aggregation */}
         <section id="projection" className="space-y-8 scroll-mt-36">

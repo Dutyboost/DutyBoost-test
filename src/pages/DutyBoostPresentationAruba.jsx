@@ -40,6 +40,7 @@ export default function DutyBoostPresentationAruba() {
       stat3Val="1h 45m"
       stat5Val="€42M"
       hideCompanySelector
+      hidePosIntegration
       campaignData={ARUBA_CAMPAIGN}
     />
   );
