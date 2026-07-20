@@ -794,7 +794,7 @@ export default {
       step1: 'Schritt 1 — Flughafen-Retailer',
       step2: 'Schritt 2 — Netzwerkbereich auswählen',
       step3: 'Schritt 3 — Automatische Benchmarks',
-      dutycredit_psychology_note: 'Ein DutyCredit wird ab einem Warenkorbwert über 35 € aktiviert — somit kommt jeder DutyCredit-Reisende mit einer minimalen psychologischen Ausgabenbereitschaft von 35 €, bereits bereit zum Kaufen.',
+      dutycredit_psychology_note: 'Ein DutyCredit wird ab einem Warenkorbwert über {{threshold}} aktiviert — somit kommt jeder DutyCredit-Reisende mit einer minimalen psychologischen Ausgabenbereitschaft von {{threshold}}, bereits bereit zum Kaufen.',
       bm_adjust_note: 'Passen Sie, falls erforderlich, den durchschnittlichen Warenkorbwert und/oder die Einlösungsrate an, um Ihren potenziellen Zusatzumsatz sofort zu sehen.',
       step4: 'Schritt 4 — Live-Zusammenfassung',
       step5: 'Schritt 5 — Enterprise-Tools',

@@ -807,7 +807,7 @@ export default {
       step1: 'Stap 1 — Luchthaven Retailer',
       step2: 'Stap 2 — Selecteer Netwerkbereik',
       step3: 'Stap 3 — Automatische Benchmarks',
-      dutycredit_psychology_note: 'Een DutyCredit wordt geactiveerd bij een mandje boven €35 — dus elke DutyCredit-reiziger komt met een minimale psychologische bestedingsintentie van €35, al klaar om te kopen.',
+      dutycredit_psychology_note: 'Een DutyCredit wordt geactiveerd bij een mandje boven {{threshold}} — dus elke DutyCredit-reiziger komt met een minimale psychologische bestedingsintentie van {{threshold}}, al klaar om te kopen.',
       bm_adjust_note: 'Pas, indien nodig, de gemiddelde mandwaarde en/of het geschatte Inlossingsratio aan om uw potentiële extra omzet direct te zien veranderen.',
       step4: 'Stap 4 — Live Overzicht',
       step5: 'Stap 5 — Enterprise Tools',

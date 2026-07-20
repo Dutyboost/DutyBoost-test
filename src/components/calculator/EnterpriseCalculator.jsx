@@ -49,7 +49,7 @@ export default function EnterpriseCalculator() {
 
   const retailer = useMemo(() => (retailerKey ? getRetailerByKey(retailerKey) : null), [retailerKey]);
 
-  const { setCurrencyByCountry } = useCurrency();
+  const { setCurrencyByCountry, fmt } = useCurrency();
 
   const handleRetailerSelect = (r) => {
     setRetailerKey(r?.key || null);
@@ -223,7 +223,7 @@ export default function EnterpriseCalculator() {
 
           <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex items-start gap-2.5">
             <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-900 font-medium leading-relaxed">{t("entCalc.dutycredit_psychology_note")}</p>
+            <p className="text-sm text-amber-900 font-medium leading-relaxed">{t("entCalc.dutycredit_psychology_note", { threshold: fmt(35) })}</p>
           </div>
 
           <div>
