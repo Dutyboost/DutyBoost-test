@@ -12,7 +12,7 @@ import { base44 } from "@/api/base44Client";
 import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { fmtNum, fmtEur } from "../utils/formatNumber";
+import { fmtNum, fmtMoney } from "../utils/formatNumber";
 import { calcSaving } from "@/utils/retailerCalc";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
@@ -23,7 +23,7 @@ function calcPlatformFee(basket) {
   return Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
 }
 
-export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey, storeCount }) {
+export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey, storeCount, currency = "EUR" }) {
   const { t, i18n } = useTranslation();
   const companyName = companyKey ? RETAILER_COMPANY_PROFILES[companyKey]?.company : null;
   const [, setLanguage] = useState(i18n.language);
@@ -49,6 +49,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const [customEnd, setCustomEnd] = useState("2026-03-31");
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const rateMultiplier = redemptionRate / 0.01;
+  const cur = (v, d = 0) => fmtMoney(v, currency, d);
+  const curLabel = currency === "AWG" ? "Afl." : "€";
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 
@@ -139,8 +141,8 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         code: `DC-${selectedAirport}-${retailerId}${code}`,
         time: generateTime(i),
         discount: `${discountPct}%`,
-        sale: `€ ${saleValue}`,
-        saved: `€ ${saving.toFixed(0)}`
+        sale: cur(saleValue, 0),
+        saved: cur(saving, 0)
       };
     });
   }, [selectedRetailer, selectedAirport]);
@@ -248,6 +250,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             onCustomEndChange={setCustomEnd}
             redemptionRate={redemptionRate}
             onRedemptionRateChange={setRedemptionRate}
+            currency={currency}
           />
         ) : (<>
         {/* Welcome */}
@@ -305,9 +308,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
-            { label: t('demo.net_revenue'), value: fmtEur(periodNetRevenue), icon: Euro, color: "text-orange-500" },
-            { label: t('demo.avg_sale'), value: `€${parseFloat(periodAvg).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, icon: TrendingUp, color: "text-emerald-500" },
-            { label: t('demo.platform_fee'), value: fmtEur(periodFee), icon: Store, color: "text-purple-500" },
+            { label: t('demo.net_revenue'), value: cur(periodNetRevenue, 0), icon: Euro, color: "text-orange-500" },
+            { label: t('demo.avg_sale'), value: cur(periodAvg, 2), icon: TrendingUp, color: "text-emerald-500" },
+            { label: t('demo.platform_fee'), value: cur(periodFee, 0), icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">
               <div className="flex items-center justify-between">
@@ -324,9 +327,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               <Sparkles className="w-4 h-4 text-indigo-500" />
             </div>
             <p className="text-lg md:text-2xl font-heading font-bold">
-              €{parseFloat(periodAvg).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              {cur(periodAvg, 2)}
               <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-              <span className="text-indigo-600">€{(periodAvg * 1.0001).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+              <span className="text-indigo-600">{cur(periodAvg * 1.0001, 2)}</span>
             </p>
           </div>
         </div>
@@ -359,7 +362,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip />
                 {showRedemptions && <Bar yAxisId="left" dataKey="redemptions" name={t('demo.redemptions')} fill="#dbeafe" radius={[4,4,0,0]} />}
-                {showRevenue && <Bar yAxisId="right" dataKey="revenue" name={`${t('demo.revenue')} (€)`} fill="#2563eb" radius={[4,4,0,0]} />}
+                {showRevenue && <Bar yAxisId="right" dataKey="revenue" name={`${t('demo.revenue')} (${curLabel})`} fill="#2563eb" radius={[4,4,0,0]} />}
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -369,19 +372,19 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">{t('demo.gross_sales')}</span>
-                <span className="font-semibold">{fmtEur(periodGrossRevenue)}</span>
+                <span className="font-semibold">{cur(periodGrossRevenue, 0)}</span>
                 </div>
                 <div className="flex justify-between items-center text-rose-600">
                 <span>{t('demo.traveler_savings_dc')}</span>
-                <span className="font-semibold">- {fmtEur(periodSavings)}</span>
+                <span className="font-semibold">- {cur(periodSavings, 0)}</span>
                 </div>
                 <div className="flex justify-between items-center text-destructive">
                 <span>{t('demo.dutyboost_fee')}</span>
-                <span className="font-semibold">- {fmtEur(periodFee)}</span>
+                <span className="font-semibold">- {cur(periodFee, 0)}</span>
                 </div>
                 <div className="border-t border-border pt-2 flex justify-between items-center">
                 <span className="font-semibold">{t('demo.your_net_revenue')}</span>
-                <span className="font-bold text-emerald-600">{fmtEur(periodNetRevenue)}</span>
+                <span className="font-bold text-emerald-600">{cur(periodNetRevenue, 0)}</span>
               </div>
             </div>
             <div className="bg-blue-50 text-blue-700 rounded-lg p-3 text-xs">
@@ -397,6 +400,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           periodMultiplier={periodMultiplier * rateMultiplier}
           selectedCountry={selectedCountry}
           onSelectCountry={handleCountryChange}
+          currency={currency}
         />
 
         {/* Airport overview */}

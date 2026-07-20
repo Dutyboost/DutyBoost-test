@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Globe, TrendingUp, Euro, ScanLine, Store } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { fmtNum, fmtEur } from "../utils/formatNumber";
+import { fmtNum, fmtMoney } from "../utils/formatNumber";
 import { calcSaving } from "@/utils/retailerCalc";
 
 function calcPlatformFee(basket) {
@@ -13,8 +13,9 @@ function calcPlatformFee(basket) {
 const PLATFORM_FEE_PCT = 0.025;
 const PLATFORM_FEE_CAP = 25;
 
-export default function CountryAggregation({ AIRPORTS, RETAILERS, periodMultiplier, selectedCountry, onSelectCountry }) {
+export default function CountryAggregation({ AIRPORTS, RETAILERS, periodMultiplier, selectedCountry, onSelectCountry, currency = "EUR" }) {
   const { t } = useTranslation();
+  const cur = (v, d = 0) => fmtMoney(v, currency, d);
 
   // Airports in the selected country
   const countryAirports = useMemo(
@@ -104,17 +105,17 @@ export default function CountryAggregation({ AIRPORTS, RETAILERS, periodMultipli
         <div className="bg-muted/40 rounded-lg p-3 text-center">
           <Euro className="w-4 h-4 text-orange-500 mx-auto mb-1" />
           <p className="text-xs text-muted-foreground mb-0.5">{t('demo.gross_revenue')}</p>
-          <p className="text-sm font-heading font-bold">{fmtEur(totals.grossRevenue)}</p>
+          <p className="text-sm font-heading font-bold">{cur(totals.grossRevenue)}</p>
         </div>
         <div className="bg-muted/40 rounded-lg p-3 text-center">
           <Store className="w-4 h-4 text-purple-500 mx-auto mb-1" />
           <p className="text-xs text-muted-foreground mb-0.5">{t('demo.platform_fee')}</p>
-          <p className="text-sm font-heading font-bold">{fmtEur(totals.totalFee)}</p>
+          <p className="text-sm font-heading font-bold">{cur(totals.totalFee)}</p>
         </div>
         <div className="bg-emerald-50 rounded-lg p-3 text-center">
           <TrendingUp className="w-4 h-4 text-emerald-500 mx-auto mb-1" />
           <p className="text-xs text-muted-foreground mb-0.5">{t('demo.net_revenue')}</p>
-          <p className="text-sm font-heading font-bold text-emerald-600">{fmtEur(totals.netRevenue)}</p>
+          <p className="text-sm font-heading font-bold text-emerald-600">{cur(totals.netRevenue)}</p>
         </div>
       </div>
 
@@ -127,7 +128,7 @@ export default function CountryAggregation({ AIRPORTS, RETAILERS, periodMultipli
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="name" tick={{ fontSize: 10 }} angle={-45} textAnchor="end" height={70} interval={0} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v) => [fmtEur(v), t('demo.net_revenue')]} />
+              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v) => [cur(v), t('demo.net_revenue')]} />
               <Bar dataKey="netRevenue" fill="#2563eb" radius={[4, 4, 0, 0]} name={t('demo.net_revenue')} />
             </BarChart>
           </ResponsiveContainer>
@@ -155,19 +156,19 @@ export default function CountryAggregation({ AIRPORTS, RETAILERS, periodMultipli
                   <td className="py-2.5 px-3 font-semibold text-foreground">{a.name}</td>
                   <td className="py-2.5 px-3 text-right text-muted-foreground">{a.stores}</td>
                   <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{fmtNum(a.redemptions)}</td>
-                  <td className="py-2.5 px-3 text-right font-semibold">{fmtEur(a.grossRevenue)}</td>
-                  <td className="py-2.5 px-3 text-right text-orange-600">{fmtEur(a.totalFee)}</td>
-                  <td className="py-2.5 px-3 text-right font-bold text-emerald-600">{fmtEur(a.netRevenue)}</td>
-                  <td className="py-2.5 px-3 text-right text-muted-foreground">{fmtEur(a.avgBasket)}</td>
+                  <td className="py-2.5 px-3 text-right font-semibold">{cur(a.grossRevenue)}</td>
+                  <td className="py-2.5 px-3 text-right text-orange-600">{cur(a.totalFee)}</td>
+                  <td className="py-2.5 px-3 text-right font-bold text-emerald-600">{cur(a.netRevenue)}</td>
+                  <td className="py-2.5 px-3 text-right text-muted-foreground">{cur(a.avgBasket)}</td>
                 </tr>
               ))}
               <tr className="border-t-2 border-border bg-muted/20 font-semibold">
                 <td className="py-2.5 px-3">{t('common.total_label') || 'TOTAL'}</td>
                 <td className="py-2.5 px-3 text-right">{totals.stores}</td>
                 <td className="py-2.5 px-3 text-right">{fmtNum(totals.redemptions)}</td>
-                <td className="py-2.5 px-3 text-right">{fmtEur(totals.grossRevenue)}</td>
-                <td className="py-2.5 px-3 text-right">{fmtEur(totals.totalFee)}</td>
-                <td className="py-2.5 px-3 text-right text-emerald-600">{fmtEur(totals.netRevenue)}</td>
+                <td className="py-2.5 px-3 text-right">{cur(totals.grossRevenue)}</td>
+                <td className="py-2.5 px-3 text-right">{cur(totals.totalFee)}</td>
+                <td className="py-2.5 px-3 text-right text-emerald-600">{cur(totals.netRevenue)}</td>
                 <td className="py-2.5 px-3 text-right"></td>
               </tr>
             </tbody>

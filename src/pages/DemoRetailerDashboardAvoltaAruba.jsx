@@ -28,6 +28,7 @@ export default function DemoRetailerDashboardAvoltaAruba() {
       defaultAirport="AUA"
       region="americas"
       companyKey="avolta_aruba"
+      currency="AWG"
     />
   );
 }
