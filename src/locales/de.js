@@ -1574,7 +1574,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       stat2_desc: 'DutyCredit-Inhaber geben deutlich mehr aus — sie kommen mit Guthaben zum Ausgeben und einem Mindesteinkauf von €20.',
       stat3_value: '+/- €354K',
       stat3_label: 'erwarteter zusätzlicher Umsatz pro Flughafen im Jahr',
-      stat3_desc: '50M jährliche Passagiere an einem großen Hub × 0,01% DutyCredit-Einlöserate × €70,80 Netto/Korb (€80 Ø-Ausgabe − 9% progressiver Rabatt − 2,5% DutyBoost-Gebühr) = +/- €354K inkrementeller Nettoumsatz pro Flughafen pro Jahr — unser Ziel.',
+      stat3_desc: '50M jährliche Passagiere an einem großen Hub × 0,01% DutyCredit-Einlöserate × €70,80 Netto/Korb (€80 Ø-Ausgabe − 9% progressiver Rabatt (€7,20) − 2,5% DutyBoost-Gebühr (€2,00)) = +/- €354K inkrementeller Nettoumsatz pro Flughafen pro Jahr — unser Ziel.',
       benefit1_title: '🛍️ Mehr Verkäufe von Reisenden, die sonst nicht kaufen würden',
       benefit1_desc: 'Reisende kommen bereits mit Kaufabsicht — Sie sichern Impulskäufe, die sonst an Ihrem Geschäft vorbeigegangen wären.',
       benefit2_title: '📊 Höherer Transaktionswert',
