@@ -1576,7 +1576,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       stat2_desc: "Les titulaires de DutyCredit dépensent considérablement plus — ils arrivent avec du crédit à dépenser et un seuil d'achat minimum de €20.",
       stat3_value: "+/- €354K",
       stat3_label: "revenus annuels par aéroport visés",
-      stat3_desc: "€80 dépense moyenne − 9% remise progressive (€7,20) − 2,5% frais DutyBoost (€2,00) = €70,80 net/panier",
+      stat3_desc: "50M passagers annuels dans un grand hub × 0,01% taux de remboursement DutyCredit × €70,80 net/panier (€80 dépense moyenne − 9% remise progressive (€7,20) − 2,5% frais DutyBoost (€2,00)) = +/- €354K de revenus nets supplémentaires par aéroport par an — notre objectif.",
       benefit1_title: "🛍️ Plus de ventes de voyageurs qui n'achèteraient pas autrement",
       benefit1_desc: "Les voyageurs arrivent déjà avec l'intention de dépenser — vous capturerez les achats d'impulsion qui auraient autrement passé à côté sans DutyBoost.",
       benefit2_title: "📊 Valeur de transaction plus élevée",
