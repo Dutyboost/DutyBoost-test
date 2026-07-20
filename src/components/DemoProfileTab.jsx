@@ -205,13 +205,11 @@ function buildEsRetailerProfile(entity) {
 
 // ─── Seasonality + invoice builder ──────────────────────────────────────────
 
-// Seasonal multipliers kept flat (1.00) so each invoice month reconciles exactly
-// with the monthly aggregation's platform fee at any redemption-rate slider value.
 const RETAILER_SEASONALITY_DATA = [
-  { monthKey: "month_march", dateKey: "date_april", mult: 1.00 },
-  { monthKey: "month_april", dateKey: "date_may", mult: 1.00 },
+  { monthKey: "month_march", dateKey: "date_april", mult: 0.90 },
+  { monthKey: "month_april", dateKey: "date_may", mult: 0.95 },
   { monthKey: "month_may", dateKey: "date_june", mult: 1.00 },
-  { monthKey: "month_june", dateKey: "date_july", mult: 1.00 },
+  { monthKey: "month_june", dateKey: "date_july", mult: 1.10 },
 ];
 
 function buildRetailerInvoices(entity, locale, t, retailers, currency = "EUR", rateMultiplier = 1) {
