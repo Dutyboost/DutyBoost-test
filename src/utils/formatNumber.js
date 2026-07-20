@@ -21,6 +21,19 @@ export function fmtEur(value, decimals = 0) {
 }
 
 /**
+ * Currency-aware formatter. Base values are EUR.
+ * AWG (Aruban Florin) is pegged to USD at 1.79; EUR→AWG ≈ 1.99.
+ */
+const AWG_RATE = 1.99;
+
+export function fmtMoney(eur, currency = "EUR", decimals = 0) {
+  if (currency === "AWG") {
+    return `Afl. ${fmtNum((eur || 0) * AWG_RATE, decimals)}`;
+  }
+  return fmtEur(eur, decimals);
+}
+
+/**
  * Compact abbreviation: B (billion, EN) / MM (billion, ES-NL) / M (million).
  * Examples (lang="en"):  1200000000 → "1.2B", 437300000 → "437.3M"
  * Examples (lang="es"):  1200000000 → "1,2 MM", 437300000 → "437,3 M"

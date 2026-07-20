@@ -16,10 +16,10 @@ import WhyDutyBoostSummary from "@/components/presentation/WhyDutyBoostSummary";
 import CuriosityCampaign from "@/components/presentation/CuriosityCampaign";
 import PresentationNav from "@/components/presentation/PresentationNav";
 import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
-import { fmtNum, fmtEur, fmtCompact } from "@/utils/formatNumber";
+import { fmtNum, fmtEur, fmtMoney, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
 
-export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData } = {}) {
+export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat4Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData, currency = "EUR" } = {}) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
@@ -123,7 +123,7 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
               { val: fmtCompact(totals.totalDailyTravelers, lang, 2), label: t('presentation.why.stat_2_label', { company: company.name }) },
               { val: stat3Val ?? t('presentation.why.stat_3_val'), label: t('presentation.why.stat_3_label') },
               { val: stat5Val ?? t('presentation.why.stat_5_val'), label: t('presentation.why.stat_5_label') },
-              { val: t('presentation.why.stat_4_val'), label: t('presentation.why.stat_4_label') },
+              { val: stat4Val ?? t('presentation.why.stat_4_val'), label: t('presentation.why.stat_4_label') },
             ].map(({ val, label }, i) => (
               <div key={i} className="bg-card border border-border rounded-2xl p-5 text-center space-y-1 hover:shadow-md transition-shadow">
                 <p className="text-3xl font-heading font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{val}</p>
@@ -275,13 +275,13 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
               <span><strong className="text-foreground">{fmtNum(company.airports.length)}</strong> {t('presentation.what.airports')}</span>
               <span><strong className="text-foreground">{fmtNum(storeCount)}</strong> {t('presentation.what.stores')}</span>
               <span><strong className="text-foreground">{fmtNum(totals.totalDailyTravelers)}</strong> {t('presentation.what.daily_travelers')}</span>
-              <span><strong className="text-foreground">{fmtEur(totals.avgBasket)}</strong> {t('presentation.agg.avg_basket')}</span>
+              <span><strong className="text-foreground">{fmtMoney(totals.avgBasket, currency, 2)}</strong> {t('presentation.agg.avg_basket')}</span>
             </div>
           </div>
 
           <ConversionRateSlider value={conversionRate} onChange={setConversionRate} />
 
-          <PresentationAggregation company={company} conversionRate={conversionRate} />
+          <PresentationAggregation company={company} conversionRate={conversionRate} currency={currency} />
         </section>
 
         {/* WHAT — POS Implementation */}
