@@ -16,6 +16,7 @@ import {
   computeTopAirports,
   getSelectedCountries,
 } from "@/data/enterpriseCalculator";
+import { useCurrency } from "./CurrencyContext";
 
 const MODES = [
   { key: "detailed", labelKey: "entCalc.mode_detailed", icon: SlidersHorizontal, descKey: "entCalc.mode_detailed_desc" },
@@ -47,6 +48,8 @@ export default function EnterpriseCalculator() {
   }, []);
 
   const retailer = useMemo(() => (retailerKey ? getRetailerByKey(retailerKey) : null), [retailerKey]);
+
+  const { setCurrencyByCountry } = useCurrency();
 
   const handleRetailerSelect = (r) => {
     setRetailerKey(r?.key || null);
@@ -89,6 +92,23 @@ export default function EnterpriseCalculator() {
     if (!retailer) return [];
     return retailer.airports.filter((a) => selectedCodes.has(a.code));
   }, [retailer, selectedCodes]);
+
+  // Auto-set the display currency based on the dominant country among selected airports.
+  // Falls back to the retailer's HQ country, then EUR when nothing is selected.
+  useEffect(() => {
+    if (selectedAirports.length > 0) {
+      const paxByCountry = {};
+      selectedAirports.forEach((a) => {
+        paxByCountry[a.country] = (paxByCountry[a.country] || 0) + (a.annual_pax || 0);
+      });
+      const dominant = Object.entries(paxByCountry).sort(([, a], [, b]) => b - a)[0]?.[0];
+      if (dominant) setCurrencyByCountry(dominant);
+    } else if (retailer?.hqCountry) {
+      setCurrencyByCountry(retailer.hqCountry);
+    } else {
+      setCurrencyByCountry(null);
+    }
+  }, [selectedAirports, retailer, setCurrencyByCountry]);
 
   const benchmarks = useMemo(() => computeSelectionBenchmarks(selectedAirports, retailer?.demoRetailers), [selectedAirports, retailer]);
   const focusedAirport = useMemo(
