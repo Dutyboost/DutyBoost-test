@@ -119,13 +119,13 @@ export default function RetailerOnePager() {
           <div className="flex-1 flex flex-col py-1">
             <h2 className="font-heading font-bold text-xs border-b-2 border-orange-500 pb-0.5 text-orange-700 uppercase tracking-wide mb-1">{t('retaileronepager.s3_title')}</h2>
             <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
-              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-start">
                 <p className="text-xs font-bold text-slate-400 mb-0.5">1.</p>
                 <p className="text-3xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat1_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat1_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat1_desc')}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-start">
                 <p className="text-xs font-bold text-slate-400 mb-0.5">2.</p>
                 <div className="flex items-center justify-center mb-1">
                   <svg width="44" height="44" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -144,7 +144,7 @@ export default function RetailerOnePager() {
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat2_label')}</p>
                 <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat2_desc')}</p>
               </div>
-              <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+              <div className="border border-border rounded p-2 text-center flex flex-col justify-start">
                 <p className="text-xs font-bold text-slate-400 mb-0.5">3.</p>
                 <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat3_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat3_label')}</p>
