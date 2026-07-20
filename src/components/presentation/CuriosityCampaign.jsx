@@ -21,8 +21,12 @@ const CHANNELS = [
   { icon: Users, name: "Facebook Groups" },
 ];
 
-export default function CuriosityCampaign() {
+export default function CuriosityCampaign({ campaignData } = {}) {
   const { t } = useTranslation();
+  const passengers = campaignData?.statPassengers;
+  const departures = campaignData?.statDepartures;
+  const intl = campaignData?.statIntl;
+  const countries = campaignData?.countries ?? PHASE1_COUNTRIES;
   const funnelSteps = [
     t('presentation.campaign.funnel_1'),
     t('presentation.campaign.funnel_2'),
@@ -46,27 +50,27 @@ export default function CuriosityCampaign() {
       </div>
 
       <div className="space-y-3">
-        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground text-center">{t('presentation.campaign.market_label')}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground text-center">{campaignData?.marketLabel ?? t('presentation.campaign.market_label')}</p>
         <div className="grid grid-cols-3 gap-3">
           <div className="bg-muted/40 border border-border rounded-xl p-4 text-center space-y-1">
-            <p className="text-xl font-heading font-bold text-primary">{t('presentation.campaign.stat_passengers_val')}</p>
-            <p className="text-xs text-muted-foreground">{t('presentation.campaign.stat_passengers_label')}</p>
+            <p className="text-xl font-heading font-bold text-primary">{passengers?.val ?? t('presentation.campaign.stat_passengers_val')}</p>
+            <p className="text-xs text-muted-foreground">{passengers?.label ?? t('presentation.campaign.stat_passengers_label')}</p>
           </div>
           <div className="bg-muted/40 border border-border rounded-xl p-4 text-center space-y-1">
-            <p className="text-xl font-heading font-bold text-primary">{t('presentation.campaign.stat_departures_val')}</p>
-            <p className="text-xs text-muted-foreground">{t('presentation.campaign.stat_departures_label')}</p>
+            <p className="text-xl font-heading font-bold text-primary">{departures?.val ?? t('presentation.campaign.stat_departures_val')}</p>
+            <p className="text-xs text-muted-foreground">{departures?.label ?? t('presentation.campaign.stat_departures_label')}</p>
           </div>
           <div className="bg-muted/40 border border-border rounded-xl p-4 text-center space-y-1">
-            <p className="text-xl font-heading font-bold text-primary">{t('presentation.campaign.stat_intl_val')}</p>
-            <p className="text-xs text-muted-foreground">{t('presentation.campaign.stat_intl_label')}</p>
+            <p className="text-xl font-heading font-bold text-primary">{intl?.val ?? t('presentation.campaign.stat_intl_val')}</p>
+            <p className="text-xs text-muted-foreground">{intl?.label ?? t('presentation.campaign.stat_intl_label')}</p>
           </div>
         </div>
       </div>
 
       <div className="space-y-3">
-        <p className="text-center text-xs text-muted-foreground">{t('presentation.campaign.phase1_subtitle')}</p>
+        <p className="text-center text-xs text-muted-foreground">{campaignData?.phase1Subtitle ?? t('presentation.campaign.phase1_subtitle')}</p>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-          {PHASE1_COUNTRIES.map(c => (
+          {countries.map(c => (
             <div key={c.name} className="bg-muted/40 border border-border rounded-lg p-3 text-center space-y-1">
               <p className="text-2xl">{c.flag}</p>
               <p className="text-xs font-semibold">{c.name}</p>

@@ -16,6 +16,23 @@ const ARUBA_COMPANY = {
   storeCount: 5,
 };
 
+// Curiosity Campaign — Aruba source-market data (2024 Aruba Tourism Authority figures).
+// Aruba has no domestic flights: 100% of passengers are international.
+const ARUBA_CAMPAIGN = {
+  marketLabel: "Potential Market — Queen Beatrix Airport (AUA), Aruba",
+  statPassengers: { val: "2.5M", label: "Annual passengers" },
+  statDepartures: { val: "2.5M", label: "International flights (100%)" },
+  statIntl: { val: "0", label: "Domestic flights" },
+  phase1Subtitle: "Over 1.2 million annual visitors to Aruba arrive from these 5 source markets",
+  countries: [
+    { flag: "🇺🇸", name: "United States", visitors: "1.06M" },
+    { flag: "🇨🇦", name: "Canada", visitors: "70.9K" },
+    { flag: "🇳🇱", name: "Netherlands", visitors: "43K" },
+    { flag: "🇨🇴", name: "Colombia", visitors: "37K" },
+    { flag: "🇧🇷", name: "Brazil", visitors: "28K" },
+  ],
+};
+
 export default function DutyBoostPresentationAruba() {
   return (
     <DutyBoostPresentation
@@ -23,6 +40,7 @@ export default function DutyBoostPresentationAruba() {
       stat3Val="1h 45m"
       stat5Val="€42M"
       hideCompanySelector
+      campaignData={ARUBA_CAMPAIGN}
     />
   );
 }
