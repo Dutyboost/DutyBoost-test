@@ -90,13 +90,28 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
           <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.daily_gross')}</p>
           <p className={`font-heading font-bold text-foreground ${numFontClass(fmtMoney(totals.dailyGross, currency, 0))}`}>{fmtMoney(totals.dailyGross, currency, 0)}</p>
         </div>
-        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 space-y-2">
-          <p className="text-xs text-emerald-600 uppercase tracking-widest">{t('presentation.agg.monthly_gross')}</p>
-          <p className={`font-heading font-bold text-emerald-700 ${numFontClass(fmtMoney(totals.monthlyGross, currency, 0))}`}>{fmtMoney(totals.monthlyGross, currency, 0)}</p>
+        <div className="bg-card border border-border rounded-xl p-5 space-y-2">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.monthly_gross')}</p>
+          <p className={`font-heading font-bold text-foreground ${numFontClass(fmtMoney(totals.monthlyGross, currency, 0))}`}>{fmtMoney(totals.monthlyGross, currency, 0)}</p>
         </div>
-        <div className="bg-emerald-100 border border-emerald-300 rounded-xl p-5 space-y-2">
-          <p className="text-xs text-emerald-700 uppercase tracking-widest">{t('presentation.agg.annual_gross')}</p>
-          <p className={`font-heading font-bold text-emerald-800 ${numFontClass(fmtMoney(totals.annualGross, currency, 0))}`}>{fmtMoney(totals.annualGross, currency, 0)}</p>
+        <div className="bg-card border border-border rounded-xl p-5 space-y-2">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.annual_gross')}</p>
+          <p className={`font-heading font-bold text-foreground ${numFontClass(fmtMoney(totals.annualGross, currency, 0))}`}>{fmtMoney(totals.annualGross, currency, 0)}</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-card border border-border rounded-xl p-5 space-y-2">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.daily_discount')}</p>
+          <p className={`font-heading font-bold text-blue-500 ${numFontClass(fmtMoney(totals.dailySaving, currency, 0))}`}>{fmtMoney(totals.dailySaving, currency, 0)}</p>
+        </div>
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 space-y-2">
+          <p className="text-xs text-blue-600 uppercase tracking-widest">{t('presentation.agg.monthly_discount')}</p>
+          <p className={`font-heading font-bold text-blue-600 ${numFontClass(fmtMoney(totals.monthlySaving, currency, 0))}`}>{fmtMoney(totals.monthlySaving, currency, 0)}</p>
+        </div>
+        <div className="bg-blue-100 border border-blue-300 rounded-xl p-5 space-y-2">
+          <p className="text-xs text-blue-700 uppercase tracking-widest">{t('presentation.agg.annual_discount')}</p>
+          <p className={`font-heading font-bold text-blue-700 ${numFontClass(fmtMoney(totals.annualSaving, currency, 0))}`}>{fmtMoney(totals.annualSaving, currency, 0)}</p>
         </div>
       </div>
 
@@ -112,6 +127,21 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
         <div className="bg-orange-100 border border-orange-300 rounded-xl p-5 space-y-2">
           <p className="text-xs text-orange-700 uppercase tracking-widest">{t('presentation.agg.annual_fee')}</p>
           <p className={`font-heading font-bold text-orange-700 ${numFontClass(fmtMoney(totals.annualFee, currency, 0))}`}>{fmtMoney(totals.annualFee, currency, 0)}</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-card border border-border rounded-xl p-5 space-y-2">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest">{t('presentation.agg.daily_net')}</p>
+          <p className={`font-heading font-bold text-emerald-600 ${numFontClass(fmtMoney(totals.dailyNet, currency, 0))}`}>{fmtMoney(totals.dailyNet, currency, 0)}</p>
+        </div>
+        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 space-y-2">
+          <p className="text-xs text-emerald-600 uppercase tracking-widest">{t('presentation.agg.monthly_net')}</p>
+          <p className={`font-heading font-bold text-emerald-700 ${numFontClass(fmtMoney(totals.monthlyNet, currency, 0))}`}>{fmtMoney(totals.monthlyNet, currency, 0)}</p>
+        </div>
+        <div className="bg-emerald-100 border border-emerald-300 rounded-xl p-5 space-y-2">
+          <p className="text-xs text-emerald-700 uppercase tracking-widest">{t('presentation.agg.annual_net')}</p>
+          <p className={`font-heading font-bold text-emerald-800 ${numFontClass(fmtMoney(totals.annualNet, currency, 0))}`}>{fmtMoney(totals.annualNet, currency, 0)}</p>
         </div>
       </div>
 

@@ -60,7 +60,10 @@ export function computeAirport(airport, conversionRate) {
   const monthlyGross = Math.round((dailyRedemptions * grossRevenue * 365) / 12 * 100) / 100;
   const annualGross = Math.round(monthlyGross * 12 * 100) / 100;
   const dailyGross = Math.round((monthlyGross * 12) / 365 * 100) / 100;
-  return { basket, saving, commission, netRevenue, grossRevenue, dailyRedemptions, monthlyNet, annualNet, dailyNet, monthlyGross, annualGross, dailyGross };
+  const monthlySaving = Math.round((dailyRedemptions * saving * 365) / 12 * 100) / 100;
+  const annualSaving = Math.round(monthlySaving * 12 * 100) / 100;
+  const dailySaving = Math.round((monthlySaving * 12) / 365 * 100) / 100;
+  return { basket, saving, commission, netRevenue, grossRevenue, dailyRedemptions, monthlyNet, annualNet, dailyNet, monthlyGross, annualGross, dailyGross, monthlySaving, annualSaving, dailySaving };
 }
 
 // Global aggregation across a company's airports:
@@ -72,6 +75,7 @@ export function computeCompanyTotals(airports, conversionRate) {
   let weightedBasket = 0;
   let monthlyNet = 0, annualNet = 0, dailyNet = 0;
   let monthlyGross = 0, annualGross = 0, dailyGross = 0;
+  let monthlySaving = 0, annualSaving = 0, dailySaving = 0;
   let dailyRedemptions = 0, monthlyFee = 0;
   const rows = airports.map((a) => {
     const r = computeAirport(a, conversionRate);
@@ -83,6 +87,9 @@ export function computeCompanyTotals(airports, conversionRate) {
     monthlyGross += r.monthlyGross;
     annualGross += r.annualGross;
     dailyGross += r.dailyGross;
+    monthlySaving += r.monthlySaving;
+    annualSaving += r.annualSaving;
+    dailySaving += r.dailySaving;
     dailyRedemptions += r.dailyRedemptions;
     monthlyFee += Math.round((r.dailyRedemptions * r.commission * 365) / 12 * 100) / 100;
     return { airport: a, ...r };
@@ -90,7 +97,7 @@ export function computeCompanyTotals(airports, conversionRate) {
   const avgBasket = totalPax > 0 ? Math.round((weightedBasket / totalPax) * 100) / 100 : 0;
   const annualFee = Math.round(monthlyFee * 12 * 100) / 100;
   const dailyFee = Math.round((monthlyFee * 12) / 365 * 100) / 100;
-  return { rows, avgBasket, totalDailyTravelers: totalPax, dailyRedemptions, monthlyNet, annualNet, dailyNet, monthlyGross, annualGross, dailyGross, monthlyFee, annualFee, dailyFee };
+  return { rows, avgBasket, totalDailyTravelers: totalPax, dailyRedemptions, monthlyNet, annualNet, dailyNet, monthlyGross, annualGross, dailyGross, monthlySaving, annualSaving, dailySaving, monthlyFee, annualFee, dailyFee };
 }
 
 // Estimate store count per airport based on passenger volume (tiered heuristic)
