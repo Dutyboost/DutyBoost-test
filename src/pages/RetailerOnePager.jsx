@@ -148,7 +148,7 @@ export default function RetailerOnePager() {
                 <p className="text-xs font-bold text-slate-400 mb-0.5">3.</p>
                 <p className="text-xl font-heading font-bold text-orange-700 leading-tight">{t('retaileronepager.stat3_value')}</p>
                 <p className="font-semibold text-xs mt-0.5">{t('retaileronepager.stat3_label')}</p>
-                <p className="text-xs text-muted-foreground leading-snug">{t('retaileronepager.stat3_desc')}</p>
+                <p className="text-xs text-muted-foreground leading-snug whitespace-pre-line text-left">{t('retaileronepager.stat3_desc')}</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-1.5 flex-1">
