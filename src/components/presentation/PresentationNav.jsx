@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { id: "solution", key: "solution" },
   { id: "retailers", key: "retailers" },
   { id: "projection", key: "projection" },
+  { id: "summary", key: "summary" },
 ];
 
 export default function PresentationNav() {

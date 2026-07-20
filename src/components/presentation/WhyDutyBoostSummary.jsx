@@ -8,7 +8,7 @@ export default function WhyDutyBoostSummary() {
   const groups = t('presentation.why_summary.groups', { returnObjects: true });
 
   return (
-    <section className="space-y-4">
+    <section id="summary" className="space-y-4 scroll-mt-36">
       <p className="text-7xl sm:text-8xl font-heading font-bold uppercase tracking-widest text-accent text-center">{t('presentation.why_summary.summary_label')}</p>
       <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-8 sm:p-12 lg:p-16 text-primary-foreground shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />

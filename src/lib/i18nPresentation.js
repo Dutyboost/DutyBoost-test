@@ -8,6 +8,7 @@ export const presentationStrings = {
       solution: "The Solution",
       retailers: "Retailers",
       projection: "Projection",
+      summary: "Summary",
     },
     hero: {
       badge: "DutyBoost: A New Revenue Layer for the Travel Sector",
@@ -288,6 +289,7 @@ export const presentationStrings = {
       solution: "De Oplossing",
       retailers: "Retailers",
       projection: "Projectie",
+      summary: "Samenvatting",
     },
     hero: {
       badge: "DutyBoost: Een Nieuwe Inkomstenlaag voor de Travel Sector",
@@ -568,6 +570,7 @@ export const presentationStrings = {
       solution: "La Solución",
       retailers: "Retailers",
       projection: "Proyección",
+      summary: "Resumen",
     },
     hero: {
       badge: "DutyBoost: Una Nueva Capa de Ingresos para el Sector Travel",
