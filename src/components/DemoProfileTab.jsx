@@ -212,7 +212,7 @@ const RETAILER_SEASONALITY_DATA = [
   { monthKey: "month_june", dateKey: "date_july", mult: 1.10 },
 ];
 
-function buildRetailerInvoices(entity, locale, t, retailers, currency = "EUR") {
+function buildRetailerInvoices(entity, locale, t, retailers, currency = "EUR", rateMultiplier = 1) {
   function getMonthLabel(key) {
     const monthTranslations = {
       month_march: t('months.march') || 'March 2026',
@@ -239,9 +239,9 @@ function buildRetailerInvoices(entity, locale, t, retailers, currency = "EUR") {
       if (!perAirport[ap]) perAirport[ap] = { airport: ap, vouchers: 0, transactionValue: 0, fee: 0 };
       const basket = r.avg_sale || 0;
       const commission = Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
-      const scaledRedemptions = Math.round((r.redemptions || 0) * mult);
+      const scaledRedemptions = Math.round((r.redemptions || 0) * mult * rateMultiplier);
       perAirport[ap].vouchers += scaledRedemptions;
-      perAirport[ap].transactionValue += Math.round(basket * (r.redemptions || 0) * mult);
+      perAirport[ap].transactionValue += Math.round(basket * (r.redemptions || 0) * mult * rateMultiplier);
       perAirport[ap].fee += Math.round(commission * scaledRedemptions);
     });
     const breakdown = Object.values(perAirport).map(a => ({
@@ -534,7 +534,7 @@ function downloadInvoicePDF(inv, entity, profile, cfg, currency = "EUR") {
 
 // ─── Main component ───────────────────────────────────────────────────────
 
-export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [], companyKey, currency = "EUR" }) {
+export default function DemoProfileTab({ entity, entityType = "agency", region = "nl", retailers = [], companyKey, currency = "EUR", rateMultiplier = 1 }) {
   const { t } = useTranslation();
   const cfg = REGION_CONFIG[region] || REGION_CONFIG.nl;
 
@@ -553,7 +553,7 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
 
   const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
 
-  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t, retailers, currency) : buildAgencyInvoices(t);
+  const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t, retailers, currency, rateMultiplier) : buildAgencyInvoices(t);
 
   const [bankEditing, setBankEditing] = useState(false);
   const [bankDraft, setBankDraft] = useState({ iban: profile.iban, holder: profile.holder });
