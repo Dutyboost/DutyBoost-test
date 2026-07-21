@@ -47,6 +47,7 @@ export const ENTERPRISE_RETAILERS = [
   { key: "intershop", name: "Intershop (Switzerland)", airports: byName["Intershop (Switzerland)"]?.airports || [], hqCountry: "Switzerland", description: "Swiss duty free and travel retailer" },
   { key: "jat", name: "JAT Retail", airports: byName["JAT Retail"]?.airports || [], hqCountry: "Serbia", description: "Belgrade-based airport retail operator" },
   { key: "flemingo_india", name: "Flemingo India", airports: byName["Flemingo India"]?.airports || [], hqCountry: "India", description: "Indian airport duty free operator" },
+  { key: "dfp_world", name: "DFP World (Duty Free Stores Zimbabwe)", airports: byName["DFP World (Duty Free Stores Zimbabwe)"]?.airports || [], hqCountry: "Zimbabwe", description: "Zimbabwe's duty free specialist — Harare, Victoria Falls & Bulawayo" },
   // ── Additional ──
   { key: "king_power", name: "King Power", airports: KING_POWER_AIRPORTS, hqCountry: "Thailand", description: "Thailand's leading duty free retailer" },
   { key: "other", name: "Other", airports: OTHER_AIRPORTS, hqCountry: null, description: "Custom — select from global airport network" },
