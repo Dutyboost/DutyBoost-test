@@ -24,6 +24,7 @@ import CodeOfConduct from './pages/CodeOfConduct';
 import CookiePolicy from './pages/CookiePolicy';
 import DataProcessingAgreement from './pages/DataProcessingAgreement';
 import CookieConsentBar from './components/CookieConsentBar';
+import DemoDisclaimer from './components/DemoDisclaimer';
 import FAQ from './pages/FAQ';
 import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
 import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
@@ -270,6 +271,7 @@ function App() {
         <Router>
           <AuthenticatedApp />
           <CookieConsentBar />
+          <DemoDisclaimer />
           <Toaster />
         </Router>
       </QueryClientProvider>
