@@ -62,7 +62,7 @@ export const COUNTRY_TO_CURRENCY = {
   "Sudan": "SDG", "South Sudan": "SSP",
   "Ethiopia": "ETB", "Eritrea": "ERN", "Djibouti": "DJF", "Somalia": "SOS",
   "Kenya": "KES", "Uganda": "UGX", "Tanzania": "TZS", "Rwanda": "RWF", "Burundi": "BIF",
-  "Angola": "AOA", "Mozambique": "MZN", "Zambia": "ZMW", "Zimbabwe": "ZWL",
+  "Angola": "AOA", "Mozambique": "MZN", "Zambia": "ZMW", "Zimbabwe": "USD",
   "Malawi": "MWK", "Botswana": "BWP", "Namibia": "NAD", "South Africa": "ZAR",
   "Lesotho": "LSL", "Eswatini": "SZL", "Madagascar": "MGA",
   "Mauritius": "MUR", "Comoros": "KMF", "Seychelles": "SCR",
