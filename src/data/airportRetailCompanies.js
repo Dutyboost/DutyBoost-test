@@ -24,6 +24,7 @@ import { AIRPORTS_FULL as TRAVELRETAIL_SWEDEN_AIRPORTS_FULL } from "./demoDataTr
 import { AIRPORTS_FULL as INTERSHOP_AIRPORTS_FULL } from "./demoDataIntershop";
 import { AIRPORTS_FULL as JAT_AIRPORTS_FULL } from "./demoDataJAT";
 import { AIRPORTS_FULL as FLEMINGO_INDIA_AIRPORTS_FULL } from "./demoDataFlemingIndiadf";
+import { AIRPORTS_FULL as DFP_WORLD_AIRPORTS_FULL } from "./demoDataDFPWorld";
 
 // ── Region resolver (mirrors estimateAvgBasketSpend logic) ───────────────────
 function regionForCountry(country) {
@@ -35,7 +36,7 @@ function regionForCountry(country) {
   if (ASIA.includes(country)) return "Asia";
   const OCEANIA = ["Australia", "New Zealand"];
   if (OCEANIA.includes(country)) return "Oceania";
-  const AFRICA = ["Kenya", "Nigeria", "South Africa", "Morocco", "Egypt", "Tanzania", "Ghana"];
+  const AFRICA = ["Kenya", "Nigeria", "South Africa", "Morocco", "Egypt", "Tanzania", "Ghana", "Zimbabwe"];
   if (AFRICA.includes(country)) return "Africa";
   const LATAM = ["Mexico", "Brazil", "Argentina", "Chile", "Colombia", "Uruguay", "Ecuador", "Dominican Republic", "Barbados", "Antigua", "Bahamas"];
   if (LATAM.includes(country)) return "Americas";
@@ -253,5 +254,9 @@ export const AIRPORT_RETAIL_COMPANIES = [
   {
     name: "Flemingo India",
     airports: FLEMINGO_INDIA_AIRPORTS_FULL,
+  },
+  {
+    name: "DFP World (Duty Free Stores Zimbabwe)",
+    airports: DFP_WORLD_AIRPORTS_FULL,
   },
 ];
