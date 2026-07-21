@@ -49,7 +49,7 @@ export default function EligibilityShowcase() {
   })();
 
   const handleAirportSelect = (a) => {
-    setAirport(`${a.code} — ${a.city}`);
+    setAirport(`${a.code} — ${a.name}`);
     setAirportQuery("");
   };
 
