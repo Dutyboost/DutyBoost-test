@@ -26,9 +26,9 @@ function assignStoresToAirport(pax) {
 }
 
 export const AIRPORTS_FULL = [
-  { code: "HRE", name: "Harare Robert Mugabe International", city: "Harare", country: "Zimbabwe", daily_pax: 4500, annual_pax: 1642500, stores: assignStoresToAirport(4500) },
-  { code: "VFA", name: "Victoria Falls", city: "Victoria Falls", country: "Zimbabwe", daily_pax: 1800, annual_pax: 657000, stores: assignStoresToAirport(1800) },
-  { code: "BUQ", name: "Bulawayo Joshua Nkomo International", city: "Bulawayo", country: "Zimbabwe", daily_pax: 1000, annual_pax: 365000, stores: assignStoresToAirport(1000) },
+  { code: "HRE", name: "Harare Robert Mugabe International", city: "Harare", country: "Zimbabwe", region: "Africa", daily_pax: 4500, annual_pax: 1642500, stores: assignStoresToAirport(4500) },
+  { code: "VFA", name: "Victoria Falls", city: "Victoria Falls", country: "Zimbabwe", region: "Africa", daily_pax: 1800, annual_pax: 657000, stores: assignStoresToAirport(1800) },
+  { code: "BUQ", name: "Bulawayo Joshua Nkomo International", city: "Bulawayo", country: "Zimbabwe", region: "Africa", daily_pax: 1000, annual_pax: 365000, stores: assignStoresToAirport(1000) },
 ];
 
 export function getDFPWorldRetailerData() {
