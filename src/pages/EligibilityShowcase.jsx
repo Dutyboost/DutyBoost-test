@@ -141,8 +141,8 @@ export default function EligibilityShowcase() {
                         >
                           <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium truncate">{a.city} — {a.name}</p>
-                            <p className="text-xs text-muted-foreground">{a.country}</p>
+                            <p className="text-sm font-medium truncate">{a.name}</p>
+                            <p className="text-xs text-muted-foreground">{a.city}, {a.country}</p>
                           </div>
                           <span className="text-sm font-bold text-primary shrink-0">{a.code}</span>
                         </button>
