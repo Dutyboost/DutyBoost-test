@@ -524,7 +524,7 @@ const AVOLTA_AIRPORTS_RAW = [
   ["Puerto Plata Airport", "POP", "Puerto Plata", "Dominican Republic", 1000000],
 
   // ── Caribbean ──
-  ["Queen Beatrix International Airport", "AUA", "Oranjestad", "Aruba", 2500000],
+  ["Queen Beatrix International Airport", "AUA", "Queen Beatrix International Airport", "Aruba", 3400000],
   ["V. C. Bird International Airport", "ANU", "St. John's", "Antigua", 1000000],
   ["Lynden Pindling International Airport", "NAS", "Nassau", "Bahamas", 3000000],
   ["Grantley Adams International Airport", "BGI", "Bridgetown", "Barbados", 2000000],

@@ -4,7 +4,7 @@
 // (World Duty Free, Hudson, Avolta Duty Free, Sunglass Hut, Travel Essentials).
 // All F&B excluded.
 //
-// Passenger figures: 2.5M annual / ~6,849 daily (Aruba Airport Authority).
+// Passenger figures: 3.4M annual / ~9,315 daily (Aruba Airport Authority 2025).
 // Revenue model mirrors demoDataAvolta (0.01% incremental uplift, 2.5% fee).
 
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
@@ -15,11 +15,11 @@ const PLATFORM_FEE_PCT = 0.025;
 const AUA = {
   name: "Queen Beatrix International Airport",
   code: "AUA",
-  city: "Oranjestad",
+  city: "Queen Beatrix International Airport",
   country: "Aruba",
   region: "Americas",
-  annual_pax: 2500000,
-  daily_pax: 6849,
+  annual_pax: 3400000,
+  daily_pax: 9315,
 };
 
 export const AIRPORTS = [
