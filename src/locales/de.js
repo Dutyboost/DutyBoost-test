@@ -62,7 +62,7 @@ export default {
       travelers: {
         title: 'Reisende',
         description: 'Wenn Ihr Reisepartner kein DutyCredit in Ihrer Buchungsbestätigungs-E-Mail enthalten hat, beanspruchen Sie Ihres ganz einfach hier — keine Anmeldung, kein Boardingpass-Upload. Geben Sie Ihre Flugdaten ein, wählen Sie Ihren Abflughafen und scannen Sie, um bei teilnehmenden Händlern zu sparen.',
-        b1: '2,50–60 € Flughafen-Einkaufsguthaben',
+        b1: '1–60 € Flughafen-Einkaufsguthaben',
         b2: 'Hier beanspruchen, wenn Ihr Partner keins gesendet hat',
         b3: 'Ohne Anmeldung — scannen & sparen',
       },

@@ -61,7 +61,7 @@ export default {
       travelers: {
         title: 'Travellers',
         description: 'If your travel partner didn\'t include a DutyCredit in your booking confirmation or return email, claim yours easily here — no sign-up, no boarding pass upload. Just enter your flight details, select your departure airport, and scan to save at participating retailers.',
-        b1: '€2.50–€60 airport shopping credit',
+        b1: '€1–€60 airport shopping credit',
         b2: 'Claim here if your partner didn\'t send one',
         b3: 'No sign-up — scan & save',
       },

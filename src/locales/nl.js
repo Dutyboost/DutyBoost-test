@@ -61,7 +61,7 @@ export default {
       travelers: {
         title: 'Reizigers',
         description: 'Als uw reispartner geen DutyCredit in uw boekingsbevestigingsmail heeft toegevoegd, claim dan hier eenvoudig de uwe — geen aanmelding, geen instapkaart uploaden. Vul uw vluchtgegevens in, selecteer uw vertrekluchthaven en scan om te besparen bij deelnemende retailers.',
-        b1: '€2,50–€60 luchthaven-winkeltegoed',
+        b1: '€1–€60 luchthaven-winkeltegoed',
         b2: 'Claim hier als uw partner er geen stuurde',
         b3: 'Geen aanmelding — scan & bespaar',
       },

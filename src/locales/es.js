@@ -61,7 +61,7 @@ export default {
       travelers: {
         title: 'Viajeros',
         description: 'Si tu socio de viaje no incluyó un DutyCredit en tu email de confirmación de reserva, reclama el tuyo fácilmente aquí — sin registro, sin subir tarjeta de embarque. Introduce los datos de tu vuelo, selecciona tu aeropuerto de salida y escanea para ahorrar en minoristas participantes.',
-        b1: 'Crédito de compra en aeropuerto de €2,50–€60',
+        b1: 'Crédito de compra en aeropuerto de €1–€60',
         b2: 'Reclama aquí si tu socio no envió uno',
         b3: 'Sin registro — escanea y ahorra',
       },

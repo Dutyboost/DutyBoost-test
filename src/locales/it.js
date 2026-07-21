@@ -61,7 +61,7 @@ export default {
       travelers: {
         title: 'Viaggiatori',
         description: 'Se il tuo partner di viaggio non ha incluso un DutyCredit nella tua email di conferma prenotazione, richiedi il tuo facilmente qui — nessuna registrazione, nessun upload della carta d\'imbarco. Inserisci i dati del volo, seleziona il tuo aeroporto di partenza e scansiona per risparmiare presso i rivenditori partecipanti.',
-        b1: 'Credito di acquisto in aeroporto €2,50–€60',
+        b1: 'Credito di acquisto in aeroporto €1–€60',
         b2: 'Richiedi qui se il tuo partner non ne ha inviato uno',
         b3: 'Senza registrazione — scansiona e risparmia',
       },
