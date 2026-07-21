@@ -155,6 +155,11 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
+                  {s.key === 'travelers' && (
+                    <p className="text-xs text-muted-foreground/80 mt-4 leading-relaxed border-t border-border pt-3">
+                      {t('stakeholders.travelers.demo_note')}
+                    </p>
+                  )}
                 </>
               );
 

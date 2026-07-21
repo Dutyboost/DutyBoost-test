@@ -65,6 +65,7 @@ export default {
         b1: 'Crédit d\'achat en aéroport de 1 à 60 €',
         b2: 'Réclamez ici si votre partenaire n\'en a pas envoyé',
         b3: 'Sans inscription — scannez & économisez',
+        demo_note: 'Démo uniquement. Les DutyCredits ne peuvent être utilisés que dans les aéroports participants. DutyBoost sera officiellement lancé dans les aéroports à partir de septembre 2026 — les crédits restent à des fins de démonstration au-delà de cette date.',
       },
       retailers: {
         title: 'Partenaires détaillants aéroportuaires',

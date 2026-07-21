@@ -64,6 +64,7 @@ export default {
         b1: '€1–€60 airport shopping credit',
         b2: 'Claim here if your partner didn\'t send one',
         b3: 'No sign-up — scan & save',
+        demo_note: 'Demo only. DutyCredits can only be redeemed at participating airports. DutyBoost goes officially live at airports from September 2026 — credits remain for demo purposes beyond that date.',
       },
       retailers: {
         title: 'Airport Retail Partners',

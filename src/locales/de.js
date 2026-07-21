@@ -65,6 +65,7 @@ export default {
         b1: '1–60 € Flughafen-Einkaufsguthaben',
         b2: 'Hier beanspruchen, wenn Ihr Partner keins gesendet hat',
         b3: 'Ohne Anmeldung — scannen & sparen',
+        demo_note: 'Nur Demo. DutyCredits können nur bei teilnehmenden Flughäfen eingelöst werden. DutyBoost geht ab September 2026 offiziell an Flughäfen live — Guthaben bleiben danach Demo-zwecken vorbehalten.',
       },
       retailers: {
         title: 'Flughafen Retailpartner',

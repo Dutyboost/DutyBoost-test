@@ -64,6 +64,7 @@ export default {
         b1: '€1–€60 luchthaven-winkeltegoed',
         b2: 'Claim hier als uw partner er geen stuurde',
         b3: 'Geen aanmelding — scan & bespaar',
+        demo_note: 'Alleen demo. DutyCredits kunnen alleen worden ingewisseld bij deelnemende luchthavens. DutyBoost gaat officieel live op luchthavens vanaf september 2026 — tegoeden blijven daarna nog voor demodoeleinden.',
       },
       retailers: {
         title: 'Luchthaven Retailpartners',
