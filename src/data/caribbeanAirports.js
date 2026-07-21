@@ -31,7 +31,7 @@ export const CARIBBEAN_AIRPORTS = [
   { name: "St. Croix Henry E. Rohlsen Airport", code: "STX", city: "Christiansted", country: "US Virgin Islands", annual_pax: 400000 },
   { name: "Port-au-Prince Toussaint Louverture Airport", code: "PAP", city: "Port-au-Prince", country: "Haiti", annual_pax: 1500000 },
   { name: "Cap-Haitien International Airport", code: "CAP", city: "Cap-Haitien", country: "Haiti", annual_pax: 200000 },
-  { name: "Aruba Queen Beatrix International Airport", code: "AUA", city: "Oranjestad", country: "Aruba", annual_pax: 2800000 },
+  { name: "Queen Beatrix International Airport", code: "AUA", city: "Queen Beatrix International Airport", country: "Aruba", annual_pax: 2800000 },
   { name: "Curacao Hato International Airport", code: "CUR", city: "Willemstad", country: "Curacao", annual_pax: 2000000 },
   { name: "Bonaire Flamingo International Airport", code: "BON", city: "Kralendijk", country: "Bonaire", annual_pax: 600000 },
   { name: "St. Maarten Princess Juliana Airport", code: "SXM", city: "Philipsburg", country: "Sint Maarten", annual_pax: 2500000 },
