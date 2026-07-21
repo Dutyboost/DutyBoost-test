@@ -25,33 +25,11 @@ import { AIRPORTS_FULL as INTERSHOP_AIRPORTS_FULL } from "./demoDataIntershop";
 import { AIRPORTS_FULL as JAT_AIRPORTS_FULL } from "./demoDataJAT";
 import { AIRPORTS_FULL as FLEMINGO_INDIA_AIRPORTS_FULL } from "./demoDataFlemingIndiadf";
 import { AIRPORTS_FULL as DFP_WORLD_AIRPORTS_FULL } from "./demoDataDFPWorld";
+import { A } from "./airportRegionHelpers";
+import { LIGHTWEIGHT_AIRPORTS, LIGHTWEIGHT_COMPANY_DEFS } from "./lightweightRetailers";
 
-// ── Region resolver (mirrors estimateAvgBasketSpend logic) ───────────────────
-function regionForCountry(country) {
-  const ME = ["United Arab Emirates", "Qatar", "Saudi Arabia", "Oman", "Bahrain", "Kuwait", "Jordan", "Lebanon", "Israel"];
-  if (ME.includes(country)) return "Middle East";
-  const NA = ["United States", "Canada"];
-  if (NA.includes(country)) return "Americas";
-  const ASIA = ["Singapore", "Malaysia", "China", "Hong Kong", "Japan", "South Korea", "Taiwan", "Thailand", "Indonesia", "Philippines", "Vietnam", "India", "Cambodia", "Sri Lanka"];
-  if (ASIA.includes(country)) return "Asia";
-  const OCEANIA = ["Australia", "New Zealand"];
-  if (OCEANIA.includes(country)) return "Oceania";
-  const AFRICA = ["Kenya", "Nigeria", "South Africa", "Morocco", "Egypt", "Tanzania", "Ghana", "Zimbabwe"];
-  if (AFRICA.includes(country)) return "Africa";
-  const LATAM = ["Mexico", "Brazil", "Argentina", "Chile", "Colombia", "Uruguay", "Ecuador", "Dominican Republic", "Barbados", "Antigua", "Bahamas"];
-  if (LATAM.includes(country)) return "Americas";
-  return "Europe";
-}
-
-const A = (code, name, city, country, daily_pax) => ({
-  code,
-  name,
-  city,
-  country,
-  daily_pax,
-  annual_pax: Math.round(daily_pax * 365),
-  region: regionForCountry(country),
-});
+// Region resolver + A() helper now live in ./airportRegionHelpers (shared with
+// the lightweight registry in ./lightweightRetailers).
 
 export const RETAIL_AIRPORTS = {
   // Europe
@@ -172,7 +150,18 @@ export const RETAIL_AIRPORTS = {
   BEY: A("BEY", "Beirut Rafic Hariri", "Beirut", "Lebanon", 21918),
   BAH: A("BAH", "Bahrain", "Manama", "Bahrain", 26849),
   KHI: A("KHI", "Karachi Jinnah", "Karachi", "Pakistan", 21918),
+
+  // ── Lightweight registry airports (see lightweightRetailers.js) ──
+  ...LIGHTWEIGHT_AIRPORTS,
 };
+
+// Build lightweight company entries from the merged airport registry.
+// Each entry resolves airport codes → full airport objects; totals are
+// computed downstream by computeCompanyTotals() from traffic + basket model.
+const LIGHTWEIGHT_COMPANIES = LIGHTWEIGHT_COMPANY_DEFS.map((d) => ({
+  name: d.name,
+  airports: d.codes.map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+}));
 
 export const AIRPORT_RETAIL_COMPANIES = [
   // ── Demo-backed companies (exact airport lists from the demos) ──
@@ -259,4 +248,6 @@ export const AIRPORT_RETAIL_COMPANIES = [
     name: "DFP World (Duty Free Stores Zimbabwe)",
     airports: DFP_WORLD_AIRPORTS_FULL,
   },
+  // ── Lightweight operators (traffic-derived totals, no bespoke store data) ──
+  ...LIGHTWEIGHT_COMPANIES,
 ];
