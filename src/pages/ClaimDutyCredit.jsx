@@ -10,10 +10,14 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
   Search, MapPin, Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
-  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet
+  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet, Store
 } from "lucide-react";
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
 import { getAirlineFormat } from "../data/airlineFormats";
+import { getCurrencyByCountry } from "../data/countryCurrencies";
+import { fmtMoney } from "../utils/formatNumber";
+import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
+import { buildParticipatingStores } from "../data/participatingStores";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -35,6 +39,10 @@ export default function ClaimDutyCredit() {
   const [error, setError] = useState('');
   const [walletPlatform, setWalletPlatform] = useState('unknown');
   const [walletLoading, setWalletLoading] = useState(false);
+  const [airportCode, setAirportCode] = useState('');
+  const [airportCountry, setAirportCountry] = useState('');
+  const [participatingStores, setParticipatingStores] = useState([]);
+  const [storesLoading, setStoresLoading] = useState(false);
   const airportRef = useRef(null);
 
   const isPartnerFlow = !!refCode;
@@ -43,6 +51,7 @@ export default function ClaimDutyCredit() {
   const airlineFormat = useMemo(() => getAirlineFormat(airline), [airline]);
   const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
   const bookingRefValid = !!(airlineFormat?.bookingPattern && airlineFormat.bookingPattern.test(bookingRef));
+  const currency = useMemo(() => airportCountry ? getCurrencyByCountry(airportCountry) : "EUR", [airportCountry]);
 
   // Airport search
   const filteredAirports = useMemo(() => {
@@ -72,10 +81,53 @@ export default function ClaimDutyCredit() {
     else if (/Android/i.test(ua)) setWalletPlatform('android');
   }, []);
 
+  // Resolve currency-aware tier formatting (e.g. €2,50 / Afl. 5)
+  const fmtTier = (eur) => {
+    const decimals = currency === "AWG" ? 0 : (eur % 1 !== 0 ? 2 : 0);
+    return fmtMoney(eur, currency, decimals);
+  };
+
+  // Fetch participating stores for the selected airport from the database,
+  // supplemented by a curated brand pool so every airport shows 5–20 stores.
+  const fetchStoresForAirport = async (airportObj) => {
+    if (!airportObj) return;
+    setStoresLoading(true);
+    try {
+      const all = await base44.entities.Retailer.list(200);
+      const code = airportObj.code.toUpperCase();
+      const dbMatches = all.filter(r => {
+        const ap = (r.airport || '').toUpperCase();
+        return ap === code || ap.startsWith(code + ' ') || ap.startsWith(code + '-') || ap.includes(code + ' —') || ap.includes(code + ' -');
+      });
+      setParticipatingStores(buildParticipatingStores(code, airportObj.city, dbMatches));
+    } catch {
+      setParticipatingStores(buildParticipatingStores(airportObj.code, airportObj.city, []));
+    } finally {
+      setStoresLoading(false);
+    }
+  };
+
+  // Pre-selected airport via ?airport= query param
+  useEffect(() => {
+    if (preselectedAirport) {
+      const found = GLOBAL_AIRPORTS.find(a => a.code.toLowerCase() === preselectedAirport.toLowerCase());
+      if (found) {
+        setAirport(`${found.code} — ${found.city}`);
+        setAirportCode(found.code);
+        setAirportCountry(found.country);
+        fetchStoresForAirport(found);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleAirportSelect = (a) => {
     setAirport(`${a.code} — ${a.city}`);
+    setAirportCode(a.code);
+    setAirportCountry(a.country);
     setAirportQuery('');
     setAirportOpen(false);
+    fetchStoresForAirport(a);
   };
 
   const handleClaim = async () => {
@@ -425,7 +477,7 @@ export default function ClaimDutyCredit() {
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground text-center">
-                  {tr('qr_disclaimer')}
+                  {tr('qr_disclaimer', { minSpend: fmtMoney(MIN_SPEND_EUR, currency) })}
                 </p>
               </div>
             </div>
@@ -437,35 +489,35 @@ export default function ClaimDutyCredit() {
                 {tr('savings_title')}
               </p>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span>{tr('tier1')}</span>
-                  <span className="font-bold text-amber-600">{tr('tier1_save')}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span>{tr('tier2')}</span>
-                  <span className="font-bold text-slate-500">{tr('tier2_save')}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span>{tr('tier3')}</span>
-                  <span className="font-bold text-yellow-600">{tr('tier3_save')}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span>{tr('tier4')}</span>
-                  <span className="font-bold text-blue-600">{tr('tier4_save')}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span>{tr('tier5')}</span>
-                  <span className="font-bold text-green-600">{tr('tier5_save')}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span>{tr('tier6')}</span>
-                  <span className="font-bold text-pink-600">{tr('tier6_save')}</span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span>{tr('tier7')}</span>
-                  <span className="font-bold text-purple-600">{tr('tier7_save')}</span>
-                </div>
+                {DUTY_CREDIT_TIERS.map((tier, idx) => (
+                  <div key={tier.name} className={`flex justify-between items-center py-2 ${idx < DUTY_CREDIT_TIERS.length - 1 ? 'border-b border-border' : ''}`}>
+                    <span>{tier.name} · {tier.max ? `${fmtTier(tier.min)}–${fmtTier(tier.max)}` : `${fmtTier(tier.min)}+`} {tr('tier_spend')}</span>
+                    <span className={`font-bold ${tier.color}`}>{fmtTier(tier.discount)} {tr('tier_off')}</span>
+                  </div>
+                ))}
               </div>
+            </div>
+
+            {/* Participating stores at this airport */}
+            <div className="bg-card rounded-2xl border border-border p-6 space-y-3 print:p-3 print:space-y-1">
+              <p className="text-sm font-semibold flex items-center gap-2">
+                <ShoppingBag className="w-4 h-4 text-primary" />
+                {tr('stores_title')}
+              </p>
+              {storesLoading ? (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground py-2">
+                  <Loader2 className="w-4 h-4 animate-spin" /> {tr('generating')}
+                </div>
+              ) : participatingStores.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                  {participatingStores.map((s, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm py-1.5 px-2.5 rounded-lg bg-muted/40">
+                      <Store className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                      <span className="font-medium truncate">{s.name}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 print:hidden">
