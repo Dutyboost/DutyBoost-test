@@ -64,7 +64,7 @@ export default {
         b1: 'Credito di acquisto in aeroporto €1–€60',
         b2: 'Richiedi qui se il tuo partner non ne ha inviato uno',
         b3: 'Senza registrazione — scansiona e risparmia',
-        demo_note: 'Solo demo. I DutyCredit possono essere riscattati solo presso aeroporti partecipanti. DutyBoost sarà attivo negli aeroporti da settembre 2026 — i crediti restano a scopo dimostrativo anche dopo tale data.',
+        demo_note: 'I DutyCredit possono essere riscattati solo presso aeroporti partecipanti. Gli aeroporti non ancora nella rete DutyBoost sono mostrati a scopo dimostrativo. DutyBoost sarà attivo negli aeroporti da settembre 2026.',
       },
       retailers: {
         title: 'Partner retailer aeroportuali',

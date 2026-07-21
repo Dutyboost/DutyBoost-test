@@ -43,6 +43,7 @@ export default function ClaimDutyCredit() {
   const [airportCountry, setAirportCountry] = useState('');
   const [participatingStores, setParticipatingStores] = useState([]);
   const [storesLoading, setStoresLoading] = useState(false);
+  const [airportLive, setAirportLive] = useState(false);
   const airportRef = useRef(null);
 
   const isPartnerFlow = !!refCode;
@@ -99,8 +100,10 @@ export default function ClaimDutyCredit() {
         const ap = (r.airport || '').toUpperCase();
         return ap === code || ap.startsWith(code + ' ') || ap.startsWith(code + '-') || ap.includes(code + ' —') || ap.includes(code + ' -');
       });
+      setAirportLive(dbMatches.length > 0);
       setParticipatingStores(buildParticipatingStores(code, airportObj.city, dbMatches));
     } catch {
+      setAirportLive(false);
       setParticipatingStores(buildParticipatingStores(airportObj.code, airportObj.city, []));
     } finally {
       setStoresLoading(false);
@@ -368,6 +371,13 @@ export default function ClaimDutyCredit() {
                 <div className="flex items-center gap-2 text-sm text-destructive">
                   <AlertCircle className="w-4 h-4" />
                   {error}
+                </div>
+              )}
+
+              {airport && !storesLoading && !airportLive && (
+                <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                  <span>{tr('airport_not_live_note')}</span>
                 </div>
               )}
 
