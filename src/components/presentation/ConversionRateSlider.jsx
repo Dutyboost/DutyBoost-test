@@ -3,10 +3,12 @@ import { useTranslation } from "react-i18next";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 
-// 20 steps across the 0–1% range, starting at 0.01% (0.01% → 1.00%)
+// Discrete steps from 0.01% to 5.00% (fine 0.05 steps up to 1%, then 0.25 steps to 5%)
 const TICKS = [
   0.01, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45,
-  0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 1.00
+  0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 1.00,
+  1.25, 1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.25, 3.50,
+  3.75, 4.00, 4.25, 4.50, 4.75, 5.00
 ];
 
 function nearestTickIndex(value) {
@@ -36,7 +38,7 @@ export default function ConversionRateSlider({ value, onChange }) {
     const raw = e.target.value;
     setInputValue(raw);
     const parsed = parseFloat(raw);
-    if (!isNaN(parsed) && parsed >= 0.01 && parsed <= 1) {
+    if (!isNaN(parsed) && parsed >= 0.01 && parsed <= 5) {
       onChange(parsed);
     }
   };
@@ -46,9 +48,9 @@ export default function ConversionRateSlider({ value, onChange }) {
     if (isNaN(parsed) || parsed < 0.01) {
       onChange(0.01);
       setInputValue("0.01");
-    } else if (parsed > 1) {
-      onChange(1);
-      setInputValue("1");
+    } else if (parsed > 5) {
+      onChange(5);
+      setInputValue("5");
     } else {
       onChange(parsed);
       setInputValue(String(parsed));
@@ -64,7 +66,7 @@ export default function ConversionRateSlider({ value, onChange }) {
             <Input
               type="number"
               min={0.01}
-              max={1}
+              max={5}
               step={0.01}
               value={inputValue}
               onChange={handleInputChange}
