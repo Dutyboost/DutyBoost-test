@@ -1,7 +1,8 @@
 // Avolta (Aruba) — Queen Beatrix International Airport (AUA) demo data.
 //
-// Single-airport network: Avolta operates 5 retail stores at AUA
-// (World Duty Free, Hudson, Avolta Duty Free, Sunglass Hut, Travel Essentials).
+// Single-airport network: 5 retail stores at AUA
+// (Aruba Duty Free – Liquor & Tobacco, Aruba Duty Free – Perfume & Cosmetics,
+//  Aruba Duty Free – Fashion & Accessories, Sound & Vision, Infinity & Co.).
 // All F&B excluded.
 //
 // Passenger figures: 3.4M annual / ~9,315 daily (Aruba Airport Authority 2025).
@@ -26,13 +27,13 @@ export const AIRPORTS = [
   { code: AUA.code, name: AUA.name, city: AUA.city, country: AUA.country },
 ];
 
-// Avolta retail brands present at AUA
+// Retail brands present at AUA
 const STORE_BRANDS = [
-  "World Duty Free Aruba",
-  "Hudson Aruba",
-  "Avolta Duty Free",
-  "Sunglass Hut Aruba",
-  "Travel Essentials Aruba",
+  "Aruba Duty Free – Liquor & Tobacco",
+  "Aruba Duty Free – Perfume & Cosmetics",
+  "Aruba Duty Free – Fashion & Accessories",
+  "Sound & Vision",
+  "Infinity & Co.",
 ];
 
 // Zipf-like weights so the flagship duty-free store gets the largest share
