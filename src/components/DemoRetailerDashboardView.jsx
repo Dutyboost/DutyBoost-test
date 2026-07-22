@@ -11,6 +11,7 @@ import RedemptionRateSlider from "./RedemptionRateSlider";
 import { base44 } from "@/api/base44Client";
 import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
+import DemoBadge from "./DemoBadge";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { fmtNum, fmtMoney } from "../utils/formatNumber";
 import { calcSaving } from "@/utils/retailerCalc";
@@ -157,6 +158,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={45} />
+          <DemoBadge />
         </div>
         <div className="flex items-center gap-3">
           {activeTab === "custom" ? (

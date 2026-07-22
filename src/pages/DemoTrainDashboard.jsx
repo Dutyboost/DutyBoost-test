@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from "recharts";
 import { Train, TrendingUp, DollarSign, Users, MapPin } from "lucide-react";
 import StatsCard from "../components/StatsCard";
+import DemoBadge from "../components/DemoBadge";
 import TrainStationMap from "../components/TrainStationMap";
 
 const routeData = [
@@ -31,6 +32,7 @@ const recentRedemptions = [
 export default function DemoTrainDashboard() {
   return (
     <div className="space-y-6">
+      <DemoBadge />
       <div>
         <h1 className="text-3xl font-heading font-bold">Rail Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track passenger participation and DutyCredit earnings across your route network</p>

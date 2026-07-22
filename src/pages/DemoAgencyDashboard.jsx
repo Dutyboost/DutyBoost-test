@@ -8,6 +8,7 @@ import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import DemoBadge from "../components/DemoBadge";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY, AGENCY_YEARLY } from "../data/demoData";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
@@ -90,6 +91,7 @@ export default function DemoAgencyDashboard() {
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={55} />
+          <DemoBadge />
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.agency_badge')}</span>
