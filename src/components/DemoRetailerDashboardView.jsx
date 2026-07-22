@@ -334,7 +334,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <p className="text-lg md:text-2xl font-heading font-bold">
               {cur(periodAvg, 2)}
               <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-              <span className="text-indigo-600">{cur(periodAvg * 1.0001, 2)}</span>
+              <span className="text-indigo-600">{cur(periodAvg * (1 + redemptionRate / 100), 2)}</span>
             </p>
           </div>
         </div>
