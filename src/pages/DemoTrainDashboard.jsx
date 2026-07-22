@@ -32,7 +32,7 @@ const recentRedemptions = [
 export default function DemoTrainDashboard() {
   return (
     <div className="space-y-6">
-      <DemoBadge />
+      <DemoBadge large />
       <div>
         <h1 className="text-3xl font-heading font-bold">Rail Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track passenger participation and DutyCredit earnings across your route network</p>

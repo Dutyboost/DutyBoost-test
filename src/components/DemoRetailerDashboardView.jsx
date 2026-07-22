@@ -158,7 +158,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={45} />
-          <DemoBadge />
         </div>
         <div className="flex items-center gap-3">
           {activeTab === "custom" ? (
@@ -213,6 +212,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <span className="font-heading font-bold text-foreground">{companyName}</span>
           </div>
         )}
+        <DemoBadge large />
         {/* Tabs */}
          <div className="flex gap-1 border-b border-border overflow-x-auto">
             {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: t('demo.tabs_aggregation'), icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (

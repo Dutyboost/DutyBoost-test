@@ -30,7 +30,7 @@ const recentPassengers = [
 export default function DemoCruiseDashboard() {
   return (
     <div className="space-y-6">
-      <DemoBadge />
+      <DemoBadge large />
       <div>
         <h1 className="text-3xl font-heading font-bold">Cruise Line Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track passenger participation and DutyCredit earnings across your fleet</p>

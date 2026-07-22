@@ -91,7 +91,6 @@ export default function DemoAgencyDashboard() {
           </Link>
           <span className="text-border">|</span>
           <DutyBoostLogo height={55} />
-          <DemoBadge />
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">{t('demo.agency_badge')}</span>
@@ -110,6 +109,7 @@ export default function DemoAgencyDashboard() {
       </header>
 
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
+        <DemoBadge large />
         {/* Tabs */}
         <div className="flex gap-1 border-b border-border overflow-x-auto">
           {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Aggregation", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (

@@ -91,7 +91,6 @@ export default function DemoAdminDashboard() {
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 bg-background/95 backdrop-blur z-10">
         <Link to="/"><DutyBoostLogo height={55} /></Link>
         <div className="flex items-center gap-3">
-          <DemoBadge />
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">Admin · Demo Mode</span>
           <Link to="/demo" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back
@@ -100,6 +99,7 @@ export default function DemoAdminDashboard() {
       </nav>
 
       <div className="max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
+        <DemoBadge large />
         <div>
           <h1 className="text-2xl font-heading font-bold">Platform Finance Overview</h1>
           <p className="text-muted-foreground text-sm mt-1">All figures are based on demo data. Revenue = retailer transaction value. DutyBoost earns 2.5% fee (capped at €25/tx); 20% of that fee is paid out to travel agencies.</p>

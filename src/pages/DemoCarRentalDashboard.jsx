@@ -25,7 +25,7 @@ export default function DemoCarRentalDashboard() {
 
   return (
     <div className="space-y-6">
-      <DemoBadge />
+      <DemoBadge large />
       <div>
         <h1 className="text-3xl font-heading font-bold">Car Rental Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track customer rentals and DutyCredit earnings</p>
