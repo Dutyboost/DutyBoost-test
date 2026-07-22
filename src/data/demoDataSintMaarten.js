@@ -26,7 +26,7 @@ export const AIRPORTS_FULL = [
   {
     code: "SXM",
     name: "Princess Juliana International Airport",
-    city: "Sint Maarten",
+    city: "Simpson Bay",
     country: "Sint Maarten",
     region: "Americas",
     daily_pax: 4836,
@@ -40,7 +40,7 @@ export const ILTT_AIRPORTS_FULL = [
   {
     code: "SXM",
     name: "Princess Juliana International Airport",
-    city: "Sint Maarten",
+    city: "Simpson Bay",
     country: "Sint Maarten",
     region: "Americas",
     daily_pax: 4836,
@@ -54,7 +54,7 @@ export const PENHA_AIRPORTS_FULL = [
   {
     code: "SXM",
     name: "Princess Juliana International Airport",
-    city: "Sint Maarten",
+    city: "Simpson Bay",
     country: "Sint Maarten",
     region: "Americas",
     daily_pax: 4836,
