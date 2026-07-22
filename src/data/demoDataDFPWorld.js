@@ -6,9 +6,13 @@ const STORE_NAMES = [
   "DFP World",
 ];
 
+// Duty-free outlets per airport, scaled by passenger volume. A duty-free
+// concessionaire typically runs several outlets (departures, arrivals, liquor,
+// gifts) at larger airports.
 function calculateStoresPerAirport(pax) {
-  if (pax >= 4000) return 2;
-  return 1;
+  if (pax >= 4000) return 3;  // major hub (Harare)
+  if (pax >= 1500) return 2;  // mid-tier tourist gateway (Victoria Falls)
+  return 1;                    // smaller airport (Bulawayo)
 }
 
 function assignStoresToAirport(pax) {
