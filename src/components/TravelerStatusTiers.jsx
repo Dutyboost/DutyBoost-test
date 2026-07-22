@@ -18,7 +18,7 @@ const TIERS = [
     incentiveBonus: "+0%",
     perks: [
       "Standard DutyCredit on every booking",
-      "Access to all participating F&B outlets",
+      "Access to all participating duty-free retail outlets",
       "Transaction history in app",
     ],
   },

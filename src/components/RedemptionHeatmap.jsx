@@ -37,9 +37,8 @@ const TERMINAL_LAYOUTS = {
     terminals: [
       { id: "T1", label: "Terminal 1", x: 20, y: 20, w: 300, h: 100, zone: "Departures" },
       { id: "T2", label: "Terminal 2", x: 340, y: 20, w: 320, h: 100, zone: "Departures" },
-      { id: "DUTY", label: "Duty Free Zone", x: 20, y: 140, w: 220, h: 90, zone: "Retail" },
-      { id: "FOOD", label: "Food & Beverage", x: 260, y: 140, w: 200, h: 90, zone: "Food" },
-      { id: "RETAIL", label: "Retail Row", x: 480, y: 140, w: 180, h: 90, zone: "Retail" },
+      { id: "DUTY", label: "Duty Free Zone", x: 20, y: 140, w: 320, h: 90, zone: "Retail" },
+      { id: "RETAIL", label: "Retail Row", x: 360, y: 140, w: 300, h: 90, zone: "Retail" },
     ]
   },
   BRU: {
@@ -62,7 +61,6 @@ const ZONE_BASE_COLORS = {
   Departures: [59, 130, 246],
   Retail: [249, 115, 22],
   Shops: [234, 88, 12],
-  Food: [16, 185, 129],
   Arrivals: [139, 92, 246],
 };
 

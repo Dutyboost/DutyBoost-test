@@ -16,7 +16,7 @@ import { fmtNum, fmtMoney } from "../utils/formatNumber";
 import { calcSaving } from "@/utils/retailerCalc";
 
 const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899"];
-const CAT_COLORS = { "Retail": "#2563eb", "Food & Beverage": "#f97316" };
+const CAT_COLORS = { "Retail": "#2563eb" };
 
 function calcPlatformFee(basket) {
   if (basket > 1000) return 0;
@@ -108,7 +108,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const periodNetRevenue = Math.round((periodGrossRevenue - periodSavings - periodFee) * 100) / 100;
   const periodAvg = basket;
 
-  const catBreakdown = ["Retail", "Food & Beverage"].map(cat => ({
+  const catBreakdown = ["Retail"].map(cat => ({
     name: cat,
     value: airportRetailers.filter(r => r.category === cat).reduce((s, r) => s + r.redemptions, 0),
   })).filter(c => c.value > 0);

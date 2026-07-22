@@ -4,14 +4,11 @@
 const STORE_POOL = [
   "World Duty Free", "Heinemann Duty Free", "Avolta", "Lotte Duty Free",
   "Dufry", "The Perfume Gallery", "Beauty & Fragrances", "Capi Electronics",
-  "Starbucks", "Costa Coffee", "Burger King", "McDonald's",
-  "Pret A Manger", "Joe & The Juice", "Upper Crust", "Food Village",
-  "The Bar", "Hugo Boss", "Michael Kors", "Coach", "Tumi", "Samsonite",
+  "Hugo Boss", "Michael Kors", "Coach", "Tumi", "Samsonite",
   "Sunglass Hut", "Swarovski", "Pandora", "Relay", "WH Smith",
   "News & Books", "Travel Essentials", "Souvenir Shop", "Apple Store",
   "Best Buy Express", "Lacoste", "Calvin Klein", "Victoria's Secret",
-  "Godiva Chocolatier", "Le Pain Quotidien", "Café Ritazza", "Leon",
-  "Bottega Verde", "InMotion Electronics",
+  "Godiva Chocolatier", "Bottega Verde", "InMotion Electronics",
 ];
 
 /**

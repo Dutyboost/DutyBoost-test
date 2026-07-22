@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 
 const categoryIcons = {
   "Retail": ShoppingBag,
-  "Food & Beverage": Store,
 };
 
 export default function RetailersPage() {

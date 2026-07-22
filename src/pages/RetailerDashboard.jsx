@@ -312,7 +312,6 @@ export default function RetailerDashboard() {
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Retail">Retail</SelectItem>
-                    <SelectItem value="Food & Beverage">Food &amp; Beverage</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

@@ -105,7 +105,7 @@ export default function SchipholRetailerPresentation() {
               {
                 icon: DollarSign,
                 title: '€900M+',
-                desc: 'Estimated annual non-aeronautical (retail, F&B, services) revenue at Schiphol. Retail is the single largest commercial revenue driver.',
+                desc: 'Estimated annual non-aeronautical (retail and services) revenue at Schiphol. Retail is the single largest commercial revenue driver.',
                 source: { label: 'Schiphol Group – Annual Report & Commercial Revenue 2024', url: 'https://www.schiphol.nl/en/schiphol-group/page/annual-report/' },
               },
               {
