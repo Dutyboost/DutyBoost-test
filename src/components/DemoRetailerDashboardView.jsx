@@ -152,7 +152,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
       {/* Top bar */}
       <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between gap-6 sticky top-0 z-40">
         <div className="flex items-center gap-4">
-          <Link to="/demo" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
+          <Link to="/" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
             <ArrowLeft className="w-4 h-4" /> {t('demo.back')}
           </Link>
           <span className="text-border">|</span>
