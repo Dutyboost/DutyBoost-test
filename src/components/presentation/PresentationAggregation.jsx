@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+
 import { Globe, PlaneTakeoff, Store, TrendingUp, Euro, ScanLine, Users, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fmtNum, fmtEur, fmtMoney } from "@/utils/formatNumber";
@@ -16,7 +17,8 @@ const DEMO_DASHBOARD_ROUTES = {
 };
 
 export default function PresentationAggregation({ company, conversionRate = 3, compact = false, currency = "EUR" }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n?.language || "en").split("-")[0];
   const totals = useMemo(
     () => computeCompanyTotals(company.airports, conversionRate),
     [company, conversionRate]
@@ -159,7 +161,7 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
       </div>
 
       <div className="text-center">
-        <Link to={`${DEMO_DASHBOARD_ROUTES[company.name] || "/demo"}?lang=es`} target="_blank" rel="noopener noreferrer">
+        <Link to={`${DEMO_DASHBOARD_ROUTES[company.name] || "/demo"}?lang=${lang}`} target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
             <BarChart3 className="w-4 h-4" />
             {t('presentation.agg.view_dashboard')}

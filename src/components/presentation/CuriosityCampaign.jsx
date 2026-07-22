@@ -22,7 +22,8 @@ const CHANNELS = [
 ];
 
 export default function CuriosityCampaign({ campaignData } = {}) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n?.language || "en").split("-")[0];
   const passengers = campaignData?.statPassengers;
   const departures = campaignData?.statDepartures;
   const intl = campaignData?.statIntl;
@@ -117,7 +118,7 @@ export default function CuriosityCampaign({ campaignData } = {}) {
       </div>
 
       <div className="text-center pt-2">
-        <Link to="/eligibility-showcase?lang=es" target="_blank" rel="noopener noreferrer">
+        <Link to={`/eligibility-showcase?lang=${lang}`} target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
             {t('presentation.journey.cta')}
             <ArrowRight className="w-4 h-4" />
