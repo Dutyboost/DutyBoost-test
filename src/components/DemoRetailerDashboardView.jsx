@@ -214,7 +214,13 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         {/* Tabs */}
          <div className="flex gap-1 border-b border-border overflow-x-auto">
             {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: t('demo.tabs_aggregation'), icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (
-            <button key={id} onClick={() => setActiveTab(id)}
+            <button key={id} onClick={() => {
+                setActiveTab(id);
+                if (id === "custom") {
+                  setPeriod("yearly");
+                  setRedemptionRate(5);
+                }
+              }}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
                 activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
               }`}>
