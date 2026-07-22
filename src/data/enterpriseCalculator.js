@@ -48,6 +48,8 @@ export const ENTERPRISE_RETAILERS = [
   { key: "jat", name: "JAT Retail", airports: byName["JAT Retail"]?.airports || [], hqCountry: "Serbia", description: "Belgrade-based airport retail operator" },
   { key: "flemingo_india", name: "Flemingo India", airports: byName["Flemingo India"]?.airports || [], hqCountry: "India", description: "Indian airport duty free operator" },
   { key: "dfp_world", name: "DFP World (Duty Free Stores Zimbabwe)", airports: byName["DFP World (Duty Free Stores Zimbabwe)"]?.airports || [], hqCountry: "Zimbabwe", description: "Zimbabwe's duty free specialist — Harare, Victoria Falls & Bulawayo" },
+  { key: "iltt", name: "ILTT (International Liquor & Tobacco Trading)", airports: byName["ILTT (International Liquor & Tobacco Trading) — Sint Maarten"]?.airports || [], hqCountry: "Sint Maarten", description: "Princess Promenade duty-free stores at Princess Juliana International Airport (SXM)" },
+  { key: "penha", name: "Penha Duty Free", airports: byName["Penha Duty Free — Sint Maarten"]?.airports || [], hqCountry: "Sint Maarten", description: "Caribbean luxury duty-free retailer — perfumes, cosmetics & accessories at SXM" },
   // ── Additional ──
   { key: "king_power", name: "King Power", airports: KING_POWER_AIRPORTS, hqCountry: "Thailand", description: "Thailand's leading duty free retailer" },
   { key: "other", name: "Other", airports: OTHER_AIRPORTS, hqCountry: null, description: "Custom — select from global airport network" },
