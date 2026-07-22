@@ -50,7 +50,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const rateMultiplier = redemptionRate / 0.01;
   const cur = (v, d = 0) => fmtMoney(v, currency, d);
-  const curLabel = currency === "AWG" ? "Afl." : "€";
+  const curLabel = currency === "AWG" ? "Afl." : currency === "USD" ? "$" : "€";
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
 

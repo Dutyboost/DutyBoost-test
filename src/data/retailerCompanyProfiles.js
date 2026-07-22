@@ -298,4 +298,18 @@ export const RETAILER_COMPANY_PROFILES = {
     holder: "Flemingo Duty Free Shop Pvt. Ltd.",
     airport: "BOM",
   },
+  dfp_world: {
+    company: "DFP World (Duty Free Stores Zimbabwe)",
+    regNumber: "CR 1234/2004",
+    regLabel: "Companies Registry No.",
+    address: "62 Robert Mugabe Road, Borrowdale",
+    postal_city: "Harare, Zimbabwe",
+    website: "www.dfpworld.co.zw",
+    email: "info@dfpworld.co.zw",
+    phone: "+263 242 575 021",
+    contactName: "Tendai Moyo",
+    iban: "ZW12 3456 7890 1234 5678 90",
+    holder: "DFP World (Duty Free Stores Zimbabwe)",
+    airport: "HRE",
+  },
 };
