@@ -25,7 +25,7 @@ import { AIRPORTS_FULL as INTERSHOP_AIRPORTS_FULL } from "./demoDataIntershop";
 import { AIRPORTS_FULL as JAT_AIRPORTS_FULL } from "./demoDataJAT";
 import { AIRPORTS_FULL as FLEMINGO_INDIA_AIRPORTS_FULL } from "./demoDataFlemingIndiadf";
 import { AIRPORTS_FULL as DFP_WORLD_AIRPORTS_FULL } from "./demoDataDFPWorld";
-import { AIRPORTS_FULL as SINT_MAARTEN_AIRPORTS_FULL } from "./demoDataSintMaarten";
+import { AIRPORTS_FULL as SINT_MAARTEN_AIRPORTS_FULL, ILTT_AIRPORTS_FULL, PENHA_AIRPORTS_FULL } from "./demoDataSintMaarten";
 import { A } from "./airportRegionHelpers";
 import { LIGHTWEIGHT_AIRPORTS, LIGHTWEIGHT_COMPANY_DEFS } from "./lightweightRetailers";
 
@@ -250,8 +250,12 @@ export const AIRPORT_RETAIL_COMPANIES = [
     airports: DFP_WORLD_AIRPORTS_FULL,
   },
   {
-    name: "ILTT & Penha Group (Sint Maarten)",
-    airports: SINT_MAARTEN_AIRPORTS_FULL,
+    name: "ILTT (International Liquor & Tobacco Trading) — Sint Maarten",
+    airports: ILTT_AIRPORTS_FULL,
+  },
+  {
+    name: "Penha Duty Free — Sint Maarten",
+    airports: PENHA_AIRPORTS_FULL,
   },
   // ── Lightweight operators (traffic-derived totals, no bespoke store data) ──
   ...LIGHTWEIGHT_COMPANIES,

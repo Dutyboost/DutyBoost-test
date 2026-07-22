@@ -35,6 +35,34 @@ export const AIRPORTS_FULL = [
   },
 ];
 
+// ILTT-only airport entry (3 Princess Promenade duty-free outlets)
+export const ILTT_AIRPORTS_FULL = [
+  {
+    code: "SXM",
+    name: "Princess Juliana International Airport",
+    city: "Sint Maarten",
+    country: "Sint Maarten",
+    region: "Caribbean",
+    daily_pax: 4836,
+    annual_pax: 1765000,
+    stores: STORE_NAMES.slice(0, 3).map((name, i) => ({ name, weight: WEIGHTS[i] })),
+  },
+];
+
+// Penha Duty Free airport entry (3 luxury retail outlets)
+export const PENHA_AIRPORTS_FULL = [
+  {
+    code: "SXM",
+    name: "Princess Juliana International Airport",
+    city: "Sint Maarten",
+    country: "Sint Maarten",
+    region: "Caribbean",
+    daily_pax: 4836,
+    annual_pax: 1765000,
+    stores: STORE_NAMES.slice(3).map((name, i) => ({ name, weight: WEIGHTS[i + 3] })),
+  },
+];
+
 export function getSintMaartenRetailerData() {
   return {
     name: "ILTT & Penha Group (Sint Maarten)",
