@@ -176,7 +176,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">
             {fmtC(aggregatedMetrics.avgSalesPerCredit)}
             <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-            <span className="text-indigo-600">{fmtC(parseFloat(aggregatedMetrics.avgSalesPerCredit) * 1.0001)}</span>
+            <span className="text-indigo-600">{fmtC(parseFloat(aggregatedMetrics.avgSalesPerCredit) * (1 + (redemptionRate || 0.01) / 100))}</span>
           </p>
         </div>
       </div>
