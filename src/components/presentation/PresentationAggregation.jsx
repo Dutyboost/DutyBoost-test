@@ -14,6 +14,7 @@ const DEMO_DASHBOARD_ROUTES = {
   "Gebr. Heinemann": "/demo/retailer-heinemann",
   "Aena SME, S.A.": "/demo/retailer-aena",
   "DFP World (Duty Free Stores Zimbabwe)": "/demo/retailer-dfp-world",
+  "ILTT & Penha Group (Sint Maarten)": "/demo/retailer-sint-maarten",
 };
 
 export default function PresentationAggregation({ company, conversionRate = 3, compact = false, currency = "EUR" }) {
