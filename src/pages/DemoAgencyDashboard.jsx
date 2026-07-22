@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar, LayoutDashboard, UserCircle, LogOut, Settings } from "lucide-react";
+import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar, LayoutDashboard, UserCircle, Settings } from "lucide-react";
 import DemoProfileTab from "../components/DemoProfileTab";
 import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
@@ -102,9 +102,6 @@ export default function DemoAgencyDashboard() {
             {TRAVEL_AGENCIES.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
           </select>
           <LanguageSwitcher />
-          <button onClick={() => base44.auth.logout('/')} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-destructive transition-colors border border-input rounded-lg px-3 py-1.5 bg-background hover:bg-destructive/5">
-            <LogOut className="w-4 h-4" /> {t('demo.logout')}
-          </button>
         </div>
       </header>
 
