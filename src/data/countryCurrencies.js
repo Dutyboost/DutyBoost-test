@@ -78,7 +78,7 @@ export const COUNTRY_TO_CURRENCY = {
   "Northern Mariana Islands": "USD", "Guam": "USD", "American Samoa": "USD",
 
   // ── Caribbean territories ──
-  "Aruba": "AWG", "Curacao": "ANG", "Curaçao": "ANG", "Sint Maarten": "ANG",
+  "Aruba": "AWG", "Curacao": "ANG", "Curaçao": "ANG", "Sint Maarten": "USD",
   "Bonaire": "USD", "Saint Martin": "EUR", "Saint Barthelemy": "EUR",
   "Guadeloupe": "EUR", "Martinique": "EUR", "French Guiana": "EUR",
   "Barbados": "BBD", "Grenada": "XCD", "Saint Vincent and the Grenadines": "XCD",
