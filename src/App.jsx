@@ -114,6 +114,7 @@ import EligibilityShowcase from './pages/EligibilityShowcase';
 import DutyBoostPresentation from './pages/DutyBoostPresentation';
 import DutyBoostPresentationAruba from './pages/DutyBoostPresentationAruba';
 import DutyBoostPresentationZim from './pages/DutyBoostPresentationZim';
+import DutyBoostPresentationSintMaarten from './pages/DutyBoostPresentationSintMaarten';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -235,6 +236,7 @@ const AuthenticatedApp = () => {
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentation />} />
         <Route path="/dutyboost-presentation-aruba" element={<DutyBoostPresentationAruba />} />
         <Route path="/dutyboost-presentation-zim" element={<DutyBoostPresentationZim />} />
+        <Route path="/dutyboost-presentation-sint-maarten" element={<DutyBoostPresentationSintMaarten />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
