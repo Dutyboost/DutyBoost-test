@@ -23,12 +23,17 @@ export function fmtEur(value, decimals = 0) {
 /**
  * Currency-aware formatter. Base values are EUR.
  * AWG (Aruban Florin) is pegged to USD at 1.79; EUR→AWG ≈ 1.99.
+ * USD: EUR→USD ≈ 1.08.
  */
 const AWG_RATE = 1.99;
+const USD_RATE = 1.08;
 
 export function fmtMoney(eur, currency = "EUR", decimals = 0) {
   if (currency === "AWG") {
     return `Afl. ${fmtNum((eur || 0) * AWG_RATE, decimals)}`;
+  }
+  if (currency === "USD") {
+    return `$ ${fmtNum((eur || 0) * USD_RATE, decimals)}`;
   }
   return fmtEur(eur, decimals);
 }
