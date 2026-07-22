@@ -56,8 +56,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
   const selectedAirportInfo = AIRPORTS.find(a => a.code === selectedAirport);
   const annualPax = selectedAirportInfo?.annual_pax || (selectedAirportInfo?.daily_pax ? selectedAirportInfo.daily_pax * 365 : 0);
-  const airportMonthlyRedemptions = airportRetailers.reduce((s, r) => s + r.redemptions, 0);
-  const redemptionPct = annualPax > 0 ? (airportMonthlyRedemptions * 12 * rateMultiplier / annualPax) * 100 : 0;
 
   const countries = useMemo(() => [...new Set(AIRPORTS.map(a => a.country))].sort(), [AIRPORTS]);
   const airportsInCountry = useMemo(() => AIRPORTS.filter(a => a.country === selectedCountry), [AIRPORTS, selectedCountry]);
@@ -318,11 +316,10 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           {/* Yearly passengers + redemption rate */}
           <div className="bg-card border border-border rounded-xl p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <p className="text-xs text-muted-foreground font-medium">{t('demo.yearly_passengers') || 'Yearly Passengers'}</p>
+              <p className="text-xs text-muted-foreground font-medium">Yearly Passengers</p>
               <Users className="w-4 h-4 text-cyan-500" />
             </div>
             <p className="text-2xl font-heading font-bold">{fmtNum(annualPax)}</p>
-            <p className="text-xs text-cyan-600 font-medium">{redemptionPct.toFixed(2)}% {t('demo.redemption_rate') || 'redemption rate'}</p>
           </div>
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
