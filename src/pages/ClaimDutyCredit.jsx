@@ -10,7 +10,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
   Search, MapPin, Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
-  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet, Store
+  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Store
 } from "lucide-react";
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
 import { getAirlineFormat } from "../data/airlineFormats";
@@ -18,6 +18,7 @@ import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
 import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
 import { buildParticipatingStores } from "../data/participatingStores";
+import DemoBadge from "../components/DemoBadge";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -37,8 +38,6 @@ export default function ClaimDutyCredit() {
   const [departureDate, setDepartureDate] = useState('');
   const [generated, setGenerated] = useState(null);
   const [error, setError] = useState('');
-  const [walletPlatform, setWalletPlatform] = useState('unknown');
-  const [walletLoading, setWalletLoading] = useState(false);
   const [airportCode, setAirportCode] = useState('');
   const [airportCountry, setAirportCountry] = useState('');
   const [participatingStores, setParticipatingStores] = useState([]);
@@ -74,12 +73,6 @@ export default function ClaimDutyCredit() {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    const ua = navigator.userAgent || '';
-    if (/iPhone|iPad|iPod/i.test(ua)) setWalletPlatform('ios');
-    else if (/Android/i.test(ua)) setWalletPlatform('android');
   }, []);
 
   // Resolve currency-aware tier formatting (e.g. €2,50 / Afl. 5)
@@ -172,27 +165,6 @@ export default function ClaimDutyCredit() {
     } catch (err) {
       setError(tr('error_generic'));
       setStep('claim');
-    }
-  };
-
-  const handleAddToWallet = async (platform) => {
-    if (!generated?.token_id) return;
-    setWalletLoading(platform);
-    try {
-      const response = await base44.functions.invoke('generateWalletPass', {
-        token_id: generated.token_id,
-        platform,
-      });
-      const data = response.data;
-      if (data.save_url) {
-        window.location.href = data.save_url;
-      } else if (data.pkpass_url) {
-        window.location.href = data.pkpass_url;
-      }
-    } catch (err) {
-      setError(tr('error_generic'));
-    } finally {
-      setWalletLoading(null);
     }
   };
 
@@ -447,6 +419,9 @@ export default function ClaimDutyCredit() {
         {/* ── SUCCESS STEP ── */}
         {step === 'success' && generated && (
           <div className="space-y-6 print:space-y-3">
+            <div className="flex justify-center print:hidden">
+              <DemoBadge large />
+            </div>
             <div className="text-center space-y-2">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium">
                 <CheckCircle2 className="w-4 h-4" />
@@ -533,14 +508,6 @@ export default function ClaimDutyCredit() {
             <div className="flex flex-col sm:flex-row gap-3 print:hidden">
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">
                 <QrCode className="w-4 h-4" /> {tr('btn_print')}
-              </Button>
-              <Button onClick={() => handleAddToWallet('ios')} disabled={!!walletLoading} className="flex-1 gap-2">
-                {walletLoading === 'ios' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
-                Add to Apple Wallet
-              </Button>
-              <Button onClick={() => handleAddToWallet('android')} disabled={!!walletLoading} className="flex-1 gap-2">
-                {walletLoading === 'android' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
-                Add to Google Wallet
               </Button>
             </div>
           </div>
