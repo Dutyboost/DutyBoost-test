@@ -16,11 +16,13 @@ export const AIRPORTS = AIRPORTS_FULL.map(a => ({
   country: a.country,
 }));
 
-// Distinct outlet names per airport (6 outlets across the network).
+// Distinct outlet/concession names per airport (6 outlets across the network).
+// Each name represents a specific store type within the terminal, mirroring how
+// other demos list individual outlets rather than just the company name.
 const STORE_LAYOUT = {
-  HRE: ["DFP World Harare Departures", "DFP World Harare Arrivals", "Duty Free Stores Zimbabwe"],
-  VFA: ["DFP World Victoria Falls", "Duty Free Stores Zimbabwe VFA"],
-  BUQ: ["DFP World Bulawayo"],
+  HRE: ["DFP World Departures", "DFP World Arrivals", "DFP World Liquor & Tobacco"],
+  VFA: ["DFP World Departures", "DFP World Gifts & Souvenirs"],
+  BUQ: ["DFP World Duty Free"],
 };
 
 // Zipf-like weights so the flagship departures store gets the largest share.
