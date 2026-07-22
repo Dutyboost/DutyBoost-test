@@ -19,6 +19,25 @@ import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 import { fmtNum, fmtEur, fmtMoney, fmtCompact } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount } from "@/utils/retailerCalc";
 
+const CURRENCY_SYMBOLS = { EUR: "€", USD: "$", AWG: "Afl." };
+
+function getTierRows(currency) {
+  const sym = CURRENCY_SYMBOLS[currency] || "€";
+  return [
+    { basket: `${sym}20–${sym}49`, discount: `${sym}2.50`, fee: `${sym}0.50`, net: `${sym}17–${sym}45` },
+    { basket: `${sym}50–${sym}99`, discount: `${sym}5`, fee: `${sym}1.25`, net: `${sym}44–${sym}92` },
+    { basket: `${sym}100–${sym}199`, discount: `${sym}10+`, fee: `${sym}2.50–5`, net: `${sym}83–${sym}169` },
+    { basket: `${sym}200–${sym}299`, discount: `${sym}30+`, fee: `${sym}5–7.50`, net: `${sym}150–${sym}234` },
+    { basket: `${sym}300–${sym}1,000`, discount: `Up to ${sym}60`, fee: `max ${sym}25`, net: `${sym}215+ net` },
+    { basket: `${sym}1,000+`, discount: `Up to ${sym}60`, fee: `${sym}0 (everything above ${sym}1k is yours)`, net: `${sym}940+` },
+  ];
+}
+
+function getFeeNote(currency) {
+  const sym = CURRENCY_SYMBOLS[currency] || "€";
+  return `Platform fee: 2.5% of net sales, capped at ${sym}25 on baskets up to ${sym}1,000. All basket value above ${sym}1,000 is entirely yours — no platform fee.`;
+}
+
 export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat4Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData, currency = "EUR" } = {}) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
@@ -297,14 +316,9 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
                 </tr>
               </thead>
               <tbody>
-                {[
-                  { tier: t('presentation.what.tier_0_basket'), save: t('presentation.what.tier_0_discount'), fee: t('presentation.what.tier_0_fee'), net: t('presentation.what.tier_0_net') },
-                  { tier: t('presentation.what.tier_1_basket'), save: t('presentation.what.tier_1_discount'), fee: t('presentation.what.tier_1_fee'), net: t('presentation.what.tier_1_net') },
-                  { tier: t('presentation.what.tier_2_basket'), save: t('presentation.what.tier_2_discount'), fee: t('presentation.what.tier_2_fee'), net: t('presentation.what.tier_2_net') },
-                  { tier: t('presentation.what.tier_3_basket'), save: t('presentation.what.tier_3_discount'), fee: t('presentation.what.tier_3_fee'), net: t('presentation.what.tier_3_net') },
-                  { tier: t('presentation.what.tier_4_basket'), save: t('presentation.what.tier_4_discount'), fee: t('presentation.what.tier_4_fee'), net: t('presentation.what.tier_4_net') },
-                  { tier: t('presentation.what.tier_5_basket'), save: t('presentation.what.tier_5_discount'), fee: t('presentation.what.tier_5_fee'), net: t('presentation.what.tier_5_net') },
-                ].map(({ tier, save, fee, net }) => (
+                {getTierRows(currency).map(({ basket, discount, fee, net }) => ({
+                  tier: basket, save: discount, fee, net
+                })).map(({ tier, save, fee, net }) => (
                   <tr key={tier} className="border-b border-border hover:bg-muted/30 transition-colors">
                     <td className="px-5 py-4 font-semibold">{tier}</td>
                     <td className="px-5 py-4 font-semibold text-accent">{save}</td>
@@ -315,7 +329,7 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-muted-foreground">{t('presentation.what.fee_note')}</p>
+          <p className="text-xs text-muted-foreground">{getFeeNote(currency)}</p>
         </section>
 
         {/* Why Airport Retailers Need DutyBoost */}
