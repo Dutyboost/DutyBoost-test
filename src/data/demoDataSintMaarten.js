@@ -9,7 +9,7 @@
 //
 // Passenger figures: ~1.77M annual / ~4,836 daily (PJIAE 2023).
 
-const STORE_NAMES = [
+export const STORE_NAMES = [
   "ILTT – Princess Promenade (Liquor & Tobacco)",
   "ILTT – Princess Promenade (Spirits & Wine)",
   "ILTT – Princess Promenade (Beer & Beverages)",
