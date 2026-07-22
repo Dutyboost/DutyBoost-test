@@ -517,6 +517,8 @@ export const AIRPORTS = heinemannAirportData.map(a => ({
   name: a.name,
   city: a.city,
   country: a.country,
+  annual_pax: a.annual_pax || (a.daily_pax ? a.daily_pax * 365 : 0),
+  daily_pax: a.daily_pax || Math.round((a.annual_pax || 0) / 365),
 }));
 
 // ── Generate RETAILERS ──────────────────────────────────────────────────────

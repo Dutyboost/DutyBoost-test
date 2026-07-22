@@ -24,7 +24,7 @@ const AUA = {
 };
 
 export const AIRPORTS = [
-  { code: AUA.code, name: AUA.name, city: AUA.city, country: AUA.country },
+  { code: AUA.code, name: AUA.name, city: AUA.city, country: AUA.country, annual_pax: AUA.annual_pax || (AUA.daily_pax ? AUA.daily_pax * 365 : 0), daily_pax: AUA.daily_pax },
 ];
 
 // Retail brands present at AUA

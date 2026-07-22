@@ -16,7 +16,7 @@ const PLATFORM_FEE_PCT = 0.025;
 const SXM = AIRPORTS_FULL[0];
 
 export const AIRPORTS = [
-  { code: SXM.code, name: SXM.name, city: SXM.city, country: SXM.country },
+  { code: SXM.code, name: SXM.name, city: SXM.city, country: SXM.country, annual_pax: SXM.annual_pax || (SXM.daily_pax ? SXM.daily_pax * 365 : 0), daily_pax: SXM.daily_pax },
 ];
 
 // Retail brands present at SXM — 3 ILTT outlets + 3 Penha Duty Free outlets

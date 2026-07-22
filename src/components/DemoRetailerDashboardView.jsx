@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, CreditCard, Settings, Info, Sparkles } from "lucide-react";
+import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, CreditCard, Settings, Info, Sparkles, Users } from "lucide-react";
 import DemoProfileTab from "./DemoProfileTab";
 import AggregationView from "./AggregationView";
 import CountryAggregation from "./CountryAggregation";
@@ -54,6 +54,10 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const curLabel = currency === "AWG" ? "Afl." : currency === "USD" ? "$" : "€";
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
+  const selectedAirportInfo = AIRPORTS.find(a => a.code === selectedAirport);
+  const annualPax = selectedAirportInfo?.annual_pax || (selectedAirportInfo?.daily_pax ? selectedAirportInfo.daily_pax * 365 : 0);
+  const airportMonthlyRedemptions = airportRetailers.reduce((s, r) => s + r.redemptions, 0);
+  const redemptionPct = annualPax > 0 ? (airportMonthlyRedemptions * 12 * rateMultiplier / annualPax) * 100 : 0;
 
   const countries = useMemo(() => [...new Set(AIRPORTS.map(a => a.country))].sort(), [AIRPORTS]);
   const airportsInCountry = useMemo(() => AIRPORTS.filter(a => a.country === selectedCountry), [AIRPORTS, selectedCountry]);
@@ -310,7 +314,16 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
         <RedemptionRateSlider rate={redemptionRate} onChange={setRedemptionRate} />
 
         {/* KPI cards */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {/* Yearly passengers + redemption rate */}
+          <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-muted-foreground font-medium">{t('demo.yearly_passengers') || 'Yearly Passengers'}</p>
+              <Users className="w-4 h-4 text-cyan-500" />
+            </div>
+            <p className="text-2xl font-heading font-bold">{fmtNum(annualPax)}</p>
+            <p className="text-xs text-cyan-600 font-medium">{redemptionPct.toFixed(2)}% {t('demo.redemption_rate') || 'redemption rate'}</p>
+          </div>
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
             { label: t('demo.net_revenue'), value: cur(periodNetRevenue, 0), icon: Euro, color: "text-orange-500" },

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import RedemptionRateSlider from "./RedemptionRateSlider";
 import { fmtMoney } from "../utils/formatNumber";
@@ -79,6 +79,11 @@ export default function AggregationView({ transactions, vouchers, period, custom
     });
   }, [filteredTransactions, period, airports]);
 
+  const totalAnnualPax = useMemo(() => airports.reduce((s, a) => s + (a.annual_pax || (a.daily_pax ? a.daily_pax * 365 : 0)), 0), [airports]);
+  const customDays = customStart && customEnd ? Math.max(1, (new Date(customEnd) - new Date(customStart)) / 86400000) : 30;
+  const yearlyFactor = period === "yearly" ? 1 : period === "monthly" ? 12 : period === "daily" ? 360 / 7 : 360 / customDays;
+  const redemptionPct = totalAnnualPax > 0 ? (parseInt(aggregatedMetrics.totalRedemptions) * yearlyFactor / totalAnnualPax) * 100 : 0;
+
   const COLORS = ["#2563eb", "#f97316", "#10b981", "#8b5cf6", "#ec4899", "#06b6d4"];
 
   return (
@@ -134,7 +139,16 @@ export default function AggregationView({ transactions, vouchers, period, custom
       )}
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* Yearly passengers + redemption rate */}
+        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-muted-foreground font-medium">{t('demo.yearly_passengers') || 'Yearly Passengers'}</p>
+            <Users className="w-4 h-4 text-cyan-500" />
+          </div>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{parseInt(totalAnnualPax).toLocaleString()}</p>
+          <p className="text-xs text-cyan-600 font-medium">{redemptionPct.toFixed(2)}% {t('demo.redemption_rate') || 'redemption rate'}</p>
+        </div>
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-xs text-muted-foreground font-medium">{t('demo.total_redemptions') || 'Total Redemptions'}</p>

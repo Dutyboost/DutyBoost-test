@@ -14,6 +14,8 @@ export const AIRPORTS = AIRPORTS_FULL.map(a => ({
   name: a.name,
   city: a.city,
   country: a.country,
+  annual_pax: a.annual_pax || (a.daily_pax ? a.daily_pax * 365 : 0),
+  daily_pax: a.daily_pax || Math.round((a.annual_pax || 0) / 365),
 }));
 
 // Distinct outlet/concession names per airport (6 outlets across the network).
