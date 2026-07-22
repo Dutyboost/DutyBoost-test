@@ -48,6 +48,7 @@ export default function DutyBoostPresentationZim() {
       stat4Val="$103B"
       stat5Val={`$${fmtCompact(ZIM_DUTY_FREE_REVENUE, "en", 1)}`}
       hideCompanySelector
+      hidePosIntegration
       currency="USD"
       campaignData={ZIM_CAMPAIGN}
     />
