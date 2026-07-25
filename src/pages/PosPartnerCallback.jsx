@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +13,6 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-// ── Validation helpers (shared with the travel-partner We Call You form) ──
 const FREE_EMAIL_DOMAINS = [
   'gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','yahoo.fr','yahoo.de',
   'hotmail.com','hotmail.co.uk','hotmail.fr','hotmail.de','hotmail.nl',
@@ -63,6 +63,7 @@ function domainsMatch(email, website) {
 const VIOLET = "#6d28d9";
 
 export default function PosPartnerCallback() {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -77,14 +78,14 @@ export default function PosPartnerCallback() {
 
   const validate = () => {
     const errs = {};
-    if (!isRealName(form.full_name)) errs.full_name = "Please enter your full name (first and last name).";
-    if (!form.email) errs.email = "Work email is required.";
-    else if (!isWorkEmail(form.email)) errs.email = "Please use a professional work email address (no Gmail, Hotmail, etc.).";
-    if (!isValidPhone(form.phone)) errs.phone = "Please enter a valid phone number (e.g. +31 6 1234 5678).";
-    if (!form.company_name.trim()) errs.company_name = "Company name is required.";
-    if (!isValidWebsite(form.website)) errs.website = "Please enter a valid website URL (e.g. https://yourcompany.com).";
+    if (!isRealName(form.full_name)) errs.full_name = t("posChannel:callback.err_name");
+    if (!form.email) errs.email = t("posChannel:callback.err_email_required");
+    else if (!isWorkEmail(form.email)) errs.email = t("posChannel:callback.err_email_work");
+    if (!isValidPhone(form.phone)) errs.phone = t("posChannel:callback.err_phone");
+    if (!form.company_name.trim()) errs.company_name = t("posChannel:callback.err_company");
+    if (!isValidWebsite(form.website)) errs.website = t("posChannel:callback.err_website");
     else if (form.email && isWorkEmail(form.email) && !domainsMatch(form.email, form.website))
-      errs.website = "Your email domain must match your company website domain.";
+      errs.website = t("posChannel:callback.err_domain");
     return errs;
   };
 
@@ -99,7 +100,7 @@ export default function PosPartnerCallback() {
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
-      toast.error("Please fix the errors in the form before submitting.");
+      toast.error(t("posChannel:callback.toast_errors"));
       return;
     }
 
@@ -123,11 +124,17 @@ export default function PosPartnerCallback() {
 
       setSubmitted(true);
     } catch (error) {
-      toast.error("Failed to submit. Please try again.");
+      toast.error(t("posChannel:callback.toast_failed"));
     } finally {
       setLoading(false);
     }
   };
+
+  const pitchItems = [
+    { icon: Clock, title: t("posChannel:callback.pitch1_title"), desc: t("posChannel:callback.pitch1_desc") },
+    { icon: Zap, title: t("posChannel:callback.pitch2_title"), desc: t("posChannel:callback.pitch2_desc") },
+    { icon: ShieldCheck, title: t("posChannel:callback.pitch3_title"), desc: t("posChannel:callback.pitch3_desc") },
+  ];
 
   return (
     <div className="min-h-screen bg-background font-body">
@@ -135,7 +142,7 @@ export default function PosPartnerCallback() {
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/pos-channel-partner" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="w-4 h-4" /> {t("posChannel:callback.back")}
           </Link>
           <Link to="/"><DutyBoostLogo height={40} /></Link>
           <LanguageSwitcher />
@@ -148,43 +155,27 @@ export default function PosPartnerCallback() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium" style={{ background: "hsl(255 90% 95%)", color: VIOLET }}>
               <Plug className="w-4 h-4" />
-              POS &amp; Technology Channel Partners
+              {t("posChannel:callback.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-heading font-bold leading-tight">
-              Let's talk channel partnership.
+              {t("posChannel:callback.title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Leave your details and our partnerships team will walk you through the integration, commercial terms, and a tailored revenue projection for your POS footprint.
+              {t("posChannel:callback.subtitle")}
             </p>
 
             <div className="space-y-4 pt-2">
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "hsl(255 90% 95%)" }}>
-                  <Clock className="w-4 h-4" style={{ color: VIOLET }} />
+              {pitchItems.map((item) => (
+                <div key={item.title} className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "hsl(255 90% 95%)" }}>
+                    <item.icon className="w-4 h-4" style={{ color: VIOLET }} />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">{item.title}</p>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm">We respond within 1 business day</p>
-                  <p className="text-sm text-muted-foreground">A 30-minute call to scope the integration and model your earnings.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "hsl(255 90% 95%)" }}>
-                  <Zap className="w-4 h-4" style={{ color: VIOLET }} />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">Live in 2 weeks</p>
-                  <p className="text-sm text-muted-foreground">One webhook integration. No hardware, no field service.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "hsl(255 90% 95%)" }}>
-                  <ShieldCheck className="w-4 h-4" style={{ color: VIOLET }} />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">No commitment to explore</p>
-                  <p className="text-sm text-muted-foreground">The call is exploratory. You decide if the model fits your network.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -196,55 +187,55 @@ export default function PosPartnerCallback() {
                   <CheckCircle2 className="w-8 h-8" style={{ color: VIOLET }} />
                 </div>
                 <div className="space-y-2">
-                  <h2 className="text-xl font-heading font-bold">Request received!</h2>
+                  <h2 className="text-xl font-heading font-bold">{t("posChannel:callback.success_title")}</h2>
                   <p className="text-sm text-muted-foreground">
-                    Thanks, {form.full_name.split(' ')[0]}. Our partnerships team will reach out within one business day to schedule a call.
+                    {t("posChannel:callback.success_text", { name: form.full_name.split(' ')[0] })}
                   </p>
                 </div>
                 <Link to="/pos-channel-partner">
                   <Button variant="outline" className="gap-2 mt-2">
-                    <ArrowLeft className="w-4 h-4" /> Back to overview
+                    <ArrowLeft className="w-4 h-4" /> {t("posChannel:callback.back_overview")}
                   </Button>
                 </Link>
               </div>
             ) : (
               <>
-                <h2 className="text-xl font-heading font-bold mb-1">Request a callback</h2>
-                <p className="text-sm text-muted-foreground mb-6">Tell us about your POS network and we'll be in touch.</p>
+                <h2 className="text-xl font-heading font-bold mb-1">{t("posChannel:callback.form_title")}</h2>
+                <p className="text-sm text-muted-foreground mb-6">{t("posChannel:callback.form_subtitle")}</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="full_name" className="text-sm">Full name *</Label>
-                    <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder="John Doe" />
+                    <Label htmlFor="full_name" className="text-sm">{t("posChannel:callback.label_name")}</Label>
+                    <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_name")} />
                     {errors.full_name && <p className="text-xs text-red-500">{errors.full_name}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-sm">Work email *</Label>
-                    <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@yourcompany.com" />
+                    <Label htmlFor="email" className="text-sm">{t("posChannel:callback.label_email")}</Label>
+                    <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_email")} />
                     {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone" className="text-sm">Phone number *</Label>
-                    <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder="+31 6 1234 5678" />
+                    <Label htmlFor="phone" className="text-sm">{t("posChannel:callback.label_phone")}</Label>
+                    <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_phone")} />
                     {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="company_name" className="text-sm">Company name *</Label>
-                    <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder="Your POS company" />
+                    <Label htmlFor="company_name" className="text-sm">{t("posChannel:callback.label_company")}</Label>
+                    <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_company")} />
                     {errors.company_name && <p className="text-xs text-red-500">{errors.company_name}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="website" className="text-sm">Company website *</Label>
-                    <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder="https://yourcompany.com" />
+                    <Label htmlFor="website" className="text-sm">{t("posChannel:callback.label_website")}</Label>
+                    <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_website")} />
                     {errors.website && <p className="text-xs text-red-500">{errors.website}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="footprint" className="text-sm">Airport retailers on your POS (optional)</Label>
+                    <Label htmlFor="footprint" className="text-sm">{t("posChannel:callback.label_footprint")}</Label>
                     <Textarea
                       id="footprint" name="footprint" value={form.footprint} onChange={handleChange}
-                      placeholder="e.g. ~200 retailers across 15 airports in Europe"
+                      placeholder={t("posChannel:callback.placeholder_footprint")}
                       rows={2}
                     />
-                    <p className="text-xs text-muted-foreground">Helps us tailor the revenue projection for the call.</p>
+                    <p className="text-xs text-muted-foreground">{t("posChannel:callback.footprint_help")}</p>
                   </div>
 
                   <Button
@@ -253,10 +244,10 @@ export default function PosPartnerCallback() {
                     style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}
                   >
                     {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                    Request callback
+                    {t("posChannel:callback.button")}
                   </Button>
                   <p className="text-xs text-muted-foreground text-center">
-                    By submitting you agree to be contacted by DutyBoost B.V. about a channel partnership.
+                    {t("posChannel:callback.consent")}
                   </p>
                 </form>
               </>
@@ -269,7 +260,7 @@ export default function PosPartnerCallback() {
       <footer className="border-t border-border py-8 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Link to="/"><DutyBoostLogo height={40} /></Link>
-          <p>© {new Date().getFullYear()} DutyBoost B.V. — The Travel Retail Conversion Layer</p>
+          <p>{t("posChannel:footer.tagline", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,22 +12,12 @@ import {
 } from "lucide-react";
 import { fmtMoney } from "../utils/formatNumber";
 
-// ── Revenue model ──────────────────────────────────────────────
-// Retailer pays 2.5% platform fee on every confirmed DutyCredit
-// redemption. That fee is split three ways when the retailer was
-// acquired through a POS Channel Partner:
-//
-//   • Travel Partner   → 20% of fee  (0.50% of gross)  — brings the traveller
-//   • POS Channel      → 10% of fee  (0.25% of gross)  — brings the retailer
-//   • DutyBoost        → 70% of fee  (1.75% of gross)  — runs the platform
-//
-// The retailer's cost is identical regardless of channel — the
-// channel commission is carved out of DutyBoost's own margin.
 const PLATFORM_FEE_PCT = 2.5;
-const POS_SHARE_PCT = 10; // % of the platform fee
+const POS_SHARE_PCT = 10;
 
 export default function PosChannelPartner() {
-  // ── Interactive earnings calculator ──
+  const { t } = useTranslation();
+
   const [retailerCount, setRetailerCount] = useState(5);
   const [avgAnnualSales, setAvgAnnualSales] = useState(50000);
   const [redemptionRate, setRedemptionRate] = useState(1);
@@ -43,70 +34,39 @@ export default function PosChannelPartner() {
   ];
 
   const steps = [
-    {
-      num: "01",
-      icon: Code2,
-      title: "One-time integration",
-      desc: "DutyBoost exposes a simple webhook + QR-scan endpoint. Your engineering team integrates once — typically in under two weeks.",
-    },
-    {
-      num: "02",
-      icon: Zap,
-      title: "Flip the switch",
-      desc: "Each of your airport-retailer clients sees a 'DutyBoost' toggle in their POS dashboard. They opt in with a single click — no hardware, no training.",
-    },
-    {
-      num: "03",
-      icon: QrCode,
-      title: "Redemptions flow",
-      desc: "When a traveller scans their DutyCredit QR at checkout, your POS validates it via the webhook and applies the discount automatically.",
-    },
-    {
-      num: "04",
-      icon: Wallet,
-      title: "Earn recurring revenue",
-      desc: "Every confirmed redemption on a retailer you brought in earns you 10% of the platform fee — monthly, for the lifetime of the account.",
-    },
+    { num: "01", icon: Code2, title: t("posChannel:how.step1_title"), desc: t("posChannel:how.step1_desc") },
+    { num: "02", icon: Zap, title: t("posChannel:how.step2_title"), desc: t("posChannel:how.step2_desc") },
+    { num: "03", icon: QrCode, title: t("posChannel:how.step3_title"), desc: t("posChannel:how.step3_desc") },
+    { num: "04", icon: Wallet, title: t("posChannel:how.step4_title"), desc: t("posChannel:how.step4_desc") },
   ];
 
   const benefits = [
-    {
-      icon: TrendingUp,
-      title: "Recurring revenue, zero marginal cost",
-      desc: "After the one-time integration, every redemption on your retailers generates passive income. No ongoing support burden — DutyBoost handles traveller support, retailer onboarding, and settlement.",
-    },
-    {
-      icon: Users,
-      title: "Sticky retailer relationships",
-      desc: "Retailers who earn more through DutyBoost stay on your POS longer. You're not just processing their payments — you're growing their revenue, which reduces churn.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Retailer pays nothing extra",
-      desc: "The channel fee is carved out of DutyBoost's margin, never added to the retailer's bill. Your clients pay the same 2.5% whether they onboard via you or directly — so there's no reason to bypass the channel.",
-    },
-    {
-      icon: Globe,
-      title: "Airport-network effect",
-      desc: "As DutyBoost expands to more airports and travel partners, the redemption volume on your retailers grows automatically. You benefit from platform growth you didn't have to fund.",
-    },
-    {
-      icon: Cpu,
-      title: "No hardware, no POS replacement",
-      desc: "DutyBoost is a software layer on top of your existing POS. No terminals to ship, no firmware to update, no field-service calls. Pure API integration.",
-    },
-    {
-      icon: Handshake,
-      title: "Co-marketing by default",
-      desc: "DutyBoost drives traveller demand to your retailers' stores. Every campaign we run increases footfall and basket size at the checkout — on hardware you already own.",
-    },
+    { icon: TrendingUp, title: t("posChannel:why.benefit1_title"), desc: t("posChannel:why.benefit1_desc") },
+    { icon: Users, title: t("posChannel:why.benefit2_title"), desc: t("posChannel:why.benefit2_desc") },
+    { icon: ShieldCheck, title: t("posChannel:why.benefit3_title"), desc: t("posChannel:why.benefit3_desc") },
+    { icon: Globe, title: t("posChannel:why.benefit4_title"), desc: t("posChannel:why.benefit4_desc") },
+    { icon: Cpu, title: t("posChannel:why.benefit5_title"), desc: t("posChannel:why.benefit5_desc") },
+    { icon: Handshake, title: t("posChannel:why.benefit6_title"), desc: t("posChannel:why.benefit6_desc") },
   ];
 
   const splitRows = [
-    { label: "Retailer pays (platform fee)", value: "2.5% of redemption", note: "Same regardless of channel", highlight: false },
-    { label: "Travel Partner earns", value: "20% of fee", note: "0.50% of gross · brings the traveller", highlight: false },
-    { label: "POS Channel Partner earns", value: "10% of fee", note: "0.25% of gross · brings the retailer", highlight: true },
-    { label: "DutyBoost retains", value: "70% of fee", note: "1.75% of gross · runs the platform", highlight: false },
+    { label: t("posChannel:revenue.row1_label"), value: t("posChannel:revenue.row1_value"), note: t("posChannel:revenue.row1_note"), highlight: false },
+    { label: t("posChannel:revenue.row2_label"), value: t("posChannel:revenue.row2_value"), note: t("posChannel:revenue.row2_note"), highlight: false },
+    { label: t("posChannel:revenue.row3_label"), value: t("posChannel:revenue.row3_value"), note: t("posChannel:revenue.row3_note"), highlight: true },
+    { label: t("posChannel:revenue.row4_label"), value: t("posChannel:revenue.row4_value"), note: t("posChannel:revenue.row4_note"), highlight: false },
+  ];
+
+  const flowNodes = [
+    { icon: Plane, label: t("posChannel:flow.node1_label"), desc: t("posChannel:flow.node1_desc") },
+    { icon: Store, label: t("posChannel:flow.node2_label"), desc: t("posChannel:flow.node2_desc") },
+    { icon: Cpu, label: t("posChannel:flow.node3_label"), desc: t("posChannel:flow.node3_desc"), highlight: true },
+    { icon: Wallet, label: t("posChannel:flow.node4_label"), desc: t("posChannel:flow.node4_desc") },
+  ];
+
+  const oppCards = [
+    { icon: Store, title: t("posChannel:opportunity.card1_title"), desc: t("posChannel:opportunity.card1_desc") },
+    { icon: Users, title: t("posChannel:opportunity.card2_title"), desc: t("posChannel:opportunity.card2_desc") },
+    { icon: TrendingUp, title: t("posChannel:opportunity.card3_title"), desc: t("posChannel:opportunity.card3_desc") },
   ];
 
   return (
@@ -119,7 +79,7 @@ export default function PosChannelPartner() {
             <LanguageSwitcher />
             <a href="#calculator">
               <Button className="gap-2" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Calculator className="w-4 h-4" /> Model your earnings
+                <Calculator className="w-4 h-4" /> {t("posChannel:nav.model_earnings")}
               </Button>
             </a>
           </div>
@@ -132,32 +92,32 @@ export default function PosChannelPartner() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-28 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
             <Plug className="w-4 h-4" />
-            POS &amp; Technology Channel Partners
+            {t("posChannel:hero.badge")}
           </div>
           <h1 className="text-4xl sm:text-6xl font-heading font-bold tracking-tight leading-tight">
-            Turn every checkout into{" "}
+            {t("posChannel:hero.title_1")}{" "}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-              recurring revenue
+              {t("posChannel:hero.title_2")}
             </span>
             .
           </h1>
           <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto leading-relaxed">
-            Integrate DutyBoost into your POS once. Every airport retailer you switch on earns you a lifetime share of every DutyCredit redemption — passive income from hardware you've already deployed.
+            {t("posChannel:hero.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10">
             <a href="#calculator">
               <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Calculator className="w-5 h-5" /> See your earnings
+                <Calculator className="w-5 h-5" /> {t("posChannel:hero.cta_primary")}
               </Button>
             </a>
             <Link to="/pos-partner-callback">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
-                <Handshake className="w-5 h-5" /> Talk to partnerships
+                <Handshake className="w-5 h-5" /> {t("posChannel:hero.cta_secondary")}
               </Button>
             </Link>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
-            One-time integration · No hardware · Live in 2 weeks
+            {t("posChannel:hero.note")}
           </p>
         </div>
       </section>
@@ -166,17 +126,13 @@ export default function PosChannelPartner() {
       <section className="py-16 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">You already own the rail.</h2>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel:opportunity.title")}</h2>
             <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
-              Your POS terminals sit at the exact moment of purchase in every airport retailer you serve. DutyBoost turns that position into a revenue stream — without changing what your retailers pay.
+              {t("posChannel:opportunity.subtitle")}
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-5">
-            {[
-              { icon: Store, title: "You're at the checkout", desc: "Every traveller redemption flows through your hardware. You're already the rail — we make the rail earn." },
-              { icon: Users, title: "You have the trust", desc: "Airport retailers already rely on your POS daily. A switch-on from you carries more weight than any cold outreach." },
-              { icon: TrendingUp, title: "You have the scale", desc: "Hundreds of retailers on one integration. Activate them all with a dashboard toggle — no per-store sales cycle." },
-            ].map((c) => (
+            {oppCards.map((c) => (
               <div key={c.title} className="rounded-2xl border border-border p-6 bg-background">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "hsl(255 90% 95%)" }}>
                   <c.icon className="w-5 h-5" style={{ color: "#6d28d9" }} />
@@ -194,11 +150,11 @@ export default function PosChannelPartner() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Wallet className="w-3.5 h-3.5" /> The commission model
+              <Wallet className="w-3.5 h-3.5" /> {t("posChannel:revenue.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">One fee. Three earners.</h2>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel:revenue.title")}</h2>
             <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
-              The retailer always pays the same 2.5% platform fee. When you brought the retailer, a slice of that fee flows to you — carved from DutyBoost's margin, never added to the retailer's bill.
+              {t("posChannel:revenue.subtitle")}
             </p>
           </div>
 
@@ -224,7 +180,7 @@ export default function PosChannelPartner() {
           <div className="flex items-start gap-3 mt-5 text-sm text-muted-foreground bg-muted/50 rounded-xl p-4">
             <ShieldCheck className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#6d28d9" }} />
             <p>
-              <strong className="text-foreground">No bypass incentive.</strong> A retailer onboarded directly pays the same 2.5% as one onboarded via your channel. The channel fee rewards acquisition — it's never a tax on access.
+              <strong className="text-foreground">{t("posChannel:revenue.bypass_bold")}</strong> {t("posChannel:revenue.bypass_text")}
             </p>
           </div>
         </div>
@@ -234,8 +190,8 @@ export default function PosChannelPartner() {
       <section className="py-16 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">From integration to income</h2>
-            <p className="text-lg text-muted-foreground mt-3">Four steps. Two weeks. Lifetime revenue.</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel:how.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:how.subtitle")}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {steps.map((s) => (
@@ -259,10 +215,10 @@ export default function PosChannelPartner() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Calculator className="w-3.5 h-3.5" /> Model your earnings
+              <Calculator className="w-3.5 h-3.5" /> {t("posChannel:calculator.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">Your recurring revenue</h2>
-            <p className="text-lg text-muted-foreground mt-3">Adjust the sliders to see your projected annual channel earnings.</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel:calculator.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:calculator.subtitle")}</p>
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
@@ -285,7 +241,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">Airport stores on your POS</Label>
+                <Label className="text-sm font-medium">{t("posChannel:calculator.slider_stores")}</Label>
                 <span className="text-sm font-bold font-mono">{retailerCount.toLocaleString()}</span>
               </div>
               <input
@@ -296,7 +252,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">Avg. annual sales per store</Label>
+                <Label className="text-sm font-medium">{t("posChannel:calculator.slider_sales")}</Label>
                 <span className="text-sm font-bold font-mono">{fmtMoney(avgAnnualSales, currency, 0)}</span>
               </div>
               <input
@@ -307,7 +263,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">DutyCredit redemption rate (%)</Label>
+                <Label className="text-sm font-medium">{t("posChannel:calculator.slider_rate")}</Label>
                 <span className="text-sm font-bold font-mono">{redemptionRate}%</span>
               </div>
               <input
@@ -320,22 +276,22 @@ export default function PosChannelPartner() {
             <div className="border-t border-border pt-6">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Redemption volume</p>
+                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel:calculator.result_volume")}</p>
                   <p className="text-lg font-heading font-bold">{fmtMoney(redemptionVolume, currency, 0)}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Platform fees (2.5%)</p>
+                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel:calculator.result_fees")}</p>
                   <p className="text-lg font-heading font-bold">{fmtMoney(platformFees, currency, 0)}</p>
                 </div>
                 <div className="rounded-xl p-2" style={{ background: "hsl(255 90% 95%)" }}>
-                  <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>Your channel earnings</p>
+                  <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>{t("posChannel:calculator.result_earnings")}</p>
                   <p className="text-2xl font-heading font-bold" style={{ color: "#6d28d9" }}>
                     {fmtMoney(posEarnings, currency, 0)}
                   </p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground text-center mt-4">
-                Projection based on 10% of the 2.5% platform fee. Paid monthly for the lifetime of each retailer account. Illustrative only.
+                {t("posChannel:calculator.note")}
               </p>
             </div>
           </div>
@@ -346,8 +302,8 @@ export default function PosChannelPartner() {
       <section className="py-16 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">Why partner with DutyBoost</h2>
-            <p className="text-lg text-muted-foreground mt-3">More than a referral fee — a growth engine for your retailer network.</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel:why.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:why.subtitle")}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {benefits.map((b) => (
@@ -368,18 +324,13 @@ export default function PosChannelPartner() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Sparkles className="w-3.5 h-3.5" /> The circular flow
+              <Sparkles className="w-3.5 h-3.5" /> {t("posChannel:flow.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">Where you fit in the loop</h2>
-            <p className="text-lg text-muted-foreground mt-3">You're the rail at the moment of redemption — the point where value becomes revenue.</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel:flow.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:flow.subtitle")}</p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch gap-3">
-            {[
-              { icon: Plane, label: "Travel Partner", desc: "Brings the traveller · earns 20% of fee" },
-              { icon: Store, label: "Airport Retailer", desc: "Sells & scans the DutyCredit · pays 2.5%" },
-              { icon: Cpu, label: "POS Channel", desc: "Validates the QR & applies discount · earns 10%", highlight: true },
-              { icon: Wallet, label: "DutyBoost", desc: "Runs the platform · retains 70%" },
-            ].map((n, i, arr) => (
+            {flowNodes.map((n, i, arr) => (
               <div key={n.label} className="flex items-stretch gap-3 flex-1">
                 <div className={`flex-1 rounded-2xl border p-5 text-center ${n.highlight ? "border-violet-300 bg-violet-50" : "border-border bg-card"}`}>
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${n.highlight ? "" : ""}`} style={{ background: n.highlight ? "hsl(255 90% 90%)" : "hsl(220 15% 94%)" }}>
@@ -402,19 +353,19 @@ export default function PosChannelPartner() {
       {/* ── CTA ── */}
       <section className="py-16 sm:py-24" style={{ background: "linear-gradient(135deg, hsl(255 90% 97%) 0%, hsl(243 75% 97%) 100%)" }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold">Ready to switch on your network?</h2>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold">{t("posChannel:cta.title")}</h2>
           <p className="text-lg text-muted-foreground mt-4">
-            Tell us about your POS footprint and we'll walk you through the integration, the commercial terms, and a tailored revenue projection.
+            {t("posChannel:cta.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
             <Link to="/pos-partner-callback">
               <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Handshake className="w-5 h-5" /> Become a Channel Partner
+                <Handshake className="w-5 h-5" /> {t("posChannel:cta.button_primary")}
               </Button>
             </Link>
             <Link to="/">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
-                Learn about DutyBoost <ArrowRight className="w-5 h-5" />
+                {t("posChannel:cta.button_secondary")} <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
           </div>
@@ -425,7 +376,7 @@ export default function PosChannelPartner() {
       <footer className="border-t border-border py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Link to="/"><DutyBoostLogo height={40} /></Link>
-          <p>© {new Date().getFullYear()} DutyBoost B.V. — The Travel Retail Conversion Layer</p>
+          <p>{t("posChannel:footer.tagline", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>

@@ -5,6 +5,7 @@ import { travelerStrings } from './i18nTraveler';
 import { claimDutyCreditStrings } from './i18nClaimDutyCredit';
 import { presentationStrings } from './i18nPresentation';
 import { eligibilityStrings } from './i18nEligibility';
+import { posChannelStrings } from './i18nPosChannel';
 import en from '../locales/en';
 import nl from '../locales/nl';
 import fr from '../locales/fr';
@@ -13,12 +14,12 @@ import es from '../locales/es';
 import it from '../locales/it';
 
 const resources = {
-  en: { translation: { ...en.translation, traveler: travelerStrings.en, claimDutyCredit: claimDutyCreditStrings.en, presentation: presentationStrings.en, eligibility: eligibilityStrings.en } },
-  nl: { translation: { ...nl.translation, claimDutyCredit: claimDutyCreditStrings.nl, presentation: presentationStrings.nl, eligibility: eligibilityStrings.nl } },
-  fr: { translation: { ...fr.translation, traveler: travelerStrings.fr, claimDutyCredit: claimDutyCreditStrings.fr, eligibility: eligibilityStrings.fr } },
-  de: { translation: { ...de.translation, traveler: travelerStrings.de, claimDutyCredit: claimDutyCreditStrings.de, eligibility: eligibilityStrings.de } },
-  es: { translation: { ...es.translation, traveler: travelerStrings.es, claimDutyCredit: claimDutyCreditStrings.es, presentation: presentationStrings.es, eligibility: eligibilityStrings.es } },
-  it: { translation: { ...it.translation, traveler: travelerStrings.it, claimDutyCredit: claimDutyCreditStrings.it, eligibility: eligibilityStrings.it } },
+  en: { translation: { ...en.translation, traveler: travelerStrings.en, claimDutyCredit: claimDutyCreditStrings.en, presentation: presentationStrings.en, eligibility: eligibilityStrings.en, posChannel: posChannelStrings.en } },
+  nl: { translation: { ...nl.translation, claimDutyCredit: claimDutyCreditStrings.nl, presentation: presentationStrings.nl, eligibility: eligibilityStrings.nl, posChannel: posChannelStrings.nl } },
+  fr: { translation: { ...fr.translation, traveler: travelerStrings.fr, claimDutyCredit: claimDutyCreditStrings.fr, eligibility: eligibilityStrings.fr, posChannel: posChannelStrings.fr } },
+  de: { translation: { ...de.translation, traveler: travelerStrings.de, claimDutyCredit: claimDutyCreditStrings.de, eligibility: eligibilityStrings.de, posChannel: posChannelStrings.de } },
+  es: { translation: { ...es.translation, traveler: travelerStrings.es, claimDutyCredit: claimDutyCreditStrings.es, presentation: presentationStrings.es, eligibility: eligibilityStrings.es, posChannel: posChannelStrings.es } },
+  it: { translation: { ...it.translation, traveler: travelerStrings.it, claimDutyCredit: claimDutyCreditStrings.it, eligibility: eligibilityStrings.it, posChannel: posChannelStrings.it } },
   old_en: {
     translation: {
       nav: {
