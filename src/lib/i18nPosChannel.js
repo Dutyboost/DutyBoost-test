@@ -2,7 +2,7 @@ export const posChannelStrings = {
   en: {
     nav: { model_earnings: "Model your earnings" },
     hero: {
-      badge: "POS & Technology Channel Partners",
+      badge: "POS Channel Partners",
       title_1: "Turn every checkout into",
       title_2: "recurring revenue",
       subtitle: "Integrate DutyBoost into your POS once. Every airport retailer you switch on earns you a lifetime share of every DutyCredit redemption — passive income from hardware you've already deployed.",
@@ -103,7 +103,7 @@ export const posChannelStrings = {
     },
     callback: {
       back: "Back",
-      badge: "POS & Technology Channel Partners",
+      badge: "POS Channel Partners",
       title: "Let's talk channel partnership.",
       subtitle: "Leave your details and our partnerships team will walk you through the integration, commercial terms, and a tailored revenue projection for your POS footprint.",
       pitch1_title: "We respond within 1 business day",
@@ -147,7 +147,7 @@ export const posChannelStrings = {
   nl: {
     nav: { model_earnings: "Bereken je inkomsten" },
     hero: {
-      badge: "POS & Technology Channel Partners",
+      badge: "POS Channel Partners",
       title_1: "Verander elke kassa in",
       title_2: "terugkerende inkomsten",
       subtitle: "Integreer DutyBoost eenmaal in je POS. Elke luchthavenwinkel die je inschakelt levert je een levenslang aandeel op van elke DutyCredit-inning — passief inkomen uit hardware die je al hebt uitgerold.",
@@ -248,7 +248,7 @@ export const posChannelStrings = {
     },
     callback: {
       back: "Terug",
-      badge: "POS & Technology Channel Partners",
+      badge: "POS Channel Partners",
       title: "Laten we praten over kanaalpartnerschap.",
       subtitle: "Laat je gegevens achter en ons partnershipsteam neemt je mee door de integratie, commerciële voorwaarden en een op maat gemaakte inkomstenprojectie voor je POS-footprint.",
       pitch1_title: "We reageren binnen 1 werkdag",
@@ -292,7 +292,7 @@ export const posChannelStrings = {
   fr: {
     nav: { model_earnings: "Modélisez vos revenus" },
     hero: {
-      badge: "Partenaires POS & Technologiques",
+      badge: "Partenaires Canal POS",
       title_1: "Transformez chaque caisse en",
       title_2: "revenus récurrents",
       subtitle: "Intégrez DutyBoost une fois dans votre POS. Chaque détaillant d'aéroport que vous activez vous rapporte une part à vie sur chaque remboursement DutyCredit — un revenu passif depuis le matériel que vous avez déjà déployé.",
@@ -393,7 +393,7 @@ export const posChannelStrings = {
     },
     callback: {
       back: "Retour",
-      badge: "Partenaires POS & Technologiques",
+      badge: "Partenaires Canal POS",
       title: "Parlons partenariat de canal.",
       subtitle: "Laissez vos coordonnées et notre équipe partenariats vous guidera à travers l'intégration, les conditions commerciales et une projection de revenus personnalisée pour votre empreinte POS.",
       pitch1_title: "Nous répondons sous 1 jour ouvré",
@@ -437,7 +437,7 @@ export const posChannelStrings = {
   de: {
     nav: { model_earnings: "Ihre Einnahmen berechnen" },
     hero: {
-      badge: "POS- & Technologie-Channel-Partner",
+      badge: "POS-Channel-Partner",
       title_1: "Verwandeln Sie jeden Checkout in",
       title_2: "wiederkehrende Einnahmen",
       subtitle: "Integrieren Sie DutyBoost einmal in Ihr POS. Jeder Flughafenhändler, den Sie aktivieren, bringt Ihnen eine lebenslange Beteiligung an jeder DutyCredit-Einlösung — passives Einkommen aus Hardware, die Sie bereits installiert haben.",
@@ -538,7 +538,7 @@ export const posChannelStrings = {
     },
     callback: {
       back: "Zurück",
-      badge: "POS- & Technologie-Channel-Partner",
+      badge: "POS-Channel-Partner",
       title: "Sprechen wir über Channel-Partnerschaft.",
       subtitle: "Hinterlassen Sie Ihre Kontaktdaten und unser Partnerschaftsteam führt Sie durch die Integration, die kommerziellen Bedingungen und eine maßgeschneiderte Einnahmenprojektion für Ihren POS-Footprint.",
       pitch1_title: "Wir antworten innerhalb von 1 Werktag",
@@ -582,7 +582,7 @@ export const posChannelStrings = {
   es: {
     nav: { model_earnings: "Calcula tus ingresos" },
     hero: {
-      badge: "Socios de Canal POS y Tecnología",
+      badge: "Socios de Canal POS",
       title_1: "Convierte cada caja en",
       title_2: "ingresos recurrentes",
       subtitle: "Integra DutyBoost una vez en tu POS. Cada minorista de aeropuerto que activas te genera una participación de por vida en cada redención de DutyCredit — ingresos pasivos del hardware que ya has desplegado.",
@@ -683,7 +683,7 @@ export const posChannelStrings = {
     },
     callback: {
       back: "Atrás",
-      badge: "Socios de Canal POS y Tecnología",
+      badge: "Socios de Canal POS",
       title: "Hablemos de alianza de canal.",
       subtitle: "Deja tus datos y nuestro equipo de alianzas te guiará a través de la integración, las condiciones comerciales y una proyección de ingresos a medida para tu cobertura POS.",
       pitch1_title: "Respondemos en 1 día laborable",
@@ -727,7 +727,7 @@ export const posChannelStrings = {
   it: {
     nav: { model_earnings: "Calcola i tuoi guadagni" },
     hero: {
-      badge: "Partner di Canale POS e Tecnologia",
+      badge: "Partner di Canale POS",
       title_1: "Trasforma ogni cassa in",
       title_2: "entrate ricorrenti",
       subtitle: "Integra DutyBoost una volta nel tuo POS. Ogni rivenditore aeroportuale che attivi ti fa guadagnare una quota a vita su ogni riscatto DutyCredit — reddito passivo dall'hardware che hai già distribuito.",
@@ -828,7 +828,7 @@ export const posChannelStrings = {
     },
     callback: {
       back: "Indietro",
-      badge: "Partner di Canale POS e Tecnologia",
+      badge: "Partner di Canale POS",
       title: "Parliamo di partnership di canale.",
       subtitle: "Lascia i tuoi contatti e il nostro team partnership ti guiderà attraverso l'integrazione, le condizioni commerciali e una proiezione di entrate su misura per la tua copertura POS.",
       pitch1_title: "Rispondiamo entro 1 giorno lavorativo",
