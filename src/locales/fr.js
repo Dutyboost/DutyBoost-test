@@ -16,6 +16,7 @@ export default {
       live_demo: 'Démo en direct',
       roi_calculator: 'Calculateur ROI',
       letter_of_intent: 'Lettre d\'Intention',
+      integration_partnerships: 'Pour les Partenariats d\'Intégration',
     },
     hero: {
       title_1: 'Transformant chaque réservation de voyage et d\'hôtellerie en ligne en',

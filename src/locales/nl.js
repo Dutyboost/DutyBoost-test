@@ -15,6 +15,7 @@ export default {
       live_demo: 'Live Demo',
       roi_calculator: 'ROI Calculator',
       letter_of_intent: 'Intentieverklaring',
+      integration_partnerships: 'Voor Integratiepartnerschappen',
     },
     hero: {
        title_1: 'Elke reis- en hospitalityboeking omzettend in',

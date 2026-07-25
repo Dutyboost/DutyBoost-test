@@ -16,6 +16,7 @@ export default {
       live_demo: 'Live-Demo',
       roi_calculator: 'ROI-Rechner',
       letter_of_intent: 'Absichtserklärung',
+      integration_partnerships: 'Für Integrationspartnerschaften',
     },
     hero: {
       title_1: 'Jede Online-Reise- und Hospitality-Buchung verwandelnd in',
