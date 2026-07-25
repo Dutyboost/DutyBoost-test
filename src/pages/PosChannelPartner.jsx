@@ -27,9 +27,9 @@ const POS_SHARE_PCT = 10; // % of the platform fee
 
 export default function PosChannelPartner() {
   // ── Interactive earnings calculator ──
-  const [retailerCount, setRetailerCount] = useState(1000);
-  const [avgAnnualSales, setAvgAnnualSales] = useState(2000000);
-  const [redemptionRate, setRedemptionRate] = useState(8);
+  const [retailerCount, setRetailerCount] = useState(5);
+  const [avgAnnualSales, setAvgAnnualSales] = useState(50000);
+  const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState("EUR");
 
   const redemptionVolume = (retailerCount * avgAnnualSales * redemptionRate) / 100;
