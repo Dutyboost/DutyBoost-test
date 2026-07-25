@@ -78,14 +78,14 @@ export default function PosPartnerCallback() {
 
   const validate = () => {
     const errs = {};
-    if (!isRealName(form.full_name)) errs.full_name = t("posChannel:callback.err_name");
-    if (!form.email) errs.email = t("posChannel:callback.err_email_required");
-    else if (!isWorkEmail(form.email)) errs.email = t("posChannel:callback.err_email_work");
-    if (!isValidPhone(form.phone)) errs.phone = t("posChannel:callback.err_phone");
-    if (!form.company_name.trim()) errs.company_name = t("posChannel:callback.err_company");
-    if (!isValidWebsite(form.website)) errs.website = t("posChannel:callback.err_website");
+    if (!isRealName(form.full_name)) errs.full_name = t("posChannel.callback.err_name");
+    if (!form.email) errs.email = t("posChannel.callback.err_email_required");
+    else if (!isWorkEmail(form.email)) errs.email = t("posChannel.callback.err_email_work");
+    if (!isValidPhone(form.phone)) errs.phone = t("posChannel.callback.err_phone");
+    if (!form.company_name.trim()) errs.company_name = t("posChannel.callback.err_company");
+    if (!isValidWebsite(form.website)) errs.website = t("posChannel.callback.err_website");
     else if (form.email && isWorkEmail(form.email) && !domainsMatch(form.email, form.website))
-      errs.website = t("posChannel:callback.err_domain");
+      errs.website = t("posChannel.callback.err_domain");
     return errs;
   };
 
@@ -100,7 +100,7 @@ export default function PosPartnerCallback() {
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
-      toast.error(t("posChannel:callback.toast_errors"));
+      toast.error(t("posChannel.callback.toast_errors"));
       return;
     }
 
@@ -124,16 +124,16 @@ export default function PosPartnerCallback() {
 
       setSubmitted(true);
     } catch (error) {
-      toast.error(t("posChannel:callback.toast_failed"));
+      toast.error(t("posChannel.callback.toast_failed"));
     } finally {
       setLoading(false);
     }
   };
 
   const pitchItems = [
-    { icon: Clock, title: t("posChannel:callback.pitch1_title"), desc: t("posChannel:callback.pitch1_desc") },
-    { icon: Zap, title: t("posChannel:callback.pitch2_title"), desc: t("posChannel:callback.pitch2_desc") },
-    { icon: ShieldCheck, title: t("posChannel:callback.pitch3_title"), desc: t("posChannel:callback.pitch3_desc") },
+    { icon: Clock, title: t("posChannel.callback.pitch1_title"), desc: t("posChannel.callback.pitch1_desc") },
+    { icon: Zap, title: t("posChannel.callback.pitch2_title"), desc: t("posChannel.callback.pitch2_desc") },
+    { icon: ShieldCheck, title: t("posChannel.callback.pitch3_title"), desc: t("posChannel.callback.pitch3_desc") },
   ];
 
   return (
@@ -142,7 +142,7 @@ export default function PosPartnerCallback() {
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/pos-channel-partner" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> {t("posChannel:callback.back")}
+            <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back")}
           </Link>
           <Link to="/"><DutyBoostLogo height={40} /></Link>
           <LanguageSwitcher />
@@ -155,13 +155,13 @@ export default function PosPartnerCallback() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium" style={{ background: "hsl(255 90% 95%)", color: VIOLET }}>
               <Plug className="w-4 h-4" />
-              {t("posChannel:callback.badge")}
+              {t("posChannel.callback.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-heading font-bold leading-tight">
-              {t("posChannel:callback.title")}
+              {t("posChannel.callback.title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {t("posChannel:callback.subtitle")}
+              {t("posChannel.callback.subtitle")}
             </p>
 
             <div className="space-y-4 pt-2">
@@ -187,55 +187,55 @@ export default function PosPartnerCallback() {
                   <CheckCircle2 className="w-8 h-8" style={{ color: VIOLET }} />
                 </div>
                 <div className="space-y-2">
-                  <h2 className="text-xl font-heading font-bold">{t("posChannel:callback.success_title")}</h2>
+                  <h2 className="text-xl font-heading font-bold">{t("posChannel.callback.success_title")}</h2>
                   <p className="text-sm text-muted-foreground">
-                    {t("posChannel:callback.success_text", { name: form.full_name.split(' ')[0] })}
+                    {t("posChannel.callback.success_text", { name: form.full_name.split(' ')[0] })}
                   </p>
                 </div>
                 <Link to="/pos-channel-partner">
                   <Button variant="outline" className="gap-2 mt-2">
-                    <ArrowLeft className="w-4 h-4" /> {t("posChannel:callback.back_overview")}
+                    <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back_overview")}
                   </Button>
                 </Link>
               </div>
             ) : (
               <>
-                <h2 className="text-xl font-heading font-bold mb-1">{t("posChannel:callback.form_title")}</h2>
-                <p className="text-sm text-muted-foreground mb-6">{t("posChannel:callback.form_subtitle")}</p>
+                <h2 className="text-xl font-heading font-bold mb-1">{t("posChannel.callback.form_title")}</h2>
+                <p className="text-sm text-muted-foreground mb-6">{t("posChannel.callback.form_subtitle")}</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="full_name" className="text-sm">{t("posChannel:callback.label_name")}</Label>
-                    <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_name")} />
+                    <Label htmlFor="full_name" className="text-sm">{t("posChannel.callback.label_name")}</Label>
+                    <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_name")} />
                     {errors.full_name && <p className="text-xs text-red-500">{errors.full_name}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-sm">{t("posChannel:callback.label_email")}</Label>
-                    <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_email")} />
+                    <Label htmlFor="email" className="text-sm">{t("posChannel.callback.label_email")}</Label>
+                    <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_email")} />
                     {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone" className="text-sm">{t("posChannel:callback.label_phone")}</Label>
-                    <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_phone")} />
+                    <Label htmlFor="phone" className="text-sm">{t("posChannel.callback.label_phone")}</Label>
+                    <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_phone")} />
                     {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="company_name" className="text-sm">{t("posChannel:callback.label_company")}</Label>
-                    <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_company")} />
+                    <Label htmlFor="company_name" className="text-sm">{t("posChannel.callback.label_company")}</Label>
+                    <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_company")} />
                     {errors.company_name && <p className="text-xs text-red-500">{errors.company_name}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="website" className="text-sm">{t("posChannel:callback.label_website")}</Label>
-                    <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder={t("posChannel:callback.placeholder_website")} />
+                    <Label htmlFor="website" className="text-sm">{t("posChannel.callback.label_website")}</Label>
+                    <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_website")} />
                     {errors.website && <p className="text-xs text-red-500">{errors.website}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="footprint" className="text-sm">{t("posChannel:callback.label_footprint")}</Label>
+                    <Label htmlFor="footprint" className="text-sm">{t("posChannel.callback.label_footprint")}</Label>
                     <Textarea
                       id="footprint" name="footprint" value={form.footprint} onChange={handleChange}
-                      placeholder={t("posChannel:callback.placeholder_footprint")}
+                      placeholder={t("posChannel.callback.placeholder_footprint")}
                       rows={2}
                     />
-                    <p className="text-xs text-muted-foreground">{t("posChannel:callback.footprint_help")}</p>
+                    <p className="text-xs text-muted-foreground">{t("posChannel.callback.footprint_help")}</p>
                   </div>
 
                   <Button
@@ -244,10 +244,10 @@ export default function PosPartnerCallback() {
                     style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}
                   >
                     {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                    {t("posChannel:callback.button")}
+                    {t("posChannel.callback.button")}
                   </Button>
                   <p className="text-xs text-muted-foreground text-center">
-                    {t("posChannel:callback.consent")}
+                    {t("posChannel.callback.consent")}
                   </p>
                 </form>
               </>
@@ -260,7 +260,7 @@ export default function PosPartnerCallback() {
       <footer className="border-t border-border py-8 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Link to="/"><DutyBoostLogo height={40} /></Link>
-          <p>{t("posChannel:footer.tagline", { year: new Date().getFullYear() })}</p>
+          <p>{t("posChannel.footer.tagline", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>

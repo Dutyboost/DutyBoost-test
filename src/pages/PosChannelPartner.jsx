@@ -34,39 +34,39 @@ export default function PosChannelPartner() {
   ];
 
   const steps = [
-    { num: "01", icon: Code2, title: t("posChannel:how.step1_title"), desc: t("posChannel:how.step1_desc") },
-    { num: "02", icon: Zap, title: t("posChannel:how.step2_title"), desc: t("posChannel:how.step2_desc") },
-    { num: "03", icon: QrCode, title: t("posChannel:how.step3_title"), desc: t("posChannel:how.step3_desc") },
-    { num: "04", icon: Wallet, title: t("posChannel:how.step4_title"), desc: t("posChannel:how.step4_desc") },
+    { num: "01", icon: Code2, title: t("posChannel.how.step1_title"), desc: t("posChannel.how.step1_desc") },
+    { num: "02", icon: Zap, title: t("posChannel.how.step2_title"), desc: t("posChannel.how.step2_desc") },
+    { num: "03", icon: QrCode, title: t("posChannel.how.step3_title"), desc: t("posChannel.how.step3_desc") },
+    { num: "04", icon: Wallet, title: t("posChannel.how.step4_title"), desc: t("posChannel.how.step4_desc") },
   ];
 
   const benefits = [
-    { icon: TrendingUp, title: t("posChannel:why.benefit1_title"), desc: t("posChannel:why.benefit1_desc") },
-    { icon: Users, title: t("posChannel:why.benefit2_title"), desc: t("posChannel:why.benefit2_desc") },
-    { icon: ShieldCheck, title: t("posChannel:why.benefit3_title"), desc: t("posChannel:why.benefit3_desc") },
-    { icon: Globe, title: t("posChannel:why.benefit4_title"), desc: t("posChannel:why.benefit4_desc") },
-    { icon: Cpu, title: t("posChannel:why.benefit5_title"), desc: t("posChannel:why.benefit5_desc") },
-    { icon: Handshake, title: t("posChannel:why.benefit6_title"), desc: t("posChannel:why.benefit6_desc") },
+    { icon: TrendingUp, title: t("posChannel.why.benefit1_title"), desc: t("posChannel.why.benefit1_desc") },
+    { icon: Users, title: t("posChannel.why.benefit2_title"), desc: t("posChannel.why.benefit2_desc") },
+    { icon: ShieldCheck, title: t("posChannel.why.benefit3_title"), desc: t("posChannel.why.benefit3_desc") },
+    { icon: Globe, title: t("posChannel.why.benefit4_title"), desc: t("posChannel.why.benefit4_desc") },
+    { icon: Cpu, title: t("posChannel.why.benefit5_title"), desc: t("posChannel.why.benefit5_desc") },
+    { icon: Handshake, title: t("posChannel.why.benefit6_title"), desc: t("posChannel.why.benefit6_desc") },
   ];
 
   const splitRows = [
-    { label: t("posChannel:revenue.row1_label"), value: t("posChannel:revenue.row1_value"), note: t("posChannel:revenue.row1_note"), highlight: false },
-    { label: t("posChannel:revenue.row2_label"), value: t("posChannel:revenue.row2_value"), note: t("posChannel:revenue.row2_note"), highlight: false },
-    { label: t("posChannel:revenue.row3_label"), value: t("posChannel:revenue.row3_value"), note: t("posChannel:revenue.row3_note"), highlight: true },
-    { label: t("posChannel:revenue.row4_label"), value: t("posChannel:revenue.row4_value"), note: t("posChannel:revenue.row4_note"), highlight: false },
+    { label: t("posChannel.revenue.row1_label"), value: t("posChannel.revenue.row1_value"), note: t("posChannel.revenue.row1_note"), highlight: false },
+    { label: t("posChannel.revenue.row2_label"), value: t("posChannel.revenue.row2_value"), note: t("posChannel.revenue.row2_note"), highlight: false },
+    { label: t("posChannel.revenue.row3_label"), value: t("posChannel.revenue.row3_value"), note: t("posChannel.revenue.row3_note"), highlight: true },
+    { label: t("posChannel.revenue.row4_label"), value: t("posChannel.revenue.row4_value"), note: t("posChannel.revenue.row4_note"), highlight: false },
   ];
 
   const flowNodes = [
-    { icon: Plane, label: t("posChannel:flow.node1_label"), desc: t("posChannel:flow.node1_desc") },
-    { icon: Store, label: t("posChannel:flow.node2_label"), desc: t("posChannel:flow.node2_desc") },
-    { icon: Cpu, label: t("posChannel:flow.node3_label"), desc: t("posChannel:flow.node3_desc"), highlight: true },
-    { icon: Wallet, label: t("posChannel:flow.node4_label"), desc: t("posChannel:flow.node4_desc") },
+    { icon: Plane, label: t("posChannel.flow.node1_label"), desc: t("posChannel.flow.node1_desc") },
+    { icon: Store, label: t("posChannel.flow.node2_label"), desc: t("posChannel.flow.node2_desc") },
+    { icon: Cpu, label: t("posChannel.flow.node3_label"), desc: t("posChannel.flow.node3_desc"), highlight: true },
+    { icon: Wallet, label: t("posChannel.flow.node4_label"), desc: t("posChannel.flow.node4_desc") },
   ];
 
   const oppCards = [
-    { icon: Store, title: t("posChannel:opportunity.card1_title"), desc: t("posChannel:opportunity.card1_desc") },
-    { icon: Users, title: t("posChannel:opportunity.card2_title"), desc: t("posChannel:opportunity.card2_desc") },
-    { icon: TrendingUp, title: t("posChannel:opportunity.card3_title"), desc: t("posChannel:opportunity.card3_desc") },
+    { icon: Store, title: t("posChannel.opportunity.card1_title"), desc: t("posChannel.opportunity.card1_desc") },
+    { icon: Users, title: t("posChannel.opportunity.card2_title"), desc: t("posChannel.opportunity.card2_desc") },
+    { icon: TrendingUp, title: t("posChannel.opportunity.card3_title"), desc: t("posChannel.opportunity.card3_desc") },
   ];
 
   return (
@@ -79,7 +79,7 @@ export default function PosChannelPartner() {
             <LanguageSwitcher />
             <a href="#calculator">
               <Button className="gap-2" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Calculator className="w-4 h-4" /> {t("posChannel:nav.model_earnings")}
+                <Calculator className="w-4 h-4" /> {t("posChannel.nav.model_earnings")}
               </Button>
             </a>
           </div>
@@ -92,32 +92,32 @@ export default function PosChannelPartner() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-28 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
             <Plug className="w-4 h-4" />
-            {t("posChannel:hero.badge")}
+            {t("posChannel.hero.badge")}
           </div>
           <h1 className="text-4xl sm:text-6xl font-heading font-bold tracking-tight leading-tight">
-            {t("posChannel:hero.title_1")}{" "}
+            {t("posChannel.hero.title_1")}{" "}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-              {t("posChannel:hero.title_2")}
+              {t("posChannel.hero.title_2")}
             </span>
             .
           </h1>
           <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto leading-relaxed">
-            {t("posChannel:hero.subtitle")}
+            {t("posChannel.hero.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10">
             <a href="#calculator">
               <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Calculator className="w-5 h-5" /> {t("posChannel:hero.cta_primary")}
+                <Calculator className="w-5 h-5" /> {t("posChannel.hero.cta_primary")}
               </Button>
             </a>
             <Link to="/pos-partner-callback">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
-                <Handshake className="w-5 h-5" /> {t("posChannel:hero.cta_secondary")}
+                <Handshake className="w-5 h-5" /> {t("posChannel.hero.cta_secondary")}
               </Button>
             </Link>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
-            {t("posChannel:hero.note")}
+            {t("posChannel.hero.note")}
           </p>
         </div>
       </section>
@@ -126,9 +126,9 @@ export default function PosChannelPartner() {
       <section className="py-16 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel:opportunity.title")}</h2>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel.opportunity.title")}</h2>
             <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
-              {t("posChannel:opportunity.subtitle")}
+              {t("posChannel.opportunity.subtitle")}
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-5">
@@ -150,11 +150,11 @@ export default function PosChannelPartner() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Wallet className="w-3.5 h-3.5" /> {t("posChannel:revenue.badge")}
+              <Wallet className="w-3.5 h-3.5" /> {t("posChannel.revenue.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel:revenue.title")}</h2>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel.revenue.title")}</h2>
             <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
-              {t("posChannel:revenue.subtitle")}
+              {t("posChannel.revenue.subtitle")}
             </p>
           </div>
 
@@ -180,7 +180,7 @@ export default function PosChannelPartner() {
           <div className="flex items-start gap-3 mt-5 text-sm text-muted-foreground bg-muted/50 rounded-xl p-4">
             <ShieldCheck className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#6d28d9" }} />
             <p>
-              <strong className="text-foreground">{t("posChannel:revenue.bypass_bold")}</strong> {t("posChannel:revenue.bypass_text")}
+              <strong className="text-foreground">{t("posChannel.revenue.bypass_bold")}</strong> {t("posChannel.revenue.bypass_text")}
             </p>
           </div>
         </div>
@@ -190,8 +190,8 @@ export default function PosChannelPartner() {
       <section className="py-16 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel:how.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:how.subtitle")}</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel.how.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.how.subtitle")}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {steps.map((s) => (
@@ -215,10 +215,10 @@ export default function PosChannelPartner() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Calculator className="w-3.5 h-3.5" /> {t("posChannel:calculator.badge")}
+              <Calculator className="w-3.5 h-3.5" /> {t("posChannel.calculator.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel:calculator.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:calculator.subtitle")}</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel.calculator.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.calculator.subtitle")}</p>
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
@@ -241,7 +241,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">{t("posChannel:calculator.slider_stores")}</Label>
+                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_stores")}</Label>
                 <span className="text-sm font-bold font-mono">{retailerCount.toLocaleString()}</span>
               </div>
               <input
@@ -252,7 +252,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">{t("posChannel:calculator.slider_sales")}</Label>
+                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
                 <span className="text-sm font-bold font-mono">{fmtMoney(avgAnnualSales, currency, 0)}</span>
               </div>
               <input
@@ -263,7 +263,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">{t("posChannel:calculator.slider_rate")}</Label>
+                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_rate")}</Label>
                 <span className="text-sm font-bold font-mono">{redemptionRate}%</span>
               </div>
               <input
@@ -276,22 +276,22 @@ export default function PosChannelPartner() {
             <div className="border-t border-border pt-6">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel:calculator.result_volume")}</p>
+                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_volume")}</p>
                   <p className="text-lg font-heading font-bold">{fmtMoney(redemptionVolume, currency, 0)}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel:calculator.result_fees")}</p>
+                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_fees")}</p>
                   <p className="text-lg font-heading font-bold">{fmtMoney(platformFees, currency, 0)}</p>
                 </div>
                 <div className="rounded-xl p-2" style={{ background: "hsl(255 90% 95%)" }}>
-                  <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>{t("posChannel:calculator.result_earnings")}</p>
+                  <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>{t("posChannel.calculator.result_earnings")}</p>
                   <p className="text-2xl font-heading font-bold" style={{ color: "#6d28d9" }}>
                     {fmtMoney(posEarnings, currency, 0)}
                   </p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground text-center mt-4">
-                {t("posChannel:calculator.note")}
+                {t("posChannel.calculator.note")}
               </p>
             </div>
           </div>
@@ -302,8 +302,8 @@ export default function PosChannelPartner() {
       <section className="py-16 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel:why.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:why.subtitle")}</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel.why.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.why.subtitle")}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {benefits.map((b) => (
@@ -324,10 +324,10 @@ export default function PosChannelPartner() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Sparkles className="w-3.5 h-3.5" /> {t("posChannel:flow.badge")}
+              <Sparkles className="w-3.5 h-3.5" /> {t("posChannel.flow.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel:flow.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel:flow.subtitle")}</p>
+            <h2 className="text-3xl font-heading font-bold">{t("posChannel.flow.title")}</h2>
+            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.flow.subtitle")}</p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch gap-3">
             {flowNodes.map((n, i, arr) => (
@@ -353,19 +353,19 @@ export default function PosChannelPartner() {
       {/* ── CTA ── */}
       <section className="py-16 sm:py-24" style={{ background: "linear-gradient(135deg, hsl(255 90% 97%) 0%, hsl(243 75% 97%) 100%)" }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold">{t("posChannel:cta.title")}</h2>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold">{t("posChannel.cta.title")}</h2>
           <p className="text-lg text-muted-foreground mt-4">
-            {t("posChannel:cta.subtitle")}
+            {t("posChannel.cta.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
             <Link to="/pos-partner-callback">
               <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Handshake className="w-5 h-5" /> {t("posChannel:cta.button_primary")}
+                <Handshake className="w-5 h-5" /> {t("posChannel.cta.button_primary")}
               </Button>
             </Link>
             <Link to="/">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
-                {t("posChannel:cta.button_secondary")} <ArrowRight className="w-5 h-5" />
+                {t("posChannel.cta.button_secondary")} <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
           </div>
@@ -376,7 +376,7 @@ export default function PosChannelPartner() {
       <footer className="border-t border-border py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Link to="/"><DutyBoostLogo height={40} /></Link>
-          <p>{t("posChannel:footer.tagline", { year: new Date().getFullYear() })}</p>
+          <p>{t("posChannel.footer.tagline", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>
