@@ -261,7 +261,7 @@ export default function PosChannelPartner() {
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">Retailers on your POS</Label>
+                <Label className="text-sm font-medium">Airport stores on your POS</Label>
                 <span className="text-sm font-bold font-mono">{retailerCount}</span>
               </div>
               <input
@@ -272,7 +272,7 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">Avg. annual sales per retailer (EUR)</Label>
+                <Label className="text-sm font-medium">Avg. annual sales per store (EUR)</Label>
                 <span className="text-sm font-bold font-mono">€{avgAnnualSales.toLocaleString()}</span>
               </div>
               <input
