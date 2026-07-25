@@ -143,11 +143,11 @@ export default function PosChannelPartner() {
                 <Calculator className="w-5 h-5" /> See your earnings
               </Button>
             </a>
-            <a href="mailto:partners@dutyboost.com">
+            <Link to="/pos-partner-callback">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
                 <Handshake className="w-5 h-5" /> Talk to partnerships
               </Button>
-            </a>
+            </Link>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
             One-time integration · No hardware · Live in 2 weeks
