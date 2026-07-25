@@ -27,6 +27,7 @@ export function fmtEur(value, decimals = 0) {
  */
 const AWG_RATE = 1.99;
 const USD_RATE = 1.08;
+const GBP_RATE = 0.85;
 
 export function fmtMoney(eur, currency = "EUR", decimals = 0) {
   if (currency === "AWG") {
@@ -34,6 +35,9 @@ export function fmtMoney(eur, currency = "EUR", decimals = 0) {
   }
   if (currency === "USD") {
     return `$ ${fmtNum((eur || 0) * USD_RATE, decimals)}`;
+  }
+  if (currency === "GBP") {
+    return `£ ${fmtNum((eur || 0) * GBP_RATE, decimals)}`;
   }
   return fmtEur(eur, decimals);
 }

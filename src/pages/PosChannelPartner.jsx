@@ -27,13 +27,20 @@ const POS_SHARE_PCT = 10; // % of the platform fee
 
 export default function PosChannelPartner() {
   // ── Interactive earnings calculator ──
-  const [retailerCount, setRetailerCount] = useState(200);
-  const [avgAnnualSales, setAvgAnnualSales] = useState(500000);
+  const [retailerCount, setRetailerCount] = useState(1000);
+  const [avgAnnualSales, setAvgAnnualSales] = useState(2000000);
   const [redemptionRate, setRedemptionRate] = useState(8);
+  const [currency, setCurrency] = useState("EUR");
 
   const redemptionVolume = (retailerCount * avgAnnualSales * redemptionRate) / 100;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
+
+  const currencyOptions = [
+    { code: "EUR", symbol: "€" },
+    { code: "USD", symbol: "$" },
+    { code: "GBP", symbol: "£" },
+  ];
 
   const steps = [
     {
@@ -259,24 +266,41 @@ export default function PosChannelPartner() {
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
+            <div className="flex items-center justify-end">
+              <div className="inline-flex items-center rounded-lg border border-border bg-muted/40 p-0.5">
+                {currencyOptions.map((c) => (
+                  <button
+                    key={c.code}
+                    onClick={() => setCurrency(c.code)}
+                    className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors ${
+                      currency === c.code
+                        ? "bg-card text-violet-700 shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {c.code}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div>
               <div className="flex items-center justify-between mb-2">
                 <Label className="text-sm font-medium">Airport stores on your POS</Label>
-                <span className="text-sm font-bold font-mono">{retailerCount}</span>
+                <span className="text-sm font-bold font-mono">{retailerCount.toLocaleString()}</span>
               </div>
               <input
-                type="range" min={5} max={1000} step={5} value={retailerCount}
+                type="range" min={5} max={5000} step={5} value={retailerCount}
                 onChange={(e) => setRetailerCount(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">Avg. annual sales per store (EUR)</Label>
-                <span className="text-sm font-bold font-mono">€{avgAnnualSales.toLocaleString()}</span>
+                <Label className="text-sm font-medium">Avg. annual sales per store</Label>
+                <span className="text-sm font-bold font-mono">{fmtMoney(avgAnnualSales, currency, 0)}</span>
               </div>
               <input
-                type="range" min={50000} max={2000000} step={10000} value={avgAnnualSales}
+                type="range" min={50000} max={10000000} step={50000} value={avgAnnualSales}
                 onChange={(e) => setAvgAnnualSales(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
@@ -297,16 +321,16 @@ export default function PosChannelPartner() {
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Redemption volume</p>
-                  <p className="text-lg font-heading font-bold">{fmtMoney(redemptionVolume, "EUR", 0)}</p>
+                  <p className="text-lg font-heading font-bold">{fmtMoney(redemptionVolume, currency, 0)}</p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Platform fees (2.5%)</p>
-                  <p className="text-lg font-heading font-bold">{fmtMoney(platformFees, "EUR", 0)}</p>
+                  <p className="text-lg font-heading font-bold">{fmtMoney(platformFees, currency, 0)}</p>
                 </div>
                 <div className="rounded-xl p-2" style={{ background: "hsl(255 90% 95%)" }}>
                   <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>Your channel earnings</p>
                   <p className="text-2xl font-heading font-bold" style={{ color: "#6d28d9" }}>
-                    {fmtMoney(posEarnings, "EUR", 0)}
+                    {fmtMoney(posEarnings, currency, 0)}
                   </p>
                 </div>
               </div>
