@@ -15,7 +15,7 @@ export default {
       live_demo: 'Live Demo',
       roi_calculator: 'ROI Calculator',
       letter_of_intent: 'Letter of Intent',
-      integration_partnerships: 'For Integration Partnerships',
+      integration_partnerships: 'For Integration Partners',
     },
     hero: {
       title_1: 'Turning every travel & hospitality booking into',
