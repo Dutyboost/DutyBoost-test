@@ -29,6 +29,15 @@
     "owner_email": {
       "type": "string",
       "title": "Owner Email"
+    },
+    "pos_channel_partner": {
+      "type": "string",
+      "title": "POS Channel Partner"
+    },
+    "pos_channel_commission_rate": {
+      "type": "number",
+      "title": "POS Channel Commission Rate (%)",
+      "default": 10
     }
   },
   "required": [

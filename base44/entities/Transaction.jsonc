@@ -46,6 +46,15 @@
       "type": "string",
       "title": "Agency Email"
     },
+    "pos_channel_partner": {
+      "type": "string",
+      "title": "POS Channel Partner"
+    },
+    "pos_channel_commission": {
+      "type": "number",
+      "title": "POS Channel Commission (EUR)",
+      "default": 0
+    },
     "airport": {
       "type": "string",
       "title": "Airport"
