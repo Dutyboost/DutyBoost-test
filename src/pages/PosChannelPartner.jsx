@@ -383,11 +383,11 @@ export default function PosChannelPartner() {
             Tell us about your POS footprint and we'll walk you through the integration, the commercial terms, and a tailored revenue projection.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
-            <a href="mailto:partners@dutyboost.com">
+            <Link to="/pos-partner-callback">
               <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
                 <Handshake className="w-5 h-5" /> Become a Channel Partner
               </Button>
-            </a>
+            </Link>
             <Link to="/">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
                 Learn about DutyBoost <ArrowRight className="w-5 h-5" />

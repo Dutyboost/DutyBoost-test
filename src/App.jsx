@@ -112,6 +112,7 @@ import LetterOfIntentRetailer from './pages/LetterOfIntentRetailer';
 import BrandGuidelines from './pages/BrandGuidelines';
 import ClaimDutyCredit from './pages/ClaimDutyCredit';
 import PosChannelPartner from './pages/PosChannelPartner';
+import PosPartnerCallback from './pages/PosPartnerCallback';
 import EligibilityShowcase from './pages/EligibilityShowcase';
 import DutyBoostPresentation from './pages/DutyBoostPresentation';
 import DutyBoostPresentationAruba from './pages/DutyBoostPresentationAruba';
@@ -236,6 +237,7 @@ const AuthenticatedApp = () => {
         <Route path="/brand-guidelines" element={<BrandGuidelines />} />
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
         <Route path="/pos-channel-partner" element={<PosChannelPartner />} />
+        <Route path="/pos-partner-callback" element={<PosPartnerCallback />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentation />} />
         <Route path="/dutyboost-presentation-aruba" element={<DutyBoostPresentationAruba />} />

@@ -15,7 +15,8 @@
       "title": "Industry",
       "enum": [
         "Retail",
-        "Agency"
+        "Agency",
+        "POS Channel Partner"
       ]
     },
     "email": {
