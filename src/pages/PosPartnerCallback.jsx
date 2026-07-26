@@ -158,10 +158,14 @@ export default function PosPartnerCallback() {
               {t("posChannel.callback.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-heading font-bold leading-tight">
-              {t("posChannel.callback.title")}
+              {submitted
+                ? t("posChannel.callback.success_left_title")
+                : t("posChannel.callback.title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {t("posChannel.callback.subtitle")}
+              {submitted
+                ? t("posChannel.callback.success_left_subtitle")
+                : t("posChannel.callback.subtitle")}
             </p>
 
             <div className="space-y-4 pt-2">
