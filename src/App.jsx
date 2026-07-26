@@ -236,7 +236,7 @@ const AuthenticatedApp = () => {
         <Route path="/letter-of-intent-retailer" element={<LetterOfIntentRetailer />} />
         <Route path="/brand-guidelines" element={<BrandGuidelines />} />
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
-        <Route path="/pos-channel-partner" element={<PosChannelPartner />} />
+        <Route path="/pos-partner" element={<PosChannelPartner />} />
         <Route path="/pos-partner-callback" element={<PosPartnerCallback />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentation />} />
