@@ -5,7 +5,6 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
@@ -86,6 +85,9 @@ export default function PosPartnerCallback() {
     if (!isValidWebsite(form.website)) errs.website = t("posChannel.callback.err_website");
     else if (form.email && isWorkEmail(form.email) && !domainsMatch(form.email, form.website))
       errs.website = t("posChannel.callback.err_domain");
+    const numTerminals = parseInt(form.footprint, 10);
+    if (!form.footprint || isNaN(numTerminals) || numTerminals <= 0)
+      errs.footprint = t("posChannel.callback.err_footprint");
     return errs;
   };
 
@@ -113,7 +115,7 @@ export default function PosPartnerCallback() {
         company_name: form.company_name,
         website: form.website,
         industry: "POS Channel Partner",
-        position: form.footprint ? `POS footprint: ${form.footprint}` : "",
+        position: form.footprint ? `POS terminals: ${form.footprint}` : "",
         decision_level: "",
       });
 
@@ -250,11 +252,11 @@ export default function PosPartnerCallback() {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="footprint" className="text-sm">{t("posChannel.callback.label_footprint")}</Label>
-                  <Textarea
-                    id="footprint" name="footprint" value={form.footprint} onChange={handleChange}
+                  <Input
+                    id="footprint" name="footprint" type="number" min="1" value={form.footprint} onChange={handleChange}
                     placeholder={t("posChannel.callback.placeholder_footprint")}
-                    rows={2}
                   />
+                  {errors.footprint && <p className="text-xs text-red-500">{errors.footprint}</p>}
                   <p className="text-xs text-muted-foreground">{t("posChannel.callback.footprint_help")}</p>
                 </div>
 
