@@ -7,7 +7,7 @@ export const posChannelStrings = {
       title_2: "recurring revenue",
       subtitle: "Integrate DutyBoost into your Point Of Sales Platform (POS) once. Every airport retailer you switch on earns you a lifetime share of every DutyCredit redemption — passive income from hardware you've already deployed.",
       cta_primary: "See your earnings",
-      cta_secondary: "Talk to partnerships",
+      cta_secondary: "Talk to our partnership team",
       note: "One-time integration · No hardware · Live in days, not weeks!",
     },
     opportunity: {
@@ -98,7 +98,7 @@ export const posChannelStrings = {
     cta: {
       title: "Ready to switch on your network?",
       subtitle: "Tell us about your POS footprint and we'll walk you through the integration, the commercial terms, and a tailored revenue projection.",
-      button_primary: "Talk to partnerships",
+      button_primary: "Talk to our partnership team",
       button_secondary: "Learn about DutyBoost",
     },
     footer: {
@@ -158,7 +158,7 @@ export const posChannelStrings = {
       title_2: "terugkerende inkomsten",
       subtitle: "Integreer DutyBoost eenmaal in uw Point Of Sales Platform (POS). Elke luchthavenwinkel die u inschakelt levert u een levenslang aandeel op van elke DutyCredit-inning — passief inkomen uit hardware die u al hebt uitgerold.",
       cta_primary: "Bekijk uw inkomsten",
-      cta_secondary: "Spreek met partnerships",
+      cta_secondary: "Spreek met ons partnershipteam",
       note: "Eenmalige integratie · Geen hardware · Live in dagen, niet weken!",
     },
     opportunity: {
@@ -249,7 +249,7 @@ export const posChannelStrings = {
     cta: {
       title: "Klaar om uw netwerk in te schakelen?",
       subtitle: "Vertel ons over uw POS-footprint en we lopen u door de integratie, de commerciële voorwaarden en een op maat gemaakte inkomstenprojectie.",
-      button_primary: "Spreek met partnerships",
+      button_primary: "Spreek met ons partnershipteam",
       button_secondary: "Meer over DutyBoost",
     },
     footer: {
@@ -309,7 +309,7 @@ export const posChannelStrings = {
       title_2: "revenus récurrents",
       subtitle: "Intégrez DutyBoost une fois dans votre Point Of Sales Platform (POS). Chaque détaillant d'aéroport que vous activez vous rapporte une part à vie sur chaque remboursement DutyCredit — un revenu passif depuis le matériel que vous avez déjà déployé.",
       cta_primary: "Voir vos revenus",
-      cta_secondary: "Parler aux partenariats",
+      cta_secondary: "Parler à notre équipe partenariats",
       note: "Intégration unique · Sans matériel · Opérationnel en quelques jours!",
     },
     opportunity: {
@@ -400,7 +400,7 @@ export const posChannelStrings = {
     cta: {
       title: "Prêt à activer votre réseau ?",
       subtitle: "Parlez-nous de votre empreinte POS et nous vous guiderons à travers l'intégration, les conditions commerciales et une projection de revenus personnalisée.",
-      button_primary: "Parler aux partenariats",
+      button_primary: "Parler à notre équipe partenariats",
       button_secondary: "Découvrir DutyBoost",
     },
     footer: {
@@ -460,7 +460,7 @@ export const posChannelStrings = {
       title_2: "wiederkehrende Einnahmen",
       subtitle: "Integrieren Sie DutyBoost einmal in Ihr Point Of Sales Platform (POS). Jeder Flughafenhändler, den Sie aktivieren, bringt Ihnen eine lebenslange Beteiligung an jeder DutyCredit-Einlösung — passives Einkommen aus Hardware, die Sie bereits installiert haben.",
       cta_primary: "Ihre Einnahmen sehen",
-      cta_secondary: "Mit Partnerschaften sprechen",
+      cta_secondary: "Mit unserem Partnerschaftsteam sprechen",
       note: "Einmalige Integration · Keine Hardware · Live in Tagen, nicht Wochen!",
     },
     opportunity: {
@@ -551,7 +551,7 @@ export const posChannelStrings = {
     cta: {
       title: "Bereit, Ihr Netzwerk zu aktivieren?",
       subtitle: "Erzählen Sie uns von Ihrem POS-Footprint und wir führen Sie durch die Integration, die kommerziellen Bedingungen und eine maßgeschneiderte Einnahmenprojektion.",
-      button_primary: "Mit Partnerschaften sprechen",
+      button_primary: "Mit unserem Partnerschaftsteam sprechen",
       button_secondary: "Mehr über DutyBoost",
     },
     footer: {
@@ -611,7 +611,7 @@ export const posChannelStrings = {
       title_2: "ingresos recurrentes",
       subtitle: "Integra DutyBoost una vez en tu Point Of Sales Platform (POS). Cada minorista de aeropuerto que activas te genera una participación de por vida en cada redención de DutyCredit — ingresos pasivos del hardware que ya has desplegado.",
       cta_primary: "Ver tus ingresos",
-      cta_secondary: "Hablar con el equipo de relaciones de socios",
+      cta_secondary: "Habla con nuestro equipo de partnerships",
       note: "Integración única · Sin hardware · Operativo en días, no semanas!",
     },
     opportunity: {
@@ -702,7 +702,7 @@ export const posChannelStrings = {
     cta: {
       title: "¿Listo para activar tu red?",
       subtitle: "Cuéntanos sobre tu cobertura POS y te guiaremos a través de la integración, las condiciones comerciales y una proyección de ingresos a medida.",
-      button_primary: "Hablar con el equipo de relaciones de socios",
+      button_primary: "Habla con nuestro equipo de partnerships",
       button_secondary: "Conoce DutyBoost",
     },
     footer: {
@@ -762,7 +762,7 @@ export const posChannelStrings = {
       title_2: "entrate ricorrenti",
       subtitle: "Integra DutyBoost una volta nel tuo Point Of Sales Platform (POS). Ogni rivenditore aeroportuale che attivi ti fa guadagnare una quota a vita su ogni riscatto DutyCredit — reddito passivo dall'hardware che hai già distribuito.",
       cta_primary: "Vedi i tuoi guadagni",
-      cta_secondary: "Parla con le partnership",
+      cta_secondary: "Parla con il nostro team partnership",
       note: "Integrazione unica · Nessun hardware · Attivo in giorni, non settimane!",
     },
     opportunity: {
@@ -853,7 +853,7 @@ export const posChannelStrings = {
     cta: {
       title: "Pronto ad attivare la tua rete?",
       subtitle: "Raccontaci della tua copertura POS e ti guideremo attraverso l'integrazione, le condizioni commerciali e una proiezione di entrate su misura.",
-      button_primary: "Parla con le partnership",
+      button_primary: "Parla con il nostro team partnership",
       button_secondary: "Scopri DutyBoost",
     },
     footer: {
