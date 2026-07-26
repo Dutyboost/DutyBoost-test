@@ -12,7 +12,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "You already own the rail.",
-      subtitle: "Your POS terminals sit at the exact moment of purchase in every airport retailer you serve. DutyBoost turns that position into a revenue stream — without changing what your retailers pay.",
+      subtitle: "Your POS terminals sit at the checkout in every airport retailer you serve. DutyBoost adds a revenue service on top of that flow, earning you a share of every DutyCredit redemption at your own hardware, while making every retailer on your platform more successful.",
       card1_title: "You're at the checkout",
       card1_desc: "Every traveller redemption flows through your hardware. You're already the rail — we make the rail earn.",
       card2_title: "You have the trust",
@@ -157,7 +157,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "U bezit al de rails.",
-      subtitle: "Uw POS-terminals staan op het exacte moment van aankoop in elke luchthavenwinkel die u bedient. DutyBoost verandert die positie in een inkomstenstroom — zonder te veranderen wat uw winkeliers betalen.",
+      subtitle: "Uw POS-terminals staan bij de kassa in elke luchthavenwinkel die u bedient. DutyBoost voegt een inkomsten Dienst toe bovenop die stroom, waardoor u een aandeel verdient van elke DutyCredit-inning op uw eigen hardware, terwijl u elke winkelier op uw platform succesvoller maakt.",
       card1_title: "U staat bij de kassa",
       card1_desc: "Elke reizigersinning loopt via uw hardware. U bent al de rails — wij maken de rails renderend.",
       card2_title: "U hebt het vertrouwen",
@@ -302,7 +302,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "Vous possédez déjà le rail.",
-      subtitle: "Vos terminaux POS se trouvent au moment exact de l'achat dans chaque détaillant d'aéroport que vous servez. DutyBoost transforme cette position en flux de revenus — sans changer ce que vos détaillants paient.",
+      subtitle: "Vos terminaux POS se trouvent à la caisse dans chaque détaillant d'aéroport que vous servez. DutyBoost ajoute un service de revenus par-dessus ce flux, vous rapportant une part de chaque remboursement DutyCredit sur votre propre matériel, tout en rendant chaque détaillant de votre plateforme plus prospère.",
       card1_title: "Vous êtes à la caisse",
       card1_desc: "Chaque remboursement de voyageur passe par votre matériel. Vous êtes déjà le rail — nous le rendons rémunérateur.",
       card2_title: "Vous avez la confiance",
@@ -447,7 +447,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "Sie besitzen bereits die Schiene.",
-      subtitle: "Ihre POS-Terminals stehen genau im Moment des Kaufs bei jedem Flughafenhändler, den Sie bedienen. DutyBoost verwandelt diese Position in einen Einnahmenstrom — ohne zu ändern, was Ihre Händler zahlen.",
+      subtitle: "Ihre POS-Terminals stehen an der Kasse bei jedem Flughafenhändler, den Sie bedienen. DutyBoost fügt über diesen Fluss einen Umsatzdienst hinzu, der Ihnen einen Anteil an jeder DutyCredit-Einlösung an Ihrer eigenen Hardware einbringt, während es jeden Händler auf Ihrer Plattform erfolgreicher macht.",
       card1_title: "Sie stehen an der Kasse",
       card1_desc: "Jede Einlösung durch Reisende läuft über Ihre Hardware. Sie sind bereits die Schiene — wir machen die Schiene lukrativ.",
       card2_title: "Sie haben das Vertrauen",
@@ -592,7 +592,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "Ya posees la vía.",
-      subtitle: "Tus terminales POS están en el momento exacto de la compra en cada minorista de aeropuerto que atiendes. DutyBoost convierte esa posición en un flujo de ingresos — sin cambiar lo que pagan tus minoristas.",
+      subtitle: "Tus terminales POS están en la caja en cada minorista de aeropuerto que atiendes. DutyBoost añade un servicio de ingresos sobre ese flujo, ganándote una parte de cada redención de DutyCredit en tu propio hardware, mientras hace que cada minorista de tu plataforma sea más exitoso.",
       card1_title: "Estás en la caja",
       card1_desc: "Cada redención de viajero fluye a través de tu hardware. Ya eres la vía — hacemos que la vía genere ingresos.",
       card2_title: "Tienes la confianza",
@@ -737,7 +737,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "Possiedi già la rotaia.",
-      subtitle: "I tuoi terminali POS si trovano nel momento esatto dell'acquisto in ogni rivenditore aeroportuale che servi. DutyBoost trasforma quella posizione in un flusso di entrate — senza cambiare ciò che i tuoi rivenditori pagano.",
+      subtitle: "I tuoi terminali POS si trovano alla cassa in ogni rivenditore aeroportuale che servi. DutyBoost aggiunge un servizio di entrate su quel flusso, facendoti guadagnare una quota di ogni riscatto DutyCredit sul tuo hardware, rendendo allo stesso tempo ogni rivenditore sulla tua piattaforma più di successo.",
       card1_title: "Sei alla cassa",
       card1_desc: "Ogni riscatto del viaggiatore passa attraverso il tuo hardware. Sei già la rotaia — facciamo sì che la rotaia generi entrate.",
       card2_title: "Hai la fiducia",
