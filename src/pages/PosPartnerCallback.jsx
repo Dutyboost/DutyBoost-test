@@ -141,7 +141,7 @@ export default function PosPartnerCallback() {
       {/* ── Nav ── */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link to="/pos-channel-partner" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/pos-partner" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back")}
           </Link>
           <Link to="/"><DutyBoostLogo height={40} /></Link>
@@ -192,7 +192,7 @@ export default function PosPartnerCallback() {
                     {t("posChannel.callback.success_text", { name: form.full_name.split(' ')[0] })}
                   </p>
                 </div>
-                <Link to="/pos-channel-partner">
+                <Link to="/pos-partner">
                   <Button variant="outline" className="gap-2 mt-2">
                     <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back_overview")}
                   </Button>
