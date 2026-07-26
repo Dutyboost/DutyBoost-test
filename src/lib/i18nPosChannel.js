@@ -95,7 +95,7 @@ export const posChannelStrings = {
     cta: {
       title: "Ready to switch on your network?",
       subtitle: "Tell us about your POS footprint and we'll walk you through the integration, the commercial terms, and a tailored revenue projection.",
-      button_primary: "Become a Channel Partner",
+      button_primary: "Talk to partnerships",
       button_secondary: "Learn about DutyBoost",
     },
     footer: {
@@ -240,7 +240,7 @@ export const posChannelStrings = {
     cta: {
       title: "Klaar om uw netwerk in te schakelen?",
       subtitle: "Vertel ons over uw POS-footprint en we lopen u door de integratie, de commerciële voorwaarden en een op maat gemaakte inkomstenprojectie.",
-      button_primary: "Word een Channel Partner",
+      button_primary: "Spreek met partnerships",
       button_secondary: "Meer over DutyBoost",
     },
     footer: {
@@ -385,7 +385,7 @@ export const posChannelStrings = {
     cta: {
       title: "Prêt à activer votre réseau ?",
       subtitle: "Parlez-nous de votre empreinte POS et nous vous guiderons à travers l'intégration, les conditions commerciales et une projection de revenus personnalisée.",
-      button_primary: "Devenir partenaire canal",
+      button_primary: "Parler aux partenariats",
       button_secondary: "Découvrir DutyBoost",
     },
     footer: {
@@ -530,7 +530,7 @@ export const posChannelStrings = {
     cta: {
       title: "Bereit, Ihr Netzwerk zu aktivieren?",
       subtitle: "Erzählen Sie uns von Ihrem POS-Footprint und wir führen Sie durch die Integration, die kommerziellen Bedingungen und eine maßgeschneiderte Einnahmenprojektion.",
-      button_primary: "Channel-Partner werden",
+      button_primary: "Mit Partnerschaften sprechen",
       button_secondary: "Mehr über DutyBoost",
     },
     footer: {
@@ -675,7 +675,7 @@ export const posChannelStrings = {
     cta: {
       title: "¿Listo para activar tu red?",
       subtitle: "Cuéntanos sobre tu cobertura POS y te guiaremos a través de la integración, las condiciones comerciales y una proyección de ingresos a medida.",
-      button_primary: "Conviértete en socio de canal",
+      button_primary: "Hablar con el equipo de relaciones de socios",
       button_secondary: "Conoce DutyBoost",
     },
     footer: {
@@ -820,7 +820,7 @@ export const posChannelStrings = {
     cta: {
       title: "Pronto ad attivare la tua rete?",
       subtitle: "Raccontaci della tua copertura POS e ti guideremo attraverso l'integrazione, le condizioni commerciali e una proiezione di entrate su misura.",
-      button_primary: "Diventa partner di canale",
+      button_primary: "Parla con le partnership",
       button_secondary: "Scopri DutyBoost",
     },
     footer: {
