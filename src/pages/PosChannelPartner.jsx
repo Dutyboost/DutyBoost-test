@@ -19,7 +19,7 @@ export default function PosChannelPartner() {
   const { t } = useTranslation();
 
   const [retailerCount, setRetailerCount] = useState(5);
-  const [avgAnnualSales, setAvgAnnualSales] = useState(45000000);
+  const [avgAnnualSales, setAvgAnnualSales] = useState(50000);
   const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState("EUR");
 
