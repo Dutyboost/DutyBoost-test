@@ -18,7 +18,8 @@ const POS_SHARE_PCT = 10;
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [posTerminals, setPosTerminals] = useState(0);
+  const [posTerminalsRaw, setPosTerminalsRaw] = useState("");
+  const posTerminals = parseInt(posTerminalsRaw, 10) || 0;
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const [currency, setCurrency] = useState(() => {
     try {
@@ -260,18 +261,15 @@ export default function PosChannelPartner() {
                   type="number"
                   min={0}
                   step={100}
-                  value={posTerminals}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    if (e.target.value === "" || isNaN(val)) return;
-                    setPosTerminals(Math.max(0, Math.min(20000000, val)));
-                  }}
+                  value={posTerminalsRaw}
+                  onChange={(e) => setPosTerminalsRaw(e.target.value)}
+                  placeholder="0"
                   className="w-40 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                 />
               </div>
               <input
                 type="range" min={0} max={20000000} step={100} value={posTerminals}
-                onChange={(e) => setPosTerminals(Number(e.target.value))}
+                onChange={(e) => setPosTerminalsRaw(e.target.value)}
                 className="w-full accent-violet-600"
               />
 
