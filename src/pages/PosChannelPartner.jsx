@@ -8,7 +8,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
   Zap, Plug, Wallet, TrendingUp, ShieldCheck, Users, Store, Plane,
-  QrCode, ArrowRight, CheckCircle2, Calculator, Sparkles, Code2, Handshake, Cpu, Globe
+  QrCode, ArrowRight, CheckCircle2, Calculator, Sparkles, Code2, Handshake, Cpu, Globe, Layers
 } from "lucide-react";
 import { fmtMoney } from "../utils/formatNumber";
 
@@ -60,7 +60,7 @@ export default function PosChannelPartner() {
     { icon: Plane, label: t("posChannel.flow.node1_label"), desc: t("posChannel.flow.node1_desc") },
     { icon: Store, label: t("posChannel.flow.node2_label"), desc: t("posChannel.flow.node2_desc") },
     { icon: Cpu, label: t("posChannel.flow.node3_label"), desc: t("posChannel.flow.node3_desc"), highlight: true },
-    { icon: Wallet, label: t("posChannel.flow.node4_label"), desc: t("posChannel.flow.node4_desc") },
+    { icon: Layers, label: t("posChannel.flow.node4_label"), desc: t("posChannel.flow.node4_desc") },
   ];
 
   const oppCards = [
