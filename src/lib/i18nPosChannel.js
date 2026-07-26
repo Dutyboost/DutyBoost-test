@@ -59,7 +59,7 @@ export const posChannelStrings = {
       slider_stores: "Airport stores on your POS",
       slider_sales: "Global average annual sales per store",
       slider_rate: "DutyCredit redemption rate (%)",
-      slider_terminals: "Estimated POS Terminals",
+      slider_terminals: "Number of Active POS Terminals",
       conversion_note: "~20% avg conversion (15–25% global rate) → {{active_stores}} active stores",
       result_volume: "Redemption volume",
       result_fees: "Platform fees (2.5%)",
