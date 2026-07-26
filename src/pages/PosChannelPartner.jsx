@@ -19,7 +19,7 @@ export default function PosChannelPartner() {
   const { t } = useTranslation();
 
   const [retailerCount, setRetailerCount] = useState(5);
-  const [redemptionRate, setRedemptionRate] = useState(1);
+  const [redemptionRate, setRedemptionRate] = useState(0.01);
   const [currency, setCurrency] = useState("EUR");
 
   const AVG_ANNUAL_SALES = 15000000;
@@ -261,7 +261,7 @@ export default function PosChannelPartner() {
                 <span className="text-sm font-bold font-mono">{redemptionRate}%</span>
               </div>
               <input
-                type="range" min={1} max={20} step={1} value={redemptionRate}
+                type="range" min={0.01} max={20} step={0.01} value={redemptionRate}
                 onChange={(e) => setRedemptionRate(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
