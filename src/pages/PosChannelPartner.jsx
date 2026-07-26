@@ -240,6 +240,10 @@ export default function PosChannelPartner() {
                 ))}
               </div>
             </div>
+            <div className="flex items-center justify-between py-2 border-b border-border">
+              <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
+              <span className="text-sm font-bold font-mono">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
+            </div>
             <div>
               <div className="flex items-center justify-between mb-2">
                 <Label className="text-sm font-medium">{t("posChannel.calculator.slider_stores")}</Label>
@@ -250,10 +254,6 @@ export default function PosChannelPartner() {
                 onChange={(e) => setRetailerCount(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
-            </div>
-            <div className="flex items-center justify-between py-2 border-b border-border">
-              <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
-              <span className="text-sm font-bold font-mono">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
