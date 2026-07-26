@@ -120,13 +120,13 @@ export default function PosChannelPartner() {
     <div className="min-h-screen bg-background font-body">
       {/* ── Nav ── */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={45} /></Link>
-          <div className="flex items-center gap-3">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+          <Link to="/"><DutyBoostLogo height={36} /></Link>
+          <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSwitcher allowedLanguages={["en", "fr", "de"]} />
             <a href="#calculator">
-              <Button className="gap-2" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Calculator className="w-4 h-4" /> {t("posChannel.nav.model_earnings")}
+              <Button className="gap-1.5 px-3 sm:px-4" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
+                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">{t("posChannel.nav.model_earnings")}</span>
               </Button>
             </a>
           </div>
@@ -136,50 +136,50 @@ export default function PosChannelPartner() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, hsl(255 90% 92%) 0%, transparent 70%)" }} />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-28 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-            <Plug className="w-4 h-4" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-28 text-center">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium mb-5 sm:mb-6" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
+            <Plug className="w-4 h-4 shrink-0" />
             {t("posChannel.hero.badge")}
           </div>
-          <h1 className="text-4xl sm:text-6xl font-heading font-bold tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight">
             {t("posChannel.hero.title_1")}{" "}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
               {t("posChannel.hero.title_2")}
             </span>
             .
           </h1>
-          <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-muted-foreground mt-5 sm:mt-6 max-w-2xl mx-auto leading-relaxed">
             {t("posChannel.hero.subtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 sm:mt-10">
             <Link to="/pos-partner-callback">
-              <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Handshake className="w-5 h-5" /> {t("posChannel.hero.cta_secondary")}
+              <Button size="lg" className="gap-2 h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
+                <Handshake className="w-5 h-5 shrink-0" /> {t("posChannel.hero.cta_secondary")}
               </Button>
             </Link>
           </div>
-          <p className="text-sm text-muted-foreground mt-6">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-5 sm:mt-6">
             {t("posChannel.hero.note")}
           </p>
         </div>
       </section>
 
       {/* ── The Opportunity ── */}
-      <section className="py-16 sm:py-20 bg-card border-y border-border">
+      <section className="py-10 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel.opportunity.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t("posChannel.opportunity.title")}</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
               {t("posChannel.opportunity.subtitle")}
             </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {oppCards.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-border p-6 bg-background">
+              <div key={c.title} className="rounded-2xl border border-border p-5 sm:p-6 bg-background">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "hsl(255 90% 95%)" }}>
                   <c.icon className="w-5 h-5" style={{ color: "#6d28d9" }} />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-1.5">{c.title}</h3>
+                <h3 className="font-heading font-bold text-base sm:text-lg mb-1.5">{c.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
               </div>
             ))}
@@ -188,14 +188,14 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── Revenue Model ── */}
-      <section className="py-16 sm:py-24">
+      <section className="py-10 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Wallet className="w-3.5 h-3.5" /> {t("posChannel.revenue.badge")}
+              <Wallet className="w-3.5 h-3.5 shrink-0" /> {t("posChannel.revenue.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel.revenue.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t("posChannel.revenue.title")}</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
               {t("posChannel.revenue.subtitle")}
             </p>
           </div>
@@ -229,15 +229,15 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── How it works ── */}
-      <section className="py-16 sm:py-20 bg-card border-y border-border">
+      <section className="py-10 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel.how.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.how.subtitle")}</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t("posChannel.how.title")}</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mt-3">{t("posChannel.how.subtitle")}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {steps.map((s) => (
-              <div key={s.num} className="relative rounded-2xl border border-border p-6 bg-background">
+              <div key={s.num} className="relative rounded-2xl border border-border p-5 sm:p-6 bg-background">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "hsl(255 90% 95%)" }}>
                     <s.icon className="w-5 h-5" style={{ color: "#6d28d9" }} />
@@ -253,18 +253,18 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── Earnings Calculator ── */}
-      <section id="calculator" className="py-16 sm:py-24 scroll-mt-16">
+      <section id="calculator" className="py-10 sm:py-24 scroll-mt-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Calculator className="w-3.5 h-3.5" /> {t("posChannel.calculator.badge")}
+              <Calculator className="w-3.5 h-3.5 shrink-0" /> {t("posChannel.calculator.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel.calculator.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.calculator.subtitle")}</p>
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t("posChannel.calculator.title")}</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mt-3">{t("posChannel.calculator.subtitle")}</p>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
-            <p className="text-sm text-muted-foreground text-center">
+          <div className="rounded-2xl border border-border bg-card p-4 sm:p-8 space-y-5 sm:space-y-6">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center">
               {t("posChannel.calculator.market_context", { market_size: `${fmtMoney(40, currency, 0)}B+` })}
             </p>
             <div className="flex items-center justify-end">
@@ -284,13 +284,13 @@ export default function PosChannelPartner() {
                 ))}
               </div>
             </div>
-            <div className="flex items-center justify-between py-2 border-b border-border">
-              <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
-              <span className="text-sm font-bold font-mono">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
+            <div className="flex items-center justify-between py-2 border-b border-border gap-2">
+              <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
+              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
             </div>
             <div>
-              <div className="flex items-center justify-between mb-2 gap-3">
-                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
+              <div className="flex items-center justify-between mb-2 gap-2">
+                <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
                 <input
                   ref={terminalsInputRef}
                   type="text"
@@ -298,7 +298,7 @@ export default function PosChannelPartner() {
                   value={formatTerminals(posTerminalsRaw, currency)}
                   onChange={handleTerminalsChange}
                   placeholder="0"
-                  className="w-40 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
+                  className="w-28 sm:w-40 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                 />
               </div>
               <input
@@ -307,12 +307,11 @@ export default function PosChannelPartner() {
                 onInput={(e) => setPosTerminalsRaw(e.target.value)}
                 className="w-full accent-violet-600"
               />
-
             </div>
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_rate")}</Label>
-                <span className="text-sm font-bold font-mono">{redemptionRate}%</span>
+              <div className="flex items-center justify-between mb-2 gap-2">
+                <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_rate")}</Label>
+                <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{redemptionRate}%</span>
               </div>
               <input
                 type="range" min={0.01} max={20} step={0.01} value={redemptionRate}
@@ -321,19 +320,19 @@ export default function PosChannelPartner() {
               />
             </div>
 
-            <div className="border-t border-border pt-6">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
+            <div className="border-t border-border pt-5 sm:pt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center">
+                <div className="rounded-lg border border-border p-3 sm:p-0 sm:border-0">
                   <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_volume")}</p>
-                  <p className="text-lg font-heading font-bold">{fmtMoney(redemptionVolume, currency, 0)}</p>
+                  <p className="text-base sm:text-lg font-heading font-bold break-words">{fmtMoney(redemptionVolume, currency, 0)}</p>
                 </div>
-                <div>
+                <div className="rounded-lg border border-border p-3 sm:p-0 sm:border-0">
                   <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_fees")}</p>
-                  <p className="text-lg font-heading font-bold">{fmtMoney(platformFees, currency, 0)}</p>
+                  <p className="text-base sm:text-lg font-heading font-bold break-words">{fmtMoney(platformFees, currency, 0)}</p>
                 </div>
-                <div className="rounded-xl p-2" style={{ background: "hsl(255 90% 95%)" }}>
+                <div className="rounded-xl p-3 sm:p-2" style={{ background: "hsl(255 90% 95%)" }}>
                   <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>{t("posChannel.calculator.result_earnings")}</p>
-                  <p className="text-2xl font-heading font-bold" style={{ color: "#6d28d9" }}>
+                  <p className="text-xl sm:text-2xl font-heading font-bold break-words" style={{ color: "#6d28d9" }}>
                     {fmtMoney(posEarnings, currency, 0)}
                   </p>
                 </div>
@@ -347,15 +346,15 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── Why partner ── */}
-      <section className="py-16 sm:py-20 bg-card border-y border-border">
+      <section className="py-10 sm:py-20 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel.why.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.why.subtitle")}</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t("posChannel.why.title")}</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mt-3">{t("posChannel.why.subtitle")}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {benefits.map((b) => (
-              <div key={b.title} className="rounded-2xl border border-border p-6 bg-background">
+              <div key={b.title} className="rounded-2xl border border-border p-5 sm:p-6 bg-background">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "hsl(255 90% 95%)" }}>
                   <b.icon className="w-5 h-5" style={{ color: "#6d28d9" }} />
                 </div>
@@ -368,19 +367,19 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── Where you fit ── */}
-      <section className="py-16 sm:py-20">
+      <section className="py-10 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "hsl(255 90% 95%)", color: "#6d28d9" }}>
-              <Sparkles className="w-3.5 h-3.5" /> {t("posChannel.flow.badge")}
+              <Sparkles className="w-3.5 h-3.5 shrink-0" /> {t("posChannel.flow.badge")}
             </div>
-            <h2 className="text-3xl font-heading font-bold">{t("posChannel.flow.title")}</h2>
-            <p className="text-lg text-muted-foreground mt-3">{t("posChannel.flow.subtitle")}</p>
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t("posChannel.flow.title")}</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mt-3">{t("posChannel.flow.subtitle")}</p>
           </div>
-          <div className="flex flex-col sm:flex-row items-stretch gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch gap-3 sm:gap-3">
             {flowNodes.map((n, i, arr) => (
               <div key={n.label} className="flex items-stretch gap-3 flex-1">
-                <div className={`flex-1 rounded-2xl border p-5 text-center ${n.highlight ? "border-violet-300 bg-violet-50" : "border-border bg-card"}`}>
+                <div className={`flex-1 rounded-2xl border p-4 sm:p-5 text-center ${n.highlight ? "border-violet-300 bg-violet-50" : "border-border bg-card"}`}>
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${n.highlight ? "" : ""}`} style={{ background: n.highlight ? "hsl(255 90% 90%)" : "hsl(220 15% 94%)" }}>
                     <n.icon className="w-6 h-6" style={{ color: n.highlight ? "#6d28d9" : "hsl(var(--muted-foreground))" }} />
                   </div>
@@ -399,21 +398,21 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 sm:py-24" style={{ background: "linear-gradient(135deg, hsl(255 90% 97%) 0%, hsl(243 75% 97%) 100%)" }}>
+      <section className="py-10 sm:py-24" style={{ background: "linear-gradient(135deg, hsl(255 90% 97%) 0%, hsl(243 75% 97%) 100%)" }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold">{t("posChannel.cta.title")}</h2>
-          <p className="text-lg text-muted-foreground mt-4">
+          <h2 className="text-2xl sm:text-4xl font-heading font-bold">{t("posChannel.cta.title")}</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mt-4">
             {t("posChannel.cta.subtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
-            <Link to="/pos-partner-callback">
-              <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Handshake className="w-5 h-5" /> {t("posChannel.cta.button_primary")}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 sm:mt-8">
+            <Link to="/pos-partner-callback" className="w-full sm:w-auto">
+              <Button size="lg" className="gap-2 h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base w-full" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
+                <Handshake className="w-5 h-5 shrink-0" /> {t("posChannel.cta.button_primary")}
               </Button>
             </Link>
-            <Link to="/">
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
-                {t("posChannel.cta.button_secondary")} <ArrowRight className="w-5 h-5" />
+            <Link to="/" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base gap-2 w-full">
+                {t("posChannel.cta.button_secondary")} <ArrowRight className="w-5 h-5 shrink-0" />
               </Button>
             </Link>
           </div>
@@ -421,9 +420,9 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-border py-8 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <Link to="/"><DutyBoostLogo height={40} /></Link>
+      <footer className="border-t border-border py-6 sm:py-8 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground text-center">
+          <Link to="/"><DutyBoostLogo height={32} /></Link>
           <p>{t("posChannel.footer.tagline", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
