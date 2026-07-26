@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -19,14 +19,40 @@ export default function PosChannelPartner() {
   const { t } = useTranslation();
 
   const [posTerminalsRaw, setPosTerminalsRaw] = useState("");
-  const [posTerminalsFocused, setPosTerminalsFocused] = useState(false);
-  const posTerminals = parseInt(posTerminalsRaw.replace(/[^\d]/g, ""), 10) || 0;
+  const posTerminals = parseInt(posTerminalsRaw, 10) || 0;
+  const terminalsInputRef = useRef(null);
 
   const localeForCurrency = (cur) => (cur === "EUR" ? "de-DE" : "en-US");
   const formatTerminals = (rawStr, cur) => {
-    const num = parseInt(rawStr.replace(/[^\d]/g, ""), 10);
+    const num = parseInt(rawStr, 10);
     if (!num) return "";
     return new Intl.NumberFormat(localeForCurrency(cur)).format(num);
+  };
+
+  const handleTerminalsChange = (e) => {
+    const input = e.target;
+    const cursorPos = input.selectionStart ?? 0;
+    const digitsBeforeCursor = input.value.substring(0, cursorPos).replace(/[^\d]/g, "").length;
+    const rawDigits = input.value.replace(/[^\d]/g, "");
+    setPosTerminalsRaw(rawDigits);
+    requestAnimationFrame(() => {
+      const el = terminalsInputRef.current;
+      if (!el) return;
+      const formatted = el.value;
+      let digitCount = 0;
+      let newPos = 0;
+      for (let i = 0; i < formatted.length; i++) {
+        if (/\d/.test(formatted[i])) {
+          digitCount++;
+          if (digitCount === digitsBeforeCursor) {
+            newPos = i + 1;
+            break;
+          }
+        }
+      }
+      if (digitCount < digitsBeforeCursor) newPos = formatted.length;
+      el.setSelectionRange(newPos, newPos);
+    });
   };
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const [currency, setCurrency] = useState(() => {
@@ -266,12 +292,11 @@ export default function PosChannelPartner() {
               <div className="flex items-center justify-between mb-2 gap-3">
                 <Label className="text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
                 <input
+                  ref={terminalsInputRef}
                   type="text"
                   inputMode="numeric"
-                  value={posTerminalsFocused ? posTerminalsRaw : formatTerminals(posTerminalsRaw, currency)}
-                  onChange={(e) => setPosTerminalsRaw(e.target.value.replace(/[^\d]/g, ""))}
-                  onFocus={() => setPosTerminalsFocused(true)}
-                  onBlur={() => setPosTerminalsFocused(false)}
+                  value={formatTerminals(posTerminalsRaw, currency)}
+                  onChange={handleTerminalsChange}
                   placeholder="0"
                   className="w-40 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                 />
