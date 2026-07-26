@@ -259,7 +259,7 @@ export default function PosChannelPartner() {
                 <span className="text-sm font-bold font-mono">{posTerminals.toLocaleString()}</span>
               </div>
               <input
-                type="range" min={10} max={10000} step={10} value={posTerminals}
+                type="range" min={100} max={20000000} step={100} value={posTerminals}
                 onChange={(e) => setPosTerminals(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
