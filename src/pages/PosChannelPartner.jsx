@@ -219,7 +219,7 @@ export default function PosChannelPartner() {
 
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
             <p className="text-sm text-muted-foreground text-center">
-              {t("posChannel.calculator.market_context")}
+              {t("posChannel.calculator.market_context", { market_size: `${fmtMoney(40, currency, 0)}B+` })}
             </p>
             <div className="flex items-center justify-end">
               <div className="inline-flex items-center rounded-lg border border-border bg-muted/40 p-0.5">

@@ -53,7 +53,7 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calculate your earnings",
-      market_context: "Airport retail is a €40B+ global market — here's your share",
+      market_context: "Airport retail is a {{market_size}} global market — here's your share",
       title: "Your recurring revenue",
       subtitle: "Adjust the sliders to see your projected annual partner earnings.",
       slider_stores: "Airport stores on your POS",
@@ -201,7 +201,7 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Bereken uw inkomsten",
-      market_context: "Luchthavenretail is een wereldwijde markt van €40 miljard+ — hier is uw aandeel",
+      market_context: "Luchthavenretail is een wereldwijde markt van {{market_size}} — hier is uw aandeel",
       title: "Uw terugkerende inkomsten",
       subtitle: "Pas de schuifjes aan om uw verwachte jaarlijkse partner-inkomsten te zien.",
       slider_stores: "Luchthavenwinkels op uw POS",
@@ -349,7 +349,7 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calculez vos revenus",
-      market_context: "Le commerce aéroportuaire est un marché mondial de 40 Mds€+ — voici votre part",
+      market_context: "Le commerce aéroportuaire est un marché mondial de {{market_size}} — voici votre part",
       title: "Vos revenus récurrents",
       subtitle: "Ajustez les curseurs pour voir vos revenus annuels de partenaire projetés.",
       slider_stores: "Magasins d'aéroport sur votre POS",
@@ -497,7 +497,7 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Ihre Einnahmen berechnen",
-      market_context: "Flughafen-Einzelhandel ist ein 40 Mrd.€+ globaler Markt — hier ist Ihr Anteil",
+      market_context: "Flughafen-Einzelhandel ist ein globaler Markt von {{market_size}} — hier ist Ihr Anteil",
       title: "Ihre wiederkehrenden Einnahmen",
       subtitle: "Passen Sie die Schieberegler an, um Ihre projizierten jährlichen Partner-Einnahmen zu sehen.",
       slider_stores: "Flughafengeschäfte auf Ihrem POS",
@@ -645,7 +645,7 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calcula tus ingresos",
-      market_context: "El comercio aeroportuario es un mercado global de 40 mil millones €+ — aquí está su parte",
+      market_context: "El comercio aeroportuario es un mercado global de {{market_size}} — aquí está su parte",
       title: "Tus ingresos recurrentes",
       subtitle: "Ajusta los deslizadores para ver tus ingresos anuales de socio proyectados.",
       slider_stores: "Tiendas de aeropuerto en tu POS",
@@ -793,7 +793,7 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calcola i tuoi guadagni",
-      market_context: "Il commercio aeroportuario è un mercato globale da 40 mld€+ — ecco la tua quota",
+      market_context: "Il commercio aeroportuario è un mercato globale da {{market_size}} — ecco la tua quota",
       title: "Le tue entrate ricorrenti",
       subtitle: "Regola i cursori per vedere le tue entrate annuali di partner previste.",
       slider_stores: "Negozi aeroportuali sul tuo POS",
