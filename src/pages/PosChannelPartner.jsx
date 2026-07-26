@@ -218,6 +218,16 @@ export default function PosChannelPartner() {
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-6">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-xl bg-muted/40 p-4 text-center">
+                <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.stat_passengers")}</p>
+                <p className="text-lg font-heading font-bold">9.8B</p>
+              </div>
+              <div className="rounded-xl bg-muted/40 p-4 text-center">
+                <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.stat_conversion")}</p>
+                <p className="text-lg font-heading font-bold">15–25%</p>
+              </div>
+            </div>
             <div className="flex items-center justify-end">
               <div className="inline-flex items-center rounded-lg border border-border bg-muted/40 p-0.5">
                 {currencyOptions.map((c) => (

@@ -53,6 +53,8 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calculate your earnings",
+      stat_passengers: "Total airport passenger journeys",
+      stat_conversion: "Retail sales conversion",
       title: "Your recurring revenue",
       subtitle: "Adjust the sliders to see your projected annual partner earnings.",
       slider_stores: "Airport stores on your POS",
@@ -200,6 +202,8 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Bereken uw inkomsten",
+      stat_passengers: "Totale luchthavenpassagiers",
+      stat_conversion: "Retailverkoopconversie",
       title: "Uw terugkerende inkomsten",
       subtitle: "Pas de schuifjes aan om uw verwachte jaarlijkse partner-inkomsten te zien.",
       slider_stores: "Luchthavenwinkels op uw POS",
@@ -347,6 +351,8 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calculez vos revenus",
+      stat_passengers: "Total des passagers aéroportuaires",
+      stat_conversion: "Conversion des ventes au détail",
       title: "Vos revenus récurrents",
       subtitle: "Ajustez les curseurs pour voir vos revenus annuels de partenaire projetés.",
       slider_stores: "Magasins d'aéroport sur votre POS",
@@ -494,6 +500,8 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Ihre Einnahmen berechnen",
+      stat_passengers: "Gesamtzahl der Flughafenpassagiere",
+      stat_conversion: "Einzelhandelsumsatz-Konversion",
       title: "Ihre wiederkehrenden Einnahmen",
       subtitle: "Passen Sie die Schieberegler an, um Ihre projizierten jährlichen Partner-Einnahmen zu sehen.",
       slider_stores: "Flughafengeschäfte auf Ihrem POS",
@@ -641,6 +649,8 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calcula tus ingresos",
+      stat_passengers: "Total de pasajeros aeroportuarios",
+      stat_conversion: "Conversión de ventas minoristas",
       title: "Tus ingresos recurrentes",
       subtitle: "Ajusta los deslizadores para ver tus ingresos anuales de socio proyectados.",
       slider_stores: "Tiendas de aeropuerto en tu POS",
@@ -788,6 +798,8 @@ export const posChannelStrings = {
     },
     calculator: {
       badge: "Calcola i tuoi guadagni",
+      stat_passengers: "Totale passeggeri aeroportuali",
+      stat_conversion: "Conversione vendite al dettaglio",
       title: "Le tue entrate ricorrenti",
       subtitle: "Regola i cursori per vedere le tue entrate annuali di partner previste.",
       slider_stores: "Negozi aeroportuali sul tuo POS",
