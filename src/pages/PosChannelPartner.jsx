@@ -15,12 +15,35 @@ import { fmtMoney } from "../utils/formatNumber";
 const PLATFORM_FEE_PCT = 2.5;
 const POS_SHARE_PCT = 10;
 
+// Non-linear slider stops: 100→1k by 100, 1k→10k by 1k, 10k→100k by 10k, 100k→1M by 100k, 1M→20M by 1M
+const POS_TICKS = (() => {
+  const ticks = [100];
+  for (let v = 200; v <= 1000; v += 100) ticks.push(v);
+  for (let v = 2000; v <= 10000; v += 1000) ticks.push(v);
+  for (let v = 20000; v <= 100000; v += 10000) ticks.push(v);
+  for (let v = 200000; v <= 1000000; v += 100000) ticks.push(v);
+  for (let v = 2000000; v <= 20000000; v += 1000000) ticks.push(v);
+  return ticks;
+})();
+
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [posTerminalsRaw, setPosTerminalsRaw] = useState("");
+  const [posTerminalsRaw, setPosTerminalsRaw] = useState("100");
   const posTerminals = parseInt(posTerminalsRaw, 10) || 0;
   const terminalsInputRef = useRef(null);
+
+  // Map current terminal count to nearest slider tick index
+  const posSliderIndex = (() => {
+    if (!posTerminals || posTerminals <= 100) return 0;
+    let closest = 0;
+    let minDiff = Infinity;
+    POS_TICKS.forEach((t, i) => {
+      const diff = Math.abs(t - posTerminals);
+      if (diff < minDiff) { minDiff = diff; closest = i; }
+    });
+    return closest;
+  })();
 
   const localeForCurrency = (cur) => (cur === "EUR" ? "de-DE" : "en-US");
   const formatTerminals = (rawStr, cur) => {
@@ -302,9 +325,11 @@ export default function PosChannelPartner() {
                 />
               </div>
               <input
-                type="range" min={0} max={20000000} step={100} value={posTerminals}
-                onChange={(e) => setPosTerminalsRaw(e.target.value)}
-                onInput={(e) => setPosTerminalsRaw(e.target.value)}
+                type="range" min={0} max={POS_TICKS.length - 1} step={1} value={posSliderIndex}
+                onChange={(e) => {
+                  const idx = Number(e.target.value);
+                  setPosTerminalsRaw(String(POS_TICKS[idx]));
+                }}
                 className="w-full accent-violet-600"
               />
             </div>
