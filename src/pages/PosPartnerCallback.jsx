@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
-  ArrowLeft, Loader2, CheckCircle2, Plug, ShieldCheck, Zap, Clock
+  ArrowLeft, Loader2, Plug, ShieldCheck, Zap, Clock
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -155,108 +155,124 @@ export default function PosPartnerCallback() {
       </nav>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          {/* ── Left: pitch ── */}
-          <div className="space-y-6">
+        {submitted ? (
+          <div className="max-w-2xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium" style={{ background: "hsl(255 90% 95%)", color: VIOLET }}>
               <Plug className="w-4 h-4" />
               {t("posChannel.callback.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-heading font-bold leading-tight">
-              {submitted
-                ? t("posChannel.callback.success_left_title")
-                : t("posChannel.callback.title")}
+              {t("posChannel.callback.success_left_title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {submitted
-                ? t("posChannel.callback.success_text", { name: form.full_name.split(' ')[0] })
-                : t("posChannel.callback.subtitle")}
+              {t("posChannel.callback.success_text", { name: form.full_name.split(' ')[0] })}
             </p>
 
-            <div className="space-y-4 pt-2">
+            <div className="grid sm:grid-cols-3 gap-6 pt-4 text-left">
               {pitchItems.map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
+                <div key={item.title} className="flex flex-col items-start gap-2">
                   <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "hsl(255 90% 95%)" }}>
                     <item.icon className="w-4 h-4" style={{ color: VIOLET }} />
                   </div>
-                  <div>
-                    <p className="font-semibold text-sm">{item.title}</p>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
+                  <p className="font-semibold text-sm">{item.title}</p>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* ── Right: form / success ── */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
-            {submitted ? (
-              <div className="flex flex-col items-center text-center py-8 space-y-4">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "hsl(255 90% 95%)" }}>
-                  <CheckCircle2 className="w-8 h-8" style={{ color: VIOLET }} />
-                </div>
-                <Link to="/pos-partner">
-                  <Button variant="outline" className="gap-2">
-                    <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back_overview")}
-                  </Button>
-                </Link>
+            <div className="pt-6">
+              <Link to="/pos-partner">
+                <Button variant="outline" className="gap-2">
+                  <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back_overview")}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* ── Left: pitch ── */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium" style={{ background: "hsl(255 90% 95%)", color: VIOLET }}>
+                <Plug className="w-4 h-4" />
+                {t("posChannel.callback.badge")}
               </div>
-            ) : (
-              <>
-                <h2 className="text-xl font-heading font-bold mb-1">{t("posChannel.callback.form_title")}</h2>
-                <p className="text-sm text-muted-foreground mb-6">{t("posChannel.callback.form_subtitle")}</p>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="full_name" className="text-sm">{t("posChannel.callback.label_name")}</Label>
-                    <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_name")} />
-                    {errors.full_name && <p className="text-xs text-red-500">{errors.full_name}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-sm">{t("posChannel.callback.label_email")}</Label>
-                    <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_email")} />
-                    {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="phone" className="text-sm">{t("posChannel.callback.label_phone")}</Label>
-                    <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_phone")} />
-                    {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="company_name" className="text-sm">{t("posChannel.callback.label_company")}</Label>
-                    <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_company")} />
-                    {errors.company_name && <p className="text-xs text-red-500">{errors.company_name}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="website" className="text-sm">{t("posChannel.callback.label_website")}</Label>
-                    <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_website")} />
-                    {errors.website && <p className="text-xs text-red-500">{errors.website}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="footprint" className="text-sm">{t("posChannel.callback.label_footprint")}</Label>
-                    <Textarea
-                      id="footprint" name="footprint" value={form.footprint} onChange={handleChange}
-                      placeholder={t("posChannel.callback.placeholder_footprint")}
-                      rows={2}
-                    />
-                    <p className="text-xs text-muted-foreground">{t("posChannel.callback.footprint_help")}</p>
-                  </div>
+              <h1 className="text-3xl sm:text-4xl font-heading font-bold leading-tight">
+                {t("posChannel.callback.title")}
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t("posChannel.callback.subtitle")}
+              </p>
 
-                  <Button
-                    type="submit" disabled={loading}
-                    className="w-full gap-2 h-12 text-base"
-                    style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}
-                  >
-                    {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                    {t("posChannel.callback.button")}
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    {t("posChannel.callback.consent")}
-                  </p>
-                </form>
-              </>
-            )}
+              <div className="space-y-4 pt-2">
+                {pitchItems.map((item) => (
+                  <div key={item.title} className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "hsl(255 90% 95%)" }}>
+                      <item.icon className="w-4 h-4" style={{ color: VIOLET }} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm">{item.title}</p>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── Right: form ── */}
+            <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+              <h2 className="text-xl font-heading font-bold mb-1">{t("posChannel.callback.form_title")}</h2>
+              <p className="text-sm text-muted-foreground mb-6">{t("posChannel.callback.form_subtitle")}</p>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-1.5">
+                  <Label htmlFor="full_name" className="text-sm">{t("posChannel.callback.label_name")}</Label>
+                  <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_name")} />
+                  {errors.full_name && <p className="text-xs text-red-500">{errors.full_name}</p>}
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="email" className="text-sm">{t("posChannel.callback.label_email")}</Label>
+                  <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_email")} />
+                  {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="phone" className="text-sm">{t("posChannel.callback.label_phone")}</Label>
+                  <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_phone")} />
+                  {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="company_name" className="text-sm">{t("posChannel.callback.label_company")}</Label>
+                  <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_company")} />
+                  {errors.company_name && <p className="text-xs text-red-500">{errors.company_name}</p>}
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="website" className="text-sm">{t("posChannel.callback.label_website")}</Label>
+                  <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_website")} />
+                  {errors.website && <p className="text-xs text-red-500">{errors.website}</p>}
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="footprint" className="text-sm">{t("posChannel.callback.label_footprint")}</Label>
+                  <Textarea
+                    id="footprint" name="footprint" value={form.footprint} onChange={handleChange}
+                    placeholder={t("posChannel.callback.placeholder_footprint")}
+                    rows={2}
+                  />
+                  <p className="text-xs text-muted-foreground">{t("posChannel.callback.footprint_help")}</p>
+                </div>
+
+                <Button
+                  type="submit" disabled={loading}
+                  className="w-full gap-2 h-12 text-base"
+                  style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}
+                >
+                  {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+                  {t("posChannel.callback.button")}
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  {t("posChannel.callback.consent")}
+                </p>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* ── Footer ── */}
