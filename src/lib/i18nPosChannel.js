@@ -7,7 +7,7 @@ export const posChannelStrings = {
       title_2: "recurring revenue",
       subtitle: "Integrate DutyBoost into your Point Of Sales Platform (POS) once. Every airport retailer you switch on earns you a lifetime share of every DutyCredit redemption — passive income from hardware you've already deployed.",
       cta_primary: "See your earnings",
-      cta_secondary: "Talk to our partnership team",
+      cta_secondary: "Talk To Our Partnerships Team",
       note: "One-time integration · No hardware · Live in days, not weeks!",
     },
     opportunity: {
@@ -98,7 +98,7 @@ export const posChannelStrings = {
     cta: {
       title: "Ready to switch on your network?",
       subtitle: "Tell us about your POS footprint and we'll walk you through the integration, the commercial terms, and a tailored revenue projection.",
-      button_primary: "Talk to our partnership team",
+      button_primary: "Talk To Our Partnerships Team",
       button_secondary: "Learn about DutyBoost",
     },
     footer: {
