@@ -263,9 +263,7 @@ export default function PosChannelPartner() {
                 onChange={(e) => setPosTerminals(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
-              <p className="text-xs text-muted-foreground mt-2">
-                {t("posChannel.calculator.conversion_note", { active_stores: activeStores.toLocaleString() })}
-              </p>
+
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
