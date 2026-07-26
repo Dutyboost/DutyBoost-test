@@ -254,9 +254,20 @@ export default function PosChannelPartner() {
               <span className="text-sm font-bold font-mono">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
             </div>
             <div>
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between mb-2 gap-3">
                 <Label className="text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
-                <span className="text-sm font-bold font-mono">{posTerminals.toLocaleString()}</span>
+                <input
+                  type="number"
+                  min={100}
+                  max={20000000}
+                  step={100}
+                  value={posTerminals}
+                  onChange={(e) => {
+                    const val = Number(e.target.value);
+                    if (!isNaN(val)) setPosTerminals(Math.max(100, Math.min(20000000, val)));
+                  }}
+                  className="w-40 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
+                />
               </div>
               <input
                 type="range" min={100} max={20000000} step={100} value={posTerminals}
