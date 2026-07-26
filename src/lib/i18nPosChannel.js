@@ -21,7 +21,7 @@ export const posChannelStrings = {
       card3_desc: "Hundreds of retailers on one integration. Activate them all with a dashboard toggle — no per-store sales cycle.",
     },
     revenue: {
-      badge: "The commission model",
+      badge: "The commission split",
       title: "One fee. Three earners.",
       subtitle: "The retailer always pays the same 2.5% platform fee. When you brought the retailer, a slice of that fee flows to you — carved from DutyBoost's margin, never added to the retailer's bill.",
       row1_label: "Retailer pays (platform fee)",
@@ -166,7 +166,7 @@ export const posChannelStrings = {
       card3_desc: "Honderden winkeliers op één integratie. Activeer ze allemaal met een dashboard-schakelaar — geen verkoopcyclus per winkel.",
     },
     revenue: {
-      badge: "Het commissiemodel",
+      badge: "De commissieverdeling",
       title: "Eén vergoeding. Drie verdieners.",
       subtitle: "De winkelier betaalt altijd dezelfde 2,5% platformvergoeding. Als u de winkelier hebt aangesloten, vloeit een deel van die vergoeding naar u — afkomstig uit DutyBoost's marge, nooit toegevoegd aan de rekening van de winkelier.",
       row1_label: "Winkelier betaalt (platformvergoeding)",
@@ -311,7 +311,7 @@ export const posChannelStrings = {
       card3_desc: "Des centaines de détaillants sur une seule intégration. Activez-les tous avec un bouton de tableau de bord — pas de cycle de vente par magasin.",
     },
     revenue: {
-      badge: "Le modèle de commission",
+      badge: "Le partage de la commission",
       title: "Un seul frais. Trois gagnants.",
       subtitle: "Le détaillant paie toujours la même commission de 2,5 %. Lorsque vous avez apporté le détaillant, une part de cette commission vous revient — prélevée sur la marge de DutyBoost, jamais ajoutée à la facture du détaillant.",
       row1_label: "Le détaillant paie (commission plateforme)",
@@ -456,7 +456,7 @@ export const posChannelStrings = {
       card3_desc: "Hunderte Händler auf einer Integration. Aktivieren Sie alle mit einem Dashboard-Schalter — kein Verkaufszyklus pro Geschäft.",
     },
     revenue: {
-      badge: "Das Provisionsmodell",
+      badge: "Die Provisionsteilung",
       title: "Eine Gebühr. Drei Verdienende.",
       subtitle: "Der Händler zahlt immer dieselbe 2,5 % Plattformgebühr. Wenn Sie den Händler gebracht haben, fließt ein Teil dieser Gebühr an Sie — aus DutyBoosts Marge, nie auf die Rechnung des Händlers aufgeschlagen.",
       row1_label: "Händler zahlt (Plattformgebühr)",
@@ -601,7 +601,7 @@ export const posChannelStrings = {
       card3_desc: "Cientos de minoristas en una sola integración. Actívalos todos con un interruptor del panel — sin ciclo de venta por tienda.",
     },
     revenue: {
-      badge: "El modelo de comisión",
+      badge: "El reparto de la comisión",
       title: "Una comisión. Tres beneficiarios.",
       subtitle: "El minorista siempre paga la misma comisión de plataforma del 2,5 %. Cuando tú aportaste al minorista, una parte de esa comisión fluye hacia ti — extraída del margen de DutyBoost, nunca añadida a la factura del minorista.",
       row1_label: "El minorista paga (comisión plataforma)",
@@ -746,7 +746,7 @@ export const posChannelStrings = {
       card3_desc: "Centinaia di rivenditori su un'unica integrazione. Attivali tutti con un interruttore della dashboard — nessun ciclo di vendita per singolo negozio.",
     },
     revenue: {
-      badge: "Il modello di commissione",
+      badge: "La ripartizione della commissione",
       title: "Una commissione. Tre beneficiari.",
       subtitle: "Il rivenditore paga sempre la stessa commissione di piattaforma del 2,5 %. Quando hai portato tu il rivenditore, una porzione di quella commissione fluisce verso di te — tratta dal margine di DutyBoost, mai aggiunta alla fattura del rivenditore.",
       row1_label: "Il rivenditore paga (commissione piattaforma)",
