@@ -106,11 +106,6 @@ export default function PosChannelPartner() {
             {t("posChannel.hero.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10">
-            <a href="#calculator">
-              <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Calculator className="w-5 h-5" /> {t("posChannel.hero.cta_primary")}
-              </Button>
-            </a>
             <Link to="/pos-partner-callback">
               <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
                 <Handshake className="w-5 h-5" /> {t("posChannel.hero.cta_secondary")}
