@@ -169,7 +169,7 @@ export default function PosPartnerCallback() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {submitted
-                ? t("posChannel.callback.success_left_subtitle")
+                ? t("posChannel.callback.success_text", { name: form.full_name.split(' ')[0] })
                 : t("posChannel.callback.subtitle")}
             </p>
 
@@ -195,12 +195,7 @@ export default function PosPartnerCallback() {
                 <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "hsl(255 90% 95%)" }}>
                   <CheckCircle2 className="w-8 h-8" style={{ color: VIOLET }} />
                 </div>
-                <div className="space-y-2">
-                  <h2 className="text-xl font-heading font-bold">{t("posChannel.callback.success_title")}</h2>
-                  <p className="text-sm text-muted-foreground">
-                    {t("posChannel.callback.success_text", { name: form.full_name.split(' ')[0] })}
-                  </p>
-                </div>
+                <h2 className="text-xl font-heading font-bold">{t("posChannel.callback.success_title")}</h2>
                 <Link to="/pos-partner">
                   <Button variant="outline" className="gap-2 mt-2">
                     <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back_overview")}
