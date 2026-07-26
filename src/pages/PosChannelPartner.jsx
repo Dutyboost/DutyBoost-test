@@ -19,11 +19,12 @@ export default function PosChannelPartner() {
   const { t } = useTranslation();
 
   const [retailerCount, setRetailerCount] = useState(5);
-  const [avgAnnualSales, setAvgAnnualSales] = useState(50000);
   const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState("EUR");
 
-  const redemptionVolume = (retailerCount * avgAnnualSales * redemptionRate) / 100;
+  const AVG_ANNUAL_SALES = 30000000;
+
+  const redemptionVolume = (retailerCount * AVG_ANNUAL_SALES * redemptionRate) / 100;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
 
@@ -250,16 +251,9 @@ export default function PosChannelPartner() {
                 className="w-full accent-violet-600"
               />
             </div>
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
-                <span className="text-sm font-bold font-mono">{fmtMoney(avgAnnualSales, currency, 0)}</span>
-              </div>
-              <input
-                type="range" min={50000} max={100000000} step={50000} value={avgAnnualSales}
-                onChange={(e) => setAvgAnnualSales(Number(e.target.value))}
-                className="w-full accent-violet-600"
-              />
+            <div className="flex items-center justify-between py-2 border-b border-border">
+              <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
+              <span className="text-sm font-bold font-mono">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
