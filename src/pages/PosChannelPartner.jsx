@@ -250,7 +250,7 @@ export default function PosChannelPartner() {
                 <span className="text-sm font-bold font-mono">{retailerCount.toLocaleString()}</span>
               </div>
               <input
-                type="range" min={5} max={5000} step={5} value={retailerCount}
+                type="range" min={5} max={10000} step={5} value={retailerCount}
                 onChange={(e) => setRetailerCount(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
