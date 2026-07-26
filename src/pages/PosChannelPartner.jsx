@@ -347,17 +347,17 @@ export default function PosChannelPartner() {
 
             <div className="border-t border-border pt-5 sm:pt-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center items-stretch">
-                <div className="rounded-lg border border-border p-3 flex flex-col justify-center">
+                <div className="rounded-lg border border-border p-3 flex flex-col justify-center overflow-hidden">
                   <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_volume")}</p>
-                  <p className="text-base sm:text-lg font-heading font-bold break-words">{fmtMoney(redemptionVolume, currency, 0)}</p>
+                  <p className="text-sm sm:text-base lg:text-lg font-heading font-bold whitespace-nowrap">{fmtMoney(redemptionVolume, currency, 0)}</p>
                 </div>
-                <div className="rounded-lg border border-border p-3 flex flex-col justify-center">
+                <div className="rounded-lg border border-border p-3 flex flex-col justify-center overflow-hidden">
                   <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_fees")}</p>
-                  <p className="text-base sm:text-lg font-heading font-bold break-words">{fmtMoney(platformFees, currency, 0)}</p>
+                  <p className="text-sm sm:text-base lg:text-lg font-heading font-bold whitespace-nowrap">{fmtMoney(platformFees, currency, 0)}</p>
                 </div>
-                <div className="rounded-lg p-3 flex flex-col justify-center" style={{ background: "hsl(255 90% 95%)" }}>
+                <div className="rounded-lg p-3 flex flex-col justify-center overflow-hidden" style={{ background: "hsl(255 90% 95%)" }}>
                   <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>{t("posChannel.calculator.result_earnings")}</p>
-                  <p className="text-base sm:text-lg font-heading font-bold break-words" style={{ color: "#6d28d9" }}>
+                  <p className="text-sm sm:text-base lg:text-lg font-heading font-bold whitespace-nowrap" style={{ color: "#6d28d9" }}>
                     {fmtMoney(posEarnings, currency, 0)}
                   </p>
                 </div>
