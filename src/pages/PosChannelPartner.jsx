@@ -19,7 +19,7 @@ export default function PosChannelPartner() {
   const { t } = useTranslation();
 
   const [retailerCount, setRetailerCount] = useState(5);
-  const [avgAnnualSales, setAvgAnnualSales] = useState(50000);
+  const [avgAnnualSales, setAvgAnnualSales] = useState(100000000);
   const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState("EUR");
 
@@ -256,7 +256,7 @@ export default function PosChannelPartner() {
                 <span className="text-sm font-bold font-mono">{fmtMoney(avgAnnualSales, currency, 0)}</span>
               </div>
               <input
-                type="range" min={50000} max={10000000} step={50000} value={avgAnnualSales}
+                type="range" min={50000} max={100000000} step={50000} value={avgAnnualSales}
                 onChange={(e) => setAvgAnnualSales(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
