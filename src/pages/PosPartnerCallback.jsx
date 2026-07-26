@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
@@ -74,6 +74,40 @@ export default function PosPartnerCallback() {
     website: "",
     footprint: "",
   });
+  const terminalsRef = useRef(null);
+
+  const formatTerminals = (rawStr) => {
+    const num = parseInt(rawStr, 10);
+    if (!num) return "";
+    return new Intl.NumberFormat("de-DE").format(num);
+  };
+
+  const handleTerminalsChange = (e) => {
+    const input = e.target;
+    const cursorPos = input.selectionStart ?? 0;
+    const digitsBeforeCursor = input.value.substring(0, cursorPos).replace(/[^\d]/g, "").length;
+    const rawDigits = input.value.replace(/[^\d]/g, "");
+    setForm(prev => ({ ...prev, footprint: rawDigits }));
+    setErrors(prev => ({ ...prev, footprint: undefined }));
+    requestAnimationFrame(() => {
+      const el = terminalsRef.current;
+      if (!el) return;
+      const formatted = el.value;
+      let digitCount = 0;
+      let newPos = 0;
+      for (let i = 0; i < formatted.length; i++) {
+        if (/\d/.test(formatted[i])) {
+          digitCount++;
+          if (digitCount === digitsBeforeCursor) {
+            newPos = i + 1;
+            break;
+          }
+        }
+      }
+      if (digitCount < digitsBeforeCursor) newPos = formatted.length;
+      el.setSelectionRange(newPos, newPos);
+    });
+  };
 
   const validate = () => {
     const errs = {};
@@ -253,7 +287,9 @@ export default function PosPartnerCallback() {
                 <div className="space-y-1.5">
                   <Label htmlFor="footprint" className="text-sm">{t("posChannel.callback.label_footprint")}</Label>
                   <Input
-                    id="footprint" name="footprint" type="number" min="1" value={form.footprint} onChange={handleChange}
+                    ref={terminalsRef}
+                    id="footprint" name="footprint" type="text" inputMode="numeric"
+                    value={formatTerminals(form.footprint)} onChange={handleTerminalsChange}
                     placeholder={t("posChannel.callback.placeholder_footprint")}
                   />
                   {errors.footprint && <p className="text-xs text-red-500">{errors.footprint}</p>}
