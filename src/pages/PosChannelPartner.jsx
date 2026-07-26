@@ -123,7 +123,7 @@ export default function PosChannelPartner() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/"><DutyBoostLogo height={45} /></Link>
           <div className="flex items-center gap-3">
-            <LanguageSwitcher />
+            <LanguageSwitcher allowedLanguages={["en", "fr", "de"]} />
             <a href="#calculator">
               <Button className="gap-2" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
                 <Calculator className="w-4 h-4" /> {t("posChannel.nav.model_earnings")}

@@ -11,12 +11,15 @@ const LANGUAGES = [
   { code: "it", label: "Italiano", flag: "🇮🇹" },
 ];
 
-export default function LanguageSwitcher({ className = "" }) {
+export default function LanguageSwitcher({ className = "", allowedLanguages = null }) {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
-  const current = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0];
+  const languages = allowedLanguages
+    ? LANGUAGES.filter((l) => allowedLanguages.includes(l.code))
+    : LANGUAGES;
+  const current = languages.find((l) => l.code === i18n.language) || languages[0];
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -45,7 +48,7 @@ export default function LanguageSwitcher({ className = "" }) {
 
       {open && (
         <div className="absolute right-0 mt-1 w-40 bg-card border border-border rounded-lg shadow-lg z-50 py-1 overflow-hidden">
-          {LANGUAGES.map((lang) => (
+          {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleSelect(lang.code)}
