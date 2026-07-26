@@ -127,10 +127,10 @@ export default function PosChannelPartner() {
   ];
 
   const flowNodes = [
-    { icon: Cpu, label: t("posChannel.flow.node3_label"), desc: t("posChannel.flow.node3_desc"), highlight: true },
     { icon: Plane, label: t("posChannel.flow.node1_label"), desc: t("posChannel.flow.node1_desc") },
-    { icon: Layers, label: t("posChannel.flow.node4_label"), desc: t("posChannel.flow.node4_desc") },
     { icon: Store, label: t("posChannel.flow.node2_label"), desc: t("posChannel.flow.node2_desc") },
+    { icon: Cpu, label: t("posChannel.flow.node3_label"), desc: t("posChannel.flow.node3_desc"), highlight: true },
+    { icon: Layers, label: t("posChannel.flow.node4_label"), desc: t("posChannel.flow.node4_desc") },
   ];
 
   const oppCards = [
