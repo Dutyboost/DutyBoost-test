@@ -8,7 +8,7 @@ export const posChannelStrings = {
       subtitle: "Integrate DutyBoost into your Point Of Sales Platform (POS) once. Every airport retailer you switch on earns you a lifetime share of every DutyCredit redemption — passive income from hardware you've already deployed.",
       cta_primary: "See your earnings",
       cta_secondary: "Talk to partnerships",
-      note: "One-time integration · No hardware · Live in days, not weeks",
+      note: "One-time integration · No hardware · Live in days, not weeks!",
     },
     opportunity: {
       title: "You already own the rail.",
@@ -153,7 +153,7 @@ export const posChannelStrings = {
       subtitle: "Integreer DutyBoost eenmaal in uw Point Of Sales Platform (POS). Elke luchthavenwinkel die u inschakelt levert u een levenslang aandeel op van elke DutyCredit-inning — passief inkomen uit hardware die u al hebt uitgerold.",
       cta_primary: "Bekijk uw inkomsten",
       cta_secondary: "Spreek met partnerships",
-      note: "Eenmalige integratie · Geen hardware · Live in dagen, niet weken",
+      note: "Eenmalige integratie · Geen hardware · Live in dagen, niet weken!",
     },
     opportunity: {
       title: "U bezit al de rails.",
@@ -298,7 +298,7 @@ export const posChannelStrings = {
       subtitle: "Intégrez DutyBoost une fois dans votre Point Of Sales Platform (POS). Chaque détaillant d'aéroport que vous activez vous rapporte une part à vie sur chaque remboursement DutyCredit — un revenu passif depuis le matériel que vous avez déjà déployé.",
       cta_primary: "Voir vos revenus",
       cta_secondary: "Parler aux partenariats",
-      note: "Intégration unique · Sans matériel · Opérationnel en quelques jours",
+      note: "Intégration unique · Sans matériel · Opérationnel en quelques jours!",
     },
     opportunity: {
       title: "Vous possédez déjà le rail.",
@@ -443,7 +443,7 @@ export const posChannelStrings = {
       subtitle: "Integrieren Sie DutyBoost einmal in Ihr Point Of Sales Platform (POS). Jeder Flughafenhändler, den Sie aktivieren, bringt Ihnen eine lebenslange Beteiligung an jeder DutyCredit-Einlösung — passives Einkommen aus Hardware, die Sie bereits installiert haben.",
       cta_primary: "Ihre Einnahmen sehen",
       cta_secondary: "Mit Partnerschaften sprechen",
-      note: "Einmalige Integration · Keine Hardware · Live in Tagen, nicht Wochen",
+      note: "Einmalige Integration · Keine Hardware · Live in Tagen, nicht Wochen!",
     },
     opportunity: {
       title: "Sie besitzen bereits die Schiene.",
@@ -588,7 +588,7 @@ export const posChannelStrings = {
       subtitle: "Integra DutyBoost una vez en tu Point Of Sales Platform (POS). Cada minorista de aeropuerto que activas te genera una participación de por vida en cada redención de DutyCredit — ingresos pasivos del hardware que ya has desplegado.",
       cta_primary: "Ver tus ingresos",
       cta_secondary: "Hablar con el equipo de relaciones de socios",
-      note: "Integración única · Sin hardware · Operativo en días, no semanas",
+      note: "Integración única · Sin hardware · Operativo en días, no semanas!",
     },
     opportunity: {
       title: "Ya posees la vía.",
@@ -733,7 +733,7 @@ export const posChannelStrings = {
       subtitle: "Integra DutyBoost una volta nel tuo Point Of Sales Platform (POS). Ogni rivenditore aeroportuale che attivi ti fa guadagnare una quota a vita su ogni riscatto DutyCredit — reddito passivo dall'hardware che hai già distribuito.",
       cta_primary: "Vedi i tuoi guadagni",
       cta_secondary: "Parla con le partnership",
-      note: "Integrazione unica · Nessun hardware · Attivo in giorni, non settimane",
+      note: "Integrazione unica · Nessun hardware · Attivo in giorni, non settimane!",
     },
     opportunity: {
       title: "Possiedi già la rotaia.",
