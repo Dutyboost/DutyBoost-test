@@ -18,7 +18,7 @@ const POS_SHARE_PCT = 10;
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [posTerminals, setPosTerminals] = useState(100);
+  const [posTerminals, setPosTerminals] = useState(0);
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const [currency, setCurrency] = useState(() => {
     try {
@@ -258,19 +258,19 @@ export default function PosChannelPartner() {
                 <Label className="text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
                 <input
                   type="number"
-                  min={100}
-                  max={20000000}
+                  min={0}
                   step={100}
                   value={posTerminals}
                   onChange={(e) => {
                     const val = Number(e.target.value);
-                    if (!isNaN(val)) setPosTerminals(Math.max(100, Math.min(20000000, val)));
+                    if (e.target.value === "" || isNaN(val)) return;
+                    setPosTerminals(Math.max(0, Math.min(20000000, val)));
                   }}
                   className="w-40 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                 />
               </div>
               <input
-                type="range" min={100} max={20000000} step={100} value={posTerminals}
+                type="range" min={0} max={20000000} step={100} value={posTerminals}
                 onChange={(e) => setPosTerminals(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
