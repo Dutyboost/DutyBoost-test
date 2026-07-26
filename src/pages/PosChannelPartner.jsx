@@ -18,7 +18,7 @@ const POS_SHARE_PCT = 10;
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [retailerCount, setRetailerCount] = useState(5);
+  const [posTerminals, setPosTerminals] = useState(100);
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const [currency, setCurrency] = useState(() => {
     try {
@@ -32,8 +32,10 @@ export default function PosChannelPartner() {
   });
 
   const AVG_ANNUAL_SALES = 15000000;
+  const CONVERSION_RATE = 0.20; // average of 15–25% global conversion rate
 
-  const redemptionVolume = (retailerCount * AVG_ANNUAL_SALES * redemptionRate) / 100;
+  const activeStores = Math.round(posTerminals * CONVERSION_RATE);
+  const redemptionVolume = (activeStores * AVG_ANNUAL_SALES * redemptionRate) / 100;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
 
@@ -253,14 +255,17 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_stores")}</Label>
-                <span className="text-sm font-bold font-mono">{retailerCount.toLocaleString()}</span>
+                <Label className="text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
+                <span className="text-sm font-bold font-mono">{posTerminals.toLocaleString()}</span>
               </div>
               <input
-                type="range" min={5} max={10000} step={5} value={retailerCount}
-                onChange={(e) => setRetailerCount(Number(e.target.value))}
+                type="range" min={10} max={10000} step={10} value={posTerminals}
+                onChange={(e) => setPosTerminals(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
+              <p className="text-xs text-muted-foreground mt-2">
+                {t("posChannel.calculator.conversion_note", { active_stores: activeStores.toLocaleString() })}
+              </p>
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
