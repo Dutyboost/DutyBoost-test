@@ -34,7 +34,10 @@ export function fmtMoney(eur, currency = "EUR", decimals = 0) {
     return `Afl. ${fmtNum((eur || 0) * AWG_RATE, decimals)}`;
   }
   if (currency === "USD") {
-    return `$ ${fmtNum((eur || 0) * USD_RATE, decimals)}`;
+    return `$ ${Number((eur || 0) * USD_RATE).toLocaleString("en-US", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
   }
   if (currency === "GBP") {
     return `£ ${fmtNum((eur || 0) * GBP_RATE, decimals)}`;
