@@ -117,12 +117,17 @@ export default function PosPartnerCallback() {
         decision_level: "",
       });
 
-      await base44.functions.invoke('sendLeadConfirmationEmail', {
-        full_name: form.full_name,
-        email: form.email,
-      });
-
       setSubmitted(true);
+
+      // Confirmation email is best-effort — don't block the success state if it fails
+      try {
+        await base44.functions.invoke('sendLeadConfirmationEmail', {
+          full_name: form.full_name,
+          email: form.email,
+        });
+      } catch {
+        // Email send failed (e.g. Postmark suppression) — request still succeeded
+      }
     } catch (error) {
       toast.error(t("posChannel.callback.toast_failed"));
     } finally {
