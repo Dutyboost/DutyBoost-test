@@ -20,7 +20,16 @@ export default function PosChannelPartner() {
 
   const [retailerCount, setRetailerCount] = useState(5);
   const [redemptionRate, setRedemptionRate] = useState(0.01);
-  const [currency, setCurrency] = useState("EUR");
+  const [currency, setCurrency] = useState(() => {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      if (tz === 'Europe/London') return 'GBP';
+      if (tz.startsWith('Europe/')) return 'EUR';
+      return 'USD';
+    } catch {
+      return 'USD';
+    }
+  });
 
   const AVG_ANNUAL_SALES = 15000000;
 
