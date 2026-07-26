@@ -52,7 +52,7 @@ export const posChannelStrings = {
       step4_desc: "Every confirmed redemption on a retailer you brought in earns you 10% of the platform fee — monthly, for the lifetime of the account.",
     },
     calculator: {
-      badge: "Model your earnings",
+      badge: "Calculate your earnings",
       title: "Your recurring revenue",
       subtitle: "Adjust the sliders to see your projected annual partner earnings.",
       slider_stores: "Airport stores on your POS",
@@ -342,7 +342,7 @@ export const posChannelStrings = {
       step4_desc: "Chaque remboursement confirmé sur un détaillant que vous avez apporté vous rapporte 10 % de la commission — mensuellement, pour la durée de vie du compte.",
     },
     calculator: {
-      badge: "Modélisez vos revenus",
+      badge: "Calculez vos revenus",
       title: "Vos revenus récurrents",
       subtitle: "Ajustez les curseurs pour voir vos revenus annuels de partenaire projetés.",
       slider_stores: "Magasins d'aéroport sur votre POS",
