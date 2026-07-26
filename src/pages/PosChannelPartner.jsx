@@ -107,7 +107,7 @@ export default function PosChannelPartner() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-10">
             <Link to="/pos-partner-callback">
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base gap-2">
+              <Button size="lg" className="gap-2 h-14 px-8 text-base" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
                 <Handshake className="w-5 h-5" /> {t("posChannel.hero.cta_secondary")}
               </Button>
             </Link>
