@@ -19,7 +19,15 @@ export default function PosChannelPartner() {
   const { t } = useTranslation();
 
   const [posTerminalsRaw, setPosTerminalsRaw] = useState("");
-  const posTerminals = parseInt(posTerminalsRaw, 10) || 0;
+  const [posTerminalsFocused, setPosTerminalsFocused] = useState(false);
+  const posTerminals = parseInt(posTerminalsRaw.replace(/[^\d]/g, ""), 10) || 0;
+
+  const localeForCurrency = (cur) => (cur === "EUR" ? "de-DE" : "en-US");
+  const formatTerminals = (rawStr, cur) => {
+    const num = parseInt(rawStr.replace(/[^\d]/g, ""), 10);
+    if (!num) return "";
+    return new Intl.NumberFormat(localeForCurrency(cur)).format(num);
+  };
   const [redemptionRate, setRedemptionRate] = useState(0.01);
   const [currency, setCurrency] = useState(() => {
     try {
@@ -258,11 +266,12 @@ export default function PosChannelPartner() {
               <div className="flex items-center justify-between mb-2 gap-3">
                 <Label className="text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
                 <input
-                  type="number"
-                  min={0}
-                  step={100}
-                  value={posTerminalsRaw}
-                  onChange={(e) => setPosTerminalsRaw(e.target.value)}
+                  type="text"
+                  inputMode="numeric"
+                  value={posTerminalsFocused ? posTerminalsRaw : formatTerminals(posTerminalsRaw, currency)}
+                  onChange={(e) => setPosTerminalsRaw(e.target.value.replace(/[^\d]/g, ""))}
+                  onFocus={() => setPosTerminalsFocused(true)}
+                  onBlur={() => setPosTerminalsFocused(false)}
                   placeholder="0"
                   className="w-40 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                 />
@@ -270,6 +279,7 @@ export default function PosChannelPartner() {
               <input
                 type="range" min={0} max={20000000} step={100} value={posTerminals}
                 onChange={(e) => setPosTerminalsRaw(e.target.value)}
+                onInput={(e) => setPosTerminalsRaw(e.target.value)}
                 className="w-full accent-violet-600"
               />
 
