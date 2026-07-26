@@ -33,9 +33,8 @@ export default function PosChannelPartner() {
 
   const AVG_ANNUAL_SALES = 15000000;
   const CONVERSION_RATE = 0.20; // average of 15–25% global conversion rate
-  const MAX_ACTIVE_STORES = 5000; // Avolta (largest airport retailer) has under 6,000
 
-  const activeStores = Math.min(Math.round(posTerminals * CONVERSION_RATE), MAX_ACTIVE_STORES);
+  const activeStores = Math.round(posTerminals * CONVERSION_RATE);
   const redemptionVolume = (activeStores * AVG_ANNUAL_SALES * redemptionRate) / 100;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
