@@ -22,7 +22,7 @@ export default function PosChannelPartner() {
   const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState("EUR");
 
-  const AVG_ANNUAL_SALES = 30000000;
+  const AVG_ANNUAL_SALES = 15000000;
 
   const redemptionVolume = (retailerCount * AVG_ANNUAL_SALES * redemptionRate) / 100;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
@@ -242,7 +242,7 @@ export default function PosChannelPartner() {
             </div>
             <div className="flex items-center justify-between py-2 border-b border-border">
               <Label className="text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
-              <span className="text-sm font-bold font-mono">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
+              <span className="text-sm font-bold font-mono">15 Million</span>
             </div>
             <div>
               <div className="flex items-center justify-between mb-2">
