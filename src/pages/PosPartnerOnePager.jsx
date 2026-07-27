@@ -117,20 +117,20 @@ export default function PosPartnerOnePager() {
             <div className="flex-1 flex flex-col py-1">
               <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide" style={{ color: '#7c3aed' }}>{p('s3_title')}</h2>
               <div className="mb-1"><GradientDivider /></div>
-              <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
-                <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+              <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5 items-stretch">
+                <div className="border border-border rounded p-2 text-center flex flex-col justify-start">
                   <p className="text-xs font-bold text-slate-400 mb-0.5">1.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#7c3aed' }}>{p('stat1_value')}</p>
                   <p className="font-semibold text-xs mt-0.5">{p('stat1_label')}</p>
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat1_desc')}</p>
                 </div>
-                <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                <div className="border border-border rounded p-2 text-center flex flex-col justify-start">
                   <p className="text-xs font-bold text-slate-400 mb-0.5">2.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#6366f1' }}>{p('stat2_value')}</p>
                   <p className="font-semibold text-xs mt-0.5">{p('stat2_label')}</p>
                   <p className="text-xs text-muted-foreground leading-snug mt-0.5">{p('stat2_desc')}</p>
                 </div>
-                <div className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                <div className="border border-border rounded p-2 text-center flex flex-col justify-start">
                   <p className="text-xs font-bold text-slate-400 mb-0.5">3.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: '#8b5cf6' }}>{p('stat3_value')}</p>
                   <p className="font-semibold text-xs mt-0.5">{p('stat3_label')}</p>
@@ -161,9 +161,9 @@ export default function PosPartnerOnePager() {
               <GradientDivider />
               <div className="text-center py-1.5">
                 <p className="font-heading font-bold text-xs">{p('cta')}</p>
-                <div className="flex items-center justify-center gap-6 mt-0.5">
-                  <a href="https://www.dutyboost.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold underline underline-offset-2" style={{ color: '#6d28d9' }}>dutyboost.com</a>
-                  <a href="mailto:hello@dutyboost.com" className="text-xs font-semibold underline underline-offset-2" style={{ color: '#6d28d9' }}>hello@dutyboost.com</a>
+                <div className="flex items-center justify-center gap-1.5 mt-0.5 text-xs">
+                  <span className="font-semibold" style={{ color: '#6d28d9' }}>Visit:</span>
+                  <a href="https://dutyboost.com/pos-partner" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#6d28d9' }}>POS Partnership</a>
                 </div>
               </div>
             </div>
