@@ -119,7 +119,7 @@ export default function PosChannelPartner() {
     { icon: Handshake, title: t("posChannel.why.benefit6_title"), desc: t("posChannel.why.benefit6_desc") },
   ];
 
-  const EXAMPLE_REDEMPTION = 1000;
+  const EXAMPLE_REDEMPTION = 15000000;
   const exampleFee = (EXAMPLE_REDEMPTION * 2.5) / 100;
   const exampleTravel = (EXAMPLE_REDEMPTION * 0.5) / 100;
   const examplePos = (EXAMPLE_REDEMPTION * 0.25) / 100;
