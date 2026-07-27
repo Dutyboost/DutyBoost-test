@@ -38,6 +38,7 @@ export const posChannelStrings = {
       row4_note: "operates the platform",
       bypass_bold: "No bypass incentive.",
       bypass_text: "A retailer onboarded directly pays the same 2.5% as one onboarded via you. The partner fee rewards acquisition — it's never a tax on access.",
+      example_label: "Split of the fee — example on a {{amount}} redemption",
     },
     how: {
       title: "From integration to income",
@@ -189,6 +190,7 @@ export const posChannelStrings = {
       row4_note: "beheert het platform",
       bypass_bold: "Geen omzeil-incentive.",
       bypass_text: "Een rechtstreeks aangesloten winkelier betaalt dezelfde 2,5% als een via u aangesloten winkelier. De partnervergoeding beloont acquisitie — het is nooit een heffing op toegang.",
+      example_label: "Verdeling van de vergoeding — voorbeeld bij een inning van {{amount}}",
     },
     how: {
       title: "Van integratie naar inkomen",
@@ -340,6 +342,7 @@ export const posChannelStrings = {
       row4_note: "gère la plateforme",
       bypass_bold: "Aucune incitation à contourner.",
       bypass_text: "Un détaillant intégré directement paie les mêmes 2,5 % qu'un détaillant intégré via vous. La commission partenaire récompense l'acquisition — ce n'est jamais une taxe sur l'accès.",
+      example_label: "Répartition de la commission — exemple sur un remboursement de {{amount}}",
     },
     how: {
       title: "De l'intégration au revenu",
@@ -491,6 +494,7 @@ export const posChannelStrings = {
       row4_note: "betreibt die Plattform",
       bypass_bold: "Kein Umgehungsanreiz.",
       bypass_text: "Ein direkt integrierter Händler zahlt dieselben 2,5 % wie ein über Sie integrierter. Die Partner-Provision belohnt Akquise — sie ist niemals eine Steuer auf Zugang.",
+      example_label: "Aufteilung der Gebühr — Beispiel bei einer Einlösung von {{amount}}",
     },
     how: {
       title: "Von der Integration zum Einkommen",
@@ -642,6 +646,7 @@ export const posChannelStrings = {
       row4_note: "gestiona la plataforma",
       bypass_bold: "Sin incentivo de omisión.",
       bypass_text: "Un minorista incorporado directamente paga el mismo 2,5 % que uno incorporado vía ti. La comisión de socio recompensa la adquisición — nunca es un impuesto sobre el acceso.",
+      example_label: "Reparto de la comisión — ejemplo sobre una redención de {{amount}}",
     },
     how: {
       title: "De la integración a los ingresos",
@@ -793,6 +798,7 @@ export const posChannelStrings = {
       row4_note: "gestisce la piattaforma",
       bypass_bold: "Nessun incentivo a bypassare.",
       bypass_text: "Un rivenditore integrato direttamente paga lo stesso 2,5 % di uno integrato tramite te. La commissione del partner premia l'acquisizione — non è mai una tassa sull'accesso.",
+      example_label: "Ripartizione della commissione — esempio su un riscatto di {{amount}}",
     },
     how: {
       title: "Dall'integrazione al reddito",

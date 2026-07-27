@@ -119,12 +119,11 @@ export default function PosChannelPartner() {
     { icon: Handshake, title: t("posChannel.why.benefit6_title"), desc: t("posChannel.why.benefit6_desc") },
   ];
 
-  const splitRows = [
-    { label: t("posChannel.revenue.row1_label"), value: t("posChannel.revenue.row1_value"), note: t("posChannel.revenue.row1_note"), highlight: false },
-    { label: t("posChannel.revenue.row2_label"), value: t("posChannel.revenue.row2_value"), note: t("posChannel.revenue.row2_note"), highlight: false },
-    { label: t("posChannel.revenue.row3_label"), value: t("posChannel.revenue.row3_value"), note: t("posChannel.revenue.row3_note"), highlight: true },
-    { label: t("posChannel.revenue.row4_label"), value: t("posChannel.revenue.row4_value"), note: t("posChannel.revenue.row4_note"), highlight: false },
-  ];
+  const EXAMPLE_REDEMPTION = 1000;
+  const exampleFee = (EXAMPLE_REDEMPTION * 2.5) / 100;
+  const exampleTravel = (EXAMPLE_REDEMPTION * 0.5) / 100;
+  const examplePos = (EXAMPLE_REDEMPTION * 0.25) / 100;
+  const exampleDuty = (EXAMPLE_REDEMPTION * 1.75) / 100;
 
   const flowNodes = [
     { icon: Plane, label: t("posChannel.flow.node1_label"), desc: t("posChannel.flow.node1_desc") },
@@ -224,21 +223,57 @@ export default function PosChannelPartner() {
           </div>
 
           <div className="rounded-2xl border border-border overflow-hidden bg-card">
-            <div className="grid grid-cols-1">
-              {splitRows.map((row) => (
-                <div
-                  key={row.label}
-                  className={`flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 px-5 sm:px-6 py-4 border-b border-border last:border-b-0 ${row.highlight ? "bg-violet-50" : ""}`}
-                >
-                  <div className="flex-1">
-                    <p className={`font-semibold ${row.highlight ? "text-violet-900" : ""}`}>{row.label}</p>
-                    <p className="text-xs text-muted-foreground">{row.note}</p>
-                  </div>
-                  <div className={`text-lg font-heading font-bold sm:w-56 sm:text-right ${row.highlight ? "text-violet-700" : "text-foreground"}`}>
-                    {row.value}
-                  </div>
+            {/* Parent node: total platform fee */}
+            <div className="px-5 sm:px-8 py-5 sm:py-6 border-b border-border bg-muted/20">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-center sm:text-left">
+                <div>
+                  <p className="font-semibold text-sm sm:text-base">{t("posChannel.revenue.row1_label")}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{t("posChannel.revenue.row1_note")}</p>
                 </div>
-              ))}
+                <div className="sm:text-right">
+                  <p className="text-xl sm:text-2xl font-heading font-bold text-foreground">{t("posChannel.revenue.row1_value")}</p>
+                  <p className="text-xs font-mono text-muted-foreground mt-0.5">≈ {fmtMoney(exampleFee, currency, 2)}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Example context */}
+            <div className="px-5 py-2 text-center bg-muted/30 border-b border-border">
+              <p className="text-xs text-muted-foreground">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
+            </div>
+
+            {/* Org-chart connectors (desktop only) */}
+            <div className="hidden sm:block relative h-10">
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-5 bg-border" />
+              <div className="absolute top-5 left-[16.666%] right-[16.666%] h-px bg-border" />
+              <div className="absolute top-5 left-[16.666%] w-px h-5 bg-border" />
+              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-px h-5 bg-border" />
+              <div className="absolute top-5 right-[16.666%] w-px h-5 bg-border" />
+            </div>
+
+            {/* 3 children: the split */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
+              {/* Travel Partner */}
+              <div className="px-5 py-5 text-center">
+                <p className="font-semibold text-sm">{t("posChannel.revenue.row2_label")}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row2_note")}</p>
+                <p className="text-lg sm:text-xl font-heading font-bold text-foreground">{t("posChannel.revenue.row2_value")}</p>
+                <p className="text-xs font-mono text-muted-foreground mt-1">≈ {fmtMoney(exampleTravel, currency, 2)}</p>
+              </div>
+              {/* POS Partner (highlight) */}
+              <div className="px-5 py-5 text-center bg-violet-50">
+                <p className="font-semibold text-sm text-violet-900">{t("posChannel.revenue.row3_label")}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row3_note")}</p>
+                <p className="text-lg sm:text-xl font-heading font-bold text-violet-700">{t("posChannel.revenue.row3_value")}</p>
+                <p className="text-xs font-mono text-violet-600 mt-1">≈ {fmtMoney(examplePos, currency, 2)}</p>
+              </div>
+              {/* DutyBoost */}
+              <div className="px-5 py-5 text-center">
+                <p className="font-semibold text-sm">{t("posChannel.revenue.row4_label")}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row4_note")}</p>
+                <p className="text-lg sm:text-xl font-heading font-bold text-foreground">{t("posChannel.revenue.row4_value")}</p>
+                <p className="text-xs font-mono text-muted-foreground mt-1">≈ {fmtMoney(exampleDuty, currency, 2)}</p>
+              </div>
             </div>
           </div>
 
