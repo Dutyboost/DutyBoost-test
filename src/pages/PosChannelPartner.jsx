@@ -244,11 +244,11 @@ export default function PosChannelPartner() {
 
             {/* Org-chart connectors (desktop only) */}
             <div className="hidden sm:block relative h-10">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-5 bg-border" />
-              <div className="absolute top-5 left-[16.666%] right-[16.666%] h-px bg-border" />
-              <div className="absolute top-5 left-[16.666%] w-px h-5 bg-border" />
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-px h-5 bg-border" />
-              <div className="absolute top-5 right-[16.666%] w-px h-5 bg-border" />
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-5 bg-border" />
+              <div className="absolute top-5 left-[16.666%] right-[16.666%] h-0.5 bg-border" />
+              <div className="absolute top-5 left-[16.666%] w-0.5 h-5 bg-border" />
+              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-0.5 h-5 bg-border" />
+              <div className="absolute top-5 right-[16.666%] w-0.5 h-5 bg-border" />
             </div>
 
             {/* 3 children: the split */}
