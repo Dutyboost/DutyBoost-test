@@ -53,10 +53,10 @@ export const posChannelStrings = {
       step4_desc: "Every confirmed DutyCredit redemption processed by participating retailers generates recurring partner revenue, with remuneration funded entirely by DutyBoost's platform fee.",
     },
     calculator: {
-      badge: "Calculate your earnings",
+      badge: "Estimate Your Commercial Opportunity",
       market_context: "Airport retail is a {{market_size}} global market — here's your share",
-      title: "Your recurring revenue",
-      subtitle: "Adjust the sliders to see your projected annual partner earnings.",
+      title: "Project your annual recurring partner revenue.",
+      subtitle: "Adjust the assumptions below to estimate the recurring annual partner revenue your organisation could generate by enabling DutyBoost across your airport retail customer base.",
       slider_stores: "Airport stores on your POS",
       slider_sales: "Global average annual sales per store",
       slider_rate: "DutyCredit redemption rate (%)",
