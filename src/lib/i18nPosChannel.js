@@ -5,7 +5,7 @@ export const posChannelStrings = {
       badge: "POS Partners",
       title_1: "Turn every checkout into",
       title_2: "recurring revenue",
-      subtitle: "Integrate DutyBoost into your Point Of Sales Platform (POS) once. Every airport retailer you switch on earns you a lifetime share of every DutyCredit redemption — passive income from hardware you've already deployed.",
+      subtitle: "Integrate DutyBoost once. Enable airport retailers globally. Earn recurring partner revenue from every DutyCredit redemption processed through your POS platform.",
       cta_primary: "See your earnings",
       cta_secondary: "Talk To Our Partnerships Team",
       note: "One-time integration · No hardware · Live in days, not weeks!",
