@@ -128,7 +128,7 @@ export const posChannelStrings = {
       label_phone: "Phone number *",
       label_company: "Company name *",
       label_website: "Company website *",
-      label_footprint: "Number of Active POS Terminals *",
+      label_footprint: "Number of Stores on your POS Platform *",
       placeholder_name: "John Doe",
       placeholder_email: "you@yourcompany.com",
       placeholder_phone: "+31 6 1234 5678",
