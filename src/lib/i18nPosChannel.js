@@ -23,7 +23,7 @@ export const posChannelStrings = {
     revenue: {
       badge: "The commission split",
       title: "One fee. Three earners.",
-      subtitle: "The retailer always pays the same 2.5% platform fee. When you brought the retailer, a slice of that fee flows to you — carved from DutyBoost's margin, never added to the retailer's bill.",
+      subtitle: "The retailer always pays the same fixed 2.5% platform fee. Partner remuneration is funded by DutyBoost and never increases the retailer's cost.",
       row1_label: "Retailer pays (platform fee)",
       row1_value: "2.5% of redemption",
       row1_note: "Same regardless of partner",
