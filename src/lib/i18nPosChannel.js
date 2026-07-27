@@ -21,9 +21,9 @@ export const posChannelStrings = {
       card3_desc: "Hundreds of retailers on one integration. Activate them all with a dashboard toggle — no per-store sales cycle.",
     },
     revenue: {
-      badge: "The commission split",
-      title: "One fee. Three earners.",
-      subtitle: "The retailer always pays the same fixed 2.5% platform fee. Partner remuneration is funded by DutyBoost and never increases the retailer's cost.",
+      badge: "Commercial Model",
+      title: "A shared commercial model that creates value for every participant.",
+      subtitle: "Retailers always pay the same fixed 2.5% platform fee. Partner remuneration is funded entirely by DutyBoost, ensuring customer pricing remains unchanged while aligning long-term commercial value across the travel, retail and POS ecosystem.",
       row1_label: "Retailer pays (platform fee)",
       row1_value: "2.5% of redemption",
       row1_note: "Same regardless of partner",
