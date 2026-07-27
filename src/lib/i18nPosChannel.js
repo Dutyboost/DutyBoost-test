@@ -88,7 +88,7 @@ export const posChannelStrings = {
       title: "How every participant creates value.",
       subtitle: "DutyBoost connects travel partners, airport retailers and POS providers through a shared commercial model where each participant contributes to a measurable increase in airport retail sales.",
       node1_label: "Travel Partner",
-      node1_desc: "Engages travellers before they arrive at the airport and driving qualified shoppers to retailers.",
+      node1_desc: "Engages travellers before they arrive at the airport, driving qualified shoppers to retailers.",
       node2_label: "Airport Retailer",
       node2_desc: "Redeems DutyCredits, generates incremental sales and pays the DutyBoost platform fee.",
       node3_label: "POS Partner",
