@@ -92,7 +92,7 @@ export const posChannelStrings = {
       node2_label: "Airport Retailer",
       node2_desc: "Redeems DutyCredits at checkout, generates incremental sales and pays the DutyBoost platform fee.",
       node3_label: "POS Partner",
-      node3_desc: "Enables secure DutyCredit redemption through the existing POS solution and receives recurring partner remuneration.",
+      node3_desc: "Enables secure DutyCredit redemption through the existing POS solution.",
       node4_label: "DutyBoost",
       node4_desc: "Operates the platform, manages settlement, reporting and ecosystem coordination.",
     },
