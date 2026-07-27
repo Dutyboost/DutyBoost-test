@@ -1,6 +1,6 @@
 export const posChannelStrings = {
   en: {
-    nav: { model_earnings: "Calculate your earnings" },
+    nav: { model_earnings: "Estimate Your Commercial Opportunity" },
     hero: {
       badge: "POS Partners",
       title_1: "Extend your POS solution with",
