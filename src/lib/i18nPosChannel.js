@@ -65,7 +65,7 @@ export const posChannelStrings = {
       result_volume: "Redemption volume",
       result_fees: "Platform fees (2.5%)",
       result_earnings: "Your partner earnings",
-      note: "Projection based on 10% of the 2.5% platform fee. Paid monthly for the lifetime of each retailer account. Illustrative only.",
+      note: "Projection based on a 10% share of the 2.5% platform fee. Partner remuneration is paid monthly for as long as the retailer remains an active DutyBoost customer. Figures are illustrative only.",
     },
     why: {
       title: "Why partner with DutyBoost",
