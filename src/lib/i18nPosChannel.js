@@ -56,7 +56,7 @@ export const posChannelStrings = {
       badge: "Estimate Your Commercial Opportunity",
       market_context: "Airport retail is a {{market_size}} global market — here's your share",
       title: "Project your annual recurring partner revenue.",
-      subtitle: "Adjust the assumptions below to estimate the recurring annual partner revenue your organisation could generate by enabling DutyBoost across your airport retail customer base.",
+      subtitle: "Adjust the assumptions below to estimate the recurring annual partner revenue your POS Platform could generate by enabling DutyBoost across your airport retail customer base.",
       slider_stores: "Airport stores on your POS",
       slider_sales: "Global average annual sales per store",
       slider_rate: "DutyCredit redemption rate (%)",
