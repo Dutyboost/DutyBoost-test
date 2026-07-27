@@ -12,7 +12,7 @@ export const posChannelStrings = {
     },
     opportunity: {
       title: "You already own the rail.",
-      subtitle: "Your POS terminals sit at the checkout in every airport retailer you serve. DutyBoost adds a revenue service on top of that flow, earning you a share of every DutyCredit redemption at your own hardware, while making every retailer on your platform more successful.",
+      subtitle: "Your POS solution already powers airport retail transactions. DutyBoost extends that capability with a revenue activation service that creates recurring partner revenue while helping retailers generate measurable incremental sales.",
       card1_title: "You have the leverage",
       card1_desc: "Only your hardware sits at the point where a DutyCredit is redeemed. It's the one moment in the chain no travel partner or platform can reach — and it's yours.",
       card2_title: "You have the trust",
