@@ -37,7 +37,7 @@ export const posChannelStrings = {
       row4_value: "retains 1.75% of the gross fee",
       row4_note: "operates the platform",
       bypass_bold: "Commercial Consistency",
-      bypass_text: "Retailers always pay the same fixed 2.5% platform fee, regardless of how they join DutyBoost. Partner remuneration is funded entirely by DutyBoost, ensuring a consistent commercial model for retailers while recognising the value POS partners bring to customer acquisition and enablement.",
+      bypass_text: "Retailers always pay the same fixed 2.5% platform fee, regardless of how they join DutyBoost. Partner remuneration is funded entirely by DutyBoost — never added to the retailer's cost.",
       example_label: "Split of the fee — example on a {{amount}} redemption (global average annual sales per store)",
     },
     how: {
