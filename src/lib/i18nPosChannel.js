@@ -3,12 +3,12 @@ export const posChannelStrings = {
     nav: { model_earnings: "Calculate your earnings" },
     hero: {
       badge: "POS Partners",
-      title_1: "Turn every checkout into",
-      title_2: "recurring revenue",
-      subtitle: "Integrate DutyBoost once. Enable airport retailers globally. Earn recurring partner revenue from every DutyCredit redemption processed through your POS platform.",
+      title_1: "Extend your POS solution with",
+      title_2: "measurable commercial value",
+      subtitle: "DutyBoost extends your existing POS solution with a revenue activation capability that helps airport retailers generate measurable incremental sales before travellers arrive at the airport. A single integration strengthens your customer proposition while creating recurring partner revenue.",
       cta_primary: "See your earnings",
-      cta_secondary: "Talk To Our Partnerships Team",
-      note: "One-time integration · No hardware · Live in days, not weeks!",
+      cta_secondary: "Talk to Our Partnerships Team",
+      note: "Secure API integration · No hardware replacement · Enterprise-ready",
     },
     opportunity: {
       title: "You already own the rail.",
