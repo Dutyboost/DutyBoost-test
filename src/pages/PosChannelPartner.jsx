@@ -89,7 +89,7 @@ export default function PosChannelPartner() {
     }
   });
 
-  const AVG_ANNUAL_SALES = 15000000;
+  const AVG_ANNUAL_SALES = 7500000;
   const CONVERSION_RATE = 0.20; // average of 15–25% global conversion rate
 
   const activeStores = Math.round(posTerminals * CONVERSION_RATE);
