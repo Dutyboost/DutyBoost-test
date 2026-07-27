@@ -227,19 +227,19 @@ export default function PosChannelPartner() {
             <div className="px-5 sm:px-8 py-5 sm:py-6 border-b border-border bg-muted/20">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-center sm:text-left">
                 <div>
-                  <p className="font-semibold text-sm sm:text-base">{t("posChannel.revenue.row1_label")}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{t("posChannel.revenue.row1_note")}</p>
+                  <p className="font-bold text-sm sm:text-base">{t("posChannel.revenue.row1_label")}</p>
+                  <p className="text-xs font-bold text-muted-foreground mt-0.5">{t("posChannel.revenue.row1_note")}</p>
                 </div>
                 <div className="sm:text-right">
                   <p className="text-xl sm:text-2xl font-heading font-bold text-foreground">{t("posChannel.revenue.row1_value")}</p>
-                  <p className="text-xs font-mono text-muted-foreground mt-0.5">≈ {fmtMoney(exampleFee, currency, 2)}</p>
+                  <p className="text-xs font-mono font-bold text-muted-foreground mt-0.5">≈ {fmtMoney(exampleFee, currency, 2)}</p>
                 </div>
               </div>
             </div>
 
             {/* Example context */}
             <div className="px-5 py-2 text-center bg-muted/30 border-b border-border">
-              <p className="text-xs text-muted-foreground">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
+              <p className="text-xs font-bold text-muted-foreground">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
             </div>
 
             {/* Org-chart connectors (desktop only) */}
@@ -255,24 +255,24 @@ export default function PosChannelPartner() {
             <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
               {/* Travel Partner */}
               <div className="px-5 py-5 text-center">
-                <p className="font-semibold text-sm">{t("posChannel.revenue.row2_label")}</p>
-                <p className="text-xs text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row2_note")}</p>
+                <p className="font-bold text-sm">{t("posChannel.revenue.row2_label")}</p>
+                <p className="text-xs font-bold text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row2_note")}</p>
                 <p className="text-lg sm:text-xl font-heading font-bold text-foreground">{t("posChannel.revenue.row2_value")}</p>
-                <p className="text-xs font-mono text-muted-foreground mt-1">≈ {fmtMoney(exampleTravel, currency, 2)}</p>
+                <p className="text-xs font-mono font-bold text-muted-foreground mt-1">≈ {fmtMoney(exampleTravel, currency, 2)}</p>
               </div>
               {/* POS Partner (highlight) */}
               <div className="px-5 py-5 text-center bg-violet-50">
-                <p className="font-semibold text-sm text-violet-900">{t("posChannel.revenue.row3_label")}</p>
-                <p className="text-xs text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row3_note")}</p>
+                <p className="font-bold text-sm text-violet-900">{t("posChannel.revenue.row3_label")}</p>
+                <p className="text-xs font-bold text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row3_note")}</p>
                 <p className="text-lg sm:text-xl font-heading font-bold text-violet-700">{t("posChannel.revenue.row3_value")}</p>
-                <p className="text-xs font-mono text-violet-600 mt-1">≈ {fmtMoney(examplePos, currency, 2)}</p>
+                <p className="text-xs font-mono font-bold text-violet-600 mt-1">≈ {fmtMoney(examplePos, currency, 2)}</p>
               </div>
               {/* DutyBoost */}
               <div className="px-5 py-5 text-center">
-                <p className="font-semibold text-sm">{t("posChannel.revenue.row4_label")}</p>
-                <p className="text-xs text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row4_note")}</p>
+                <p className="font-bold text-sm">{t("posChannel.revenue.row4_label")}</p>
+                <p className="text-xs font-bold text-muted-foreground mt-0.5 mb-3">{t("posChannel.revenue.row4_note")}</p>
                 <p className="text-lg sm:text-xl font-heading font-bold text-foreground">{t("posChannel.revenue.row4_value")}</p>
-                <p className="text-xs font-mono text-muted-foreground mt-1">≈ {fmtMoney(exampleDuty, currency, 2)}</p>
+                <p className="text-xs font-mono font-bold text-muted-foreground mt-1">≈ {fmtMoney(exampleDuty, currency, 2)}</p>
               </div>
             </div>
           </div>
