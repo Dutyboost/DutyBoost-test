@@ -29,7 +29,7 @@ const POS_TICKS = (() => {
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [posTerminalsRaw, setPosTerminalsRaw] = useState("100");
+  const [posTerminalsRaw, setPosTerminalsRaw] = useState("500");
   const posTerminals = parseInt(posTerminalsRaw, 10) || 0;
   const terminalsInputRef = useRef(null);
 
@@ -77,7 +77,7 @@ export default function PosChannelPartner() {
       el.setSelectionRange(newPos, newPos);
     });
   };
-  const [redemptionRate, setRedemptionRate] = useState(0.01);
+  const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState(() => {
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
