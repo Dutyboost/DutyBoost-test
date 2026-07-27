@@ -69,7 +69,7 @@ export const posChannelStrings = {
     },
     why: {
       title: "Why partner with DutyBoost",
-      subtitle: "More than a referral fee — a growth engine for your retailer network.",
+      subtitle: "Creating recurring commercial value for your airport retail customer base.",
       benefit1_title: "Recurring revenue, zero marginal cost",
       benefit1_desc: "After the one-time integration, every redemption on your retailers generates passive income. DutyBoost owns traveller support, automated merchant provisioning, and settlement. Your retailers self-activate from their own POS dashboard; you just flip the network switch.",
       benefit2_title: "Sticky retailer relationships",
