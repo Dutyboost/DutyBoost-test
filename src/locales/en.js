@@ -864,7 +864,7 @@ export default {
     pospartneronepager: {
       badge: 'POS Partner Programme',
       headline: 'Extend your POS solution with measurable commercial value',
-      subtitle: 'DutyBoost extends your existing POS solution with a revenue activation capability that helps airport retailers generate measurable incremental sales before travellers arrive at the airport. A single integration creates recurring partner revenue.',
+      subtitle: 'DutyBoost extends your existing POS solution with a revenue activation capability that increases the purchase intent of travellers by engaging them days, weeks or even months before their departure date. A single integration creates recurring partner revenue.',
       s1_title: '01 — Why DutyBoost Matters for POS Partners',
       why1_title: 'Built on trusted customer relationships',
       why1_desc: 'Airport retailers already rely on your POS solution to operate their business. By introducing DutyBoost through an existing technology relationship, retailers gain a new revenue capability from a partner they already know.',
