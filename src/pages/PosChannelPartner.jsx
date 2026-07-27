@@ -348,21 +348,21 @@ export default function PosChannelPartner() {
             <div className="border-t border-border pt-5 sm:pt-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center items-stretch">
                 <div className="rounded-lg border border-border p-3 flex flex-col justify-center overflow-hidden">
-                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_volume")}</p>
+                  <p className="text-xs font-bold text-muted-foreground mb-1">{t("posChannel.calculator.result_volume")}</p>
                   <p className="text-sm sm:text-base lg:text-lg font-heading font-bold whitespace-nowrap">{fmtMoney(redemptionVolume, currency, 0)}</p>
                 </div>
                 <div className="rounded-lg border border-border p-3 flex flex-col justify-center overflow-hidden">
-                  <p className="text-xs text-muted-foreground mb-1">{t("posChannel.calculator.result_fees")}</p>
+                  <p className="text-xs font-bold text-muted-foreground mb-1">{t("posChannel.calculator.result_fees")}</p>
                   <p className="text-sm sm:text-base lg:text-lg font-heading font-bold whitespace-nowrap">{fmtMoney(platformFees, currency, 0)}</p>
                 </div>
                 <div className="rounded-lg p-3 flex flex-col justify-center overflow-hidden" style={{ background: "hsl(255 90% 95%)" }}>
-                  <p className="text-xs mb-1" style={{ color: "#6d28d9" }}>{t("posChannel.calculator.result_earnings")}</p>
+                  <p className="text-xs font-bold mb-1" style={{ color: "#6d28d9" }}>{t("posChannel.calculator.result_earnings")}</p>
                   <p className="text-sm sm:text-base lg:text-lg font-heading font-bold whitespace-nowrap" style={{ color: "#6d28d9" }}>
                     {fmtMoney(posEarnings, currency, 0)}
                   </p>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground text-center mt-4">
+              <p className="text-xs font-bold text-muted-foreground text-center mt-4">
                 {t("posChannel.calculator.note")}
               </p>
             </div>
