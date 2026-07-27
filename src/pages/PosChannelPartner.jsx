@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -15,67 +15,31 @@ import { fmtMoney } from "../utils/formatNumber";
 const PLATFORM_FEE_PCT = 2.5;
 const POS_SHARE_PCT = 10;
 
-// Non-linear slider stops: 100→1k by 100, 1k→10k by 1k, 10k→100k by 10k, 100k→1M by 100k, 1M→20M by 1M
-const POS_TICKS = (() => {
-  const ticks = [100];
-  for (let v = 200; v <= 1000; v += 100) ticks.push(v);
-  for (let v = 2000; v <= 10000; v += 1000) ticks.push(v);
-  for (let v = 20000; v <= 100000; v += 10000) ticks.push(v);
-  for (let v = 200000; v <= 1000000; v += 100000) ticks.push(v);
-  for (let v = 2000000; v <= 20000000; v += 1000000) ticks.push(v);
-  return ticks;
-})();
+// Non-linear slider stops for airport store counts (1 → 10,000)
+const STORE_TICKS = [1, 5, 10, 25, 50, 75, 100, 150, 200, 300, 500, 750, 1000, 1500, 2000, 3000, 5000, 7500, 10000];
 
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [posTerminalsRaw, setPosTerminalsRaw] = useState("500");
-  const posTerminals = parseInt(posTerminalsRaw, 10) || 0;
-  const terminalsInputRef = useRef(null);
+  const [posStoresRaw, setPosStoresRaw] = useState("200");
+  const posStores = parseInt(posStoresRaw, 10) || 0;
 
-  // Map current terminal count to nearest slider tick index
-  const posSliderIndex = (() => {
-    if (!posTerminals || posTerminals <= 100) return 0;
+  // Map current store count to nearest slider tick index
+  const storeSliderIndex = (() => {
     let closest = 0;
     let minDiff = Infinity;
-    POS_TICKS.forEach((t, i) => {
-      const diff = Math.abs(t - posTerminals);
+    STORE_TICKS.forEach((t, i) => {
+      const diff = Math.abs(t - posStores);
       if (diff < minDiff) { minDiff = diff; closest = i; }
     });
     return closest;
   })();
 
   const localeForCurrency = (cur) => (cur === "EUR" ? "de-DE" : "en-US");
-  const formatTerminals = (rawStr, cur) => {
+  const formatStores = (rawStr, cur) => {
     const num = parseInt(rawStr, 10);
     if (!num) return "";
     return new Intl.NumberFormat(localeForCurrency(cur)).format(num);
-  };
-
-  const handleTerminalsChange = (e) => {
-    const input = e.target;
-    const cursorPos = input.selectionStart ?? 0;
-    const digitsBeforeCursor = input.value.substring(0, cursorPos).replace(/[^\d]/g, "").length;
-    const rawDigits = input.value.replace(/[^\d]/g, "");
-    setPosTerminalsRaw(rawDigits);
-    requestAnimationFrame(() => {
-      const el = terminalsInputRef.current;
-      if (!el) return;
-      const formatted = el.value;
-      let digitCount = 0;
-      let newPos = 0;
-      for (let i = 0; i < formatted.length; i++) {
-        if (/\d/.test(formatted[i])) {
-          digitCount++;
-          if (digitCount === digitsBeforeCursor) {
-            newPos = i + 1;
-            break;
-          }
-        }
-      }
-      if (digitCount < digitsBeforeCursor) newPos = formatted.length;
-      el.setSelectionRange(newPos, newPos);
-    });
   };
   const [redemptionRate, setRedemptionRate] = useState(1);
   const [currency, setCurrency] = useState(() => {
@@ -90,10 +54,8 @@ export default function PosChannelPartner() {
   });
 
   const AVG_ANNUAL_SALES = 7500000;
-  const CONVERSION_RATE = 0.20; // average of 15–25% global conversion rate
 
-  const activeStores = Math.round(posTerminals * CONVERSION_RATE);
-  const redemptionVolume = (activeStores * AVG_ANNUAL_SALES * redemptionRate) / 100;
+  const redemptionVolume = (posStores * AVG_ANNUAL_SALES * redemptionRate) / 100;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
 
@@ -348,22 +310,21 @@ export default function PosChannelPartner() {
             </div>
             <div>
               <div className="flex items-center justify-between mb-2 gap-2">
-                <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_terminals")}</Label>
+                <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_stores")}</Label>
                 <input
-                  ref={terminalsInputRef}
                   type="text"
                   inputMode="numeric"
-                  value={formatTerminals(posTerminalsRaw, currency)}
-                  onChange={handleTerminalsChange}
+                  value={formatStores(posStoresRaw, currency)}
+                  onChange={(e) => setPosStoresRaw(e.target.value.replace(/[^\d]/g, ""))}
                   placeholder="0"
                   className="w-28 sm:w-40 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                 />
               </div>
               <input
-                type="range" min={0} max={POS_TICKS.length - 1} step={1} value={posSliderIndex}
+                type="range" min={0} max={STORE_TICKS.length - 1} step={1} value={storeSliderIndex}
                 onChange={(e) => {
                   const idx = Number(e.target.value);
-                  setPosTerminalsRaw(String(POS_TICKS[idx]));
+                  setPosStoresRaw(String(STORE_TICKS[idx]));
                 }}
                 className="w-full accent-violet-600"
               />
