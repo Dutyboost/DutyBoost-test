@@ -16,7 +16,7 @@ const PLATFORM_FEE_PCT = 2.5;
 const POS_SHARE_PCT = 10;
 
 // Non-linear slider stops for airport store counts (1 → 10,000)
-const STORE_TICKS = [1, 5, 10, 25, 50, 75, 100, 150, 200, 300, 500, 750, 1000, 1500, 2000, 3000, 5000, 7500, 10000];
+const STORE_TICKS = [1, 5, 10, 25, 50, 75, 100, 150, 200, 300, 500, 750, 1000, 1500, 2000, 3000, 5000, 7500, 10000, 15000, 20000, 30000, 50000, 70000];
 
 export default function PosChannelPartner() {
   const { t } = useTranslation();
