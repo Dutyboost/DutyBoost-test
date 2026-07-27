@@ -97,8 +97,8 @@ export const posChannelStrings = {
       node4_desc: "Operates the platform, manages settlement, reporting and ecosystem coordination.",
     },
     cta: {
-      title: "Ready to switch on your network?",
-      subtitle: "Tell us about your POS footprint and we'll walk you through the integration, the commercial terms, and a tailored revenue projection.",
+      title: "Ready to extend your POS solution?",
+      subtitle: "Tell us about your airport retail customer base and we'll show you how DutyBoost integrates with your existing platform, explain the commercial model, and provide a tailored projection of the recurring partner revenue your organisation could generate.",
       button_primary: "Talk To Our Partnerships Team",
       button_secondary: "Learn about DutyBoost",
     },
