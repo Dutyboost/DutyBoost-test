@@ -10,25 +10,27 @@ Deno.serve(async (req) => {
 
   const POSTMARK_TOKEN = Deno.env.get('PostMark');
 
+  const firstName = (full_name.split(' ')[0] || full_name).trim();
+
   const htmlBody = `
     <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 24px; color: #1a202c;">
       <img src="https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9a64855b0_ChatGPT_Image_Mar_30__2026__03_06_29_PM-removebg-preview.png" alt="DutyBoost" style="height: 60px; margin-bottom: 32px;" />
-      <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">Hi ${full_name}, thank you for getting in touch! &#128075;</h1>
+      <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">Hi ${firstName},</p>
       <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
-        We've received your registration and are excited to connect with you.
+        Thank you for your interest in partnering with DutyBoost.
       </p>
       <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
-        We are currently putting the final touches on <strong>DutyBoost</strong> &#8212; the first Travel Retail Conversion Layer connecting travel partners, airport retailers, and leisure travelers in a completely new way.
-      </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
-        As soon as the platform goes live, we will notify you so you can create your account and start benefiting from the value DutyBoost delivers.
+        We've received your enquiry, and a member of our Partnerships Team will contact you within one business day to schedule a 30-minute introductory call.
       </p>
       <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 32px;">
-        In the meantime, feel free to reply to this email if you have any questions.
+        During the call, we'll discuss your platform, our straightforward API integration, the commercial partnership model, and the recurring revenue opportunity for your organisation.
+      </p>
+      <p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
+        We look forward to speaking with you soon.
       </p>
       <p style="font-size: 16px; color: #4a5568;">
-        Warm regards,<br/>
-        <strong>The DutyBoost Team</strong>
+        Kind regards,<br/><br/>
+        <strong>The DutyBoost Partnerships Team</strong>
       </p>
       <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 32px 0;" />
       <p style="font-size: 12px; color: #a0aec0;">&#169; ${new Date().getFullYear()} DutyBoost &#8212; The Travel Retail Conversion Layer</p>
@@ -36,18 +38,19 @@ Deno.serve(async (req) => {
   `;
 
   const textBody = [
-    `Hi ${full_name}, thank you for getting in touch!`,
+    `Hi ${firstName},`,
     "",
-    "We've received your registration and are excited to connect with you.",
+    "Thank you for your interest in partnering with DutyBoost.",
     "",
-    "We are currently putting the final touches on DutyBoost - the first Travel Retail Conversion Layer connecting travel partners, airport retailers, and leisure travelers in a completely new way.",
+    "We've received your enquiry, and a member of our Partnerships Team will contact you within one business day to schedule a 30-minute introductory call.",
     "",
-    "As soon as the platform goes live, we will notify you so you can create your account and start benefiting from the value DutyBoost delivers.",
+    "During the call, we'll discuss your platform, our straightforward API integration, the commercial partnership model, and the recurring revenue opportunity for your organisation.",
     "",
-    "In the meantime, feel free to reply to this email if you have any questions.",
+    "We look forward to speaking with you soon.",
     "",
-    "Warm regards,",
-    "The DutyBoost Team",
+    "Kind regards,",
+    "",
+    "The DutyBoost Partnerships Team",
   ].join("\n");
 
   const response = await fetch('https://api.postmarkapp.com/email', {
@@ -60,7 +63,7 @@ Deno.serve(async (req) => {
     body: JSON.stringify({
       From: 'hello@dutyboost.com',
       To: email,
-      Subject: 'Thank you for getting in touch with DutyBoost!',
+      Subject: 'Thank you for your interest in partnering with DutyBoost',
       HtmlBody: htmlBody,
       TextBody: textBody,
       MessageStream: 'outbound',
