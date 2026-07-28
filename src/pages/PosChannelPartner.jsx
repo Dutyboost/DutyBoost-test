@@ -200,9 +200,9 @@ export default function PosChannelPartner() {
             </div>
 
             {/* Example context */}
-            <div className="px-5 py-2 flex items-center justify-between gap-3 bg-muted/30 border-b border-border">
-              <p className="text-xs font-bold text-muted-foreground text-center flex-1">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
-              <div className="inline-flex items-center rounded-lg border border-border bg-background p-0.5 shrink-0">
+            <div className="relative px-5 py-2 bg-muted/30 border-b border-border">
+              <p className="text-xs font-bold text-muted-foreground text-center">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
+              <div className="absolute top-1/2 right-3 -translate-y-1/2 inline-flex items-center rounded-lg border border-border bg-background p-0.5">
                 {currencyOptions.map((c) => (
                   <button
                     key={c.code}
