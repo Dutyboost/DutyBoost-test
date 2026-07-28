@@ -347,10 +347,25 @@ export default function PosChannelPartner() {
             <div>
               <div className="flex items-center justify-between mb-2 gap-2">
                 <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_rate")}</Label>
-                <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{redemptionRate}%</span>
+                <div className="flex items-center gap-1">
+                  <input
+                    type="number"
+                    min={0}
+                    max={25}
+                    step={0.01}
+                    value={redemptionRate}
+                    onChange={(e) => {
+                      const v = Number(e.target.value);
+                      if (Number.isNaN(v)) return;
+                      setRedemptionRate(Math.min(25, Math.max(0, v)));
+                    }}
+                    className="w-20 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
+                  />
+                  <span className="text-xs sm:text-sm font-bold font-mono">%</span>
+                </div>
               </div>
               <input
-                type="range" min={0.01} max={20} step={0.01} value={redemptionRate}
+                type="range" min={0} max={25} step={0.01} value={redemptionRate}
                 onChange={(e) => setRedemptionRate(Number(e.target.value))}
                 className="w-full accent-violet-600"
               />
