@@ -506,7 +506,7 @@ export default function ClaimDutyCredit() {
                 {DUTY_CREDIT_TIERS.map((tier, idx) => (
                   <div key={tier.name} className={`flex justify-between items-center py-2 ${idx < DUTY_CREDIT_TIERS.length - 1 ? 'border-b border-border' : ''}`}>
                     <span>{tier.name} · {tier.max ? `${fmtTier(tier.min)}–${fmtTier(tier.max)}` : `${fmtTier(tier.min)}+`} {tr('tier_spend')}</span>
-                    <span className={`font-bold ${tier.color}`}>{fmtTier(tier.discount)} {tr('tier_off')}</span>
+                    <span className={`font-bold ${tier.color}`}>{fmtTier(tier.discountMin)} – {fmtTier(tier.discount)} {tr('tier_off')}</span>
                   </div>
                 ))}
               </div>
