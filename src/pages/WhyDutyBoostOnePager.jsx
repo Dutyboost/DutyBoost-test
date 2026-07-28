@@ -2,7 +2,8 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Printer, ArrowLeft, Plane, ShoppingBag, Store, Cpu } from "lucide-react";
+import { Printer, ArrowLeft } from "lucide-react";
+import CircularEcosystem from "../components/why-dutyboost/CircularEcosystem";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import OnePagerLogo from "../components/OnePagerLogo";
@@ -19,6 +20,7 @@ const STRINGS = {
     subtitle: "One platform connects four participants. For each, here is why it matters, how it works, and what they get.",
     section_title: "Why · How · What",
     labels: { why: "Why", how: "How", what: "What" },
+    hub_sub: "Revenue Ecosystem",
     stakeholders: [
       {
         icon: "plane",
@@ -62,6 +64,7 @@ const STRINGS = {
     subtitle: "Eén platform verbindt vier deelnemers. Voor elk: waarom het ertoe doet, hoe het werkt, en wat ze ervan hebben.",
     section_title: "Waarom · Hoe · Wat",
     labels: { why: "Waarom", how: "Hoe", what: "Wat" },
+    hub_sub: "Inkomsten-ecosysteem",
     stakeholders: [
       {
         icon: "plane",
@@ -105,6 +108,7 @@ const STRINGS = {
     subtitle: "Una plataforma conecta a cuatro participantes. Para cada uno: por qué importa, cómo funciona y qué obtienen.",
     section_title: "Por qué · Cómo · Qué",
     labels: { why: "Por qué", how: "Cómo", what: "Qué" },
+    hub_sub: "Ecosistema de ingresos",
     stakeholders: [
       {
         icon: "plane",
@@ -148,6 +152,7 @@ const STRINGS = {
     subtitle: "Une plateforme relie quatre participants. Pour chacun : pourquoi cela compte, comment ça fonctionne et ce qu'ils obtiennent.",
     section_title: "Pourquoi · Comment · Quoi",
     labels: { why: "Pourquoi", how: "Comment", what: "Quoi" },
+    hub_sub: "Écosystème de revenus",
     stakeholders: [
       {
         icon: "plane",
@@ -191,6 +196,7 @@ const STRINGS = {
     subtitle: "Eine Plattform verbindet vier Teilnehmer. Für jeden: warum es zählt, wie es funktioniert und was sie davon haben.",
     section_title: "Warum · Wie · Was",
     labels: { why: "Warum", how: "Wie", what: "Was" },
+    hub_sub: "Umsatz-Ökosystem",
     stakeholders: [
       {
         icon: "plane",
@@ -234,6 +240,7 @@ const STRINGS = {
     subtitle: "Una piattaforma collega quattro partecipanti. Per ciascuno: perché conta, come funziona e cosa ottengono.",
     section_title: "Perché · Come · Cosa",
     labels: { why: "Perché", how: "Come", what: "Cosa" },
+    hub_sub: "Ecosistema di entrate",
     stakeholders: [
       {
         icon: "plane",
@@ -273,19 +280,7 @@ const STRINGS = {
   },
 };
 
-const ICONS = {
-  plane: Plane,
-  traveller: ShoppingBag,
-  store: Store,
-  cpu: Cpu,
-};
-
-const ACCENTS = {
-  plane: { bg: 'hsl(217 90% 96%)', fg: '#1d4ed8', border: 'hsl(217 90% 88%)' },
-  traveller: { bg: 'hsl(29 90% 96%)', fg: '#ea580c', border: 'hsl(29 90% 88%)' },
-  store: { bg: 'hsl(161 70% 96%)', fg: '#0d9488', border: 'hsl(161 70% 88%)' },
-  cpu: { bg: 'hsl(255 90% 96%)', fg: '#6d28d9', border: 'hsl(255 90% 90%)' },
-};
+// Stakeholder icons & accents live in the CircularEcosystem component.
 
 export default function WhyDutyBoostOnePager() {
   const { t, i18n } = useTranslation();
@@ -346,38 +341,11 @@ export default function WhyDutyBoostOnePager() {
             <p className="text-muted-foreground text-sm max-w-2xl mx-auto mt-1.5">{p('subtitle')}</p>
           </div>
 
-          {/* Stakeholder rows */}
+          {/* Circular Revenue Ecosystem */}
           <div className="flex-1 flex flex-col py-1">
             <h2 className="font-heading font-bold text-sm mb-1.5 uppercase tracking-wide text-center" style={{ color: '#6d28d9' }}>{p('section_title')}</h2>
             <div className="mb-1.5"><GradientDivider /></div>
-            <div className="flex flex-col gap-3 flex-1">
-              {p('stakeholders').map((st, idx) => {
-                const Icon = ICONS[st.icon] || Store;
-                const accent = ACCENTS[st.icon] || ACCENTS.cpu;
-                return (
-                  <div key={st.title} className="rounded-lg border p-4" style={{ background: accent.bg, borderColor: accent.border }}>
-                    <div className="flex items-center gap-2.5 mb-2.5">
-                      <div className="w-11 h-11 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.75)' }}>
-                        <Icon className="w-6 h-6" style={{ color: accent.fg }} />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-sm font-bold text-slate-400 leading-none">{idx + 1}.</p>
-                        <h3 className="font-heading font-bold text-lg leading-tight">{st.title}</h3>
-                      </div>
-                      <p className="text-sm italic ml-auto text-right" style={{ color: accent.fg }}>{st.tagline}</p>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      {['why', 'how', 'what'].map((key) => (
-                        <div key={key} className="bg-white/75 rounded p-2.5 border" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
-                          <p className="font-heading font-bold text-sm uppercase tracking-wide mb-1" style={{ color: accent.fg }}>{labels[key]}</p>
-                          <p className="text-sm text-muted-foreground leading-normal">{st[key]}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <CircularEcosystem stakeholders={p('stakeholders')} labels={labels} hubSub={p('hub_sub')} />
           </div>
 
           {/* CTA */}
