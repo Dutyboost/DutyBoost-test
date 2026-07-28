@@ -15,18 +15,18 @@ const ACCENTS = {
 };
 
 const W = 730;
-const H = 760;
+const H = 740;
 
 // Card layout: 4 corners, clockwise flow (TP → TR → AR → PV → TP)
-// cx/cy = connector anchor points (card visual centres)
+// Cards pulled inward so connector arcs stay within the card footprint.
 const CARDS = [
-  { left: 0, top: 0, cx: 150, cy: 108 },        // Travel Partners (top-left)
-  { left: 430, top: 0, cx: 580, cy: 108 },      // Travellers (top-right)
-  { left: 430, top: 540, cx: 580, cy: 648 },    // Airport Retailers (bottom-right)
-  { left: 0, top: 540, cx: 150, cy: 648 },      // POS Vendors (bottom-left)
+  { left: 35, top: 0, cx: 185, cy: 108 },       // Travel Partners (top-left)
+  { left: 395, top: 0, cx: 545, cy: 108 },      // Travellers (top-right)
+  { left: 395, top: 524, cx: 545, cy: 632 },    // Airport Retailers (bottom-right)
+  { left: 35, top: 524, cx: 185, cy: 632 },     // POS Vendors (bottom-left)
 ];
 
-const HUB = { cx: 365, cy: 378, r: 100 };
+const HUB = { cx: 365, cy: 378, r: 95 };
 
 export default function CircularEcosystem({ stakeholders, labels, hubSub }) {
   return (
@@ -46,10 +46,10 @@ export default function CircularEcosystem({ stakeholders, labels, hubSub }) {
         ))}
 
         {/* Circular flow arcs (clockwise) */}
-        <path d="M 300 108 Q 365 36 430 108" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
-        <path d="M 580 216 Q 696 378 580 540" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
-        <path d="M 430 648 Q 365 720 300 648" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
-        <path d="M 150 540 Q 34 378 150 216" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 335 108 Q 365 40 395 108" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 545 216 Q 660 378 545 524" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 395 632 Q 365 700 335 632" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 185 524 Q 70 378 185 216" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
       </svg>
 
       {/* Stakeholder cards */}
