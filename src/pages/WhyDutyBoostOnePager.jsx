@@ -342,35 +342,35 @@ export default function WhyDutyBoostOnePager() {
 
           {/* Headline */}
           <div className="text-center py-2">
-            <h1 className="text-lg font-heading font-bold leading-tight">{p('headline')}</h1>
-            <p className="text-muted-foreground text-xs max-w-2xl mx-auto mt-1">{p('subtitle')}</p>
+            <h1 className="text-2xl font-heading font-bold leading-tight">{p('headline')}</h1>
+            <p className="text-muted-foreground text-sm max-w-2xl mx-auto mt-1.5">{p('subtitle')}</p>
           </div>
 
           {/* Stakeholder rows */}
           <div className="flex-1 flex flex-col py-1">
-            <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide text-center" style={{ color: '#6d28d9' }}>{p('section_title')}</h2>
+            <h2 className="font-heading font-bold text-sm mb-1.5 uppercase tracking-wide text-center" style={{ color: '#6d28d9' }}>{p('section_title')}</h2>
             <div className="mb-1.5"><GradientDivider /></div>
-            <div className="flex flex-col gap-2 flex-1">
+            <div className="flex flex-col gap-3 flex-1">
               {p('stakeholders').map((st, idx) => {
                 const Icon = ICONS[st.icon] || Store;
                 const accent = ACCENTS[st.icon] || ACCENTS.cpu;
                 return (
-                  <div key={st.title} className="rounded-lg border p-2.5" style={{ background: accent.bg, borderColor: accent.border }}>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.7)' }}>
-                        <Icon className="w-5 h-5" style={{ color: accent.fg }} />
+                  <div key={st.title} className="rounded-lg border p-4" style={{ background: accent.bg, borderColor: accent.border }}>
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <div className="w-11 h-11 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.75)' }}>
+                        <Icon className="w-6 h-6" style={{ color: accent.fg }} />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs font-bold text-slate-400 leading-none">{idx + 1}.</p>
-                        <h3 className="font-heading font-bold text-sm leading-tight">{st.title}</h3>
+                        <p className="text-sm font-bold text-slate-400 leading-none">{idx + 1}.</p>
+                        <h3 className="font-heading font-bold text-lg leading-tight">{st.title}</h3>
                       </div>
-                      <p className="text-xs italic ml-auto text-right" style={{ color: accent.fg }}>{st.tagline}</p>
+                      <p className="text-sm italic ml-auto text-right" style={{ color: accent.fg }}>{st.tagline}</p>
                     </div>
-                    <div className="grid grid-cols-3 gap-1.5">
+                    <div className="grid grid-cols-3 gap-2">
                       {['why', 'how', 'what'].map((key) => (
-                        <div key={key} className="bg-white/70 rounded p-1.5 border" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
-                          <p className="font-heading font-bold text-xs uppercase tracking-wide mb-0.5" style={{ color: accent.fg }}>{labels[key]}</p>
-                          <p className="text-xs text-muted-foreground leading-snug">{st[key]}</p>
+                        <div key={key} className="bg-white/75 rounded p-2.5 border" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
+                          <p className="font-heading font-bold text-sm uppercase tracking-wide mb-1" style={{ color: accent.fg }}>{labels[key]}</p>
+                          <p className="text-sm text-muted-foreground leading-normal">{st[key]}</p>
                         </div>
                       ))}
                     </div>
@@ -384,7 +384,7 @@ export default function WhyDutyBoostOnePager() {
           <div>
             <GradientDivider />
             <div className="text-center py-2">
-              <p className="font-heading font-bold text-sm">{p('cta')}</p>
+              <p className="font-heading font-bold text-lg">{p('cta')}</p>
               <div className="flex items-center justify-center gap-1.5 mt-1 text-xs">
                 <span className="font-semibold" style={{ color: '#6d28d9' }}>Visit:</span>
                 <a href="https://dutyboost.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#6d28d9' }}>dutyboost.com</a>
@@ -394,7 +394,7 @@ export default function WhyDutyBoostOnePager() {
 
           {/* Legal footer */}
           <div className="text-center pb-1">
-            <p className="text-xs text-muted-foreground">{p('legal').replace('{{year}}', new Date().getFullYear())}</p>
+            <p className="text-sm text-muted-foreground">{p('legal').replace('{{year}}', new Date().getFullYear())}</p>
           </div>
 
         </div>
