@@ -42,6 +42,7 @@ export default function PosChannelPartner() {
     return new Intl.NumberFormat(localeForCurrency(cur)).format(num);
   };
   const [redemptionRate, setRedemptionRate] = useState(1);
+  const [rateInput, setRateInput] = useState("1");
   const [currency, setCurrency] = useState(() => {
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
@@ -350,14 +351,23 @@ export default function PosChannelPartner() {
                 <div className="flex items-center gap-1">
                   <input
                     type="number"
-                    min={0}
+                    min={1}
                     max={25}
                     step={0.01}
-                    value={redemptionRate}
+                    value={rateInput}
                     onChange={(e) => {
-                      const v = Number(e.target.value);
-                      if (Number.isNaN(v)) return;
-                      setRedemptionRate(Math.min(25, Math.max(0, v)));
+                      const raw = e.target.value;
+                      setRateInput(raw);
+                      const v = Number(raw);
+                      if (!Number.isNaN(v) && v >= 1 && v <= 25) {
+                        setRedemptionRate(v);
+                      }
+                    }}
+                    onBlur={() => {
+                      const v = Number(rateInput);
+                      const clamped = Number.isNaN(v) || v < 1 ? 1 : Math.min(25, v);
+                      setRedemptionRate(clamped);
+                      setRateInput(String(clamped));
                     }}
                     className="w-20 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
                   />
@@ -365,8 +375,12 @@ export default function PosChannelPartner() {
                 </div>
               </div>
               <input
-                type="range" min={0} max={25} step={0.01} value={redemptionRate}
-                onChange={(e) => setRedemptionRate(Number(e.target.value))}
+                type="range" min={1} max={25} step={0.01} value={redemptionRate}
+                onChange={(e) => {
+                  const v = Number(e.target.value);
+                  setRedemptionRate(v);
+                  setRateInput(String(v));
+                }}
                 className="w-full accent-violet-600"
               />
             </div>
