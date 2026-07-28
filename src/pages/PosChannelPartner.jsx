@@ -200,8 +200,23 @@ export default function PosChannelPartner() {
             </div>
 
             {/* Example context */}
-            <div className="px-5 py-2 text-center bg-muted/30 border-b border-border">
-              <p className="text-xs font-bold text-muted-foreground">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
+            <div className="px-5 py-2 flex items-center justify-between gap-3 bg-muted/30 border-b border-border">
+              <p className="text-xs font-bold text-muted-foreground text-center flex-1">{t("posChannel.revenue.example_label", { amount: fmtMoney(EXAMPLE_REDEMPTION, currency, 0) })}</p>
+              <div className="inline-flex items-center rounded-lg border border-border bg-background p-0.5 shrink-0">
+                {currencyOptions.map((c) => (
+                  <button
+                    key={c.code}
+                    onClick={() => setCurrency(c.code)}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
+                      currency === c.code
+                        ? "bg-card text-violet-700 shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {c.code}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Org-chart connectors (desktop only) */}
