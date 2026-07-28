@@ -325,6 +325,7 @@ export default function PosChannelPartner() {
               <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
             </div>
             <div>
+              <p className="text-xs text-muted-foreground text-center pb-1">{t("posChannel.calculator.manual_hint")}</p>
               <div className="flex items-center justify-between mb-2 gap-2">
                 <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_stores")}</Label>
                 <input
