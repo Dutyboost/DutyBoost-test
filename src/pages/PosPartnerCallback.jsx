@@ -111,17 +111,17 @@ export default function PosPartnerCallback() {
 
   const validate = () => {
     const errs = {};
-    if (!isRealName(form.full_name)) errs.full_name = t("posChannel.callback.err_name");
-    if (!form.email) errs.email = t("posChannel.callback.err_email_required");
-    else if (!isWorkEmail(form.email)) errs.email = t("posChannel.callback.err_email_work");
-    if (!isValidPhone(form.phone)) errs.phone = t("posChannel.callback.err_phone");
-    if (!form.company_name.trim()) errs.company_name = t("posChannel.callback.err_company");
-    if (!isValidWebsite(form.website)) errs.website = t("posChannel.callback.err_website");
+    if (!isRealName(form.full_name)) errs.full_name = "posChannel.callback.err_name";
+    if (!form.email) errs.email = "posChannel.callback.err_email_required";
+    else if (!isWorkEmail(form.email)) errs.email = "posChannel.callback.err_email_work";
+    if (!isValidPhone(form.phone)) errs.phone = "posChannel.callback.err_phone";
+    if (!form.company_name.trim()) errs.company_name = "posChannel.callback.err_company";
+    if (!isValidWebsite(form.website)) errs.website = "posChannel.callback.err_website";
     else if (form.email && isWorkEmail(form.email) && !domainsMatch(form.email, form.website))
-      errs.website = t("posChannel.callback.err_domain");
+      errs.website = "posChannel.callback.err_domain";
     const numTerminals = parseInt(form.footprint, 10);
     if (!form.footprint || isNaN(numTerminals) || numTerminals <= 0)
-      errs.footprint = t("posChannel.callback.err_footprint");
+      errs.footprint = "posChannel.callback.err_footprint";
     return errs;
   };
 
@@ -262,27 +262,27 @@ export default function PosPartnerCallback() {
                 <div className="space-y-1.5">
                   <Label htmlFor="full_name" className="text-sm">{t("posChannel.callback.label_name")}</Label>
                   <Input id="full_name" name="full_name" value={form.full_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_name")} />
-                  {errors.full_name && <p className="text-xs text-red-500">{errors.full_name}</p>}
+                  {errors.full_name && <p className="text-xs text-red-500">{t(errors.full_name)}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="email" className="text-sm">{t("posChannel.callback.label_email")}</Label>
                   <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_email")} />
-                  {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
+                  {errors.email && <p className="text-xs text-red-500">{t(errors.email)}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="phone" className="text-sm">{t("posChannel.callback.label_phone")}</Label>
                   <Input id="phone" name="phone" value={form.phone} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_phone")} />
-                  {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
+                  {errors.phone && <p className="text-xs text-red-500">{t(errors.phone)}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="company_name" className="text-sm">{t("posChannel.callback.label_company")}</Label>
                   <Input id="company_name" name="company_name" value={form.company_name} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_company")} />
-                  {errors.company_name && <p className="text-xs text-red-500">{errors.company_name}</p>}
+                  {errors.company_name && <p className="text-xs text-red-500">{t(errors.company_name)}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="website" className="text-sm">{t("posChannel.callback.label_website")}</Label>
                   <Input id="website" name="website" value={form.website} onChange={handleChange} placeholder={t("posChannel.callback.placeholder_website")} />
-                  {errors.website && <p className="text-xs text-red-500">{errors.website}</p>}
+                  {errors.website && <p className="text-xs text-red-500">{t(errors.website)}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="footprint" className="text-sm">{t("posChannel.callback.label_footprint")}</Label>
@@ -292,7 +292,7 @@ export default function PosPartnerCallback() {
                     value={formatTerminals(form.footprint)} onChange={handleTerminalsChange}
                     placeholder={t("posChannel.callback.placeholder_footprint")}
                   />
-                  {errors.footprint && <p className="text-xs text-red-500">{errors.footprint}</p>}
+                  {errors.footprint && <p className="text-xs text-red-500">{t(errors.footprint)}</p>}
                   <p className="text-xs text-muted-foreground">{t("posChannel.callback.footprint_help")}</p>
                 </div>
 
