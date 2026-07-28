@@ -303,7 +303,7 @@ export default function PosChannelPartner() {
             <p className="text-xs sm:text-sm text-muted-foreground text-center">
               {t("posChannel.calculator.market_context", { market_size: `${fmtMoney(40, currency, 0)}B+` })}
             </p>
-            <div className="flex items-center justify-end">
+            <div className="flex items-center justify-center">
               <div className="inline-flex items-center rounded-lg border border-border bg-muted/40 p-0.5">
                 {currencyOptions.map((c) => (
                   <button
