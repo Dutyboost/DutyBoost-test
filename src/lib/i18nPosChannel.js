@@ -38,7 +38,7 @@ export const posChannelStrings = {
       row4_note: "operates the platform",
       bypass_bold: "Commercial Consistency",
       bypass_text: "Retailers always pay the same fixed 2.5% platform fee, regardless of how they join DutyBoost. Partner remuneration is funded entirely by DutyBoost — never added to the retailer's cost.",
-      example_label: "Split of the fee — example on a {{amount}} redemption (global average annual sales per store)",
+      example_label: "Split of the fee — example on a {{amount}} redemption",
     },
     how: {
       title: "Partner Enablement",
@@ -190,7 +190,7 @@ export const posChannelStrings = {
       row4_note: "beheert het platform",
       bypass_bold: "Geen omzeil-incentive.",
       bypass_text: "Een rechtstreeks aangesloten winkelier betaalt dezelfde 2,5% als een via u aangesloten winkelier. De partnervergoeding beloont acquisitie — het is nooit een heffing op toegang.",
-      example_label: "Verdeling van de vergoeding — voorbeeld bij een inning van {{amount}} (wereldwijd gemiddelde jaaromzet per winkel)",
+      example_label: "Verdeling van de vergoeding — voorbeeld bij een inning van {{amount}}",
     },
     how: {
       title: "Van integratie naar inkomen",
@@ -342,7 +342,7 @@ export const posChannelStrings = {
       row4_note: "gère la plateforme",
       bypass_bold: "Aucune incitation à contourner.",
       bypass_text: "Un détaillant intégré directement paie les mêmes 2,5 % qu'un détaillant intégré via vous. La commission partenaire récompense l'acquisition — ce n'est jamais une taxe sur l'accès.",
-      example_label: "Répartition de la commission — exemple sur un remboursement de {{amount}} (ventes annuelles moyennes mondiales par magasin)",
+      example_label: "Répartition de la commission — exemple sur un remboursement de {{amount}}",
     },
     how: {
       title: "De l'intégration au revenu",
@@ -494,7 +494,7 @@ export const posChannelStrings = {
       row4_note: "betreibt die Plattform",
       bypass_bold: "Kein Umgehungsanreiz.",
       bypass_text: "Ein direkt integrierter Händler zahlt dieselben 2,5 % wie ein über Sie integrierter. Die Partner-Provision belohnt Akquise — sie ist niemals eine Steuer auf Zugang.",
-      example_label: "Aufteilung der Gebühr — Beispiel bei einer Einlösung von {{amount}} (globaler Durchschnitts-Jahresumsatz pro Geschäft)",
+      example_label: "Aufteilung der Gebühr — Beispiel bei einer Einlösung von {{amount}}",
     },
     how: {
       title: "Von der Integration zum Einkommen",
@@ -646,7 +646,7 @@ export const posChannelStrings = {
       row4_note: "gestiona la plataforma",
       bypass_bold: "Consistencia comercial",
       bypass_text: "Los minoristas siempre pagan la misma comisión de plataforma fija del 2,5 %, independientemente de cómo se incorporen a DutyBoost. La remuneración del socio se financia íntegramente con DutyBoost; nunca se añade al coste del minorista.",
-      example_label: "Reparto de la comisión — ejemplo sobre una redención de {{amount}} (ventas anuales medias globales por tienda)",
+      example_label: "Reparto de la comisión — ejemplo sobre una redención de {{amount}}",
     },
     how: {
       title: "Habilitación del socio",
@@ -798,7 +798,7 @@ export const posChannelStrings = {
       row4_note: "gestisce la piattaforma",
       bypass_bold: "Nessun incentivo a bypassare.",
       bypass_text: "Un rivenditore integrato direttamente paga lo stesso 2,5 % di uno integrato tramite te. La commissione del partner premia l'acquisizione — non è mai una tassa sull'accesso.",
-      example_label: "Ripartizione della commissione — esempio su un riscatto di {{amount}} (vendite annuali medie globali per negozio)",
+      example_label: "Ripartizione della commissione — esempio su un riscatto di {{amount}}",
     },
     how: {
       title: "Dall'integrazione al reddito",
