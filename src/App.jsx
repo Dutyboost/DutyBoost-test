@@ -114,6 +114,7 @@ import ClaimDutyCredit from './pages/ClaimDutyCredit';
 import PosChannelPartner from './pages/PosChannelPartner';
 import PosPartnerCallback from './pages/PosPartnerCallback';
 import PosPartnerOnePager from './pages/PosPartnerOnePager';
+import WhyDutyBoostOnePager from './pages/WhyDutyBoostOnePager';
 import EligibilityShowcase from './pages/EligibilityShowcase';
 import DutyBoostPresentation from './pages/DutyBoostPresentation';
 import DutyBoostPresentationAruba from './pages/DutyBoostPresentationAruba';
@@ -239,6 +240,7 @@ const AuthenticatedApp = () => {
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
         <Route path="/pos-partner" element={<PosChannelPartner />} />
         <Route path="/pos-partner-one-pager" element={<PosPartnerOnePager />} />
+        <Route path="/why-dutyboost" element={<WhyDutyBoostOnePager />} />
         <Route path="/pos-partner-callback" element={<PosPartnerCallback />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentation />} />
