@@ -2,7 +2,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Printer, ArrowLeft, Plane, ShoppingBag, Store, Cpu, Check } from "lucide-react";
+import { Printer, ArrowLeft, Plane, ShoppingBag, Store, Cpu } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import OnePagerLogo from "../components/OnePagerLogo";
@@ -16,48 +16,41 @@ const STRINGS = {
   en: {
     badge: "Why DutyBoost",
     headline: "Why DutyBoost for Every Stakeholder",
-    subtitle: "One platform connects four participants. Each one contributes to a measurable increase in airport retail sales — and each one benefits.",
-    section_title: "The Value for Each Stakeholder",
+    subtitle: "One platform connects four participants. For each, here is why it matters, how it works, and what they get.",
+    section_title: "Why · How · What",
+    labels: { why: "Why", how: "How", what: "What" },
     stakeholders: [
       {
         icon: "plane",
         title: "Travel Partners",
         tagline: "Turn every booking into a new revenue stream.",
-        bullets: [
-          "Earn ongoing commission on every traveller you refer, for the lifetime of each DutyCredit redeemed.",
-          "Add value to every booking with a complimentary airport shopping credit — no extra effort, no cost to you.",
-          "Strengthen customer loyalty by giving travellers a tangible reason to book through you.",
-        ],
+        why: "Every booking already reaches a traveller who will spend at the airport — that intent currently goes unrewarded.",
+        how: "Refer the traveller at booking; DutyBoost issues a DutyCredit tied to your referral, redeemable in-terminal.",
+        what: "Ongoing commission on every redemption, plus a richer customer proposition at no cost to you.",
       },
       {
         icon: "traveller",
         title: "Travellers",
         tagline: "A complimentary shopping credit, just for travelling.",
-        bullets: [
-          "Receive a DutyBoost credit you can spend at airport retailers on the day you fly.",
-          "No app to download, no membership fee — scan a QR code and save instantly at checkout.",
-          "Real discounts on real products, from brands you already love.",
-        ],
+        why: "Airport prices feel fixed; travellers have no reason to plan spend and no reward for loyalty.",
+        how: "Receive a complimentary DutyBoost credit before departure; scan a QR code at checkout to apply the discount.",
+        what: "Real savings on real products on the day they fly — no app, no membership, no catch.",
       },
       {
         icon: "store",
         title: "Airport Retailers",
         tagline: "More qualified shoppers, larger baskets, same fixed fee.",
-        bullets: [
-          "Capture travellers who've built purchase intent well before arriving at the terminal.",
-          "Pay only a fixed 2.5% platform fee — and only when a redemption actually happens.",
-          "No hardware replacement, no operational disruption — integrate through your existing POS.",
-        ],
+        why: "Most travellers decide what to buy before they reach the terminal, but retailers can't reach them that early.",
+        how: "DutyBoost drives intent-building touchpoints pre-trip; redemptions are validated in real time through your existing POS.",
+        what: "More qualified footfall and larger baskets, with a fixed 2.5% fee only when a sale actually happens.",
       },
       {
         icon: "cpu",
         title: "POS Vendors",
         tagline: "Extend your platform with measurable commercial value.",
-        bullets: [
-          "A single integration makes DutyBoost available across your entire airport retail customer base.",
-          "Earn recurring partner revenue on every redemption processed by retailers you onboard.",
-          "Strengthen customer relationships by giving retailers a compelling reason to stay on your platform.",
-        ],
+        why: "Your POS already powers airport retail checkout — the single moment where intent becomes revenue.",
+        how: "One API integration exposes DutyBoost redemption across your retailer base; they toggle it on themselves.",
+        what: "Recurring partner revenue on every redemption, and stickier retailer relationships.",
       },
     ],
     cta: "One platform. Four winners. Every participant creates value.",
@@ -66,48 +59,41 @@ const STRINGS = {
   nl: {
     badge: "Waarom DutyBoost",
     headline: "Waarom DutyBoost voor elke belanghebbende",
-    subtitle: "Eén platform verbindt vier deelnemers. Elke deelnemer draagt bij aan een meetbare toename van luchthavenverkoop — en profiteert ervan.",
-    section_title: "De waarde voor elke belanghebbende",
+    subtitle: "Eén platform verbindt vier deelnemers. Voor elk: waarom het ertoe doet, hoe het werkt, en wat ze ervan hebben.",
+    section_title: "Waarom · Hoe · Wat",
+    labels: { why: "Waarom", how: "Hoe", what: "Wat" },
     stakeholders: [
       {
         icon: "plane",
         title: "Travel Partners",
         tagline: "Verander elke boeking in een nieuwe inkomstenstroom.",
-        bullets: [
-          "Verdien doorlopende commissie op elke reiziger die u doorverwijst, gedurende de levensduur van elke ingeloste DutyCredit.",
-          "Voeg waarde toe aan elke boeking met een gratis luchthaven-winkeltegoed — geen extra moeite, geen kosten voor u.",
-          "Versterk klantenloyaliteit door reizigers een tastbare reden te geven om via u te boeken.",
-        ],
+        why: "Elke boeking bereikt al een reiziger die op de luchthaven zal uitgeven — die intentie blijft nu onbeloond.",
+        how: "Refer de reiziger bij de boeking; DutyBoost geeft een DutyCredit uit gekoppeld aan uw verwijzing, inwisselbaar in de terminal.",
+        what: "Doorlopende commissie bij elke inning, plus een rijkere klantpropositie zonder kosten voor u.",
       },
       {
         icon: "traveller",
         title: "Reizigers",
         tagline: "Een gratis winkeltegoed, gewoon omdat u reist.",
-        bullets: [
-          "Ontvang een DutyBoost-tegoed dat u kunt besteden bij luchthavenwinkels op de dag dat u vliegt.",
-          "Geen app om te downloaden, geen lidmaatschap — scan een QR-code en bespaar direct aan de kassa.",
-          "Echte kortingen op echte producten, van merken die u al kent.",
-        ],
+        why: "Luchthavenprijzen lijken vast; reizigers hebben geen reden om uitgaven te plannen of beloond te worden voor loyaliteit.",
+        how: "Ontvang vóór vertrek een gratis DutyBoost-tegoed; scan een QR-code aan de kassa om de korting te krijgen.",
+        what: "Echte besparingen op echte producten op de dag van vliegen — geen app, geen lidmaatschap, geen addertje.",
       },
       {
         icon: "store",
         title: "Luchthavenwinkeliers",
         tagline: "Meer gekwalificeerde kopers, grotere manden, zelfde vaste vergoeding.",
-        bullets: [
-          "Bereik reizigers die lang voor aankomst in de terminal koopintentie hebben opgebouwd.",
-          "Betaal alleen een vaste platformvergoeding van 2,5% — en alleen als er daadwerkelijk wordt ingelost.",
-          "Geen hardware-vervanging, geen operationele verstoring — integreer via uw bestaande POS.",
-        ],
+        why: "De meeste reizigers bepalen vóór de terminal wat ze kopen, maar winkeliers kunnen hen niet zo vroeg bereiken.",
+        how: "DutyBoost drijft intentie-opbouw aan vóór de reis; inningen worden realtime gevalideerd via uw bestaande POS.",
+        what: "Meer gekwalificeerde voetverkeer en grotere manden, met een vaste vergoeding van 2,5% alleen bij een verkoop.",
       },
       {
         icon: "cpu",
         title: "POS-leveranciers",
         tagline: "Breid uw platform uit met meetbare commerciële waarde.",
-        bullets: [
-          "Eén integratie maakt DutyBoost beschikbaar over uw hele luchthaven-klantbase.",
-          "Verdien terugkerende partnerinkomsten bij elke inning verwerkt door winkeliers die u aanbrengt.",
-          "Versterk klantrelaties door winkeliers een dwingende reden te geven om op uw platform te blijven.",
-        ],
+        why: "Uw POS draait al de kassa van luchthavenwinkels — het enige moment waarop intentie omzet wordt.",
+        how: "Eén API-integratie ontsluit DutyBoost-inninging over uw winkeliersbase; zij schakelen het zelf in.",
+        what: "Terugkerende partnerinkomsten bij elke inning, en klevere winkeliersrelaties.",
       },
     ],
     cta: "Eén platform. Vier winnaars. Elke deelnemer creëert waarde.",
@@ -116,48 +102,41 @@ const STRINGS = {
   es: {
     badge: "Por qué DutyBoost",
     headline: "Por qué DutyBoost para cada participante",
-    subtitle: "Una plataforma conecta a cuatro participantes. Cada uno contribuye a un aumento medible de las ventas del comercio aeroportuario — y cada uno se beneficia.",
-    section_title: "El valor para cada participante",
+    subtitle: "Una plataforma conecta a cuatro participantes. Para cada uno: por qué importa, cómo funciona y qué obtienen.",
+    section_title: "Por qué · Cómo · Qué",
+    labels: { why: "Por qué", how: "Cómo", what: "Qué" },
     stakeholders: [
       {
         icon: "plane",
         title: "Socios de viaje",
         tagline: "Convierte cada reserva en una nueva fuente de ingresos.",
-        bullets: [
-          "Gana una comisión continua por cada viajero que refieres, durante toda la vida de cada DutyCredit redimido.",
-          "Añade valor a cada reserva con un crédito de compra en aeropuerto gratuito — sin esfuerzo extra, sin coste para ti.",
-          "Refuerza la fidelidad del cliente dando a los viajeros una razón tangible para reservar contigo.",
-        ],
+        why: "Cada reserva ya llega a un viajero que gastará en el aeropuerto — esa intención hoy no recibe recompensa.",
+        how: "Refiere al viajero al reservar; DutyBoost emite un DutyCredit vinculado a tu referencia, redimible en la terminal.",
+        what: "Comisión continua en cada redención, más una propuesta de cliente más rica sin coste para ti.",
       },
       {
         icon: "traveller",
         title: "Viajeros",
         tagline: "Un crédito de compra gratuito, solo por viajar.",
-        bullets: [
-          "Recibe un crédito DutyBoost que puedes gastar en los minoristas del aeropuerto el día que vuelas.",
-          "Sin app que descargar, sin cuota de membresía — escanea un código QR y ahorra al instante en caja.",
-          "Descuentos reales en productos reales, de marcas que ya conoces.",
-        ],
+        why: "Los precios del aeropuerto parecen fijos; los viajeros no tienen razón para planear el gasto ni recompensa por lealtad.",
+        how: "Recibe un crédito DutyBoost gratuito antes de salir; escanea un código QR en caja para aplicar el descuento.",
+        what: "Ahorros reales en productos reales el día del vuelo — sin app, sin membresía, sin trampa.",
       },
       {
         icon: "store",
         title: "Minoristas de aeropuerto",
         tagline: "Más compradores cualificados, cestas más grandes, misma comisión fija.",
-        bullets: [
-          "Captura viajeros que han construido intención de compra mucho antes de llegar a la terminal.",
-          "Paga solo una comisión de plataforma fija del 2,5% — y solo cuando ocurre una redención.",
-          "Sin sustitución de hardware, sin interrupción operativa — integra a través de tu POS existente.",
-        ],
+        why: "La mayoría de los viajeros decide qué comprar antes de llegar a la terminal, pero los minoristas no pueden alcanzarlos tan pronto.",
+        how: "DutyBoost impulsa puntos de contacto que construyen intención antes del viaje; las redenciones se validan en tiempo real vía tu POS existente.",
+        what: "Más afluencia cualificada y cestas más grandes, con una comisión fija del 2,5% solo cuando ocurre una venta.",
       },
       {
         icon: "cpu",
         title: "Proveedores POS",
         tagline: "Amplía tu plataforma con valor comercial medible.",
-        bullets: [
-          "Una única integración hace que DutyBoost esté disponible en toda tu base de clientes minoristas de aeropuerto.",
-          "Gana ingresos recurrentes de socio en cada redención procesada por minoristas que tú incorporas.",
-          "Refuerza las relaciones con los clientes dando a los minoristas una razón de peso para quedarse en tu plataforma.",
-        ],
+        why: "Tu POS ya gestiona el cobro del comercio aeroportuario — el único momento en que la intención se convierte en ingresos.",
+        how: "Una integración API expone la redención de DutyBoost en toda tu base de minoristas; ellos la activan por sí mismos.",
+        what: "Ingresos recurrentes de socio en cada redención y relaciones más duraderas con los minoristas.",
       },
     ],
     cta: "Una plataforma. Cuatro ganadores. Cada participante crea valor.",
@@ -166,48 +145,41 @@ const STRINGS = {
   fr: {
     badge: "Pourquoi DutyBoost",
     headline: "Pourquoi DutyBoost pour chaque partie prenante",
-    subtitle: "Une plateforme relie quatre participants. Chacun contribue à une augmentation mesurable des ventes du commerce aéroportuaire — et chacun en bénéficie.",
-    section_title: "La valeur pour chaque partie prenante",
+    subtitle: "Une plateforme relie quatre participants. Pour chacun : pourquoi cela compte, comment ça fonctionne et ce qu'ils obtiennent.",
+    section_title: "Pourquoi · Comment · Quoi",
+    labels: { why: "Pourquoi", how: "Comment", what: "Quoi" },
     stakeholders: [
       {
         icon: "plane",
         title: "Partenaires de voyage",
         tagline: "Transformez chaque réservation en une nouvelle source de revenus.",
-        bullets: [
-          "Gagnez une commission continue sur chaque voyageur que vous référez, pendant toute la durée de vie de chaque DutyCredit remboursé.",
-          "Ajoutez de la valeur à chaque réservation avec un crédit d'achat en aéroport gratuit — sans effort supplémentaire, sans coût pour vous.",
-          "Renforcez la fidélité client en donnant aux voyageurs une raison tangible de réserver chez vous.",
-        ],
+        why: "Chaque réservation atteint déjà un voyageur qui dépensera à l'aéroport — cette intention reste aujourd'hui non récompensée.",
+        how: "Référez le voyageur à la réservation ; DutyBoost émet un DutyCredit lié à votre référence, remboursable au terminal.",
+        what: "Commission continue sur chaque remboursement, plus une proposition client plus riche sans coût pour vous.",
       },
       {
         icon: "traveller",
         title: "Voyageurs",
         tagline: "Un crédit d'achat gratuit, juste pour voyager.",
-        bullets: [
-          "Recevez un crédit DutyBoost que vous pouvez dépenser chez les détaillants de l'aéroport le jour de votre vol.",
-          "Pas d'application à télécharger, pas d'abonnement — scannez un QR code et économisez instantanément à la caisse.",
-          "De vraies remises sur de vrais produits, de marques que vous connaissez déjà.",
-        ],
+        why: "Les prix aéroportuaires semblent fixes ; les voyageurs n'ont aucune raison de planifier leurs dépenses ni de recevoir une récompense de fidélité.",
+        how: "Recevez un crédit DutyBoost gratuit avant le départ ; scannez un QR code en caisse pour appliquer la remise.",
+        what: "De vraies économies sur de vrais produits le jour du vol — pas d'application, pas d'abonnement, pas de piège.",
       },
       {
         icon: "store",
         title: "Détaillants d'aéroport",
         tagline: "Plus d'acheteurs qualifiés, paniers plus gros, même commission fixe.",
-        bullets: [
-          "Captez des voyageurs qui ont construit leur intention d'achat bien avant d'arriver au terminal.",
-          "Payez seulement une commission de plateforme fixe de 2,5 % — et seulement lorsqu'un remboursement a réellement lieu.",
-          "Pas de remplacement de matériel, pas de perturbation opérationnelle — intégrez via votre POS existant.",
-        ],
+        why: "La plupart des voyageurs décident de leurs achats avant d'arriver au terminal, mais les détaillants ne peuvent pas les atteindre aussi tôt.",
+        how: "DutyBoost génère des points de contact qui construisent l'intention avant le voyage ; les remboursements sont validés en temps réel via votre POS existant.",
+        what: "Plus de fréquentation qualifiée et des paniers plus grands, avec une commission fixe de 2,5 % seulement lors d'une vente réelle.",
       },
       {
         icon: "cpu",
         title: "Fournisseurs POS",
         tagline: "Étendez votre plateforme avec une valeur commerciale mesurable.",
-        bullets: [
-          "Une seule intégration rend DutyBoost disponible sur toute votre base de clients détaillants d'aéroport.",
-          "Gagnez des revenus récurrents de partenaire sur chaque remboursement traité par des détaillants que vous avez intégrés.",
-          "Renforcez les relations clients en donnant aux détaillants une raison convaincante de rester sur votre plateforme.",
-        ],
+        why: "Votre POS gère déjà la caisse du commerce aéroportuaire — le seul moment où l'intention devient revenu.",
+        how: "Une intégration API expose le remboursement DutyBoost sur toute votre base de détaillants ; ils l'activent eux-mêmes.",
+        what: "Revenus récurrents de partenaire sur chaque remboursement et relations détaillants plus durables.",
       },
     ],
     cta: "Une plateforme. Quatre gagnants. Chaque participant crée de la valeur.",
@@ -216,48 +188,41 @@ const STRINGS = {
   de: {
     badge: "Warum DutyBoost",
     headline: "Warum DutyBoost für jede Interessengruppe",
-    subtitle: "Eine Plattform verbindet vier Teilnehmer. Jeder trägt zu einer messbaren Steigerung des Flughafen-Einzelhandelsumsatzes bei — und jeder profitiert davon.",
-    section_title: "Der Wert für jede Interessengruppe",
+    subtitle: "Eine Plattform verbindet vier Teilnehmer. Für jeden: warum es zählt, wie es funktioniert und was sie davon haben.",
+    section_title: "Warum · Wie · Was",
+    labels: { why: "Warum", how: "Wie", what: "Was" },
     stakeholders: [
       {
         icon: "plane",
         title: "Reisepartner",
         tagline: "Verwandeln Sie jede Buchung in eine neue Einnahmequelle.",
-        bullets: [
-          "Verdienen Sie fortlaufende Provision für jeden Reisenden, den Sie vermitteln, über die gesamte Lebensdauer jedes eingelösten DutyCredits.",
-          "Fügen Sie jeder Buchung Mehrwert hinzu mit einem kostenlosen Einkaufsguthaben am Flughafen — ohne zusätzlichen Aufwand, ohne Kosten für Sie.",
-          "Stärken Sie die Kundenloyalität, indem Sie Reisenden einen greifbaren Grund geben, bei Ihnen zu buchen.",
-        ],
+        why: "Jede Buchung erreicht bereits einen Reisenden, der am Flughafen ausgeben wird — diese Absicht bleibt heute unbelohnt.",
+        how: "Vermitteln Sie den Reisenden bei der Buchung; DutyBoost stellt einen an Ihre Vermittlung gebundenen DutyCredit aus, einlösbar im Terminal.",
+        what: "Fortlaufende Provision bei jeder Einlösung, plus ein reichhaltigeres Kundenangebot ohne Kosten für Sie.",
       },
       {
         icon: "traveller",
         title: "Reisende",
         tagline: "Ein kostenloses Einkaufsguthaben, einfach zum Reisen.",
-        bullets: [
-          "Erhalten Sie ein DutyBoost-Guthaben, das Sie am Tag Ihres Fluges bei Flughafenhändlern ausgeben können.",
-          "Keine App zum Herunterladen, keine Mitgliedschaft — scannen Sie einen QR-Code und sparen Sie sofort an der Kasse.",
-          "Echte Rabatte auf echte Produkte, von Marken, die Sie bereits kennen.",
-        ],
+        why: "Flughafenpreise wirken fest; Reisende haben keinen Anlass, Ausgaben zu planen, und keine Belohnung für Treue.",
+        how: "Erhalten Sie vor der Abreise ein kostenloses DutyBoost-Guthaben; scannen Sie an der Kasse einen QR-Code, um den Rabatt zu erhalten.",
+        what: "Echte Ersparnisse auf echte Produkte am Tag des Fluges — keine App, keine Mitgliedschaft, kein Haken.",
       },
       {
         icon: "store",
         title: "Flughafenhändler",
         tagline: "Mehr qualifizierte Käufer, größere Körbe, gleiche feste Gebühr.",
-        bullets: [
-          "Erreichen Sie Reisende, die lange vor dem Eintreffen im Terminal Kaufabsichten aufgebaut haben.",
-          "Zahlen Sie nur eine feste Plattformgebühr von 2,5 % — und nur, wenn eine Einlösung tatsächlich stattfindet.",
-          "Kein Hardware-Austausch, keine Betriebsstörung — integrieren Sie über Ihr bestehendes POS.",
-        ],
+        why: "Die meisten Reisenden entscheiden vor dem Terminal, was sie kaufen, aber Händler können sie nicht so früh erreichen.",
+        how: "DutyBoost treibt beratende Touchpoints vor der Reise an; Einlösungen werden in Echtzeit über Ihr bestehendes POS validiert.",
+        what: "Mehr qualifiziertes Publikum und größere Körbe, mit einer festen Gebühr von 2,5 % nur bei einem tatsächlichen Verkauf.",
       },
       {
         icon: "cpu",
         title: "POS-Anbieter",
         tagline: "Erweitern Sie Ihre Plattform um messbaren kommerziellen Wert.",
-        bullets: [
-          "Eine einzige Integration macht DutyBoost über Ihre gesamte Flughafenhandels-Kundenbasis verfügbar.",
-          "Verdienen Sie wiederkehrende Partner-Einnahmen bei jeder Einlösung, die von Händlern verarbeitet wird, die Sie onboarden.",
-          "Stärken Sie Kundenbeziehungen, indem Sie Händlern einen überzeugenden Grund geben, auf Ihrer Plattform zu bleiben.",
-        ],
+        why: "Ihr POS betreibt bereits die Kasse des Flughafenhandels — der einzige Moment, in dem Absicht zu Umsatz wird.",
+        how: "Eine API-Integration macht die DutyBoost-Einlösung über Ihre gesamte Händlerbasis verfügbar; sie aktivieren sie selbst.",
+        what: "Wiederkehrende Partner-Einnahmen bei jeder Einlösung und nachhaltigere Händlerbeziehungen.",
       },
     ],
     cta: "Eine Plattform. Vier Gewinner. Jeder Teilnehmer schafft Wert.",
@@ -266,48 +231,41 @@ const STRINGS = {
   it: {
     badge: "Perché DutyBoost",
     headline: "Perché DutyBoost per ogni stakeholder",
-    subtitle: "Una piattaforma collega quattro partecipanti. Ciascuno contribuisce a un aumento misurabile delle vendite del commercio aeroportuale — e ciascuno ne trae beneficio.",
-    section_title: "Il valore per ogni stakeholder",
+    subtitle: "Una piattaforma collega quattro partecipanti. Per ciascuno: perché conta, come funziona e cosa ottengono.",
+    section_title: "Perché · Come · Cosa",
+    labels: { why: "Perché", how: "Come", what: "Cosa" },
     stakeholders: [
       {
         icon: "plane",
         title: "Partner di viaggio",
         tagline: "Trasforma ogni prenotazione in una nuova fonte di entrate.",
-        bullets: [
-          "Guadagna una commissione continua per ogni viaggiatore che referenzi, per l'intera durata di ogni DutyCredit riscattato.",
-          "Aggiungi valore a ogni prenotazione con un credito di acquisto in aeroporto gratuito — senza sforzo extra, senza costi per te.",
-          "Rinforza la fedeltà del cliente dando ai viaggiatori un motivo tangibile per prenotare con te.",
-        ],
+        why: "Ogni prenotazione raggiunge già un viaggiatore che spenderà in aeroporto — quell'intenzione oggi non è premiata.",
+        how: "Referenzi il viaggiatore alla prenotazione; DutyBoost emette un DutyCredit legato alla tua segnalazione, riscattabile in terminal.",
+        what: "Commissione continua su ogni riscatto, più una proposta cliente più ricca senza costi per te.",
       },
       {
         icon: "traveller",
         title: "Viaggiatori",
         tagline: "Un credito di acquisto gratuito, solo per viaggiare.",
-        bullets: [
-          "Ricevi un credito DutyBoost che puoi spendere presso i rivenditori aeroportuali il giorno del volo.",
-          "Nessuna app da scaricare, nessun abbonamento — scansiona un QR code e risparmia subito alla cassa.",
-          "Sconti reali su prodotti reali, di marchi che già conosci.",
-        ],
+        why: "I prezzi aeroportuali sembrano fissi; i viaggiatori non hanno motivo di pianificare la spesa né ricompense per la fedeltà.",
+        how: "Ricevi un credito DutyBoost gratuito prima della partenza; scansiona un QR code alla cassa per applicare lo sconto.",
+        what: "Risparmi reali su prodotti reali il giorno del volo — nessuna app, nessun abbonamento, nessun trucco.",
       },
       {
         icon: "store",
         title: "Rivenditori aeroportuali",
         tagline: "Più acquirenti qualificati, carrelli più grandi, stessa commissione fissa.",
-        bullets: [
-          "Cattura viaggiatori che hanno costruito l'intenzione d'acquisto molto prima di arrivare al terminal.",
-          "Paga solo una commissione di piattaforma fissa del 2,5% — e solo quando avviene un riscatto.",
-          "Nessuna sostituzione hardware, nessuna interruzione operativa — integra tramite il tuo POS esistente.",
-        ],
+        why: "La maggior parte dei viaggiatori decide cosa comprare prima di arrivare al terminal, ma i rivenditori non possono raggiungerli così presto.",
+        how: "DutyBoost genera punti di contatto che costruiscono l'intenzione prima del viaggio; i riscatti sono validati in tempo reale via il tuo POS esistente.",
+        what: "Più affluenza qualificata e carrelli più grandi, con una commissione fissa del 2,5% solo a vendita avvenuta.",
       },
       {
         icon: "cpu",
         title: "Fornitori POS",
         tagline: "Estendi la tua piattaforma con valore commerciale misurabile.",
-        bullets: [
-          "Una singola integrazione rende DutyBoost disponibile su tutta la tua base di clienti rivenditori aeroportuali.",
-          "Guadagna entrate ricorrenti di partner su ogni riscatto elaborato da rivenditori che tu hai onboardato.",
-          "Rinforza le relazioni con i clienti dando ai rivenditori un motivo convincente per restare sulla tua piattaforma.",
-        ],
+        why: "Il tuo POS gestisce già la cassa del commercio aeroportuale — l'unico momento in cui l'intenzione diventa ricavo.",
+        how: "Una singola integrazione API espone il riscatto DutyBoost su tutta la tua base di rivenditori; loro lo attivano da soli.",
+        what: "Entrate ricorrenti di partner su ogni riscatto e relazioni più durature con i rivenditori.",
       },
     ],
     cta: "Una piattaforma. Quattro vincitori. Ogni partecipante crea valore.",
@@ -323,10 +281,10 @@ const ICONS = {
 };
 
 const ACCENTS = {
-  plane: { bg: 'hsl(217 90% 95%)', fg: '#1d4ed8', border: 'hsl(217 90% 88%)' },
-  traveller: { bg: 'hsl(29 90% 95%)', fg: '#ea580c', border: 'hsl(29 90% 88%)' },
-  store: { bg: 'hsl(161 80% 95%)', fg: '#0d9488', border: 'hsl(161 80% 88%)' },
-  cpu: { bg: 'hsl(255 90% 95%)', fg: '#6d28d9', border: 'hsl(255 90% 90%)' },
+  plane: { bg: 'hsl(217 90% 96%)', fg: '#1d4ed8', border: 'hsl(217 90% 88%)' },
+  traveller: { bg: 'hsl(29 90% 96%)', fg: '#ea580c', border: 'hsl(29 90% 88%)' },
+  store: { bg: 'hsl(161 70% 96%)', fg: '#0d9488', border: 'hsl(161 70% 88%)' },
+  cpu: { bg: 'hsl(255 90% 96%)', fg: '#6d28d9', border: 'hsl(255 90% 90%)' },
 };
 
 export default function WhyDutyBoostOnePager() {
@@ -353,6 +311,8 @@ export default function WhyDutyBoostOnePager() {
     pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
     pdf.save('why-dutyboost-one-pager.pdf');
   };
+
+  const labels = p('labels');
 
   return (
     <div className="min-h-screen font-body" style={{ background: 'linear-gradient(135deg, hsl(255 60% 97%) 0%, hsl(243 50% 95%) 50%, hsl(255 55% 96%) 100%)', backgroundAttachment: 'fixed' }}>
@@ -386,34 +346,34 @@ export default function WhyDutyBoostOnePager() {
             <p className="text-muted-foreground text-xs max-w-2xl mx-auto mt-1">{p('subtitle')}</p>
           </div>
 
-          {/* Stakeholder grid */}
+          {/* Stakeholder rows */}
           <div className="flex-1 flex flex-col py-1">
             <h2 className="font-heading font-bold text-xs mb-1 uppercase tracking-wide text-center" style={{ color: '#6d28d9' }}>{p('section_title')}</h2>
             <div className="mb-1.5"><GradientDivider /></div>
-            <div className="grid grid-cols-2 gap-2 flex-1">
+            <div className="flex flex-col gap-2 flex-1">
               {p('stakeholders').map((st, idx) => {
                 const Icon = ICONS[st.icon] || Store;
                 const accent = ACCENTS[st.icon] || ACCENTS.cpu;
                 return (
-                  <div key={st.title} className="rounded-lg border p-3 flex flex-col" style={{ background: accent.bg, borderColor: accent.border }}>
+                  <div key={st.title} className="rounded-lg border p-2.5" style={{ background: accent.bg, borderColor: accent.border }}>
                     <div className="flex items-center gap-2 mb-1.5">
                       <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.7)' }}>
                         <Icon className="w-5 h-5" style={{ color: accent.fg }} />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="text-xs font-bold text-slate-400 leading-none">{idx + 1}.</p>
                         <h3 className="font-heading font-bold text-sm leading-tight">{st.title}</h3>
                       </div>
+                      <p className="text-xs italic ml-auto text-right" style={{ color: accent.fg }}>{st.tagline}</p>
                     </div>
-                    <p className="font-semibold text-xs mb-1.5" style={{ color: accent.fg }}>{st.tagline}</p>
-                    <ul className="space-y-1">
-                      {st.bullets.map((b, i) => (
-                        <li key={i} className="flex items-start gap-1.5 text-xs text-muted-foreground leading-snug">
-                          <Check className="w-3 h-3 shrink-0 mt-0.5" style={{ color: accent.fg }} />
-                          <span>{b}</span>
-                        </li>
+                    <div className="grid grid-cols-3 gap-1.5">
+                      {['why', 'how', 'what'].map((key) => (
+                        <div key={key} className="bg-white/70 rounded p-1.5 border" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
+                          <p className="font-heading font-bold text-xs uppercase tracking-wide mb-0.5" style={{ color: accent.fg }}>{labels[key]}</p>
+                          <p className="text-xs text-muted-foreground leading-snug">{st[key]}</p>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 );
               })}
