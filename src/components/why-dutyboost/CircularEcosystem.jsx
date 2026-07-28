@@ -15,17 +15,18 @@ const ACCENTS = {
 };
 
 const W = 730;
-const H = 820;
+const H = 760;
 
 // Card layout: 4 corners, clockwise flow (TP → TR → AR → PV → TP)
+// cx/cy = connector anchor points (card visual centres)
 const CARDS = [
-  { left: 0, top: 0, cx: 150, cy: 150 },        // Travel Partners (top-left)
-  { left: 430, top: 0, cx: 580, cy: 150 },      // Travellers (top-right)
-  { left: 430, top: 520, cx: 580, cy: 670 },    // Airport Retailers (bottom-right)
-  { left: 0, top: 520, cx: 150, cy: 670 },      // POS Vendors (bottom-left)
+  { left: 0, top: 0, cx: 150, cy: 108 },        // Travel Partners (top-left)
+  { left: 430, top: 0, cx: 580, cy: 108 },      // Travellers (top-right)
+  { left: 430, top: 540, cx: 580, cy: 648 },    // Airport Retailers (bottom-right)
+  { left: 0, top: 540, cx: 150, cy: 648 },      // POS Vendors (bottom-left)
 ];
 
-const HUB = { cx: 365, cy: 410, r: 110 };
+const HUB = { cx: 365, cy: 378, r: 100 };
 
 export default function CircularEcosystem({ stakeholders, labels, hubSub }) {
   return (
@@ -45,10 +46,10 @@ export default function CircularEcosystem({ stakeholders, labels, hubSub }) {
         ))}
 
         {/* Circular flow arcs (clockwise) */}
-        <path d="M 300 150 Q 365 60 430 150" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
-        <path d="M 580 300 Q 700 410 580 520" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
-        <path d="M 430 670 Q 365 770 300 670" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
-        <path d="M 150 520 Q 30 410 150 300" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 300 108 Q 365 36 430 108" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 580 216 Q 696 378 580 540" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 430 648 Q 365 720 300 648" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
+        <path d="M 150 540 Q 34 378 150 216" fill="none" stroke="#8b5cf6" strokeWidth={2.5} markerEnd="url(#ecoArrow)" />
       </svg>
 
       {/* Stakeholder cards */}
@@ -58,22 +59,22 @@ export default function CircularEcosystem({ stakeholders, labels, hubSub }) {
         const pos = CARDS[idx];
         return (
           <div key={st.title} className="absolute rounded-xl border p-3 flex flex-col shadow-sm"
-            style={{ left: pos.left, top: pos.top, width: 300, height: 300, background: accent.bg, borderColor: accent.border, zIndex: 10 }}>
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.8)' }}>
+            style={{ left: pos.left, top: pos.top, width: 300, height: 216, background: accent.bg, borderColor: accent.border, zIndex: 10 }}>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.8)' }}>
                 <Icon className="w-5 h-5" style={{ color: accent.fg }} />
               </div>
-              <div>
-                <p className="text-[11px] font-bold text-slate-400 leading-none">{idx + 1}.</p>
-                <h3 className="font-heading font-bold text-base leading-tight">{st.title}</h3>
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold text-slate-400 leading-none">{idx + 1}.</p>
+                <h3 className="font-heading font-bold text-sm leading-tight truncate">{st.title}</h3>
               </div>
             </div>
-            <p className="text-xs italic mb-2" style={{ color: accent.fg }}>{st.tagline}</p>
-            <div className="space-y-1.5">
+            <p className="text-[11px] italic mb-1.5 leading-snug" style={{ color: accent.fg }}>{st.tagline}</p>
+            <div className="space-y-1">
               {['why', 'how', 'what'].map((k) => (
-                <div key={k} className="bg-white/85 rounded px-2 py-1.5">
-                  <span className="font-heading font-bold text-[11px] uppercase tracking-wide mr-1" style={{ color: accent.fg }}>{labels[k]}:</span>
-                  <span className="text-[11px] text-muted-foreground leading-snug">{st[k]}</span>
+                <div key={k} className="bg-white/85 rounded px-1.5 py-1">
+                  <span className="font-heading font-bold text-[10px] uppercase tracking-wide mr-1" style={{ color: accent.fg }}>{labels[k]}:</span>
+                  <span className="text-[10px] text-muted-foreground leading-snug">{st[k]}</span>
                 </div>
               ))}
             </div>
@@ -87,9 +88,9 @@ export default function CircularEcosystem({ stakeholders, labels, hubSub }) {
         <Layers className="w-7 h-7 text-white/90 mb-1" />
         <p className="font-heading font-bold text-white text-lg leading-none">DutyBoost</p>
         <p className="text-[11px] text-white/85 mt-1 px-4 leading-tight">{hubSub}</p>
-        <div className="flex items-center gap-1 mt-2 text-white/70">
+        <div className="flex items-center gap-1 mt-1.5 text-white/70">
           <ArrowRight className="w-3 h-3" />
-          <span className="text-[10px] uppercase tracking-wider">Circular flow</span>
+          <span className="text-[9px] uppercase tracking-wider">Circular flow</span>
         </div>
       </div>
     </div>
