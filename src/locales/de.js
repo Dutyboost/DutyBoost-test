@@ -93,7 +93,7 @@ export default {
     },
     cta: {
       title: 'Eine gemeinsame Infrastruktur — vier Gewinner',
-      description: 'DutyBoost ist die gemeinsame Infrastruktur hinter dem Travel Retail Revenue Ecosystem — ein kommerzielles Betriebssystem, bei dem Reisepartner, Flughafen-Einzelhändler und POS-Anbieter gemeinsam über ein zirkuläres Erlösmodell gewinnen.',
+      description: 'DutyBoost ist die gemeinsame Infrastruktur hinter dem Travel Retail Revenue Ecosystem — ein kommerzielles Betriebssystem, bei dem Reisepartner, Flughafen-Einzelhändler, POS-Anbieter und Reisende gemeinsam gewinnen, angetrieben von den Reisenden, die das Ökosystem über ein zirkuläres Erlösmodell speisen.',
       button: 'Treten Sie dem Travel Retail Circular Revenue Ecosystem bei',
     },
     wecallyou: {
