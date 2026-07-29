@@ -151,7 +151,7 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
-                  <h3 className="font-heading font-bold text-2xl mb-3">{title}</h3>
+                  <h3 className="font-heading font-bold text-lg whitespace-nowrap mb-3">{title}</h3>
                   <p className="text-muted-foreground text-base leading-relaxed mb-5">{description}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
