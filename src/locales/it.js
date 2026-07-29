@@ -91,8 +91,8 @@ export default {
       },
     },
     cta: {
-       title: 'Un\'infrastruttura condivisa — quattro vincitori',
-       description: 'DutyBoost è l\'infrastruttura condivisa dietro il Travel Retail Revenue Ecosystem — un unico sistema operativo commerciale in cui partner di viaggio, retailer aeroportuali, provider POS e viaggiatori beneficiano ciascuno di un modello di entrate circolare. I viaggiatori vengono pre-attivati dal proprio partner di viaggio giorni, settimane o persino mesi prima dell\'arrivo in aeroporto. Quando scansionano il proprio codice QR alla cassa, quella singola scansione innesca un meccanismo automatizzato di condivisione dei ricavi — ogni parte vince, mentre il viaggiatore riceve uno sconto significativo sul proprio cesto di acquisti.',
+       title: 'Un viaggiatore. Un viaggio. Ricavi per tutti.',
+       description: "Reso possibile da DutyBoost, la prima infrastruttura commerciale condivisa al mondo in cui partner di viaggio, retailer aeroportuali, provider POS aziendali e viaggiatori generano tutti valore dallo stesso viaggio. Un viaggiatore. Un codice QR. Un ecosistema automatizzato di condivisione dei ricavi. Tutti vincono.",
        button: 'Unisciti al Travel Retail Circular Revenue Ecosystem',
      },
     wecallyou: {
