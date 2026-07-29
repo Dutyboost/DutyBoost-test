@@ -58,7 +58,8 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <DutyBoostLogo height={55} />
+          <span className="sm:hidden"><DutyBoostLogo height={36} /></span>
+          <span className="hidden sm:inline-flex"><DutyBoostLogo height={55} /></span>
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/roi-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
