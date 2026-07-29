@@ -31,7 +31,7 @@ export default function CarRentalShowcase() {
           </Link>
           <div className="flex items-center gap-4">
             <Link to={fromAgency ? '/roi-calculator-travel-partner' : '/retailer-calculator'}>
-              <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
+              <Button variant="outline" size="sm">{fromAgency ? t('nav.roi_calculator_travel_partner') : t('nav.roi_calculator')}</Button>
             </Link>
             <LanguageSwitcher />
             <Link to={backTo}>
