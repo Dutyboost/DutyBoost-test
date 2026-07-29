@@ -9,7 +9,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
  * calculator icon button right. Hidden on tablet/desktop (sm:hidden) where the
  * page's existing full nav remains.
  */
-export default function ShowcaseMobileNav({ calculatorTo }) {
+export default function ShowcaseMobileNav({ calculatorTo, gradient = "linear-gradient(to bottom, #6B5AE2, #5341D1)" }) {
   return (
     <nav className="sm:hidden sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
       <div className="max-w-6xl mx-auto px-3 h-14 flex items-center justify-between gap-2">
@@ -23,7 +23,7 @@ export default function ShowcaseMobileNav({ calculatorTo }) {
               <Button
                 size="icon"
                 className="rounded-xl text-white shadow-sm"
-                style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}
+                style={{ background: gradient }}
                 aria-label="ROI Calculator"
               >
                 <Calculator className="w-5 h-5" />

@@ -22,7 +22,7 @@ export default function TrainShowcase() {
 
   return (
     <div className="min-h-screen bg-background">
-      <ShowcaseMobileNav calculatorTo="/roi-calculator-travel-partner" />
+      <ShowcaseMobileNav calculatorTo="/roi-calculator-travel-partner" gradient="linear-gradient(to bottom, #4f46e5, #8b5cf6)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">

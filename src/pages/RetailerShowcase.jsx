@@ -33,7 +33,7 @@ export default function RetailerShowcase() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <ShowcaseMobileNav calculatorTo="/retailer-calculator" />
+      <ShowcaseMobileNav calculatorTo="/retailer-calculator" gradient="linear-gradient(to bottom, #fb923c, #ea580c)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
