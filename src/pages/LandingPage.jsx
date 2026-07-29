@@ -189,11 +189,8 @@ export default function LandingPage() {
             <div className="relative space-y-6">
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
               <p className="text-primary-foreground/80 text-xl max-w-xl mx-auto">{t('cta.description')}</p>
-              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm font-medium text-primary-foreground border border-white/20">
-                <TrendingUp className="w-4 h-4" /> {t('cta.benefit')}
-              </div>
               <Link to="/get-started">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
                   {t('cta.button')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
