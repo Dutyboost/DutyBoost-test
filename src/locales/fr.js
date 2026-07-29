@@ -754,6 +754,8 @@ export default {
       potential_commission_mo: 'Commission potentielle/mois',
       potential_commission_yr: 'Commission potentielle/an',
       potential_disclaimer: 'Estimations basées sur votre taux de rachat sélectionné (recherche m1nd-set / ETRC) — les résultats réels peuvent varier.',
+      row_min_label: 'Basé sur une dépense minimale de €20',
+      row_avg_label: 'Basé sur la dépense moyenne mondiale de €100',
       return_per_euro: 'Rendement par €1 investi',
       commission_note: '0,5% de la valeur du panier (max €5/tx)',
       month_label: 'mois',

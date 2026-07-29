@@ -305,24 +305,34 @@ export function TravelPartnerTab({ t }) {
             </div>
           </div>
 
-          {/* Per-vertical mini result */}
+          {/* Per-vertical mini result — minimum (€20) and global average (€100) */}
           {(() => {
             const stat = verticalStats.find((s) => s.key === v.key);
             if (!stat) return null;
-            return (
-              <div className={`grid grid-cols-3 gap-2 pt-2 border-t ${v.borderClass}`}>
+            const commPerTx100 = Math.min(Math.round(100 * AGENCY_COMMISSION_PCT * 100) / 100, AGENCY_COMMISSION_CAP);
+            const monthlyComm100 = Math.round(stat.redemptions * commPerTx100 * 100) / 100;
+            const renderRow = (commPerTx, monthlyComm) => (
+              <div className="grid grid-cols-3 gap-2">
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
                   <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_redemptions_mo')}</p>
                   <p className="text-base font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
                 </div>
                 <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
                   <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_commission_tx')}</p>
-                  <p className="text-base font-bold" style={{ color: v.color }}>{fmtEur(stat.commPerTx, 2)}</p>
+                  <p className="text-base font-bold" style={{ color: v.color }}>{fmtEur(commPerTx, 2)}</p>
                 </div>
                 <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
                   <p className="text-xs text-white/80 mb-0.5 leading-tight">{t('calculator.potential_earned_mo')}</p>
-                  <p className="text-base font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
+                  <p className="text-base font-bold text-white">{fmtEur(monthlyComm, 2)}</p>
                 </div>
+              </div>
+            );
+            return (
+              <div className={`pt-2 border-t ${v.borderClass} space-y-2`}>
+                <p className="text-xs text-slate-500 font-medium">{t('calculator.row_min_label')}</p>
+                {renderRow(stat.commPerTx, stat.monthlyComm)}
+                <p className="text-xs text-slate-500 font-medium">{t('calculator.row_avg_label')}</p>
+                {renderRow(commPerTx100, monthlyComm100)}
               </div>
             );
           })()}

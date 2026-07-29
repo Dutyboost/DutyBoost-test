@@ -984,6 +984,8 @@ export default {
       potential_commission_mo: 'Comisión potencial/mes',
       potential_commission_yr: 'Comisión potencial/año',
       potential_disclaimer: 'Estimaciones basadas en tu tasa de canje seleccionada (investigación m1nd-set / ETRC) — los resultados reales pueden variar.',
+      row_min_label: 'Basado en un gasto mínimo de €20',
+      row_avg_label: 'Basado en el gasto promedio mundial de €100',
       return_per_euro: 'Retorno por €1 invertido',
       commission_note: '0,5% del valor de la cesta (máx €5/tx)',
       month_label: 'mes',

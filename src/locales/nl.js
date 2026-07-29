@@ -766,6 +766,8 @@ export default {
       potential_commission_mo: 'Mogelijke commissie/mnd',
       potential_commission_yr: 'Mogelijke commissie/jaar',
       potential_disclaimer: 'Schattingen gebaseerd op uw geselecteerde inwisselingspercentage (m1nd-set / ETRC-onderzoek) — werkelijke resultaten kunnen afwijken.',
+      row_min_label: 'Gebaseerd op €20 minimumbesteding',
+      row_avg_label: 'Gebaseerd op €100 gemiddelde wereldwijde besteding',
       return_per_euro: 'Rendement per €1 geïnvesteerd',
       commission_note: '0,5% van de basketwaarde (max €5/transactie)',
       month_label: 'maand',

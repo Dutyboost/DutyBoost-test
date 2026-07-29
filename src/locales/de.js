@@ -754,6 +754,8 @@ export default {
       potential_commission_mo: 'Potenzielle Provision/Monat',
       potential_commission_yr: 'Potenzielle Provision/Jahr',
       potential_disclaimer: 'Schätzungen basieren auf Ihrer gewählten Einlösungsrate (m1nd-set / ETRC-Forschung) — tatsächliche Ergebnisse können abweichen.',
+      row_min_label: 'Basierend auf €20 Mindestausgabe',
+      row_avg_label: 'Basierend auf globalem Durchschnitt von €100',
       return_per_euro: 'Rendite pro €1 investiert',
       commission_note: '0,5% des Korbwerts (max €5/Tx)',
       month_label: 'Monat',
