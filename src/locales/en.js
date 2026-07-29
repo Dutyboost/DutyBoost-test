@@ -92,7 +92,7 @@ export default {
     },
     cta: {
       title: 'One shared infrastructure — four winners',
-      description: 'DutyBoost is the shared infrastructure behind the Travel Retail Revenue Ecosystem — one commercial operating system where travel partners, airport retailers, POS providers and travellers each win through a single circular revenue model.',
+      description: 'DutyBoost is the shared infrastructure behind the Travel Retail Revenue Ecosystem — one commercial operating system where travel partners, airport retailers, POS providers and travellers each benefit from a single circular revenue model.',
       button: 'Join the Travel Retail Circular Revenue Ecosystem',
     },
     footer: {
