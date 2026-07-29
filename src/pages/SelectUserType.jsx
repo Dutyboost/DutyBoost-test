@@ -88,15 +88,15 @@ export default function SelectUserType() {
 
       {/* Main content */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
+        <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16 space-y-4">
             <h1 className="text-4xl sm:text-5xl font-heading font-bold">{t('getstarted.title')}</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               {t('getstarted.subtitle_default')}
             </p>
           </div>
 
-          <div className={`grid gap-4 max-w-6xl mx-auto ${fromAgency ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-5'}`}>
+          <div className={`grid gap-4 max-w-7xl mx-auto ${fromAgency ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-5'}`}>
             {options.filter(o => !(fromAgency && o.id === 'retailer')).map((option) => {
               const Icon = option.icon;
               return (
@@ -108,7 +108,7 @@ export default function SelectUserType() {
                   <div className={`w-20 h-20 rounded-2xl ${option.bg} flex items-center justify-center mb-4`}>
                     <Icon className={`w-20 h-20 ${option.iconColor}`} />
                   </div>
-                  <h2 className="font-heading font-bold text-sm lg:text-xs tracking-tight whitespace-nowrap mb-3">{option.title}</h2>
+                  <h2 className="font-heading font-bold text-sm tracking-tight whitespace-nowrap mb-3">{option.title}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
                     {t(option.descKey)}
                   </p>
