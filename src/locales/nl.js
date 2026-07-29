@@ -18,7 +18,7 @@ export default {
       integration_partnerships: 'Voor POS Integratiepartners',
     },
     hero: {
-       title_1: 'The Travel Retail Revenue Ecosystem®',
+       title_1: 'The Travel Retail Revenue Ecosystem',
        title_2: 'Powered by DutyBoost®',
        subtitle_1: 'Gebouwd door DutyBoost, verbindt het Travel Retail Revenue Ecosystem reispartners, luchthavenretailers en enterprise POS-aanbieders in één commercieel netwerk waar elke reiziger meetbare aanvullende omzet genereert voor iedereen.',
        subtitle_2: '',
