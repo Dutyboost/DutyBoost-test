@@ -94,6 +94,7 @@ export default {
        title: 'Un viajero. Un viaje. Ingresos para todos.',
        description: 'El Travel Retail Circular Revenue Ecosystem transforma el viaje de cada viajero en una nueva fuente de ingresos incrementales medibles. Conectando a socios de viaje, minoristas aeroportuarios, proveedores POS empresariales y viajeros en un único ecosistema compartido, DutyBoost crea nuevo valor sin costes iniciales, sin riesgo de inventario y con una tarificación 100 % basada en el rendimiento.',
        button: 'Únete al Travel Retail Circular Revenue Ecosystem',
+       benefit: 'Ganamos juntos — cada participante se beneficia del mismo viaje',
      },
     wecallyou: {
       modal_title: 'Te llamamos',
