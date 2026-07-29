@@ -74,6 +74,13 @@ export default {
         b2: 'Canje QR en tiempo real',
         b3: 'Seguimiento de reparto de ingresos',
       },
+      posPartner: {
+        title: 'Socios de canal POS',
+        description: 'DutyBoost conecta a los proveedores POS empresariales con la red comercial. Cada terminal que conectas se convierte en un punto de canje — ganas una parte de cada transacción que fluye por tu infraestructura, sin esfuerzo comercial.',
+        b1: 'Participación en los ingresos de cada canje',
+        b2: 'Cero esfuerzo comercial — conecta y gana',
+        b3: 'Una integración, miles de tiendas',
+      },
       agencies: {
         title: 'Socios de viaje',
         description: 'A través de DutyBoost podrás recompensar a tus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva que realicen contigo — ya seas una agencia de viajes, aerolínea, alojamiento o empresa de alquiler de coches. Una sencilla integración generará automáticamente DutyCredits personalizados entregados por email a tus clientes, dándoles un beneficio de lealtad real mientras tú ganas comisión en cada canje.',

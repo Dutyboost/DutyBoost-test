@@ -74,6 +74,13 @@ export default {
         b2: 'Realtime QR-inwisseling',
         b3: 'Omzetdeling bijhouden',
       },
+      posPartner: {
+        title: 'POS Channel Partners',
+        description: 'DutyBoost koppelt enterprise POS-aanbieders aan het commerciële netwerk. Elke terminal die u verbindt wordt een inwisselpunt — u verdient een aandeel van elke transactie die via uw infrastructuur loopt, zonder verkoopinspanning.',
+        b1: 'Omzetaandeel op elke inwisseling',
+        b2: 'Geen verkoopinspanning — aansluiten en verdienen',
+        b3: 'Eén integratie, duizenden winkels',
+      },
       agencies: {
         title: 'Travel Partners',
         description: 'Via DutyBoost zult u uw klanten kunnen belonen met exclusieve luchthavenwinkelkredieten op elke boeking die zij bij u doen — of u nu een reisagentschap, luchtvaartmaatschappij, accommodatie of autoverhuurbedrijf bent. Een eenvoudige integratie zal automatisch gepersonaliseerde DutyCredits genereren die per e-mail aan uw klanten worden bezorgd, en u commissie verdienen op elke inwisseling.',

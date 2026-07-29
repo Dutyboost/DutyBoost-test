@@ -75,6 +75,13 @@ export default {
         b2: 'Échange QR en temps réel',
         b3: 'Suivi du partage des revenus',
       },
+      posPartner: {
+        title: 'Partenaires canal POS',
+        description: 'DutyBoost connecte les fournisseurs POS d\'entreprise au réseau commercial. Chaque terminal que vous connectez devient un point d\'échange — vous touchez une part de chaque transaction transitant par votre infrastructure, sans effort commercial.',
+        b1: 'Part de revenus sur chaque échange',
+        b2: 'Aucun effort commercial — branchez et gagnez',
+        b3: 'Une intégration, des milliers de magasins',
+      },
       agencies: {
         title: 'Partenaires de voyage',
         description: 'Grâce à DutyBoost, vous pourrez récompenser vos clients avec des crédits shopping exclusifs à l\'aéroport pour chaque réservation effectuée chez vous — que vous soyez une agence de voyage, une compagnie aérienne, un hébergement ou un loueur de voitures. Une simple intégration générera automatiquement des DutyCredits personnalisés livrés par e-mail à vos clients, leur offrant un avantage fidélité concret pendant que vous toucherez une commission sur chaque utilisation.',

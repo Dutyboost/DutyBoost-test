@@ -75,6 +75,13 @@ export default {
         b2: 'Echtzeit-QR-Einlösung',
         b3: 'Umsatzbeteiligung verfolgen',
       },
+      posPartner: {
+        title: 'POS-Kanalpartner',
+        description: 'DutyBoost bindet Enterprise-POS-Anbieter in das kommerzielle Netzwerk ein. Jedes von Ihnen verbundene Terminal wird zu einem Einlösepunkt — Sie verdienen einen Anteil an jeder Transaktion, die über Ihre Infrastruktur läuft, ohne Vertriebsaufwand.',
+        b1: 'Umsatzbeteiligung bei jeder Einlösung',
+        b2: 'Kein Vertriebsaufwand — anschließen und verdienen',
+        b3: 'Eine Integration, Tausende Geschäfte',
+      },
       agencies: {
         title: 'Reisepartner',
         description: 'Über DutyBoost werden Sie Ihre Kunden bei jeder Buchung mit exklusiven Flughafen-Shopping-Guthaben belohnen können — ob Sie ein Reisebüro, eine Fluggesellschaft, eine Unterkunft oder ein Mietwagenunternehmen sind. Eine einfache Integration wird automatisch personalisierte DutyCredits generieren, die Ihren Kunden per E-Mail zugestellt werden und Ihnen eine Provision auf jede Einlösung einbringen.',

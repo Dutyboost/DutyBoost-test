@@ -74,6 +74,13 @@ export default {
         b2: 'Real-time QR redemption',
         b3: 'Track sales split',
       },
+      posPartner: {
+        title: 'POS Channel Partners',
+        description: 'DutyBoost plugs enterprise POS providers into the commercial network. Every terminal you connect becomes a redemption point — you earn a share of every transaction that flows through your infrastructure, with no sales effort required.',
+        b1: 'Revenue share on every redemption',
+        b2: 'Zero sales effort — plug in and earn',
+        b3: 'One integration, thousands of stores',
+      },
       agencies: {
         title: 'Travel Partners',
         description: 'Through DutyBoost you will be able to reward your customers with exclusive airport shopping credits on every booking they make with you — whether you\'re a travel agency, airline, accommodation, or car rental. A simple integration will automatically generate personalised DutyCredits delivered to your customers by email, giving them a meaningful loyalty perk while you earn a commission on every redemption.',

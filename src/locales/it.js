@@ -74,6 +74,13 @@ export default {
         b2: 'Riscatto QR in tempo reale',
         b3: 'Tracciamento della condivisione dei ricavi',
       },
+      posPartner: {
+        title: 'Partner canale POS',
+        description: 'DutyBoost collega i fornitori POS enterprise alla rete commerciale. Ogni terminale che connetti diventa un punto di riscatto — guadagni una quota di ogni transazione che fluisce attraverso la tua infrastruttura, senza sforzo commerciale.',
+        b1: 'Quota di ricavi su ogni riscatto',
+        b2: 'Zero sforzo commerciale — collega e guadagna',
+        b3: 'Una integrazione, migliaia di negozi',
+      },
       agencies: {
         title: 'Partner di viaggio',
         description: 'Tramite DutyBoost potrai premiare i tuoi clienti con crediti shopping esclusivi in aeroporto per ogni prenotazione che effettuano con te — che tu sia un\'agenzia di viaggi, una compagnia aerea, un alloggio o un noleggio auto. Una semplice integrazione genererà automaticamente DutyCredit personalizzati consegnati via e-mail ai tuoi clienti, offrendogli un vantaggio fedeltà concreto mentre guadagni commissione su ogni riscatto.',
