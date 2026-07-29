@@ -13,7 +13,7 @@ export default function DutyBoostLogo({ height = 55, inverted = false, linkTo = 
       <span
         className="font-heading font-semibold leading-none"
         style={{
-          fontSize: `${Math.round(height * 0.4)}px`,
+          fontSize: `${Math.round(height * 0.4) + 1}px`,
           color: inverted ? '#ffffff' : 'currentColor',
           marginTop: '1px',
         }}
