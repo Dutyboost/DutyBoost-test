@@ -65,11 +65,6 @@ export default function LandingPage() {
                 {t('nav.integration_partnerships', { defaultValue: 'For Integration Partnerships' })}
               </Button>
             </Link>
-            <Link to="/get-started">
-              <Button size="sm" variant="outline" className="gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
-                {t('nav.partner_with_us')}
-              </Button>
-            </Link>
             <Link to="/roi-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
@@ -90,11 +85,6 @@ export default function LandingPage() {
             <Link to="/pos-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
                 {t('nav.integration_partnerships', { defaultValue: 'For Integration Partnerships' })}
-              </Button>
-            </Link>
-            <Link to="/get-started" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="sm" variant="outline" className="w-full gap-1.5 text-primary border-primary hover:text-primary/80 hover:bg-primary/5">
-                {t('nav.partner_with_us')}
               </Button>
             </Link>
             <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
