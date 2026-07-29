@@ -286,7 +286,7 @@ export function TravelPartnerTab({ t }) {
 
           {/* Conversion rate slider */}
           <div className="space-y-3 pt-1">
-            <div className="flex justify-between items-center gap-3">
+            <div className="flex justify-between items-center gap-3 mb-3">
               <div className="space-y-1.5">
                 <p className="text-xs text-slate-500 uppercase tracking-widest">{t('calculator.redemption_rate')}</p>
                 <ConversionRateInput
