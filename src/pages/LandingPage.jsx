@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  BarChart3, ArrowRight, Menu, X, Cpu, TrendingUp
+  BarChart3, ArrowRight, Menu, X, Cpu
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -67,7 +67,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/roi-calculator-travel-partner">
               <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <TrendingUp className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
+                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
               </Button>
             </Link>
             <LanguageSwitcher />
@@ -89,7 +89,7 @@ export default function LandingPage() {
             </Link>
             <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <TrendingUp className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
+                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
               </Button>
             </Link>
           </div>
