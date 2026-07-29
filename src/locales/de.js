@@ -20,7 +20,7 @@ export default {
     },
     hero: {
       title_1: 'The Travel Retail Revenue Ecosystem',
-      title_2: 'Powered by DutyBoost®',
+      title_2: 'Powered by DutyBoost',
       subtitle_1: 'Von DutyBoost entwickelt, verbindet das Travel Retail Revenue Ecosystem Reisepartner, Flughafen-Einzelhändler und Enterprise-POS-Anbieter in einem kommerziellen Netzwerk, in dem jeder Reisende messbare zusätzliche Einnahmen für alle generiert.',
       subtitle_2: '',
       subtitle_3: '',
