@@ -24,7 +24,7 @@ import CodeOfConduct from './pages/CodeOfConduct';
 import CookiePolicy from './pages/CookiePolicy';
 import DataProcessingAgreement from './pages/DataProcessingAgreement';
 import CookieConsentBar from './components/CookieConsentBar';
-import MobileBackButton from './components/MobileBackButton';
+
 import DemoDisclaimer from './components/DemoDisclaimer';
 import FAQ from './pages/FAQ';
 import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
@@ -290,7 +290,7 @@ function App() {
         <Router>
           <AuthenticatedApp />
           <CookieConsentBar />
-          <MobileBackButton />
+
           <DemoDisclaimer />
           <Toaster />
         </Router>
