@@ -65,7 +65,7 @@ export default {
         b1: 'Crédito de compra en aeropuerto de €1–€60',
         b2: 'Reclama aquí si tu socio no envió uno',
         b3: 'Sin registro — escanea y ahorra',
-        demo_note: 'Los DutyCredits solo se pueden canjear en aeropuertos participantes. Los aeropuertos que aún no están en la red DutyBoost se muestran con fines de demostración. DutyBoost se lanza oficialmente en aeropuertos desde septiembre de 2026.',
+        demo_note: 'Los DutyCredits solo se pueden canjear en aeropuertos participantes. Los aeropuertos que aún no están en la red DutyBoost se muestran con fines de demostración.',
       },
       retailers: {
         title: 'Socios minoristas aeroportuarios',
