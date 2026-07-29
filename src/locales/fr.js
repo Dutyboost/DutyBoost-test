@@ -61,7 +61,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        title: 'Voyageurs',
+        title: 'Pour Voyageurs',
         description: 'Les voyageurs dont le partenaire de voyage n\'a pas inclus de crédit dans leur email de confirmation de réservation ou de retour peuvent réclamer le leur facilement ici — pas d\'inscription, pas de téléchargement de carte d\'embarquement. Ils saisissent leurs informations de vol, sélectionnent leur aéroport de départ et scannent pour économiser chez les détaillants participants.',
         b1: 'Crédit d\'achat en aéroport de 1 à 60 €',
         b2: 'Réclamez ici si votre partenaire n\'en a pas envoyé',
@@ -69,21 +69,21 @@ export default {
         demo_note: 'Les DutyCredits ne peuvent être utilisés que dans les magasins détaillants participants des aéroports.',
       },
       retailers: {
-        title: 'Partenaires détaillants aéroportuaires',
+        title: 'Pour Partenaires détaillants aéroportuaires',
         description: 'Les partenaires détaillants aéroportuaires convertissent les voyageurs de passage en clients payants. Ils reçoivent des acheteurs qualifiés avec une intention d\'achat activée par une incitation crédit personnalisée.',
         b1: 'Meilleure conversion en boutique',
         b2: 'Échange QR en temps réel',
         b3: 'Payez uniquement aux résultats',
       },
       posPartner: {
-        title: 'Partenaires canal POS',
+        title: 'Pour Partenaires canal POS',
         description: 'Les fournisseurs POS d\'entreprise se connectent au réseau commercial. Chaque terminal connecté devient un point d\'échange — les partenaires touchent une part de chaque transaction transitant par leur infrastructure, sans effort commercial.',
         b1: 'Part de revenus sur chaque échange',
         b2: 'Aucun effort commercial — branchez et gagnez',
         b3: 'Une intégration, des milliers de magasins',
       },
       agencies: {
-        title: 'Partenaires de voyage',
+        title: 'Pour Partenaires de voyage',
         description: 'Les partenaires de voyage peuvent récompenser leurs clients avec des crédits shopping exclusifs à l\'aéroport sur chaque réservation — qu\'ils opèrent en tant qu\'agence de voyage, compagnie aérienne, hébergement ou loueur de voitures. Une intégration simple génère automatiquement des crédits personnalisés livrés par e-mail aux clients, offrant un avantage de fidélité concret.',
         b1: 'Fidélité client renforcée',
         b2: 'Zéro effort opérationnel',

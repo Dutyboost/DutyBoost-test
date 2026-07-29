@@ -60,7 +60,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        title: 'Travellers',
+        title: 'For Travellers',
         description: 'Travellers whose travel partner didn\'t include a credit in their booking confirmation or return email can claim one easily here — no sign-up, no boarding pass upload. They enter their flight details, select their departure airport, and scan to save at participating retailers.',
         b1: '€1–€60 airport shopping credit',
         b2: 'Claim here if your partner didn\'t send one',
@@ -68,21 +68,21 @@ export default {
         demo_note: 'DutyCredits can only be redeemed at participating airport retailer stores.',
       },
       retailers: {
-        title: 'Airport Retail Partners',
+        title: 'For Airport Retail Partners',
         description: 'Airport retail partners convert passing travellers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
         b3: 'Pay only on results',
       },
       posPartner: {
-        title: 'POS Channel Partners',
+        title: 'For POS Channel Partners',
         description: 'Enterprise POS providers plug into the commercial network. Every terminal connected becomes a redemption point — partners earn a share of every transaction that flows through their infrastructure, with no sales effort required.',
         b1: 'Revenue share on every redemption',
         b2: 'Zero sales effort — plug in and earn',
         b3: 'One integration, thousands of stores',
       },
       agencies: {
-        title: 'Travel Partners',
+        title: 'For Travel Partners',
         description: 'Travel partners can reward their customers with exclusive airport shopping credits on every booking — whether operating as a travel agency, airline, accommodation, or car rental. A simple integration automatically generates personalised credits delivered to customers by email, providing a meaningful loyalty perk.',
         b1: 'Stronger customer loyalty',
         b2: 'Zero operational effort',

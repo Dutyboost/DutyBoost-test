@@ -60,7 +60,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        title: 'Reizigers',
+        title: 'Voor Reizigers',
         description: 'Reizigers van wie de reispartner geen krediet in de boekingsbevestigingsmail of terugvluchtherinnering heeft toegevoegd, kunnen hier eenvoudig een krediet claimen — geen aanmelding, geen instapkaart uploaden. Ze voeren hun vluchtgegevens in, selecteren hun vertrekluchthaven en scannen om te besparen bij deelnemende retailers.',
         b1: '€1–€60 luchthaven-winkeltegoed',
         b2: 'Claim hier als uw partner er geen stuurde',
@@ -68,21 +68,21 @@ export default {
         demo_note: 'DutyCredits kunnen alleen worden ingewisseld bij deelnemende luchthavenwinkels.',
       },
       retailers: {
-        title: 'Luchthaven Retailpartners',
+        title: 'Voor Luchthaven Retailpartners',
         description: 'Luchthaven retailpartners zetten passerende reizigers om in betalende klanten. Ze ontvangen gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerd krediet als incentive.',
         b1: 'Hogere winkelconversie',
         b2: 'Realtime QR-inwisseling',
         b3: 'Betaal alleen bij resultaat',
       },
       posPartner: {
-        title: 'POS Channel Partners',
+        title: 'Voor POS Channel Partners',
         description: 'Enterprise POS-aanbieders koppelen zich aan het commerciële netwerk. Elke aangesloten terminal wordt een inwisselpunt — partners verdienen een aandeel van elke transactie die via hun infrastructuur loopt, zonder verkoopinspanning.',
         b1: 'Omzetaandeel op elke inwisseling',
         b2: 'Geen verkoopinspanning — aansluiten en verdienen',
         b3: 'Eén integratie, duizenden winkels',
       },
       agencies: {
-        title: 'Travel Partners',
+        title: 'Voor Travel Partners',
         description: 'Reispartners kunnen hun klanten belonen met exclusieve luchthavenwinkelkredieten op elke boeking — of zij nu opereren als reisagentschap, luchtvaartmaatschappij, accommodatie of autoverhuurbedrijf. Een eenvoudige integratie genereert automatisch gepersonaliseerde kredieten die per e-mail aan klanten worden bezorgd, wat een betekenisvol loyaliteitsvoordeel biedt.',
         b1: 'Sterkere klantloyaliteit',
         b2: 'Nul operationele last',

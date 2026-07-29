@@ -60,7 +60,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        title: 'Viajeros',
+        title: 'Para Viajeros',
         description: 'Los viajeros cuyo socio de viaje no incluyó un crédito en su email de confirmación de reserva o de vuelo de vuelta pueden reclamarlo fácilmente aquí — sin registro, sin subir tarjeta de embarque. Introducen los datos de su vuelo, seleccionan su aeropuerto de salida y escanean para ahorrar en minoristas participantes.',
         b1: 'Crédito de compra en aeropuerto de €1–€60',
         b2: 'Reclama aquí si tu socio no envió uno',
@@ -68,21 +68,21 @@ export default {
         demo_note: 'Los DutyCredits solo se pueden canjear en tiendas minoristas participantes en los aeropuertos.',
       },
       retailers: {
-        title: 'Socios minoristas aeroportuarios',
+        title: 'Para Socios minoristas aeroportuarios',
         description: 'Los socios minoristas aeroportuarios convierten a los viajeros que pasan en clientes que pagan. Reciben compradores cualificados con intención de compra activada por un incentivo crédito personalizado.',
         b1: 'Mayor conversión en tienda',
         b2: 'Canje QR en tiempo real',
         b3: 'Paga solo por resultados',
       },
       posPartner: {
-        title: 'Socios de canal POS',
+        title: 'Para Socios de canal POS',
         description: 'Los proveedores POS empresariales se conectan con la red comercial. Cada terminal conectado se convierte en un punto de canje — los socios ganan una parte de cada transacción que fluye por su infraestructura, sin esfuerzo comercial.',
         b1: 'Participación en los ingresos de cada canje',
         b2: 'Cero esfuerzo comercial — conecta y gana',
         b3: 'Una integración, miles de tiendas',
       },
       agencies: {
-        title: 'Socios de viaje',
+        title: 'Para Socios de viaje',
         description: 'Los socios de viaje pueden recompensar a sus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva — ya operen como agencia de viajes, aerolínea, alojamiento o empresa de alquiler de coches. Una integración sencilla genera automáticamente créditos personalizados entregados por email a los clientes, ofreciendo un beneficio de lealtad real.',
         b1: 'Mayor lealtad del cliente',
         b2: 'Cero trabajo operativo',

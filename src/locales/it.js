@@ -60,7 +60,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        title: 'Viaggiatori',
+        title: 'Per Viaggiatori',
         description: 'I viaggiatori il cui partner di viaggio non ha incluso un credito nella loro email di conferma prenotazione o volo di ritorno possono richiederlo facilmente qui — nessuna registrazione, nessun upload della carta d\'imbarco. Inseriscono i dati del volo, selezionano il loro aeroporto di partenza e scansionano per risparmiare presso i rivenditori partecipanti.',
         b1: 'Credito di acquisto in aeroporto €1–€60',
         b2: 'Richiedi qui se il tuo partner non ne ha inviato uno',
@@ -68,21 +68,21 @@ export default {
         demo_note: 'I DutyCredit possono essere riscattati solo presso i negozi retailer partecipanti negli aeroporti.',
       },
       retailers: {
-        title: 'Partner retailer aeroportuali',
+        title: 'Per Partner retailer aeroportuali',
         description: 'I partner retailer aeroportuali convertono i viaggiatori di passaggio in clienti paganti. Ricevono acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo credito personalizzato.',
         b1: 'Maggiore conversione in negozio',
         b2: 'Riscatto QR in tempo reale',
         b3: 'Paga solo a risultato',
       },
       posPartner: {
-        title: 'Partner canale POS',
+        title: 'Per Partner canale POS',
         description: 'I fornitori POS enterprise si collegano alla rete commerciale. Ogni terminale connesso diventa un punto di riscatto — i partner guadagnano una quota di ogni transazione che fluisce attraverso la loro infrastruttura, senza sforzo commerciale.',
         b1: 'Quota di ricavi su ogni riscatto',
         b2: 'Zero sforzo commerciale — collega e guadagna',
         b3: 'Una integrazione, migliaia di negozi',
       },
       agencies: {
-        title: 'Partner di viaggio',
+        title: 'Per Partner di viaggio',
         description: 'I partner di viaggio possono premiare i loro clienti con crediti shopping esclusivi in aeroporto per ogni prenotazione — che operino come agenzia di viaggi, compagnia aerea, alloggio o autonoleggio. Una semplice integrazione genera automaticamente crediti personalizzati consegnati via e-mail ai clienti, offrendo un vantaggio fedeltà concreto.',
         b1: 'Fedeltà dei clienti più forte',
         b2: 'Zero sforzo operativo',
