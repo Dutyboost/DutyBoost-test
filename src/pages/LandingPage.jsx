@@ -60,11 +60,6 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <DutyBoostLogo height={55} />
           <div className="hidden lg:flex items-center gap-2">
-            <Link to="/pos-partner">
-              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                {t('nav.integration_partnerships', { defaultValue: 'For Integration Partnerships' })}
-              </Button>
-            </Link>
             <Link to="/roi-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
@@ -82,11 +77,6 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
-            <Link to="/pos-partner" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                {t('nav.integration_partnerships', { defaultValue: 'For Integration Partnerships' })}
-              </Button>
-            </Link>
             <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
