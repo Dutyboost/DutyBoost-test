@@ -249,7 +249,7 @@ export default {
 
     getstarted: {
       title: 'Empieza con DutyBoost',
-      subtitle_default: 'DutyBoost es el ecosistema de ingresos circulares del comercio de viajes. Elige tu sector a continuación para empezar.',
+      subtitle_default: 'DutyBoost es el ecosistema de ingresos circulares del comercio de viajes. Elige tu rol a continuación para empezar.',
       agencies: 'Para Socios de vuelos',
       pos_partners: 'Para Socios POS',
       pos_partners_description: 'Los proveedores POS empresariales se conectan a la red comercial — cada terminal conectado se convierte en un punto de canje, los socios ganan una parte de cada transacción sin esfuerzo comercial.',

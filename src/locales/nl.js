@@ -238,7 +238,7 @@ export default {
     },
     getstarted: {
       title: 'Aan de slag met DutyBoost',
-      subtitle_default: 'DutyBoost is het Travel Retail Circular Revenue Ecosystem. Kies hieronder uw branche om te beginnen.',
+      subtitle_default: 'DutyBoost is het Travel Retail Circular Revenue Ecosystem. Kies hieronder uw rol om te beginnen.',
       agencies: 'Voor Vluchtpartners',
       pos_partners: 'Voor POS Partners',
       pos_partners_description: 'Enterprise POS-aanbieders koppelen zich aan het commerciële netwerk — elke aangesloten terminal wordt een inwisselpunt, partners verdienen een aandeel van elke transactie zonder verkoopinspanning.',
