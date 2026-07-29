@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, ArrowRight, Menu, X, Cpu
+  Calculator, ArrowRight, Cpu
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -17,7 +17,6 @@ import FooterLinks from "../components/FooterLinks";
 
 export default function LandingPage() {
   const { t } = useTranslation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
 
@@ -61,39 +60,31 @@ export default function LandingPage() {
           <DutyBoostLogo height={55} />
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/roi-calculator">
-              <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50 px-2 sm:px-3">
-                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden xl:inline">{t('nav.roi_calculator')}</span>
-              </Button>
-            </Link>
-            <Link to="/roi-calculator-travel-partner">
-              <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50 px-2 sm:px-3">
-                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden xl:inline">{t('nav.roi_calculator_travel_partner')}</span>
-              </Button>
-            </Link>
-            <LanguageSwitcher />
-          </div>
-          <div className="flex lg:hidden items-center gap-2">
-            <LanguageSwitcher />
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
-            <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
+              <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
-            <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
+            <Link to="/roi-calculator-travel-partner">
+              <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator_travel_partner')}
               </Button>
             </Link>
+            <LanguageSwitcher />
           </div>
-        )}
+          <div className="flex lg:hidden items-center gap-1.5">
+            <Link to="/roi-calculator" aria-label={t('nav.roi_calculator')}>
+              <Button variant="outline" size="icon" className="h-9 w-9 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                <Calculator className="w-4 h-4" />
+              </Button>
+            </Link>
+            <Link to="/roi-calculator-travel-partner" aria-label={t('nav.roi_calculator_travel_partner')}>
+              <Button variant="outline" size="icon" className="h-9 w-9 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
+                <Calculator className="w-4 h-4" />
+              </Button>
+            </Link>
+            <LanguageSwitcher />
+          </div>
+        </div>
       </nav>
 
       {/* Hero */}
