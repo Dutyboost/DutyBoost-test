@@ -122,7 +122,7 @@ export default {
     },
     getstarted: {
       title: 'Loslegen mit DutyBoost',
-      subtitle_default: 'DutyBoost ist die Travel-Retail-Konvertierungsschicht, die Reisepartner, Flughafen-Einzelhändler und Reisende verbindet — jede Buchung wird in Einkaufsguthaben am Flughafen umgewandelt, die auf der gesamten Reise neue Umsätze generieren.',
+      subtitle_default: 'DutyBoost ist das Travel Retail Circular Revenue Ecosystem — es verbindet Reisepartner, Flughafen-Einzelhändler und Reisende, wobei jede Buchung zu Einkaufsguthaben am Flughafen wird, die neue Umsätze über die gesamte Reise zirkulieren lassen.',
       agencies: 'Für Flug Partner',
       pos_partners: 'Für POS Partner',
       pos_partners_description: 'Enterprise-POS-Anbieter binden sich in das kommerzielle Netzwerk ein — jeder verbundene Terminal wird zu einem Einlösepunkt, Partner verdienen einen Anteil an jeder Transaktion ohne Vertriebsaufwand.',

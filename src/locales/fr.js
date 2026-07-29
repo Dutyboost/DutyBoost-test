@@ -122,7 +122,7 @@ export default {
     },
     getstarted: {
       title: 'Commencer avec DutyBoost',
-      subtitle_default: 'DutyBoost est la couche de conversion du commerce de voyage qui relie les partenaires de voyage, les détaillants d\'aéroport et les voyageurs — chaque réservation se transforme en crédits d\'achat en aéroport qui génèrent de nouveaux revenus tout au long du voyage.',
+      subtitle_default: 'DutyBoost est l\'écosystème de revenus circulaires du commerce de voyage — il relie les partenaires de voyage, les détaillants d\'aéroport et les voyageurs, où chaque réservation devient des crédits d\'achat en aéroport qui font circuler de nouveaux revenus tout au long du voyage.',
       agencies: 'Pour Partenaires vols',
       pos_partners: 'Pour Partenaires POS',
       pos_partners_description: 'Les fournisseurs POS d\'entreprise se connectent au réseau commercial — chaque terminal connecté devient un point d\'échange, les partenaires touchent une part de chaque transaction sans effort commercial.',
