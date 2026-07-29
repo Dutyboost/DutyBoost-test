@@ -65,7 +65,7 @@ export default {
         b1: '€1–€60 airport shopping credit',
         b2: 'Claim here if your partner didn\'t send one',
         b3: 'No sign-up — scan & save',
-        demo_note: 'DutyCredits can only be redeemed at participating airports. Airports not yet in the DutyBoost Network are shown for demo purposes.',
+        demo_note: 'DutyCredits can only be redeemed at participating airport retailer stores.',
       },
       retailers: {
         title: 'Airport Retail Partners',

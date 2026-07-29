@@ -65,7 +65,7 @@ export default {
         b1: '€1–€60 luchthaven-winkeltegoed',
         b2: 'Claim hier als uw partner er geen stuurde',
         b3: 'Geen aanmelding — scan & bespaar',
-        demo_note: 'DutyCredits kunnen alleen worden ingewisseld bij deelnemende luchthavens. Luchthavens die nog niet in het DutyBoost-netwerk zitten, worden voor demodoeleinden getoond.',
+        demo_note: 'DutyCredits kunnen alleen worden ingewisseld bij deelnemende luchthavenwinkels.',
       },
       retailers: {
         title: 'Luchthaven Retailpartners',
