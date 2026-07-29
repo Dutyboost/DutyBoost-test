@@ -92,7 +92,7 @@ export default {
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'Aangedreven door DutyBoost, de eerste gedeelde commerciële infrastructuur ter wereld waarin reispartners, luchthavenretailers, enterprise POS-providers en reizigers allemaal waarde genereren uit dezelfde reis. Eén reiziger. Eén QR-code. Eén geautomatiseerd ecosysteem voor inkomstenverdeling. Iedereen wint.',
+       description: 'Het Travel Retail Circular Revenue Ecosystem zet de reis van elke reiziger om in meetbare, aanvullende omzet voor de hele keten. Reispartners, luchthavenretailers, enterprise POS-providers en reizigers profiteren allemaal van één naadloze, geautomatiseerde flow — één QR-scan bij de kassa triggert direct prestatiegebonden inkomstenverdeling. Geen voorafgaande kosten, geen voorraadrisico, alleen nieuwe inkomsten voor iedereen.',
        button: 'Doe mee aan het Travel Retail Circular Revenue Ecosystem',
 
      },

@@ -93,7 +93,7 @@ export default {
     },
     cta: {
       title: 'Ein Reisender. Eine Reise. Erlös für alle.',
-      description: 'Angetrieben von DutyBoost, der weltweit ersten gemeinsamen kommerziellen Infrastruktur, bei der Reisepartner, Flughafen-Einzelhändler, Enterprise-POS-Anbieter und Reisende alle aus derselben Reise Wert generieren. Ein Reisender. Ein QR-Code. Ein automatisiertes Erlösteilungs-Ökosystem. Alle gewinnen.',
+      description: 'Das Travel Retail Circular Revenue Ecosystem verwandelt die Reise jedes Reisenden in messbare zusätzliche Erlöse für die gesamte Kette. Reisepartner, Flughafen-Einzelhändler, Enterprise-POS-Anbieter und Reisende profitieren alle von einem nahtlosen, automatisierten Ablauf — ein einziger QR-Scan an der Kasse löst sofortige, leistungsbasierte Erlösteilung aus. Keine Vorabkosten, kein Lagerbestandsrisiko, nur neue Einnahmen für alle.',
       button: 'Treten Sie dem Travel Retail Circular Revenue Ecosystem bei',
     },
     wecallyou: {

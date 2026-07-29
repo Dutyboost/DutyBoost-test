@@ -92,7 +92,7 @@ export default {
     },
     cta: {
        title: 'Un viajero. Un viaje. Ingresos para todos.',
-       description: 'Impulsado por DutyBoost, la primera infraestructura comercial compartida del mundo en la que socios de viaje, minoristas aeroportuarios, proveedores POS empresariales y viajeros generan todos valor a partir del mismo viaje. Un viajero. Un código QR. Un ecosistema automatizado de reparto de ingresos. Todos ganan.',
+       description: 'El Travel Retail Circular Revenue Ecosystem convierte el viaje de cada viajero en ingresos incrementales medibles para toda la cadena. Socios de viaje, minoristas aeroportuarios, proveedores POS empresariales y viajeros se benefician todos de un flujo único, fluido y automatizado — una sola lectura del código QR en caja desencadena al instante un reparto de ingresos basado en el rendimiento. Sin costes iniciales, sin riesgo de inventario, solo nuevos ingresos para todos.',
        button: 'Únete al Travel Retail Circular Revenue Ecosystem',
      },
     wecallyou: {
