@@ -29,7 +29,7 @@ export default function ConversionRateInput({ value, min = 0.01, max = 50, step 
         onChange={(e) => setText(e.target.value)}
         onBlur={handleBlur}
         onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
-        className="w-20 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
+        className="w-28 sm:w-32 text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-violet-500/40"
       />
       <span className="text-xs sm:text-sm font-bold font-mono">%</span>
     </div>

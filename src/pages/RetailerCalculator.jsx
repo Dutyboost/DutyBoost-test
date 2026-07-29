@@ -285,10 +285,10 @@ export function TravelPartnerTab({ t }) {
           </div>
 
           {/* Conversion rate slider */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-end">
-              <div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
+          <div className="space-y-3 pt-1">
+            <div className="flex justify-between items-center gap-3">
+              <div className="space-y-1.5">
+                <p className="text-xs text-slate-500 uppercase tracking-widest">{t('calculator.redemption_rate')}</p>
                 <ConversionRateInput
                   value={conversion[v.key]}
                   min={0.01}
@@ -297,7 +297,7 @@ export function TravelPartnerTab({ t }) {
                   onChange={(val) => setConversion((c) => ({ ...c, [v.key]: val }))}
                 />
               </div>
-              <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
+              <span className="text-slate-500 text-sm text-right">{t('calculator.travelers_redeem')}</span>
             </div>
             <Slider min={0.01} max={50} step={0.01} value={[conversion[v.key]]} onValueChange={([val]) => setConversion((c) => ({ ...c, [v.key]: val }))} aria-label={t('calculator.redemption_rate')} className="w-full" />
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
