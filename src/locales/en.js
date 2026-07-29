@@ -91,9 +91,9 @@ export default {
       },
     },
     cta: {
-      title: 'Transform how travel and retail connect',
-      description: 'Be part of building a new ecosystem where flight, accommodation, and car rental partners will boost customer loyalty and earn a new passive income stream — travellers will maximise rewards, and retailers will increase revenue. All through one intelligent platform.',
-      button: 'Get Started Today',
+      title: 'One shared infrastructure — four winners',
+      description: 'DutyBoost is the shared infrastructure behind the Travel Retail Revenue Ecosystem — one commercial operating system where travel partners, airport retailers and POS providers each win through a single, circular revenue model.',
+      button: 'Join the Travel Retail Circular Revenue Ecosystem',
     },
     footer: {
       tagline: '— The Travel Retail Conversion Layer',

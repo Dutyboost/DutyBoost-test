@@ -92,9 +92,9 @@ export default {
       },
     },
     cta: {
-      title: 'Transformez la connexion entre voyage et commerce de détail',
-      description: 'Faites partie de la construction d\'un nouvel écosystème où les partenaires vols, hébergement et location de voiture renforceront la fidélité des clients et généreront un nouveau revenu passif — les voyageurs maximiseront leurs récompenses et les détaillants augmenteront leurs revenus. Le tout via une seule plateforme intelligente.',
-      button: 'Commencer aujourd\'hui',
+      title: 'Une infrastructure partagée — quatre gagnants',
+      description: 'DutyBoost est l\'infrastructure partagée derrière le Travel Retail Revenue Ecosystem — un seul système d\'exploitation commercial où partenaires de voyage, détaillants aéroportuaires et fournisseurs POS gagnent ensemble via un modèle de revenus circulaire.',
+      button: 'Rejoignez le Travel Retail Circular Revenue Ecosystem',
     },
     wecallyou: {
       modal_title: 'Nous vous appelons',

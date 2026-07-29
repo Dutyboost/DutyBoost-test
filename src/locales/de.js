@@ -92,9 +92,9 @@ export default {
       },
     },
     cta: {
-      title: 'Transformieren Sie die Verbindung zwischen Reisen und Einzelhandel',
-      description: 'Werden Sie Teil des Aufbaus eines neuen Ökosystems, in dem Flug-, Unterkunfts- und Mietwagenpartner die Kundentreue steigern und ein neues passives Einkommen verdienen werden — Reisende werden Belohnungen maximieren und Einzelhändler werden Umsätze steigern. Alles über eine intelligente Plattform.',
-      button: 'Jetzt beginnen',
+      title: 'Eine gemeinsame Infrastruktur — vier Gewinner',
+      description: 'DutyBoost ist die gemeinsame Infrastruktur hinter dem Travel Retail Revenue Ecosystem — ein kommerzielles Betriebssystem, bei dem Reisepartner, Flughafen-Einzelhändler und POS-Anbieter gemeinsam über ein zirkuläres Erlösmodell gewinnen.',
+      button: 'Treten Sie dem Travel Retail Circular Revenue Ecosystem bei',
     },
     wecallyou: {
       modal_title: 'Wir rufen Sie an',
