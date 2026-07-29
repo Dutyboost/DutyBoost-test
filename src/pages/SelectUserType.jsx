@@ -102,7 +102,7 @@ export default function SelectUserType() {
               return (
                 <div
                   key={option.id}
-                  onClick={() => navigate(option.path)}
+                  onClick={() => navigate(fromAgency ? `${option.path}?from=agency` : option.path)}
                   className="bg-card rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-primary/30 transition-all flex flex-col cursor-pointer"
                 >
                   <div className={`w-20 h-20 rounded-2xl ${option.bg} flex items-center justify-center mb-4`}>

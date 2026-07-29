@@ -10,6 +10,9 @@ import HotelIcon from "../components/HotelIcon";
 
 export default function HotelShowcase() {
   const { t } = useTranslation();
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromAgency = urlParams.get('from') === 'agency';
+  const backTo = fromAgency ? '/get-started?from=agency' : '/get-started';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.accommodation.step1', descKey: 'showcase.accommodation.step1Desc' },
@@ -31,7 +34,7 @@ export default function HotelShowcase() {
               <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
             </Link>
             <LanguageSwitcher />
-            <Link to="/get-started">
+            <Link to={backTo}>
               <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <ArrowLeft className="w-4 h-4" /> {t('common.back')}
               </button>

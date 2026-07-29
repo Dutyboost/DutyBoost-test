@@ -13,6 +13,9 @@ const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
 export default function AgencyShowcase() {
   const { t } = useTranslation();
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromAgency = urlParams.get('from') === 'agency';
+  const backTo = fromAgency ? '/get-started?from=agency' : '/get-started';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.agency.step1', descKey: 'showcase.agency.step1Desc' },
@@ -48,7 +51,7 @@ export default function AgencyShowcase() {
               <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
             </Link>
             <LanguageSwitcher />
-            <Link to="/get-started">
+            <Link to={backTo}>
               <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <ArrowLeft className="w-4 h-4" /> {t('common.back')}
               </button>
