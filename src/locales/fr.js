@@ -122,7 +122,7 @@ export default {
     },
     getstarted: {
       title: 'DutyBoost : l\'écosystème de revenus circulaires du commerce de voyage',
-      subtitle_default: 'DutyBoost est l\'écosystème de revenus circulaires du commerce de voyage. Choisissez votre rôle ci-dessous pour commencer.',
+      subtitle_default: 'Choisissez votre rôle ci-dessous pour commencer.',
       agencies: 'Pour Partenaires vols',
       pos_partners: 'Pour Partenaires POS',
       pos_partners_description: 'Les fournisseurs POS d\'entreprise se connectent au réseau commercial — chaque terminal connecté devient un point d\'échange, les partenaires touchent une part de chaque transaction sans effort commercial.',

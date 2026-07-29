@@ -145,7 +145,7 @@ export default {
     },
     getstarted: {
       title: 'DutyBoost: l\'ecosistema di entrate circolari del travel retail',
-      subtitle_default: 'DutyBoost è l\'ecosistema di entrate circolari del travel retail. Scegli il tuo ruolo qui sotto per iniziare.',
+      subtitle_default: 'Scegli il tuo ruolo qui sotto per iniziare.',
       agencies: 'Per Partner voli',
       pos_partners: 'Per Partner POS',
       pos_partners_description: 'I fornitori POS enterprise si collegano alla rete commerciale — ogni terminale connesso diventa un punto di riscatto, i partner guadagnano una quota di ogni transazione senza sforzo commerciale.',
