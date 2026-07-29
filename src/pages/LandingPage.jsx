@@ -165,7 +165,7 @@ export default function LandingPage() {
                   <p className="text-muted-foreground text-base leading-relaxed mb-5">{description}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-xs whitespace-nowrap">
+                      <li key={b} className="flex items-center gap-2 text-xs">
                         <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
                         {b}
                       </li>
