@@ -84,7 +84,7 @@ export default {
       },
       agencies: {
         title: 'Reisepartner',
-        description: 'Über DutyBoost werden Sie Ihre Kunden bei jeder Buchung mit exklusiven Flughafen-Shopping-Guthaben belohnen können — ob Sie ein Reisebüro, eine Fluggesellschaft, eine Unterkunft oder ein Mietwagenunternehmen sind. Eine einfache Integration wird automatisch personalisierte DutyCredits generieren, die Ihren Kunden per E-Mail zugestellt werden und Ihnen eine Provision auf jede Einlösung einbringen.',
+        description: 'Reisepartner können ihre Kunden bei jeder Buchung mit exklusiven Flughafen-Shopping-Guthaben belohnen — ob sie als Reisebüro, Fluggesellschaft, Unterkunft oder Mietwagenunternehmen agieren. Eine einfache Integration erzeugt automatisch personalisierte Guthaben, die per E-Mail an Kunden geliefert werden, einen sinnvollen Treuevorteil bieten, während der Partner bei jeder Einlösung eine Provision verdient.',
         b1: 'Stärkere Kundenbindung',
         b2: 'Null operativer Aufwand',
         b3: 'Neuer passiver Einnahmestrom',

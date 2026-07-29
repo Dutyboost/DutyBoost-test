@@ -83,7 +83,7 @@ export default {
       },
       agencies: {
         title: 'Socios de viaje',
-        description: 'A través de DutyBoost podrás recompensar a tus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva que realicen contigo — ya seas una agencia de viajes, aerolínea, alojamiento o empresa de alquiler de coches. Una sencilla integración generará automáticamente DutyCredits personalizados entregados por email a tus clientes, dándoles un beneficio de lealtad real mientras tú ganas comisión en cada canje.',
+        description: 'Los socios de viaje pueden recompensar a sus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva — ya operen como agencia de viajes, aerolínea, alojamiento o empresa de alquiler de coches. Una integración sencilla genera automáticamente créditos personalizados entregados por email a los clientes, ofreciendo un beneficio de lealtad real mientras el socio gana comisión en cada canje.',
         b1: 'Mayor lealtad del cliente',
         b2: 'Cero trabajo operativo',
         b3: 'Nuevos ingresos pasivos',
