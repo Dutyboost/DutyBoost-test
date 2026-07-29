@@ -68,14 +68,14 @@ export default {
         demo_note: 'I DutyCredit possono essere riscattati solo presso i negozi retailer partecipanti negli aeroporti.',
       },
       retailers: {
-        title: 'Per Partner retailer aeroportuali',
+        title: 'Per Partner retailer',
         description: 'I partner retailer aeroportuali convertono i viaggiatori di passaggio in clienti paganti. Ricevono acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo credito personalizzato.',
         b1: 'Maggiore conversione in negozio',
         b2: 'Riscatto QR in tempo reale',
         b3: 'Paga solo a risultato',
       },
       posPartner: {
-        title: 'Per Partner canale POS',
+        title: 'Per Partner POS',
         description: 'I fornitori POS enterprise si collegano alla rete commerciale. Ogni terminale connesso diventa un punto di riscatto — i partner guadagnano una quota di ogni transazione che fluisce attraverso la loro infrastruttura, senza sforzo commerciale.',
         b1: 'Quota di ricavi su ogni riscatto',
         b2: 'Zero sforzo commerciale — collega e guadagna',

@@ -68,14 +68,14 @@ export default {
         demo_note: 'DutyCredits can only be redeemed at participating airport retailer stores.',
       },
       retailers: {
-        title: 'For Airport Retail Partners',
+        title: 'For Retail Partners',
         description: 'Airport retail partners convert passing travellers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
         b3: 'Pay only on results',
       },
       posPartner: {
-        title: 'For POS Channel Partners',
+        title: 'For POS Partners',
         description: 'Enterprise POS providers plug into the commercial network. Every terminal connected becomes a redemption point — partners earn a share of every transaction that flows through their infrastructure, with no sales effort required.',
         b1: 'Revenue share on every redemption',
         b2: 'Zero sales effort — plug in and earn',

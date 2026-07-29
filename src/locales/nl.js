@@ -68,14 +68,14 @@ export default {
         demo_note: 'DutyCredits kunnen alleen worden ingewisseld bij deelnemende luchthavenwinkels.',
       },
       retailers: {
-        title: 'Voor Luchthaven Retailpartners',
+        title: 'Voor Retailpartners',
         description: 'Luchthaven retailpartners zetten passerende reizigers om in betalende klanten. Ze ontvangen gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerd krediet als incentive.',
         b1: 'Hogere winkelconversie',
         b2: 'Realtime QR-inwisseling',
         b3: 'Betaal alleen bij resultaat',
       },
       posPartner: {
-        title: 'Voor POS Channel Partners',
+        title: 'Voor POS Partners',
         description: 'Enterprise POS-aanbieders koppelen zich aan het commerciële netwerk. Elke aangesloten terminal wordt een inwisselpunt — partners verdienen een aandeel van elke transactie die via hun infrastructuur loopt, zonder verkoopinspanning.',
         b1: 'Omzetaandeel op elke inwisseling',
         b2: 'Geen verkoopinspanning — aansluiten en verdienen',

@@ -68,14 +68,14 @@ export default {
         demo_note: 'Los DutyCredits solo se pueden canjear en tiendas minoristas participantes en los aeropuertos.',
       },
       retailers: {
-        title: 'Para Socios minoristas aeroportuarios',
+        title: 'Para Socios minoristas',
         description: 'Los socios minoristas aeroportuarios convierten a los viajeros que pasan en clientes que pagan. Reciben compradores cualificados con intención de compra activada por un incentivo crédito personalizado.',
         b1: 'Mayor conversión en tienda',
         b2: 'Canje QR en tiempo real',
         b3: 'Paga solo por resultados',
       },
       posPartner: {
-        title: 'Para Socios de canal POS',
+        title: 'Para Socios POS',
         description: 'Los proveedores POS empresariales se conectan con la red comercial. Cada terminal conectado se convierte en un punto de canje — los socios ganan una parte de cada transacción que fluye por su infraestructura, sin esfuerzo comercial.',
         b1: 'Participación en los ingresos de cada canje',
         b2: 'Cero esfuerzo comercial — conecta y gana',
