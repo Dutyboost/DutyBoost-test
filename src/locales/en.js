@@ -27,7 +27,7 @@ export default {
       tagline: "",
     },
     ecosystem: {
-      title: '1 Commercial ecosystem, four winners',
+      title: 'One Commercial ecosystem, four winners',
       subtitle: 'A shared infrastructure that makes every participant a winner via one commercial operating system — the Travel Retail Revenue Ecosystem.',
     },
     circularFlow: {

@@ -27,7 +27,7 @@ export default {
        tagline: '',
      },
     ecosystem: {
-      title: '1 ecosistema commerciale, quattro vincitori',
+      title: 'Un ecosistema commerciale, quattro vincitori',
       subtitle: 'Un\'infrastruttura condivisa che rende ogni partecipante un vincitore tramite un unico sistema operativo commerciale — il Travel Retail Revenue Ecosystem.',
     },
     circularFlow: {

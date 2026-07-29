@@ -27,7 +27,7 @@ export default {
        tagline: '',
      },
     ecosystem: {
-      title: '1 Commercieel ecosysteem, vier winnaars',
+      title: 'Eén Commercieel ecosysteem, vier winnaars',
       subtitle: 'Een gedeelde infrastructuur die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — het Travel Retail Revenue Ecosystem.',
     },
     circularFlow: {
