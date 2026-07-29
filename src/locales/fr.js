@@ -29,7 +29,7 @@ export default {
     },
     ecosystem: {
       title: '1 écosystème commercial, quatre gagnants',
-      subtitle: 'DutyBoost est le système d\'exploitation commercial derrière le Travel Retail Revenue Ecosystem — l\'infrastructure partagée qui fait de chaque participant un gagnant.',
+      subtitle: 'Une infrastructure partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — le Travel Retail Revenue Ecosystem.',
     },
     circularFlow: {
       title: 'Le Flux de Revenus Circulaire DutyBoost',

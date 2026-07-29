@@ -28,7 +28,7 @@ export default {
      },
     ecosystem: {
       title: '1 Commercieel ecosysteem, vier winnaars',
-      subtitle: 'DutyBoost is het commerciële besturingssysteem achter het Travel Retail Revenue Ecosystem — de gedeelde infrastructuur die elke deelnemer tot winnaar maakt.',
+      subtitle: 'Een gedeelde infrastructuur die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — het Travel Retail Revenue Ecosystem.',
     },
     circularFlow: {
       title: 'De DutyBoost Circulaire Omzetstroom',
