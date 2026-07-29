@@ -29,6 +29,7 @@ export default {
     ecosystem: {
       title: 'Eén Commercieel ecosysteem, vier winnaars',
       subtitle: 'Een gedeelde infrastructuur die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — het Travel Retail Circular Revenue Ecosystem.',
+      platform_fee_note: 'Elke inwisseling omvat een kleine platformfee, die DutyBoost deelt tussen de deelnemers — zodat reispartners, POS-partners en het platform allemaal verdienen aan dezelfde transactie.',
     },
     circularFlow: {
       title: 'De DutyBoost Circulaire Omzetstroom',

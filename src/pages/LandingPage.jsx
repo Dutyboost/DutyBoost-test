@@ -178,6 +178,7 @@ export default function LandingPage() {
               );
             })}
           </div>
+          <p className="text-center text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mt-8 leading-relaxed">{t('ecosystem.platform_fee_note')}</p>
         </div>
       </section>
 
