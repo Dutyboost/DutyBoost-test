@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Input } from "@/components/ui/input";
 
 export default function ConversionRateInput({ value, min = 0.01, max = 50, step = 0.01, onChange }) {
   const [text, setText] = useState(String(value));
@@ -8,8 +7,8 @@ export default function ConversionRateInput({ value, min = 0.01, max = 50, step 
     setText(String(value));
   }, [value]);
 
-  const commit = (raw) => {
-    let n = parseFloat(raw);
+  const handleBlur = () => {
+    let n = parseFloat(text);
     if (isNaN(n)) {
       setText(String(value));
       return;
@@ -21,19 +20,18 @@ export default function ConversionRateInput({ value, min = 0.01, max = 50, step 
 
   return (
     <div className="flex items-center gap-1">
-      <Input
+      <input
         type="number"
-        value={text}
         min={min}
         max={max}
         step={step}
+        value={text}
         onChange={(e) => setText(e.target.value)}
-        onBlur={(e) => commit(e.target.value)}
+        onBlur={handleBlur}
         onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
-        className="w-20 h-10 text-2xl font-bold text-slate-900 border-b-2 border-slate-300 focus:border-primary rounded-none px-0"
-        aria-label="redemption rate percent"
+        className="w-20 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
       />
-      <span className="text-2xl font-bold text-slate-900">%</span>
+      <span className="text-xs sm:text-sm font-bold font-mono">%</span>
     </div>
   );
 }
