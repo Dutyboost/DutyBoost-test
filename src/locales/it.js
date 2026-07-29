@@ -145,6 +145,8 @@ export default {
       july: '1 lug 2026',
     },
     getstarted: {
+      title_partner: 'Per i partner di viaggio',
+      subtitle_partner: "Scegli qui sotto il tuo settore per vedere come DutyBoost trasforma ogni prenotazione in ricavi circolari e incrementali.",
       title: 'DutyBoost: l\'ecosistema di entrate circolari del travel retail',
       subtitle_default: 'Scegli il tuo ruolo qui sotto per iniziare.',
       agencies: 'Per Partner voli',

@@ -339,6 +339,8 @@ export default {
       },
     },
     getstarted: {
+      title_partner: 'For Travel Partners',
+      subtitle_partner: 'Choose your sector below to see how DutyBoost turns every booking into incremental, circular revenue.',
       title: 'DutyBoost: The Travel Retail Circular Revenue Ecosystem',
       subtitle_default: 'Choose your role below to get started.',
       agencies: 'For Flight Partners',

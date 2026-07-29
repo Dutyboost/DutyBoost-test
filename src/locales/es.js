@@ -249,6 +249,8 @@ export default {
        },
 
     getstarted: {
+      title_partner: 'Para socios de viaje',
+      subtitle_partner: 'Elige tu sector a continuación para ver cómo DutyBoost convierte cada reserva en ingresos circulares incrementales.',
       title: 'DutyBoost: el ecosistema de ingresos circulares del comercio de viajes',
       subtitle_default: 'Elige tu rol a continuación para empezar.',
       agencies: 'Para Socios de vuelos',
