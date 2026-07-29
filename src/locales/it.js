@@ -61,7 +61,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viaggiatori',
-        description: 'Se il tuo partner di viaggio non ha incluso un DutyCredit nella tua email di conferma prenotazione, richiedi il tuo facilmente qui — nessuna registrazione, nessun upload della carta d\'imbarco. Inserisci i dati del volo, seleziona il tuo aeroporto di partenza e scansiona per risparmiare presso i rivenditori partecipanti.',
+        description: 'I viaggiatori il cui partner di viaggio non ha incluso un credito nella loro email di conferma prenotazione o volo di ritorno possono richiederlo facilmente qui — nessuna registrazione, nessun upload della carta d\'imbarco. Inseriscono i dati del volo, selezionano il loro aeroporto di partenza e scansionano per risparmiare presso i rivenditori partecipanti.',
         b1: 'Credito di acquisto in aeroporto €1–€60',
         b2: 'Richiedi qui se il tuo partner non ne ha inviato uno',
         b3: 'Senza registrazione — scansiona e risparmia',
@@ -69,14 +69,14 @@ export default {
       },
       retailers: {
         title: 'Partner retailer aeroportuali',
-        description: 'DutyBoost ti aiuterà a convertire i viaggiatori di passaggio in clienti paganti. Riceverai acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo DutyCredit personalizzato. La nostra commissione si applicherà solo quando un DutyCredit viene effettivamente riscattato — non paghi nulla a meno che non consegniamo una vendita.',
+        description: 'I partner retailer aeroportuali convertono i viaggiatori di passaggio in clienti paganti. Ricevono acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo credito personalizzato. La commissione si applica solo quando un credito viene effettivamente riscattato — i retailer non pagano nulla a meno che non venga consegnata una vendita.',
         b1: 'Maggiore conversione in negozio',
         b2: 'Riscatto QR in tempo reale',
         b3: 'Paga solo a risultato',
       },
       posPartner: {
         title: 'Partner canale POS',
-        description: 'DutyBoost collega i fornitori POS enterprise alla rete commerciale. Ogni terminale che connetti diventa un punto di riscatto — guadagni una quota di ogni transazione che fluisce attraverso la tua infrastruttura, senza sforzo commerciale.',
+        description: 'I fornitori POS enterprise si collegano alla rete commerciale. Ogni terminale connesso diventa un punto di riscatto — i partner guadagnano una quota di ogni transazione che fluisce attraverso la loro infrastruttura, senza sforzo commerciale.',
         b1: 'Quota di ricavi su ogni riscatto',
         b2: 'Zero sforzo commerciale — collega e guadagna',
         b3: 'Una integrazione, migliaia di negozi',

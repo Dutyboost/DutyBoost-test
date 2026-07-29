@@ -62,7 +62,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reisende',
-        description: 'Wenn Ihr Reisepartner kein DutyCredit in Ihrer Buchungsbestätigungs-E-Mail enthalten hat, beanspruchen Sie Ihres ganz einfach hier — keine Anmeldung, kein Boardingpass-Upload. Geben Sie Ihre Flugdaten ein, wählen Sie Ihren Abflughafen und scannen Sie, um bei teilnehmenden Händlern zu sparen.',
+        description: 'Reisende, deren Reisepartner kein Guthaben in der Buchungsbestätigungs-E-Mail oder Rückflug-Erinnerung enthalten hat, können ihres hier ganz einfach beanspruchen — keine Anmeldung, kein Boardingpass-Upload. Sie geben ihre Flugdaten ein, wählen ihren Abflughafen und scannen, um bei teilnehmenden Händlern zu sparen.',
         b1: '1–60 € Flughafen-Einkaufsguthaben',
         b2: 'Hier beanspruchen, wenn Ihr Partner keins gesendet hat',
         b3: 'Ohne Anmeldung — scannen & sparen',
@@ -70,14 +70,14 @@ export default {
       },
       retailers: {
         title: 'Flughafen Retailpartner',
-        description: 'DutyBoost wird Ihnen helfen, vorbeigehende Reisende in zahlende Kunden zu verwandeln. Sie werden gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten DutyCredit-Anreiz erhalten. Unsere Provision wird nur gelten, wenn ein DutyCredit tatsächlich eingelöst wird — Sie zahlen nichts, es sei denn, wir liefern einen Verkauf.',
+        description: 'Flughafen-Retailpartner verwandeln vorbeigehende Reisende in zahlende Kunden. Sie erhalten gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten Guthaben-Anreiz. Die Provision gilt nur, wenn ein Guthaben tatsächlich eingelöst wird — Retailer zahlen nichts, es sei denn, ein Verkauf wird geliefert.',
         b1: 'Höhere Ladenkonversion',
         b2: 'Echtzeit-QR-Einlösung',
         b3: 'Nur bei Erfolg zahlen',
       },
       posPartner: {
         title: 'POS-Kanalpartner',
-        description: 'DutyBoost bindet Enterprise-POS-Anbieter in das kommerzielle Netzwerk ein. Jedes von Ihnen verbundene Terminal wird zu einem Einlösepunkt — Sie verdienen einen Anteil an jeder Transaktion, die über Ihre Infrastruktur läuft, ohne Vertriebsaufwand.',
+        description: 'Enterprise-POS-Anbieter binden sich in das kommerzielle Netzwerk ein. Jedes verbundene Terminal wird zu einem Einlösepunkt — Partner verdienen einen Anteil an jeder Transaktion, die über ihre Infrastruktur läuft, ohne Vertriebsaufwand.',
         b1: 'Umsatzbeteiligung bei jeder Einlösung',
         b2: 'Kein Vertriebsaufwand — anschließen und verdienen',
         b3: 'Eine Integration, Tausende Geschäfte',

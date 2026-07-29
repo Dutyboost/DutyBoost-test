@@ -61,7 +61,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Viajeros',
-        description: 'Si tu socio de viaje no incluyó un DutyCredit en tu email de confirmación de reserva, reclama el tuyo fácilmente aquí — sin registro, sin subir tarjeta de embarque. Introduce los datos de tu vuelo, selecciona tu aeropuerto de salida y escanea para ahorrar en minoristas participantes.',
+        description: 'Los viajeros cuyo socio de viaje no incluyó un crédito en su email de confirmación de reserva o de vuelo de vuelta pueden reclamarlo fácilmente aquí — sin registro, sin subir tarjeta de embarque. Introducen los datos de su vuelo, seleccionan su aeropuerto de salida y escanean para ahorrar en minoristas participantes.',
         b1: 'Crédito de compra en aeropuerto de €1–€60',
         b2: 'Reclama aquí si tu socio no envió uno',
         b3: 'Sin registro — escanea y ahorra',
@@ -69,14 +69,14 @@ export default {
       },
       retailers: {
         title: 'Socios minoristas aeroportuarios',
-        description: 'DutyBoost te ayudará a convertir a los viajeros que pasan en clientes que pagan. Recibirás compradores cualificados con intención de compra activada por un incentivo DutyCredit personalizado. Nuestra comisión solo aplicará cuando se canjee un DutyCredit — no pagas nada a menos que entreguemos una venta.',
+        description: 'Los socios minoristas aeroportuarios convierten a los viajeros que pasan en clientes que pagan. Reciben compradores cualificados con intención de compra activada por un incentivo crédito personalizado. La comisión solo aplica cuando se canjea un crédito — los minoristas no pagan nada a menos que se entregue una venta.',
         b1: 'Mayor conversión en tienda',
         b2: 'Canje QR en tiempo real',
         b3: 'Paga solo por resultados',
       },
       posPartner: {
         title: 'Socios de canal POS',
-        description: 'DutyBoost conecta a los proveedores POS empresariales con la red comercial. Cada terminal que conectas se convierte en un punto de canje — ganas una parte de cada transacción que fluye por tu infraestructura, sin esfuerzo comercial.',
+        description: 'Los proveedores POS empresariales se conectan con la red comercial. Cada terminal conectado se convierte en un punto de canje — los socios ganan una parte de cada transacción que fluye por su infraestructura, sin esfuerzo comercial.',
         b1: 'Participación en los ingresos de cada canje',
         b2: 'Cero esfuerzo comercial — conecta y gana',
         b3: 'Una integración, miles de tiendas',

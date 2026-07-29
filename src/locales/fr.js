@@ -62,7 +62,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Voyageurs',
-        description: 'Si votre partenaire de voyage n\'a pas inclus de DutyCredit dans votre email de confirmation de réservation, réclamez le vôtre facilement ici — pas d\'inscription, pas de téléchargement de carte d\'embarquement. Saisissez vos informations de vol, sélectionnez votre aéroport de départ et scannez pour économiser chez les détaillants participants.',
+        description: 'Les voyageurs dont le partenaire de voyage n\'a pas inclus de crédit dans leur email de confirmation de réservation ou de retour peuvent réclamer le leur facilement ici — pas d\'inscription, pas de téléchargement de carte d\'embarquement. Ils saisissent leurs informations de vol, sélectionnent leur aéroport de départ et scannent pour économiser chez les détaillants participants.',
         b1: 'Crédit d\'achat en aéroport de 1 à 60 €',
         b2: 'Réclamez ici si votre partenaire n\'en a pas envoyé',
         b3: 'Sans inscription — scannez & économisez',
@@ -70,14 +70,14 @@ export default {
       },
       retailers: {
         title: 'Partenaires détaillants aéroportuaires',
-        description: 'DutyBoost vous aidera à convertir les voyageurs de passage en clients payants. Vous recevrez des acheteurs qualifiés avec une intention d\'achat activée par une incitation DutyCredit personnalisée. Notre commission ne s\'appliquera que lorsqu\'un DutyCredit est effectivement utilisé — vous ne payez rien à moins que nous ne réalisions une vente.',
+        description: 'Les partenaires détaillants aéroportuaires convertissent les voyageurs de passage en clients payants. Ils reçoivent des acheteurs qualifiés avec une intention d\'achat activée par une incitation crédit personnalisée. La commission ne s\'applique que lorsqu\'un crédit est effectivement utilisé — les détaillants ne paient rien à moins qu\'une vente ne soit réalisée.',
         b1: 'Meilleure conversion en boutique',
         b2: 'Échange QR en temps réel',
         b3: 'Payez uniquement aux résultats',
       },
       posPartner: {
         title: 'Partenaires canal POS',
-        description: 'DutyBoost connecte les fournisseurs POS d\'entreprise au réseau commercial. Chaque terminal que vous connectez devient un point d\'échange — vous touchez une part de chaque transaction transitant par votre infrastructure, sans effort commercial.',
+        description: 'Les fournisseurs POS d\'entreprise se connectent au réseau commercial. Chaque terminal connecté devient un point d\'échange — les partenaires touchent une part de chaque transaction transitant par leur infrastructure, sans effort commercial.',
         b1: 'Part de revenus sur chaque échange',
         b2: 'Aucun effort commercial — branchez et gagnez',
         b3: 'Une intégration, des milliers de magasins',

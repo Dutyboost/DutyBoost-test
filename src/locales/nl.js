@@ -61,7 +61,7 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Reizigers',
-        description: 'Als uw reispartner geen DutyCredit in uw boekingsbevestigingsmail heeft toegevoegd, claim dan hier eenvoudig de uwe — geen aanmelding, geen instapkaart uploaden. Vul uw vluchtgegevens in, selecteer uw vertrekluchthaven en scan om te besparen bij deelnemende retailers.',
+        description: 'Reizigers van wie de reispartner geen krediet in de boekingsbevestigingsmail of terugvluchtherinnering heeft toegevoegd, kunnen hier eenvoudig een krediet claimen — geen aanmelding, geen instapkaart uploaden. Ze voeren hun vluchtgegevens in, selecteren hun vertrekluchthaven en scannen om te besparen bij deelnemende retailers.',
         b1: '€1–€60 luchthaven-winkeltegoed',
         b2: 'Claim hier als uw partner er geen stuurde',
         b3: 'Geen aanmelding — scan & bespaar',
@@ -69,14 +69,14 @@ export default {
       },
       retailers: {
         title: 'Luchthaven Retailpartners',
-        description: 'DutyBoost zal u helpen passerende reizigers te converteren naar betalende klanten. U zult gerichte, gekwalificeerde shoppers ontvangen met koopintentie geactiveerd door een gepersonaliseerde DutyCredit-incentive. Onze commissie zal alleen gelden wanneer een DutyCredit daadwerkelijk wordt ingewisseld — u betaalt niets tenzij wij een verkoop leveren.',
+        description: 'Luchthaven retailpartners zetten passerende reizigers om in betalende klanten. Ze ontvangen gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerd krediet als incentive. Commissie geldt alleen wanneer een krediet daadwerkelijk wordt ingewisseld — retailers betalen niets tenzij een verkoop wordt geleverd.',
         b1: 'Hogere winkelconversie',
         b2: 'Realtime QR-inwisseling',
         b3: 'Betaal alleen bij resultaat',
       },
       posPartner: {
         title: 'POS Channel Partners',
-        description: 'DutyBoost koppelt enterprise POS-aanbieders aan het commerciële netwerk. Elke terminal die u verbindt wordt een inwisselpunt — u verdient een aandeel van elke transactie die via uw infrastructuur loopt, zonder verkoopinspanning.',
+        description: 'Enterprise POS-aanbieders koppelen zich aan het commerciële netwerk. Elke aangesloten terminal wordt een inwisselpunt — partners verdienen een aandeel van elke transactie die via hun infrastructuur loopt, zonder verkoopinspanning.',
         b1: 'Omzetaandeel op elke inwisseling',
         b2: 'Geen verkoopinspanning — aansluiten en verdienen',
         b3: 'Eén integratie, duizenden winkels',
