@@ -114,7 +114,6 @@ export default function LandingPage() {
           <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
           <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
           <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
-          <p className="text-base sm:text-xl font-semibold text-primary">{t('hero.tagline')}</p>
         </div>
       </section>
 

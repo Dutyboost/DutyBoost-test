@@ -23,7 +23,7 @@ export default {
        subtitle_1: 'Realizzato da DutyBoost, il Travel Retail Revenue Ecosystem connette i partner di viaggio, i dettaglianti aeroportuali e i fornitori POS enterprise in un\'unica rete commerciale in cui ogni viaggiatore genera entrate incrementali misurabili per tutti.',
        subtitle_2: '',
        subtitle_3: '',
-       tagline: 'Perché? Perché ogni viaggio merita un DutyCredit. È così semplice.',
+       tagline: '',
      },
     ecosystem: {
       title: '1 Soluzione, tre vincitori',
