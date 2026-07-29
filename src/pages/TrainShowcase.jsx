@@ -79,13 +79,15 @@ export default function TrainShowcase() {
           <div className="bg-gradient-to-r from-indigo-600 to-violet-500 rounded-2xl p-12 text-white text-center space-y-6">
             <h2 className="text-3xl font-heading font-bold">{t('showcase.train.cta_title')}</h2>
             <p className="text-lg opacity-90 max-w-2xl mx-auto">{t('showcase.train.cta_desc')}</p>
-            <Button
-              size="lg"
-              className="bg-white text-indigo-600 hover:bg-gray-100 gap-2"
-              onClick={() => navigate("/train-signup")}
-            >
-              {t('showcase.train.cta_apply')} <ArrowRight className="w-4 h-4" />
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-indigo-600 hover:bg-gray-100 gap-2"
+                onClick={() => navigate("/train-signup")}
+              >
+                {t('showcase.train.cta_apply')} <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>

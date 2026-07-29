@@ -78,13 +78,15 @@ export default function CruiseShowcase() {
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-12 text-white text-center space-y-6">
             <h2 className="text-3xl font-heading font-bold">{t('showcase.cruise.ctaTitle')}</h2>
             <p className="text-lg opacity-90 max-w-2xl mx-auto">{t('showcase.cruise.ctaDesc')}</p>
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 gap-2"
-              onClick={() => navigate("/cruise-portal")}
-            >
-              {t('showcase.cruise.ctaButton')} <ArrowRight className="w-4 h-4" />
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-gray-100 gap-2"
+                onClick={() => navigate("/cruise-portal")}
+              >
+                {t('showcase.cruise.ctaButton')} <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>

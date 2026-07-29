@@ -98,11 +98,13 @@ export default function CarRentalShowcase() {
               <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto">
                 {t('showcase.car.ctaDesc')}
               </p>
-              <Link to="/request-more-information">
-                <Button size="lg" className="bg-white text-red-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+              <div className="flex justify-center">
+                <Link to="/request-more-information">
+                  <Button size="lg" className="bg-white text-red-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
+                    {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
