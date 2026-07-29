@@ -26,8 +26,8 @@ export default {
       tagline: "",
     },
     ecosystem: {
-      title: '1 Solution, three winners',
-      subtitle: 'DutyBoost will connect three key stakeholders in a seamless ecosystem where everyone wins.',
+      title: '1 Commercial ecosystem, four winners',
+      subtitle: 'DutyBoost is the commercial operating system behind the Travel Retail Revenue Ecosystem — the shared infrastructure that makes every participant a winner.',
     },
     circularFlow: {
       title: 'The DutyBoost Circular Revenue Flow',
