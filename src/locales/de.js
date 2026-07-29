@@ -30,7 +30,7 @@ export default {
     ecosystem: {
       title: 'Ein kommerzielles Ökosystem, vier Gewinner',
       subtitle: 'Eine gemeinsame Infrastruktur, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — das Travel Retail Circular Revenue Ecosystem.',
-      platform_fee_note: 'Jede Einlösung trägt eine kleine, leistungsbasierte Plattformgebühr, die nie die Kosten des Flughafen-Einzelhändlers erhöht — DutyBoost teilt diese Gebühr zwischen den Teilnehmern, sodass Reisepartner, POS-Partner und die Plattform alle an derselben Transaktion verdienen.',
+      platform_fee_note: 'Jede Einlösung treibt das gesamte Ökosystem an. Eine einzige leistungsbasierte Gebühr wird automatisch zwischen dem Reisepartner, dem POS-Partner und DutyBoost geteilt—schafft Wert für alle, ohne zusätzliche Kosten für den Flughafeneinzelhändler.',
     },
     circularFlow: {
       title: 'Der DutyBoost Kreislauf-Umsatzfluss',
