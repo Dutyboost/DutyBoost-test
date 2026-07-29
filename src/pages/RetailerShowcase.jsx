@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight, Plane, BellRing } from "lucide-react";
+import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight, Plane, BellRing, Calculator } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -39,7 +39,9 @@ export default function RetailerShowcase() {
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/retailer-calculator">
-              <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
+              <Button variant="outline" size="sm" className="gap-1.5">
+                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">{t('nav.roi_calculator')}</span>
+              </Button>
             </Link>
             <LanguageSwitcher />
             <Link to="/get-started">
