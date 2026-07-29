@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  BarChart3, ArrowRight, Menu, X, Cpu
+  Calculator, ArrowRight, Menu, X, Cpu
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -61,13 +61,13 @@ export default function LandingPage() {
           <DutyBoostLogo height={55} />
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/roi-calculator">
-              <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
+              <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50 px-2 sm:px-3">
+                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden xl:inline">{t('nav.roi_calculator')}</span>
               </Button>
             </Link>
             <Link to="/roi-calculator-travel-partner">
-              <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
+              <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50 px-2 sm:px-3">
+                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden xl:inline">{t('nav.roi_calculator_travel_partner')}</span>
               </Button>
             </Link>
             <LanguageSwitcher />
@@ -84,12 +84,12 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
             <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
+                <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
             <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
+                <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator_travel_partner')}
               </Button>
             </Link>
           </div>
@@ -189,9 +189,9 @@ export default function LandingPage() {
             <div className="relative space-y-6">
               <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
               <p className="text-primary-foreground/80 text-lg sm:text-xl leading-relaxed mx-auto">{t('cta.description')}</p>
-              <Link to="/get-started">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                  {t('cta.button')} <ArrowRight className="w-4 h-4" />
+              <Link to="/get-started" className="block w-full sm:inline-block sm:w-auto mt-2">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-6 sm:px-8 text-base w-full sm:w-auto whitespace-normal h-auto py-3 leading-snug">
+                  {t('cta.button')} <ArrowRight className="w-4 h-4 shrink-0" />
                 </Button>
               </Link>
             </div>
