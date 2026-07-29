@@ -145,7 +145,7 @@ export default {
     },
     getstarted: {
       title: 'Inizia con DutyBoost',
-      subtitle_default: 'Scegli il tuo ruolo e sii tra i primi a beneficiare di The Travel Retail Conversion Layer — prossimamente.',
+      subtitle_default: 'DutyBoost è il layer di conversione del travel retail che collega i partner di viaggio, i rivenditori aeroportuali e i viaggiatori — ogni prenotazione si trasforma in crediti di acquisto in aeroporto che generano nuovi ricavi lungo l\'intero viaggio.',
       agencies: 'Per Partner voli',
       pos_partners: 'Per Partner POS',
       pos_partners_description: 'I fornitori POS enterprise si collegano alla rete commerciale — ogni terminale connesso diventa un punto di riscatto, i partner guadagnano una quota di ogni transazione senza sforzo commerciale.',
