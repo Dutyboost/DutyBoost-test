@@ -13,6 +13,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import SliderInput from "../components/SliderInput";
 import TravelPartnerSelector from "../components/TravelPartnerSelector";
+import ConversionRateInput from "../components/calculator/ConversionRateInput";
 import CompanySearch from "../components/CompanySearch";
 import CompanyNetworkView from "../components/CompanyNetworkView";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
@@ -288,7 +289,13 @@ export function TravelPartnerTab({ t }) {
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.redemption_rate')}</p>
-                <p className="text-3xl font-bold text-slate-900">{conversion[v.key]}%</p>
+                <ConversionRateInput
+                  value={conversion[v.key]}
+                  min={0.01}
+                  max={50}
+                  step={0.01}
+                  onChange={(val) => setConversion((c) => ({ ...c, [v.key]: val }))}
+                />
               </div>
               <span className="text-slate-500 text-sm">{t('calculator.travelers_redeem')}</span>
             </div>
