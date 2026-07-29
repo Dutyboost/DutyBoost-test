@@ -19,16 +19,16 @@ export default {
       integration_partnerships: 'Per Partners di Integrazione POS',
     },
     hero: {
-       title_1: 'The Travel Retail Revenue Ecosystem',
+       title_1: 'The Travel Retail Circular Revenue Ecosystem',
        title_2: 'Powered by DutyBoost',
-       subtitle_1: 'Realizzato da DutyBoost, il Travel Retail Revenue Ecosystem connette i partner di viaggio, i dettaglianti aeroportuali e i fornitori POS enterprise in un\'unica rete commerciale in cui ogni viaggiatore genera entrate incrementali misurabili per tutti.',
+       subtitle_1: 'Realizzato da DutyBoost, il Travel Retail Circular Revenue Ecosystem connette i partner di viaggio, i dettaglianti aeroportuali e i fornitori POS enterprise in un\'unica rete commerciale in cui ogni viaggiatore genera entrate incrementali misurabili per tutti.',
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
      },
     ecosystem: {
       title: 'Un ecosistema commerciale, quattro vincitori',
-      subtitle: 'Un\'infrastruttura condivisa che rende ogni partecipante un vincitore tramite un unico sistema operativo commerciale — il Travel Retail Revenue Ecosystem.',
+      subtitle: 'Un\'infrastruttura condivisa che rende ogni partecipante un vincitore tramite un unico sistema operativo commerciale — il Travel Retail Circular Revenue Ecosystem.',
     },
     circularFlow: {
       title: 'Il Flusso di Entrate Circolare DutyBoost',
