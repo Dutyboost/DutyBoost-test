@@ -73,7 +73,7 @@ export default {
         description: 'DutyBoost vous aidera à convertir les voyageurs de passage en clients payants. Vous recevrez des acheteurs qualifiés avec une intention d\'achat activée par une incitation DutyCredit personnalisée. Notre commission ne s\'appliquera que lorsqu\'un DutyCredit est effectivement utilisé — vous ne payez rien à moins que nous ne réalisions une vente.',
         b1: 'Meilleure conversion en boutique',
         b2: 'Échange QR en temps réel',
-        b3: 'Suivi du partage des revenus',
+        b3: 'Payez uniquement aux résultats',
       },
       posPartner: {
         title: 'Partenaires canal POS',

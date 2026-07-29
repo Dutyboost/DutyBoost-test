@@ -72,7 +72,7 @@ export default {
         description: 'DutyBoost zal u helpen passerende reizigers te converteren naar betalende klanten. U zult gerichte, gekwalificeerde shoppers ontvangen met koopintentie geactiveerd door een gepersonaliseerde DutyCredit-incentive. Onze commissie zal alleen gelden wanneer een DutyCredit daadwerkelijk wordt ingewisseld — u betaalt niets tenzij wij een verkoop leveren.',
         b1: 'Hogere winkelconversie',
         b2: 'Realtime QR-inwisseling',
-        b3: 'Omzetdeling bijhouden',
+        b3: 'Betaal alleen bij resultaat',
       },
       posPartner: {
         title: 'POS Channel Partners',

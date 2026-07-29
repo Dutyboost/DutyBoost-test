@@ -73,7 +73,7 @@ export default {
         description: 'DutyBoost wird Ihnen helfen, vorbeigehende Reisende in zahlende Kunden zu verwandeln. Sie werden gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten DutyCredit-Anreiz erhalten. Unsere Provision wird nur gelten, wenn ein DutyCredit tatsächlich eingelöst wird — Sie zahlen nichts, es sei denn, wir liefern einen Verkauf.',
         b1: 'Höhere Ladenkonversion',
         b2: 'Echtzeit-QR-Einlösung',
-        b3: 'Umsatzbeteiligung verfolgen',
+        b3: 'Nur bei Erfolg zahlen',
       },
       posPartner: {
         title: 'POS-Kanalpartner',

@@ -72,7 +72,7 @@ export default {
         description: 'DutyBoost will help you convert passing travellers into paying customers. You will receive targeted, pre-qualified shoppers with purchase intent activated by a personalised DutyCredit incentive. Our commission will apply only when a DutyCredit is actually redeemed — you pay nothing unless we deliver a sale.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
-        b3: 'Track sales split',
+        b3: 'Pay only on results',
       },
       posPartner: {
         title: 'POS Channel Partners',
