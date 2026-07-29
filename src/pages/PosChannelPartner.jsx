@@ -476,11 +476,6 @@ export default function PosChannelPartner() {
                 <Handshake className="w-5 h-5 shrink-0" /> {t("posChannel.cta.button_primary")}
               </Button>
             </Link>
-            <Link to="/" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base gap-2 w-full">
-                {t("posChannel.cta.button_secondary")} <ArrowRight className="w-5 h-5 shrink-0" />
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
