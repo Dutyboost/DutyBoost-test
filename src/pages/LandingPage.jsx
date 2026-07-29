@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  BarChart3, ArrowRight, Menu, X, Cpu
+  BarChart3, ArrowRight, Menu, X, Cpu, TrendingUp
 } from "lucide-react";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
@@ -65,6 +65,11 @@ export default function LandingPage() {
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
               </Button>
             </Link>
+            <Link to="/roi-calculator-travel-partner">
+              <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
+                <TrendingUp className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
+              </Button>
+            </Link>
             <LanguageSwitcher />
           </div>
           <div className="flex lg:hidden items-center gap-2">
@@ -80,6 +85,11 @@ export default function LandingPage() {
             <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <BarChart3 className="w-3.5 h-3.5" /> {t('nav.roi_calculator')}
+              </Button>
+            </Link>
+            <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
+                <TrendingUp className="w-3.5 h-3.5" /> {t('nav.roi_calculator_travel_partner')}
               </Button>
             </Link>
           </div>

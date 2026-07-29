@@ -145,7 +145,7 @@ const VERTICALS_CONFIG = [
 ];
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
-function TravelPartnerTab({ t }) {
+export function TravelPartnerTab({ t }) {
   const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
   const [bookings, setBookings] = useState({ flight: 10000, accommodation: 0, car: 0 });
   const [bookingsInput, setBookingsInput] = useState({ flight: fmtNum(10000), accommodation: "0", car: "0" });

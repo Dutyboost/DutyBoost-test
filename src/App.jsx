@@ -83,6 +83,7 @@ import AgglomerationTravelPartnerOnePager from './pages/TravelStackOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
 import RetailerCalculator from './pages/RetailerCalculator';
+import TravelPartnerCalculator from './pages/TravelPartnerCalculator';
 import AirportRetailerSurvey from './pages/AirportRetailerSurvey';
 import AirportRetailerSurveyNL from './pages/AirportRetailerSurveyNL';
 import AirportRetailerSurveyDE from './pages/AirportRetailerSurveyDE';
@@ -209,6 +210,7 @@ const AuthenticatedApp = () => {
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
         <Route path="/retailer-calculator" element={<RetailerCalculator />} />
         <Route path="/roi-calculator" element={<RetailerCalculator />} />
+        <Route path="/roi-calculator-travel-partner" element={<TravelPartnerCalculator />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
