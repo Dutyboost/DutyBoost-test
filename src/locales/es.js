@@ -21,7 +21,7 @@ export default {
        title_1: 'Convirtiendo cada reserva de viajes y hospitalidad en',
        title_2: 'valor financiero — para todos',
        subtitle_1: 'Desbloqueamos el valor financiero <strong>oculto</strong> en cada vuelo, estancia y alquiler de coche. Lo llamamos <strong>The Travel Retail Conversion Layer</strong>.',
-   subtitle_2: 'DutyBoost <strong>convierte a los viajeros en compradores de alta intención</strong> días o semanas antes de llegar al aeropuerto. Su socio de viaje envía un DutyCredit automáticamente, o lo reclaman en segundos en la plataforma, sin cuenta.',
+   subtitle_2: 'DutyBoost <strong>convierte a los viajeros en compradores de alta intención</strong> días o semanas antes de llegar al aeropuerto — luego se activa el ecosistema de ingresos circulares del Travel Retail: cada canje hace que el valor regrese al socio de viaje, al minorista y al viajero. Todos ganan.',
    subtitle_3: '',
    tagline: '¿Por qué? Porque cada viaje merece un DutyCredit. Es así de simple.',
      },

@@ -21,7 +21,7 @@ export default {
       title_1: 'Turning every travel & hospitality booking into',
       title_2: 'financial value — for everyone',
       subtitle_1: "We unlock the <strong>hidden</strong> financial value in every flight, stay and car rental. We call it <strong>The Travel Retail Conversion Layer</strong>.",
-      subtitle_2: "DutyBoost <strong>turns travellers into high-intent shoppers</strong> days or weeks before arriving at the airport. Their travel partner sends a DutyCredit automatically, or they claim one in seconds on the platform with no account needed.",
+      subtitle_2: "DutyBoost <strong>turns travellers into high-intent shoppers</strong> days or weeks before they arrive at the airport — then the Travel Retail Circular Revenue Ecosystem kicks in: every redemption flows value back to the travel partner, the retailer and the traveller. Everyone wins.",
       subtitle_3: "",
       tagline: "Why? Because every trip deserves a DutyCredit. It's that simple.",
     },
