@@ -338,7 +338,7 @@ export default {
       },
     },
     getstarted: {
-      title: 'Get Started with DutyBoost',
+      title: 'DutyBoost: The Travel Retail Circular Revenue Ecosystem',
       subtitle_default: 'DutyBoost is the Travel Retail Circular Revenue Ecosystem. Choose your role below to get started.',
       agencies: 'For Flight Partners',
       pos_partners: 'For POS Partners',

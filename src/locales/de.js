@@ -121,7 +121,7 @@ export default {
       err_industry: 'Bitte wählen Sie Ihren Unternehmenstyp aus.',
     },
     getstarted: {
-      title: 'Loslegen mit DutyBoost',
+      title: 'DutyBoost: Das Travel Retail Circular Revenue Ecosystem',
       subtitle_default: 'DutyBoost ist das Travel Retail Circular Revenue Ecosystem. Wählen Sie unten Ihre Rolle, um zu starten.',
       agencies: 'Für Flug Partner',
       pos_partners: 'Für POS Partner',

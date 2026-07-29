@@ -248,7 +248,7 @@ export default {
        },
 
     getstarted: {
-      title: 'Empieza con DutyBoost',
+      title: 'DutyBoost: el ecosistema de ingresos circulares del comercio de viajes',
       subtitle_default: 'DutyBoost es el ecosistema de ingresos circulares del comercio de viajes. Elige tu rol a continuación para empezar.',
       agencies: 'Para Socios de vuelos',
       pos_partners: 'Para Socios POS',

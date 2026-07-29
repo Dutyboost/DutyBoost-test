@@ -144,7 +144,7 @@ export default {
       july: '1 lug 2026',
     },
     getstarted: {
-      title: 'Inizia con DutyBoost',
+      title: 'DutyBoost: l\'ecosistema di entrate circolari del travel retail',
       subtitle_default: 'DutyBoost è l\'ecosistema di entrate circolari del travel retail. Scegli il tuo ruolo qui sotto per iniziare.',
       agencies: 'Per Partner voli',
       pos_partners: 'Per Partner POS',

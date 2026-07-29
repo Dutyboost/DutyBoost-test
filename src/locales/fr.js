@@ -121,7 +121,7 @@ export default {
       err_industry: 'Veuillez sélectionner votre type d\'activité.',
     },
     getstarted: {
-      title: 'Commencer avec DutyBoost',
+      title: 'DutyBoost : l\'écosystème de revenus circulaires du commerce de voyage',
       subtitle_default: 'DutyBoost est l\'écosystème de revenus circulaires du commerce de voyage. Choisissez votre rôle ci-dessous pour commencer.',
       agencies: 'Pour Partenaires vols',
       pos_partners: 'Pour Partenaires POS',
