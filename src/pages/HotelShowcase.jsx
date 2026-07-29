@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
 import DashboardPreview3D from "../components/showcase/DashboardPreview3D";
 import HotelIcon from "../components/HotelIcon";
 
@@ -24,7 +25,8 @@ export default function HotelShowcase() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
+      <ShowcaseMobileNav calculatorTo={fromAgency ? '/roi-calculator-travel-partner' : '/retailer-calculator'} />
+      <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />

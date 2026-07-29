@@ -3,6 +3,7 @@ import { ArrowRight, ArrowLeft, Anchor, Gift, QrCode, TrendingUp } from "lucide-
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
 import PageFooter from "../components/PageFooter";
 import { Button } from "@/components/ui/button";
 
@@ -19,7 +20,8 @@ export default function CruiseShowcase() {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
+      <ShowcaseMobileNav calculatorTo="/retailer-calculator" />
+      <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
