@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Cpu } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
@@ -57,6 +57,16 @@ export default function SelectUserType() {
       iconColor: "text-orange-600",
       path: "/retailer-showcase",
     },
+    {
+      id: "pos",
+      title: t('getstarted.pos_partners'),
+      descKey: 'getstarted.pos_partners_description',
+      icon: Cpu,
+      color: "from-violet-400 to-indigo-600",
+      bg: "bg-violet-50",
+      iconColor: "text-violet-600",
+      path: "/pos-partner",
+    },
   ];
 
   return (
@@ -86,7 +96,7 @@ export default function SelectUserType() {
             </p>
           </div>
 
-          <div className={`grid gap-6 max-w-6xl mx-auto ${fromAgency ? 'sm:grid-cols-2 lg:grid-cols-3 max-w-4xl' : 'sm:grid-cols-2 lg:grid-cols-4'}`}>
+          <div className={`grid gap-6 max-w-6xl mx-auto ${fromAgency ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-5'}`}>
             {options.filter(o => !(fromAgency && o.id === 'retailer')).map((option) => {
               const Icon = option.icon;
               return (
@@ -98,7 +108,7 @@ export default function SelectUserType() {
                   <div className={`w-20 h-20 rounded-2xl ${option.bg} flex items-center justify-center mb-6`}>
                     <Icon className={`w-20 h-20 ${option.iconColor}`} />
                   </div>
-                  <h2 className="font-heading font-bold text-2xl mb-3 break-words">{option.title}</h2>
+                  <h2 className="font-heading font-bold text-lg whitespace-nowrap mb-3">{option.title}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
                     {t(option.descKey)}
                   </p>
