@@ -69,7 +69,7 @@ export default {
       },
       retailers: {
         title: 'Airport Retail Partners',
-        description: 'Airport retail partners convert passing travellers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive. Commission applies only when a credit is actually redeemed — retailers pay nothing unless a sale is delivered.',
+        description: 'Airport retail partners convert passing travellers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
         b3: 'Pay only on results',

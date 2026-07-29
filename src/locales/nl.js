@@ -69,7 +69,7 @@ export default {
       },
       retailers: {
         title: 'Luchthaven Retailpartners',
-        description: 'Luchthaven retailpartners zetten passerende reizigers om in betalende klanten. Ze ontvangen gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerd krediet als incentive. Commissie geldt alleen wanneer een krediet daadwerkelijk wordt ingewisseld — retailers betalen niets tenzij een verkoop wordt geleverd.',
+        description: 'Luchthaven retailpartners zetten passerende reizigers om in betalende klanten. Ze ontvangen gerichte, gekwalificeerde shoppers met koopintentie geactiveerd door een gepersonaliseerd krediet als incentive.',
         b1: 'Hogere winkelconversie',
         b2: 'Realtime QR-inwisseling',
         b3: 'Betaal alleen bij resultaat',

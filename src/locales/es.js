@@ -69,7 +69,7 @@ export default {
       },
       retailers: {
         title: 'Socios minoristas aeroportuarios',
-        description: 'Los socios minoristas aeroportuarios convierten a los viajeros que pasan en clientes que pagan. Reciben compradores cualificados con intención de compra activada por un incentivo crédito personalizado. La comisión solo aplica cuando se canjea un crédito — los minoristas no pagan nada a menos que se entregue una venta.',
+        description: 'Los socios minoristas aeroportuarios convierten a los viajeros que pasan en clientes que pagan. Reciben compradores cualificados con intención de compra activada por un incentivo crédito personalizado.',
         b1: 'Mayor conversión en tienda',
         b2: 'Canje QR en tiempo real',
         b3: 'Paga solo por resultados',

@@ -70,7 +70,7 @@ export default {
       },
       retailers: {
         title: 'Partenaires détaillants aéroportuaires',
-        description: 'Les partenaires détaillants aéroportuaires convertissent les voyageurs de passage en clients payants. Ils reçoivent des acheteurs qualifiés avec une intention d\'achat activée par une incitation crédit personnalisée. La commission ne s\'applique que lorsqu\'un crédit est effectivement utilisé — les détaillants ne paient rien à moins qu\'une vente ne soit réalisée.',
+        description: 'Les partenaires détaillants aéroportuaires convertissent les voyageurs de passage en clients payants. Ils reçoivent des acheteurs qualifiés avec une intention d\'achat activée par une incitation crédit personnalisée.',
         b1: 'Meilleure conversion en boutique',
         b2: 'Échange QR en temps réel',
         b3: 'Payez uniquement aux résultats',

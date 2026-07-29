@@ -70,7 +70,7 @@ export default {
       },
       retailers: {
         title: 'Flughafen Retailpartner',
-        description: 'Flughafen-Retailpartner verwandeln vorbeigehende Reisende in zahlende Kunden. Sie erhalten gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten Guthaben-Anreiz. Die Provision gilt nur, wenn ein Guthaben tatsächlich eingelöst wird — Retailer zahlen nichts, es sei denn, ein Verkauf wird geliefert.',
+        description: 'Flughafen-Retailpartner verwandeln vorbeigehende Reisende in zahlende Kunden. Sie erhalten gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten Guthaben-Anreiz.',
         b1: 'Höhere Ladenkonversion',
         b2: 'Echtzeit-QR-Einlösung',
         b3: 'Nur bei Erfolg zahlen',

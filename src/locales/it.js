@@ -69,7 +69,7 @@ export default {
       },
       retailers: {
         title: 'Partner retailer aeroportuali',
-        description: 'I partner retailer aeroportuali convertono i viaggiatori di passaggio in clienti paganti. Ricevono acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo credito personalizzato. La commissione si applica solo quando un credito viene effettivamente riscattato — i retailer non pagano nulla a meno che non venga consegnata una vendita.',
+        description: 'I partner retailer aeroportuali convertono i viaggiatori di passaggio in clienti paganti. Ricevono acquirenti qualificati con intenzione d\'acquisto attivata da un incentivo credito personalizzato.',
         b1: 'Maggiore conversione in negozio',
         b2: 'Riscatto QR in tempo reale',
         b3: 'Paga solo a risultato',
