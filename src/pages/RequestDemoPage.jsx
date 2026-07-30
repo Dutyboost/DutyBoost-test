@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle2, ArrowRight, ArrowLeft } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const JOB_TITLES = [
   "CEO / Chief Executive Officer",
@@ -150,9 +150,6 @@ export default function RequestDemoPage() {
     <div className="min-h-screen bg-background font-body flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
         <Link to="/"><DutyBoostLogo height={40} /></Link>
-        <Link to="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-          <ArrowLeft className="w-4 h-4" /> {t('requestdemo.back')}
-        </Link>
       </nav>
 
       <div className="flex-1 flex items-center justify-center p-6">

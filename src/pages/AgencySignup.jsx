@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ChevronLeft, CreditCard, ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { CreditCard, ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import KvkValidator from "../components/KvkValidator";
 
@@ -198,7 +198,7 @@ export default function AgencySignup() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/travel-partner-portal"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('common.back')}</Button></Link>
+        <div />
         <Link to="/"><DutyBoostLogo height={150} /></Link>
         <LanguageSwitcher />
       </nav>

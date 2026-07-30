@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ArrowRight, Train, Zap, QrCode, TrendingUp } from "lucide-react";
+import { ArrowRight, Train, Zap, QrCode, TrendingUp } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
@@ -30,11 +30,6 @@ export default function TrainShowcase() {
           </button>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <Link to="/get-started">
-              <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ArrowLeft className="w-4 h-4" /> {t('showcase.train.back')}
-              </button>
-            </Link>
           </div>
         </div>
       </nav>

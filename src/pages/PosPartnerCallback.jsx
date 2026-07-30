@@ -182,9 +182,7 @@ export default function PosPartnerCallback() {
       {/* ── Nav ── */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link to="/pos-partner" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> {t("posChannel.callback.back")}
-          </Link>
+          <div />
           <Link to="/"><DutyBoostLogo height={40} /></Link>
           <LanguageSwitcher />
         </div>

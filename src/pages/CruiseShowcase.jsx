@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, ArrowLeft, Anchor, Gift, QrCode, TrendingUp } from "lucide-react";
+import { ArrowRight, Anchor, Gift, QrCode, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -31,11 +31,6 @@ export default function CruiseShowcase() {
               <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
             </Link>
             <LanguageSwitcher />
-            <Link to="/get-started">
-              <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ArrowLeft className="w-4 h-4" /> {t('showcase.cruise.back')}
-              </button>
-            </Link>
           </div>
         </div>
       </nav>

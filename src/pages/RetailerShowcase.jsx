@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight, Plane, BellRing, Calculator } from "lucide-react";
+import { Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight, Plane, BellRing, Calculator } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -46,11 +46,6 @@ export default function RetailerShowcase() {
               </Button>
             </Link>
             <LanguageSwitcher />
-            <Link to="/get-started">
-              <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ArrowLeft className="w-4 h-4" /> {t('common.back')}
-              </button>
-            </Link>
           </div>
         </div>
       </nav>

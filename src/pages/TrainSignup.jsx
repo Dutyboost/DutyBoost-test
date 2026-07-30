@@ -6,7 +6,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ArrowLeft, CheckCircle2, Train } from "lucide-react";
+import { ArrowRight, CheckCircle2, Train } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 
 const isBusinessEmail = (email) => {
@@ -86,9 +86,7 @@ export default function TrainSignup() {
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <button onClick={() => navigate("/train-portal")} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-          <ArrowLeft className="w-4 h-4" /> {t('train.back')}
-          </button>
+          <div />
           <DutyBoostLogo height={120} />
           <div />
         </div>

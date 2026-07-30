@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight, BellRing, Calculator } from "lucide-react";
+import { Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp, ArrowRight, BellRing, Calculator } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -16,7 +16,6 @@ export default function AgencyShowcase() {
   const { t } = useTranslation();
   const urlParams = new URLSearchParams(window.location.search);
   const fromAgency = urlParams.get('from') === 'agency';
-  const backTo = fromAgency ? '/get-started?from=agency' : '/get-started';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.agency.step1', descKey: 'showcase.agency.step1Desc' },
@@ -55,11 +54,6 @@ export default function AgencyShowcase() {
               </Button>
             </Link>
             <LanguageSwitcher />
-            <Link to={backTo}>
-              <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ArrowLeft className="w-4 h-4" /> {t('common.back')}
-              </button>
-            </Link>
           </div>
         </div>
       </nav>

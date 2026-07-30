@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ArrowRight, Train, QrCode, TrendingUp, MapPin, BarChart3, Zap } from "lucide-react";
+import { ArrowRight, Train, QrCode, TrendingUp, MapPin, BarChart3, Zap } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import PageFooter from "../components/PageFooter";
@@ -23,11 +23,7 @@ export default function TrainPortal() {
     <div className="min-h-screen bg-background">
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
-          <Link to="/train-showcase">
-            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4" /> {t('train.back')}
-            </button>
-          </Link>
+          <div />
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={150} />
           </button>

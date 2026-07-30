@@ -6,7 +6,7 @@ import {
   BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
 import {
-  Users, Building2, DollarSign, TrendingUp, Utensils, ArrowLeft, Calendar,
+  Users, Building2, DollarSign, TrendingUp, Utensils, Calendar,
   ShieldCheck, BarChart3, CheckCircle, XCircle, CreditCard, Download
 } from "lucide-react";
 import CorporateExpenseExport from "../components/CorporateExpenseExport";
@@ -174,7 +174,6 @@ export default function DemoCorporateDashboard() {
             <Badge className="bg-amber-100 text-amber-700 border-amber-200 text-xs">Demo Mode</Badge>
           </div>
           <div className="flex items-center gap-2">
-            <Link to="/demo"><Button variant="ghost" size="sm" className="gap-1.5"><ArrowLeft className="w-3.5 h-3.5" /> All Demos</Button></Link>
             <Link to="/business-travel/get-started"><Button size="sm">Get Started</Button></Link>
           </div>
         </div>

@@ -7,9 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import {
-  PlusCircle, Trash2, Save, TrendingUp, DollarSign, PieChart, Layers, ArrowLeft, Calendar, CheckCircle2, AlertCircle
+  PlusCircle, Trash2, Save, TrendingUp, DollarSign, PieChart, Layers, Calendar, CheckCircle2, AlertCircle
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -115,7 +114,6 @@ export default function CorporateBudgetAllocation() {
             <DutyBoostLogo height={100} />
             <span className="text-sm font-medium text-muted-foreground border-l border-border pl-3">Yearly Budget Allocation</span>
           </div>
-          <Link to="/corporate-admin"><Button variant="ghost" size="sm" className="gap-1.5"><ArrowLeft className="w-3.5 h-3.5" /> Back</Button></Link>
         </div>
       </nav>
 

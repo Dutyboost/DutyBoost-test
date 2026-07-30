@@ -1,8 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Plane, TrendingUp, Users, TicketPercent, Euro, ArrowLeft, Calendar, LayoutDashboard, UserCircle, Settings } from "lucide-react";
+import { Plane, TrendingUp, Users, TicketPercent, Euro, Calendar, LayoutDashboard, UserCircle, Settings } from "lucide-react";
 import DemoProfileTab from "../components/DemoProfileTab";
 import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
@@ -86,10 +85,6 @@ export default function DemoAgencyDashboard() {
       {/* Top bar */}
       <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-4">
-          <Link to="/demo" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
-            <ArrowLeft className="w-4 h-4" /> {t('demo.back')}
-          </Link>
-          <span className="text-border">|</span>
           <DutyBoostLogo height={55} />
         </div>
         <div className="flex items-center gap-3">

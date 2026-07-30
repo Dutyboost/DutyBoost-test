@@ -1,8 +1,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Printer, ArrowLeft } from "lucide-react";
+import { Printer } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import OnePagerLogo from "../components/OnePagerLogo";
@@ -53,11 +52,6 @@ export default function PosPartnerOnePager() {
     <div className="min-h-screen font-body" style={{ background: 'linear-gradient(135deg, hsl(255 60% 97%) 0%, hsl(243 50% 95%) 50%, hsl(255 55% 96%) 100%)', backgroundAttachment: 'fixed' }}>
       {/* Print toolbar */}
       <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-between">
-        <Link to="/pos-partner">
-          <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> {t('common.back')}
-          </button>
-        </Link>
         <LanguageSwitcher allowedLanguages={["en", "fr", "de"]} />
         <Button onClick={handleDownloadPDF} className="gap-2 text-white" style={{ background: 'linear-gradient(to right, #7c3aed, #6366f1)' }}>
           <Printer className="w-4 h-4" /> {t('common.download')}

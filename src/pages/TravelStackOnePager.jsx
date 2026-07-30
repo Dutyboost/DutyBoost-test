@@ -1,8 +1,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Printer, ArrowLeft, Check } from "lucide-react";
+import { Printer, Check } from "lucide-react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import OnePagerLogo from "../components/OnePagerLogo";
@@ -126,12 +125,6 @@ export default function AgglomerationTravelPartnerOnePager() {
     <div className="min-h-screen font-body" style={{ background: "linear-gradient(135deg, hsl(216 60% 97%) 0%, hsl(270 40% 96%) 50%, hsl(30 55% 96%) 100%)", backgroundAttachment: "fixed" }}>
       {/* Toolbar */}
       <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-between gap-4">
-        <Link to="/">
-          <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> {t("common.back")}
-          </button>
-        </Link>
-
         {/* Vertical selector — only shows outside print */}
         <div className="flex items-center gap-2">
           <span className="text-xs text-muted-foreground font-medium hidden sm:block">{t("travelstackonepager.select_verticals")}</span>

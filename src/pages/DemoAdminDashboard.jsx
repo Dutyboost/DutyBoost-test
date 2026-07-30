@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
-import { TrendingUp, Store, ArrowLeft, Receipt, Wallet, DollarSign, ChevronDown, ChevronUp, Calendar } from "lucide-react";
+import { TrendingUp, Store, Receipt, Wallet, DollarSign, ChevronDown, ChevronUp, Calendar } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import DemoBadge from "../components/DemoBadge";
 import { RETAILERS, TRAVEL_AGENCIES, MONTHLY_DATA, YEARLY_DATA, AIRPORTS } from "../data/demoData";
@@ -92,9 +92,6 @@ export default function DemoAdminDashboard() {
         <Link to="/"><DutyBoostLogo height={55} /></Link>
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full">Admin · Demo Mode</span>
-          <Link to="/demo" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back
-          </Link>
         </div>
       </nav>
 

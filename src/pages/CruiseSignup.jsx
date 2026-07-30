@@ -7,7 +7,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2, FileText, ArrowLeft, ArrowRight, ChevronLeft } from "lucide-react";
+import { CheckCircle2, FileText, ArrowLeft, ArrowRight } from "lucide-react";
 
 const PERSONAL_DOMAINS = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'];
 const isPersonalEmail = (e) => PERSONAL_DOMAINS.some(d => e.toLowerCase().endsWith('@' + d));
@@ -87,7 +87,7 @@ export default function CruiseSignup() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
-        <Link to="/cruise-portal"><Button variant="outline" size="sm" className="gap-2"><ChevronLeft className="w-4 h-4" /> {t('cruisesignup.back')}</Button></Link>
+        <div />
         <Link to="/"><DutyBoostLogo height={150} /></Link>
         <LanguageSwitcher />
       </nav>

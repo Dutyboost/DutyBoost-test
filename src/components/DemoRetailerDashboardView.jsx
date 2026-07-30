@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Store, TrendingUp, Euro, ScanLine, ArrowLeft, Calendar, Star, LayoutDashboard, UserCircle, CreditCard, Settings, Info, Sparkles, Users } from "lucide-react";
+import { Store, TrendingUp, Euro, ScanLine, Calendar, Star, LayoutDashboard, UserCircle, CreditCard, Settings, Info, Sparkles, Users } from "lucide-react";
 import DemoProfileTab from "./DemoProfileTab";
 import AggregationView from "./AggregationView";
 import CountryAggregation from "./CountryAggregation";
@@ -155,10 +155,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
       {/* Top bar */}
       <header className="bg-card border-b border-border px-6 h-16 flex items-center justify-between gap-6 sticky top-0 z-40">
         <div className="flex items-center gap-4">
-          <Link to="/" className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm">
-            <ArrowLeft className="w-4 h-4" /> {t('demo.back')}
-          </Link>
-          <span className="text-border">|</span>
           <DutyBoostLogo height={45} />
         </div>
         <div className="flex items-center gap-3">

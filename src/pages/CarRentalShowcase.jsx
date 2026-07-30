@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -13,7 +13,6 @@ export default function CarRentalShowcase() {
   const { t } = useTranslation();
   const urlParams = new URLSearchParams(window.location.search);
   const fromAgency = urlParams.get('from') === 'agency';
-  const backTo = fromAgency ? '/get-started?from=agency' : '/get-started';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.car.step1', descKey: 'showcase.car.step1Desc' },
@@ -36,11 +35,6 @@ export default function CarRentalShowcase() {
               <Button variant="outline" size="sm">{fromAgency ? t('nav.roi_calculator_travel_partner') : t('nav.roi_calculator')}</Button>
             </Link>
             <LanguageSwitcher />
-            <Link to={backTo}>
-              <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ArrowLeft className="w-4 h-4" /> {t('common.back')}
-              </button>
-            </Link>
           </div>
         </div>
       </nav>
