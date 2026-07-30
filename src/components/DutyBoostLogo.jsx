@@ -18,7 +18,7 @@ export default function DutyBoostLogo({ height = 55, inverted = false, linkTo = 
           marginTop: '1px',
         }}
       >
-        ®
+        ™
       </span>
     </span>
   );
