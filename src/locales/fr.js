@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: 'The Travel Retail Circular Revenue Ecosystem',
       title_2: 'Powered by DutyBoost',
-      subtitle_1: "Le Travel Retail Circular Revenue Ecosystem transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant les partenaires de voyage, les détaillants d'aéroport, les fournisseurs POS d'entreprise et les voyageurs dans un seul écosystème partagé, DutyBoost crée de la valeur sans coûts initiaux, sans risque de stock grâce à un modèle de tarification 100% basé sur la performance.",
+      subtitle_1: 'Conçu par DutyBoost, le Travel Retail Circular Revenue Ecosystem relie les partenaires de voyage, les détaillants d\'aéroport et les fournisseurs POS d\'entreprise dans un seul réseau commercial où chaque voyageur génère des revenus incrémentaux mesurables pour tous.',
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
@@ -94,7 +94,7 @@ export default {
     },
     cta: {
       title: 'Un voyageur. Un voyage. Des revenus pour tous.',
-      description: "Le Travel Retail Circular Revenue Ecosystem transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant partenaires de voyage, détaillants aéroportuaires, fournisseurs POS d'entreprise et voyageurs dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial, aucun risque de stock et une tarification 100 % basée sur la performance.",
+      description: "Le Travel Retail Circular Revenue Ecosystem transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant partenaires de voyage, détaillants aéroportuaires, fournisseurs POS d'entreprise et voyageurs dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial, aucun risque de stock grâce à un modèle de tarification 100% basé sur la performance.",
       button: "Rejoignez aujourd'hui le Travel Retail Circular Revenue Ecosystem",
     },
     wecallyou: {
