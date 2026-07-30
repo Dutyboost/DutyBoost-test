@@ -189,8 +189,8 @@ const slides = [
 function CoverSlide() {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center px-12" style={{ background: `linear-gradient(135deg, ${DARK} 0%, #0d2251 60%, #1a3a7a 100%)` }}>
-      <div className="mb-10">
-        <DutyBoostLogo height={64} inverted linkTo={null} />
+      <div className="mb-10 bg-white rounded-xl px-5 py-3">
+        <DutyBoostLogo height={64} linkTo={null} />
       </div>
       <div className="w-16 h-0.5 mb-8" style={{ background: BLUE }} />
       <p className="text-blue-300 text-sm font-semibold tracking-widest uppercase mb-4">Invention Disclosure — Patentability Assessment</p>
@@ -402,8 +402,8 @@ function OutcomeSlide({ slide }) {
 function ClosingSlide() {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center px-12" style={{ background: `linear-gradient(135deg, ${DARK} 0%, #0d2251 60%, #1a3a7a 100%)` }}>
-      <div className="mb-8">
-        <DutyBoostLogo height={56} inverted linkTo={null} />
+      <div className="mb-8 bg-white rounded-xl px-5 py-3">
+        <DutyBoostLogo height={56} linkTo={null} />
       </div>
       <div className="w-16 h-0.5 mb-8" style={{ background: BLUE }} />
       <h2 className="text-white text-3xl font-heading font-bold mb-6 max-w-2xl leading-tight">
