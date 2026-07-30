@@ -147,7 +147,7 @@ const VERTICALS_CONFIG = [
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 export function TravelPartnerTab({ t }) {
-  const [selected, setSelected] = useState({ flight: true, accommodation: false, car: false });
+  const [selected, setSelected] = useState({ flight: false, accommodation: false, car: false });
   const [bookings, setBookings] = useState({ flight: 10000, accommodation: 0, car: 0 });
   const [bookingsInput, setBookingsInput] = useState({ flight: fmtNum(10000), accommodation: "0", car: "0" });
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
@@ -159,8 +159,7 @@ export function TravelPartnerTab({ t }) {
   const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);
 
   const toggleVertical = (key) => {
-    const next = { ...selected, [key]: !selected[key] };
-    if (Object.values(next).some(Boolean)) setSelected(next);
+    setSelected((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   const handlePartnerSelect = (vertical, partner) => {
