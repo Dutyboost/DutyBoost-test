@@ -20,6 +20,7 @@ export default function DutyBoostPresentationGlobal() {
       stat4Val={GLOBAL_MARKET.airportRetailMarket}
       stat5Val={GLOBAL_MARKET.dutyFreeRevenue}
       hideCompanySelector
+      hidePosIntegration
       campaignData={GLOBAL_CAMPAIGN}
       marketStats={GLOBAL_MARKET_STATS}
       stat1Label="Annual airport departure moments (outbound + return)"
