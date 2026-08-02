@@ -15,7 +15,7 @@ const DEMO_DASHBOARD_ROUTES = {
   "Aena SME, S.A.": "/demo/retailer-aena",
   "DFP World (Duty Free Stores Zimbabwe)": "/demo/retailer-dfp-world",
   "ILTT & Penha Group (Sint Maarten)": "/demo/retailer-sint-maarten",
-  "Global Airport Retail Network": "/demo/admin",
+  "Global Airport Retail Network": "/demo/global",
 };
 
 export default function PresentationAggregation({ company, conversionRate = 3, compact = false, currency = "EUR" }) {
