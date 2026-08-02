@@ -28,7 +28,7 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
     () => company.storeCount ?? computeCompanyStoreCount(company.airports),
     [company]
   );
-  const airportCount = company.airports.length;
+  const airportCount = company.airportCount ?? company.airports.length;
 
   if (compact) {
     return (

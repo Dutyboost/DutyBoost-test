@@ -1,5 +1,5 @@
 import DutyBoostPresentation from "./DutyBoostPresentation";
-import { GLOBAL_COMPANY, GLOBAL_MARKET, GLOBAL_CAMPAIGN } from "@/data/globalAirportRetailMarket";
+import { GLOBAL_COMPANY, GLOBAL_MARKET, GLOBAL_CAMPAIGN, GLOBAL_MARKET_STATS } from "@/data/globalAirportRetailMarket";
 
 // Global DutyBoost presentation.
 //
@@ -21,6 +21,7 @@ export default function DutyBoostPresentationGlobal() {
       stat5Val={GLOBAL_MARKET.dutyFreeRevenue}
       hideCompanySelector
       campaignData={GLOBAL_CAMPAIGN}
+      marketStats={GLOBAL_MARKET_STATS}
       currency="EUR"
     />
   );

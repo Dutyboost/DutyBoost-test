@@ -38,7 +38,7 @@ function getFeeNote(currency) {
   return `Platform fee: 2.5% of net sales, capped at ${sym}25 on baskets up to ${sym}1,000. All basket value above ${sym}1,000 is entirely yours — no platform fee.`;
 }
 
-export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat4Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData, currency = "EUR" } = {}) {
+export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat4Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData, currency = "EUR", marketStats = null } = {}) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
@@ -135,6 +135,17 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
               </div>
             ))}
           </div>
+
+          {marketStats && marketStats.length > 0 && (
+            <div className="grid md:grid-cols-3 gap-4">
+              {marketStats.map(({ val, label }, i) => (
+                <div key={i} className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-2xl p-6 text-center space-y-2">
+                  <p className="text-3xl sm:text-4xl font-heading font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{val}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{label}</p>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="grid md:grid-cols-5 gap-4">
             {[
@@ -291,7 +302,7 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
             <label className="text-sm font-semibold text-muted-foreground shrink-0">{t('presentation.what.company_label')}</label>
             <p className="text-sm font-semibold text-foreground px-3 py-2">{company.name}</p>
             <div className="flex gap-4 text-sm text-muted-foreground ml-auto flex-wrap">
-              <span><strong className="text-foreground">{fmtNum(company.airports.length)}</strong> {t('presentation.what.airports')}</span>
+              <span><strong className="text-foreground">{fmtNum(company.airportCount ?? company.airports.length)}</strong> {t('presentation.what.airports')}</span>
               <span><strong className="text-foreground">{fmtNum(storeCount)}</strong> {t('presentation.what.stores')}</span>
               <span><strong className="text-foreground">{fmtNum(totals.totalDailyTravelers)}</strong> {t('presentation.what.daily_travelers')}</span>
               <span><strong className="text-foreground">{fmtMoney(totals.avgBasket, currency, 2)}</strong> {t('presentation.agg.avg_basket')}</span>
