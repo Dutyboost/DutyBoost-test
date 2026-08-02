@@ -22,6 +22,8 @@ export default function DutyBoostPresentationGlobal() {
       hideCompanySelector
       campaignData={GLOBAL_CAMPAIGN}
       marketStats={GLOBAL_MARKET_STATS}
+      stat1Label="Annual airport departure moments (outbound + return)"
+      stat2Label="Daily airport departure moments (outbound + return)"
       currency="EUR"
     />
   );

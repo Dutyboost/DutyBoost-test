@@ -38,7 +38,7 @@ function getFeeNote(currency) {
   return `Platform fee: 2.5% of net sales, capped at ${sym}25 on baskets up to ${sym}1,000. All basket value above ${sym}1,000 is entirely yours — no platform fee.`;
 }
 
-export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat4Val, stat5Val, hideCompanySelector = false, hidePosIntegration = false, campaignData, currency = "EUR", marketStats = null } = {}) {
+export default function DutyBoostPresentation({ company: providedCompany, stat3Val, stat4Val, stat5Val, stat1Label, stat2Label, hideCompanySelector = false, hidePosIntegration = false, campaignData, currency = "EUR", marketStats = null } = {}) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
   const [downloading, setDownloading] = useState(false);
@@ -149,8 +149,8 @@ export default function DutyBoostPresentation({ company: providedCompany, stat3V
 
           <div className="grid md:grid-cols-5 gap-4">
             {[
-              { val: fmtCompact(totals.totalDailyTravelers * 365, lang), label: t('presentation.why.stat_1_label', { company: company.name }) },
-              { val: fmtCompact(totals.totalDailyTravelers, lang, 2), label: t('presentation.why.stat_2_label', { company: company.name }) },
+              { val: fmtCompact(totals.totalDailyTravelers * 365, lang), label: stat1Label ?? t('presentation.why.stat_1_label', { company: company.name }) },
+              { val: fmtCompact(totals.totalDailyTravelers, lang, 2), label: stat2Label ?? t('presentation.why.stat_2_label', { company: company.name }) },
               { val: stat3Val ?? t('presentation.why.stat_3_val'), label: t('presentation.why.stat_3_label') },
               { val: stat5Val ?? t('presentation.why.stat_5_val'), label: t('presentation.why.stat_5_label') },
               { val: stat4Val ?? t('presentation.why.stat_4_val'), label: t('presentation.why.stat_4_label') },
