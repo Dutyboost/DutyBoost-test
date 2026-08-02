@@ -64,7 +64,7 @@ export const GLOBAL_MARKET = {
   avgGateWait: "1h 10m",          // global average gate wait
   commercialAirports: "4,000",    // airports with passenger terminal retail
   airportsWithDutyFree: "2,800", // airports with duty-free retail
-  individualStores: "~45,000",    // individual retail stores at these airports
+  individualStores: "±45,000",    // individual retail stores at these airports
   airportRetailMarket: "€95B",    // global airport retail & duty-free market
   dutyFreeRevenue: "€40B",        // global duty-free-only revenue
 };
