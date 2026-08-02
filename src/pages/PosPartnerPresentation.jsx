@@ -115,7 +115,8 @@ export default function PosPartnerPresentation() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <DutyBoostLogo height={100} />
+          <span className="sm:hidden"><DutyBoostLogo height={36} /></span>
+          <span className="hidden sm:inline-flex"><DutyBoostLogo height={55} /></span>
           <div className="flex items-center gap-2">
             <Link to="/retailer-presentation">
               <Button size="sm" variant="ghost" className="gap-1.5 hidden sm:flex text-muted-foreground">
@@ -462,7 +463,7 @@ export default function PosPartnerPresentation() {
       <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <DutyBoostLogo height={100} />
+            <DutyBoostLogo height={55} />
             <div className="text-right">
               <p>© 2026 DutyBoost. All rights reserved.</p>
               <p className="text-xs mt-0.5">Chamber of Commerce (KvK): 42053181</p>
