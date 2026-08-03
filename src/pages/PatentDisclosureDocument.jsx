@@ -245,10 +245,11 @@ export default function PatentDisclosureDocument() {
             </div>
             <p className="mt-2">
               Wherein <code>basePerTraveller</code> is determined by travel type (a first value for short-haul flights, a second
-              higher value for long-haul flights); <code>multiplier</code> is determined by ticket price (1.0 below a first
-              threshold, 1.5 at a second threshold, 2.0 at a third threshold, 2.5 at a fourth threshold); and the result is clamped
-              between a predefined floor and a predefined cap. The engine generates a unique credential code in a predetermined
-              format and derives an expiration date by adding a validity period (e.g., 30 days) to the departure date.
+              higher value for long-haul flights); <code>multiplier</code> is determined by ticket price (a first
+              multiplier below a first threshold, a second multiplier at a second threshold, a third multiplier at a third
+              threshold, a fourth multiplier at a fourth threshold); and the result is clamped between a predefined floor and a
+              predefined cap. The engine generates a unique credential code in a predetermined format and derives an expiration
+              date by adding a predefined validity period to the departure date.
             </p>
           </SubSection>
 
@@ -256,8 +257,9 @@ export default function PatentDisclosureDocument() {
             <p>
               At the point of sale, the system applies a progressive discount model that maps the traveller's basket value to a
               discount percentage using piecewise-linear interpolation between predefined breakpoints. The breakpoints define
-              a monotonically increasing function: a minimum spend threshold (e.g., €20) yields a first percentage (e.g., 5%),
-              and progressively higher thresholds yield higher percentages up to a maximum (e.g., 20% at €300 and above).
+              a monotonically increasing function: a minimum spend threshold yields a first
+              percentage, and progressively higher thresholds yield higher percentages up to a maximum percentage at a maximum
+              breakpoint and above.
             </p>
             <p className="mt-3">
               For basket values falling between two adjacent breakpoints, the effective percentage is computed by linear
@@ -278,8 +280,8 @@ export default function PatentDisclosureDocument() {
               entitlements of each participating organisation:
             </p>
             <ul className="list-disc list-outside ml-5 mt-2 space-y-1">
-              <li><span className="font-semibold">Platform fee:</span> a first percentage (e.g., 2.5%) of the transaction value, capped at a maximum (e.g., €25), and waived entirely above a high-value threshold (e.g., €1,000).</li>
-              <li><span className="font-semibold">Travel partner commission:</span> a share (e.g., 20%) of said platform fee, capped at a maximum (e.g., €5), attributed to the originating travel partner identified by the credential's partner email identifier.</li>
+              <li><span className="font-semibold">Platform fee:</span> a first percentage of the transaction value, capped at a maximum amount, and waived entirely above a high-value threshold.</li>
+              <li><span className="font-semibold">Travel partner commission:</span> a predefined share of said platform fee, capped at a maximum amount, attributed to the originating travel partner identified by the credential's partner email identifier.</li>
               <li><span className="font-semibold">Amount due from traveller:</span> the transaction value minus the discount amount.</li>
             </ul>
             <p className="mt-3">
@@ -346,24 +348,26 @@ INPUT:  ticketPrice ∈ ℝ⁺, travelers ∈ ℤ⁺, travelType ∈ {Short-haul
 OUTPUT: creditAmount ∈ [floor, cap]
 
 1.  IF travelType = Long-haul THEN
-2.      base ← LONG_HAUL_BASE          // e.g. 7.00
+2.      base ← LONG_HAUL_BASE
 3.  ELSE
-4.      base ← SHORT_HAUL_BASE         // e.g. 2.50
+4.      base ← SHORT_HAUL_BASE
 5.  END IF
 6.
-7.  IF ticketPrice ≥ 1000 THEN multiplier ← 2.5
-8.  ELSE IF ticketPrice ≥ 500 THEN multiplier ← 2.0
-9.  ELSE IF ticketPrice ≥ 200 THEN multiplier ← 1.5
-10. ELSE multiplier ← 1.0
+7.  IF ticketPrice ≥ THRESHOLD_4 THEN multiplier ← MULTIPLIER_4
+8.  ELSE IF ticketPrice ≥ THRESHOLD_3 THEN multiplier ← MULTIPLIER_3
+9.  ELSE IF ticketPrice ≥ THRESHOLD_2 THEN multiplier ← MULTIPLIER_2
+10. ELSE multiplier ← MULTIPLIER_1
 11. END IF
 12.
 13. raw ← base × travelers × multiplier
-14. creditAmount ← max(floor, min(raw, cap))
+14. creditAmount ← max(FLOOR, min(raw, CAP))
 15. RETURN creditAmount
 
 CONSTANTS:
-  SHORT_HAUL_BASE = 2.50, LONG_HAUL_BASE = 7.00
-  floor = 5.00, cap = 60.00`}</CodeBlock>
+  SHORT_HAUL_BASE, LONG_HAUL_BASE: predefined per-traveller base amounts
+  THRESHOLD_1 < THRESHOLD_2 < THRESHOLD_3 < THRESHOLD_4: predefined ticket-price thresholds
+  MULTIPLIER_1 < MULTIPLIER_2 < MULTIPLIER_3 < MULTIPLIER_4: predefined multipliers
+  FLOOR, CAP: predefined minimum and maximum credit bounds`}</CodeBlock>
             </div>
 
             {/* Algorithm B */}
@@ -397,7 +401,7 @@ OUTPUT: {voucherCode, creditAmount, expirationDate, qrImageUrl}
 15. END FOR
 16.
 17. // — Expiration derivation —
-18. expirationDate ← travelDate + VALIDITY_PERIOD   // e.g. 30 days
+18. expirationDate ← travelDate + VALIDITY_PERIOD
 19.
 20. // — Persist booking record —
 21. BookingDB.create(bookingId, ticketPrice, travelers, travelType,
@@ -431,12 +435,12 @@ OUTPUT: {voucherCode, creditAmount, expirationDate, qrImageUrl}
 INPUT:  basketValue B ∈ ℝ⁺
 OUTPUT: discountAmount ∈ ℝ
 
-1.  IF B < MIN_BASKET THEN          // e.g. €20
+1.  IF B < MIN_BASKET THEN
 2.      RETURN 0
 3.  END IF
 4.
-5.  IF B ≥ MAX_BREAKPOINT THEN      // e.g. €300
-6.      RETURN round(B × MAX_PCT, 2)   // e.g. 20%
+5.  IF B ≥ MAX_BREAKPOINT THEN
+6.      RETURN round(B × MAX_PCT, 2)
 7.  END IF
 8.
 9.  // — Identify adjacent breakpoints —
@@ -455,11 +459,12 @@ OUTPUT: discountAmount ∈ ℝ
 22. RETURN discountAmount
 
 BREAKPOINTS = [
-  (20,  0.05),  (50,  0.075), (100, 0.10),
-  (150, 0.125), (200, 0.15),  (250, 0.175),
-  (300, 0.20)
+  (S₁, P₁), (S₂, P₂), (S₃, P₃), (S₄, P₄),
+  (S₅, P₅), (S₆, P₆), (S₇, P₇)
 ]
-MIN_BASKET = 20, MAX_BREAKPOINT = 300, MAX_PCT = 0.20`}</CodeBlock>
+where S₁ < S₂ < ... < S₇ (predefined spend thresholds)
+and   P₁ < P₂ < ... < P₇ (predefined discount percentages, monotonically increasing)
+MIN_BASKET, MAX_BREAKPOINT, MAX_PCT: predefined system parameters`}</CodeBlock>
             </div>
 
             {/* Algorithm D */}
@@ -481,7 +486,7 @@ OUTPUT: {discountAmount, effectiveDiscountPct, platformFee,
 3.  effectiveDiscountPct ← round(discountAmount / T × 100, 2)
 4.
 5.  // — Platform fee —
-6.  IF T > FEE_WAIVER_THRESHOLD THEN       // e.g. €1000
+6.  IF T > FEE_WAIVER_THRESHOLD THEN
 7.      platformFee ← 0
 8.  ELSE
 9.      platformFee ← round(min(T × FEE_PCT, FEE_CAP), 2)
@@ -498,8 +503,11 @@ OUTPUT: {discountAmount, effectiveDiscountPct, platformFee,
 20.          platformFee, partnerCommission, amountDue}
 
 CONSTANTS:
-  FEE_PCT = 0.025, FEE_CAP = 25, FEE_WAIVER_THRESHOLD = 1000
-  COMMISSION_SHARE = 0.20, COMMISSION_CAP = 5`}</CodeBlock>
+  FEE_PCT: predefined platform fee percentage
+  FEE_CAP: predefined maximum platform fee per transaction
+  FEE_WAIVER_THRESHOLD: predefined threshold above which fee is waived
+  COMMISSION_SHARE: predefined share of platform fee allocated to travel partner
+  COMMISSION_CAP: predefined maximum travel partner commission per transaction`}</CodeBlock>
             </div>
 
             {/* Algorithm E */}
