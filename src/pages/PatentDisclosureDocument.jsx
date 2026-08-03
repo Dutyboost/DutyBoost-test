@@ -1,11 +1,32 @@
 import { useState, useRef } from "react";
 import { Printer, Download, FileText } from "lucide-react";
-const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9f4ba06a7_NEWUpdatedLogo.svg";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 const BLUE = "#1a56ff";
 const DARK = "#0a1628";
+
+function DutyBoostLogoText({ size = 28 }) {
+  const px = `${size}px`;
+  return (
+    <span
+      style={{
+        fontFamily: "'Space Grotesk', sans-serif",
+        fontWeight: 700,
+        fontSize: px,
+        lineHeight: 1,
+        letterSpacing: "-0.02em",
+        display: "inline-flex",
+        alignItems: "baseline",
+        gap: "2px",
+      }}
+    >
+      <span style={{ color: DARK }}>Duty</span>
+      <span style={{ color: BLUE }}>Boost</span>
+      <span style={{ color: BLUE, fontSize: `${Math.round(size * 0.4)}px`, marginLeft: "1px", fontWeight: 600 }}>™</span>
+    </span>
+  );
+}
 
 export default function PatentDisclosureDocument() {
   const docRef = useRef(null);
@@ -82,7 +103,7 @@ export default function PatentDisclosureDocument() {
         {/* Header */}
         <div className="border-b-2 pb-6 mb-10" style={{ borderColor: BLUE }}>
           <div className="flex items-center justify-between mb-6">
-            <img src={LOGO_URL} alt="DutyBoost" style={{ height: 32, width: "auto", display: "block" }} />
+            <DutyBoostLogoText size={28} />
             <div className="text-right text-xs text-gray-500">
               <p className="font-semibold text-gray-700">CONFIDENTIAL</p>
               <p>Prepared for Patent Counsel</p>
@@ -780,7 +801,7 @@ OUTPUT: RefundResult | Error
         {/* Footer */}
         <div className="mt-12 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
           <div className="mb-3 flex justify-center">
-            <img src={LOGO_URL} alt="DutyBoost" style={{ height: 24, width: "auto", display: "block" }} />
+            <DutyBoostLogoText size={22} />
           </div>
           <p className="font-semibold text-gray-600">CONFIDENTIAL — INVENTION DISCLOSURE</p>
           <p>This document is confidential and prepared solely for patent counsel assessment.</p>
