@@ -845,7 +845,7 @@ function AspectItem({ num, title, children }) {
 
 function CodeBlock({ children }) {
   return (
-    <pre className="my-3 p-4 rounded-lg border border-blue-200 overflow-x-auto text-xs leading-relaxed text-blue-900 font-mono" style={{ background: "hsl(var(--primary) / 0.06)" }}>
+    <pre className="my-3 p-4 rounded-lg border overflow-x-auto text-xs leading-relaxed font-mono" style={{ background: BLUE, color: "#ffffff", borderColor: BLUE }}>
 {children}
     </pre>
   );
