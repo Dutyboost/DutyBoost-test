@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Printer, Download, FileText } from "lucide-react";
+import { Printer, Download, FileText, FileDown } from "lucide-react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
@@ -33,6 +33,19 @@ export default function PatentDisclosureDocument() {
   const [exporting, setExporting] = useState(false);
 
   const handlePrint = () => window.print();
+
+  const handleExportWord = () => {
+    if (!docRef.current) return;
+    const content = docRef.current.innerHTML;
+    const fullHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Patent Disclosure Document</title><style>body{font-family:'Inter',sans-serif;font-size:12pt;line-height:1.6;color:#1a1a1a;}h1{font-size:20pt;margin-bottom:8pt;}h2{font-size:14pt;border-bottom:1pt solid #1a56ff;padding-bottom:4pt;margin-top:18pt;}h3{font-size:12pt;font-weight:600;}h4{font-size:11pt;font-weight:600;}pre{background:#1a56ff;color:#ffffff;padding:10pt;font-family:'Courier New',monospace;font-size:9pt;white-space:pre-wrap;border-radius:4pt;}code{font-family:'Courier New',monospace;font-size:10pt;}ol,ul{margin-left:20pt;}</style></head><body>${content}</body></html>`;
+    const blob = new Blob(["\ufeff" + fullHtml], { type: "application/msword" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "DutyBoost-Patent-Disclosure-Document.doc";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   const handleExportPdf = async () => {
     if (!docRef.current) return;
@@ -85,6 +98,12 @@ export default function PatentDisclosureDocument() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 hover:bg-gray-200 transition-colors text-gray-700"
             >
               <Printer className="w-3.5 h-3.5" /> Print / PDF
+            </button>
+            <button
+              onClick={handleExportWord}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 hover:bg-gray-200 transition-colors text-gray-700"
+            >
+              <FileDown className="w-3.5 h-3.5" /> Word
             </button>
             <button
               onClick={handleExportPdf}
