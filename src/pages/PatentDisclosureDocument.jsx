@@ -823,7 +823,7 @@ function AspectItem({ num, title, children }) {
 
 function CodeBlock({ children }) {
   return (
-    <pre className="my-3 p-4 bg-gray-900 rounded-lg border border-gray-700 overflow-x-auto text-xs leading-relaxed text-gray-300 font-mono">
+    <pre className="my-3 p-4 rounded-lg border border-blue-200 overflow-x-auto text-xs leading-relaxed text-blue-900 font-mono" style={{ background: "hsl(var(--primary) / 0.06)" }}>
 {children}
     </pre>
   );
