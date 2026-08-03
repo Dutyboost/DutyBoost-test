@@ -325,6 +325,325 @@ export default function PatentDisclosureDocument() {
               commercial model.
             </p>
           </SubSection>
+
+          <SubSection title="3.8 Core Algorithms">
+            <p>
+              The following algorithms constitute the technical core of the invention. Each algorithm is presented in formal
+              pseudocode and is referenced by the corresponding step in the method of Section 2.
+            </p>
+
+            {/* Algorithm A */}
+            <div className="mt-5">
+              <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
+                Algorithm A — Credential Credit Calculation
+              </h4>
+              <p className="text-xs text-gray-600 mb-2">
+                Executed upon receipt of booking data from a travel partner system. Computes the digital credit amount issued to
+                a traveller before airport arrival.
+              </p>
+              <CodeBlock>{`ALGORITHM A: CalculateDutyCredit
+INPUT:  ticketPrice ∈ ℝ⁺, travelers ∈ ℤ⁺, travelType ∈ {Short-haul, Long-haul}
+OUTPUT: creditAmount ∈ [floor, cap]
+
+1.  IF travelType = Long-haul THEN
+2.      base ← LONG_HAUL_BASE          // e.g. 7.00
+3.  ELSE
+4.      base ← SHORT_HAUL_BASE         // e.g. 2.50
+5.  END IF
+6.
+7.  IF ticketPrice ≥ 1000 THEN multiplier ← 2.5
+8.  ELSE IF ticketPrice ≥ 500 THEN multiplier ← 2.0
+9.  ELSE IF ticketPrice ≥ 200 THEN multiplier ← 1.5
+10. ELSE multiplier ← 1.0
+11. END IF
+12.
+13. raw ← base × travelers × multiplier
+14. creditAmount ← max(floor, min(raw, cap))
+15. RETURN creditAmount
+
+CONSTANTS:
+  SHORT_HAUL_BASE = 2.50, LONG_HAUL_BASE = 7.00
+  floor = 5.00, cap = 60.00`}</CodeBlock>
+            </div>
+
+            {/* Algorithm B */}
+            <div className="mt-5">
+              <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
+                Algorithm B — Credential Generation and Issuance
+              </h4>
+              <p className="text-xs text-gray-600 mb-2">
+                Generates a unique credential code, derives an expiration date, persists the credential, and transmits it to the
+                traveller. Includes duplicate-booking prevention.
+              </p>
+              <CodeBlock>{`ALGORITHM B: GenerateCredential
+INPUT:  bookingId, ticketPrice, travelers, travelType,
+        departureAirport, travelDate, travelerEmail, partnerEmail
+OUTPUT: {voucherCode, creditAmount, expirationDate, qrImageUrl}
+
+1.  // — Duplicate prevention —
+2.  existing ← Query(BookingDB, booking_id = bookingId)
+3.  IF existing ≠ ∅ THEN
+4.      RETURN Error("Credential already issued for this booking")
+5.  END IF
+6.
+7.  // — Credit calculation —
+8.  creditAmount ← CalculateDutyCredit(ticketPrice, travelers, travelType)
+9.
+10. // — Unique code generation —
+11. charset ← "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+12. voucherCode ← "DB-"
+13. FOR i ← 1 TO 8 DO
+14.     voucherCode ← voucherCode + charset[random(0, |charset|−1)]
+15. END FOR
+16.
+17. // — Expiration derivation —
+18. expirationDate ← travelDate + VALIDITY_PERIOD   // e.g. 30 days
+19.
+20. // — Persist booking record —
+21. BookingDB.create(bookingId, ticketPrice, travelers, travelType,
+22.                   departureAirport, travelDate, partnerEmail, travelerEmail)
+23.
+24. // — Persist credential record —
+25. CredentialDB.create(voucherCode, bookingId, creditAmount,
+26.                      departureAirport, expirationDate, status="active",
+27.                      partnerEmail, travelerEmail)
+28.
+29. // — Generate QR code —
+30. qrImageUrl ← QRCodeService.generate(voucherCode)
+31.
+32. // — Transmit to traveller —
+33. EmailService.send(travelerEmail, voucherCode, qrImageUrl,
+34.                   creditAmount, departureAirport, travelDate, expirationDate)
+35.
+36. RETURN {voucherCode, creditAmount, expirationDate, qrImageUrl}`}</CodeBlock>
+            </div>
+
+            {/* Algorithm C */}
+            <div className="mt-5">
+              <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
+                Algorithm C — Progressive Piecewise-Linear Discount Calculation
+              </h4>
+              <p className="text-xs text-gray-600 mb-2">
+                Maps a basket value to a discount amount using piecewise-linear interpolation between predefined breakpoints.
+                Executed at the point of sale when a traveller presents a credential.
+              </p>
+              <CodeBlock>{`ALGORITHM C: CalcBasketCredit
+INPUT:  basketValue B ∈ ℝ⁺
+OUTPUT: discountAmount ∈ ℝ
+
+1.  IF B < MIN_BASKET THEN          // e.g. €20
+2.      RETURN 0
+3.  END IF
+4.
+5.  IF B ≥ MAX_BREAKPOINT THEN      // e.g. €300
+6.      RETURN round(B × MAX_PCT, 2)   // e.g. 20%
+7.  END IF
+8.
+9.  // — Identify adjacent breakpoints —
+10. FOR i ← 0 TO |BREAKPOINTS| − 2 DO
+11.     IF B ≥ BREAKPOINTS[i].spend AND B < BREAKPOINTS[i+1].spend THEN
+12.         lower ← BREAKPOINTS[i]
+13.         upper ← BREAKPOINTS[i+1]
+14.         BREAK
+15.     END IF
+16. END FOR
+17.
+18. // — Linear interpolation —
+19. t ← (B − lower.spend) / (upper.spend − lower.spend)
+20. effectivePct ← lower.pct + t × (upper.pct − lower.pct)
+21. discountAmount ← round(B × effectivePct, 2)
+22. RETURN discountAmount
+
+BREAKPOINTS = [
+  (20,  0.05),  (50,  0.075), (100, 0.10),
+  (150, 0.125), (200, 0.15),  (250, 0.175),
+  (300, 0.20)
+]
+MIN_BASKET = 20, MAX_BREAKPOINT = 300, MAX_PCT = 0.20`}</CodeBlock>
+            </div>
+
+            {/* Algorithm D */}
+            <div className="mt-5">
+              <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
+                Algorithm D — Multi-Party Settlement
+              </h4>
+              <p className="text-xs text-gray-600 mb-2">
+                Computes the commercial entitlements of all participating organisations from a single verified transaction value.
+                Executed atomically with Algorithm C during POS validation.
+              </p>
+              <CodeBlock>{`ALGORITHM D: MultiPartySettlement
+INPUT:  txnValue T ∈ ℝ⁺, voucher (contains partnerEmail)
+OUTPUT: {discountAmount, effectiveDiscountPct, platformFee,
+         partnerCommission, amountDue}
+
+1.  // — Discount (Algorithm C) —
+2.  discountAmount ← CalcBasketCredit(T)
+3.  effectiveDiscountPct ← round(discountAmount / T × 100, 2)
+4.
+5.  // — Platform fee —
+6.  IF T > FEE_WAIVER_THRESHOLD THEN       // e.g. €1000
+7.      platformFee ← 0
+8.  ELSE
+9.      platformFee ← round(min(T × FEE_PCT, FEE_CAP), 2)
+10. END IF
+11.
+12. // — Travel partner commission —
+13. partnerCommission ← round(min(platformFee × COMMISSION_SHARE,
+14.                                COMMISSION_CAP), 2)
+15.
+16. // — Amount due from traveller —
+17. amountDue ← round(T − discountAmount, 2)
+18.
+19. RETURN {discountAmount, effectiveDiscountPct,
+20.          platformFee, partnerCommission, amountDue}
+
+CONSTANTS:
+  FEE_PCT = 0.025, FEE_CAP = 25, FEE_WAIVER_THRESHOLD = 1000
+  COMMISSION_SHARE = 0.20, COMMISSION_CAP = 5`}</CodeBlock>
+            </div>
+
+            {/* Algorithm E */}
+            <div className="mt-5">
+              <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
+                Algorithm E — POS Transaction Validation and Redemption Workflow
+              </h4>
+              <p className="text-xs text-gray-600 mb-2">
+                The end-to-end workflow executed when a retailer POS system submits a transaction request. Validates the
+                credential, enforces single-use, calculates settlement, persists the transaction, and returns the result.
+              </p>
+              <CodeBlock>{`ALGORITHM E: POSTransactionWorkflow
+INPUT:  voucherCode V, txnValue T, retailerId R, storeName S,
+        airport A, posSecret K
+OUTPUT: TransactionResult | Error
+
+1.  // — Authentication —
+2.  IF K ≠ STORED_POS_SECRET THEN RETURN Error("Unauthorized")
+3.
+4.  // — Field validation —
+5.  IF V = ∅ OR T = ∅ OR R = ∅ THEN RETURN Error("Missing fields")
+6.
+7.  // — Credential lookup —
+8.  voucher ← CredentialDB.filter(voucherCode = V)
+9.  IF voucher = ∅ THEN RETURN Error("Voucher not found")
+10.
+11. // — Status check —
+12. IF voucher.status ≠ "active" THEN
+13.     RETURN Error("Voucher is " + voucher.status)
+14. END IF
+15.
+16. // — Expiry check —
+17. IF voucher.expirationDate < currentDate THEN
+18.     CredentialDB.update(voucher.id, status = "expired")
+19.     RETURN Error("Voucher has expired")
+20. END IF
+21.
+22. // — Minimum basket enforcement —
+23. IF T < MIN_BASKET THEN RETURN Error("Minimum basket not met")
+24.
+25. // — Settlement (Algorithms C + D) —
+26. result ← MultiPartySettlement(T, voucher)
+27.
+28. // — Transaction logging —
+29. txnId ← TransactionDB.create(
+30.     voucherCode = V, retailerId = R, storeName = S,
+31.     transactionValue = T,
+32.     baseDiscount = voucher.discountAmount,
+33.     effectiveDiscount = result.effectiveDiscountPct,
+34.     discountAmount = result.discountAmount,
+35.     platformRevenue = result.platformFee,
+36.     partnerCommission = result.partnerCommission,
+37.     partnerEmail = voucher.partnerEmail,
+38.     airport = A
+39. )
+40.
+41. // — Single-use enforcement —
+42. CredentialDB.update(voucher.id, status = "redeemed")
+43.
+44. // — Return breakdown to POS —
+45. RETURN {txnId, V, grossValue: T,
+46.          effectiveDiscountPct: result.effectiveDiscountPct,
+47.          discountAmount: result.discountAmount,
+48.          amountDue: result.amountDue,
+49.          platformFee: result.platformFee,
+50.          partnerCommission: result.partnerCommission}`}</CodeBlock>
+            </div>
+
+            {/* Algorithm F */}
+            <div className="mt-5">
+              <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
+                Algorithm F — Partial Refund Recalculation
+              </h4>
+              <p className="text-xs text-gray-600 mb-2">
+                Handles partial or full returns of goods after a redemption. Recalculates the discount, platform fee, and partner
+                commission for the adjusted basket, and computes the refund due to the traveller.
+              </p>
+              <CodeBlock>{`ALGORITHM F: ProcessPartialRefund
+INPUT:  transactionId TxnId, refundAmount F ∈ ℝ⁺, posSecret K
+OUTPUT: RefundResult | Error
+
+1.  // — Authentication —
+2.  IF K ≠ STORED_POS_SECRET THEN RETURN Error("Unauthorized")
+3.
+4.  // — Retrieve original transaction —
+5.  txn ← TransactionDB.get(TxnId)
+6.  IF txn = ∅ THEN RETURN Error("Transaction not found")
+7.
+8.  // — Check prior refunds —
+9.  IF txn.refundStatus = "full" THEN
+10.     RETURN Error("Already fully refunded")
+11. END IF
+12.
+13. // — Compute adjusted basket —
+14. alreadyRefunded ← txn.refundedAmount ∨ 0
+15. remainingBasket ← txn.transactionValue − alreadyRefunded
+16.
+17. IF F > remainingBasket THEN
+18.     RETURN Error("Refund exceeds remaining basket")
+19. END IF
+20.
+21. newBasket ← remainingBasket − F
+22.
+23. // — Recalculate discount for adjusted basket —
+24. originalDiscount ← txn.discountAmount
+25. newDiscount ← CalcBasketCredit(newBasket)
+26.
+27. // — Recalculate platform fee and partner commission —
+28. IF newBasket > FEE_WAIVER_THRESHOLD THEN
+29.     newPlatformFee ← 0
+30. ELSE
+31.     newPlatformFee ← min(newBasket × FEE_PCT, FEE_CAP)
+32. END IF
+33. newPartnerCommission ← min(newPlatformFee × COMMISSION_SHARE,
+34.                             COMMISSION_CAP)
+35.
+36. // — Refund due to traveller —
+37. discountAdjustment ← originalDiscount − newDiscount
+38. refundDueToTraveler ← F − discountAdjustment
+39.
+40. // — Determine refund status —
+41. totalRefunded ← alreadyRefunded + F
+42. IF totalRefunded ≥ txn.transactionValue THEN
+43.     refundStatus ← "full"
+44. ELSE
+45.     refundStatus ← "partial"
+46. END IF
+47.
+48. // — Update transaction record —
+49. TransactionDB.update(TxnId, {
+50.     refundStatus, refundedAmount: totalRefunded,
+51.     adjustedTransactionValue: newBasket,
+52.     adjustedDiscountAmount: newDiscount,
+53.     adjustedPlatformRevenue: newPlatformFee,
+54.     refundDueToTraveler
+55. })
+56.
+57. RETURN {originalBasket: txn.transactionValue, refundAmount: F,
+58.          newBasket, originalDiscount, newDiscount,
+59.          discountAdjustment, refundDueToTraveler,
+60.          originalPlatformFee: txn.platformRevenue,
+61.          newPlatformFee, refundStatus}`}</CodeBlock>
+            </div>
+          </SubSection>
         </Section>
 
         {/* Section 4: Novel Aspects */}
@@ -491,5 +810,13 @@ function AspectItem({ num, title, children }) {
       </h3>
       <p className="text-sm text-gray-700 leading-relaxed">{children}</p>
     </div>
+  );
+}
+
+function CodeBlock({ children }) {
+  return (
+    <pre className="my-3 p-4 bg-gray-900 rounded-lg border border-gray-700 overflow-x-auto text-xs leading-relaxed text-gray-300 font-mono">
+{children}
+    </pre>
   );
 }
