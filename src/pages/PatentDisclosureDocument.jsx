@@ -357,7 +357,7 @@ export default function PatentDisclosureDocument() {
             </p>
 
             {/* Algorithm A */}
-            <div className="mt-5">
+            <div className="mt-5 print:break-before-page">
               <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
                 Algorithm A — Credential Credit Calculation
               </h4>
@@ -393,7 +393,7 @@ CONSTANTS:
             </div>
 
             {/* Algorithm B */}
-            <div className="mt-5">
+            <div className="mt-5 print:break-before-page">
               <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
                 Algorithm B — Credential Generation and Issuance
               </h4>
@@ -445,7 +445,7 @@ OUTPUT: {voucherCode, creditAmount, expirationDate, qrImageUrl}
             </div>
 
             {/* Algorithm C */}
-            <div className="mt-5">
+            <div className="mt-5 print:break-before-page">
               <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
                 Algorithm C — Progressive Piecewise-Linear Discount Calculation
               </h4>
@@ -490,7 +490,7 @@ MIN_BASKET, MAX_BREAKPOINT, MAX_PCT: predefined system parameters`}</CodeBlock>
             </div>
 
             {/* Algorithm D */}
-            <div className="mt-5">
+            <div className="mt-5 print:break-before-page">
               <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
                 Algorithm D — Multi-Party Settlement
               </h4>
@@ -533,7 +533,7 @@ CONSTANTS:
             </div>
 
             {/* Algorithm E */}
-            <div className="mt-5">
+            <div className="mt-5 print:break-before-page">
               <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
                 Algorithm E — POS Transaction Validation and Redemption Workflow
               </h4>
@@ -599,7 +599,7 @@ OUTPUT: TransactionResult | Error
             </div>
 
             {/* Algorithm F */}
-            <div className="mt-5">
+            <div className="mt-5 print:break-before-page">
               <h4 className="font-heading font-semibold text-sm mb-2" style={{ color: DARK }}>
                 Algorithm F — Partial Refund Recalculation
               </h4>
