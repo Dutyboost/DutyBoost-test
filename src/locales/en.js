@@ -21,8 +21,8 @@ export default {
     hero: {
       title_1: 'The Circular Revenue Infra',
       title_2: 'structure for Global Travel',
-      subtitle_1: "Travel Partners, Airport Retailers, Enterprise POS Providers and Travellers through a shared performance-based commercial ecosystem",
-      subtitle_2: "Connecting Travel",
+      subtitle_1: "Connecting Travel Partners, Airport Retailers, Enterprise POS Providers and Travellers through a shared performance-based commercial ecosystem",
+      subtitle_2: "",
       subtitle_3: "",
       tagline: "",
     },
