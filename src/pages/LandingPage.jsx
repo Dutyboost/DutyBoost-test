@@ -103,10 +103,16 @@ export default function LandingPage() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-5">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
-            <span>{t('hero.title_1')}</span><span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('hero.title_2')}
-            </span>
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight"
+            style={{
+              backgroundImage: "linear-gradient(90deg, hsl(220 30% 12%) 0%, hsl(220 30% 22%) 42%, hsl(220 100% 56%) 62%, hsl(29 100% 50%) 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            {t('hero.title_1')}
           </h1>
           <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
           <p className="text-lg sm:text-2xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
