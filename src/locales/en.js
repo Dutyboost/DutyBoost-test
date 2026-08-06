@@ -19,8 +19,8 @@ export default {
       integration_partnerships: 'For POS Integration Partners',
     },
     hero: {
-      title_1: 'The Circular Revenue Infra',
-      title_2: 'structure for Global Travel',
+      title_1: 'The Circular Revenue Infrastructure for Global Travel',
+      title_2: '',
       subtitle_1: "Connecting Travel Partners, Airport Retailers, Enterprise POS Providers and Travellers through a shared performance-based commercial ecosystem",
       subtitle_2: "",
       subtitle_3: "",
