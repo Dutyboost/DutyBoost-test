@@ -493,7 +493,7 @@ export default {
         howItWorks: 'So wird es funktionieren',
         description: 'Über DutyBoost haben Sie zwei Momente, um Ihre Kunden zu belohnen: bei der Buchung über Ihre Website oder App und erneut bei der Rückgabe des Fahrzeugs oder beim Abschluss des Rücktransfers. Beide Momente generieren automatisch ein DutyCredit, das bei Einzelhändlern des Abflughafens einlösbar ist.',
         step1: '1. DutyCredit — Bei der Buchung',
-        step1Desc: 'Ein Kunde bucht online über Ihre Website oder App. Sie senden automatisch einen personalisierten DutyCredit-QR-Code in der Buchungsbestätigungs-E-Mail.',
+        step1Desc: 'Ein Kunde bucht eine Autovermietung oder einen Transfer online über Ihre Website oder App. Sie senden automatisch einen personalisierten DutyCredit-QR-Code in der Buchungsbestätigungs-E-Mail.',
         step2: '2. DutyCredit — Bei der Rückgabe',
         step2Desc: 'Wenn der Kunde das Fahrzeug zurückgibt oder den Rücktransfer abschließt, senden Sie automatisch einen zweiten personalisierten DutyCredit-QR-Code in der Rückgabe-E-Mail — bereit zur Nutzung am Flughafen.',
         step3: 'Ihr Kunde löst am Flughafen ein',

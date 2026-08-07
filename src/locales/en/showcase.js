@@ -75,7 +75,7 @@ export default {
     howItWorks: 'How It Will Work',
     description: 'Through DutyBoost you will have two moments to reward your customers: when they book on your website or app, and again when they return the vehicle or complete their return transfer. Both moments will automatically generate a DutyCredit redeemable at retailers of their departure airport.',
     step1: '1st DutyCredit — At Booking',
-    step1Desc: 'A customer books a car rental online via your website or app. You will automatically send them a personalised DutyCredit QR code in their booking confirmation email.',
+    step1Desc: 'A customer books a car rental or transfer online via your website or app. You will automatically send them a personalised DutyCredit QR code in their booking confirmation email.',
     step2: '2nd DutyCredit — At Return',
     step2Desc: 'When the customer returns the vehicle or completes their return transfer, you will automatically send a second personalised DutyCredit QR code in their return email — ready to use at the airport.',
     step3: 'Your Customer Redeems at the Airport',

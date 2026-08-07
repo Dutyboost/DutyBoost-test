@@ -493,7 +493,7 @@ export default {
         howItWorks: 'Comment ça fonctionnera',
         description: 'Grâce à DutyBoost vous avez deux moments pour récompenser vos clients : lors de la réservation sur votre site ou app, et de nouveau au retour du véhicule ou du transfert retour. Les deux génèrent automatiquement un DutyCredit utilisable chez les détaillants de l\'aéroport de départ.',
         step1: '1er DutyCredit — À la réservation',
-        step1Desc: 'Un client réserve en ligne via votre site ou app. Vous lui envoyez automatiquement un code QR DutyCredit personnalisé dans son e-mail de confirmation de réservation.',
+        step1Desc: 'Un client réserve une location de voiture ou un transfert en ligne via votre site ou app. Vous lui envoyez automatiquement un code QR DutyCredit personnalisé dans son e-mail de confirmation de réservation.',
         step2: '2e DutyCredit — Au retour',
         step2Desc: 'Quand le client rend le véhicule ou termine son transfert retour, vous lui envoyez automatiquement un second code QR DutyCredit dans son e-mail de retour — prêt à utiliser à l\'aéroport.',
         step3: 'Votre client échange à l\'aéroport',

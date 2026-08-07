@@ -498,7 +498,7 @@ export default {
         howItWorks: 'Come funzionerà',
         description: 'Tramite DutyBoost hai due momenti per premiare i tuoi clienti: alla prenotazione sul tuo sito o app, e di nuovo alla restituzione del veicolo o al completamento del trasferimento di ritorno. Entrambi i momenti generano automaticamente un DutyCredit riscattabile presso i retailer dell\'aeroporto di partenza.',
         step1: '1° DutyCredit — Alla prenotazione',
-        step1Desc: 'Un cliente prenota online via il tuo sito o app. Tu gli invii automaticamente un codice QR DutyCredit personalizzato nell\'e-mail di conferma prenotazione.',
+        step1Desc: 'Un cliente prenota un noleggio auto o un trasferimento online via il tuo sito o app. Tu gli invii automaticamente un codice QR DutyCredit personalizzato nell\'e-mail di conferma prenotazione.',
         step2: '2° DutyCredit — Alla restituzione',
         step2Desc: 'Quando il cliente restituisce il veicolo o completa il trasferimento di ritorno, tu gli invii automaticamente un secondo codice QR DutyCredit nell\'e-mail di restituzione — pronto per l\'aeroporto.',
         step3: 'Il tuo cliente riscatta in aeroporto',

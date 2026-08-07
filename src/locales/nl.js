@@ -505,7 +505,7 @@ export default {
         howItWorks: 'Hoe het zal werken',
         description: 'Via DutyBoost heeft u twee momenten om uw klanten te belonen: bij boeking via uw website of app, en opnieuw bij teruggave van het voertuig of de retourtransfer. Beide momenten genereren automatisch een DutyCredit inwisselbaar bij retailers op het vertrekluchtplaats.',
         step1: '1e DutyCredit — Bij boeking',
-        step1Desc: 'Een klant boekt online via uw website of app. U stuurt automatisch een gepersonaliseerde DutyCredit QR-code in de boekingsbevestigingsmail.',
+        step1Desc: 'Een klant boekt een autoverhuur of transfer online via uw website of app. U stuurt automatisch een gepersonaliseerde DutyCredit QR-code in de boekingsbevestigingsmail.',
         step2: '2e DutyCredit — Bij teruggave',
         step2Desc: 'Wanneer de klant het voertuig teruggeeft of de retourtransfer voltooit, stuurt u automatisch een tweede gepersonaliseerde DutyCredit QR-code in de teruggavemail — klaar voor gebruik op de luchthaven.',
         step3: 'Uw klant wisselt in op de luchthaven',

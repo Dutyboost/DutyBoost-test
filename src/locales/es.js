@@ -513,7 +513,7 @@ export default {
         howItWorks: 'Cómo funcionará',
         description: 'A través de DutyBoost tienes dos momentos para recompensar a tus clientes: al reservar en tu web o app, y de nuevo al devolver el vehículo o completar el traslado de retorno. Ambos momentos generan automáticamente un DutyCredit canjeable en minoristas del aeropuerto de salida.',
         step1: '1er DutyCredit — Al reservar',
-        step1Desc: 'Un cliente reserva online en tu web o app. Tú le envías automáticamente un código QR DutyCredit personalizado en el correo de confirmación de reserva.',
+        step1Desc: 'Un cliente reserva un alquiler de coche o un traslado online en tu web o app. Tú le envías automáticamente un código QR DutyCredit personalizado en el correo de confirmación de reserva.',
         step2: '2º DutyCredit — Al devolver',
         step2Desc: 'Cuando el cliente devuelva el vehículo o complete su traslado de retorno, tú le envías automáticamente un segundo código QR DutyCredit en el correo de devolución — listo para usar en el aeropuerto.',
         step3: 'Tu cliente lo canjea en el aeropuerto',
