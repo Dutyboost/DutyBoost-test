@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
-import { Search, MapPin, X, Plane, Globe, Loader2 } from "lucide-react";
+import { Search, MapPin, X, Plane, Globe, Loader2, BedDouble, Car } from "lucide-react";
 import { TRAVEL_PARTNERS, PARTNER_CONTINENTS } from "../data/travelPartners";
 import { fmtNum } from "../utils/formatNumber";
 import { base44 } from "@/api/base44Client";
@@ -13,18 +13,21 @@ const VERTICAL_CONFIG = {
     placeholder: "Search airlines, OTAs, tour operators, travel agencies…",
     searchHeading: "Search your organisation to calculate your potential revenue",
     searchDesc: "Not listed above? Search any airline, OTA, tour operator, or travel agency worldwide",
+    Icon: Plane,
   },
   accommodation: {
     label: "hotel chain, booking platform, or accommodation provider",
     placeholder: "Search hotel chains, booking platforms, resorts…",
     searchHeading: "Search your property to calculate your potential revenue",
     searchDesc: "Not listed above? Search any hotel chain or accommodation provider worldwide",
+    Icon: BedDouble,
   },
   car: {
     label: "car rental company",
     placeholder: "Search car rental companies…",
     searchHeading: "Search your company to calculate your potential revenue",
     searchDesc: "Not listed above? Search any car rental company worldwide",
+    Icon: Car,
   },
 };
 
@@ -204,7 +207,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
           <h3 className="font-bold text-slate-900 text-base">{t('calculator.partner_select_title')}</h3>
           <p className="text-slate-600 text-sm mt-0.5">{t('calculator.partner_select_desc')}</p>
         </div>
-        <Plane className="w-6 h-6 text-slate-400" />
+        {(() => { const VIcon = VERTICAL_CONFIG[vertical].Icon || Plane; return <VIcon className="w-6 h-6 text-slate-400" />; })()}
       </div>
 
       {/* Continent filter pills */}
