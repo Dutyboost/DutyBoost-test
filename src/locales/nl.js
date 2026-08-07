@@ -767,6 +767,7 @@ export default {
       potential_commission_mo: 'Mogelijke commissie/mnd',
       potential_commission_yr: 'Mogelijke commissie/jaar',
       potential_disclaimer: 'Schattingen gebaseerd op uw geselecteerde inwisselingspercentage (m1nd-set / ETRC-onderzoek) — werkelijke resultaten kunnen afwijken.',
+  avg_basket_disclaimer: 'Alle commissieprojecties gebruiken een gemiddelde basket van €60 — het midden tussen de minimale DutyCredit-activeringsbesteding van €20 en de wereldwijde gemiddelde luchthavenbasket van €100 (m1nd-set / ETRC-onderzoek). De werkelijke besteding van reizigers varieert, dus de werkelijke resultaten kunnen afwijken.',
       row_min_label: 'Gebaseerd op €20 minimumbesteding',
       row_avg_label: 'Gebaseerd op €100 gemiddelde wereldwijde besteding',
   row_blended_label: 'Gebaseerd op €60 gemiddelde besteding (€20 minimum – €100 wereldwijd gemiddelde)',

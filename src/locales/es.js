@@ -985,6 +985,7 @@ export default {
       potential_commission_mo: 'Comisión potencial/mes',
       potential_commission_yr: 'Comisión potencial/año',
       potential_disclaimer: 'Estimaciones basadas en tu tasa de canje seleccionada (investigación m1nd-set / ETRC) — los resultados reales pueden variar.',
+  avg_basket_disclaimer: 'Todas las proyecciones de comisión utilizan una cesta media mixta de €60 — el punto medio entre el gasto mínimo de activación DutyCredit de €20 y la cesta media global de aeropuerto de €100 (investigación m1nd-set / ETRC). El gasto real de los viajeros varía, por lo que los resultados reales pueden diferir.',
       row_min_label: 'Basado en un gasto mínimo de €20',
       row_avg_label: 'Basado en el gasto promedio mundial de €100',
   row_blended_label: 'Basado en un gasto promedio mixto de €60 (€20 mínimo – €100 promedio mundial)',

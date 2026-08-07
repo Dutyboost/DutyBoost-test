@@ -347,6 +347,9 @@ export function TravelPartnerTab({ t }) {
               : t('calculator.combined_monthly_revenue')}
           </h3>
           <p className="text-xs text-slate-400 -mt-2">{t('calculator.potential_disclaimer')}</p>
+          <div className="text-xs text-slate-300 leading-relaxed border-t border-slate-700 pt-2">
+            {t('calculator.avg_basket_disclaimer')}
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
            <div className="bg-slate-800 rounded-xl p-4 flex sm:flex-col items-center sm:justify-center justify-between gap-2 overflow-hidden">
              <div className="flex items-center gap-2 sm:flex-col sm:items-center min-w-0">

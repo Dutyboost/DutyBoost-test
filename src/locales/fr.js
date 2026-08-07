@@ -755,6 +755,7 @@ export default {
       potential_commission_mo: 'Commission potentielle/mois',
       potential_commission_yr: 'Commission potentielle/an',
       potential_disclaimer: 'Estimations basées sur votre taux de rachat sélectionné (recherche m1nd-set / ETRC) — les résultats réels peuvent varier.',
+  avg_basket_disclaimer: "Toutes les projections de commission utilisent un panier moyen mixte de €60 — le point médian entre la dépense minimale d'activation DutyCredit de €20 et la taille moyenne mondiale du panier aéroportuaire de €100 (recherche m1nd-set / ETRC). Les dépenses réelles des voyageurs varient, les résultats réels peuvent donc différer.",
       row_min_label: 'Basé sur une dépense minimale de €20',
       row_avg_label: 'Basé sur la dépense moyenne mondiale de €100',
   row_blended_label: 'Basé sur une dépense moyenne mixte de €60 (€20 minimum – €100 moyenne mondiale)',

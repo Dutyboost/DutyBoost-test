@@ -755,6 +755,7 @@ export default {
       potential_commission_mo: 'Potenzielle Provision/Monat',
       potential_commission_yr: 'Potenzielle Provision/Jahr',
       potential_disclaimer: 'Schätzungen basieren auf Ihrer gewählten Einlösungsrate (m1nd-set / ETRC-Forschung) — tatsächliche Ergebnisse können abweichen.',
+  avg_basket_disclaimer: 'Alle Provisionsprojektionen verwenden einen Mischwarenkorb von €60 — den Mittelwert zwischen dem Mindesteinkauf von €20 zur DutyCredit-Aktivierung und dem globalen durchschnittlichen Flughafenkorb von €100 (m1nd-set / ETRC-Forschung). Die tatsächliche Ausgabe der Reisenden variiert, daher können die tatsächlichen Ergebnisse abweichen.',
       row_min_label: 'Basierend auf €20 Mindestausgabe',
       row_avg_label: 'Basierend auf globalem Durchschnitt von €100',
   row_blended_label: 'Basierend auf €60 Mischwarenkorb (€20 Minimum – €100 globaler Durchschnitt)',

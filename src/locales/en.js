@@ -1056,6 +1056,7 @@ export default {
       potential_commission_mo: 'Potential commission/mo',
       potential_commission_yr: 'Potential commission/yr',
       potential_disclaimer: 'Estimates based on your selected redemption rate (m1nd-set / ETRC research) — actual results may vary.',
+  avg_basket_disclaimer: 'All commission projections use a blended average basket of €60 — the midpoint between the €20 minimum DutyCredit activation spend and the €100 global average airport basket (m1nd-set / ETRC research). Real traveller spend varies, so actual results may differ.',
       row_min_label: 'Based on €20 minimum spend',
       row_avg_label: 'Based on €100 global average spend',
   row_blended_label: 'Based on €60 blended average spend (€20 minimum – €100 global average)',
