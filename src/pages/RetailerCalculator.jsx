@@ -153,7 +153,7 @@ export function TravelPartnerTab({ t }) {
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
   const [conversion, setConversion] = useState({ flight: 0.01, accommodation: 0.01, car: 0.01 });
-  const FIXED_AVG_BASKET = 20;
+  const FIXED_AVG_BASKET = 60; // blended: midpoint between €20 minimum and €100 global average
   const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
 
   const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);
@@ -302,43 +302,36 @@ export function TravelPartnerTab({ t }) {
             <p className="text-xs text-slate-500 flex items-center gap-1"><Info className="w-3 h-3" /> {t('calculator.industry_avg')}</p>
           </div>
 
-          {/* Avg basket — static */}
+          {/* Avg basket — blended */}
           <div className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3">
             <Info className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
             <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.avg_basket')}: <span className="text-slate-900 font-bold text-base normal-case">€100 🟡 Standard DutyCredit</span></p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{t('calculator.avg_basket')}: <span className="text-slate-900 font-bold text-base normal-case">€60 🟡 Blended average spend</span></p>
               <p className="text-xs text-slate-500 leading-relaxed">{t('calculator.avg_basket_fixed')}</p>
             </div>
           </div>
 
-          {/* Per-vertical mini result — minimum (€20) and global average (€100) */}
+          {/* Per-vertical mini result — blended average (€60) */}
           {(() => {
             const stat = verticalStats.find((s) => s.key === v.key);
             if (!stat) return null;
-            const commPerTx100 = Math.min(Math.round(100 * AGENCY_COMMISSION_PCT * 100) / 100, AGENCY_COMMISSION_CAP);
-            const monthlyComm100 = Math.round(stat.redemptions * commPerTx100 * 100) / 100;
-            const renderRow = (commPerTx, monthlyComm) => (
-              <div className="grid grid-cols-3 gap-2">
-                <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_redemptions_mo')}</p>
-                  <p className="text-base font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
-                </div>
-                <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
-                  <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_commission_tx')}</p>
-                  <p className="text-base font-bold" style={{ color: v.color }}>{fmtEur(commPerTx, 2)}</p>
-                </div>
-                <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
-                  <p className="text-xs text-white/80 mb-0.5 leading-tight">{t('calculator.potential_earned_mo')}</p>
-                  <p className="text-base font-bold text-white">{fmtEur(monthlyComm, 2)}</p>
-                </div>
-              </div>
-            );
             return (
               <div className={`pt-2 border-t ${v.borderClass} space-y-2`}>
-                <p className="text-xs text-slate-500 font-medium">{t('calculator.row_min_label')}</p>
-                {renderRow(stat.commPerTx, stat.monthlyComm)}
-                <p className="text-xs text-slate-500 font-medium">{t('calculator.row_avg_label')}</p>
-                {renderRow(commPerTx100, monthlyComm100)}
+                <p className="text-xs text-slate-500 font-medium">{t('calculator.row_blended_label')}</p>
+                <div className="grid grid-cols-3 gap-2">
+                  <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
+                    <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_redemptions_mo')}</p>
+                    <p className="text-base font-bold text-slate-900">{fmtNum(stat.redemptions)}</p>
+                  </div>
+                  <div className={`rounded-xl p-3 text-center ${v.bgLightClass}`}>
+                    <p className="text-xs text-slate-500 mb-0.5 leading-tight">{t('calculator.potential_commission_tx')}</p>
+                    <p className="text-base font-bold" style={{ color: v.color }}>{fmtEur(stat.commPerTx, 2)}</p>
+                  </div>
+                  <div className="rounded-xl p-3 text-center" style={{ background: v.color }}>
+                    <p className="text-xs text-white/80 mb-0.5 leading-tight">{t('calculator.potential_earned_mo')}</p>
+                    <p className="text-base font-bold text-white">{fmtEur(stat.monthlyComm, 2)}</p>
+                  </div>
+                </div>
               </div>
             );
           })()}
