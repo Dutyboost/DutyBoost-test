@@ -118,6 +118,7 @@ export const CAR_RENTAL_COMPANIES = [
 
   // ── Outreach Prospects ──────────────────────────────────────────────
   { company_name: "FB-TT.com", country: "Curaçao", continent: "North America", annual_bookings: 500000, booking_unit: "rentals", hubs: ["Willemstad", "Curaçao", "Bonaire"], description: "Curaçao's largest incoming tour and transport operator, providing airport transfers, cruise shore excursions, and destination management services. Operating for over 65 years, managing a fleet of 26+ vehicles from private sedans to full-size coaches." },
+  { company_name: "De Palm Tours", country: "Aruba", continent: "North America", annual_bookings: 500000, booking_unit: "rentals", hubs: ["Oranjestad", "Aruba"], description: "Aruba's leading destination operator — airport transfers, car rental (De Palm Car Rental), and island excursions. Fleet of air-conditioned vehicles with meet-and-greet at Queen Beatrix International Airport." },
 ];
 
 export const CAR_RENTAL_DEFAULTS = {
