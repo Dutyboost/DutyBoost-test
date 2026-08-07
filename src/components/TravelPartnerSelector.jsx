@@ -355,9 +355,10 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
           </div>
           <div className="text-right">
             <p className="text-xs text-slate-500">{t('calculator.partner_annual_bookings')}</p>
-            <p className="text-xl font-bold text-blue-600">{fmtNum(selectedPartner.annual_bookings)}</p>
+            <p className="text-xl font-bold text-blue-600">
+              {fmtNum(selectedPartner.annual_bookings)} <span className="text-xs font-medium text-slate-400">{unitLabel(selectedPartner.booking_unit)}</span>
+            </p>
             <p className="text-xs text-slate-400">{t('calculator.partner_monthly_avg')}: {fmtNum(selectedPartner.monthly_bookings)}</p>
-            <p className="text-xs text-slate-500 mt-1">{unitLabel(selectedPartner.booking_unit)}</p>
           </div>
         </div>
       )}
