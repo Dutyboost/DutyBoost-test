@@ -773,6 +773,7 @@ export default {
       error_min_basket: 'Mindestwarenwert beträgt €20',
       error_min_travelers: 'Mindestens 100 DutyCredits pro Tag',
       error_min_bookings: 'Mindestens 500 Buchungen / Monat',
+  bookings_fixed_note: 'Fest aus Partnerdaten — wählen Sie einen anderen Partner, um diesen Wert zu ändern',
       commission_footnote: "Provision = 20% von DutyBoosts 2,5% Gebühr pro Einlösung (max €5/tx), monatlich durch DutyBoost ausgezahlt.",
       partner_select_label: "Schritt 1 — Finden Sie Ihr Unternehmen",
       partner_select_title: "Suchen Sie Ihr Unternehmen",

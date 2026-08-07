@@ -239,49 +239,28 @@ export function TravelPartnerTab({ t }) {
             t={t}
           />
 
-          {/* Bookings slider → DutyCredits derived */}
+          {/* Bookings/month → DutyCredits derived (read-only, fixed from partner data) */}
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{t('calculator.bookings_x2_note_prefix')} / {t('calculator.month_label')}</p>
-                <input
-                 type="text"
-                 inputMode="numeric"
-                 aria-label={t('calculator.bookings_x2_note_prefix') + ' / ' + t('calculator.month_label')}
-                 value={bookingsInput[v.key]}
-                 onChange={(e) => {
-                   const digits = e.target.value.replace(/[^\d]/g, "");
-                   if (digits === "") { setBookingsInput((bi) => ({ ...bi, [v.key]: "" })); setBookingsError((be) => ({ ...be, [v.key]: t('calculator.error_min_bookings') })); return; }
-                   const n = parseInt(digits, 10);
-                   setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(n) }));
-                   if (n < 500) { setBookingsError((be) => ({ ...be, [v.key]: t('calculator.error_min_bookings') })); } else { setBookingsError((be) => ({ ...be, [v.key]: "" })); const nearest = BOOKING_TIERS.reduce((a, b) => Math.abs(b - n) < Math.abs(a - n) ? b : a); setBookings((bk) => ({ ...bk, [v.key]: nearest })); }
-                 }}
-                 onBlur={() => {
-                   const digits = (bookingsInput[v.key] || "").replace(/[^\d]/g, "");
-                   const n = digits === "" ? 0 : parseInt(digits, 10);
-                   if (n < 500) { setBookings((bk) => ({ ...bk, [v.key]: 500 })); setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(500) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }
-                 }}
-                 style={{ width: `${Math.max(3, String(bookingsInput[v.key]).length)}ch` }}
-                  className={`text-3xl font-bold text-slate-900 bg-transparent border-b-2 outline-none min-w-[3ch] max-w-full ${bookingsError[v.key] ? "border-red-400" : "border-slate-300 focus:border-primary"}`}
-                />
-                {bookingsError[v.key] && <p className="text-xs text-red-500 mt-1 font-medium">{bookingsError[v.key]}</p>}
-                <p className="text-xs text-slate-400 mt-1">{t('calculator.error_min_bookings')}</p>
+                <p className="text-3xl font-bold text-slate-900">{fmtNum(bookings[v.key])}</p>
+                <p className="text-xs text-slate-400 mt-1">{t('calculator.bookings_fixed_note')}</p>
                 </div>
-              <div className="text-right text-sm text-slate-500">
-                <span>{t('calculator.dutycredits_issued_month')}</span>
-                <p className="text-base font-bold" style={{ color: v.color }}>{fmtNum(bookings[v.key] * v.creditsPerBooking)}</p>
-                {v.creditsPerBooking === 2 && (
-                  <p className="text-xs font-semibold mt-0.5" style={{ color: v.color }}>{t('calculator.two_x_per_booking')}</p>
-                )}
-              </div>
-            </div>
-            {v.creditsPerBooking === 2 && (
-              <p className="text-xs text-slate-400 italic">
-                {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
-              </p>
-            )}
-            <Slider min={0} max={BOOKING_TIERS.length - 1} step={1} value={[Math.max(0, BOOKING_TIERS.findIndex((val) => val === bookings[v.key]))]} onValueChange={([i]) => { setBookings((b) => ({ ...b, [v.key]: BOOKING_TIERS[i] })); setBookingsInput((bi) => ({ ...bi, [v.key]: fmtNum(BOOKING_TIERS[i]) })); setBookingsError((be) => ({ ...be, [v.key]: "" })); }} aria-label={t('calculator.bookings_x2_note_prefix')} className="w-full" />
-          </div>
+               <div className="text-right text-sm text-slate-500">
+                 <span>{t('calculator.dutycredits_issued_month')}</span>
+                 <p className="text-base font-bold" style={{ color: v.color }}>{fmtNum(bookings[v.key] * v.creditsPerBooking)}</p>
+                 {v.creditsPerBooking === 2 && (
+                   <p className="text-xs font-semibold mt-0.5" style={{ color: v.color }}>{t('calculator.two_x_per_booking')}</p>
+                 )}
+               </div>
+             </div>
+             {v.creditsPerBooking === 2 && (
+               <p className="text-xs text-slate-400 italic">
+                 {fmtNum(bookings[v.key])} {t('calculator.bookings_x2_note_prefix')} × 2 = {fmtNum(bookings[v.key] * 2)} DutyCredits ({t('calculator.bookings_x2_note_at_booking')} + {v.key === 'flight' ? t('calculator.bookings_x2_note_return_reminder') : v.key === 'accommodation' ? t('calculator.bookings_x2_note_checkout') : t('calculator.bookings_x2_note_car_return')})
+               </p>
+             )}
+           </div>
 
           {/* Conversion rate slider */}
           <div className="space-y-3 pt-1">

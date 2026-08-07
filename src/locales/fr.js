@@ -773,6 +773,7 @@ export default {
       error_min_basket: 'Le panier minimum est de €20',
       error_min_travelers: 'Minimum 100 DutyCredits par jour',
       error_min_bookings: 'Minimum 500 réservations / mois',
+  bookings_fixed_note: 'Fixé à partir des données du partenaire — choisissez un autre partenaire pour modifier cette valeur',
       commission_footnote: "Commission = 20% des frais 2,5% de DutyBoost par utilisation (max €5/tx), versée mensuellement par DutyBoost.",
       partner_select_label: "Étape 1 — Trouvez votre entreprise",
       partner_select_title: "Recherchez votre entreprise",

@@ -1074,6 +1074,7 @@ export default {
       error_min_basket: 'Minimum basket spend is €20',
       error_min_travelers: 'Minimum is 100 DutyCredits per day',
       error_min_bookings: 'Minimum 500 bookings / month',
+  bookings_fixed_note: 'Fixed from partner data — pick a different partner to change this value',
       error_min_conversion: 'Minimum conversion rate is 0.01%',
       partner_select_label: 'Step 1 — Find your company',
       partner_select_title: 'Search your company',

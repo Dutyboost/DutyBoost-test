@@ -1003,6 +1003,7 @@ export default {
       error_min_basket: 'El gasto mínimo de cesta es €20',
       error_min_travelers: 'Mínimo 100 DutyCredits por día',
       error_min_bookings: 'Mínimo 500 reservas / mes',
+  bookings_fixed_note: 'Fijo a partir de los datos del socio — elige otro socio para cambiar este valor',
       error_min_conversion: 'Tasa de conversión mínima es 0,01%',
       commission_footnote: "Comisión = 20% de la tarifa del 2,5% de DutyBoost por canje (máx €5/tx), pagada mensualmente por DutyBoost.",
       partner_select_label: "Paso 1 — Encuentra tu empresa",

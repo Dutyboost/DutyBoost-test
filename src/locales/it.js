@@ -778,6 +778,7 @@ export default {
       error_min_basket: 'La spesa minima del carrello è €20',
       error_min_travelers: 'Minimo 100 DutyCredits al giorno',
       error_min_bookings: 'Minimo 500 prenotazioni / mese',
+  bookings_fixed_note: 'Fisso dai dati del partner — scegli un altro partner per modificare questo valore',
       commission_footnote: "Commissione = 20% della commissione del 2,5% di DutyBoost per riscatto (max €5/tx), pagata mensilmente da DutyBoost.",
       partner_select_label: "Passo 1 — Trova la tua azienda",
       partner_select_title: "Cerca la tua azienda",
