@@ -106,7 +106,7 @@ export default function PosChannelPartner() {
       {/* ── Nav ── */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
-          <Link to="/"><DutyBoostLogo height={36} /></Link>
+          <Link to="/"><DutyBoostLogo height={55} /></Link>
           <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSwitcher allowedLanguages={["en", "fr", "de", "es"]} />
             <a href="#calculator">
@@ -483,7 +483,7 @@ export default function PosChannelPartner() {
       {/* ── Footer ── */}
       <footer className="border-t border-border py-6 sm:py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground text-center">
-          <Link to="/"><DutyBoostLogo height={32} /></Link>
+          <Link to="/"><DutyBoostLogo height={55} /></Link>
           <p>{t("posChannel.footer.tagline", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
