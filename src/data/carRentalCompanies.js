@@ -115,6 +115,9 @@ export const CAR_RENTAL_COMPANIES = [
   { company_name: "McRent", country: "Germany", continent: "Europe", annual_bookings: 100000, booking_unit: "rentals", hubs: [], description: "German campervan rental (depot pickups, Europe)" },
   { company_name: "PaulCamper", country: "Germany", continent: "Europe", annual_bookings: 200000, booking_unit: "rentals", hubs: [], description: "German peer-to-peer campervan rental (pickup points, Europe)" },
   { company_name: "Yescapa", country: "France", continent: "Europe", annual_bookings: 300000, booking_unit: "rentals", hubs: [], description: "French peer-to-peer campervan rental (pickup points, Europe)" },
+
+  // ── Outreach Prospects ──────────────────────────────────────────────
+  { company_name: "FB-TT.com", country: "Netherlands", continent: "Europe", annual_bookings: 500000, booking_unit: "rentals", hubs: [], description: "Car rental platform (outreach prospect)" },
 ];
 
 export const CAR_RENTAL_DEFAULTS = {
