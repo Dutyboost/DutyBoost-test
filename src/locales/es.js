@@ -938,7 +938,7 @@ export default {
       travelers_redeem: 'de viajeros canjean',
       industry_avg: 'Promedio del sector: 15–25% (m1nd-set / ETRC)',
       avg_basket: 'Tamaño promedio de cesta en tienda aeroportuaria',
-      avg_basket_fixed: 'Un DutyCredit se activa a partir de un gasto mínimo de €20 (🟤 nivel Entry). El tamaño medio global de cesta en aeropuertos de €100 se basa en investigación m1nd-set / ETRC. Dado que el gasto real de los viajeros varía — algunos gastan €20, otros €50 y algunos más de €100 — todos los cálculos de comisión a continuación utilizan un promedio mixto de €60, el punto medio entre el mínimo de €20 y el promedio mundial de €100.',
+      avg_basket_fixed: 'Disclaimer: Un DutyCredit se activa a partir de un gasto mínimo de €20 (🟤 nivel Entry). La cesta media global de aeropuerto es de €100 (investigación m1nd-set / ETRC). Dado que el gasto real de los viajeros varía — algunos gastan €20, otros €50 y algunos más de €100 — todos los cálculos de comisión a continuación utilizan una cesta media mixta de €60, el punto medio entre el mínimo de €20 y el promedio mundial de €100. Las cestas reales varían, por lo que los resultados reales pueden diferir.',
       redemptions_month: 'Canjes / mes',
       commission_tx: 'Comisión / transacción',
       monthly_commission: 'Comisión mensual',

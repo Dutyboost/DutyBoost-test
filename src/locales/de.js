@@ -708,7 +708,7 @@ export default {
       travelers_redeem: 'der Reisenden lösen ein',
       industry_avg: 'Branchendurchschnitt: ~15–25% (m1nd-set / ETRC)',
       avg_basket: 'Durchschnittliche Korbgröße im Flughafengeschäft',
-      avg_basket_fixed: 'Ein DutyCredit wird ab einem Mindesteinkauf von €20 aktiviert (🟤 Entry-Stufe). Die globale durchschnittliche Flughafenkorbgröße von €100 basiert auf m1nd-set / ETRC-Forschung. Da die tatsächliche Ausgabe der Reisenden variiert — manche geben €20 aus, andere €50 und manche mehr als €100 — verwenden alle Provisionsberechnungen unten einen Mischdurchschnitt von €60, den Mittelwert zwischen dem Minimum von €20 und dem globalen Durchschnitt von €100.',
+      avg_basket_fixed: 'Disclaimer: Ein DutyCredit wird ab einem Mindesteinkauf von €20 aktiviert (🟤 Entry-Stufe). Der globale durchschnittliche Flughafenkorb beträgt €100 (m1nd-set / ETRC-Forschung). Da die tatsächliche Ausgabe der Reisenden variiert — manche geben €20 aus, andere €50 und manche mehr als €100 — verwenden alle Provisionsberechnungen unten einen Mischwarenkorb von €60, den Mittelwert zwischen dem Minimum von €20 und dem globalen Durchschnitt von €100. Tatsächliche Körbe variieren, daher können die tatsächlichen Ergebnisse abweichen.',
       redemptions_month: 'Einlösungen / Monat',
       commission_tx: 'Provision / Transaktion',
       monthly_commission: 'Monatliche Provision',

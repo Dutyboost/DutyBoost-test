@@ -713,7 +713,7 @@ export default {
       travelers_redeem: 'dei viaggiatori riscatta',
       industry_avg: 'Media del settore: ~15–25% (m1nd-set / ETRC)',
       avg_basket: 'Dimensione media del carrello nel negozio aeroportuale',
-      avg_basket_fixed: "Un DutyCredit si attiva a partire da una spesa minima di €20 (🟤 livello Entry). La dimensione media globale del carrello aeroportuale di €100 si basa sulla ricerca m1nd-set / ETRC. Poiché la spesa reale dei viaggiatori varia — alcuni spendono €20, altri €50 e alcuni più di €100 — tutti i calcoli delle commissioni di seguito utilizzano una media mista di €60, il punto medio tra il minimo di €20 e la media globale di €100.",
+      avg_basket_fixed: "Disclaimer: Un DutyCredit si attiva a partire da una spesa minima di €20 (🟤 livello Entry). Il carrello aeroportuale medio globale è di €100 (ricerca m1nd-set / ETRC). Poiché la spesa reale dei viaggiatori varia — alcuni spendono €20, altri €50 e alcuni più di €100 — tutti i calcoli delle commissioni di seguito utilizzano un carrello medio misto di €60, il punto medio tra il minimo di €20 e la media globale di €100. I carrelli reali variano, quindi i risultati effettivi possono differire.",
       redemptions_month: 'Riscatti / mese',
       commission_tx: 'Commissione / transazione',
       monthly_commission: 'Commissione mensile',

@@ -1008,7 +1008,7 @@ export default {
       travelers_redeem: 'of travellers redeem',
       industry_avg: 'Industry avg: 15–25% (m1nd-set / ETRC)',
       avg_basket: 'Average basket size at airport store',
-      avg_basket_fixed: 'A DutyCredit is activated from a minimum spend of €20 (🟤 Entry tier). The global average airport basket size of €100 is based on m1nd-set / ETRC research. Since real traveller spend varies — some spend €20, others €50, and some more than €100 — all commission calculations below use a blended average of €60, the midpoint between the €20 minimum and the €100 global average.',
+      avg_basket_fixed: 'Disclaimer: A DutyCredit activates from a minimum spend of €20 (🟤 Entry tier). The global average airport basket is €100 (m1nd-set / ETRC research). Since real traveller spend varies — some spend €20, others €50, and some more than €100 — all commission calculations below use a blended average basket of €60, the midpoint between the €20 minimum and the €100 global average. Actual baskets vary, so real results may differ.',
       redemptions_month: 'Redemptions / month',
       commission_tx: 'Commission / tx',
       monthly_commission: 'Monthly commission',

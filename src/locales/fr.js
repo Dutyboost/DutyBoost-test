@@ -708,7 +708,7 @@ export default {
       travelers_redeem: 'des voyageurs utilisent',
       industry_avg: 'Moyenne du secteur : ~15–25% (m1nd-set / ETRC)',
       avg_basket: 'Taille moyenne du panier en boutique aéroportuaire',
-      avg_basket_fixed: "Un DutyCredit est activé à partir d'un achat minimum de €20 (🟤 niveau Entry). La taille moyenne mondiale du panier aéroportuaire de €100 est basée sur la recherche m1nd-set / ETRC. Comme les dépenses réelles des voyageurs varient — certains dépensent €20, d'autres €50 et certains plus de €100 — tous les calculs de commission ci-dessous utilisent une moyenne mixte de €60, le point médian entre le minimum de €20 et la moyenne mondiale de €100.",
+      avg_basket_fixed: "Disclaimer : Un DutyCredit est activé à partir d'un achat minimum de €20 (🟤 niveau Entry). Le panier aéroportuaire moyen mondial est de €100 (recherche m1nd-set / ETRC). Comme les dépenses réelles des voyageurs varient — certains dépensent €20, d'autres €50 et certains plus de €100 — tous les calculs de commission ci-dessous utilisent un panier moyen mixte de €60, le point médian entre le minimum de €20 et la moyenne mondiale de €100. Les paniers réels varient, les résultats réels peuvent donc différer.",
       redemptions_month: 'Utilisations / mois',
       commission_tx: 'Commission / transaction',
       monthly_commission: 'Commission mensuelle',
