@@ -85,7 +85,7 @@ export default {
       },
       agencies: {
         title: 'Voor Travel Partners',
-        description: 'Reispartners kunnen hun klanten belonen met exclusieve luchthavenwinkelkredieten op elke boeking — of zij nu opereren als reisagentschap, luchtvaartmaatschappij, accommodatie of autoverhuurbedrijf. Een eenvoudige integratie genereert automatisch gepersonaliseerde kredieten die per e-mail aan klanten worden bezorgd, wat een betekenisvol loyaliteitsvoordeel biedt.',
+        description: 'Reispartners kunnen hun klanten belonen met exclusieve luchthavenwinkelkredieten op elke boeking — of zij nu opereren als reisagentschap, luchtvaartmaatschappij, accommodatie, autoverhuurbedrijf of transferservice. Een eenvoudige integratie genereert automatisch gepersonaliseerde kredieten die per e-mail aan klanten worden bezorgd, wat een betekenisvol loyaliteitsvoordeel biedt.',
         b1: 'Sterkere klantloyaliteit',
         b2: 'Nul operationele last',
         b3: 'Nieuwe passieve inkomstenstroom',

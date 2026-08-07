@@ -85,7 +85,7 @@ export default {
       },
       agencies: {
         title: 'Para Socios de viaje',
-        description: 'Los socios de viaje pueden recompensar a sus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva — ya operen como agencia de viajes, aerolínea, alojamiento o empresa de alquiler de coches. Una integración sencilla genera automáticamente créditos personalizados entregados por email a los clientes, ofreciendo un beneficio de lealtad real.',
+        description: 'Los socios de viaje pueden recompensar a sus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva — ya operen como agencia de viajes, aerolínea, alojamiento, empresa de alquiler de coches o servicio de transferencia. Una integración sencilla genera automáticamente créditos personalizados entregados por email a los clientes, ofreciendo un beneficio de lealtad real.',
         b1: 'Mayor lealtad del cliente',
         b2: 'Cero trabajo operativo',
         b3: 'Nuevos ingresos pasivos',

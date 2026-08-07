@@ -91,7 +91,7 @@ export default {
       },
       agencies: {
         title: 'For Travel Partners',
-        description: 'Travel partners can reward their customers with exclusive airport shopping credits on every booking — whether operating as a travel agency, airline, accommodation, or car rental. A simple integration automatically generates personalised credits delivered to customers by email, providing a meaningful loyalty perk.',
+        description: 'Travel partners can reward their customers with exclusive airport shopping credits on every booking — whether operating as a travel agency, airline, accommodation, car rental, or transfer service. A simple integration automatically generates personalised credits delivered to customers by email, providing a meaningful loyalty perk.',
         b1: 'Stronger customer loyalty',
         b2: 'Zero operational effort',
         b3: 'New passive revenue stream',
