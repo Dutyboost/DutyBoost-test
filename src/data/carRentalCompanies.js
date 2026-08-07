@@ -117,7 +117,7 @@ export const CAR_RENTAL_COMPANIES = [
   { company_name: "Yescapa", country: "France", continent: "Europe", annual_bookings: 300000, booking_unit: "rentals", hubs: [], description: "French peer-to-peer campervan rental (pickup points, Europe)" },
 
   // ── Outreach Prospects ──────────────────────────────────────────────
-  { company_name: "FB-TT.com", country: "Netherlands", continent: "Europe", annual_bookings: 500000, booking_unit: "rentals", hubs: [], description: "Car rental platform (outreach prospect)" },
+  { company_name: "FB-TT.com", country: "Curaçao", continent: "North America", annual_bookings: 500000, booking_unit: "rentals", hubs: ["Willemstad", "Curaçao", "Bonaire"], description: "Curaçao's largest incoming tour and transport operator, providing airport transfers, cruise shore excursions, and destination management services. Operating for over 65 years, managing a fleet of 26+ vehicles from private sedans to full-size coaches." },
 ];
 
 export const CAR_RENTAL_DEFAULTS = {
