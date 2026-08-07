@@ -648,7 +648,7 @@ export default {
       at_booking: 'At Booking',
       at_return_reminder: 'Return Flight Reminder',
       at_checkout: 'At Check-Out',
-      at_car_return: 'At Car Return',
+      at_car_return: 'At Return',
       flight_step1_desc: 'Traveller books a flight through the partner platform. DutyBoost automatically generates a personalised DutyCredit QR code and embeds it in the booking confirmation email — sent by the partner, no app required.',
       flight_step2_desc: 'The day before departure, DutyBoost automatically sends a second personalised DutyCredit QR code in the partner\'s return flight reminder email — perfectly timed for the airport the next day.',
       accommodation_step1_desc: 'Guest books through the partner\'s accommodation website. DutyBoost automatically embeds a personalised DutyCredit QR in the booking confirmation email — sent by the partner, no friction for the guest.',
