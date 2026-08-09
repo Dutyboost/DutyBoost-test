@@ -57,7 +57,7 @@ function generatePOHtml(businessType, formData, poNumber) {
         <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid #e5e7eb;margin-bottom:24px;">
           <div>
             <div style="font-size:22px;font-weight:800;color:#1e40af;letter-spacing:-0.5px;">DutyBoost</div>
-            <div style="font-size:11px;color:#9ca3af;margin-top:2px;">Travel Retail Conversion Platform</div>
+            <div style="font-size:11px;color:#9ca3af;margin-top:2px;">The Circular Revenue Infrastructure for Global Travel</div>
           </div>
           <div style="text-align:right;">
             <div style="font-size:18px;font-weight:700;">Purchase Order</div>
