@@ -4,6 +4,16 @@ import PageFooter from "../components/PageFooter";
 import { useTranslation } from "react-i18next";
 import EmailLinkText from "../components/EmailLinkText";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import { resetCookieConsent } from "@/lib/cookieConsent";
+
+const manageLabels = {
+  en: "Update cookie preferences",
+  nl: "Cookievoorkeuren bijwerken",
+  de: "Cookie-Einstellungen aktualisieren",
+  fr: "Mettre à jour les préférences cookies",
+  es: "Actualizar preferencias de cookies",
+  it: "Aggiorna preferenze cookie",
+};
 
 const content = {
   en: { title: "Cookie Policy", updated: "Last updated: August 2026", back: "Back to Home", sections: [
@@ -83,11 +93,22 @@ const content = {
 export default function CookiePolicy() {
   const { i18n } = useTranslation();
   const c = content[i18n.language] || content.en;
+  const manageLabel = manageLabels[i18n.language] || manageLabels.en;
+  const reopenConsent = () => {
+    resetCookieConsent();
+    window.location.href = "/";
+  };
   return (
     <div className="min-h-screen bg-background font-body">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between"><Link to="/"><DutyBoostLogo height={55} /></Link><div className="flex items-center gap-3"><LanguageSwitcher /><button onClick={() => window.history.back()} className="text-sm text-muted-foreground hover:text-primary transition-colors">← Back</button></div></nav>
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">
-        <div><h1 className="text-4xl font-heading font-bold mb-2">{c.title}</h1><p className="text-muted-foreground text-sm">{c.updated}</p></div>
+        <div>
+          <h1 className="text-4xl font-heading font-bold mb-2">{c.title}</h1>
+          <p className="text-muted-foreground text-sm">{c.updated}</p>
+          <button onClick={reopenConsent} className="mt-4 text-sm text-primary underline underline-offset-2 hover:text-primary/80">
+            {manageLabel}
+          </button>
+        </div>
         {c.sections.map((s) => (
           <section key={s.h} className="space-y-3">
             <h2 className="text-xl font-heading font-semibold">{s.h}</h2>

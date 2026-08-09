@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
+import { hasConsent } from '@/lib/cookieConsent';
 
 const SESSION_KEY = 'db_traffic_session';
 
@@ -92,6 +93,9 @@ export default function TrafficTracker() {
   const location = useLocation();
 
   useEffect(() => {
+    // Analytics tracking only fires when the visitor has consented to analytics cookies.
+    if (!hasConsent('analytics')) return;
+
     const session = initSession();
     const page_path = location.pathname;
 
