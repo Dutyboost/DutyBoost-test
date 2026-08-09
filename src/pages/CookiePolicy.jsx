@@ -6,7 +6,7 @@ import EmailLinkText from "../components/EmailLinkText";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const content = {
-  en: { title: "Cookie Policy", updated: "Last updated: March 2026", back: "Back to Home", sections: [
+  en: { title: "Cookie Policy", updated: "Last updated: August 2026", back: "Back to Home", sections: [
     { h: "1. What Are Cookies?", p: "Cookies are small text files stored on your device when you visit a website. They help the website remember your preferences, maintain your session, and understand how you interact with the platform." },
     { h: "2. Cookies We Use", cookies: [
       { name: "Essential Cookies", desc: "Required for the platform to function. Includes session authentication tokens and security cookies. Cannot be disabled." },
@@ -18,7 +18,7 @@ const content = {
     { h: "5. Your Consent", p: "By continuing to use the DutyBoost platform, you consent to our use of cookies as described in this policy. You may withdraw consent at any time via your browser settings." },
     { h: "6. Contact", p: "Questions about our cookie usage: privacy@dutyboost.com · DutyBoost, a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands." },
   ]},
-  nl: { title: "Cookiebeleid", updated: "Laatst bijgewerkt: maart 2026", back: "Terug naar home", sections: [
+  nl: { title: "Cookiebeleid", updated: "Laatst bijgewerkt: augustus 2026", back: "Terug naar home", sections: [
     { h: "1. Wat zijn cookies?", p: "Cookies zijn kleine tekstbestanden die op uw apparaat worden opgeslagen wanneer u een website bezoekt. Ze helpen de website uw voorkeuren te onthouden, uw sessie bij te houden en te begrijpen hoe u met het platform omgaat." },
     { h: "2. Cookies die wij gebruiken", cookies: [
       { name: "Essentiële cookies", desc: "Vereist voor het functioneren van het platform. Omvat sessie-authenticatietokens en beveiligingscookies. Kunnen niet worden uitgeschakeld." },
@@ -30,7 +30,7 @@ const content = {
     { h: "5. Uw toestemming", p: "Door het DutyBoost-platform te blijven gebruiken, stemt u in met ons gebruik van cookies. U kunt uw toestemming op elk moment intrekken via uw browserinstellingen." },
     { h: "6. Contact", p: "Vragen over ons cookiegebruik: privacy@dutyboost.com · DutyBoost, een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland." },
   ]},
-  de: { title: "Cookie-Richtlinie", updated: "Zuletzt aktualisiert: März 2026", back: "Zurück zur Startseite", sections: [
+  de: { title: "Cookie-Richtlinie", updated: "Zuletzt aktualisiert: August 2026", back: "Zurück zur Startseite", sections: [
     { h: "1. Was sind Cookies?", p: "Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie helfen, Ihre Präferenzen zu merken, die Sitzung aufrechtzuerhalten und Ihre Interaktion mit der Plattform zu verstehen." },
     { h: "2. Von uns verwendete Cookies", cookies: [
       { name: "Notwendige Cookies", desc: "Für das Funktionieren der Plattform erforderlich. Umfasst Sitzungsauthentifizierungstoken und Sicherheitscookies. Können nicht deaktiviert werden." },
@@ -42,7 +42,7 @@ const content = {
     { h: "5. Ihre Einwilligung", p: "Durch die weitere Nutzung der DutyBoost-Plattform stimmen Sie der Verwendung von Cookies zu. Sie können Ihre Einwilligung jederzeit über Ihre Browsereinstellungen widerrufen." },
     { h: "6. Kontakt", p: "Fragen zur Cookie-Nutzung: privacy@dutyboost.com · DutyBoost, eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande." },
   ]},
-  fr: { title: "Politique en matière de cookies", updated: "Dernière mise à jour : mars 2026", back: "Retour à l'accueil", sections: [
+  fr: { title: "Politique en matière de cookies", updated: "Dernière mise à jour : août 2026", back: "Retour à l'accueil", sections: [
     { h: "1. Que sont les cookies ?", p: "Les cookies sont de petits fichiers texte stockés sur votre appareil lorsque vous visitez un site web. Ils aident le site à mémoriser vos préférences, maintenir votre session et comprendre comment vous interagissez avec la plateforme." },
     { h: "2. Cookies que nous utilisons", cookies: [
       { name: "Cookies essentiels", desc: "Nécessaires au fonctionnement de la plateforme. Comprend les jetons d'authentification de session et les cookies de sécurité. Ne peuvent pas être désactivés." },
@@ -54,7 +54,7 @@ const content = {
     { h: "5. Votre consentement", p: "En continuant à utiliser la plateforme DutyBoost, vous consentez à notre utilisation des cookies. Vous pouvez retirer votre consentement à tout moment via les paramètres de votre navigateur." },
     { h: "6. Contact", p: "Questions sur notre utilisation des cookies : privacy@dutyboost.com · DutyBoost, entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
   ]},
-  es: { title: "Política de cookies", updated: "Última actualización: marzo de 2026", back: "Volver al inicio", sections: [
+  es: { title: "Política de cookies", updated: "Última actualización: agosto de 2026", back: "Volver al inicio", sections: [
     { h: "1. ¿Qué son las cookies?", p: "Las cookies son pequeños archivos de texto almacenados en tu dispositivo cuando visitas un sitio web. Ayudan al sitio a recordar tus preferencias, mantener tu sesión y entender cómo interactúas con la plataforma." },
     { h: "2. Cookies que usamos", cookies: [
       { name: "Cookies esenciales", desc: "Necesarias para el funcionamiento de la plataforma. Incluye tokens de autenticación de sesión y cookies de seguridad. No pueden desactivarse." },
@@ -66,7 +66,7 @@ const content = {
     { h: "5. Tu consentimiento", p: "Al continuar usando la plataforma DutyBoost, consientes nuestro uso de cookies. Puedes retirar el consentimiento en cualquier momento ajustando la configuración de tu navegador." },
     { h: "6. Contacto", p: "Preguntas sobre el uso de cookies: privacy@dutyboost.com · DutyBoost, entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos." },
   ]},
-  it: { title: "Politica sui cookie", updated: "Ultimo aggiornamento: marzo 2026", back: "Torna alla home", sections: [
+  it: { title: "Politica sui cookie", updated: "Ultimo aggiornamento: agosto 2026", back: "Torna alla home", sections: [
     { h: "1. Cosa sono i cookie?", p: "I cookie sono piccoli file di testo memorizzati sul tuo dispositivo quando visiti un sito web. Aiutano il sito a ricordare le tue preferenze, mantenere la tua sessione e capire come interagisci con la piattaforma." },
     { h: "2. Cookie che utilizziamo", cookies: [
       { name: "Cookie essenziali", desc: "Necessari per il funzionamento della piattaforma. Include token di autenticazione della sessione e cookie di sicurezza. Non possono essere disabilitati." },
