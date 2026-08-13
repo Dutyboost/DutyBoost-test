@@ -273,7 +273,7 @@ function SlideMarket() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {[
             { label: "Worldwide DF&TR Industry", value: "€65.5B", sub: "TFWA 2025 reference (€1 = US$1.13)", color: "blue" },
-            { label: "Airport DF&TR Market", value: "€37.1B", sub: "56.6% airport-channel share (DutyBoost estimate)", color: "indigo" },
+            { label: "Airport DF&TR Market", value: "€37.1B", sub: "Airport-channel share (DutyBoost estimate)", color: "indigo" },
             { label: "European Airport DF&TR", value: "€10.13B", sub: "+5.5% value growth | +5.8% passenger growth (ETRC)", color: "violet" },
           ].map((m) => (
             <div key={m.label} className={`bg-${m.color}-50 border border-${m.color}-200 rounded-2xl p-6 text-center`}>
