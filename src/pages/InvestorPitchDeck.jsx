@@ -351,25 +351,25 @@ function SlideConversion() {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
               <h3 className="font-bold text-blue-800 mb-3">At 180M travellers reached (Year 5):</h3>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
+                <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span className="sm:text-right">DB Revenue</span>
+              </div>
+              <div className="space-y-1.5">
                 {[
                   { conv: "+0.5 pp", txns: "900K", retail: "€90M", db: "€1.575M" },
                   { conv: "+1 pp", txns: "1.8M", retail: "€180M", db: "€3.15M" },
                   { conv: "+2 pp", txns: "3.6M", retail: "€360M", db: "€6.30M" },
                   { conv: "+5 pp", txns: "9.0M", retail: "€900M", db: "€15.75M" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-4 gap-2 text-sm py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-200/50 font-semibold" : ""}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-200/50 font-semibold" : ""}`}>
                     <span className="text-blue-700">{row.conv}</span>
                     <span className="text-slate-600">{row.txns} txns</span>
                     <span className="text-slate-600">{row.retail}</span>
-                    <span className="text-green-700 font-semibold">{row.db}</span>
+                    <span className="text-green-700 font-semibold sm:text-right">{row.db}</span>
                   </div>
                 ))}
-              </div>
-              <div className="grid grid-cols-4 gap-2 text-xs text-slate-400 mt-1 px-2">
-                <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span>DB Revenue</span>
               </div>
             </div>
           </div>
@@ -418,9 +418,12 @@ function SlideModel() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <div className="bg-slate-800 text-white rounded-2xl p-6 mb-4">
-              <h3 className="font-bold text-white text-lg mb-4">The DutyCredit Tier Structure</h3>
-              <div className="space-y-1.5 text-sm">
+            <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6 mb-4">
+              <h3 className="font-bold text-white text-lg mb-3 sm:mb-4">The DutyCredit Tier Structure</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-500 mb-1 px-2">
+                <span>Tier</span><span>Basket</span><span>Discount</span><span className="sm:text-right">Traveller Saves</span>
+              </div>
+              <div className="space-y-1">
                 {[
                   { tier: "Entry", range: "€20–€49", disc: "5%–7.5%", save: "€1.00–€3.19" },
                   { tier: "Boarding", range: "€50–€99", disc: "7.5%–10%", save: "€3.75–€9.41" },
@@ -430,16 +433,13 @@ function SlideModel() {
                   { tier: "Premium", range: "€250–€299", disc: "17.5%–20%", save: "€43.75–€57.00" },
                   { tier: "VIP", range: "€300+", disc: "20% capped", save: "Up to €60" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-4 gap-2 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
                     <span className="text-blue-300 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>
                     <span className="text-yellow-300">{row.disc}</span>
-                    <span className="text-green-300 font-semibold">{row.save}</span>
+                    <span className="text-green-300 font-semibold sm:text-right">{row.save}</span>
                   </div>
                 ))}
-                <div className="grid grid-cols-4 gap-2 text-xs text-slate-500 mt-1 px-2">
-                  <span>Tier</span><span>Basket</span><span>Discount</span><span>Traveller Saves</span>
-                </div>
               </div>
             </div>
           </div>
@@ -463,7 +463,7 @@ function SlideModel() {
                 ))}
               </div>
             </div>
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
               <h3 className="font-bold text-green-900 mb-2">At 1 Million €100 Transactions:</h3>
               <div className="space-y-1.5 text-sm">
                 {[
@@ -473,9 +473,9 @@ function SlideModel() {
                   { party: "DutyBoost", val: "€1.75M infrastructure revenue" },
                   { party: "Retailers", val: "€87.5M net before costs" },
                 ].map((row) => (
-                  <div key={row.party} className="flex justify-between">
-                    <span className="text-slate-600">{row.party}</span>
-                    <span className="font-semibold text-green-700">{row.val}</span>
+                  <div key={row.party} className="flex justify-between gap-2">
+                    <span className="text-slate-600 flex-1">{row.party}</span>
+                    <span className="font-semibold text-green-700 text-right whitespace-nowrap">{row.val}</span>
                   </div>
                 ))}
               </div>
