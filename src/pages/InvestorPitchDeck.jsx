@@ -57,7 +57,7 @@ const SLIDES = [
 function SlideWrapper({ children, dark = false }) {
   return (
     <div
-      className={`w-full h-full flex flex-col ${
+      className={`w-full h-full flex flex-col overflow-y-auto ${
         dark
           ? "bg-[#0a0f1e] text-white"
           : "bg-white text-[#0a0f1e]"
@@ -71,7 +71,7 @@ function SlideWrapper({ children, dark = false }) {
 function SlideCover() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col items-center justify-center px-16 text-center relative overflow-hidden">
+      <div className="flex-1 flex flex-col items-center justify-center px-16 text-center relative overflow-y-auto">
         {/* Background grid */}
         <div className="absolute inset-0 opacity-5"
           style={{
@@ -120,7 +120,7 @@ function SlideCover() {
 function SlideProblem() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-y-auto">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -186,7 +186,7 @@ function SlideProblem() {
 function SlideSolution() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-y-auto">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -490,7 +490,7 @@ function SlideModel() {
 function SlideTransaction() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-y-auto">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -581,7 +581,7 @@ function SlideFlywheel() {
 
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-y-auto">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -800,7 +800,7 @@ function SlideFunding() {
 function SlideInvestment() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col px-14 py-10 relative overflow-y-auto">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
