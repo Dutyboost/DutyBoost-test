@@ -57,7 +57,7 @@ const SLIDES = [
 function SlideWrapper({ children, dark = false }) {
   return (
     <div
-      className={`w-full h-full flex flex-col overflow-y-auto lg:overflow-hidden ${
+      className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${
         dark
           ? "bg-[#0a0f1e] text-white"
           : "bg-white text-[#0a0f1e]"
@@ -71,7 +71,7 @@ function SlideWrapper({ children, dark = false }) {
 function SlideCover() {
   return (
     <SlideWrapper dark>
-      <div className="min-h-full flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         {/* Background grid */}
         <div className="absolute inset-0 opacity-5"
           style={{
@@ -120,7 +120,7 @@ function SlideCover() {
 function SlideProblem() {
   return (
     <SlideWrapper dark>
-      <div className="min-h-full flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -186,7 +186,7 @@ function SlideProblem() {
 function SlideSolution() {
   return (
     <SlideWrapper dark>
-      <div className="min-h-full flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -257,7 +257,7 @@ function SlideSolution() {
 function SlideMarket() {
   return (
     <SlideWrapper>
-      <div className="min-h-full flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-center px-12 py-6">
         <div className="mb-5">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -329,7 +329,7 @@ function SlideMarket() {
 function SlideConversion() {
   return (
     <SlideWrapper>
-      <div className="min-h-full flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-center px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Conversion Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -408,7 +408,7 @@ function SlideConversion() {
 function SlideModel() {
   return (
     <SlideWrapper>
-      <div className="min-h-full flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-center px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Business Model</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -490,7 +490,7 @@ function SlideModel() {
 function SlideTransaction() {
   return (
     <SlideWrapper dark>
-      <div className="min-h-full flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -581,7 +581,7 @@ function SlideFlywheel() {
 
   return (
     <SlideWrapper dark>
-      <div className="min-h-full flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -666,7 +666,7 @@ function SlideFlywheel() {
 function SlideFinancials() {
   return (
     <SlideWrapper>
-      <div className="min-h-full flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-center px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Financial Projections</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -729,7 +729,7 @@ function SlideFinancials() {
 function SlideFunding() {
   return (
     <SlideWrapper>
-      <div className="min-h-full flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-center px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Funding & Use of Capital</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -800,7 +800,7 @@ function SlideFunding() {
 function SlideInvestment() {
   return (
     <SlideWrapper dark>
-      <div className="min-h-full flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -937,7 +937,7 @@ export default function InvestorPitchDeck() {
       </div>
 
       {/* Slide area */}
-      <div className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 h-[58vh] lg:h-[calc(100vh-150px)]">
+      <div className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
         <SlideComp />
       </div>
 
