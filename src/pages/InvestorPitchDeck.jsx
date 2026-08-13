@@ -465,7 +465,7 @@ function SlideModel() {
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
               <h3 className="font-bold text-green-900 mb-2">At 1 Million €100 Transactions:</h3>
-              <div className="space-y-1.5 text-sm">
+              <div className="grid grid-cols-1 gap-1.5 text-sm">
                 {[
                   { party: "Travellers", val: "€10M in savings" },
                   { party: "Travel Partners", val: "€500,000 ancillary revenue" },
@@ -473,9 +473,9 @@ function SlideModel() {
                   { party: "DutyBoost", val: "€1.75M infrastructure revenue" },
                   { party: "Retailers", val: "€87.5M net before costs" },
                 ].map((row) => (
-                  <div key={row.party} className="flex justify-between gap-2">
-                    <span className="text-slate-600 flex-1">{row.party}</span>
-                    <span className="font-semibold text-green-700 text-right whitespace-nowrap">{row.val}</span>
+                  <div key={row.party} className="flex flex-col">
+                    <span className="text-slate-600">{row.party}</span>
+                    <span className="font-semibold text-green-700">{row.val}</span>
                   </div>
                 ))}
               </div>
