@@ -52,6 +52,10 @@ const SLIDES = [
     id: "investment",
     type: "investment",
   },
+  {
+    id: "invitation",
+    type: "invitation",
+  },
 ];
 
 function SlideWrapper({ children, dark = false }) {
@@ -96,10 +100,11 @@ function SlideCover() {
               Pre-Revenue / Pre-Seed Investment Opportunity
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-8 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
               { label: "Seed Ask", value: "€500K" },
+              { label: "Equity Offered", value: "5%" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -735,6 +740,7 @@ function SlideFunding() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             €500,000 Seed Round — <span className="text-blue-600">From Development to Live Deployment</span>
           </h2>
+          <p className="text-slate-500 mt-1">In exchange for <span className="font-semibold text-blue-700">5% equity</span> in DutyBoost.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -887,6 +893,53 @@ function SlideInvestment() {
   );
 }
 
+function SlideInvitation() {
+  return (
+    <SlideWrapper dark>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <div className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
+            backgroundSize: "40px 40px"
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-10"
+          style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }}
+        />
+        <div className="relative z-10 text-center">
+          <div className="mb-6">
+            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">An Invitation</span>
+            <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-3 leading-tight">
+              Join Us in Reimagining<br />
+              <span className="text-blue-400">A 100-Year-Old Industry</span>
+            </h2>
+          </div>
+          <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
+            Travel has existed for over a century — airlines, airports, retailers, and the partners who connect travellers to destinations. Yet the commercial relationship between these participants has never been properly connected.
+          </p>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 max-w-2xl mx-auto mb-6">
+            <p className="text-white text-base md:text-lg leading-relaxed">
+              DutyBoost is the first Circular Commercial Revenue Infrastructure that connects the value already flowing through global travel — creating measurable upside for every participant, from the traveller to the retailer to the platform.
+            </p>
+          </div>
+          <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+            We are inviting a small group of aligned seed investors to help us take this revolutionary discovery from development to live deployment — and to own a meaningful stake in the infrastructure that connects travel retail for the next century.
+          </p>
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-6 py-4">
+            <div className="text-left">
+              <div className="text-white text-xl md:text-2xl font-bold">€500,000 Seed Round</div>
+              <div className="text-blue-100 text-sm">5% Equity — Pre-Revenue, Pre-Seed</div>
+            </div>
+          </div>
+          <p className="text-blue-300 text-lg md:text-xl font-bold mt-8">
+            The traveller already travels. Let's connect the value — together.
+          </p>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   problem: SlideProblem,
@@ -899,6 +952,7 @@ const SLIDE_COMPONENTS = {
   financials: SlideFinancials,
   funding: SlideFunding,
   investment: SlideInvestment,
+  invitation: SlideInvitation,
 };
 
 const SLIDE_LABELS = {
@@ -913,6 +967,7 @@ const SLIDE_LABELS = {
   financials: "Financials",
   funding: "Funding Ask",
   investment: "Investment Case",
+  invitation: "An Invitation",
 };
 
 export default function InvestorPitchDeck() {
