@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
@@ -917,9 +917,18 @@ const SLIDE_LABELS = {
 
 export default function InvestorPitchDeck() {
   const [current, setCurrent] = useState(0);
+  const slideAreaRef = useRef(null);
 
   const prev = () => setCurrent((c) => Math.max(0, c - 1));
   const next = () => setCurrent((c) => Math.min(SLIDES.length - 1, c + 1));
+
+  useEffect(() => {
+    if (slideAreaRef.current) {
+      slideAreaRef.current.scrollIntoView({ block: "start", behavior: "auto" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [current]);
 
   const slide = SLIDES[current];
   const SlideComp = SLIDE_COMPONENTS[slide.type];
@@ -937,7 +946,7 @@ export default function InvestorPitchDeck() {
       </div>
 
       {/* Slide area */}
-      <div className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
+      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
         <SlideComp />
       </div>
 
