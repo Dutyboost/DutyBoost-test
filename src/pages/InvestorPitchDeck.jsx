@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import TravelAgencyIcon from "@/components/TravelAgencyIcon";
+import HotelIcon from "@/components/HotelIcon";
+import CarRentalIcon from "@/components/CarRentalIcon";
+import AirportRetailerIcon from "@/components/AirportRetailerIcon";
+import TravelerIcon from "@/components/TravelerIcon";
 
 const SLIDES = [
   {
@@ -197,12 +202,12 @@ function SlideSolution() {
           </div>
           <div className="grid grid-cols-3 gap-5 mb-6">
             {[
-              { icon: "✈️", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
-              { icon: "🏨", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
-              { icon: "🚗", title: "Car Rental", desc: "DutyCredit delivered with rental confirmation" },
+              { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
+              { Icon: HotelIcon, color: "text-violet-400", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
+              { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit delivered with rental confirmation" },
             ].map((step, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                <div className="text-4xl mb-3">{step.icon}</div>
+                <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
                 <div className="text-white font-semibold mb-1">{step.title}</div>
                 <div className="text-slate-400 text-sm">{step.desc}</div>
               </div>
@@ -501,14 +506,14 @@ function SlideTransaction() {
           </div>
           <div className="grid grid-cols-5 gap-4 mb-6">
             {[
-              { party: "Traveller", icon: "🧳", value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-900/30", border: "border-green-500/30" },
-              { party: "Airport Retailer", icon: "🏪", value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-900/30", border: "border-blue-500/30" },
-              { party: "Travel Partner", icon: "✈️", value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-900/30", border: "border-yellow-500/30" },
-              { party: "POS Partner", icon: "🖥️", value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-900/30", border: "border-purple-500/30" },
-              { party: "DutyBoost", icon: "⚡", value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-900/30", border: "border-orange-500/30" },
+              { party: "Traveller", Icon: TravelerIcon, value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-900/30", border: "border-green-500/30" },
+              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-900/30", border: "border-blue-500/30" },
+              { party: "Travel Partner", Icon: TravelAgencyIcon, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-900/30", border: "border-yellow-500/30" },
+              { party: "POS Partner", Icon: Cpu, value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-900/30", border: "border-purple-500/30" },
+              { party: "DutyBoost", Icon: BarChart3, value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-900/30", border: "border-orange-500/30" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
-                <div className="text-3xl mb-2">{p.icon}</div>
+                <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-400`} />
                 <div className="text-white font-semibold text-sm mb-2">{p.party}</div>
                 <div className={`text-2xl font-bold text-${p.color}-400 mb-1`}>{p.value}</div>
                 <div className="text-slate-400 text-xs leading-snug">{p.sub}</div>
@@ -628,14 +633,14 @@ function SlideFlywheel() {
                 <h3 className="text-white font-bold mb-3">Network Effects by Participant</h3>
                 <div className="space-y-2.5 text-sm">
                   {[
-                    { icon: "✈️", party: "More Travel Partners", effect: "→ More travellers reached before airport arrival" },
-                    { icon: "🏪", party: "More Retailers", effect: "→ More DutyCredit redemption opportunities" },
-                    { icon: "🖥️", party: "More POS Integrations", effect: "→ More deployment capacity" },
-                    { icon: "📊", party: "More Transactions", effect: "→ Stronger commercial evidence" },
-                    { icon: "🔗", party: "Stronger Evidence", effect: "→ Easier future partner acquisition" },
+                    { Icon: TravelAgencyIcon, party: "More Travel Partners", effect: "→ More travellers reached before airport arrival" },
+                    { Icon: AirportRetailerIcon, party: "More Retailers", effect: "→ More DutyCredit redemption opportunities" },
+                    { Icon: Cpu, party: "More POS Integrations", effect: "→ More deployment capacity" },
+                    { Icon: BarChart3, party: "More Transactions", effect: "→ Stronger commercial evidence" },
+                    { Icon: Link2, party: "Stronger Evidence", effect: "→ Easier future partner acquisition" },
                   ].map((row) => (
                     <div key={row.party} className="flex items-start gap-2">
-                      <span>{row.icon}</span>
+                      <row.Icon className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                       <div>
                         <span className="text-blue-300 font-semibold">{row.party} </span>
                         <span className="text-slate-400">{row.effect}</span>
