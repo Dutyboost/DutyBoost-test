@@ -923,7 +923,7 @@ function SlideInvitation() {
             </p>
           </div>
           <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
-            We are inviting a small group of aligned seed investors to help us take this revolutionary discovery from development to live deployment — and to own a meaningful stake in the infrastructure that connects travel retail for the next century.
+            This is an open call to anyone who shares our conviction: help us take this revolutionary discovery from development to live deployment — and own a meaningful stake in the infrastructure that connects travel retail for the next century.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-6 py-4">
             <div className="text-left">
