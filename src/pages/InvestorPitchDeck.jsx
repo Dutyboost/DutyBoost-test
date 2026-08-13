@@ -946,9 +946,9 @@ export default function InvestorPitchDeck() {
         <button
           onClick={prev}
           disabled={current === 0}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
         >
-          <ChevronLeft size={16} /> Previous
+          <ChevronLeft size={18} /> Previous
         </button>
 
         {/* Slide thumbnails */}
@@ -972,9 +972,9 @@ export default function InvestorPitchDeck() {
         <button
           onClick={next}
           disabled={current === SLIDES.length - 1}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
         >
-          Next <ChevronRight size={16} />
+          Next <ChevronRight size={18} />
         </button>
       </div>
 
