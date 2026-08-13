@@ -927,7 +927,7 @@ export default function InvestorPitchDeck() {
   return (
     <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-4 py-6">
       {/* Header nav */}
-      <div className="w-full max-w-6xl flex items-center justify-between mb-3">
+      <div className="w-full max-w-[1400px] flex items-center justify-between mb-3">
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Investor Pitch Deck 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
@@ -937,12 +937,12 @@ export default function InvestorPitchDeck() {
       </div>
 
       {/* Slide area */}
-      <div className="w-full max-w-6xl flex rounded-2xl overflow-y-auto lg:overflow-hidden shadow-2xl border border-white/10 min-h-[62vh] lg:min-h-0 lg:aspect-video">
+      <div className="w-full max-w-[1400px] flex rounded-2xl overflow-y-auto lg:overflow-hidden shadow-2xl border border-white/10 min-h-[62vh] lg:min-h-0 lg:aspect-video">
         <SlideComp />
       </div>
 
       {/* Controls */}
-      <div className="w-full max-w-6xl flex flex-wrap items-center justify-between gap-3 mt-4">
+      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-4">
         <button
           onClick={prev}
           disabled={current === 0}
