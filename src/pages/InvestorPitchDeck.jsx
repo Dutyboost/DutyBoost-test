@@ -100,11 +100,10 @@ function SlideCover() {
               Pre-Revenue / Pre-Seed Investment Opportunity
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-8 mt-4 w-full">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
               { label: "Seed Ask", value: "€500K" },
-              { label: "Equity Offered", value: "5%" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -273,7 +272,7 @@ function SlideMarket() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {[
             { label: "Worldwide DF&TR Industry", value: "€65.5B", sub: "TFWA 2025 reference (€1 = US$1.13)", color: "blue" },
-            { label: "Airport DF&TR Market", value: "€37.1B", sub: "Airport-channel share (DutyBoost estimate)", color: "indigo" },
+            { label: "Airport DF&TR Market", value: "€37.1B", sub: "56.6% airport-channel share (DutyBoost estimate)", color: "indigo" },
             { label: "European Airport DF&TR", value: "€10.13B", sub: "+5.5% value growth | +5.8% passenger growth (ETRC)", color: "violet" },
           ].map((m) => (
             <div key={m.label} className={`bg-${m.color}-50 border border-${m.color}-200 rounded-2xl p-6 text-center`}>
@@ -740,7 +739,6 @@ function SlideFunding() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             €500,000 Seed Round — <span className="text-blue-600">From Development to Live Deployment</span>
           </h2>
-          <p className="text-slate-500 mt-1">In exchange for <span className="font-semibold text-blue-700">5% equity</span> in DutyBoost.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
