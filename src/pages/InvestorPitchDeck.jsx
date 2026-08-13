@@ -57,7 +57,7 @@ const SLIDES = [
 function SlideWrapper({ children, dark = false }) {
   return (
     <div
-      className={`w-full flex-1 min-h-0 flex flex-col overflow-y-auto ${
+      className={`w-full flex-1 min-h-0 flex flex-col overflow-hidden ${
         dark
           ? "bg-[#0a0f1e] text-white"
           : "bg-white text-[#0a0f1e]"
@@ -71,7 +71,7 @@ function SlideWrapper({ children, dark = false }) {
 function SlideCover() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative overflow-y-auto">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative overflow-hidden">
         {/* Background grid */}
         <div className="absolute inset-0 opacity-5"
           style={{
@@ -120,7 +120,7 @@ function SlideCover() {
 function SlideProblem() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-6 py-8 md:px-14 md:py-10 relative overflow-y-auto">
+      <div className="flex-1 flex flex-col px-5 py-6 md:px-12 md:py-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -128,9 +128,9 @@ function SlideProblem() {
           }}
         />
         <div className="relative z-10">
-          <div className="mb-8">
+          <div className="mb-5">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Problem</span>
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
               73% of Airport Passengers<br /><span className="text-blue-400">Never Make a Purchase</span>
             </h2>
           </div>
@@ -186,7 +186,7 @@ function SlideProblem() {
 function SlideSolution() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-6 py-8 md:px-14 md:py-10 relative overflow-y-auto">
+      <div className="flex-1 flex flex-col px-5 py-6 md:px-12 md:py-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -194,9 +194,9 @@ function SlideSolution() {
           }}
         />
         <div className="relative z-10">
-          <div className="mb-8">
+          <div className="mb-5">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
               Activate the Traveller<br /><span className="text-blue-400">Before Airport Arrival</span>
             </h2>
           </div>
@@ -213,7 +213,7 @@ function SlideSolution() {
               </div>
             ))}
           </div>
-          <div className="flex items-center gap-3 mb-6 overflow-x-auto pb-2">
+          <div className="flex flex-wrap items-center gap-3 mb-6">
             {[
               "Travel Partner distributes DutyCredit",
               "Traveller activates benefit",
@@ -257,10 +257,10 @@ function SlideSolution() {
 function SlideMarket() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-14 py-10">
-        <div className="mb-8">
+      <div className="flex-1 flex flex-col px-12 py-6">
+        <div className="mb-5">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Market Opportunity</span>
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             A €37.1 Billion Market — <span className="text-blue-600">Already Exists</span>
           </h2>
           <p className="text-slate-500 mt-2">DutyBoost doesn't need to create the market. It connects what already exists.</p>
@@ -272,7 +272,7 @@ function SlideMarket() {
             { label: "European Airport DF&TR", value: "€10.13B", sub: "+5.5% value growth | +5.8% passenger growth (ETRC)", color: "violet" },
           ].map((m) => (
             <div key={m.label} className={`bg-${m.color}-50 border border-${m.color}-200 rounded-2xl p-6 text-center`}>
-              <div className={`text-2xl md:text-4xl font-bold text-${m.color}-700 mb-2`}>{m.value}</div>
+              <div className={`text-xl md:text-3xl font-bold text-${m.color}-700 mb-2`}>{m.value}</div>
               <div className="font-semibold text-slate-700 mb-1 text-sm">{m.label}</div>
               <div className="text-slate-500 text-xs">{m.sub}</div>
             </div>
@@ -329,10 +329,10 @@ function SlideMarket() {
 function SlideConversion() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-14 py-10">
+      <div className="flex-1 flex flex-col px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Conversion Opportunity</span>
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             Small Conversion Gains = <span className="text-blue-600">Enormous Value at Scale</span>
           </h2>
         </div>
@@ -408,10 +408,10 @@ function SlideConversion() {
 function SlideModel() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-14 py-10">
+      <div className="flex-1 flex flex-col px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Business Model</span>
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             Performance-Based. <span className="text-blue-600">Zero Upfront Cost.</span>
           </h2>
           <p className="text-slate-500 mt-1">Revenue is created only when a qualifying transaction is validated through Enterprise POS.</p>
@@ -490,7 +490,7 @@ function SlideModel() {
 function SlideTransaction() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-6 py-8 md:px-14 md:py-10 relative overflow-y-auto">
+      <div className="flex-1 flex flex-col px-5 py-6 md:px-12 md:py-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -500,7 +500,7 @@ function SlideTransaction() {
         <div className="relative z-10">
           <div className="mb-6">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
               €100 Original Qualifying Retail Value
             </h2>
           </div>
@@ -581,7 +581,7 @@ function SlideFlywheel() {
 
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-6 py-8 md:px-14 md:py-10 relative overflow-y-auto">
+      <div className="flex-1 flex flex-col px-5 py-6 md:px-12 md:py-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -591,7 +591,7 @@ function SlideFlywheel() {
         <div className="relative z-10">
           <div className="mb-6">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Growth Flywheel</span>
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
               A Self-Reinforcing <span className="text-blue-400">Circular Ecosystem</span>
             </h2>
           </div>
@@ -666,10 +666,10 @@ function SlideFlywheel() {
 function SlideFinancials() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-14 py-10">
+      <div className="flex-1 flex flex-col px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Financial Projections</span>
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             Five-Year Base Case — <span className="text-blue-600">Positive EBITDA in Year 3</span>
           </h2>
         </div>
@@ -729,10 +729,10 @@ function SlideFinancials() {
 function SlideFunding() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-14 py-10">
+      <div className="flex-1 flex flex-col px-12 py-6">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Funding & Use of Capital</span>
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             €500,000 Seed Round — <span className="text-blue-600">From Development to Live Deployment</span>
           </h2>
         </div>
@@ -800,7 +800,7 @@ function SlideFunding() {
 function SlideInvestment() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col px-6 py-8 md:px-14 md:py-10 relative overflow-y-auto">
+      <div className="flex-1 flex flex-col px-5 py-6 md:px-12 md:py-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -813,7 +813,7 @@ function SlideInvestment() {
         <div className="relative z-10">
           <div className="mb-6">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Investment Case</span>
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
               Four Layers. <span className="text-blue-400">One Opportunity.</span>
             </h2>
           </div>
@@ -925,9 +925,9 @@ export default function InvestorPitchDeck() {
   const SlideComp = SLIDE_COMPONENTS[slide.type];
 
   return (
-    <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-4 py-6">
+    <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2">
       {/* Header nav */}
-      <div className="w-full max-w-[1400px] flex items-center justify-between mb-3">
+      <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Investor Pitch Deck 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
@@ -937,12 +937,12 @@ export default function InvestorPitchDeck() {
       </div>
 
       {/* Slide area */}
-      <div className="w-full max-w-[1400px] flex rounded-2xl overflow-y-auto lg:overflow-hidden shadow-2xl border border-white/10 min-h-[62vh] lg:min-h-0 lg:aspect-video">
+      <div className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
         <SlideComp />
       </div>
 
       {/* Controls */}
-      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-4">
+      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-3">
         <button
           onClick={prev}
           disabled={current === 0}
@@ -979,7 +979,7 @@ export default function InvestorPitchDeck() {
       </div>
 
       {/* Slide label */}
-      <div className="mt-2 text-slate-500 text-sm">
+      <div className="mt-1.5 text-slate-500 text-sm">
         {SLIDE_LABELS[slide.type]}
       </div>
     </div>
