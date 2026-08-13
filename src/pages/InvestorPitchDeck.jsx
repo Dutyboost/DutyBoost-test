@@ -96,15 +96,15 @@ function SlideCover() {
               Pre-Revenue / Pre-Seed Investment Opportunity
             </p>
           </div>
-          <div className="flex gap-8 mt-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
               { label: "Seed Ask", value: "€500K" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-3xl font-bold text-blue-400">{s.value}</div>
-                <div className="text-sm text-slate-400 mt-1">{s.label}</div>
+                <div className="text-xl sm:text-3xl font-bold text-blue-400">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-400 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -925,7 +925,7 @@ export default function InvestorPitchDeck() {
   const SlideComp = SLIDE_COMPONENTS[slide.type];
 
   return (
-    <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2">
+    <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
       {/* Header nav */}
       <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
         <div className="text-white text-sm font-semibold opacity-60">
