@@ -483,7 +483,7 @@ function SlideIncremental() {
             <div className="text-slate-500 text-sm mt-1">From an incremental €100 DutyBoost transaction</div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 items-start">
           <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
             <h3 className="font-bold text-blue-900 mb-3">At 1 Million €100 Incremental Transactions</h3>
             <div className="space-y-2">
@@ -499,30 +499,28 @@ function SlideIncremental() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
-              <h3 className="font-bold text-amber-900 mb-2">The Strategic Test for Retailers</h3>
-              <p className="text-amber-800 text-sm leading-relaxed">
-                The most important metric is not total discount cost — it is <strong>incremental gross profit created per €1 of DutyCredit value delivered</strong>. DutyBoost must be generating transactions that would not otherwise have occurred.
-              </p>
-            </div>
-            <div className="bg-slate-800 text-white rounded-2xl p-4">
-              <h3 className="text-white font-bold mb-2 text-sm">Conversion Sensitivity at Scale ( Example: 180M travellers)</h3>
-              <div className="space-y-1">
-                {[
-                  { pp: "+0.5 pp", txns: "900K", retail: "€90M", ret: "€78.75M" },
-                  { pp: "+1 pp", txns: "1.8M", retail: "€180M", ret: "€157.5M" },
-                  { pp: "+2 pp", txns: "3.6M", retail: "€360M", ret: "€315M" },
-                ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-4 gap-1 text-xs py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
-                    <span className="text-blue-400">{row.pp}</span>
-                    <span className="text-slate-300">{row.txns}</span>
-                    <span className="text-slate-300">{row.retail}</span>
-                    <span className="text-green-300 text-right">{row.ret} net</span>
-                  </div>
-                ))}
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <h3 className="font-bold text-amber-900 mb-2">The Strategic Test for Retailers</h3>
+            <p className="text-amber-800 text-sm leading-relaxed">
+              The most important metric is not total discount cost — it is <strong>incremental gross profit created per €1 of DutyCredit value delivered</strong>. DutyBoost must be generating transactions that would not otherwise have occurred.
+            </p>
+          </div>
+        </div>
+        <div className="bg-slate-800 text-white rounded-2xl p-4 max-w-xl mx-auto">
+          <h3 className="text-white font-bold mb-2 text-sm text-center">Conversion Sensitivity at Scale ( Example: 180M travellers)</h3>
+          <div className="space-y-1">
+            {[
+              { pp: "+0.5 pp", txns: "900K", retail: "€90M", ret: "€78.75M" },
+              { pp: "+1 pp", txns: "1.8M", retail: "€180M", ret: "€157.5M" },
+              { pp: "+2 pp", txns: "3.6M", retail: "€360M", ret: "€315M" },
+            ].map((row, i) => (
+              <div key={i} className={`grid grid-cols-4 gap-1 text-xs py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
+                <span className="text-blue-400">{row.pp}</span>
+                <span className="text-slate-300">{row.txns}</span>
+                <span className="text-slate-300">{row.retail}</span>
+                <span className="text-green-300 text-right">{row.ret} net</span>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
