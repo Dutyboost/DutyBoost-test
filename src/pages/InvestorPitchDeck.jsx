@@ -147,7 +147,14 @@ function SlideProblem() {
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-orange-400 mb-2">27%</div>
-                <div className="text-white font-semibold">Avolta penetration benchmark</div>
+                <a
+                  href="https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-semibold underline decoration-white/30 hover:decoration-white hover:text-blue-300 transition-colors"
+                >
+                  Avolta penetration benchmark
+                </a>
                 <div className="text-slate-400 text-sm mt-1">682M tickets from 2.5B passenger exposure</div>
               </div>
               <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-6">
