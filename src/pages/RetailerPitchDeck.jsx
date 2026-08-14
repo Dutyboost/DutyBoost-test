@@ -327,10 +327,7 @@ function SlideEconomics() {
                     { label: "Original qualifying retail value", val: "€100.00", style: "text-white font-bold text-lg" },
                     { label: "Traveller DutyCredit saving", val: "€10.00", style: "text-orange-300" },
                     { label: "Traveller actually pays", val: "€90.00", style: "text-blue-300" },
-                    { label: "Total platform fee (2.5%)", val: "€2.50", style: "text-slate-400" },
-                    { label: "— Travel Partner share", val: "€0.50", style: "text-slate-400 ml-3" },
-                    { label: "— POS Partner share", val: "€0.25", style: "text-slate-400 ml-3" },
-                    { label: "— DutyBoost share", val: "€1.75", style: "text-slate-400 ml-3" },
+                    { label: "DutyBoost platform fee (2.5%)", val: "€2.50", style: "text-slate-400" },
                   ].map((row, i) => (
                     <div key={i} className={`flex justify-between items-center py-1 border-b border-white/5 ${i === 0 ? "pb-2 mb-1" : ""}`}>
                       <span className={`text-sm ${row.style.includes("ml") ? "text-slate-500 pl-4" : "text-slate-300"}`}>{row.label}</span>
@@ -348,17 +345,13 @@ function SlideEconomics() {
                 <div className="flex h-5 rounded-full overflow-hidden gap-px">
                   <div className="bg-green-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
                   <div className="bg-orange-400" style={{ width: "10%" }} title="Traveller 10%" />
-                  <div className="bg-blue-500" style={{ width: "1.75%" }} />
-                  <div className="bg-yellow-400" style={{ width: "0.5%" }} />
-                  <div className="bg-purple-400" style={{ width: "0.25%" }} />
+                  <div className="bg-blue-500" style={{ width: "2.5%" }} title="DutyBoost 2.5%" />
                 </div>
                 <div className="flex gap-3 mt-2 flex-wrap text-xs">
                   {[
                     { color: "bg-green-500", label: "Retailer 87.5%" },
                     { color: "bg-orange-400", label: "Traveller 10%" },
-                    { color: "bg-blue-500", label: "DutyBoost 1.75%" },
-                    { color: "bg-yellow-400", label: "Travel Partner 0.5%" },
-                    { color: "bg-purple-400", label: "POS 0.25%" },
+                    { color: "bg-blue-500", label: "DutyBoost 2.5%" },
                   ].map((l) => (
                     <div key={l.label} className="flex items-center gap-1">
                       <div className={`w-3 h-3 rounded-sm ${l.color}`} />
