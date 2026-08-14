@@ -100,7 +100,7 @@ function SlideProblem() {
           <div className="mb-5">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Problem</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              73% of Passengers Walk Past<br /><span className="text-blue-400">Without Making a Purchase</span>
+              90–95% of Passengers Never Make<br /><span className="text-blue-400">a Duty-Free Purchase</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -111,14 +111,14 @@ function SlideProblem() {
                 <div className="text-slate-400 text-sm mt-1">ACI World — enormous audience already in transit</div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-1">27%</div>
-                <div className="text-white font-semibold">Avolta penetration benchmark (2025)</div>
-                <div className="text-slate-400 text-sm mt-1">682M retail tickets from 2.5B passenger exposure</div>
+                <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-1">5–10%</div>
+                <div className="text-white font-semibold">Global duty-free store conversion rate</div>
+                <div className="text-slate-400 text-sm mt-1">Only 5–10% of travelers buy (Kearney / TFWA)</div>
               </div>
               <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-red-400 mb-1">1.82B</div>
-                <div className="text-white font-semibold">Non-purchasing passenger exposures</div>
-                <div className="text-slate-400 text-sm mt-1">Within Avolta's benchmark alone</div>
+                <div className="text-3xl md:text-4xl font-bold text-red-400 mb-1">~8.8B</div>
+                <div className="text-white font-semibold">Non-purchasing passengers annually</div>
+                <div className="text-slate-400 text-sm mt-1">90–95% of 9.8B global passenger movements</div>
               </div>
             </div>
             <div className="flex flex-col gap-4 justify-center">
@@ -130,7 +130,7 @@ function SlideProblem() {
                     "Retailers compete via location, display and impulse only",
                     "No pre-arrival reason for a non-intending buyer to visit",
                     "Travel Partners own the early relationship — but earn nothing from retail",
-                    "73% walk straight to the gate",
+                    "Only 5–10% buy — vs 40–60% in shopping centers",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
@@ -141,7 +141,7 @@ function SlideProblem() {
               </div>
               <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-5">
                 <p className="text-blue-200 text-sm leading-relaxed italic">
-                  "The structural weakness is timing. By the time the traveller reaches the store, the commercial opportunity has already narrowed."
+                  "Only 5–10% of travelers buy in airport duty-free stores, compared with 40–60% of visitors in shopping centers. The structural weakness is timing — by the time the traveller reaches the store, the commercial opportunity has already narrowed." (Kearney / TFWA)
                 </p>
               </div>
             </div>
@@ -483,7 +483,7 @@ function SlideIncremental() {
           <div className="bg-red-50 border border-red-200 rounded-2xl p-6 flex flex-col justify-center">
             <div className="text-5xl font-bold text-red-600 mb-2">€0</div>
             <div className="text-slate-700 font-semibold">Revenue from a traveller who does not convert</div>
-            <div className="text-slate-500 text-sm mt-1">73% of passenger exposure — the current reality</div>
+            <div className="text-slate-500 text-sm mt-1">90–95% of global passengers — the current reality</div>
           </div>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-6 flex flex-col justify-center">
             <div className="text-5xl font-bold text-green-600 mb-2">€87.50</div>
