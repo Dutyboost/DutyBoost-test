@@ -225,8 +225,8 @@ function SlideSolution() {
               </div>
             ))}
           </div>
-          {/* Mobile: vertical stepper */}
-          <div className="flex flex-col gap-2 mb-6 md:hidden">
+          {/* Mobile/tablet: vertical stepper */}
+          <div className="flex flex-col gap-2 mb-6 lg:hidden">
             {[
               "Travel Partner distributes DutyCredit",
               "Traveller activates benefit",
@@ -239,13 +239,13 @@ function SlideSolution() {
               <div key={i} className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
                 <div className="flex-1 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2">
-                  <span className="text-white text-xs leading-tight">{step}</span>
+                  <span className="text-white text-sm leading-tight">{step}</span>
                 </div>
               </div>
             ))}
           </div>
           {/* Desktop: horizontal stepper */}
-          <div className="hidden md:flex items-stretch gap-2 mb-6">
+          <div className="hidden lg:flex items-stretch gap-2 mb-6">
             {[
               "Travel Partner distributes DutyCredit",
               "Traveller activates benefit",
