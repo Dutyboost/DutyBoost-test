@@ -490,9 +490,7 @@ function SlideIncremental() {
               {[
                 { party: "Travellers receive", val: "€10M in DutyCredit value" },
                 { party: "Retailer net (before costs)", val: "€87.5M" },
-                { party: "Travel Partners earn", val: "€500,000 ancillary revenue" },
-                { party: "POS Partners earn", val: "€250,000 transaction revenue" },
-                { party: "DutyBoost earns", val: "€1.75M infrastructure revenue" },
+                { party: "DutyBoost earns", val: "€2.5M infrastructure revenue" },
               ].map((row, i) => (
                 <div key={i} className="flex justify-between items-center text-sm py-1 border-b border-blue-100 last:border-0">
                   <span className="text-blue-800">{row.party}</span>
