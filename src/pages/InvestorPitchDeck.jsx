@@ -265,16 +265,16 @@ function SlideSolution() {
             ))}
           </div>
           <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center items-start">
+              <div className="flex flex-col items-center">
                 <div className="text-3xl font-bold text-blue-300">€1 – €60</div>
                 <div className="text-slate-300 text-sm mt-1">DutyCredit direct traveller value</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-blue-300">Performance-Based</div>
+              <div className="flex flex-col items-center">
+                <div className="text-3xl font-bold text-blue-300 leading-tight">Performance-Based</div>
                 <div className="text-slate-300 text-sm mt-1">Zero upfront cost to any partner</div>
               </div>
-              <div>
+              <div className="flex flex-col items-center">
                 <div className="text-3xl font-bold text-blue-300">5 Participants</div>
                 <div className="text-slate-300 text-sm mt-1">All benefit from one transaction</div>
               </div>
