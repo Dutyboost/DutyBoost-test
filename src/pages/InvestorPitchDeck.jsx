@@ -154,7 +154,8 @@ function SlideProblem() {
                   className="text-blue-400 font-semibold underline decoration-blue-400/50 hover:decoration-blue-300 hover:text-blue-300 transition-colors"
                 >
                   Avolta penetration benchmark
-                </a>
+                </a>{" "}
+                <span className="text-slate-400 text-sm font-normal">(See slide 7 for more details)</span>
                 <div className="text-slate-400 text-sm mt-1">682M tickets from 2.5B passenger exposure</div>
               </div>
               <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-6">
