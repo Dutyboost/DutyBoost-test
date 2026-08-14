@@ -225,7 +225,27 @@ function SlideSolution() {
               </div>
             ))}
           </div>
-          <div className="flex items-stretch gap-1 sm:gap-2 mb-6">
+          {/* Mobile: vertical stepper */}
+          <div className="flex flex-col gap-2 mb-6 md:hidden">
+            {[
+              "Travel Partner distributes DutyCredit",
+              "Traveller activates benefit",
+              "Arrives with purchase intent",
+              "Visits participating retailer",
+              "Spends €100 → Saves €10",
+              "POS validates transaction",
+              "All 5 parties earn",
+            ].map((step, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
+                <div className="flex-1 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2">
+                  <span className="text-white text-xs leading-tight">{step}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Desktop: horizontal stepper */}
+          <div className="hidden md:flex items-stretch gap-2 mb-6">
             {[
               "Travel Partner distributes DutyCredit",
               "Traveller activates benefit",
@@ -236,11 +256,11 @@ function SlideSolution() {
               "All 5 parties earn",
             ].map((step, i, arr) => (
               <Fragment key={i}>
-                <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-1.5 sm:px-3 py-2.5 text-center flex flex-col justify-center">
-                  <div className="text-blue-400 text-[10px] sm:text-xs font-semibold leading-none">Step {i + 1}</div>
-                  <div className="text-white text-[10px] sm:text-xs mt-1 leading-tight">{step}</div>
+                <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2.5 text-center flex flex-col justify-center">
+                  <div className="text-blue-400 text-xs font-semibold leading-none">Step {i + 1}</div>
+                  <div className="text-white text-xs mt-1 leading-tight">{step}</div>
                 </div>
-                {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-3 h-3 sm:w-4 sm:h-4" />}
+                {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-4 h-4" />}
               </Fragment>
             ))}
           </div>
