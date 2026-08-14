@@ -665,30 +665,30 @@ function SlideGetStarted() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
-          <div className="mb-6 lg:mb-10">
+          <div className="mb-4 lg:mb-6">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
-            <h2 className="text-xl md:text-4xl lg:text-5xl font-heading font-bold text-white mt-3 leading-tight">
+            <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-white mt-2 leading-tight">
               Fast to Launch.<br />
               <span className="text-blue-400">Faster to Incremental Revenue.</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed mb-6 lg:mb-10">
+          <p className="text-slate-300 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
             DutyBoost is designed to deliver measurable added value to your stores in a very short time — no lengthy rollout, no upfront investment, no operational disruption.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 max-w-3xl lg:max-w-4xl mx-auto mb-6 lg:mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
             {[
               { title: "Weeks, Not Months", desc: "A lightweight POS validation layer — no replacement of your existing systems, pricing or merchandising." },
               { title: "Incremental Sales From Day One", desc: "Once live, pre-activated travellers arrive at your store already motivated by a financial incentive. The first validated transactions can follow within days." },
               { title: "Revenue From the 90%+ Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental basket value." },
               { title: "Higher Average Baskets", desc: "The tiered DutyCredit structure rewards higher spend, encouraging travellers to reach the next incentive level." },
             ].map((card, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7 text-left">
-                <div className="text-blue-300 font-bold lg:text-lg mb-2">{card.title}</div>
-                <div className="text-slate-400 text-sm lg:text-base leading-relaxed">{card.desc}</div>
+              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 lg:p-5 text-left">
+                <div className="text-blue-300 font-bold lg:text-base mb-1.5">{card.title}</div>
+                <div className="text-slate-400 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
               </div>
             ))}
           </div>
-          <p className="text-blue-400 text-lg lg:text-2xl font-bold">
+          <p className="text-blue-400 text-base lg:text-xl font-bold">
             No setup fee. No subscription. No risk. Only incremental revenue — connected.
           </p>
         </div>
