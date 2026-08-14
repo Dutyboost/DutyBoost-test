@@ -547,67 +547,41 @@ function SlideIntegrate() {
               Integrate Once.<br /><span className="text-blue-400">Deploy Repeatedly.</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-                <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Works With Your Existing POS</h3>
-                <div className="space-y-3">
-                  {[
-                    { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Your POS remains the operational system of record" },
-                    { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "DutyBoost adds a lightweight validation layer" },
-                    { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "No replacement of ERP, payment or inventory systems" },
-                    { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "One integration enables multiple stores, airports, markets" },
-                    { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Reusable integration means lower marginal onboarding cost" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 mt-0.5">{item.icon}</div>
-                      <span className="text-slate-300 text-sm">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 border border-blue-500/30 rounded-2xl p-4 lg:p-6">
-                <h3 className="text-blue-300 font-bold mb-3 text-sm lg:text-base">Typical Integration Timeline</h3>
-                <div className="space-y-2.5">
-                  {[
-                    { phase: "Day 1–3", step: "Scoping & POS read-only access", color: "bg-blue-500" },
-                    { phase: "Day 4–10", step: "Validation layer configuration", color: "bg-indigo-500" },
-                    { phase: "Day 11–17", step: "Sandbox testing & sign-off", color: "bg-violet-500" },
-                    { phase: "Day 18–21", step: "Production enablement", color: "bg-green-500" },
-                  ].map((row) => (
-                    <div key={row.phase} className="flex items-center gap-3">
-                      <div className={`w-2 h-2 rounded-full ${row.color} flex-shrink-0`} />
-                      <span className="text-blue-200 text-xs lg:text-sm font-semibold w-16 lg:w-20 flex-shrink-0">{row.phase}</span>
-                      <span className="text-slate-300 text-xs lg:text-sm">{row.step}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 pt-3 border-t border-white/10 text-center">
-                  <div className="text-blue-300 text-2xl lg:text-3xl font-bold">~3 Weeks</div>
-                  <div className="text-slate-400 text-xs lg:text-sm mt-1">from kickoff to first validated transaction</div>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
+              <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Works With Your Existing POS</h3>
+              <div className="space-y-3">
+                {[
+                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Your POS remains the operational system of record" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "DutyBoost adds a lightweight validation layer" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "No replacement of ERP, payment or inventory systems" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "One integration enables multiple stores, airports, markets" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Reusable integration means lower marginal onboarding cost" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-0.5">{item.icon}</div>
+                    <span className="text-slate-300 text-sm">{item.text}</span>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
-                <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">INTEGRATE ONCE</h3>
-                <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
-                  One production-ready integration with an Enterprise POS Provider can enable DutyBoost across multiple retailers, stores, airports and geographic markets.
-                </p>
-                <div className="grid grid-cols-3 gap-3 text-center">
-                  {[
-                    { val: "1 POS", label: "integration" },
-                    { val: "Multiple", label: "retailers" },
-                    { val: "Global", label: "deployment" },
-                  ].map((s) => (
-                    <div key={s.label} className="bg-white/5 rounded-xl p-3">
-                      <div className="text-blue-300 font-bold">{s.val}</div>
-                      <div className="text-slate-400 text-xs mt-1">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
+            <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
+              <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">INTEGRATE ONCE</h3>
+              <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
+                One production-ready integration with an Enterprise POS Provider can enable DutyBoost across multiple retailers, stores, airports and geographic markets.
+              </p>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                {[
+                  { val: "1 POS", label: "integration" },
+                  { val: "Multiple", label: "retailers" },
+                  { val: "Global", label: "deployment" },
+                ].map((s) => (
+                  <div key={s.label} className="bg-white/5 rounded-xl p-3">
+                    <div className="text-blue-300 font-bold">{s.val}</div>
+                    <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                  </div>
+                ))}
               </div>
-
             </div>
           </div>
         </div>
