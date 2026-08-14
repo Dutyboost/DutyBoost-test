@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
@@ -225,7 +225,7 @@ function SlideSolution() {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex items-stretch gap-1 sm:gap-2 mb-6">
             {[
               "Travel Partner distributes DutyCredit",
               "Traveller activates benefit",
@@ -235,13 +235,13 @@ function SlideSolution() {
               "POS validates transaction",
               "All 5 parties earn",
             ].map((step, i, arr) => (
-              <div key={i} className="flex items-center gap-3 flex-shrink-0">
-                <div className="bg-blue-900/50 border border-blue-500/40 rounded-xl px-4 py-2.5 text-center min-w-[110px]">
-                  <div className="text-blue-400 text-xs font-semibold">Step {i + 1}</div>
-                  <div className="text-white text-xs mt-0.5 leading-snug">{step}</div>
+              <Fragment key={i}>
+                <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-1.5 sm:px-3 py-2.5 text-center flex flex-col justify-center">
+                  <div className="text-blue-400 text-[10px] sm:text-xs font-semibold leading-none">Step {i + 1}</div>
+                  <div className="text-white text-[10px] sm:text-xs mt-1 leading-tight">{step}</div>
                 </div>
-                {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0" size={16} />}
-              </div>
+                {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-3 h-3 sm:w-4 sm:h-4" />}
+              </Fragment>
             ))}
           </div>
           <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-6">
