@@ -151,7 +151,7 @@ function SlideProblem() {
                   href="https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white font-semibold underline decoration-white/30 hover:decoration-white hover:text-blue-300 transition-colors"
+                  className="text-blue-400 font-semibold underline decoration-blue-400/50 hover:decoration-blue-300 hover:text-blue-300 transition-colors"
                 >
                   Avolta penetration benchmark
                 </a>
