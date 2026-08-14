@@ -126,6 +126,7 @@ import DutyBoostPresentationSintMaarten from './pages/DutyBoostPresentationSintM
 import PatentPresentation from './pages/PatentPresentation';
 import PatentDisclosureDocument from './pages/PatentDisclosureDocument';
 import InvestorPitchDeck from './pages/InvestorPitchDeck';
+import RetailerPitchDeck from './pages/RetailerPitchDeck';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -257,6 +258,7 @@ const AuthenticatedApp = () => {
         <Route path="/patent-presentation" element={<PatentPresentation />} />
         <Route path="/patent-disclosure" element={<PatentDisclosureDocument />} />
         <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
+        <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
