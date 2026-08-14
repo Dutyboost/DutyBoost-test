@@ -606,7 +606,7 @@ function SlideScale() {
           {[
             { size: "Compact Airport", pax: "2M passengers/yr", conv: "+1% = 20K txns", net: "€1.75M", color: "blue" },
             { size: "Regional Airport", pax: "10M passengers/yr", conv: "+1% = 100K txns", net: "€8.75M", color: "indigo" },
-            { size: "Major Hub", pax: "30M passengers/yr", conv: "+1% = 300K txns", net: "€26.25M", color: "violet" },
+            { size: "Major Hub", pax: "30M+ passengers/yr", conv: "+1% = 300K txns", net: "€26.25M", color: "violet" },
           ].map((s) => (
             <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
               <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
