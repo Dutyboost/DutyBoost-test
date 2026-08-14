@@ -128,6 +128,7 @@ import PatentDisclosureDocument from './pages/PatentDisclosureDocument';
 import InvestorPitchDeck from './pages/InvestorPitchDeck';
 import RetailerPitchDeck from './pages/RetailerPitchDeck';
 import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
+import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -261,6 +262,7 @@ const AuthenticatedApp = () => {
         <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
         <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
+        <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
