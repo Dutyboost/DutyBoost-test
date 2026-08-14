@@ -688,9 +688,14 @@ function SlideGetStarted() {
               </div>
             ))}
           </div>
-          <p className="text-blue-400 text-base lg:text-xl font-bold">
-            No setup fee. No subscription. No risk. Only incremental revenue — connected.
-          </p>
+          <div className="flex flex-col items-center gap-1.5">
+            <p className="text-blue-400 text-base lg:text-xl font-bold">
+              No setup fee. No subscription. No risk. Only incremental revenue — connected.
+            </p>
+            <p className="text-slate-300 text-sm lg:text-base font-semibold">
+              Always performance-based — you pay only the 2.5% platform fee on validated sales.
+            </p>
+          </div>
         </div>
       </div>
     </SlideWrapper>
