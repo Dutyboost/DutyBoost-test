@@ -483,8 +483,8 @@ function SlideIncremental() {
             <div className="text-slate-500 text-sm mt-1">From an incremental €100 DutyBoost transaction</div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 items-start">
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 flex flex-col justify-center">
             <h3 className="font-bold text-blue-900 mb-3">At 1 Million €100 Incremental Transactions</h3>
             <div className="space-y-2">
               {[
