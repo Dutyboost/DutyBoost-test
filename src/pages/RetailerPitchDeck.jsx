@@ -506,15 +506,21 @@ function SlideIncremental() {
             </p>
           </div>
         </div>
-        <div className="bg-slate-800 text-white rounded-2xl p-4 max-w-xl mx-auto">
-          <h3 className="text-white font-bold mb-2 text-sm text-center">Conversion Sensitivity at Scale ( Example: 180M travellers)</h3>
-          <div className="space-y-1">
+        <div className="bg-slate-800 text-white rounded-2xl p-5">
+          <h3 className="text-white font-bold mb-3 text-sm text-center">Conversion Sensitivity at Scale ( Example: 180M travellers)</h3>
+          <div className="space-y-1.5">
+            <div className="grid grid-cols-4 gap-4 text-xs text-slate-400 uppercase tracking-wide px-3 pb-1 border-b border-white/10">
+              <span>Conversion</span>
+              <span>Transactions</span>
+              <span>Retail Value</span>
+              <span className="text-right">Retailer Net</span>
+            </div>
             {[
               { pp: "+0.5 pp", txns: "900K", retail: "€90M", ret: "€78.75M" },
               { pp: "+1 pp", txns: "1.8M", retail: "€180M", ret: "€157.5M" },
               { pp: "+2 pp", txns: "3.6M", retail: "€360M", ret: "€315M" },
             ].map((row, i) => (
-              <div key={i} className={`grid grid-cols-4 gap-1 text-xs py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
+              <div key={i} className={`grid grid-cols-4 gap-4 text-sm py-2.5 px-3 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
                 <span className="text-blue-400">{row.pp}</span>
                 <span className="text-slate-300">{row.txns}</span>
                 <span className="text-slate-300">{row.retail}</span>
