@@ -56,28 +56,28 @@ function SlideCover() {
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
-        <div className="relative z-10 flex flex-col items-center gap-8">
+        <div className="relative z-10 flex flex-col items-center gap-8 lg:gap-16">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
             <DutyBoostLogo height={50} linkTo={null} />
           </div>
           <div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
               Drive Incremental Sales.<br />
               <span className="text-blue-400">Pay Only on Performance.</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-xl lg:text-2xl text-slate-300 max-w-3xl leading-relaxed">
               A presentation for Airport Duty-Free & Travel Retail Operators
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full max-w-xl">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 lg:gap-12 mt-4 w-full max-w-xl lg:max-w-3xl">
             {[
               { label: "Retailer Net", value: "€87.50" },
               { label: "Cost Model", value: "Performance" },
               { label: "Setup Fee", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-xl sm:text-3xl font-bold text-blue-400">{s.value}</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">{s.label}</div>
+                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-blue-400">{s.value}</div>
+                <div className="text-xs sm:text-sm lg:text-lg text-slate-400 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -158,16 +158,16 @@ function SlideSolution() {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5">
+          <div className="mb-5 lg:mb-10">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
               Activate the Traveller<br /><span className="text-blue-400">Before They Reach Your Store</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-5 lg:mb-10">
             <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <h3 className="text-white font-bold text-base mb-3">What DutyBoost Does</h3>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
+                <h3 className="text-white font-bold text-base lg:text-lg mb-3">What DutyBoost Does</h3>
                 <div className="space-y-3">
                   {[
                     { from: "Retailers wait for passengers", to: "Passengers arrive with purchase intent" },
@@ -183,24 +183,24 @@ function SlideSolution() {
                   ))}
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-5">
-                <div className="grid grid-cols-3 gap-4 text-center">
+              <div className="bg-gradient-to-br from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-5 lg:p-7">
+                <div className="grid grid-cols-3 gap-4 lg:gap-6 text-center">
                   {[
                     { val: "€1–€60", label: "Traveller DutyCredit value" },
                     { val: "2.5%", label: "Total platform fee" },
                     { val: "€0", label: "Setup or licence cost" },
                   ].map((s) => (
                     <div key={s.label}>
-                      <div className="text-lg md:text-xl font-bold text-blue-300 whitespace-nowrap">{s.val}</div>
-                      <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                      <div className="text-lg md:text-xl lg:text-2xl font-bold text-blue-300 whitespace-nowrap">{s.val}</div>
+                      <div className="text-slate-400 text-xs lg:text-sm mt-1">{s.label}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-              <h3 className="text-white font-bold text-base mb-4">The DutyBoost Journey</h3>
-              <div className="flex flex-col gap-2">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
+              <h3 className="text-white font-bold text-base lg:text-lg mb-4">The DutyBoost Journey</h3>
+              <div className="flex flex-col gap-2 lg:gap-3">
                 {[
                   { n: "1", step: "Traveller books flight / hotel / car", color: "bg-blue-600" },
                   { n: "2", step: "Travel Partner distributes DutyCredit", color: "bg-blue-600" },
@@ -212,8 +212,8 @@ function SlideSolution() {
                   { n: "8", step: "Transaction validated & reported", color: "bg-green-600" },
                 ].map((s) => (
                   <div key={s.n} className="flex items-center gap-3">
-                    <div className={`w-6 h-6 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{s.n}</div>
-                    <span className="text-slate-300 text-sm">{s.step}</span>
+                    <div className={`w-6 h-6 lg:w-8 lg:h-8 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{s.n}</div>
+                    <span className="text-slate-300 text-sm lg:text-base">{s.step}</span>
                   </div>
                 ))}
               </div>
@@ -541,16 +541,16 @@ function SlideIntegrate() {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5">
+          <div className="mb-5 lg:mb-10">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
               Integrate Once.<br /><span className="text-blue-400">Deploy Repeatedly.</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <h3 className="text-white font-bold mb-4">DutyBoost Works With Your Existing POS</h3>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
+                <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Works With Your Existing POS</h3>
                 <div className="space-y-3">
                   {[
                     { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Your POS remains the operational system of record" },
@@ -566,8 +566,8 @@ function SlideIntegrate() {
                   ))}
                 </div>
               </div>
-              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-4">
-                <h3 className="text-blue-300 font-bold mb-2 text-sm">What DutyBoost Adds</h3>
+              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-4 lg:p-6">
+                <h3 className="text-blue-300 font-bold mb-2 text-sm lg:text-base">What DutyBoost Adds</h3>
                 <div className="flex flex-wrap gap-2">
                   {[
                     "DutyCredit lifecycle management",
@@ -587,9 +587,9 @@ function SlideIntegrate() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5">
-                <h3 className="text-white font-bold text-xl mb-2">INTEGRATE ONCE</h3>
-                <p className="text-indigo-200 text-sm leading-relaxed mb-3">
+              <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
+                <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">INTEGRATE ONCE</h3>
+                <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
                   One production-ready integration with an Enterprise POS Provider can enable DutyBoost across multiple retailers, stores, airports and geographic markets.
                 </p>
                 <div className="grid grid-cols-3 gap-3 text-center">
@@ -689,30 +689,30 @@ function SlideGetStarted() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
-          <div className="mb-6">
+          <div className="mb-6 lg:mb-10">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
-            <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-3 leading-tight">
+            <h2 className="text-xl md:text-4xl lg:text-5xl font-heading font-bold text-white mt-3 leading-tight">
               Fast to Launch.<br />
               <span className="text-blue-400">Faster to Incremental Revenue.</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
+          <p className="text-slate-300 text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed mb-6 lg:mb-10">
             DutyBoost is designed to deliver measurable added value to your stores in a very short time — no lengthy rollout, no upfront investment, no operational disruption.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 max-w-3xl lg:max-w-4xl mx-auto mb-6 lg:mb-10">
             {[
               { title: "Weeks, Not Months", desc: "A lightweight POS validation layer — no replacement of your existing systems, pricing or merchandising." },
               { title: "Incremental Sales From Day One", desc: "Once live, pre-activated travellers arrive at your store already motivated by a financial incentive. The first validated transactions can follow within days." },
               { title: "Revenue From the 90%+ Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental basket value." },
               { title: "Higher Average Baskets", desc: "The tiered DutyCredit structure rewards higher spend, encouraging travellers to reach the next incentive level." },
             ].map((card, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-left">
-                <div className="text-blue-300 font-bold mb-2">{card.title}</div>
-                <div className="text-slate-400 text-sm leading-relaxed">{card.desc}</div>
+              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7 text-left">
+                <div className="text-blue-300 font-bold lg:text-lg mb-2">{card.title}</div>
+                <div className="text-slate-400 text-sm lg:text-base leading-relaxed">{card.desc}</div>
               </div>
             ))}
           </div>
-          <p className="text-blue-400 text-lg font-bold">
+          <p className="text-blue-400 text-lg lg:text-2xl font-bold">
             No setup fee. No subscription. No risk. Only incremental revenue — connected.
           </p>
         </div>
