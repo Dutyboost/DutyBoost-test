@@ -623,7 +623,7 @@ function SlideGetStarted() {
               No setup fee. No subscription. No risk. Only incremental revenue — connected.
             </p>
             <p className="text-slate-300 text-sm lg:text-base font-semibold">
-              Always performance-based — you earn only the 10% share of the fee on validated sales.
+              Always performance-based — earn a 10% share of the DutyBoost Platform Fee on every validated sale.
             </p>
           </div>
         </div>
