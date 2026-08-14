@@ -58,7 +58,7 @@ function SlideCover() {
           style={{ background: "radial-gradient(circle, #f97316 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-8 lg:gap-16">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
-            <DutyBoostLogo height={50} linkTo="/" />
+            <DutyBoostLogo height={50} linkTo="/retailer-showcase" />
           </div>
           <div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
@@ -667,7 +667,7 @@ function SlideGetStarted() {
         <div className="relative z-10 text-center">
           <div className="flex justify-center mb-4 lg:mb-6">
             <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
-              <DutyBoostLogo height={40} linkTo="/" />
+              <DutyBoostLogo height={40} linkTo="/retailer-showcase" />
             </div>
           </div>
           <div className="mb-4 lg:mb-6">
