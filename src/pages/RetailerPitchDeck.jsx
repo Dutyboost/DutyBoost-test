@@ -69,15 +69,15 @@ function SlideCover() {
               A presentation for Airport Duty-Free & Travel Retail Operators
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2 sm:gap-8 lg:gap-12 mt-4 w-full max-w-xl lg:max-w-3xl">
+          <div className="flex flex-wrap items-start justify-center gap-x-6 sm:gap-x-12 lg:gap-x-16 gap-y-4 mt-4 w-full max-w-xl lg:max-w-4xl">
             {[
               { label: "Retailer Net", value: "€87.50" },
               { label: "Cost Model", value: "Performance" },
               { label: "Setup Fee", value: "€0" },
             ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-blue-400">{s.value}</div>
-                <div className="text-xs sm:text-sm lg:text-lg text-slate-400 mt-1">{s.label}</div>
+              <div key={s.label} className="flex flex-col items-center text-center">
+                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-blue-400 whitespace-nowrap">{s.value}</div>
+                <div className="text-xs sm:text-sm lg:text-lg text-slate-400 mt-1 whitespace-nowrap">{s.label}</div>
               </div>
             ))}
           </div>
