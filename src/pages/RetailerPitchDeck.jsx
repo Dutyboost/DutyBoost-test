@@ -566,23 +566,25 @@ function SlideIntegrate() {
                   ))}
                 </div>
               </div>
-              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-4 lg:p-6">
-                <h3 className="text-blue-300 font-bold mb-2 text-sm lg:text-base">What DutyBoost Adds</h3>
-                <div className="flex flex-wrap gap-2">
+              <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 border border-blue-500/30 rounded-2xl p-4 lg:p-6">
+                <h3 className="text-blue-300 font-bold mb-3 text-sm lg:text-base">Typical Integration Timeline</h3>
+                <div className="space-y-2.5">
                   {[
-                    "DutyCredit lifecycle management",
-                    "Secure POS authentication",
-                    "Transaction validation",
-                    "Discount-rule resolution",
-                    "Transaction attribution",
-                    "Fee calculation",
-                    "Revenue allocation",
-                    "Refund handling",
-                    "Reconciliation & reporting",
-                    "Audit trails",
-                  ].map((tag) => (
-                    <span key={tag} className="text-xs bg-blue-900/50 border border-blue-500/30 text-blue-200 rounded-full px-2 py-0.5">{tag}</span>
+                    { phase: "Day 1–3", step: "Scoping & POS read-only access", color: "bg-blue-500" },
+                    { phase: "Day 4–10", step: "Validation layer configuration", color: "bg-indigo-500" },
+                    { phase: "Day 11–17", step: "Sandbox testing & sign-off", color: "bg-violet-500" },
+                    { phase: "Day 18–21", step: "Production enablement", color: "bg-green-500" },
+                  ].map((row) => (
+                    <div key={row.phase} className="flex items-center gap-3">
+                      <div className={`w-2 h-2 rounded-full ${row.color} flex-shrink-0`} />
+                      <span className="text-blue-200 text-xs lg:text-sm font-semibold w-16 lg:w-20 flex-shrink-0">{row.phase}</span>
+                      <span className="text-slate-300 text-xs lg:text-sm">{row.step}</span>
+                    </div>
                   ))}
+                </div>
+                <div className="mt-4 pt-3 border-t border-white/10 text-center">
+                  <div className="text-blue-300 text-2xl lg:text-3xl font-bold">~3 Weeks</div>
+                  <div className="text-slate-400 text-xs lg:text-sm mt-1">from kickoff to first validated transaction</div>
                 </div>
               </div>
             </div>
