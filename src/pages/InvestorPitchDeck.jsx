@@ -265,17 +265,17 @@ function SlideSolution() {
             ))}
           </div>
           <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center items-start">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-3xl font-bold text-blue-300 min-h-[2.5rem] flex items-center justify-center leading-tight">€1 – €60</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">€1 – €60</div>
                 <div className="text-slate-300 text-sm mt-2">DutyCredit direct traveller value</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-3xl font-bold text-blue-300 min-h-[2.5rem] flex items-center justify-center leading-tight">Performance-Based</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Performance-Based</div>
                 <div className="text-slate-300 text-sm mt-2">Zero upfront cost to any partner</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-3xl font-bold text-blue-300 min-h-[2.5rem] flex items-center justify-center leading-tight">5 Participants</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">5 Participants</div>
                 <div className="text-slate-300 text-sm mt-2">All benefit from one transaction</div>
               </div>
             </div>
