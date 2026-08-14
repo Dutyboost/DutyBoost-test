@@ -129,7 +129,7 @@ function SlideProblem() {
                     "Activation begins only after traveller clears security",
                     "Retailers compete via location, display and impulse only",
                     "No pre-arrival reason for a non-intending buyer to visit",
-                    "Travel Partners own the early relationship — but earn nothing from retail",
+
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
