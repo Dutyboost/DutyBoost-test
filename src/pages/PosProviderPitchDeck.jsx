@@ -55,7 +55,7 @@ function SlideCover() {
           style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-8 lg:gap-16">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
-            <DutyBoostLogo height={50} linkTo={null} />
+            <DutyBoostLogo height={50} linkTo="/" />
           </div>
           <div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
@@ -595,6 +595,11 @@ function SlideGetStarted() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
+          <div className="flex justify-center mb-4 lg:mb-6">
+            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
+              <DutyBoostLogo height={40} linkTo="/" />
+            </div>
+          </div>
           <div className="mb-4 lg:mb-6">
             <span className="text-violet-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
             <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-white mt-2 leading-tight">

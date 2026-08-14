@@ -89,7 +89,7 @@ function SlideCover() {
         />
         <div className="relative z-10 flex flex-col items-center gap-8">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
-            <DutyBoostLogo height={50} linkTo={null} />
+            <DutyBoostLogo height={50} linkTo="/" />
           </div>
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
@@ -933,6 +933,11 @@ function SlideInvitation() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }}
         />
         <div className="relative z-10 text-center">
+          <div className="flex justify-center mb-6">
+            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
+              <DutyBoostLogo height={40} linkTo="/" />
+            </div>
+          </div>
           <div className="mb-6">
             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">An Invitation</span>
             <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-3 leading-tight">
