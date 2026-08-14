@@ -27,8 +27,8 @@ const SLIDE_LABELS = {
   tiers: "DutyCredit Tiers",
   incremental: "The Incremental Logic",
   integrate: "POS Integration",
-  scale: "Scale Opportunity",
-  getStarted: "Join DutyBoost",
+  scale: "Incremental Revenue",
+  getStarted: "Value Realized Quickly",
 };
 
 function SlideWrapper({ children, dark = false }) {
@@ -130,7 +130,6 @@ function SlideProblem() {
                     "Retailers compete via location, display and impulse only",
                     "No pre-arrival reason for a non-intending buyer to visit",
                     "Travel Partners own the early relationship — but earn nothing from retail",
-                    "Only 5–10% buy — vs 40–60% in shopping centers",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
@@ -141,7 +140,7 @@ function SlideProblem() {
               </div>
               <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-5">
                 <p className="text-blue-200 text-sm leading-relaxed italic">
-                  "Only 5–10% of travelers buy in airport duty-free stores, compared with 40–60% of visitors in shopping centers. The structural weakness is timing — by the time the traveller reaches the store, the commercial opportunity has already narrowed." (Kearney / TFWA)
+                  "Only 5–10% of travelers buy in airport duty-free stores. The structural weakness is timing — by the time the traveller reaches the store, the commercial opportunity has already narrowed." (Kearney / TFWA)
                 </p>
               </div>
             </div>
@@ -174,7 +173,7 @@ function SlideSolution() {
                     { from: "Retailers wait for passengers", to: "Passengers arrive with purchase intent" },
                     { from: "Impulse-driven shopping", to: "Pre-activated economic incentive" },
                     { from: "No pre-arrival connection", to: "DutyCredit distributed via Travel Partner" },
-                    { from: "Zero conversion from 73%", to: "Incremental sales from non-buyers" },
+                    { from: "Zero conversion from 90–95%", to: "Incremental sales from non-buyers" },
                   ].map((row, i) => (
                     <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
                       <span className="text-red-300 bg-red-900/30 rounded px-2 py-1 text-center">{row.from}</span>
@@ -209,8 +208,8 @@ function SlideSolution() {
                   { n: "4", step: "Arrives at airport with purchase intent", color: "bg-indigo-600" },
                   { n: "5", step: "Visits your participating store", color: "bg-violet-600" },
                   { n: "6", step: "POS validates transaction", color: "bg-violet-600" },
-                  { n: "7", step: "DutyCredit applied — all parties earn", color: "bg-green-600" },
-                  { n: "8", step: "Transaction attributed & settled", color: "bg-green-600" },
+                  { n: "7", step: "DutyCredit applied — performance fee only", color: "bg-green-600" },
+                  { n: "8", step: "Transaction validated & reported", color: "bg-green-600" },
                 ].map((s) => (
                   <div key={s.n} className="flex items-center gap-3">
                     <div className={`w-6 h-6 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{s.n}</div>
@@ -517,7 +516,7 @@ function SlideIncremental() {
               </p>
             </div>
             <div className="bg-slate-800 text-white rounded-2xl p-4">
-              <h3 className="text-white font-bold mb-2 text-sm">Conversion Sensitivity at Year 5 Scale (180M travellers)</h3>
+              <h3 className="text-white font-bold mb-2 text-sm">Conversion Sensitivity at Scale ( Example: 180M travellers)</h3>
               <div className="space-y-1">
                 {[
                   { pp: "+0.5 pp", txns: "900K", retail: "€90M", ret: "€78.75M" },
@@ -611,23 +610,7 @@ function SlideIntegrate() {
                   ))}
                 </div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <h3 className="text-white font-bold mb-3">5-Phase Rollout</h3>
-                <div className="space-y-2">
-                  {[
-                    "Technical Foundation — Production-ready MVP & first POS integration",
-                    "Pilot Ecosystem — First live retailer + Travel Partner",
-                    "Integration Reuse — Add more retailers on same POS",
-                    "Travel Partner Expansion — Airlines, OTAs, hotels, car rental",
-                    "International Scale — Major airport-retail groups globally",
-                  ].map((phase, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm">
-                      <div className="w-5 h-5 rounded-full bg-blue-600/50 flex items-center justify-center text-blue-300 text-xs font-bold flex-shrink-0 mt-0.5">{i + 1}</div>
-                      <span className="text-slate-300">{phase}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -636,69 +619,73 @@ function SlideIntegrate() {
   );
 }
 
-// SLIDE 9: Scale Opportunity
+// SLIDE 9: Incremental Revenue Opportunity
 function SlideScale() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Scale Opportunity</span>
+          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Your Incremental Revenue</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            What the Network Looks Like <span className="text-blue-600">at Year 5</span>
+            What DutyBoost Can Bring <span className="text-blue-600">to Your Stores</span>
           </h2>
+          <p className="text-slate-500 mt-1 text-sm">If just 1% more of your non-purchasing passengers convert through a DutyBoost-validated transaction — incremental revenue from travellers who otherwise would not have bought.</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {[
-            { val: "180M", label: "Eligible travellers reached", color: "blue" },
-            { val: "12.6M", label: "Validated transactions", color: "indigo" },
-            { val: "€1.26B", label: "Original qualifying retail value", color: "violet" },
-            { val: "€1.1B", label: "Retailer net before normal costs", color: "green" },
+            { size: "Compact Airport", pax: "2M passengers/yr", conv: "+1% = 20K txns", net: "€1.75M", color: "blue" },
+            { size: "Regional Airport", pax: "10M passengers/yr", conv: "+1% = 100K txns", net: "€8.75M", color: "indigo" },
+            { size: "Major Hub", pax: "30M passengers/yr", conv: "+1% = 300K txns", net: "€26.25M", color: "violet" },
           ].map((s) => (
-            <div key={s.label} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-4 text-center`}>
-              <div className={`text-xl md:text-2xl font-bold text-${s.color}-700 mb-1`}>{s.val}</div>
-              <div className={`text-${s.color}-600 text-xs font-medium`}>{s.label}</div>
+            <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
+              <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
+              <div className="text-slate-500 text-sm mb-3">{s.pax}</div>
+              <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
+              <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retailer net</div>
+              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ €100 avg value</div>
             </div>
           ))}
         </div>
-        <div className="overflow-x-auto mb-5">
-          <table className="w-full text-sm border-collapse">
-            <thead>
-              <tr className="bg-slate-800 text-white">
-                <th className="text-left px-4 py-3 rounded-tl-xl font-semibold">Metric</th>
-                {["Year 1", "Year 2", "Year 3", "Year 4", "Year 5"].map((y, i) => (
-                  <th key={y} className={`text-right px-3 py-3 font-semibold ${i === 4 ? "rounded-tr-xl" : ""} ${i === 2 ? "bg-blue-700" : ""}`}>{y}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="bg-slate-800 text-white rounded-2xl p-5">
+            <h3 className="font-bold mb-3">It Scales With Conversion</h3>
+            <div className="space-y-2 text-sm">
               {[
-                { label: "Participating Retailers", vals: ["1", "5", "15", "35", "70"] },
-                { label: "Participating Airports", vals: ["2", "10", "35", "80", "150"] },
-                { label: "Travellers Reached", vals: ["1M", "8M", "30M", "80M", "180M"] },
-                { label: "Validated Transactions", vals: ["30K", "320K", "1.5M", "4.8M", "12.6M"] },
-                { label: "Retailer Net (Before Costs)", vals: ["€2.6M", "€28M", "€131M", "€420M", "€1.1B"], highlight: true },
+                { pp: "+0.5% conversion", mult: "½× the figures above" },
+                { pp: "+1% conversion", mult: "the figures above" },
+                { pp: "+2% conversion", mult: "2× the figures above" },
+                { pp: "+5% conversion", mult: "5× the figures above" },
               ].map((row, i) => (
-                <tr key={row.label} className={`border-b border-slate-100 ${row.highlight ? "bg-blue-50" : i % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
-                  <td className="px-4 py-2.5 text-slate-700 font-medium">{row.label}</td>
-                  {row.vals.map((v, j) => (
-                    <td key={j} className={`px-3 py-2.5 text-right text-sm ${row.highlight ? "font-bold text-blue-700" : "text-slate-600"} ${j === 2 ? "bg-blue-100" : ""}`}>{v}</td>
-                  ))}
-                </tr>
+                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
+                  <span className="text-blue-300">{row.pp}</span>
+                  <span className="text-slate-300">{row.mult}</span>
+                </div>
               ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-5 text-white text-center">
-          <p className="text-base md:text-lg font-bold">
-            At 180 million travellers, each additional +1% conversion = 1.8M more transactions = <span className="text-green-300">€157.5M more retailer net value</span>
-          </p>
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-5">
+            <h3 className="font-bold text-green-900 mb-3">Why This Is Pure Upside</h3>
+            <ul className="space-y-2 text-sm">
+              {[
+                "100% incremental — from the 90–95% who currently never buy",
+                "Zero upfront cost — pay only the 2.5% fee on validated sales",
+                "No change to your existing POS, pricing or merchandising",
+                "Attributed & reported transparently per transaction",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-green-800">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </SlideWrapper>
   );
 }
 
-// SLIDE 10: Join DutyBoost
+// SLIDE 10: Value Realized Quickly
 function SlideGetStarted() {
   return (
     <SlideWrapper dark>
@@ -708,40 +695,30 @@ function SlideGetStarted() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
           <div className="mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Join DutyBoost</span>
+            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
             <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-3 leading-tight">
-              Your Stores Already Exist.<br />
-              <span className="text-blue-400">Let Us Fill Them.</span>
+              Fast to Launch.<br />
+              <span className="text-blue-400">Faster to Incremental Revenue.</span>
             </h2>
           </div>
           <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
-            DutyBoost does not need to build airports, passenger traffic or retail stores. Those already exist. Its role is to connect pre-activated travellers to participating retailers through a performance-based, measurable commercial infrastructure.
+            DutyBoost is designed to deliver measurable added value to your stores in a very short time — no lengthy rollout, no upfront investment, no operational disruption.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
             {[
-              { title: "No Setup Fee", desc: "No subscription, no licence, no upfront cost. You pay only when qualifying transactions occur." },
-              { title: "No Inventory Risk", desc: "DutyBoost does not interfere with your buying, merchandising or pricing strategy." },
-              { title: "Full Attribution", desc: "Every DutyBoost transaction is validated via POS, attributed and reported with full transparency." },
+              { title: "Weeks, Not Months", desc: "A lightweight POS validation layer — no replacement of your existing systems, pricing or merchandising." },
+              { title: "Incremental Sales From Day One", desc: "Once live, pre-activated travellers arrive at your store already motivated by a financial incentive. The first validated transactions can follow within days." },
+              { title: "Revenue From the 90%+ Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental basket value." },
+              { title: "Higher Average Baskets", desc: "The tiered DutyCredit structure rewards higher spend, encouraging travellers to reach the next incentive level." },
             ].map((card, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-left">
                 <div className="text-blue-300 font-bold mb-2">{card.title}</div>
                 <div className="text-slate-400 text-sm leading-relaxed">{card.desc}</div>
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-6 py-5 inline-block max-w-xl w-full">
-            <div className="text-white font-bold text-xl md:text-2xl mb-2">
-              Ready to drive incremental sales?
-            </div>
-            <div className="text-blue-100 text-sm mb-3">
-              Request a partnership introductory call or sign a Letter of Intent to begin the onboarding process.
-            </div>
-            <div className="text-blue-200 text-xs">
-              contact@dutyboost.com · www.dutyboost.com · CoC 42053181
-            </div>
-          </div>
-          <p className="text-blue-400 text-lg font-bold mt-6">
-            The traveller already travels. Your store already sells. DutyBoost connects the value.
+          <p className="text-blue-400 text-lg font-bold">
+            No setup fee. No subscription. No risk. Only incremental revenue — connected.
           </p>
         </div>
       </div>
