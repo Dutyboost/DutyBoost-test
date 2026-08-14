@@ -138,15 +138,15 @@ function SlideProblem() {
               73% of Airport Passengers<br /><span className="text-blue-400">Never Make a Purchase</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mx-auto max-w-4xl">
-            <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">9.8B</div>
-                <div className="text-white font-semibold text-sm">Global passenger movements in 2025</div>
-                <div className="text-slate-400 text-xs mt-1">+3.6% vs 2024 | +7.3% vs 2019 (ACI World)</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="space-y-5">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-blue-400 mb-2">9.8B</div>
+                <div className="text-white font-semibold">Global passenger movements in 2025</div>
+                <div className="text-slate-400 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 (ACI World)</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-1">27%</div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-orange-400 mb-2">27%</div>
                 <a
                   href="https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com"
                   target="_blank"
@@ -155,19 +155,19 @@ function SlideProblem() {
                 >
                   Avolta penetration benchmark
                 </a>{" "}
-                <span className="text-slate-400 text-xs font-normal">(See slide 7 for more details)</span>
-                <div className="text-slate-400 text-xs mt-1">682M tickets from 2.5B passenger exposure</div>
+                <span className="text-slate-400 text-sm font-normal">(See slide 7 for more details)</span>
+                <div className="text-slate-400 text-sm mt-1">682M tickets from 2.5B passenger exposure</div>
               </div>
-              <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-red-400 mb-1">1.82B</div>
-                <div className="text-white font-semibold text-sm">Non-purchasing passenger exposures</div>
-                <div className="text-slate-400 text-xs mt-1">Within Avolta's benchmark alone</div>
+              <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-red-400 mb-2">1.82B</div>
+                <div className="text-white font-semibold">Non-purchasing passenger exposures</div>
+                <div className="text-slate-400 text-sm mt-1">Within Avolta's benchmark alone</div>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex-1">
-                <h3 className="text-white font-semibold text-base mb-3">Traditional Airport Retail Failure Points</h3>
-                <ul className="space-y-2">
+            <div className="flex flex-col gap-4 justify-center">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="text-white font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
+                <ul className="space-y-3">
                   {[
                     "Activation starts only after the traveller clears security",
                     "Retailers compete for attention through impulse purchasing",
@@ -175,15 +175,15 @@ function SlideProblem() {
                     "No financial reason for a non-intending buyer to enter a store",
                     "73% of passengers walk straight to the gate",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
+                    <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
-                      <span className="text-slate-300 text-xs">{item}</span>
+                      <span className="text-slate-300 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-4">
-                <p className="text-blue-200 text-xs leading-relaxed italic">
+              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-5">
+                <p className="text-blue-200 text-sm leading-relaxed italic">
                   "Large passenger flows do not automatically become retail customers. The 73% represents conversion headroom — not a permanent ceiling."
                 </p>
               </div>
