@@ -42,7 +42,7 @@ function SlideWrapper({ children, dark = false }) {
 function GridBg() {
   return (
     <div className="absolute inset-0 opacity-5" style={{
-      backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
+      backgroundImage: "linear-gradient(rgba(249,115,22,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.4) 1px, transparent 1px)",
       backgroundSize: "40px 40px"
     }} />
   );
@@ -55,7 +55,7 @@ function SlideCover() {
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #f97316 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-8 lg:gap-16">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
             <DutyBoostLogo height={50} linkTo={null} />
@@ -63,7 +63,7 @@ function SlideCover() {
           <div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
               Drive Incremental Sales.<br />
-              <span className="text-blue-400">Pay Only on Performance.</span>
+              <span className="text-orange-400">Pay Only on Performance.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-slate-300 max-w-3xl leading-relaxed">
               A presentation for Airport Duty-Free & Travel Retail Operators
@@ -76,7 +76,7 @@ function SlideCover() {
               { label: "Setup Fee", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center">
-                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-blue-400 whitespace-nowrap">{s.value}</div>
+                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-orange-400 whitespace-nowrap">{s.value}</div>
                 <div className="text-xs sm:text-sm lg:text-lg text-slate-400 mt-1 whitespace-nowrap">{s.label}</div>
               </div>
             ))}
@@ -98,20 +98,20 @@ function SlideProblem() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Problem</span>
+            <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">The Problem</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              90–95% of Passengers Never Make<br /><span className="text-blue-400">a Duty-Free Purchase</span>
+              90–95% of Passengers Never Make<br /><span className="text-orange-400">a Duty-Free Purchase</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">9.8B</div>
+                <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-1">9.8B</div>
                 <div className="text-white font-semibold">Global passenger movements in 2025</div>
                 <div className="text-slate-400 text-sm mt-1">ACI World — enormous audience already in transit</div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-1">5–10%</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">5–10%</div>
                 <div className="text-white font-semibold">Global duty-free store conversion rate</div>
                 <div className="text-slate-400 text-sm mt-1">Only 5–10% of travelers buy (Kearney / TFWA)</div>
               </div>
@@ -138,8 +138,8 @@ function SlideProblem() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-5">
-                <p className="text-blue-200 text-sm leading-relaxed italic">
+              <div className="bg-orange-900/30 border border-orange-500/30 rounded-2xl p-5">
+                <p className="text-orange-200 text-sm leading-relaxed italic">
                   "Only 5–10% of travelers buy in airport duty-free stores. The structural weakness is timing — by the time the traveller reaches the store, the commercial opportunity has already narrowed." (Kearney / TFWA)
                 </p>
               </div>
@@ -159,9 +159,9 @@ function SlideSolution() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5 lg:mb-10">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Solution</span>
+            <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">The Solution</span>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              Activate the Traveller<br /><span className="text-blue-400">Before They Reach Your Store</span>
+              Activate the Traveller<br /><span className="text-orange-400">Before They Reach Your Store</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-5 lg:mb-10">
@@ -177,13 +177,13 @@ function SlideSolution() {
                   ].map((row, i) => (
                     <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
                       <span className="text-red-300 bg-red-900/30 rounded px-2 py-1 text-center">{row.from}</span>
-                      <ArrowRight size={12} className="text-blue-400 flex-shrink-0" />
+                      <ArrowRight size={12} className="text-orange-400 flex-shrink-0" />
                       <span className="text-green-300 bg-green-900/30 rounded px-2 py-1 text-center">{row.to}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-5 lg:p-7">
+              <div className="bg-gradient-to-br from-orange-900/50 to-indigo-900/50 border border-orange-500/30 rounded-2xl p-5 lg:p-7">
                 <div className="grid grid-cols-3 gap-4 lg:gap-6 text-center">
                   {[
                     { val: "€1–€60", label: "Traveller DutyCredit value" },
@@ -191,7 +191,7 @@ function SlideSolution() {
                     { val: "€0", label: "Setup or licence cost" },
                   ].map((s) => (
                     <div key={s.label}>
-                      <div className="text-lg md:text-xl lg:text-2xl font-bold text-blue-300 whitespace-nowrap">{s.val}</div>
+                      <div className="text-lg md:text-xl lg:text-2xl font-bold text-orange-300 whitespace-nowrap">{s.val}</div>
                       <div className="text-slate-400 text-xs lg:text-sm mt-1">{s.label}</div>
                     </div>
                   ))}
@@ -202,8 +202,8 @@ function SlideSolution() {
               <h3 className="text-white font-bold text-base lg:text-lg mb-4">The DutyBoost Journey</h3>
               <div className="flex flex-col gap-2 lg:gap-3">
                 {[
-                  { n: "1", step: "Traveller books flight / hotel / car", color: "bg-blue-600" },
-                  { n: "2", step: "Travel Partner distributes DutyCredit", color: "bg-blue-600" },
+                  { n: "1", step: "Traveller books flight / hotel / car", color: "bg-orange-600" },
+                  { n: "2", step: "Travel Partner distributes DutyCredit", color: "bg-orange-600" },
                   { n: "3", step: "Traveller activates the benefit", color: "bg-indigo-600" },
                   { n: "4", step: "Arrives at airport with purchase intent", color: "bg-indigo-600" },
                   { n: "5", step: "Visits your participating store", color: "bg-violet-600" },
@@ -231,19 +231,19 @@ function SlideHowItWorks() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">For the Retailer</span>
+          <span className="text-orange-600 text-sm font-semibold uppercase tracking-widest">For the Retailer</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            Simple to Join. <span className="text-blue-600">Zero Upfront Cost.</span>
+            Simple to Join. <span className="text-orange-600">Zero Upfront Cost.</span>
           </h2>
           <p className="text-slate-500 mt-1 text-sm">No subscription. No setup fee. No inventory risk. You pay only when a qualifying transaction is validated.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {[
             {
-              icon: <Cpu className="w-8 h-8 text-blue-600" />,
+              icon: <Cpu className="w-8 h-8 text-orange-600" />,
               title: "Integrate Once",
               desc: "DutyBoost connects to your existing Enterprise POS. No replacement of existing systems.",
-              color: "blue",
+              color: "orange",
             },
             {
               icon: <TravelerIcon className="w-8 h-8 text-violet-600" />,
@@ -314,9 +314,9 @@ function SlideEconomics() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
+            <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              €100 Qualifying Retail Value — <span className="text-blue-400">How It Splits</span>
+              €100 Qualifying Retail Value — <span className="text-orange-400">How It Splits</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -325,8 +325,8 @@ function SlideEconomics() {
                 <div className="space-y-2">
                   {[
                     { label: "Original qualifying retail value", val: "€100.00", style: "text-white font-bold text-lg" },
-                    { label: "Traveller DutyCredit saving", val: "€10.00", style: "text-orange-300" },
-                    { label: "Traveller actually pays", val: "€90.00", style: "text-blue-300" },
+                    { label: "Traveller DutyCredit saving", val: "€10.00", style: "text-blue-300" },
+                    { label: "Traveller actually pays", val: "€90.00", style: "text-orange-300" },
                     { label: "DutyBoost platform fee (2.5%)", val: "€2.50", style: "text-slate-400" },
                   ].map((row, i) => (
                     <div key={i} className={`flex justify-between items-center py-1 border-b border-white/5 ${i === 0 ? "pb-2 mb-1" : ""}`}>
@@ -344,14 +344,14 @@ function SlideEconomics() {
                 <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Value distribution on €100</div>
                 <div className="flex h-5 rounded-full overflow-hidden gap-px">
                   <div className="bg-green-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
-                  <div className="bg-orange-400" style={{ width: "10%" }} title="Traveller 10%" />
-                  <div className="bg-blue-500" style={{ width: "2.5%" }} title="DutyBoost 2.5%" />
+                  <div className="bg-blue-400" style={{ width: "10%" }} title="Traveller 10%" />
+                  <div className="bg-orange-500" style={{ width: "2.5%" }} title="DutyBoost 2.5%" />
                 </div>
                 <div className="flex gap-3 mt-2 flex-wrap text-xs">
                   {[
                     { color: "bg-green-500", label: "Retailer 87.5%" },
-                    { color: "bg-orange-400", label: "Traveller 10%" },
-                    { color: "bg-blue-500", label: "DutyBoost 2.5%" },
+                    { color: "bg-blue-400", label: "Traveller 10%" },
+                    { color: "bg-orange-500", label: "DutyBoost 2.5%" },
                   ].map((l) => (
                     <div key={l.label} className="flex items-center gap-1">
                       <div className={`w-3 h-3 rounded-sm ${l.color}`} />
@@ -377,12 +377,12 @@ function SlideEconomics() {
                     { item: "DutyBoost platform fee", val: "€2.50", sub: "2.5% of original value" },
                     { item: "Total cost to retailer", val: "€12.50", sub: "12.5% of original value", highlight: true },
                   ].map((row, i) => (
-                    <div key={i} className={`flex justify-between items-center p-2 rounded-lg ${row.highlight ? "bg-blue-900/50 border border-blue-500/30" : ""}`}>
+                    <div key={i} className={`flex justify-between items-center p-2 rounded-lg ${row.highlight ? "bg-orange-900/50 border border-orange-500/30" : ""}`}>
                       <div>
-                        <div className={`${row.highlight ? "text-blue-200 font-bold" : "text-slate-300"}`}>{row.item}</div>
+                        <div className={`${row.highlight ? "text-orange-200 font-bold" : "text-slate-300"}`}>{row.item}</div>
                         <div className="text-slate-500 text-xs">{row.sub}</div>
                       </div>
-                      <span className={`font-bold ${row.highlight ? "text-blue-300 text-lg" : "text-slate-300"}`}>{row.val}</span>
+                      <span className={`font-bold ${row.highlight ? "text-orange-300 text-lg" : "text-slate-300"}`}>{row.val}</span>
                     </div>
                   ))}
                 </div>
@@ -402,9 +402,9 @@ function SlideTiers() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">DutyCredit Structure</span>
+          <span className="text-orange-600 text-sm font-semibold uppercase tracking-widest">DutyCredit Structure</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            Incentive Grows With <span className="text-blue-600">Basket Value</span>
+            Incentive Grows With <span className="text-orange-600">Basket Value</span>
           </h2>
           <p className="text-slate-500 mt-1 text-sm">The DutyCredit is not a flat discount. It rewards higher-spend travellers more — increasing both the incentive to purchase and the transaction value to the retailer.</p>
         </div>
@@ -422,8 +422,8 @@ function SlideTiers() {
               { tier: "Premium", range: "€250–€299", disc: "17.5%–20%", save: "€43.75–€57.00", highlight: false },
               { tier: "VIP", range: "€300+", disc: "20% capped", save: "Up to €60", highlight: false },
             ].map((row, i) => (
-              <div key={i} className={`grid grid-cols-4 gap-2 py-2 px-2 rounded-lg text-sm ${row.highlight ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
-                <span className={`font-semibold ${row.highlight ? "text-blue-200" : "text-blue-400"}`}>{row.tier}</span>
+              <div key={i} className={`grid grid-cols-4 gap-2 py-2 px-2 rounded-lg text-sm ${row.highlight ? "bg-orange-800/60" : "hover:bg-white/5"}`}>
+                <span className={`font-semibold ${row.highlight ? "text-orange-200" : "text-orange-400"}`}>{row.tier}</span>
                 <span className="text-slate-300">{row.range}</span>
                 <span className="text-yellow-300">{row.disc}</span>
                 <span className="text-green-300 font-semibold text-right">{row.save}</span>
@@ -436,7 +436,7 @@ function SlideTiers() {
             {
               title: "Higher Baskets",
               body: "The tiered structure encourages travellers to spend more to reach the next incentive level — increasing your average transaction value.",
-              color: "blue",
+              color: "orange",
             },
             {
               title: "Priority Categories",
@@ -466,9 +466,9 @@ function SlideIncremental() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Retailer Proposition</span>
+          <span className="text-orange-600 text-sm font-semibold uppercase tracking-widest">The Retailer Proposition</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            Incremental Revenue Is <span className="text-blue-600">The Only Revenue That Matters</span>
+            Incremental Revenue Is <span className="text-orange-600">The Only Revenue That Matters</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
@@ -484,17 +484,17 @@ function SlideIncremental() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 flex flex-col justify-center">
-            <h3 className="font-bold text-blue-900 mb-3">At 1 Million €100 Incremental Transactions</h3>
+          <div className="bg-orange-50 border border-orange-200 rounded-2xl p-5 flex flex-col justify-center">
+            <h3 className="font-bold text-orange-900 mb-3">At 1 Million €100 Incremental Transactions</h3>
             <div className="space-y-2">
               {[
                 { party: "Travellers receive", val: "€10M in DutyCredit value" },
                 { party: "Retailer net (before costs)", val: "€87.5M" },
                 { party: "DutyBoost earns", val: "€2.5M infrastructure revenue" },
               ].map((row, i) => (
-                <div key={i} className="flex justify-between items-center text-sm py-1 border-b border-blue-100 last:border-0">
-                  <span className="text-blue-800">{row.party}</span>
-                  <span className="font-bold text-blue-900">{row.val}</span>
+                <div key={i} className="flex justify-between items-center text-sm py-1 border-b border-orange-100 last:border-0">
+                  <span className="text-orange-800">{row.party}</span>
+                  <span className="font-bold text-orange-900">{row.val}</span>
                 </div>
               ))}
             </div>
@@ -520,8 +520,8 @@ function SlideIncremental() {
               { pp: "+1 pp", txns: "1.8M", retail: "€180M", ret: "€157.5M" },
               { pp: "+2 pp", txns: "3.6M", retail: "€360M", ret: "€315M" },
             ].map((row, i) => (
-              <div key={i} className={`grid grid-cols-4 gap-4 text-sm py-2.5 px-3 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
-                <span className="text-blue-400">{row.pp}</span>
+              <div key={i} className={`grid grid-cols-4 gap-4 text-sm py-2.5 px-3 rounded-lg ${i === 1 ? "bg-orange-800/50 font-semibold" : ""}`}>
+                <span className="text-orange-400">{row.pp}</span>
                 <span className="text-slate-300">{row.txns}</span>
                 <span className="text-slate-300">{row.retail}</span>
                 <span className="text-green-300 text-right">{row.ret} net</span>
@@ -542,9 +542,9 @@ function SlideIntegrate() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5 lg:mb-10">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
+            <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              Integrate Once.<br /><span className="text-blue-400">Deploy Repeatedly.</span>
+              Integrate Once.<br /><span className="text-orange-400">Deploy Repeatedly.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
@@ -565,7 +565,7 @@ function SlideIntegrate() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
+            <div className="bg-gradient-to-br from-indigo-900/60 to-orange-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
               <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">INTEGRATE ONCE</h3>
               <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
                 One production-ready integration with an Enterprise POS Provider can enable DutyBoost across multiple retailers, stores, airports and geographic markets.
@@ -577,7 +577,7 @@ function SlideIntegrate() {
                   { val: "Global", label: "deployment" },
                 ].map((s) => (
                   <div key={s.label} className="bg-white/5 rounded-xl p-3">
-                    <div className="text-blue-300 font-bold">{s.val}</div>
+                    <div className="text-orange-300 font-bold">{s.val}</div>
                     <div className="text-slate-400 text-xs mt-1">{s.label}</div>
                   </div>
                 ))}
@@ -596,15 +596,15 @@ function SlideScale() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Your Incremental Revenue</span>
+          <span className="text-orange-600 text-sm font-semibold uppercase tracking-widest">Your Incremental Revenue</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            What DutyBoost Can Bring <span className="text-blue-600">to Your Stores</span>
+            What DutyBoost Can Bring <span className="text-orange-600">to Your Stores</span>
           </h2>
           <p className="text-slate-500 mt-1 text-sm">If just 1% more of your non-purchasing passengers convert through a DutyBoost-validated transaction — incremental revenue from travellers who otherwise would not have bought.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {[
-            { size: "Compact Airport", pax: "2M passengers/yr", conv: "+1% = 20K txns", net: "€1.75M", color: "blue" },
+            { size: "Compact Airport", pax: "2M passengers/yr", conv: "+1% = 20K txns", net: "€1.75M", color: "orange" },
             { size: "Regional Airport", pax: "10M passengers/yr", conv: "+1% = 100K txns", net: "€8.75M", color: "indigo" },
             { size: "Major Hub", pax: "30M+ passengers/yr", conv: "+1% = 300K txns", net: "€26.25M", color: "violet" },
           ].map((s) => (
@@ -627,8 +627,8 @@ function SlideScale() {
                 { pp: "+2% conversion", mult: "2× the figures above" },
                 { pp: "+5% conversion", mult: "5× the figures above" },
               ].map((row, i) => (
-                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
-                  <span className="text-blue-300">{row.pp}</span>
+                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-orange-800/50 font-semibold" : ""}`}>
+                  <span className="text-orange-300">{row.pp}</span>
                   <span className="text-slate-300">{row.mult}</span>
                 </div>
               ))}
@@ -663,13 +663,13 @@ function SlideGetStarted() {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #f97316 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
           <div className="mb-4 lg:mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
+            <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
             <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-white mt-2 leading-tight">
               Fast to Launch.<br />
-              <span className="text-blue-400">Faster to Incremental Revenue.</span>
+              <span className="text-orange-400">Faster to Incremental Revenue.</span>
             </h2>
           </div>
           <p className="text-slate-300 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
@@ -683,13 +683,13 @@ function SlideGetStarted() {
               { title: "Higher Average Baskets", desc: "The tiered DutyCredit structure rewards higher spend, encouraging travellers to reach the next incentive level." },
             ].map((card, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 lg:p-5 text-left">
-                <div className="text-blue-300 font-bold lg:text-base mb-1.5">{card.title}</div>
+                <div className="text-orange-300 font-bold lg:text-base mb-1.5">{card.title}</div>
                 <div className="text-slate-400 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
               </div>
             ))}
           </div>
           <div className="flex flex-col items-center gap-1.5">
-            <p className="text-blue-400 text-base lg:text-xl font-bold">
+            <p className="text-orange-400 text-base lg:text-xl font-bold">
               No setup fee. No subscription. No risk. Only incremental revenue — connected.
             </p>
             <p className="text-slate-300 text-sm lg:text-base font-semibold">
@@ -764,7 +764,7 @@ export default function RetailerPitchDeck() {
               onClick={() => setCurrent(i)}
               title={SLIDE_LABELS[s.type]}
               className={`text-xs px-3 py-1 rounded-lg transition-all font-medium ${
-                i === current ? "bg-blue-600 text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
+                i === current ? "bg-orange-600 text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
               }`}
             >
               {i + 1}
@@ -774,7 +774,7 @@ export default function RetailerPitchDeck() {
         <button
           onClick={next}
           disabled={current === SLIDES.length - 1}
-          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-orange-600 text-white hover:bg-orange-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
         >
           Next <ChevronRight size={18} />
         </button>
