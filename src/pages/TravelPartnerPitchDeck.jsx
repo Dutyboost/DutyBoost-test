@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, BarChart3, Plug, ShieldCheck, Globe, Wallet, Gift } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import TravelAgencyIcon from "@/components/TravelAgencyIcon";
+import HotelIcon from "@/components/HotelIcon";
+import CarRentalIcon from "@/components/CarRentalIcon";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -574,13 +577,13 @@ function SlideIntegrate() {
               </p>
               <div className="grid grid-cols-3 gap-3 text-center">
                 {[
-                  { val: "✈️", label: "Flights" },
-                  { val: "🏨", label: "Hotels" },
-                  { val: "🚗", label: "Car Rental" },
+                  { icon: <TravelAgencyIcon className="w-7 h-7 text-emerald-300 mx-auto" />, label: "Flights" },
+                  { icon: <HotelIcon className="w-7 h-7 text-emerald-300 mx-auto" />, label: "Hotels" },
+                  { icon: <CarRentalIcon className="w-7 h-7 text-emerald-300 mx-auto" />, label: "Car Rental" },
                 ].map((s) => (
                   <div key={s.label} className="bg-white/5 rounded-xl p-3">
-                    <div className="text-emerald-300 font-bold text-lg">{s.val}</div>
-                    <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                    <div className="flex justify-center">{s.icon}</div>
+                    <div className="text-slate-400 text-xs mt-2">{s.label}</div>
                   </div>
                 ))}
               </div>
