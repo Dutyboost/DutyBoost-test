@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Ship, Train, Bus, Store, Users } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Ship, Train, Bus, Store, Users, Building2 } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -351,6 +351,39 @@ While the flag is false, the eligibility page behaves exactly as before. Flip it
       "lib/retailerEligibility.js",
       "pages/EligibilityShowcase.jsx",
       "lib/i18nEligibility.js",
+    ],
+  },
+  {
+    id: "corporate-travel-partner",
+    icon: Building2,
+    title: "Corporate Travel Partner (Cost-Recovery Model)",
+    status: "hidden",
+    reason: "New partner segment — pages built, gated from public nav pending go-to-market",
+    description: `A fourth travel-partner variant: companies with travelling employees onboard as a Corporate Travel Partner (not a buyer). They reuse the standard circular revenue model — the retailer still funds the 2.5% fee and the discount; the company pays nothing and earns a 20% share (0.5% of every validated airport basket) as T&E cost recovery.
+
+The model adds a predictable, recurring traveller pool to the pipeline (each onboarded company = many scheduled business trips) without changing the money flow or requiring a Letter of Intent.
+
+JOURNEY: Approve trip → issue DutyCredit via one snippet in the TMC/expense flow → employee redeems at a participating airport retailer → POS validates → DutyBoost attributes the redemption to the company → monthly commission payout.
+
+This is intentionally distinct from the existing "business-travel" hidden feature (which is a corporate-funded / per-diem-replacement model). That older module remains its own hidden feature; this one is the partner/cost-recovery variant.
+
+No Letter of Intent is used in this flow.`,
+    pages: [
+      { label: "One-Pager", path: "/corporate-partner-one-pager" },
+      { label: "Pitch Deck", path: "/corporate-partner-pitch" },
+    ],
+    howToRestore: [
+      "Both pages are live at their routes but not linked from the landing page or any public nav — they are intentionally gated.",
+      "In pages/LandingPage.jsx: add a 'For Corporate Travel' stakeholder card/button linking to /corporate-partner-one-pager when ready to expose.",
+      "In pages/SelectUserType.jsx: add a 'Corporate Travel Partner' option linking to the onboarding flow once the per-trip DutyCredit issuance is wired.",
+      "Wire the onboarding flow (partner record → per-trip DutyCredit issuance → attribution → monthly payout) to the existing corporate pages (BusinessTravel / BusinessTravelGetStarted / CorporateTravelDashboard) — no LOI step.",
+      "Add 'Corporate Partner' as a business_type option in the SignupApplication entity when opening self-serve signup.",
+      "Strings live in src/lib/i18nCorporate.js under the `corporate` namespace (one-pager + pitch deck, all 6 languages).",
+    ],
+    files: [
+      "pages/CorporatePartnerOnePager.jsx",
+      "pages/CorporatePartnerPitchDeck.jsx",
+      "lib/i18nCorporate.js",
     ],
   },
 ];

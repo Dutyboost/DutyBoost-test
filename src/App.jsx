@@ -80,6 +80,7 @@ import FlightPartnerOnePager from './pages/FlightPartnerOnePager';
 import AccommodationPartnerOnePager from './pages/AccommodationPartnerOnePager';
 import CarRentalPartnerOnePager from './pages/CarRentalPartnerOnePager';
 import RetailerOnePager from './pages/RetailerOnePager';
+import CorporatePartnerOnePager from './pages/CorporatePartnerOnePager';
 import AgglomerationTravelPartnerOnePager from './pages/TravelStackOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
@@ -129,6 +130,7 @@ import InvestorPitchDeck from './pages/InvestorPitchDeck';
 import RetailerPitchDeck from './pages/RetailerPitchDeck';
 import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
+import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -263,6 +265,8 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
         <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
+        <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
+        <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />

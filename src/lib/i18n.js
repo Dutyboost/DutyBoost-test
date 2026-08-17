@@ -6,6 +6,7 @@ import { claimDutyCreditStrings } from './i18nClaimDutyCredit';
 import { presentationStrings } from './i18nPresentation';
 import { eligibilityStrings } from './i18nEligibility';
 import { posChannelStrings } from './i18nPosChannel';
+import { corporateStrings } from './i18nCorporate';
 import en from '../locales/en';
 import nl from '../locales/nl';
 import fr from '../locales/fr';
@@ -404,6 +405,12 @@ const resources = {
     },
   },
 };
+
+Object.keys(resources).forEach((lng) => {
+  if (lng !== 'old_en') {
+    resources[lng].translation.corporate = corporateStrings[lng] || corporateStrings.en;
+  }
+});
 
 delete resources.old_en;
 
