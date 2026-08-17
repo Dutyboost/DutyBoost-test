@@ -200,7 +200,7 @@ export const corporateStrings = {
         why3_item: "Capped at €5 per transaction",
         why3_val: "Predictable payout",
         why3_sub: "Higher baskets still earn, up to the cap",
-        note: "Paid monthly by DutyBoost — out of its own fee. Never a cost to you or your travellers.",
+        note: "Paid monthly by DutyBoost — out of its own fee. Never a cost to you or your travellers. The commission is credited against your T&E costs, directly lowering the net cost of every business trip your employees take.",
       },
       scale: {
         eyebrow: "Your Cost Recovery",
@@ -485,7 +485,7 @@ export const corporateStrings = {
         why3_item: "Gelimiteerd op €5 per transactie",
         why3_val: "Voorspelbare uitbetaling",
         why3_sub: "Hogere bestedingen verdienen ook, tot de limiet",
-        note: "Maandelijks uitbetaald door DutyBoost — uit de eigen vergoeding. Nooit een kostenpost voor u of uw reizigers.",
+        note: "Maandelijks uitbetaald door DutyBoost — uit de eigen vergoeding. Nooit een kostenpost voor u of uw reizigers. De commissie wordt verrekend met uw T&E-kosten en verlaagt direct de nettokost van elke zakenreis die uw werknemers maken.",
       },
       scale: {
         eyebrow: "Uw kostenrecuperatie",
@@ -770,7 +770,7 @@ export const corporateStrings = {
         why3_item: "Plafonné à 5 € par transaction",
         why3_val: "Versement prévisible",
         why3_sub: "Les paniers plus élevés rapportent aussi, jusqu'au plafond",
-        note: "Versé mensuellement par DutyBoost — sur ses propres frais. Jamais un coût pour vous ou vos voyageurs.",
+        note: "Versé mensuellement par DutyBoost — sur ses propres frais. Jamais un coût pour vous ou vos voyageurs. La commission est imputée à vos coûts de notes de frais, réduisant directement le coût net de chaque déplacement professionnel de vos collaborateurs.",
       },
       scale: {
         eyebrow: "Votre récupération de coûts",
@@ -1055,7 +1055,7 @@ export const corporateStrings = {
         why3_item: "Auf 5 € pro Transaktion gedeckelt",
         why3_val: "Vorhersehbare Auszahlung",
         why3_sub: "Höhere Warenkörbe verdienen ebenfalls, bis zur Deckelung",
-        note: "Monatlich von DutyBoost ausgezahlt — aus der eigenen Gebühr. Nie ein Kostenpunkt für Sie oder Ihre Reisenden.",
+        note: "Monatlich von DutyBoost ausgezahlt — aus der eigenen Gebühr. Nie ein Kostenpunkt für Sie oder Ihre Reisenden. Die Provision wird mit Ihren T&E-Kosten verrechnet und senkt direkt die Nettokosten jeder Geschäftsreise Ihrer Mitarbeiter.",
       },
       scale: {
         eyebrow: "Ihre Kostendeckung",
@@ -1340,7 +1340,7 @@ export const corporateStrings = {
         why3_item: "Limitado a 5 € por transacción",
         why3_val: "Pago predecible",
         why3_sub: "Las cestas más altas también ganan, hasta el límite",
-        note: "Pagado mensualmente por DutyBoost — con su propia tarifa. Nunca un coste para usted ni para sus viajeros.",
+        note: "Pagado mensualmente por DutyBoost — con su propia tarifa. Nunca un coste para usted ni para sus viajeros. La comisión se imputa a sus costes de gastos de viaje, reduciendo directamente el coste neto de cada viaje de negocios de sus empleados.",
       },
       scale: {
         eyebrow: "Su recuperación de costes",
@@ -1625,7 +1625,7 @@ export const corporateStrings = {
         why3_item: "Limitato a 5 € per transazione",
         why3_val: "Pagamento prevedibile",
         why3_sub: "Cestini più alti guadagnano comunque, fino al tetto",
-        note: "Pagato mensilmente da DutyBoost — con la propria tariffa. Mai un costo per te o per i tuoi viaggiatori.",
+        note: "Pagato mensilmente da DutyBoost — con la propria tariffa. Mai un costo per te o per i tuoi viaggiatori. La commissione è imputata ai tuoi costi di note spese, riducendo direttamente il costo netto di ogni trasferta dei tuoi dipendenti.",
       },
       scale: {
         eyebrow: "Il tuo recupero dei costi",
