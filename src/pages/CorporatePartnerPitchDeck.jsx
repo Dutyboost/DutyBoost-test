@@ -11,6 +11,7 @@ const SLIDES = [
   { id: "solution", type: "solution" },
   { id: "howItWorks", type: "howItWorks" },
   { id: "economics", type: "economics" },
+  { id: "tiers", type: "tiers" },
   { id: "scale", type: "scale" },
   { id: "benefits", type: "benefits" },
   { id: "integrate", type: "integrate" },
@@ -376,6 +377,60 @@ function SlideEconomics({ t }) {
   );
 }
 
+function SlideTiers({ t }) {
+  const s = t("corporate.pitch.tiers", { returnObjects: true });
+  const rows = [
+    { tier: "Entry", range: "€20–€49", disc: "5%–7.5%", save: "€1.00–€3.19", highlight: false },
+    { tier: "Boarding", range: "€50–€99", disc: "7.5%–10%", save: "€3.75–€9.41", highlight: false },
+    { tier: "Standard", range: "€100–€149", disc: "10%–12.5%", save: "€10.00–€18.25", highlight: true },
+    { tier: "Plus", range: "€150–€199", disc: "12.5%–15%", save: "€18.75–€29.04", highlight: false },
+    { tier: "Lounge", range: "€200–€249", disc: "15%–17.5%", save: "€30.00–€42.75", highlight: false },
+    { tier: "Premium", range: "€250–€299", disc: "17.5%–20%", save: "€43.75–€57.00", highlight: false },
+    { tier: "VIP", range: "€300+", disc: "20% capped", save: "Up to €60", highlight: false },
+  ];
+  const cards = [
+    { title: s.card1_title, desc: s.card1_desc, cardCls: "bg-indigo-50 border-indigo-200", titleCls: "text-indigo-800", bodyCls: "text-indigo-700" },
+    { title: s.card2_title, desc: s.card2_desc, cardCls: "bg-orange-50 border-orange-200", titleCls: "text-orange-800", bodyCls: "text-orange-700" },
+    { title: s.card3_title, desc: s.card3_desc, cardCls: "bg-violet-50 border-violet-200", titleCls: "text-violet-800", bodyCls: "text-violet-700" },
+  ];
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
+        <div className="mb-5">
+          <span className="text-indigo-600 text-sm font-semibold uppercase tracking-widest">{s.eyebrow}</span>
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+            {s.title1} <span className="text-indigo-600">{s.title2}</span>
+          </h2>
+          <p className="text-slate-500 mt-1 text-sm">{s.subtitle}</p>
+        </div>
+        <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6 mb-5">
+          <div className="grid grid-cols-4 gap-2 text-xs text-slate-400 mb-2 px-2">
+            <span>{s.colTier}</span><span>{s.colRange}</span><span>{s.colDiscount}</span><span className="text-right">{s.colSave}</span>
+          </div>
+          <div className="space-y-1.5">
+            {rows.map((row, i) => (
+              <div key={i} className={`grid grid-cols-4 gap-2 py-2 px-2 rounded-lg text-sm ${row.highlight ? "bg-indigo-800/60" : "hover:bg-white/5"}`}>
+                <span className={`font-semibold ${row.highlight ? "text-indigo-200" : "text-indigo-400"}`}>{row.tier}</span>
+                <span className="text-slate-300">{row.range}</span>
+                <span className="text-yellow-300">{row.disc}</span>
+                <span className="text-green-300 font-semibold text-right">{row.save}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {cards.map((card, i) => (
+            <div key={i} className={`${card.cardCls} border rounded-xl p-4`}>
+              <div className={`font-bold ${card.titleCls} mb-2`}>{card.title}</div>
+              <div className={`${card.bodyCls} text-sm leading-relaxed`}>{card.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
 function SlideScale({ t }) {
   const s = t("corporate.pitch.scale", { returnObjects: true });
   const c = t("corporate.common", { returnObjects: true });
@@ -573,6 +628,7 @@ const SLIDE_COMPONENTS = {
   solution: SlideSolution,
   howItWorks: SlideHowItWorks,
   economics: SlideEconomics,
+  tiers: SlideTiers,
   scale: SlideScale,
   benefits: SlideBenefits,
   integrate: SlideIntegrate,
