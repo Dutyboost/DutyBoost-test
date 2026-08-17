@@ -414,7 +414,7 @@ function SlideScale({ t }) {
                 { pp: s.scale3_pp, mult: s.scale3_mult },
                 { pp: s.scale4_pp, mult: s.scale4_mult },
               ].map((row, i) => (
-                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-indigo-800/50 font-semibold" : ""}`}>
+                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 0 ? "bg-indigo-800/50 font-semibold" : ""}`}>
                   <span className="text-indigo-300">{row.pp}</span>
                   <span className="text-slate-300">{row.mult}</span>
                 </div>
