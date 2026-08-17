@@ -35,8 +35,8 @@ function GridBg() {
 }
 
 function SlideCover({ t }) {
-  const s = t("corporate.pitch.cover");
-  const c = t("corporate.common");
+  const s = t("corporate.pitch.cover", { returnObjects: true });
+  const c = t("corporate.common", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
@@ -74,7 +74,7 @@ function SlideCover({ t }) {
 }
 
 function SlideOpportunity({ t }) {
-  const s = t("corporate.pitch.opportunity");
+  const s = t("corporate.pitch.opportunity", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -110,7 +110,7 @@ function SlideOpportunity({ t }) {
 }
 
 function SlideProblem({ t }) {
-  const s = t("corporate.pitch.problem");
+  const s = t("corporate.pitch.problem", { returnObjects: true });
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
@@ -162,7 +162,7 @@ function SlideProblem({ t }) {
 }
 
 function SlideSolution({ t }) {
-  const s = t("corporate.pitch.solution");
+  const s = t("corporate.pitch.solution", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -236,7 +236,7 @@ function SlideSolution({ t }) {
 }
 
 function SlideHowItWorks({ t }) {
-  const s = t("corporate.pitch.howItWorks");
+  const s = t("corporate.pitch.howItWorks", { returnObjects: true });
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
@@ -290,7 +290,7 @@ function SlideHowItWorks({ t }) {
 }
 
 function SlideEconomics({ t }) {
-  const s = t("corporate.pitch.economics");
+  const s = t("corporate.pitch.economics", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -377,8 +377,8 @@ function SlideEconomics({ t }) {
 }
 
 function SlideScale({ t }) {
-  const s = t("corporate.pitch.scale");
-  const c = t("corporate.common");
+  const s = t("corporate.pitch.scale", { returnObjects: true });
+  const c = t("corporate.common", { returnObjects: true });
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
@@ -439,7 +439,7 @@ function SlideScale({ t }) {
 }
 
 function SlideBenefits({ t }) {
-  const s = t("corporate.pitch.benefits");
+  const s = t("corporate.pitch.benefits", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -474,7 +474,7 @@ function SlideBenefits({ t }) {
 }
 
 function SlideIntegrate({ t }) {
-  const s = t("corporate.pitch.integrate");
+  const s = t("corporate.pitch.integrate", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -522,7 +522,7 @@ function SlideIntegrate({ t }) {
 }
 
 function SlideGetStarted({ t }) {
-  const s = t("corporate.pitch.getStarted");
+  const s = t("corporate.pitch.getStarted", { returnObjects: true });
   return (
     <SlideWrapper dark>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -597,8 +597,8 @@ export default function CorporatePartnerPitchDeck() {
 
   const slide = SLIDES[current];
   const SlideComp = SLIDE_COMPONENTS[slide.type];
-  const labels = t("corporate.pitch.labels");
-  const common = t("corporate.common");
+  const labels = t("corporate.pitch.labels", { returnObjects: true });
+  const common = t("corporate.common", { returnObjects: true });
 
   return (
     <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
