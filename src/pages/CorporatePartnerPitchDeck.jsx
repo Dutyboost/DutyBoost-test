@@ -122,6 +122,19 @@ function SlideProblem({ t }) {
           </h2>
           <p className="text-slate-500 mt-1 text-sm">{s.subtitle}</p>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+          {[
+            { val: s.conv1_val, label: s.conv1_label, sub: s.conv1_sub, cls: "bg-red-50 border-red-200", valCls: "text-red-600", labelCls: "text-red-900", subCls: "text-red-700" },
+            { val: s.conv2_val, label: s.conv2_label, sub: s.conv2_sub, cls: "bg-amber-50 border-amber-200", valCls: "text-amber-700", labelCls: "text-amber-900", subCls: "text-amber-700" },
+            { val: s.conv3_val, label: s.conv3_label, sub: s.conv3_sub, cls: "bg-indigo-50 border-indigo-200", valCls: "text-indigo-600", labelCls: "text-indigo-900", subCls: "text-indigo-700" },
+          ].map((st, i) => (
+            <div key={i} className={`${st.cls} border rounded-2xl p-4`}>
+              <div className={`text-2xl font-bold ${st.valCls}`}>{st.val}</div>
+              <div className={`text-sm font-semibold ${st.labelCls} mt-1`}>{st.label}</div>
+              <div className={`text-xs ${st.subCls} mt-1`}>{st.sub}</div>
+            </div>
+          ))}
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
           <div className="bg-red-50 border border-red-200 rounded-2xl p-5">
             <h3 className="font-bold text-red-900 mb-3">{s.col1Title}</h3>
