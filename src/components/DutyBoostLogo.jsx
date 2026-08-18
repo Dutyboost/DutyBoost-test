@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9f4ba06a7_NEWUpdatedLogo.svg";
+const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/d26edd396_NEWUpdatedLogo.svg";
 
 export default function DutyBoostLogo({ height = 55, inverted = false, linkTo = "/" }) {
   const content = (
