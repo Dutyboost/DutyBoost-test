@@ -9,6 +9,7 @@ const SLIDES = [
   { id: "solution", type: "solution" },
   { id: "howItWorks", type: "howItWorks" },
   { id: "economics", type: "economics" },
+  { id: "tiers", type: "tiers" },
   { id: "scale", type: "scale" },
   { id: "benefits", type: "benefits" },
   { id: "integrate", type: "integrate" },
@@ -22,6 +23,7 @@ const SLIDE_LABELS = {
   solution: "The Solution",
   howItWorks: "How It Works",
   economics: "Transaction Economics",
+  tiers: "DutyCredit Tiers",
   scale: "Revenue at Scale",
   benefits: "Strategic Benefits",
   integrate: "Integration Simplicity",
@@ -350,7 +352,7 @@ function SlideEconomics() {
           <div className="mb-5">
             <span className="text-violet-400 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              €100 Validated Sale — <span className="text-violet-400">Where the POS Share Comes From</span>
+              €100 Validated Basket — <span className="text-violet-400">Example of Your 0.25% Share</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -398,7 +400,7 @@ function SlideEconomics() {
               <div className="bg-gradient-to-br from-violet-900/50 to-indigo-900/50 border border-violet-500/30 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-3">The Core Question</h3>
                 <p className="text-violet-200 text-base leading-relaxed font-semibold">
-                  “Is earning €0.25 on every €100 of incremental, validated retail volume — with zero upfront cost and no operational risk — a meaningful new revenue line for a POS provider already processing those transactions?”
+                  “Is earning 0.25% on every validated DutyCredit basket — with zero upfront cost and no operational risk — a meaningful new revenue line for a POS provider already processing those transactions?”
                 </p>
                 <p className="text-violet-400 font-bold text-lg mt-3">Yes — and it scales with your footprint.</p>
               </div>
@@ -419,7 +421,7 @@ function SlideEconomics() {
                     </div>
                   ))}
                 </div>
-                <p className="text-slate-400 text-xs mt-3">Paid only on validated DutyBoost transactions. No cost on ordinary transactions or non-converting travellers.</p>
+                <p className="text-slate-400 text-xs mt-3">The €100 basket is illustrative — your 0.25% commission applies to every validated DutyCredit redemption, whatever its size. Paid only on validated DutyBoost transactions; no cost on ordinary transactions or non-converting travellers.</p>
               </div>
             </div>
           </div>
@@ -429,7 +431,60 @@ function SlideEconomics() {
   );
 }
 
-// SLIDE 7: Revenue at Scale
+// SLIDE 7: DutyCredit Tiers
+function SlideTiers() {
+  const rows = [
+    { tier: "Entry", range: "€20–€49", disc: "5%–7.5%", pos: "€0.05–€0.12", highlight: false },
+    { tier: "Boarding", range: "€50–€99", disc: "7.5%–10%", pos: "€0.13–€0.25", highlight: false },
+    { tier: "Standard", range: "€100–€149", disc: "10%–12.5%", pos: "€0.25–€0.37", highlight: true },
+    { tier: "Plus", range: "€150–€199", disc: "12.5%–15%", pos: "€0.38–€0.50", highlight: false },
+    { tier: "Lounge", range: "€200–€249", disc: "15%–17.5%", pos: "€0.50–€0.62", highlight: false },
+    { tier: "Premium", range: "€250–€299", disc: "17.5%–20%", pos: "€0.63–€0.75", highlight: false },
+    { tier: "VIP", range: "€300+", disc: "20% capped", pos: "0.25% of basket", highlight: false },
+  ];
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
+        <div className="mb-5">
+          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">DutyCredit Structure</span>
+          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+            You Earn on Every Validated Basket — <span className="text-violet-600">From €20 Upwards</span>
+          </h2>
+          <p className="text-slate-500 mt-1 text-sm">The DutyCredit discount is tiered, but your 0.25% commission applies to every validated redemption, whatever the basket size. There is no minimum threshold for you to earn.</p>
+        </div>
+        <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6 mb-5">
+          <div className="grid grid-cols-4 gap-2 text-xs text-slate-400 mb-2 px-2">
+            <span>Tier</span><span>Basket Range</span><span>Traveller Discount</span><span className="text-right">POS Commission</span>
+          </div>
+          <div className="space-y-1.5">
+            {rows.map((row, i) => (
+              <div key={i} className={`grid grid-cols-4 gap-2 py-2 px-2 rounded-lg text-sm ${row.highlight ? "bg-violet-800/60" : "hover:bg-white/5"}`}>
+                <span className={`font-semibold ${row.highlight ? "text-violet-200" : "text-violet-400"}`}>{row.tier}</span>
+                <span className="text-slate-300">{row.range}</span>
+                <span className="text-yellow-300">{row.disc}</span>
+                <span className="text-green-300 font-semibold text-right">{row.pos}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { title: "Savings Start at €20", desc: "Even a small airport basket triggers your commission — there is no €100 threshold for the POS provider to earn.", cardCls: "bg-violet-50 border-violet-200", titleCls: "text-violet-800", bodyCls: "text-violet-700" },
+            { title: "Higher Baskets, Higher Commission", desc: "The tiered discount encourages travellers to spend more — and your 0.25% commission scales with every euro of the basket.", cardCls: "bg-indigo-50 border-indigo-200", titleCls: "text-indigo-800", bodyCls: "text-indigo-700" },
+            { title: "You Earn on Every Redemption", desc: "Whether a €20 snack basket or a €300 luxury purchase, every validated DutyCredit redemption pays your 0.25% commission.", cardCls: "bg-green-50 border-green-200", titleCls: "text-green-800", bodyCls: "text-green-700" },
+          ].map((card, i) => (
+            <div key={i} className={`${card.cardCls} border rounded-xl p-4`}>
+              <div className={`font-bold ${card.titleCls} mb-2`}>{card.title}</div>
+              <div className={`${card.bodyCls} text-sm leading-relaxed`}>{card.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 8: Revenue at Scale
 function SlideScale() {
   return (
     <SlideWrapper>
@@ -439,32 +494,32 @@ function SlideScale() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             What DutyBoost Brings <span className="text-violet-600">to Your Store Network</span>
           </h2>
-          <p className="text-slate-500 mt-1 text-sm">Estimated annual POS-provider commission (10% of the 2.5% platform fee) at a 1% redemption rate, assuming €7.5M average annual sales per store.</p>
+          <p className="text-slate-500 mt-1 text-sm">Estimated annual POS-provider commission (0.25% of every validated basket) at an 80% DutyCredit redemption rate — blended across corporate, travel-partner and direct-app sources — assuming 3,000 DutyCredits issued per store per year and a €60 average basket.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {[
-            { size: "Boutique POS", stores: "50 stores", conv: "1% redemption", net: "€9,375", color: "violet" },
-            { size: "Regional POS", stores: "500 stores", conv: "1% redemption", net: "€93,750", color: "indigo" },
-            { size: "Enterprise POS", stores: "2,000 stores", conv: "1% redemption", net: "€375,000", color: "blue" },
+            { size: "Boutique POS", stores: "50 stores", conv: "80% redemption", net: "€18,000", color: "violet" },
+            { size: "Regional POS", stores: "500 stores", conv: "80% redemption", net: "€180,000", color: "indigo" },
+            { size: "Enterprise POS", stores: "2,000 stores", conv: "80% redemption", net: "€720,000", color: "blue" },
           ].map((s) => (
             <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
               <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
               <div className="text-slate-500 text-sm mb-3">{s.stores}</div>
               <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
               <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>annual POS commission</div>
-              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ €7.5M avg sales/store</div>
+              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} · 3,000 credits/store @ €60</div>
             </div>
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="bg-slate-800 text-white rounded-2xl p-5">
-            <h3 className="font-bold mb-3">It Scales With Redemption Rate</h3>
+            <h3 className="font-bold mb-3">DutyCredit Redemption Sensitivity — Targeted Travellers Redeem</h3>
             <div className="space-y-2 text-sm">
               {[
-                { pp: "0.5% redemption", mult: "½× the figures above" },
-                { pp: "1% redemption", mult: "the figures above" },
-                { pp: "2% redemption", mult: "2× the figures above" },
-                { pp: "5% redemption", mult: "5× the figures above" },
+                { pp: "100% redemption", mult: "1.25× the figures above" },
+                { pp: "80% redemption", mult: "the figures above" },
+                { pp: "60% redemption", mult: "0.75× the figures above" },
+                { pp: "40% redemption", mult: "0.5× the figures above" },
               ].map((row, i) => (
                 <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-violet-800/50 font-semibold" : ""}`}>
                   <span className="text-violet-300">{row.pp}</span>
@@ -644,6 +699,7 @@ const SLIDE_COMPONENTS = {
   solution: SlideSolution,
   howItWorks: SlideHowItWorks,
   economics: SlideEconomics,
+  tiers: SlideTiers,
   scale: SlideScale,
   benefits: SlideBenefits,
   integrate: SlideIntegrate,
