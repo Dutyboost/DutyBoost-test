@@ -38,7 +38,7 @@ export default function SurveyAirportRetailer() {
           options: ["Yes", "No"],
         },
         q4: {
-          label: "If your POS provider offered a feature that turned your non-buying traffic into incremental revenue, would you switch it on?",
+          label: "If your POS provider offered you a feature that turns non-converting passengers into incremental revenue, would you switch it on?",
           options: ["Yes", "No"],
         },
       }}
