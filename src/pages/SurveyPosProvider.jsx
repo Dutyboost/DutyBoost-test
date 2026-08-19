@@ -9,8 +9,8 @@ export default function SurveyPosProvider() {
           title: "Turn your POS network into",
           titleAccent: "recurring, performance-based revenue.",
           subtitle:
-            "DutyBoost pays your POS a 0.25% commission on every validated DutyCredit basket across your entire store network — one lightweight integration, no setup fee, no operational risk.",
-          badges: ["0.25% per sale", "No setup fee", "5 questions"],
+            "DutyBoost pays your POS a 10% commission on every validated DutyCredit basket across your entire store network perpetually — one lightweight integration, no setup fee, no operational risk.",
+          badges: ["10% per sale", "2 minutes", "5 questions"],
         },
         q1: {
           label: "What best describes your POS provider business?",
