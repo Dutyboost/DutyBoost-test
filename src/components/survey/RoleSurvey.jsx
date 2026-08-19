@@ -76,7 +76,7 @@ function OptionButton({ label, selected, onClick, onSelect }) {
 }
 
 export default function RoleSurvey({ config }) {
-  const { companyTypePrefix, hero, q1, q2, q3, q4 } = config;
+  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel } = config;
 
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -97,6 +97,7 @@ export default function RoleSurvey({ config }) {
     email: "",
     company_name: "",
     company_website: "",
+    pos_provider: "",
     phone: "",
     wants_demo: false,
     interest_level: "Yes – completed the survey",
@@ -163,6 +164,7 @@ export default function RoleSurvey({ config }) {
         email: form.email,
         company_name: form.company_name,
         company_website: form.company_website,
+        pos_provider: posProviderLabel ? form.pos_provider : "",
         phone: form.phone,
         wants_demo: form.wants_demo,
       });
@@ -329,6 +331,14 @@ export default function RoleSurvey({ config }) {
                       {websiteError && <p className="text-xs text-destructive mt-1">{websiteError}</p>}
                       {websiteValid && !verifyingWebsite && <p className="text-xs text-green-600 mt-1">✓ Website verified</p>}
                     </div>
+
+                    {posProviderLabel && (
+                      <Input
+                        placeholder={posProviderLabel}
+                        value={form.pos_provider}
+                        onChange={(e) => set("pos_provider", e.target.value)}
+                      />
+                    )}
 
                     {anonymous === false && (
                       <>

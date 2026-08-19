@@ -10,6 +10,10 @@
       "type": "string",
       "title": "Company Website"
     },
+    "pos_provider": {
+      "type": "string",
+      "title": "Point-of-Sale Provider"
+    },
     "full_name": {
       "type": "string",
       "title": "Full Name"
