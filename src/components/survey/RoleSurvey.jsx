@@ -138,14 +138,16 @@ export default function RoleSurvey({ config }) {
     if (step === 3) return form.snippet_willingness !== "";
     if (step === 4) {
       if (anonymous === null) return false;
-      if (anonymous) return !!form.company_name && websiteValid && !verifyingWebsite;
+      const posOk = !posProviderLabel || !!form.pos_provider.trim();
+      if (anonymous) return !!form.company_name && websiteValid && !verifyingWebsite && posOk;
       return (
         !!form.full_name &&
         !!form.email &&
         !!form.company_name &&
         websiteValid &&
         !verifyingWebsite &&
-        !emailError
+        !emailError &&
+        posOk
       );
     }
     return true;
