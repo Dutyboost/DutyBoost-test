@@ -26,7 +26,7 @@ export default function SurveyPosProvider() {
         },
         q3: {
           label:
-            "How appealing is earning 10% on every validated DutyCredit basket — with zero setup fee and no operational risk?",
+            "Your POS already sits at the transaction layer of travel retail — the exact point where incremental conversion is validated and attributed. Does turning your existing infrastructure into a new, recurring, performance-based revenue stream — while delivering measurable incremental sales to every retailer you serve — appeal to you?",
           options: [
             "Yes, very attractive",
             "Somewhat attractive",
