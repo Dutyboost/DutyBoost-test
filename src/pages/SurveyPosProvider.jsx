@@ -31,7 +31,6 @@ export default function SurveyPosProvider() {
             "Yes, very attractive",
             "Somewhat attractive",
             "Need more details",
-            "Not a priority right now",
           ],
         },
         q4: {
@@ -40,10 +39,9 @@ export default function SurveyPosProvider() {
           options: [
             "Yes – a lightweight API call is no problem",
             "Possibly – depends on the technical effort",
-            "Unlikely – our setup makes this hard",
-            "No – we don't modify our POS workflow",
           ],
         },
+        requireContactDetails: true,
       }}
     />
   );

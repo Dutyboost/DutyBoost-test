@@ -76,7 +76,7 @@ function OptionButton({ label, selected, onClick, onSelect }) {
 }
 
 export default function RoleSurvey({ config }) {
-  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless } = config;
+  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails } = config;
 
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -140,6 +140,17 @@ export default function RoleSurvey({ config }) {
       const posOk = !posProviderLabel || !!form.pos_provider.trim();
       if (contactless) {
         return !!form.company_name && websiteValid && !verifyingWebsite && posOk;
+      }
+      if (requireContactDetails) {
+        return (
+          !!form.full_name &&
+          !!form.email &&
+          !!form.company_name &&
+          websiteValid &&
+          !verifyingWebsite &&
+          !emailError &&
+          posOk
+        );
       }
       if (anonymous === null) return false;
       if (anonymous) return !!form.company_name && websiteValid && !verifyingWebsite && posOk;
@@ -283,13 +294,19 @@ export default function RoleSurvey({ config }) {
             <div className="space-y-5">
               <div className="space-y-4">
                 <h3 className="text-2xl font-heading font-bold">
-                  {contactless ? "Last step — Your company details" : "Last step — How would you like to respond?"}
+                  {contactless
+                    ? "Last step — Your company details"
+                    : requireContactDetails
+                    ? "Last step — Your contact details"
+                    : "Last step — How would you like to respond?"}
                 </h3>
                 <p className="text-muted-foreground text-sm">
                   {contactless
                     ? posProviderLabel
                       ? "We're gathering anonymous feedback to validate that the solution is attractive for all participants of the Circular Commercial Revenue Infrastructure for Global Travel — just share your company name, website and POS provider details."
                       : "We're gathering anonymous feedback to validate that the solution is attractive for all participants of the Circular Commercial Revenue Infrastructure for Global Travel — just share your company name and website."
+                    : requireContactDetails
+                    ? "Share your contact details so we can follow up when DutyBoost is ready to share more."
                     : "Share your contact details so we can follow up, or respond anonymously. Either way, your input is valuable."}
                 </p>
 
@@ -323,6 +340,7 @@ export default function RoleSurvey({ config }) {
                   </div>
                 ) : (
                   <>
+                    {!requireContactDetails && (
                     <div className="grid grid-cols-1 gap-3">
                       <button
                         type="button"
@@ -353,8 +371,9 @@ export default function RoleSurvey({ config }) {
                         </div>
                       </button>
                     </div>
+                    )}
 
-                    {anonymous !== null && (
+                    {(requireContactDetails || anonymous !== null) && (
                       <div className="space-y-3 pt-1">
                         <Input placeholder="Company name *" value={form.company_name} onChange={(e) => set("company_name", e.target.value)} />
                         <div>
@@ -382,7 +401,7 @@ export default function RoleSurvey({ config }) {
                           />
                         )}
 
-                        {anonymous === false && (
+                        {(anonymous === false || requireContactDetails) && (
                           <>
                             <Input placeholder="Full name *" value={form.full_name} onChange={(e) => set("full_name", e.target.value)} />
                             <div>
