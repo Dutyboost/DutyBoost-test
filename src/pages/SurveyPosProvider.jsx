@@ -26,7 +26,7 @@ export default function SurveyPosProvider() {
         },
         q3: {
           label:
-            "Your POS already sits at the transaction layer of travel retail — the exact point where incremental conversion is validated and attributed. Does turning your existing infrastructure into a new, recurring, performance-based revenue stream — while delivering measurable incremental sales to every retailer you serve — appeal to you?",
+            "Would you be interested in turning your existing POS into a recurring, performance-based revenue stream while driving measurable incremental sales for every retailer you serve?",
           options: [
             "Yes, very attractive",
             "Somewhat attractive",
