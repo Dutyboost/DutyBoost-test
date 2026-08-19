@@ -287,7 +287,7 @@ export default function RoleSurvey({ config }) {
                 </h3>
                 <p className="text-muted-foreground text-sm">
                   {contactless
-                    ? "We'll identify you from the campaign we send out — just share your store and POS provider details."
+                    ? "We're gathering anonymous feedback to validate that the solution is attractive for all participants — just share your store and POS provider details."
                     : "Share your contact details so we can follow up, or respond anonymously. Either way, your input is valuable."}
                 </p>
 
