@@ -18,8 +18,6 @@ export default function SurveyPosProvider() {
             "Boutique POS (up to 50 stores)",
             "Regional POS (50–500 stores)",
             "Enterprise POS (500+ stores)",
-            "Payment / PSP platform",
-            "Other",
           ],
         },
         q2: {
