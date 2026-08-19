@@ -8,10 +8,8 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 const TOTAL_STEPS = 5;
 
 const INTEREST_OPTIONS = [
-  "Very interested – count me in",
-  "Interested – I want to learn more first",
-  "Curious – still evaluating",
-  "Not sure yet",
+  "Yes – I'm interested in moving forward",
+  "No – not right now",
 ];
 
 const PERSONAL_DOMAINS = [
@@ -281,7 +279,7 @@ export default function RoleSurvey({ config }) {
 
           {step === 4 && (
             <div className="space-y-5">
-              <h2 className="text-2xl font-heading font-bold">How interested are you in moving forward?</h2>
+              <h2 className="text-2xl font-heading font-bold">Are you interested in moving forward?</h2>
               <div className="space-y-2">
                 {INTEREST_OPTIONS.map((o) => (
                   <OptionButton key={o} label={o} selected={form.interest_level === o} onClick={() => set("interest_level", o)} />
