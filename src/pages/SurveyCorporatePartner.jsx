@@ -27,7 +27,6 @@ export default function SurveyCorporatePartner() {
             "Yes, very attractive",
             "Somewhat attractive",
             "Need more details",
-            "Not a priority right now",
           ],
         },
         q4: {
@@ -36,11 +35,9 @@ export default function SurveyCorporatePartner() {
           options: [
             "Yes – easy to add to our flow",
             "Possibly – depends on the setup",
-            "Unlikely – our travel flow is restricted",
-            "No – we don't manage travel distribution",
           ],
         },
-        travelPlatformLabel: "Which travel or expense platform does your company use?",
+        travelPlatformLabel: "Which travel & expense platform does your company use?",
         travelPlatformOptions: [
           "Navan (TripActions)",
           "SAP Concur",
