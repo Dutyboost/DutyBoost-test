@@ -46,6 +46,7 @@ export default function SurveyTravelPartner() {
             "No – we don't control that page",
           ],
         },
+        contactless: true,
       }}
     />
   );
