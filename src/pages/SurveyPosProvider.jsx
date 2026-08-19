@@ -13,12 +13,8 @@ export default function SurveyPosProvider() {
           badges: ["10% per sale", "5 questions", "2 minutes"],
         },
         q1: {
-          label: "What best describes your POS provider business?",
-          options: [
-            "Boutique POS (up to 50 stores)",
-            "Regional POS (50–500 stores)",
-            "Enterprise POS (500+ stores)",
-          ],
+          label: "What annual revenue does your POS network generate?",
+          options: ["Under €10M", "€10M – €50M", "€50M – €250M", "€250M+"],
         },
         q2: {
           label: "How many stores are on your POS network?",
