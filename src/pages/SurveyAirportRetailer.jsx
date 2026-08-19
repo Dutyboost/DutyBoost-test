@@ -43,6 +43,20 @@ export default function SurveyAirportRetailer() {
         },
         posProviderLabel: "Name of your Point-of-Sale (POS) provider *",
         contactless: true,
+        travelPlatformLabel: "Which Point-of-Sale (POS) provider do you use?",
+        travelPlatformOptions: [
+          "NCR Voyix",
+          "Toshiba Global Commerce",
+          "Ingenico",
+          "Verifone",
+          "Square",
+          "Lightspeed",
+          "Shopify POS",
+          "Oracle Micros",
+          "SAP Customer Checkout",
+          "Diebold Nixdorf",
+          "Other",
+        ],
       }}
     />
   );
