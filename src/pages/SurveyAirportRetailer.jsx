@@ -44,12 +44,12 @@ export default function SurveyAirportRetailer() {
           ],
         },
         q4: {
-          label: "How comfortable are you simply turning on DutyBoost inside your existing POS dashboard?",
+          label: "If your POS provider offered a feature that generated incremental revenue from your existing traffic, would you switch it on?",
           options: [
-            "Yes – happy to enable a feature in our POS",
-            "Possibly – depends on who controls the POS",
-            "Unlikely – our POS is managed by a third party",
-            "No – we don't have access to POS settings",
+            "Yes – I'd enable it right away",
+            "Probably – if it's a simple toggle",
+            "Maybe – I'd want to understand it first",
+            "No – not interested",
           ],
         },
       }}
