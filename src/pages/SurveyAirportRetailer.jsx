@@ -5,7 +5,7 @@ const STORE_TYPES = [
   "Electronics & gadgets",
   "Chocolate, confectionery & cheese",
   "Gifts & souvenirs",
-  "Liquors & wines",
+  "Liquors, wines & tobacco",
   "Watches & jewellery",
   "Luxury",
   "Fashion & accessories",
