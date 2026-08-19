@@ -7,10 +7,10 @@ export default function SurveyCorporatePartner() {
         companyTypePrefix: "Corporate Partner – ",
         hero: {
           title: "Offset your company's T&E costs with",
-          titleAccent: "DutyCredits for travelling employees.",
+          titleAccent: "commission earned on every airport purchase.",
           subtitle:
-            "DutyBoost issues DutyCredits worth €5–€60 to your travelling employees before they fly — an airport perk for staff, with commission credited against your trip expenses. No cost, no integration, no policy change.",
-          badges: ["T&E cost offset", "Employee perk", "5 questions"],
+            "Your company earns commission on every DutyCredit redeemed at the airport by your travelling employees — credited directly against your T&E spend. The only investment is implementing DutyBoost; no ongoing cost, no integration, no policy change.",
+          badges: ["T&E cost offset", "Commission earned", "5 questions"],
         },
         q1: {
           label: "What best describes your organisation?",
@@ -27,7 +27,7 @@ export default function SurveyCorporatePartner() {
         },
         q3: {
           label:
-            "How appealing is offsetting T&E costs via DutyCredits — at no cost, while giving travelling employees an airport perk?",
+            "How appealing is earning commission on every DutyCredit redeemed to offset your company's T&E costs — at no cost beyond implementing DutyBoost?",
           options: [
             "Yes, very attractive",
             "Somewhat attractive",
