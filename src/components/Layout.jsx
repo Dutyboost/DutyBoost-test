@@ -30,7 +30,7 @@ const roleNavItems = {
     { label: "Accommodation Partners", path: "/hotels", icon: Building2 },
     { label: "Car Rental Partners", path: "/car-rentals", icon: Car },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
-    { label: "Survey Dashboard", path: "/survey-dashboard", icon: BarChart2 },
+    { label: "DutyBoost Dashboard", path: "/DutyBoost-Dashboard", icon: BarChart2 },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
   ],
   agency: [

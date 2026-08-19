@@ -60,12 +60,10 @@ import HotelSignup from './pages/HotelSignup';
 import CarRentalSignup from './pages/CarRentalSignup';
 import DemoHotelDashboard from './pages/DemoHotelDashboard';
 import DemoCarRentalDashboard from './pages/DemoCarRentalDashboard';
-import TravelPartnerSurvey from './pages/TravelPartnerSurvey';
-import TravelPartnerSurveyNL from './pages/TravelPartnerSurveyNL';
-import TravelPartnerSurveyES from './pages/TravelPartnerSurveyES';
-import TravelPartnerSurveyFR from './pages/TravelPartnerSurveyFR';
-import TravelPartnerSurveyDE from './pages/TravelPartnerSurveyDE';
-import TravelPartnerSurveyIT from './pages/TravelPartnerSurveyIT';
+import SurveyAirportRetailer from './pages/SurveyAirportRetailer';
+import SurveyTravelPartner from './pages/SurveyTravelPartner';
+import SurveyPosProvider from './pages/SurveyPosProvider';
+import SurveyCorporatePartner from './pages/SurveyCorporatePartner';
 
 import AgencyPortal from './pages/AgencyPortal';
 import ComingSoonPage from './pages/ComingSoonPage';
@@ -86,12 +84,6 @@ import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
 import RetailerCalculator from './pages/RetailerCalculator';
 import TravelPartnerCalculator from './pages/TravelPartnerCalculator';
-import AirportRetailerSurvey from './pages/AirportRetailerSurvey';
-import AirportRetailerSurveyNL from './pages/AirportRetailerSurveyNL';
-import AirportRetailerSurveyDE from './pages/AirportRetailerSurveyDE';
-import AirportRetailerSurveyES from './pages/AirportRetailerSurveyES';
-import AirportRetailerSurveyFR from './pages/AirportRetailerSurveyFR';
-import AirportRetailerSurveyIT from './pages/AirportRetailerSurveyIT';
 import SurveyDashboard from './pages/SurveyDashboard';
 import CruiseShowcase from './pages/CruiseShowcase.jsx';
 import CruisePortal from './pages/CruisePortal.jsx';
@@ -164,18 +156,10 @@ const AuthenticatedApp = () => {
   // Survey routes are always public
   const surveyRoutes = (
     <>
-      <Route path="/travel-partner-survey" element={<TravelPartnerSurvey />} />
-      <Route path="/travel-partner-survey-nl" element={<TravelPartnerSurveyNL />} />
-      <Route path="/travel-partner-survey-es" element={<TravelPartnerSurveyES />} />
-      <Route path="/travel-partner-survey-fr" element={<TravelPartnerSurveyFR />} />
-      <Route path="/travel-partner-survey-de" element={<TravelPartnerSurveyDE />} />
-      <Route path="/travel-partner-survey-it" element={<TravelPartnerSurveyIT />} />
-      <Route path="/airport-port-retailer-survey" element={<AirportRetailerSurvey />} />
-      <Route path="/airport-port-retailer-survey-nl" element={<AirportRetailerSurveyNL />} />
-      <Route path="/airport-port-retailer-survey-de" element={<AirportRetailerSurveyDE />} />
-      <Route path="/airport-port-retailer-survey-es" element={<AirportRetailerSurveyES />} />
-      <Route path="/airport-port-retailer-survey-fr" element={<AirportRetailerSurveyFR />} />
-      <Route path="/airport-port-retailer-survey-it" element={<AirportRetailerSurveyIT />} />
+      <Route path="/survey-airport-retailer" element={<SurveyAirportRetailer />} />
+      <Route path="/survey-travel-partner" element={<SurveyTravelPartner />} />
+      <Route path="/survey-pos-provider" element={<SurveyPosProvider />} />
+      <Route path="/survey-corporate-partner" element={<SurveyCorporatePartner />} />
     </>
   );
 
@@ -291,7 +275,7 @@ const AuthenticatedApp = () => {
           <Route path="/scan-redeem" element={<ScanVoucher />} />
           <Route path="/retailer-scan" element={<RetailerScanQR />} />
           <Route path="/leads-admin" element={<LeadsAdmin />} />
-          <Route path="/survey-dashboard" element={<SurveyDashboard />} />
+          <Route path="/DutyBoost-Dashboard" element={<SurveyDashboard />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Route>

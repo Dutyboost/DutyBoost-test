@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search, TrendingUp } from "lucide-react";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search, TrendingUp, Cpu, Building2 } from "lucide-react";
 import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
@@ -388,6 +388,18 @@ function normalizeResponse(r) {
 
 function isRetailer(r) {
   return r.company_type?.startsWith(RETAILER_PREFIX);
+}
+
+function isPosProvider(r) {
+  return r.company_type?.startsWith("POS Provider – ");
+}
+
+function isCorporatePartner(r) {
+  return r.company_type?.startsWith("Corporate Partner – ");
+}
+
+function stripRolePrefix(val, prefix) {
+  return val ? String(val).replace(prefix, "") : val;
 }
 
 function StatCard({ icon: Icon, label, value, color = "text-white" }) {
@@ -1375,6 +1387,92 @@ function TravelPartnerDashboard({ responses }) {
   );
 }
 
+function PosProviderDashboard({ responses }) {
+  const wantsDemo = responses.filter(r => r.wants_demo).length;
+  const providerTypes = tally(responses, "company_type");
+  const appeal = tally(responses, "commission_attractive");
+  const integration = tally(responses, "snippet_willingness");
+  const stores = tally(responses, "annual_bookings");
+
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <StatCard icon={Cpu} label="Total responses" value={responses.length} color="text-violet-300" />
+        <StatCard icon={ThumbsUp} label="Wants follow-up" value={wantsDemo} color="text-green-300" />
+        <StatCard icon={Mail} label="Follow-up rate" value={responses.length ? `${Math.round((wantsDemo / responses.length) * 100)}%` : "—"} color="text-blue-300" />
+        <StatCard icon={Globe} label="Provider types" value={new Set(responses.map(r => r.company_type)).size} color="text-purple-300" />
+      </div>
+      <div className="grid md:grid-cols-2 gap-4">
+        <ChartCard title="Provider type">
+          <PieChartSection data={providerTypes} />
+          <Legend data={providerTypes} />
+        </ChartCard>
+        <ChartCard title="Store network size">
+          <BarChartSection data={stores} color="#8b5cf6" />
+        </ChartCard>
+        <ChartCard title="Value-prop attractiveness">
+          <BarChartSection data={appeal} color="#10b981" />
+        </ChartCard>
+        <ChartCard title="Integration willingness">
+          <BarChartSection data={integration} color="#a855f7" />
+        </ChartCard>
+      </div>
+      <ChartCard title="All responses">
+        <div className="space-y-2 max-h-[800px] overflow-y-auto">
+          {responses.length === 0 ? (
+            <p className="text-slate-500 text-sm text-center py-8">No responses yet</p>
+          ) : (
+            responses.map(r => <ResponseCard key={r.id} response={r} isRetailerView={false} />)
+          )}
+        </div>
+      </ChartCard>
+    </div>
+  );
+}
+
+function CorporatePartnerDashboard({ responses }) {
+  const wantsDemo = responses.filter(r => r.wants_demo).length;
+  const orgTypes = tally(responses, "company_type");
+  const appeal = tally(responses, "commission_attractive");
+  const integration = tally(responses, "snippet_willingness");
+  const trips = tally(responses, "annual_bookings");
+
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <StatCard icon={Building2} label="Total responses" value={responses.length} color="text-indigo-300" />
+        <StatCard icon={ThumbsUp} label="Wants follow-up" value={wantsDemo} color="text-green-300" />
+        <StatCard icon={Mail} label="Follow-up rate" value={responses.length ? `${Math.round((wantsDemo / responses.length) * 100)}%` : "—"} color="text-blue-300" />
+        <StatCard icon={Globe} label="Organisation types" value={new Set(responses.map(r => r.company_type)).size} color="text-purple-300" />
+      </div>
+      <div className="grid md:grid-cols-2 gap-4">
+        <ChartCard title="Organisation type">
+          <PieChartSection data={orgTypes} />
+          <Legend data={orgTypes} />
+        </ChartCard>
+        <ChartCard title="Annual business trips">
+          <BarChartSection data={trips} color="#6366f1" />
+        </ChartCard>
+        <ChartCard title="Value-prop attractiveness">
+          <BarChartSection data={appeal} color="#10b981" />
+        </ChartCard>
+        <ChartCard title="Distribution willingness">
+          <BarChartSection data={integration} color="#a855f7" />
+        </ChartCard>
+      </div>
+      <ChartCard title="All responses">
+        <div className="space-y-2 max-h-[800px] overflow-y-auto">
+          {responses.length === 0 ? (
+            <p className="text-slate-500 text-sm text-center py-8">No responses yet</p>
+          ) : (
+            responses.map(r => <ResponseCard key={r.id} response={r} isRetailerView={false} />)
+          )}
+        </div>
+      </ChartCard>
+    </div>
+  );
+}
+
 function GlobalPotentialsPDFButton({ responses }) {
   const rows = responses.map(r => {
     const rv = getResearchedVolume(r.company_name);
@@ -1785,9 +1883,38 @@ export default function SurveyDashboard() {
   );
 
   const partnerResponses = useMemo(() =>
-    allResponses.filter(r => !isRetailer(r)).map(r => normalizeResponse(r)),
+    allResponses.filter(r => !isRetailer(r) && !isPosProvider(r) && !isCorporatePartner(r))
+      .map(r => {
+        const n = normalizeResponse(r);
+        return { ...n, company_type: stripRolePrefix(n.company_type, "Travel Partner – ") };
+      }),
     [allResponses]
   );
+
+  const posResponses = useMemo(() =>
+    allResponses.filter(r => isPosProvider(r))
+      .map(r => {
+        const n = normalizeResponse(r);
+        return { ...n, company_type: stripRolePrefix(n.company_type, "POS Provider – ") };
+      }),
+    [allResponses]
+  );
+
+  const corporateResponses = useMemo(() =>
+    allResponses.filter(r => isCorporatePartner(r))
+      .map(r => {
+        const n = normalizeResponse(r);
+        return { ...n, company_type: stripRolePrefix(n.company_type, "Corporate Partner – ") };
+      }),
+    [allResponses]
+  );
+
+  const exportConfig = {
+    retailer: { data: retailerResponses, isRetailerView: true, filename: "airport-retailer-survey-responses" },
+    partner: { data: partnerResponses, isRetailerView: false, filename: "travel-partner-survey-responses" },
+    pos: { data: posResponses, isRetailerView: false, filename: "pos-provider-survey-responses" },
+    corporate: { data: corporateResponses, isRetailerView: false, filename: "corporate-partner-survey-responses" },
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 text-white px-4 py-10">
@@ -1800,22 +1927,20 @@ export default function SurveyDashboard() {
           <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs tracking-widest uppercase">
             Survey Analytics
           </Badge>
-          <h1 className="text-3xl md:text-4xl font-bold text-white">Survey Dashboard</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white">DutyBoost Dashboard</h1>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">
-            Overview of all survey responses — airport retailers and travel partners.
+            Validation dashboard — airport retailers, travel partners, POS providers and corporate partners.
           </p>
           <div className="pt-2 flex gap-2 flex-wrap justify-center">
-            {activeTab !== "global" && activeTab !== "loi" && (
+            {["retailer", "partner", "pos", "corporate"].includes(activeTab) && (
               <>
                 <Button
                   size="sm"
                   variant="outline"
                   className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
                   onClick={() => {
-                    const isRetailerView = activeTab === "retailer";
-                    const data = isRetailerView ? retailerResponses : partnerResponses;
-                    const filename = isRetailerView ? "retailer-survey-responses.xlsx" : "travel-partner-survey-responses.xlsx";
-                    exportToExcel(data, filename, isRetailerView);
+                    const cfg = exportConfig[activeTab];
+                    exportToExcel(cfg.data, `${cfg.filename}.xlsx`, cfg.isRetailerView);
                   }}
                   disabled={loading}
                 >
@@ -1826,10 +1951,8 @@ export default function SurveyDashboard() {
                   variant="outline"
                   className="gap-2 border-slate-600 text-slate-300 hover:text-white hover:bg-slate-700"
                   onClick={() => {
-                    const isRetailerView = activeTab === "retailer";
-                    const data = isRetailerView ? retailerResponses : partnerResponses;
-                    const filename = isRetailerView ? "retailer-survey-responses.csv" : "travel-partner-survey-responses.csv";
-                    exportToCSV(data, filename, isRetailerView);
+                    const cfg = exportConfig[activeTab];
+                    exportToCSV(cfg.data, `${cfg.filename}.csv`, cfg.isRetailerView);
                   }}
                   disabled={loading}
                 >
@@ -1863,6 +1986,24 @@ export default function SurveyDashboard() {
             >
               <Users className="w-3.5 h-3.5" /> Travel Partner
               <span className="text-xs opacity-70">({partnerResponses.length})</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("pos")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "pos" ? "bg-violet-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Cpu className="w-3.5 h-3.5" /> POS Providers
+              <span className="text-xs opacity-70">({posResponses.length})</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("corporate")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "corporate" ? "bg-indigo-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Building2 className="w-3.5 h-3.5" /> Corporate Partners
+              <span className="text-xs opacity-70">({corporateResponses.length})</span>
             </button>
             <button
               onClick={() => setActiveTab("global")}
@@ -1907,6 +2048,10 @@ export default function SurveyDashboard() {
           <RetailerDashboard responses={retailerResponses} />
         ) : activeTab === "partner" ? (
           <TravelPartnerDashboard responses={partnerResponses} />
+        ) : activeTab === "pos" ? (
+          <PosProviderDashboard responses={posResponses} />
+        ) : activeTab === "corporate" ? (
+          <CorporatePartnerDashboard responses={corporateResponses} />
         ) : activeTab === "leads" ? (
           <LeadsTab />
         ) : activeTab === "loi" ? (
