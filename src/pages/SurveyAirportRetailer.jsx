@@ -44,7 +44,7 @@ export default function SurveyAirportRetailer() {
           ],
         },
         q4: {
-          label: "If your POS provider offered a feature that generated incremental revenue from your existing traffic, would you switch it on?",
+          label: "If your POS provider offered a feature that turned your non-buying traffic into incremental revenue, would you switch it on?",
           options: [
             "Yes – I'd enable it right away",
             "Probably – if it's a simple toggle",
