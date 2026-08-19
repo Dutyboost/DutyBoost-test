@@ -25,7 +25,7 @@ export default function SurveyAirportRetailer() {
           title: "Turn the 90% of passengers who never buy into",
           titleAccent: "incremental airport sales.",
           subtitle:
-            "DutyBoost sends pre-activated travellers to your store with a DutyCredit worth €5–€60 to spend. You only pay a small performance fee when a sale happens — no upfront cost, no risk.",
+            "DutyBoost sends pre-activated travellers to your store with a DutyCredit that gives them a 5%–20% discount on baskets from €20 to €300+. You only pay a small performance fee when a sale happens — no upfront cost, no risk.",
           badges: ["No upfront cost", "2 minutes", "5 questions"],
         },
         q1: { label: "What type of store do you operate?", options: STORE_TYPES },
