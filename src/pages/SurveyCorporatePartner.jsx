@@ -13,13 +13,8 @@ export default function SurveyCorporatePartner() {
           badges: ["T&E cost offset", "Commission earned", "5 questions"],
         },
         q1: {
-          label: "What best describes your organisation?",
-          options: [
-            "Corporate (in-house travel)",
-            "Travel Management Company (TMC)",
-            "Business Travel Platform / OTA",
-            "Other",
-          ],
+          label: "What is your company's annual T&E spend?",
+          options: ["€1M – €5M", "€5M – €25M", "€25M+"],
         },
         q2: {
           label: "How many business trips do your employees take per year?",
