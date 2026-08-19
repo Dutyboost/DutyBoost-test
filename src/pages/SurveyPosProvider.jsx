@@ -26,7 +26,7 @@ export default function SurveyPosProvider() {
         },
         q3: {
           label:
-            "Would you be interested in turning your existing POS into a recurring, performance-based revenue stream while driving measurable incremental sales for every retailer you serve?",
+            "Would you be interested in turning your existing POS into a recurring, performance-based revenue stream?",
           options: [
             "Yes, very attractive",
             "Somewhat attractive",
