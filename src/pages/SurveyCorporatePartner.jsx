@@ -40,6 +40,17 @@ export default function SurveyCorporatePartner() {
             "No – we don't manage travel distribution",
           ],
         },
+        travelPlatformLabel: "Which travel or expense platform does your company use?",
+        travelPlatformOptions: [
+          "Navan (TripActions)",
+          "SAP Concur",
+          "American Express GBT",
+          "Egencia",
+          "Expensify",
+          "TravelPerk",
+          "Coupa",
+          "Other",
+        ],
       }}
     />
   );

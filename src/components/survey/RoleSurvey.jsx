@@ -75,8 +75,33 @@ function OptionButton({ label, selected, onClick, onSelect }) {
   );
 }
 
+function PlatformSelector({ label, options, value, onChange }) {
+  if (!options || !options.length) return null;
+  return (
+    <div className="space-y-2 pt-1">
+      <p className="text-sm font-medium text-foreground">{label}</p>
+      <div className="grid grid-cols-2 gap-2">
+        {options.map((o) => (
+          <button
+            key={o}
+            type="button"
+            onClick={() => onChange(o)}
+            className={`text-left px-3 py-2 rounded-lg border text-xs font-medium transition-all ${
+              value === o
+                ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                : "bg-card border-border hover:border-primary/50 hover:bg-primary/5 text-foreground"
+            }`}
+          >
+            {o}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function RoleSurvey({ config }) {
-  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails } = config;
+  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions } = config;
 
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -98,6 +123,7 @@ export default function RoleSurvey({ config }) {
     company_name: "",
     company_website: "",
     pos_provider: "",
+    travel_platform: "",
     phone: "",
     wants_demo: false,
     interest_level: "Yes – completed the survey",
@@ -181,6 +207,7 @@ export default function RoleSurvey({ config }) {
         company_name: form.company_name,
         company_website: form.company_website,
         pos_provider: posProviderLabel ? form.pos_provider : "",
+        travel_platform: travelPlatformOptions?.length ? form.travel_platform : "",
         phone: form.phone,
         wants_demo: form.wants_demo,
       });
@@ -337,6 +364,15 @@ export default function RoleSurvey({ config }) {
                         onChange={(e) => set("pos_provider", e.target.value)}
                       />
                     )}
+
+                    {travelPlatformOptions?.length > 0 && (
+                      <PlatformSelector
+                        label={travelPlatformLabel}
+                        options={travelPlatformOptions}
+                        value={form.travel_platform}
+                        onChange={(v) => set("travel_platform", v)}
+                      />
+                    )}
                   </div>
                 ) : (
                   <>
@@ -398,6 +434,15 @@ export default function RoleSurvey({ config }) {
                             placeholder={posProviderLabel}
                             value={form.pos_provider}
                             onChange={(e) => set("pos_provider", e.target.value)}
+                          />
+                        )}
+
+                        {travelPlatformOptions?.length > 0 && (
+                          <PlatformSelector
+                            label={travelPlatformLabel}
+                            options={travelPlatformOptions}
+                            value={form.travel_platform}
+                            onChange={(v) => set("travel_platform", v)}
                           />
                         )}
 
