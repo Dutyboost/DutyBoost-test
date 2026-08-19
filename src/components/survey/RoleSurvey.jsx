@@ -283,11 +283,11 @@ export default function RoleSurvey({ config }) {
             <div className="space-y-5">
               <div className="space-y-4">
                 <h3 className="text-2xl font-heading font-bold">
-                  {contactless ? "Last step — Your store details" : "Last step — How would you like to respond?"}
+                  {contactless ? "Last step — Your company details" : "Last step — How would you like to respond?"}
                 </h3>
                 <p className="text-muted-foreground text-sm">
                   {contactless
-                    ? "We're gathering anonymous feedback to validate that the solution is attractive for all participants — just share your store and POS provider details."
+                    ? "We're gathering anonymous feedback to validate that the solution is attractive for all participants — just share your company name, website and POS provider details."
                     : "Share your contact details so we can follow up, or respond anonymously. Either way, your input is valuable."}
                 </p>
 
