@@ -26,7 +26,7 @@ export default function SurveyPosProvider() {
         },
         q3: {
           label:
-            "How appealing is earning 0.25% on every validated DutyCredit basket — with zero setup fee and no operational risk?",
+            "How appealing is earning 10% on every validated DutyCredit basket — with zero setup fee and no operational risk?",
           options: [
             "Yes, very attractive",
             "Somewhat attractive",
