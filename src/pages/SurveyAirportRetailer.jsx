@@ -42,6 +42,7 @@ export default function SurveyAirportRetailer() {
           options: ["Yes", "No"],
         },
         posProviderLabel: "Name of your Point-of-Sale (POS) provider *",
+        contactless: true,
       }}
     />
   );
