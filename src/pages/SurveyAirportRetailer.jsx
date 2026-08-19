@@ -34,23 +34,12 @@ export default function SurveyAirportRetailer() {
           options: ["Under 1,000", "1,000 – 5,000", "5,000 – 20,000", "20,000+"],
         },
         q3: {
-          label:
-            "How appealing is earning incremental sales from non-converting passengers — with no upfront cost, paying only a small fee on validated sales?",
-          options: [
-            "Yes, very attractive – more foot traffic is always welcome",
-            "Somewhat attractive – depends on the terms",
-            "Need more details before deciding",
-            "Not a priority right now",
-          ],
+          label: "Is earning incremental sales from non-converting passengers appealing — no upfront cost, just a small fee on validated sales?",
+          options: ["Yes", "No"],
         },
         q4: {
           label: "If your POS provider offered a feature that turned your non-buying traffic into incremental revenue, would you switch it on?",
-          options: [
-            "Yes – I'd enable it right away",
-            "Probably – if it's a simple toggle",
-            "Maybe – I'd want to understand it first",
-            "No – not interested",
-          ],
+          options: ["Yes", "No"],
         },
       }}
     />
