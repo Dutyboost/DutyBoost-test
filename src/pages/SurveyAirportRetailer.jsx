@@ -44,12 +44,12 @@ export default function SurveyAirportRetailer() {
           ],
         },
         q4: {
-          label: "How open are you to adding a simple DutyCredit validation step at your POS checkout?",
+          label: "How comfortable are you simply turning on DutyBoost inside your existing POS dashboard?",
           options: [
-            "Yes – easy integrations are no problem for us",
-            "Possibly – depends on what's needed technically",
-            "Unlikely – our setup makes this difficult",
-            "No – we don't manage our own tech",
+            "Yes – happy to enable a feature in our POS",
+            "Possibly – depends on who controls the POS",
+            "Unlikely – our POS is managed by a third party",
+            "No – we don't have access to POS settings",
           ],
         },
       }}
