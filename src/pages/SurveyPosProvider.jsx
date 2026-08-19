@@ -10,7 +10,7 @@ export default function SurveyPosProvider() {
           titleAccent: "recurring, performance-based revenue.",
           subtitle:
             "DutyBoost pays your POS a 10% commission on every validated DutyCredit basket across your entire store network perpetually — one lightweight integration, no setup fee, no operational risk.",
-          badges: ["10% per sale", "2 minutes", "5 questions"],
+          badges: ["10% per sale", "5 questions", "2 minutes"],
         },
         q1: {
           label: "What best describes your POS provider business?",
