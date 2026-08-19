@@ -34,7 +34,7 @@ export default function SurveyAirportRetailer() {
           options: ["Under 1,000", "1,000 – 5,000", "5,000 – 20,000", "20,000+"],
         },
         q3: {
-          label: "Is earning incremental sales from non-converting passengers appealing?",
+          label: "Would you be interested in earning incremental revenue from non-converting passengers?",
           options: ["Yes", "No"],
         },
         q4: {
