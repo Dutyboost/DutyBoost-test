@@ -7,9 +7,6 @@ const COMPANY_TYPES = [
   "OTA (Online Travel Agency)",
   "Hotel chain / Hospitality",
   "Car Rental company",
-  "Cruise line / Ship operator",
-  "Train / Rail operator",
-  "Other",
 ];
 
 export default function SurveyTravelPartner() {
