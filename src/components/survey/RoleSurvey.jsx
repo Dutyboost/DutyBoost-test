@@ -4,6 +4,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import PlatformComboBox from "./PlatformComboBox";
 
 const TOTAL_STEPS = 5;
 
@@ -101,7 +102,7 @@ function PlatformSelector({ label, options, value, onChange }) {
 }
 
 export default function RoleSurvey({ config }) {
-  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions } = config;
+  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory } = config;
 
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -164,8 +165,9 @@ export default function RoleSurvey({ config }) {
     if (step === 3) return form.snippet_willingness !== "";
     if (step === 4) {
       const posOk = !posProviderLabel || !!form.pos_provider.trim();
+      const platformOk = !travelPlatformMandatory || !!form.travel_platform.trim();
       if (contactless) {
-        return !!form.company_name && websiteValid && !verifyingWebsite && posOk;
+        return !!form.company_name && websiteValid && !verifyingWebsite && posOk && platformOk;
       }
       if (requireContactDetails) {
         return (
@@ -175,11 +177,12 @@ export default function RoleSurvey({ config }) {
           websiteValid &&
           !verifyingWebsite &&
           !emailError &&
-          posOk
+          posOk &&
+          platformOk
         );
       }
       if (anonymous === null) return false;
-      if (anonymous) return !!form.company_name && websiteValid && !verifyingWebsite && posOk;
+      if (anonymous) return !!form.company_name && websiteValid && !verifyingWebsite && posOk && platformOk;
       return (
         !!form.full_name &&
         !!form.email &&
@@ -187,7 +190,8 @@ export default function RoleSurvey({ config }) {
         websiteValid &&
         !verifyingWebsite &&
         !emailError &&
-        posOk
+        posOk &&
+        platformOk
       );
     }
     return true;
@@ -366,12 +370,21 @@ export default function RoleSurvey({ config }) {
                     )}
 
                     {travelPlatformOptions?.length > 0 && (
-                      <PlatformSelector
-                        label={travelPlatformLabel}
-                        options={travelPlatformOptions}
-                        value={form.travel_platform}
-                        onChange={(v) => set("travel_platform", v)}
-                      />
+                      travelPlatformCombobox ? (
+                        <PlatformComboBox
+                          label={travelPlatformLabel}
+                          options={travelPlatformOptions}
+                          value={form.travel_platform}
+                          onChange={(v) => set("travel_platform", v)}
+                        />
+                      ) : (
+                        <PlatformSelector
+                          label={travelPlatformLabel}
+                          options={travelPlatformOptions}
+                          value={form.travel_platform}
+                          onChange={(v) => set("travel_platform", v)}
+                        />
+                      )
                     )}
                   </div>
                 ) : (
@@ -438,12 +451,21 @@ export default function RoleSurvey({ config }) {
                         )}
 
                         {travelPlatformOptions?.length > 0 && (
-                          <PlatformSelector
-                            label={travelPlatformLabel}
-                            options={travelPlatformOptions}
-                            value={form.travel_platform}
-                            onChange={(v) => set("travel_platform", v)}
-                          />
+                          travelPlatformCombobox ? (
+                            <PlatformComboBox
+                              label={travelPlatformLabel}
+                              options={travelPlatformOptions}
+                              value={form.travel_platform}
+                              onChange={(v) => set("travel_platform", v)}
+                            />
+                          ) : (
+                            <PlatformSelector
+                              label={travelPlatformLabel}
+                              options={travelPlatformOptions}
+                              value={form.travel_platform}
+                              onChange={(v) => set("travel_platform", v)}
+                            />
+                          )
                         )}
 
                         {(anonymous === false || requireContactDetails) && (
