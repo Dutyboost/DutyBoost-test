@@ -143,11 +143,16 @@ export default function RoleSurvey({ config }) {
   const handleAnswerSelect = (currentStep, value) => {
     const next = currentStep + 1;
     if (exitOnNo && Array.isArray(exitSteps) && exitSteps.includes(currentStep) && value === (exitValue || "No")) {
-      setExitNextStep(next);
+      setExitNextStep(currentStep);
       setExitPending(true);
     } else {
       goToStep(next);
     }
+  };
+
+  const clearStepAnswer = (s) => {
+    if (s === 2) set("commission_attractive", "");
+    if (s === 3) set("snippet_willingness", "");
   };
 
   const handleWebsiteBlur = async () => {
@@ -300,7 +305,7 @@ export default function RoleSurvey({ config }) {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button className="flex-1" onClick={() => { setExitPending(false); goToStep(exitNextStep); }}>
+                <Button className="flex-1" onClick={() => { clearStepAnswer(exitNextStep); setExitPending(false); goToStep(exitNextStep); }}>
                   No, continue the survey
                 </Button>
                 <Button variant="outline" className="flex-1" onClick={() => { setExitPending(false); setExited(true); }}>
