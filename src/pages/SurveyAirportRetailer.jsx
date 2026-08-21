@@ -44,7 +44,6 @@ export default function SurveyAirportRetailer() {
         exitOnNo: true,
         exitSteps: [2, 3],
         exitValue: "No",
-        posProviderLabel: "Name of your Point-of-Sale (POS) provider *",
         contactless: true,
         travelPlatformLabel: "Which Point-of-Sale (POS) provider do you use?",
         travelPlatformCombobox: true,
