@@ -18,6 +18,13 @@
       "type": "string",
       "title": "Travel / Expense Platform"
     },
+    "retailers_served": {
+      "type": "array",
+      "title": "Airport Retailers Served",
+      "items": {
+        "type": "string"
+      }
+    },
     "full_name": {
       "type": "string",
       "title": "Full Name"

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import PlatformComboBox from "./PlatformComboBox";
+import MultiSelectComboBox from "./MultiSelectComboBox";
 
 const TOTAL_STEPS = 5;
 
@@ -102,7 +103,7 @@ function PlatformSelector({ label, options, value, onChange }) {
 }
 
 export default function RoleSurvey({ config }) {
-  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory, exitOnNo, exitSteps, exitValue } = config;
+  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory, exitOnNo, exitSteps, exitValue, retailersServedLabel, retailersServedOptions, retailersServedMandatory } = config;
 
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -128,6 +129,7 @@ export default function RoleSurvey({ config }) {
     company_website: "",
     pos_provider: "",
     travel_platform: "",
+    retailers_served: [],
     phone: "",
     wants_demo: false,
     interest_level: "Yes – completed the survey",
@@ -184,6 +186,7 @@ export default function RoleSurvey({ config }) {
     if (step === 4) {
       const posOk = !posProviderLabel || !!form.pos_provider.trim();
       const platformOk = !travelPlatformMandatory || !!form.travel_platform.trim();
+      const retailersOk = !retailersServedMandatory || (Array.isArray(form.retailers_served) && form.retailers_served.length > 0);
       if (contactless) {
         return !!form.company_name && websiteValid && !verifyingWebsite && posOk && platformOk;
       }
@@ -196,7 +199,8 @@ export default function RoleSurvey({ config }) {
           !verifyingWebsite &&
           !emailError &&
           posOk &&
-          platformOk
+          platformOk &&
+          retailersOk
         );
       }
       if (anonymous === null) return false;
@@ -230,6 +234,7 @@ export default function RoleSurvey({ config }) {
         company_website: form.company_website,
         pos_provider: posProviderLabel ? form.pos_provider : "",
         travel_platform: travelPlatformOptions?.length ? form.travel_platform : "",
+        retailers_served: form.retailers_served,
         phone: form.phone,
         wants_demo: form.wants_demo,
       });
@@ -516,6 +521,15 @@ export default function RoleSurvey({ config }) {
                               onChange={(v) => set("travel_platform", v)}
                             />
                           )
+                        )}
+
+                        {retailersServedOptions?.length > 0 && (
+                          <MultiSelectComboBox
+                            label={retailersServedLabel}
+                            options={retailersServedOptions}
+                            value={form.retailers_served}
+                            onChange={(v) => set("retailers_served", v)}
+                          />
                         )}
 
                         {(anonymous === false || requireContactDetails) && (
