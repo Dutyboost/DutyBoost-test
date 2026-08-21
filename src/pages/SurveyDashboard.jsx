@@ -475,7 +475,9 @@ function ResponseCard({ response, isRetailerView }) {
     : "bg-slate-600/40 text-slate-300";
 
   const downloadResponse = (format) => {
-    const filename = `${response.company_name || "response"}-${response.created_date ? new Date(response.created_date).toISOString().split('T')[0] : 'export'}`;
+    const safeName = (response.company_name || "response").replace(/[^a-z0-9]+/gi, "-");
+    const dateStr = response.created_date ? new Date(response.created_date).toISOString().split('T')[0] : "export";
+    const filename = `DutyBoost-${safeName}-${dateStr}`;
     if (format === "csv") {
       exportToCSV([response], `${filename}.csv`, isRetailerView);
     } else {
