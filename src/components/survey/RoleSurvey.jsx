@@ -102,7 +102,7 @@ function PlatformSelector({ label, options, value, onChange }) {
 }
 
 export default function RoleSurvey({ config }) {
-  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory } = config;
+  const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory, exitOnNo, exitSteps, exitValue } = config;
 
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -112,6 +112,9 @@ export default function RoleSurvey({ config }) {
   const [verifyingWebsite, setVerifyingWebsite] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [anonymous, setAnonymous] = useState(null);
+  const [exitPending, setExitPending] = useState(false);
+  const [exitNextStep, setExitNextStep] = useState(null);
+  const [exited, setExited] = useState(false);
 
   const [form, setForm] = useState({
     company_type: "",
@@ -135,6 +138,16 @@ export default function RoleSurvey({ config }) {
   const goToStep = (n) => {
     setStep(n);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleAnswerSelect = (currentStep, value) => {
+    const next = currentStep + 1;
+    if (exitOnNo && Array.isArray(exitSteps) && exitSteps.includes(currentStep) && value === (exitValue || "No")) {
+      setExitNextStep(next);
+      setExitPending(true);
+    } else {
+      goToStep(next);
+    }
   };
 
   const handleWebsiteBlur = async () => {
@@ -222,6 +235,19 @@ export default function RoleSurvey({ config }) {
     }
   };
 
+  if (exited) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 text-center space-y-6">
+        <CheckCircle2 className="w-16 h-16 text-muted-foreground" />
+        <h1 className="text-3xl font-heading font-bold">Thank you for your time.</h1>
+        <p className="text-muted-foreground max-w-md leading-relaxed">
+          If you'd like to retake the survey later, you can do so via the link you received in the email.
+        </p>
+        <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
+      </div>
+    );
+  }
+
   if (submitted) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 text-center space-y-6">
@@ -265,6 +291,25 @@ export default function RoleSurvey({ config }) {
 
       <div className="flex-1 flex items-start justify-center px-4 py-10">
         <div className="w-full max-w-xl space-y-6">
+          {exitPending ? (
+            <div className="space-y-6 py-6">
+              <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-4 text-center">
+                <h3 className="text-2xl font-heading font-bold">Are you sure you want to exit?</h3>
+                <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
+                  Your answers so far won't be saved. You can retake the survey any time using the link in the email you received.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button className="flex-1" onClick={() => { setExitPending(false); goToStep(exitNextStep); }}>
+                  No, continue the survey
+                </Button>
+                <Button variant="outline" className="flex-1" onClick={() => { setExitPending(false); setExited(true); }}>
+                  Yes, exit
+                </Button>
+              </div>
+            </div>
+          ) : (
+          <>
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
               <span>Question {step + 1} of {TOTAL_STEPS}</span>
@@ -304,7 +349,7 @@ export default function RoleSurvey({ config }) {
               <h2 className="text-2xl font-heading font-bold">{q3.label}</h2>
               <div className="space-y-2">
                 {q3.options.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => goToStep(3)} />
+                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => handleAnswerSelect(2, o)} />
                 ))}
               </div>
             </div>
@@ -315,7 +360,7 @@ export default function RoleSurvey({ config }) {
               <h2 className="text-2xl font-heading font-bold">{q4.label}</h2>
               <div className="space-y-2">
                 {q4.options.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => goToStep(4)} />
+                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => handleAnswerSelect(3, o)} />
                 ))}
               </div>
             </div>
@@ -517,7 +562,7 @@ export default function RoleSurvey({ config }) {
               </Button>
             )}
             {step < TOTAL_STEPS - 1 && (
-              <Button className="flex-1 gap-2" disabled={!canNext()} onClick={() => goToStep(step + 1)}>
+              <Button className="flex-1 gap-2" disabled={!canNext()} onClick={() => handleAnswerSelect(step, step === 2 ? form.commission_attractive : step === 3 ? form.snippet_willingness : "")}>
                 Continue <ArrowRight className="w-4 h-4" />
               </Button>
             )}
@@ -529,6 +574,8 @@ export default function RoleSurvey({ config }) {
           </div>
 
           <p className="text-center text-xs text-muted-foreground">No spam. No sales pitch.</p>
+          </>
+          )}
         </div>
       </div>
 
