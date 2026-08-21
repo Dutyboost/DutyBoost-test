@@ -548,6 +548,28 @@ function ResponseCard({ response, isRetailerView }) {
             <p className="text-slate-500">Website</p>
             <p className="text-slate-200 truncate">{response.company_website || "—"}</p>
           </div>
+          {response.pos_provider && (
+            <div className="text-xs">
+              <p className="text-slate-500">POS Provider</p>
+              <p className="text-slate-200">{response.pos_provider}</p>
+            </div>
+          )}
+          {response.travel_platform && (
+            <div className="text-xs">
+              <p className="text-slate-500">Travel & Expense Platform</p>
+              <p className="text-slate-200">{response.travel_platform}</p>
+            </div>
+          )}
+          {Array.isArray(response.retailers_served) && response.retailers_served.length > 0 && (
+            <div className="text-xs md:col-span-2">
+              <p className="text-slate-500">Airport Retailers Served</p>
+              <div className="flex flex-wrap gap-1.5 mt-1">
+                {response.retailers_served.map((s) => (
+                  <span key={s} className="px-2 py-0.5 rounded-full bg-slate-700 text-slate-200 text-xs">{s}</span>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="text-xs">
             <p className="text-slate-500">Type</p>
             <p className="text-slate-200">{isRetailerView ? response.company_type?.replace(RETAILER_PREFIX, "") : response.company_type}</p>
