@@ -75,7 +75,7 @@ export default function SurveyAirportRetailer() {
           "NCR Voyix",
           "NetPOS",
           "NoblyPOS",
-          "Oracle Micros",
+          "Oracle Retail Xstore",
           "PAYware",
           "Positouch",
           "PrismPOS",
