@@ -474,6 +474,9 @@ function ResponseCard({ response, isRetailerView }) {
     ? "bg-blue-500/20 text-blue-300"
     : "bg-slate-600/40 text-slate-300";
 
+  const isCorporate = response.company_type?.startsWith("Corporate Partner – ");
+  const platformLabel = isRetailerView ? "POS Provider" : isCorporate ? "Travel & Expense Platform" : "Travel / Expense Platform";
+
   const downloadResponse = (format) => {
     const safeName = (response.company_name || "response").replace(/[^a-z0-9]+/gi, "-");
     const dateStr = response.created_date ? new Date(response.created_date).toISOString().split('T')[0] : "export";
@@ -556,7 +559,7 @@ function ResponseCard({ response, isRetailerView }) {
           )}
           {response.travel_platform && (
             <div className="text-xs">
-              <p className="text-slate-500">Travel & Expense Platform</p>
+              <p className="text-slate-500">{platformLabel}</p>
               <p className="text-slate-200">{response.travel_platform}</p>
             </div>
           )}
