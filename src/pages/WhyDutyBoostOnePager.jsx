@@ -54,7 +54,7 @@ const STRINGS = {
         what: "Recurring partner revenue on every redemption, and stickier retailer relationships.",
       },
     ],
-    cta: "One platform. Four winners. Every participant creates value.",
+    cta: "One platform. Six winners. Every participant creates value.",
     legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Figures are illustrative.",
   },
   nl: {
@@ -98,7 +98,7 @@ const STRINGS = {
         what: "Terugkerende partnerinkomsten bij elke inning, en klevere winkeliersrelaties.",
       },
     ],
-    cta: "Eén platform. Vier winnaars. Elke deelnemer creëert waarde.",
+    cta: "Eén platform. Zes winnaars. Elke deelnemer creëert waarde.",
     legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Cijfers zijn illustratief.",
   },
   es: {
@@ -142,7 +142,7 @@ const STRINGS = {
         what: "Ingresos recurrentes de socio en cada redención y relaciones más duraderas con los minoristas.",
       },
     ],
-    cta: "Una plataforma. Cuatro ganadores. Cada participante crea valor.",
+    cta: "Una plataforma. Seis ganadores. Cada participante crea valor.",
     legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Las cifras son ilustrativas.",
   },
   fr: {
@@ -186,7 +186,7 @@ const STRINGS = {
         what: "Revenus récurrents de partenaire sur chaque remboursement et relations détaillants plus durables.",
       },
     ],
-    cta: "Une plateforme. Quatre gagnants. Chaque participant crée de la valeur.",
+    cta: "Une plateforme. Six gagnants. Chaque participant crée de la valeur.",
     legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Les chiffres sont indicatifs.",
   },
   de: {
@@ -230,7 +230,7 @@ const STRINGS = {
         what: "Wiederkehrende Partner-Einnahmen bei jeder Einlösung und nachhaltigere Händlerbeziehungen.",
       },
     ],
-    cta: "Eine Plattform. Vier Gewinner. Jeder Teilnehmer schafft Wert.",
+    cta: "Eine Plattform. Sechs Gewinner. Jeder Teilnehmer schafft Wert.",
     legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Zahlen sind illustrativ.",
   },
   it: {
@@ -274,7 +274,7 @@ const STRINGS = {
         what: "Entrate ricorrenti di partner su ogni riscatto e relazioni più durature con i rivenditori.",
       },
     ],
-    cta: "Una piattaforma. Quattro vincitori. Ogni partecipante crea valore.",
+    cta: "Una piattaforma. Sei vincitori. Ogni partecipante crea valore.",
     legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. I dati sono illustrativi.",
   },
 };

@@ -27,7 +27,7 @@ export default {
        tagline: '',
      },
     ecosystem: {
-      title: 'Eén Commercieel ecosysteem, vijf winnaars',
+      title: 'Eén Commercieel ecosysteem, zes winnaars',
       subtitle: 'Een gedeelde infrastructuur die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — het Travel Retail Circular Revenue Ecosystem.',
       platform_fee_note: 'Elke inwisseling drijft het hele ecosysteem. Eén prestatiegebonden fee wordt automatisch gedeeld tussen de reispartner, POS-partner en DutyBoost—waarde creërend voor iedereen, zonder extra kosten voor de luchthavenretailer.',
     },

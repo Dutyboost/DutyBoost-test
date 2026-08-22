@@ -196,7 +196,7 @@ export default function LandingPage() {
                 benefits = [
                   'One layer unifies travel partners, airport retailers, POS providers, leisure and corporate travellers seamlessly.',
                   'Every validated redemption pays the whole chain — traveler, partner, retailer, and corporate — automatically and transparently.',
-                  'Automated reconciliation, partial-refund handling, and monthly settlement keep revenue flowing cleanly across all five sides.',
+                  'Automated reconciliation, partial-refund handling, and monthly settlement keep revenue flowing cleanly across all six sides.',
                 ];
               }
 

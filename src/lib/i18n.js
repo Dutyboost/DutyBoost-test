@@ -43,7 +43,7 @@ const resources = {
       },
       ecosystem: {
         badge: "Ecosystem",
-        title: "One Platform, Three Winners",
+        title: "One Platform, Six Winners",
         subtitle: "DutyBoost aligns incentives across every stakeholder in the airport retail journey — creating value at every touchpoint.",
       },
       stakeholders: {
