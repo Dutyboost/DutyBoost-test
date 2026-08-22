@@ -93,7 +93,7 @@ export default {
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'Het Travel Retail Circular Revenue Ecosystem transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door reispartners, luchthavenretailers, enterprise POS-providers, corporate partners en reizigers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten en zonder voorraadrisico via een 100% prestatiegebonden prijsmodel.',
+       description: 'The Circular Commercial Revenue Infrastructure for Global Travel transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door reispartners, luchthavenretailers, enterprise POS-providers, corporate partners en reizigers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
        button: "Sluit u vandaag aan bij The Circular Commercial Revenue Infrastructure for Global Travel!",
 
      },
