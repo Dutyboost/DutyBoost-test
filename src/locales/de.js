@@ -28,7 +28,7 @@ export default {
       tagline: '',
     },
     ecosystem: {
-      title: 'Ein kommerzielles Ökosystem, vier Gewinner',
+      title: 'Ein kommerzielles Ökosystem, fünf Gewinner',
       subtitle: 'Eine gemeinsame Infrastruktur, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — das Travel Retail Circular Revenue Ecosystem.',
       platform_fee_note: 'Jede Einlösung treibt das gesamte Ökosystem an. Eine einzige leistungsbasierte Gebühr wird automatisch zwischen dem Reisepartner, dem POS-Partner und DutyBoost geteilt—schafft Wert für alle, ohne zusätzliche Kosten für den Flughafeneinzelhändler.',
     },

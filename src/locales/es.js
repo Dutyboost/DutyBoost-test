@@ -27,7 +27,7 @@ export default {
    tagline: '',
      },
     ecosystem: {
-      title: 'Un ecosistema comercial, cuatro ganadores',
+      title: 'Un ecosistema comercial, cinco ganadores',
       subtitle: 'Una infraestructura compartida que convierte a cada participante en ganador a través de un único sistema operativo comercial — el Travel Retail Circular Revenue Ecosystem.',
       platform_fee_note: 'Cada canje impulsa todo el ecosistema. Una única comisión basada en el rendimiento se comparte automáticamente entre el socio de viaje, el socio POS y DutyBoost—creando valor para todos, sin coste adicional para el minorista aeroportuario.',
     },
