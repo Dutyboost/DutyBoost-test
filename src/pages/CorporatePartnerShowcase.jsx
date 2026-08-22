@@ -70,11 +70,6 @@ export default function CorporatePartnerShowcase() {
                 {t('common.request_more_info')} <ArrowRight className="w-4 h-4 shrink-0" />
               </Button>
             </Link>
-            <Link to="/roi-calculator-corporate-partner">
-              <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto">
-                <Calculator className="w-4 h-4 shrink-0" /> Estimate your commission
-              </Button>
-            </Link>
           </div>
         </div>
       </section>

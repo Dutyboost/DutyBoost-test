@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Building2, ArrowRight, TrendingUp, Wallet, CalendarDays } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 
 const fmtEUR = (n) =>
   new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
@@ -20,14 +22,20 @@ export default function CorporatePartnerCalculator() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={42} /></Link>
-          <Link to="/corporate-partner-showcase">
-            <Button variant="outline" size="sm" className="gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
-              <Building2 className="w-4 h-4 shrink-0" /> About the programme
-            </Button>
+      <ShowcaseMobileNav calculatorTo="/corporate-partner-showcase" gradient="linear-gradient(to bottom, #64748b, #334155)" />
+      <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <DutyBoostLogo height={55} />
           </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/corporate-partner-showcase">
+              <Button variant="outline" size="sm" className="gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
+                <Building2 className="w-4 h-4 shrink-0" /> About the programme
+              </Button>
+            </Link>
+            <LanguageSwitcher />
+          </div>
         </div>
       </nav>
 
