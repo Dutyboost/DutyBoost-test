@@ -250,9 +250,9 @@ export default {
        },
 
     getstarted: {
-      title_partner: 'Para socios de viaje',
+      title_partner: 'For Travel Partners',
       subtitle_partner: 'Elige tu sector a continuación para ver cómo DutyBoost convierte cada reserva en ingresos circulares incrementales.',
-      title: 'DutyBoost: el ecosistema de ingresos circulares del comercio de viajes',
+      title: 'DutyBoost: The Circular Commercial Revenue Infrastructure for Global Travel',
       subtitle_default: 'Elige tu rol a continuación para empezar.',
       agencies: 'Socios de vuelos',
       pos_partners: 'Socios POS',

@@ -239,9 +239,9 @@ export default {
       monthly_rd: 'Maandelijkse inwisselingen & omzet',
     },
     getstarted: {
-      title_partner: 'Voor reispartners',
+      title_partner: 'For Travel Partners',
       subtitle_partner: 'Kies hieronder uw sector om te zien hoe DutyBoost elke boeking omzet in incrementele, circulaire omzet.',
-      title: 'DutyBoost: Het Travel Retail Circular Revenue Ecosystem',
+      title: 'DutyBoost: The Circular Commercial Revenue Infrastructure for Global Travel',
       subtitle_default: 'Kies hieronder uw rol om te beginnen.',
       agencies: 'Vluchtpartners',
       pos_partners: 'Voor POS Partners',
