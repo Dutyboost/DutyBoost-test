@@ -243,7 +243,7 @@ export default {
       subtitle_partner: 'Kies hieronder uw sector om te zien hoe DutyBoost elke boeking omzet in incrementele, circulaire omzet.',
       title: 'DutyBoost: Het Travel Retail Circular Revenue Ecosystem',
       subtitle_default: 'Kies hieronder uw rol om te beginnen.',
-      agencies: 'Voor Vluchtpartners',
+      agencies: 'Vluchtpartners',
       pos_partners: 'Voor POS Partners',
       pos_partners_description: 'Enterprise POS-aanbieders koppelen zich aan het commerciële netwerk — elke aangesloten terminal wordt een inwisselpunt, partners verdienen een aandeel van elke transactie zonder verkoopinspanning.',
       retailers: 'Voor Luchthaven Retailpartners',
