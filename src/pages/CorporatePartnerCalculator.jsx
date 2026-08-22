@@ -12,9 +12,12 @@ const fmtEUR = (n) =>
   new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 
 export default function CorporatePartnerCalculator() {
-  const [trips, setTrips] = useState(10000);
-  const [basket, setBasket] = useState(60);
-  const [rate, setRate] = useState(100);
+  const [tripsStr, setTripsStr] = useState("10000");
+  const [basketStr, setBasketStr] = useState("60");
+  const [rateStr, setRateStr] = useState("100");
+  const trips = Number(tripsStr) || 0;
+  const basket = Number(basketStr) || 0;
+  const rate = Number(rateStr) || 0;
 
   const perTx = useMemo(() => Math.min(basket * 0.005, 5), [basket]);
   const annual = useMemo(() => Math.round(trips * (rate / 100) * perTx), [trips, rate, perTx]);
@@ -61,12 +64,12 @@ export default function CorporatePartnerCalculator() {
                 <Input
                   type="number"
                   min={0}
-                  value={trips}
-                  onChange={(e) => setTrips(Math.max(0, Number(e.target.value) || 0))}
+                  value={tripsStr}
+                  onChange={(e) => setTripsStr(e.target.value)}
                   className="w-32 text-right"
                 />
               </div>
-              <Slider value={[trips]} min={0} max={200000} step={500} onValueChange={(v) => setTrips(v[0])} />
+              <Slider value={[trips]} min={0} max={200000} step={500} onValueChange={(v) => setTripsStr(String(v[0]))} />
               <p className="text-xs text-muted-foreground">Total scheduled business trips across all travelling employees per year.</p>
             </div>
 
@@ -76,12 +79,12 @@ export default function CorporatePartnerCalculator() {
                 <Input
                   type="number"
                   min={0}
-                  value={basket}
-                  onChange={(e) => setBasket(Math.max(0, Number(e.target.value) || 0))}
+                  value={basketStr}
+                  onChange={(e) => setBasketStr(e.target.value)}
                   className="w-32 text-right"
                 />
               </div>
-              <Slider value={[basket]} min={20} max={500} step={5} onValueChange={(v) => setBasket(v[0])} />
+              <Slider value={[basket]} min={20} max={500} step={5} onValueChange={(v) => setBasketStr(String(v[0]))} />
               <p className="text-xs text-muted-foreground">Blended average spend per redemption at participating airport retailers.</p>
             </div>
 
@@ -90,7 +93,7 @@ export default function CorporatePartnerCalculator() {
                 <label className="text-sm font-medium">Redemption rate</label>
                 <span className="text-sm font-semibold text-slate-700">{rate}%</span>
               </div>
-              <Slider value={[rate]} min={25} max={100} step={5} onValueChange={(v) => setRate(v[0])} />
+              <Slider value={[rate]} min={25} max={100} step={5} onValueChange={(v) => setRateStr(String(v[0]))} />
               <p className="text-xs text-muted-foreground">Share of issued DutyCredits actually redeemed. Business travellers are scheduled and predictable, so a high rate is realistic.</p>
             </div>
           </div>
