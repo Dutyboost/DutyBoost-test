@@ -124,9 +124,9 @@ export default {
     },
     getstarted: {
       title_partner: 'For Travel Partners',
-      subtitle_partner: 'Choisissez votre secteur ci-dessous pour voir comment DutyBoost transforme chaque réservation en revenus circulaires et incrémentaux.',
+      subtitle_partner: 'Choose your sector below to see how DutyBoost turns every booking into incremental, circular revenue.',
       title: 'DutyBoost: The Circular Commercial Revenue Infrastructure for Global Travel',
-      subtitle_default: 'Choisissez votre rôle ci-dessous pour commencer.',
+      subtitle_default: 'Choose your role below to get started.',
       agencies: 'Partenaires vols',
       pos_partners: 'Partenaires POS',
       pos_partners_description: 'Les fournisseurs POS d\'entreprise se connectent au réseau commercial — chaque terminal connecté devient un point d\'échange, les partenaires touchent une part de chaque transaction sans effort commercial.',
