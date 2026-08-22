@@ -163,9 +163,9 @@ export default function LandingPage() {
                 title = 'Corporate Travel Partner';
                 description = corporateOne.subtitle;
                 benefits = [
-                  corporateOne.why3_desc,
-                  corporateOne.why2_desc,
-                  corporateOne.benefit1_desc,
+                  'Earn 0.5% of every validated airport basket your employees redeem — a new T&E cost-recovery line, paid monthly.',
+                  'Zero cost and zero risk: no setup fee, no subscription, no discount liability — you only ever earn, never pay.',
+                  'One lightweight snippet in your existing travel or expense flow activates every business trip — no system replacement or policy change.',
                 ];
               }
               
