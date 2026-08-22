@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ const fmtEUR = (n) =>
   new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 
 export default function CorporatePartnerCalculator() {
+  const { t } = useTranslation();
   const [tripsStr, setTripsStr] = useState("10000");
   const [basketStr, setBasketStr] = useState("60");
   const [rateStr, setRateStr] = useState("100");
@@ -34,7 +36,7 @@ export default function CorporatePartnerCalculator() {
           <div className="flex items-center gap-4">
             <Link to="/corporate-partner-showcase">
               <Button variant="outline" size="sm" className="gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
-                <Building2 className="w-4 h-4 shrink-0" /> About the programme
+                <Building2 className="w-4 h-4 shrink-0" /> {t("corporate.calculator.aboutBtn")}
               </Button>
             </Link>
             <LanguageSwitcher />
@@ -45,11 +47,11 @@ export default function CorporatePartnerCalculator() {
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center space-y-3">
           <div className="inline-flex items-center gap-2 bg-slate-500/10 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
-            <Building2 className="w-3.5 h-3.5" /> Corporate Travel Partner
+            <Building2 className="w-3.5 h-3.5" /> {t("corporate.calculator.badge")}
           </div>
-          <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">Cost-Recovery Calculator</h1>
+          <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">{t("corporate.calculator.title")}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Estimate the annual commission your company earns on every validated airport redemption by your travelling employees — 0.5% of each basket, capped at €5 per transaction, paid monthly.
+            {t("corporate.calculator.subtitle")}
           </p>
         </div>
       </section>
@@ -60,7 +62,7 @@ export default function CorporatePartnerCalculator() {
           <div className="lg:col-span-3 bg-card border border-border rounded-2xl p-6 sm:p-8 space-y-7">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-medium">Annual business trips</label>
+                <label className="text-sm font-medium">{t("corporate.calculator.labelTrips")}</label>
                 <Input
                   type="number"
                   min={0}
@@ -70,12 +72,12 @@ export default function CorporatePartnerCalculator() {
                 />
               </div>
               <Slider value={[trips]} min={0} max={200000} step={500} onValueChange={(v) => setTripsStr(String(v[0]))} />
-              <p className="text-xs text-muted-foreground">Total scheduled business trips across all travelling employees per year.</p>
+              <p className="text-xs text-muted-foreground">{t("corporate.calculator.descTrips")}</p>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-medium">Average airport basket (€)</label>
+                <label className="text-sm font-medium">{t("corporate.calculator.labelBasket")}</label>
                 <Input
                   type="number"
                   min={0}
@@ -85,16 +87,16 @@ export default function CorporatePartnerCalculator() {
                 />
               </div>
               <Slider value={[basket]} min={20} max={500} step={5} onValueChange={(v) => setBasketStr(String(v[0]))} />
-              <p className="text-xs text-muted-foreground">Blended average spend per redemption at participating airport retailers.</p>
+              <p className="text-xs text-muted-foreground">{t("corporate.calculator.descBasket")}</p>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-medium">Redemption rate</label>
+                <label className="text-sm font-medium">{t("corporate.calculator.labelRate")}</label>
                 <span className="text-sm font-semibold text-slate-700">{rate}%</span>
               </div>
               <Slider value={[rate]} min={25} max={100} step={5} onValueChange={(v) => setRateStr(String(v[0]))} />
-              <p className="text-xs text-muted-foreground">Share of issued DutyCredits actually redeemed. Business travellers are scheduled and predictable, so a high rate is realistic.</p>
+              <p className="text-xs text-muted-foreground">{t("corporate.calculator.descRate")}</p>
             </div>
           </div>
 
@@ -102,37 +104,37 @@ export default function CorporatePartnerCalculator() {
           <div className="lg:col-span-2 space-y-4">
             <div className="bg-gradient-to-br from-slate-800 to-slate-600 rounded-2xl p-7 text-white shadow-lg space-y-2">
               <div className="flex items-center gap-2 text-white/80 text-sm font-medium">
-                <Wallet className="w-4 h-4" /> Estimated annual commission
+                <Wallet className="w-4 h-4" /> {t("corporate.calculator.resultAnnual")}
               </div>
               <div className="text-4xl sm:text-5xl font-heading font-bold">{fmtEUR(annual)}</div>
-              <p className="text-white/80 text-sm">Credited against your T&E costs, paid monthly by DutyBoost.</p>
+              <p className="text-white/80 text-sm">{t("corporate.calculator.resultAnnualDesc")}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-card border border-border rounded-2xl p-5 space-y-1">
                 <CalendarDays className="w-4 h-4 text-muted-foreground" />
                 <div className="text-2xl font-heading font-bold">{fmtEUR(monthly)}</div>
-                <p className="text-xs text-muted-foreground">Per month</p>
+                <p className="text-xs text-muted-foreground">{t("corporate.calculator.perMonth")}</p>
               </div>
               <div className="bg-card border border-border rounded-2xl p-5 space-y-1">
                 <TrendingUp className="w-4 h-4 text-muted-foreground" />
                 <div className="text-2xl font-heading font-bold">{fmtEUR(perTx)}</div>
-                <p className="text-xs text-muted-foreground">Per redemption (capped €5)</p>
+                <p className="text-xs text-muted-foreground">{t("corporate.calculator.perRedemption")}</p>
               </div>
             </div>
 
             <div className="bg-muted/40 border border-border rounded-2xl p-5 space-y-2 text-sm">
-              <p className="font-semibold text-foreground">How this is calculated</p>
+              <p className="font-semibold text-foreground">{t("corporate.calculator.howTitle")}</p>
               <ul className="space-y-1.5 text-muted-foreground">
-                <li>• Commission = 0.5% of basket, capped at €5 per transaction</li>
-                <li>• Annual commission = trips × redemption rate × commission per redemption</li>
-                <li>• You pay nothing — the discount is retailer-funded, the commission is paid by DutyBoost out of its 2.5% fee</li>
+                <li>• {t("corporate.calculator.how1")}</li>
+                <li>• {t("corporate.calculator.how2")}</li>
+                <li>• {t("corporate.calculator.how3")}</li>
               </ul>
             </div>
 
             <Link to="/corporate-partner-showcase">
               <Button className="w-full gap-2" size="lg">
-                Request more information <ArrowRight className="w-4 h-4 shrink-0" />
+                {t("corporate.calculator.cta")} <ArrowRight className="w-4 h-4 shrink-0" />
               </Button>
             </Link>
           </div>
@@ -142,7 +144,7 @@ export default function CorporatePartnerCalculator() {
       <footer className="border-t border-border py-8 px-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <DutyBoostLogo height={42} />
-          <p>© {new Date().getFullYear()} DutyBoost B.V. — Estimates only.</p>
+          <p>© {new Date().getFullYear()} DutyBoost B.V. — {t("corporate.calculator.footer")}</p>
         </div>
       </footer>
     </div>
