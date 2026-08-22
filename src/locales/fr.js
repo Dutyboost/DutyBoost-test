@@ -9,7 +9,7 @@ export default {
       for_travelers: 'Voyageurs',
       for_retailers: 'Partenaires détaillants aéroportuaires',
       for_accommodations: 'Hébergements',
-      for_car_rentals: 'Location & Transfert',
+      for_car_rentals: 'Location',
       get_started: 'Commencer',
       partner_with_us: 'Partenaire avec nous',
       we_call_you: 'Nous vous appelons',

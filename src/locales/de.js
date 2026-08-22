@@ -9,7 +9,7 @@ export default {
       for_travelers: 'Reisende',
       for_retailers: 'Flughafen-Retailpartner',
       for_accommodations: 'Unterkünfte',
-      for_car_rentals: 'Autovermietung & Transfer',
+      for_car_rentals: 'Autovermietung',
       get_started: 'Loslegen',
       partner_with_us: 'Partner mit uns',
       we_call_you: 'Wir rufen Sie an',

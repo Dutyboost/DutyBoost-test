@@ -8,7 +8,7 @@ export default {
       for_travelers: 'Reizigers',
       for_retailers: 'Retailpartners',
       for_accommodations: 'Accommodaties',
-      for_car_rentals: 'Autoverhuur & Transfer',
+      for_car_rentals: 'Autoverhuur',
       get_started: 'Aan de slag',
       partner_with_us: 'Partner met ons',
       we_call_you: 'Wij bellen u',

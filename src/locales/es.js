@@ -8,7 +8,7 @@ export default {
       for_travelers: 'Viajeros',
       for_retailers: 'Socios minoristas aeroportuarios',
       for_accommodations: 'Alojamientos',
-      for_car_rentals: 'Alquiler & Traslados',
+      for_car_rentals: 'Alquiler',
       get_started: 'Comenzar',
       partner_with_us: 'Asociarse con nosotros',
       we_call_you: 'Te llamamos',
