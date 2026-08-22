@@ -90,20 +90,6 @@ export default function SelectUserType() {
             <DutyBoostLogo height={55} />
           </button>
           <div className="flex items-center gap-4">
-            {fromAgency ? (
-              <Link to="/roi-calculator-travel-partner">
-                <Button variant="outline" size="sm">{t('nav.roi_calculator_travel_partner')}</Button>
-              </Link>
-            ) : (
-              <div className="flex items-center gap-2">
-                <Link to="/retailer-calculator">
-                  <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
-                </Link>
-                <Link to="/roi-calculator-travel-partner">
-                  <Button variant="outline" size="sm">{t('nav.roi_calculator_travel_partner')}</Button>
-                </Link>
-              </div>
-            )}
             <LanguageSwitcher />
           </div>
         </div>
