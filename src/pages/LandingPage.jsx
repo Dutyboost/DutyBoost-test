@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, ArrowRight, Menu, X, Cpu, Building2
+  Calculator, ArrowRight, Menu, X, Cpu, Building2, Network
 } from "lucide-react";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
@@ -60,6 +60,13 @@ export default function LandingPage() {
       color: "from-blue-400 to-blue-600",
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
+    },
+    {
+      key: 'dutyboost',
+      icon: Network,
+      color: "from-primary to-accent",
+      bg: "bg-primary/5",
+      iconColor: "text-primary",
     },
   ];
 
@@ -172,6 +179,16 @@ export default function LandingPage() {
               if (s.key === 'agencies') {
                          AdditionalIcons = [HotelIcon, CarRentalIcon];
                        }
+
+              if (s.key === 'dutyboost') {
+                title = 'DutyBoost';
+                description = 'The Circular Revenue Infrastructure for Global Travel';
+                benefits = [
+                  'One layer unifies travel partners, retailers, POS providers, and corporate buyers — no fragmented deals or point integrations.',
+                  'Every validated redemption pays the whole chain — traveler, partner, retailer, and corporate — automatically and transparently.',
+                  'Built-in fraud control, partial-refund handling, and monthly settlement keep the money moving cleanly across all five sides.',
+                ];
+              }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
               const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
