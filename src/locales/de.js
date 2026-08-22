@@ -142,6 +142,8 @@ export default {
       train_description: 'DutyBoost wird jede Zugfahrt in ein Bahnhofs-Retail-Event verwandeln — DutyCredits für Passagiere bei der Buchung generieren, einlösbar vor dem Einsteigen, ohne Infrastrukturkosten.',
       cruise: 'Kreuzfahrt Partner',
       train: 'Bahn Partner',
+      corporate_partners: 'Für Corporate Partner',
+      corporate_partners_description: 'Mit DutyBoost wandeln Sie Geschäftsreisenausgaben in zurückerhaltenes Budget um — jede Einlösung finanziert die Flughafen-Shopping-Guthaben der Mitarbeiter aus verdienter Provision und gleicht Ihre T&E-Kosten ohne Vorabkosten aus.',
       full_name: 'Vollständiger Name',
       work_email: 'Geschäfts-E-Mail',
       company_name: 'Firmenname',

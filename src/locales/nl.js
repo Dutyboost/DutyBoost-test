@@ -260,6 +260,8 @@ export default {
       vat: 'BTW-nummer',
       cruise: 'Cruiseschip Partners',
       train: 'Trein Partners',
+      corporate_partners: 'Voor Corporate Partners',
+      corporate_partners_description: 'Met DutyBoost zet u zakelijke reisuitgaven om in terugverdiend budget — elke inlossing financiert de luchthaven-shoppingtegoeden van werknemers uit verdiende commissie, waardoor uw T&E-kosten worden gecompenseerd zonder voorafgaande kosten.',
     },
     common: {
       back: 'Terug',

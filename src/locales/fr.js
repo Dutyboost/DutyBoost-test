@@ -142,6 +142,8 @@ export default {
       train_description: 'DutyBoost transformera chaque trajet en train en un événement retail en gare — générant des DutyCredits pour les passagers à la réservation, utilisables avant l\'embarquement, sans frais d\'infrastructure.',
       cruise: 'Partenaires Croisières',
       train: 'Partenaires Ferroviaires',
+      corporate_partners: 'Pour Partenaires Corporate',
+      corporate_partners_description: "Grâce à DutyBoost vous transformez vos dépenses de voyage professionnel en budget récupéré — chaque utilisation finance les crédits shopping aéroportuaires des employés grâce à la commission perçue, compensant vos frais T&E sans coût initial.",
       full_name: 'Nom complet',
       work_email: 'E-mail professionnel',
       company_name: 'Nom de l\'entreprise',

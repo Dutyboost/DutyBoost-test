@@ -365,6 +365,8 @@ export default {
       train_description: 'DutyBoost will turn every train journey into a station retail revenue event — generating DutyCredits for passengers at booking, redeemable at station retailers before boarding, with zero infrastructure cost.',
       cruise: 'Cruise Ship Partners',
       train: 'Train Partners',
+      corporate_partners: 'For Corporate Partners',
+      corporate_partners_description: "Through DutyBoost you turn business travel spend into recovered budget — every traveller redemption funds employee airport shopping credits from commission earned, offsetting your organisation's T&E costs with no upfront cost.",
     },
     accommodationsignup: {
       step_info: 'Accommodation Info',

@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight, Cpu, Building2 } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
@@ -67,6 +67,16 @@ export default function SelectUserType() {
       bg: "bg-violet-50",
       iconColor: "text-violet-600",
       path: "/pos-partner",
+    },
+    {
+      id: "corporate",
+      title: t('getstarted.corporate_partners'),
+      descKey: 'getstarted.corporate_partners_description',
+      icon: Building2,
+      color: "from-slate-500 to-slate-700",
+      bg: "bg-slate-50",
+      iconColor: "text-slate-700",
+      path: "/corporate-partner-showcase",
     },
   ];
 
