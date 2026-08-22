@@ -123,6 +123,8 @@ import RetailerPitchDeck from './pages/RetailerPitchDeck';
 import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
+import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
+import CorporatePartnerCalculator from './pages/CorporatePartnerCalculator';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -251,6 +253,8 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
+        <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
+        <Route path="/roi-calculator-corporate-partner" element={<CorporatePartnerCalculator />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />

@@ -5,8 +5,9 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, ArrowRight, Menu, X, Cpu
+  Calculator, ArrowRight, Menu, X, Cpu, Building2
 } from "lucide-react";
+import { corporateStrings } from "@/lib/i18nCorporate";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
@@ -16,9 +17,11 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 
 export default function LandingPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const corporateLang = (i18n.language || "en").split("-")[0];
+  const corporateOne = (corporateStrings[corporateLang] || corporateStrings.en).onepager;
 
 
 
@@ -51,6 +54,13 @@ export default function LandingPage() {
       bg: "bg-violet-50",
       iconColor: "text-violet-600",
     },
+    {
+      key: 'corporate',
+      icon: Building2,
+      color: "from-fuchsia-400 to-purple-600",
+      bg: "bg-fuchsia-50",
+      iconColor: "text-fuchsia-600",
+    },
   ];
 
   return (
@@ -69,6 +79,11 @@ export default function LandingPage() {
             <Link to="/roi-calculator-travel-partner">
               <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator_travel_partner')}
+              </Button>
+            </Link>
+            <Link to="/roi-calculator-corporate-partner">
+              <Button variant="outline" size="sm" className="gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
+                <Calculator className="w-4 h-4 shrink-0" /> Corporate ROI
               </Button>
             </Link>
             <LanguageSwitcher />
@@ -91,6 +106,11 @@ export default function LandingPage() {
             <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator_travel_partner')}
+              </Button>
+            </Link>
+            <Link to="/roi-calculator-corporate-partner" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
+                <Calculator className="w-4 h-4 shrink-0" /> Corporate ROI
               </Button>
             </Link>
           </div>
@@ -127,24 +147,34 @@ export default function LandingPage() {
             <h2 className="text-4xl font-heading font-bold">{t('ecosystem.title')}</h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {stakeholders.map((s) => {
               let Icon = s.icon;
               let AdditionalIcons = [];
-              const title = t(`stakeholders.${s.key}.title`);
-              const description = t(`stakeholders.${s.key}.description`);
-              const benefits = [
+              let title = t(`stakeholders.${s.key}.title`);
+              let description = t(`stakeholders.${s.key}.description`);
+              let benefits = [
                 t(`stakeholders.${s.key}.b1`),
                 t(`stakeholders.${s.key}.b2`),
                 t(`stakeholders.${s.key}.b3`),
               ];
+
+              if (s.key === 'corporate') {
+                title = 'Corporate Travel Partner';
+                description = corporateOne.subtitle;
+                benefits = [
+                  corporateOne.why3_desc,
+                  corporateOne.why2_desc,
+                  corporateOne.benefit1_desc,
+                ];
+              }
               
               if (s.key === 'agencies') {
                          AdditionalIcons = [HotelIcon, CarRentalIcon];
                        }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'travelers' || s.key === 'posPartner';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-3 mb-5`}>
