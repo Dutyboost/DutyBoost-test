@@ -91,6 +91,13 @@ export default {
         b2: 'Zéro effort opérationnel',
         b3: 'Nouveau flux de revenus passifs',
       },
+      dutyboost: {
+        title: 'DutyBoost',
+        description: "L'Infrastructure de Revenus Circulaires pour le Voyage Mondial",
+        b1: "Une seule couche unifie partenaires de voyage, détaillants aéroportuaires, prestataires POS, voyageurs de loisir et d'affaires.",
+        b2: 'Chaque rachat validé rémunère toute la chaîne — voyageur, partenaire, détaillant et corporate — automatiquement et en toute transparence.',
+        b3: 'Rapprochement automatisé, gestion des remboursements partiels et règlement mensuel maintiennent les revenus fluides sur les six côtés.',
+      },
     },
     cta: {
       title: 'Un voyageur. Un voyage. Des revenus pour tous.',

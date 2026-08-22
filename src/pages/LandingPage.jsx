@@ -191,12 +191,12 @@ export default function LandingPage() {
                        }
 
               if (s.key === 'dutyboost') {
-                title = 'DutyBoost';
-                description = 'The Circular Revenue Infrastructure for Global Travel';
+                title = t(`stakeholders.${s.key}.title`);
+                description = t(`stakeholders.${s.key}.description`);
                 benefits = [
-                  'One layer unifies travel partners, airport retailers, POS providers, leisure and corporate travellers seamlessly.',
-                  'Every validated redemption pays the whole chain — traveler, partner, retailer, and corporate — automatically and transparently.',
-                  'Automated reconciliation, partial-refund handling, and monthly settlement keep revenue flowing cleanly across all six sides.',
+                  t(`stakeholders.${s.key}.b1`),
+                  t(`stakeholders.${s.key}.b2`),
+                  t(`stakeholders.${s.key}.b3`),
                 ];
               }
 

@@ -90,6 +90,13 @@ export default {
         b2: 'Cero trabajo operativo',
         b3: 'Nuevos ingresos pasivos',
       },
+      dutyboost: {
+        title: 'DutyBoost',
+        description: 'La Infraestructura de Ingresos Circulares para Viajes Globales',
+        b1: 'Una capa unifica socios de viaje, minoristas aeroportuarios, proveedores POS, viajeros de ocio y corporativos sin fisuras.',
+        b2: 'Cada canje validado paga toda la cadena — viajero, socio, minorista y corporativo — automática y transparentemente.',
+        b3: 'Conciliación automatizada, gestión de reembolsos parciales y liquidación mensual mantienen el flujo de ingresos limpio en los seis lados.',
+      },
     },
     cta: {
        title: 'Un viajero. Un viaje. Ingresos para todos.',

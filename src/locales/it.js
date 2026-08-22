@@ -90,6 +90,13 @@ export default {
         b2: 'Zero sforzo operativo',
         b3: 'Nuovo flusso di ricavi passivi',
       },
+      dutyboost: {
+        title: 'DutyBoost',
+        description: "L'Infrastruttura di Ricavi Circolari per i Viaggi Globali",
+        b1: 'Un unico livello unifica partner di viaggio, retailer aeroportuali, provider POS, viaggiatori leisure e corporate senza interruzioni.',
+        b2: "Ogni riscatto validato paga l'intera catena — viaggiatore, partner, retailer e corporate — in modo automatico e trasparente.",
+        b3: 'Riconciliazione automatizzata, gestione dei rimborsi parziali e liquidazione mensile mantengono i ricavi fluidi su tutti i sei lati.',
+      },
     },
     cta: {
        title: 'Un viaggiatore. Un viaggio. Ricavi per tutti.',

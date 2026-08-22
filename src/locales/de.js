@@ -91,6 +91,13 @@ export default {
         b2: 'Null operativer Aufwand',
         b3: 'Neuer passiver Einnahmestrom',
       },
+      dutyboost: {
+        title: 'DutyBoost',
+        description: 'Die Circular Revenue Infrastructure für globales Reisen',
+        b1: 'Eine Schicht vereint Reisepartner, Flughafeneinzelhändler, POS-Anbieter, Freizeit- und Geschäftsreisende nahtlos.',
+        b2: 'Jede validierte Einlösung zahlt die gesamte Kette — Reisende, Partner, Händler und Corporate — automatisch und transparent.',
+        b3: 'Automatisierter Abgleich, Teilrückerstattungen und monatliche Abrechnung halten den Umsatz über alle sechs Seiten sauber fließend.',
+      },
     },
     cta: {
       title: 'Ein Reisender. Eine Reise. Erlös für alle.',

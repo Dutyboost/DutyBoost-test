@@ -90,6 +90,13 @@ export default {
         b2: 'Nul operationele last',
         b3: 'Nieuwe passieve inkomstenstroom',
       },
+      dutyboost: {
+        title: 'DutyBoost',
+        description: 'De Circulaire Omzetinfrastructuur voor Wereldwijd Reizen',
+        b1: 'Eén laag verbindt reispartners, luchthavenretailers, POS-aanbieders, vrijetijds- en zakelijke reizigers naadloos.',
+        b2: 'Elke gevalideerde inwisseling betaalt de hele keten — reiziger, partner, retailer en corporate — automatisch en transparant.',
+        b3: 'Geautomatiseerde afstemming, gedeeltelijke terugbetalingen en maandelijkse afwikkeling houden de omzet schoon stromend over alle zes kanten.',
+      },
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',

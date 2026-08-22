@@ -96,6 +96,13 @@ export default {
         b2: 'Zero operational effort',
         b3: 'New passive revenue stream',
       },
+      dutyboost: {
+        title: 'DutyBoost',
+        description: 'The Circular Revenue Infrastructure for Global Travel',
+        b1: 'One layer unifies travel partners, airport retailers, POS providers, leisure and corporate travellers seamlessly.',
+        b2: 'Every validated redemption pays the whole chain — traveller, partner, retailer, and corporate — automatically and transparently.',
+        b3: 'Automated reconciliation, partial-refund handling, and monthly settlement keep revenue flowing cleanly across all six sides.',
+      },
     },
     cta: {
       title: 'One Traveller. One Journey. Revenue for Everyone.',
