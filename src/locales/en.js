@@ -99,7 +99,7 @@ export default {
     },
     cta: {
       title: 'One Traveller. One Journey. Revenue for Everyone.',
-      description: "The Travel Retail Circular Revenue Ecosystem transforms every traveller's journey into a new source of measurable incremental revenue. Connecting travel partners, airport retailers, enterprise POS providers and travellers in one shared ecosystem, DutyBoost creates new value with no upfront costs and no inventory risk through a 100% performance-based pricing model.",
+      description: "The Travel Retail Circular Revenue Ecosystem transforms every traveller's journey into a new source of measurable incremental revenue. Connecting travel partners, airport retailers, enterprise POS providers, corporate partners and travellers in one shared ecosystem, DutyBoost creates new value with no upfront costs and no inventory risk through a 100% performance-based pricing model.",
       button: 'Join The Circular Commercial Revenue Infrastructure for Global Travel Today!',
     },
     footer: {
