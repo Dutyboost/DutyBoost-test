@@ -73,17 +73,17 @@ export default function LandingPage() {
           <div className="hidden lg:flex items-center gap-2">
             <Link to="/roi-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator')}
+                <Calculator className="w-4 h-4 shrink-0" /> Retail Partner ROI
               </Button>
             </Link>
             <Link to="/roi-calculator-travel-partner">
               <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator_travel_partner')}
+                <Calculator className="w-4 h-4 shrink-0" /> Travel Partner ROI
               </Button>
             </Link>
             <Link to="/roi-calculator-corporate-partner">
               <Button variant="outline" size="sm" className="gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Corporate ROI
+                <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
               </Button>
             </Link>
             <LanguageSwitcher />
@@ -100,17 +100,17 @@ export default function LandingPage() {
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
             <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator')}
+                <Calculator className="w-4 h-4 shrink-0" /> Retail Partner ROI
               </Button>
             </Link>
             <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <Calculator className="w-4 h-4 shrink-0" /> {t('nav.roi_calculator_travel_partner')}
+                <Calculator className="w-4 h-4 shrink-0" /> Travel Partner ROI
               </Button>
             </Link>
             <Link to="/roi-calculator-corporate-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Corporate ROI
+                <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
               </Button>
             </Link>
           </div>
