@@ -241,7 +241,7 @@ export default {
     getstarted: {
       title_partner: 'Voor Reispartners',
       subtitle_partner: 'Kies hieronder uw sector om te zien hoe DutyBoost elke boeking omzet in incrementele, circulaire inkomsten.',
-      title: 'DutyBoost: De Circulaire Commerciële Inkomsteninfrastructuur voor Wereldwijd Reizen',
+      title: 'DutyBoost: De Circulaire Commerciële Inkomsten Infrastructuur voor Wereldwijd Reizen',
       subtitle_default: 'Kies hieronder uw rol om te beginnen.',
       agencies: 'Vluchtpartners',
       pos_partners: 'Voor POS Partners',
