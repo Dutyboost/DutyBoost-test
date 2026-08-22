@@ -88,6 +88,11 @@ export default function LandingPage() {
                 <Calculator className="w-4 h-4 shrink-0" /> Travel Partner ROI
               </Button>
             </Link>
+            <Link to="/pos-partner#calculator">
+              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
+                <Calculator className="w-4 h-4 shrink-0" /> POS Partner ROI
+              </Button>
+            </Link>
             <Link to="/roi-calculator-corporate-partner">
               <Button variant="outline" size="sm" className="gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
                 <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
@@ -113,6 +118,11 @@ export default function LandingPage() {
             <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
                 <Calculator className="w-4 h-4 shrink-0" /> Travel Partner ROI
+              </Button>
+            </Link>
+            <Link to="/pos-partner#calculator" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
+                <Calculator className="w-4 h-4 shrink-0" /> POS Partner ROI
               </Button>
             </Link>
             <Link to="/roi-calculator-corporate-partner" onClick={() => setMobileMenuOpen(false)}>
