@@ -83,7 +83,7 @@ export default function SelectUserType() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <ShowcaseMobileNav calculatorTo={fromAgency ? '/roi-calculator-travel-partner' : '/retailer-calculator'} gradient="linear-gradient(to bottom, #2563eb, #3b82f6)" />
+      <ShowcaseMobileNav gradient="linear-gradient(to bottom, #2563eb, #3b82f6)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
