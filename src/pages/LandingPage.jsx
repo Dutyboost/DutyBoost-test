@@ -57,9 +57,9 @@ export default function LandingPage() {
     {
       key: 'corporate',
       icon: Building2,
-      color: "from-fuchsia-400 to-purple-600",
-      bg: "bg-fuchsia-50",
-      iconColor: "text-fuchsia-600",
+      color: "from-slate-500 to-slate-700",
+      bg: "bg-slate-50",
+      iconColor: "text-slate-700",
     },
   ];
 
