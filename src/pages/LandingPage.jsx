@@ -34,13 +34,6 @@ export default function LandingPage() {
       iconColor: "text-green-600",
     },
     {
-      key: 'travelers',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
-    },
-    {
       key: 'retailers',
       icon: AirportRetailerIcon,
       color: "from-orange-400 to-orange-600",
@@ -60,6 +53,13 @@ export default function LandingPage() {
       color: "from-slate-500 to-slate-700",
       bg: "bg-slate-50",
       iconColor: "text-slate-700",
+    },
+    {
+      key: 'travelers',
+      icon: TravelerIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
     },
   ];
 
