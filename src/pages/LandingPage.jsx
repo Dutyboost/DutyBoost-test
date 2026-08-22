@@ -194,9 +194,9 @@ export default function LandingPage() {
                 title = 'DutyBoost';
                 description = 'The Circular Revenue Infrastructure for Global Travel';
                 benefits = [
-                  'One layer unifies travel partners, retailers, POS providers, and corporate buyers — no fragmented deals or point integrations.',
+                  'One layer unifies travel partners, airport retailers, POS providers, leisure and corporate travellers seamlessly.',
                   'Every validated redemption pays the whole chain — traveler, partner, retailer, and corporate — automatically and transparently.',
-                  'Built-in fraud control, partial-refund handling, and monthly settlement keep the money moving cleanly across all five sides.',
+                  'Automated reconciliation, partial-refund handling, and monthly settlement keep revenue flowing cleanly across all five sides.',
                 ];
               }
 
