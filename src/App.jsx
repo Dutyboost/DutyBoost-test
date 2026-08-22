@@ -124,6 +124,7 @@ import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
+import CorporatePartnerRequest from './pages/CorporatePartnerRequest';
 import CorporatePartnerCalculator from './pages/CorporatePartnerCalculator';
 
 const AuthenticatedApp = () => {
@@ -254,6 +255,7 @@ const AuthenticatedApp = () => {
         <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
         <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
+        <Route path="/corporate-partner-request" element={<CorporatePartnerRequest />} />
         <Route path="/roi-calculator-corporate-partner" element={<CorporatePartnerCalculator />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
