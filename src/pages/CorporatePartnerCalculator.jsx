@@ -41,7 +41,7 @@ export default function CorporatePartnerCalculator() {
 
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center space-y-3">
-          <div className="inline-flex items-center gap-2 bg-fuchsia-500/10 text-fuchsia-600 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-slate-500/10 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
             <Building2 className="w-3.5 h-3.5" /> Corporate Travel Partner
           </div>
           <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">Cost-Recovery Calculator</h1>
@@ -88,7 +88,7 @@ export default function CorporatePartnerCalculator() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium">Redemption rate</label>
-                <span className="text-sm font-semibold text-fuchsia-600">{rate}%</span>
+                <span className="text-sm font-semibold text-slate-700">{rate}%</span>
               </div>
               <Slider value={[rate]} min={25} max={100} step={5} onValueChange={(v) => setRate(v[0])} />
               <p className="text-xs text-muted-foreground">Share of issued DutyCredits actually redeemed. Business travellers are scheduled and predictable, so a high rate is realistic.</p>
@@ -97,7 +97,7 @@ export default function CorporatePartnerCalculator() {
 
           {/* Results */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-gradient-to-br from-fuchsia-600 to-primary rounded-2xl p-7 text-white shadow-lg space-y-2">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-600 rounded-2xl p-7 text-white shadow-lg space-y-2">
               <div className="flex items-center gap-2 text-white/80 text-sm font-medium">
                 <Wallet className="w-4 h-4" /> Estimated annual commission
               </div>
