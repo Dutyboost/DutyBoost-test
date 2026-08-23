@@ -64,13 +64,6 @@ export default function CorporatePartnerShowcase() {
             {o.headline}
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{o.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-            <Link to="/corporate-partner-request">
-              <Button size="lg" className="gap-2 bg-slate-700 hover:bg-slate-800">
-                {t('common.request_more_info')} <ArrowRight className="w-4 h-4 shrink-0" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
