@@ -12,32 +12,13 @@ import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 
-const JOB_TITLES = [
-  "Head of Corporate Travel",
-  "Travel & Expense Manager",
-  "Global Travel Manager",
-  "Procurement Manager",
-  "Finance Director",
-  "CFO / Chief Financial Officer",
-  "VP Operations",
-  "Other",
-];
 
-const COUNTRIES = [
-  "Netherlands", "Germany", "France", "United Kingdom", "Belgium", "Spain", "Italy",
-  "Switzerland", "Austria", "Nordics", "Other Europe", "United States", "Other",
-];
-
-const TRIP_VOLUMES = [
-  "Under 1,000 trips/year",
-  "1,000 – 5,000",
-  "5,000 – 20,000",
-  "20,000 – 100,000",
-  "100,000+",
-];
 
 export default function CorporatePartnerRequest() {
   const { t } = useTranslation();
+  const JOB_TITLES = t('corporaterequest.job_titles', { returnObjects: true });
+  const COUNTRIES = t('corporaterequest.countries', { returnObjects: true });
+  const TRIP_VOLUMES = t('corporaterequest.trip_volumes', { returnObjects: true });
   const [form, setForm] = useState({
     fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", trips: "", message: "",
   });
@@ -116,75 +97,75 @@ export default function CorporatePartnerRequest() {
               <div className="w-20 h-20 rounded-full bg-slate-500/10 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10 text-slate-600" />
               </div>
-              <h2 className="text-3xl font-heading font-bold">Thank you{form.fullName ? `, ${form.fullName.split(" ")[0]}` : ""}!</h2>
+              <h2 className="text-3xl font-heading font-bold">{t('corporaterequest.success_title', { name: form.fullName ? `, ${form.fullName.split(" ")[0]}` : '' })}</h2>
               <p className="text-muted-foreground max-w-sm mx-auto">
-                Your enquiry has been received. The DutyBoost team will reach out shortly to walk you through the Corporate Travel Partner programme.
+                {t('corporaterequest.success_desc')}
               </p>
-              <Link to="/"><Button variant="outline">{t('requestdemo.back_home')}</Button></Link>
+              <Link to="/"><Button variant="outline">{t('corporaterequest.back_home')}</Button></Link>
             </div>
           ) : (
             <div className="space-y-6">
               <div className="text-center space-y-2">
                 <h2 className="text-3xl font-heading font-bold">{t('common.request_more_info')}</h2>
-                <p className="text-muted-foreground text-sm">Tell us about your travel programme and we'll prepare a tailored cost-recovery estimate.</p>
+                <p className="text-muted-foreground text-sm">{t('corporaterequest.subtitle')}</p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4 bg-card border border-border rounded-2xl p-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>Full name <span className="text-red-500">*</span></Label>
+                    <Label>{t('corporaterequest.label_full_name')} <span className="text-red-500">*</span></Label>
                     <Input required placeholder="Jane Smith" value={form.fullName} onChange={(e) => set("fullName", e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>Work email <span className="text-red-500">*</span></Label>
+                    <Label>{t('corporaterequest.label_work_email')} <span className="text-red-500">*</span></Label>
                     <Input required type="email" placeholder="jane@company.com" value={form.email} onChange={(e) => set("email", e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Job title <span className="text-red-500">*</span></Label>
+                  <Label>{t('corporaterequest.label_job_title')} <span className="text-red-500">*</span></Label>
                   <Select value={form.jobTitle} onValueChange={(v) => set("jobTitle", v)}>
-                    <SelectTrigger><SelectValue placeholder="Select your role" /></SelectTrigger>
+                    <SelectTrigger><SelectValue placeholder={t('corporaterequest.placeholder_job_title')} /></SelectTrigger>
                     <SelectContent>{JOB_TITLES.map((j) => <SelectItem key={j} value={j}>{j}</SelectItem>)}</SelectContent>
                   </Select>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>Company <span className="text-red-500">*</span></Label>
-                    <Input required placeholder="Your company" value={form.company} onChange={(e) => set("company", e.target.value)} />
+                    <Label>{t('corporaterequest.label_company')} <span className="text-red-500">*</span></Label>
+                    <Input required placeholder={t('corporaterequest.placeholder_company')} value={form.company} onChange={(e) => set("company", e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>Website <span className="text-red-500">*</span></Label>
+                    <Label>{t('corporaterequest.label_website')} <span className="text-red-500">*</span></Label>
                     <Input required placeholder="https://yourcompany.com" value={form.website} onChange={(e) => set("website", e.target.value)} />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>Country <span className="text-red-500">*</span></Label>
+                    <Label>{t('corporaterequest.label_country')} <span className="text-red-500">*</span></Label>
                     <Select value={form.country} onValueChange={(v) => set("country", v)}>
-                      <SelectTrigger><SelectValue placeholder="Select country" /></SelectTrigger>
+                      <SelectTrigger><SelectValue placeholder={t('corporaterequest.placeholder_country')} /></SelectTrigger>
                       <SelectContent>{COUNTRIES.map((co) => <SelectItem key={co} value={co}>{co}</SelectItem>)}</SelectContent>
                     </Select>
                   </div>
                   <div className="space-y-1.5">
-                    <Label>Annual business trips <span className="text-red-500">*</span></Label>
+                    <Label>{t('corporaterequest.label_trips')} <span className="text-red-500">*</span></Label>
                     <Select value={form.trips} onValueChange={(v) => set("trips", v)}>
-                      <SelectTrigger><SelectValue placeholder="Select volume" /></SelectTrigger>
+                      <SelectTrigger><SelectValue placeholder={t('corporaterequest.placeholder_trips')} /></SelectTrigger>
                       <SelectContent>{TRIP_VOLUMES.map((tr) => <SelectItem key={tr} value={tr}>{tr}</SelectItem>)}</SelectContent>
                     </Select>
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label>Message <span className="text-muted-foreground text-xs">(optional)</span></Label>
+                  <Label>{t('corporaterequest.label_message')} <span className="text-muted-foreground text-xs">{t('corporaterequest.optional')}</span></Label>
                   <textarea
                     className="w-full min-h-[80px] rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
-                    placeholder="Anything you'd like us to know?"
+                    placeholder={t('corporaterequest.placeholder_message')}
                     value={form.message}
                     onChange={(e) => set("message", e.target.value)}
                   />
                 </div>
                 <Button type="submit" size="lg" className="w-full gap-2 bg-slate-700 hover:bg-slate-800" disabled={!isValid || loading}>
-                  {loading ? "Submitting..." : t('common.request_more_info')} <ArrowRight className="w-4 h-4 shrink-0" />
+                  {loading ? t('corporaterequest.submitting') : t('common.request_more_info')} <ArrowRight className="w-4 h-4 shrink-0" />
                 </Button>
-                <p className="text-center text-xs text-muted-foreground">No spam. No sales pitch.</p>
+                <p className="text-center text-xs text-muted-foreground">{t('corporaterequest.no_spam')}</p>
               </form>
             </div>
           )}
