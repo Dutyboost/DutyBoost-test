@@ -94,7 +94,7 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Link to="/roi-calculator-corporate-partner">
-              <Button variant="outline" size="sm" className="gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
+              <Button variant="outline" size="sm" className="gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
                 <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
               </Button>
             </Link>
@@ -126,7 +126,7 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Link to="/roi-calculator-corporate-partner" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-fuchsia-600 border-fuchsia-600 hover:text-fuchsia-700 hover:bg-fuchsia-50">
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
                 <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
               </Button>
             </Link>
