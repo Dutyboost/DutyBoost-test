@@ -63,7 +63,7 @@ export default {
     },
     stakeholders: {
       travelers: {
-        title: 'Für Reisende',
+        title: 'Reisende',
         description: 'Reisende, deren Reisepartner kein Guthaben in der Buchungsbestätigungs-E-Mail oder Rückflug-Erinnerung enthalten hat, können ihres hier ganz einfach beanspruchen — keine Anmeldung, kein Boardingpass-Upload. Sie geben ihre Flugdaten ein, wählen ihren Abflughafen und scannen, um bei teilnehmenden Händlern zu sparen.',
         b1: '1–60 € Flughafen-Einkaufsguthaben',
         b2: 'Hier beanspruchen, wenn Ihr Partner keins gesendet hat',
@@ -71,21 +71,21 @@ export default {
         demo_note: 'DutyCredits können nur bei teilnehmenden Flughafen-Einzelhandelsgeschäften eingelöst werden.',
       },
       retailers: {
-        title: 'Für Retailpartner',
+        title: 'Retailpartner',
         description: 'Flughafen-Retailpartner verwandeln vorbeigehende Reisende in zahlende Kunden. Sie erhalten gezielt qualifizierte Käufer mit aktivierter Kaufabsicht durch einen personalisierten Guthaben-Anreiz.',
         b1: 'Höhere Ladenkonversion',
         b2: 'Echtzeit-QR-Einlösung',
         b3: 'Nur bei Erfolg zahlen',
       },
       posPartner: {
-        title: 'Für POS-Partner',
+        title: 'POS-Partner',
         description: 'Enterprise-POS-Anbieter binden sich in das kommerzielle Netzwerk ein. Jedes verbundene Terminal wird zu einem Einlösepunkt — Partner verdienen einen Anteil an jeder Transaktion, die über ihre Infrastruktur läuft, ohne Vertriebsaufwand.',
         b1: 'Umsatzbeteiligung bei jeder Einlösung',
         b2: 'Kein Vertriebsaufwand — anschließen und verdienen',
         b3: 'Eine Integration, Tausende Geschäfte',
       },
       agencies: {
-        title: 'Für Reisepartner',
+        title: 'Reisepartner',
         description: 'Reisepartner können ihre Kunden bei jeder Buchung mit exklusiven Flughafen-Shopping-Guthaben belohnen — ob sie als Reisebüro, Fluggesellschaft, Unterkunft, Mietwagenunternehmen oder Transferservice agieren. Eine einfache Integration erzeugt automatisch personalisierte Guthaben, die per E-Mail an Kunden geliefert werden, einen sinnvollen Treuevorteil bieten.',
         b1: 'Stärkere Kundenbindung',
         b2: 'Null operativer Aufwand',
