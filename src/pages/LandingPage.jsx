@@ -177,7 +177,7 @@ export default function LandingPage() {
               ];
 
               if (s.key === 'corporate') {
-                title = 'Corporate Travel Partner';
+                title = 'Corporate Partners';
                 description = corporateOne.subtitle;
                 benefits = [
                   'Earn 0.5% on every validated airport basket — paid monthly.',

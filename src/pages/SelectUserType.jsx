@@ -106,7 +106,7 @@ export default function SelectUserType() {
           </div>
 
           <div className="grid gap-4 max-w-7xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
-            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos'))).map((option) => {
+            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate'))).map((option) => {
               const Icon = option.icon;
               return (
                 <div
