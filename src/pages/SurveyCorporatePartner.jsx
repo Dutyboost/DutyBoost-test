@@ -6,7 +6,7 @@ export default function SurveyCorporatePartner() {
       config={{
         companyTypePrefix: "Corporate Partner – ",
         hero: {
-          title: "Offset your company's T&E costs with",
+          title: "Offset some of your company's T&E costs with",
           titleAccent: "commission earned on every airport purchase.",
           subtitle:
             "Your company earns commission on every DutyCredit redeemed at the airport by your travelling employees — credited directly against your T&E spend. The only investment is implementing DutyBoost; no ongoing cost, no integration, no policy change.",
