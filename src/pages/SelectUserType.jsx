@@ -19,6 +19,26 @@ export default function SelectUserType() {
 
   const options = [
     {
+      id: "pos",
+      title: t('getstarted.pos_partners'),
+      descKey: 'getstarted.pos_partners_description',
+      icon: Cpu,
+      color: "from-violet-400 to-indigo-600",
+      bg: "bg-violet-50",
+      iconColor: "text-violet-600",
+      path: "/pos-partner",
+    },
+    {
+      id: "retailer",
+      title: t('getstarted.retailers'),
+      descKey: 'getstarted.retailers_description',
+      icon: AirportRetailerIcon,
+      color: "from-orange-400 to-orange-600",
+      bg: "bg-orange-50",
+      iconColor: "text-orange-600",
+      path: "/retailer-showcase",
+    },
+    {
       id: "agency",
       title: t('getstarted.agencies'),
       descKey: 'getstarted.agencies_description',
@@ -47,26 +67,6 @@ export default function SelectUserType() {
       bg: "bg-red-50",
       iconColor: "text-red-600",
       path: "/car-rental-showcase",
-    },
-    {
-      id: "retailer",
-      title: t('getstarted.retailers'),
-      descKey: 'getstarted.retailers_description',
-      icon: AirportRetailerIcon,
-      color: "from-orange-400 to-orange-600",
-      bg: "bg-orange-50",
-      iconColor: "text-orange-600",
-      path: "/retailer-showcase",
-    },
-    {
-      id: "pos",
-      title: t('getstarted.pos_partners'),
-      descKey: 'getstarted.pos_partners_description',
-      icon: Cpu,
-      color: "from-violet-400 to-indigo-600",
-      bg: "bg-violet-50",
-      iconColor: "text-violet-600",
-      path: "/pos-partner",
     },
     {
       id: "corporate",
