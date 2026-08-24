@@ -6,11 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search, TrendingUp, Cpu, Building2 } from "lucide-react";
+import { Store, Users, BarChart2, ThumbsUp, Mail, Globe, CheckCircle2, Clock, Download, ChevronDown, ChevronUp, FileText, Phone, Search, TrendingUp, Cpu, Building2, FileBarChart } from "lucide-react";
 import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import TrafficDashboard from "../components/TrafficDashboard";
+import BenchmarkReports from "../components/survey/BenchmarkReports";
 
 const RETAILER_PREFIX = "Airport Retailer – ";
 const CHART_COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#a855f7", "#ef4444", "#06b6d4", "#ec4899", "#84cc16"];
@@ -2047,6 +2048,14 @@ export default function SurveyDashboard() {
               <BarChart2 className="w-3.5 h-3.5" /> Global Potentials
             </button>
             <button
+              onClick={() => setActiveTab("benchmark")}
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                activeTab === "benchmark" ? "bg-amber-600 text-white shadow" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <FileBarChart className="w-3.5 h-3.5" /> Benchmark
+            </button>
+            <button
               onClick={() => setActiveTab("leads")}
               className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
                 activeTab === "leads" ? "bg-blue-600 text-white shadow" : "text-slate-400 hover:text-white"
@@ -2091,6 +2100,8 @@ export default function SurveyDashboard() {
           <LOITab />
         ) : activeTab === "traffic" ? (
           <TrafficDashboard />
+        ) : activeTab === "benchmark" ? (
+          <BenchmarkReports allResponses={allResponses} loading={loading} />
         ) : (
           <GlobalPotentialsDashboard responses={partnerResponses} />
         )}
