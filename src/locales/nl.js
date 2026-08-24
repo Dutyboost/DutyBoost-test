@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "De Circulaire Inkomsteninfrastructuur voor Wereldwijd Reizen",
        title_2: '',
-       subtitle_1: "Reispartners, luchthavenretailers, enterprise POS-aanbieders, corporate partners en reizigers verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
+       subtitle_1: "POS-aanbieders, luchthavenretailers, reizigers, reispartners en corporate partners verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
@@ -100,7 +100,7 @@ export default {
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'The Circular Commercial Revenue Infrastructure for Global Travel transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door reispartners, luchthavenretailers, enterprise POS-providers, corporate partners en reizigers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
+       description: 'The Circular Commercial Revenue Infrastructure for Global Travel transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door enterprise POS-providers, luchthavenretailers, reizigers, reispartners en corporate partners te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
        button: "Sluit u vandaag aan bij The Circular Commercial Revenue Infrastructure for Global Travel!",
 
      },

@@ -27,11 +27,11 @@ export default function LandingPage() {
 
   const stakeholders = [
     {
-      key: 'agencies',
-      icon: TravelAgencyIcon,
-      color: "from-green-400 to-emerald-600",
-      bg: "bg-green-50",
-      iconColor: "text-green-600",
+      key: 'posPartner',
+      icon: Cpu,
+      color: "from-violet-400 to-indigo-600",
+      bg: "bg-violet-50",
+      iconColor: "text-violet-600",
     },
     {
       key: 'retailers',
@@ -41,11 +41,18 @@ export default function LandingPage() {
       iconColor: "text-orange-600",
     },
     {
-      key: 'posPartner',
-      icon: Cpu,
-      color: "from-violet-400 to-indigo-600",
-      bg: "bg-violet-50",
-      iconColor: "text-violet-600",
+      key: 'travelers',
+      icon: TravelerIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
+    },
+    {
+      key: 'agencies',
+      icon: TravelAgencyIcon,
+      color: "from-green-400 to-emerald-600",
+      bg: "bg-green-50",
+      iconColor: "text-green-600",
     },
     {
       key: 'corporate',
@@ -53,13 +60,6 @@ export default function LandingPage() {
       color: "from-slate-500 to-slate-700",
       bg: "bg-slate-50",
       iconColor: "text-slate-700",
-    },
-    {
-      key: 'travelers',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
     },
     {
       key: 'dutyboost',

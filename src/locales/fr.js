@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: "L'Infrastructure de Revenus Circulaires pour le Voyage Mondial",
       title_2: '',
-      subtitle_1: "Connecter les partenaires de voyage, les détaillants d'aéroport, les fournisseurs POS d'entreprise, les partenaires corporate et les voyageurs à travers un écosystème commercial partagé basé sur la performance",
+      subtitle_1: "Connecter les fournisseurs POS, les détaillants d'aéroport, les voyageurs, les partenaires de voyage et les partenaires corporate à travers un écosystème commercial partagé basé sur la performance",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
@@ -101,7 +101,7 @@ export default {
     },
     cta: {
       title: 'Un voyageur. Un voyage. Des revenus pour tous.',
-      description: "The Circular Commercial Revenue Infrastructure for Global Travel transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant partenaires de voyage, détaillants aéroportuaires, fournisseurs POS d'entreprise, partenaires corporate et voyageurs dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
+      description: "The Circular Commercial Revenue Infrastructure for Global Travel transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant fournisseurs POS d'entreprise, détaillants aéroportuaires, voyageurs, partenaires de voyage et partenaires corporate dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
       button: "Rejoignez aujourd'hui The Circular Commercial Revenue Infrastructure for Global Travel !",
     },
     wecallyou: {

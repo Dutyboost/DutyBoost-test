@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: "Die kreislaufbasierte Einnahmeinfrastruktur für globales Reisen",
       title_2: '',
-      subtitle_1: "Reisepartner, Flughafen-Einzelhändler, Enterprise-POS-Anbieter, Corporate Partner und Reisende verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
+      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Reisende, Reisepartner und Corporate Partner verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
@@ -101,7 +101,7 @@ export default {
     },
     cta: {
       title: 'Ein Reisender. Eine Reise. Erlös für alle.',
-      description: 'The Circular Commercial Revenue Infrastructure for Global Travel verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Reisepartner, Flughafen-Einzelhändler, Enterprise-POS-Anbieter, Corporate Partner und Reisende in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
+      description: 'The Circular Commercial Revenue Infrastructure for Global Travel verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Enterprise-POS-Anbieter, Flughafen-Einzelhändler, Reisende, Reisepartner und Corporate Partner in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
       button: "Treten Sie heute The Circular Commercial Revenue Infrastructure for Global Travel bei!",
     },
     wecallyou: {
