@@ -54,9 +54,11 @@ export default function PosChannelPartner() {
     }
   });
 
-  const AVG_ANNUAL_SALES = 7500000;
+  const AVG_ANNUAL_TRAVELLERS = 5000000;
+  const AVG_BASKET = 75;
 
-  const redemptionVolume = (posStores * AVG_ANNUAL_SALES * redemptionRate) / 100;
+  const redemptions = (posStores * AVG_ANNUAL_TRAVELLERS * redemptionRate) / 100;
+  const redemptionVolume = redemptions * AVG_BASKET;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
 
@@ -136,14 +138,7 @@ export default function PosChannelPartner() {
           <p className="text-base sm:text-xl text-muted-foreground mt-5 sm:mt-6 max-w-2xl mx-auto leading-relaxed">
             {t("posChannel.hero.subtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 sm:mt-10">
-            <Link to="/pos-partner-callback">
-              <Button size="lg" className="gap-2 h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto" style={{ background: "linear-gradient(to right, #7c3aed, #6366f1)" }}>
-                <Handshake className="w-5 h-5 shrink-0" /> {t("posChannel.hero.cta_secondary")}
-              </Button>
-            </Link>
-          </div>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-5 sm:mt-6">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-8 sm:mt-10">
             {t("posChannel.hero.note")}
           </p>
         </div>
@@ -321,8 +316,12 @@ export default function PosChannelPartner() {
               </div>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-border gap-2">
-              <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_sales")}</Label>
-              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{fmtMoney(AVG_ANNUAL_SALES, currency, 0)}</span>
+              <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_travellers")}</Label>
+              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{new Intl.NumberFormat(localeForCurrency(currency)).format(AVG_ANNUAL_TRAVELLERS)}</span>
+            </div>
+            <div className="flex items-center justify-between py-2 border-b border-border gap-2">
+              <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_basket")}</Label>
+              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{fmtMoney(AVG_BASKET, currency, 0)}</span>
             </div>
             <div>
               <p className="text-xs text-muted-foreground text-center pb-1">{t("posChannel.calculator.manual_hint")}</p>
@@ -352,21 +351,21 @@ export default function PosChannelPartner() {
                 <div className="flex items-center gap-1">
                   <input
                     type="number"
-                    min={1}
-                    max={25}
-                    step={0.01}
+                    min={0.1}
+                    max={5}
+                    step={0.1}
                     value={rateInput}
                     onChange={(e) => {
                       const raw = e.target.value;
                       setRateInput(raw);
                       const v = Number(raw);
-                      if (!Number.isNaN(v) && v >= 1 && v <= 25) {
+                      if (!Number.isNaN(v) && v >= 0.1 && v <= 5) {
                         setRedemptionRate(v);
                       }
                     }}
                     onBlur={() => {
                       const v = Number(rateInput);
-                      const clamped = Number.isNaN(v) || v < 1 ? 1 : Math.min(25, v);
+                      const clamped = Number.isNaN(v) || v < 0.1 ? 0.1 : Math.min(5, v);
                       setRedemptionRate(clamped);
                       setRateInput(String(clamped));
                     }}
@@ -376,7 +375,7 @@ export default function PosChannelPartner() {
                 </div>
               </div>
               <input
-                type="range" min={1} max={25} step={0.01} value={redemptionRate}
+                type="range" min={0.1} max={5} step={0.1} value={redemptionRate}
                 onChange={(e) => {
                   const v = Number(e.target.value);
                   setRedemptionRate(v);
@@ -387,6 +386,14 @@ export default function PosChannelPartner() {
             </div>
 
             <div className="border-t border-border pt-5 sm:pt-6">
+              <p className="text-xs font-bold text-muted-foreground text-center pb-3">
+                {t("posChannel.calculator.redemptions_note", {
+                  redemptions: new Intl.NumberFormat(localeForCurrency(currency)).format(Math.round(redemptions)),
+                  rate: Math.round(redemptionRate * 100) / 100,
+                  travellers: new Intl.NumberFormat(localeForCurrency(currency)).format(AVG_ANNUAL_TRAVELLERS),
+                  stores: new Intl.NumberFormat(localeForCurrency(currency)).format(posStores)
+                })}
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center items-stretch">
                 <div className="rounded-lg border border-border p-3 flex flex-col justify-center overflow-hidden">
                   <p className="text-xs font-bold text-muted-foreground mb-1">{t("posChannel.calculator.result_volume")}</p>
