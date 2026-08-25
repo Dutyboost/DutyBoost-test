@@ -55,10 +55,10 @@ export default function PosChannelPartner() {
   });
 
   const AVG_ANNUAL_TRAVELLERS = 5000000;
-  const AVG_BASKET = 75;
+  const MIN_BASKET = 20;
 
   const redemptions = (posStores * AVG_ANNUAL_TRAVELLERS * redemptionRate) / 100;
-  const redemptionVolume = redemptions * AVG_BASKET;
+  const redemptionVolume = redemptions * MIN_BASKET;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
 
@@ -321,7 +321,7 @@ export default function PosChannelPartner() {
             </div>
             <div className="flex items-center justify-between py-2 border-b border-border gap-2">
               <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_basket")}</Label>
-              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{fmtMoney(AVG_BASKET, currency, 0)}</span>
+              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{fmtMoney(MIN_BASKET, currency, 0)}</span>
             </div>
             <div>
               <p className="text-xs text-muted-foreground text-center pb-1">{t("posChannel.calculator.manual_hint")}</p>
