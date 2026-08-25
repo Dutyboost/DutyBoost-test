@@ -352,20 +352,20 @@ export default function PosChannelPartner() {
                   <input
                     type="number"
                     min={0.1}
-                    max={5}
+                    max={15}
                     step={0.1}
                     value={rateInput}
                     onChange={(e) => {
                       const raw = e.target.value;
                       setRateInput(raw);
                       const v = Number(raw);
-                      if (!Number.isNaN(v) && v >= 0.1 && v <= 5) {
+                      if (!Number.isNaN(v) && v >= 0.1 && v <= 15) {
                         setRedemptionRate(v);
                       }
                     }}
                     onBlur={() => {
                       const v = Number(rateInput);
-                      const clamped = Number.isNaN(v) || v < 0.1 ? 0.1 : Math.min(5, v);
+                      const clamped = Number.isNaN(v) || v < 0.1 ? 0.1 : Math.min(15, v);
                       setRedemptionRate(clamped);
                       setRateInput(String(clamped));
                     }}
@@ -375,7 +375,7 @@ export default function PosChannelPartner() {
                 </div>
               </div>
               <input
-                type="range" min={0.1} max={5} step={0.1} value={redemptionRate}
+                type="range" min={0.1} max={15} step={0.1} value={redemptionRate}
                 onChange={(e) => {
                   const v = Number(e.target.value);
                   setRedemptionRate(v);
