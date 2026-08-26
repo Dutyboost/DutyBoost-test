@@ -10,7 +10,7 @@ export default function SurveyPosProvider() {
           title: "Turn your POS network into",
           titleAccent: "recurring, performance-based revenue.",
           subtitle:
-            "POS may be commercially more valuable than the role it plays today. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of POS decision-makers to answer 5 questions. 60 seconds that may change how you see the value of every transaction your technology enables.",
+            "Your POS may be commercially more valuable than the role it plays today. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of POS decision-makers to answer 5 questions. 60 seconds that may change how you see the value of every transaction your technology enables.",
           badges: ["No upfront cost", "5 questions", "60 seconds"],
         },
         q1: {
