@@ -10,8 +10,7 @@ export default function SurveyCorporatePartner() {
           title: "Offset some of your company's T&E costs with",
           titleAccent: "commission earned on every airport purchase.",
           subtitle:
-            "Your company earns commission on every DutyCredit redeemed at the airport by your travelling employees — credited directly against your T&E spend. The only investment is implementing DutyBoost; no ongoing cost, no integration, no policy change.",
-          badges: ["T&E cost offset", "Commission earned", "5 questions"],
+            "Your existing business travel may hold value beyond getting employees from A to B. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of corporate decision-makers to answer 5 questions. 60 seconds that may change how you look at the value of your T&E spend.",
         },
         q1: {
           label: "What is your company's annual T&E spend?",
