@@ -27,7 +27,6 @@ export default function SurveyAirportRetailer() {
           titleAccent: "incremental airport sales.",
           subtitle:
             "Airport retail may be leaving significant commercial value untapped. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of decision-makers to answer 5 questions. 60 seconds that may change how you see the traveller journey.",
-          badges: ["No upfront cost", "2 minutes", "5 questions"],
         },
         questions: [
           {
