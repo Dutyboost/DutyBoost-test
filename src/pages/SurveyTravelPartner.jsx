@@ -16,8 +16,8 @@ export default function SurveyTravelPartner() {
       config={{
         companyTypePrefix: "Travel Partner – ",
         hero: {
-          title: "Add a new passive revenue stream from",
-          titleAccent: "your existing bookings.",
+          title: "Your traveller relationship may be worth",
+          titleAccent: "more than the original booking.",
           subtitle:
             "Your traveller relationship may be worth more than the original booking. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of travel decision-makers to answer 5 questions. 60 seconds that may reveal a revenue opportunity currently going elsewhere.",
         },
