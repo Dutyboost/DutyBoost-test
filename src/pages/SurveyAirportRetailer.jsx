@@ -27,7 +27,7 @@ export default function SurveyAirportRetailer() {
           titleAccent: "incremental airport sales.",
           subtitle:
             "DutyBoost sends pre-activated travellers to your store with a DutyCredit that gives them €1 off a €20 basket up to €60 off a €300+ basket. You only pay a 2.5% platform fee on the validated basket when a sale happens — no upfront cost, no risk.",
-          badges: ["No upfront cost", "2 minutes", "8 questions"],
+          badges: ["No upfront cost", "2 minutes", "7 questions"],
         },
         questions: [
           {
@@ -70,11 +70,6 @@ export default function SurveyAirportRetailer() {
               "I would want to explore it",
             ],
             field: "pay_after_channel_interest",
-          },
-          {
-            label: "How many travellers visit your store(s) per month?",
-            options: ["Under 1,000", "1,000 – 5,000", "5,000 – 20,000", "20,000+"],
-            field: "annual_bookings",
           },
           {
             label:
