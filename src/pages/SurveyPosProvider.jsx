@@ -49,6 +49,15 @@ export default function SurveyPosProvider() {
             ],
             field: "biggest_challenge",
           },
+          {
+            label:
+              "Would you add a single lightweight DutyCredit validation call to your POS checkout workflow if it strengthened retailer loyalty, reduced churn, and generated more revenue for every retailer you serve?",
+            options: [
+              "Yes – a lightweight API call is no problem",
+              "Possibly – depends on the technical effort",
+            ],
+            field: "snippet_willingness",
+          },
         ],
         requireContactDetails: true,
         retailersServedLabel: "Which airport retail companies do you serve?",
