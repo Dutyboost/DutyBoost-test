@@ -284,6 +284,12 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
             ? companyTypePrefix + form.company_type
             : form[q.field];
       });
+      // Surveys that no longer ask for a company sub-type (e.g. airport
+      // retailer) still need the required company_type field — fall back to
+      // the prefix with its trailing separator stripped.
+      if (!payload.company_type && companyTypePrefix) {
+        payload.company_type = companyTypePrefix.trim().replace(/[–-]\s*$/, "").trim();
+      }
       await base44.entities.SurveyResponse.create(payload);
       setSubmitted(true);
     } catch (error) {
