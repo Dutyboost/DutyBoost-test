@@ -7,8 +7,8 @@ export default function SurveyCorporatePartner() {
       config={{
         companyTypePrefix: "Corporate Partner – ",
         hero: {
-          title: "Offset some of your company's T&E costs with",
-          titleAccent: "commission earned on every airport purchase.",
+          title: "Your existing business travel may hold",
+          titleAccent: "value beyond getting from A to B.",
           subtitle:
             "Your existing business travel may hold value beyond getting employees from A to B. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of corporate decision-makers to answer 5 questions. 60 seconds that may change how you look at the value of your T&E spend.",
         },
