@@ -9,7 +9,15 @@ import MultiSelectComboBox from "./MultiSelectComboBox";
 
 const PDF_URL = "https://media.base44.com/files/public/69c97dcd1c1950fa88424690/0da1033ad_DutyBoost-TheCircularRevenueInfrastructureforGlobaTravelpdf.pdf";
 
-function DutyBoostPdfDownload() {
+async function recordPdfDownload(surveyType, screen) {
+  try {
+    await base44.entities.OnePagerDownload.create({ survey_type: surveyType, screen });
+  } catch (e) {
+    // silent — download UX must never break on tracking failure
+  }
+}
+
+function DutyBoostPdfDownload({ surveyType = "unknown", screen = "thank_you" }) {
   return (
     <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-3 text-center max-w-md mx-auto w-full">
       <p className="text-sm font-semibold text-foreground">Want to understand what DutyBoost is?</p>
@@ -21,6 +29,7 @@ function DutyBoostPdfDownload() {
         target="_blank"
         rel="noopener noreferrer"
         download
+        onClick={() => recordPdfDownload(surveyType, screen)}
         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
       >
         <Download className="w-4 h-4" />
@@ -125,7 +134,7 @@ function PlatformSelector({ label, options, value, onChange }) {
   );
 }
 
-export default function RoleSurvey({ config }) {
+export default function RoleSurvey({ config, surveyType = "unknown" }) {
   const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory, exitOnNo, exitSteps, exitValue, retailersServedLabel, retailersServedOptions, retailersServedMandatory } = config;
 
   const [step, setStep] = useState(0);
@@ -276,7 +285,7 @@ export default function RoleSurvey({ config }) {
         <p className="text-muted-foreground max-w-md leading-relaxed">
           If you'd like to retake the survey later, you can do so via the link you received in the email.
         </p>
-        <DutyBoostPdfDownload />
+        <DutyBoostPdfDownload surveyType={surveyType} screen="exit" />
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
     );
@@ -294,7 +303,7 @@ export default function RoleSurvey({ config }) {
             ? "Your input means a lot. We'll be in touch soon."
             : "Your input means a lot. Stay tuned for when we launch."}
         </p>
-        <DutyBoostPdfDownload />
+        <DutyBoostPdfDownload surveyType={surveyType} screen="thank_you" />
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DutyBoost. All Rights Reserved.</p>
       </div>
     );

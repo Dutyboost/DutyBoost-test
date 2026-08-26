@@ -1,0 +1,39 @@
+{
+  "name": "OnePagerDownload",
+  "type": "object",
+  "properties": {
+    "survey_type": {
+      "type": "string",
+      "title": "Survey Type",
+      "description": "Which survey the download came from (retailer, partner, pos, corporate) or 'exit' for abandonment screens"
+    },
+    "screen": {
+      "type": "string",
+      "title": "Screen",
+      "enum": [
+        "thank_you",
+        "exit"
+      ],
+      "default": "thank_you"
+    }
+  },
+  "required": [],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

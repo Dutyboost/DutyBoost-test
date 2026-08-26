@@ -12,6 +12,7 @@ const COMPANY_TYPES = [
 export default function SurveyTravelPartner() {
   return (
     <RoleSurvey
+      surveyType="partner"
       config={{
         companyTypePrefix: "Travel Partner – ",
         hero: {

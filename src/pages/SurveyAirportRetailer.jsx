@@ -19,6 +19,7 @@ const STORE_TYPES = [
 export default function SurveyAirportRetailer() {
   return (
     <RoleSurvey
+      surveyType="retailer"
       config={{
         companyTypePrefix: "Airport Retailer – ",
         hero: {

@@ -3,6 +3,7 @@ import RoleSurvey from "@/components/survey/RoleSurvey";
 export default function SurveyCorporatePartner() {
   return (
     <RoleSurvey
+      surveyType="corporate"
       config={{
         companyTypePrefix: "Corporate Partner – ",
         hero: {

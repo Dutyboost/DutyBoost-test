@@ -1894,6 +1894,7 @@ function exportToCSV(responses, filename, isRetailerView) {
 export default function SurveyDashboard() {
   const [activeTab, setActiveTab] = useState("retailer");
   const [allResponses, setAllResponses] = useState([]);
+  const [downloads, setDownloads] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -1902,14 +1903,32 @@ export default function SurveyDashboard() {
       setLoading(false);
     });
 
+    base44.entities.OnePagerDownload.list("-created_date", 1000).then(data => setDownloads(data));
+
     const unsubscribe = base44.entities.SurveyResponse.subscribe(() => {
       base44.entities.SurveyResponse.list("-created_date", 500).then(data => {
         setAllResponses(data);
       });
     });
 
-    return () => unsubscribe();
+    const unsubDownloads = base44.entities.OnePagerDownload.subscribe(() => {
+      base44.entities.OnePagerDownload.list("-created_date", 1000).then(data => setDownloads(data));
+    });
+
+    return () => { unsubscribe(); unsubDownloads(); };
   }, []);
+
+  const downloadStats = useMemo(() => {
+    const total = downloads.length;
+    const byType = { retailer: 0, partner: 0, pos: 0, corporate: 0, unknown: 0 };
+    const byScreen = { thank_you: 0, exit: 0 };
+    downloads.forEach(d => {
+      const t = d.survey_type || "unknown";
+      byType[t] = (byType[t] || 0) + 1;
+      if (byScreen[d.screen] !== undefined) byScreen[d.screen] += 1;
+    });
+    return { total, byType, byScreen };
+  }, [downloads]);
 
   const retailerResponses = useMemo(() =>
     allResponses.filter(r => isRetailer(r)).map(r => normalizeResponse(r)),
@@ -1997,6 +2016,42 @@ export default function SurveyDashboard() {
             {activeTab === "global" && !loading && (
               <GlobalPotentialsPDFButton responses={partnerResponses} />
             )}
+          </div>
+        </div>
+
+        {/* One-pager download statistics */}
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <FileBarChart className="w-4 h-4 text-amber-400" />
+            <p className="text-xs font-semibold text-slate-300 uppercase tracking-widest">One-Pager Downloads</p>
+            <span className="text-xs text-slate-500 ml-auto">From survey thank-you / exit screens</span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+            <div className="bg-slate-900/60 border border-amber-500/30 rounded-xl p-3 text-center">
+              <Download className="w-4 h-4 mx-auto mb-1 text-amber-400" />
+              <p className="text-2xl font-bold text-amber-300">{downloadStats.total}</p>
+              <p className="text-xs text-slate-400">Total downloads</p>
+            </div>
+            <div className="bg-slate-900/60 border border-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl font-bold text-orange-300">{downloadStats.byType.retailer || 0}</p>
+              <p className="text-xs text-slate-400">Retailer survey</p>
+            </div>
+            <div className="bg-slate-900/60 border border-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl font-bold text-green-300">{downloadStats.byType.partner || 0}</p>
+              <p className="text-xs text-slate-400">Travel Partner</p>
+            </div>
+            <div className="bg-slate-900/60 border border-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl font-bold text-violet-300">{downloadStats.byType.pos || 0}</p>
+              <p className="text-xs text-slate-400">POS Provider</p>
+            </div>
+            <div className="bg-slate-900/60 border border-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl font-bold text-indigo-300">{downloadStats.byType.corporate || 0}</p>
+              <p className="text-xs text-slate-400">Corporate Partner</p>
+            </div>
+            <div className="bg-slate-900/60 border border-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl font-bold text-rose-300">{downloadStats.byScreen.exit || 0}</p>
+              <p className="text-xs text-slate-400">From exit screens</p>
+            </div>
           </div>
         </div>
 
