@@ -12,31 +12,44 @@ export default function SurveyPosProvider() {
           subtitle:
             "Your POS may be commercially more valuable than the role it plays today. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of POS decision-makers to answer 5 questions. 60 seconds that may change how you see the value of every transaction your technology enables.",
         },
-        q1: {
-          label: "What annual revenue does your POS network generate?",
-          options: ["Under €10M", "€10M – €50M", "€50M – €250M", "€250M+"],
-        },
-        q2: {
-          label: "How many stores are on your POS network?",
-          options: ["Under 50", "50 – 500", "500 – 2,000", "2,000+"],
-        },
-        q3: {
-          label:
-            "Would you be interested in turning your existing POS into a recurring, performance-based revenue stream?",
-          options: [
-            "Yes, very attractive",
-            "Somewhat attractive",
-            "Need more details",
-          ],
-        },
-        q4: {
-          label:
-            "Would you add a single lightweight DutyCredit validation call to your POS checkout workflow if it strengthened retailer loyalty, reduced churn, and generated more revenue for every retailer you serve?",
-          options: [
-            "Yes – a lightweight API call is no problem",
-            "Possibly – depends on the technical effort",
-          ],
-        },
+        questions: [
+          {
+            label:
+              "Beyond your existing software, licensing or transaction fees, does your POS currently generate revenue from the commercial value it helps retailers create?",
+            options: [
+              "No",
+              "In limited cases",
+              "Yes, in some models",
+              "Yes, extensively",
+              "Prefer not to say",
+            ],
+            field: "commission_attractive",
+          },
+          {
+            label:
+              "How attractive would it be if your existing POS infrastructure could generate an additional recurring revenue stream from qualifying retail transactions?",
+            options: [
+              "Not attractive",
+              "Slightly attractive",
+              "Attractive",
+              "Very attractive",
+              "Strategically attractive",
+            ],
+            field: "pay_after_channel_interest",
+          },
+          {
+            label: "What would be most important when considering such a model?",
+            options: [
+              "Revenue potential",
+              "Minimal integration effort",
+              "Scalability across existing retail clients",
+              "No disruption to existing POS/payment flows",
+              "Commercial ownership/attribution",
+              "Retailer demand",
+            ],
+            field: "biggest_challenge",
+          },
+        ],
         requireContactDetails: true,
         retailersServedLabel: "Which airport retail companies do you serve?",
         retailersServedMandatory: true,
