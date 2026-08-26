@@ -10,33 +10,39 @@ export default function SurveyCorporatePartner() {
           title: "Your existing business travel may hold",
           titleAccent: "value beyond getting from A to B.",
           subtitle:
-            "Your existing business travel may hold value beyond getting employees from A to B. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of corporate decision-makers to answer 5 questions. 60 seconds that may change how you look at the value of your T&E spend.",
+            "Your existing business travel may hold value beyond getting employees from A to B. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of corporate decision-makers to answer 4 questions. 60 seconds that may change how you look at the value of your T&E spend.",
         },
-        q1: {
-          label: "What is your company's annual T&E spend?",
-          options: ["€1M – €5M", "€5M – €25M", "€25M+"],
-        },
-        q2: {
-          label: "How many business trips do your employees take per year?",
-          options: ["Under 500", "500 – 2,000", "2,000 – 5,000", "5,000+"],
-        },
-        q3: {
-          label:
-            "How appealing is earning commission on every DutyCredit redeemed to offset your company's T&E costs — at no cost beyond implementing DutyBoost?",
-          options: [
-            "Yes, very attractive",
-            "Somewhat attractive",
-            "Need more details",
-          ],
-        },
-        q4: {
-          label:
-            "How open are you to distributing DutyCredits to travelling employees through your existing booking or travel-management flow?",
-          options: [
-            "Yes – easy to add to our flow",
-            "Possibly – depends on the setup",
-          ],
-        },
+        questions: [
+          {
+            label: "How valuable would it be if your existing employee travel activity could create an additional employee benefit without increasing your T&E budget?",
+            options: ["Not valuable", "Slightly valuable", "Valuable", "Very valuable", "Extremely valuable"],
+            field: "pre_activation_value",
+          },
+          {
+            label: "If employee business travel could also generate a new revenue stream for your organisation, which aspect would be most important to you?",
+            options: [
+              "Additional company revenue",
+              "Added employee benefit",
+              "No additional T&E spend",
+              "No change to existing travel booking processes",
+              "Minimal administration",
+              "A combination of these",
+            ],
+            field: "pay_after_channel_interest",
+          },
+          {
+            label: "What would you need to understand first before considering a model that creates both employee benefits and company revenue from existing business travel?",
+            options: [
+              "Financial value for the company",
+              "Value for employees",
+              "How it integrates with our existing T&E process",
+              "Administrative requirements",
+              "Data/privacy implications",
+              "How the commercial model works",
+            ],
+            field: "biggest_challenge",
+          },
+        ],
         travelPlatformLabel: "Which travel & expense platform does your company use?",
         travelPlatformCombobox: true,
         travelPlatformMandatory: true,
