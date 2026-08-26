@@ -45,6 +45,18 @@
       "type": "string",
       "title": "Annual Bookings / Monthly Visitors Volume"
     },
+    "non_purchase_percentage": {
+      "type": "string",
+      "title": "Estimated % of Travellers Leaving Without Purchase"
+    },
+    "pre_activation_value": {
+      "type": "string",
+      "title": "Value of Pre-Airport Traveller Activation"
+    },
+    "pay_after_channel_interest": {
+      "type": "string",
+      "title": "Interest in Pay-After-Verified-Transaction Channel"
+    },
     "current_loyalty": {
       "type": "string",
       "title": "Current loyalty program"

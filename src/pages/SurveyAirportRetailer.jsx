@@ -27,24 +27,70 @@ export default function SurveyAirportRetailer() {
           titleAccent: "incremental airport sales.",
           subtitle:
             "DutyBoost sends pre-activated travellers to your store with a DutyCredit that gives them €1 off a €20 basket up to €60 off a €300+ basket. You only pay a 2.5% platform fee on the validated basket when a sale happens — no upfront cost, no risk.",
-          badges: ["No upfront cost", "2 minutes", "5 questions"],
+          badges: ["No upfront cost", "2 minutes", "8 questions"],
         },
-        q1: { label: "What type of store do you operate?", options: STORE_TYPES },
-        q2: {
-          label: "How many travellers visit your store(s) per month?",
-          options: ["Under 1,000", "1,000 – 5,000", "5,000 – 20,000", "20,000+"],
-        },
-        q3: {
-          label: "Would you be interested in generating revenue from passengers who currently don't convert?",
-          options: ["Yes", "No"],
-        },
-        q4: {
-          label: "If your Point-Of-Sales (POS) provider offered you a feature that turns non-converting passengers into incremental revenue, would you switch it on?",
-          options: ["Yes", "No"],
-        },
-        exitOnNo: true,
-        exitSteps: [2, 3],
-        exitValue: "No",
+        questions: [
+          {
+            label: "What type of store do you operate?",
+            options: STORE_TYPES,
+            field: "company_type",
+          },
+          {
+            label:
+              "Of the travellers exposed to your airport retail stores, what percentage would you estimate leave without making a purchase?",
+            options: [
+              "Less than 30%",
+              "30–50%",
+              "51–70%",
+              "More than 70%",
+              "I don't know",
+            ],
+            field: "non_purchase_percentage",
+          },
+          {
+            label:
+              "How valuable would it be if you could activate those non-purchasing travellers days or weeks before they arrive at the airport, rather than only once they enter the airport environment?",
+            options: [
+              "Not valuable",
+              "Slightly valuable",
+              "Valuable",
+              "Very valuable",
+              "Extremely valuable",
+            ],
+            field: "pre_activation_value",
+          },
+          {
+            label:
+              "If a new customer-acquisition channel required no upfront marketing spend and you only paid after it generated a verified retail transaction, how interested would you be in exploring it?",
+            options: [
+              "Not interested",
+              "Slightly interested",
+              "Interested",
+              "Very interested",
+              "I would want to explore it",
+            ],
+            field: "pay_after_channel_interest",
+          },
+          {
+            label: "How many travellers visit your store(s) per month?",
+            options: ["Under 1,000", "1,000 – 5,000", "5,000 – 20,000", "20,000+"],
+            field: "annual_bookings",
+          },
+          {
+            label:
+              "Would you be interested in generating revenue from passengers who currently don't convert?",
+            options: ["Yes", "No"],
+            field: "commission_attractive",
+            exitOnNo: true,
+          },
+          {
+            label:
+              "If your Point-Of-Sales (POS) provider offered you a feature that turns non-converting passengers into incremental revenue, would you switch it on?",
+            options: ["Yes", "No"],
+            field: "snippet_willingness",
+            exitOnNo: true,
+          },
+        ],
         contactless: true,
         travelPlatformLabel: "Which Point-of-Sale (POS) provider do you use?",
         travelPlatformCombobox: true,

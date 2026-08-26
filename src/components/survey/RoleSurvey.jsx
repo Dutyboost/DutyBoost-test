@@ -39,7 +39,7 @@ function DutyBoostPdfDownload({ surveyType = "unknown", screen = "thank_you" }) 
   );
 }
 
-const TOTAL_STEPS = 5;
+// totalSteps is computed per-survey inside the component
 
 const PERSONAL_DOMAINS = [
   "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "aol.com",
@@ -137,6 +137,19 @@ function PlatformSelector({ label, options, value, onChange }) {
 export default function RoleSurvey({ config, surveyType = "unknown" }) {
   const { companyTypePrefix, hero, q1, q2, q3, q4, posProviderLabel, contactless, requireContactDetails, travelPlatformLabel, travelPlatformOptions, travelPlatformCombobox, travelPlatformMandatory, exitOnNo, exitSteps, exitValue, retailersServedLabel, retailersServedOptions, retailersServedMandatory } = config;
 
+  // Unified question list. Surveys may pass an explicit `questions` array
+  // (each entry: { label, options, field, exitOnNo? }). Otherwise fall back to
+  // the legacy q1–q4 shape so existing surveys keep working unchanged.
+  const questions = Array.isArray(config.questions) && config.questions.length
+    ? config.questions
+    : [
+        { label: q1.label, options: q1.options, field: "company_type" },
+        { label: q2.label, options: q2.options, field: "annual_bookings" },
+        { label: q3.label, options: q3.options, field: "commission_attractive", exitOnNo: !!(exitOnNo && Array.isArray(exitSteps) && exitSteps.includes(2)) },
+        { label: q4.label, options: q4.options, field: "snippet_willingness", exitOnNo: !!(exitOnNo && Array.isArray(exitSteps) && exitSteps.includes(3)) },
+      ];
+  const totalSteps = questions.length + 1;
+
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -176,7 +189,8 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
 
   const handleAnswerSelect = (currentStep, value) => {
     const next = currentStep + 1;
-    if (exitOnNo && Array.isArray(exitSteps) && exitSteps.includes(currentStep) && value === (exitValue || "No")) {
+    const q = questions[currentStep];
+    if (q && q.exitOnNo && value === (exitValue || "No")) {
       setExitNextStep(currentStep);
       setExitPending(true);
     } else {
@@ -185,8 +199,8 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
   };
 
   const clearStepAnswer = (s) => {
-    if (s === 2) set("commission_attractive", "");
-    if (s === 3) set("snippet_willingness", "");
+    const q = questions[s];
+    if (q && q.field) set(q.field, "");
   };
 
   const handleWebsiteBlur = async () => {
@@ -211,11 +225,8 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
   };
 
   const canNext = () => {
-    if (step === 0) return form.company_type !== "";
-    if (step === 1) return form.annual_bookings !== "";
-    if (step === 2) return form.commission_attractive !== "";
-    if (step === 3) return form.snippet_willingness !== "";
-    if (step === 4) {
+    if (step < questions.length) return form[questions[step].field] !== "";
+    if (step === questions.length) {
       const posOk = !posProviderLabel || !!form.pos_provider.trim();
       const platformOk = !travelPlatformMandatory || !!form.travel_platform.trim();
       const retailersOk = !retailersServedMandatory || (Array.isArray(form.retailers_served) && form.retailers_served.length > 0);
@@ -254,11 +265,7 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
   const handleSubmit = async () => {
     setSaving(true);
     try {
-      await base44.entities.SurveyResponse.create({
-        company_type: companyTypePrefix + form.company_type,
-        annual_bookings: form.annual_bookings,
-        commission_attractive: form.commission_attractive,
-        snippet_willingness: form.snippet_willingness,
+      const payload = {
         interest_level: form.interest_level,
         full_name: form.full_name,
         email: form.email,
@@ -269,7 +276,15 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
         retailers_served: form.retailers_served,
         phone: form.phone,
         wants_demo: form.wants_demo,
+      };
+      questions.forEach((q) => {
+        if (!q.field) return;
+        payload[q.field] =
+          q.field === "company_type" && companyTypePrefix
+            ? companyTypePrefix + form.company_type
+            : form[q.field];
       });
+      await base44.entities.SurveyResponse.create(payload);
       setSubmitted(true);
     } catch (error) {
       console.error("Submission error:", error);
@@ -356,61 +371,34 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
           <>
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Question {step + 1} of {TOTAL_STEPS}</span>
+              <span>Question {step + 1} of {totalSteps}</span>
             </div>
             <div className="h-1.5 bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-500"
-                style={{ width: `${((step + 1) / TOTAL_STEPS) * 100}%` }}
+                style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
               />
             </div>
           </div>
 
-          {step === 0 && (
+          {step < questions.length && (
             <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">{q1.label}</h2>
+              <h2 className="text-2xl font-heading font-bold">{questions[step].label}</h2>
               <div className="space-y-2">
-                {q1.options.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.company_type === o} onClick={() => set("company_type", o)} onSelect={() => goToStep(1)} />
+                {questions[step].options.map((o) => (
+                  <OptionButton
+                    key={o}
+                    label={o}
+                    selected={form[questions[step].field] === o}
+                    onClick={() => set(questions[step].field, o)}
+                    onSelect={() => handleAnswerSelect(step, o)}
+                  />
                 ))}
               </div>
             </div>
           )}
 
-          {step === 1 && (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">{q2.label}</h2>
-              <div className="space-y-2">
-                {q2.options.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.annual_bookings === o} onClick={() => set("annual_bookings", o)} onSelect={() => goToStep(2)} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {step === 2 && (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">{q3.label}</h2>
-              <div className="space-y-2">
-                {q3.options.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.commission_attractive === o} onClick={() => set("commission_attractive", o)} onSelect={() => handleAnswerSelect(2, o)} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {step === 3 && (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-heading font-bold">{q4.label}</h2>
-              <div className="space-y-2">
-                {q4.options.map((o) => (
-                  <OptionButton key={o} label={o} selected={form.snippet_willingness === o} onClick={() => set("snippet_willingness", o)} onSelect={() => handleAnswerSelect(3, o)} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {step === 4 && (
+          {step === questions.length && (
             <div className="space-y-5">
               <div className="space-y-4">
                 <h3 className="text-2xl font-heading font-bold">
@@ -614,12 +602,12 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
                 Back
               </Button>
             )}
-            {step < TOTAL_STEPS - 1 && (
-              <Button className="flex-1 gap-2" disabled={!canNext()} onClick={() => handleAnswerSelect(step, step === 2 ? form.commission_attractive : step === 3 ? form.snippet_willingness : "")}>
+            {step < questions.length && (
+              <Button className="flex-1 gap-2" disabled={!canNext()} onClick={() => handleAnswerSelect(step, form[questions[step].field])}>
                 Continue <ArrowRight className="w-4 h-4" />
               </Button>
             )}
-            {step === TOTAL_STEPS - 1 && (
+            {step === questions.length && (
               <Button className="flex-1 gap-2" disabled={!canNext() || saving} onClick={handleSubmit}>
                 {saving ? "Submitting..." : "Submit"} <ArrowRight className="w-4 h-4" />
               </Button>
