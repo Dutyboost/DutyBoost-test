@@ -19,8 +19,9 @@ export default function SurveyTravelPartner() {
           title: "Add a new passive revenue stream from",
           titleAccent: "your existing bookings.",
           subtitle:
-            "DutyBoost turns every booking confirmation into a DutyCredit your traveller can spend at airport retail. You earn a commission on every redemption — no cost, no risk, just a simple snippet on your confirmation page.",
+            "Your traveller relationship may be worth more than the original booking. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of travel decision-makers to answer 5 questions. 60 seconds that may reveal a revenue opportunity currently going elsewhere.",
           badges: ["No cost · No risk", "2 minutes", "5 questions"],
+          image: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/e3c970d97_generated_image.png",
         },
         q1: { label: "What type of travel company are you?", options: COMPANY_TYPES },
         q2: {
