@@ -26,7 +26,7 @@ export default function SurveyAirportRetailer() {
           title: "Turn passengers who never buy into",
           titleAccent: "incremental airport sales.",
           subtitle:
-            "Most passengers leave your store without buying. DutyBoost pre-activates those travellers before they arrive and sends them in with a DutyCredit that scales from a small discount on a modest basket up to a generous discount on a large basket. You only pay a low platform fee on the validated basket when a sale happens — no upfront cost, no risk. The quick questions below tell us whether this fits your store.",
+            "Airport retail may be leaving significant commercial value untapped. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of decision-makers to answer 5 questions. 60 seconds that may change how you see the traveller journey.",
           badges: ["No upfront cost", "2 minutes", "5 questions"],
         },
         questions: [
