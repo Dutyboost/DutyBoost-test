@@ -20,7 +20,6 @@ export default function SurveyTravelPartner() {
           titleAccent: "your existing bookings.",
           subtitle:
             "Your traveller relationship may be worth more than the original booking. Ahead of DutyBoost's Q4 2026 launch, we're inviting a small group of travel decision-makers to answer 5 questions. 60 seconds that may reveal a revenue opportunity currently going elsewhere.",
-          badges: ["No cost · No risk", "90 seconds", "4 questions"],
         },
         questions: [
           {
