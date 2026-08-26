@@ -349,7 +349,9 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">{hero.subtitle}</p>
-            <p className="mt-4 text-sm text-muted-foreground">{hero.badges.join(" · ")}</p>
+            {Array.isArray(hero.badges) && hero.badges.length > 0 && (
+              <p className="mt-4 text-sm text-muted-foreground">{hero.badges.join(" · ")}</p>
+            )}
           </div>
         </div>
       )}
