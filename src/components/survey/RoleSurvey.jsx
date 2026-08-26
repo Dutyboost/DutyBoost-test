@@ -341,26 +341,15 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
       {step === 0 && (
         <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 border-b border-border">
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative grid md:grid-cols-[1.4fr_1fr] gap-8 items-center">
-            <div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
-                {hero.title}{" "}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {hero.titleAccent}
-                </span>
-              </h1>
-              <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">{hero.subtitle}</p>
-              <p className="mt-4 text-sm text-muted-foreground">{hero.badges.join(" · ")}</p>
-            </div>
-            {hero.image && (
-              <div className="hidden md:block relative">
-                <img
-                  src={hero.image}
-                  alt=""
-                  className="rounded-2xl shadow-xl ring-1 ring-border object-cover w-full h-72"
-                />
-              </div>
-            )}
+          <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 relative">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight max-w-3xl">
+              {hero.title}{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {hero.titleAccent}
+              </span>
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">{hero.subtitle}</p>
+            <p className="mt-4 text-sm text-muted-foreground">{hero.badges.join(" · ")}</p>
           </div>
         </div>
       )}
