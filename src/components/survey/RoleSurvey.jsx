@@ -7,7 +7,7 @@ import { CheckCircle2, ArrowRight, Download } from "lucide-react";
 import PlatformComboBox from "./PlatformComboBox";
 import MultiSelectComboBox from "./MultiSelectComboBox";
 
-const PDF_URL = "https://media.base44.com/files/public/69c97dcd1c1950fa88424690/0da1033ad_DutyBoost-TheCircularRevenueInfrastructureforGlobaTravelpdf.pdf";
+const PDF_URL = "https://media.base44.com/files/public/69c97dcd1c1950fa88424690/9fff97785_TheCircularRevenueInfrastructureforGlobalTravel.pdf";
 
 async function recordPdfDownload(surveyType, screen) {
   try {
