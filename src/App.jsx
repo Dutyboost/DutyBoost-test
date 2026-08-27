@@ -126,6 +126,7 @@ import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
 import CorporatePartnerRequest from './pages/CorporatePartnerRequest';
 import CorporatePartnerCalculator from './pages/CorporatePartnerCalculator';
+import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -282,6 +283,7 @@ const AuthenticatedApp = () => {
           <Route path="/retailer-scan" element={<RetailerScanQR />} />
           <Route path="/leads-admin" element={<LeadsAdmin />} />
           <Route path="/DutyBoost-Dashboard" element={<SurveyDashboard />} />
+          <Route path="/airport-retailers-campaign-list" element={<AirportRetailersCampaignList />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Route>
