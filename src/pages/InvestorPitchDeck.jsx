@@ -934,7 +934,7 @@ function SlideInvitation() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }}
         />
-        <div className="relative z-10 text-center max-w-3xl mx-auto">
+        <div className="relative z-10 text-center">
           <div className="flex justify-center mb-3">
             <div className="bg-white rounded-2xl px-5 py-2 shadow-xl">
               <DutyBoostLogo height={34} linkTo="/" />
@@ -942,43 +942,30 @@ function SlideInvitation() {
           </div>
           <div className="mb-3">
             <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest">An Invitation</span>
-            <h2 className="text-lg md:text-2xl font-heading font-bold text-white mt-2 leading-tight">
-              Join Us in Reimagining the Commercial Value of a{" "}
-              <span className="text-blue-400">Multi-Century-Old Industry</span>
+            <h2 className="text-lg md:text-3xl font-heading font-bold text-white mt-2 leading-tight">
+              Join Us in Reimagining{" "}
+              <span className="text-blue-400">A 100-Year-Old Industry</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-sm md:text-base leading-snug mb-3">
-            Travel is one of the world's oldest and largest industries. Yet the commercial value created across the journey remains largely siloed between the participants that make it possible.
+          <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
+            Travel has existed for over a century — airlines, airports, retailers, and the partners who connect travellers to destinations. Yet the commercial relationship between these participants has never been properly connected.
           </p>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 mb-3">
-            <p className="text-white text-sm md:text-base leading-snug mb-2">DutyBoost changes that.</p>
-            <p className="text-slate-300 text-sm md:text-base leading-snug mb-2">
-              DutyBoost is building a Circular Commercial Revenue Infrastructure for Global Travel, connecting Travel &amp; Corporate Partners, Airport Retailers and POS Providers around one measurable retail transaction.
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
+            <p className="text-white text-sm md:text-base leading-snug">
+              DutyBoost is the first Circular Commercial Revenue Infrastructure that connects the value already flowing through global travel — creating measurable upside for every participant, from the traveller to the retailer to the platform.
             </p>
-            <p className="text-slate-300 text-sm md:text-base leading-snug mb-2">
-              Travellers are activated days, weeks or even months before departure, creating purchase intent before they reach the airport.
-            </p>
-            <p className="text-slate-300 text-sm md:text-base leading-snug mb-2">
-              The model is entirely performance-based. Retailers pay only when a qualifying transaction occurs, after which the platform revenue is shared across the ecosystem.
-            </p>
-            <p className="text-white text-sm md:text-base font-semibold leading-snug">We are now moving from development to live deployment.</p>
           </div>
-          <p className="text-slate-300 text-sm md:text-base leading-snug mb-4">
-            We invite investors to join us in building an infrastructure designed not to replace the global travel ecosystem, but to connect it commercially.
+          <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
+            This is an open call to anyone who shares our conviction: help us take this revolutionary discovery from development to live deployment — and own a meaningful stake in the infrastructure that connects travel retail for the next century.
           </p>
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3 mb-4">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
             <div className="text-center">
               <div className="text-white text-lg md:text-xl font-bold">€200,000 Seed Round</div>
             </div>
           </div>
-          <div className="space-y-1 mb-4">
-            <p className="text-slate-300 text-sm md:text-base leading-snug">The traveller already travels.</p>
-            <p className="text-slate-300 text-sm md:text-base leading-snug">The retailer already sells.</p>
-            <p className="text-slate-300 text-sm md:text-base leading-snug">The POS already processes.</p>
-            <p className="text-slate-300 text-sm md:text-base leading-snug">The partners already communicate.</p>
-          </div>
-          <p className="text-blue-400 text-base md:text-lg font-bold">DutyBoost connects the value.</p>
-          <p className="text-white text-sm md:text-base font-semibold mt-2">Join us in building what connects it all.</p>
+          <p className="text-blue-300 text-base md:text-lg font-bold mt-4">
+            The traveller already travels. Let's connect the value — together.
+          </p>
         </div>
       </div>
     </SlideWrapper>
