@@ -103,7 +103,7 @@ function SlideCover() {
           <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
-              { label: "Seed Ask", value: "€500K" },
+              { label: "Seed Ask", value: "€200K" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -765,7 +765,7 @@ function SlideFunding() {
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Funding & Use of Capital</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            €500,000 Seed Round — <span className="text-blue-600">From Development to Live Deployment</span>
+            €200,000 Seed Round — <span className="text-blue-600">From Development to Live Deployment</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -774,13 +774,13 @@ function SlideFunding() {
               <h3 className="font-bold mb-4">Use of Funds</h3>
               <div className="space-y-3">
                 {[
-                  { label: "Platform & Product Development", amount: "€150,000", pct: 30, color: "bg-blue-500" },
-                  { label: "Enterprise POS Integrations", amount: "€100,000", pct: 20, color: "bg-indigo-500" },
-                  { label: "Commercial Partnerships & Rollout", amount: "€90,000", pct: 18, color: "bg-violet-500" },
-                  { label: "Legal, Privacy, Cybersecurity & IP", amount: "€55,000", pct: 11, color: "bg-purple-500" },
-                  { label: "Traveller Activation & Campaigns", amount: "€45,000", pct: 9, color: "bg-pink-500" },
-                  { label: "Operations, Finance & Settlement", amount: "€30,000", pct: 6, color: "bg-rose-500" },
-                  { label: "Working Capital & Contingency", amount: "€30,000", pct: 6, color: "bg-red-500" },
+                  { label: "Platform & Product Development", amount: "€60,000", pct: 30, color: "bg-blue-500" },
+                  { label: "Enterprise POS Integrations", amount: "€40,000", pct: 20, color: "bg-indigo-500" },
+                  { label: "Commercial Partnerships & Rollout", amount: "€36,000", pct: 18, color: "bg-violet-500" },
+                  { label: "Legal, Privacy, Cybersecurity & IP", amount: "€22,000", pct: 11, color: "bg-purple-500" },
+                  { label: "Traveller Activation & Campaigns", amount: "€18,000", pct: 9, color: "bg-pink-500" },
+                  { label: "Operations, Finance & Settlement", amount: "€12,000", pct: 6, color: "bg-rose-500" },
+                  { label: "Working Capital & Contingency", amount: "€12,000", pct: 6, color: "bg-red-500" },
                 ].map((item) => (
                   <div key={item.label} className="space-y-1">
                     <div className="flex justify-between text-sm">
@@ -895,7 +895,7 @@ function SlideInvestment() {
           <div className="bg-gradient-to-r from-blue-900/60 via-indigo-900/60 to-violet-900/60 border border-blue-500/30 rounded-2xl p-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center mb-4">
               {[
-                { label: "Seed Ask", val: "€500K" },
+                { label: "Seed Ask", val: "€200K" },
                 { label: "Break-Even (Year 3)", val: "710K txns" },
                 { label: "Year 5 Revenue", val: "€22.05M" },
                 { label: "Year 5 EBITDA", val: "€16.05M" },
@@ -958,7 +958,7 @@ function SlideInvitation() {
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-6 py-4">
             <div className="text-left">
-              <div className="text-white text-xl md:text-2xl font-bold">€500,000 Seed Round</div>
+              <div className="text-white text-xl md:text-2xl font-bold">€200,000 Seed Round</div>
               <div className="text-blue-100 text-sm">5% Equity — Pre-Revenue, Pre-Seed</div>
             </div>
           </div>
