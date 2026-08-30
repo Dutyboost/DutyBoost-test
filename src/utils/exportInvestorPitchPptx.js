@@ -5,7 +5,6 @@ const LOGO_URL = "https://media.base44.com/images/public/69c97dcd1c1950fa8842469
 
 const DARK = "0A0F1E";
 const BLUE = "3B82F6";
-const BLUE_LIGHT = "60A5FA";
 const INDIGO = "6366F1";
 const VIOLET = "8B5CF6";
 const PURPLE = "A855F7";
@@ -14,16 +13,11 @@ const GREEN = "22C55E";
 const YELLOW = "EAB308";
 const RED = "EF4444";
 const SLATE = "64748B";
-const SLATE_DARK = "334155";
 const WHITE = "FFFFFF";
 const PANEL = "1E293B";
 const PANEL_BORDER = "334155";
 
 const AVOLTA_URL = "https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com";
-
-function darkSlide(s) {
-  s.background = { color: DARK };
-}
 
 function lightSlide(s) {
   s.background = { color: WHITE };
@@ -38,11 +32,11 @@ export async function exportInvestorPitchPptx() {
   // ============ SLIDE 1: COVER ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
+    lightSlide(s);
     s.addImage({ path: LOGO_URL, x: 4.65, y: 1.1, w: 4.0, h: 1.2, sizing: { type: "contain", w: 4.0, h: 1.2 } });
-    s.addText("The Circular Commercial Revenue", { x: 0.8, y: 2.6, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
-    s.addText("Infrastructure for Global Travel", { x: 0.8, y: 3.25, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
-    s.addText("Pre-Revenue / Pre-Seed Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: "CBD5E1", align: "center", fontFace: "Calibri" });
+    s.addText("The Circular Commercial Revenue", { x: 0.8, y: 2.6, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+    s.addText("Infrastructure for Global Travel", { x: 0.8, y: 3.25, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addText("Pre-Revenue / Pre-Seed Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
     const coverStats = [
       { val: "€37.1B", lbl: "Market" },
       { val: "€200K", lbl: "Seed Ask" },
@@ -50,35 +44,37 @@ export async function exportInvestorPitchPptx() {
     ];
     coverStats.forEach(({ val, lbl }, i) => {
       const x = 1.8 + i * 3.3;
-      s.addText(val, { x, y: 4.9, w: 3.0, h: 0.6, fontSize: 26, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
-      s.addText(lbl, { x, y: 5.45, w: 3.0, h: 0.4, fontSize: 12, color: "94A3B8", align: "center", fontFace: "Calibri" });
+      s.addText(val, { x, y: 4.9, w: 3.0, h: 0.6, fontSize: 26, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+      s.addText(lbl, { x, y: 5.45, w: 3.0, h: 0.4, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });
     });
-    s.addText("CONFIDENTIAL — 2026  |  Chamber of Commerce: 42053181  |  VAT: NL869492068B01", { x: 1.5, y: 6.4, w: 10.3, h: 0.4, fontSize: 10, color: "94A3B8", align: "center", fontFace: "Calibri" });
+    s.addText("CONFIDENTIAL — 2026  |  Chamber of Commerce: 42053181  |  VAT: NL869492068B01", { x: 1.5, y: 6.4, w: 10.3, h: 0.4, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
   }
 
   // ============ SLIDE 2: PROBLEM ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
-    s.addText("THE PROBLEM", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("73% of Airport Passengers", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
-    s.addText("Never Make a Purchase", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri" });
+    lightSlide(s);
+    s.addText("THE PROBLEM", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("73% of Airport Passengers", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+    s.addText("Never Make a Purchase", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
 
     const leftStats = [
-      { val: "9.8B", title: "Global passenger movements in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE_LIGHT },
+      { val: "9.8B", title: "Global passenger movements in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE },
       { val: "27%", title: "Avolta penetration benchmark", sub: "682M purchases from 2.5B passenger exposure", color: ORANGE, isLink: true },
       { val: "1.82B", title: "Non-purchasing passenger exposures", sub: "Within Avolta's benchmark alone", color: RED },
     ];
     leftStats.forEach((st, i) => {
       const y = 2.4 + i * 1.55;
       s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y, w: 5.6, h: 1.4, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
-      s.addText(st.val, { x: 1.0, y: y + 0.12, w: 5.2, h: 0.6, fontSize: 28, bold: true, color: st.color, align: "left", fontFace: "Calibri" });
+      s.addText(st.val, { x: 1.0, y: y + 0.1, w: 5.2, h: 0.55, fontSize: 28, bold: true, color: st.color, align: "left", fontFace: "Calibri" });
       if (st.isLink) {
-        s.addText([{ text: "Avolta penetration benchmark", options: { x: 1.0, y: y + 0.68, w: 5.2, h: 0.35, fontSize: 13, bold: true, color: BLUE_LIGHT, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } }]);
-        s.addText("(See slide 7 for more details)", { x: 1.0, y: y + 0.98, w: 5.2, h: 0.3, fontSize: 11, color: "94A3B8", align: "left", fontFace: "Calibri" });
+        s.addText([
+          { text: "Avolta penetration benchmark", options: { fontSize: 13, bold: true, color: "93C5FD", fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } },
+          { text: "  (See slide 7 for more details)", options: { fontSize: 11, color: "94A3B8", fontFace: "Calibri" } },
+        ], { x: 1.0, y: y + 0.72, w: 5.2, h: 0.55, align: "left", valign: "middle" });
       } else {
-        s.addText(st.title, { x: 1.0, y: y + 0.68, w: 5.2, h: 0.35, fontSize: 13, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
-        s.addText(st.sub, { x: 1.0, y: y + 0.98, w: 5.2, h: 0.3, fontSize: 11, color: "94A3B8", align: "left", fontFace: "Calibri" });
+        s.addText(st.title, { x: 1.0, y: y + 0.72, w: 5.2, h: 0.32, fontSize: 13, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
+        s.addText(st.sub, { x: 1.0, y: y + 1.04, w: 5.2, h: 0.3, fontSize: 11, color: "94A3B8", align: "left", fontFace: "Calibri" });
       }
     });
 
@@ -102,13 +98,13 @@ export async function exportInvestorPitchPptx() {
   // ============ SLIDE 3: SOLUTION ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
-    s.addText("THE SOLUTION", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("Activate the Traveller", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
-    s.addText("Before Airport Arrival", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri" });
+    lightSlide(s);
+    s.addText("THE SOLUTION", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("Activate the Traveller", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+    s.addText("Before Airport Arrival", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
 
     const channels = [
-      { title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation", color: BLUE_LIGHT },
+      { title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation", color: "60A5FA" },
       { title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation", color: VIOLET },
       { title: "Car Rental", desc: "DutyCredit distributed with rental confirmation", color: GREEN },
       { title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows", color: YELLOW },
@@ -133,7 +129,7 @@ export async function exportInvestorPitchPptx() {
     steps.forEach((step, i) => {
       const x = 0.8 + i * (stepW + 0.07);
       s.addShape(pptx.ShapeType.roundRect, { x, y: 4.5, w: stepW, h: 1.1, fill: { color: "1E3A8A" }, line: { color: BLUE, width: 1 }, rectRadius: 0.1 });
-      s.addText(`Step ${i + 1}`, { x, y: 4.58, w: stepW, h: 0.3, fontSize: 9, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
+      s.addText(`Step ${i + 1}`, { x, y: 4.58, w: stepW, h: 0.3, fontSize: 9, bold: true, color: "60A5FA", align: "center", fontFace: "Calibri" });
       s.addText(step, { x: x + 0.08, y: 4.88, w: stepW - 0.16, h: 0.65, fontSize: 9.5, color: WHITE, align: "center", fontFace: "Calibri", valign: "top" });
     });
 
@@ -145,7 +141,7 @@ export async function exportInvestorPitchPptx() {
     ];
     solStats.forEach((st, i) => {
       const x = 0.8 + i * 3.9;
-      s.addText(st.val, { x, y: 5.9, w: 3.9, h: 0.5, fontSize: 18, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
+      s.addText(st.val, { x, y: 5.9, w: 3.9, h: 0.5, fontSize: 18, bold: true, color: "60A5FA", align: "center", fontFace: "Calibri" });
       s.addText(st.lbl, { x, y: 6.4, w: 3.9, h: 0.5, fontSize: 11, color: "CBD5E1", align: "center", fontFace: "Calibri" });
     });
   }
@@ -222,8 +218,10 @@ export async function exportInvestorPitchPptx() {
     s.addText("27%", { x: 3.8, y: 1.95, w: 2.6, h: 0.7, fontSize: 30, bold: true, color: GREEN, align: "right", fontFace: "Calibri" });
     s.addText("Currently converting", { x: 3.6, y: 2.6, w: 2.9, h: 0.35, fontSize: 11, bold: true, color: "475569", align: "right", fontFace: "Calibri" });
     s.addShape(pptx.ShapeType.line, { x: 1.0, y: 3.1, w: 5.45, h: 0, line: { color: "FECACA", width: 1 } });
-    s.addText([{ text: "Avolta penetration benchmark", options: { x: 1.0, y: 3.13, w: 4.0, h: 0.3, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } }]);
-    s.addText("(See slide 7 for more details)", { x: 1.0, y: 3.13, w: 5.45, h: 0.3, fontSize: 10, color: SLATE, align: "right", fontFace: "Calibri" });
+    s.addText([
+      { text: "Avolta penetration benchmark", options: { fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } },
+      { text: "  (See slide 7 for more details)", options: { fontSize: 10, color: SLATE, fontFace: "Calibri" } },
+    ], { x: 1.0, y: 3.13, w: 5.45, h: 0.3, align: "left", valign: "middle" });
 
     // Conversion table
     s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 3.5, w: 5.85, h: 3.5, fill: { color: "EFF6FF" }, line: { color: "BFDBFE", width: 1 }, rectRadius: 0.12 });
@@ -261,7 +259,7 @@ export async function exportInvestorPitchPptx() {
       const y = 2.45 + i * 0.5;
       s.addShape(pptx.ShapeType.roundRect, { x: 7.05, y, w: 2.35, h: 0.4, fill: { color: "7F1D1D" }, line: { color: "7F1D1D" }, rectRadius: 0.06 });
       s.addText(row.from, { x: 7.15, y, w: 2.15, h: 0.4, fontSize: 9, color: "FCA5A5", align: "center", fontFace: "Calibri", valign: "middle" });
-      s.addText("→", { x: 9.4, y, w: 0.3, h: 0.4, fontSize: 12, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri", valign: "middle" });
+      s.addText("→", { x: 9.4, y, w: 0.3, h: 0.4, fontSize: 12, bold: true, color: "60A5FA", align: "center", fontFace: "Calibri", valign: "middle" });
       s.addShape(pptx.ShapeType.roundRect, { x: 9.7, y, w: 2.6, h: 0.4, fill: { color: "14532D" }, line: { color: "14532D" }, rectRadius: 0.06 });
       s.addText(row.to, { x: 9.8, y, w: 2.4, h: 0.4, fontSize: 9, color: "86EFAC", align: "center", fontFace: "Calibri", valign: "middle" });
     });
@@ -301,7 +299,7 @@ export async function exportInvestorPitchPptx() {
     tiers.forEach((row, i) => {
       const y = 3.0 + i * 0.55;
       if (row.hl) s.addShape(pptx.ShapeType.roundRect, { x: 0.95, y: y - 0.05, w: 6.2, h: 0.5, fill: { color: "1E40AF" }, line: { color: "1E40AF" }, rectRadius: 0.05 });
-      s.addText(row.tier, { x: 1.0, y, w: 1.55, h: 0.4, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri", valign: "middle" });
+      s.addText(row.tier, { x: 1.0, y, w: 1.55, h: 0.4, fontSize: 11, bold: true, color: "60A5FA", align: "left", fontFace: "Calibri", valign: "middle" });
       s.addText(row.range, { x: 2.55, y, w: 1.55, h: 0.4, fontSize: 11, color: "CBD5E1", align: "left", fontFace: "Calibri", valign: "middle" });
       s.addText(row.disc, { x: 4.1, y, w: 1.55, h: 0.4, fontSize: 11, color: "FDE68A", align: "left", fontFace: "Calibri", valign: "middle" });
       s.addText(row.save, { x: 5.65, y, w: 1.5, h: 0.4, fontSize: 11, bold: true, color: "86EFAC", align: "right", fontFace: "Calibri", valign: "middle" });
@@ -343,13 +341,13 @@ export async function exportInvestorPitchPptx() {
   // ============ SLIDE 7: TRANSACTION ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
-    s.addText("ONE TRANSACTION — FIVE BENEFICIARIES", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("€100 Original Qualifying Retail Value", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
+    lightSlide(s);
+    s.addText("ONE TRANSACTION — FIVE BENEFICIARIES", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("€100 Original Qualifying Retail Value", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     const beneficiaries = [
       { party: "Traveller", value: "€10.00", sub: "DutyCredit saving (10%)", color: GREEN },
-      { party: "Airport Retailer", value: "€87.50", sub: "Net before normal costs (87.5%)", color: BLUE_LIGHT },
+      { party: "Airport Retailer", value: "€87.50", sub: "Net before normal costs (87.5%)", color: "60A5FA" },
       { party: "Travel & Corporate Partner", value: "€0.50", sub: "Ancillary revenue (0.5%)", color: YELLOW },
       { party: "POS Partner", value: "€0.25", sub: "Transaction revenue (0.25%)", color: PURPLE },
       { party: "DutyBoost", value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: ORANGE },
@@ -390,15 +388,15 @@ export async function exportInvestorPitchPptx() {
     s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y: 4.6, w: 5.65, h: 2.4, fill: { color: "1E3A8A" }, line: { color: BLUE, width: 1 }, rectRadius: 0.12 });
     s.addText("Integrate Once. Deploy Repeatedly.", { x: 7.05, y: 4.75, w: 5.25, h: 0.5, fontSize: 16, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
     s.addText("A single Enterprise POS integration can enable DutyBoost across multiple retailers, stores, airports and geographic markets — creating fundamentally better scaling economics than building individual integrations per retailer.", { x: 7.05, y: 5.3, w: 5.25, h: 1.3, fontSize: 11, color: "CBD5E1", align: "left", fontFace: "Calibri", valign: "top" });
-    s.addText("Technology strategy: INTEGRATE ONCE. DEPLOY REPEATEDLY.", { x: 7.05, y: 6.6, w: 5.25, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri" });
+    s.addText("Technology strategy: INTEGRATE ONCE. DEPLOY REPEATEDLY.", { x: 7.05, y: 6.6, w: 5.25, h: 0.35, fontSize: 11, bold: true, color: "60A5FA", align: "left", fontFace: "Calibri" });
   }
 
   // ============ SLIDE 8: FLYWHEEL ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
-    s.addText("THE GROWTH FLYWHEEL", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("A Self-Reinforcing Circular Ecosystem", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
+    lightSlide(s);
+    s.addText("THE GROWTH FLYWHEEL", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("A Self-Reinforcing Circular Ecosystem", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     // Network effects
     s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 1.8, w: 5.85, h: 5.2, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
@@ -412,17 +410,15 @@ export async function exportInvestorPitchPptx() {
     ];
     effects.forEach((row, i) => {
       const y = 2.5 + i * 0.7;
-      s.addText(row.party, { x: 1.0, y, w: 5.45, h: 0.3, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri" });
+      s.addText(row.party, { x: 1.0, y, w: 5.45, h: 0.3, fontSize: 11, bold: true, color: "60A5FA", align: "left", fontFace: "Calibri" });
       s.addText(row.effect, { x: 1.0, y: y + 0.28, w: 5.45, h: 0.3, fontSize: 10.5, color: "94A3B8", align: "left", fontFace: "Calibri" });
     });
 
     // Flywheel steps (right)
     s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y: 1.8, w: 5.65, h: 4.05, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
     s.addText("The Circular Flywheel", { x: 7.05, y: 1.95, w: 5.25, h: 0.4, fontSize: 14, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
-    const wheel = [
-      "More Travel & Corporate Partners → More Travellers Reached → More DutyCredits Distributed → More Traveller Incentives → More Pre-Airport Activation → More Participating Retail Visits → More Retail Conversion → More Validated Transactions → More Retailer Revenue → More Partner Revenue → More DutyBoost Revenue → Stronger Partner Adoption → Greater Network Scale → More Travel & Corporate Partners",
-    ];
-    s.addText(wheel[0], { x: 7.05, y: 2.5, w: 5.25, h: 3.2, fontSize: 10.5, color: "CBD5E1", align: "left", fontFace: "Calibri", valign: "top" });
+    const wheel = "More Travel & Corporate Partners → More Travellers Reached → More DutyCredits Distributed → More Traveller Incentives → More Pre-Airport Activation → More Participating Retail Visits → More Retail Conversion → More Validated Transactions → More Retailer Revenue → More Partner Revenue → More DutyBoost Revenue → Stronger Partner Adoption → Greater Network Scale → More Travel & Corporate Partners";
+    s.addText(wheel, { x: 7.05, y: 2.5, w: 5.25, h: 3.2, fontSize: 10.5, color: "CBD5E1", align: "left", fontFace: "Calibri", valign: "top" });
 
     // Quote
     s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y: 6.0, w: 5.65, h: 1.0, fill: { color: "1E3A8A" }, line: { color: BLUE, width: 1 }, rectRadius: 0.12 });
@@ -442,7 +438,7 @@ export async function exportInvestorPitchPptx() {
     finHeaders.forEach((h, i) => {
       const x = 0.8 + i * 1.95;
       const isYear3 = i === 3;
-      s.addShape(pptx.ShapeType.rect, { x, y: 1.7, w: i === 0 ? 1.95 : 1.95, h: 0.45, fill: { color: isYear3 ? "1D4ED8" : "1E293B" }, line: { color: "1E293B" } });
+      s.addShape(pptx.ShapeType.rect, { x, y: 1.7, w: 1.95, h: 0.45, fill: { color: isYear3 ? "1D4ED8" : "1E293B" }, line: { color: "1E293B" } });
       s.addText(h, { x, y: 1.72, w: i === 0 ? 1.85 : 1.95, h: 0.42, fontSize: 10.5, bold: true, color: WHITE, align: i === 0 ? "left" : "right", fontFace: "Calibri", valign: "middle" });
     });
     const finRows = [
@@ -540,9 +536,9 @@ export async function exportInvestorPitchPptx() {
   // ============ SLIDE 11: INVESTMENT ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
-    s.addText("INVESTMENT CASE", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("Four Layers. One Opportunity.", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
+    lightSlide(s);
+    s.addText("INVESTMENT CASE", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("Four Layers. One Opportunity.", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     const layers = [
       { n: "1", layer: "Existing Market", headline: "+/- €37.1 Billion", body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.", color: BLUE },
@@ -571,29 +567,29 @@ export async function exportInvestorPitchPptx() {
     ];
     invStats.forEach((st, i) => {
       const x = 1.0 + i * 2.85;
-      s.addText(st.val, { x, y: 5.9, w: 2.75, h: 0.45, fontSize: 18, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
+      s.addText(st.val, { x, y: 5.9, w: 2.75, h: 0.45, fontSize: 18, bold: true, color: "60A5FA", align: "center", fontFace: "Calibri" });
       s.addText(st.lbl, { x, y: 6.35, w: 2.75, h: 0.3, fontSize: 9.5, color: "94A3B8", align: "center", fontFace: "Calibri" });
     });
     s.addShape(pptx.ShapeType.line, { x: 1.0, y: 6.72, w: 11.3, h: 0, line: { color: BLUE, width: 0.5 } });
     s.addText("The traveller already travels. The retailer already sells. The POS already processes. The partners already communicate.", { x: 1.0, y: 6.78, w: 11.3, h: 0.35, fontSize: 11, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
-    s.addText("DutyBoost connects the value.", { x: 1.0, y: 7.05, w: 11.3, h: 0.35, fontSize: 14, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
+    s.addText("DutyBoost connects the value.", { x: 1.0, y: 7.05, w: 11.3, h: 0.35, fontSize: 14, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
   }
 
   // ============ SLIDE 12: INVITATION ============
   {
     const s = pptx.addSlide();
-    darkSlide(s);
+    lightSlide(s);
     s.addImage({ path: LOGO_URL, x: 5.65, y: 0.5, w: 2.0, h: 0.6, sizing: { type: "contain", w: 2.0, h: 0.6 } });
-    s.addText("AN INVITATION", { x: 0.8, y: 1.25, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("Join Us in Reimagining the Commercial Value of a", { x: 0.8, y: 1.65, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
-    s.addText("Multi-Century-Old Industry", { x: 0.8, y: 2.15, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
-    s.addText("Travel has existed for centuries, yet its commercial journey remains disconnected. Enormous value flows through every journey, but there is still no infrastructure connecting that value into one measurable, attributable and circular commercial transaction.", { x: 1.5, y: 2.85, w: 10.3, h: 1.0, fontSize: 12.5, color: "CBD5E1", align: "center", fontFace: "Calibri" });
+    s.addText("AN INVITATION", { x: 0.8, y: 1.25, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("Join Us in Reimagining the Commercial Value of a", { x: 0.8, y: 1.65, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+    s.addText("Multi-Century-Old Industry", { x: 0.8, y: 2.15, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addText("Travel has existed for centuries, yet its commercial journey remains disconnected. Enormous value flows through every journey, but there is still no infrastructure connecting that value into one measurable, attributable and circular commercial transaction.", { x: 1.5, y: 2.85, w: 10.3, h: 1.0, fontSize: 12.5, color: SLATE, align: "center", fontFace: "Calibri" });
     s.addShape(pptx.ShapeType.roundRect, { x: 1.8, y: 3.95, w: 9.7, h: 1.35, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
     s.addText("DutyBoost connects that value. Our Circular Commercial Revenue Infrastructure activates existing touch-points across the travel journey and connects participants around one validated transaction — creating measurable upside across the ecosystem.", { x: 2.0, y: 4.05, w: 9.3, h: 1.15, fontSize: 12, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("We are now ready to take DutyBoost from development to live deployment. This is an invitation to those who share our conviction to join us — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.", { x: 1.5, y: 5.45, w: 10.3, h: 0.95, fontSize: 12.5, color: "CBD5E1", align: "center", fontFace: "Calibri" });
+    s.addText("We are now ready to take DutyBoost from development to live deployment. This is an invitation to those who share our conviction to join us — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.", { x: 1.5, y: 5.45, w: 10.3, h: 0.95, fontSize: 12.5, color: SLATE, align: "center", fontFace: "Calibri" });
     s.addShape(pptx.ShapeType.roundRect, { x: 4.15, y: 6.5, w: 5.0, h: 0.6, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.15 });
     s.addText("€200,000 Seed Round", { x: 4.15, y: 6.5, w: 5.0, h: 0.6, fontSize: 16, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("The traveller already travels. Let's connect the value — together.", { x: 0.8, y: 7.2, w: 11.7, h: 0.4, fontSize: 13, bold: true, color: BLUE_LIGHT, align: "center", fontFace: "Calibri" });
+    s.addText("The traveller already travels. Let's connect the value — together.", { x: 0.8, y: 7.2, w: 11.7, h: 0.4, fontSize: 13, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
   }
 
   await pptx.writeFile({ fileName: "DutyBoost-Investor-Pitch-Deck-2026.pptx" });
