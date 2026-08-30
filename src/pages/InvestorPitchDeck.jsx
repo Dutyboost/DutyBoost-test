@@ -548,7 +548,7 @@ function SlideTransaction() {
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-400`} />
-                <div className="text-white font-semibold text-sm mb-2">{p.party}</div>
+                <div className="text-white font-semibold text-xs sm:text-sm whitespace-nowrap mb-2">{p.party}</div>
                 <div className={`text-2xl font-bold text-${p.color}-400 mb-1`}>{p.value}</div>
                 <div className="text-slate-400 text-xs leading-snug">{p.sub}</div>
               </div>
