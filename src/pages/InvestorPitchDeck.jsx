@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, Fragment } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import HotelIcon from "@/components/HotelIcon";
@@ -212,11 +212,12 @@ function SlideSolution() {
               Activate the Traveller<br /><span className="text-blue-400">Before Airport Arrival</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
             {[
               { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-400", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
               { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit delivered with rental confirmation" },
+              { Icon: Briefcase, color: "text-amber-400", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
             ].map((step, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
                 <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
