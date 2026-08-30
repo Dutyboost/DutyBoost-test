@@ -948,15 +948,15 @@ function SlideInvitation() {
             </h2>
           </div>
           <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
-            Travel has existed for centuries — connecting travellers, airlines, airports, retailers and destinations. Yet the commercial value created across this journey remains largely siloed between the participants who make it possible.
+            Travel has existed for centuries, yet its commercial journey remains disconnected. Enormous value flows through every journey, but there is still no infrastructure connecting that value into one measurable, attributable and circular commercial transaction.
           </p>
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
             <p className="text-white text-sm md:text-base leading-snug">
-              DutyBoost is a Circular Commercial Revenue Infrastructure connecting that existing value — creating measurable upside for Travel &amp; Corporate Partners, travellers, Airport Retailers, POS Providers and DutyBoost through one attributable transaction.
+              DutyBoost connects that value. Our Circular Commercial Revenue Infrastructure activates existing touch-points across the travel journey and connects participants around one validated transaction — creating measurable upside across the ecosystem.
             </p>
           </div>
           <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
-            This is an invitation to those who share our conviction: help us take DutyBoost from development to live deployment — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.
+            We are now ready to take DutyBoost from development to live deployment. This is an invitation to those who share our conviction to join us — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
             <div className="text-center">
