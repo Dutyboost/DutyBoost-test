@@ -384,6 +384,17 @@ function SlideConversion() {
                   <div className="text-slate-600 font-semibold text-sm mt-1">Currently converting</div>
                 </div>
               </div>
+              <div className="mt-3 pt-3 border-t border-red-200/60">
+                <a
+                  href="https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors"
+                >
+                  Avolta penetration benchmark
+                </a>{" "}
+                <span className="text-slate-400 text-sm font-normal">(See slide 7 for more details)</span>
+              </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
               <h3 className="font-bold text-blue-800 mb-3">At 180M travellers reached (Year 5):</h3>
