@@ -236,7 +236,7 @@ function SlideSolution() {
               "Visits participating retailer",
               "Spends €100 → Saves €10",
               "POS validates transaction",
-              "All 5 parties earn",
+              "All participants earn",
             ].map((step, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
@@ -255,7 +255,7 @@ function SlideSolution() {
               "Visits participating retailer",
               "Spends €100 → Saves €10",
               "POS validates transaction",
-              "All 5 parties earn",
+              "All participants earn",
             ].map((step, i, arr) => (
               <Fragment key={i}>
                 <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
@@ -376,7 +376,7 @@ function SlideConversion() {
               <div className="flex items-center gap-4">
                 <div>
                   <div className="text-3xl md:text-5xl font-bold text-red-600">73%</div>
-                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-ticket exposure (Avolta benchmark)</div>
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchase exposure (Avolta benchmark)</div>
                   <div className="text-slate-400 text-xs mt-1">= 1.82 billion unreached travellers</div>
                 </div>
                 <div className="flex-1 text-right">
@@ -863,7 +863,7 @@ function SlideInvestment() {
               {
                 n: "2",
                 layer: "Conversion Headroom",
-                headline: "73% Non-Ticket Exposure",
+                headline: "73% Non-Purchase Exposure",
                 body: "Avolta's 2025 benchmark: 2.5B passenger exposure with only 27% penetration. 1.82B non-purchasing travellers represent untapped headroom.",
                 color: "indigo",
               },
