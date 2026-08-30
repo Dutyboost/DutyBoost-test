@@ -258,8 +258,8 @@ function SlideSolution() {
               "All 5 parties earn",
             ].map((step, i, arr) => (
               <Fragment key={i}>
-                <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2.5 text-center flex flex-col justify-center">
-                  <div className="text-blue-400 text-xs font-semibold leading-none">Step {i + 1}</div>
+                <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
+                  <div className="text-blue-400 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
                   <div className="text-white text-xs mt-1 leading-tight">{step}</div>
                 </div>
                 {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-4 h-4" />}
