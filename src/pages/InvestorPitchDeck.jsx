@@ -943,20 +943,20 @@ function SlideInvitation() {
           <div className="mb-3">
             <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest">An Invitation</span>
             <h2 className="text-lg md:text-3xl font-heading font-bold text-white mt-2 leading-tight">
-              Join Us in Reimagining{" "}
-              <span className="text-blue-400">A 100-Year-Old Industry</span>
+              Join Us in Reimagining the Commercial Value of a{" "}
+              <span className="text-blue-400">Multi-Century-Old Industry</span>
             </h2>
           </div>
           <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
-            Travel has existed for over a century — airlines, airports, retailers, and the partners who connect travellers to destinations. Yet the commercial relationship between these participants has never been properly connected.
+            Travel has existed for centuries — connecting travellers, airlines, airports, retailers and destinations. Yet the commercial value created across this journey remains largely siloed between the participants who make it possible.
           </p>
           <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
             <p className="text-white text-sm md:text-base leading-snug">
-              DutyBoost is the first Circular Commercial Revenue Infrastructure that connects the value already flowing through global travel — creating measurable upside for every participant, from the traveller to the retailer to the platform.
+              DutyBoost is a Circular Commercial Revenue Infrastructure connecting that existing value — creating measurable upside for Travel &amp; Corporate Partners, travellers, Airport Retailers, POS Providers and DutyBoost through one attributable transaction.
             </p>
           </div>
           <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
-            This is an open call to anyone who shares our conviction: help us take this revolutionary discovery from development to live deployment — and own a meaningful stake in the infrastructure that connects travel retail for the next century.
+            This is an invitation to those who share our conviction: help us take DutyBoost from development to live deployment — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
             <div className="text-center">
