@@ -959,9 +959,8 @@ function SlideInvitation() {
             This is an open call to anyone who shares our conviction: help us take this revolutionary discovery from development to live deployment — and own a meaningful stake in the infrastructure that connects travel retail for the next century.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
-            <div className="text-left">
+            <div className="text-center">
               <div className="text-white text-lg md:text-xl font-bold">€200,000 Seed Round</div>
-              <div className="text-blue-100 text-xs">5% Equity — Pre-Revenue, Pre-Seed</div>
             </div>
           </div>
           <p className="text-blue-300 text-base md:text-lg font-bold mt-4">
