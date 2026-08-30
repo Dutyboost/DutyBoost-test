@@ -215,9 +215,9 @@ function SlideSolution() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
             {[
-              { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
+              { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-400", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
-              { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit delivered with rental confirmation" },
+              { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
               { Icon: Briefcase, color: "text-amber-400", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
             ].map((step, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
@@ -230,7 +230,7 @@ function SlideSolution() {
           {/* Mobile/tablet: vertical stepper */}
           <div className="flex flex-col gap-2 mb-6 lg:hidden">
             {[
-              "Travel & Corporate Partner distributes DutyCredit",
+              "Distribution Partner distributes DutyCredit",
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
@@ -249,7 +249,7 @@ function SlideSolution() {
           {/* Desktop: horizontal stepper */}
           <div className="hidden lg:flex items-stretch gap-2 mb-6">
             {[
-              "Travel & Corporate Partner distributes DutyCredit",
+              "Distribution Partner distributes DutyCredit",
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
