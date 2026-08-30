@@ -924,7 +924,7 @@ function SlideInvestment() {
 function SlideInvitation() {
   return (
     <SlideWrapper dark>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-12 md:py-5 relative">
         <div className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
@@ -935,36 +935,36 @@ function SlideInvitation() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }}
         />
         <div className="relative z-10 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
-              <DutyBoostLogo height={40} linkTo="/" />
+          <div className="flex justify-center mb-3">
+            <div className="bg-white rounded-2xl px-5 py-2 shadow-xl">
+              <DutyBoostLogo height={34} linkTo="/" />
             </div>
           </div>
-          <div className="mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">An Invitation</span>
-            <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-3 leading-tight">
-              Join Us in Reimagining<br />
+          <div className="mb-3">
+            <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest">An Invitation</span>
+            <h2 className="text-lg md:text-3xl font-heading font-bold text-white mt-2 leading-tight">
+              Join Us in Reimagining{" "}
               <span className="text-blue-400">A 100-Year-Old Industry</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
+          <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
             Travel has existed for over a century — airlines, airports, retailers, and the partners who connect travellers to destinations. Yet the commercial relationship between these participants has never been properly connected.
           </p>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 max-w-2xl mx-auto mb-6">
-            <p className="text-white text-base md:text-lg leading-relaxed">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
+            <p className="text-white text-sm md:text-base leading-snug">
               DutyBoost is the first Circular Commercial Revenue Infrastructure that connects the value already flowing through global travel — creating measurable upside for every participant, from the traveller to the retailer to the platform.
             </p>
           </div>
-          <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
             This is an open call to anyone who shares our conviction: help us take this revolutionary discovery from development to live deployment — and own a meaningful stake in the infrastructure that connects travel retail for the next century.
           </p>
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-6 py-4">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
             <div className="text-left">
-              <div className="text-white text-xl md:text-2xl font-bold">€200,000 Seed Round</div>
-              <div className="text-blue-100 text-sm">5% Equity — Pre-Revenue, Pre-Seed</div>
+              <div className="text-white text-lg md:text-xl font-bold">€200,000 Seed Round</div>
+              <div className="text-blue-100 text-xs">5% Equity — Pre-Revenue, Pre-Seed</div>
             </div>
           </div>
-          <p className="text-blue-300 text-lg md:text-xl font-bold mt-8">
+          <p className="text-blue-300 text-base md:text-lg font-bold mt-4">
             The traveller already travels. Let's connect the value — together.
           </p>
         </div>
