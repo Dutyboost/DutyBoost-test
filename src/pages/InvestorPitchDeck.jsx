@@ -76,10 +76,10 @@ function SlideWrapper({ children, dark = false }) {
 
 function SlideCover() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         {/* Background grid */}
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
@@ -90,15 +90,15 @@ function SlideCover() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }}
         />
         <div className="relative z-10 flex flex-col items-center gap-8">
-          <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
+          <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl border border-slate-200">
             <DutyBoostLogo height={50} linkTo="/" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               The Circular Commercial Revenue<br />
-              <span className="text-blue-400">Infrastructure for Global Travel</span>
+              <span className="text-blue-600">Infrastructure for Global Travel</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
               Pre-Revenue / Pre-Seed Investment Opportunity
             </p>
           </div>
@@ -109,12 +109,12 @@ function SlideCover() {
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-xl sm:text-3xl font-bold text-blue-400">{s.value}</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">{s.label}</div>
+                <div className="text-xl sm:text-3xl font-bold text-blue-600">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
-          <div className="mt-2 text-xs text-slate-500 border border-slate-700 rounded px-4 py-2">
+          <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
@@ -125,9 +125,9 @@ function SlideCover() {
 
 function SlideProblem() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
@@ -135,40 +135,40 @@ function SlideProblem() {
         />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Problem</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              73% of Airport Passengers<br /><span className="text-blue-400">Never Make a Purchase</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-5">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-blue-400 mb-2">9.8B</div>
-                <div className="text-white font-semibold">Global passenger movements in 2025</div>
-                <div className="text-slate-400 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 (ACI World)</div>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">9.8B</div>
+                <div className="text-slate-800 font-semibold">Global passenger movements in 2025</div>
+                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 (ACI World)</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-orange-400 mb-2">27%</div>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-orange-600 mb-2">27%</div>
                 <a
                   href="https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 font-semibold underline decoration-blue-400/50 hover:decoration-blue-300 hover:text-blue-300 transition-colors"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors"
                 >
                   Avolta penetration benchmark
                 </a>{" "}
-                <span className="text-slate-400 text-sm font-normal">(See slide 7 for more details)</span>
-                <div className="text-slate-400 text-sm mt-1">682M purchases from 2.5B passenger exposure</div>
+                <span className="text-slate-500 text-sm font-normal">(See slide 7 for more details)</span>
+                <div className="text-slate-500 text-sm mt-1">682M purchases from 2.5B passenger exposure</div>
               </div>
-              <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-red-400 mb-2">1.82B</div>
-                <div className="text-white font-semibold">Non-purchasing passenger exposures</div>
-                <div className="text-slate-400 text-sm mt-1">Within Avolta's benchmark alone</div>
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">1.82B</div>
+                <div className="text-slate-800 font-semibold">Non-purchasing passenger exposures</div>
+                <div className="text-slate-500 text-sm mt-1">Within Avolta's benchmark alone</div>
               </div>
             </div>
             <div className="flex flex-col gap-4 justify-center">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <h3 className="text-white font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <h3 className="text-slate-800 font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
                 <ul className="space-y-3">
                   {[
                     "Activation starts only after the traveller clears security",
@@ -178,14 +178,14 @@ function SlideProblem() {
                     "73% of passengers walk straight to the gate",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
-                      <span className="text-slate-300 text-sm">{item}</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+                      <span className="text-slate-600 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-blue-900/30 border border-blue-500/30 rounded-2xl p-5">
-                <p className="text-blue-200 text-sm leading-relaxed italic">
+              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+                <p className="text-blue-700 text-sm leading-relaxed italic">
                   "Large passenger flows do not automatically become retail customers. The 73% represents conversion headroom — not a permanent ceiling."
                 </p>
               </div>
@@ -199,9 +199,9 @@ function SlideProblem() {
 
 function SlideSolution() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
@@ -209,22 +209,22 @@ function SlideSolution() {
         />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              Activate the Traveller<br /><span className="text-blue-400">Before Airport Arrival</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Solution</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Activate the Traveller<br /><span className="text-blue-600">Before Airport Arrival</span>
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
             {[
-              { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
-              { Icon: HotelIcon, color: "text-violet-400", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
-              { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
-              { Icon: Briefcase, color: "text-amber-400", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
+              { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
+              { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
+              { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
+              { Icon: Briefcase, color: "text-amber-600", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
             ].map((step, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center">
                 <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
-                <div className="text-white font-semibold mb-1">{step.title}</div>
-                <div className="text-slate-400 text-sm">{step.desc}</div>
+                <div className="text-slate-800 font-semibold mb-1">{step.title}</div>
+                <div className="text-slate-500 text-sm">{step.desc}</div>
               </div>
             ))}
           </div>
@@ -241,8 +241,8 @@ function SlideSolution() {
             ].map((step, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
-                <div className="flex-1 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2">
-                  <span className="text-white text-sm leading-tight">{step}</span>
+                <div className="flex-1 bg-blue-50 border border-blue-200 rounded-xl px-3 py-2">
+                  <span className="text-slate-800 text-sm leading-tight">{step}</span>
                 </div>
               </div>
             ))}
@@ -259,27 +259,27 @@ function SlideSolution() {
               "All participants earn",
             ].map((step, i, arr) => (
               <Fragment key={i}>
-                <div className="flex-1 min-w-0 bg-blue-900/50 border border-blue-500/40 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
-                  <div className="text-blue-400 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
-                  <div className="text-white text-xs mt-1 leading-tight">{step}</div>
+                <div className="flex-1 min-w-0 bg-blue-50 border border-blue-200 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
+                  <div className="text-blue-600 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
+                  <div className="text-slate-800 text-xs mt-1 leading-tight">{step}</div>
                 </div>
                 {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-4 h-4" />}
               </Fragment>
             ))}
           </div>
-          <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-6">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">€1 – €60</div>
-                <div className="text-slate-300 text-sm mt-2">DutyCredit direct traveller value</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">€1 – €60</div>
+                <div className="text-slate-500 text-sm mt-2">DutyCredit direct traveller value</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Performance-Based</div>
-                <div className="text-slate-300 text-sm mt-2">Zero upfront cost to any partner</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Performance-Based</div>
+                <div className="text-slate-500 text-sm mt-2">Zero upfront cost to any partner</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
-                <div className="text-slate-300 text-sm mt-2">All benefit from one transaction</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
+                <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
               </div>
             </div>
           </div>
@@ -535,9 +535,9 @@ function SlideModel() {
 
 function SlideTransaction() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
@@ -545,30 +545,30 @@ function SlideTransaction() {
         />
         <div className="relative z-10">
           <div className="mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               €100 Original Qualifying Retail Value
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
             {[
-              { party: "Traveller", Icon: TravelerIcon, value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-900/30", border: "border-green-500/30" },
-              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-900/30", border: "border-blue-500/30" },
-              { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-900/30", border: "border-yellow-500/30" },
-              { party: "POS Partner", Icon: Cpu, value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-900/30", border: "border-purple-500/30" },
-              { party: "DutyBoost", Icon: BarChart3, value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-900/30", border: "border-orange-500/30" },
+              { party: "Traveller", Icon: TravelerIcon, value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
+              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
+              { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
+              { party: "POS Partner", Icon: Cpu, value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
+              { party: "DutyBoost", Icon: BarChart3, value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
-                <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-400`} />
-                <div className="text-white font-semibold text-xs sm:text-sm whitespace-nowrap mb-2">{p.party}</div>
-                <div className={`text-2xl font-bold text-${p.color}-400 mb-1`}>{p.value}</div>
-                <div className="text-slate-400 text-xs leading-snug">{p.sub}</div>
+                <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-600`} />
+                <div className="text-slate-800 font-semibold text-xs sm:text-sm whitespace-nowrap mb-2">{p.party}</div>
+                <div className={`text-2xl font-bold text-${p.color}-600 mb-1`}>{p.value}</div>
+                <div className="text-slate-500 text-xs leading-snug">{p.sub}</div>
               </div>
             ))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-              <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Total = €100.00</div>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = €100.00</div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
                 <div className="bg-green-500" style={{ width: "10%" }} title="Traveller 10%" />
                 <div className="bg-blue-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
@@ -586,17 +586,17 @@ function SlideTransaction() {
                 ].map((l) => (
                   <div key={l.label} className="flex items-center gap-1.5">
                     <div className={`w-3 h-3 rounded-sm ${l.color}`} />
-                    <span className="text-slate-400">{l.label}</span>
+                    <span className="text-slate-600">{l.label}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-900/60 to-indigo-900/60 border border-blue-500/30 rounded-2xl p-5">
-              <h3 className="text-white font-bold mb-3">Integrate Once. Deploy Repeatedly.</h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
+              <h3 className="font-bold mb-3">Integrate Once. Deploy Repeatedly.</h3>
+              <p className="text-blue-50 text-sm leading-relaxed">
                 A single Enterprise POS integration can enable DutyBoost across multiple retailers, stores, airports and geographic markets — creating fundamentally better scaling economics than building individual integrations per retailer.
               </p>
-              <div className="mt-3 text-blue-300 font-semibold text-sm">
+              <div className="mt-3 text-blue-100 font-semibold text-sm">
                 Technology strategy: INTEGRATE ONCE. DEPLOY REPEATEDLY.
               </div>
             </div>
@@ -626,9 +626,9 @@ function SlideFlywheel() {
   ];
 
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
@@ -636,17 +636,17 @@ function SlideFlywheel() {
         />
         <div className="relative z-10">
           <div className="mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">The Growth Flywheel</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              A Self-Reinforcing <span className="text-blue-400">Circular Ecosystem</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Growth Flywheel</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              A Self-Reinforcing <span className="text-blue-600">Circular Ecosystem</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
             <div className="relative flex items-center justify-center" style={{ height: "340px" }}>
               {/* Outer ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-blue-500/20" />
+              <div className="absolute inset-0 rounded-full border-2 border-blue-200" />
               {/* Center */}
-              <div className="bg-blue-900/60 border-2 border-blue-500/50 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
+              <div className="bg-blue-600 border-2 border-blue-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
                 <div className="text-white text-xs font-bold leading-tight px-2">Circular Revenue Infrastructure</div>
               </div>
               {/* Steps around circle */}
@@ -659,7 +659,7 @@ function SlideFlywheel() {
                 return (
                   <div
                     key={i}
-                    className="absolute bg-blue-900/60 border border-blue-500/40 rounded-lg px-2 py-1 text-center"
+                    className="absolute bg-blue-50 border border-blue-200 rounded-lg px-2 py-1 text-center"
                     style={{
                       left: `${x}%`,
                       top: `${y}%`,
@@ -667,16 +667,16 @@ function SlideFlywheel() {
                       maxWidth: "90px",
                     }}
                   >
-                    <div className="text-blue-300 text-xs font-semibold leading-tight">{step}</div>
+                    <div className="text-blue-700 text-xs font-semibold leading-tight">{step}</div>
                   </div>
                 );
               })}
               {/* Arrows */}
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-blue-500/30 animate-spin" style={{ animationDuration: "30s" }} />
+              <div className="absolute inset-0 rounded-full border-2 border-dashed border-blue-300 animate-spin" style={{ animationDuration: "30s" }} />
             </div>
             <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <h3 className="text-white font-bold mb-3">Network Effects by Participant</h3>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                <h3 className="text-slate-800 font-bold mb-3">Network Effects by Participant</h3>
                 <div className="space-y-2.5 text-sm">
                   {[
                     { Icon: Briefcase, party: "More Travel & Corporate Partners", effect: "→ More travellers reached before airport arrival" },
@@ -686,20 +686,20 @@ function SlideFlywheel() {
                     { Icon: Link2, party: "Stronger Evidence", effect: "→ Easier future partner acquisition" },
                   ].map((row) => (
                     <div key={row.party} className="flex items-start gap-2">
-                      <row.Icon className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <row.Icon className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                       <div>
-                        <span className="text-blue-300 font-semibold">{row.party} </span>
-                        <span className="text-slate-400">{row.effect}</span>
+                        <span className="text-blue-700 font-semibold">{row.party} </span>
+                        <span className="text-slate-600">{row.effect}</span>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-900/60 to-indigo-900/60 border border-blue-500/30 rounded-2xl p-5">
-                <p className="text-blue-200 font-bold text-lg leading-snug">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
+                <p className="font-bold text-lg leading-snug">
                   "A positive flywheel that creates growth for every stakeholder."
                 </p>
-                <p className="text-slate-400 text-sm mt-2">Each new partner makes the platform more valuable for every existing partner.</p>
+                <p className="text-blue-100 text-sm mt-2">Each new partner makes the platform more valuable for every existing partner.</p>
               </div>
             </div>
           </div>
@@ -845,22 +845,22 @@ function SlideFunding() {
 
 function SlideInvestment() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
           }}
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-5"
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }}
         />
         <div className="relative z-10">
           <div className="mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Investment Case</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              Four Layers. <span className="text-blue-400">One Opportunity.</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Investment Case</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Four Layers. <span className="text-blue-600">One Opportunity.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
@@ -894,19 +894,19 @@ function SlideInvestment() {
                 color: "purple",
               },
             ].map((l) => (
-              <div key={l.n} className={`bg-${l.color}-900/30 border border-${l.color}-500/30 rounded-2xl p-5`}>
+              <div key={l.n} className={`bg-${l.color}-50 border border-${l.color}-200 rounded-2xl p-5`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-full bg-${l.color}-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}>{l.n}</div>
                   <div>
-                    <div className={`text-${l.color}-400 text-xs uppercase tracking-wide mb-0.5`}>Layer {l.n} — {l.layer}</div>
-                    <div className="text-white font-bold text-lg mb-1">{l.headline}</div>
-                    <div className="text-slate-400 text-sm leading-relaxed">{l.body}</div>
+                    <div className={`text-${l.color}-600 text-xs uppercase tracking-wide mb-0.5`}>Layer {l.n} — {l.layer}</div>
+                    <div className="text-slate-800 font-bold text-lg mb-1">{l.headline}</div>
+                    <div className="text-slate-500 text-sm leading-relaxed">{l.body}</div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-r from-blue-900/60 via-indigo-900/60 to-violet-900/60 border border-blue-500/30 rounded-2xl p-6">
+          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 rounded-2xl p-6 text-white">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center mb-4">
               {[
                 { label: "Seed Ask", val: "€200K" },
@@ -915,8 +915,8 @@ function SlideInvestment() {
                 { label: "Year 5 EBITDA", val: "€16.05M" },
               ].map((s) => (
                 <div key={s.label}>
-                  <div className="text-2xl font-bold text-blue-300">{s.val}</div>
-                  <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                  <div className="text-2xl font-bold text-white">{s.val}</div>
+                  <div className="text-blue-100 text-xs mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -924,7 +924,7 @@ function SlideInvestment() {
               <p className="text-white text-xl font-bold">
                 The traveller already travels. The retailer already sells. The POS already processes. The Travel & Corporate Partner already communicates.
               </p>
-              <p className="text-blue-400 text-2xl font-bold mt-2">DutyBoost connects the value.</p>
+              <p className="text-blue-100 text-2xl font-bold mt-2">DutyBoost connects the value.</p>
             </div>
           </div>
         </div>
@@ -935,9 +935,9 @@ function SlideInvestment() {
 
 function SlideInvitation() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-12 md:py-5 relative">
-        <div className="absolute inset-0 opacity-5"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
@@ -948,26 +948,26 @@ function SlideInvitation() {
         />
         <div className="relative z-10 text-center">
           <div className="flex justify-center mb-3">
-            <div className="bg-white rounded-2xl px-5 py-2 shadow-xl">
+            <div className="bg-white rounded-2xl px-5 py-2 shadow-xl border border-slate-200">
               <DutyBoostLogo height={34} linkTo="/" />
             </div>
           </div>
           <div className="mb-3">
-            <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest">An Invitation</span>
-            <h2 className="text-lg md:text-3xl font-heading font-bold text-white mt-2 leading-tight">
+            <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">An Invitation</span>
+            <h2 className="text-lg md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
               Join Us in Reimagining the Commercial Value of a{" "}
-              <span className="text-blue-400">Multi-Century-Old Industry</span>
+              <span className="text-blue-600">Multi-Century-Old Industry</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
+          <p className="text-slate-500 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
             Travel has existed for centuries, yet its commercial journey remains disconnected. Enormous value flows through every journey, but there is still no infrastructure connecting that value into one measurable, attributable and circular commercial transaction.
           </p>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
-            <p className="text-white text-sm md:text-base leading-snug">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
+            <p className="text-slate-800 text-sm md:text-base leading-snug">
               DutyBoost connects that value. Our Circular Commercial Revenue Infrastructure activates existing touch-points across the travel journey and connects participants around one validated transaction — creating measurable upside across the ecosystem.
             </p>
           </div>
-          <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
+          <p className="text-slate-500 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
             We are now ready to take DutyBoost from development to live deployment. This is an invitation to those who share our conviction to join us — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
@@ -975,7 +975,7 @@ function SlideInvitation() {
               <div className="text-white text-lg md:text-xl font-bold">€200,000 Seed Round</div>
             </div>
           </div>
-          <p className="text-blue-300 text-base md:text-lg font-bold mt-4">
+          <p className="text-blue-600 text-base md:text-lg font-bold mt-4">
             The traveller already travels. Let's connect the value — together.
           </p>
         </div>
