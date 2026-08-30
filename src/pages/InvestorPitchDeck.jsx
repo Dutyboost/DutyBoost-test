@@ -277,7 +277,7 @@ function SlideSolution() {
                 <div className="text-slate-300 text-sm mt-2">Zero upfront cost to any partner</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">5 Participants</div>
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-300 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
                 <div className="text-slate-300 text-sm mt-2">All benefit from one transaction</div>
               </div>
             </div>
