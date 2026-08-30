@@ -74,7 +74,7 @@ export async function exportInvestorPitchPptx() {
       s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y, w: 5.6, h: 1.4, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
       s.addText(st.val, { x: 1.0, y: y + 0.12, w: 5.2, h: 0.6, fontSize: 28, bold: true, color: st.color, align: "left", fontFace: "Calibri" });
       if (st.isLink) {
-        s.addText({ text: "Avolta penetration benchmark", options: { x: 1.0, y: y + 0.68, w: 5.2, h: 0.35, fontSize: 13, bold: true, color: BLUE_LIGHT, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } });
+        s.addText([{ text: "Avolta penetration benchmark", options: { x: 1.0, y: y + 0.68, w: 5.2, h: 0.35, fontSize: 13, bold: true, color: BLUE_LIGHT, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } }]);
         s.addText("(See slide 7 for more details)", { x: 1.0, y: y + 0.98, w: 5.2, h: 0.3, fontSize: 11, color: "94A3B8", align: "left", fontFace: "Calibri" });
       } else {
         s.addText(st.title, { x: 1.0, y: y + 0.68, w: 5.2, h: 0.35, fontSize: 13, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
@@ -222,7 +222,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("27%", { x: 3.8, y: 1.95, w: 2.6, h: 0.7, fontSize: 30, bold: true, color: GREEN, align: "right", fontFace: "Calibri" });
     s.addText("Currently converting", { x: 3.6, y: 2.6, w: 2.9, h: 0.35, fontSize: 11, bold: true, color: "475569", align: "right", fontFace: "Calibri" });
     s.addShape(pptx.ShapeType.line, { x: 1.0, y: 3.1, w: 5.45, h: 0, line: { color: "FECACA", width: 1 } });
-    s.addText({ text: "Avolta penetration benchmark", options: { x: 1.0, y: 3.13, w: 4.0, h: 0.3, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } });
+    s.addText([{ text: "Avolta penetration benchmark", options: { x: 1.0, y: 3.13, w: 4.0, h: 0.3, fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri", hyperlink: { url: AVOLTA_URL, tooltip: "Avolta Q1 2026 Presentation" } } }]);
     s.addText("(See slide 7 for more details)", { x: 1.0, y: 3.13, w: 5.45, h: 0.3, fontSize: 10, color: SLATE, align: "right", fontFace: "Calibri" });
 
     // Conversion table
