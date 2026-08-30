@@ -230,7 +230,7 @@ function SlideSolution() {
           {/* Mobile/tablet: vertical stepper */}
           <div className="flex flex-col gap-2 mb-6 lg:hidden">
             {[
-              "Travel Partner distributes DutyCredit",
+              "Travel & Corporate Partner distributes DutyCredit",
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
@@ -249,7 +249,7 @@ function SlideSolution() {
           {/* Desktop: horizontal stepper */}
           <div className="hidden lg:flex items-stretch gap-2 mb-6">
             {[
-              "Travel Partner distributes DutyCredit",
+              "Travel & Corporate Partner distributes DutyCredit",
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
