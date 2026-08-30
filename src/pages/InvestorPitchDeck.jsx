@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, Fragment } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
-import TravelAgencyIcon from "@/components/TravelAgencyIcon";
+
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -171,7 +171,7 @@ function SlideProblem() {
                   {[
                     "Activation starts only after the traveller clears security",
                     "Retailers compete for attention through impulse purchasing",
-                    "Travel Partners hold the early relationship — but get zero retail participation",
+                    "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
                     "No financial reason for a non-intending buyer to enter a store",
                     "73% of passengers walk straight to the gate",
                   ].map((item, i) => (
@@ -214,7 +214,7 @@ function SlideSolution() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
             {[
-              { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
+              { Icon: Briefcase, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-400", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
               { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit delivered with rental confirmation" },
               { Icon: Briefcase, color: "text-amber-400", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
@@ -338,7 +338,7 @@ function SlideMarket() {
                 "Airports — they already exist",
                 "Passenger traffic — 9.8B annual movements",
                 "Airport Retailers — they already operate stores",
-                "Travel Partners — they already communicate with travellers",
+                "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
@@ -413,7 +413,7 @@ function SlideConversion() {
                 {[
                   { from: "Retailers wait for passengers", to: "Passengers arrive with purchase intent" },
                   { from: "Impulse-driven shopping", to: "Pre-activated economic incentive" },
-                  { from: "Travel Partners earn nothing from retail", to: "Travel Partners earn ancillary revenue" },
+                  { from: "Travel & Corporate Partners earn nothing from retail", to: "Travel & Corporate Partners earn ancillary revenue" },
                   { from: "POS is cost centre only", to: "POS participates in shared revenue" },
                 ].map((row, i) => (
                   <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
@@ -481,7 +481,7 @@ function SlideModel() {
               <h3 className="font-bold text-blue-900 mb-3">Platform Fee Allocation (2.5% of Original Retail Value)</h3>
               <div className="space-y-2">
                 {[
-                  { party: "Travel Partner", share: "20% of fee", pct: "0.50%", val: "€0.50", color: "blue", bg: "bg-blue-200" },
+                  { party: "Travel & Corporate Partner", share: "20% of fee", pct: "0.50%", val: "€0.50", color: "blue", bg: "bg-blue-200" },
                   { party: "Enterprise POS Partner", share: "10% of fee", pct: "0.25%", val: "€0.25", color: "indigo", bg: "bg-indigo-200" },
                   { party: "DutyBoost", share: "70% of fee", pct: "1.75%", val: "€1.75", color: "violet", bg: "bg-violet-200" },
                 ].map((row) => (
@@ -501,7 +501,7 @@ function SlideModel() {
               <div className="grid grid-cols-1 gap-1.5 text-sm">
                 {[
                   { party: "Travellers", val: "€10M in savings" },
-                  { party: "Travel Partners", val: "€500,000 ancillary revenue" },
+                  { party: "Travel & Corporate Partners", val: "€500,000 ancillary revenue" },
                   { party: "POS Partners", val: "€250,000 transaction revenue" },
                   { party: "DutyBoost", val: "€1.75M infrastructure revenue" },
                   { party: "Retailers", val: "€87.5M net before costs" },
@@ -541,7 +541,7 @@ function SlideTransaction() {
             {[
               { party: "Traveller", Icon: TravelerIcon, value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-900/30", border: "border-green-500/30" },
               { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-900/30", border: "border-blue-500/30" },
-              { party: "Travel Partner", Icon: TravelAgencyIcon, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-900/30", border: "border-yellow-500/30" },
+              { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-900/30", border: "border-yellow-500/30" },
               { party: "POS Partner", Icon: Cpu, value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-900/30", border: "border-purple-500/30" },
               { party: "DutyBoost", Icon: BarChart3, value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-900/30", border: "border-orange-500/30" },
             ].map((p) => (
@@ -567,7 +567,7 @@ function SlideTransaction() {
                 {[
                   { color: "bg-green-500", label: "Traveller 10%" },
                   { color: "bg-blue-500", label: "Retailer 87.5%" },
-                  { color: "bg-yellow-500", label: "Travel Partner 0.5%" },
+                  { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
                   { color: "bg-purple-500", label: "POS 0.25%" },
                   { color: "bg-orange-500", label: "DutyBoost 1.75%" },
                 ].map((l) => (
@@ -596,7 +596,7 @@ function SlideTransaction() {
 
 function SlideFlywheel() {
   const steps = [
-    "More Travel Partners",
+    "More Travel & Corporate Partners",
     "More Travellers Reached",
     "More DutyCredits Distributed",
     "More Traveller Incentives",
@@ -605,7 +605,7 @@ function SlideFlywheel() {
     "More Retail Conversion",
     "More Validated Transactions",
     "More Retailer Revenue",
-    "More Travel Partner Revenue",
+    "More Travel & Corporate Partner Revenue",
     "More DutyBoost Revenue",
     "More Evidence of Commercial Value",
     "Stronger Partner Adoption",
@@ -666,7 +666,7 @@ function SlideFlywheel() {
                 <h3 className="text-white font-bold mb-3">Network Effects by Participant</h3>
                 <div className="space-y-2.5 text-sm">
                   {[
-                    { Icon: TravelAgencyIcon, party: "More Travel Partners", effect: "→ More travellers reached before airport arrival" },
+                    { Icon: Briefcase, party: "More Travel & Corporate Partners", effect: "→ More travellers reached before airport arrival" },
                     { Icon: AirportRetailerIcon, party: "More Retailers", effect: "→ More DutyCredit redemption opportunities" },
                     { Icon: Cpu, party: "More POS Integrations", effect: "→ More deployment capacity" },
                     { Icon: BarChart3, party: "More Transactions", effect: "→ Stronger commercial evidence" },
@@ -804,7 +804,7 @@ function SlideFunding() {
                   { n: "1", label: "Production-ready MVP", desc: "Stable DutyCredit issuance, validation & reporting" },
                   { n: "2", label: "First Enterprise POS Integration", desc: "Reusable pathway to multiple retailers" },
                   { n: "3", label: "First Airport Retailer Pilot", desc: "Live qualifying DutyBoost transactions" },
-                  { n: "4", label: "First Travel Partner Launch", desc: "Real travellers receiving DutyCredits" },
+                  { n: "4", label: "First Travel & Corporate Partner Launch", desc: "Real travellers receiving DutyCredits" },
                   { n: "5", label: "First Validated Redemption", desc: "End-to-end commercial workflow proven" },
                   { n: "6", label: "First Settlement Cycle", desc: "Multi-party allocation & reconciliation" },
                 ].map((m) => (
@@ -909,7 +909,7 @@ function SlideInvestment() {
             </div>
             <div className="text-center">
               <p className="text-white text-xl font-bold">
-                The traveller already travels. The retailer already sells. The POS already processes. The Travel Partner already communicates.
+                The traveller already travels. The retailer already sells. The POS already processes. The Travel & Corporate Partner already communicates.
               </p>
               <p className="text-blue-400 text-2xl font-bold mt-2">DutyBoost connects the value.</p>
             </div>
