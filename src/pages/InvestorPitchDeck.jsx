@@ -878,7 +878,7 @@ function SlideInvestment() {
                 n: "4",
                 layer: "Pre-Airport Activation",
                 headline: "Upstream Influence",
-                body: "Travellers reached via airlines, OTAs, hotels, car rentals — before they arrive at the airport. The commercial journey starts earlier.",
+                body: "Travellers reached via airlines, OTAs, hotels, car rentals and corporate travel programmes — before they arrive at the airport. The commercial journey starts earlier.",
                 color: "purple",
               },
             ].map((l) => (
