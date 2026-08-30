@@ -6,6 +6,7 @@ import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
+import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 
 const SLIDES = [
   {
@@ -214,7 +215,7 @@ function SlideSolution() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
             {[
-              { Icon: Briefcase, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
+              { Icon: TravelAgencyIcon, color: "text-blue-400", title: "Flight Booking", desc: "DutyCredit introduced via airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-400", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
               { Icon: CarRentalIcon, color: "text-green-400", title: "Car Rental", desc: "DutyCredit delivered with rental confirmation" },
               { Icon: Briefcase, color: "text-amber-400", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
