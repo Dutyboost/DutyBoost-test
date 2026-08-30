@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, Fragment } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Download } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import { exportInvestorPitchPptx } from "@/utils/exportInvestorPitchPptx";
 
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
@@ -1015,10 +1016,23 @@ const SLIDE_LABELS = {
 
 export default function InvestorPitchDeck() {
   const [current, setCurrent] = useState(0);
+  const [isExporting, setIsExporting] = useState(false);
   const slideAreaRef = useRef(null);
 
   const prev = () => setCurrent((c) => Math.max(0, c - 1));
   const next = () => setCurrent((c) => Math.min(SLIDES.length - 1, c + 1));
+
+  const handleDownload = async () => {
+    if (isExporting) return;
+    setIsExporting(true);
+    try {
+      await exportInvestorPitchPptx();
+    } catch (err) {
+      console.error("PPTX export failed:", err);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   useEffect(() => {
     if (slideAreaRef.current) {
@@ -1034,12 +1048,32 @@ export default function InvestorPitchDeck() {
   return (
     <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
       {/* Header nav */}
-      <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
+      <div className="w-full max-w-[1400px] flex items-center justify-between mb-2 gap-3">
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Investor Pitch Deck 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-400 text-sm">
-          {current + 1} / {SLIDES.length}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleDownload}
+            disabled={isExporting}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-white/20 disabled:opacity-50 disabled:cursor-wait transition-colors text-sm font-semibold cursor-pointer select-none"
+          >
+            {isExporting ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Generating...
+              </>
+            ) : (
+              <>
+                <Download size={16} />
+                <span className="hidden sm:inline">Download PPTX</span>
+                <span className="sm:hidden">PPTX</span>
+              </>
+            )}
+          </button>
+          <div className="text-slate-400 text-sm">
+            {current + 1} / {SLIDES.length}
+          </div>
         </div>
       </div>
 
