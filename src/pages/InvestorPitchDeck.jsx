@@ -130,10 +130,10 @@ function SlideCover() {
 function SlideTeam() {
   const members = [
     {
-      name: "Raël Martis",
-      role: "Co-Founder / Chief Commercial",
-      linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/",
-      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",
+      name: "Jaquelin Beliad Perez",
+      role: "Co-Founder / Retail Specialist",
+      linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
     },
     {
       name: "Ariunzaya Zorigt",
@@ -142,16 +142,16 @@ function SlideTeam() {
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg",
     },
     {
-      name: "Jaquelin Beliad Perez",
-      role: "Co-Founder / Retail Specialist",
-      linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
-      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
-    },
-    {
       name: "Fares Ben Halima",
       role: "Technical Director",
       linkedin: "https://www.linkedin.com/in/fares-ben-halima-36b948158/",
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg",
+    },
+    {
+      name: "Raël Martis",
+      role: "Co-Founder / Chief Commercial",
+      linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",
     },
   ];
 
