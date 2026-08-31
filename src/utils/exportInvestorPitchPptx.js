@@ -50,7 +50,30 @@ export async function exportInvestorPitchPptx() {
     s.addText("CONFIDENTIAL — 2026  |  Chamber of Commerce: 42053181  |  VAT: NL869492068B01", { x: 1.5, y: 6.4, w: 10.3, h: 0.4, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
   }
 
-  // ============ SLIDE 2: PROBLEM ============
+  // ============ SLIDE 2: TEAM ============
+  {
+    const s = pptx.addSlide();
+    lightSlide(s);
+    s.addText("OUR TEAM", { x: 0.8, y: 0.5, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("The People Behind DutyBoost", { x: 0.8, y: 0.95, w: 11.7, h: 0.65, fontSize: 26, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+
+    const team = [
+      { name: "Raël Martis", role: "Co-Founder / Chief Commercial", linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg" },
+      { name: "Ariunzaya Zorigt", role: "Marketing Director", linkedin: "https://www.linkedin.com/in/aria-zorigt/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg" },
+      { name: "Jaquelin Beliad Perez", role: "Co-Founder / Retail Specialist", linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg" },
+      { name: "Fares Ben Halima", role: "Technical Director", linkedin: "https://www.linkedin.com/in/fares-ben-halima-36b948158/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg" },
+    ];
+    team.forEach((m, i) => {
+      const x = 0.8 + i * 3.0;
+      s.addShape(pptx.ShapeType.roundRect, { x, y: 2.1, w: 2.8, h: 3.9, fill: { color: WHITE }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
+      s.addShape(pptx.ShapeType.ellipse, { x: x + 0.8, y: 2.4, w: 1.2, h: 1.2, fill: { color: "DBEAFE" }, line: { color: "BFDBFE", width: 1 } });
+      s.addImage({ path: m.photo, x: x + 0.8, y: 2.4, w: 1.2, h: 1.2, sizing: { type: "cover", w: 1.2, h: 1.2 }, rounding: true });
+      s.addText([{ text: m.name, options: { fontSize: 14, bold: true, color: BLUE, fontFace: "Calibri", hyperlink: { url: m.linkedin, tooltip: "LinkedIn profile" } } }], { x, y: 3.8, w: 2.8, h: 0.4, align: "center", valign: "middle" });
+      s.addText(m.role, { x, y: 4.25, w: 2.8, h: 0.5, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri", valign: "top" });
+    });
+  }
+
+  // ============ SLIDE 3: PROBLEM ============
   {
     const s = pptx.addSlide();
     lightSlide(s);

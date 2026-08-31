@@ -15,6 +15,10 @@ const SLIDES = [
     type: "cover",
   },
   {
+    id: "team",
+    type: "team",
+  },
+  {
     id: "problem",
     type: "problem",
   },
@@ -116,6 +120,79 @@ function SlideCover() {
           </div>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+function SlideTeam() {
+  const members = [
+    {
+      name: "Raël Martis",
+      role: "Co-Founder / Chief Commercial",
+      linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",
+    },
+    {
+      name: "Ariunzaya Zorigt",
+      role: "Marketing Director",
+      linkedin: "https://www.linkedin.com/in/aria-zorigt/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg",
+    },
+    {
+      name: "Jaquelin Beliad Perez",
+      role: "Co-Founder / Retail Specialist",
+      linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
+    },
+    {
+      name: "Fares Ben Halima",
+      role: "Technical Director",
+      linkedin: "https://www.linkedin.com/in/fares-ben-halima-36b948158/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg",
+    },
+  ];
+
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
+            backgroundSize: "40px 40px"
+          }}
+        />
+        <div className="relative z-10">
+          <div className="mb-6 text-center">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Our Team</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              The People Behind <span className="text-blue-600">DutyBoost</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+            {members.map((m) => (
+              <div key={m.name} className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 text-center flex flex-col items-center shadow-sm">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-blue-100 mb-3 flex-shrink-0">
+                  <img
+                    src={m.photo}
+                    alt={m.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <a
+                  href={m.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-800 font-semibold text-sm md:text-base hover:text-blue-600 hover:underline transition-colors leading-tight"
+                >
+                  {m.name}
+                </a>
+                <div className="text-slate-500 text-xs md:text-sm mt-1.5 leading-tight">{m.role}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -986,6 +1063,7 @@ function SlideInvitation() {
 
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
+  team: SlideTeam,
   problem: SlideProblem,
   solution: SlideSolution,
   market: SlideMarket,
@@ -1001,6 +1079,7 @@ const SLIDE_COMPONENTS = {
 
 const SLIDE_LABELS = {
   cover: "Cover",
+  team: "Our Team",
   problem: "The Problem",
   solution: "The Solution",
   market: "Market Opportunity",
