@@ -131,7 +131,7 @@ function SlideTeam() {
   const members = [
     {
       name: "Jaquelin Beliad Perez",
-      role: "Co-Founder / Retail Specialist",
+      role: "Co-Founder / Airport Retail & Brand Specialist",
       linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
     },
@@ -149,7 +149,7 @@ function SlideTeam() {
     },
     {
       name: "Raël Martis",
-      role: "Co-Founder / Chief Commercial",
+      role: "Co-Founder / Chief Commercial Officer",
       linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/",
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",
     },
