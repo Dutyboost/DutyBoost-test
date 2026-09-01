@@ -75,16 +75,13 @@ const SLIDES = [
 function SlideWrapper({ children, dark = false }) {
   return (
     <div
-      className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden relative ${
+      className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${
         dark
           ? "bg-[#0a0f1e] text-white"
-          : "bg-gradient-to-br from-accent/5 via-background to-accent/15 text-[#0a0f1e]"
+          : "bg-white text-[#0a0f1e]"
       }`}
     >
-      {!dark && (
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/15 rounded-full blur-3xl pointer-events-none" />
-      )}
-      <div className="relative z-10 w-full flex flex-col flex-1">{children}</div>
+      {children}
     </div>
   );
 }
