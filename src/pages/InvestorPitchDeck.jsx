@@ -1108,7 +1108,6 @@ function SlideInvestment() {
                 layer: "Existing Market",
                 headline: "+/- €37.1 Billion",
                 body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.",
-                stat: "9.8B global passenger in 2025",
                 color: "blue",
               },
               {
@@ -1140,12 +1139,6 @@ function SlideInvestment() {
                     <div className={`text-${l.color}-600 text-xs uppercase tracking-wide mb-0.5`}>Layer {l.n} — {l.layer}</div>
                     <div className="text-slate-800 font-bold text-lg mb-1">{l.headline}</div>
                     <div className="text-slate-500 text-sm leading-relaxed">{l.body}</div>
-                    {l.stat && (
-                      <div className="mt-2 inline-flex items-center gap-1.5 bg-white/70 border border-slate-200 rounded-full px-3 py-1">
-                        <span className={`w-1.5 h-1.5 rounded-full bg-${l.color}-500`} />
-                        <span className="text-slate-700 text-xs font-semibold">{l.stat}</span>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>

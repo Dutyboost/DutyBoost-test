@@ -651,7 +651,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("Four Layers. One Opportunity.", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     const layers = [
-      { n: "1", layer: "Existing Market", headline: "+/- €37.1 Billion", body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.", stat: "9.8B global passenger in 2025", color: BLUE },
+      { n: "1", layer: "Existing Market", headline: "+/- €37.1 Billion", body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.", color: BLUE },
       { n: "2", layer: "Conversion Headroom", headline: "73% Non-Purchase Exposure", body: "Avolta's 2025 benchmark: 2.5B passenger exposure with only 27% penetration. 1.82B non-purchasing travellers represent untapped headroom.", color: INDIGO },
       { n: "3", layer: "Traveller Incentive", headline: "€1 – €60 Direct Value", body: "DutyBoost provides measurable, direct financial value to the traveller — not abstract loyalty points. A compelling economic reason to engage.", color: VIOLET },
       { n: "4", layer: "Pre-Airport Activation", headline: "Upstream Influence", body: "Travellers reached via airlines, OTAs, hotels, car rentals and corporate travel programmes — before they arrive at the airport. The commercial journey starts earlier.", color: PURPLE },
@@ -664,11 +664,7 @@ export async function exportInvestorPitchPptx() {
       s.addText(l.n, { x: x + 0.2, y: y + 0.2, w: 0.45, h: 0.45, fontSize: 13, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
       s.addText(`Layer ${l.n} — ${l.layer}`, { x: x + 0.8, y: y + 0.18, w: 4.7, h: 0.3, fontSize: 9, bold: true, color: l.color, align: "left", fontFace: "Calibri", charSpacing: 1 });
       s.addText(l.headline, { x: x + 0.8, y: y + 0.45, w: 4.7, h: 0.4, fontSize: 15, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
-      s.addText(l.body, { x: x + 0.8, y: y + 0.85, w: 4.7, h: l.stat ? 0.6 : 0.85, fontSize: 9.5, color: "94A3B8", align: "left", fontFace: "Calibri", valign: "top" });
-      if (l.stat) {
-        s.addShape(pptx.ShapeType.roundRect, { x: x + 0.8, y: y + 1.42, w: 3.4, h: 0.3, fill: { color: "F1F5F9" }, line: { color: "CBD5E1", width: 0.5 }, rectRadius: 0.06 });
-        s.addText(l.stat, { x: x + 0.9, y: y + 1.42, w: 3.2, h: 0.3, fontSize: 9, bold: true, color: "334155", align: "left", fontFace: "Calibri", valign: "middle" });
-      }
+      s.addText(l.body, { x: x + 0.8, y: y + 0.85, w: 4.7, h: 0.85, fontSize: 9.5, color: "94A3B8", align: "left", fontFace: "Calibri", valign: "top" });
     });
 
     // Summary bar
