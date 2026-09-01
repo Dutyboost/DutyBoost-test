@@ -651,7 +651,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("Four Layers. One Opportunity.", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     const layers = [
-      { n: "1", layer: "Existing Market", headline: "+/- €37.1 Billion", body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.", stat: "~10B passenger movements in 2025", color: BLUE },
+      { n: "1", layer: "Existing Market", headline: "+/- €37.1 Billion", body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.", stat: "9.8B global passenger in 2025", color: BLUE },
       { n: "2", layer: "Conversion Headroom", headline: "73% Non-Purchase Exposure", body: "Avolta's 2025 benchmark: 2.5B passenger exposure with only 27% penetration. 1.82B non-purchasing travellers represent untapped headroom.", color: INDIGO },
       { n: "3", layer: "Traveller Incentive", headline: "€1 – €60 Direct Value", body: "DutyBoost provides measurable, direct financial value to the traveller — not abstract loyalty points. A compelling economic reason to engage.", color: VIOLET },
       { n: "4", layer: "Pre-Airport Activation", headline: "Upstream Influence", body: "Travellers reached via airlines, OTAs, hotels, car rentals and corporate travel programmes — before they arrive at the airport. The commercial journey starts earlier.", color: PURPLE },

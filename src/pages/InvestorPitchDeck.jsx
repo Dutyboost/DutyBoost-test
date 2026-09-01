@@ -1108,7 +1108,7 @@ function SlideInvestment() {
                 layer: "Existing Market",
                 headline: "+/- €37.1 Billion",
                 body: "Estimated global Airport Duty-Free & Travel Retail market — already established, already generating revenue.",
-                stat: "~10B passenger movements in 2025",
+                stat: "9.8B global passenger in 2025",
                 color: "blue",
               },
               {
