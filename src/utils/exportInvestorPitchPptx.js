@@ -79,8 +79,8 @@ export async function exportInvestorPitchPptx() {
     const s = pptx.addSlide();
     lightSlide(s);
     s.addText("THE PROBLEM", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("73% of Airport Passengers", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
-    s.addText("Never Make a Purchase (according to Avolta's Benchmark)", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 22, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
+    s.addText("73% of Airport Passengers (according to Avolta's Benchmark)", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 22, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+    s.addText("Never Make a Purchase", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
 
     const leftStats = [
       { val: "9.8B", title: "Global passengers in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE, aciUrl: "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com" },
