@@ -55,6 +55,10 @@ const SLIDES = [
     type: "financials",
   },
   {
+    id: "value",
+    type: "value",
+  },
+  {
     id: "funding",
     type: "funding",
   },
@@ -912,6 +916,96 @@ function SlideFinancials() {
   );
 }
 
+function SlideValue() {
+  const rows = [
+    { role: "Commercial Strategy & Software Sales", fte: "1.0", hrs: "1,050", rate: "€125", val: "€131,250" },
+    { role: "Technical Architecture & Development", fte: "0.5", hrs: "525", rate: "€115", val: "€60,375" },
+    { role: "Product Marketing, Design & Acquisition", fte: "1.0", hrs: "1,050", rate: "€95", val: "€99,750" },
+    { role: "Airport Retail Expertise", fte: "0.5", hrs: "525", rate: "€125", val: "€65,625" },
+  ];
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
+            backgroundSize: "40px 40px"
+          }}
+        />
+        <div className="relative z-10">
+          <div className="mb-5 text-center">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Value Already Created</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              A practical early-stage <span className="text-blue-600">benchmark: replacement value</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div className="space-y-4">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white text-center">
+                <div className="text-3xl md:text-4xl font-bold mb-1">€500,000 – €1,000,000</div>
+                <div className="text-blue-100 text-sm font-semibold">Indicative external replacement value</div>
+                <div className="text-blue-200 text-xs mt-2 leading-relaxed">
+                  Excludes the time needed to rebuild accumulated market learning, relationships and access.
+                </div>
+              </div>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                <p className="text-slate-600 text-xs leading-relaxed">
+                  This is not presented as a company valuation or guaranteed future value. It is an indication of the professional resources that would likely be required to independently recreate the current foundation.
+                </p>
+              </div>
+              <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4">
+                <h3 className="font-bold text-slate-800 text-sm mb-1.5">Basis of estimate</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">
+                  Hours are a rounded workload estimate based on 3.0 FTE over the period, not audited timesheets. Rates are reasonable external replacement rates for senior specialist work and are not presented as actual salaries or amounts owed to team members. The €357,000 labour-equivalent value supports the broader €500,000–€1,000,000 replacement-value range and should not be added to it again.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="text-center mb-1">
+                <h3 className="font-bold text-slate-800 text-base">Proof of work — team contribution</h3>
+                <p className="text-slate-500 text-xs mt-1 max-w-md mx-auto leading-relaxed">
+                  From 1 March through 31 August 2026, DutyBoost has been developed by a four-person team representing 3.0 FTE — across approximately 26.3 weeks, about 3,150 invested team hours.
+                </p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-slate-800 text-white">
+                      <th className="text-left px-3 py-2 rounded-tl-xl font-semibold">Role</th>
+                      <th className="text-center px-2 py-2 font-semibold">FTE</th>
+                      <th className="text-center px-2 py-2 font-semibold">Hours</th>
+                      <th className="text-center px-2 py-2 font-semibold">Rate / hr</th>
+                      <th className="text-right px-3 py-2 rounded-tr-xl font-semibold">Replacement value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((r, i) => (
+                      <tr key={r.role} className={`border-b border-slate-100 ${i % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+                        <td className="px-3 py-2 text-slate-700 font-medium">{r.role}</td>
+                        <td className="px-2 py-2 text-center text-slate-600">{r.fte}</td>
+                        <td className="px-2 py-2 text-center text-slate-600">{r.hrs}</td>
+                        <td className="px-2 py-2 text-center text-slate-600">{r.rate}</td>
+                        <td className="px-3 py-2 text-right text-slate-800 font-semibold">{r.val}</td>
+                      </tr>
+                    ))}
+                    <tr className="bg-blue-600 text-white">
+                      <td className="px-3 py-2.5 font-bold rounded-bl-xl">TOTAL</td>
+                      <td className="px-2 py-2.5 text-center font-bold">3.0</td>
+                      <td className="px-2 py-2.5 text-center font-bold">3,150</td>
+                      <td className="px-2 py-2.5 text-center font-bold">—</td>
+                      <td className="px-3 py-2.5 text-right font-bold rounded-br-xl">€357,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
 function SlideFunding() {
   return (
     <SlideWrapper>
@@ -1136,6 +1230,7 @@ const SLIDE_COMPONENTS = {
   transaction: SlideTransaction,
   flywheel: SlideFlywheel,
   financials: SlideFinancials,
+  value: SlideValue,
   funding: SlideFunding,
   investment: SlideInvestment,
   invitation: SlideInvitation,
@@ -1153,6 +1248,7 @@ const SLIDE_LABELS = {
   transaction: "Transaction Economics",
   flywheel: "Growth Flywheel",
   financials: "Financials",
+  value: "Value Already Created",
   funding: "Funding Ask",
   investment: "Investment Case",
   invitation: "An Invitation",

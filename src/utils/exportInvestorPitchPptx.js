@@ -530,7 +530,61 @@ export async function exportInvestorPitchPptx() {
     });
   }
 
-  // ============ SLIDE 10: FUNDING ============
+  // ============ SLIDE 10: VALUE CREATED ============
+  {
+    const s = pptx.addSlide();
+    lightSlide(s);
+    s.addText("VALUE ALREADY CREATED", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("A practical early-stage benchmark: replacement value", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 22, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+
+    // Left column
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 1.8, w: 5.5, h: 1.7, fill: { color: "1E3A8A" }, line: { color: BLUE, width: 1 }, rectRadius: 0.12 });
+    s.addText("€500,000 – €1,000,000", { x: 1.0, y: 1.95, w: 5.1, h: 0.55, fontSize: 26, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
+    s.addText("Indicative external replacement value", { x: 1.0, y: 2.5, w: 5.1, h: 0.35, fontSize: 11, bold: true, color: "93C5FD", align: "center", fontFace: "Calibri" });
+    s.addText("Excludes the time needed to rebuild accumulated market learning, relationships and access.", { x: 1.2, y: 2.9, w: 4.7, h: 0.5, fontSize: 9.5, color: "DBEAFE", align: "center", fontFace: "Calibri", valign: "top" });
+
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 3.65, w: 5.5, h: 1.35, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.1 });
+    s.addText("This is not presented as a company valuation or guaranteed future value. It is an indication of the professional resources that would likely be required to independently recreate the current foundation.", { x: 1.0, y: 3.75, w: 5.1, h: 1.15, fontSize: 10, color: SLATE, align: "left", fontFace: "Calibri", valign: "middle" });
+
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 5.15, w: 5.5, h: 2.05, fill: { color: "FFFBEB" }, line: { color: "FCD34D", width: 1 }, rectRadius: 0.1 });
+    s.addText("Basis of estimate", { x: 1.0, y: 5.25, w: 5.1, h: 0.3, fontSize: 11, bold: true, color: "92400E", align: "left", fontFace: "Calibri" });
+    s.addText("Hours are a rounded workload estimate based on 3.0 FTE over the period, not audited timesheets. Rates are reasonable external replacement rates for senior specialist work and are not presented as actual salaries or amounts owed to team members. The €357,000 labour-equivalent value supports the broader €500,000–€1,000,000 replacement-value range and should not be added to it again.", { x: 1.0, y: 5.6, w: 5.1, h: 1.5, fontSize: 9.5, color: "78350F", align: "left", fontFace: "Calibri", valign: "top" });
+
+    // Right column: table
+    s.addText("Proof of work — team contribution", { x: 6.5, y: 1.85, w: 6.0, h: 0.35, fontSize: 14, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+    s.addText("From 1 March through 31 August 2026, DutyBoost has been developed by a four-person team representing 3.0 FTE — across approximately 26.3 weeks, about 3,150 invested team hours.", { x: 6.5, y: 2.2, w: 6.0, h: 0.55, fontSize: 9.5, color: SLATE, align: "center", fontFace: "Calibri", valign: "top" });
+
+    const tableRows = [
+      ["Role", "FTE", "Hours", "Rate / hr", "Replacement value"],
+      ["Commercial Strategy & Software Sales", "1.0", "1,050", "€125", "€131,250"],
+      ["Technical Architecture & Development", "0.5", "525", "€115", "€60,375"],
+      ["Product Marketing, Design & Acquisition", "1.0", "1,050", "€95", "€99,750"],
+      ["Airport Retail Expertise", "0.5", "525", "€125", "€65,625"],
+      ["TOTAL", "3.0", "3,150", "—", "€357,000"],
+    ];
+    const colW = [2.45, 0.6, 0.9, 0.9, 1.15];
+    const tableX = 6.5;
+    let tableY = 2.85;
+    const rowH = 0.62;
+    tableRows.forEach((row, r) => {
+      const isHeader = r === 0;
+      const isTotal = r === tableRows.length - 1;
+      const fill = isHeader ? "1E293B" : isTotal ? BLUE : (r % 2 === 0 ? "F8FAFC" : "FFFFFF");
+      const txtColor = isHeader || isTotal ? WHITE : "334155";
+      let cx = tableX;
+      row.forEach((cell, c) => {
+        s.addShape(pptx.ShapeType.rect, { x: cx, y: tableY, w: colW[c], h: rowH, fill: { color: fill }, line: { color: "E2E8F0", width: 0.5 } });
+        const align = c === 0 ? "left" : c === 4 ? "right" : "center";
+        const bold = isHeader || isTotal || c === 4;
+        const padX = c === 0 ? 0.15 : 0.05;
+        s.addText(cell, { x: cx + padX, y: tableY, w: colW[c] - padX * 2, h: rowH, fontSize: c === 0 ? 9.5 : 10, bold, color: txtColor, align, fontFace: "Calibri", valign: "middle" });
+        cx += colW[c];
+      });
+      tableY += rowH;
+    });
+  }
+
+  // ============ SLIDE 11: FUNDING ============
   {
     const s = pptx.addSlide();
     lightSlide(s);
