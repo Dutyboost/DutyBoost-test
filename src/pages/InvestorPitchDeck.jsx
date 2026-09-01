@@ -379,7 +379,7 @@ function SlideRoute() {
   const steps = [
     {
       n: "01",
-      title: "Travel organisations",
+      title: "Travel & Corporate Org's",
       body: "The first conversations confirmed the opportunity, while making clear that retail acceptance had to be established first.",
     },
     {
