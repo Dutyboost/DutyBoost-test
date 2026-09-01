@@ -900,7 +900,7 @@ function SlideFinancials() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-green-700">~710K</div>
+            <div className="text-2xl font-bold text-green-700">710K</div>
             <div className="text-sm text-green-600 font-semibold">Annual Break-Even Transactions</div>
             <div className="text-xs text-slate-500 mt-1">Year 3 forecast: 1.5M (2x break-even)</div>
           </div>

@@ -524,7 +524,7 @@ export async function exportInvestorPitchPptx() {
 
     // Bottom stats
     const finStats = [
-      { val: "~710K", lbl: "Annual Break-Even Transactions", sub: "Year 3 forecast: 1.5M (2x break-even)", color: GREEN },
+      { val: "710K", lbl: "Annual Break-Even Transactions", sub: "Year 3 forecast: 1.5M (2x break-even)", color: GREEN },
       { val: "€33.69M", lbl: "5-Year Cumulative Revenue", sub: "19.25M validated transactions", color: BLUE },
       { val: "72.8%", lbl: "Year 5 EBITDA Margin", sub: "Infrastructure platform economics", color: VIOLET },
     ];
