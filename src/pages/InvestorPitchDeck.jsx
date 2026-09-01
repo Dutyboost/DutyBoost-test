@@ -117,7 +117,7 @@ function SlideCover() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
-              { label: "Passengers", value: "10B" },
+              { label: "Global Passengers", value: "10B" },
               { label: "Seed Ask", value: "€200K" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
