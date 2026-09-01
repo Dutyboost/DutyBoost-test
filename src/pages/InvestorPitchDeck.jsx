@@ -226,7 +226,7 @@ function SlideProblem() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              73% of Airport Passengers (according to Avolta's Benchmark)<br /><span className="text-blue-600">Never Make a Purchase</span>
+              73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase (according to Avolta's Benchmark)</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
