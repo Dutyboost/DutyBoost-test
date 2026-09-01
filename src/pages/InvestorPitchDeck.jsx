@@ -78,14 +78,11 @@ function SlideWrapper({ children, dark = false }) {
       className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden relative ${
         dark
           ? "bg-[#0a0f1e] text-white"
-          : "bg-gradient-to-br from-primary/5 via-background to-accent/5 text-[#0a0f1e]"
+          : "bg-gradient-to-br from-accent/5 via-background to-accent/15 text-[#0a0f1e]"
       }`}
     >
       {!dark && (
-        <>
-          <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-        </>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/15 rounded-full blur-3xl pointer-events-none" />
       )}
       <div className="relative z-10 w-full flex flex-col flex-1">{children}</div>
     </div>
