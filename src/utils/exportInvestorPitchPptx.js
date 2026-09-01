@@ -79,7 +79,7 @@ export async function exportInvestorPitchPptx() {
     const s = pptx.addSlide();
     lightSlide(s);
     s.addText("THE PROBLEM", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("73% of Airport Passengers (according to Avolta's Benchmark", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 22, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+    s.addText("73% of Airport Passengers (according to Avolta's Benchmark)", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 22, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
     s.addText("Never Make a Purchase", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
 
     const leftStats = [
