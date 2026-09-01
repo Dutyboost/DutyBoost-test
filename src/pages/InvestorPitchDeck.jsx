@@ -1198,30 +1198,28 @@ function SlideInvitation() {
             </div>
           </div>
           <div className="mb-3">
-            <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">An Invitation</span>
+            <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">The Opportunity</span>
             <h2 className="text-lg md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
-              Join Us in Reimagining the Commercial Value of a{" "}
-              <span className="text-blue-600">Multi-Century-Old Industry</span>
+              An Infrastructure Stake in{" "}
+              <span className="text-blue-600">Global Travel Retail</span>
             </h2>
           </div>
-          <p className="text-slate-500 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
-            Travel has existed for centuries, yet its commercial journey remains disconnected. Enormous value flows through every journey, but there is still no infrastructure connecting that value into one measurable, attributable and circular commercial transaction.
+          <p className="text-slate-600 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
+            DutyBoost is a performance-based revenue infrastructure. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and earns only when commercial value is created.
           </p>
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3 text-left">
             <p className="text-slate-800 text-sm md:text-base leading-snug">
-              DutyBoost connects that value. Our Circular Commercial Revenue Infrastructure activates existing touch-points across the travel journey and connects participants around one validated transaction — creating measurable upside across the ecosystem.
+              With an MVP ready for use, a clear integration pathway through Enterprise POS, and a €37.1B market already generating revenue, the remaining work is execution: first integrations, first pilots, first settled transactions.
             </p>
           </div>
-          <p className="text-slate-500 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
-            We are now ready to take DutyBoost from development to live deployment. This is an invitation to those who share our conviction to join us — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.
+          <p className="text-slate-600 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-4">
+            We are raising €200,000 to finance that execution — measurable proof, not premature expansion. For investors seeking exposure to travel retail without the capital intensity of stores, inventory or concessions, DutyBoost offers infrastructure-level economics with a defined path to profitability.
           </p>
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
-            <div className="text-center">
-              <div className="text-white text-lg md:text-xl font-bold">€200,000 Seed Round</div>
-            </div>
+          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl px-5 py-3">
+            <div className="text-white text-lg md:text-xl font-bold">€200,000 Seed Round</div>
           </div>
-          <p className="text-blue-600 text-base md:text-lg font-bold mt-4">
-            The traveller already travels. Let's connect the value — together.
+          <p className="text-slate-700 text-sm md:text-base font-semibold mt-4 max-w-2xl mx-auto leading-snug">
+            The traveller already travels. The retailer already sells. DutyBoost connects the value.
           </p>
         </div>
       </div>

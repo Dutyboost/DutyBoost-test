@@ -694,16 +694,16 @@ export async function exportInvestorPitchPptx() {
     const s = pptx.addSlide();
     lightSlide(s);
     s.addImage({ path: LOGO_URL, x: 5.65, y: 0.5, w: 2.0, h: 0.6, sizing: { type: "contain", w: 2.0, h: 0.6 } });
-    s.addText("AN INVITATION", { x: 0.8, y: 1.25, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("Join Us in Reimagining the Commercial Value of a", { x: 0.8, y: 1.65, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
-    s.addText("Multi-Century-Old Industry", { x: 0.8, y: 2.15, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
-    s.addText("Travel has existed for centuries, yet its commercial journey remains disconnected. Enormous value flows through every journey, but there is still no infrastructure connecting that value into one measurable, attributable and circular commercial transaction.", { x: 1.5, y: 2.85, w: 10.3, h: 1.0, fontSize: 12.5, color: SLATE, align: "center", fontFace: "Calibri" });
-    s.addShape(pptx.ShapeType.roundRect, { x: 1.8, y: 3.95, w: 9.7, h: 1.35, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
-    s.addText("DutyBoost connects that value. Our Circular Commercial Revenue Infrastructure activates existing touch-points across the travel journey and connects participants around one validated transaction — creating measurable upside across the ecosystem.", { x: 2.0, y: 4.05, w: 9.3, h: 1.15, fontSize: 12, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("We are now ready to take DutyBoost from development to live deployment. This is an invitation to those who share our conviction to join us — and own a meaningful stake in an infrastructure built to commercially connect the global travel journey.", { x: 1.5, y: 5.45, w: 10.3, h: 0.95, fontSize: 12.5, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("THE OPPORTUNITY", { x: 0.8, y: 1.25, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("An Infrastructure Stake in", { x: 0.8, y: 1.65, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+    s.addText("Global Travel Retail", { x: 0.8, y: 2.15, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addText("DutyBoost is a performance-based revenue infrastructure. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and earns only when commercial value is created.", { x: 1.5, y: 2.85, w: 10.3, h: 1.0, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addShape(pptx.ShapeType.roundRect, { x: 1.8, y: 3.95, w: 9.7, h: 1.3, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
+    s.addText("With an MVP ready for use, a clear integration pathway through Enterprise POS, and a €37.1B market already generating revenue, the remaining work is execution: first integrations, first pilots, first settled transactions.", { x: 2.0, y: 4.05, w: 9.3, h: 1.1, fontSize: 12, color: DARK, align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("We are raising €200,000 to finance that execution — measurable proof, not premature expansion. For investors seeking exposure to travel retail without the capital intensity of stores, inventory or concessions, DutyBoost offers infrastructure-level economics with a defined path to profitability.", { x: 1.5, y: 5.4, w: 10.3, h: 1.0, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });
     s.addShape(pptx.ShapeType.roundRect, { x: 4.15, y: 6.5, w: 5.0, h: 0.6, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.15 });
     s.addText("€200,000 Seed Round", { x: 4.15, y: 6.5, w: 5.0, h: 0.6, fontSize: 16, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("The traveller already travels. Let's connect the value — together.", { x: 0.8, y: 7.2, w: 11.7, h: 0.4, fontSize: 13, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addText("The traveller already travels. The retailer already sells. DutyBoost connects the value.", { x: 0.8, y: 7.2, w: 11.7, h: 0.4, fontSize: 12.5, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
   }
 
   await pptx.writeFile({ fileName: "DutyBoost-Investor-Pitch-Deck-2026.pptx" });
