@@ -188,7 +188,7 @@ export async function exportInvestorPitchPptx() {
       { n: "01", title: "Travel & Corporate Org's", body: "The first conversations confirmed the opportunity, while making clear that retail acceptance had to be established first." },
       { n: "02", title: "Airport retailers", body: "Retail discussions showed that integrating retailer by retailer would not be the most scalable route." },
       { n: "03", title: "Point-of-Sales providers", body: "Retailers directed us toward their POS infrastructure: DutyBoost should become an integrated feature that can be activated by participating retailers." },
-      { n: "04", title: "Back to distribution", body: "With our MVP completed and ready for use, alongside ongoing POS integration discussions, we are now completing the circle by returning to travel and corporate partners that can activate travellers with a DutyCredit before they arrive at the airport." },
+      { n: "04", title: "Back to distribution", body: "With our MVP ready for use, alongside ongoing POS integration discussions, we are now completing the circle by returning to travel and corporate partners that can activate travellers with a DutyCredit before they arrive at the airport." },
     ];
     steps.forEach((st, i) => {
       const x = 0.8 + i * 3.0;

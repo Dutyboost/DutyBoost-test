@@ -398,7 +398,7 @@ function SlideRoute() {
     {
       n: "04",
       title: "Back to distribution",
-      body: "With our MVP completed and ready for use, alongside ongoing POS integration discussions, we are now completing the circle by returning to travel and corporate partners that can activate travellers with a DutyCredit before they arrive at the airport.",
+      body: "With our MVP ready for use, alongside ongoing POS integration discussions, we are now completing the circle by returning to travel and corporate partners that can activate travellers with a DutyCredit before they arrive at the airport.",
     },
   ];
   return (
