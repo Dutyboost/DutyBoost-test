@@ -117,7 +117,7 @@ function SlideCover() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
-              { label: "Global Passengers", value: "10B" },
+              { label: "Global Passengers", value: "9.8B" },
               { label: "Seed Ask", value: "€200K" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
@@ -229,9 +229,9 @@ function SlideProblem() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-5">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">10B</div>
+                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">9.8B</div>
                 <div className="text-slate-800 font-semibold">Global passengers in 2025</div>
-                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 <a href="https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI World)</a></div>
+                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 <a href="https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI World)</a></div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-orange-600 mb-2">27%</div>

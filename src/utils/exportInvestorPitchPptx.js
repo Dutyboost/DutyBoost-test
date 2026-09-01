@@ -39,7 +39,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("Pre-Revenue Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
     const coverStats = [
       { val: "€37.1B", lbl: "Market" },
-      { val: "10B", lbl: "Global Passengers" },
+      { val: "9.8B", lbl: "Global Passengers" },
       { val: "€200K", lbl: "Seed Ask" },
       { val: "€22.05M", lbl: "Y5 Revenue" },
     ];
@@ -83,7 +83,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("Never Make a Purchase", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
 
     const leftStats = [
-      { val: "10B", title: "Global passengers in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE, aciUrl: "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com" },
+      { val: "9.8B", title: "Global passengers in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE, aciUrl: "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com" },
       { val: "27%", title: "Avolta penetration benchmark", sub: "682M purchases from 2.5B passenger exposure", color: ORANGE, isLink: true },
       { val: "1.82B", title: "Non-purchasing passenger exposures", sub: "Within Avolta's benchmark alone", color: RED },
     ];
@@ -101,7 +101,7 @@ export async function exportInvestorPitchPptx() {
         if (st.aciUrl) {
         s.addText([
           { text: "+3.6% vs 2024 | +7.3% vs 2019 ", options: { fontSize: 11, color: "94A3B8", fontFace: "Calibri" } },
-          { text: "(ACI World)", options: { fontSize: 11, color: BLUE, fontFace: "Calibri", hyperlink: { url: st.aciUrl, tooltip: "ACI World 2026 rankings" } } },
+          { text: "(ACI World)", options: { fontSize: 11, bold: true, color: BLUE, fontFace: "Calibri", hyperlink: { url: st.aciUrl, tooltip: "ACI World 2026 rankings" } } },
         ], { x: 1.0, y: y + 1.04, w: 5.2, h: 0.3, align: "left", valign: "middle" });
       } else {
         s.addText(st.sub, { x: 1.0, y: y + 1.04, w: 5.2, h: 0.3, fontSize: 11, color: "94A3B8", align: "left", fontFace: "Calibri" });
