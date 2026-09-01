@@ -111,7 +111,7 @@ function SlideCover() {
               <span className="text-blue-600">Infrastructure for Global Travel</span>
             </h1>
             <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
-              Pre-Revenue / Pre-Seed Investment Opportunity
+              Pre-Revenue Investment Opportunity
             </p>
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full">

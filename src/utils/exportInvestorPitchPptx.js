@@ -36,7 +36,7 @@ export async function exportInvestorPitchPptx() {
     s.addImage({ path: LOGO_URL, x: 4.65, y: 1.1, w: 4.0, h: 1.2, sizing: { type: "contain", w: 4.0, h: 1.2 } });
     s.addText("The Circular Commercial Revenue", { x: 0.8, y: 2.6, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
     s.addText("Infrastructure for Global Travel", { x: 0.8, y: 3.25, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
-    s.addText("Pre-Revenue / Pre-Seed Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("Pre-Revenue Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
     const coverStats = [
       { val: "€37.1B", lbl: "Market" },
       { val: "€200K", lbl: "Seed Ask" },
