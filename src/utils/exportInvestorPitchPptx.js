@@ -83,7 +83,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("Never Make a Purchase", { x: 0.8, y: 1.45, w: 11.7, h: 0.7, fontSize: 28, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
 
     const leftStats = [
-      { val: "9.8B", title: "Global passenger movements in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE },
+      { val: "10B", title: "Global passengers in 2025", sub: "+3.6% vs 2024 | +7.3% vs 2019 (ACI World)", color: BLUE },
       { val: "27%", title: "Avolta penetration benchmark", sub: "682M purchases from 2.5B passenger exposure", color: ORANGE, isLink: true },
       { val: "1.82B", title: "Non-purchasing passenger exposures", sub: "Within Avolta's benchmark alone", color: RED },
     ];

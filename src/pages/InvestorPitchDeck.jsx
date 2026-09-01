@@ -229,8 +229,8 @@ function SlideProblem() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-5">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">9.8B</div>
-                <div className="text-slate-800 font-semibold">Global passenger movements in 2025</div>
+                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">10B</div>
+                <div className="text-slate-800 font-semibold">Global passengers in 2025</div>
                 <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 (ACI World)</div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
