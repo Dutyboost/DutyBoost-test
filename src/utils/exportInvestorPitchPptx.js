@@ -39,7 +39,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("Pre-Revenue Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
     const coverStats = [
       { val: "€37.1B", lbl: "Market" },
-      { val: "~10B", lbl: "Passengers 2025" },
+      { val: "10B", lbl: "Passengers 2025" },
       { val: "€200K", lbl: "Seed Ask" },
       { val: "€22.05M", lbl: "Y5 Revenue" },
     ];
