@@ -203,7 +203,7 @@ function SlideTeam() {
               </div>
             ))}
           </div>
-          <p className="mt-6 max-w-4xl mx-auto text-center text-slate-700 text-sm md:text-base font-bold leading-relaxed">
+          <p className="mt-6 max-w-4xl mx-auto text-center text-slate-700 text-sm md:text-base leading-relaxed">
             DutyBoost brings together commercial strategy, software sales, airport retail, technology, product development, marketing, design and acquisition expertise. This combination gives us the knowledge to understand the market, build the right technology, drive adoption and bring DutyBoost successfully to market — with the capabilities to execute, launch and scale globally.
           </p>
         </div>
