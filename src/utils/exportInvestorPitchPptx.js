@@ -169,7 +169,32 @@ export async function exportInvestorPitchPptx() {
     });
   }
 
-  // ============ SLIDE 4: MARKET ============
+  // ============ SLIDE 4: ROUTE ============
+  {
+    const s = pptx.addSlide();
+    lightSlide(s);
+    s.addText("THE ROUTE TO LAUNCH", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("The market has educated the route to launch", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 24, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+
+    const steps = [
+      { n: "01", title: "Travel organisations", body: "The first conversations confirmed the opportunity, while making clear that retail acceptance had to be established first." },
+      { n: "02", title: "Airport retailers", body: "Retail discussions showed that integrating retailer by retailer would not be the most scalable route." },
+      { n: "03", title: "Point-of-Sales providers", body: "Retailers directed us toward their POS infrastructure: DutyBoost should become an integrated feature that can be activated by participating retailers." },
+      { n: "04", title: "Back to distribution", body: "With integration progressing, the circle returns to travel and corporate partners that can activate travellers with a DutyCredit ahead of their airport journey." },
+    ];
+    steps.forEach((st, i) => {
+      const x = 0.8 + i * 3.0;
+      s.addShape(pptx.ShapeType.roundRect, { x, y: 1.95, w: 2.8, h: 3.85, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
+      s.addText(st.n, { x, y: 2.1, w: 2.8, h: 0.6, fontSize: 24, bold: true, color: BLUE, align: "left", fontFace: "Calibri" });
+      s.addText(st.title, { x: x + 0.2, y: 2.75, w: 2.4, h: 0.55, fontSize: 14, bold: true, color: "334155", align: "left", fontFace: "Calibri", valign: "top" });
+      s.addText(st.body, { x: x + 0.2, y: 3.4, w: 2.4, h: 2.25, fontSize: 10.5, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
+    });
+
+    s.addShape(pptx.ShapeType.roundRect, { x: 1.8, y: 6.05, w: 9.7, h: 0.95, fill: { color: "EFF6FF" }, line: { color: "BFDBFE", width: 1 }, rectRadius: 0.12 });
+    s.addText("\"Each conversation redirected the next — and together they shaped a scalable route from retail acceptance to traveller activation.\"", { x: 2.0, y: 6.1, w: 9.3, h: 0.85, fontSize: 11, italic: true, color: "1E3A8A", align: "center", fontFace: "Calibri", valign: "middle" });
+  }
+
+  // ============ SLIDE 5: MARKET ============
   {
     const s = pptx.addSlide();
     lightSlide(s);

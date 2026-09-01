@@ -27,6 +27,10 @@ const SLIDES = [
     type: "solution",
   },
   {
+    id: "route",
+    type: "route",
+  },
+  {
     id: "market",
     type: "market",
   },
@@ -359,6 +363,65 @@ function SlideSolution() {
                 <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+function SlideRoute() {
+  const steps = [
+    {
+      n: "01",
+      title: "Travel organisations",
+      body: "The first conversations confirmed the opportunity, while making clear that retail acceptance had to be established first.",
+    },
+    {
+      n: "02",
+      title: "Airport retailers",
+      body: "Retail discussions showed that integrating retailer by retailer would not be the most scalable route.",
+    },
+    {
+      n: "03",
+      title: "Point-of-Sales providers",
+      body: "Retailers directed us toward their POS infrastructure: DutyBoost should become an integrated feature that can be activated by participating retailers.",
+    },
+    {
+      n: "04",
+      title: "Back to distribution",
+      body: "With integration progressing, the circle returns to travel and corporate partners that can activate travellers with a DutyCredit ahead of their airport journey.",
+    },
+  ];
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: "linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)",
+            backgroundSize: "40px 40px"
+          }}
+        />
+        <div className="relative z-10">
+          <div className="mb-6 text-center">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Route to Launch</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              The market has educated <span className="text-blue-600">the route to launch</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {steps.map((s, i) => (
+              <div key={s.n} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex flex-col">
+                <div className="text-3xl font-bold text-blue-600 mb-3">{s.n}</div>
+                <h3 className="text-slate-800 font-semibold text-base mb-2 leading-tight">{s.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 max-w-3xl mx-auto bg-blue-50 border border-blue-200 rounded-2xl p-4 text-center">
+            <p className="text-blue-700 text-sm leading-relaxed italic">
+              "Each conversation redirected the next — and together they shaped a scalable route from retail acceptance to traveller activation."
+            </p>
           </div>
         </div>
       </div>
@@ -1066,6 +1129,7 @@ const SLIDE_COMPONENTS = {
   team: SlideTeam,
   problem: SlideProblem,
   solution: SlideSolution,
+  route: SlideRoute,
   market: SlideMarket,
   conversion: SlideConversion,
   model: SlideModel,
@@ -1082,6 +1146,7 @@ const SLIDE_LABELS = {
   team: "Our Team",
   problem: "The Problem",
   solution: "The Solution",
+  route: "The Route to Launch",
   market: "Market Opportunity",
   conversion: "Conversion Opportunity",
   model: "Business Model",
