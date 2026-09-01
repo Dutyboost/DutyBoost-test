@@ -114,9 +114,10 @@ function SlideCover() {
               Pre-Revenue Investment Opportunity
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2 sm:gap-8 mt-4 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
               { label: "Market", value: "€37.1B" },
+              { label: "Passengers", value: "~10B" },
               { label: "Seed Ask", value: "€200K" },
               { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (

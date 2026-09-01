@@ -39,13 +39,14 @@ export async function exportInvestorPitchPptx() {
     s.addText("Pre-Revenue Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
     const coverStats = [
       { val: "€37.1B", lbl: "Market" },
+      { val: "~10B", lbl: "Passengers 2025" },
       { val: "€200K", lbl: "Seed Ask" },
       { val: "€22.05M", lbl: "Y5 Revenue" },
     ];
     coverStats.forEach(({ val, lbl }, i) => {
-      const x = 1.8 + i * 3.3;
-      s.addText(val, { x, y: 4.9, w: 3.0, h: 0.6, fontSize: 26, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
-      s.addText(lbl, { x, y: 5.45, w: 3.0, h: 0.4, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });
+      const x = 0.8 + i * 3.0;
+      s.addText(val, { x, y: 4.9, w: 2.9, h: 0.6, fontSize: 24, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+      s.addText(lbl, { x, y: 5.45, w: 2.9, h: 0.4, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri" });
     });
     s.addText("CONFIDENTIAL — 2026  |  Chamber of Commerce: 42053181  |  VAT: NL869492068B01", { x: 1.5, y: 6.4, w: 10.3, h: 0.4, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
   }
