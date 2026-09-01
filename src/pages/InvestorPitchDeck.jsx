@@ -1202,7 +1202,7 @@ function SlideInvitation() {
             </h2>
           </div>
           <p className="text-slate-600 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
-            DutyBoost is a performance-based revenue infrastructure. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and earns only when commercial value is created.
+            DutyBoost is a performance-based revenue infrastructure. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and every participant earns from the same transaction.
           </p>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3 text-left">
             <p className="text-slate-800 text-sm md:text-base leading-snug">
