@@ -246,7 +246,7 @@ export async function exportInvestorPitchPptx() {
     s.addText("DutyBoost doesn't need to create:", { x: 7.05, y: 4.3, w: 5.25, h: 0.4, fontSize: 13, bold: true, color: "334155", align: "left", fontFace: "Calibri" });
     const exists = [
       "Airports — they already exist",
-      "Passenger traffic — 9.8B annual movements",
+      "Passenger traffic — 9.8B annual passengers",
       "Airport Retailers — they already operate stores",
       "Travel & Corporate Partners — they already communicate with travellers",
       "Enterprise POS — already processes transactions",

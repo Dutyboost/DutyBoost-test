@@ -486,7 +486,7 @@ function SlideMarket() {
             <div className="space-y-2">
               {[
                 "Airports — they already exist",
-                "Passenger traffic — 9.8B annual movements",
+                "Passenger traffic — 9.8B annual passengers",
                 "Airport Retailers — they already operate stores",
                 "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
