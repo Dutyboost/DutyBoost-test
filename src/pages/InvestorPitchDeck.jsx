@@ -231,7 +231,7 @@ function SlideProblem() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">10B</div>
                 <div className="text-slate-800 font-semibold">Global passengers in 2025</div>
-                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 (ACI World)</div>
+                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 <a href="https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI World)</a></div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-orange-600 mb-2">27%</div>
