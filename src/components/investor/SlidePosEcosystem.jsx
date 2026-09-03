@@ -18,9 +18,9 @@ const FACTS = [
     sub: "≈ 151 billion transactions annually",
   },
   {
-    val: "25B+",
-    label: "Transactions GK Software reports annually",
-    sub: "Actual disclosed volumes run materially higher",
+    val: "80M / day",
+    label: "Transactions Diebold Nixdorf handles daily in fuel & convenience alone",
+    sub: "≈ 29 billion annually — vendor-disclosed",
   },
   {
     val: "700M",
@@ -89,11 +89,11 @@ export default function SlidePosEcosystem() {
           <div className="text-center space-y-1">
             <p className="text-slate-500 text-xs">
               Sources:{" "}
-              <a href="https://www.gk-software.com/us/corporate-news-and-press-releases/en-press-release-20260107-ihl-2025-pos-mpos-market-study" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">IHL Group — The POS/mPOS Market 2025</a>
+              <a href="https://www.gk-software.com/images/Industry_Recognition/download/20251217_IHL-POS-mPOS%20Market%20Study.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">IHL Group — The POS/mPOS Market Study 2025 (PDF)</a>
               {" · "}
-              <a href="https://investor.gk-software.com/en/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">GK Software Investor Relations</a>
+              <a href="https://www.dieboldnixdorf.com/en-us/retail/portfolio/software/fuel-and-convenience/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Diebold Nixdorf — Vynamic Fuel & Convenience</a>
               {" · "}
-              <a href="https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore</a>
+              <a href="https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore Data Sheet</a>
             </p>
             <p className="text-slate-400 text-xs">
               Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.

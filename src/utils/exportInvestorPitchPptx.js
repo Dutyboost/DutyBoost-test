@@ -352,7 +352,7 @@ export async function exportInvestorPitchPptx() {
     const facts = [
       { val: "8.3M", label: "Installed POS/mPOS systems across the 16 leading enterprise POS providers", sub: "IHL Group 2025 POS/mPOS Market Study" },
       { val: "50/day", label: "Conservative modelling assumption per POS device", sub: "≈ 151 billion transactions annually" },
-      { val: "25B+", label: "Transactions GK Software reports annually", sub: "Disclosed volumes run materially higher" },
+      { val: "80M/day", label: "Daily transactions Diebold Nixdorf handles in fuel & convenience alone", sub: "≈ 29 billion annually — vendor-disclosed" },
       { val: "700M", label: "Transactions per year at a single Oracle Xstore retailer", sub: "Scale a single enterprise customer can represent" },
     ];
     facts.forEach((f, i) => {
@@ -368,11 +368,11 @@ export async function exportInvestorPitchPptx() {
     s.addText("DutyBoost does not build this transaction infrastructure. It integrates into the existing enterprise POS ecosystem and creates a new attributable revenue layer on top of it.", { x: 1.1, y: 6.1, w: 11.1, h: 0.75, fontSize: 13, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
     s.addText([
       { text: "Sources: ", options: { bold: true, color: SLATE } },
-      { text: "IHL Group — The POS/mPOS Market 2025", options: { hyperlink: { url: "https://www.gk-software.com/us/corporate-news-and-press-releases/en-press-release-20260107-ihl-2025-pos-mpos-market-study" }, color: BLUE } },
+      { text: "IHL Group — The POS/mPOS Market Study 2025 (PDF)", options: { hyperlink: { url: "https://www.gk-software.com/images/Industry_Recognition/download/20251217_IHL-POS-mPOS%20Market%20Study.pdf" }, color: BLUE } },
       { text: "   ·   ", options: { color: SLATE } },
-      { text: "GK Software Investor Relations", options: { hyperlink: { url: "https://investor.gk-software.com/en/" }, color: BLUE } },
+      { text: "Diebold Nixdorf — Vynamic Fuel & Convenience", options: { hyperlink: { url: "https://www.dieboldnixdorf.com/en-us/retail/portfolio/software/fuel-and-convenience/" }, color: BLUE } },
       { text: "   ·   ", options: { color: SLATE } },
-      { text: "Oracle Retail Xstore", options: { hyperlink: { url: "https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" }, color: BLUE } },
+      { text: "Oracle Retail Xstore Data Sheet", options: { hyperlink: { url: "https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" }, color: BLUE } },
     ], { x: 0.8, y: 6.98, w: 11.7, h: 0.25, fontSize: 8.5, align: "center", fontFace: "Calibri" });
     s.addText("Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.", { x: 0.8, y: 7.22, w: 11.7, h: 0.25, fontSize: 8.5, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
   }
