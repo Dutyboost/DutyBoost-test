@@ -28,9 +28,9 @@ const FACTS = [
     sub: "1.5M daily transactions at a single retailer · 8,000+ store footprints",
   },
   {
-    val: "No. 1",
-    label: "Largest enterprise POS software supplier globally — NCR Voyix",
-    sub: "Confirmed by Datos Insights — Global POS Software 2025 study",
+    val: "1.5B",
+    label: "Transactions if just 1% of the annual enterprise POS volume flows through DutyCredits",
+    sub: "≈ €150B retail value · €2.6B DutyBoost infrastructure revenue",
   },
 ];
 
@@ -99,11 +99,9 @@ export default function SlidePosEcosystem() {
               <a href="https://commerce.toshiba.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Toshiba Global Commerce — 2025 Shipped & Installed POS Units</a>
               {" · "}
               <a href="https://engage.oracle.com/modernretailpos/items/data-sheet-oracle-micros-workstation-8-series" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore Data Sheet (registration required)</a>
-              {" · "}
-              <a href="https://www.ncrvoyix.com/newsroom/ncr-voyix-maintains-global-leadership-in-pos-software-reclaims-top-spot-in-new-restaurant-deployments" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">NCR Voyix — Global POS Software Leadership (Datos Insights 2025)</a>
             </p>
             <p className="text-slate-400 text-xs">
-              Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.
+              Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher. The 1% scenario applies the DutyBoost fee structure (2.5% of retail value) at a €100 average basket.
             </p>
           </div>
         </div>
