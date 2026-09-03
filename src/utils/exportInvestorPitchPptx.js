@@ -366,7 +366,15 @@ export async function exportInvestorPitchPptx() {
     // Bottom banner
     s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 6.0, w: 11.7, h: 0.95, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.12 });
     s.addText("DutyBoost does not build this transaction infrastructure. It integrates into the existing enterprise POS ecosystem and creates a new attributable revenue layer on top of it.", { x: 1.1, y: 6.1, w: 11.1, h: 0.75, fontSize: 13, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
-    s.addText("Transaction figures are DutyBoost estimates (installed base × 50 transactions/day × 365), not reported vendor transaction totals.", { x: 0.8, y: 7.05, w: 11.7, h: 0.3, fontSize: 8.5, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText([
+      { text: "Sources: ", options: { bold: true, color: SLATE } },
+      { text: "IHL Group — The POS/mPOS Market 2025", options: { hyperlink: { url: "https://www.gk-software.com/us/corporate-news-and-press-releases/en-press-release-20260107-ihl-2025-pos-mpos-market-study" }, color: BLUE } },
+      { text: "   ·   ", options: { color: SLATE } },
+      { text: "GK Software Investor Relations", options: { hyperlink: { url: "https://investor.gk-software.com/en/" }, color: BLUE } },
+      { text: "   ·   ", options: { color: SLATE } },
+      { text: "Oracle Retail Xstore", options: { hyperlink: { url: "https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" }, color: BLUE } },
+    ], { x: 0.8, y: 6.98, w: 11.7, h: 0.25, fontSize: 8.5, align: "center", fontFace: "Calibri" });
+    s.addText("Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.", { x: 0.8, y: 7.22, w: 11.7, h: 0.25, fontSize: 8.5, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
   }
 
   // ============ SLIDE 6: MODEL ============

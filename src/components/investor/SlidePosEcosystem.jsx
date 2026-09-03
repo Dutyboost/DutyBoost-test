@@ -86,9 +86,19 @@ export default function SlidePosEcosystem() {
             </div>
           </div>
 
-          <p className="text-slate-400 text-xs text-center">
-            Transaction figures are DutyBoost estimates (installed base × 50 transactions/day × 365), not reported vendor transaction totals.
-          </p>
+          <div className="text-center space-y-1">
+            <p className="text-slate-500 text-xs">
+              Sources:{" "}
+              <a href="https://www.gk-software.com/us/corporate-news-and-press-releases/en-press-release-20260107-ihl-2025-pos-mpos-market-study" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">IHL Group — The POS/mPOS Market 2025</a>
+              {" · "}
+              <a href="https://investor.gk-software.com/en/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">GK Software Investor Relations</a>
+              {" · "}
+              <a href="https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore</a>
+            </p>
+            <p className="text-slate-400 text-xs">
+              Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.
+            </p>
+          </div>
         </div>
       </div>
     </div>
