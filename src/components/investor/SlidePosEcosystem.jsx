@@ -28,9 +28,9 @@ const FACTS = [
     sub: "1.5M daily transactions at a single retailer · 8,000+ store footprints",
   },
   {
-    val: "1.5B",
-    label: "Transactions if just 1% of the annual enterprise POS volume flows through DutyCredits",
-    sub: "≈ €150B retail value · €2.6B DutyBoost infrastructure revenue",
+    val: "150M",
+    label: "Transactions if just 0.1% of the annual enterprise POS volume flows through DutyCredits",
+    sub: "≈ €15B retail value · €262.5M DutyBoost infrastructure revenue",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function SlidePosEcosystem() {
               <a href="https://engage.oracle.com/modernretailpos/items/data-sheet-oracle-micros-workstation-8-series" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore Data Sheet (registration required)</a>
             </p>
             <p className="text-slate-400 text-xs">
-              Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher. The 1% scenario applies the DutyBoost fee structure (2.5% of retail value) at a €100 average basket.
+              Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher. The 0.1% scenario applies the DutyBoost fee structure (2.5% of retail value) at a €100 average basket.
             </p>
           </div>
         </div>
