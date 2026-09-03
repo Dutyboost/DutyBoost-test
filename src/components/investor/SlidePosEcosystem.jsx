@@ -24,8 +24,8 @@ const FACTS = [
   },
   {
     val: "700M",
-    label: "Annual transactions across Oracle Xstore deployments",
-    sub: "One provider's disclosed platform volume",
+    label: "Annual transactions across Oracle Xstore deployments — 250+ retailers globally",
+    sub: "1.5M daily transactions at a single retailer · 8,000+ store footprints",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function SlidePosEcosystem() {
               {" · "}
               <a href="https://commerce.toshiba.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Toshiba Global Commerce — 2025 Shipped & Installed POS Units</a>
               {" · "}
-              <a href="https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore Data Sheet</a>
+              <a href="https://engage.oracle.com/modernretailpos/items/data-sheet-oracle-micros-workstation-8-series" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore Data Sheet (registration required)</a>
             </p>
             <p className="text-slate-400 text-xs">
               Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.

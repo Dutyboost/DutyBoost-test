@@ -353,7 +353,7 @@ export async function exportInvestorPitchPptx() {
       { val: "8.3M", label: "Installed POS/mPOS systems across the 16 leading enterprise POS providers", sub: "IHL Group 2025 POS/mPOS Market Study" },
       { val: "50/day", label: "Conservative modelling assumption per POS device", sub: "≈ 151 billion transactions annually" },
       { val: "2.6M+", label: "POS and self-checkout units Toshiba has installed worldwide", sub: "220K+ units shipped in 2025 alone — vendor-disclosed" },
-      { val: "700M", label: "Annual transactions across Oracle Xstore deployments", sub: "One provider's disclosed platform volume" },
+      { val: "700M", label: "Annual transactions across Oracle Xstore deployments — 250+ retailers globally", sub: "1.5M daily txns at a single retailer · 8,000+ store footprints" },
     ];
     facts.forEach((f, i) => {
       const y = 1.9 + i * 1.0;
@@ -372,7 +372,7 @@ export async function exportInvestorPitchPptx() {
       { text: "   ·   ", options: { color: SLATE } },
       { text: "Toshiba Global Commerce — 2025 Shipped & Installed POS Units", options: { hyperlink: { url: "https://commerce.toshiba.com/" }, color: BLUE } },
       { text: "   ·   ", options: { color: SLATE } },
-      { text: "Oracle Retail Xstore Data Sheet", options: { hyperlink: { url: "https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" }, color: BLUE } },
+      { text: "Oracle Retail Xstore Data Sheet (registration required)", options: { hyperlink: { url: "https://engage.oracle.com/modernretailpos/items/data-sheet-oracle-micros-workstation-8-series" }, color: BLUE } },
     ], { x: 0.8, y: 6.98, w: 11.7, h: 0.25, fontSize: 8.5, align: "center", fontFace: "Calibri" });
     s.addText("Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.", { x: 0.8, y: 7.22, w: 11.7, h: 0.25, fontSize: 8.5, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
   }
