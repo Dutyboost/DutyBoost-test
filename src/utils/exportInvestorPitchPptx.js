@@ -354,13 +354,14 @@ export async function exportInvestorPitchPptx() {
       { val: "50/day", label: "Conservative modelling assumption per POS device", sub: "≈ 151 billion transactions annually" },
       { val: "2.6M+", label: "POS and self-checkout units Toshiba has installed worldwide", sub: "220K+ units shipped in 2025 alone — vendor-disclosed" },
       { val: "700M", label: "Annual transactions across Oracle Xstore deployments — 250+ retailers globally", sub: "1.5M daily txns at a single retailer · 8,000+ store footprints" },
+      { val: "No. 1", label: "Largest enterprise POS software supplier globally — NCR Voyix", sub: "Confirmed by Datos Insights — Global POS Software 2025" },
     ];
     facts.forEach((f, i) => {
-      const y = 1.9 + i * 1.0;
-      s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y, w: 5.65, h: 0.9, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.1 });
-      s.addText(f.val, { x: 7.0, y, w: 1.3, h: 0.9, fontSize: 16, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
-      s.addText(f.label, { x: 8.4, y: y + 0.1, w: 4.0, h: 0.45, fontSize: 10, bold: true, color: "334155", align: "left", fontFace: "Calibri", valign: "top" });
-      s.addText(f.sub, { x: 8.4, y: y + 0.52, w: 4.0, h: 0.3, fontSize: 9, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
+      const y = 1.8 + i * 0.84;
+      s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y, w: 5.65, h: 0.76, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.1 });
+      s.addText(f.val, { x: 7.0, y, w: 1.3, h: 0.76, fontSize: 15, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
+      s.addText(f.label, { x: 8.4, y: y + 0.07, w: 4.0, h: 0.4, fontSize: 9.5, bold: true, color: "334155", align: "left", fontFace: "Calibri", valign: "top" });
+      s.addText(f.sub, { x: 8.4, y: y + 0.44, w: 4.0, h: 0.28, fontSize: 8.5, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
     });
 
     // Bottom banner
@@ -373,6 +374,8 @@ export async function exportInvestorPitchPptx() {
       { text: "Toshiba Global Commerce — 2025 Shipped & Installed POS Units", options: { hyperlink: { url: "https://commerce.toshiba.com/" }, color: BLUE } },
       { text: "   ·   ", options: { color: SLATE } },
       { text: "Oracle Retail Xstore Data Sheet (registration required)", options: { hyperlink: { url: "https://engage.oracle.com/modernretailpos/items/data-sheet-oracle-micros-workstation-8-series" }, color: BLUE } },
+      { text: "   ·   ", options: { color: SLATE } },
+      { text: "NCR Voyix — Global POS Software Leadership (Datos Insights 2025)", options: { hyperlink: { url: "https://www.ncrvoyix.com/newsroom/ncr-voyix-maintains-global-leadership-in-pos-software-reclaims-top-spot-in-new-restaurant-deployments" }, color: BLUE } },
     ], { x: 0.8, y: 6.98, w: 11.7, h: 0.25, fontSize: 8.5, align: "center", fontFace: "Calibri" });
     s.addText("Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher.", { x: 0.8, y: 7.22, w: 11.7, h: 0.25, fontSize: 8.5, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
   }
