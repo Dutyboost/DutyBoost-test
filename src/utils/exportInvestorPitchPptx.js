@@ -327,6 +327,48 @@ export async function exportInvestorPitchPptx() {
     s.addText("Yes. Every time.", { x: 7.05, y: 6.6, w: 5.25, h: 0.35, fontSize: 11, color: "DBEAFE", align: "left", fontFace: "Calibri" });
   }
 
+  // ============ SLIDE 7: POS ECOSYSTEM ============
+  {
+    const s = pptx.addSlide();
+    lightSlide(s);
+    s.addText("INFRASTRUCTURE REACH", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
+    s.addText("150+ Billion Annual POS Transactions", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+
+    // Three-layer opportunity funnel (left)
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 1.9, w: 5.85, h: 1.0, fill: { color: "EFF6FF" }, line: { color: "BFDBFE", width: 1 }, rectRadius: 0.12 });
+    s.addText("9.8B — Airport passenger movements", { x: 1.0, y: 2.02, w: 5.45, h: 0.35, fontSize: 13, bold: true, color: "1E3A8A", align: "center", fontFace: "Calibri" });
+    s.addText("Initial commercial market", { x: 1.0, y: 2.4, w: 5.45, h: 0.3, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("↓", { x: 0.8, y: 2.88, w: 5.85, h: 0.35, fontSize: 16, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 3.22, w: 5.85, h: 0.9, fill: { color: "EEF2FF" }, line: { color: "C7D2FE", width: 1 }, rectRadius: 0.12 });
+    s.addText("Existing airport retail transactions", { x: 1.0, y: 3.34, w: 5.45, h: 0.35, fontSize: 13, bold: true, color: "3730A3", align: "center", fontFace: "Calibri" });
+    s.addText("Initial commercial focus", { x: 1.0, y: 3.7, w: 5.45, h: 0.3, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("↓", { x: 0.8, y: 4.1, w: 5.85, h: 0.35, fontSize: 16, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 4.44, w: 5.85, h: 1.4, fill: { color: "1E293B" }, line: { color: "334155", width: 1 }, rectRadius: 0.12 });
+    s.addText("150+ Billion", { x: 1.0, y: 4.54, w: 5.45, h: 0.5, fontSize: 24, bold: true, color: "93C5FD", align: "center", fontFace: "Calibri" });
+    s.addText("Annual transactions across the enterprise POS ecosystem", { x: 1.0, y: 5.06, w: 5.45, h: 0.4, fontSize: 11, bold: true, color: WHITE, align: "center", fontFace: "Calibri" });
+    s.addText("Scalability & infrastructure reach", { x: 1.0, y: 5.5, w: 5.45, h: 0.28, fontSize: 10, color: "94A3B8", align: "center", fontFace: "Calibri" });
+
+    // Supporting facts (right)
+    const facts = [
+      { val: "8.3M", label: "Installed POS/mPOS systems across the 16 leading enterprise POS providers", sub: "IHL Group 2025 POS/mPOS Market Study" },
+      { val: "50/day", label: "Conservative modelling assumption per POS device", sub: "≈ 151 billion transactions annually" },
+      { val: "25B+", label: "Transactions GK Software reports annually", sub: "Disclosed volumes run materially higher" },
+      { val: "700M", label: "Transactions per year at a single Oracle Xstore retailer", sub: "Scale a single enterprise customer can represent" },
+    ];
+    facts.forEach((f, i) => {
+      const y = 1.9 + i * 1.0;
+      s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y, w: 5.65, h: 0.9, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.1 });
+      s.addText(f.val, { x: 7.0, y, w: 1.3, h: 0.9, fontSize: 16, bold: true, color: BLUE, align: "center", fontFace: "Calibri", valign: "middle" });
+      s.addText(f.label, { x: 8.4, y: y + 0.1, w: 4.0, h: 0.45, fontSize: 10, bold: true, color: "334155", align: "left", fontFace: "Calibri", valign: "top" });
+      s.addText(f.sub, { x: 8.4, y: y + 0.52, w: 4.0, h: 0.3, fontSize: 9, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
+    });
+
+    // Bottom banner
+    s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 6.0, w: 11.7, h: 0.95, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.12 });
+    s.addText("DutyBoost does not build this transaction infrastructure. It integrates into the existing enterprise POS ecosystem and creates a new attributable revenue layer on top of it.", { x: 1.1, y: 6.1, w: 11.1, h: 0.75, fontSize: 13, bold: true, color: WHITE, align: "center", fontFace: "Calibri", valign: "middle" });
+    s.addText("Transaction figures are DutyBoost estimates (installed base × 50 transactions/day × 365), not reported vendor transaction totals.", { x: 0.8, y: 7.05, w: 11.7, h: 0.3, fontSize: 8.5, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
+  }
+
   // ============ SLIDE 6: MODEL ============
   {
     const s = pptx.addSlide();

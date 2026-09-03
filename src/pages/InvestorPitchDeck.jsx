@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, Fragment } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Download } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { exportInvestorPitchPptx } from "@/utils/exportInvestorPitchPptx";
+import SlidePosEcosystem from "@/components/investor/SlidePosEcosystem";
 
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
@@ -37,6 +38,10 @@ const SLIDES = [
   {
     id: "conversion",
     type: "conversion",
+  },
+  {
+    id: "pos_ecosystem",
+    type: "pos_ecosystem",
   },
   {
     id: "model",
@@ -1232,6 +1237,7 @@ const SLIDE_COMPONENTS = {
   route: SlideRoute,
   market: SlideMarket,
   conversion: SlideConversion,
+  pos_ecosystem: SlidePosEcosystem,
   model: SlideModel,
   transaction: SlideTransaction,
   flywheel: SlideFlywheel,
@@ -1250,6 +1256,7 @@ const SLIDE_LABELS = {
   route: "The Route to Launch",
   market: "Market Opportunity",
   conversion: "Conversion Opportunity",
+  pos_ecosystem: "POS Ecosystem Scale",
   model: "Business Model",
   transaction: "Transaction Economics",
   flywheel: "Growth Flywheel",
