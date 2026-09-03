@@ -18,14 +18,14 @@ const FACTS = [
     sub: "≈ 151 billion transactions annually",
   },
   {
-    val: "80M / day",
-    label: "Transactions Diebold Nixdorf handles daily in fuel & convenience alone",
-    sub: "≈ 29 billion annually — vendor-disclosed",
+    val: "2.6M+",
+    label: "POS and self-checkout units Toshiba has installed worldwide",
+    sub: "220K+ units shipped in 2025 alone — vendor-disclosed",
   },
   {
     val: "700M",
-    label: "Transactions per year at a single Oracle Xstore retailer",
-    sub: "Scale a single enterprise customer can represent",
+    label: "Annual transactions across Oracle Xstore deployments",
+    sub: "One provider's disclosed platform volume",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function SlidePosEcosystem() {
               Sources:{" "}
               <a href="https://www.gk-software.com/images/Industry_Recognition/download/20251217_IHL-POS-mPOS%20Market%20Study.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">IHL Group — The POS/mPOS Market Study 2025 (PDF)</a>
               {" · "}
-              <a href="https://www.dieboldnixdorf.com/en-us/retail/portfolio/software/fuel-and-convenience/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Diebold Nixdorf — Vynamic Fuel & Convenience</a>
+              <a href="https://commerce.toshiba.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Toshiba Global Commerce — 2025 Shipped & Installed POS Units</a>
               {" · "}
               <a href="https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Oracle Retail Xstore Data Sheet</a>
             </p>

@@ -352,8 +352,8 @@ export async function exportInvestorPitchPptx() {
     const facts = [
       { val: "8.3M", label: "Installed POS/mPOS systems across the 16 leading enterprise POS providers", sub: "IHL Group 2025 POS/mPOS Market Study" },
       { val: "50/day", label: "Conservative modelling assumption per POS device", sub: "≈ 151 billion transactions annually" },
-      { val: "80M/day", label: "Daily transactions Diebold Nixdorf handles in fuel & convenience alone", sub: "≈ 29 billion annually — vendor-disclosed" },
-      { val: "700M", label: "Transactions per year at a single Oracle Xstore retailer", sub: "Scale a single enterprise customer can represent" },
+      { val: "2.6M+", label: "POS and self-checkout units Toshiba has installed worldwide", sub: "220K+ units shipped in 2025 alone — vendor-disclosed" },
+      { val: "700M", label: "Annual transactions across Oracle Xstore deployments", sub: "One provider's disclosed platform volume" },
     ];
     facts.forEach((f, i) => {
       const y = 1.9 + i * 1.0;
@@ -370,7 +370,7 @@ export async function exportInvestorPitchPptx() {
       { text: "Sources: ", options: { bold: true, color: SLATE } },
       { text: "IHL Group — The POS/mPOS Market Study 2025 (PDF)", options: { hyperlink: { url: "https://www.gk-software.com/images/Industry_Recognition/download/20251217_IHL-POS-mPOS%20Market%20Study.pdf" }, color: BLUE } },
       { text: "   ·   ", options: { color: SLATE } },
-      { text: "Diebold Nixdorf — Vynamic Fuel & Convenience", options: { hyperlink: { url: "https://www.dieboldnixdorf.com/en-us/retail/portfolio/software/fuel-and-convenience/" }, color: BLUE } },
+      { text: "Toshiba Global Commerce — 2025 Shipped & Installed POS Units", options: { hyperlink: { url: "https://commerce.toshiba.com/" }, color: BLUE } },
       { text: "   ·   ", options: { color: SLATE } },
       { text: "Oracle Retail Xstore Data Sheet", options: { hyperlink: { url: "https://engage.oracle.com/worldwidegolfshops/items/data-sheet-oracle-retail-xstore-point-of-service" }, color: BLUE } },
     ], { x: 0.8, y: 6.98, w: 11.7, h: 0.25, fontSize: 8.5, align: "center", fontFace: "Calibri" });
