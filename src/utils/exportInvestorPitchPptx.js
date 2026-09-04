@@ -354,7 +354,7 @@ export async function exportInvestorPitchPptx() {
       { val: "50/day", label: "Conservative modelling assumption per POS device", sub: "≈ 151 billion transactions annually" },
       { val: "2.6M+", label: "POS and self-checkout units Toshiba has installed worldwide", sub: "220K+ units shipped in 2025 alone — vendor-disclosed" },
       { val: "700M", label: "Annual transactions across Oracle Xstore deployments — 250+ retailers globally", sub: "1.5M daily txns at a single retailer · 8,000+ store footprints" },
-      { val: "150M", label: "Transactions if just 0.1% of annual enterprise POS volume flows through DutyCredits", sub: "≈ €15B retail value · €262.5M DutyBoost revenue" },
+      { val: "15M", label: "Transactions if just 0.01% of annual enterprise POS volume flows through DutyCredits", sub: "≈ €1.5B retail value · €26.25M DutyBoost revenue" },
     ];
     facts.forEach((f, i) => {
       const y = 1.8 + i * 0.84;
@@ -375,7 +375,7 @@ export async function exportInvestorPitchPptx() {
       { text: "   ·   ", options: { color: SLATE } },
       { text: "Oracle Retail Xstore Data Sheet (registration required)", options: { hyperlink: { url: "https://engage.oracle.com/modernretailpos/items/data-sheet-oracle-micros-workstation-8-series" }, color: BLUE } },
     ], { x: 0.8, y: 6.98, w: 11.7, h: 0.25, fontSize: 8.5, align: "center", fontFace: "Calibri" });
-    s.addText("Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher. The 0.1% scenario applies the DutyBoost fee structure (2.5% of retail value) at a €100 average basket.", { x: 0.8, y: 7.18, w: 11.7, h: 0.3, fontSize: 8, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("Transaction volumes are conservatively modelled from the published installed base — vendor-disclosed volumes confirm the true figure is materially higher. The 0.01% scenario applies the DutyBoost fee structure (2.5% of retail value) at a €100 average basket.", { x: 0.8, y: 7.18, w: 11.7, h: 0.3, fontSize: 8, italic: true, color: SLATE, align: "center", fontFace: "Calibri" });
   }
 
   // ============ SLIDE 6: MODEL ============
