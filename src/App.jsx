@@ -121,6 +121,7 @@ import PatentDisclosureDocument from './pages/PatentDisclosureDocument';
 import InvestorPitchDeck from './pages/InvestorPitchDeck';
 import RetailerPitchDeck from './pages/RetailerPitchDeck';
 import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
+import PosProviderPitchDeckUsd from './pages/PosProviderPitchDeckUsd';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
@@ -252,6 +253,7 @@ const AuthenticatedApp = () => {
         <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
         <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
+        <Route path="/pos-provider-pitch-usd" element={<PosProviderPitchDeckUsd />} />
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
