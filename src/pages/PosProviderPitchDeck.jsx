@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, Store, TrendingUp, CheckCircle, BarChart3, Plug, Layers, ShieldCheck, Globe } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
-import SlideApiExample from "@/components/pos-pitch/SlideApiExample";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -28,7 +27,7 @@ const SLIDE_LABELS = {
   scale: "Revenue at Scale",
   benefits: "Strategic Benefits",
   integrate: "Integration Simplicity",
-  getStarted: "The Integration, In One Call",
+  getStarted: "Value Realized Quickly",
 };
 
 function SlideWrapper({ children, dark = false }) {
@@ -704,7 +703,7 @@ const SLIDE_COMPONENTS = {
   scale: SlideScale,
   benefits: SlideBenefits,
   integrate: SlideIntegrate,
-  getStarted: SlideApiExample,
+  getStarted: SlideGetStarted,
 };
 
 export default function PosProviderPitchDeck() {
