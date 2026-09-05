@@ -106,7 +106,7 @@ function SlideOpportunity() {
             {[
               { val: "9.8B", label: "Global passenger movements in 2025", sub: "ACI World — audience already in transit" },
               { val: "5–10%", label: "Global duty-free conversion rate", sub: "Only 5–10% of travellers buy (Kearney / TFWA)" },
-              { val: "~8.8B", label: "Non-purchasing passengers annually", sub: "Untapped incremental revenue pool" },
+              { val: "8.8B", label: "Non-purchasing passengers annually", sub: "Untapped incremental revenue pool" },
             ].map((s) => (
               <div key={s.label} className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-violet-400 mb-2">{s.val}</div>
