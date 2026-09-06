@@ -66,16 +66,16 @@ Secure partner authentication
   ];
 
   return (
-    <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-[#0a0a0c] text-white">
+    <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-white text-[#0a0f1e]">
       <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-10 md:py-5 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-3 lg:mb-4">
-            <span className="text-violet-400 text-xs font-semibold uppercase tracking-widest">The Integration, In One Call</span>
-            <h2 className="text-lg md:text-2xl lg:text-3xl font-heading font-bold text-white mt-1.5">
-              Validate. Discount. Earn. <span className="text-violet-400">One Request. One Response.</span>
+            <span className="text-violet-600 text-xs font-semibold uppercase tracking-widest">The Integration, In One Call</span>
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-heading font-bold text-[#0a0f1e] mt-1.5">
+              Validate. Discount. Earn. <span className="text-violet-600">One Request. One Response.</span>
             </h2>
-            <p className="text-slate-400 mt-1.5 text-xs lg:text-sm max-w-4xl">
+            <p className="text-slate-500 mt-1.5 text-xs lg:text-sm max-w-4xl">
               A single HTTPS call at checkout. DutyBoost validates the DutyCredit, returns the discount to apply, and credits your commission — all attributed and logged automatically.
             </p>
           </div>
@@ -84,7 +84,7 @@ Secure partner authentication
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-violet-600 flex items-center justify-center text-white text-[10px] font-bold">1</div>
-                <span className="text-violet-300 font-semibold text-xs lg:text-sm">POS sends the transaction essentials</span>
+                <span className="text-violet-700 font-semibold text-xs lg:text-sm">POS sends the transaction essentials</span>
               </div>
               <CodeBlock title="illustrative request">
 {request}
@@ -94,7 +94,7 @@ Secure partner authentication
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-green-600 flex items-center justify-center text-white text-[10px] font-bold">2</div>
-                <span className="text-green-300 font-semibold text-xs lg:text-sm">DutyBoost returns the checkout result</span>
+                <span className="text-green-700 font-semibold text-xs lg:text-sm">DutyBoost returns the checkout result</span>
               </div>
               <CodeBlock title="illustrative response">
 {response}
@@ -104,11 +104,11 @@ Secure partner authentication
 
           <div className="mt-3 lg:mt-4 grid grid-cols-1 md:grid-cols-3 gap-2.5">
             {features.map((f) => (
-              <div key={f.title} className="bg-white/5 border border-white/10 rounded-xl p-3 lg:p-4 flex items-start gap-3">
+              <div key={f.title} className="bg-slate-50 border border-slate-200 rounded-xl p-3 lg:p-4 flex items-start gap-3">
                 <div className="flex-shrink-0 mt-0.5">{f.icon}</div>
                 <div>
-                  <div className="text-white font-semibold text-sm">{f.title}</div>
-                  <div className="text-slate-400 text-xs mt-0.5 leading-relaxed">{f.desc}</div>
+                  <div className="text-slate-900 font-semibold text-sm">{f.title}</div>
+                  <div className="text-slate-600 text-xs mt-0.5 leading-relaxed">{f.desc}</div>
                 </div>
               </div>
             ))}
