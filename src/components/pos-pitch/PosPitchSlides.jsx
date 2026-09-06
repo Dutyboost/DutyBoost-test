@@ -372,7 +372,7 @@ export function SlideEconomics({ currency = "€" }) {
               <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-6">
                 <h3 className="text-slate-900 font-bold text-lg mb-3">The Core Question</h3>
                 <p className="text-violet-800 text-base leading-relaxed font-semibold">
-                  “Is earning 0.25% on every validated DutyCredit basket — with zero upfront cost and no operational risk — a meaningful new revenue line for a POS provider already processing those transactions?”
+                  “Is earning 10% on every validated DutyCredit basket — with zero upfront cost and no operational risk — a meaningful new revenue line for a POS provider already processing those transactions?”
                 </p>
                 <p className="text-violet-600 font-bold text-lg mt-3">Yes — and it scales with your footprint.</p>
               </div>
