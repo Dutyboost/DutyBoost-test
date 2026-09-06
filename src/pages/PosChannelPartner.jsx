@@ -24,7 +24,7 @@ const TRAVELLER_TICKS = [50000, 100000, 250000, 500000, 750000, 1000000, 2000000
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
-  const [posStoresRaw, setPosStoresRaw] = useState("200");
+  const [posStoresRaw, setPosStoresRaw] = useState("1");
   const posStores = parseInt(posStoresRaw, 10) || 0;
 
   // Map current store count to nearest slider tick index
@@ -58,8 +58,8 @@ export default function PosChannelPartner() {
     if (!num) return "";
     return new Intl.NumberFormat(localeForCurrency(cur)).format(num);
   };
-  const [redemptionRate, setRedemptionRate] = useState(100);
-  const [rateInput, setRateInput] = useState("100");
+  const [redemptionRate, setRedemptionRate] = useState(1);
+  const [rateInput, setRateInput] = useState("1");
   const [currency, setCurrency] = useState(() => {
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
@@ -71,7 +71,7 @@ export default function PosChannelPartner() {
     }
   });
 
-  const MIN_BASKET = 20;
+  const MIN_BASKET = 60;
 
   const redemptions = (posStores * posTravellers * redemptionRate) / 100;
   const redemptionVolume = redemptions * MIN_BASKET;
