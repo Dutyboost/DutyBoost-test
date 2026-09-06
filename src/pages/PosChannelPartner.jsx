@@ -71,7 +71,7 @@ export default function PosChannelPartner() {
     }
   });
 
-  const MIN_BASKET = 60;
+  const MIN_BASKET = 20;
 
   const redemptions = (posStores * posTravellers * redemptionRate) / 100;
   const redemptionVolume = redemptions * MIN_BASKET;
