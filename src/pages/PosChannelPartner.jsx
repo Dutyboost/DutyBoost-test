@@ -18,6 +18,9 @@ const POS_SHARE_PCT = 10;
 // Non-linear slider stops for airport store counts (1 → 10,000)
 const STORE_TICKS = [1, 5, 10, 25, 50, 75, 100, 150, 200, 300, 500, 750, 1000, 1500, 2000, 3000, 5000, 7500, 10000, 15000, 20000, 30000, 50000, 70000];
 
+// Non-linear slider stops for annual travellers per airport (50K → 100M)
+const TRAVELLER_TICKS = [50000, 100000, 250000, 500000, 750000, 1000000, 2000000, 3000000, 5000000, 7500000, 10000000, 15000000, 20000000, 30000000, 50000000, 75000000, 100000000];
+
 export default function PosChannelPartner() {
   const { t } = useTranslation();
 
@@ -30,6 +33,20 @@ export default function PosChannelPartner() {
     let minDiff = Infinity;
     STORE_TICKS.forEach((t, i) => {
       const diff = Math.abs(t - posStores);
+      if (diff < minDiff) { minDiff = diff; closest = i; }
+    });
+    return closest;
+  })();
+
+  const [posTravellersRaw, setPosTravellersRaw] = useState("500000");
+  const posTravellers = parseInt(posTravellersRaw, 10) || 0;
+
+  // Map current traveller count to nearest slider tick index
+  const travellerSliderIndex = (() => {
+    let closest = 0;
+    let minDiff = Infinity;
+    TRAVELLER_TICKS.forEach((t, i) => {
+      const diff = Math.abs(t - posTravellers);
       if (diff < minDiff) { minDiff = diff; closest = i; }
     });
     return closest;
@@ -54,10 +71,9 @@ export default function PosChannelPartner() {
     }
   });
 
-  const AVG_ANNUAL_TRAVELLERS = 5000000;
   const MIN_BASKET = 20;
 
-  const redemptions = (posStores * AVG_ANNUAL_TRAVELLERS * redemptionRate) / 100;
+  const redemptions = (posStores * posTravellers * redemptionRate) / 100;
   const redemptionVolume = redemptions * MIN_BASKET;
   const platformFees = (redemptionVolume * PLATFORM_FEE_PCT) / 100;
   const posEarnings = (platformFees * POS_SHARE_PCT) / 100;
@@ -315,9 +331,27 @@ export default function PosChannelPartner() {
                 ))}
               </div>
             </div>
-            <div className="flex items-center justify-between py-2 border-b border-border gap-2">
-              <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_travellers")}</Label>
-              <span className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap">{new Intl.NumberFormat(localeForCurrency(currency)).format(AVG_ANNUAL_TRAVELLERS)}</span>
+            <div>
+              <p className="text-xs text-muted-foreground text-center pb-1">{t("posChannel.calculator.manual_hint")}</p>
+              <div className="flex items-center justify-between mb-2 gap-2">
+                <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_travellers")}</Label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={formatStores(posTravellersRaw, currency)}
+                  onChange={(e) => setPosTravellersRaw(e.target.value.replace(/[^\d]/g, ""))}
+                  placeholder="0"
+                  className="w-28 sm:w-40 text-xs sm:text-sm font-bold font-mono text-right rounded-md border border-border bg-background px-2 py-1 focus:outline-none focus:ring-1 focus:ring-violet-500"
+                />
+              </div>
+              <input
+                type="range" min={0} max={TRAVELLER_TICKS.length - 1} step={1} value={travellerSliderIndex}
+                onChange={(e) => {
+                  const idx = Number(e.target.value);
+                  setPosTravellersRaw(String(TRAVELLER_TICKS[idx]));
+                }}
+                className="w-full accent-violet-600"
+              />
             </div>
             <div className="flex items-center justify-between py-2 border-b border-border gap-2">
               <Label className="text-xs sm:text-sm font-medium">{t("posChannel.calculator.slider_basket")}</Label>
@@ -390,7 +424,7 @@ export default function PosChannelPartner() {
                 {t("posChannel.calculator.redemptions_note", {
                   redemptions: new Intl.NumberFormat(localeForCurrency(currency)).format(Math.round(redemptions)),
                   rate: Math.round(redemptionRate * 100) / 100,
-                  travellers: new Intl.NumberFormat(localeForCurrency(currency)).format(AVG_ANNUAL_TRAVELLERS),
+                  travellers: new Intl.NumberFormat(localeForCurrency(currency)).format(posTravellers),
                   stores: new Intl.NumberFormat(localeForCurrency(currency)).format(posStores)
                 })}
               </p>
