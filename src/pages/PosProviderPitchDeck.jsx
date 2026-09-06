@@ -27,8 +27,8 @@ const SLIDE_LABELS = {
   tiers: "DutyCredit Tiers",
   scale: "Revenue at Scale",
   benefits: "Strategic Benefits",
-  integrate: "Integration Simplicity",
-  getStarted: "The Integration, In One Call",
+  integrate: "The Integration, In One Call",
+  getStarted: "Value Realized Quickly",
 };
 
 function SlideWrapper({ children, dark = false }) {
@@ -703,8 +703,8 @@ const SLIDE_COMPONENTS = {
   tiers: SlideTiers,
   scale: SlideScale,
   benefits: SlideBenefits,
-  integrate: SlideIntegrate,
-  getStarted: SlideApiExample,
+  integrate: SlideApiExample,
+  getStarted: SlideGetStarted,
 };
 
 export default function PosProviderPitchDeck() {
