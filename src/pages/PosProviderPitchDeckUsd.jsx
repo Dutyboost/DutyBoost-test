@@ -33,7 +33,7 @@ export default function PosProviderPitchDeckUsd() {
 
       {/* Slide */}
       <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-slate-200 min-h-[58vh] lg:h-[calc(100vh-150px)]">
-        {SlideComp}
+        <SlideComp />
       </div>
 
       {/* Controls */}
