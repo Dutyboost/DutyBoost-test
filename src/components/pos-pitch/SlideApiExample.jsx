@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ShieldCheck, RefreshCw, Lock } from "lucide-react";
 
 function GridBg() {
   return (
@@ -26,44 +26,47 @@ function CodeBlock({ title, children }) {
 }
 
 export default function SlideApiExample({ currency = "€" }) {
-  const endpoint = "https://duty-boost-deals.base44.app/functions/posWebhook";
-
-  const request = `POST ${endpoint}
-Host: duty-boost-deals.base44.app
-Content-Type: application/json
-X-POS-Secret: <your-shared-secret>
+  const request = `POST /v1/dutycredits/redeem
+Secure partner authentication
 
 {
-  "voucher_code": "DBC-7F3A9K2",
-  "transaction_value": 100.00,
-  "retailer_id": "ret_avolta_001",
-  "store_name": "Avolta Duty Free - Schiphol",
-  "airport": "AMS",
-  "num_items": 3
+  "dutycredit_token": "••••••",
+  "transaction_reference": "••••••",
+  "store_id": "••••••",
+  "basket_amount": 100.00,
+  "currency": "${currency === "€" ? "EUR" : "USD"}"
 }`;
 
   const response = `HTTP/1.1 200 OK
-Content-Type: application/json
 
 {
-  "success": true,
-  "transaction_id": "txn_01HABCD9F2K3M5N7",
-  "voucher_code": "DBC-7F3A9K2",
-  "gross_value": 100.00,
-  "effective_discount_pct": 10.0,
+  "status": "approved",
   "discount_amount": 10.00,
   "amount_due": 90.00,
-  "platform_fee": 2.50,
-  "commission_split": {
-    "travel_partner": 0.50,
-    "pos_partner": 0.25,
-    "dutyboost": 1.75
-  },
-  "message": "DutyCredit applied. Traveler saves ${currency}10.00."
+  "pos_commission": 0.25,
+  "currency": "${currency === "€" ? "EUR" : "USD"}"
 }`;
 
+  const features = [
+    {
+      icon: <ShieldCheck className="w-5 h-5 text-violet-300" />,
+      title: "Secure authentication",
+      desc: "Partner-specific access and encrypted HTTPS communication",
+    },
+    {
+      icon: <RefreshCw className="w-5 h-5 text-violet-300" />,
+      title: "Duplicate protection",
+      desc: "Idempotent processing prevents accidental double redemption",
+    },
+    {
+      icon: <Lock className="w-5 h-5 text-violet-300" />,
+      title: "No PCI burden",
+      desc: "DutyBoost never touches card data — it sits beside your payment flow",
+    },
+  ];
+
   return (
-    <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-[#0a0f1e] text-white">
+    <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-[#0a0a0c] text-white">
       <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-10 md:py-5 relative">
         <GridBg />
         <div className="relative z-10">
@@ -73,7 +76,7 @@ Content-Type: application/json
               Validate. Discount. Earn. <span className="text-violet-400">One Request. One Response.</span>
             </h2>
             <p className="text-slate-400 mt-1.5 text-xs lg:text-sm max-w-4xl">
-              A single HTTPS call at checkout. DutyBoost validates the DutyCredit, returns the discount to apply, and splits the platform fee across every participant — all attributed and logged automatically.
+              A single HTTPS call at checkout. DutyBoost validates the DutyCredit, returns the discount to apply, and credits your commission — all attributed and logged automatically.
             </p>
           </div>
 
@@ -81,9 +84,9 @@ Content-Type: application/json
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-violet-600 flex items-center justify-center text-white text-[10px] font-bold">1</div>
-                <span className="text-violet-300 font-semibold text-xs lg:text-sm">Request — POS sends basket & voucher</span>
+                <span className="text-violet-300 font-semibold text-xs lg:text-sm">POS sends the transaction essentials</span>
               </div>
-              <CodeBlock title="request">
+              <CodeBlock title="illustrative request">
 {request}
               </CodeBlock>
             </div>
@@ -91,33 +94,24 @@ Content-Type: application/json
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1.5">
                 <div className="w-5 h-5 rounded-full bg-green-600 flex items-center justify-center text-white text-[10px] font-bold">2</div>
-                <span className="text-green-300 font-semibold text-xs lg:text-sm">Response — discount + commission split</span>
+                <span className="text-green-300 font-semibold text-xs lg:text-sm">DutyBoost returns the checkout result</span>
               </div>
-              <CodeBlock title="response">
+              <CodeBlock title="illustrative response">
 {response}
               </CodeBlock>
             </div>
           </div>
 
           <div className="mt-3 lg:mt-4 grid grid-cols-1 md:grid-cols-3 gap-2.5">
-            {[
-              { label: "Travel & Corporate Partner", val: `${currency}0.50`, sub: "20% of fee — ancillary revenue", color: "text-blue-300" },
-              { label: "Enterprise POS Partner", val: `${currency}0.25`, sub: "10% of fee — your commission", color: "text-violet-300" },
-              { label: "DutyBoost", val: `${currency}1.75`, sub: "70% of fee — infrastructure revenue", color: "text-orange-300" },
-            ].map((s) => (
-              <div key={s.label} className="bg-white/5 border border-white/10 rounded-xl p-2.5 lg:p-3">
-                <div className={`font-bold text-sm lg:text-base ${s.color}`}>{s.val}</div>
-                <div className="text-white text-xs font-semibold mt-0.5">{s.label}</div>
-                <div className="text-slate-400 text-[11px] mt-0.5">{s.sub}</div>
+            {features.map((f) => (
+              <div key={f.title} className="bg-white/5 border border-white/10 rounded-xl p-3 lg:p-4 flex items-start gap-3">
+                <div className="flex-shrink-0 mt-0.5">{f.icon}</div>
+                <div>
+                  <div className="text-white font-semibold text-sm">{f.title}</div>
+                  <div className="text-slate-400 text-xs mt-0.5 leading-relaxed">{f.desc}</div>
+                </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-3 lg:mt-4 bg-gradient-to-br from-violet-900/50 to-indigo-900/50 border border-violet-500/30 rounded-2xl p-3 lg:p-4 flex items-center gap-3">
-            <ArrowRight className="w-4 h-4 text-violet-300 flex-shrink-0" />
-            <p className="text-violet-200 text-xs lg:text-sm leading-relaxed">
-              One endpoint, one shared secret, one JSON response your POS already knows how to read — every validated sale splits the fee across travel partners, POS partners and DutyBoost.
-            </p>
           </div>
         </div>
       </div>
