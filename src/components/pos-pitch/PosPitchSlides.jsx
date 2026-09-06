@@ -20,7 +20,7 @@ function GridBg() {
 }
 
 // SLIDE 1: Cover
-export function SlideCover() {
+export function SlideCover({ currency = "€" }) {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
@@ -44,7 +44,7 @@ export function SlideCover() {
             {[
               { label: "POS Commission", value: "0.25%" },
               { label: "Cost Model", value: "Performance" },
-              { label: "Setup Fee", value: "€0" },
+              { label: "Setup Fee", value: `${currency}0` },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center">
                 <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-violet-600 whitespace-nowrap">{s.value}</div>
@@ -643,7 +643,7 @@ export const SLIDE_LABELS = {
 
 export function getSlideComponent(type, currency) {
   const map = {
-    cover: () => <SlideCover />,
+    cover: () => <SlideCover currency={currency} />,
     opportunity: () => <SlideOpportunity />,
     problem: () => <SlideProblem />,
     solution: () => <SlideSolution currency={currency} />,
