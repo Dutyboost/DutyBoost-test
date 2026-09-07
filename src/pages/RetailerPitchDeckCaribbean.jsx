@@ -552,18 +552,22 @@ function SlideModel() {
               </div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-green-900 mb-2">At 100K $100 Transactions:</h3>
-              <div className="grid grid-cols-1 gap-1.5 text-sm">
+              <h3 className="font-bold text-green-900 mb-3">The Retailer Economics</h3>
+              <div className="space-y-2.5 text-sm">
                 {[
-                  { party: "Travellers", val: "$1M in savings" },
-                  { party: "Travel & Corporate Partners", val: "$50,000 ancillary revenue" },
-                  { party: "POS Partners", val: "$25,000 transaction revenue" },
-                  { party: "DutyBoost", val: "$175,000 infrastructure revenue" },
-                  { party: "Retailers", val: "$8.75M net before costs" },
+                  { metric: "Retailer keeps", val: "87.5% of every qualifying sale" },
+                  { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
+                  { metric: "Customer acquisition", val: "Handled by Travel & Corporate Partners before arrival" },
+                  { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
+                  { metric: "Pricing impact", val: "None — your shelf prices stay unchanged" },
+                  { metric: "Payment terms", val: "Performance-based — only on validated transactions" },
                 ].map((row) => (
-                  <div key={row.party} className="flex flex-col">
-                    <span className="text-slate-600">{row.party}</span>
-                    <span className="font-semibold text-green-700">{row.val}</span>
+                  <div key={row.metric} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-slate-700 font-semibold">{row.metric}: </span>
+                      <span className="text-slate-600">{row.val}</span>
+                    </div>
                   </div>
                 ))}
               </div>
