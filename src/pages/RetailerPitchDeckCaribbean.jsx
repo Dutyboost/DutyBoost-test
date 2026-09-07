@@ -439,7 +439,7 @@ function SlideConversion() {
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-blue-800 mb-3">Of the 625K unreached Sint Maarten travellers:</h3>
+              <h3 className="font-bold text-blue-800 mb-3">Non-Purchasing Traveller Incremental Potential (625K):</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
                 <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span className="sm:text-right">Retailer Net</span>
               </div>
