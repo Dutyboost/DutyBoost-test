@@ -34,7 +34,7 @@ const SLIDE_LABELS = {
 
 function SlideWrapper({ children, dark = false }) {
   return (
-    <div className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${dark ? "bg-[#0a0f1e] text-white" : "bg-white text-[#0a0f1e]"}`}>
+    <div className={`w-full flex flex-col overflow-y-auto ${dark ? "bg-[#0a0f1e] text-white" : "bg-white text-[#0a0f1e]"}`}>
       {children}
     </div>
   );
