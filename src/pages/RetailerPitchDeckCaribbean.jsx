@@ -85,7 +85,7 @@ function SlideCover() {
             {[
               { label: "Caribbean DF&TR", value: "$2.72B" },
               { label: "Non-Purchase", value: "73%" },
-              { label: "Retailer Net", value: "87.5%" },
+              { label: "Market Growth", value: "21.7%" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
