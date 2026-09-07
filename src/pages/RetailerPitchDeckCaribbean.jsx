@@ -334,7 +334,7 @@ function SlideMarket() {
         <div className="mb-5">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Sint Maarten Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            855K Air Arrivals. 1.6M Cruise Visitors. <span className="text-blue-600">$2.72B Regional Market</span>
+            855K Air Arrivals. $67M Local Market. <span className="text-blue-600">$2.72B Regional Market</span>
           </h2>
           <p className="text-slate-500 mt-2">DutyBoost doesn't need to create the market. It connects what already exists.</p>
         </div>
@@ -342,7 +342,7 @@ function SlideMarket() {
           {[
             { label: "Sint Maarten Air Arrivals", value: "855,994", sub: "53.9% North America | 25.8% EU (SXM Gov, 2025)", color: "blue", subLink: SXM_LINK },
             { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "indigo", subLink: CMI_LINK },
-            { label: "Sint Maarten Cruise Visitors", value: "1,597,940", sub: "+16% YoY growth (SXM Gov, 2025)", color: "violet", subLink: SXM_LINK },
+            { label: "Sint Maarten DF&TR Share", value: "$67M", sub: "2.45% of Caribbean market (est.)", color: "violet", subLink: CMI_LINK },
           ].map((m) => (
             <div key={m.label} className={`bg-${m.color}-50 border border-${m.color}-200 rounded-2xl p-6 text-center`}>
               <div className={`text-xl md:text-3xl font-bold text-${m.color}-700 mb-2`}>{m.value}</div>
@@ -384,7 +384,7 @@ function SlideMarket() {
             <div className="space-y-2">
               {[
                 "Sint Maarten airport — it already exists",
-                "Passenger traffic — 855,994 air arrivals + 1.6M cruise visitors",
+                "Passenger traffic — 855,994 air arrivals in 2025",
                 "Airport Retailers — they already operate stores",
                 "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
