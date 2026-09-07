@@ -663,16 +663,17 @@ function SlideIncremental() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {[
-            { size: "Single Store", reach: "~10% of 625K = ~62.5K travellers", conv: "+1% = ~625 txns", net: "$54.7K", color: "blue" },
-            { size: "Multi-Store Group", reach: "~30% of 625K = ~187.5K travellers", conv: "+1% = ~1.9K txns", net: "$164K", color: "indigo" },
-            { size: "Airport-Wide Retailer", reach: "100% of 625K travellers", conv: "+1% = ~6.3K txns", net: "$547K", color: "violet" },
+            { size: "Single Store", reach: "~10% of 625K = ~62.5K travellers", conv: "+1% = ~625 txns", gross: "$62.5K", net: "$54.7K", color: "blue" },
+            { size: "Multi-Store Group", reach: "~30% of 625K = ~187.5K travellers", conv: "+1% = ~1.9K txns", gross: "$187.5K", net: "$164K", color: "indigo" },
+            { size: "Airport-Wide Retailer", reach: "100% of 625K travellers", conv: "+1% = ~6.3K txns", gross: "$625K", net: "$547K", color: "violet" },
           ].map((s) => (
             <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
               <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
               <div className="text-slate-500 text-sm mb-3">{s.reach}</div>
-              <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
-              <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retailer net</div>
-              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ $100 avg basket</div>
+              <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.gross}</div>
+              <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retail value</div>
+              <div className="text-slate-600 text-xs border-t border-slate-200 pt-2">retailer net (87.5%): <span className="font-semibold text-slate-800">{s.net}</span></div>
+              <div className="text-slate-500 text-xs mt-1">{s.conv} @ $100 avg basket</div>
             </div>
           ))}
         </div>
