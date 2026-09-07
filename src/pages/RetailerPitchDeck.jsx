@@ -691,13 +691,13 @@ function SlideGetStarted() {
             </h2>
           </div>
           <p className="text-slate-300 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
-            DutyBoost is a feature your POS provider activates — not a project you implement. No integration, no rollout, no operational change. Just a switch that turns incremental revenue on.
+            DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
             {[
-              { title: "Switch On, Not Build", desc: "Your POS provider flips the switch. No development, no integration, no project plan — just activation." },
+              { title: "A New Feature in Your POS", desc: "DutyBoost appears as a toggle in your existing POS dashboard. No development, no integration, no project plan — just flip the switch." },
               { title: "Earning From Day One", desc: "Once switched on, pre-activated travellers can redeem DutyCredits at your store immediately. No waiting period." },
-              { title: "Switch Off Anytime", desc: "Don't like the results? Switch it off. No lock-in, no cancellation fees, no commitments. You stay in control." },
+              { title: "Switch Off Anytime", desc: "Don't like the results? Flip it off. No lock-in, no cancellation fees, no commitments. You stay in control." },
               { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. Your checkout flow stays exactly the same." },
             ].map((card, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 lg:p-5 text-left">
@@ -708,7 +708,7 @@ function SlideGetStarted() {
           </div>
           <div className="flex flex-col items-center gap-1.5">
             <p className="text-orange-400 text-base lg:text-xl font-bold">
-              No setup fee. No subscription. No implementation. Switch on — earn. Switch off — stop.
+              No setup fee. No subscription. No implementation. Flip the switch — earn. Flip it off — stop.
             </p>
             <p className="text-slate-300 text-sm lg:text-base font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
