@@ -541,7 +541,7 @@ function SlideModel() {
               </p>
               <div className="space-y-2 text-sm">
                 {[
-                  "Funds POS Partner commission, Travel & Corporate Partner commission & platform infrastructure",
+                  "Funds POS, Travel, Corporate Partner commission & platform infrastructure",
                   "Applied only when a DutyCredit redemption is validated through your POS",
                   "No impact on your shelf prices or non-DutyBoost sales",
                   "Settled transparently — attributed and reported per transaction",
