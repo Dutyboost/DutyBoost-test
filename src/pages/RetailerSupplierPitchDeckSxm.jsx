@@ -459,7 +459,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder value ≈ 50% of retail price — the wholesale revenue from incremental units reordered by retailers. Duty-free operators retain ~49–55% gross margin <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ~49%)</a> with airport concession rents absorbing a large share of the retailer's margin <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>. Retailer net after DutyBoost's 12.5% fee = 87.5% of retail, covering gross margin + operating costs — the supplier's ~50% is the reorder value within that.</div>
+              <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder ≈ 50% of retail price, based on duty-free operator gross margins of ~49–55% <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ~49%)</a> <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>.</div>
             </div>
           </div>
           <div className="flex flex-col gap-4">
