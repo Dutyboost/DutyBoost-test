@@ -158,7 +158,7 @@ function SlideTeam() {
             ))}
           </div>
           <p className="mt-6 max-w-4xl mx-auto text-center text-slate-700 text-sm md:text-base leading-relaxed">
-            DutyBoost combines airport retail expertise with technology, marketing and commercial strategy — built by a team that understands how Caribbean airport stores operate. We know the challenges of converting passengers into buyers, and we built DutyBoost to help retailers like you capture revenue from travellers who otherwise walk straight to the gate. Our role is simple: bring more pre-activated shoppers to your stores and help you turn foot traffic into sales.
+            DutyBoost combines airport retail expertise with technology, marketing and commercial strategy — built by a team that understands how airport stores operate. We know the challenges of converting passengers into buyers, and we built DutyBoost to help retailers like you capture revenue from travellers who otherwise walk straight to the gate. Our role is simple: bring more pre-activated shoppers to your stores and help you turn foot traffic into sales.
           </p>
         </div>
       </div>
