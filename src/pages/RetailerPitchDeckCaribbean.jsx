@@ -203,7 +203,7 @@ function SlideProblem() {
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
                   Avolta penetration benchmark
                 </a>{" "}
-                <span className="text-slate-500 text-sm font-normal">(See slide 6 for more details)</span>
+                <span className="text-slate-500 text-sm font-normal">(See slide 7 for more details)</span>
                 <div className="text-slate-500 text-sm mt-1">Non-purchase exposure across travel retail</div>
               </div>
             </div>
@@ -435,7 +435,7 @@ function SlideConversion() {
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
                   Avolta penetration benchmark
                 </a>{" "}
-                <span className="text-slate-400 text-sm font-normal">(See slide 3 for more details)</span>
+                <span className="text-slate-400 text-sm font-normal">(See slide 7 for more details)</span>
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
