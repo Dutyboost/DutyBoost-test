@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, Fragment } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, Store, TrendingUp, CheckCircle, BarChart3 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
@@ -651,6 +652,18 @@ function SlideScale() {
             </ul>
           </div>
         </div>
+        <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-2xl p-4 lg:p-5 mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Store className="w-6 h-6 text-orange-600 flex-shrink-0" />
+            <div>
+              <div className="font-bold text-orange-900 text-sm lg:text-base">See It in Practice — Avolta Demo Dashboard</div>
+              <div className="text-orange-700 text-xs lg:text-sm">Explore a live simulation of DutyBoost transactions, redemptions and incremental revenue at an Avolta duty-free store.</div>
+            </div>
+          </div>
+          <Link to="/demo/retailer-avolta" className="flex items-center gap-2 px-5 py-3 bg-orange-600 text-white rounded-xl font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap text-sm">
+            View Avolta Report <ArrowRight size={16} />
+          </Link>
+        </div>
       </div>
     </SlideWrapper>
   );
@@ -673,19 +686,19 @@ function SlideGetStarted() {
           <div className="mb-4 lg:mb-6">
             <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
             <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-white mt-2 leading-tight">
-              Fast to Launch.<br />
-              <span className="text-orange-400">Faster to Incremental Revenue.</span>
+              Switch It On.<br />
+              <span className="text-orange-400">Start Earning. Switch Off Anytime.</span>
             </h2>
           </div>
           <p className="text-slate-300 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
-            DutyBoost is designed to deliver measurable added value to your stores in a very short time — no lengthy rollout, no upfront investment, no operational disruption.
+            DutyBoost is a feature your POS provider activates — not a project you implement. No integration, no rollout, no operational change. Just a switch that turns incremental revenue on.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
             {[
-              { title: "Weeks, Not Months", desc: "A lightweight POS validation layer — no replacement of your existing systems, pricing or merchandising." },
-              { title: "Incremental Sales From Day One", desc: "Once live, pre-activated travellers arrive at your store already motivated by a financial incentive. The first validated transactions can follow within days." },
-              { title: "Revenue From the 90%+ Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental basket value." },
-              { title: "Higher Average Baskets", desc: "The tiered DutyCredit structure rewards higher spend, encouraging travellers to reach the next incentive level." },
+              { title: "Switch On, Not Build", desc: "Your POS provider flips the switch. No development, no integration, no project plan — just activation." },
+              { title: "Earning From Day One", desc: "Once switched on, pre-activated travellers can redeem DutyCredits at your store immediately. No waiting period." },
+              { title: "Switch Off Anytime", desc: "Don't like the results? Switch it off. No lock-in, no cancellation fees, no commitments. You stay in control." },
+              { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. Your checkout flow stays exactly the same." },
             ].map((card, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 lg:p-5 text-left">
                 <div className="text-orange-300 font-bold lg:text-base mb-1.5">{card.title}</div>
@@ -695,7 +708,7 @@ function SlideGetStarted() {
           </div>
           <div className="flex flex-col items-center gap-1.5">
             <p className="text-orange-400 text-base lg:text-xl font-bold">
-              No setup fee. No subscription. No risk. Only incremental revenue — connected.
+              No setup fee. No subscription. No implementation. Switch on — earn. Switch off — stop.
             </p>
             <p className="text-slate-300 text-sm lg:text-base font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
