@@ -9,6 +9,7 @@ import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 
 const CMI_LINK = "https://www.coherentmarketinsights.com/market-insight/caribbean-duty-free-retailing-market-4934";
+const SXM_LINK = "https://www.sintmaartengov.org/news/pages/Passenger-Arrivals-and-Cruise-Arrivals-Show-Growth-in-2025.aspx";
 const CTO_LINK = "https://www.onecaribbean.org/caribbean-tourism-shows-resilient-growth-amid-global-headwinds-in-2025/";
 const AVOLTA_LINK = "https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com";
 const ACI_LINK = "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com";
@@ -33,7 +34,7 @@ const SLIDE_LABELS = {
   team: "Our Team",
   problem: "The Problem",
   solution: "The Solution",
-  market: "Caribbean Market",
+  market: "Sint Maarten Market",
   conversion: "Conversion Opportunity",
   model: "Business Model",
   transaction: "Transaction Economics",
@@ -78,12 +79,12 @@ function SlideCover() {
               <span className="text-blue-600">Who Otherwise Wouldn't Buy</span>
             </h1>
             <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
-              A Presentation for Caribbean Airport Retailers
+              A Presentation for Sint Maarten Airport Retailers
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
-              { label: "Caribbean DF&TR", value: "$2.72B" },
+              { label: "Sint Maarten", value: "855,994" },
               { label: "Non-Purchase", value: "73%" },
               { label: "Market Growth", value: "21.7%" },
               { label: "Upfront Cost", value: "$0" },
@@ -190,11 +191,11 @@ function SlideProblem() {
                 </div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">35M</div>
-                <div className="text-slate-800 font-semibold">Caribbean stayover arrivals in 2025</div>
-                <div className="text-slate-500 text-sm mt-1">+2.5% YoY{" "}
-                  <a href={CTO_LINK} target="_blank" rel="noopener noreferrer"
-                    className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(CTO)</a>
+                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">855,994</div>
+                <div className="text-slate-800 font-semibold">Sint Maarten air passenger arrivals in 2025</div>
+                <div className="text-slate-500 text-sm mt-1">53.9% from North America | 25.8% from EU{" "}
+                  <a href={SXM_LINK} target="_blank" rel="noopener noreferrer"
+                    className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(SXM Gov)</a>
                 </div>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
@@ -330,17 +331,17 @@ function SlideMarket() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-12 py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Caribbean Market Opportunity</span>
+          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Sint Maarten Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            35M Travellers. $2.72B Market — <span className="text-blue-600">Already Exists</span>
+            855K Air Arrivals. 1.6M Cruise Visitors. <span className="text-blue-600">$2.72B Regional Market</span>
           </h2>
           <p className="text-slate-500 mt-2">DutyBoost doesn't need to create the market. It connects what already exists.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {[
-            { label: "Caribbean Stayover Arrivals", value: "35M", sub: "+2.5% YoY growth (CTO, 2025)", color: "blue", subLink: CTO_LINK },
+            { label: "Sint Maarten Air Arrivals", value: "855,994", sub: "53.9% North America | 25.8% EU (SXM Gov, 2025)", color: "blue", subLink: SXM_LINK },
             { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "indigo", subLink: CMI_LINK },
-            { label: "Caribbean Airport DF&TR", value: "$1.85B", sub: "68.2% airport-channel share (CMI)", color: "violet", subLink: CMI_LINK },
+            { label: "Sint Maarten Cruise Visitors", value: "1,597,940", sub: "+16% YoY growth (SXM Gov, 2025)", color: "violet", subLink: SXM_LINK },
           ].map((m) => (
             <div key={m.label} className={`bg-${m.color}-50 border border-${m.color}-200 rounded-2xl p-6 text-center`}>
               <div className={`text-xl md:text-3xl font-bold text-${m.color}-700 mb-2`}>{m.value}</div>
@@ -358,13 +359,13 @@ function SlideMarket() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-            <h3 className="font-bold text-slate-700 mb-4">Caribbean DF&TR Categories (2026 est.)</h3>
+            <h3 className="font-bold text-slate-700 mb-4">Sint Maarten DF&TR Categories (2026 est.)</h3>
             <div className="space-y-2">
               {[
-                { cat: "Fragrances & Cosmetics", val: "$917M", pct: 90 },
-                { cat: "Wines & Spirits", val: "$598M", pct: 59 },
-                { cat: "Fashion & Accessories", val: "$435M", pct: 43 },
-                { cat: "Tobacco", val: "$272M", pct: 27 },
+                { cat: "Fragrances & Cosmetics", val: "$23M", pct: 90 },
+                { cat: "Wines & Spirits", val: "$15M", pct: 59 },
+                { cat: "Fashion & Accessories", val: "$11M", pct: 43 },
+                { cat: "Tobacco", val: "$7M", pct: 27 },
               ].map((row) => (
                 <div key={row.cat} className="flex items-center gap-3">
                   <div className="w-32 text-sm text-slate-600">{row.cat}</div>
@@ -375,14 +376,14 @@ function SlideMarket() {
                 </div>
               ))}
             </div>
-            <div className="text-slate-400 text-xs mt-3">Category values estimated from CMI market share data (Fragrance & Cosmetics: 33.7% confirmed share)</div>
+            <div className="text-slate-400 text-xs mt-3">Sint Maarten category values estimated from CMI market share data, proportional to Sint Maarten's air arrival share of the Caribbean market (855,994 / 35M ≈ 2.45% of $2.72B ≈ $67M total)</div>
           </div>
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
             <h3 className="font-bold text-slate-700 mb-3">DutyBoost doesn't need to create:</h3>
             <div className="space-y-2">
               {[
-                "Caribbean airports — they already exist",
-                "Passenger traffic — 35M stayover arrivals",
+                "Sint Maarten airport — it already exists",
+                "Passenger traffic — 855,994 air arrivals + 1.6M cruise visitors",
                 "Airport Retailers — they already operate stores",
                 "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
@@ -423,7 +424,7 @@ function SlideConversion() {
                 <div>
                   <div className="text-3xl md:text-5xl font-bold text-red-600">73%</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchase exposure (Avolta benchmark)</div>
-                  <div className="text-slate-400 text-xs mt-1">= 25.5M unreached Caribbean travellers</div>
+                  <div className="text-slate-400 text-xs mt-1">= 625K unreached Sint Maarten travellers</div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="text-3xl md:text-5xl font-bold text-green-600">27%</div>
@@ -957,7 +958,7 @@ export default function RetailerPitchDeckCaribbean() {
     <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
       <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
         <div className="text-white text-sm font-semibold opacity-60">
-          DutyBoost — Caribbean Airport Retailer Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
+          DutyBoost — Sint Maarten Airport Retailer Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
         <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
       </div>
