@@ -439,16 +439,16 @@ function SlideConversion() {
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-blue-800 mb-3">At 180M travellers reached (Year 5):</h3>
+              <h3 className="font-bold text-blue-800 mb-3">At 855,994 Sint Maarten air arrivals:</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
                 <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span className="sm:text-right">Retailer Net</span>
               </div>
               <div className="space-y-1.5">
                 {[
-                  { conv: "+0.5 pp", txns: "900K", retail: "$90M", ret: "$78.75M" },
-                  { conv: "+1 pp", txns: "1.8M", retail: "$180M", ret: "$157.5M" },
-                  { conv: "+2 pp", txns: "3.6M", retail: "$360M", ret: "$315M" },
-                  { conv: "+5 pp", txns: "9.0M", retail: "$900M", ret: "$787.5M" },
+                  { conv: "+0.5 pp", txns: "4.3K", retail: "$428K", ret: "$374K" },
+                  { conv: "+1 pp", txns: "8.6K", retail: "$856K", ret: "$749K" },
+                  { conv: "+2 pp", txns: "17.1K", retail: "$1.71M", ret: "$1.50M" },
+                  { conv: "+5 pp", txns: "42.8K", retail: "$4.28M", ret: "$3.75M" },
                 ].map((row, i) => (
                   <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-200/50 font-semibold" : ""}`}>
                     <span className="text-blue-700">{row.conv}</span>
