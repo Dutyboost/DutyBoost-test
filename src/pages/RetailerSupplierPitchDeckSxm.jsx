@@ -39,7 +39,7 @@ const SLIDE_LABELS = {
   transaction: "Transaction Economics",
   category: "Category Impact",
   flywheel: "Growth Flywheel",
-  getStarted: "Get Started",
+  getStarted: "Partnership Model",
   thankYou: "Thank You",
 };
 
@@ -793,50 +793,69 @@ function SlideFlywheel() {
   );
 }
 
-// SLIDE 11: Get Started
+// SLIDE 11: How the Partnership Works
 function SlideGetStarted() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
-        <div className="relative z-10 text-center">
-          <div className="flex justify-center mb-4 lg:mb-6">
-            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl border border-slate-200">
-              <DutyBoostLogo height={40} linkTo="/retailer-showcase" />
+        <div className="relative z-10">
+          <div className="mb-5 text-center">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">How the Partnership Works</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              A Lightweight Collaboration.<br /><span className="text-blue-600">No Logistics, No Cost, No Risk.</span>
+            </h2>
+            <p className="text-slate-500 mt-2 max-w-3xl mx-auto text-sm">DutyBoost does the activation. Suppliers do what they already do — supply great products. Here's how we work together.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 className="font-bold text-slate-800 mb-3">What DutyBoost Handles</h3>
+              <div className="space-y-2.5 text-sm">
+                {[
+                  { Icon: TravelerIcon, text: "Pre-activating travellers through Travel & Corporate Partners before arrival" },
+                  { Icon: DollarSign, text: "DutyCredit distribution and traveller incentive mechanics" },
+                  { Icon: BarChart3, text: "POS validation of qualifying transactions" },
+                  { Icon: RefreshCw, text: "Conversion data and sell-through reporting per category" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <row.Icon className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{row.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+              <h3 className="font-bold text-blue-900 mb-3">What We Ask of Suppliers</h3>
+              <div className="space-y-2.5 text-sm">
+                {[
+                  { Icon: Store, text: "Advocate DutyBoost activation with your retail customers" },
+                  { Icon: Package, text: "Share category priorities so we align DutyCredit tiers with your product mix" },
+                  { Icon: TrendingUp, text: "Highlight hero SKUs travellers should seek out" },
+                  { Icon: CheckCircle, text: "That's it — no contracts, no fees, no operational change" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <row.Icon className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{row.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="mb-4 lg:mb-6">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Partner With DutyBoost</span>
-            <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
-              Turn 625K Non-Purchasers<br />
-              <span className="text-blue-600">Into Incremental Sell-Through.</span>
-            </h2>
-          </div>
-          <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
-            Your products are already on Sint Maarten's airport shelves. Your retail customers already stock them. DutyBoost activates the 625K travellers who currently walk past — converting foot traffic into faster rotation and more orders. No upfront cost. No logistics change. Just incremental volume from existing shelf space.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
-            {[
-              { title: "Your Products, Already Stocked", desc: "No new listing, no new logistics — DutyBoost works with the stock already on airport shelves." },
-              { title: "Incremental Volume From Day One", desc: "Once retailers activate, pre-activated travellers start buying your categories immediately." },
-              { title: "Faster Rotation, More Orders", desc: "Stock turns quicker → retailers reorder sooner → your revenue grows through existing channels." },
-              { title: "Zero Upfront Cost", desc: "No setup fee, no subscription. You benefit from conversion-driven sell-through at no cost." },
-            ].map((card, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:p-5 text-left">
-                <div className="text-blue-700 font-bold lg:text-base mb-1.5">{card.title}</div>
-                <div className="text-slate-600 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-blue-600 text-base lg:text-xl font-bold">
-              Help your retail customers sell more — and grow your own volume in the process.
-            </p>
-            <p className="text-slate-700 text-sm lg:text-base font-semibold">
-              Performance-based. Zero upfront cost. Incremental revenue from traffic that's already there.
-            </p>
+          <div className="bg-slate-800 text-white rounded-2xl p-5">
+            <h3 className="font-bold mb-4 text-center">Three Simple Next Steps</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                { step: "1", title: "Introductory Call", desc: "A 30-minute conversation to understand your categories, retail customers and goals." },
+                { step: "2", title: "Category Review", desc: "We align DutyCredit tiers and hero SKUs with your product mix and shelf presence." },
+                { step: "3", title: "Retailer Introduction", desc: "We introduce DutyBoost to your retail customers and support their POS activation." },
+              ].map((row) => (
+                <div key={row.step} className="bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm mb-3">{row.step}</div>
+                  <div className="text-white font-bold text-sm mb-1.5">{row.title}</div>
+                  <div className="text-slate-300 text-xs leading-relaxed">{row.desc}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
