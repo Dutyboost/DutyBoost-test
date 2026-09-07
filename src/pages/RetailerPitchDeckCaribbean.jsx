@@ -28,6 +28,7 @@ const SLIDES = [
   { id: "integrate", type: "integrate" },
   { id: "flywheel", type: "flywheel" },
   { id: "getStarted", type: "getStarted" },
+  { id: "thankYou", type: "thankYou" },
 ];
 
 const SLIDE_LABELS = {
@@ -43,6 +44,7 @@ const SLIDE_LABELS = {
   integrate: "POS Integration",
   flywheel: "Growth Flywheel",
   getStarted: "Get Started",
+  thankYou: "Thank You",
 };
 
 function SlideWrapper({ children }) {
@@ -903,9 +905,58 @@ function SlideGetStarted() {
             <p className="text-slate-700 text-sm lg:text-base font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
             </p>
-            <Link to="/demo/retailer-avolta" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-sm mt-2">
-              <Store size={16} /> See It in Practice — Avolta Demo <ArrowRight size={16} />
-            </Link>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 13: Thank You / Join DutyBoost
+function SlideThankYou() {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
+          style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
+        <div className="relative z-10 flex flex-col items-center text-center">
+          <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl border border-slate-200 mb-6">
+            <DutyBoostLogo height={48} linkTo="/retailer-showcase" />
+          </div>
+          <div className="mb-4">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Thank You</span>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
+              Join DutyBoost.<br />
+              <span className="text-blue-600">Start Earning Incremental Revenue.</span>
+            </h2>
+          </div>
+          <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl leading-relaxed mb-6">
+            DutyBoost connects what already exists — your stores, your POS, and 625K travellers who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl w-full mb-6">
+            {[
+              { Icon: Store, title: "Activate in Your POS", desc: "Flip the DutyBoost switch in your existing POS dashboard — no integration required." },
+              { Icon: CheckCircle, title: "Earn From Day One", desc: "Pre-activated travellers redeem DutyCredits at your store immediately." },
+              { Icon: ArrowRight, title: "Switch Off Anytime", desc: "No lock-in, no commitments — you stay in control, always." },
+            ].map((card, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-left">
+                <card.Icon className="w-8 h-8 text-blue-600 mb-2" />
+                <div className="text-blue-700 font-bold text-sm mb-1.5">{card.title}</div>
+                <div className="text-slate-600 text-xs leading-relaxed">{card.desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white max-w-2xl">
+            <p className="font-bold text-base lg:text-lg leading-snug mb-2">
+              Ready to turn 625K non-purchasing travellers into incremental sales?
+            </p>
+            <p className="text-blue-50 text-sm">
+              Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.
+            </p>
+          </div>
+          <div className="mt-6 text-slate-500 text-xs">
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
       </div>
@@ -926,6 +977,7 @@ const SLIDE_COMPONENTS = {
   integrate: SlideIntegrate,
   flywheel: SlideFlywheel,
   getStarted: SlideGetStarted,
+  thankYou: SlideThankYou,
 };
 
 export default function RetailerPitchDeckCaribbean() {
