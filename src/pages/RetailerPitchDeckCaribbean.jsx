@@ -659,20 +659,20 @@ function SlideIncremental() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             What DutyBoost Can Bring <span className="text-blue-600">to Your Stores</span>
           </h2>
-          <p className="text-slate-500 mt-1 text-sm">If just 1% more of your non-purchasing passengers convert through a DutyBoost-validated transaction — incremental revenue from travellers who otherwise would not have bought.</p>
+          <p className="text-slate-500 mt-1 text-sm">Sint Maarten has 855,994 air arrivals — 73% (625K) never purchase. If just 1% more of the non-purchasing travellers you reach convert through a DutyBoost-validated transaction, here is the incremental revenue from travellers who otherwise would not have bought.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {[
-            { size: "Single Airport", pax: "1M passengers/yr", conv: "+1% = 10K txns", net: "$525K", color: "blue" },
-            { size: "Multi-Airport Group", pax: "10M passengers/yr", conv: "+1% = 100K txns", net: "$5.25M", color: "indigo" },
-            { size: "Major Network", pax: "50M+ passengers/yr", conv: "+1% = 500K txns", net: "$26.25M", color: "violet" },
+            { size: "Single Store", reach: "~10% of 625K = ~62.5K travellers", conv: "+1% = ~625 txns", net: "$54.7K", color: "blue" },
+            { size: "Multi-Store Group", reach: "~30% of 625K = ~187.5K travellers", conv: "+1% = ~1.9K txns", net: "$164K", color: "indigo" },
+            { size: "Airport-Wide Retailer", reach: "100% of 625K travellers", conv: "+1% = ~6.3K txns", net: "$547K", color: "violet" },
           ].map((s) => (
             <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
               <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
-              <div className="text-slate-500 text-sm mb-3">{s.pax}</div>
+              <div className="text-slate-500 text-sm mb-3">{s.reach}</div>
               <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
               <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retailer net</div>
-              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ $60 avg value</div>
+              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ $100 avg basket</div>
             </div>
           ))}
         </div>
@@ -697,7 +697,7 @@ function SlideIncremental() {
             <h3 className="font-bold text-green-900 mb-3">Why This Is Pure Upside</h3>
             <ul className="space-y-2 text-sm">
               {[
-                "100% incremental — from the 90–95% who currently never buy",
+                "100% incremental — from the 73% of travellers who currently never buy",
                 "Zero upfront cost — pay only the 2.5% fee on validated sales",
                 "No change to your existing POS, pricing or merchandising",
                 "Attributed & reported transparently per transaction",
@@ -709,18 +709,6 @@ function SlideIncremental() {
               ))}
             </ul>
           </div>
-        </div>
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-4 lg:p-5 mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Store className="w-6 h-6 text-blue-600 flex-shrink-0" />
-            <div>
-              <div className="font-bold text-blue-900 text-sm lg:text-base">See It in Practice — Avolta Demo Dashboard</div>
-              <div className="text-blue-700 text-xs lg:text-sm">Explore a live simulation of DutyBoost transactions, redemptions and incremental revenue at an Avolta duty-free store.</div>
-            </div>
-          </div>
-          <Link to="/demo/retailer-avolta" className="flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap text-sm">
-            View Avolta Report <ArrowRight size={16} />
-          </Link>
         </div>
       </div>
     </SlideWrapper>
