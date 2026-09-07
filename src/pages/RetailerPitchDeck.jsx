@@ -71,7 +71,7 @@ function SlideCover() {
           </div>
           <div className="flex flex-wrap items-start justify-center gap-x-6 sm:gap-x-12 lg:gap-x-16 gap-y-4 mt-4 w-full max-w-xl lg:max-w-4xl">
             {[
-              { label: "Retailer Net", value: "€87.50" },
+              { label: "Retailer Net", value: "€52.50" },
               { label: "Cost Model", value: "Performance" },
               { label: "Setup Fee", value: "€0" },
             ].map((s) => (
@@ -206,10 +206,10 @@ function SlideSolution() {
                   { n: "2", step: "Travel Partner distributes DutyCredit", color: "bg-orange-600" },
                   { n: "3", step: "Traveller activates the benefit", color: "bg-indigo-600" },
                   { n: "4", step: "Arrives at airport with purchase intent", color: "bg-indigo-600" },
-                  { n: "5", step: "Visits your participating store", color: "bg-violet-600" },
-                  { n: "6", step: "POS validates transaction", color: "bg-violet-600" },
-                  { n: "7", step: "DutyCredit applied — performance fee only", color: "bg-green-600" },
-                  { n: "8", step: "Transaction validated & reported", color: "bg-green-600" },
+                  { n: "5", step: "Redeems DutyCredit at your store on arrival", color: "bg-violet-600" },
+                  { n: "6", step: "POS validates via DutyBoost activation feature", color: "bg-violet-600" },
+                  { n: "7", step: "Can generate a new DutyCredit before departure", color: "bg-blue-600" },
+                  { n: "8", step: "Transaction validated & reported — performance fee only", color: "bg-green-600" },
                 ].map((s) => (
                   <div key={s.n} className="flex items-center gap-3">
                     <div className={`w-6 h-6 lg:w-8 lg:h-8 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{s.n}</div>
@@ -241,8 +241,8 @@ function SlideHowItWorks() {
           {[
             {
               icon: <Cpu className="w-8 h-8 text-orange-600" />,
-              title: "Integrate Once",
-              desc: "DutyBoost connects to your existing Enterprise POS. No replacement of existing systems.",
+              title: "Activate in Your POS",
+              desc: "DutyBoost is activated as a feature within your existing POS provider. No separate integration or system replacement needed.",
               color: "orange",
             },
             {
@@ -273,7 +273,7 @@ function SlideHowItWorks() {
                 ["❌", "A loyalty programme collecting abstract points"],
                 ["❌", "A coupon or voucher-code platform"],
                 ["❌", "An advertising product requiring upfront spend"],
-                ["❌", "A POS replacement or technology disruption"],
+                ["❌", "A separate POS system or technology disruption"],
                 ["❌", "A subscription service with monthly fees"],
               ].map(([icon, text], i) => (
                 <div key={i} className="flex items-start gap-2">
@@ -316,7 +316,7 @@ function SlideEconomics() {
           <div className="mb-5">
             <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              €100 Qualifying Retail Value — <span className="text-orange-400">How It Splits</span>
+              €60 Qualifying Retail Value — <span className="text-orange-400">How It Splits</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -324,10 +324,10 @@ function SlideEconomics() {
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mb-4">
                 <div className="space-y-2">
                   {[
-                    { label: "Original qualifying retail value", val: "€100.00", style: "text-white font-bold text-lg" },
-                    { label: "Traveller DutyCredit saving", val: "€10.00", style: "text-blue-300" },
-                    { label: "Traveller actually pays", val: "€90.00", style: "text-orange-300" },
-                    { label: "DutyBoost platform fee (2.5%)", val: "€2.50", style: "text-slate-400" },
+                    { label: "Original qualifying retail value", val: "€60.00", style: "text-white font-bold text-lg" },
+                     { label: "Traveller DutyCredit saving", val: "€6.00", style: "text-blue-300" },
+                     { label: "Traveller actually pays", val: "€54.00", style: "text-orange-300" },
+                     { label: "DutyBoost platform fee (2.5%)", val: "€1.50", style: "text-slate-400" },
                   ].map((row, i) => (
                     <div key={i} className={`flex justify-between items-center py-1 border-b border-white/5 ${i === 0 ? "pb-2 mb-1" : ""}`}>
                       <span className={`text-sm ${row.style.includes("ml") ? "text-slate-500 pl-4" : "text-slate-300"}`}>{row.label}</span>
@@ -336,12 +336,12 @@ function SlideEconomics() {
                   ))}
                   <div className="flex justify-between items-center py-2 mt-1 bg-green-900/40 rounded-xl px-3">
                     <span className="text-green-300 font-bold text-sm">Airport Retailer net before normal costs</span>
-                    <span className="text-green-300 font-bold text-xl">€87.50</span>
+                    <span className="text-green-300 font-bold text-xl">€52.50</span>
                   </div>
                 </div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Value distribution on €100</div>
+                <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Value distribution on €60</div>
                 <div className="flex h-5 rounded-full overflow-hidden gap-px">
                   <div className="bg-green-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
                   <div className="bg-blue-400" style={{ width: "10%" }} title="Traveller 10%" />
@@ -365,17 +365,17 @@ function SlideEconomics() {
               <div className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 border border-green-500/30 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-3">The Core Question</h3>
                 <p className="text-green-200 text-base leading-relaxed font-semibold">
-                  "Is earning €87.50 from an incremental €100 retail sale — without upfront customer acquisition cost — more valuable than earning €0 from a traveller who otherwise would not have converted?"
+                  "Is earning €52.50 from an incremental €60 retail sale — without upfront customer acquisition cost — more valuable than earning €0 from a traveller who otherwise would not have converted?"
                 </p>
                 <p className="text-green-400 font-bold text-lg mt-3">Yes. Every time.</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                <h3 className="text-white font-semibold mb-3">Your total economic cost per €100 transaction</h3>
+                <h3 className="text-white font-semibold mb-3">Your total economic cost per €60 transaction</h3>
                 <div className="space-y-2 text-sm">
                   {[
-                    { item: "Traveller DutyCredit incentive", val: "€10.00", sub: "10% of original value" },
-                    { item: "DutyBoost platform fee", val: "€2.50", sub: "2.5% of original value" },
-                    { item: "Total cost to retailer", val: "€12.50", sub: "12.5% of original value", highlight: true },
+                    { item: "Traveller DutyCredit incentive", val: "€6.00", sub: "10% of original value" },
+                     { item: "DutyBoost platform fee", val: "€1.50", sub: "2.5% of original value" },
+                     { item: "Total cost to retailer", val: "€7.50", sub: "12.5% of original value", highlight: true },
                   ].map((row, i) => (
                     <div key={i} className={`flex justify-between items-center p-2 rounded-lg ${row.highlight ? "bg-orange-900/50 border border-orange-500/30" : ""}`}>
                       <div>
@@ -478,19 +478,19 @@ function SlideIncremental() {
             <div className="text-slate-500 text-sm mt-1">90–95% of global passengers — the current reality</div>
           </div>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-6 flex flex-col justify-center">
-            <div className="text-5xl font-bold text-green-600 mb-2">€87.50</div>
+            <div className="text-5xl font-bold text-green-600 mb-2">€52.50</div>
             <div className="text-slate-700 font-semibold">Retailer net before normal costs</div>
-            <div className="text-slate-500 text-sm mt-1">From an incremental €100 DutyBoost transaction</div>
+            <div className="text-slate-500 text-sm mt-1">From an incremental €60 DutyBoost transaction</div>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
           <div className="bg-orange-50 border border-orange-200 rounded-2xl p-5 flex flex-col justify-center">
-            <h3 className="font-bold text-orange-900 mb-3">At 1 Million €100 Incremental Transactions</h3>
+            <h3 className="font-bold text-orange-900 mb-3">At 1 Million €60 Incremental Transactions</h3>
             <div className="space-y-2">
               {[
-                { party: "Travellers receive", val: "€10M in DutyCredit value" },
-                { party: "Retailer net (before costs)", val: "€87.5M" },
-                { party: "DutyBoost earns", val: "€2.5M infrastructure revenue" },
+                { party: "Travellers receive", val: "€6M in DutyCredit value" },
+                { party: "Retailer net (before costs)", val: "€52.5M" },
+                { party: "DutyBoost earns", val: "€1.5M infrastructure revenue" },
               ].map((row, i) => (
                 <div key={i} className="flex justify-between items-center text-sm py-1 border-b border-orange-100 last:border-0">
                   <span className="text-orange-800">{row.party}</span>
@@ -507,7 +507,7 @@ function SlideIncremental() {
           </div>
         </div>
         <div className="bg-slate-800 text-white rounded-2xl p-5">
-          <h3 className="text-white font-bold mb-3 text-sm text-center">Conversion Sensitivity at Scale ( Example: 180M travellers)</h3>
+          <h3 className="text-white font-bold mb-3 text-sm text-center">Conversion Sensitivity at Scale (Example: 1M passengers)</h3>
           <div className="space-y-1.5">
             <div className="grid grid-cols-4 gap-4 text-xs text-slate-400 uppercase tracking-wide px-3 pb-1 border-b border-white/10">
               <span>Conversion</span>
@@ -516,9 +516,9 @@ function SlideIncremental() {
               <span className="text-right">Retailer Net</span>
             </div>
             {[
-              { pp: "+0.5 pp", txns: "900K", retail: "€90M", ret: "€78.75M" },
-              { pp: "+1 pp", txns: "1.8M", retail: "€180M", ret: "€157.5M" },
-              { pp: "+2 pp", txns: "3.6M", retail: "€360M", ret: "€315M" },
+              { pp: "+0.5 pp", txns: "5K", retail: "€300K", ret: "€262.5K" },
+               { pp: "+1 pp", txns: "10K", retail: "€600K", ret: "€525K" },
+               { pp: "+2 pp", txns: "20K", retail: "€1.2M", ret: "€1.05M" },
             ].map((row, i) => (
               <div key={i} className={`grid grid-cols-4 gap-4 text-sm py-2.5 px-3 rounded-lg ${i === 1 ? "bg-orange-800/50 font-semibold" : ""}`}>
                 <span className="text-orange-400">{row.pp}</span>
@@ -544,19 +544,19 @@ function SlideIntegrate() {
           <div className="mb-5 lg:mb-10">
             <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              Integrate Once.<br /><span className="text-orange-400">Deploy Repeatedly.</span>
-            </h2>
+               A POS Provider Feature.<br /><span className="text-orange-400">Activated, Not Integrated.</span>
+             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Works With Your Existing POS</h3>
-              <div className="space-y-3">
-                {[
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Your POS remains the operational system of record" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "DutyBoost adds a lightweight validation layer" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "No replacement of ERP, payment or inventory systems" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "One integration enables multiple stores, airports, markets" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Reusable integration means lower marginal onboarding cost" },
+               <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Is Activated in Your POS Provider</h3>
+               <div className="space-y-3">
+                 {[
+                   { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Your POS provider activates DutyBoost as a built-in feature" },
+                   { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "No separate retailer integration — it lives in your POS" },
+                   { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "No replacement of ERP, payment or inventory systems" },
+                   { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Once activated, all connected stores can redeem DutyCredits" },
+                   { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Works across all stores, airports and markets on the same POS" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-0.5">{item.icon}</div>
@@ -566,13 +566,13 @@ function SlideIntegrate() {
               </div>
             </div>
             <div className="bg-gradient-to-br from-indigo-900/60 to-orange-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">INTEGRATE ONCE</h3>
-              <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
-                One production-ready integration with an Enterprise POS Provider can enable DutyBoost across multiple retailers, stores, airports and geographic markets.
-              </p>
-              <div className="grid grid-cols-3 gap-3 text-center">
-                {[
-                  { val: "1 POS", label: "integration" },
+              <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">ACTIVATED THROUGH YOUR POS</h3>
+               <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
+                 DutyBoost is enabled by your POS provider as an activation feature — the same system you already use for checkout, inventory and payments. No separate integration required from the retailer.
+               </p>
+               <div className="grid grid-cols-3 gap-3 text-center">
+                 {[
+                   { val: "1 POS", label: "activation" },
                   { val: "Multiple", label: "retailers" },
                   { val: "Global", label: "deployment" },
                 ].map((s) => (
@@ -604,16 +604,16 @@ function SlideScale() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {[
-            { size: "Compact Airport", pax: "2M passengers/yr", conv: "+1% = 20K txns", net: "€1.75M", color: "orange" },
-            { size: "Regional Airport", pax: "10M passengers/yr", conv: "+1% = 100K txns", net: "€8.75M", color: "indigo" },
-            { size: "Major Hub", pax: "30M+ passengers/yr", conv: "+1% = 300K txns", net: "€26.25M", color: "violet" },
+            { size: "Single Airport", pax: "1M passengers/yr", conv: "+1% = 10K txns", net: "€525K", color: "orange" },
+            { size: "Multi-Airport Group", pax: "10M passengers/yr", conv: "+1% = 100K txns", net: "€5.25M", color: "indigo" },
+            { size: "Major Network", pax: "50M+ passengers/yr", conv: "+1% = 500K txns", net: "€26.25M", color: "violet" },
           ].map((s) => (
             <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
               <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
               <div className="text-slate-500 text-sm mb-3">{s.pax}</div>
               <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
               <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retailer net</div>
-              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ €100 avg value</div>
+              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} @ €60 avg value</div>
             </div>
           ))}
         </div>
