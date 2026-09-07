@@ -253,7 +253,7 @@ const AuthenticatedApp = () => {
         <Route path="/patent-disclosure" element={<PatentDisclosureDocument />} />
         <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
-        <Route path="/retailer-pitch-caribbean" element={<RetailerPitchDeckCaribbean />} />
+        <Route path="/retailer-pitch-sxm" element={<RetailerPitchDeckCaribbean />} />
         <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
         <Route path="/pos-provider-pitch-usd" element={<PosProviderPitchDeckUsd />} />
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
