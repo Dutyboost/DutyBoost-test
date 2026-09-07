@@ -204,8 +204,7 @@ function SlideProblem() {
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer"
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
                   Caribbean non-purchase rate (m1nd-set)
-                </a>{" "}
-                <span className="text-slate-500 text-sm font-normal">(See slide 6 for more details)</span>
+                </a>
                 <div className="text-slate-500 text-sm mt-1">27% purchase rate | 73% non-purchase across Caribbean</div>
               </div>
             </div>
@@ -436,8 +435,7 @@ function SlideConversion() {
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer"
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
                   m1nd-set Caribbean purchase rate benchmark
-                </a>{" "}
-                <span className="text-slate-400 text-sm font-normal">(See slide 3 for more details)</span>
+                </a>
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
