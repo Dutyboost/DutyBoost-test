@@ -45,9 +45,9 @@ const SLIDE_LABELS = {
   getStarted: "Get Started",
 };
 
-function SlideWrapper({ children, dark = false }) {
+function SlideWrapper({ children }) {
   return (
-    <div className={`w-full flex flex-col overflow-y-auto ${dark ? "bg-[#0a0f1e] text-white" : "bg-white text-[#0a0f1e]"}`}>
+    <div className="w-full flex flex-col overflow-y-auto bg-white text-[#0a0f1e]">
       {children}
     </div>
   );
@@ -719,38 +719,38 @@ function SlideIncremental() {
 // SLIDE 10: POS Integration (Retailer-Specific)
 function SlideIntegrate() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5 lg:mb-10">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              A POS Provider Feature.<br /><span className="text-blue-400">Activated, Not Integrated.</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+              A POS Provider Feature.<br /><span className="text-blue-600">Activated, Not Integrated.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Appears in Your POS Dashboard</h3>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
+              <h3 className="text-[#0a0f1e] font-bold lg:text-lg mb-4">DutyBoost Appears in Your POS Dashboard</h3>
               <div className="space-y-3">
                 {[
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "DutyBoost appears as a new feature in your existing POS dashboard" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "You flip the switch — no separate integration required from the retailer" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "No replacement of ERP, payment or inventory systems" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Once switched on, all connected stores can redeem DutyCredits" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Works across all stores, airports and markets on the same POS" },
-                  { icon: <CheckCircle className="w-4 h-4 text-green-400" />, text: "Switch it off anytime — no lock-in, no commitments" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-600" />, text: "DutyBoost appears as a new feature in your existing POS dashboard" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-600" />, text: "You flip the switch — no separate integration required from the retailer" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-600" />, text: "No replacement of ERP, payment or inventory systems" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-600" />, text: "Once switched on, all connected stores can redeem DutyCredits" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-600" />, text: "Works across all stores, airports and markets on the same POS" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-600" />, text: "Switch it off anytime — no lock-in, no commitments" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-0.5">{item.icon}</div>
-                    <span className="text-slate-300 text-sm">{item.text}</span>
+                    <span className="text-slate-600 text-sm">{item.text}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
               <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">ACTIVATED THROUGH YOUR POS</h3>
-              <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
+              <p className="text-blue-50 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
                 DutyBoost is enabled by your POS provider as an activation feature — the same system you already use for checkout, inventory and payments. No separate integration required from the retailer.
               </p>
               <div className="grid grid-cols-3 gap-3 text-center">
@@ -759,9 +759,9 @@ function SlideIntegrate() {
                   { val: "Multiple", label: "retailers" },
                   { val: "Global", label: "deployment" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-white/5 rounded-xl p-3">
-                    <div className="text-blue-300 font-bold">{s.val}</div>
-                    <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                  <div key={s.label} className="bg-white/10 rounded-xl p-3">
+                    <div className="text-blue-100 font-bold">{s.val}</div>
+                    <div className="text-blue-50/70 text-xs mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -862,25 +862,25 @@ function SlideFlywheel() {
 // SLIDE 12: Get Started (Retailer-Specific)
 function SlideGetStarted() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
           <div className="flex justify-center mb-4 lg:mb-6">
-            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
+            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl border border-slate-200">
               <DutyBoostLogo height={40} linkTo="/retailer-showcase" />
             </div>
           </div>
           <div className="mb-4 lg:mb-6">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
-            <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-white mt-2 leading-tight">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
+            <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
               Switch It On.<br />
-              <span className="text-blue-400">Start Earning. Switch Off Anytime.</span>
+              <span className="text-blue-600">Start Earning. Switch Off Anytime.</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
+          <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
             DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
@@ -890,17 +890,17 @@ function SlideGetStarted() {
               { title: "Switch Off Anytime", desc: "Don't like the results? Flip it off. No lock-in, no cancellation fees, no commitments. You stay in control." },
               { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. Your checkout flow stays exactly the same." },
             ].map((card, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 lg:p-5 text-left">
-                <div className="text-blue-300 font-bold lg:text-base mb-1.5">{card.title}</div>
-                <div className="text-slate-400 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
+              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:p-5 text-left">
+                <div className="text-blue-700 font-bold lg:text-base mb-1.5">{card.title}</div>
+                <div className="text-slate-600 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
               </div>
             ))}
           </div>
           <div className="flex flex-col items-center gap-3">
-            <p className="text-blue-400 text-base lg:text-xl font-bold">
+            <p className="text-blue-600 text-base lg:text-xl font-bold">
               No setup fee. No subscription. No implementation. Flip the switch — earn. Flip it off — stop.
             </p>
-            <p className="text-slate-300 text-sm lg:text-base font-semibold">
+            <p className="text-slate-700 text-sm lg:text-base font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
             </p>
             <Link to="/demo/retailer-avolta" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-sm mt-2">
