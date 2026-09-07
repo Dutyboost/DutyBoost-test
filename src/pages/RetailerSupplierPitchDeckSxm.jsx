@@ -12,6 +12,8 @@ const CMI_LINK = "https://www.coherentmarketinsights.com/market-insight/caribbea
 const SXM_LINK = "https://www.sintmaartengov.org/news/pages/Passenger-Arrivals-and-Cruise-Arrivals-Show-Growth-in-2025.aspx";
 const M1NDSET_LINK = "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-state-of-travel-and-tourism-in-the-caribbean";
 const CTO_LINK = "https://www.onecaribbean.org/caribbean-tourism-shows-resilient-growth-amid-global-headwinds-in-2025/";
+const AVOLTA_MARGIN_LINK = "https://www.avoltaworld.com/sites/default/files/2016-12/company_report.pdf";
+const ETRC_LINK = "https://etrc.org/wp-content/uploads/documents/IRS-Report-Exploring-and-Testing-the-Prevailing-Business-Models-in-Travel-Retail-FINAL.pdf";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -440,24 +442,24 @@ function SlideConversion() {
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
               <h3 className="font-bold text-blue-800 mb-3">Incremental Sell-Through Potential (625K non-purchasers):</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
-                <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span className="sm:text-right">Supplier's Share*</span>
+                <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span className="sm:text-right">Supplier Reorder*</span>
               </div>
               <div className="space-y-1.5">
                 {[
-                  { conv: "+0.5 pp", txns: "3.1K", retail: "$313K", ret: "$273K" },
-                  { conv: "+1 pp", txns: "6.3K", retail: "$625K", ret: "$547K" },
-                  { conv: "+2 pp", txns: "12.5K", retail: "$1.25M", ret: "$1.09M" },
-                  { conv: "+5 pp", txns: "31.3K", retail: "$3.13M", ret: "$2.73M" },
+                  { conv: "+0.5 pp", txns: "3.1K", retail: "$313K", sup: "$157K" },
+                  { conv: "+1 pp", txns: "6.3K", retail: "$625K", sup: "$313K" },
+                  { conv: "+2 pp", txns: "12.5K", retail: "$1.25M", sup: "$625K" },
+                  { conv: "+5 pp", txns: "31.3K", retail: "$3.13M", sup: "$1.57M" },
                 ].map((row, i) => (
                   <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-200/50 font-semibold" : ""}`}>
                     <span className="text-blue-700">{row.conv}</span>
                     <span className="text-slate-600">{row.txns} txns</span>
                     <span className="text-slate-600">{row.retail}</span>
-                    <span className="text-green-700 font-semibold sm:text-right">{row.ret}</span>
+                    <span className="text-green-700 font-semibold sm:text-right">{row.sup}</span>
                   </div>
                 ))}
               </div>
-              <div className="text-slate-400 text-xs mt-2">*Supplier's share reflects retailer net (87.5%) flowing back as reorder value — supplier captures the wholesale equivalent of incremental sell-through.</div>
+              <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder value ≈ 50% of retail price — the wholesale revenue from incremental units reordered by retailers. Duty-free operators retain ~49–55% gross margin <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ~49%)</a> with airport concession rents absorbing a large share of the retailer's margin <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>. Retailer net after DutyBoost's 12.5% fee = 87.5% of retail, covering gross margin + operating costs — the supplier's ~50% is the reorder value within that.</div>
             </div>
           </div>
           <div className="flex flex-col gap-4">
