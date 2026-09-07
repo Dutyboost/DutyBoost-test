@@ -502,7 +502,7 @@ function SlideModel() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             Performance-Based. <span className="text-blue-600">Zero Upfront Cost.</span>
           </h2>
-          <p className="text-slate-500 mt-1">Revenue is created only when a qualifying transaction is validated through Enterprise POS.</p>
+          <p className="text-slate-500 mt-1">Revenue is created only when a qualifying transaction is validated through the Enterprise POS of the Retailer.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
