@@ -509,22 +509,22 @@ function SlideValueChain() {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Supplier Value Chain</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               How DutyBoost Creates <span className="text-blue-600">Incremental Supplier Revenue</span>
             </h2>
             <p className="text-slate-500 mt-2 max-w-3xl mx-auto">The same conversion shift that helps retailers also flows directly up the supply chain — every additional traveller converted means more units sold, faster rotation, and more orders.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-4">
             {steps.map((step, i, arr) => (
               <Fragment key={i}>
-                <div className={`bg-${step.color}-50 border border-${step.color}-200 rounded-2xl p-5 text-center flex flex-col items-center`}>
-                  <div className={`w-12 h-12 rounded-full bg-${step.color}-600 text-white flex items-center justify-center mb-3`}>
-                    <step.Icon className="w-6 h-6" />
+                <div className={`bg-${step.color}-50 border border-${step.color}-200 rounded-2xl p-4 text-center flex flex-col items-center`}>
+                  <div className={`w-10 h-10 rounded-full bg-${step.color}-600 text-white flex items-center justify-center mb-2`}>
+                    <step.Icon className="w-5 h-5" />
                   </div>
                   <div className="text-xs font-bold text-blue-600 mb-1">STEP {i + 1}</div>
-                  <div className={`text-${step.color}-700 font-bold text-sm mb-2 leading-tight`}>{step.title}</div>
+                  <div className={`text-${step.color}-700 font-bold text-sm mb-1 leading-tight`}>{step.title}</div>
                   <div className="text-slate-600 text-xs leading-relaxed">{step.desc}</div>
                 </div>
                 {i < arr.length - 1 && (
@@ -535,15 +535,15 @@ function SlideValueChain() {
               </Fragment>
             ))}
           </div>
-          <div className="md:hidden flex flex-col items-center gap-1 mb-6">
+          <div className="md:hidden flex flex-col items-center gap-1 mb-4">
             {steps.slice(0, -1).map((_, i) => (
               <ArrowRight key={i} className="text-blue-400 w-5 h-5 rotate-90" />
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 className="font-bold text-slate-700 mb-3">What This Means in Practice</h3>
-              <div className="space-y-2.5 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+              <h3 className="font-bold text-slate-700 mb-2">What This Means in Practice</h3>
+              <div className="space-y-2 text-sm">
                 {[
                   "Your products are already on airport shelves — no new listing required",
                   "Every converted non-purchaser is an incremental unit sold you wouldn't have captured",
@@ -558,9 +558,9 @@ function SlideValueChain() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-              <h3 className="font-bold mb-3">The Compounding Effect</h3>
-              <p className="text-blue-50 text-sm leading-relaxed mb-3">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white">
+              <h3 className="font-bold mb-2">The Compounding Effect</h3>
+              <p className="text-blue-50 text-sm leading-relaxed mb-2">
                 Each step reinforces the next. More conversion today means more orders tomorrow — and more orders mean more shelf space allocated to your brands, which means even more exposure to the next wave of pre-activated travellers.
               </p>
               <div className="bg-white/10 rounded-xl p-3">
