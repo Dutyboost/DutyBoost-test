@@ -732,7 +732,7 @@ function SlideFlywheel() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-start px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
-        <div className="relative z-10 flex-1 flex flex-col justify-between">
+        <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="mb-6">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Growth Flywheel</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
