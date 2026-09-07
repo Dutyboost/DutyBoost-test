@@ -533,20 +533,20 @@ function SlideModel() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-              <h3 className="font-bold text-blue-900 mb-3">Platform Fee Allocation (2.5% of Original Retail Value)</h3>
-              <div className="space-y-2">
+              <h3 className="font-bold text-blue-900 mb-3">The 2.5% Platform Fee — Your Only Cost</h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                A single fee on DutyBoost-validated transactions only — never on your existing sales.
+              </p>
+              <div className="space-y-2 text-sm">
                 {[
-                  { party: "Travel & Corporate Partner", share: "20% of fee", pct: "0.50%", val: "$0.50", color: "blue", bg: "bg-blue-200" },
-                  { party: "Enterprise POS Partner", share: "10% of fee", pct: "0.25%", val: "$0.25", color: "indigo", bg: "bg-indigo-200" },
-                  { party: "DutyBoost", share: "70% of fee", pct: "1.75%", val: "$1.75", color: "violet", bg: "bg-violet-200" },
-                ].map((row) => (
-                  <div key={row.party} className="flex items-center gap-3">
-                    <div className={`w-2 h-8 rounded-full ${row.bg}`} />
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-slate-700">{row.party}</div>
-                      <div className="text-xs text-slate-500">{row.share} = {row.pct} of retail value</div>
-                    </div>
-                    <div className={`text-lg font-bold text-${row.color}-700`}>{row.val}</div>
+                  "Funds traveller discounts, partner commissions & platform infrastructure",
+                  "Applied only when a DutyCredit redemption is validated through your POS",
+                  "No impact on your shelf prices or non-DutyBoost sales",
+                  "Settled transparently — attributed and reported per transaction",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
