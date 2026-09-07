@@ -10,6 +10,7 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 
 const CMI_LINK = "https://www.coherentmarketinsights.com/market-insight/caribbean-duty-free-retailing-market-4934";
 const SXM_LINK = "https://www.sintmaartengov.org/news/pages/Passenger-Arrivals-and-Cruise-Arrivals-Show-Growth-in-2025.aspx";
+const M1NDSET_LINK = "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-state-of-travel-and-tourism-in-the-caribbean";
 const CTO_LINK = "https://www.onecaribbean.org/caribbean-tourism-shows-resilient-growth-amid-global-headwinds-in-2025/";
 const AVOLTA_LINK = "https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com";
 const ACI_LINK = "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com";
@@ -200,12 +201,12 @@ function SlideProblem() {
               </div>
               <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">73%</div>
-                <a href={AVOLTA_LINK} target="_blank" rel="noopener noreferrer"
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer"
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
-                  Avolta penetration benchmark
+                  Caribbean non-purchase rate (m1nd-set)
                 </a>{" "}
-                <span className="text-slate-500 text-sm font-normal">(See slide 7 for more details)</span>
-                <div className="text-slate-500 text-sm mt-1">Non-purchase exposure across travel retail</div>
+                <span className="text-slate-500 text-sm font-normal">(See slide 6 for more details)</span>
+                <div className="text-slate-500 text-sm mt-1">27% purchase rate | 73% non-purchase across Caribbean</div>
               </div>
             </div>
             <div className="flex flex-col gap-4 justify-center">
@@ -423,7 +424,7 @@ function SlideConversion() {
               <div className="flex items-center gap-4">
                 <div>
                   <div className="text-3xl md:text-5xl font-bold text-red-600">73%</div>
-                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchase exposure (Avolta benchmark)</div>
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchase rate (m1nd-set Caribbean)</div>
                   <div className="text-slate-400 text-xs mt-1">= 625K unreached Sint Maarten travellers</div>
                 </div>
                 <div className="flex-1 text-right">
@@ -432,11 +433,11 @@ function SlideConversion() {
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60">
-                <a href={AVOLTA_LINK} target="_blank" rel="noopener noreferrer"
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer"
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
-                  Avolta penetration benchmark
+                  m1nd-set Caribbean purchase rate benchmark
                 </a>{" "}
-                <span className="text-slate-400 text-sm font-normal">(See slide 7 for more details)</span>
+                <span className="text-slate-400 text-sm font-normal">(See slide 3 for more details)</span>
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
