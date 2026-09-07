@@ -136,7 +136,7 @@ function SlideTeam() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-6 text-center">
@@ -145,7 +145,7 @@ function SlideTeam() {
               The People Behind <span className="text-blue-600">DutyBoost</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {members.map((m) => (
               <div key={m.name} className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 text-center flex flex-col items-center shadow-sm">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-blue-100 mb-3 flex-shrink-0">
@@ -172,7 +172,7 @@ function SlideTeam() {
 function SlideProblem() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
@@ -244,7 +244,7 @@ function SlideProblem() {
 function SlideSolution() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
@@ -330,7 +330,7 @@ function SlideSolution() {
 function SlideMarket() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-start px-12 py-10">
         <div className="mb-5">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Sint Maarten Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -411,7 +411,7 @@ function SlideMarket() {
 function SlideConversion() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-start px-12 py-10">
         <div className="mb-6">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Conversion Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -506,7 +506,7 @@ function SlideValueChain() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-6 text-center">
@@ -580,7 +580,7 @@ function SlideValueChain() {
 function SlideTransaction() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-6">
@@ -650,7 +650,7 @@ function SlideTransaction() {
 function SlideCategory() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10">
         <div className="mb-5">
           <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Category Impact</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
@@ -730,7 +730,7 @@ function SlideFlywheel() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-6">
@@ -799,7 +799,7 @@ function SlideFlywheel() {
 function SlideGetStarted() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5 text-center">
@@ -869,7 +869,7 @@ function SlideGetStarted() {
 function SlideThankYou() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-start px-5 py-8 md:px-12 md:py-10 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
