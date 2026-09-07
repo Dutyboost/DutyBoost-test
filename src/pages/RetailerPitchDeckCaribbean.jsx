@@ -552,7 +552,7 @@ function SlideModel() {
               </div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-green-900 mb-2">At 100,000 $100 Transactions:</h3>
+              <h3 className="font-bold text-green-900 mb-2">At 100K $100 Transactions:</h3>
               <div className="grid grid-cols-1 gap-1.5 text-sm">
                 {[
                   { party: "Travellers", val: "$1M in savings" },
