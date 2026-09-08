@@ -119,6 +119,7 @@ import DutyBoostPresentationSintMaarten from './pages/DutyBoostPresentationSintM
 import PatentPresentation from './pages/PatentPresentation';
 import PatentDisclosureDocument from './pages/PatentDisclosureDocument';
 import InvestorPitchDeck from './pages/InvestorPitchDeck';
+import InvestorPitchDeckV2 from './pages/InvestorPitchDeckV2';
 import RetailerPitchDeck from './pages/RetailerPitchDeck';
 import RetailerPitchDeckCaribbean from './pages/RetailerPitchDeckCaribbean';
 import RetailerSupplierPitchDeckSxm from './pages/RetailerSupplierPitchDeckSxm';
@@ -254,6 +255,7 @@ const AuthenticatedApp = () => {
         <Route path="/patent-presentation" element={<PatentPresentation />} />
         <Route path="/patent-disclosure" element={<PatentDisclosureDocument />} />
         <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
+        <Route path="/investor-pitch-v2" element={<InvestorPitchDeckV2 />} />
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
         <Route path="/retailer-pitch-sxm" element={<RetailerPitchDeckCaribbean />} />
         <Route path="/retailer-supplier-pitch-sxm" element={<RetailerSupplierPitchDeckSxm />} />

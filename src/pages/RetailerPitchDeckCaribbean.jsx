@@ -34,7 +34,7 @@ const SLIDES = [
 const SLIDE_LABELS = {
   cover: "Cover",
   team: "Our Team",
-  problem: "The Problem",
+  problem: "The Facts",
   solution: "The Solution",
   market: "Sint Maarten Market",
   conversion: "Conversion Opportunity",
@@ -178,7 +178,7 @@ function SlideProblem() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>

@@ -81,7 +81,7 @@ export const corporateStrings = {
       labels: {
         cover: "Cover",
         opportunity: "The Opportunity",
-        problem: "The Problem",
+        problem: "The Facts",
         solution: "The Solution",
         howItWorks: "How It Works",
         economics: "Transaction Economics",
@@ -119,7 +119,7 @@ export const corporateStrings = {
         body: "Companies with travelling employees already own the pre-trip relationship — the itinerary, the T&E policy, the expense tool. DutyBoost redirects a share of those employees' real airport spend back to the company, turning every business trip into a new, passive, performance-based cost-recovery stream at zero cost to the company or its travellers.",
       },
       problem: {
-        eyebrow: "The Problem",
+        eyebrow: "The Facts",
         title1: "You Approve the Trip.",
         title2: "The Airport Keeps the Upside.",
         subtitle: "Companies fund and manage business travel — then lose the traveller to the airport retail economy they enabled.",

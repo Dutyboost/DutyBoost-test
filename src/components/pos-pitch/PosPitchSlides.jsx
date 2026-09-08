@@ -105,7 +105,7 @@ export function SlideProblem() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
+          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             POS Providers Are <span className="text-violet-600">Commoditized & Under Pressure</span>
           </h2>
@@ -630,7 +630,7 @@ export const SLIDES = [
 export const SLIDE_LABELS = {
   cover: "Cover",
   opportunity: "The Opportunity",
-  problem: "The Problem",
+  problem: "The Facts",
   solution: "The Solution",
   howItWorks: "How It Works",
   economics: "Transaction Economics",

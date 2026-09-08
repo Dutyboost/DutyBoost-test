@@ -77,7 +77,7 @@ const SLIDES = [
   },
 ];
 
-function SlideWrapper({ children, dark = false }) {
+export function SlideWrapper({ children, dark = false }) {
   return (
     <div
       className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${
@@ -91,7 +91,7 @@ function SlideWrapper({ children, dark = false }) {
   );
 }
 
-function SlideCover() {
+export function SlideCover() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
@@ -141,7 +141,7 @@ function SlideCover() {
   );
 }
 
-function SlideTeam() {
+export function SlideTeam() {
   const members = [
     {
       name: "Jaquelin Beliad Perez",
@@ -217,7 +217,7 @@ function SlideTeam() {
   );
 }
 
-function SlideProblem() {
+export function SlideProblem() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -229,7 +229,7 @@ function SlideProblem() {
         />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>
@@ -291,7 +291,7 @@ function SlideProblem() {
   );
 }
 
-function SlideSolution() {
+export function SlideSolution() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -383,7 +383,7 @@ function SlideSolution() {
   );
 }
 
-function SlideRoute() {
+export function SlideRoute() {
   const steps = [
     {
       n: "01",
@@ -442,7 +442,7 @@ function SlideRoute() {
   );
 }
 
-function SlideMarket() {
+export function SlideMarket() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-12 py-6">
@@ -514,7 +514,7 @@ function SlideMarket() {
   );
 }
 
-function SlideConversion() {
+export function SlideConversion() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-12 py-6">
@@ -604,7 +604,7 @@ function SlideConversion() {
   );
 }
 
-function SlideModel() {
+export function SlideModel() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-12 py-6">
@@ -686,7 +686,7 @@ function SlideModel() {
   );
 }
 
-function SlideTransaction() {
+export function SlideTransaction() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -760,7 +760,7 @@ function SlideTransaction() {
   );
 }
 
-function SlideFlywheel() {
+export function SlideFlywheel() {
   const steps = [
     "More Travel & Corporate Partners",
     "More Travellers Reached",
@@ -862,7 +862,7 @@ function SlideFlywheel() {
   );
 }
 
-function SlideFinancials() {
+export function SlideFinancials() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-12 py-6">
@@ -925,7 +925,7 @@ function SlideFinancials() {
   );
 }
 
-function SlideValue() {
+export function SlideValue() {
   const rows = [
     { role: "Commercial Strategy & Software Sales", fte: "1.0", hrs: "1,050", rate: "€125", val: "€131,250" },
     { role: "Technical Architecture & Development", fte: "0.5", hrs: "525", rate: "€115", val: "€60,375" },
@@ -1015,7 +1015,7 @@ function SlideValue() {
   );
 }
 
-function SlideFunding() {
+export function SlideFunding() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-12 py-6">
@@ -1086,7 +1086,7 @@ function SlideFunding() {
   );
 }
 
-function SlideInvestment() {
+export function SlideInvestment() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -1180,7 +1180,7 @@ function SlideInvestment() {
   );
 }
 
-function SlideInvitation() {
+export function SlideInvitation() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-12 md:py-5 relative">
@@ -1251,7 +1251,7 @@ const SLIDE_COMPONENTS = {
 const SLIDE_LABELS = {
   cover: "Cover",
   team: "Our Team",
-  problem: "The Problem",
+  problem: "The Facts",
   solution: "The Solution",
   route: "The Route to Launch",
   market: "Market Opportunity",

@@ -21,7 +21,7 @@ const SLIDES = [
 const SLIDE_LABELS = {
   cover: "Cover",
   opportunity: "The Opportunity",
-  problem: "The Problem",
+  problem: "The Facts",
   solution: "The Solution",
   howItWorks: "How It Works",
   economics: "Transaction Economics",
@@ -134,7 +134,7 @@ function SlideProblem() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-emerald-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
+          <span className="text-emerald-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             You Book the Trip. <span className="text-emerald-600">The Airport Keeps the Upside.</span>
           </h2>
