@@ -1,5 +1,7 @@
-import { TrendingDown, TrendingUp, Briefcase, AlertCircle, CheckCircle } from "lucide-react";
+import { TrendingDown, TrendingUp, Briefcase, AlertCircle, CheckCircle, Users } from "lucide-react";
 import { SlideWrapper, GridBg } from "./Shared";
+
+const GBTA_LINK = "https://gbta.org/global-business-travel-spending-to-hit-record-1-71-trillion-in-2026-while-trips-reach-1-84-billion-says-gbta-forecast/";
 
 export default function SlideRevenueDipV2() {
   return (
@@ -77,6 +79,16 @@ export default function SlideRevenueDipV2() {
                 <div className="mt-2 flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700 text-xs font-medium">Company-paid expenses = predictable, high-frequency redemption volume</span>
+                </div>
+                <div className="mt-2 bg-white/70 rounded-lg p-2 flex items-center gap-2">
+                  <Users className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                  <div>
+                    <span className="text-slate-800 text-sm font-bold">1.8B business trips in 2025</span>
+                    <span className="text-slate-500 text-xs ml-1">— the corporate traveller pool DutyBoost activates</span>
+                    <div className="text-slate-400 text-xs">
+                      <a href={GBTA_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(GBTA)</a> — 1.82 billion global business trips
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-2xl p-4">
