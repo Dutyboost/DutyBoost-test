@@ -68,7 +68,7 @@ Secure partner authentication
               The Integration, <span className="text-blue-600">In One Call</span>
             </h2>
             <p className="text-slate-500 mt-1.5 text-sm max-w-4xl">
-              Validate. Discount. Earn. One Request. One Response. — A single HTTPS call at checkout. DutyBoost validates the DutyCredit, returns the discount to apply, and credits your commission — all attributed and logged automatically.
+              Validate. Discount. Earn. One Request. One Response. — A single HTTPS call at checkout. DutyBoost validates the DutyCredit, returns the discount to apply, and credits the commission per participant — all attributed and logged automatically.
             </p>
           </div>
 
