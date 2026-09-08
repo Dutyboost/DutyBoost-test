@@ -10,7 +10,10 @@ export default function SlideSxmWholesale() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Sint Maarten — Wholesale</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Conversations with <span className="text-blue-600">Divico &amp; ILTT</span>
+              Conversations with{" "}
+              <a href="https://www.divico.shop" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Divico</a>
+              {" "}&amp;{" "}
+              <a href="https://www.iltt-sxm.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">ILTT</a>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">Wholesale and distribution partners at Princess Juliana International Airport — the supply chain that feeds SXM airport retail.</p>
           </div>
@@ -18,7 +21,10 @@ export default function SlideSxmWholesale() {
             {[
               {
                 name: "Divico",
+                website: "https://www.divico.shop",
                 role: "Wholesale Distribution",
+                status: "Active Conversation",
+                statusColor: "bg-green-100 text-green-700 border-green-300",
                 points: [
                   "Wholesale distributor supplying SXM airport retailers",
                   "Discussed how DutyBoost-driven sell-through accelerates reordering",
@@ -29,8 +35,11 @@ export default function SlideSxmWholesale() {
               },
               {
                 name: "ILTT",
+                website: "https://www.iltt-sxm.com",
                 fullName: "International Liquor & Tobacco Trading N.V.",
                 role: "Duty-Free Wholesale & Retail",
+                status: "Active Conversation",
+                statusColor: "bg-green-100 text-green-700 border-green-300",
                 points: [
                   "Operates Princess Promenade duty-free stores at SXM",
                   "Joint venture with Penha Group — 6 retail outlets total",
@@ -41,15 +50,20 @@ export default function SlideSxmWholesale() {
               },
             ].map((p) => (
               <div key={p.name} className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center">
-                    <Package className="w-6 h-6" />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center">
+                      <Package className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-800 text-lg">
+                        <a href={p.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">{p.name}</a>
+                      </h3>
+                      {p.fullName && <div className="text-slate-500 text-xs">{p.fullName}</div>}
+                      <div className="text-slate-500 text-xs">{p.role}</div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-slate-800 text-lg">{p.name}</h3>
-                    {p.fullName && <div className="text-slate-500 text-xs">{p.fullName}</div>}
-                    <div className="text-slate-500 text-xs">{p.role}</div>
-                  </div>
+                  <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${p.statusColor}`}>{p.status}</span>
                 </div>
                 <ul className="space-y-2">
                   {p.points.map((pt, i) => (
