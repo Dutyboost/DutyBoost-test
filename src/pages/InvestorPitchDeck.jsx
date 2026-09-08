@@ -234,11 +234,6 @@ export function SlideProblem() {
                73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
              </h2>
             </div>
-            <div className="mb-4 bg-amber-50 border border-amber-300 rounded-xl p-3">
-             <p className="text-amber-800 text-sm leading-relaxed">
-               <span className="font-bold">Example benchmark only:</span> The 27% penetration and 73% non-purchase figures below are derived from Avolta's reported data as a representative example. Other major airport retailers — including Dufry/Lagardère, DFS, Gebr. Heinemann, Shilla, Lotte and others — operate at different scales and conversion rates. Avolta is used here solely to illustrate the conversion gap that DutyBoost addresses.
-             </p>
-            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-5">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
@@ -249,20 +244,19 @@ export function SlideProblem() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-orange-600 mb-2">27%</div>
                 <a
-                  href="https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com"
+                  href="https://m1nd-set.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors"
                 >
-                  Avolta penetration benchmark
-                </a>{" "}
-                <span className="text-slate-500 text-sm font-normal">(See slide 7 for more details)</span>
-                <div className="text-slate-500 text-sm mt-1">682M purchases from 2.5B passenger exposure</div>
+                  Global conversion benchmark
+                </a>
+                <div className="text-slate-500 text-sm mt-1">Industry penetration rate (m1nd-set / TFWA)</div>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">1.82B</div>
-                <div className="text-slate-800 font-semibold">Non-purchasing passenger exposures</div>
-                <div className="text-slate-500 text-sm mt-1">Within Avolta's benchmark alone</div>
+                <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">7.15B</div>
+                <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
+                <div className="text-slate-500 text-sm mt-1">73% of 9.8B global passengers</div>
               </div>
             </div>
             <div className="flex flex-col gap-4 justify-center">
