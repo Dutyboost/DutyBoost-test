@@ -107,8 +107,10 @@ export default function InvestorPitchDeckV2() {
         <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
       </div>
 
-      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
-        <SlideComp />
+      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-y-auto overflow-x-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
+        <div style={{ zoom: 1.5, width: "66.6667%" }}>
+          <SlideComp />
+        </div>
       </div>
 
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-3">
