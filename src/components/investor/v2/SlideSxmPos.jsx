@@ -10,7 +10,10 @@ export default function SlideSxmPos() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Sint Maarten — POS Integration</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Conversations with <span className="text-blue-600">Wagos &amp; Antek</span>
+              Conversations with{" "}
+              <a href="https://wagos.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Wagos</a>
+              {" "}&amp;{" "}
+              <a href="https://www.antek.sx" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Antek</a>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">NCR CounterPoint integrators and support partners serving retailers at Princess Juliana International Airport — the technical entry point for DutyBoost at SXM.</p>
           </div>
@@ -18,6 +21,7 @@ export default function SlideSxmPos() {
             {[
               {
                 name: "Wagos",
+                website: "https://wagos.com",
                 role: "NCR CounterPoint Integrator & Support Partner — Trinidad & Tobago",
                 status: "Active Conversation",
                 statusColor: "bg-green-100 text-green-700 border-green-300",
@@ -30,6 +34,7 @@ export default function SlideSxmPos() {
               },
               {
                 name: "Antek",
+                website: "https://www.antek.sx",
                 role: "NCR CounterPoint System Integrator & Support Partner — Sint Maarten",
                 status: "Active Conversation",
                 statusColor: "bg-green-100 text-green-700 border-green-300",
@@ -48,7 +53,9 @@ export default function SlideSxmPos() {
                       <Cpu className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-800 text-lg">{p.name}</h3>
+                      <h3 className="font-bold text-slate-800 text-lg">
+                        <a href={p.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">{p.name}</a>
+                      </h3>
                       <div className="text-slate-500 text-xs">{p.role}</div>
                     </div>
                   </div>
