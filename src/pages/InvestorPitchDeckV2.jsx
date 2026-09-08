@@ -15,6 +15,7 @@ import SlideSxmPos from "@/components/investor/v2/SlideSxmPos";
 import SlideSxmWholesale from "@/components/investor/v2/SlideSxmWholesale";
 import SlideSxmRetailer from "@/components/investor/v2/SlideSxmRetailer";
 import SlideSxmOpportunity from "@/components/investor/v2/SlideSxmOpportunity";
+import SlideClosing from "@/components/investor/v2/SlideClosing";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -34,6 +35,7 @@ const SLIDES = [
   { id: "sxmOpportunity", type: "sxmOpportunity" },
   { id: "flywheel", type: "flywheel" },
   { id: "value", type: "value" },
+  { id: "closing", type: "closing" },
 ];
 
 const SLIDE_COMPONENTS = {
@@ -54,6 +56,7 @@ const SLIDE_COMPONENTS = {
   sxmOpportunity: SlideSxmOpportunity,
   flywheel: SlideFlywheel,
   value: SlideValue,
+  closing: SlideClosing,
 };
 
 const SLIDE_LABELS = {
@@ -74,6 +77,7 @@ const SLIDE_LABELS = {
   sxmOpportunity: "SXM Opportunity & Potential",
   flywheel: "Growth Flywheel",
   value: "Value Already Created",
+  closing: "Thank You",
 };
 
 export default function InvestorPitchDeckV2() {
