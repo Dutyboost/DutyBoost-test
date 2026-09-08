@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SlideTeam, SlideProblem, SlideSolution,
-  SlideModel, SlideFlywheel, SlideFinancials, SlideValue,
+  SlideModel, SlideFlywheel, SlideValue,
 } from "@/pages/InvestorPitchDeck";
 import SlideCover from "@/components/investor/v2/SlideCover";
 import SlideGlobalMarket from "@/components/investor/v2/SlideGlobalMarket";
@@ -33,7 +33,6 @@ const SLIDES = [
   { id: "sxmRetailer", type: "sxmRetailer" },
   { id: "sxmOpportunity", type: "sxmOpportunity" },
   { id: "flywheel", type: "flywheel" },
-  { id: "financials", type: "financials" },
   { id: "value", type: "value" },
 ];
 
@@ -54,7 +53,6 @@ const SLIDE_COMPONENTS = {
   sxmRetailer: SlideSxmRetailer,
   sxmOpportunity: SlideSxmOpportunity,
   flywheel: SlideFlywheel,
-  financials: SlideFinancials,
   value: SlideValue,
 };
 
@@ -75,7 +73,6 @@ const SLIDE_LABELS = {
   sxmRetailer: "SXM: Retailer — Dutch Delight",
   sxmOpportunity: "SXM Opportunity & Potential",
   flywheel: "Growth Flywheel",
-  financials: "Financials",
   value: "Value Already Created",
 };
 
