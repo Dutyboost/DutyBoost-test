@@ -55,6 +55,13 @@ export default function SlideGlobalMarket() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-800 text-white rounded-2xl p-6">
               <h3 className="font-bold text-lg mb-4">Global Revenue Generated in 2025</h3>
+              <div className="text-slate-400 text-xs mb-3">
+                Source:{' '}
+                <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-semibold underline decoration-blue-400/50 hover:decoration-blue-300 hover:text-blue-300 transition-colors">
+                  (TFWA 2025 Handbook)
+                </a>{' '}
+                — worldwide €65.5B splits by channel: airport €37.1B (56.6%) + other channels €28.4B (43.4%)
+              </div>
               <div className="space-y-4">
                 {[
                   { label: "Worldwide DF&TR Industry", val: "€65.5B", pct: "100%", color: "bg-blue-500" },
