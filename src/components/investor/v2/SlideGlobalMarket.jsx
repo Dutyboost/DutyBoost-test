@@ -59,7 +59,7 @@ export default function SlideGlobalMarket() {
                 {[
                   { label: "Worldwide DF&TR Industry", val: "€65.5B", pct: "100%", color: "bg-blue-500" },
                   { label: "Airport DF&TR Channel", val: "€37.1B", pct: "56.6%", color: "bg-indigo-500" },
-                  { label: "Duty-Free-Only Revenue", val: "€40B", pct: "61%", color: "bg-violet-500" },
+                  { label: "Other Channels (Downtown, Cruise, Border, Inflight)", val: "€28.4B", pct: "43.4%", color: "bg-violet-500" },
                 ].map((row) => (
                   <div key={row.label} className="space-y-1">
                     <div className="flex justify-between text-sm">
