@@ -2,7 +2,7 @@ import { Globe, TrendingUp, Building2, Euro, Users } from "lucide-react";
 import { SlideWrapper, GridBg } from "./Shared";
 
 const ACI_LINK = "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com";
-const AVOLTA_LINK = "https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com";
+const M1NDSET_LINK = "https://m1nd-set.com/";
 const TFWA_LINK = "https://www.tfwa.com/";
 
 export default function SlideGlobalMarket() {
@@ -32,7 +32,7 @@ export default function SlideGlobalMarket() {
               <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">27%</div>
               <div className="text-slate-600 font-semibold text-sm">Global Penetration Rate</div>
               <div className="text-slate-500 text-xs mt-1">
-                <a href={AVOLTA_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta)</a> — 682M purchases from 2.5B exposure
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(m1nd-set)</a> — industry conversion benchmark
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-5 text-center">
@@ -76,7 +76,7 @@ export default function SlideGlobalMarket() {
               <div className="space-y-3">
                 {[
                   { icon: Users, text: "9.8B global passengers in 2025", src: "ACI World" },
-                  { icon: TrendingUp, text: "Only 27% convert — 73% walk past stores", src: "Avolta benchmark" },
+                  { icon: TrendingUp, text: "Only 27% convert — 73% walk past stores", src: "m1nd-set / TFWA" },
                   { icon: Building2, text: "45,000 retail stores across 2,800 airports with retail", src: "ACI / DFWC" },
                   { icon: Euro, text: "€37.1B already generated — without pre-activation", src: "TFWA 2025" },
                 ].map((item, i) => (
