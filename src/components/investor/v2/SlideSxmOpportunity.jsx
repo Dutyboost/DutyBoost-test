@@ -84,7 +84,7 @@ export default function SlideSxmOpportunity() {
             </div>
             <div className="mt-4 flex items-center justify-center gap-2">
               <ArrowRight className="w-5 h-5" />
-              <p className="text-blue-50 text-sm font-semibold">Sint Maarten is the proving ground — the model scales to 4,000 airports globally.</p>
+              <p className="text-blue-50 text-sm font-semibold">Sint Maarten is the proving ground — the model scales to 2,800 airports with retail globally.</p>
             </div>
           </div>
         </div>

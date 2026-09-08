@@ -77,7 +77,7 @@ export default function SlideGlobalMarket() {
                 {[
                   { icon: Users, text: "9.8B global passengers in 2025", src: "ACI World" },
                   { icon: TrendingUp, text: "Only 27% convert — 73% walk past stores", src: "Avolta benchmark" },
-                  { icon: Building2, text: "45,000 retail stores across 4,000 airports", src: "ACI / DFWC" },
+                  { icon: Building2, text: "45,000 retail stores across 2,800 airports with retail", src: "ACI / DFWC" },
                   { icon: Euro, text: "€37.1B already generated — without pre-activation", src: "TFWA 2025" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
