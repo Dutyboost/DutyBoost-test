@@ -23,7 +23,7 @@ export default function SlideClosing() {
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
             {[
-              { label: "Incremental Revenue", value: "Net-New" },
+              { label: "Airports with Retail", value: "2,800" },
               { label: "Non-Purchasing Travellers", value: "7.15B" },
               { label: "SXM First", value: "Scaling Globally" },
             ].map((s) => (
