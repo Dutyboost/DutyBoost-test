@@ -1,6 +1,6 @@
 export function SlideWrapper({ children }) {
   return (
-    <div className="w-full flex flex-col overflow-y-auto bg-white text-[#0a0f1e]">
+    <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-white text-[#0a0f1e]">
       {children}
     </div>
   );
