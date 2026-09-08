@@ -40,7 +40,7 @@ const SLIDE_LABELS = {
   benchmarks: "Rate Benchmarks",
   valueChain: "Value Chain",
   businessCase: "Business Case",
-  promotion: "Driving Footfall",
+  promotion: "The Cost of Waiting",
   flywheel: "Growth Flywheel",
   getStarted: "Partnership Model",
   thankYou: "Thank You",
@@ -725,70 +725,80 @@ function SlideBusinessCase() {
   );
 }
 
-// SLIDE 10: Driving Footfall
+// SLIDE 10: The Cost of Waiting
 function SlidePromotion() {
-  const channels = [
-    { Icon: Smartphone, title: "Airport App & Website", desc: "Feature DutyBoost-activated retailers, display DutyCredit offers, and push notifications to departing passengers before arrival", color: "blue" },
-    { Icon: Monitor, title: "Digital Signage & Screens", desc: "Promote participating stores on terminal displays, boarding area screens, and wayfinding digital directories", color: "indigo" },
-    { Icon: MapPin, title: "Retailer Directory Highlights", desc: "Flag participating stores on airport maps and retail directories with a DutyBoost badge or icon", color: "violet" },
-    { Icon: Mail, title: "Passenger Communications", desc: "Include DutyBoost in pre-travel emails, booking confirmations, and airline partner touchpoints", color: "green" },
-    { Icon: Megaphone, title: "Joint Marketing Campaigns", desc: "Co-branded campaigns with airlines, travel partners, and corporate travel programs to drive pre-activation", color: "amber" },
-    { Icon: Award, title: "Retailer Recognition", desc: "Recognise top-performing DutyBoost retailers in concession reviews and commercial performance reports", color: "purple" },
-  ];
-
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Driving Footfall to Retailers</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Cost of Waiting</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              How Airports Can Promote DutyBoost <span className="text-blue-600">to Increase Retail Visits</span>
+              Every Departure Without DutyBoost <span className="text-blue-600">Is Revenue Left on the Table</span>
             </h2>
-            <p className="text-slate-500 mt-1 text-sm">The airport has unique touchpoints with passengers that no other participant can reach. By actively promoting DutyBoost-activated retailers, the airport drives more footfall into stores — and more footfall means more incremental sales and higher concession revenue.</p>
+            <p className="text-slate-500 mt-1 text-sm">Passenger traffic is already passing through the terminal. Retailers are already stocked. The concession framework is already in place. The only question is how many of those passengers actually buy — and that conversion gap is costing the airport real money every single day.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
-            {channels.map((c, i) => (
-              <div key={i} className={`bg-${c.color}-50 border border-${c.color}-200 rounded-2xl p-4`}>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className={`w-9 h-9 rounded-full bg-${c.color}-600 text-white flex items-center justify-center flex-shrink-0`}>
-                    <c.Icon className="w-4 h-4" />
-                  </div>
-                  <div className={`text-${c.color}-700 font-bold text-sm leading-tight`}>{c.title}</div>
-                </div>
-                <p className="text-slate-600 text-xs leading-relaxed">{c.desc}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-5 text-center">
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">€0</div>
+              <div className="text-slate-800 font-semibold text-sm">Upfront cost to the airport</div>
+              <div className="text-slate-500 text-xs mt-1">Performance-based — the airport only earns more</div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">15–18.5%</div>
+              <div className="text-slate-800 font-semibold text-sm">Concession rate on every incremental sale</div>
+              <div className="text-slate-500 text-xs mt-1">Every converted traveller grows airport revenue</div>
+            </div>
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">Compounding</div>
+              <div className="text-slate-800 font-semibold text-sm">Sales growth feeds the flywheel</div>
+              <div className="text-slate-500 text-xs mt-1">Today's conversion becomes tomorrow's concession uplift</div>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 className="font-bold text-slate-800 mb-3">The Footfall-to-Revenue Chain</h3>
-              <div className="space-y-2 text-sm">
+              <h3 className="font-bold text-slate-800 mb-3">What Happens If the Airport Waits</h3>
+              <div className="space-y-2.5 text-sm">
                 {[
-                  { step: "Airport promotes participating retailers", effect: "→ More passenger awareness" },
-                  { step: "Passengers seek out DutyBoost stores", effect: "→ More store visits and footfall" },
-                  { step: "Pre-activated travellers convert", effect: "→ More incremental sales" },
-                  { step: "Higher gross retail sales", effect: "→ Higher concession revenue for the airport" },
-                ].map((row, i) => (
+                  "Passengers keep walking past stores — gross sales stay flat",
+                  "Concession revenue stagnates while passenger traffic keeps growing",
+                  "Retailers remain below MAG — no incremental revenue for anyone",
+                  "Competing airports that adopt conversion tools capture the narrative",
+                  "The conversion gap widens with every additional departure",
+                  "Non-aeronautical revenue targets slip further out of reach",
+                ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700"><strong className="text-blue-700">{row.step}</strong> {row.effect}</span>
+                    <XCircle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-              <h3 className="font-bold mb-2">The Airport's Unique Advantage</h3>
-              <p className="text-blue-50 text-sm leading-relaxed mb-2">
-                No other participant in the value chain has the airport's level of direct passenger access — terminal screens, apps, maps, directories, and pre-travel communications. By using these channels to promote DutyBoost retailers, the airport directly drives the footfall that becomes incremental sales.
-              </p>
-              <div className="bg-white/10 rounded-xl p-3">
-                <p className="text-white font-semibold text-sm">
-                  More promotion → more footfall → more conversion → more concession revenue.
-                </p>
+              <h3 className="font-bold mb-3">What Happens When the Airport Acts Now</h3>
+              <div className="space-y-2.5 text-sm">
+                {[
+                  "Pre-activated travellers arrive ready to buy — sales lift immediately",
+                  "Retailers push past MAG — concession revenue shifts to the higher percentage tier",
+                  "Every incremental transaction flows directly to the airport's revenue",
+                  "The airport leads the market in conversion innovation — not follows it",
+                  "Non-aeronautical revenue grows without subsidy, capital spend, or operational change",
+                  "The commercial case strengthens with every validated transaction",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-blue-200 flex-shrink-0 mt-0.5" />
+                    <span className="text-blue-50">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+          <div className="mt-5 bg-slate-800 rounded-2xl p-5 text-center">
+            <p className="text-white font-bold text-base md:text-lg leading-snug">
+              The passengers, the retailers, the concession framework — everything is already in place.{" "}
+              <span className="text-blue-400">The only missing piece is conversion. The airport that moves first captures it.</span>
+            </p>
           </div>
         </div>
       </div>
