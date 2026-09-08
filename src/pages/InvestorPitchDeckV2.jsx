@@ -1,95 +1,82 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
-  SlideCover, SlideTeam, SlideProblem, SlideSolution, SlideRoute,
-  SlideMarket, SlideConversion, SlideModel, SlideTransaction,
-  SlideFlywheel, SlideFinancials, SlideValue, SlideFunding,
-  SlideInvestment, SlideInvitation,
+  SlideTeam, SlideProblem, SlideSolution,
+  SlideModel, SlideFlywheel, SlideFinancials, SlideValue,
 } from "@/pages/InvestorPitchDeck";
-import SlidePosEcosystem from "@/components/investor/SlidePosEcosystem";
-import {
-  SlideStakeholderRetailers, SlideStakeholderTravelPartners,
-  SlideStakeholderPosProviders, SlideStakeholderCorporate,
-  SlideStakeholderSuppliers, SlideStakeholderAirports,
-} from "@/components/investor/StakeholderSlides";
-import SlideRevenueDip from "@/components/investor/SlideRevenueDip";
+import SlideCover from "@/components/investor/v2/SlideCover";
+import SlideGlobalMarket from "@/components/investor/v2/SlideGlobalMarket";
+import SlidePosToggle from "@/components/investor/v2/SlidePosToggle";
+import SlideStakeholderPrimary from "@/components/investor/v2/SlideStakeholderPrimary";
+import SlideStakeholderSecondary from "@/components/investor/v2/SlideStakeholderSecondary";
+import SlideRevenueDipV2 from "@/components/investor/v2/SlideRevenueDipV2";
+import SlideSxmMarket from "@/components/investor/v2/SlideSxmMarket";
+import SlideSxmPos from "@/components/investor/v2/SlideSxmPos";
+import SlideSxmWholesale from "@/components/investor/v2/SlideSxmWholesale";
+import SlideSxmRetailer from "@/components/investor/v2/SlideSxmRetailer";
+import SlideSxmOpportunity from "@/components/investor/v2/SlideSxmOpportunity";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
   { id: "team", type: "team" },
+  { id: "globalMarket", type: "globalMarket" },
   { id: "problem", type: "problem" },
   { id: "solution", type: "solution" },
-  { id: "route", type: "route" },
-  { id: "market", type: "market" },
-  { id: "conversion", type: "conversion" },
-  { id: "pos_ecosystem", type: "pos_ecosystem" },
+  { id: "posToggle", type: "posToggle" },
+  { id: "stakeholderPrimary", type: "stakeholderPrimary" },
+  { id: "stakeholderSecondary", type: "stakeholderSecondary" },
   { id: "model", type: "model" },
-  { id: "transaction", type: "transaction" },
-  { id: "stakeholderRetailers", type: "stakeholderRetailers" },
-  { id: "stakeholderTravelPartners", type: "stakeholderTravelPartners" },
-  { id: "stakeholderPosProviders", type: "stakeholderPosProviders" },
-  { id: "stakeholderCorporate", type: "stakeholderCorporate" },
-  { id: "stakeholderSuppliers", type: "stakeholderSuppliers" },
-  { id: "stakeholderAirports", type: "stakeholderAirports" },
   { id: "revenueDip", type: "revenueDip" },
+  { id: "sxmMarket", type: "sxmMarket" },
+  { id: "sxmPos", type: "sxmPos" },
+  { id: "sxmWholesale", type: "sxmWholesale" },
+  { id: "sxmRetailer", type: "sxmRetailer" },
+  { id: "sxmOpportunity", type: "sxmOpportunity" },
   { id: "flywheel", type: "flywheel" },
   { id: "financials", type: "financials" },
   { id: "value", type: "value" },
-  { id: "funding", type: "funding" },
-  { id: "investment", type: "investment" },
-  { id: "invitation", type: "invitation" },
 ];
 
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
+  globalMarket: SlideGlobalMarket,
   problem: SlideProblem,
   solution: SlideSolution,
-  route: SlideRoute,
-  market: SlideMarket,
-  conversion: SlideConversion,
-  pos_ecosystem: SlidePosEcosystem,
+  posToggle: SlidePosToggle,
+  stakeholderPrimary: SlideStakeholderPrimary,
+  stakeholderSecondary: SlideStakeholderSecondary,
   model: SlideModel,
-  transaction: SlideTransaction,
-  stakeholderRetailers: SlideStakeholderRetailers,
-  stakeholderTravelPartners: SlideStakeholderTravelPartners,
-  stakeholderPosProviders: SlideStakeholderPosProviders,
-  stakeholderCorporate: SlideStakeholderCorporate,
-  stakeholderSuppliers: SlideStakeholderSuppliers,
-  stakeholderAirports: SlideStakeholderAirports,
-  revenueDip: SlideRevenueDip,
+  revenueDip: SlideRevenueDipV2,
+  sxmMarket: SlideSxmMarket,
+  sxmPos: SlideSxmPos,
+  sxmWholesale: SlideSxmWholesale,
+  sxmRetailer: SlideSxmRetailer,
+  sxmOpportunity: SlideSxmOpportunity,
   flywheel: SlideFlywheel,
   financials: SlideFinancials,
   value: SlideValue,
-  funding: SlideFunding,
-  investment: SlideInvestment,
-  invitation: SlideInvitation,
 };
 
 const SLIDE_LABELS = {
   cover: "Cover",
   team: "Our Team",
+  globalMarket: "Global Market",
   problem: "The Facts",
   solution: "The Solution",
-  route: "The Route to Launch",
-  market: "Market Opportunity",
-  conversion: "Conversion Opportunity",
-  pos_ecosystem: "POS Ecosystem Scale",
+  posToggle: "Non-Invasive POS Toggle",
+  stakeholderPrimary: "Primary Stakeholders",
+  stakeholderSecondary: "Secondary: Wholesale",
   model: "Business Model",
-  transaction: "Transaction Economics",
-  stakeholderRetailers: "Stakeholder: Airport Retailers",
-  stakeholderTravelPartners: "Stakeholder: Travel Partners",
-  stakeholderPosProviders: "Stakeholder: POS Providers",
-  stakeholderCorporate: "Stakeholder: Corporate Travel",
-  stakeholderSuppliers: "Stakeholder: Retail Suppliers",
-  stakeholderAirports: "Stakeholder: Airport Concessions",
-  revenueDip: "Retailer Revenue Dip",
+  revenueDip: "Revenue Dip & Corporate Activation",
+  sxmMarket: "Sint Maarten Market",
+  sxmPos: "SXM: POS — Wagos & Antek",
+  sxmWholesale: "SXM: Wholesale — Divico & ILTT",
+  sxmRetailer: "SXM: Retailer — Dutch Delight",
+  sxmOpportunity: "SXM Opportunity & Potential",
   flywheel: "Growth Flywheel",
   financials: "Financials",
   value: "Value Already Created",
-  funding: "Funding Ask",
-  investment: "Investment Case",
-  invitation: "An Invitation",
 };
 
 export default function InvestorPitchDeckV2() {
