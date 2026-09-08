@@ -23,7 +23,7 @@ export default function SlideSxmPos() {
                 statusColor: "bg-green-100 text-green-700 border-green-300",
                 points: [
                   "Trinidad & Tobago-based NCR CounterPoint business partner — not the POS provider, but the integrator and support partner",
-                  "Configures, deploys, and supports NCR CounterPoint across Trinidad, Tobago, and the wider Caribbean",
+                  "Serves retailers across Trinidad & Tobago, Grenada, the Cayman Islands, Guyana, and St. Martin",
                   "Discussed DutyBoost as a toggle feature within existing NCR CounterPoint workflows",
                   "Wagos-supported retailers can opt-in per store via toggle activation",
                 ],
@@ -35,7 +35,7 @@ export default function SlideSxmPos() {
                 statusColor: "bg-green-100 text-green-700 border-green-300",
                 points: [
                   "Sint Maarten's NCR CounterPoint system integrator and support partner for 25+ years",
-                  "Services Sint Maarten (SXM) and neighboring Caribbean islands",
+                  "Services Sint Maarten (SXM) and neighboring Caribbean islands (Anguilla, St. Barthélemy, Saba, Statia)",
                   "Reviewed the non-invasive, performance-based model",
                   "Confirmed technical feasibility of DutyCredit validation at NCR CounterPoint checkout",
                 ],
