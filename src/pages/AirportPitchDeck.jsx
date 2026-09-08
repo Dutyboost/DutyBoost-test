@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, ArrowRight, Building2, TrendingUp, DollarSign, Percent, CheckCircle, XCircle, AlertCircle, BarChart3, Layers, Plane, Store, Factory } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Building2, TrendingUp, DollarSign, Percent, CheckCircle, XCircle, BarChart3, Layers, Plane, RefreshCw, ShoppingCart, Store } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
+import HotelIcon from "@/components/HotelIcon";
+import CarRentalIcon from "@/components/CarRentalIcon";
 
 const ACI_NA_LINK = "https://airportscouncil.org/wp-content/uploads/2019/06/2019-ACI-NA-Concessions-Benchmarking-Summary.pdf";
 const ATL_LINK = "https://www.atl.com/wp-content/uploads/2023/03/Concessions_Phase-II-Solicitations-Update_Presentation_v03132023.pdf";
@@ -14,27 +16,31 @@ const ACI_BLOG_LINK = "https://blog.aci.aero/airport-economics/airport-non-aeron
 
 const SLIDES = [
   { id: "cover", type: "cover" },
-  { id: "insight", type: "insight" },
-  { id: "models", type: "models" },
+  { id: "team", type: "team" },
+  { id: "problem", type: "problem" },
+  { id: "solution", type: "solution" },
+  { id: "concessionModel", type: "concessionModel" },
   { id: "magExample", type: "magExample" },
   { id: "benchmarks", type: "benchmarks" },
-  { id: "retailRevenue", type: "retailRevenue" },
   { id: "valueChain", type: "valueChain" },
   { id: "businessCase", type: "businessCase" },
-  { id: "whyAirports", type: "whyAirports" },
+  { id: "flywheel", type: "flywheel" },
+  { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
 ];
 
 const SLIDE_LABELS = {
   cover: "Cover",
-  insight: "The Insight",
-  models: "Concession Models",
+  team: "Our Team",
+  problem: "The Problem",
+  solution: "The Solution",
+  concessionModel: "Concession Model",
   magExample: "MAG + Percentage",
   benchmarks: "Rate Benchmarks",
-  retailRevenue: "Retail's Role",
   valueChain: "Value Chain",
   businessCase: "Business Case",
-  whyAirports: "Why DutyBoost",
+  flywheel: "Growth Flywheel",
+  getStarted: "Partnership Model",
   thankYou: "Thank You",
 };
 
@@ -98,29 +104,242 @@ function SlideCover() {
   );
 }
 
-// SLIDE 2: The Insight
-function SlideInsight() {
+// SLIDE 2: Team
+function SlideTeam() {
+  const members = [
+    {
+      name: "Jaquelin Beliad Perez",
+      role: "Co-Founder / Airport Retail & Brand Specialist",
+      linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
+    },
+    {
+      name: "Ariunzaya Zorigt",
+      role: "Marketing Director",
+      linkedin: "https://www.linkedin.com/in/aria-zorigt/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg",
+    },
+    {
+      name: "Fares Ben Halima",
+      role: "Technical Director",
+      linkedin: "https://www.linkedin.com/in/fares-ben-halima-36b948158/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg",
+    },
+    {
+      name: "Raël Martis",
+      role: "Co-Founder / Chief Commercial Officer",
+      linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/",
+      photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",
+    },
+  ];
+
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-6 text-center">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Our Team</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              The People Behind <span className="text-blue-600">DutyBoost</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+            {members.map((m) => (
+              <div key={m.name} className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 text-center flex flex-col items-center shadow-sm">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-blue-100 mb-3 flex-shrink-0">
+                  <img src={m.photo} alt={m.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                  className="text-slate-800 font-semibold text-sm md:text-base hover:text-blue-600 hover:underline transition-colors leading-tight">
+                  {m.name}
+                </a>
+                <div className="text-slate-500 text-xs md:text-sm mt-1.5 leading-tight">{m.role}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 max-w-4xl mx-auto text-center text-slate-700 text-sm md:text-base leading-relaxed">
+            DutyBoost combines airport retail expertise with technology, marketing and commercial strategy — built by a team that understands how airport concessions work and how non-aeronautical revenue depends on retail conversion. We know the challenge: passengers walk past stores, sales stagnate, and concession revenue doesn't grow as fast as it could. We built DutyBoost to convert non-purchasing travellers into buyers — growing the retail sales base that airport concession revenue is calculated on.
+          </p>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 3: Problem
+function SlideProblem() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Insight</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Problem</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Airports Don't Just Lease Space.<br />
-              <span className="text-blue-600">They Participate in Retail Sales.</span>
+              Passengers Walk Past Stores.<br /><span className="text-blue-600">Airport Revenue Stagnates.</span>
             </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="space-y-5">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">23.1%</div>
+                <div className="text-slate-800 font-semibold">of global airport non-aeronautical revenue comes from retail</div>
+                <div className="text-slate-500 text-sm mt-1">26.7% in Europe — the single largest commercial category{" "}
+                  <a href={ACI_BLOG_LINK} target="_blank" rel="noopener noreferrer"
+                    className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI)</a>
+                </div>
+              </div>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">15–18.5%</div>
+                <div className="text-slate-800 font-semibold">typical concession rate on gross retail sales</div>
+                <div className="text-slate-500 text-sm mt-1">Atlanta published 15–18.5%; ACI NA benchmark: 16.6%{" "}
+                  <a href={ATL_LINK} target="_blank" rel="noopener noreferrer"
+                    className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ATL)</a>{" "}
+                  <a href={ACI_NA_LINK} target="_blank" rel="noopener noreferrer"
+                    className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI NA)</a>
+                </div>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">The Gap</div>
+                <div className="text-slate-800 font-semibold">A significant share of passengers leave without purchasing</div>
+                <div className="text-slate-500 text-sm mt-1">Passenger traffic exists, but conversion doesn't — retail revenue is left on the table</div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 justify-center">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <h3 className="text-slate-800 font-semibold text-lg mb-4">What This Means for Airports</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Retail is a major revenue pillar — but it depends on passengers actually buying",
+                    "When passengers walk past stores, gross sales stay flat and concession revenue stagnates",
+                    "Under a MAG structure, there's no growth until sales push past the guarantee threshold",
+                    "Airports need more than footfall — they need conversion",
+                    "Non-aeronautical revenue growth is a strategic priority, but the conversion gap limits it",
+                    "The revenue base isn't growing as fast as passenger traffic could support",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+                      <span className="text-slate-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+                <p className="text-blue-700 text-sm leading-relaxed italic">
+                  "The passengers are already there. The concession framework is already in place. The missing piece is conversion — turning footfall into retail sales."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 4: Solution
+function SlideSolution() {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Solution</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Activate the Traveller<br /><span className="text-blue-600">Before Airport Arrival</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
+            {[
+              { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
+              { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
+              { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
+              { Icon: Plane, color: "text-amber-600", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
+            ].map((step, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center">
+                <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
+                <div className="text-slate-800 font-semibold mb-1">{step.title}</div>
+                <div className="text-slate-500 text-sm">{step.desc}</div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-2 mb-6 lg:hidden">
+            {[
+              "Partners distribute DutyCredit",
+              "Traveller activates benefit",
+              "Arrives with purchase intent",
+              "Visits participating retailer",
+              "Spends €100 → Saves €10",
+              "POS validates transaction",
+              "Retail sales increase → airport earns more",
+            ].map((step, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
+                <div className="flex-1 bg-blue-50 border border-blue-200 rounded-xl px-3 py-2">
+                  <span className="text-slate-800 text-sm leading-tight">{step}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden lg:flex items-stretch gap-2 mb-6">
+            {[
+              "Partners distribute DutyCredit",
+              "Traveller activates benefit",
+              "Arrives with purchase intent",
+              "Visits participating retailer",
+              "Spends €100 → Saves €10",
+              "POS validates transaction",
+              "Retail sales increase → airport earns more",
+            ].map((step, i, arr) => (
+              <Fragment key={i}>
+                <div className="flex-1 min-w-0 bg-blue-50 border border-blue-200 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
+                  <div className="text-blue-600 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
+                  <div className="text-slate-800 text-xs mt-1 leading-tight">{step}</div>
+                </div>
+                {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-4 h-4" />}
+              </Fragment>
+            ))}
+          </div>
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
+              <div className="flex flex-col items-center">
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">€1 – €60</div>
+                <div className="text-slate-500 text-sm mt-2">DutyCredit direct traveller value</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Performance-Based</div>
+                <div className="text-slate-500 text-sm mt-2">Zero upfront cost to the airport</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
+                <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 5: The Concession Model
+function SlideConcessionModel() {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Concession Model</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Airports Participate <span className="text-blue-600">Directly in Retail Sales</span>
+            </h2>
+            <p className="text-slate-500 mt-1 text-sm">Airport retail space is a concession, not a standard lease. The most common structure means the airport earns based on how much retailers sell.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="space-y-4">
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <Building2 className="w-10 h-10 text-blue-600 mb-3" />
-                <h3 className="text-slate-800 font-semibold text-lg mb-2">The Concession Model</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Airport retail space is treated as a <strong>concession</strong>, not a standard lease. The airport participates directly in the retailer's sales performance.
-                </p>
-              </div>
               <div className="bg-blue-600 text-white rounded-2xl p-6">
                 <div className="text-sm font-semibold opacity-80 mb-2">The Core Formula</div>
                 <p className="text-lg font-bold leading-snug">
@@ -128,20 +347,32 @@ function SlideInsight() {
                 </p>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                <div className="text-slate-700 text-sm leading-relaxed">
-                  DFW concessionaires pay a percentage of gross sales each month, subject to a predetermined MAG. LAX uses the same <strong>"greater of percentage of gross sales or MAG"</strong> structure.
+                <h3 className="font-bold text-slate-800 mb-2">How It Works in Practice</h3>
+                <div className="space-y-2.5 text-sm">
+                  {[
+                    "DFW: concessionaires pay a percentage of gross sales each month, subject to a predetermined MAG",
+                    "LAX: same \"greater of percentage of gross sales or MAG\" structure",
+                    "Frankfurt: percentage of sales based on location, concept and foot traffic, plus a minimum monthly rent",
+                    "Sacramento: percentages can be tiered — one rate on the first band, higher above it",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
             <div className="flex flex-col gap-4 justify-center">
               <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                <h3 className="text-slate-800 font-semibold text-lg mb-3">What This Means</h3>
+                <h3 className="text-slate-800 font-semibold text-lg mb-3">Why This Matters for DutyBoost</h3>
                 <ul className="space-y-3">
                   {[
-                    "When DutyBoost increases airport retail sales, the percentage-based concession revenue can increase too",
-                    "Once sales push past the MAG threshold, every additional transaction creates incremental airport revenue",
-                    "The airport becomes a direct beneficiary of DutyBoost's conversion uplift — not just the retailer",
-                    "No subsidy required from the airport; DutyBoost grows the underlying sales base",
+                    "Most concession models are revenue-based — the airport earns a percentage of gross sales",
+                    "When DutyBoost increases retail sales, the percentage-based concession revenue increases too",
+                    "Once sales push past the MAG, every additional transaction creates incremental airport revenue",
+                    "The airport becomes a direct beneficiary of conversion uplift — not just the retailer",
+                    "No subsidy required; DutyBoost grows the underlying sales base the airport already earns from",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -152,7 +383,7 @@ function SlideInsight() {
               </div>
               <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
                 <p className="font-bold text-base leading-snug">
-                  "DutyBoost doesn't need the airport to subsidize the incentive. It can increase the underlying retail sales on which airport concession payments are calculated."
+                  "DutyBoost doesn't need the airport to subsidize the incentive. It increases the underlying retail sales on which concession payments are calculated."
                 </p>
               </div>
             </div>
@@ -163,75 +394,7 @@ function SlideInsight() {
   );
 }
 
-// SLIDE 3: Concession Models
-function SlideModels() {
-  const models = [
-    { name: "1. Fixed rent", how: "Retailer pays fixed amount for the space", benefits: false },
-    { name: "2. Rent per m² / sq. ft.", how: "Fixed amount based on store size", benefits: false },
-    { name: "3. Percentage of sales", how: "Airport receives X% of gross retail sales", benefits: true, note: "Yes, directly" },
-    { name: "4. MAG", how: "Retailer guarantees a minimum amount annually", benefits: "partial", note: "Only after sales push rent above MAG" },
-    { name: "5. MAG OR % of sales", how: "Retailer pays whichever is higher", benefits: true, note: "Yes, once % exceeds MAG" },
-    { name: "6. Base rent + % of sales", how: "Fixed rent plus a concession percentage", benefits: true, note: "Yes" },
-    { name: "7. Tiered % of sales", how: "Percentage changes at sales thresholds", benefits: true, note: "Yes, potentially even more" },
-    { name: "8. Passenger-based guarantee", how: "Minimum payment linked to passenger volumes", benefits: "partial", note: "Indirectly" },
-    { name: "9. Category-based %", how: "Different percentages for liquor, cosmetics, fashion, etc.", benefits: true, note: "Yes" },
-  ];
-
-  const BenefitIcon = ({ val }) => {
-    if (val === true) return <CheckCircle className="w-5 h-5 text-green-600 mx-auto" />;
-    if (val === false) return <XCircle className="w-5 h-5 text-red-400 mx-auto" />;
-    return <AlertCircle className="w-5 h-5 text-amber-500 mx-auto" />;
-  };
-
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-4">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Concession Models</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Nine Airport Retail Models — <span className="text-blue-600">Which Benefit from DutyBoost?</span>
-            </h2>
-            <p className="text-slate-500 mt-1 text-sm">Most revenue-based concession structures create a direct alignment: when DutyBoost increases retail sales, the airport earns more.</p>
-          </div>
-          <div className="overflow-hidden rounded-2xl border border-slate-200">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-slate-800 text-white">
-                  <th className="text-left px-4 py-2.5 font-semibold">Model</th>
-                  <th className="text-left px-4 py-2.5 font-semibold">How it works</th>
-                  <th className="text-center px-4 py-2.5 font-semibold whitespace-nowrap">Airport benefits when<br />DutyBoost increases sales?</th>
-                </tr>
-              </thead>
-              <tbody>
-                {models.map((m, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                    <td className="px-4 py-2 font-semibold text-slate-800 whitespace-nowrap">{m.name}</td>
-                    <td className="px-4 py-2 text-slate-600">{m.how}</td>
-                    <td className="px-4 py-2">
-                      <div className="flex items-center justify-center gap-2">
-                        <BenefitIcon val={m.benefits} />
-                        {m.note && <span className="text-xs text-slate-500">{m.note}</span>}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="mt-4 bg-blue-50 border border-blue-200 rounded-2xl p-4">
-            <p className="text-blue-800 text-sm leading-relaxed">
-              <strong>Key takeaway:</strong> In models 3, 5, 6, 7, and 9 — the majority of airport concession structures — DutyBoost's conversion uplift directly increases the airport's concession revenue. Even in MAG-based models, incremental sales can push revenue above the guarantee threshold.
-            </p>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
-// SLIDE 4: MAG + Percentage Worked Example
+// SLIDE 6: MAG + Percentage Worked Example
 function SlideMagExample() {
   return (
     <SlideWrapper>
@@ -325,7 +488,7 @@ function SlideMagExample() {
   );
 }
 
-// SLIDE 5: Concession Rate Benchmarks
+// SLIDE 7: Concession Rate Benchmarks
 function SlideBenchmarks() {
   const benchmarks = [
     {
@@ -345,7 +508,7 @@ function SlideBenchmarks() {
     {
       source: "Frankfurt Airport",
       stat: "Variable %",
-      desc: "Percentage of sales based on location, concept and foot traffic, combined with a minimum monthly rent — not a fixed rate per m²",
+      desc: "Percentage of sales based on location, concept and foot traffic, combined with a minimum monthly rent",
       link: FRA_LINK,
       linkText: "(FRA)",
     },
@@ -401,85 +564,13 @@ function SlideBenchmarks() {
   );
 }
 
-// SLIDE 6: Retail's Role in Airport Revenue
-function SlideRetailRevenue() {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Retail's Role in Airport Revenue</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Retail Is a <span className="text-blue-600">Major Revenue Pillar</span> for Airports
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">23.1%</div>
-              <div className="text-slate-800 font-semibold mb-1">of global airport non-aeronautical revenue</div>
-              <div className="text-slate-500 text-sm mt-2">
-                comes from retail concessions{" "}
-                <a href={ACI_BLOG_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
-                  (ACI)
-                </a>
-              </div>
-            </div>
-            <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-6 text-center">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-600 mb-2">26.7%</div>
-              <div className="text-slate-800 font-semibold mb-1">of European airport non-aeronautical revenue</div>
-              <div className="text-slate-500 text-sm mt-2">
-                comes from retail{" "}
-                <a href={ACI_BLOG_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
-                  (ACI)
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 className="font-bold text-slate-800 mb-3">Why This Matters</h3>
-              <div className="space-y-2.5 text-sm">
-                {[
-                  "Retail is nearly a quarter of all non-aeronautical airport revenue globally",
-                  "In Europe, it's over a quarter — the single largest commercial category",
-                  "Airports actively seek ways to grow retail performance",
-                  "DutyBoost directly grows the sales base that concession revenue is calculated on",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-              <h3 className="font-bold mb-3">The Strategic Alignment</h3>
-              <p className="text-blue-50 text-sm leading-relaxed">
-                Airports invest heavily in commercial strategy to maximise non-aeronautical revenue. DutyBoost aligns perfectly with that goal — it converts existing passenger traffic into additional retail sales, growing the very revenue stream airports already prioritise.
-              </p>
-              <div className="mt-3 bg-white/10 rounded-xl p-3">
-                <p className="text-white font-semibold text-sm">
-                  More retail sales → higher concession revenue → stronger non-aeronautical performance for the airport.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
-// SLIDE 7: Extended Value Chain
+// SLIDE 8: Extended Value Chain
 function SlideValueChain() {
   const chain = [
     { Icon: TravelAgencyIcon, label: "Travel Partner", desc: "Distributes DutyCredit", color: "blue" },
     { Icon: TravelerIcon, label: "Traveller", desc: "Activated before arrival", color: "violet" },
     { Icon: AirportRetailerIcon, label: "Airport Retailer", desc: "Captures incremental sale", color: "green" },
-    { Icon: Factory, label: "Supplier", desc: "Faster stock rotation", color: "amber" },
+    { Icon: Store, label: "Supplier", desc: "Faster stock rotation", color: "amber" },
     { Icon: Plane, label: "Airport", desc: "Incremental concession revenue", color: "indigo" },
   ];
 
@@ -551,7 +642,7 @@ function SlideValueChain() {
   );
 }
 
-// SLIDE 8: The Business Case
+// SLIDE 9: Business Case
 function SlideBusinessCase() {
   return (
     <SlideWrapper>
@@ -634,59 +725,81 @@ function SlideBusinessCase() {
   );
 }
 
-// SLIDE 9: Why DutyBoost for Airports
-function SlideWhyAirports() {
+// SLIDE 10: Growth Flywheel
+function SlideFlywheel() {
+  const steps = [
+    "More Travellers Converted",
+    "More Retail Sales",
+    "Higher Concession Revenue",
+    "Stronger Non-Aero Performance",
+    "More Commercial Investment",
+    "Better Retail Experience",
+    "Higher Conversion Rates",
+    "More Passenger Spend",
+    "Increased MAG Coverage",
+    "Stronger Airport Economics",
+    "More Retailer Participation",
+    "More Travellers Reached",
+  ];
+
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5 text-center">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Why DutyBoost for Airports</span>
+          <div className="mb-6">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Growth Flywheel</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Growing Non-Aeronautical Revenue <span className="text-blue-600">Without Subsidy</span>
+              A Self-Reinforcing <span className="text-blue-600">Revenue Engine</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <Layers className="w-8 h-8 text-blue-600 mb-3" />
-              <h3 className="font-bold text-slate-800 mb-2">No Subsidy Required</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                DutyBoost doesn't need the airport to fund or subsidise the traveller incentive. The incentive is funded through the transaction itself — the airport simply benefits from the increased sales base.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div className="relative flex items-center justify-center" style={{ height: "340px" }}>
+              <div className="absolute inset-0 rounded-full border-2 border-blue-200" />
+              <div className="bg-blue-600 border-2 border-blue-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
+                <div className="text-white text-xs font-bold leading-tight px-2">Airport Revenue Flywheel</div>
+              </div>
+              {steps.slice(0, 8).map((step, i) => {
+                const angle = (i / 8) * 360 - 90;
+                const rad = (angle * Math.PI) / 180;
+                const r = 145;
+                const x = 50 + (r / 3.4) * Math.cos(rad);
+                const y = 50 + (r / 3.4) * Math.sin(rad);
+                return (
+                  <div key={i} className="absolute bg-blue-50 border border-blue-200 rounded-lg px-2 py-1 text-center"
+                    style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)", maxWidth: "90px" }}>
+                    <div className="text-blue-700 text-xs font-semibold leading-tight">{step}</div>
+                  </div>
+                );
+              })}
+              <div className="absolute inset-0 rounded-full border-2 border-dashed border-blue-300 animate-spin" style={{ animationDuration: "30s" }} />
             </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-              <BarChart3 className="w-8 h-8 text-blue-600 mb-3" />
-              <h3 className="font-bold text-slate-800 mb-2">Grows Existing Revenue</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                DutyBoost increases the underlying retail sales on which concession payments are calculated. The airport earns more from the same retailers, same space, same agreements.
-              </p>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-              <CheckCircle className="w-8 h-8 text-green-600 mb-3" />
-              <h3 className="font-bold text-slate-800 mb-2">Works Within Current Structures</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                No changes to existing concession agreements. DutyBoost operates alongside percentage-of-sales, MAG, tiered and category-based models — growing revenue within the frameworks already in place.
-              </p>
-            </div>
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
-              <DollarSign className="w-8 h-8 text-amber-600 mb-3" />
-              <h3 className="font-bold text-slate-800 mb-2">Performance-Based</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Zero upfront cost. The airport only benefits when DutyBoost generates incremental sales — a fully aligned, performance-based model with no financial risk to the airport.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-            <div className="flex items-center gap-4">
-              <Plane className="w-10 h-10 flex-shrink-0" />
-              <div>
+            <div className="space-y-4">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                <h3 className="text-slate-800 font-bold mb-3">Why Airports Win as the Flywheel Turns</h3>
+                <div className="space-y-2.5 text-sm">
+                  {[
+                    { Icon: TrendingUp, party: "More conversion", effect: "→ Higher gross retail sales" },
+                    { Icon: DollarSign, party: "Higher sales", effect: "→ More percentage-based concession revenue" },
+                    { Icon: RefreshCw, party: "Past the MAG", effect: "→ Every transaction adds incremental revenue" },
+                    { Icon: BarChart3, party: "Stronger non-aero", effect: "→ Better commercial performance metrics" },
+                    { Icon: ShoppingCart, party: "More retailer success", effect: "→ Greater participation and shelf investment" },
+                  ].map((row) => (
+                    <div key={row.party} className="flex items-start gap-2">
+                      <row.Icon className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <span className="text-blue-700 font-semibold">{row.party} </span>
+                        <span className="text-slate-600">{row.effect}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
                 <p className="font-bold text-lg leading-snug">
-                  DutyBoost turns existing passenger traffic into incremental non-aeronautical revenue.
+                  "Every converted traveller today creates more concession revenue tomorrow."
                 </p>
-                <p className="text-blue-100 text-sm mt-1">
-                  No new infrastructure. No subsidy. No risk. Just more sales on which the airport already earns.
-                </p>
+                <p className="text-blue-100 text-sm mt-2">The flywheel turns passenger traffic into non-aeronautical revenue — and revenue into growth.</p>
               </div>
             </div>
           </div>
@@ -696,7 +809,77 @@ function SlideWhyAirports() {
   );
 }
 
-// SLIDE 10: Thank You
+// SLIDE 11: Partnership Model
+function SlideGetStarted() {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5 text-center">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">How the Partnership Works</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              No Subsidy. No Risk.<br /><span className="text-blue-600">Just More Revenue.</span>
+            </h2>
+            <p className="text-slate-500 mt-2 max-w-3xl mx-auto text-sm">DutyBoost does the activation. The airport benefits from increased retail sales within its existing concession framework. Here's how we work together.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 className="font-bold text-slate-800 mb-3">What DutyBoost Handles</h3>
+              <div className="space-y-2.5 text-sm">
+                {[
+                  { Icon: TravelerIcon, text: "Pre-activating travellers through Travel & Corporate Partners before arrival" },
+                  { Icon: DollarSign, text: "DutyCredit distribution and traveller incentive mechanics" },
+                  { Icon: BarChart3, text: "POS validation of qualifying transactions" },
+                  { Icon: RefreshCw, text: "Conversion data and sell-through reporting per retailer and category" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <row.Icon className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{row.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+              <h3 className="font-bold text-blue-900 mb-3">What We Ask of the Airport</h3>
+              <div className="space-y-2.5 text-sm">
+                {[
+                  { Icon: Building2, text: "Identify retailers with revenue-based concessions (MAG + % structures)" },
+                  { Icon: Store, text: "Introduce DutyBoost to concession retailers at the airport" },
+                  { Icon: TrendingUp, text: "Share retail category priorities so we align DutyCredit tiers" },
+                  { Icon: CheckCircle, text: "That's it — no contracts, no fees, no operational change" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <row.Icon className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{row.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="bg-slate-800 text-white rounded-2xl p-5">
+            <h3 className="font-bold mb-4 text-center">Three Simple Next Steps</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                { step: "1", title: "Introductory Call", desc: "A 30-minute conversation to understand your airport's concession structure and commercial priorities." },
+                { step: "2", title: "Retailer Mapping", desc: "We identify which retailers have revenue-based concessions where DutyBoost creates direct airport uplift." },
+                { step: "3", title: "Retailer Introduction", desc: "We introduce DutyBoost to your concession retailers and support their POS activation." },
+              ].map((row) => (
+                <div key={row.step} className="bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm mb-3">{row.step}</div>
+                  <div className="text-white font-bold text-sm mb-1.5">{row.title}</div>
+                  <div className="text-slate-300 text-xs leading-relaxed">{row.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 12: Thank You
 function SlideThankYou() {
   return (
     <SlideWrapper>
@@ -750,14 +933,16 @@ function SlideThankYou() {
 
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
-  insight: SlideInsight,
-  models: SlideModels,
+  team: SlideTeam,
+  problem: SlideProblem,
+  solution: SlideSolution,
+  concessionModel: SlideConcessionModel,
   magExample: SlideMagExample,
   benchmarks: SlideBenchmarks,
-  retailRevenue: SlideRetailRevenue,
   valueChain: SlideValueChain,
   businessCase: SlideBusinessCase,
-  whyAirports: SlideWhyAirports,
+  flywheel: SlideFlywheel,
+  getStarted: SlideGetStarted,
   thankYou: SlideThankYou,
 };
 
