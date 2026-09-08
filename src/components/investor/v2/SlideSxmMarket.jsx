@@ -85,9 +85,9 @@ export default function SlideSxmMarket() {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 bg-white/10 rounded-xl p-3">
-                <p className="text-white text-sm font-semibold">
-                  <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="underline decoration-white/50 hover:decoration-white">m1nd-set</a> Caribbean benchmark: 73% non-purchase rate confirms the activation opportunity.
+              <div className="mt-4 bg-white rounded-xl p-3">
+                <p className="text-slate-700 text-sm font-semibold">
+                  <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a> Caribbean benchmark: 73% non-purchase rate confirms the activation opportunity.
                 </p>
               </div>
             </div>
