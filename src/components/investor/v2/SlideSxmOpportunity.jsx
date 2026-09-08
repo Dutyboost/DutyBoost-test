@@ -25,8 +25,8 @@ export default function SlideSxmOpportunity() {
                 <div className="text-slate-500 text-sm mb-3">{s.reach}</div>
                 <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.gross}</div>
                 <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retail value</div>
-                <div className="text-slate-600 text-xs border-t border-slate-200 pt-2">retailer net (87.5%): <span className="font-semibold text-slate-800">{s.net}</span></div>
-                <div className="text-slate-500 text-xs mt-1">{s.conv} @ $100 avg basket</div>
+                <div className="text-slate-600 text-xs border-t border-slate-200 pt-2">retailer net (87.5% at $100 baseline): <span className="font-semibold text-slate-800">{s.net}</span></div>
+                <div className="text-slate-500 text-xs mt-1">{s.conv} @ $100 baseline basket</div>
               </div>
             ))}
           </div>
@@ -53,7 +53,7 @@ export default function SlideSxmOpportunity() {
                 {[
                   "Revenue comes from travellers who otherwise wouldn't have bought",
                   "No upfront cost, no marketing spend, no shelf price changes",
-                  "87.5% retailer net on every qualifying transaction",
+                  "87.5% retailer net on every qualifying transaction (at $100 baseline basket)",
                   "Travel & Corporate Partners handle activation before arrival",
                   "POS validates — settlement is transparent and per-transaction",
                 ].map((item, i) => (
