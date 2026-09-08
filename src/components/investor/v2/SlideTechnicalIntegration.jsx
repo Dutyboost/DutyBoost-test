@@ -53,7 +53,7 @@ Secure partner authentication
     {
       icon: <Lock className="w-5 h-5 text-blue-300" />,
       title: "No PCI burden",
-      desc: "DutyBoost never touches card data — it sits beside your payment flow",
+      desc: "DutyBoost never touches card data — it sits beside the payment flow",
     },
   ];
 
