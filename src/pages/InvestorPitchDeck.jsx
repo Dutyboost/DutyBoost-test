@@ -231,10 +231,15 @@ export function SlideProblem() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+               73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
+             </h2>
+            </div>
+            <div className="mb-4 bg-amber-50 border border-amber-300 rounded-xl p-3">
+             <p className="text-amber-800 text-sm leading-relaxed">
+               <span className="font-bold">Example benchmark only:</span> The 27% penetration and 73% non-purchase figures below are derived from Avolta's reported data as a representative example. Other major airport retailers — including Dufry/Lagardère, DFS, Gebr. Heinemann, Shilla, Lotte and others — operate at different scales and conversion rates. Avolta is used here solely to illustrate the conversion gap that DutyBoost addresses.
+             </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-5">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">9.8B</div>
