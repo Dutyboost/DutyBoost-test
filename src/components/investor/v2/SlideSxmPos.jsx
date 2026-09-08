@@ -69,7 +69,7 @@ export default function SlideSxmPos() {
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
               <MessageSquare className="w-7 h-7 text-blue-600 mx-auto mb-2" />
               <div className="text-slate-700 font-semibold text-sm">Two NCR CounterPoint Integrators Engaged</div>
-              <div className="text-slate-500 text-xs mt-1">Covering SXM and the wider Caribbean retailer base</div>
+              <div className="text-slate-500 text-xs mt-1">Covering SXM, Trinidad & Tobago and the wider Caribbean retailer base</div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
               <CheckCircle className="w-7 h-7 text-green-600 mx-auto mb-2" />
