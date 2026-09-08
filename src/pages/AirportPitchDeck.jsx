@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, ArrowRight, Building2, TrendingUp, DollarSign, Percent, CheckCircle, XCircle, BarChart3, Layers, Plane, RefreshCw, ShoppingCart, Store } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Building2, TrendingUp, DollarSign, Percent, CheckCircle, XCircle, BarChart3, Layers, Plane, RefreshCw, ShoppingCart, Store, Megaphone, Smartphone, MapPin, Award, Mail, Monitor } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
@@ -24,6 +24,7 @@ const SLIDES = [
   { id: "benchmarks", type: "benchmarks" },
   { id: "valueChain", type: "valueChain" },
   { id: "businessCase", type: "businessCase" },
+  { id: "promotion", type: "promotion" },
   { id: "flywheel", type: "flywheel" },
   { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
@@ -39,6 +40,7 @@ const SLIDE_LABELS = {
   benchmarks: "Rate Benchmarks",
   valueChain: "Value Chain",
   businessCase: "Business Case",
+  promotion: "Driving Footfall",
   flywheel: "Growth Flywheel",
   getStarted: "Partnership Model",
   thankYou: "Thank You",
@@ -193,9 +195,7 @@ function SlideProblem() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">15–18.5%</div>
                 <div className="text-slate-800 font-semibold">typical concession rate on gross retail sales</div>
-                <div className="text-slate-500 text-sm mt-1">Atlanta published 15–18.5%; ACI NA benchmark: 16.6%{" "}
-                  <a href={ATL_LINK} target="_blank" rel="noopener noreferrer"
-                    className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ATL)</a>{" "}
+                <div className="text-slate-500 text-sm mt-1">Industry benchmarks: 15–18.5% typical range; ACI NA average: 16.6%{" "}
                   <a href={ACI_NA_LINK} target="_blank" rel="noopener noreferrer"
                     className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI NA)</a>
                 </div>
@@ -350,10 +350,10 @@ function SlideConcessionModel() {
                 <h3 className="font-bold text-slate-800 mb-2">How It Works in Practice</h3>
                 <div className="space-y-2.5 text-sm">
                   {[
-                    "DFW: concessionaires pay a percentage of gross sales each month, subject to a predetermined MAG",
-                    "LAX: same \"greater of percentage of gross sales or MAG\" structure",
-                    "Frankfurt: percentage of sales based on location, concept and foot traffic, plus a minimum monthly rent",
-                    "Sacramento: percentages can be tiered — one rate on the first band, higher above it",
+                    "Many airports: concessionaires pay a percentage of gross sales each month, subject to a predetermined MAG",
+                    "Common structure: the greater of percentage of gross sales or MAG",
+                    "European hubs: percentage of sales based on location, concept and foot traffic, plus a minimum monthly rent",
+                    "Regional airports: tiered percentages — one rate on the first band, a higher rate above it",
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -499,25 +499,25 @@ function SlideBenchmarks() {
       linkText: "(ACI NA)",
     },
     {
-      source: "Atlanta Airport",
+      source: "Major Hub Airports",
       stat: "15–18.5%",
-      desc: "Published retail percentage-rent ranges in a concession solicitation package",
+      desc: "Published retail percentage-rent ranges in concession solicitation packages",
       link: ATL_LINK,
-      linkText: "(ATL)",
+      linkText: "(Source)",
     },
     {
-      source: "Frankfurt Airport",
+      source: "European Hub Airports",
       stat: "Variable %",
       desc: "Percentage of sales based on location, concept and foot traffic, combined with a minimum monthly rent",
       link: FRA_LINK,
-      linkText: "(FRA)",
+      linkText: "(Source)",
     },
     {
-      source: "Sacramento County Airports",
+      source: "Regional Airports",
       stat: "Tiered %",
       desc: "Percentages can be tiered — one rate on the first revenue band, a higher rate above it",
       link: SAC_LINK,
-      linkText: "(SMF)",
+      linkText: "(Source)",
     },
   ];
 
@@ -725,7 +725,78 @@ function SlideBusinessCase() {
   );
 }
 
-// SLIDE 10: Growth Flywheel
+// SLIDE 10: Driving Footfall
+function SlidePromotion() {
+  const channels = [
+    { Icon: Smartphone, title: "Airport App & Website", desc: "Feature DutyBoost-activated retailers, display DutyCredit offers, and push notifications to departing passengers before arrival", color: "blue" },
+    { Icon: Monitor, title: "Digital Signage & Screens", desc: "Promote participating stores on terminal displays, boarding area screens, and wayfinding digital directories", color: "indigo" },
+    { Icon: MapPin, title: "Retailer Directory Highlights", desc: "Flag participating stores on airport maps and retail directories with a DutyBoost badge or icon", color: "violet" },
+    { Icon: Mail, title: "Passenger Communications", desc: "Include DutyBoost in pre-travel emails, booking confirmations, and airline partner touchpoints", color: "green" },
+    { Icon: Megaphone, title: "Joint Marketing Campaigns", desc: "Co-branded campaigns with airlines, travel partners, and corporate travel programs to drive pre-activation", color: "amber" },
+    { Icon: Award, title: "Retailer Recognition", desc: "Recognise top-performing DutyBoost retailers in concession reviews and commercial performance reports", color: "purple" },
+  ];
+
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Driving Footfall to Retailers</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              How Airports Can Promote DutyBoost <span className="text-blue-600">to Increase Retail Visits</span>
+            </h2>
+            <p className="text-slate-500 mt-1 text-sm">The airport has unique touchpoints with passengers that no other participant can reach. By actively promoting DutyBoost-activated retailers, the airport drives more footfall into stores — and more footfall means more incremental sales and higher concession revenue.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
+            {channels.map((c, i) => (
+              <div key={i} className={`bg-${c.color}-50 border border-${c.color}-200 rounded-2xl p-4`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`w-9 h-9 rounded-full bg-${c.color}-600 text-white flex items-center justify-center flex-shrink-0`}>
+                    <c.Icon className="w-4 h-4" />
+                  </div>
+                  <div className={`text-${c.color}-700 font-bold text-sm leading-tight`}>{c.title}</div>
+                </div>
+                <p className="text-slate-600 text-xs leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 className="font-bold text-slate-800 mb-3">The Footfall-to-Revenue Chain</h3>
+              <div className="space-y-2 text-sm">
+                {[
+                  { step: "Airport promotes participating retailers", effect: "→ More passenger awareness" },
+                  { step: "Passengers seek out DutyBoost stores", effect: "→ More store visits and footfall" },
+                  { step: "Pre-activated travellers convert", effect: "→ More incremental sales" },
+                  { step: "Higher gross retail sales", effect: "→ Higher concession revenue for the airport" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700"><strong className="text-blue-700">{row.step}</strong> {row.effect}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
+              <h3 className="font-bold mb-2">The Airport's Unique Advantage</h3>
+              <p className="text-blue-50 text-sm leading-relaxed mb-2">
+                No other participant in the value chain has the airport's level of direct passenger access — terminal screens, apps, maps, directories, and pre-travel communications. By using these channels to promote DutyBoost retailers, the airport directly drives the footfall that becomes incremental sales.
+              </p>
+              <div className="bg-white/10 rounded-xl p-3">
+                <p className="text-white font-semibold text-sm">
+                  More promotion → more footfall → more conversion → more concession revenue.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 11: Growth Flywheel
 function SlideFlywheel() {
   const steps = [
     "More Travellers Converted",
@@ -941,6 +1012,7 @@ const SLIDE_COMPONENTS = {
   benchmarks: SlideBenchmarks,
   valueChain: SlideValueChain,
   businessCase: SlideBusinessCase,
+  promotion: SlidePromotion,
   flywheel: SlideFlywheel,
   getStarted: SlideGetStarted,
   thankYou: SlideThankYou,
