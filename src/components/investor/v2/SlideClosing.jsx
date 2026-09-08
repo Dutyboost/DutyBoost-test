@@ -24,7 +24,7 @@ export default function SlideClosing() {
           <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
             {[
               { label: "Incremental Revenue", value: "Net-New" },
-              { label: "Retailer Net", value: "87.5%" },
+              { label: "Non-Purchasing Travellers", value: "7.15B" },
               { label: "SXM First", value: "Scaling Globally" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -33,6 +33,9 @@ export default function SlideClosing() {
               </div>
             ))}
           </div>
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-600 tracking-tight">
+            THANK YOU
+          </h2>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
