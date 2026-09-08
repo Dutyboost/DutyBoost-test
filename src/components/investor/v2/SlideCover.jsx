@@ -21,12 +21,11 @@ export default function SlideCover() {
               Stakeholder Ecosystem &amp; Sint Maarten Market Entry
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
+          <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
             {[
               { label: "Airport DF&TR Market", value: "€37.1B" },
               { label: "Global Passengers", value: "9.8B" },
               { label: "Non-Purchasing", value: "73%" },
-              { label: "Y5 Revenue", value: "€22.05M" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <div className="text-xl sm:text-3xl font-bold text-blue-600">{s.value}</div>
