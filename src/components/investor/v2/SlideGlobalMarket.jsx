@@ -39,7 +39,7 @@ export default function SlideGlobalMarket() {
               <Users className="w-8 h-8 text-red-600 mx-auto mb-2" />
               <div className="text-2xl md:text-3xl font-bold text-red-700 mb-1">73%</div>
               <div className="text-slate-600 font-semibold text-sm">Non-Purchasing Travellers</div>
-              <div className="text-slate-500 text-xs mt-1">1.82B unreached passenger exposures</div>
+              <div className="text-slate-500 text-xs mt-1">7.15B unreached passengers</div>
             </div>
             <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 text-center">
               <Building2 className="w-8 h-8 text-violet-600 mx-auto mb-2" />
