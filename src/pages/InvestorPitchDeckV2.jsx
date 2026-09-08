@@ -8,6 +8,7 @@ import SlideCover from "@/components/investor/v2/SlideCover";
 import SlideGlobalMarket from "@/components/investor/v2/SlideGlobalMarket";
 import SlidePosToggle from "@/components/investor/v2/SlidePosToggle";
 import SlideStakeholderPrimary from "@/components/investor/v2/SlideStakeholderPrimary";
+import SlideTechnicalIntegration from "@/components/investor/v2/SlideTechnicalIntegration";
 import SlideStakeholderSecondary from "@/components/investor/v2/SlideStakeholderSecondary";
 import SlideRevenueDipV2 from "@/components/investor/v2/SlideRevenueDipV2";
 import SlideSxmMarket from "@/components/investor/v2/SlideSxmMarket";
@@ -25,6 +26,7 @@ const SLIDES = [
   { id: "solution", type: "solution" },
   { id: "posToggle", type: "posToggle" },
   { id: "stakeholderPrimary", type: "stakeholderPrimary" },
+  { id: "technicalIntegration", type: "technicalIntegration" },
   { id: "stakeholderSecondary", type: "stakeholderSecondary" },
   { id: "model", type: "model" },
   { id: "revenueDip", type: "revenueDip" },
@@ -46,6 +48,7 @@ const SLIDE_COMPONENTS = {
   solution: SlideSolution,
   posToggle: SlidePosToggle,
   stakeholderPrimary: SlideStakeholderPrimary,
+  technicalIntegration: SlideTechnicalIntegration,
   stakeholderSecondary: SlideStakeholderSecondary,
   model: SlideModel,
   revenueDip: SlideRevenueDipV2,
@@ -67,6 +70,7 @@ const SLIDE_LABELS = {
   solution: "The Solution",
   posToggle: "Non-Invasive POS Toggle",
   stakeholderPrimary: "Primary Stakeholders",
+  technicalIntegration: "Technical POS Integration",
   stakeholderSecondary: "Secondary: Wholesale",
   model: "Business Model",
   revenueDip: "Revenue Dip & Corporate Activation",
