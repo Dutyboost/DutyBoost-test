@@ -71,14 +71,14 @@ export function SlideOpportunity() {
           <div className="mb-5 lg:mb-10">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Opportunity</span>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
-              9.8B Passengers. 90–95% Never Buy.<br /><span className="text-violet-600">Your Retailers Want Incremental Sales.</span>
+              9.8B Passengers. 73% Never Buy.<br /><span className="text-violet-600">Your Retailers Want Incremental Sales.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 mb-5 lg:mb-8">
             {[
               { val: "9.8B", label: "Global passenger movements in 2025", sub: "ACI World — audience already in transit" },
-              { val: "5–10%", label: "Global duty-free conversion rate", sub: "Only 5–10% of travellers buy (Kearney / TFWA)" },
-              { val: "~8.8B", label: "Non-purchasing passengers annually", sub: "Untapped incremental revenue pool" },
+              { val: "27%", label: "Global conversion rate", sub: "Only 27% of travellers buy (m1nd-set / TFWA)" },
+              { val: "7.15B", label: "Non-purchasing passengers annually", sub: "Untapped incremental revenue pool" },
             ].map((s) => (
               <div key={s.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-violet-600 mb-2">{s.val}</div>
@@ -590,7 +590,7 @@ export function SlideGetStarted() {
             {[
               { title: "Weeks, Not Months", desc: "A single lightweight validation call — no replacement of your POS core, payments or merchant contracts." },
               { title: "Commission From Day One", desc: "Once live, every DutyBoost-validated transaction earns your 10% share of the platform fee — recurring and attributed." },
-              { title: "Revenue From the 90%+ Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental, validated basket value." },
+              { title: "Revenue From the 73% Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental, validated basket value." },
               { title: "A Stronger Renewal Story", desc: "Retailers gaining measurable incremental sales renew on value, not price — a defensible competitive position." },
             ].map((card, i) => (
               <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:p-5 text-left">
