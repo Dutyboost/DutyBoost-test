@@ -140,14 +140,14 @@ export function SlideSxmMarket() {
               <div className="text-slate-400 text-xs mt-3">SXM category values estimated from CMI market share, proportional to SXM's 2.45% share of the Caribbean market</div>
             </div>
             <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-lg mb-3">The Window Is Open — For Now</h3>
+              <h3 className="font-bold text-lg mb-3">A Defined Technical Challenge — The Build Path Is Mapped</h3>
               <div className="space-y-3">
                 {[
-                  { icon: Shield, text: "Exclusive integrator seat — one Antek-grade partner locks recurring revenue across the entire island territory" },
-                  { icon: Clock, text: "Ecosystem already converging — retailer, wholesalers & duty-free operators engaged; momentum is live" },
-                  { icon: Users, text: "625K non-purchasing travellers each year — every quarter unactivated is revenue permanently lost" },
-                  { icon: TrendingUp, text: "21.7% Caribbean CAGR — the market compounds while you wait; the entry cost only rises" },
-                  { icon: DollarSign, text: "$67M already flows through SXM unactivated — capture your share before a competitor does" },
+                  { icon: Cpu, text: "The gap is structural: 73% of passengers never purchase because no pre-airport incentive ever reaches the POS layer — there is no technical lever today" },
+                  { icon: Shield, text: "Non-invasive by design — a toggle inside NCR CounterPoint: no hardware, no checkout-flow changes, no added PCI scope" },
+                  { icon: Zap, text: "One HTTPS call validates the DutyCredit, applies the discount, returns the result — idempotent and duplicate-safe" },
+                  { icon: Boxes, text: "Integrate once at platform level; every Antek-supported retailer toggles on with zero per-store code" },
+                  { icon: CheckCircle, text: "Feasibility already reviewed against the CounterPoint workflow — the build path is confirmed, not speculative" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <item.icon className="w-5 h-5 text-violet-200 flex-shrink-0 mt-0.5" />
@@ -157,9 +157,9 @@ export function SlideSxmMarket() {
               </div>
               <div className="mt-4 bg-white rounded-xl p-3">
                 <p className="text-slate-700 text-sm font-semibold">
-                  The activation opportunity is confirmed and live —{" "}
+                  The 73% non-purchase gap ({" "}
                   <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a>{" "}
-                  benchmarks the headroom. The only question is which integrator captures it.
+                  benchmark) is a structural integration problem — and the build path to close it is confirmed.
                 </p>
               </div>
             </div>
