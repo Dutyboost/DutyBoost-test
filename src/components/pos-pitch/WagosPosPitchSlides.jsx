@@ -265,7 +265,7 @@ export function SlideWagosOpportunity() {
               <ul className="space-y-2.5">
                 {[
                   "Trinidad & Tobago-based NCR CounterPoint business partner — the integrator and support partner, not the POS provider",
-                  "Serves airport retailers across Trinidad & Tobago, Grenada, the Cayman Islands, Guyana, and St. Martin",
+                  "Serves airport retailers across Trinidad & Tobago, Grenada, the Cayman Islands, and Guyana",
                   "Confirmed client: Caribbean Airlines Duty Free at Piarco International Airport (POS)",
                   "Reviewed DutyBoost as a toggle feature within existing NCR CounterPoint workflows",
                   "Wagos-supported retailers can opt-in per store via toggle activation — no code changes per store",
