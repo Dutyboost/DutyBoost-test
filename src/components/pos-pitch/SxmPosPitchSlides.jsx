@@ -323,25 +323,7 @@ export function SlideSxmEcosystem() {
             </h2>
             <p className="text-slate-500 mt-1 text-sm">DutyBoost is not starting from zero at SXM — active conversations are underway across the entire retail ecosystem that Antek supports.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-            {/* Antek */}
-            <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-violet-600 text-white flex items-center justify-center">
-                    <Cpu className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-800 text-sm">
-                      <a href={ANTEK_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Antek</a>
-                    </h3>
-                    <div className="text-slate-500 text-xs">POS System Integrator — SXM</div>
-                  </div>
-                </div>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full border bg-green-100 text-green-700 border-green-300">Active</span>
-              </div>
-              <p className="text-slate-600 text-xs">The NCR CounterPoint integrator at SXM — the single technical entry point. DutyBoost is added as a toggle feature within the CounterPoint workflow they already manage.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
             {/* Dutch Delight */}
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
               <div className="flex items-center justify-between mb-3">
@@ -394,16 +376,15 @@ export function SlideSxmEcosystem() {
               </div>
               <p className="text-slate-600 text-xs">Operates Princess Promenade duty-free stores. JV with Penha Group — 6 retail outlets. Dual benefit as wholesaler & retailer.</p>
             </div>
-            {/* Antek's role */}
-            <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-5 text-white flex flex-col justify-center">
-              <div className="flex items-center gap-2 mb-2">
-                <Shield className="w-5 h-5" />
-                <h3 className="font-bold">Antek Connects Them All</h3>
-              </div>
-              <p className="text-violet-50 text-sm leading-relaxed">
-                Retailers, wholesalers, and duty-free operators at SXM all run on NCR CounterPoint. Antek is the integrator that links them — and DutyBoost flows through that existing infrastructure.
-              </p>
+          </div>
+          <div className="max-w-2xl mx-auto bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-5 text-white text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Shield className="w-5 h-5" />
+              <h3 className="font-bold">One Airport. One Platform. Conversations Underway.</h3>
             </div>
+            <p className="text-violet-50 text-sm leading-relaxed">
+              Retailers, wholesalers and duty-free operators at SXM all run on NCR CounterPoint. Active conversations span the full retail chain — the conditions for a coordinated activation already exist. The missing piece is the integration itself.
+            </p>
           </div>
           <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4">
             <p className="text-slate-700 text-sm font-medium">
