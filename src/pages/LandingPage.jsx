@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, ArrowRight, Menu, X, Cpu, Building2, Network, Plane, Package
+  ArrowRight, Menu, X, Cpu, Building2, Network, Plane, Package
 } from "lucide-react";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import { getAirportStrings } from "@/lib/i18nAirport";
@@ -94,36 +94,6 @@ export default function LandingPage() {
           <span className="sm:hidden"><DutyBoostLogo height={36} /></span>
           <span className="hidden sm:inline-flex"><DutyBoostLogo height={55} /></span>
           <div className="hidden lg:flex items-center gap-2">
-            <Link to="/roi-calculator">
-              <Button variant="outline" size="sm" className="gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Retail Partner ROI
-              </Button>
-            </Link>
-            <Link to="/roi-calculator-travel-partner">
-              <Button variant="outline" size="sm" className="gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Travel Partner ROI
-              </Button>
-            </Link>
-            <Link to="/pos-partner#calculator">
-              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                <Calculator className="w-4 h-4 shrink-0" /> POS Partner ROI
-              </Button>
-            </Link>
-            <Link to="/roi-calculator-corporate-partner">
-              <Button variant="outline" size="sm" className="gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
-              </Button>
-            </Link>
-            <Link to="/airport-calculator">
-              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Airport ROI
-              </Button>
-            </Link>
-            <Link to="/wholesale-calculator">
-              <Button variant="outline" size="sm" className="gap-1.5 text-emerald-600 border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Wholesale ROI
-              </Button>
-            </Link>
             <LanguageSwitcher />
           </div>
           <div className="flex lg:hidden items-center gap-2">
@@ -136,36 +106,7 @@ export default function LandingPage() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur px-4 py-4 flex flex-col gap-3">
-            <Link to="/roi-calculator" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-blue-600 border-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Retail Partner ROI
-              </Button>
-            </Link>
-            <Link to="/roi-calculator-travel-partner" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-green-600 border-green-600 hover:text-green-700 hover:bg-green-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Travel Partner ROI
-              </Button>
-            </Link>
-            <Link to="/pos-partner#calculator" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                <Calculator className="w-4 h-4 shrink-0" /> POS Partner ROI
-              </Button>
-            </Link>
-            <Link to="/roi-calculator-corporate-partner" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
-              </Button>
-            </Link>
-            <Link to="/airport-calculator" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Airport ROI
-              </Button>
-            </Link>
-            <Link to="/wholesale-calculator" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full gap-1.5 text-emerald-600 border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
-                <Calculator className="w-4 h-4 shrink-0" /> Wholesale ROI
-              </Button>
-            </Link>
+            <LanguageSwitcher />
           </div>
         )}
       </nav>
