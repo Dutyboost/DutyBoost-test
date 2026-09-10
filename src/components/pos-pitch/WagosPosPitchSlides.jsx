@@ -501,7 +501,7 @@ export function SlideWagosRevenue() {
                   <span className="text-green-400 text-sm font-bold">$7,250/year</span>
                 </div>
               </div>
-              <div className="text-slate-400 text-xs mt-3">Based on 73% non-purchase rate, $100 average basket, 0.25% commission. Excludes St. Martin (covered separately).</div>
+              <div className="text-slate-400 text-xs mt-3">Based on 73% non-purchase rate, $100 average basket, 0.25% commission.</div>
             </div>
             <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-5">
               <h3 className="font-bold text-violet-900 mb-3">Why This Is Pure Upside for Wagos</h3>
