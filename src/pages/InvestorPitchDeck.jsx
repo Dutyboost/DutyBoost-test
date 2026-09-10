@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, Fragment } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Download } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Download, Zap, RefreshCw } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { exportInvestorPitchPptx } from "@/utils/exportInvestorPitchPptx";
 import SlidePosEcosystem from "@/components/investor/SlidePosEcosystem";
@@ -307,7 +308,14 @@ export function SlideSolution() {
               Activate the Traveller<br /><span className="text-blue-600">Before Airport Arrival</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-5 mb-6">
+            <div className="bg-blue-600 border border-blue-700 rounded-2xl p-5 text-center text-white">
+              <Zap className="w-10 h-10 mx-auto mb-3 text-white" />
+              <Link to="/eligibility-showcase" target="_blank" rel="noopener noreferrer" className="block font-semibold mb-1 underline decoration-white/40 hover:decoration-white">
+                DutyBoost Platform
+              </Link>
+              <div className="text-blue-100 text-sm">Travellers generate their own DutyCredits directly — no partner required</div>
+            </div>
             {[
               { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
@@ -374,6 +382,14 @@ export function SlideSolution() {
                 <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-blue-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
                 <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
               </div>
+            </div>
+          </div>
+          <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <div className="flex items-start gap-3">
+              <RefreshCw className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+              <p className="text-slate-700 text-sm leading-relaxed">
+                <span className="font-bold">Single-use, infinitely renewable.</span> A DutyCredit can't be reused — but travellers can get one from a Travel or Corporate Partner and generate as many more as they need for other participating stores. One DutyCredit for cosmetics, another for electronics, another at the giftshop for a souvenir. Same traveller, different stores, everyone wins.
+              </p>
             </div>
           </div>
         </div>
