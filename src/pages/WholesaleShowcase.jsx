@@ -7,7 +7,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
-import WeCallYouForm from "@/components/WeCallYouForm";
+import WeCallYouModal from "@/components/WeCallYouModal";
 
 export default function WholesaleShowcase() {
   const { t, i18n } = useTranslation();
@@ -119,25 +119,15 @@ export default function WholesaleShowcase() {
               <h2 className="text-4xl font-heading font-bold">{o.ctaTitle}</h2>
               <p className="text-white/80 text-lg max-w-xl mx-auto">{o.ctaDesc}</p>
               <div className="flex justify-center">
-                <a href="#callback">
-                  <Button size="lg" className="bg-white text-emerald-700 hover:bg-white/90 gap-2 px-8 text-base mt-2">
-                    {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </a>
+                <WeCallYouModal
+                  trigger={(setOpen) => (
+                    <Button size="lg" className="bg-white text-emerald-700 hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => setOpen(true)}>
+                      {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  )}
+                />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="callback" className="py-12 px-4 sm:px-6 bg-muted/30">
-        <div className="max-w-lg mx-auto">
-          <div className="text-center mb-6 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('common.request_more_info')}</h2>
-            <p className="text-muted-foreground text-sm">{o.ctaDesc}</p>
-          </div>
-          <div className="bg-card border border-border rounded-2xl p-6">
-            <WeCallYouForm />
           </div>
         </div>
       </section>
