@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
-import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2 } from "lucide-react";
+import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2, Plane, Package } from "lucide-react";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -942,6 +942,8 @@ export function SlideFlywheel({ currency = "€" }) {
     "More Participating Retail Visits",
     "More Retail Conversion",
     "More Validated Transactions",
+    "More Airport Concession Revenue",
+    "More Wholesale Sell-Through",
     "More Retailer Revenue",
     "More Travel & Corporate Partner Revenue",
     "More DutyBoost Revenue",
@@ -967,8 +969,8 @@ export function SlideFlywheel({ currency = "€" }) {
               <div className="bg-violet-600 border-2 border-violet-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
                 <div className="text-white text-xs font-bold leading-tight px-2">Circular Revenue Infrastructure</div>
               </div>
-              {steps.slice(0, 8).map((step, i) => {
-                const angle = (i / 8) * 360 - 90;
+              {steps.slice(0, 10).map((step, i) => {
+                               const angle = (i / 10) * 360 - 90;
                 const rad = (angle * Math.PI) / 180;
                 const r = 145;
                 const x = 50 + (r / 3.4) * Math.cos(rad);
@@ -1000,6 +1002,8 @@ export function SlideFlywheel({ currency = "€" }) {
                     { Icon: Cpu, party: "More POS Integrations", effect: "→ More deployment capacity" },
                     { Icon: BarChart3, party: "More Transactions", effect: "→ Stronger commercial evidence" },
                     { Icon: Link2, party: "Stronger Evidence", effect: "→ Easier future partner acquisition" },
+                    { Icon: Plane, party: "More Airports", effect: "→ Higher non-aeronautical concession revenue" },
+                    { Icon: Package, party: "More Wholesale Suppliers", effect: "→ Faster stock rotation and reorder volume" },
                   ].map((row) => (
                     <div key={row.party} className="flex items-start gap-2">
                       <row.Icon className="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" />
