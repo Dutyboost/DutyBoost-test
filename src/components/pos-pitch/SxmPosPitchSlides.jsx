@@ -247,50 +247,37 @@ export function SlideAntekOpportunity() {
           <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Antek's Opportunity</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              The Integration Partner <span className="text-violet-600">for Sint Maarten</span>
+              Why Build This Integration <span className="text-violet-600">With DutyBoost</span>
             </h2>
-            <p className="text-slate-500 mt-1 text-sm">
-              <a href={ANTEK_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Antek</a> is the NCR CounterPoint system integrator and support partner for Sint Maarten and neighboring islands — the single technical entry point for DutyBoost across the SXM retailer base.
-            </p>
+            <p className="text-slate-500 mt-1 text-sm">The real reasons for Antek to take on this build — beyond background or tenure.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-violet-600 text-white flex items-center justify-center">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-800 text-lg">
-                    <a href={ANTEK_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Antek</a>
-                  </h3>
-                  <div className="text-slate-500 text-xs">NCR CounterPoint System Integrator & Support Partner — Sint Maarten</div>
-                </div>
-              </div>
-              <ul className="space-y-2.5">
+              <h3 className="font-bold text-slate-800 text-lg mb-4">Reasons To Build This</h3>
+              <ul className="space-y-3">
                 {[
-                  "Sint Maarten's NCR CounterPoint system integrator and support partner for 25+ years",
-                  "Services Sint Maarten (SXM) and neighboring Caribbean islands (Anguilla, St. Barthélemy, Saba, Statia)",
-                  "Reviewed the non-invasive, performance-based model",
-                  "Confirmed technical feasibility of DutyCredit validation at NCR CounterPoint checkout",
-                  "The single integration point — once enabled, every Antek-supported retailer can toggle DutyBoost on",
+                  { icon: Cpu, text: "A clean, scoped build — a non-invasive toggle inside NCR CounterPoint, one HTTPS call, no hardware, no added PCI scope" },
+                  { icon: Boxes, text: "Integrate once at platform level; every retailer you support toggles on with zero per-store code" },
+                  { icon: CheckCircle, text: "Feasibility already reviewed against the CounterPoint workflow — the build path is confirmed, not speculative" },
+                  { icon: Shield, text: "Zero risk to your core — toggle off anytime, no impact on non-DutyBoost transactions" },
+                  { icon: Building2, text: "Solve a structural problem with no current technical lever — be the integrator who made pre-airport activation work" },
                 ].map((pt, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-600 text-sm">{pt}</span>
+                    <pt.icon className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-600 text-sm">{pt.text}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="flex flex-col gap-4">
               <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
-                <h3 className="font-bold text-violet-900 mb-3">What Antek Earns</h3>
+                <h3 className="font-bold text-violet-900 mb-3">What You Earn For Building It</h3>
                 <div className="space-y-2.5 text-sm">
                   {[
                     { metric: "Commission rate", val: "10% of the 2.5% platform fee = 0.25% of every validated basket" },
-                    { metric: "Per $100 basket", val: "$0.25 — on transactions Antek already processes" },
+                    { metric: "Per $100 basket", val: "$0.25 — on transactions you already process" },
                     { metric: "Upfront cost", val: "$0 — no setup fee, no subscription, no licence" },
                     { metric: "On non-converters", val: "$0 — purely performance-based, zero risk" },
-                    { metric: "Territory", val: "SXM + Anguilla, St. Barthélemy, Saba, Statia" },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
@@ -305,13 +292,13 @@ export function SlideAntekOpportunity() {
               <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-5 text-white">
                 <div className="flex items-center gap-2 mb-2">
                   <Zap className="w-5 h-5" />
-                  <h3 className="font-bold">Why Antek Is Essential</h3>
+                  <h3 className="font-bold">A Build Worth Doing</h3>
                 </div>
                 <p className="text-violet-50 text-sm leading-relaxed">
-                  Antek already supports the NCR CounterPoint infrastructure across SXM and neighboring islands. DutyBoost turns that existing relationship into a new, recurring revenue stream — Antek is the gatekeeper who enables every retailer on their supported islands to activate DutyBoost.
+                  This isn't a marketing layer bolted onto your POS. It's a real integration that solves a measurable problem — and you're the integrator best placed to ship it. A defined scope, a confirmed path, and a capability no other Caribbean integrator offers yet.
                 </p>
                 <div className="mt-3 text-violet-100 font-semibold text-sm">
-                  You integrate once. Every retailer you serve can toggle on. You earn on every validated sale.
+                  One build. Every retailer you support benefits. You earn on every validated sale.
                 </div>
               </div>
             </div>
