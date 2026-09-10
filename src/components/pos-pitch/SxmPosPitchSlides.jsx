@@ -386,7 +386,7 @@ export function SlideSxmEcosystem() {
               Retailers, wholesalers and duty-free operators at SXM all run on NCR CounterPoint. Active conversations span the full retail chain — the conditions for a coordinated activation already exist. The missing piece is the integration itself.
             </p>
           </div>
-          <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4">
+          <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4 mt-6">
             <p className="text-slate-700 text-sm font-medium">
               <span className="font-bold">The network is forming:</span> Antek as the integrator, Dutch Delight as a prospective pilot retailer, Divico & ILTT as wholesale advocates — conversations are active across the full SXM retail chain.
             </p>
