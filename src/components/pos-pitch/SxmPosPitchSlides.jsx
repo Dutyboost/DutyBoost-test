@@ -548,7 +548,7 @@ export function SlideClosingSxm() {
               No setup fee. No subscription. No risk. Only incremental revenue — connected.
             </p>
             <p className="text-slate-600 text-sm lg:text-base font-semibold">
-              SXM is the proving ground. Antek is the integration partner. The Caribbean is the scale.
+              SXM is a strategic Caribbean hub. Antek is the integration partner. The Caribbean is the growth market.
             </p>
           </div>
           <div className="mt-2 text-xs text-slate-400 border border-slate-200 rounded px-4 py-2">
