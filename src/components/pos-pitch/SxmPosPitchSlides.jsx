@@ -144,7 +144,7 @@ export function SlideSxmMarket() {
               <div className="space-y-3">
                 {[
                   { icon: Cpu, text: "The gap is structural: 73% of passengers never purchase because no pre-airport incentive ever reaches the POS layer — there is no technical lever today" },
-                  { icon: Shield, text: "Non-invasive by design — a toggle inside NCR CounterPoint: no hardware, no checkout-flow changes, no added PCI scope" },
+                  { icon: Shield, text: "Non-invasive by design — a toggle inside NCR CounterPoint: no hardware, no checkout-flow changes, no added PCI (Payment Card Industry) scope" },
                   { icon: Zap, text: "One HTTPS call validates the DutyCredit, applies the discount, returns the result — idempotent and duplicate-safe" },
                   { icon: Boxes, text: "Integrate once at platform level; every Antek-supported retailer toggles on with zero per-store code" },
                   { icon: CheckCircle, text: "Feasibility already reviewed against the CounterPoint workflow — the build path is confirmed, not speculative" },
@@ -256,7 +256,7 @@ export function SlideAntekOpportunity() {
               <h3 className="font-bold text-slate-800 text-lg mb-4">Reasons To Build This</h3>
               <ul className="space-y-3">
                 {[
-                  { icon: Cpu, text: "A clean, scoped build — a non-invasive toggle inside NCR CounterPoint, one HTTPS call, no hardware, no added PCI scope" },
+                  { icon: Cpu, text: "A clean, scoped build — a non-invasive toggle inside NCR CounterPoint, one HTTPS call, no hardware, no added PCI (Payment Card Industry) scope" },
                   { icon: Boxes, text: "Integrate once at platform level; every retailer you support toggles on with zero per-store code" },
                   { icon: CheckCircle, text: "Feasibility already reviewed against the CounterPoint workflow — the build path is confirmed, not speculative" },
                   { icon: Shield, text: "Zero risk to your core — toggle off anytime, no impact on non-DutyBoost transactions" },

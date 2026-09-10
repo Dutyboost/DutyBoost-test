@@ -541,7 +541,7 @@ Secure partner authentication
     },
     {
       icon: <Lock className="w-5 h-5 text-violet-300" />,
-      title: "No PCI burden",
+      title: "No PCI (Payment Card Industry) burden",
       desc: "DutyBoost never touches card data — it sits beside the payment flow",
     },
   ];
