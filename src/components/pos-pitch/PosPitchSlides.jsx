@@ -1,6 +1,11 @@
-import { ArrowRight, Cpu, TrendingUp, CheckCircle, BarChart3, Plug, Layers, ShieldCheck, Globe, RefreshCw, Lock } from "lucide-react";
+import { Fragment } from "react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
-import SlideApiExample from "@/components/pos-pitch/SlideApiExample";
+import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2 } from "lucide-react";
+import HotelIcon from "@/components/HotelIcon";
+import CarRentalIcon from "@/components/CarRentalIcon";
+import AirportRetailerIcon from "@/components/AirportRetailerIcon";
+import TravelerIcon from "@/components/TravelerIcon";
+import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 
 function SlideWrapper({ children }) {
   return (
@@ -12,12 +17,16 @@ function SlideWrapper({ children }) {
 
 function GridBg() {
   return (
-    <div className="absolute inset-0 opacity-[0.03]" style={{
+    <div className="absolute inset-0 opacity-[0.04]" style={{
       backgroundImage: "linear-gradient(rgba(124,58,237,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.4) 1px, transparent 1px)",
       backgroundSize: "40px 40px"
     }} />
   );
 }
+
+const ACI_LINK = "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com";
+const M1NDSET_LINK = "https://m1nd-set.com/";
+const TFWA_LINK = "https://www.tfwa.com/";
 
 // SLIDE 1: Cover
 export function SlideCover({ currency = "€" }) {
@@ -25,30 +34,30 @@ export function SlideCover({ currency = "€" }) {
     <SlideWrapper>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         <GridBg />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }} />
-        <div className="relative z-10 flex flex-col items-center gap-8 lg:gap-16">
+        <div className="relative z-10 flex flex-col items-center gap-8">
           <div className="bg-slate-50 rounded-2xl px-8 py-4 shadow-lg border border-slate-200">
             <DutyBoostLogo height={50} linkTo="/pos-partner" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               One Integration.<br />
               <span className="text-violet-600">Recurring Revenue. Zero Risk.</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-slate-500 max-w-3xl leading-relaxed">
-              A presentation for Point-of-Sale Providers serving Airport & Travel Retail
+            <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
+              A presentation for Point-of-Sale Providers serving Airport &amp; Travel Retail
             </p>
           </div>
-          <div className="flex flex-wrap items-start justify-center gap-x-6 sm:gap-x-12 lg:gap-x-16 gap-y-4 mt-4 w-full max-w-xl lg:max-w-4xl">
+          <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
             {[
-              { label: "POS Commission", value: "0.25%" },
-              { label: "Cost Model", value: "Performance" },
-              { label: "Setup Fee", value: `${currency}0` },
+              { label: "Airport DF&TR Market", value: "€37.1B" },
+              { label: "Global Passengers", value: "9.8B" },
+              { label: "Non-Purchasing", value: "73%" },
             ].map((s) => (
-              <div key={s.label} className="flex flex-col items-center text-center">
-                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-violet-600 whitespace-nowrap">{s.value}</div>
-                <div className="text-xs sm:text-sm lg:text-lg text-slate-500 mt-1 whitespace-nowrap">{s.label}</div>
+              <div key={s.label} className="text-center">
+                <div className="text-xl sm:text-3xl font-bold text-violet-600">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -61,37 +70,105 @@ export function SlideCover({ currency = "€" }) {
   );
 }
 
-// SLIDE 2: The Opportunity
-export function SlideOpportunity() {
+// SLIDE 2: Global Market / Opportunity
+export function SlideOpportunity({ currency = "€" }) {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5 lg:mb-10">
-            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Opportunity</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
-              9.8B Passengers. 73% Never Buy.<br /><span className="text-violet-600">Your Retailers Want Incremental Sales.</span>
+          <div className="mb-5">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Global Market</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              The Addressable Market <span className="text-violet-600">Already Exists</span>
             </h2>
+            <p className="text-slate-500 mt-2 text-sm">DutyBoost connects value within an established global market — no new infrastructure required.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 mb-5 lg:mb-8">
-            {[
-              { val: "9.8B", label: "Global passenger movements in 2025", sub: "ACI World — audience already in transit" },
-              { val: "27%", label: "Global conversion rate", sub: "Only 27% of travellers buy (m1nd-set / TFWA)" },
-              { val: "7.15B", label: "Non-purchasing passengers annually", sub: "Untapped incremental revenue pool" },
-            ].map((s) => (
-              <div key={s.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-violet-600 mb-2">{s.val}</div>
-                <div className="text-slate-900 font-semibold text-sm lg:text-base">{s.label}</div>
-                <div className="text-slate-500 text-xs lg:text-sm mt-1">{s.sub}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
+              <Globe className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">€37.1B</div>
+              <div className="text-slate-600 font-semibold text-sm">Airport DF&amp;TR Market</div>
+              <div className="text-slate-500 text-xs mt-1">
+                <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(TFWA 2025)</a> — 56.6% of €65.5B worldwide
               </div>
-            ))}
+            </div>
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
+              <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">27%</div>
+              <div className="text-slate-600 font-semibold text-sm">Global Conversion Rate</div>
+              <div className="text-slate-500 text-xs mt-1">
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(m1nd-set)</a> — industry benchmark
+              </div>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-5 text-center">
+              <Users className="w-8 h-8 text-red-600 mx-auto mb-2" />
+              <div className="text-2xl md:text-3xl font-bold text-red-700 mb-1">73%</div>
+              <div className="text-slate-600 font-semibold text-sm">Non-Purchasing Travellers</div>
+              <div className="text-slate-500 text-xs mt-1">
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(m1nd-set)</a> — 7.15B unreached passengers
+              </div>
+            </div>
+            <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 text-center">
+              <Building2 className="w-8 h-8 text-violet-600 mx-auto mb-2" />
+              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">4,000</div>
+              <div className="text-slate-600 font-semibold text-sm">Commercial Airports</div>
+              <div className="text-slate-500 text-xs mt-1">
+                <a href={ACI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI World)</a> — 2,800 with duty-free
+              </div>
+            </div>
           </div>
-          <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-5 lg:p-7">
-            <h3 className="text-slate-900 font-bold text-lg mb-3">The POS Provider Position</h3>
-            <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
-              POS providers already sit at the transaction layer of travel retail — the exact point where incremental conversion is validated and attributed. By enabling DutyBoost, a POS provider turns its existing infrastructure into a new, recurring, performance-based revenue stream while delivering measurable incremental sales to every retailer it serves.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-800 text-white rounded-2xl p-6">
+              <h3 className="font-bold text-lg mb-4">Global Revenue Generated in 2025</h3>
+              <div className="space-y-4">
+                {[
+                  { label: "Worldwide DF&TR Industry", val: "€65.5B", pct: "100%", color: "bg-blue-500" },
+                  { label: "Airport DF&TR Channel", val: "€37.1B", pct: "56.6%", color: "bg-indigo-500" },
+                  { label: "Other Channels (Downtown, Cruise, Border, Inflight)", val: "€28.4B", pct: "43.4%", color: "bg-violet-500" },
+                ].map((row) => (
+                  <div key={row.label} className="space-y-1">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-300">{row.label}</span>
+                      <span className="text-white font-bold">{row.val}</span>
+                    </div>
+                    <div className="bg-white/10 rounded-full h-2">
+                      <div className={`${row.color} h-2 rounded-full`} style={{ width: row.pct === "100%" ? "100%" : row.pct }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-slate-400 text-xs mt-4">
+                Source:{' '}
+                <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-semibold underline decoration-blue-400/50 hover:decoration-blue-300 hover:text-blue-300 transition-colors">
+                  (TFWA 2025 Handbook)
+                </a>
+              </div>
+            </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+              <h3 className="font-bold text-slate-700 mb-3">The POS Provider Position</h3>
+              <div className="space-y-3">
+                {[
+                  { icon: Users, text: "9.8B global passengers in 2025", src: "ACI World" },
+                  { icon: TrendingUp, text: "Only 27% convert — 73% walk past stores", src: "m1nd-set / TFWA" },
+                  { icon: Building2, text: "45,000 retail stores across 2,800 airports", src: "ACI / DFWC" },
+                  { icon: Euro, text: "€37.1B already generated — without pre-activation", src: "TFWA 2025" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-4 h-4 text-amber-600" />
+                    </div>
+                    <div>
+                      <div className="text-slate-700 text-sm font-medium">{item.text}</div>
+                      <div className="text-slate-400 text-xs">{item.src}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 bg-green-100 border border-green-300 rounded-xl p-3">
+                <p className="text-green-800 text-sm font-semibold">POS providers already sit at the transaction layer — the exact point where incremental conversion is validated.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -99,60 +176,64 @@ export function SlideOpportunity() {
   );
 }
 
-// SLIDE 3: The Problem
-export function SlideProblem() {
+// SLIDE 3: The Facts
+export function SlideFacts({ currency = "€" }) {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
-        <div className="mb-5">
-          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
-          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            POS Providers Are <span className="text-violet-600">Commoditized & Under Pressure</span>
-          </h2>
-          <p className="text-slate-500 mt-1 text-sm">Transaction processing is increasingly seen as a utility. Retailers want more than uptime — they want commercial outcomes.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-          <div className="bg-red-50 border border-red-200 rounded-2xl p-5">
-            <h3 className="font-bold text-red-900 mb-3">What Retailers Are Asking For</h3>
-            <ul className="space-y-2.5 text-sm">
-             {[
-               "“We’d love to see what else you can offer beyond processing.”",
-               "“Footfall conversion is a priority for us this year.”",
-               "“We’re looking for a loyalty or activation solution that fits our POS.”",
-               "“We want to justify the POS spend with measurable outcomes.”",
-               "“Incremental revenue would make a real difference for us.”",
-             ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
-                  <span className="text-red-800">{item}</span>
-                </li>
-              ))}
-            </ul>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              73% of Airport Passengers<br /><span className="text-violet-600">Never Make a Purchase</span>
+            </h2>
           </div>
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-            <h3 className="font-bold text-slate-900 mb-3">The Structural Gap</h3>
-            <ul className="space-y-3 text-sm">
-              {[
-                { t: "Price competition", d: "Retailers benchmark POS providers on cost per transaction alone." },
-                { t: "No commercial upside", d: "Processing fees flow one way — the POS provider earns nothing from the sale growing." },
-                { t: "Weak differentiation", d: "Feature parity across providers makes switching feel low-risk to retailers." },
-                { t: "Churn pressure", d: "Without measurable added value, contract renewals become negotiations on price." },
-              ].map((row, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-xs font-bold flex-shrink-0">{i + 1}</div>
-                  <div>
-                    <div className="font-semibold text-slate-900">{row.t}</div>
-                    <div className="text-slate-600 text-xs">{row.d}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="space-y-5">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-violet-600 mb-2">9.8B</div>
+                <div className="text-slate-800 font-semibold">Global passengers in 2025</div>
+                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024 | +7.3% vs 2019 <a href={ACI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ACI World)</a></div>
+              </div>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-orange-600 mb-2">27%</div>
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
+                  Global conversion benchmark
+                </a>
+                <div className="text-slate-500 text-sm mt-1">Industry penetration rate (m1nd-set / TFWA)</div>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+                <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">7.15B</div>
+                <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
+                <div className="text-slate-500 text-sm mt-1">73% of 9.8B global passengers</div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 justify-center">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <h3 className="text-slate-800 font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Activation starts only after the traveller clears security",
+                    "Retailers compete for attention through impulse purchasing",
+                    "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
+                    "No financial reason for a non-intending buyer to enter a store",
+                    "73% of passengers walk straight to the gate",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+                      <span className="text-slate-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+                <p className="text-violet-700 text-sm leading-relaxed italic">
+                  "Large passenger flows do not automatically become retail customers. The 73% represents conversion headroom — not a permanent ceiling."
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="bg-slate-800 text-white rounded-2xl p-5">
-          <p className="text-slate-200 text-sm leading-relaxed">
-            The opportunity is not to build another loyalty feature — it is to <span className="text-violet-300 font-semibold">connect the POS layer to a pre-arrival activation engine</span> that creates incremental sales the POS provider can validate, attribute and earn from.
-          </p>
         </div>
       </div>
     </SlideWrapper>
@@ -166,66 +247,165 @@ export function SlideSolution({ currency = "€" }) {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5 lg:mb-10">
+          <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Become the Activation Layer<br /><span className="text-violet-600">for Travel Retail</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Activate the Traveller<br /><span className="text-violet-600">Before Airport Arrival</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            <div className="space-y-4">
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
-                <h3 className="text-slate-900 font-bold text-base lg:text-lg mb-3">What DutyBoost Does for the POS Provider</h3>
-                <div className="space-y-3">
-                  {[
-                    { from: "POS earns only processing fees", to: "POS earns a share of every validated sale" },
-                    { from: "Commoditized transaction utility", to: "Incremental-revenue enabler" },
-                    { from: "Retailers negotiate on price", to: "Retailers gain measurable new sales" },
-                    { from: "Feature parity with competitors", to: "A defensible commercial differentiator" },
-                  ].map((row, i) => (
-                    <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
-                      <span className="text-red-700 bg-red-100 rounded px-2 py-1 text-center">{row.from}</span>
-                      <ArrowRight size={12} className="text-violet-500 flex-shrink-0" />
-                      <span className="text-green-700 bg-green-100 rounded px-2 py-1 text-center">{row.to}</span>
-                    </div>
-                  ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
+            {[
+              { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
+              { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
+              { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
+              { Icon: Briefcase, color: "text-amber-600", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
+            ].map((step, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center">
+                <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
+                <div className="text-slate-800 font-semibold mb-1">{step.title}</div>
+                <div className="text-slate-500 text-sm">{step.desc}</div>
+              </div>
+            ))}
+          </div>
+          {/* Mobile/tablet: vertical stepper */}
+          <div className="flex flex-col gap-2 mb-6 lg:hidden">
+            {[
+              "Partners distribute DutyCredit",
+              "Traveller activates benefit",
+              "Arrives with purchase intent",
+              "Visits participating retailer",
+              `Spends ${currency}100 - Saves ${currency}10`,
+              "POS validates transaction",
+              "All participants earn",
+            ].map((step, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-violet-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
+                <div className="flex-1 bg-violet-50 border border-violet-200 rounded-xl px-3 py-2">
+                  <span className="text-slate-800 text-sm leading-tight">{step}</span>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-5 lg:p-7">
-                <div className="grid grid-cols-3 gap-4 lg:gap-6 text-center">
-                  {[
-                    { val: "0.25%", label: "POS commission per sale" },
-                    { val: "10%", label: "Share of platform fee" },
-                    { val: `${currency}0`, label: "Setup or licence cost" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <div className="text-lg md:text-xl lg:text-2xl font-bold text-violet-600 whitespace-nowrap">{s.val}</div>
-                      <div className="text-slate-500 text-xs lg:text-sm mt-1">{s.label}</div>
-                    </div>
-                  ))}
+            ))}
+          </div>
+          {/* Desktop: horizontal stepper */}
+          <div className="hidden lg:flex items-stretch gap-2 mb-6">
+            {[
+              "Partners distribute DutyCredit",
+              "Traveller activates benefit",
+              "Arrives with purchase intent",
+              "Visits participating retailer",
+              `Spends ${currency}100 - Saves ${currency}10`,
+              "POS validates transaction",
+              "All participants earn",
+            ].map((step, i, arr) => (
+              <Fragment key={i}>
+                <div className="flex-1 min-w-0 bg-violet-50 border border-violet-200 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
+                  <div className="text-violet-600 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
+                  <div className="text-slate-800 text-xs mt-1 leading-tight">{step}</div>
                 </div>
+                {i < arr.length - 1 && <ChevronRight className="text-violet-500 flex-shrink-0 self-center w-4 h-4" />}
+              </Fragment>
+            ))}
+          </div>
+          <div className="bg-gradient-to-r from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
+              <div className="flex flex-col items-center">
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-violet-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">{currency}1 - {currency}60</div>
+                <div className="text-slate-500 text-sm mt-2">DutyCredit direct traveller value</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-violet-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Performance-Based</div>
+                <div className="text-slate-500 text-sm mt-2">Zero upfront cost to any partner</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-violet-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
+                <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
               </div>
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-slate-900 font-bold text-base lg:text-lg mb-4">The DutyBoost Flow at the POS</h3>
-              <div className="flex flex-col gap-2 lg:gap-3">
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 5: Non-Invasive POS Toggle
+export function SlidePosToggle({ currency = "€" }) {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Technical Approach</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Non-Invasive. <span className="text-violet-600">Toggle-Only. POS-Level.</span>
+            </h2>
+            <p className="text-slate-500 mt-2 text-sm">DutyBoost enters at the POS layer as an opt-in feature — no new hardware, no POS overhaul, no disruption to existing operations.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <ToggleRight className="w-8 h-8 text-violet-600" />
+                <h3 className="font-bold text-slate-800 text-lg">How the Toggle Works</h3>
+              </div>
+              <div className="space-y-3">
                 {[
-                  { n: "1", step: "Traveller receives DutyCredit from a Travel Partner", color: "bg-violet-600" },
-                  { n: "2", step: "Traveller arrives at a retailer store", color: "bg-violet-600" },
-                  { n: "3", step: "Retailer rings up the basket on your POS", color: "bg-indigo-600" },
-                  { n: "4", step: "POS validates the DutyCredit token", color: "bg-indigo-600" },
-                  { n: "5", step: "Discount applied — transaction completed", color: "bg-blue-600" },
-                  { n: "6", step: "DutyBoost attributes & reports the sale", color: "bg-blue-600" },
-                  { n: "7", step: "2.5% platform fee split — POS earns 10%", color: "bg-green-600" },
-                  { n: "8", step: "Recurring, performance-based revenue", color: "bg-green-600" },
+                  { step: "1", title: "POS Provider integrates once", desc: "A single API call adds DutyBoost as a feature to the POS platform" },
+                  { step: "2", title: "Each retailer toggles on", desc: "Participating retailers activate DutyBoost with a toggle — no code changes per store" },
+                  { step: "3", title: "Toggle off anytime", desc: "If a retailer opts out, the toggle simply switches off — zero residual impact" },
+                  { step: "4", title: "No hardware, no downtime", desc: "Works with existing POS infrastructure — no new terminals, no new network" },
                 ].map((s) => (
-                  <div key={s.n} className="flex items-center gap-3">
-                    <div className={`w-6 h-6 lg:w-8 lg:h-8 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{s.n}</div>
-                    <span className="text-slate-700 text-sm lg:text-base">{s.step}</span>
+                  <div key={s.step} className="flex items-start gap-3">
+                    <div className="w-7 h-7 rounded-full bg-violet-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">{s.step}</div>
+                    <div>
+                      <div className="text-slate-800 font-semibold text-sm">{s.title}</div>
+                      <div className="text-slate-500 text-xs">{s.desc}</div>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
+            <div className="flex flex-col gap-4">
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Shield className="w-5 h-5 text-violet-600" />
+                  <h3 className="font-bold text-violet-900">Why It's Non-Invasive</h3>
+                </div>
+                <div className="space-y-2">
+                  {[
+                    "No changes to shelf prices or existing sales flow",
+                    "No new hardware, terminals, or network infrastructure",
+                    "No POS system overhaul — existing system stays intact",
+                    "No impact on non-DutyBoost transactions",
+                    "No data migration or retailer-side development",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700 text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-5 text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <Zap className="w-5 h-5" />
+                  <h3 className="font-bold">Integrate Once. Deploy Repeatedly.</h3>
+                </div>
+                <p className="text-violet-50 text-sm leading-relaxed">
+                  A single Enterprise POS integration enables DutyBoost across multiple retailers, stores, airports and geographic markets — fundamentally better scaling economics than per-retailer integrations.
+                </p>
+                <div className="mt-3 flex items-center gap-2 text-violet-100 text-sm font-semibold">
+                  <Cpu className="w-4 h-4" />
+                  <Plug className="w-4 h-4" />
+                  <span>1 API call → unlimited retailer activation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4">
+            <p className="text-slate-700 text-sm font-medium">
+              <span className="font-bold">Design principle:</span> DutyBoost is an activation layer, not a replacement layer. It sits alongside existing POS operations and can be toggled on or off without affecting any existing functionality.
+            </p>
           </div>
         </div>
       </div>
@@ -233,79 +413,180 @@ export function SlideSolution({ currency = "€" }) {
   );
 }
 
-// SLIDE 5: How It Works for the POS Provider
-export function SlideHowItWorks() {
+// SLIDE 6: Technical POS Integration
+export function SlideTechnicalIntegration({ currency = "€" }) {
+  const request = `POST /v1/dutycredits/redeem
+Secure partner authentication
+
+{
+  "dutycredit_token": "••••••",
+  "transaction_reference": "••••••",
+  "store_id": "••••••",
+  "basket_amount": 100.00,
+  "currency": "${currency === "€" ? "EUR" : "USD"}"
+}`;
+
+  const response = `HTTP/1.1 200 OK
+
+{
+  "status": "approved",
+  "discount_amount": 10.00,
+  "amount_due": 90.00,
+  "pos_commission": 0.25,
+  "currency": "${currency === "€" ? "EUR" : "USD"}"
+}`;
+
+  const features = [
+    {
+      icon: <ShieldCheck className="w-5 h-5 text-violet-300" />,
+      title: "Secure authentication",
+      desc: "Partner-specific access and encrypted HTTPS communication",
+    },
+    {
+      icon: <RefreshCw className="w-5 h-5 text-violet-300" />,
+      title: "Duplicate protection",
+      desc: "Idempotent processing prevents accidental double redemption",
+    },
+    {
+      icon: <Lock className="w-5 h-5 text-violet-300" />,
+      title: "No PCI burden",
+      desc: "DutyBoost never touches card data — it sits beside the payment flow",
+    },
+  ];
+
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
-        <div className="mb-5">
-          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">For the POS Provider</span>
-          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            Integrate Once. <span className="text-violet-600">Earn on Every Validated Sale.</span>
-          </h2>
-          <p className="text-slate-500 mt-1 text-sm">No subscription. No setup fee. No risk. You earn a 10% share of the 2.5% platform fee on every DutyBoost-validated transaction across your entire store network.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
-          {[
-            {
-              icon: <Plug className="w-8 h-8 text-violet-600" />,
-              title: "Integrate Once",
-              desc: "Add a lightweight DutyBoost validation call to your existing POS workflow. No replacement of payment, inventory or ERP systems.",
-              color: "violet",
-            },
-            {
-              icon: <Cpu className="w-8 h-8 text-indigo-600" />,
-              title: "Validate at the Point of Sale",
-              desc: "Your POS confirms the DutyCredit token and applies the discount — you become the trusted validation layer for every sale.",
-              color: "indigo",
-            },
-            {
-              icon: <BarChart3 className="w-8 h-8 text-green-600" />,
-              title: "Earn on Performance",
-              desc: "A 10% share of the 2.5% platform fee is paid to you on every validated transaction — recurring, attributed and transparent.",
-              color: "green",
-            },
-          ].map((card, i) => (
-            <div key={i} className={`bg-${card.color}-50 border border-${card.color}-200 rounded-2xl p-5`}>
-              <div className="mb-3">{card.icon}</div>
-              <div className={`font-bold text-${card.color}-900 mb-2`}>{card.title}</div>
-              <div className={`text-${card.color}-800 text-sm leading-relaxed`}>{card.desc}</div>
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="bg-slate-800 text-white rounded-2xl p-5">
-            <h3 className="font-bold mb-3">What DutyBoost Is NOT for the POS Provider</h3>
-            <div className="space-y-2 text-sm">
-              {[
-                ["❌", "A POS replacement or competing payment rail"],
-                ["❌", "A loyalty programme you must build and maintain"],
-                ["❌", "A coupon or voucher-code engine to operate"],
-                ["❌", "An advertising product requiring upfront spend"],
-                ["❌", "A subscription with monthly fees"],
-              ].map(([icon, text], i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span>{icon}</span>
-                  <span className="text-slate-300">{text}</span>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-4">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Technical POS Integration</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              The Integration, <span className="text-violet-600">In One Call</span>
+            </h2>
+            <p className="text-slate-500 mt-1.5 text-sm max-w-4xl">
+              Validate. Discount. Earn. One Request. One Response. — A single HTTPS call at checkout. DutyBoost validates the DutyCredit, returns the discount to apply, and credits the commission per participant — all attributed and logged automatically.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 mb-1.5">
+                <div className="w-5 h-5 rounded-full bg-violet-600 flex items-center justify-center text-white text-[10px] font-bold">1</div>
+                <span className="text-violet-700 font-semibold text-sm">POS sends the transaction essentials</span>
+              </div>
+              <div className="bg-slate-950/80 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+                <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                  </div>
+                  <span className="text-slate-400 text-xs font-mono ml-1">illustrative request</span>
                 </div>
-              ))}
+                <pre className="p-3 text-[10px] md:text-[11px] lg:text-xs leading-relaxed text-slate-200 overflow-x-auto font-mono whitespace-pre">{request}</pre>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 mb-1.5">
+                <div className="w-5 h-5 rounded-full bg-green-600 flex items-center justify-center text-white text-[10px] font-bold">2</div>
+                <span className="text-green-700 font-semibold text-sm">DutyBoost returns the checkout result</span>
+              </div>
+              <div className="bg-slate-950/80 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+                <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                  </div>
+                  <span className="text-slate-400 text-xs font-mono ml-1">illustrative response</span>
+                </div>
+                <pre className="p-3 text-[10px] md:text-[11px] lg:text-xs leading-relaxed text-slate-200 overflow-x-auto font-mono whitespace-pre">{response}</pre>
+              </div>
             </div>
           </div>
-          <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-            <h3 className="font-bold text-green-900 mb-3">What DutyBoost IS for the POS Provider</h3>
-            <div className="space-y-2 text-sm">
-              {[
-                ["✅", "A performance-based revenue share on validated sales"],
-                ["✅", "A pre-arrival activation engine for your retailers"],
-                ["✅", "A defensible differentiator in contract renewals"],
-                ["✅", "Transaction-level validation & transparent reporting"],
-                ["✅", "A reusable integration across all markets you serve"],
-              ].map(([icon, text], i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span>{icon}</span>
-                  <span className="text-green-800">{text}</span>
+
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+            {features.map((f) => (
+              <div key={f.title} className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                <div className="flex-shrink-0 mt-0.5">{f.icon}</div>
+                <div>
+                  <div className="text-slate-900 font-semibold text-sm">{f.title}</div>
+                  <div className="text-slate-600 text-xs mt-0.5 leading-relaxed">{f.desc}</div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 7: One Transaction — Five Beneficiaries
+export function SlideEcosystem({ currency = "€" }) {
+  const parties = [
+    { party: "Traveller", Icon: TravelerIcon, value: `${currency}10.00`, sub: `DutyCredit saving (10%)`, color: "green", bg: "bg-green-50", border: "border-green-200" },
+    { party: "Airport Retailer", Icon: AirportRetailerIcon, value: `${currency}87.50`, sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
+    { party: "Travel & Corporate Partner", Icon: Briefcase, value: `${currency}0.50`, sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
+    { party: "POS Partner", Icon: Cpu, value: `${currency}0.25`, sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
+    { party: "DutyBoost", Icon: BarChart3, value: `${currency}1.75`, sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+  ];
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-6">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              {currency}100 Original Qualifying Retail Value
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+            {parties.map((pt) => (
+              <div key={pt.party} className={`${pt.bg} border ${pt.border} rounded-2xl p-4 text-center`}>
+                <pt.Icon className={`w-9 h-9 mx-auto mb-2 text-${pt.color}-600`} />
+                <div className="text-slate-800 font-semibold text-xs sm:text-sm whitespace-nowrap mb-2">{pt.party}</div>
+                <div className={`text-2xl font-bold text-${pt.color}-600 mb-1`}>{pt.value}</div>
+                <div className="text-slate-500 text-xs leading-snug">{pt.sub}</div>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = {currency}100.00</div>
+              <div className="flex h-6 rounded-full overflow-hidden gap-px">
+                <div className="bg-green-500" style={{ width: "10%" }} title="Traveller 10%" />
+                <div className="bg-blue-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
+                <div className="bg-yellow-500" style={{ width: "0.5%" }} />
+                <div className="bg-purple-500" style={{ width: "0.25%" }} />
+                <div className="bg-orange-500" style={{ width: "1.75%" }} />
+              </div>
+              <div className="flex gap-3 mt-2 text-xs flex-wrap">
+                {[
+                  { color: "bg-green-500", label: "Traveller 10%" },
+                  { color: "bg-blue-500", label: "Retailer 87.5%" },
+                  { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
+                  { color: "bg-purple-500", label: "POS 0.25%" },
+                  { color: "bg-orange-500", label: "DutyBoost 1.75%" },
+                ].map((l) => (
+                  <div key={l.label} className="flex items-center gap-1.5">
+                    <div className={`w-3 h-3 rounded-sm ${l.color}`} />
+                    <span className="text-slate-600">{l.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-5 text-white">
+              <h3 className="font-bold mb-3">The POS Provider Position</h3>
+              <p className="text-violet-50 text-sm leading-relaxed">
+                The POS provider already processes the transaction. DutyBoost turns that existing infrastructure into a new revenue stream — earning a 0.25% commission on every validated DutyCredit basket, with zero upfront cost and no operational risk.
+              </p>
+              <div className="mt-3 text-violet-100 font-semibold text-sm">
+                You validate. You earn. No change to your core.
+              </div>
             </div>
           </div>
         </div>
@@ -314,7 +595,93 @@ export function SlideHowItWorks() {
   );
 }
 
-// SLIDE 6: Transaction Economics
+// SLIDE 8: Business Model
+export function SlideModel({ currency = "€" }) {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Business Model</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Performance-Based. <span className="text-violet-600">Zero Upfront Cost.</span>
+            </h2>
+            <p className="text-slate-500 mt-1 text-sm">Revenue is created only when a qualifying transaction is validated through Enterprise POS.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6 mb-4">
+                <h3 className="font-bold text-white text-lg mb-3 sm:mb-4">The DutyCredit Tier Structure</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-500 mb-1 px-2">
+                  <span>Tier</span><span>Basket</span><span>Discount</span><span className="sm:text-right">Traveller Saves</span>
+                </div>
+                <div className="space-y-1">
+                  {[
+                    { tier: "Entry", range: `${currency}20-${currency}49`, disc: "5%-7.5%", save: `${currency}1.00-${currency}3.19` },
+                    { tier: "Boarding", range: `${currency}50-${currency}99`, disc: "7.5%-10%", save: `${currency}3.75-${currency}9.41` },
+                    { tier: "Standard", range: `${currency}100-${currency}149`, disc: "10%-12.5%", save: `${currency}10.00-${currency}18.25` },
+                    { tier: "Plus", range: `${currency}150-${currency}199`, disc: "12.5%-15%", save: `${currency}18.75-${currency}29.04` },
+                    { tier: "Lounge", range: `${currency}200-${currency}249`, disc: "15%-17.5%", save: `${currency}30.00-${currency}42.75` },
+                    { tier: "Premium", range: `${currency}250-${currency}299`, disc: "17.5%-20%", save: `${currency}43.75-${currency}57.00` },
+                    { tier: "VIP", range: `${currency}300+`, disc: "20% capped", save: `Up to ${currency}60` },
+                  ].map((row, i) => (
+                    <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-violet-700/80" : "hover:bg-white/5"}`}>
+                      <span className="text-violet-300 font-semibold">{row.tier}</span>
+                      <span className="text-slate-300">{row.range}</span>
+                      <span className="text-yellow-300">{row.disc}</span>
+                      <span className="text-green-300 font-semibold sm:text-right">{row.save}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
+                <h3 className="font-bold text-violet-900 mb-3">Platform Fee Allocation (2.5% of Original Retail Value)</h3>
+                <div className="space-y-2">
+                  {[
+                    { party: "Travel & Corporate Partner", share: "20% of fee", pct: "0.50%", val: `${currency}0.50`, color: "blue", bg: "bg-blue-200" },
+                    { party: "Enterprise POS Partner", share: "10% of fee", pct: "0.25%", val: `${currency}0.25`, color: "indigo", bg: "bg-indigo-200" },
+                    { party: "DutyBoost", share: "70% of fee", pct: "1.75%", val: `${currency}1.75`, color: "violet", bg: "bg-violet-200" },
+                  ].map((row) => (
+                    <div key={row.party} className="flex items-center gap-3">
+                      <div className={`w-2 h-8 rounded-full ${row.bg}`} />
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-slate-700">{row.party}</div>
+                        <div className="text-xs text-slate-500">{row.share} = {row.pct} of retail value</div>
+                      </div>
+                      <div className={`text-lg font-bold text-${row.color}-700`}>{row.val}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
+                <h3 className="font-bold text-green-900 mb-2">At 1 Million {currency}100 Transactions:</h3>
+                <div className="grid grid-cols-1 gap-1.5 text-sm">
+                  {[
+                    { party: "Travellers", val: `${currency}10M in savings` },
+                    { party: "Travel & Corporate Partners", val: `${currency}500,000 ancillary revenue` },
+                    { party: "POS Partners", val: `${currency}250,000 transaction revenue` },
+                    { party: "DutyBoost", val: `${currency}1.75M infrastructure revenue` },
+                    { party: "Retailers", val: `${currency}87.5M net before costs` },
+                  ].map((row) => (
+                    <div key={row.party} className="flex flex-col">
+                      <span className="text-slate-600">{row.party}</span>
+                      <span className="font-semibold text-green-700">{row.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 9: Transaction Economics
 export function SlideEconomics({ currency = "€" }) {
   return (
     <SlideWrapper>
@@ -324,7 +691,7 @@ export function SlideEconomics({ currency = "€" }) {
           <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              {currency}100 Validated Basket — <span className="text-violet-600">Example of Your 0.25% Share</span>
+              {currency}100 Validated Basket — <span className="text-violet-600">Your 0.25% Share</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -372,7 +739,7 @@ export function SlideEconomics({ currency = "€" }) {
               <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-6">
                 <h3 className="text-slate-900 font-bold text-lg mb-3">The Core Question</h3>
                 <p className="text-violet-800 text-base leading-relaxed font-semibold">
-                  “Is earning 10% on every validated DutyCredit basket — with zero upfront cost and no operational risk — a meaningful new revenue line for a POS provider already processing those transactions?”
+                  "Is earning 10% on every validated DutyCredit basket — with zero upfront cost and no operational risk — a meaningful new revenue line for a POS provider already processing those transactions?"
                 </p>
                 <p className="text-violet-600 font-bold text-lg mt-3">Yes — and it scales with your footprint.</p>
               </div>
@@ -403,153 +770,68 @@ export function SlideEconomics({ currency = "€" }) {
   );
 }
 
-// SLIDE 7: DutyCredit Tiers
-export function SlideTiers({ currency = "€" }) {
-  const rows = [
-    { tier: "Entry", range: `${currency}20–${currency}49`, disc: "5%–7.5%", pos: `${currency}0.05–${currency}0.12`, highlight: false },
-    { tier: "Boarding", range: `${currency}50–${currency}99`, disc: "7.5%–10%", pos: `${currency}0.13–${currency}0.25`, highlight: false },
-    { tier: "Standard", range: `${currency}100–${currency}149`, disc: "10%–12.5%", pos: `${currency}0.25–${currency}0.37`, highlight: true },
-    { tier: "Plus", range: `${currency}150–${currency}199`, disc: "12.5%–15%", pos: `${currency}0.38–${currency}0.50`, highlight: false },
-    { tier: "Lounge", range: `${currency}200–${currency}249`, disc: "15%–17.5%", pos: `${currency}0.50–${currency}0.62`, highlight: false },
-    { tier: "Premium", range: `${currency}250–${currency}299`, disc: "17.5%–20%", pos: `${currency}0.63–${currency}0.75`, highlight: false },
-    { tier: "VIP", range: `${currency}300+`, disc: "20% capped", pos: "0.25% of basket", highlight: false },
-  ];
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
-        <div className="mb-5">
-          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">DutyCredit Structure</span>
-          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            You Earn on Every Validated Basket — <span className="text-violet-600">From {currency}20 Upwards</span>
-          </h2>
-          <p className="text-slate-500 mt-1 text-sm">The DutyCredit discount is tiered, but your 0.25% commission applies to every validated redemption, whatever the basket size. There is no minimum threshold for you to earn.</p>
-        </div>
-        <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6 mb-5">
-          <div className="grid grid-cols-4 gap-2 text-xs text-slate-400 mb-2 px-2">
-            <span>Tier</span><span>Basket Range</span><span>Traveller Discount</span><span className="text-right">POS Commission</span>
-          </div>
-          <div className="space-y-1.5">
-            {rows.map((row, i) => (
-              <div key={i} className={`grid grid-cols-4 gap-2 py-2 px-2 rounded-lg text-sm ${row.highlight ? "bg-violet-700/80" : "hover:bg-white/5"}`}>
-                <span className={`font-semibold ${row.highlight ? "text-violet-200" : "text-violet-400"}`}>{row.tier}</span>
-                <span className="text-slate-300">{row.range}</span>
-                <span className="text-yellow-300">{row.disc}</span>
-                <span className="text-green-300 font-semibold text-right">{row.pos}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            { title: `Savings Start at ${currency}20`, desc: `Even a small airport basket triggers your commission — there is no ${currency}100 threshold for the POS provider to earn.`, cardCls: "bg-violet-50 border-violet-200", titleCls: "text-violet-800", bodyCls: "text-violet-700" },
-            { title: "Higher Baskets, Higher Commission", desc: `The tiered discount encourages travellers to spend more — and your 0.25% commission scales with every ${currency === "€" ? "euro" : "dollar"} of the basket.`, cardCls: "bg-indigo-50 border-indigo-200", titleCls: "text-indigo-800", bodyCls: "text-indigo-700" },
-            { title: "You Earn on Every Redemption", desc: `Whether a ${currency}20 snack basket or a ${currency}300 luxury purchase, every validated DutyCredit redemption pays your 0.25% commission.`, cardCls: "bg-green-50 border-green-200", titleCls: "text-green-800", bodyCls: "text-green-700" },
-          ].map((card, i) => (
-            <div key={i} className={`${card.cardCls} border rounded-xl p-4`}>
-              <div className={`font-bold ${card.titleCls} mb-2`}>{card.title}</div>
-              <div className={`${card.bodyCls} text-sm leading-relaxed`}>{card.desc}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
-// SLIDE 8: Revenue at Scale
+// SLIDE 10: Revenue at Scale
 export function SlideScale({ currency = "€" }) {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
-        <div className="mb-5">
-          <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Your Recurring Revenue</span>
-          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            What DutyBoost Brings <span className="text-violet-600">to Your Store Network</span>
-          </h2>
-          <p className="text-slate-500 mt-1 text-sm">Estimated annual POS-provider commission (0.25% of every validated basket) at an 80% DutyCredit redemption rate — blended across corporate, travel-partner and direct-app sources — assuming 3,000 DutyCredits issued per store per year and a {currency}60 average basket.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-          {[
-            { size: "Boutique POS", stores: "50 stores", conv: "80% redemption", net: `${currency}18,000`, color: "violet" },
-            { size: "Regional POS", stores: "500 stores", conv: "80% redemption", net: `${currency}180,000`, color: "indigo" },
-            { size: "Enterprise POS", stores: "2,000 stores", conv: "80% redemption", net: `${currency}720,000`, color: "blue" },
-          ].map((s) => (
-            <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
-              <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
-              <div className="text-slate-500 text-sm mb-3">{s.stores}</div>
-              <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
-              <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>annual POS commission</div>
-              <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} · 3,000 credits/store @ {currency}60</div>
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="bg-slate-800 text-white rounded-2xl p-5">
-            <h3 className="font-bold mb-3">DutyCredit Redemption Sensitivity — Targeted Travellers Redeem</h3>
-            <div className="space-y-2 text-sm">
-              {[
-                { pp: "100% redemption", mult: "1.25× the figures above" },
-                { pp: "80% redemption", mult: "the figures above" },
-                { pp: "60% redemption", mult: "0.75× the figures above" },
-                { pp: "40% redemption", mult: "0.5× the figures above" },
-              ].map((row, i) => (
-                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-violet-700/60 font-semibold" : ""}`}>
-                  <span className="text-violet-300">{row.pp}</span>
-                  <span className="text-slate-300">{row.mult}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-5">
-            <h3 className="font-bold text-violet-900 mb-3">Why This Is Pure Upside</h3>
-            <ul className="space-y-2 text-sm">
-              {[
-                "100% incremental — earned on sales that otherwise would not happen",
-                "Zero upfront cost — no setup fee, no subscription, no licence",
-                "No change to your POS core, payments or merchant contracts",
-                "Attributed & reported transparently per transaction",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-violet-800">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
-// SLIDE 9: Strategic Benefits
-export function SlideBenefits() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5 lg:mb-8">
-            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Strategic Benefits</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
-              More Than Revenue —<br /><span className="text-violet-600">A Defensible Competitive Position</span>
+          <div className="mb-5">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Your Recurring Revenue</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              What DutyBoost Brings <span className="text-violet-600">to Your Store Network</span>
             </h2>
+            <p className="text-slate-500 mt-1 text-sm">Estimated annual POS-provider commission (0.25% of every validated basket) at an 80% DutyCredit redemption rate — blended across corporate, travel-partner and direct-app sources — assuming 3,000 DutyCredits issued per store per year and a {currency}60 average basket.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
             {[
-              { icon: <TrendingUp className="w-7 h-7 text-violet-600" />, title: "New Recurring Revenue", desc: "A performance-based commission on every validated sale across your entire network — a revenue line that grows with your footprint." },
-              { icon: <ShieldCheck className="w-7 h-7 text-green-600" />, title: "Renewal & Retention", desc: "Retailers gaining measurable incremental sales have a concrete reason to stay on your POS — making renewals about value, not price." },
-              { icon: <Globe className="w-7 h-7 text-blue-600" />, title: "Differentiation", desc: "A commercial capability most competitors cannot match — turn transaction processing into an incremental-revenue platform." },
-              { icon: <Plug className="w-7 h-7 text-indigo-600" />, title: "Reusable Integration", desc: "One integration enables DutyBoost across all stores, airports and markets you serve — low marginal onboarding cost per retailer." },
-              { icon: <Layers className="w-7 h-7 text-violet-600" />, title: "Strengthened Proposition", desc: "Offer retailers a pre-arrival activation engine, not just checkout — making your POS the gateway to incremental conversion." },
-              { icon: <BarChart3 className="w-7 h-7 text-green-600" />, title: "Transparent Attribution", desc: "Every validated transaction is reported per store, per airport, per period — clean data for commercial conversations." },
-            ].map((card, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                <div className="mb-3">{card.icon}</div>
-                <div className="text-slate-900 font-bold mb-2">{card.title}</div>
-                <div className="text-slate-600 text-sm leading-relaxed">{card.desc}</div>
+              { size: "Boutique POS", stores: "50 stores", conv: "80% redemption", net: `${currency}18,000`, color: "violet" },
+              { size: "Regional POS", stores: "500 stores", conv: "80% redemption", net: `${currency}180,000`, color: "indigo" },
+              { size: "Enterprise POS", stores: "2,000 stores", conv: "80% redemption", net: `${currency}720,000`, color: "blue" },
+            ].map((s) => (
+              <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
+                <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
+                <div className="text-slate-500 text-sm mb-3">{s.stores}</div>
+                <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.net}</div>
+                <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>annual POS commission</div>
+                <div className="text-slate-500 text-xs border-t border-slate-200 pt-2">{s.conv} · 3,000 credits/store @ {currency}60</div>
               </div>
             ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-800 text-white rounded-2xl p-5">
+              <h3 className="font-bold mb-3">DutyCredit Redemption Sensitivity</h3>
+              <div className="space-y-2 text-sm">
+                {[
+                  { pp: "100% redemption", mult: "1.25× the figures above" },
+                  { pp: "80% redemption", mult: "the figures above" },
+                  { pp: "60% redemption", mult: "0.75× the figures above" },
+                  { pp: "40% redemption", mult: "0.5× the figures above" },
+                ].map((row, i) => (
+                  <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-violet-700/60 font-semibold" : ""}`}>
+                    <span className="text-violet-300">{row.pp}</span>
+                    <span className="text-slate-300">{row.mult}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-5">
+              <h3 className="font-bold text-violet-900 mb-3">Why This Is Pure Upside</h3>
+              <ul className="space-y-2 text-sm">
+                {[
+                  "100% incremental — earned on sales that otherwise would not happen",
+                  "Zero upfront cost — no setup fee, no subscription, no licence",
+                  "No change to your POS core, payments or merchant contracts",
+                  "Attributed & reported transparently per transaction",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-violet-800">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -557,45 +839,130 @@ export function SlideBenefits() {
   );
 }
 
-// SLIDE 10: The Integration, In One Call (shared SlideApiExample)
-export function SlideIntegrate({ currency = "€" }) {
-  return <SlideApiExample currency={currency} />;
-}
+// SLIDE 11: Growth Flywheel
+export function SlideFlywheel({ currency = "€" }) {
+  const steps = [
+    "More Travel & Corporate Partners",
+    "More Travellers Reached",
+    "More DutyCredits Distributed",
+    "More Traveller Incentives",
+    "More Pre-Airport Activation",
+    "More Participating Retail Visits",
+    "More Retail Conversion",
+    "More Validated Transactions",
+    "More Retailer Revenue",
+    "More Travel & Corporate Partner Revenue",
+    "More DutyBoost Revenue",
+    "More Evidence of Commercial Value",
+    "Stronger Partner Adoption",
+    "Greater Network Scale",
+  ];
 
-// SLIDE 11: Value Realized Quickly
-export function SlideGetStarted() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]"
-          style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }} />
-        <div className="relative z-10 text-center">
-          <div className="flex justify-center mb-4 lg:mb-6">
-            <div className="bg-slate-50 rounded-2xl px-6 py-3 shadow-lg border border-slate-200">
-              <DutyBoostLogo height={40} linkTo="/pos-partner" />
-            </div>
-          </div>
-          <div className="mb-4 lg:mb-6">
-            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
-            <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
-              Fast to Launch.<br />
-              <span className="text-violet-600">Faster to Recurring Revenue.</span>
+        <div className="relative z-10">
+          <div className="mb-6">
+            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Growth Flywheel</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              A Self-Reinforcing <span className="text-violet-600">Circular Ecosystem</span>
             </h2>
           </div>
-          <p className="text-slate-500 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
-            DutyBoost is designed to deliver measurable added value to your POS network in a very short time — no lengthy rollout, no upfront investment, no operational disruption.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div className="relative flex items-center justify-center" style={{ height: "340px" }}>
+              <div className="absolute inset-0 rounded-full border-2 border-violet-200" />
+              <div className="bg-violet-600 border-2 border-violet-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
+                <div className="text-white text-xs font-bold leading-tight px-2">Circular Revenue Infrastructure</div>
+              </div>
+              {steps.slice(0, 8).map((step, i) => {
+                const angle = (i / 8) * 360 - 90;
+                const rad = (angle * Math.PI) / 180;
+                const r = 145;
+                const x = 50 + (r / 3.4) * Math.cos(rad);
+                const y = 50 + (r / 3.4) * Math.sin(rad);
+                return (
+                  <div
+                    key={i}
+                    className="absolute bg-violet-50 border border-violet-200 rounded-lg px-2 py-1 text-center"
+                    style={{
+                      left: `${x}%`,
+                      top: `${y}%`,
+                      transform: "translate(-50%, -50%)",
+                      maxWidth: "90px",
+                    }}
+                  >
+                    <div className="text-violet-700 text-xs font-semibold leading-tight">{step}</div>
+                  </div>
+                );
+              })}
+              <div className="absolute inset-0 rounded-full border-2 border-dashed border-violet-300 animate-spin" style={{ animationDuration: "30s" }} />
+            </div>
+            <div className="space-y-4">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                <h3 className="text-slate-800 font-bold mb-3">Network Effects by Participant</h3>
+                <div className="space-y-2.5 text-sm">
+                  {[
+                    { Icon: Briefcase, party: "More Travel & Corporate Partners", effect: "→ More travellers reached before airport arrival" },
+                    { Icon: AirportRetailerIcon, party: "More Retailers", effect: "→ More DutyCredit redemption opportunities" },
+                    { Icon: Cpu, party: "More POS Integrations", effect: "→ More deployment capacity" },
+                    { Icon: BarChart3, party: "More Transactions", effect: "→ Stronger commercial evidence" },
+                    { Icon: Link2, party: "Stronger Evidence", effect: "→ Easier future partner acquisition" },
+                  ].map((row) => (
+                    <div key={row.party} className="flex items-start gap-2">
+                      <row.Icon className="w-4 h-4 text-violet-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <span className="text-violet-700 font-semibold">{row.party} </span>
+                        <span className="text-slate-600">{row.effect}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-5 text-white">
+                <p className="font-bold text-lg leading-snug">
+                  "A positive flywheel that creates growth for every stakeholder."
+                </p>
+                <p className="text-violet-100 text-sm mt-2">Each new partner makes the platform more valuable for every existing partner — including your POS network.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 12: Closing
+export function SlideClosing({ currency = "€" }) {
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
+        <GridBg />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
+          style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }} />
+        <div className="relative z-10 flex flex-col items-center gap-8">
+          <div className="bg-slate-50 rounded-2xl px-8 py-4 shadow-lg border border-slate-200">
+            <DutyBoostLogo height={50} linkTo="/pos-partner" />
+          </div>
+          <div>
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
+              Converting the 73%<br />
+              <span className="text-violet-600">Who Never Buy</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed">
+              A proven, performance-based revenue layer — built on infrastructure that already exists.
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
             {[
-              { title: "Weeks, Not Months", desc: "A single lightweight validation call — no replacement of your POS core, payments or merchant contracts." },
-              { title: "Commission From Day One", desc: "Once live, every DutyBoost-validated transaction earns your 10% share of the platform fee — recurring and attributed." },
-              { title: "Revenue From the 73% Who Never Buy", desc: "DutyBoost targets the non-converting majority — turning non-intending passengers into incremental, validated basket value." },
-              { title: "A Stronger Renewal Story", desc: "Retailers gaining measurable incremental sales renew on value, not price — a defensible competitive position." },
-            ].map((card, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:p-5 text-left">
-                <div className="text-violet-700 font-bold lg:text-base mb-1.5">{card.title}</div>
-                <div className="text-slate-600 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
+              { label: "Airports with Retail", value: "2,800" },
+              { label: "Non-Purchasing Travellers", value: "7.15B" },
+              { label: "POS Commission", value: "0.25%" },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="text-base sm:text-2xl font-bold text-violet-600">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -607,6 +974,9 @@ export function SlideGetStarted() {
               Always performance-based — earn a 10% share of the DutyBoost Platform Fee on every validated sale.
             </p>
           </div>
+          <div className="mt-2 text-xs text-slate-400 border border-slate-200 rounded px-4 py-2">
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
+          </div>
         </div>
       </div>
     </SlideWrapper>
@@ -616,44 +986,47 @@ export function SlideGetStarted() {
 export const SLIDES = [
   { id: "cover", type: "cover" },
   { id: "opportunity", type: "opportunity" },
-  { id: "problem", type: "problem" },
+  { id: "facts", type: "facts" },
   { id: "solution", type: "solution" },
-  { id: "howItWorks", type: "howItWorks" },
+  { id: "posToggle", type: "posToggle" },
+  { id: "technicalIntegration", type: "technicalIntegration" },
+  { id: "ecosystem", type: "ecosystem" },
+  { id: "model", type: "model" },
   { id: "economics", type: "economics" },
-  { id: "tiers", type: "tiers" },
   { id: "scale", type: "scale" },
-  { id: "benefits", type: "benefits" },
-  { id: "integrate", type: "integrate" },
-  { id: "getStarted", type: "getStarted" },
+  { id: "flywheel", type: "flywheel" },
+  { id: "closing", type: "closing" },
 ];
 
 export const SLIDE_LABELS = {
   cover: "Cover",
-  opportunity: "The Opportunity",
-  problem: "The Facts",
+  opportunity: "Global Market",
+  facts: "The Facts",
   solution: "The Solution",
-  howItWorks: "How It Works",
+  posToggle: "Non-Invasive POS Toggle",
+  technicalIntegration: "Technical POS Integration",
+  ecosystem: "One Transaction — Five Beneficiaries",
+  model: "Business Model",
   economics: "Transaction Economics",
-  tiers: "DutyCredit Tiers",
   scale: "Revenue at Scale",
-  benefits: "Strategic Benefits",
-  integrate: "The Integration, In One Call",
-  getStarted: "Value Realized Quickly",
+  flywheel: "Growth Flywheel",
+  closing: "Thank You",
 };
 
 export function getSlideComponent(type, currency) {
   const map = {
     cover: () => <SlideCover currency={currency} />,
-    opportunity: () => <SlideOpportunity />,
-    problem: () => <SlideProblem />,
+    opportunity: () => <SlideOpportunity currency={currency} />,
+    facts: () => <SlideFacts currency={currency} />,
     solution: () => <SlideSolution currency={currency} />,
-    howItWorks: () => <SlideHowItWorks />,
+    posToggle: () => <SlidePosToggle currency={currency} />,
+    technicalIntegration: () => <SlideTechnicalIntegration currency={currency} />,
+    ecosystem: () => <SlideEcosystem currency={currency} />,
+    model: () => <SlideModel currency={currency} />,
     economics: () => <SlideEconomics currency={currency} />,
-    tiers: () => <SlideTiers currency={currency} />,
     scale: () => <SlideScale currency={currency} />,
-    benefits: () => <SlideBenefits />,
-    integrate: () => <SlideIntegrate currency={currency} />,
-    getStarted: () => <SlideGetStarted />,
+    flywheel: () => <SlideFlywheel currency={currency} />,
+    closing: () => <SlideClosing currency={currency} />,
   };
   return map[type] || map.cover;
 }
