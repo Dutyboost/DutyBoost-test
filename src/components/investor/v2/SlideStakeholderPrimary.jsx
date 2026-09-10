@@ -51,7 +51,7 @@ const stakeholders = [
       "Free benefit — no cost to the traveller",
     ],
     cons: [
-      "Must be reached by a Travel or Corporate Partner",
+      "Partner-distributed DutyCredits require a Travel or Corporate Partner",
       "Requires a participating retailer at their airport",
       "Discount varies by basket size and tier",
       "Benefit expires — must redeem within validity window",
