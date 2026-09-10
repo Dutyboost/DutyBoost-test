@@ -140,14 +140,14 @@ export function SlideSxmMarket() {
               <div className="text-slate-400 text-xs mt-3">SXM category values estimated from CMI market share, proportional to SXM's 2.45% share of the Caribbean market</div>
             </div>
             <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-lg mb-3">Why Sint Maarten First?</h3>
+              <h3 className="font-bold text-lg mb-3">Why Sint Maarten, Why Now?</h3>
               <div className="space-y-3">
                 {[
-                  { icon: MapPin, text: "Single-airport market — focused deployment, measurable impact" },
-                  { icon: Users, text: "625K non-purchasing travellers — clear conversion headroom" },
-                  { icon: Plane, text: "Diverse source markets: North America (53.9%) + EU (25.8%)" },
-                  { icon: TrendingUp, text: "21.7% Caribbean CAGR — a growing regional market" },
-                  { icon: DollarSign, text: "$67M existing market — no creation needed, just activation" },
+                  { icon: Clock, text: "Ecosystem already in motion — retailer, wholesalers & duty-free operators engaged and waiting for activation" },
+                  { icon: Users, text: "625K non-purchasing travellers every year — every quarter unactivated is revenue left on the table" },
+                  { icon: TrendingUp, text: "21.7% Caribbean CAGR — the market is compounding now; the cost of waiting grows each quarter" },
+                  { icon: MapPin, text: "Single integrator advantage — the POS seat is limited; locking it in compounds across the entire island" },
+                  { icon: DollarSign, text: "$67M already generated without activation — the upside is sitting there today, not tomorrow" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <item.icon className="w-5 h-5 text-violet-200 flex-shrink-0 mt-0.5" />
@@ -157,7 +157,7 @@ export function SlideSxmMarket() {
               </div>
               <div className="mt-4 bg-white rounded-xl p-3">
                 <p className="text-slate-700 text-sm font-semibold">
-                  <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a> Caribbean benchmark: 73% non-purchase rate confirms the activation opportunity.
+                  <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a> confirms the activation opportunity — the only question is who captures it first.
                 </p>
               </div>
             </div>
