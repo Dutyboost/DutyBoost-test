@@ -113,15 +113,15 @@ export function SlideProblem() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
           <div className="bg-red-50 border border-red-200 rounded-2xl p-5">
-            <h3 className="font-bold text-red-900 mb-3">What POS Providers Hear Today</h3>
+            <h3 className="font-bold text-red-900 mb-3">What Retailers Are Asking For</h3>
             <ul className="space-y-2.5 text-sm">
-              {[
-                "“Processing is a commodity — what else can you do for us?”",
-                "“We need more footfall conversion, not just faster checkout.”",
-                "“Your competitors offer loyalty modules. What do you offer?”",
-                "“Margins are tight — we can’t justify paying more for POS.”",
-                "“Show us incremental revenue, not just transaction speed.”",
-              ].map((item, i) => (
+             {[
+               "“We’d love to see what else you can offer beyond processing.”",
+               "“Footfall conversion is a priority for us this year.”",
+               "“We’re looking for a loyalty or activation solution that fits our POS.”",
+               "“We want to justify the POS spend with measurable outcomes.”",
+               "“Incremental revenue would make a real difference for us.”",
+             ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
                   <span className="text-red-800">{item}</span>
