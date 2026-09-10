@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2 } from "lucide-react";
 import HotelIcon from "@/components/HotelIcon";
@@ -329,7 +330,9 @@ export function SlideSolution({ currency = "€", showDutyBoostCard = false, sho
             {showDutyBoostCard && (
               <div className="bg-violet-600 border border-violet-700 rounded-2xl p-5 text-center text-white">
                 <Zap className="w-10 h-10 mx-auto mb-3 text-white" />
-                <div className="font-semibold mb-1">DutyBoost Platform</div>
+                <Link to="/eligibility-showcase" target="_blank" rel="noopener noreferrer" className="font-semibold mb-1 inline-flex items-center gap-1 underline decoration-white/40 hover:decoration-white">
+                  DutyBoost Platform
+                </Link>
                 <div className="text-violet-100 text-sm">Travellers generate their own DutyCredits directly — no partner required</div>
               </div>
             )}
