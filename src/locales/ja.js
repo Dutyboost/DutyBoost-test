@@ -16,7 +16,7 @@ export default {
     },
     ecosystem: {
       badge: 'エコシステム',
-      title: '1つのプラットフォーム、3者の勝利',
+      title: '1つのプラットフォーム、8者の勝利',
       sub: 'DutyBoostは空港小売の旅に関わるすべての利害関係者のインセンティブを調整します — すべての接点で価値を生み出します。',
     },
     stakeholders: {
