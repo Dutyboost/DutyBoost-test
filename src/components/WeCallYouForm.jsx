@@ -228,6 +228,8 @@ export default function WeCallYouForm({ onSuccess }) {
           <option value="Hotel Partner">Hotel Partner</option>
           <option value="Car Rental Partner">Car Rental Partner</option>
           <option value="Retail Partner">Retail Partner</option>
+          <option value="Airport Partner">Airport Partner</option>
+          <option value="Wholesale Partner">Wholesale / Retail Supplier</option>
         </select>
         {errors.industry && <p className="text-xs text-red-500">{errors.industry}</p>}
       </div>

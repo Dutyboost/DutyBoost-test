@@ -5,9 +5,11 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, ArrowRight, Menu, X, Cpu, Building2, Network
+  Calculator, ArrowRight, Menu, X, Cpu, Building2, Network, Plane, Package
 } from "lucide-react";
 import { corporateStrings } from "@/lib/i18nCorporate";
+import { getAirportStrings } from "@/lib/i18nAirport";
+import { getWholesaleStrings } from "@/lib/i18nWholesale";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
@@ -41,6 +43,13 @@ export default function LandingPage() {
       iconColor: "text-orange-600",
     },
     {
+      key: 'airports',
+      icon: Plane,
+      color: "from-violet-400 to-indigo-600",
+      bg: "bg-violet-50",
+      iconColor: "text-violet-600",
+    },
+    {
       key: 'travelers',
       icon: TravelerIcon,
       color: "from-blue-400 to-blue-600",
@@ -60,6 +69,13 @@ export default function LandingPage() {
       color: "from-slate-500 to-slate-700",
       bg: "bg-slate-50",
       iconColor: "text-slate-700",
+    },
+    {
+      key: 'wholesale',
+      icon: Package,
+      color: "from-emerald-400 to-green-600",
+      bg: "bg-emerald-50",
+      iconColor: "text-emerald-600",
     },
     {
       key: 'dutyboost',
@@ -98,6 +114,16 @@ export default function LandingPage() {
                 <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
               </Button>
             </Link>
+            <Link to="/airport-calculator">
+              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
+                <Calculator className="w-4 h-4 shrink-0" /> Airport ROI
+              </Button>
+            </Link>
+            <Link to="/wholesale-calculator">
+              <Button variant="outline" size="sm" className="gap-1.5 text-emerald-600 border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
+                <Calculator className="w-4 h-4 shrink-0" /> Wholesale ROI
+              </Button>
+            </Link>
             <LanguageSwitcher />
           </div>
           <div className="flex lg:hidden items-center gap-2">
@@ -128,6 +154,16 @@ export default function LandingPage() {
             <Link to="/roi-calculator-corporate-partner" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="w-full gap-1.5 text-slate-600 border-slate-600 hover:text-slate-700 hover:bg-slate-50">
                 <Calculator className="w-4 h-4 shrink-0" /> Corporate Partner ROI
+              </Button>
+            </Link>
+            <Link to="/airport-calculator" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
+                <Calculator className="w-4 h-4 shrink-0" /> Airport ROI
+              </Button>
+            </Link>
+            <Link to="/wholesale-calculator" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full gap-1.5 text-emerald-600 border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
+                <Calculator className="w-4 h-4 shrink-0" /> Wholesale ROI
               </Button>
             </Link>
           </div>
@@ -176,6 +212,28 @@ export default function LandingPage() {
                 t(`stakeholders.${s.key}.b3`),
               ];
 
+              if (s.key === 'airports') {
+                const ao = getAirportStrings(i18n.language).showcase;
+                title = 'Airports';
+                description = ao.subtitle;
+                benefits = [
+                  ao.why2_title + ' — 15% concession on incremental sales.',
+                  ao.why1_title + ' — no capex, no integration.',
+                  ao.why3_title + ' — revenue realised above MAG.',
+                ];
+              }
+
+              if (s.key === 'wholesale') {
+                const wo = getWholesaleStrings(i18n.language).showcase;
+                title = 'Wholesale / Retail Suppliers';
+                description = wo.subtitle;
+                benefits = [
+                  wo.why1_title + ' — no new listing required.',
+                  wo.why2_title + ' — products move, not sit.',
+                  wo.why3_title + ' — incremental volume at no cost.',
+                ];
+              }
+
               if (s.key === 'corporate') {
                 title = 'Corporate Partners';
                 description = corporateOne.subtitle;
@@ -200,8 +258,8 @@ export default function LandingPage() {
                 ];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'wholesale' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'wholesale' ? '/wholesale-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-3 mb-5`}>

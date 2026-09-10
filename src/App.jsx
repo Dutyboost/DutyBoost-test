@@ -133,6 +133,10 @@ import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
 import CorporatePartnerRequest from './pages/CorporatePartnerRequest';
 import CorporatePartnerCalculator from './pages/CorporatePartnerCalculator';
+import AirportShowcase from './pages/AirportShowcase';
+import AirportCalculator from './pages/AirportCalculator';
+import WholesaleShowcase from './pages/WholesaleShowcase';
+import WholesaleCalculator from './pages/WholesaleCalculator';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 
 const AuthenticatedApp = () => {
@@ -270,6 +274,10 @@ const AuthenticatedApp = () => {
         <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
         <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
+        <Route path="/airport-showcase" element={<AirportShowcase />} />
+        <Route path="/airport-calculator" element={<AirportCalculator />} />
+        <Route path="/wholesale-showcase" element={<WholesaleShowcase />} />
+        <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
         <Route path="/corporate-partner-request" element={<CorporatePartnerRequest />} />
         <Route path="/roi-calculator-corporate-partner" element={<CorporatePartnerCalculator />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
