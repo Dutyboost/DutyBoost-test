@@ -137,6 +137,8 @@ import AirportShowcase from './pages/AirportShowcase';
 import AirportCalculator from './pages/AirportCalculator';
 import WholesaleShowcase from './pages/WholesaleShowcase';
 import WholesaleCalculator from './pages/WholesaleCalculator';
+import AirportPartnerRequest from './pages/AirportPartnerRequest';
+import WholesalePartnerRequest from './pages/WholesalePartnerRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 
 const AuthenticatedApp = () => {
@@ -276,8 +278,10 @@ const AuthenticatedApp = () => {
         <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
         <Route path="/airport-showcase" element={<AirportShowcase />} />
         <Route path="/airport-calculator" element={<AirportCalculator />} />
+        <Route path="/airport-partner-request" element={<AirportPartnerRequest />} />
         <Route path="/wholesale-showcase" element={<WholesaleShowcase />} />
         <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
+        <Route path="/wholesale-partner-request" element={<WholesalePartnerRequest />} />
         <Route path="/corporate-partner-request" element={<CorporatePartnerRequest />} />
         <Route path="/roi-calculator-corporate-partner" element={<CorporatePartnerCalculator />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

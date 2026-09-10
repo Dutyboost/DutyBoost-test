@@ -7,7 +7,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
-import WeCallYouModal from "@/components/WeCallYouModal";
+
 
 export default function AirportShowcase() {
   const { t, i18n } = useTranslation();
@@ -119,13 +119,11 @@ export default function AirportShowcase() {
               <h2 className="text-4xl font-heading font-bold">{o.ctaTitle}</h2>
               <p className="text-white/80 text-lg max-w-xl mx-auto">{o.ctaDesc}</p>
               <div className="flex justify-center">
-                <WeCallYouModal
-                  trigger={(setOpen) => (
-                    <Button size="lg" className="bg-white text-violet-700 hover:bg-white/90 gap-2 px-8 text-base mt-2" onClick={() => setOpen(true)}>
-                      {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  )}
-                />
+                <Link to="/airport-partner-request">
+                  <Button size="lg" className="bg-white text-violet-700 hover:bg-white/90 gap-2 px-8 text-base mt-2">
+                    {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
