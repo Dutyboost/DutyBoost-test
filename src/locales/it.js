@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "L'Infrastruttura di Entrate Circolari per i Viaggi Globali",
        title_2: '',
-       subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, i viaggiatori, i partner di viaggio, i partner corporate, gli aeroporti e i fornitori all'ingrosso/dettaglio attraverso un ecosistema commerciale condiviso basato sulle performance",
+       subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, gli aeroporti, i viaggiatori, i partner di viaggio, i partner corporate e i fornitori all'ingrosso/dettaglio attraverso un ecosistema commerciale condiviso basato sulle performance",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
@@ -100,7 +100,7 @@ export default {
     },
     cta: {
        title: 'Un viaggiatore. Un viaggio. Ricavi per tutti.',
-       description: "The Circular Commercial Revenue Infrastructure for Global Travel trasforma il viaggio di ogni viaggiatore in una nuova fonte di entrate incrementali misurabili. Connessione di provider POS aziendali, retailer aeroportuali, viaggiatori, partner di viaggio e partner corporate in un unico ecosistema condiviso, DutyBoost crea nuovo valore senza costi iniziali per tutti i partecipanti tramite un modello di prezzo 100% basato sulle prestazioni.",
+       description: "The Circular Commercial Revenue Infrastructure for Global Travel trasforma il viaggio di ogni viaggiatore in una nuova fonte di entrate incrementali misurabili. Connessione di provider POS aziendali, retailer aeroportuali, aeroporti, viaggiatori, partner di viaggio, partner corporate e fornitori all'ingrosso/dettaglio in un unico ecosistema condiviso, DutyBoost crea nuovo valore senza costi iniziali per tutti i partecipanti tramite un modello di prezzo 100% basato sulle prestazioni.",
        button: "Unisciti oggi a The Circular Commercial Revenue Infrastructure for Global Travel!",
        },
     wecallyou: {
@@ -209,6 +209,10 @@ export default {
       sign_in: 'Accedi',
       travel_agency: 'Agenzia di viaggi',
       airport_retailer: 'Rivenditore aeroportuale',
+      airports: 'Aeroporti',
+      airports_description: 'DutyBoost cattura entrate di concessione incrementali dai viaggiatori che altrimenti partirebbero senza acquistare — senza capex, senza integrazione, entrate realizzate sopra le baseline esistenti.',
+      wholesale: "Fornitori all'Ingrosso / Dettaglio",
+      wholesale_description: "DutyBoost sposta i tuoi prodotti più velocemente dagli scaffali dell'aeroporto — senza nuova listino, senza costi aggiuntivi, solo volume incrementale guidato da acquirenti pre-attivati.",
     },
     getStarted: {
       title: 'Inizia con DutyBoost',

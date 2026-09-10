@@ -27,7 +27,7 @@ export default {
     hero: {
       title_1: 'The Circular Revenue Infrastructure for Global Travel',
       title_2: '',
-      subtitle_1: "Connecting POS Providers, Airport Retailers, Travellers, Travel Partners, Corporate Partners, Airports, and Wholesale/Retail Suppliers through a shared performance-based commercial ecosystem",
+      subtitle_1: "Connecting POS Providers, Airport Retailers, Airports, Travellers, Travel Partners, Corporate Partners, and Wholesale/Retail Suppliers through a shared performance-based commercial ecosystem",
       subtitle_2: "",
       subtitle_3: "",
       tagline: "",
@@ -106,7 +106,7 @@ export default {
     },
     cta: {
       title: 'One Traveller. One Journey. Revenue for Everyone.',
-      description: "The Circular Commercial Revenue Infrastructure for Global Travel transforms every traveller's journey into a new source of measurable incremental revenue. Connecting enterprise POS providers, airport retailers, travellers, travel partners and corporate partners in one shared ecosystem, DutyBoost creates new value with no upfront costs for all participants through a 100% performance-based pricing model.",
+      description: "The Circular Commercial Revenue Infrastructure for Global Travel transforms every traveller's journey into a new source of measurable incremental revenue. Connecting enterprise POS providers, airport retailers, airports, travellers, travel partners, corporate partners and wholesale/retail suppliers in one shared ecosystem, DutyBoost creates new value with no upfront costs for all participants through a 100% performance-based pricing model.",
       button: 'Join The Circular Commercial Revenue Infrastructure for Global Travel Today!',
     },
     footer: {
@@ -374,6 +374,10 @@ export default {
       train: 'Train Partners',
       corporate_partners: 'Corporate Partners',
       corporate_partners_description: "Through DutyBoost you turn business travel spend into recovered budget — every traveller redemption funds employee airport shopping credits from commission earned, offsetting your organisation's T&E costs with no upfront cost.",
+      airports: 'Airports',
+      airports_description: 'DutyBoost captures incremental concession revenue from travellers who would otherwise leave without purchasing — no capex, no integration, revenue realised above existing baselines.',
+      wholesale: 'Wholesale / Retail Suppliers',
+      wholesale_description: 'DutyBoost moves your products off airport shelves faster — no new listing required, no additional cost, just incremental volume driven by pre-activated shoppers.',
     },
     accommodationsignup: {
       step_info: 'Accommodation Info',

@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "De Circulaire Inkomsteninfrastructuur voor Wereldwijd Reizen",
        title_2: '',
-       subtitle_1: "POS-aanbieders, luchthavenretailers, reizigers, reispartners, corporate partners, luchthavens en groothandel/retail leveranciers verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
+       subtitle_1: "POS-aanbieders, luchthavenretailers, luchthavens, reizigers, reispartners, corporate partners en groothandel/retail leveranciers verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
@@ -100,7 +100,7 @@ export default {
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'The Circular Commercial Revenue Infrastructure for Global Travel transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door enterprise POS-providers, luchthavenretailers, reizigers, reispartners en corporate partners te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
+       description: 'The Circular Commercial Revenue Infrastructure for Global Travel transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door enterprise POS-providers, luchthavenretailers, luchthavens, reizigers, reispartners, corporate partners en groothandel/retail leveranciers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
        button: "Sluit u vandaag aan bij The Circular Commercial Revenue Infrastructure for Global Travel!",
 
      },
@@ -269,6 +269,10 @@ export default {
       train: 'Trein Partners',
       corporate_partners: 'Voor Corporate Partners',
       corporate_partners_description: 'Met DutyBoost zet u zakelijke reisuitgaven om in terugverdiend budget — elke inlossing financiert de luchthaven-shoppingtegoeden van werknemers uit verdiende commissie, waardoor uw T&E-kosten worden gecompenseerd zonder voorafgaande kosten.',
+      airports: 'Luchthavens',
+      airports_description: 'DutyBoost genereert extra concessie-inkomsten van reizigers die anders zonder aankoop zouden vertrekken — geen capex, geen integratie, inkomsten gerealiseerd bovenop bestaande basislijnen.',
+      wholesale: 'Groothandel / Retail Leveranciers',
+      wholesale_description: 'DutyBoost verplaatst uw producten sneller van de luchthavenschappen — geen nieuwe vermelding vereist, geen extra kosten, alleen extra volume gedreven door voor-geactiveerde kopers.',
     },
     common: {
       back: 'Terug',

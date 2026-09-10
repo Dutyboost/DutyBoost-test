@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, Building2 } from "lucide-react";
+import { ArrowRight, Cpu, Building2, Plane, Package } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
@@ -37,6 +37,16 @@ export default function SelectUserType() {
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
       path: "/retailer-showcase",
+    },
+    {
+      id: "airports",
+      title: t('getstarted.airports'),
+      descKey: 'getstarted.airports_description',
+      icon: Plane,
+      color: "from-violet-400 to-indigo-600",
+      bg: "bg-violet-50",
+      iconColor: "text-violet-600",
+      path: "/airport-showcase",
     },
     {
       id: "agency",
@@ -78,6 +88,16 @@ export default function SelectUserType() {
       iconColor: "text-slate-700",
       path: "/corporate-partner-showcase",
     },
+    {
+      id: "wholesale",
+      title: t('getstarted.wholesale'),
+      descKey: 'getstarted.wholesale_description',
+      icon: Package,
+      color: "from-emerald-400 to-green-600",
+      bg: "bg-emerald-50",
+      iconColor: "text-emerald-600",
+      path: "/wholesale-showcase",
+    },
   ];
 
   return (
@@ -105,8 +125,8 @@ export default function SelectUserType() {
             </p>
           </div>
 
-          <div className="grid gap-4 max-w-7xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
-            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate'))).map((option) => {
+          <div className="grid gap-4 max-w-7xl mx-auto sm:grid-cols-2 lg:grid-cols-4">
+            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate' || o.id === 'airports' || o.id === 'wholesale'))).map((option) => {
               const Icon = option.icon;
               return (
                 <div

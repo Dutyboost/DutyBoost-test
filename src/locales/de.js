@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: "Die kreislaufbasierte Einnahmeinfrastruktur für globales Reisen",
       title_2: '',
-      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Reisende, Reisepartner, Corporate Partner, Flughäfen und Groß-/Einzelhandelslieferanten verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
+      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
@@ -101,7 +101,7 @@ export default {
     },
     cta: {
       title: 'Ein Reisender. Eine Reise. Erlös für alle.',
-      description: 'The Circular Commercial Revenue Infrastructure for Global Travel verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Enterprise-POS-Anbieter, Flughafen-Einzelhändler, Reisende, Reisepartner und Corporate Partner in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
+      description: 'The Circular Commercial Revenue Infrastructure for Global Travel verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Enterprise-POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
       button: "Treten Sie heute The Circular Commercial Revenue Infrastructure for Global Travel bei!",
     },
     wecallyou: {
@@ -186,6 +186,10 @@ export default {
       sign_in: 'Anmelden',
       travel_agency: 'Reisebüro',
       airport_retailer: 'Flughafenhändler',
+      airports: 'Flughäfen',
+      airports_description: 'DutyBoost erschließt zusätzliche Konzessionsumsätze von Reisenden, die sonst ohne Kauf verlassen würden — kein Capex, keine Integration, Erlöse über bestehenden Basislinien.',
+      wholesale: 'Groß-/Einzelhandelslieferanten',
+      wholesale_description: 'DutyBoost bewegt Ihre Produkte schneller von den Flughafenregalen — keine neue Listung erforderlich, keine zusätzlichen Kosten, nur zusätzliches Volumen durch voraktivierte Käufer.',
     },
     getStarted: {
       title: 'Loslegen mit DutyBoost',
