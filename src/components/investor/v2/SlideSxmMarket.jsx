@@ -16,7 +16,7 @@ export default function SlideSxmMarket() {
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               Princess Juliana International Airport <span className="text-blue-600">(SXM)</span>
             </h2>
-            <p className="text-slate-500 mt-1 text-sm">Narrowing the global opportunity to a concrete first market — a single airport with established retail, clear passenger flows, and active stakeholder conversations.</p>
+            <p className="text-slate-500 mt-1 text-sm">Narrowing the global opportunity to a concrete market — a single airport with established retail, clear passenger flows, and active stakeholder conversations across the Caribbean and Europe.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
@@ -70,7 +70,7 @@ export default function SlideSxmMarket() {
               <div className="text-slate-400 text-xs mt-3">SXM category values estimated from CMI market share, proportional to SXM's 2.45% share of the Caribbean market</div>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-lg mb-3">Why Sint Maarten First?</h3>
+              <h3 className="font-bold text-lg mb-3">Why Sint Maarten, Now</h3>
               <div className="space-y-3">
                 {[
                   { icon: MapPin, text: "Single-airport market — focused deployment, measurable impact" },
