@@ -203,18 +203,18 @@ export default function LandingPage() {
               const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'wholesale' ? '/wholesale-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
               const cardContent = (
                 <>
-                  <div className={`flex items-center gap-3 mb-5`}>
-                    <div className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center`}>
-                      <Icon className={`w-12 h-12 ${s.iconColor}`} />
+                  <div className={`flex items-center gap-3 mb-4`}>
+                    <div className={`w-16 h-16 rounded-2xl ${s.bg} flex items-center justify-center`}>
+                      <Icon className={`w-8 h-8 ${s.iconColor}`} />
                     </div>
                     {AdditionalIcons.map((AdIcon, idx) => (
-                      <div key={idx} className={`w-24 h-24 rounded-2xl ${s.bg} flex items-center justify-center`}>
-                        <AdIcon className={`w-12 h-12 ${s.iconColor}`} />
+                      <div key={idx} className={`w-16 h-16 rounded-2xl ${s.bg} flex items-center justify-center`}>
+                        <AdIcon className={`w-8 h-8 ${s.iconColor}`} />
                       </div>
                     ))}
                   </div>
-                  <h3 className="font-heading font-bold text-lg whitespace-nowrap mb-3">{title}</h3>
-                  <p className="text-muted-foreground text-base leading-relaxed mb-5">{description}</p>
+                  <h3 className="font-heading font-bold text-lg whitespace-nowrap mb-2">{title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{description}</p>
                   <ul className="space-y-2">
                     {benefits.map((b) => (
                       <li key={b} className="flex items-center gap-2 text-xs">
@@ -226,7 +226,7 @@ export default function LandingPage() {
                 </>
               );
 
-              const cardClasses = `bg-card rounded-2xl border border-border p-8 transition-shadow ${isClickable ? 'hover:shadow-lg cursor-pointer' : 'hover:shadow-lg'}`;
+              const cardClasses = `bg-card rounded-2xl border border-border p-6 transition-shadow ${isClickable ? 'hover:shadow-lg cursor-pointer' : 'hover:shadow-lg'}`;
 
               return isClickable ? (
                 <Link key={s.key} to={cardLink} className={cardClasses}>
