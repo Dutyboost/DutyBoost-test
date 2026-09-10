@@ -112,7 +112,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-6 pb-4 px-4 sm:px-6">
+      <section className="relative overflow-hidden pt-4 pb-2 px-4 sm:px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -135,8 +135,8 @@ export default function LandingPage() {
       </section>
 
       {/* Stakeholders */}
-      <section id="how-it-works" className="py-4 sm:py-6 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
+      <section id="how-it-works" className="py-2 sm:py-4 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-5 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
