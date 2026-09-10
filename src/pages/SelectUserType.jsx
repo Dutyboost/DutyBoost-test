@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, Building2, Plane, Package } from "lucide-react";
+import { ArrowRight, Cpu, Building2, PlaneTakeoff, Package } from "lucide-react";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
@@ -42,7 +42,7 @@ export default function SelectUserType() {
       id: "airports",
       title: t('getstarted.airports'),
       descKey: 'getstarted.airports_description',
-      icon: Plane,
+      icon: PlaneTakeoff,
       color: "from-cyan-400 to-sky-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",

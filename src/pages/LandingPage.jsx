@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Network, Plane, Package
+  ArrowRight, Menu, X, Cpu, Building2, Network, PlaneTakeoff, Package
 } from "lucide-react";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import { getAirportStrings } from "@/lib/i18nAirport";
@@ -44,7 +44,7 @@ export default function LandingPage() {
     },
     {
       key: 'airports',
-      icon: Plane,
+      icon: PlaneTakeoff,
       color: "from-cyan-400 to-sky-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
