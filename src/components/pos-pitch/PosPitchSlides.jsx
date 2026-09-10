@@ -937,6 +937,7 @@ export function SlideFlywheel({ currency = "€" }) {
     "More Travel & Corporate Partners",
     "More Travellers Reached",
     "More DutyCredits Distributed",
+    "More Self-Generated DutyCredits",
     "More Traveller Incentives",
     "More Pre-Airport Activation",
     "More Participating Retail Visits",
@@ -969,8 +970,8 @@ export function SlideFlywheel({ currency = "€" }) {
               <div className="bg-violet-600 border-2 border-violet-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
                 <div className="text-white text-xs font-bold leading-tight px-2">Circular Revenue Infrastructure</div>
               </div>
-              {steps.slice(0, 10).map((step, i) => {
-                               const angle = (i / 10) * 360 - 90;
+              {steps.slice(0, 11).map((step, i) => {
+                               const angle = (i / 11) * 360 - 90;
                 const rad = (angle * Math.PI) / 180;
                 const r = 145;
                 const x = 50 + (r / 3.4) * Math.cos(rad);
@@ -998,6 +999,7 @@ export function SlideFlywheel({ currency = "€" }) {
                 <div className="space-y-2.5 text-sm">
                   {[
                     { Icon: Briefcase, party: "More Travel & Corporate Partners", effect: "→ More travellers reached before airport arrival" },
+                    { Icon: TravelerIcon, party: "More Self-Generated DutyCredits", effect: "→ Travellers activate directly — no partner required" },
                     { Icon: AirportRetailerIcon, party: "More Retailers", effect: "→ More DutyCredit redemption opportunities" },
                     { Icon: Cpu, party: "More POS Integrations", effect: "→ More deployment capacity" },
                     { Icon: BarChart3, party: "More Transactions", effect: "→ Stronger commercial evidence" },
