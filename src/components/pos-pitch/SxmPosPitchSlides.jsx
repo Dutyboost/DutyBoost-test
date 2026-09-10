@@ -541,7 +541,6 @@ export const SLIDES = [
   { id: "antekOpportunity", type: "antekOpportunity" },
   { id: "sxmEcosystem", type: "sxmEcosystem" },
   { id: "economics", type: "economics" },
-  { id: "antekRevenue", type: "antekRevenue" },
   { id: "flywheel", type: "flywheel" },
   { id: "closing", type: "closing" },
 ];
@@ -557,7 +556,6 @@ export const SLIDE_LABELS = {
   antekOpportunity: "Antek's Opportunity",
   sxmEcosystem: "The SXM Ecosystem",
   economics: "Transaction Economics",
-  antekRevenue: "Antek's Revenue Potential",
   flywheel: "Growth Flywheel",
   closing: "Thank You — SXM",
 };
@@ -574,7 +572,6 @@ export function getSlideComponent(type) {
     antekOpportunity: () => <SlideAntekOpportunity />,
     sxmEcosystem: () => <SlideSxmEcosystem />,
     economics: () => <SlideEconomics />,
-    antekRevenue: () => <SlideAntekRevenue />,
     flywheel: () => <SlideFlywheel />,
     closing: () => <SlideClosingSxm />,
   };
