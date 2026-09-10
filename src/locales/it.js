@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "L'Infrastruttura di Entrate Circolari per i Viaggi Globali",
        title_2: '',
-       subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, i viaggiatori, i partner di viaggio e i partner corporate attraverso un ecosistema commerciale condiviso basato sulle performance",
+       subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, i viaggiatori, i partner di viaggio, i partner corporate, gli aeroporti e i fornitori all'ingrosso/dettaglio attraverso un ecosistema commerciale condiviso basato sulle performance",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',

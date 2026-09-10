@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: "Die kreislaufbasierte Einnahmeinfrastruktur für globales Reisen",
       title_2: '',
-      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Reisende, Reisepartner und Corporate Partner verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
+      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Reisende, Reisepartner, Corporate Partner, Flughäfen und Groß-/Einzelhandelslieferanten verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

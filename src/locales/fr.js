@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: "L'Infrastructure de Revenus Circulaires pour le Voyage Mondial",
       title_2: '',
-      subtitle_1: "Connecter les fournisseurs POS, les détaillants d'aéroport, les voyageurs, les partenaires de voyage et les partenaires corporate à travers un écosystème commercial partagé basé sur la performance",
+      subtitle_1: "Connecter les fournisseurs POS, les détaillants d'aéroport, les voyageurs, les partenaires de voyage, les partenaires corporate, les aéroports et les fournisseurs de gros/détail à travers un écosystème commercial partagé basé sur la performance",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

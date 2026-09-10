@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "La Infraestructura de Ingresos Circulares para los Viajes Globales",
        title_2: '',
-       subtitle_1: "Conectar proveedores POS, minoristas aeroportuarios, viajeros, socios de viaje y socios corporativos a través de un ecosistema comercial compartido basado en el rendimiento",
+       subtitle_1: "Conectar proveedores POS, minoristas aeroportuarios, viajeros, socios de viaje, socios corporativos, aeropuertos y proveedores mayoristas/minoristas a través de un ecosistema comercial compartido basado en el rendimiento",
    subtitle_2: '',
    subtitle_3: '',
    tagline: '',

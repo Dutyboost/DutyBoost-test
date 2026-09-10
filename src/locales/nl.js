@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "De Circulaire Inkomsteninfrastructuur voor Wereldwijd Reizen",
        title_2: '',
-       subtitle_1: "POS-aanbieders, luchthavenretailers, reizigers, reispartners en corporate partners verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
+       subtitle_1: "POS-aanbieders, luchthavenretailers, reizigers, reispartners, corporate partners, luchthavens en groothandel/retail leveranciers verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
