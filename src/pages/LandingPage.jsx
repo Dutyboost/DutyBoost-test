@@ -45,9 +45,9 @@ export default function LandingPage() {
     {
       key: 'airports',
       icon: Plane,
-      color: "from-violet-400 to-indigo-600",
-      bg: "bg-violet-50",
-      iconColor: "text-violet-600",
+      color: "from-cyan-400 to-sky-600",
+      bg: "bg-cyan-50",
+      iconColor: "text-cyan-600",
     },
     {
       key: 'travelers',
@@ -73,9 +73,9 @@ export default function LandingPage() {
     {
       key: 'wholesale',
       icon: Package,
-      color: "from-emerald-400 to-green-600",
-      bg: "bg-emerald-50",
-      iconColor: "text-emerald-600",
+      color: "from-amber-400 to-yellow-600",
+      bg: "bg-amber-50",
+      iconColor: "text-amber-600",
     },
     {
       key: 'dutyboost',
