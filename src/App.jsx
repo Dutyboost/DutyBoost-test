@@ -127,6 +127,7 @@ import AirportPitchDeck from './pages/AirportPitchDeck';
 import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
 import PosProviderPitchDeckUsd from './pages/PosProviderPitchDeckUsd';
 import PosProviderPitchDeckSxm from './pages/PosProviderPitchDeckSxm';
+import PosProviderPitchDeckWagos from './pages/PosProviderPitchDeckWagos';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
@@ -264,6 +265,7 @@ const AuthenticatedApp = () => {
         <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
         <Route path="/pos-provider-pitch-usd" element={<PosProviderPitchDeckUsd />} />
         <Route path="/pos-provider-pitch-sxm" element={<PosProviderPitchDeckSxm />} />
+        <Route path="/pos-provider-pitch-wagos" element={<PosProviderPitchDeckWagos />} />
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
