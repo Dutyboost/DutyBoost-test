@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import { SlideTeam } from "@/pages/InvestorPitchDeck";
 import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2 } from "lucide-react";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
@@ -985,6 +986,7 @@ export function SlideClosing({ currency = "€" }) {
 
 export const SLIDES = [
   { id: "cover", type: "cover" },
+  { id: "team", type: "team" },
   { id: "opportunity", type: "opportunity" },
   { id: "facts", type: "facts" },
   { id: "solution", type: "solution" },
@@ -1000,6 +1002,7 @@ export const SLIDES = [
 
 export const SLIDE_LABELS = {
   cover: "Cover",
+  team: "Our Team",
   opportunity: "Global Market",
   facts: "The Facts",
   solution: "The Solution",
@@ -1016,6 +1019,7 @@ export const SLIDE_LABELS = {
 export function getSlideComponent(type, currency) {
   const map = {
     cover: () => <SlideCover currency={currency} />,
+    team: () => <SlideTeam />,
     opportunity: () => <SlideOpportunity currency={currency} />,
     facts: () => <SlideFacts currency={currency} />,
     solution: () => <SlideSolution currency={currency} />,
