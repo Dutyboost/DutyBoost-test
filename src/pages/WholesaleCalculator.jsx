@@ -32,7 +32,7 @@ export default function WholesaleCalculator() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <ShowcaseMobileNav calculatorTo="/wholesale-showcase" gradient="linear-gradient(to bottom, #059669, #047857)" />
+      <ShowcaseMobileNav calculatorTo="/wholesale-showcase" gradient="linear-gradient(to bottom, #d97706, #ca8a04)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
@@ -40,7 +40,7 @@ export default function WholesaleCalculator() {
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/wholesale-showcase">
-              <Button variant="outline" size="sm" className="gap-1.5 text-emerald-600 border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
+              <Button variant="outline" size="sm" className="gap-1.5 text-amber-600 border-amber-600 hover:text-amber-700 hover:bg-amber-50">
                 <Package className="w-4 h-4 shrink-0" /> {c.aboutBtn}
               </Button>
             </Link>
@@ -51,7 +51,7 @@ export default function WholesaleCalculator() {
 
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center space-y-3">
-          <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
             <Package className="w-3.5 h-3.5" /> {c.badge}
           </div>
           <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">{c.title}</h1>
@@ -95,7 +95,7 @@ export default function WholesaleCalculator() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium">{c.labelUplift}</label>
-                <span className="text-sm font-semibold text-emerald-700">{uplift}%</span>
+                <span className="text-sm font-semibold text-amber-700">{uplift}%</span>
               </div>
               <Slider value={[uplift]} min={0.5} max={5} step={0.5} onValueChange={(v) => setUpliftStr(String(v[0]))} />
               <p className="text-xs text-muted-foreground">{c.descUplift}</p>
@@ -103,7 +103,7 @@ export default function WholesaleCalculator() {
           </div>
 
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl p-7 text-white shadow-lg space-y-2">
+            <div className="bg-gradient-to-br from-amber-600 to-yellow-600 rounded-2xl p-7 text-white shadow-lg space-y-2">
               <div className="flex items-center gap-2 text-white/80 text-sm font-medium">
                 <Wallet className="w-4 h-4" /> {c.resultAnnual}
               </div>

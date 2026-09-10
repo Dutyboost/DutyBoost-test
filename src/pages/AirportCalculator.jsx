@@ -32,7 +32,7 @@ export default function AirportCalculator() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <ShowcaseMobileNav calculatorTo="/airport-showcase" gradient="linear-gradient(to bottom, #7c3aed, #4338ca)" />
+      <ShowcaseMobileNav calculatorTo="/airport-showcase" gradient="linear-gradient(to bottom, #0891b2, #0284c7)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
@@ -40,7 +40,7 @@ export default function AirportCalculator() {
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/airport-showcase">
-              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
+              <Button variant="outline" size="sm" className="gap-1.5 text-cyan-600 border-cyan-600 hover:text-cyan-700 hover:bg-cyan-50">
                 <Plane className="w-4 h-4 shrink-0" /> {c.aboutBtn}
               </Button>
             </Link>
@@ -51,7 +51,7 @@ export default function AirportCalculator() {
 
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center space-y-3">
-          <div className="inline-flex items-center gap-2 bg-violet-500/10 text-violet-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
             <Plane className="w-3.5 h-3.5" /> {c.badge}
           </div>
           <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">{c.title}</h1>
@@ -95,7 +95,7 @@ export default function AirportCalculator() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium">{c.labelUplift}</label>
-                <span className="text-sm font-semibold text-violet-700">{uplift}%</span>
+                <span className="text-sm font-semibold text-cyan-700">{uplift}%</span>
               </div>
               <Slider value={[uplift]} min={0.5} max={5} step={0.5} onValueChange={(v) => setUpliftStr(String(v[0]))} />
               <p className="text-xs text-muted-foreground">{c.descUplift}</p>
@@ -103,7 +103,7 @@ export default function AirportCalculator() {
           </div>
 
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-7 text-white shadow-lg space-y-2">
+            <div className="bg-gradient-to-br from-cyan-600 to-sky-700 rounded-2xl p-7 text-white shadow-lg space-y-2">
               <div className="flex items-center gap-2 text-white/80 text-sm font-medium">
                 <Wallet className="w-4 h-4" /> {c.resultAnnual}
               </div>

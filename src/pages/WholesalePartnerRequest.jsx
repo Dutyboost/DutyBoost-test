@@ -72,7 +72,7 @@ export default function WholesalePartnerRequest() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <ShowcaseMobileNav calculatorTo="/wholesale-calculator" gradient="linear-gradient(to bottom, #059669, #047857)" />
+      <ShowcaseMobileNav calculatorTo="/wholesale-calculator" gradient="linear-gradient(to bottom, #d97706, #ca8a04)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
@@ -88,8 +88,8 @@ export default function WholesalePartnerRequest() {
         <div className="max-w-lg mx-auto">
           {submitted ? (
             <div className="text-center space-y-5">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+              <div className="w-20 h-20 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-10 h-10 text-amber-600" />
               </div>
               <h2 className="text-3xl font-heading font-bold">{r.success_title.replace('{name}', form.fullName ? `, ${form.fullName.split(" ")[0]}` : '')}</h2>
               <p className="text-muted-foreground max-w-sm mx-auto">{r.success_desc}</p>
@@ -98,7 +98,7 @@ export default function WholesalePartnerRequest() {
           ) : (
             <div className="space-y-6">
               <div className="text-center space-y-2">
-                <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
+                <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
                   <Package className="w-3.5 h-3.5" /> Wholesale / Retail Supplier
                 </div>
                 <h2 className="text-3xl font-heading font-bold">{t('common.request_more_info')}</h2>
@@ -161,7 +161,7 @@ export default function WholesalePartnerRequest() {
                     onChange={(e) => set("message", e.target.value)}
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full gap-2 bg-emerald-600 hover:bg-emerald-700" disabled={!isValid || loading}>
+                <Button type="submit" size="lg" className="w-full gap-2 bg-amber-600 hover:bg-amber-700" disabled={!isValid || loading}>
                   {loading ? r.submitting : t('common.request_more_info')} <ArrowRight className="w-4 h-4 shrink-0" />
                 </Button>
                 <p className="text-center text-xs text-muted-foreground">{r.no_spam}</p>

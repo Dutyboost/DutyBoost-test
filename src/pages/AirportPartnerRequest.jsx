@@ -72,7 +72,7 @@ export default function AirportPartnerRequest() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <ShowcaseMobileNav calculatorTo="/airport-calculator" gradient="linear-gradient(to bottom, #7c3aed, #4338ca)" />
+      <ShowcaseMobileNav calculatorTo="/airport-calculator" gradient="linear-gradient(to bottom, #0891b2, #0284c7)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
@@ -88,8 +88,8 @@ export default function AirportPartnerRequest() {
         <div className="max-w-lg mx-auto">
           {submitted ? (
             <div className="text-center space-y-5">
-              <div className="w-20 h-20 rounded-full bg-violet-500/10 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-10 h-10 text-violet-600" />
+              <div className="w-20 h-20 rounded-full bg-cyan-500/10 flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-10 h-10 text-cyan-600" />
               </div>
               <h2 className="text-3xl font-heading font-bold">{r.success_title.replace('{name}', form.fullName ? `, ${form.fullName.split(" ")[0]}` : '')}</h2>
               <p className="text-muted-foreground max-w-sm mx-auto">{r.success_desc}</p>
@@ -98,7 +98,7 @@ export default function AirportPartnerRequest() {
           ) : (
             <div className="space-y-6">
               <div className="text-center space-y-2">
-                <div className="inline-flex items-center gap-2 bg-violet-500/10 text-violet-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
+                <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
                   <Plane className="w-3.5 h-3.5" /> Airport Partner
                 </div>
                 <h2 className="text-3xl font-heading font-bold">{t('common.request_more_info')}</h2>
@@ -161,7 +161,7 @@ export default function AirportPartnerRequest() {
                     onChange={(e) => set("message", e.target.value)}
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full gap-2 bg-violet-600 hover:bg-violet-700" disabled={!isValid || loading}>
+                <Button type="submit" size="lg" className="w-full gap-2 bg-cyan-600 hover:bg-cyan-700" disabled={!isValid || loading}>
                   {loading ? r.submitting : t('common.request_more_info')} <ArrowRight className="w-4 h-4 shrink-0" />
                 </Button>
                 <p className="text-center text-xs text-muted-foreground">{r.no_spam}</p>
