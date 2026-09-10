@@ -260,7 +260,7 @@ export function SlideAntekOpportunity() {
                   { icon: Boxes, text: "Integrate once at platform level; every retailer you support toggles on with zero per-store code" },
                   { icon: CheckCircle, text: "Feasibility already reviewed against the CounterPoint workflow — the build path is confirmed, not speculative" },
                   { icon: Shield, text: "Zero risk to your core — toggle off anytime, no impact on non-DutyBoost transactions" },
-                  { icon: Building2, text: "Solve a structural challenge with no current technical lever — be the integrator who made pre-airport activation work" },
+                  { icon: Building2, text: "Solve a structural challenge with no current technical lever — be the integrator who made pre-airport activation work in Sint Maarten" },
                 ].map((pt, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <pt.icon className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
