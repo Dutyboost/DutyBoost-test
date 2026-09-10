@@ -203,7 +203,7 @@ export function SlideFactsWagos() {
                 <ul className="space-y-3">
                   {[
                     "2.9M travellers walk through Wagos-served airport stores without buying every year",
-                    "The Caribbean generates $2.72B in duty-free — without pre-activation",
+                    "The Wagos network generates $108M in duty-free — without pre-activation",
                     "No financial reason for a non-intending buyer to enter a store",
                     "Activation starts only after security — too late to influence purchase intent",
                     "73% of network passengers walk straight to the gate",
