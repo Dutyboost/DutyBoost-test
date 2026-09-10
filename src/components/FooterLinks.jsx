@@ -10,6 +10,8 @@ const legalLinks = [
   { to: "/refunds", label: "Billing & Dispute Policy" },
   { to: "/code-of-conduct", label: "Code of Conduct" },
   { to: "/cookies", label: "Cookie Policy" },
+  { to: "/accessibility", label: "Accessibility Statement" },
+  { to: "/data-collection", label: "Data Collection & Tracking" },
 ];
 
 export default function FooterLinks() {

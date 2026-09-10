@@ -23,6 +23,8 @@ import RefundPolicy from './pages/RefundPolicy';
 import CodeOfConduct from './pages/CodeOfConduct';
 import CookiePolicy from './pages/CookiePolicy';
 import DataProcessingAgreement from './pages/DataProcessingAgreement';
+import AccessibilityStatement from './pages/AccessibilityStatement';
+import DataCollectionPolicy from './pages/DataCollectionPolicy';
 import CookieConsentBar from './components/CookieConsentBar';
 
 import DemoDisclaimer from './components/DemoDisclaimer';
@@ -290,6 +292,8 @@ const AuthenticatedApp = () => {
         <Route path="/code-of-conduct" element={<CodeOfConduct />} />
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/dpa" element={<DataProcessingAgreement />} />
+        <Route path="/accessibility" element={<AccessibilityStatement />} />
+        <Route path="/data-collection" element={<DataCollectionPolicy />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/travel-partner-integration-guide" element={<AgencyIntegrationGuide />} />
         <Route path="/retailer-integration-guide" element={<RetailerIntegrationGuide />} />
