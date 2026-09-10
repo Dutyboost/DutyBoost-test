@@ -340,7 +340,7 @@ export function SlideSxmEcosystem() {
                 </div>
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full border bg-green-100 text-green-700 border-green-300">Active</span>
               </div>
-              <p className="text-slate-600 text-xs">NCR CounterPoint integrator for 25+ years. Serves SXM, Anguilla, St. Barth, Saba, Statia. Technical feasibility confirmed.</p>
+              <p className="text-slate-600 text-xs">The NCR CounterPoint integrator at SXM — the single technical entry point. DutyBoost is added as a toggle feature within the CounterPoint workflow they already manage.</p>
             </div>
             {/* Dutch Delight */}
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
@@ -356,7 +356,7 @@ export function SlideSxmEcosystem() {
                 </div>
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full border bg-green-100 text-green-700 border-green-300">Active</span>
               </div>
-              <p className="text-slate-600 text-xs">Pilot-ready retailer. Reviewed performance-based model, 87.5% retailer net confirmed. Toggle-on approach agreed.</p>
+              <p className="text-slate-600 text-xs">Prospective pilot retailer at SXM. Early-stage conversation — no commercial terms confirmed yet. A natural first toggle-on candidate once the CounterPoint integration is live.</p>
             </div>
             {/* Divico */}
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
@@ -407,7 +407,7 @@ export function SlideSxmEcosystem() {
           </div>
           <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4">
             <p className="text-slate-700 text-sm font-medium">
-              <span className="font-bold">The network is ready:</span> Antek as the integrator, Dutch Delight as the pilot retailer, Divico & ILTT as wholesale advocates — the full SXM retail chain is engaged and waiting for activation.
+              <span className="font-bold">The network is forming:</span> Antek as the integrator, Dutch Delight as a prospective pilot retailer, Divico & ILTT as wholesale advocates — conversations are active across the full SXM retail chain.
             </p>
           </div>
         </div>
