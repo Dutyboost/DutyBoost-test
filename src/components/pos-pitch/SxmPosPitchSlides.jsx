@@ -353,24 +353,6 @@ export function SlideSxmEcosystem() {
               </div>
               <p className="text-slate-600 text-xs">NCR CounterPoint integrator for 25+ years. Serves SXM, Anguilla, St. Barth, Saba, Statia. Technical feasibility confirmed.</p>
             </div>
-            {/* Wagos */}
-            <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center">
-                    <Cpu className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-800 text-sm">
-                      <a href={WAGOS_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Wagos</a>
-                    </h3>
-                    <div className="text-slate-500 text-xs">POS Integrator — Trinidad & Tobago</div>
-                  </div>
-                </div>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full border bg-green-100 text-green-700 border-green-300">Active</span>
-              </div>
-              <p className="text-slate-600 text-xs">NCR CounterPoint partner serving T&T, Grenada, Cayman Islands, Guyana, and St. Martin. Toggle integration discussed.</p>
-            </div>
             {/* Dutch Delight */}
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
               <div className="flex items-center justify-between mb-3">
