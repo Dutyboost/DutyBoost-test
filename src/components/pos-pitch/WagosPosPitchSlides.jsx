@@ -87,18 +87,16 @@ export function SlideCaribbeanMarket() {
           <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Caribbean Market — Wagos Territory</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              A <span className="text-violet-600">$2.72B</span> Regional Duty-Free Market
+              A <span className="text-violet-600">$108M</span> Network Duty-Free Market
             </h2>
             <p className="text-slate-500 mt-1 text-sm">Wagos serves airport retailers across Trinidad &amp; Tobago, Grenada, the Cayman Islands, and Guyana — a multi-island network with combined passenger volumes exceeding 4 million annually.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
             <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 text-center">
               <DollarSign className="w-8 h-8 text-violet-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">$2.72B</div>
-              <div className="text-slate-600 font-semibold text-sm">Caribbean DF Market</div>
-              <div className="text-slate-500 text-xs mt-1">
-                <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(CMI)</a> 2026 est.
-              </div>
+              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">$108M</div>
+              <div className="text-slate-600 font-semibold text-sm">Network DF Revenue</div>
+              <div className="text-slate-500 text-xs mt-1">4 airports · 27% conversion · $100 basket</div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
               <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
@@ -121,13 +119,13 @@ export function SlideCaribbeanMarket() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <h3 className="font-bold text-slate-700 mb-4">Caribbean DF Market Growth (2026–2033)</h3>
+              <h3 className="font-bold text-slate-700 mb-4">Network DF Revenue Growth (2026–2033)</h3>
               <div className="space-y-2">
                 {[
-                  { year: "2026", val: "$2.72B", pct: 25 },
-                  { year: "2028", val: "$4.0B", pct: 37 },
-                  { year: "2030", val: "$6.0B", pct: 56 },
-                  { year: "2033", val: "$10.72B", pct: 100 },
+                  { year: "2026", val: "$108M", pct: 25 },
+                  { year: "2028", val: "$160M", pct: 37 },
+                  { year: "2030", val: "$237M", pct: 55 },
+                  { year: "2033", val: "$429M", pct: 100 },
                 ].map((row) => (
                   <div key={row.year} className="flex items-center gap-3">
                     <div className="w-12 text-sm text-slate-600">{row.year}</div>
@@ -139,7 +137,7 @@ export function SlideCaribbeanMarket() {
                 ))}
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                Source: <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Coherent Market Insights</a> — Caribbean Duty Free Retailing Market
+                Network revenue derived from 4M passengers × 27% conversion × $100 basket. Growth projected at <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">21.7% Caribbean CAGR (CMI)</a>.
               </div>
             </div>
             <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-6 text-white">
@@ -150,7 +148,7 @@ export function SlideCaribbeanMarket() {
                   { icon: Plane, text: "4M+ annual passengers across POS, GCM, GEO, GND" },
                   { icon: Users, text: "2.9M non-purchasing travellers — the conversion headroom" },
                   { icon: TrendingUp, text: "21.7% Caribbean CAGR — the fastest-growing DF region globally" },
-                  { icon: DollarSign, text: "$2.72B existing market — activation, not creation" },
+                  { icon: DollarSign, text: "$108M existing network revenue — activation, not creation" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <item.icon className="w-5 h-5 text-violet-200 flex-shrink-0 mt-0.5" />
