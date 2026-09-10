@@ -246,7 +246,7 @@ export function SlideWagosOpportunity() {
               The Integration Partner <span className="text-violet-600">for the Caribbean</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              <a href={WAGOS_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Wagos</a> is the NCR CounterPoint integrator and support partner serving airport retailers across Trinidad &amp; Tobago, Grenada, the Cayman Islands, Guyana, and St. Martin — the single technical entry point for DutyBoost across a multi-island retailer base.
+              <a href={WAGOS_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Wagos</a> is the NCR CounterPoint integrator and support partner serving airport retailers across Trinidad &amp; Tobago, Grenada, the Cayman Islands, Guyana — the single technical entry point for DutyBoost across a multi-island retailer base.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -286,7 +286,7 @@ export function SlideWagosOpportunity() {
                     { metric: "Per $100 basket", val: "$0.25 — on transactions Wagos already processes" },
                     { metric: "Upfront cost", val: "$0 — no setup fee, no subscription, no licence" },
                     { metric: "On non-converters", val: "$0 — purely performance-based, zero risk" },
-                    { metric: "Territory", val: "Trinidad & Tobago, Grenada, Cayman Islands, Guyana, St. Martin" },
+                    { metric: "Territory", val: "Trinidad & Tobago, Grenada, Cayman Islands, Guyana" },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
