@@ -11,6 +11,7 @@ export default function DutyBoostLogo({ height = 55, inverted = false, linkTo = 
         style={{ height: `${height}px`, width: 'auto', display: 'block' }}
       />
       <span
+        aria-hidden="true"
         className="font-heading font-semibold leading-none"
         style={{
           fontSize: `${Math.round(height * 0.4) + 6}px`,
