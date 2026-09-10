@@ -321,7 +321,7 @@ export function SlideSxmEcosystem() {
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               Engaged <span className="text-violet-600">Stakeholders</span>
             </h2>
-            <p className="text-slate-500 mt-1 text-sm">DutyBoost is not starting from zero at SXM — active conversations are underway across the entire retail ecosystem that Antek supports.</p>
+            <p className="text-slate-500 mt-1 text-sm">DutyBoost has spoken directly with every SXM stakeholder who would benefit from this integration — retailers, wholesalers, and duty-free operators alike. Each one has expressed interest in being part of the first activation.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
             {/* Dutch Delight */}
