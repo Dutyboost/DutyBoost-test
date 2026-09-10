@@ -1,4 +1,4 @@
-import { Cpu, Plane, User, Briefcase, Building2, CheckCircle, XCircle } from "lucide-react";
+import { Cpu, Plane, User, Briefcase, Building2, CheckCircle, XCircle, RefreshCw } from "lucide-react";
 import { SlideWrapper, GridBg } from "./Shared";
 
 const stakeholders = [
@@ -46,6 +46,7 @@ const stakeholders = [
       "Direct financial value — €1 to €60 per basket",
       "No app to download, no loyalty card required",
       "Real discounts at stores they already walk past",
+      "Can generate their own DutyCredit on the platform — anytime",
       "Pre-activated with purchase intent before arrival",
       "Free benefit — no cost to the traveller",
     ],
@@ -117,7 +118,7 @@ export default function SlideStakeholderPrimary() {
                   <h3 className="font-bold text-slate-800 text-sm">{s.name}</h3>
                 </div>
                 <div className="space-y-1 mb-2">
-                  {s.pros.slice(0, 3).map((p, i) => (
+                  {s.pros.slice(0, 4).map((p, i) => (
                     <div key={i} className="flex items-start gap-1.5">
                       <CheckCircle className="w-3.5 h-3.5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-slate-600 text-xs leading-snug">{p}</span>
@@ -139,6 +140,14 @@ export default function SlideStakeholderPrimary() {
               <h3 className="font-bold text-lg mb-3">Five Beneficiaries.</h3>
               <p className="text-blue-50 text-sm leading-relaxed">
                 Every validated DutyBoost transaction creates value for all five primary partners simultaneously — the traveller saves, the retailer earns, the POS provider earns, the travel/corporate partner earns, and the airport earns more concession revenue.
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-4">
+            <div className="flex items-start gap-3">
+              <RefreshCw className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <p className="text-slate-700 text-sm leading-relaxed">
+                <span className="font-bold text-slate-800">Single-use, infinitely renewable.</span> A DutyCredit can't be reused — but travellers can generate a new one whenever they like and visit another participating store. One DutyCredit for cosmetics, another for electronics, another at the giftshop for a souvenir. Same traveller, different stores, everyone wins.
               </p>
             </div>
           </div>
