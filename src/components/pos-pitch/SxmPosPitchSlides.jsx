@@ -271,7 +271,7 @@ export function SlideAntekOpportunity() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5">
-                <h3 className="font-bold text-violet-900 mb-3">What You Earn For Building It</h3>
+                <h3 className="font-bold text-violet-900 mb-3">What You Earn For Building It (Perpetual)</h3>
                 <div className="space-y-2.5 text-sm">
                   {[
                     { metric: "Commission rate", val: "10% of the 2.5% platform fee = 0.25% of every validated basket" },
