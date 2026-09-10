@@ -313,7 +313,7 @@ export function SlideFacts({ currency = "€" }) {
 }
 
 // SLIDE 4: The Solution
-export function SlideSolution({ currency = "€" }) {
+export function SlideSolution({ currency = "€", showDutyBoostCard = false, showReuseNote = false }) {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -325,7 +325,14 @@ export function SlideSolution({ currency = "€" }) {
               Activate the Traveller<br /><span className="text-violet-600">Before Airport Arrival</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
+          <div className={`grid grid-cols-2 ${showDutyBoostCard ? "md:grid-cols-5" : "md:grid-cols-4"} gap-5 mb-6`}>
+            {showDutyBoostCard && (
+              <div className="bg-violet-600 border border-violet-700 rounded-2xl p-5 text-center text-white">
+                <Zap className="w-10 h-10 mx-auto mb-3 text-white" />
+                <div className="font-semibold mb-1">DutyBoost Platform</div>
+                <div className="text-violet-100 text-sm">Travellers generate their own DutyCredits directly — no partner required</div>
+              </div>
+            )}
             {[
               { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
@@ -394,6 +401,16 @@ export function SlideSolution({ currency = "€" }) {
               </div>
             </div>
           </div>
+          {showReuseNote && (
+            <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+              <div className="flex items-start gap-3">
+                <RefreshCw className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-slate-700 text-sm leading-relaxed">
+                  <span className="font-bold">Single-use, infinitely renewable.</span> A DutyCredit can't be reused — but travellers can get one from a Travel or Corporate Partner and generate as many more as they need for other participating stores. One DutyCredit for cosmetics, another for electronics, another at the giftshop for a souvenir. Same traveller, different stores, everyone wins.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </SlideWrapper>

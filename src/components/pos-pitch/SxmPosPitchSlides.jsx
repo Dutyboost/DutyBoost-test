@@ -598,7 +598,7 @@ export function getSlideComponent(type) {
     team: () => <SlideTeam />,
     sxmMarket: () => <SlideSxmMarket />,
     facts: () => <SlideFactsSxm />,
-    solution: () => <SlideSolution />,
+    solution: () => <SlideSolution showDutyBoostCard showReuseNote />,
     posToggle: () => <SlidePosToggle />,
     technicalIntegration: () => <SlideTechnicalIntegration />,
     antekOpportunity: () => <SlideAntekOpportunity />,
