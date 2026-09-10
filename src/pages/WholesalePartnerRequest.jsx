@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, ArrowLeft, CheckCircle2, Package } from "lucide-react";
+import { ArrowRight, CheckCircle2, Package } from "lucide-react";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
@@ -79,11 +79,6 @@ export default function WholesalePartnerRequest() {
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to="/wholesale-showcase">
-              <Button variant="outline" size="sm" className="gap-1.5 text-emerald-600 border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
-                <ArrowLeft className="w-4 h-4 shrink-0" /> {t('common.back')}
-              </Button>
-            </Link>
             <LanguageSwitcher />
           </div>
         </div>

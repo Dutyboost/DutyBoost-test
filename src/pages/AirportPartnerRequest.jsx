@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, ArrowLeft, CheckCircle2, Plane } from "lucide-react";
+import { ArrowRight, CheckCircle2, Plane } from "lucide-react";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
@@ -79,11 +79,6 @@ export default function AirportPartnerRequest() {
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to="/airport-showcase">
-              <Button variant="outline" size="sm" className="gap-1.5 text-violet-600 border-violet-600 hover:text-violet-700 hover:bg-violet-50">
-                <ArrowLeft className="w-4 h-4 shrink-0" /> {t('common.back')}
-              </Button>
-            </Link>
             <LanguageSwitcher />
           </div>
         </div>
