@@ -159,7 +159,7 @@ export function SlideSxmMarket() {
                 <p className="text-slate-700 text-sm font-semibold">
                   The 73% non-purchase gap ({" "}
                   <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a>{" "}
-                  benchmark) is a structural integration problem — and the build path to close it is confirmed.
+                  benchmark) is a structural integration challenge — and the build path to close it is confirmed.
                 </p>
               </div>
             </div>
@@ -260,7 +260,7 @@ export function SlideAntekOpportunity() {
                   { icon: Boxes, text: "Integrate once at platform level; every retailer you support toggles on with zero per-store code" },
                   { icon: CheckCircle, text: "Feasibility already reviewed against the CounterPoint workflow — the build path is confirmed, not speculative" },
                   { icon: Shield, text: "Zero risk to your core — toggle off anytime, no impact on non-DutyBoost transactions" },
-                  { icon: Building2, text: "Solve a structural problem with no current technical lever — be the integrator who made pre-airport activation work" },
+                  { icon: Building2, text: "Solve a structural challenge with no current technical lever — be the integrator who made pre-airport activation work" },
                 ].map((pt, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <pt.icon className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
@@ -295,7 +295,7 @@ export function SlideAntekOpportunity() {
                   <h3 className="font-bold">A Build Worth Doing</h3>
                 </div>
                 <p className="text-violet-50 text-sm leading-relaxed">
-                  This isn't a marketing layer bolted onto your POS. It's a real integration that solves a measurable problem — and you're the integrator best placed to ship it. A defined scope, a confirmed path, and a capability no other Caribbean integrator offers yet.
+                  This isn't a marketing layer bolted onto your POS. It's a real integration that solves a measurable challenge — and you're the integrator best placed to ship it. A defined scope, a confirmed path, and a capability no other Caribbean integrator offers yet.
                 </p>
                 <div className="mt-3 text-violet-100 font-semibold text-sm">
                   One build. Every retailer you support benefits. You earn on every validated sale.
