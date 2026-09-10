@@ -319,7 +319,7 @@ export function SlideSxmEcosystem() {
           <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The SXM Ecosystem — Already in Motion</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Every Stakeholder <span className="text-violet-600">Already Engaged</span>
+              Engaged <span className="text-violet-600">Stakeholders</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">DutyBoost is not starting from zero at SXM — active conversations are underway across the entire retail ecosystem that Antek supports.</p>
           </div>
