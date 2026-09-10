@@ -618,7 +618,7 @@ export function getSlideComponent(type) {
     team: () => <SlideTeam />,
     market: () => <SlideCaribbeanMarket />,
     facts: () => <SlideFactsWagos />,
-    solution: () => <SlideSolution />,
+    solution: () => <SlideSolution showDutyBoostCard showReuseNote />,
     posToggle: () => <SlidePosToggle />,
     technicalIntegration: () => <SlideTechnicalIntegration />,
     wagosOpportunity: () => <SlideWagosOpportunity />,

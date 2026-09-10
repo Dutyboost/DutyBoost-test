@@ -1113,7 +1113,7 @@ export function getSlideComponent(type, currency) {
     team: () => <SlideTeam currency={currency} />,
     opportunity: () => <SlideOpportunity currency={currency} />,
     facts: () => <SlideFacts currency={currency} />,
-    solution: () => <SlideSolution currency={currency} />,
+    solution: () => <SlideSolution currency={currency} showDutyBoostCard showReuseNote />,
     posToggle: () => <SlidePosToggle currency={currency} />,
     technicalIntegration: () => <SlideTechnicalIntegration currency={currency} />,
     ecosystem: () => <SlideEcosystem currency={currency} />,
