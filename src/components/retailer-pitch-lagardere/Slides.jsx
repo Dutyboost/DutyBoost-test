@@ -813,7 +813,7 @@ export function SlideFlywheel() {
     "More Travel & Corporate Partners",
     "More Travellers Reached",
     "More DutyCredits Distributed",
-    "More Self-Generated DutyCredits",
+    "Traveller Self-Generated DutyCredit",
     "More Traveller Incentives",
     "More Pre-Airport Activation",
     "More Participating Retail Visits",
