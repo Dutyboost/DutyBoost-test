@@ -56,6 +56,14 @@ const LTR_AIRPORTS = 290;
 const LTR_PAX_EXPOSED_EST = Math.round((BENCHMARK_PAX * LTR_AIRPORTS) / BENCHMARK_AIRPORTS); // ≈ 2071M
 const LTR_NON_PURCHASE_EST = Math.round(LTR_PAX_EXPOSED_EST * NON_PURCHASE_SHARE); // ≈ 1512M
 
+// ── Schiphol Joint Venture (LTR / Royal Schiphol Group 70:30) ───────────────────
+// Schiphol = LTR's exclusive Duty Free operator; flagship "Today Duty Free" (May 2025).
+const SCHIPHOL_PAX = 68.8; // million passengers (ACI 2024/2025)
+const SCHIPHOL_CONVERTERS = SCHIPHOL_PAX * CONVERTING_SHARE; // ≈ 18.6M
+const SCHIPHOL_NON_PURCHASE = SCHIPHOL_PAX * NON_PURCHASE_SHARE; // ≈ 50.2M
+const ILLUSTRATIVE_BASKET = 100; // € — consistent with the model (slides 8-9)
+const SCHIPHOL_UPLIFT_1PP = SCHIPHOL_PAX * 0.01 * ILLUSTRATIVE_BASKET; // ≈ €68.8M per +1pp
+
 // SLIDE 1: Cover — Lagardère
 export function SlideCoverLagardere() {
   return (
@@ -414,48 +422,49 @@ export function SlideLagardereOpportunity() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Lagardère Opportunity</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Schiphol Opportunity</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Small Conversion Gains = <span className="text-blue-600">Enormous Value at LTR Scale</span>
+              Small Conversion Gains = <span className="text-blue-600">Enormous Value at Schiphol</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              LTR's €5.8B 2024 revenue comes from the ~27% of passengers who buy. The other 73% is untapped headroom — DutyBoost activates them before arrival.
+              Schiphol's ~68.8M passengers flow through LTR's exclusive Duty Free JV. ~73% never purchase — DutyBoost activates them before arrival.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <div className="flex items-center gap-4">
                 <div>
-                  <div className="text-3xl md:text-5xl font-bold text-red-600">73%</div>
-                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing headroom</div>
-                  <div className="text-slate-400 text-xs mt-1">m1nd-set / TFWA global benchmark</div>
+                  <div className="text-3xl md:text-5xl font-bold text-red-600">~{SCHIPHOL_NON_PURCHASE.toFixed(1)}M</div>
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing passengers</div>
+                  <div className="text-slate-400 text-xs mt-1">73% of Schiphol's 68.8M pax</div>
                 </div>
                 <div className="flex-1 text-right">
-                  <div className="text-3xl md:text-5xl font-bold text-green-600">€{headroom.toFixed(0)}M</div>
-                  <div className="text-slate-600 font-semibold text-sm mt-1">Implied untapped basket value</div>
-                  <div className="text-slate-400 text-xs mt-1">at LTR's current spend mix</div>
+                  <div className="text-3xl md:text-5xl font-bold text-green-600">~{SCHIPHOL_CONVERTERS.toFixed(1)}M</div>
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Today's converting base</div>
+                  <div className="text-slate-400 text-xs mt-1">the ~27% who currently buy</div>
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
-                Headroom derived from LTR's €5,812M converting revenue scaled by the 73/27 non-purchase ratio.{" "}
-                <a href={MOODIE_2024} target="_blank" rel="noopener noreferrer" className={linkCls}>LTR 2024 revenue</a>
+                Schiphol passengers: <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World</a>. 73/27 ratio:{" "}
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a> /{" "}
+                <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>TFWA</a>.
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
               <h3 className="font-bold text-blue-800 mb-2">Each +1pp of Conversion</h3>
-              <div className="text-3xl md:text-4xl font-bold text-blue-700">{fmtM(UPLIFT_1PP)}</div>
-              <div className="text-slate-600 text-sm mt-1">incremental retail value across LTR's network</div>
-              <div className="text-green-600 font-bold text-xl mt-3">{fmtM(UPLIFT_1PP * RETAILER_NET)}</div>
-              <div className="text-slate-600 text-sm">retailer net (87.5%) before normal costs</div>
-              <div className="text-slate-400 text-xs mt-3">1pp = 1% of total passengers converting at LTR's current average basket.</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-700">~{(SCHIPHOL_PAX * 0.01 * 1000).toFixed(0)}K</div>
+              <div className="text-slate-600 text-sm mt-1">additional purchasing travellers at Schiphol</div>
+              <div className="text-green-600 font-bold text-xl mt-3">{fmtM(SCHIPHOL_UPLIFT_1PP)}</div>
+              <div className="text-slate-600 text-sm">incremental retail value (illustrative, €100 basket)</div>
+              <div className="text-slate-400 text-xs mt-3">1pp = 1% of Schiphol's 68.8M passengers converting at the model's qualifying basket.</div>
             </div>
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-            <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
+            <div className="text-sm font-semibold opacity-80 mb-1">The Core Question for the JV</div>
             <p className="text-lg font-bold leading-snug">
-              "Is earning €87.50 from an incremental €100 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a traveller who otherwise wouldn't have converted?"
+              "Is earning €87.50 from an incremental €100 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a Schiphol traveller who otherwise wouldn't have converted?"
             </p>
-            <p className="text-sm mt-2 opacity-80">Yes. Every time. And LTR's 4,800+ stores make the scale extraordinary.</p>
+            <p className="text-sm mt-2 opacity-80">Yes. Every time. And Schiphol's 20+ duty-free stores make the scale extraordinary.</p>
           </div>
         </div>
       </div>
@@ -465,67 +474,44 @@ export function SlideLagardereOpportunity() {
 
 // SLIDE 7: Lagardère Network — key airports + LTR store counts
 export function SlideLagardereNetwork() {
-  const airports = [
-    { code: "AMS", name: "Amsterdam Schiphol", country: "Netherlands", stores: 55, note: "Exclusive Duty Free · Today Duty Free flagship", pax: "68.8M" },
-    { code: "ATL", name: "Hartsfield-Jackson Atlanta", country: "United States", stores: 50, note: "Paradies Lagardère HQ airport", pax: "104.6M" },
-    { code: "CDG", name: "Paris Charles de Gaulle", country: "France", stores: 38, note: "Extime Duty Free Paris JV", pax: "67.6M" },
-    { code: "MAD", name: "Madrid-Barajas", country: "Spain", stores: 35, note: "AENA partnership", pax: "60.2M" },
-    { code: "LAX", name: "Los Angeles International", country: "United States", stores: 35, note: "Paradies Lagardère", pax: "75.9M" },
-    { code: "FRA", name: "Frankfurt Airport", country: "Germany", stores: 30, note: "Major German hub", pax: "59.4M" },
-    { code: "BCN", name: "Barcelona-El Prat", country: "Spain", stores: 28, note: "AENA network", pax: "52.6M" },
-    { code: "SIN", name: "Singapore Changi", country: "Singapore", stores: 22, note: "Asia-Pacific flagship", pax: "58.9M" },
-  ];
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Lagardère Network — Flagship Airports</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Amsterdam Schiphol — The JV Flagship</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              290+ Airports. <span className="text-blue-600">4,800+ Stores.</span> 61 Countries.
+              LTR's Exclusive Duty Free <span className="text-blue-600">Joint Venture with Royal Schiphol Group</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              A selection of LTR's flagship airports and store counts. Full footprint:{" "}
-              <a href={LTR_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>lagardere-tr.com</a>{" · "}
-              <a href={PARADIES} target="_blank" rel="noopener noreferrer" className={linkCls}>paradieslagardere.com</a>
+              Schiphol is where the value story begins. Sources:{" "}
+              <a href={SCHIPHOL_JV} target="_blank" rel="noopener noreferrer" className={linkCls}>Schiphol–LTR partnership</a>{" · "}
+              <a href={TODAY_DUTY_FREE} target="_blank" rel="noopener noreferrer" className={linkCls}>Today Duty Free opening</a>.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
-            {airports.map((a) => (
-              <div key={a.code} className="bg-blue-50 border border-blue-200 rounded-2xl p-4 flex flex-col">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="text-2xl font-bold text-blue-700">{a.code}</div>
-                  <Plane className="w-5 h-5 text-blue-400" />
-                </div>
-                <div className="text-slate-800 font-semibold text-sm leading-tight mb-1">{a.name}</div>
-                <div className="text-slate-500 text-xs mb-1">{a.country} · {a.pax} pax</div>
-                <div className="text-blue-600 text-xs font-medium mb-2">{a.stores} LTR stores</div>
-                <div className="text-slate-400 text-xs leading-snug">{a.note}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+            {[
+              { val: "70/30", label: "JV (LTR / Schiphol)", note: "Exclusive Duty Free operator" },
+              { val: "20+", label: "Duty-Free Stores", note: "Behind security" },
+              { val: "68.8M", label: "Annual Passengers", note: "ACI 2024/2025" },
+              { val: "May 2025", label: "Today Duty Free", note: "Schiphol's largest shop" },
+            ].map((s) => (
+              <div key={s.label} className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
+                <div className="text-2xl md:text-3xl font-bold text-blue-700">{s.val}</div>
+                <div className="text-slate-600 font-semibold text-sm mt-1">{s.label}</div>
+                <div className="text-slate-400 text-xs mt-1">{s.note}</div>
               </div>
             ))}
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
             <div className="flex items-center gap-2 mb-2">
-              <Globe className="w-5 h-5" />
-              <h3 className="font-bold">A Single POS Activation Reaches Them All</h3>
+              <MapPin className="w-5 h-5" />
+              <h3 className="font-bold">One JV. One Activation Point. Immediate Reach.</h3>
             </div>
             <p className="text-blue-50 text-sm leading-relaxed">
-              From Schiphol to Atlanta, CDG to Changi — LTR's stores already run on enterprise POS infrastructure. DutyBoost flows through that existing layer, one toggle at a time.
+              LTR already operates Schiphol's duty-free layer — including the flagship <em>Today Duty Free</em>. DutyBoost flows through that existing POS infrastructure: a single activation reaches every participating store behind security, with zero upfront cost to the JV.
             </p>
-            <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-              {[
-                { val: "290+", label: "Airports" },
-                { val: "4,800+", label: "Stores" },
-                { val: "61", label: "Countries" },
-                { val: "33,000+", label: "Employees" },
-              ].map((s, i) => (
-                <div key={i} className="bg-white/10 rounded-lg p-2">
-                  <div className="text-xl font-bold">{s.val}</div>
-                  <div className="text-blue-200 text-xs">{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -687,10 +673,10 @@ export function SlideTransaction() {
 // SLIDE 10: Lagardère Revenue Potential — scenario table across the LTR network
 export function SlideLagardereRevenue() {
   const scenarios = [
-    { pp: "+0.5pp", retail: UPLIFT_1PP * 0.5, net: UPLIFT_1PP * 0.5 * RETAILER_NET },
-    { pp: "+1pp", retail: UPLIFT_1PP, net: UPLIFT_1PP * RETAILER_NET },
-    { pp: "+2pp", retail: UPLIFT_1PP * 2, net: UPLIFT_1PP * 2 * RETAILER_NET },
-    { pp: "+5pp", retail: UPLIFT_1PP * 5, net: UPLIFT_1PP * 5 * RETAILER_NET },
+    { pp: "+0.5pp", retail: SCHIPHOL_UPLIFT_1PP * 0.5, net: SCHIPHOL_UPLIFT_1PP * 0.5 * RETAILER_NET },
+    { pp: "+1pp", retail: SCHIPHOL_UPLIFT_1PP, net: SCHIPHOL_UPLIFT_1PP * RETAILER_NET },
+    { pp: "+2pp", retail: SCHIPHOL_UPLIFT_1PP * 2, net: SCHIPHOL_UPLIFT_1PP * 2 * RETAILER_NET },
+    { pp: "+5pp", retail: SCHIPHOL_UPLIFT_1PP * 5, net: SCHIPHOL_UPLIFT_1PP * 5 * RETAILER_NET },
   ];
   return (
     <SlideWrapper>
@@ -698,12 +684,12 @@ export function SlideLagardereRevenue() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Lagardère Revenue Potential</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Schiphol Revenue Potential</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Incremental Retail Value <span className="text-blue-600">Across LTR's Network</span>
+              Incremental Retail Value <span className="text-blue-600">at Schiphol</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Based on LTR's €5,812M 2024 converting revenue. Each +1pp of conversion unlocks ~{fmtM(UPLIFT_1PP)} of incremental retail value — retailer net shown at 87.5%.
+              Based on Schiphol's ~68.8M passengers. Each +1pp ≈ ~688K new purchasing travellers — value shown at the model's €100 illustrative qualifying basket, retailer net at 87.5%.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
@@ -711,22 +697,22 @@ export function SlideLagardereRevenue() {
               <div key={s.pp} className={`bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center ${i === 1 ? "ring-2 ring-blue-500" : ""}`}>
                 <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">{s.pp} conversion</div>
                 <div className="text-slate-400 text-xs mb-1">incremental retail value</div>
-                <div className="text-lg font-bold text-slate-700 mb-3">{fmtB(s.retail)}</div>
-                <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{fmtB(s.net)}</div>
+                <div className="text-lg font-bold text-slate-700 mb-3">{fmtM(s.retail)}</div>
+                <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{fmtM(s.net)}</div>
                 <div className="text-blue-600 text-xs font-medium">retailer net (87.5%)</div>
               </div>
             ))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-800 text-white rounded-2xl p-5">
-              <h3 className="font-bold mb-3">Why This Is Pure Upside for Lagardère</h3>
+              <h3 className="font-bold mb-3">Why This Is Pure Upside for the JV</h3>
               <ul className="space-y-2 text-sm">
                 {[
-                  "100% incremental — from travellers who otherwise wouldn't buy",
+                  "100% incremental — from Schiphol travellers who otherwise wouldn't buy",
                   "Zero upfront cost — pay only the 2.5% fee on validated sales",
                   "No change to existing POS, pricing or merchandising",
                   "Attributed & reported transparently per transaction",
-                  "Scales instantly across 4,800+ stores in 61 countries",
+                  "Scales instantly across Schiphol's 20+ duty-free stores behind security",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
@@ -739,19 +725,19 @@ export function SlideLagardereRevenue() {
               <h3 className="font-bold text-blue-900 mb-3">The Headroom Behind These Numbers</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-white border border-slate-100">
-                  <span className="text-slate-600">LTR 2024 converting revenue (≈27% who buy)</span>
-                  <span className="font-bold text-blue-700">€5.8B</span>
+                  <span className="text-slate-600">Schiphol converting base (~27% of 68.8M)</span>
+                  <span className="font-bold text-blue-700">~{SCHIPHOL_CONVERTERS.toFixed(1)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-red-50 border border-red-100">
-                  <span className="text-slate-600">Implied non-purchase headroom (73%)</span>
-                  <span className="font-bold text-red-600">{fmtB(headroom)}</span>
+                  <span className="text-slate-600">Non-purchasing headroom (73%)</span>
+                  <span className="font-bold text-red-600">~{SCHIPHOL_NON_PURCHASE.toFixed(1)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-blue-100 border border-blue-200 font-semibold">
-                  <span className="text-slate-700">Each +1pp of conversion unlocks</span>
-                  <span className="font-bold text-blue-700">{fmtM(UPLIFT_1PP)}</span>
+                  <span className="text-slate-700">Each +1pp brings ~688K new converters</span>
+                  <span className="font-bold text-blue-700">{fmtM(SCHIPHOL_UPLIFT_1PP)}</span>
                 </div>
               </div>
-              <div className="text-slate-400 text-xs mt-3">Conversion maths grounded solely in LTR's reported revenue and the global 73/27 non-purchase ratio (m1nd-set / TFWA).</div>
+              <div className="text-slate-400 text-xs mt-3">Passengers: ACI World. Conversion maths grounded in Schiphol's passenger base and the 73/27 ratio (m1nd-set / TFWA). € value illustrative, at the model's €100 qualifying basket.</div>
             </div>
           </div>
         </div>
@@ -921,16 +907,16 @@ export function SlideClosingLagardere() {
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
               Converting the 73%<br />
-              <span className="text-blue-400">Who Never Buy — Across LTR's Network</span>
+              <span className="text-blue-400">Who Never Buy — at Schiphol</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed">
-              A proven, performance-based revenue layer — built on infrastructure LTR already operates.
+              A proven, performance-based revenue layer — built on the Lagardère / Schiphol Duty Free JV.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
             {[
-              { label: "LTR Stores", value: "4,800+" },
-              { label: "Airports", value: "290+" },
+              { label: "Duty-Free Stores", value: "20+" },
+              { label: "Schiphol Passengers", value: "68.8M" },
               { label: "Upfront Cost", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
