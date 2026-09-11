@@ -5,7 +5,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
-import { Plane, ArrowRight, TrendingUp, Wallet, CalendarDays, Info } from "lucide-react";
+import { PlaneTakeoff, ArrowRight, TrendingUp, Wallet, CalendarDays, Info } from "lucide-react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 import { getAirportStrings } from "@/lib/i18nAirport";
@@ -41,7 +41,7 @@ export default function AirportCalculator() {
           <div className="flex items-center gap-4">
             <Link to="/airport-showcase">
               <Button variant="outline" size="sm" className="gap-1.5 text-cyan-600 border-cyan-600 hover:text-cyan-700 hover:bg-cyan-50">
-                <Plane className="w-4 h-4 shrink-0" /> {c.aboutBtn}
+                <PlaneTakeoff className="w-4 h-4 shrink-0" /> {c.aboutBtn}
               </Button>
             </Link>
             <LanguageSwitcher />
@@ -52,7 +52,7 @@ export default function AirportCalculator() {
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center space-y-3">
           <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
-            <Plane className="w-3.5 h-3.5" /> {c.badge}
+            <PlaneTakeoff className="w-3.5 h-3.5" /> {c.badge}
           </div>
           <h1 className="text-4xl sm:text-5xl font-heading font-bold tracking-tight">{c.title}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">{c.subtitle}</p>
