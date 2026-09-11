@@ -39,23 +39,25 @@ const headroom = LTR_REVENUE_2024 * (NON_PURCHASE_SHARE / CONVERTING_SHARE); // 
 const fmtM = (n) => `€${Math.round(n)}M`;
 const fmtB = (n) => `€${(n / 1000).toFixed(1)}B`;
 
-// ── LTR flagship airports — 2025 passenger traffic (ACI World) ────────────────
-// Sum of total passengers at 8 airports where Lagardère Travel Retail operates
-// its duty-free / concession stores. Proxy for traffic exposed to an LTR store.
+// ── LTR passenger exposure estimate ───────────────────────────────────────────
+// LTR does not publish a passenger-reach figure. Avolta (the #1 operator) reports
+// 2.5B passengers exposed across 350+ airports (Moodie Davitt / Avolta). Applying
+// Avolta's ~7.1M passengers/airport ratio to LTR's 290+ airport network ≈ ~2.0B.
 const ACI_BUSY = "https://aci.aero/resources/busiest-airports-in-the-world/";
 const LTR_FOOTPRINT = "https://www.lagardere.com/en/press-release/lagardere-travel-retail-publishes-its-annual-industry-wide-global-report-on-travel-retail-and-dining-trends-travel-experience-voices/";
+const AVOLTA_REACH = "https://moodiedavittreport.com/images-of-the-day-avolta-captures-the-scale-scope-and-storytelling-power-of-travel-retail/";
+const AVOLTA_PAX_EXPOSED = 2500; // million (2.5B)
+const AVOLTA_AIRPORTS = 350;
+const LTR_AIRPORTS = 290;
+const LTR_PAX_EXPOSED_EST = Math.round((AVOLTA_PAX_EXPOSED * LTR_AIRPORTS) / AVOLTA_AIRPORTS); // ≈ 2071M
+const LTR_NON_PURCHASE_EST = Math.round(LTR_PAX_EXPOSED_EST * NON_PURCHASE_SHARE); // ≈ 1512M
+// 8 LTR flagship hubs — 2025 ACI passenger traffic (floor / sanity check)
 const LTR_FLAGSHIP_AIRPORTS = [
-  { code: "ATL", name: "Atlanta", pax: 106.3 },
-  { code: "LAX", name: "Los Angeles", pax: 73.7 },
-  { code: "CDG", name: "Paris CDG", pax: 72.0 },
-  { code: "SIN", name: "Singapore", pax: 70.0 },
-  { code: "AMS", name: "Amsterdam", pax: 68.8 },
-  { code: "MAD", name: "Madrid", pax: 68.1 },
-  { code: "FRA", name: "Frankfurt", pax: 57.5 },
-  { code: "BCN", name: "Barcelona", pax: 43.3 },
+  { code: "ATL", pax: 106.3 }, { code: "LAX", pax: 73.7 }, { code: "CDG", pax: 72.0 },
+  { code: "SIN", pax: 70.0 }, { code: "AMS", pax: 68.8 }, { code: "MAD", pax: 68.1 },
+  { code: "FRA", pax: 57.5 }, { code: "BCN", pax: 43.3 },
 ];
-const LTR_FLAGSHIP_PAX = LTR_FLAGSHIP_AIRPORTS.reduce((s, a) => s + a.pax, 0); // ≈ 559.7M
-const LTR_NON_PURCHASE_PAX = LTR_FLAGSHIP_PAX * NON_PURCHASE_SHARE; // ≈ 408.6M
+const LTR_FLAGSHIP_PAX = LTR_FLAGSHIP_AIRPORTS.reduce((s, a) => s + a.pax, 0); // ≈ 560M
 
 // SLIDE 1: Cover — Lagardère
 export function SlideCoverLagardere() {
@@ -248,18 +250,17 @@ export function SlideFacts() {
               73% of Passengers at LTR Airports<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Traffic exposed to a Lagardère store, based on LTR's flagship airports —{" "}
-              <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World 2025</a>.{" "}
+              Estimated traffic exposed to a Lagardère store across LTR's 290+ airport network.{" "}
               Penetration benchmark: <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a> /{" "}
               <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>TFWA</a>.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{Math.round(LTR_FLAGSHIP_PAX)}M</div>
-              <div className="text-slate-800 font-semibold">Passengers at LTR airports (2025)</div>
-              <div className="text-slate-500 text-sm mt-1">8 flagship hubs where LTR operates{" "}
-                <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>(ACI World)</a>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B</div>
+              <div className="text-slate-800 font-semibold">Passengers exposed to LTR (2025, est.)</div>
+              <div className="text-slate-500 text-sm mt-1">290+ airport network — see methodology{" "}
+                <a href={AVOLTA_REACH} target="_blank" rel="noopener noreferrer" className={linkCls}>(Avolta benchmark)</a>
               </div>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
@@ -270,25 +271,32 @@ export function SlideFacts() {
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{Math.round(LTR_NON_PURCHASE_PAX)}M</div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{(LTR_NON_PURCHASE_EST / 1000).toFixed(1)}B</div>
               <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
-              <div className="text-slate-500 text-sm mt-1">73% of LTR flagship-airport traffic</div>
+              <div className="text-slate-500 text-sm mt-1">73% of LTR-exposed traffic (est.)</div>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 className="text-slate-800 font-semibold text-sm mb-3">Flagship airport traffic — 2025 (millions of passengers)</h3>
-              <div className="grid grid-cols-4 gap-2">
-                {LTR_FLAGSHIP_AIRPORTS.map((a) => (
-                  <div key={a.code} className="bg-white border border-slate-200 rounded-lg px-2 py-2 text-center">
-                    <div className="text-blue-700 font-bold text-sm">{a.code}</div>
-                    <div className="text-slate-600 text-xs font-semibold">{a.pax}</div>
-                  </div>
-                ))}
+              <h3 className="text-slate-800 font-semibold text-sm mb-3">How LTR exposure is estimated</h3>
+              <div className="space-y-2 text-sm text-slate-600">
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400 w-5 flex-shrink-0">1.</span>
+                  <span>Avolta (#1 operator) publishes <span className="font-semibold text-slate-800">2.5B passengers</span> exposed across <span className="font-semibold">350+ airports</span></span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400 w-5 flex-shrink-0">2.</span>
+                  <span>Avolta ratio ≈ <span className="font-semibold text-slate-800">7.1M passengers / airport</span></span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400 w-5 flex-shrink-0">3.</span>
+                  <span>LTR's <span className="font-semibold text-slate-800">290+ airports</span> × 7.1M ≈ <span className="font-bold text-blue-700">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B exposed</span></span>
+                </div>
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                Source: <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World — Busiest Airports 2025</a>.{" "}
-                LTR operates <a href={LTR_FOOTPRINT} target="_blank" rel="noopener noreferrer" className={linkCls}>290+ airports</a>; figures shown for 8 flagship hubs.
+                Sources: <a href={AVOLTA_REACH} target="_blank" rel="noopener noreferrer" className={linkCls}>Avolta reach (Moodie Davitt)</a>{" · "}
+                <a href={LTR_FOOTPRINT} target="_blank" rel="noopener noreferrer" className={linkCls}>LTR footprint (lagardere.com)</a>.{" "}
+                8 LTR flagship hubs alone handle ~{Math.round(LTR_FLAGSHIP_PAX)}M passengers (<a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World 2025</a>).
               </div>
             </div>
             <div className="flex flex-col gap-4">
