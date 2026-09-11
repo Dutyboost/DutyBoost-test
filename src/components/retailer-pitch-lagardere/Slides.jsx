@@ -1,7 +1,8 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import {
   ChevronRight, Cpu, BarChart3, Link2, Briefcase, CheckCircle,
-  Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin,
+  Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin, Zap,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import HotelIcon from "@/components/HotelIcon";
@@ -294,8 +295,14 @@ export function SlideSolution() {
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-5 mb-6">
+            <div className="bg-violet-600 border border-violet-700 rounded-2xl p-5 text-center text-white">
+              <Zap className="w-10 h-10 mx-auto mb-3 text-white" />
+              <Link to="/eligibility-showcase" target="_blank" rel="noopener noreferrer" className="font-semibold mb-1 inline-flex items-center gap-1 underline decoration-white/40 hover:decoration-white">
+                DutyBoost Platform
+              </Link>
+              <div className="text-violet-100 text-sm">Travellers generate their own DutyCredits directly — no partner required</div>
+            </div>
             {[
-              { Icon: BarChart3, color: "text-blue-600", title: "DutyBoost Platform", desc: "Travellers can self-generate DutyCredits — no partner required" },
               { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
               { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
