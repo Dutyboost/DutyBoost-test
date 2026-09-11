@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, BarChart3, Plug, ShieldCheck, Globe, Wallet, Gift } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import { SlideSolution } from "@/components/shared/SlideSolution";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
@@ -188,79 +189,7 @@ function SlideProblem() {
   );
 }
 
-// SLIDE 4: The Solution
-function SlideSolution() {
-  return (
-    <SlideWrapper dark>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-5 lg:mb-10">
-            <span className="text-emerald-400 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              Give a Discount. <span className="text-emerald-400">Earn the Upside.</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-                <h3 className="text-white font-bold text-base lg:text-lg mb-3">What DutyBoost Does for the Travel Partner</h3>
-                <div className="space-y-3">
-                  {[
-                    { from: "Traveller discount is a cost to you", to: "Discount is funded by the retailer" },
-                    { from: "Airport spend never returns", to: "You earn a share of every redemption" },
-                    { from: "Loyalty points rarely convert", to: "A genuine spend-linked incentive" },
-                    { from: "No airport presence", to: "You own the moment before the store" },
-                  ].map((row, i) => (
-                    <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
-                      <span className="text-red-300 bg-red-900/30 rounded px-2 py-1 text-center">{row.from}</span>
-                      <ArrowRight size={12} className="text-emerald-400 flex-shrink-0" />
-                      <span className="text-green-300 bg-green-900/30 rounded px-2 py-1 text-center">{row.to}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-emerald-900/50 to-green-900/50 border border-emerald-500/30 rounded-2xl p-5 lg:p-7">
-                <div className="grid grid-cols-3 gap-4 lg:gap-6 text-center">
-                  {[
-                    { val: "0.5%", label: "Of basket, per redemption" },
-                    { val: "20%", label: "Share of platform fee" },
-                    { val: "€0", label: "Cost to you or travellers" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <div className="text-lg md:text-xl lg:text-2xl font-bold text-emerald-300 whitespace-nowrap">{s.val}</div>
-                      <div className="text-slate-400 text-xs lg:text-sm mt-1">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-white font-bold text-base lg:text-lg mb-4">The DutyBoost Journey for Partners</h3>
-              <div className="flex flex-col gap-2 lg:gap-3">
-                {[
-                  { n: "1", step: "Traveller books a flight, hotel or car with you", color: "bg-emerald-600" },
-                  { n: "2", step: "You issue a DutyCredit via a lightweight snippet", color: "bg-emerald-600" },
-                  { n: "3", step: "Traveller receives a genuine airport discount", color: "bg-green-600" },
-                  { n: "4", step: "Traveller redeems at a participating airport retailer", color: "bg-green-600" },
-                  { n: "5", step: "POS validates the transaction", color: "bg-blue-600" },
-                  { n: "6", step: "DutyBoost attributes the redemption to you", color: "bg-blue-600" },
-                  { n: "7", step: "You earn 0.5% of the basket (max €5/tx)", color: "bg-indigo-600" },
-                  { n: "8", step: "Paid out monthly by DutyBoost — never a cost", color: "bg-indigo-600" },
-                ].map((s) => (
-                  <div key={s.n} className="flex items-center gap-3">
-                    <div className={`w-6 h-6 lg:w-8 lg:h-8 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{s.n}</div>
-                    <span className="text-slate-300 text-sm lg:text-base">{s.step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
+// SLIDE 4: The Solution — imported from @/components/shared/SlideSolution
 
 // SLIDE 5: How It Works for the Travel Partner
 function SlideHowItWorks() {

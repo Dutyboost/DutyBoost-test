@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import { SlideSolution } from "@/components/shared/SlideSolution";
+export { SlideSolution };
 import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2, Plane, Package } from "lucide-react";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
@@ -314,111 +316,7 @@ export function SlideFacts({ currency = "€" }) {
 }
 
 // SLIDE 4: The Solution
-export function SlideSolution({ currency = "€", showDutyBoostCard = false, showReuseNote = false }) {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-5">
-            <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Activate the Traveller<br /><span className="text-violet-600">Before Airport Arrival</span>
-            </h2>
-          </div>
-          <div className={`grid grid-cols-2 ${showDutyBoostCard ? "md:grid-cols-5" : "md:grid-cols-4"} gap-5 mb-6`}>
-            {showDutyBoostCard && (
-              <div className="bg-violet-600 border border-violet-700 rounded-2xl p-5 text-center text-white">
-                <Zap className="w-10 h-10 mx-auto mb-3 text-white" />
-                <Link to="/eligibility-showcase" target="_blank" rel="noopener noreferrer" className="font-semibold mb-1 inline-flex items-center gap-1 underline decoration-white/40 hover:decoration-white">
-                  DutyBoost Platform
-                </Link>
-                <div className="text-violet-100 text-sm">Travellers generate their own DutyCredits directly — no partner required</div>
-              </div>
-            )}
-            {[
-              { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
-              { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
-              { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
-              { Icon: Briefcase, color: "text-amber-600", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
-            ].map((step, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center">
-                <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
-                <div className="text-slate-800 font-semibold mb-1">{step.title}</div>
-                <div className="text-slate-500 text-sm">{step.desc}</div>
-              </div>
-            ))}
-          </div>
-          {/* Mobile/tablet: vertical stepper */}
-          <div className="flex flex-col gap-2 mb-6 lg:hidden">
-            {[
-              "Partners distribute DutyCredit",
-              "Traveller activates benefit",
-              "Arrives with purchase intent",
-              "Visits participating retailer",
-              `Spends ${currency}100 - Saves ${currency}10`,
-              "POS validates transaction",
-              "All participants earn",
-            ].map((step, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-full bg-violet-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">{i + 1}</div>
-                <div className="flex-1 bg-violet-50 border border-violet-200 rounded-xl px-3 py-2">
-                  <span className="text-slate-800 text-sm leading-tight">{step}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Desktop: horizontal stepper */}
-          <div className="hidden lg:flex items-stretch gap-2 mb-6">
-            {[
-              "Partners distribute DutyCredit",
-              "Traveller activates benefit",
-              "Arrives with purchase intent",
-              "Visits participating retailer",
-              `Spends ${currency}100 - Saves ${currency}10`,
-              "POS validates transaction",
-              "All participants earn",
-            ].map((step, i, arr) => (
-              <Fragment key={i}>
-                <div className="flex-1 min-w-0 bg-violet-50 border border-violet-200 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
-                  <div className="text-violet-600 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
-                  <div className="text-slate-800 text-xs mt-1 leading-tight">{step}</div>
-                </div>
-                {i < arr.length - 1 && <ChevronRight className="text-violet-500 flex-shrink-0 self-center w-4 h-4" />}
-              </Fragment>
-            ))}
-          </div>
-          <div className="bg-gradient-to-r from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
-              <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-violet-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">{currency}1 - {currency}60</div>
-                <div className="text-slate-500 text-sm mt-2">DutyCredit direct traveller value</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-violet-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Performance-Based</div>
-                <div className="text-slate-500 text-sm mt-2">Zero upfront cost to any partner</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-violet-600 h-9 md:h-8 lg:h-10 flex items-center justify-center leading-tight whitespace-nowrap">Participants</div>
-                <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
-              </div>
-            </div>
-          </div>
-          {showReuseNote && (
-            <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
-              <div className="flex items-start gap-3">
-                <RefreshCw className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                <p className="text-slate-700 text-sm leading-relaxed">
-                  <span className="font-bold">Single-use, infinitely renewable.</span> A DutyCredit can't be reused — but travellers can get one from a Travel or Corporate Partner and generate as many more as they need for other participating stores. One DutyCredit for cosmetics, another for electronics, another at the giftshop for a souvenir. Same traveller, different stores, everyone wins.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
+// SlideSolution — imported from @/components/shared/SlideSolution
 
 // SLIDE 5: Non-Invasive POS Toggle
 export function SlidePosToggle({ currency = "€" }) {
@@ -1119,7 +1017,7 @@ export function getSlideComponent(type, currency) {
     team: () => <SlideTeam currency={currency} />,
     opportunity: () => <SlideOpportunity currency={currency} />,
     facts: () => <SlideFacts currency={currency} />,
-    solution: () => <SlideSolution currency={currency} showDutyBoostCard showReuseNote />,
+    solution: () => <SlideSolution />,
     posToggle: () => <SlidePosToggle currency={currency} />,
     technicalIntegration: () => <SlideTechnicalIntegration currency={currency} />,
     ecosystem: () => <SlideEcosystem currency={currency} />,

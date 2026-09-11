@@ -4,6 +4,7 @@ import {
   XCircle, Plane, RefreshCw, Store,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import { SlideSolution } from "@/components/shared/SlideSolution";
 import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -234,73 +235,7 @@ export function SlideProblem() {
   );
 }
 
-// SLIDE 4: The Solution
-export function SlideSolution() {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Solution</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Activate the Traveller<br /><span className="text-blue-600">Before Airport Arrival</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
-            {[
-              { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
-              { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
-              { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
-              { Icon: Plane, color: "text-amber-600", title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
-            ].map((step, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center">
-                <step.Icon className={`w-10 h-10 mx-auto mb-3 ${step.color}`} />
-                <div className="text-slate-800 font-semibold mb-1">{step.title}</div>
-                <div className="text-slate-500 text-sm">{step.desc}</div>
-              </div>
-            ))}
-          </div>
-          <div className="hidden lg:flex items-stretch gap-2 mb-6">
-            {[
-              "Partners distribute DutyCredit",
-              "Traveller activates benefit",
-              "Arrives with purchase intent",
-              "Visits participating retailer",
-              "Spends $100 → Saves $10",
-              "POS validates transaction",
-              "Retail sales increase → AUA earns more",
-            ].map((step, i, arr) => (
-              <Fragment key={i}>
-                <div className="flex-1 min-w-0 bg-blue-50 border border-blue-200 rounded-xl px-3 py-2.5 text-center flex flex-col justify-start">
-                  <div className="text-blue-600 text-xs font-semibold leading-none h-3.5 flex items-center justify-center">Step {i + 1}</div>
-                  <div className="text-slate-800 text-xs mt-1 leading-tight">{step}</div>
-                </div>
-                {i < arr.length - 1 && <ChevronRight className="text-blue-500 flex-shrink-0 self-center w-4 h-4" />}
-              </Fragment>
-            ))}
-          </div>
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
-              <div className="flex flex-col items-center">
-                <div className="text-2xl font-bold text-blue-600 h-9 flex items-center justify-center whitespace-nowrap">$1 – $60</div>
-                <div className="text-slate-500 text-sm mt-2">DutyCredit direct traveller value</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-2xl font-bold text-blue-600 h-9 flex items-center justify-center whitespace-nowrap">Performance-Based</div>
-                <div className="text-slate-500 text-sm mt-2">Zero upfront cost to the airport</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-2xl font-bold text-blue-600 h-9 flex items-center justify-center whitespace-nowrap">Participants</div>
-                <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
+// SLIDE 4: The Solution — imported from @/components/shared/SlideSolution
 
 // SLIDE 5: The Concession Model
 export function SlideConcessionModel() {

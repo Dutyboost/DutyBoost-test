@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, Plug, Wallet, Gift, ShieldCheck, Globe, BarChart3 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import { SlideSolution } from "@/components/shared/SlideSolution";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const SLIDES = [
@@ -175,79 +176,7 @@ function SlideProblem({ t }) {
   );
 }
 
-function SlideSolution({ t }) {
-  const s = t("corporate.pitch.solution", { returnObjects: true });
-  return (
-    <SlideWrapper dark>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-5 lg:mb-10">
-            <span className="text-indigo-400 text-sm font-semibold uppercase tracking-widest">{s.eyebrow}</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              {s.title1} <span className="text-indigo-400">{s.title2}</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            <div className="space-y-4">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-                <h3 className="text-white font-bold text-base lg:text-lg mb-3">{s.cardTitle}</h3>
-                <div className="space-y-3">
-                  {[
-                    { from: s.t1_from, to: s.t1_to },
-                    { from: s.t2_from, to: s.t2_to },
-                    { from: s.t3_from, to: s.t3_to },
-                    { from: s.t4_from, to: s.t4_to },
-                  ].map((row, i) => (
-                    <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
-                      <span className="text-red-300 bg-red-900/30 rounded px-2 py-1 text-center">{row.from}</span>
-                      <ArrowRight size={12} className="text-indigo-400 flex-shrink-0" />
-                      <span className="text-green-300 bg-green-900/30 rounded px-2 py-1 text-center">{row.to}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-indigo-900/50 to-violet-900/50 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
-                <div className="grid grid-cols-3 gap-4 lg:gap-6 text-center">
-                  {[
-                    { val: s.stat1_val, label: s.stat1_label },
-                    { val: s.stat2_val, label: s.stat2_label },
-                    { val: s.stat3_val, label: s.stat3_label },
-                  ].map((st) => (
-                    <div key={st.label}>
-                      <div className="text-lg md:text-xl lg:text-2xl font-bold text-indigo-300 whitespace-nowrap">{st.val}</div>
-                      <div className="text-slate-400 text-xs lg:text-sm mt-1">{st.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-white font-bold text-base lg:text-lg mb-4">{s.journeyTitle}</h3>
-              <div className="flex flex-col gap-2 lg:gap-3">
-                {[
-                  { n: "1", step: s.step1, color: "bg-indigo-600" },
-                  { n: "2", step: s.step2, color: "bg-indigo-600" },
-                  { n: "3", step: s.step3, color: "bg-violet-600" },
-                  { n: "4", step: s.step4, color: "bg-violet-600" },
-                  { n: "5", step: s.step5, color: "bg-blue-600" },
-                  { n: "6", step: s.step6, color: "bg-blue-600" },
-                  { n: "7", step: s.step7, color: "bg-green-600" },
-                  { n: "8", step: s.step8, color: "bg-green-600" },
-                ].map((st) => (
-                  <div key={st.n} className="flex items-center gap-3">
-                    <div className={`w-6 h-6 lg:w-8 lg:h-8 rounded-full ${st.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>{st.n}</div>
-                    <span className="text-slate-300 text-sm lg:text-base">{st.step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
+// SlideSolution — imported from @/components/shared/SlideSolution
 
 function SlideHowItWorks({ t }) {
   const s = t("corporate.pitch.howItWorks", { returnObjects: true });
