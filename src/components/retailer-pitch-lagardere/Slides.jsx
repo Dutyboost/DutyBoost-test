@@ -341,7 +341,7 @@ export function SlideSolution() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Solution</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              Activate the Traveller<br /><span className="text-blue-600">Before Airport Arrival</span>
+              Activate the Traveller days, weeks<br /><span className="text-blue-600">or even months Before Airport Arrival</span>
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-5 mb-6">
