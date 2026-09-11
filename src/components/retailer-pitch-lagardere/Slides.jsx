@@ -814,21 +814,21 @@ export function SlideIntegrationEffort() {
     {
       n: "01",
       title: "Discovery & Scope",
-      effort: "~1 week",
+      effort: "~2 days",
       Icon: Search,
       points: [
-        "Confirm supported POS versions and store footprint at Schiphol",
         "Identify the transaction-validation touchpoint in the existing checkout flow",
-        "Agree on DutyCredit redemption logic (discount tier lookup + net settlement)",
+        "Agree on the single API request/response contract",
+        "Confirm supported POS versions and Schiphol store footprint",
       ],
     },
     {
       n: "02",
       title: "Build & Connect",
-      effort: "~2–3 weeks",
+      effort: "~3–5 days",
       Icon: Code2,
       points: [
-        "Implement a standard REST webhook to DutyBoost on validated transactions",
+        "One API call — send the validated transaction, receive the discount/settlement back",
         "Add a DutyBoost toggle + redemption screen to the POS dashboard",
         "No changes to payment, ERP, inventory or pricing systems",
       ],
@@ -836,7 +836,7 @@ export function SlideIntegrationEffort() {
     {
       n: "03",
       title: "Test & Certify",
-      effort: "~1 week",
+      effort: "~2 days",
       Icon: ShieldCheck,
       points: [
         "Sandbox validation against DutyBoost's test DutyCredits",
@@ -867,7 +867,7 @@ export function SlideIntegrationEffort() {
               What Lagardère's POS Provider <span className="text-blue-600">Actually Needs to Do</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              A bounded, well-scoped integration — not a platform migration. No replacement of existing checkout, payment or inventory systems.
+              A single API call — one request, one response. Not a platform migration. No replacement of existing checkout, payment or inventory systems.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
@@ -911,14 +911,14 @@ export function SlideIntegrationEffort() {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
               <div className="flex items-center gap-2 mb-2">
                 <Clock className="w-5 h-5" />
-                <h3 className="font-bold">Total Effort: ~4–5 Weeks, One POS Team</h3>
+                <h3 className="font-bold">Total Effort: ~1–2 Weeks, One API Call</h3>
               </div>
               <p className="text-blue-50 text-sm leading-relaxed">
-                The integration lives entirely within the POS provider's existing dashboard — a single toggle, one webhook, and a redemption screen. One engineering stream builds it once, then every connected Schiphol store is live.
+                The entire integration is a single API call — one request with the validated transaction, one response with the discount and settlement. One engineering stream builds it once, then every connected Schiphol store is live.
               </p>
               <div className="grid grid-cols-3 gap-3 mt-4 text-center">
                 {[
-                  { val: "1", label: "Webhook" },
+                  { val: "1", label: "API Call" },
                   { val: "1", label: "Toggle" },
                   { val: "0", label: "System Replacements" },
                 ].map((s) => (
