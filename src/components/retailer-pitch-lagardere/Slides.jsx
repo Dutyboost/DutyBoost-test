@@ -708,8 +708,8 @@ export function SlideLagardereRevenue() {
             ))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-slate-800 text-white rounded-2xl p-5">
-              <h3 className="font-bold mb-3">Why This Is Pure Upside for Lagardère</h3>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 className="font-bold text-[#0a0f1e] mb-3">Why This Is Pure Upside for Lagardère</h3>
               <ul className="space-y-2 text-sm">
                 {[
                   "100% incremental — from Schiphol travellers who otherwise wouldn't buy",
@@ -719,8 +719,8 @@ export function SlideLagardereRevenue() {
                   "Scales instantly across Schiphol's 20+ duty-free stores behind security",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-300">{item}</span>
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -753,19 +753,19 @@ export function SlideLagardereRevenue() {
 // SLIDE 11: POS Activation (retailer-specific)
 export function SlideIntegrate() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5 lg:mb-10">
-            <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-white mt-2">
-              A POS Provider Feature.<br /><span className="text-blue-400">Activated, Not Integrated.</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
+              A POS Provider Feature.<br /><span className="text-blue-600">Activated, Not Integrated.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-white font-bold lg:text-lg mb-4">DutyBoost Appears in Your POS Dashboard</h3>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
+              <h3 className="text-[#0a0f1e] font-bold lg:text-lg mb-4">DutyBoost Appears in Your POS Dashboard</h3>
               <div className="space-y-3">
                 {[
                   "DutyBoost appears as a new feature in your existing POS dashboard",
@@ -776,15 +776,15 @@ export function SlideIntegrate() {
                   "Switch it off anytime — no lock-in, no commitments",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-300 text-sm">{item}</span>
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-900/60 to-blue-900/60 border border-indigo-500/30 rounded-2xl p-5 lg:p-7">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 border border-blue-700 rounded-2xl p-5 lg:p-7">
               <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">ACTIVATED THROUGH YOUR POS</h3>
-              <p className="text-indigo-200 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
+              <p className="text-blue-50 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
                 DutyBoost is enabled by your POS provider as an activation feature — the same system you already use for checkout, inventory and payments. No separate integration required from the retailer.
               </p>
               <div className="grid grid-cols-3 gap-3 text-center">
@@ -793,9 +793,9 @@ export function SlideIntegrate() {
                   { val: "Multiple", label: "retailers" },
                   { val: "Global", label: "deployment" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-white/5 rounded-xl p-3">
-                    <div className="text-blue-300 font-bold">{s.val}</div>
-                    <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                  <div key={s.label} className="bg-white/10 rounded-xl p-3">
+                    <div className="text-white font-bold">{s.val}</div>
+                    <div className="text-blue-100 text-xs mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -899,7 +899,7 @@ export function SlideFlywheel() {
 // SLIDE 13: Closing — Lagardère
 export function SlideClosingLagardere() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
@@ -909,11 +909,11 @@ export function SlideClosingLagardere() {
             <DutyBoostLogo height={50} linkTo="/retailer-showcase" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Converting the 73%<br />
-              <span className="text-blue-400">Who Never Buy — at Schiphol</span>
+              <span className="text-blue-600">Who Never Buy — at Schiphol</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed">
               A proven, performance-based revenue layer — built on the Lagardère / Schiphol Duty Free JV.
             </p>
           </div>
@@ -924,13 +924,13 @@ export function SlideClosingLagardere() {
               { label: "Upfront Cost", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-base sm:text-2xl font-bold text-blue-400">{s.value}</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">{s.label}</div>
+                <div className="text-base sm:text-2xl font-bold text-blue-600">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-400 tracking-tight">THANK YOU</h2>
-          <div className="mt-2 text-xs text-slate-400 border border-white/10 rounded px-4 py-2">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-600 tracking-tight">THANK YOU</h2>
+          <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
