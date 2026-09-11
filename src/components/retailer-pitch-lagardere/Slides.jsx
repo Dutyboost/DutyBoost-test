@@ -13,7 +13,7 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
 
 // ── Lagardère Travel Retail sources ──────────────────────────────────────────
-const LAGARDERE_RESULTS = "https://www.lagardere.com/en/press-release/full-year-2024-results/";
+const LAGARDERE_RESULTS = "https://www.lagardere.com/en/press-release/full-year-2025-results/";
 const MOODIE_2024 = "https://moodiedavittreport.com/lagardere-travel-retail-delivers-double-digit-sales-growth-and-improved-profits-in-2024/";
 const LTR_SITE = "https://www.lagardere-tr.com";
 const PARADIES = "https://www.paradieslagardere.com";
@@ -25,16 +25,16 @@ const TFWA_LINK = "https://www.tfwa.com/";
 
 const linkCls = "text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors";
 
-// ── LTR 2024 financials (sourced) ─────────────────────────────────────────────
-// Revenue €5,812M (+15.8% reported / +12.5% LFL); Recurring EBIT €305M (+24.5%).
+// ── LTR 2025 financials (sourced) ─────────────────────────────────────────────
+// Revenue €6,133M (+5.5% reported / +4.4% LFL); EBITA €312M (+17.3%).
 // Converting base = the 27% who currently buy. Non-purchase headroom (73/27 ratio).
-const LTR_REVENUE_2024 = 5812; // €M
+const LTR_REVENUE_BASE = 6133; // €M (2025)
 const CONVERTING_SHARE = 0.27;
 const NON_PURCHASE_SHARE = 0.73;
 const RETAILER_NET = 0.875;
 // +1pp conversion uplift = (1 / 27) of the converting revenue base
-const UPLIFT_1PP = LTR_REVENUE_2024 * (0.01 / CONVERTING_SHARE); // ≈ €215M
-const headroom = LTR_REVENUE_2024 * (NON_PURCHASE_SHARE / CONVERTING_SHARE); // ≈ €15.7B
+const UPLIFT_1PP = LTR_REVENUE_BASE * (0.01 / CONVERTING_SHARE); // ≈ €227M
+const headroom = LTR_REVENUE_BASE * (NON_PURCHASE_SHARE / CONVERTING_SHARE); // ≈ €16.6B
 
 const fmtM = (n) => `€${Math.round(n)}M`;
 const fmtB = (n) => `€${(n / 1000).toFixed(1)}B`;
@@ -47,14 +47,14 @@ const LTR_REVENUE_2025 = 6133; // €M (+5.5%)
 const LTR_EBITA_2025 = 312; // €M (+17.3%)
 const LTR_STORES = 5120;
 const LTR_COUNTRIES = 42;
-// 8 LTR flagship hubs — 2025 ACI passenger traffic (sourced subset of LTR's network)
-const LTR_FLAGSHIP_AIRPORTS = [
-  { code: "ATL", pax: 106.3 }, { code: "LAX", pax: 73.7 }, { code: "CDG", pax: 72.0 },
-  { code: "SIN", pax: 70.0 }, { code: "AMS", pax: 68.8 }, { code: "MAD", pax: 68.1 },
-  { code: "FRA", pax: 57.5 }, { code: "BCN", pax: 43.3 },
-];
-const LTR_FLAGSHIP_PAX = LTR_FLAGSHIP_AIRPORTS.reduce((s, a) => s + a.pax, 0); // ≈ 560M
-const LTR_FLAGSHIP_NON_PURCHASE = Math.round(LTR_FLAGSHIP_PAX * NON_PURCHASE_SHARE); // ≈ 409M
+// LTR network passenger exposure (estimate). LTR does not publish a reach figure;
+// derived from the industry benchmark: 2.5B passengers ÷ 350 airports ≈ 7.1M/airport.
+const INDUSTRY_BENCHMARK = "https://moodiedavittreport.com/images-of-the-day-avolta-captures-the-scale-scope-and-storytelling-power-of-travel-retail/";
+const BENCHMARK_PAX = 2500; // million — leading global travel retailer published reach
+const BENCHMARK_AIRPORTS = 350;
+const LTR_AIRPORTS = 290;
+const LTR_PAX_EXPOSED_EST = Math.round((BENCHMARK_PAX * LTR_AIRPORTS) / BENCHMARK_AIRPORTS); // ≈ 2071M
+const LTR_NON_PURCHASE_EST = Math.round(LTR_PAX_EXPOSED_EST * NON_PURCHASE_SHARE); // ≈ 1512M
 
 // SLIDE 1: Cover — Lagardère
 export function SlideCoverLagardere() {
@@ -79,8 +79,8 @@ export function SlideCoverLagardere() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
-              { label: "LTR Revenue 2024", value: "€5.8B" },
-              { label: "Stores Worldwide", value: "4,800+" },
+              { label: "LTR Revenue 2025", value: "€6.1B" },
+              { label: "Stores Worldwide", value: "5,120+" },
               { label: "Airports", value: "290+" },
               { label: "Upfront Cost", value: "€0" },
             ].map((s) => (
@@ -154,22 +154,22 @@ export function SlideLagardereAtAGlance() {
               A Global Retail Network <span className="text-blue-600">in Full Growth</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Figures from <a href={LAGARDERE_RESULTS} target="_blank" rel="noopener noreferrer" className={linkCls}>Lagardère Full-Year 2024 results</a> and{" "}
-              <a href={LTR_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>lagardere-tr.com</a>.
+              Figures from <a href={LAGARDERE_RESULTS} target="_blank" rel="noopener noreferrer" className={linkCls}>Lagardère Full-Year 2025 results</a> and{" "}
+              <a href={LTR_RESULTS_2025} target="_blank" rel="noopener noreferrer" className={linkCls}>Moodie Davitt Report (2025)</a>.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
               <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">€5.8B</div>
-              <div className="text-slate-600 font-semibold text-sm">LTR Revenue 2024</div>
-              <div className="text-slate-500 text-xs mt-1">+15.8% reported / +12.5% LFL</div>
+              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">€6.13B</div>
+              <div className="text-slate-600 font-semibold text-sm">LTR Revenue 2025</div>
+              <div className="text-slate-500 text-xs mt-1">+5.5% reported / +4.4% LFL</div>
             </div>
             <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 text-center">
               <Building2 className="w-8 h-8 text-indigo-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-indigo-700 mb-1">4,800+</div>
+              <div className="text-2xl md:text-3xl font-bold text-indigo-700 mb-1">5,120+</div>
               <div className="text-slate-600 font-semibold text-sm">Stores Worldwide</div>
-              <div className="text-slate-500 text-xs mt-1">Across 61 countries</div>
+              <div className="text-slate-500 text-xs mt-1">Across 42 countries</div>
             </div>
             <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 text-center">
               <Plane className="w-8 h-8 text-violet-600 mx-auto mb-2" />
@@ -179,19 +179,19 @@ export function SlideLagardereAtAGlance() {
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
               <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">€305M</div>
-              <div className="text-slate-600 font-semibold text-sm">Recurring EBIT 2024</div>
-              <div className="text-slate-500 text-xs mt-1">+24.5% vs 2023</div>
+              <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">€312M</div>
+              <div className="text-slate-600 font-semibold text-sm">EBITA 2025</div>
+              <div className="text-slate-500 text-xs mt-1">+17.3% vs 2024</div>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <h3 className="font-bold text-slate-700 mb-3">Regional Momentum (2024, like-for-like)</h3>
+              <h3 className="font-bold text-slate-700 mb-3">Regional Momentum (2025, like-for-like)</h3>
               <div className="space-y-2 text-sm">
                 {[
-                  { reg: "France", val: "+15%", note: "Extime Duty Free Paris JV with Groupe ADP" },
-                  { reg: "EMEA (ex-France)", val: "+20%", note: "Italy, Romania, UK ferries, Spain" },
-                  { reg: "Americas", val: "+6%", note: "Paradies Lagardère — 92 airports, 700+ stores" },
+                  { reg: "France", val: "+3%", note: "Extime Duty Free Paris JV with Groupe ADP" },
+                  { reg: "EMEA (ex-France)", val: "+7%", note: "UK, Italy, Romania, Spain" },
+                  { reg: "Americas", val: "+3%", note: "Paradies Lagardère; South America +28%" },
                 ].map((r) => (
                   <div key={r.reg} className="flex items-center gap-3 py-1.5 px-3 rounded-lg bg-white border border-slate-100">
                     <span className="text-blue-700 font-semibold w-40">{r.reg}</span>
@@ -200,7 +200,7 @@ export function SlideLagardereAtAGlance() {
                   </div>
                 ))}
               </div>
-              <div className="text-slate-400 text-xs mt-3">Source: <a href={MOODIE_2024} target="_blank" rel="noopener noreferrer" className={linkCls}>Moodie Davitt Report</a></div>
+              <div className="text-slate-400 text-xs mt-3">Source: <a href={LTR_RESULTS_2025} target="_blank" rel="noopener noreferrer" className={linkCls}>Moodie Davitt Report (2025)</a></div>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
               <div className="flex items-center gap-2 mb-3">
@@ -254,10 +254,10 @@ export function SlideFacts() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{Math.round(LTR_FLAGSHIP_PAX)}M</div>
-              <div className="text-slate-800 font-semibold">Passengers at 8 LTR flagship hubs (2025)</div>
-              <div className="text-slate-500 text-sm mt-1">ACI World 2025{" "}
-                <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>(source)</a> — subset of LTR's broader network
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B</div>
+              <div className="text-slate-800 font-semibold">Passengers exposed to LTR network (2025, est.)</div>
+              <div className="text-slate-500 text-sm mt-1">290+ airport network{" "}
+                <a href={INDUSTRY_BENCHMARK} target="_blank" rel="noopener noreferrer" className={linkCls}>(source)</a>
               </div>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
@@ -268,36 +268,32 @@ export function SlideFacts() {
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{LTR_FLAGSHIP_NON_PURCHASE}M</div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{(LTR_NON_PURCHASE_EST / 1000).toFixed(1)}B</div>
               <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
-              <div className="text-slate-500 text-sm mt-1">73% of LTR flagship-hub traffic</div>
+              <div className="text-slate-500 text-sm mt-1">73% of LTR network traffic (est.)</div>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 className="text-slate-800 font-semibold text-sm mb-3">Lagardère Travel Retail — at a glance (2025)</h3>
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="bg-white border border-slate-200 rounded-lg px-3 py-2">
-                  <div className="text-blue-700 font-bold">€6.13bn</div>
-                  <div className="text-slate-500 text-xs">Revenue (+5.5%)</div>
+              <h3 className="text-slate-800 font-semibold text-sm mb-3">How LTR network exposure is estimated</h3>
+              <div className="space-y-2 text-sm text-slate-600">
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400 w-5 flex-shrink-0">1.</span>
+                  <span>The leading global travel retailer reports <span className="font-semibold text-slate-800">2.5B passengers</span> exposed across <span className="font-semibold">350+ airports</span></span>
                 </div>
-                <div className="bg-white border border-slate-200 rounded-lg px-3 py-2">
-                  <div className="text-blue-700 font-bold">€312m</div>
-                  <div className="text-slate-500 text-xs">EBITA (+17.3%)</div>
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400 w-5 flex-shrink-0">2.</span>
+                  <span>Implied ratio ≈ <span className="font-semibold text-slate-800">7.1M passengers / airport</span></span>
                 </div>
-                <div className="bg-white border border-slate-200 rounded-lg px-3 py-2">
-                  <div className="text-blue-700 font-bold">5,120+</div>
-                  <div className="text-slate-500 text-xs">Stores</div>
-                </div>
-                <div className="bg-white border border-slate-200 rounded-lg px-3 py-2">
-                  <div className="text-blue-700 font-bold">42</div>
-                  <div className="text-slate-500 text-xs">Countries</div>
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400 w-5 flex-shrink-0">3.</span>
+                  <span>LTR's <span className="font-semibold text-slate-800">290+ airports</span> × 7.1M ≈ <span className="font-bold text-blue-700">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B exposed</span></span>
                 </div>
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                Sources: <a href={LTR_RESULTS_2025} target="_blank" rel="noopener noreferrer" className={linkCls}>LTR 2025 results (Moodie Davitt)</a>{" · "}
+                Sources: <a href={INDUSTRY_BENCHMARK} target="_blank" rel="noopener noreferrer" className={linkCls}>Moodie Davitt Report (industry reach)</a>{" · "}
                 <a href={LTR_FOOTPRINT} target="_blank" rel="noopener noreferrer" className={linkCls}>LTR footprint (lagardere.com)</a>.{" "}
-                8 flagship hubs handle ~{Math.round(LTR_FLAGSHIP_PAX)}M passengers (<a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World 2025</a>) — a subset of LTR's broader network.
+                LTR does not publish a network passenger-reach figure; estimate derived from the industry benchmark.
               </div>
             </div>
             <div className="flex flex-col gap-4">
