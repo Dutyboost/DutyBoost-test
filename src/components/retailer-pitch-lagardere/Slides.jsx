@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight, Cpu, BarChart3, Link2, Briefcase, CheckCircle,
-  Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin, Zap, RefreshCw,
+  Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin, Zap, RefreshCw, BadgePercent,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import HotelIcon from "@/components/HotelIcon";
@@ -657,11 +657,14 @@ export function SlideTransaction() {
               </div>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-              <h3 className="font-bold mb-3">Integrate Once. Deploy Repeatedly.</h3>
+              <div className="flex items-center gap-2 mb-2">
+                <BadgePercent className="w-5 h-5" />
+                <h3 className="font-bold">Performance-Based — 2.5% Platform Fee</h3>
+              </div>
               <p className="text-blue-50 text-sm leading-relaxed">
-                A single Enterprise POS integration can enable DutyBoost across multiple retailers, stores, airports and geographic markets — fundamentally better scaling economics than per-retailer integrations.
+                The entire model is performance-based. DutyBoost charges a 2.5% platform fee, paid <em>only</em> on attributed DutyBoost/DutyCredit-generated revenue — never on organic sales. This fee is shared with the transaction participants, and all customer-acquisition cost is already covered inside that 2.5%.
               </p>
-              <div className="mt-3 text-blue-100 font-semibold text-sm">Technology strategy: INTEGRATE ONCE. DEPLOY REPEATEDLY.</div>
+              <div className="mt-3 text-blue-100 font-semibold text-sm">Zero upfront cost · Zero risk · Pay only on incremental, attributed revenue.</div>
             </div>
           </div>
         </div>
