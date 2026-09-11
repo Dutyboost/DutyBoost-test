@@ -823,6 +823,7 @@ export function SlideGetStarted() {
                 {[
                   { Icon: TravelerIcon, text: "Pre-activating travellers through Travel & Corporate Partners before arrival" },
                   { Icon: DollarSign, text: "DutyCredit distribution and traveller incentive mechanics" },
+                  { Icon: Plane, text: "Traveller self-service DutyCredit generation via airline booking and flight details" },
                   { Icon: ChevronRight, text: "POS validation of qualifying transactions" },
                   { Icon: RefreshCw, text: "Conversion data and sell-through reporting per retailer and category" },
                 ].map((row, i) => (
