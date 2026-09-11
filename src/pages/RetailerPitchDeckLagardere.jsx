@@ -4,7 +4,7 @@ import {
   SlideCoverLagardere, SlideTeam, SlideLagardereAtAGlance, SlideFacts,
   SlideSolution, SlideLagardereOpportunity, SlideLagardereNetwork,
   SlideModel, SlideTransaction, SlideLagardereRevenue, SlideIntegrate,
-  SlideFlywheel, SlideClosingLagardere,
+  SlideIntegrationEffort, SlideFlywheel, SlideClosingLagardere,
 } from "@/components/retailer-pitch-lagardere/Slides";
 
 const SLIDES = [
@@ -19,6 +19,7 @@ const SLIDES = [
   { id: "transaction", type: "transaction" },
   { id: "revenue", type: "revenue" },
   { id: "integrate", type: "integrate" },
+  { id: "integrationEffort", type: "integrationEffort" },
   { id: "flywheel", type: "flywheel" },
   { id: "closing", type: "closing" },
 ];
@@ -35,6 +36,7 @@ const SLIDE_COMPONENTS = {
   transaction: SlideTransaction,
   revenue: SlideLagardereRevenue,
   integrate: SlideIntegrate,
+  integrationEffort: SlideIntegrationEffort,
   flywheel: SlideFlywheel,
   closing: SlideClosingLagardere,
 };
@@ -51,6 +53,7 @@ const SLIDE_LABELS = {
   transaction: "Transaction Economics",
   revenue: "Lagardère Revenue Potential",
   integrate: "POS Activation",
+  integrationEffort: "Integration Effort",
   flywheel: "Growth Flywheel",
   closing: "Thank You — Lagardère",
 };
