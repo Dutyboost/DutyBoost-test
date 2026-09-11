@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Plane, Calculator, ArrowRight, CheckCircle2 } from "lucide-react";
+import { PlaneTakeoff, Calculator, ArrowRight, CheckCircle2 } from "lucide-react";
 import { getAirportStrings } from "@/lib/i18nAirport";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PageFooter from "@/components/PageFooter";
@@ -55,7 +55,7 @@ export default function AirportShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-600 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
-            <Plane className="w-3.5 h-3.5" /> {o.badge}
+            <PlaneTakeoff className="w-3.5 h-3.5" /> {o.badge}
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             {o.headline}
