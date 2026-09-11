@@ -256,9 +256,7 @@ export function SlideFacts() {
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
               <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B</div>
               <div className="text-slate-800 font-semibold">Passengers exposed to LTR network (2025, est.)</div>
-              <div className="text-slate-500 text-sm mt-1">290+ airport network{" "}
-                <a href={INDUSTRY_BENCHMARK} target="_blank" rel="noopener noreferrer" className={linkCls}>(source)</a>
-              </div>
+              <div className="text-slate-500 text-sm mt-1">290+ airport network (est.)</div>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
               <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">27%</div>
@@ -291,9 +289,8 @@ export function SlideFacts() {
                 </div>
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                Sources: <a href={INDUSTRY_BENCHMARK} target="_blank" rel="noopener noreferrer" className={linkCls}>Moodie Davitt Report (industry reach)</a>{" · "}
-                <a href={LTR_FOOTPRINT} target="_blank" rel="noopener noreferrer" className={linkCls}>LTR footprint (lagardere.com)</a>.{" "}
-                LTR does not publish a network passenger-reach figure; estimate derived from the industry benchmark.
+                Source: <a href={LTR_FOOTPRINT} target="_blank" rel="noopener noreferrer" className={linkCls}>LTR footprint (lagardere.com)</a>.{" "}
+                LTR does not publish a network passenger-reach figure; estimate derived from industry benchmarks.
               </div>
             </div>
             <div className="flex flex-col gap-4">
