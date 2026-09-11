@@ -133,7 +133,7 @@ export function SlideTeam() {
             ))}
           </div>
           <p className="mt-6 max-w-4xl mx-auto text-center text-slate-700 text-sm md:text-base leading-relaxed">
-            DutyBoost combines airport retail expertise with technology, marketing and commercial strategy — built by a team that understands how airport concessions work and how non-aeronautical revenue depends on retail conversion. We know the challenge: passengers walk past stores, sales stagnate, and concession revenue doesn't grow as fast as it could. We built DutyBoost to convert non-purchasing travellers into buyers — growing the retail sales base that airport concession revenue is calculated on.
+            DutyBoost brings together commercial strategy, software sales, airport retail, technology, product development, marketing, design and acquisition expertise — the capabilities to execute, launch and scale globally.
           </p>
         </div>
       </div>
