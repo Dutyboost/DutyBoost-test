@@ -39,6 +39,24 @@ const headroom = LTR_REVENUE_2024 * (NON_PURCHASE_SHARE / CONVERTING_SHARE); // 
 const fmtM = (n) => `€${Math.round(n)}M`;
 const fmtB = (n) => `€${(n / 1000).toFixed(1)}B`;
 
+// ── LTR flagship airports — 2025 passenger traffic (ACI World) ────────────────
+// Sum of total passengers at 8 airports where Lagardère Travel Retail operates
+// its duty-free / concession stores. Proxy for traffic exposed to an LTR store.
+const ACI_BUSY = "https://aci.aero/resources/busiest-airports-in-the-world/";
+const LTR_FOOTPRINT = "https://www.lagardere.com/en/press-release/lagardere-travel-retail-publishes-its-annual-industry-wide-global-report-on-travel-retail-and-dining-trends-travel-experience-voices/";
+const LTR_FLAGSHIP_AIRPORTS = [
+  { code: "ATL", name: "Atlanta", pax: 106.3 },
+  { code: "LAX", name: "Los Angeles", pax: 73.7 },
+  { code: "CDG", name: "Paris CDG", pax: 72.0 },
+  { code: "SIN", name: "Singapore", pax: 70.0 },
+  { code: "AMS", name: "Amsterdam", pax: 68.8 },
+  { code: "MAD", name: "Madrid", pax: 68.1 },
+  { code: "FRA", name: "Frankfurt", pax: 57.5 },
+  { code: "BCN", name: "Barcelona", pax: 43.3 },
+];
+const LTR_FLAGSHIP_PAX = LTR_FLAGSHIP_AIRPORTS.reduce((s, a) => s + a.pax, 0); // ≈ 559.7M
+const LTR_NON_PURCHASE_PAX = LTR_FLAGSHIP_PAX * NON_PURCHASE_SHARE; // ≈ 408.6M
+
 // SLIDE 1: Cover — Lagardère
 export function SlideCoverLagardere() {
   return (
@@ -217,7 +235,7 @@ export function SlideLagardereAtAGlance() {
   );
 }
 
-// SLIDE 4: The Facts — Avolta-free. 73% non-purchase from m1nd-set / TFWA / ACI.
+// SLIDE 4: The Facts — Lagardère-specific traffic, not global. Sources: ACI World + m1nd-set / TFWA.
 export function SlideFacts() {
   return (
     <SlideWrapper>
@@ -225,41 +243,63 @@ export function SlideFacts() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts — Lagardère Network</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              73% of Airport Passengers<br /><span className="text-blue-600">Never Make a Purchase</span>
+              73% of Passengers at LTR Airports<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>
+            <p className="text-slate-500 mt-1 text-sm">
+              Traffic exposed to a Lagardère store, based on LTR's flagship airports —{" "}
+              <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World 2025</a>.{" "}
+              Penetration benchmark: <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a> /{" "}
+              <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>TFWA</a>.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="space-y-5">
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">9.8B</div>
-                <div className="text-slate-800 font-semibold">Global passengers in 2025</div>
-                <div className="text-slate-500 text-sm mt-1">+3.6% vs 2024{" "}
-                  <a href={ACI_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>(ACI World)</a>
-                </div>
-              </div>
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-orange-600 mb-2">27%</div>
-                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>Global conversion benchmark</a>
-                <div className="text-slate-500 text-sm mt-1">Industry penetration rate (m1nd-set / TFWA)</div>
-              </div>
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold text-red-600 mb-2">7.15B</div>
-                <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
-                <div className="text-slate-500 text-sm mt-1">73% of 9.8B global passengers</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{Math.round(LTR_FLAGSHIP_PAX)}M</div>
+              <div className="text-slate-800 font-semibold">Passengers at LTR airports (2025)</div>
+              <div className="text-slate-500 text-sm mt-1">8 flagship hubs where LTR operates{" "}
+                <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>(ACI World)</a>
               </div>
             </div>
-            <div className="flex flex-col gap-4 justify-center">
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <h3 className="text-slate-800 font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
-                <ul className="space-y-3">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">27%</div>
+              <div className="text-slate-800 font-semibold">Penetration rate</div>
+              <div className="text-slate-500 text-sm mt-1">Share who convert to a purchase{" "}
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>(m1nd-set / TFWA)</a>
+              </div>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{Math.round(LTR_NON_PURCHASE_PAX)}M</div>
+              <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
+              <div className="text-slate-500 text-sm mt-1">73% of LTR flagship-airport traffic</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 className="text-slate-800 font-semibold text-sm mb-3">Flagship airport traffic — 2025 (millions of passengers)</h3>
+              <div className="grid grid-cols-4 gap-2">
+                {LTR_FLAGSHIP_AIRPORTS.map((a) => (
+                  <div key={a.code} className="bg-white border border-slate-200 rounded-lg px-2 py-2 text-center">
+                    <div className="text-blue-700 font-bold text-sm">{a.code}</div>
+                    <div className="text-slate-600 text-xs font-semibold">{a.pax}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-slate-400 text-xs mt-3">
+                Source: <a href={ACI_BUSY} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI World — Busiest Airports 2025</a>.{" "}
+                LTR operates <a href={LTR_FOOTPRINT} target="_blank" rel="noopener noreferrer" className={linkCls}>290+ airports</a>; figures shown for 8 flagship hubs.
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                <h3 className="text-slate-800 font-semibold text-sm mb-3">Traditional Airport Retail Failure Points</h3>
+                <ul className="space-y-2">
                   {[
                     "Activation starts only after the traveller clears security",
-                    "Retailers compete for attention through impulse purchasing",
                     "No financial reason for a non-intending buyer to enter a store",
                     "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
-                    "73% of passengers walk straight to the gate",
+                    "73% of LTR-exposed passengers walk straight to the gate",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
