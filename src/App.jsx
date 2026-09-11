@@ -123,6 +123,7 @@ import PatentDisclosureDocument from './pages/PatentDisclosureDocument';
 import InvestorPitchDeck from './pages/InvestorPitchDeck';
 import InvestorPitchDeckV2 from './pages/InvestorPitchDeckV2';
 import RetailerPitchDeck from './pages/RetailerPitchDeck';
+import RetailerPitchDeckLagardere from './pages/RetailerPitchDeckLagardere';
 import RetailerPitchDeckCaribbean from './pages/RetailerPitchDeckCaribbean';
 import RetailerSupplierPitchDeckSxm from './pages/RetailerSupplierPitchDeckSxm';
 import AirportPitchDeck from './pages/AirportPitchDeck';
@@ -267,6 +268,7 @@ const AuthenticatedApp = () => {
         <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
         <Route path="/investor-pitch-v2" element={<InvestorPitchDeckV2 />} />
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
+        <Route path="/retailer-pitch-lagardere" element={<RetailerPitchDeckLagardere />} />
         <Route path="/retailer-pitch-sxm" element={<RetailerPitchDeckCaribbean />} />
         <Route path="/retailer-supplier-pitch-sxm" element={<RetailerSupplierPitchDeckSxm />} />
         <Route path="/airport-pitch" element={<AirportPitchDeck />} />
