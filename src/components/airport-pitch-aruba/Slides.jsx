@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import {
   ChevronRight, TrendingUp, DollarSign, Percent, CheckCircle,
   XCircle, Plane, RefreshCw, Store,
@@ -821,7 +822,7 @@ export function SlideGetStarted() {
               <h3 className="font-bold text-slate-800 mb-3">What DutyBoost Handles</h3>
               <div className="space-y-2.5 text-sm">
                 {[
-                  { Icon: TravelerIcon, text: "Pre-activating travellers through the DutyBoost Platform, Travel & Corporate Partners before arrival" },
+                  { Icon: TravelerIcon, text: <>Pre-activating travellers through <Link to="/eligibility-showcase" className={linkCls}>the DutyBoost Platform</Link>, Travel & Corporate Partners before arrival</> },
                   { Icon: DollarSign, text: "DutyCredit distribution and traveller incentive mechanics" },
                   { Icon: ChevronRight, text: "POS validation of qualifying transactions" },
                   { Icon: RefreshCw, text: "Conversion data and sell-through reporting per retailer and category" },
