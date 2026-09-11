@@ -713,7 +713,7 @@ export function SlideLagardereRevenue() {
               <ul className="space-y-2 text-sm">
                 {[
                   "100% incremental — from Schiphol travellers who otherwise wouldn't buy",
-                  "Zero upfront cost — pay only the 2.5% fee on validated sales",
+                  "Zero upfront cost — pay only the 2.5% fee on validated sales and 10% traveller discount",
                   "No change to existing POS, pricing or merchandising",
                   "Attributed & reported transparently per transaction",
                   "Scales instantly across Schiphol's 20+ duty-free stores behind security",
