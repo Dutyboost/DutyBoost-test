@@ -821,9 +821,8 @@ export function SlideGetStarted() {
               <h3 className="font-bold text-slate-800 mb-3">What DutyBoost Handles</h3>
               <div className="space-y-2.5 text-sm">
                 {[
-                  { Icon: TravelerIcon, text: "Pre-activating travellers through Travel & Corporate Partners before arrival" },
+                  { Icon: TravelerIcon, text: "Pre-activating travellers through the DutyBoost Platform, Travel & Corporate Partners before arrival" },
                   { Icon: DollarSign, text: "DutyCredit distribution and traveller incentive mechanics" },
-                  { Icon: Plane, text: "Traveller self-service DutyCredit generation via airline booking and flight details" },
                   { Icon: ChevronRight, text: "POS validation of qualifying transactions" },
                   { Icon: RefreshCw, text: "Conversion data and sell-through reporting per retailer and category" },
                 ].map((row, i) => (
