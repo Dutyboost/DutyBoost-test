@@ -676,6 +676,7 @@ export function SlideTransaction() {
 // SLIDE 10: Lagardère Revenue Potential — scenario table across the LTR network
 export function SlideLagardereRevenue() {
   const scenarios = [
+    { pp: "+0.1pp", retail: SCHIPHOL_UPLIFT_1PP * 0.1, net: SCHIPHOL_UPLIFT_1PP * 0.1 * RETAILER_NET },
     { pp: "+0.5pp", retail: SCHIPHOL_UPLIFT_1PP * 0.5, net: SCHIPHOL_UPLIFT_1PP * 0.5 * RETAILER_NET },
     { pp: "+1pp", retail: SCHIPHOL_UPLIFT_1PP, net: SCHIPHOL_UPLIFT_1PP * RETAILER_NET },
     { pp: "+2pp", retail: SCHIPHOL_UPLIFT_1PP * 2, net: SCHIPHOL_UPLIFT_1PP * 2 * RETAILER_NET },
@@ -695,9 +696,9 @@ export function SlideLagardereRevenue() {
               Based on Schiphol's ~68.8M passengers. Each +1pp ≈ ~688K new purchasing travellers — value shown at the model's €100 illustrative qualifying basket, retailer net at 87.5%.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-5">
             {scenarios.map((s, i) => (
-              <div key={s.pp} className={`bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center ${i === 1 ? "ring-2 ring-blue-500" : ""}`}>
+              <div key={s.pp} className={`bg-blue-50 border border-blue-200 rounded-2xl p-4 text-center ${i === 2 ? "ring-2 ring-blue-500" : ""}`}>
                 <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">{s.pp} conversion</div>
                 <div className="text-slate-400 text-xs mb-1">incremental retail value</div>
                 <div className="text-lg font-bold text-slate-700 mb-3">{fmtM(s.retail)}</div>
@@ -708,7 +709,7 @@ export function SlideLagardereRevenue() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-800 text-white rounded-2xl p-5">
-              <h3 className="font-bold mb-3">Why This Is Pure Upside for the JV</h3>
+              <h3 className="font-bold mb-3">Why This Is Pure Upside for Lagardère</h3>
               <ul className="space-y-2 text-sm">
                 {[
                   "100% incremental — from Schiphol travellers who otherwise wouldn't buy",
