@@ -460,7 +460,7 @@ export function SlideLagardereOpportunity() {
             </div>
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-            <div className="text-sm font-semibold opacity-80 mb-1">The Core Question for the JV</div>
+            <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
             <p className="text-lg font-bold leading-snug">
               "Is earning €87.50 from an incremental €100 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a Schiphol traveller who otherwise wouldn't have converted?"
             </p>
