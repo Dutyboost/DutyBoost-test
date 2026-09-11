@@ -914,7 +914,7 @@ export function SlideClosingLagardere() {
               <span className="text-blue-600">Who Never Buy — at Schiphol</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed">
-              A proven, performance-based revenue layer — built on the Lagardère / Schiphol Duty Free JV.
+              A proven, performance-based revenue layer — activated through Lagardère's existing POS infrastructure at Schiphol.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-6 mt-4 w-full max-w-2xl">
