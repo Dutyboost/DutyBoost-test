@@ -293,8 +293,9 @@ export function SlideSolution() {
               Activate the Traveller<br /><span className="text-blue-600">Before Airport Arrival</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-5 mb-6">
             {[
+              { Icon: BarChart3, color: "text-blue-600", title: "DutyBoost Platform", desc: "Travellers can self-generate DutyCredits — no partner required" },
               { Icon: TravelAgencyIcon, color: "text-blue-600", title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
               { Icon: HotelIcon, color: "text-violet-600", title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
               { Icon: CarRentalIcon, color: "text-green-600", title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
