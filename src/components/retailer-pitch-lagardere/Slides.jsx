@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight, Cpu, BarChart3, Link2, Briefcase, CheckCircle,
-  Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin, Zap,
+  Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin, Zap, RefreshCw,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import HotelIcon from "@/components/HotelIcon";
@@ -348,6 +348,14 @@ export function SlideSolution() {
                 <div className="text-2xl font-bold text-blue-600 h-9 flex items-center justify-center whitespace-nowrap">Participants</div>
                 <div className="text-slate-500 text-sm mt-2">All benefit from one transaction</div>
               </div>
+            </div>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <div className="flex items-start gap-3">
+              <RefreshCw className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+              <p className="text-slate-700 text-sm leading-relaxed">
+                <span className="font-bold">Single-use, infinitely renewable.</span> A DutyCredit can't be reused — but travellers can get one from a Travel or Corporate Partner and generate as many more as they need for other participating stores. One DutyCredit for cosmetics, another for electronics, another at the giftshop for a souvenir. Same traveller, different stores, everyone wins.
+              </p>
             </div>
           </div>
         </div>
