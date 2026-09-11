@@ -480,19 +480,19 @@ export function SlideLagardereNetwork() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Amsterdam Schiphol — The JV Flagship</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Amsterdam Schiphol — Lagardère's Flagship</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              LTR's Exclusive Duty Free <span className="text-blue-600">Joint Venture with Royal Schiphol Group</span>
+              Lagardère Operates Schiphol's <span className="text-blue-600">Entire Duty Free Layer</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               Schiphol is where the value story begins. Sources:{" "}
-              <a href={SCHIPHOL_JV} target="_blank" rel="noopener noreferrer" className={linkCls}>Schiphol–LTR partnership</a>{" · "}
+              <a href={LTR_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>lagardere-tr.com</a>{" · "}
               <a href={TODAY_DUTY_FREE} target="_blank" rel="noopener noreferrer" className={linkCls}>Today Duty Free opening</a>.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             {[
-              { val: "70/30", label: "JV (LTR / Schiphol)", note: "Exclusive Duty Free operator" },
+              { val: "Exclusive", label: "Duty Free Operator", note: "Lagardère at Schiphol" },
               { val: "20+", label: "Duty-Free Stores", note: "Behind security" },
               { val: "68.8M", label: "Annual Passengers", note: "ACI 2024/2025" },
               { val: "May 2025", label: "Today Duty Free", note: "Schiphol's largest shop" },
@@ -507,10 +507,10 @@ export function SlideLagardereNetwork() {
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
             <div className="flex items-center gap-2 mb-2">
               <MapPin className="w-5 h-5" />
-              <h3 className="font-bold">One JV. One Activation Point. Immediate Reach.</h3>
+              <h3 className="font-bold">One Operator. One Activation Point. Immediate Reach.</h3>
             </div>
             <p className="text-blue-50 text-sm leading-relaxed">
-              LTR already operates Schiphol's duty-free layer — including the flagship <em>Today Duty Free</em>. DutyBoost flows through that existing POS infrastructure: a single activation reaches every participating store behind security, with zero upfront cost to the JV.
+              Lagardère already operates Schiphol's duty-free layer — including the flagship <em>Today Duty Free</em>. DutyBoost flows through that existing POS infrastructure: a single activation reaches every participating store behind security, with zero upfront cost to Lagardère.
             </p>
           </div>
         </div>
