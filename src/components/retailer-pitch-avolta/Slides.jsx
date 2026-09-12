@@ -12,6 +12,7 @@ import { SlideSolution } from "@/components/shared/SlideSolution";
 // ── Avolta sources ───────────────────────────────────────────────────────────
 const AVOLTA_FY2025 = "https://www.avoltaworld.com/en/press_release/2026-03-11/avolta-reports-strong-2025-advancing-sales-profits-and-cash-generation";
 const AVOLTA_H1_2025 = "https://www.avoltaworld.com/en/press_release/2025-07-31/avolta-reports-another-solid-set-results-first-half-2025";
+const AVOLTA_Q1_2026 = "https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com";
 const AVOLTA_SITE = "https://www.avoltaworld.com";
 const AVOLTA_EXT_ARUBA = "https://www.avoltaworld.com/en/press_release/2026-07-23/avolta-secures-eight-year-duty-free-extension-aruba-airport-caribbean";
 const AAA_SITE = "https://www.airportaruba.com";
@@ -348,7 +349,7 @@ export function SlideGlobalOpportunity() {
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
-                Passenger reach: <a href={AVOLTA_FY2025} target="_blank" rel="noopener noreferrer" className={linkCls}>Avolta FY2025 Report</a>. 73/27 ratio:{" "}
+                Passenger reach: <a href={AVOLTA_Q1_2026} target="_blank" rel="noopener noreferrer" className={linkCls}>Avolta Q1 2026 Presentation</a> (see slide 7). 73/27 ratio:{" "}
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a> /{" "}
                 <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>TFWA</a>.
               </div>
