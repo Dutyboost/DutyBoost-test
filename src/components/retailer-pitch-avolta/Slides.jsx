@@ -48,6 +48,7 @@ const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 100 / 1000; // ≈ $2.5B per +1p
 const AUA_PAX = 3; // million passengers
 const AUA_CONVERTERS = AUA_PAX * CONVERTING_SHARE; // ≈ 0.81M
 const AUA_NON_PURCHASE = AUA_PAX * NON_PURCHASE_SHARE; // ≈ 2.19M
+const AUA_REVENUE_EST = Math.round(AVOLTA_TURNOVER_IFRS * AUA_PAX / AVOLTA_PAX_REACH); // ~$21M, proportional to passenger share
 const ILLUSTRATIVE_BASKET = 100; // USD
 const AUA_UPLIFT_1PP = AUA_PAX * 1_000_000 * 0.01 * ILLUSTRATIVE_BASKET; // ≈ $3M per +1pp
 
@@ -87,8 +88,8 @@ export function SlideCoverAvolta() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
-              { label: "Avolta Turnover 2025", value: "$17.1B" },
-              { label: "Outlets Worldwide", value: "5,100+" },
+              { label: "Global Revenue 2025", value: "$17.1B" },
+              { label: "AUA Revenue (est.)", value: "~$21M" },
               { label: "AUA Passengers", value: "3M+" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
@@ -170,7 +171,7 @@ export function SlideAvoltaAtAGlance() {
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
               <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
               <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">$17.1B</div>
-              <div className="text-slate-600 font-semibold text-sm">IFRS Turnover 2025</div>
+              <div className="text-slate-600 font-semibold text-sm">Revenue 2025</div>
               <div className="text-slate-500 text-xs mt-1">+1.9% reported</div>
             </div>
             <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 text-center">
@@ -392,7 +393,7 @@ export function SlideArubaFocus() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             {[
               { val: "3M+", label: "Annual Passengers", note: "Aruba Airport Authority 2025" },
-              { val: "8-Year", label: "Duty Free Extension", note: "Secured July 2026" },
+              { val: "~$21M", label: "Est. Revenue 2025", note: "Proportional to pax share" },
               { val: "5", label: "Avolta Retail Stores", note: "At AUA (all retail)" },
               { val: "~73%", label: "Non-Purchasing", note: "Conversion headroom" },
             ].map((s) => (
