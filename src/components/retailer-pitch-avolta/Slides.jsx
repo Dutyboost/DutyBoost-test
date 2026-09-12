@@ -62,7 +62,7 @@ const AUA_STORES = [
 
 const fmtUSDm = (n) => `$${Math.round(n).toLocaleString()}m`;
 const fmtUSDb = (n) => `$${(n / 1000).toFixed(1)}B`;
-const fmtM = (n) => `$${Math.round(n)}M`;
+const fmtM = (n) => `$${(Math.round(n / 100000) / 10).toFixed(1).replace(/\.0$/, '')}M`;
 const fmtK = (n) => `$${Math.round(n / 1000).toLocaleString()}K`;
 
 // SLIDE 1: Cover — Avolta
