@@ -761,7 +761,7 @@ export function SlideIntegrate() {
           <div className="mb-5 lg:mb-10">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Technology Strategy</span>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
-              A POS Provider Feature.<br /><span className="text-blue-600">Activated, Not Integrated.</span>
+              A POS Provider Feature.<br /><span className="text-blue-600">Activate, Not Implement.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
