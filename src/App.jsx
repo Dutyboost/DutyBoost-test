@@ -271,7 +271,8 @@ const AuthenticatedApp = () => {
         <Route path="/investor-pitch-v2" element={<InvestorPitchDeckV2 />} />
         <Route path="/retailer-pitch" element={<RetailerPitchDeck />} />
         <Route path="/retailer-pitch-lagardere" element={<RetailerPitchDeckLagardere />} />
-        <Route path="/retailer-pitch-avolta" element={<RetailerPitchDeckAvolta />} />
+        <Route path="/retailer-pitch-avolta" element={<Navigate to="/retailer-pitch-avolta-aruba" replace />} />
+        <Route path="/retailer-pitch-avolta-aruba" element={<RetailerPitchDeckAvolta />} />
         <Route path="/retailer-pitch-sxm" element={<RetailerPitchDeckCaribbean />} />
         <Route path="/retailer-supplier-pitch-sxm" element={<RetailerSupplierPitchDeckSxm />} />
         <Route path="/airport-pitch" element={<AirportPitchDeck />} />
