@@ -348,7 +348,7 @@ export function SlideGlobalOpportunity() {
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
-                Passenger reach: <a href={AVOLTA_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>avoltaworld.com</a>. 73/27 ratio:{" "}
+                Passenger reach: <a href={AVOLTA_FY2025} target="_blank" rel="noopener noreferrer" className={linkCls}>Avolta FY2025 Report</a>. 73/27 ratio:{" "}
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a> /{" "}
                 <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>TFWA</a>.
               </div>
@@ -505,14 +505,14 @@ export function SlideModel() {
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-                <h3 className="font-bold text-green-900 mb-2">At 1 Million $100 Transactions:</h3>
+                <h3 className="font-bold text-green-900 mb-2">At 100,000 $100 Transactions:</h3>
                 <div className="grid grid-cols-1 gap-1.5 text-sm">
                   {[
-                    { party: "Retailers", val: "$87.5M net before costs" },
-                    { party: "Travellers", val: "$10M in savings" },
-                    { party: "Travel & Corporate Partners", val: "$500,000 ancillary revenue" },
-                    { party: "POS Partners", val: "$250,000 transaction revenue" },
-                    { party: "DutyBoost", val: "$1.75M infrastructure revenue" },
+                    { party: "Retailers", val: "$8.75M net before costs" },
+                    { party: "Travellers", val: "$1M in savings" },
+                    { party: "Travel & Corporate Partners", val: "$50,000 ancillary revenue" },
+                    { party: "POS Partners", val: "$25,000 transaction revenue" },
+                    { party: "DutyBoost", val: "$175,000 infrastructure revenue" },
                   ].map((row) => (
                     <div key={row.party} className="flex flex-col">
                       <span className="text-slate-600">{row.party}</span>
