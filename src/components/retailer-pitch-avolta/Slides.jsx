@@ -506,7 +506,8 @@ export function SlideModel() {
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-                <h3 className="font-bold text-green-900 mb-2">At 30,000 $100 Transactions:</h3>
+                <h3 className="font-bold text-green-900 mb-1">At 30,000 $100 Transactions</h3>
+                <p className="text-xs text-green-700 mb-2">Based on a 1% conversion increase at AUA (~30K new purchasers):</p>
                 <div className="grid grid-cols-1 gap-1.5 text-sm">
                   {[
                     { party: "Retailers", val: "$2.63M net before costs" },
