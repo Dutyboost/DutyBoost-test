@@ -64,6 +64,7 @@ const fmtUSDm = (n) => `$${Math.round(n).toLocaleString()}m`;
 const fmtUSDb = (n) => `$${(n / 1000).toFixed(1)}B`;
 const fmtM = (n) => `$${(Math.round(n / 100000) / 10).toFixed(1).replace(/\.0$/, '')}M`;
 const fmtK = (n) => `$${Math.round(n / 1000).toLocaleString()}K`;
+const fmtRevenue = (n) => n >= 1_000_000 ? fmtM(n) : fmtK(n);
 
 // SLIDE 1: Cover — Avolta
 export function SlideCoverAvolta() {
@@ -626,8 +627,8 @@ export function SlideArubaRevenue() {
               <div key={s.pp} className={`bg-blue-50 border border-blue-200 rounded-2xl p-4 text-center ${i === 2 ? "ring-2 ring-blue-500" : ""}`}>
                 <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">{s.pp} conversion</div>
                 <div className="text-slate-400 text-xs mb-1">incremental retail value</div>
-                <div className="text-lg font-bold text-slate-700 mb-3">{fmtM(s.retail)}</div>
-                <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{fmtM(s.net)}</div>
+                <div className="text-lg font-bold text-slate-700 mb-3">{fmtRevenue(s.retail)}</div>
+                <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{fmtRevenue(s.net)}</div>
                 <div className="text-blue-600 text-xs font-medium">retailer net (87.5%)</div>
               </div>
             ))}
