@@ -21,13 +21,13 @@ const TFWA_LINK = "https://www.tfwa.com/";
 
 const linkCls = "text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors";
 
-// ── Avolta FY2025 financials (sourced) ───────────────────────────────────────
-// IFRS turnover CHF 13,983m (+1.9%); CORE turnover CHF 13,720m (+5.9% CER);
-// CORE EBITDA CHF 1,324m (9.7% margin); Operating profit CHF 1,103m (+18.1%).
-const AVOLTA_TURNOVER_IFRS = 13983; // CHFm
-const AVOLTA_TURNOVER_CORE = 13720; // CHFm
-const AVOLTA_EBITDA = 1324; // CHFm
-const AVOLTA_OP_PROFIT = 1103; // CHFm
+// ── Avolta FY2025 financials (sourced, converted CHF→USD at 1.225) ───────────
+// IFRS turnover $17,129m (+1.9%); CORE turnover $16,807m (+5.9% CER);
+// CORE EBITDA $1,622m (9.7% margin); Operating profit $1,351m (+18.1%).
+const AVOLTA_TURNOVER_IFRS = 17129; // USDm
+const AVOLTA_TURNOVER_CORE = 16807; // USDm
+const AVOLTA_EBITDA = 1622; // USDm
+const AVOLTA_OP_PROFIT = 1351; // USDm
 const AVOLTA_OUTLETS = 5100;
 const AVOLTA_LOCATIONS = 1000;
 const AVOLTA_COUNTRIES = 70;
@@ -41,7 +41,7 @@ const RETAILER_NET = 0.875;
 // Global uplift: +1pp conversion across Avolta network
 const GLOBAL_PAX = AVOLTA_PAX_REACH; // 2,500M
 const GLOBAL_NON_PURCHASE = Math.round(GLOBAL_PAX * NON_PURCHASE_SHARE); // ≈ 1,825M
-const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 100 / 1000; // ≈ CHF 2.5B per +1pp (at CHF 100 basket)
+const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 100 / 1000; // ≈ $2.5B per +1pp (at $100 basket)
 
 // ── Aruba data (sourced) ─────────────────────────────────────────────────────
 // Avolta: "more than three million" passengers; 8-year duty free extension (Jul 2026).
@@ -59,8 +59,8 @@ const AUA_STORES = [
   "Infinity & Co.",
 ];
 
-const fmtCHFm = (n) => `CHF ${Math.round(n).toLocaleString()}m`;
-const fmtCHFb = (n) => `CHF ${(n / 1000).toFixed(1)}B`;
+const fmtUSDm = (n) => `$${Math.round(n).toLocaleString()}m`;
+const fmtUSDb = (n) => `$${(n / 1000).toFixed(1)}B`;
 const fmtM = (n) => `$${Math.round(n)}M`;
 const fmtK = (n) => `$${Math.round(n / 1000).toLocaleString()}K`;
 
@@ -87,7 +87,7 @@ export function SlideCoverAvolta() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
-              { label: "Avolta Turnover 2025", value: "CHF 14.0B" },
+              { label: "Avolta Turnover 2025", value: "$17.1B" },
               { label: "Outlets Worldwide", value: "5,100+" },
               { label: "AUA Passengers", value: "3M+" },
               { label: "Upfront Cost", value: "$0" },
@@ -169,7 +169,7 @@ export function SlideAvoltaAtAGlance() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
               <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">CHF 14.0B</div>
+              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">$17.1B</div>
               <div className="text-slate-600 font-semibold text-sm">IFRS Turnover 2025</div>
               <div className="text-slate-500 text-xs mt-1">+1.9% reported</div>
             </div>
@@ -187,7 +187,7 @@ export function SlideAvoltaAtAGlance() {
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
               <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">CHF 1,324m</div>
+              <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">$1,622m</div>
               <div className="text-slate-600 font-semibold text-sm">CORE EBITDA 2025</div>
               <div className="text-slate-500 text-xs mt-1">9.7% margin (+0.3pp)</div>
             </div>
@@ -355,8 +355,8 @@ export function SlideGlobalOpportunity() {
               <h3 className="font-bold text-blue-800 mb-2">Each +1pp of Conversion</h3>
               <div className="text-3xl md:text-4xl font-bold text-blue-700">~25M</div>
               <div className="text-slate-600 text-sm mt-1">additional purchasing travellers across the network</div>
-              <div className="text-green-600 font-bold text-xl mt-3">{fmtCHFb(GLOBAL_UPLIFT_1PP_B)}</div>
-              <div className="text-slate-600 text-sm">incremental retail value (illustrative, CHF 100 basket)</div>
+              <div className="text-green-600 font-bold text-xl mt-3">{fmtUSDb(GLOBAL_UPLIFT_1PP_B)}</div>
+              <div className="text-slate-600 text-sm">incremental retail value (illustrative, $100 basket)</div>
               <div className="text-slate-400 text-xs mt-3">1pp = 1% of Avolta's ~2.5B passengers converting at the model's qualifying basket.</div>
             </div>
           </div>
