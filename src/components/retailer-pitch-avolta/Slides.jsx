@@ -506,14 +506,14 @@ export function SlideModel() {
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-                <h3 className="font-bold text-green-900 mb-2">At 100,000 $100 Transactions:</h3>
+                <h3 className="font-bold text-green-900 mb-2">At 30,000 $100 Transactions:</h3>
                 <div className="grid grid-cols-1 gap-1.5 text-sm">
                   {[
-                    { party: "Retailers", val: "$8.75M net before costs" },
-                    { party: "Travellers", val: "$1M in savings" },
-                    { party: "Travel & Corporate Partners", val: "$50,000 ancillary revenue" },
-                    { party: "POS Partners", val: "$25,000 transaction revenue" },
-                    { party: "DutyBoost", val: "$175,000 infrastructure revenue" },
+                    { party: "Retailers", val: "$2.63M net before costs" },
+                    { party: "Travellers", val: "$300,000 in savings" },
+                    { party: "Travel & Corporate Partners", val: "$15,000 ancillary revenue" },
+                    { party: "POS Partners", val: "$7,500 transaction revenue" },
+                    { party: "DutyBoost", val: "$52,500 infrastructure revenue" },
                   ].map((row) => (
                     <div key={row.party} className="flex flex-col">
                       <span className="text-slate-600">{row.party}</span>
