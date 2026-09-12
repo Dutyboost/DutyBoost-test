@@ -22,9 +22,9 @@ const TFWA_LINK = "https://www.tfwa.com/";
 const linkCls = "text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors";
 
 // ── Avolta FY2025 financials (sourced, converted CHF→USD at 1.225) ───────────
-// IFRS turnover $17,129m (+1.9%); CORE turnover $16,807m (+5.9% CER);
+// IFRS revenue $16,820m (+1.9%); CORE turnover $16,807m (+5.9% CER);
 // CORE EBITDA $1,622m (9.7% margin); Operating profit $1,351m (+18.1%).
-const AVOLTA_TURNOVER_IFRS = 17129; // USDm
+const AVOLTA_TURNOVER_IFRS = 16820; // USDm
 const AVOLTA_TURNOVER_CORE = 16807; // USDm
 const AVOLTA_EBITDA = 1622; // USDm
 const AVOLTA_OP_PROFIT = 1351; // USDm
@@ -48,7 +48,7 @@ const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 100 / 1000; // ≈ $2.5B per +1p
 const AUA_PAX = 3; // million passengers
 const AUA_CONVERTERS = AUA_PAX * CONVERTING_SHARE; // ≈ 0.81M
 const AUA_NON_PURCHASE = AUA_PAX * NON_PURCHASE_SHARE; // ≈ 2.19M
-const AUA_REVENUE_EST = Math.round(AVOLTA_TURNOVER_IFRS * AUA_PAX / AVOLTA_PAX_REACH); // ~$21M, proportional to passenger share
+const AUA_REVENUE_EST = 30; // ~$30M, Avolta AUA retail revenue estimate
 const ILLUSTRATIVE_BASKET = 100; // USD
 const AUA_UPLIFT_1PP = AUA_PAX * 1_000_000 * 0.01 * ILLUSTRATIVE_BASKET; // ≈ $3M per +1pp
 
@@ -88,8 +88,8 @@ export function SlideCoverAvolta() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
-              { label: "Global Revenue 2025", value: "$17.1B" },
-              { label: "AUA Revenue (est.)", value: "~$21M" },
+              { label: "Global Revenue 2025", value: "$16.82B" },
+              { label: "AUA Revenue (est.)", value: "~$30M" },
               { label: "AUA Passengers", value: "3M+" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
@@ -170,7 +170,7 @@ export function SlideAvoltaAtAGlance() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
               <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">$17.1B</div>
+              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">$16.82B</div>
               <div className="text-slate-600 font-semibold text-sm">Revenue 2025</div>
               <div className="text-slate-500 text-xs mt-1">+1.9% reported</div>
             </div>
@@ -393,7 +393,7 @@ export function SlideArubaFocus() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             {[
               { val: "3M+", label: "Annual Passengers", note: "Aruba Airport Authority 2025" },
-              { val: "~$21M", label: "Est. Revenue 2025", note: "Proportional to pax share" },
+              { val: "~$30M", label: "Est. Revenue 2025", note: "Avolta AUA retail revenue" },
               { val: "5", label: "Avolta Retail Stores", note: "At AUA (all retail)" },
               { val: "~73%", label: "Non-Purchasing", note: "Conversion headroom" },
             ].map((s) => (
