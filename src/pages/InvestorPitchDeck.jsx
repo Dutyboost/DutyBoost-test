@@ -165,7 +165,7 @@ export function SlideTeam() {
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg",
     },
     {
-      name: "Raël Martis",
+      name: "Raël Martis Ozuna",
       role: "Co-Founder / Chief Commercial Officer",
       linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/",
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",

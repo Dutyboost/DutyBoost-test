@@ -62,7 +62,7 @@ export async function exportInvestorPitchPptx() {
       { name: "Jaquelin Beliad Perez", role: "Co-Founder / Airport Retail & Brand Specialist", linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg" },
       { name: "Ariunzaya Zorigt", role: "Marketing Director", linkedin: "https://www.linkedin.com/in/aria-zorigt/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg" },
       { name: "Fares Ben Halima", role: "Technical Director", linkedin: "https://www.linkedin.com/in/fares-ben-halima-36b948158/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg" },
-      { name: "Raël Martis", role: "Co-Founder / Chief Commercial Officer", linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg" },
+      { name: "Raël Martis Ozuna", role: "Co-Founder / Chief Commercial Officer", linkedin: "https://www.linkedin.com/in/israel-martis-ozuna/", photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg" },
     ];
     team.forEach((m, i) => {
       const x = 0.8 + i * 3.0;
