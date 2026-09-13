@@ -50,7 +50,7 @@ export default function TravellerJourneyOval() {
             <div>
               <h3 className="font-heading font-bold text-green-700 text-sm mb-1">DutyBoost: Activated Before Arrival</h3>
               <p className="text-green-700/80 text-xs leading-relaxed">
-                DutyBoost engages the traveller before they ever reach the airport — turning the non-buying 73% into incremental transactions across every stakeholder.
+                DutyBoost engages travellers before they reach the airport, turning the 73% who currently do not purchase into potential incremental customers and creating measurable value across the entire travel-retail ecosystem.
               </p>
             </div>
           </div>
