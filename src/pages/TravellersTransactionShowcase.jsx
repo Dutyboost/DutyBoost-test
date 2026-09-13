@@ -17,7 +17,7 @@ const STAKEHOLDERS = [
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", iconWrap: "bg-cyan-100", link: "/airport-showcase" },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", iconWrap: "bg-amber-100", link: "/wholesale-showcase" },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", iconWrap: "bg-slate-100", link: "/corporate-partner-showcase" },
-  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", iconWrap: "bg-green-100", link: "/get-started" },
+  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", iconWrap: "bg-green-100", link: "/get-started?from=agency" },
 ];
 
 export default function TravellersTransactionShowcase() {

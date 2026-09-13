@@ -15,7 +15,7 @@ const NODES = [
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [] },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", link: "/wholesale-showcase", extraIcons: [] },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },
-  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started", extraIcons: [HotelIcon, CarRentalIcon] },
+  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started?from=agency", extraIcons: [HotelIcon, CarRentalIcon] },
 ];
 
 export default function TravellerJourneyOval() {
