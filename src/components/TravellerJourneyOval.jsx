@@ -99,12 +99,12 @@ export default function TravellerJourneyOval() {
                 style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}>
                 <Link to={node.link} className={`flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow`} style={{ width: "170px" }}>
                   <div className="flex items-center gap-1">
-                    <div className="w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center">
-                      <node.Icon className={`w-5 h-5 ${node.fg}`} />
+                    <div className="w-12 h-12 rounded-lg bg-white/80 flex items-center justify-center">
+                      <node.Icon className={`w-7 h-7 ${node.fg}`} />
                     </div>
                     {node.extraIcons.map((AdIcon, idx) => (
-                      <div key={idx} className="w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center">
-                        <AdIcon className={`w-5 h-5 ${node.fg}`} />
+                      <div key={idx} className="w-12 h-12 rounded-lg bg-white/80 flex items-center justify-center">
+                        <AdIcon className={`w-7 h-7 ${node.fg}`} />
                       </div>
                     ))}
                   </div>
