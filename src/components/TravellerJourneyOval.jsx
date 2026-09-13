@@ -78,11 +78,11 @@ export default function TravellerJourneyOval() {
 
           {/* Central hub — Traveller's Transaction */}
           <div className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full shadow-xl border-4 border-white"
-            style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "180px", height: "180px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
-            <TravelerIcon className="w-9 h-9 text-white mb-1" />
-            <p className="font-heading font-bold text-white text-sm leading-tight px-3">Traveller's Transaction</p>
-            <p className="text-white/80 text-[11px] mt-1 leading-tight px-3">The moment that connects them all</p>
-            <p className="text-white/90 text-[10px] mt-1 leading-tight px-3 font-semibold">DutyBoost activates it before security</p>
+            style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "240px", height: "240px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
+            <TravelerIcon className="w-10 h-10 text-white mb-2" />
+            <p className="font-heading font-bold text-white text-base leading-tight px-4">Traveller's Transaction</p>
+            <p className="text-white/80 text-xs mt-1.5 leading-tight px-4">The moment that connects them all</p>
+            <p className="text-white/95 text-[11px] mt-1.5 leading-tight px-4 font-semibold">DutyBoost activates it before security</p>
           </div>
 
           {/* Stakeholder nodes positioned on the oval */}
