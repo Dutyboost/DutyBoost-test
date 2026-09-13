@@ -145,6 +145,7 @@ import WholesaleCalculator from './pages/WholesaleCalculator';
 import AirportPartnerRequest from './pages/AirportPartnerRequest';
 import WholesalePartnerRequest from './pages/WholesalePartnerRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
+import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -321,6 +322,7 @@ const AuthenticatedApp = () => {
           <Route path="/leads-admin" element={<LeadsAdmin />} />
           <Route path="/DutyBoost-Dashboard" element={<SurveyDashboard />} />
           <Route path="/airport-retailers-campaign-list" element={<AirportRetailersCampaignList />} />
+        <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Route>

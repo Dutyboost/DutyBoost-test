@@ -80,13 +80,13 @@ export default function TravellerJourneyOval() {
             })}
           </svg>
 
-          {/* Central hub — The Traveller's Transaction */}
-          <div className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full shadow-xl border-4 border-white"
+          {/* Central hub — The Traveller's Transaction (clickable to hub showcase) */}
+          <Link to="/travellers-transaction" className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full shadow-xl border-4 border-white transition-transform hover:scale-[1.03] cursor-pointer"
             style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "320px", height: "320px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
             <TravelerIcon className="w-12 h-12 text-white mb-3" />
             <p className="font-heading font-bold text-white text-xl leading-tight px-6">{t('oval.hub_title')}</p>
             <p className="text-white/80 text-sm mt-2 leading-snug px-6">{t('oval.hub_subtitle')}</p>
-          </div>
+          </Link>
 
           {/* Stakeholder nodes positioned on the oval — clickable to showcase pages */}
           {NODES.map((node, i) => {
