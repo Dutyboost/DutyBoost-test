@@ -151,7 +151,7 @@ export function SlideProblem() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts — Queen Beatrix International Airport</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts — Queen Beatrix International Airport — The Gap</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               3M+ Passengers. <span className="text-blue-600">~73% Never Buy.</span>
             </h2>
@@ -1057,7 +1057,7 @@ export function SlideThankYou() {
 export const SLIDES = [
   { id: "cover", Component: SlideCover, label: "Cover" },
   { id: "team", Component: SlideTeam, label: "Our Team" },
-  { id: "problem", Component: SlideProblem, label: "The Facts" },
+  { id: "problem", Component: SlideProblem, label: "The Facts — The Gap" },
   { id: "solution", Component: SlideSolution, label: "The Solution" },
   { id: "concessionModel", Component: SlideConcessionModel, label: "Concession Model" },
   { id: "magExample", Component: SlideMagExample, label: "MAG + Percentage" },
