@@ -38,9 +38,8 @@ export default function TravellerJourneyOval() {
               <ShieldX className="w-6 h-6 text-red-600" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-red-700 text-sm mb-1">In the actual situation</h3>
               <p className="text-red-700/80 text-xs leading-relaxed">
-                Engagement only begins when the traveller clears security. By then the intent is set — 73% walk straight to the gate.
+                DutyBoost engages travellers before they reach the airport, turning the 73% who currently do not purchase into potential incremental customers and creating measurable value across the entire travel-retail ecosystem.
               </p>
             </div>
           </div>
