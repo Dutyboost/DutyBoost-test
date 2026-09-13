@@ -1,4 +1,5 @@
 import { Cpu, Building2, PlaneTakeoff, Package, ShieldX, Rocket } from "lucide-react";
+// TravellerJourneyOval — stakeholder ecosystem visual
 import TravelAgencyIcon from "./TravelAgencyIcon";
 import AirportRetailerIcon from "./AirportRetailerIcon";
 import TravelerIcon from "./TravelerIcon";
