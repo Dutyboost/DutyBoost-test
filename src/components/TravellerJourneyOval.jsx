@@ -108,7 +108,7 @@ export default function TravellerJourneyOval() {
                       </div>
                     ))}
                   </div>
-                  <span className="text-sm font-bold leading-tight text-center">{t(`oval.nodes.${node.key}`)}</span>
+                  <span className="text-xs font-bold leading-tight text-center whitespace-nowrap">{t(`oval.nodes.${node.key}`)}</span>
                 </Link>
               </div>
             );
