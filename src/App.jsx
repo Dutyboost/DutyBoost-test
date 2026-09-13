@@ -286,6 +286,7 @@ const AuthenticatedApp = () => {
         <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
         <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
+        <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
         <Route path="/airport-showcase" element={<AirportShowcase />} />
         <Route path="/airport-calculator" element={<AirportCalculator />} />
         <Route path="/airport-partner-request" element={<AirportPartnerRequest />} />
@@ -322,7 +323,6 @@ const AuthenticatedApp = () => {
           <Route path="/leads-admin" element={<LeadsAdmin />} />
           <Route path="/DutyBoost-Dashboard" element={<SurveyDashboard />} />
           <Route path="/airport-retailers-campaign-list" element={<AirportRetailersCampaignList />} />
-        <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Route>
