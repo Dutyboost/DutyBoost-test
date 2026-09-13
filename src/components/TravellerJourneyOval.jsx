@@ -13,7 +13,6 @@ const NODES = [
   { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/pos-partner", extraIcons: [] },
   { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", link: "/retailer-showcase", extraIcons: [] },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [] },
-  { key: 'travelers', Icon: TravelerIcon, bg: "bg-blue-50", border: "border-blue-200", fg: "text-blue-600", link: "/eligibility-showcase", extraIcons: [] },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", link: "/wholesale-showcase", extraIcons: [] },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },
   { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/flight-showcase", extraIcons: [HotelIcon, CarRentalIcon] },
