@@ -45,7 +45,7 @@ const SLIDE_LABELS = {
   cover: "Cover — Avolta",
   team: "Our Team",
   atAGlance: "Avolta at a Glance",
-  facts: "The Facts — Avolta Network- The Gap",
+  facts: "The Facts — Avolta Network — The Gap",
   solution: "The Solution",
   globalOpportunity: "The Global Opportunity",
   arubaFocus: "From Global to Aruba",

@@ -250,7 +250,7 @@ export function SlideFacts() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts — Avolta Network- The Gap</span>
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts — Avolta Network — The Gap</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               73% of Passengers at Avolta Airports<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>
