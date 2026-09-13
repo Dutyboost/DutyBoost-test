@@ -9,6 +9,8 @@ import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
+import HotelIcon from "@/components/HotelIcon";
+import CarRentalIcon from "@/components/CarRentalIcon";
 import { hubShowcaseStrings } from "@/lib/i18nHubShowcase";
 
 const STAKEHOLDERS = [
@@ -17,7 +19,7 @@ const STAKEHOLDERS = [
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", iconWrap: "bg-cyan-100", link: "/airport-showcase" },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", iconWrap: "bg-amber-100", link: "/wholesale-showcase" },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", iconWrap: "bg-slate-100", link: "/corporate-partner-showcase" },
-  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", iconWrap: "bg-green-100", link: "/get-started?from=agency" },
+  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", iconWrap: "bg-green-100", link: "/get-started?from=agency", extraIcons: [HotelIcon, CarRentalIcon] },
 ];
 
 export default function TravellersTransactionShowcase() {
@@ -102,8 +104,15 @@ export default function TravellersTransactionShowcase() {
                 className={`group ${s.bg} border ${s.border} rounded-2xl p-6 space-y-3 transition-shadow hover:shadow-md`}
               >
                 <div className="flex items-center justify-between">
-                  <div className={`w-12 h-12 rounded-xl ${s.iconWrap} flex items-center justify-center`}>
-                    <s.Icon className={`w-6 h-6 ${s.fg}`} />
+                  <div className="flex items-center gap-2">
+                    <div className={`w-12 h-12 rounded-xl ${s.iconWrap} flex items-center justify-center`}>
+                      <s.Icon className={`w-6 h-6 ${s.fg}`} />
+                    </div>
+                    {s.extraIcons?.map((AdIcon, idx) => (
+                      <div key={idx} className={`w-12 h-12 rounded-xl ${s.iconWrap} flex items-center justify-center`}>
+                        <AdIcon className={`w-6 h-6 ${s.fg}`} />
+                      </div>
+                    ))}
                   </div>
                   <ArrowUpRight className={`w-5 h-5 ${s.fg} opacity-40 group-hover:opacity-100 transition-opacity`} />
                 </div>
