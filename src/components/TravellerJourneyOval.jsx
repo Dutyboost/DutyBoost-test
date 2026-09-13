@@ -1,4 +1,4 @@
-import { Cpu, Building2, PlaneTakeoff, Package } from "lucide-react";
+import { Cpu, Building2, PlaneTakeoff, Package, ShieldX, Rocket } from "lucide-react";
 import TravelAgencyIcon from "./TravelAgencyIcon";
 import AirportRetailerIcon from "./AirportRetailerIcon";
 import TravelerIcon from "./TravelerIcon";
@@ -30,6 +30,32 @@ export default function TravellerJourneyOval() {
           </p>
         </div>
 
+        {/* Why DutyBoost changes the game */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-4xl mx-auto">
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-5 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
+              <ShieldX className="w-6 h-6 text-red-600" />
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-red-700 text-sm mb-1">Today: Too Late</h3>
+              <p className="text-red-700/80 text-xs leading-relaxed">
+                Engagement only begins when the traveller clears security. By then the intent is set — 73% walk straight to the gate.
+              </p>
+            </div>
+          </div>
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-5 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+              <Rocket className="w-6 h-6 text-green-600" />
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-green-700 text-sm mb-1">DutyBoost: Activated Before Arrival</h3>
+              <p className="text-green-700/80 text-xs leading-relaxed">
+                DutyBoost engages the traveller before they ever reach the airport — turning the non-buying 73% into incremental transactions across every stakeholder.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Oval diagram */}
         <div className="relative mx-auto w-full" style={{ maxWidth: "820px", height: "520px" }}>
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 820 520" style={{ pointerEvents: "none", zIndex: 0 }}>
@@ -55,7 +81,8 @@ export default function TravellerJourneyOval() {
             style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "180px", height: "180px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
             <TravelerIcon className="w-9 h-9 text-white mb-1" />
             <p className="font-heading font-bold text-white text-sm leading-tight px-3">Traveller's Transaction</p>
-            <p className="text-white/80 text-[11px] mt-1 leading-tight px-3">The journey that connects them all</p>
+            <p className="text-white/80 text-[11px] mt-1 leading-tight px-3">The moment that connects them all</p>
+            <p className="text-white/90 text-[10px] mt-1 leading-tight px-3 font-semibold">DutyBoost activates it before security</p>
           </div>
 
           {/* Stakeholder nodes positioned on the oval */}
