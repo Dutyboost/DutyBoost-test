@@ -10,7 +10,7 @@ import CarRentalIcon from "./CarRentalIcon";
 const NODES = [
   { label: "POS Partners", Icon: Cpu, color: "violet", bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", extraIcons: [] },
   { label: "Airport Retailers", Icon: AirportRetailerIcon, color: "orange", bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", extraIcons: [] },
-  { label: "Airports", Icon: PlaneTakeoff, color: "cyan", bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", extraIcons: [] },
+  { label: "Airport Partners", Icon: PlaneTakeoff, color: "cyan", bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", extraIcons: [] },
   { label: "Wholesale / Suppliers", Icon: Package, color: "amber", bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", extraIcons: [] },
   { label: "Corporate Partners", Icon: Building2, color: "slate", bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", extraIcons: [] },
   { label: "Travel Partners", Icon: TravelAgencyIcon, color: "green", bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", extraIcons: [HotelIcon, CarRentalIcon] },
@@ -105,7 +105,7 @@ export default function TravellerJourneyOval() {
                       </div>
                     ))}
                   </div>
-                  <span className={`text-sm font-bold leading-tight text-center`}>{node.label}</span>
+                  <span className={`text-sm font-bold leading-tight text-center whitespace-nowrap`}>{node.label}</span>
                 </div>
               </div>
             );
