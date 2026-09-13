@@ -17,6 +17,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
+import TravellerJourneyOval from "../components/TravellerJourneyOval";
 
 export default function LandingPage() {
   const { t, i18n } = useTranslation();
@@ -242,6 +243,9 @@ export default function LandingPage() {
           <p className="text-center text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed">{t('ecosystem.platform_fee_note')}</p>
         </div>
       </section>
+
+      {/* Traveller Journey Oval */}
+      <TravellerJourneyOval />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
