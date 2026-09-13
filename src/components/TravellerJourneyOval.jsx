@@ -57,20 +57,20 @@ export default function TravellerJourneyOval() {
         </div>
 
         {/* Oval diagram */}
-        <div className="relative mx-auto w-full" style={{ maxWidth: "820px", height: "520px" }}>
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 820 520" style={{ pointerEvents: "none", zIndex: 0 }}>
+        <div className="relative mx-auto w-full" style={{ maxWidth: "1000px", height: "640px" }}>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 640" style={{ pointerEvents: "none", zIndex: 0 }}>
             {/* Oval track */}
-            <ellipse cx="410" cy="260" rx="360" ry="200" fill="none" stroke="hsl(220 15% 90%)" strokeWidth="2" strokeDasharray="6 5" />
-            <ellipse cx="410" cy="260" rx="360" ry="200" fill="none" stroke="hsl(220 100% 56% / 0.08)" strokeWidth="14" />
+            <ellipse cx="500" cy="320" rx="440" ry="250" fill="none" stroke="hsl(220 15% 90%)" strokeWidth="2" strokeDasharray="6 5" />
+            <ellipse cx="500" cy="320" rx="440" ry="250" fill="none" stroke="hsl(220 100% 56% / 0.08)" strokeWidth="14" />
 
             {/* Radial connectors: hub ↔ each node */}
             {NODES.map((_, i) => {
               const angle = (i / NODES.length) * 360 - 90;
               const rad = (angle * Math.PI) / 180;
-              const x = 410 + 360 * Math.cos(rad);
-              const y = 260 + 200 * Math.sin(rad);
+              const x = 500 + 440 * Math.cos(rad);
+              const y = 320 + 250 * Math.sin(rad);
               return (
-                <line key={i} x1="410" y1="260" x2={x} y2={y}
+                <line key={i} x1="500" y1="320" x2={x} y2={y}
                   stroke="hsl(220 100% 56% / 0.25)" strokeWidth="1.5" strokeDasharray="4 4" />
               );
             })}
@@ -78,34 +78,34 @@ export default function TravellerJourneyOval() {
 
           {/* Central hub — Traveller's Transaction */}
           <div className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full shadow-xl border-4 border-white"
-            style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "240px", height: "240px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
-            <TravelerIcon className="w-10 h-10 text-white mb-2" />
-            <p className="font-heading font-bold text-white text-base leading-tight px-4">Traveller's Transaction</p>
-            <p className="text-white/80 text-xs mt-1.5 leading-tight px-4">The moment that connects them all</p>
-            <p className="text-white/95 text-[11px] mt-1.5 leading-tight px-4 font-semibold">DutyBoost activates it before security</p>
+            style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "320px", height: "320px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
+            <TravelerIcon className="w-12 h-12 text-white mb-3" />
+            <p className="font-heading font-bold text-white text-xl leading-tight px-6">Traveller's Transaction</p>
+            <p className="text-white/80 text-sm mt-2 leading-snug px-6">The moment that connects them all</p>
+            <p className="text-white/95 text-sm mt-2 leading-snug px-6 font-semibold">DutyBoost activates it days, weeks or even months before security.</p>
           </div>
 
           {/* Stakeholder nodes positioned on the oval */}
           {NODES.map((node, i) => {
             const angle = (i / NODES.length) * 360 - 90;
             const rad = (angle * Math.PI) / 180;
-            const x = 50 + (360 / 8.2) * Math.cos(rad);
-            const y = 50 + (200 / 5.2) * Math.sin(rad);
+            const x = 50 + (440 / 10) * Math.cos(rad);
+            const y = 50 + (250 / 6.4) * Math.sin(rad);
             return (
               <div key={node.label} className="absolute z-10"
                 style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}>
-                <div className={`flex flex-col items-center gap-1.5 ${node.bg} border ${node.border} rounded-2xl px-3 py-2.5 shadow-sm`} style={{ minWidth: "120px" }}>
+                <div className={`flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm`} style={{ minWidth: "140px" }}>
                   <div className="flex items-center gap-1">
-                    <div className={`w-8 h-8 rounded-lg bg-white/80 flex items-center justify-center`}>
+                    <div className={`w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center`}>
                       <node.Icon className={`w-5 h-5 ${node.fg}`} />
                     </div>
                     {node.extraIcons.map((AdIcon, idx) => (
-                      <div key={idx} className={`w-8 h-8 rounded-lg bg-white/80 flex items-center justify-center`}>
+                      <div key={idx} className={`w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center`}>
                         <AdIcon className={`w-5 h-5 ${node.fg}`} />
                       </div>
                     ))}
                   </div>
-                  <span className={`text-xs font-bold leading-tight text-center`}>{node.label}</span>
+                  <span className={`text-sm font-bold leading-tight text-center`}>{node.label}</span>
                 </div>
               </div>
             );
