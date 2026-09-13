@@ -83,7 +83,7 @@ export default function TravellerJourneyOval() {
             <TravelerIcon className="w-12 h-12 text-white mb-3" />
             <p className="font-heading font-bold text-white text-xl leading-tight px-6">Traveller's Transaction</p>
             <p className="text-white/80 text-sm mt-2 leading-snug px-6">The moment that connects them all</p>
-            <p className="text-white/95 text-sm mt-2 leading-snug px-6 font-semibold">DutyBoost activates it days, weeks or even months before security.</p>
+
           </div>
 
           {/* Stakeholder nodes positioned on the oval */}
