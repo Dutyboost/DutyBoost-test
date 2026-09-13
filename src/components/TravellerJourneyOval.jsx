@@ -37,7 +37,7 @@ export default function TravellerJourneyOval() {
               <ShieldX className="w-6 h-6 text-red-600" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-red-700 text-sm mb-1">Today: The Fact</h3>
+              <h3 className="font-heading font-bold text-red-700 text-sm mb-1">The Actual Situation</h3>
               <p className="text-red-700/80 text-xs leading-relaxed">
                 Engagement only begins when the traveller clears security. By then the intent is set — 73% walk straight to the gate.
               </p>
@@ -94,7 +94,7 @@ export default function TravellerJourneyOval() {
             return (
               <div key={node.label} className="absolute z-10"
                 style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}>
-                <div className={`flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm`} style={{ minWidth: "140px" }}>
+                <div className={`flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm`} style={{ width: "170px" }}>
                   <div className="flex items-center gap-1">
                     <div className={`w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center`}>
                       <node.Icon className={`w-5 h-5 ${node.fg}`} />
