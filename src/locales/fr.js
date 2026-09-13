@@ -37,7 +37,7 @@ export default {
       title: "Chaque Partenaire Gravite autour du <span class=\"text-primary\">Voyage du Voyageur</span>",
       subtitle: "Une transaction validée relie chaque participant — chacun gagnant au même moment du voyageur.",
       actual_title: "Dans la situation actuelle",
-      actual_text: "DutyBoost engage les voyageurs avant qu'ils n'atteignent l'aéroport, transformant les 73% qui n'achètent pas actuellement en clients incrémentaux potentiels et créant une valeur mesurable dans tout l'écosystème du commerce de voyage.",
+      actual_text: "L'engagement ne commence que lorsque le voyageur passe la sécurité. À ce moment-là, l'intention est fixée — 73% se rendent directement à la porte d'embarquement.",
       activated_title: "DutyBoost : Activé avant l'arrivée",
       activated_text: "DutyBoost engage les voyageurs avant qu'ils n'atteignent l'aéroport, transformant les 73% qui n'achètent pas actuellement en clients incrémentaux potentiels et créant une valeur mesurable dans tout l'écosystème du commerce de voyage.",
       hub_title: "La Transaction du Voyageur",
