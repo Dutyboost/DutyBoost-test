@@ -36,9 +36,9 @@ export default {
       title: "Ogni Stakeholder Orbita Attorno al <span class=\"text-primary\">Viaggio del Viaggiatore</span>",
       subtitle: 'Una transazione validata collega ogni partecipante — ciascuno guadagna dallo stesso momento del viaggiatore.',
       actual_title: 'Situazione Attuale',
-      actual_text: "Nella situazione attuale, il coinvolgimento inizia solo quando il viaggiatore supera i controlli di sicurezza. A quel punto l'intento è già definito — il 73% va dritto al gate.",
+      actual_text: "Nella situazione attuale, il coinvolgimento inizia solo quando il viaggiatore supera i controlli di sicurezza. A quel punto l'intento è già definito — la maggior parte va dritto al gate.",
       activated_title: "DutyBoost: Attivato Prima dell'Arrivo",
-      activated_text: "DutyBoost coinvolge i viaggiatori prima che raggiungano l'aeroporto, trasformando il 73% che attualmente non acquista in potenziali clienti incrementali e creando valore misurabile in tutto l'ecosistema del travel retail.",
+      activated_text: "DutyBoost coinvolge i viaggiatori prima che raggiungano l'aeroporto, trasformando chi attualmente non acquista in potenziali clienti incrementali e creando valore misurabile in tutto l'ecosistema del travel retail.",
       hub_title: 'La Transazione del Viaggiatore',
       hub_subtitle: "Il passaggio finale che riunisce l'intero ecosistema.",
       nodes: {
