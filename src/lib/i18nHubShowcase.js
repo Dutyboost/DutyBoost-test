@@ -12,7 +12,7 @@ export const hubShowcaseStrings = {
     airports_value: 'Grow non-aeronautical revenue per passenger without changing concession models — higher spend, higher yield.',
     wholesale_value: 'Move product through activated demand — shelf turnover increases when travellers arrive with credit to spend.',
     corporate_value: 'Turn travel budgets into measurable employee perks — controlled spend that directly benefits the business traveller.',
-    travel_value: 'Monetize the booking confirmation — earn commission on a transaction that happens after the traveller lands.',
+    travel_value: 'Monetise the booking confirmation — earn commission on a transaction that happens before departure and after the traveller lands.',
     explore: 'Explore',
     cta_title: 'See How the Ecosystem Connects',
     cta_desc: 'Explore each stakeholder\u2019s role in the traveller\u2019s transaction — or request a walkthrough tailored to your business.',
