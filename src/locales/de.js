@@ -37,9 +37,9 @@ export default {
       title: 'Jeder Stakeholder kreist um die <span class="text-primary">Reisendenreise</span>',
       subtitle: 'Eine validierte Transaktion verbindet jeden Teilnehmer — jeder verdient am selben Reisendenmoment.',
       actual_title: 'Aktuelle Situation',
-      actual_text: 'In der aktuellen Situation beginnt die Aktivierung erst, wenn der Reisende die Sicherheitskontrolle passiert hat. Dann ist die Absicht bereits gesetzt — die meisten gehen direkt zum Gate.',
+      actual_text: 'In der aktuellen Situation beginnt die Aktivierung erst, wenn der Reisende die Sicherheitskontrolle passiert hat. Dann ist die Absicht bereits gesetzt — 73% gehen direkt zum Gate.',
       activated_title: 'DutyBoost: Vor der Ankunft aktiviert',
-      activated_text: 'DutyBoost aktiviert Reisende, bevor sie den Flughafen erreichen, und verwandelt diejenigen, die derzeit nicht kaufen, in potenzielle Zusatzkunden, was messbaren Wert im gesamten Reise-Einzelhandels-Ökosystem schafft.',
+      activated_text: 'DutyBoost aktiviert Reisende, bevor sie den Flughafen erreichen, und pre-aktiviert die 73%, die derzeit nicht kaufen — jeder konvertierte Reisende wird zu einem Zusatzkunden, was messbaren Wert im gesamten Reise-Einzelhandels-Ökosystem schafft.',
       hub_title: 'Die Transaktion des Reisenden',
       hub_subtitle: 'Der letzte Schritt, der das gesamte Ökosystem zusammenbringt.',
       nodes: {
