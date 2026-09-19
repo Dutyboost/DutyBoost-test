@@ -24,6 +24,7 @@ const SLIDES = [
   { id: "market", type: "market" },
   { id: "conversion", type: "conversion" },
   { id: "model", type: "model" },
+  { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
   { id: "incremental", type: "incremental" },
   { id: "integrate", type: "integrate" },
@@ -40,6 +41,7 @@ const SLIDE_LABELS = {
   market: "Sint Maarten Market",
   conversion: "Conversion Opportunity",
   model: "Business Model",
+  tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
   incremental: "Incremental Revenue",
   integrate: "POS Integration",
@@ -498,7 +500,87 @@ function SlideModel() {
   );
 }
 
-// SLIDE 8: Transaction Economics
+// SLIDE 8: Transaction Mix — Why the Tiers Work
+function SlideTierMix() {
+  const rows = [
+    { basket: "$20", share: "42%", disc: "5%", saves: "$1.00", fee: "$0.50", cost: "$1.50", keeps: "$18.50", keepsPct: "92.5%", hot: true },
+    { basket: "$100", share: "30%", disc: "10%", saves: "$10.00", fee: "$2.50", cost: "$12.50", keeps: "$87.50", keepsPct: "87.5%", hot: true },
+    { basket: "$200", share: "15%", disc: "15%", saves: "$30.00", fee: "$5.00", cost: "$35.00", keeps: "$165.00", keepsPct: "82.5%", hot: false },
+    { basket: "$300", share: "9%", disc: "20%", saves: "$60.00", fee: "$7.50", cost: "$67.50", keeps: "$232.50", keepsPct: "77.5%", hot: false },
+    { basket: "$300+", share: "4%", disc: "20% capped", saves: "$60.00", fee: "$10.00", cost: "$70.00", keeps: "$330.00", keepsPct: "82.5%", hot: false },
+  ];
+  const stats = [
+    { value: "87%", label: "of transactions sit below $300", sub: "Where the total cost stays between 7.5% and 17.5%" },
+    { value: "16.6%", label: "blended cost across all transactions", sub: "The retailer keeps 83.4% of incremental value" },
+    { value: "22.5%", label: "maximum possible cost — only at $300+", sub: "20% discount + 2.5% fee, capped at $60" },
+  ];
+
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <div className="relative z-10">
+          <div className="mb-5">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Transaction Mix — Why the Tiers Work</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              The Biggest Win Sits <span className="text-blue-600">Below $300</span>
+            </h2>
+            <p className="text-slate-500 mt-1 text-sm max-w-4xl">
+              Airport retail baskets cluster in the lower tiers — exactly where the DutyCredit discount is smallest. The high-discount baskets are the smallest share of volume, so the blended cost of the whole programme stays well below the headline rate.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto mb-5">
+            <table className="w-full min-w-[700px] border-collapse text-sm">
+              <thead>
+                <tr className="bg-slate-800 text-white">
+                  <th className="text-left px-3 py-2.5 rounded-tl-xl font-semibold">Basket</th>
+                  <th className="text-center px-3 py-2.5 font-semibold">Share of transactions</th>
+                  <th className="text-center px-3 py-2.5 font-semibold">Traveller discount</th>
+                  <th className="text-center px-3 py-2.5 font-semibold">Traveller saves</th>
+                  <th className="text-center px-3 py-2.5 font-semibold">DutyBoost fee (2.5%)</th>
+                  <th className="text-center px-3 py-2.5 font-semibold">Total cost to retailer</th>
+                  <th className="text-right px-3 py-2.5 rounded-tr-xl font-semibold">Retailer keeps</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={r.basket} className={`border-b border-slate-100 ${r.hot ? "bg-blue-50" : i % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+                    <td className="px-3 py-2.5 font-bold text-slate-800">{r.basket}</td>
+                    <td className="px-3 py-2.5 text-center font-semibold text-blue-700">{r.share}</td>
+                    <td className="px-3 py-2.5 text-center text-slate-600">{r.disc}</td>
+                    <td className="px-3 py-2.5 text-center text-slate-600">{r.saves}</td>
+                    <td className="px-3 py-2.5 text-center text-slate-600">{r.fee}</td>
+                    <td className="px-3 py-2.5 text-center font-semibold text-red-600">{r.cost}</td>
+                    <td className="px-3 py-2.5 text-right font-semibold text-green-700">
+                      {r.keeps} <span className="text-slate-400 font-normal">({r.keepsPct})</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            {stats.map((s) => (
+              <div key={s.value} className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white text-center">
+                <div className="text-3xl font-bold mb-1">{s.value}</div>
+                <div className="text-sm font-semibold text-blue-50">{s.label}</div>
+                <div className="text-xs text-blue-100/80 mt-1">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-slate-400 text-xs">
+            Transaction mix illustrates a typical 2025 airport retail basket distribution and can be replaced with your own POS data. $300+ shown at an average $400 basket; discount capped at $60. Costs are per transaction.
+          </p>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 9: Transaction Economics
 function SlideTransaction() {
   return (
     <SlideWrapper>
@@ -568,7 +650,7 @@ function SlideTransaction() {
   );
 }
 
-// SLIDE 9: Incremental Revenue (Retailer-Specific)
+// SLIDE 10: Incremental Revenue (Retailer-Specific)
 function SlideIncremental() {
   return (
     <SlideWrapper>
@@ -635,7 +717,7 @@ function SlideIncremental() {
   );
 }
 
-// SLIDE 10: POS Integration (Retailer-Specific)
+// SLIDE 11: POS Integration (Retailer-Specific)
 function SlideIntegrate() {
   return (
     <SlideWrapper>
@@ -692,7 +774,7 @@ function SlideIntegrate() {
   );
 }
 
-// SLIDE 11: Growth Flywheel
+// SLIDE 12: Growth Flywheel
 function SlideFlywheel() {
   const steps = [
     "More Travel & Corporate Partners",
@@ -784,7 +866,7 @@ function SlideFlywheel() {
   );
 }
 
-// SLIDE 12: Get Started (Retailer-Specific)
+// SLIDE 13: Get Started (Retailer-Specific)
 function SlideGetStarted() {
   return (
     <SlideWrapper>
@@ -835,7 +917,7 @@ function SlideGetStarted() {
   );
 }
 
-// SLIDE 13: Thank You / Join DutyBoost
+// SLIDE 14: Thank You / Join DutyBoost
 function SlideThankYou() {
   return (
     <SlideWrapper>
@@ -895,6 +977,7 @@ const SLIDE_COMPONENTS = {
   market: SlideMarket,
   conversion: SlideConversion,
   model: SlideModel,
+  tierMix: SlideTierMix,
   transaction: SlideTransaction,
   incremental: SlideIncremental,
   integrate: SlideIntegrate,
