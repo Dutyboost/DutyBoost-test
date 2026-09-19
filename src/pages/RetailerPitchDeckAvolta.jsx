@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SlideCoverAvolta, SlideTeam, SlideAvoltaAtAGlance, SlideFacts,
   SlideSolution, SlideGlobalOpportunity, SlideArubaFocus,
-  SlideModel, SlideTransaction, SlideArubaRevenue, SlideIntegrate,
+  SlideModel, SlideTierMix, SlideTransaction, SlideArubaRevenue, SlideIntegrate,
   SlideIntegrationEffort, SlideFlywheel, SlideClosingAvolta,
 } from "@/components/retailer-pitch-avolta/Slides";
 
@@ -16,6 +16,7 @@ const SLIDES = [
   { id: "globalOpportunity", type: "globalOpportunity" },
   { id: "arubaFocus", type: "arubaFocus" },
   { id: "model", type: "model" },
+  { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
   { id: "revenue", type: "revenue" },
   { id: "integrate", type: "integrate" },
@@ -33,6 +34,7 @@ const SLIDE_COMPONENTS = {
   globalOpportunity: SlideGlobalOpportunity,
   arubaFocus: SlideArubaFocus,
   model: SlideModel,
+  tierMix: SlideTierMix,
   transaction: SlideTransaction,
   revenue: SlideArubaRevenue,
   integrate: SlideIntegrate,
@@ -50,6 +52,7 @@ const SLIDE_LABELS = {
   globalOpportunity: "The Global Opportunity",
   arubaFocus: "From Global to Aruba",
   model: "Business Model",
+  tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
   revenue: "Aruba Revenue Potential",
   integrate: "POS Activation",

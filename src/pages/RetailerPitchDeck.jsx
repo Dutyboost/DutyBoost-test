@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Store, CheckCircle, Plane, Package } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -17,6 +18,7 @@ const SLIDES = [
   { id: "market", type: "market" },
   { id: "conversion", type: "conversion" },
   { id: "model", type: "model" },
+  { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
   { id: "incremental", type: "incremental" },
   { id: "integrate", type: "integrate" },
@@ -32,6 +34,7 @@ const SLIDE_LABELS = {
   market: "Market Opportunity",
   conversion: "Conversion Opportunity",
   model: "Business Model",
+  tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
   incremental: "Incremental Revenue",
   integrate: "POS Integration",
@@ -834,6 +837,10 @@ function SlideGetStarted() {
   );
 }
 
+function SlideTierMix() {
+  return <TierMixSlide currency="€" />;
+}
+
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
@@ -842,6 +849,7 @@ const SLIDE_COMPONENTS = {
   market: SlideMarket,
   conversion: SlideConversion,
   model: SlideModel,
+  tierMix: SlideTierMix,
   transaction: SlideTransaction,
   incremental: SlideIncremental,
   integrate: SlideIntegrate,

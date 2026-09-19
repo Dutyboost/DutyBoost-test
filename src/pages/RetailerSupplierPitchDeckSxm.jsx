@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Package, TrendingUp, RefreshCw, ShoppingCart, DollarSign, CheckCircle, BarChart3, Boxes, Store, Factory } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -23,6 +24,7 @@ const SLIDES = [
   { id: "solution", type: "solution" },
   { id: "market", type: "market" },
   { id: "conversion", type: "conversion" },
+  { id: "tierMix", type: "tierMix" },
   { id: "valueChain", type: "valueChain" },
   { id: "transaction", type: "transaction" },
   { id: "category", type: "category" },
@@ -38,6 +40,7 @@ const SLIDE_LABELS = {
   solution: "The Solution",
   market: "Sint Maarten Market",
   conversion: "Conversion Opportunity",
+  tierMix: "Transaction Mix — Tier Economics",
   valueChain: "Supplier Value Chain",
   transaction: "Transaction Economics",
   category: "Category Impact",
@@ -834,6 +837,10 @@ function SlideThankYou() {
   );
 }
 
+function SlideTierMix() {
+  return <TierMixSlide currency="$" />;
+}
+
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
@@ -841,6 +848,7 @@ const SLIDE_COMPONENTS = {
   solution: SlideSolution,
   market: SlideMarket,
   conversion: SlideConversion,
+  tierMix: SlideTierMix,
   valueChain: SlideValueChain,
   transaction: SlideTransaction,
   category: SlideCategory,

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -1054,6 +1055,10 @@ export function SlideThankYou() {
   );
 }
 
+export function SlideTierMix() {
+  return <TierMixSlide currency="$" />;
+}
+
 export const SLIDES = [
   { id: "cover", Component: SlideCover, label: "Cover" },
   { id: "team", Component: SlideTeam, label: "Our Team" },
@@ -1063,6 +1068,7 @@ export const SLIDES = [
   { id: "magExample", Component: SlideMagExample, label: "MAG + Percentage" },
   { id: "arubaOpportunity", Component: SlideArubaOpportunity, label: "AUA Opportunity" },
   { id: "valueChain", Component: SlideValueChain, label: "Value Chain" },
+  { id: "tierMix", Component: SlideTierMix, label: "Transaction Mix — Tier Economics" },
   { id: "businessCase", Component: SlideBusinessCase, label: "Business Case" },
   { id: "promotion", Component: SlidePromotion, label: "The Cost of Waiting" },
   { id: "flywheel", Component: SlideFlywheel, label: "Growth Flywheel" },

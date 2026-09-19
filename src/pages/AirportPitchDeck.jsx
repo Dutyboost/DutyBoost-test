@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Building2, TrendingUp, DollarSign, Percent, CheckCircle, XCircle, BarChart3, Layers, Plane, RefreshCw, ShoppingCart, Store, Megaphone, Smartphone, MapPin, Award, Mail, Monitor } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -23,6 +24,7 @@ const SLIDES = [
   { id: "concessionModel", type: "concessionModel" },
   { id: "magExample", type: "magExample" },
   { id: "benchmarks", type: "benchmarks" },
+  { id: "tierMix", type: "tierMix" },
   { id: "valueChain", type: "valueChain" },
   { id: "businessCase", type: "businessCase" },
   { id: "promotion", type: "promotion" },
@@ -39,6 +41,7 @@ const SLIDE_LABELS = {
   concessionModel: "Concession Model",
   magExample: "MAG + Percentage",
   benchmarks: "Rate Benchmarks",
+  tierMix: "Transaction Mix — Tier Economics",
   valueChain: "Value Chain",
   businessCase: "Business Case",
   promotion: "The Cost of Waiting",
@@ -929,6 +932,10 @@ function SlideThankYou() {
   );
 }
 
+function SlideTierMix() {
+  return <TierMixSlide currency="€" />;
+}
+
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
@@ -937,6 +944,7 @@ const SLIDE_COMPONENTS = {
   concessionModel: SlideConcessionModel,
   magExample: SlideMagExample,
   benchmarks: SlideBenchmarks,
+  tierMix: SlideTierMix,
   valueChain: SlideValueChain,
   businessCase: SlideBusinessCase,
   promotion: SlidePromotion,

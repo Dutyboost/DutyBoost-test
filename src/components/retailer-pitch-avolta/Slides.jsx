@@ -7,6 +7,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 
 // ── Avolta sources ───────────────────────────────────────────────────────────
@@ -529,6 +530,11 @@ export function SlideModel() {
       </div>
     </SlideWrapper>
   );
+}
+
+// SLIDE 8b: Transaction Mix — Tier Economics
+export function SlideTierMix() {
+  return <TierMixSlide currency="$" />;
 }
 
 // SLIDE 9: Transaction Economics — Five Beneficiaries

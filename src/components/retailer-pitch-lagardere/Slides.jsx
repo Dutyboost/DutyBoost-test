@@ -12,6 +12,7 @@ import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 
 // ── Lagardère Travel Retail sources ──────────────────────────────────────────
 const LAGARDERE_RESULTS = "https://www.lagardere.com/en/press-release/full-year-2025-results/";
@@ -602,6 +603,11 @@ export function SlideModel() {
       </div>
     </SlideWrapper>
   );
+}
+
+// SLIDE 8b: Transaction Mix — Tier Economics
+export function SlideTierMix() {
+  return <TierMixSlide currency="€" />;
 }
 
 // SLIDE 9: Transaction Economics — Five Beneficiaries

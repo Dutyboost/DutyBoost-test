@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SlideCoverLagardere, SlideTeam, SlideLagardereAtAGlance, SlideFacts,
   SlideSolution, SlideLagardereOpportunity, SlideLagardereNetwork,
-  SlideModel, SlideTransaction, SlideLagardereRevenue, SlideIntegrate,
+  SlideModel, SlideTierMix, SlideTransaction, SlideLagardereRevenue, SlideIntegrate,
   SlideIntegrationEffort, SlideFlywheel, SlideClosingLagardere,
 } from "@/components/retailer-pitch-lagardere/Slides";
 
@@ -16,6 +16,7 @@ const SLIDES = [
   { id: "opportunity", type: "opportunity" },
   { id: "network", type: "network" },
   { id: "model", type: "model" },
+  { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
   { id: "revenue", type: "revenue" },
   { id: "integrate", type: "integrate" },
@@ -33,6 +34,7 @@ const SLIDE_COMPONENTS = {
   opportunity: SlideLagardereOpportunity,
   network: SlideLagardereNetwork,
   model: SlideModel,
+  tierMix: SlideTierMix,
   transaction: SlideTransaction,
   revenue: SlideLagardereRevenue,
   integrate: SlideIntegrate,
@@ -50,6 +52,7 @@ const SLIDE_LABELS = {
   opportunity: "The Lagardère Opportunity",
   network: "Lagardère Network",
   model: "Business Model",
+  tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
   revenue: "Lagardère Revenue Potential",
   integrate: "POS Activation",

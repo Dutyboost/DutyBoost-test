@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Store, CheckCircle, Plane, Package } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
+import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -506,119 +507,11 @@ function SlideModel() {
 
 // SLIDE 8: Transaction Mix — Why the Tiers Work
 function SlideTierMix() {
-  const rows = [
-    { basket: "$20", share: "42%", disc: "5%", saves: "$1.00", fee: "$0.50", cost: "$1.50", keeps: "$18.50", keepsPct: "92.5%", hot: true },
-    { basket: "$100", share: "30%", disc: "10%", saves: "$10.00", fee: "$2.50", cost: "$12.50", keeps: "$87.50", keepsPct: "87.5%", hot: true },
-    { basket: "$200", share: "15%", disc: "15%", saves: "$30.00", fee: "$5.00", cost: "$35.00", keeps: "$165.00", keepsPct: "82.5%", hot: false },
-    { basket: "$300", share: "9%", disc: "20%", saves: "$60.00", fee: "$7.50", cost: "$67.50", keeps: "$232.50", keepsPct: "77.5%", hot: false },
-    { basket: "$300+", share: "3%", disc: "20% capped", saves: "$60.00", fee: "$10.00", cost: "$70.00", keeps: "$330.00", keepsPct: "82.5%", hot: false },
-    { basket: "$1,000", share: "1%", disc: "20% capped", saves: "$60.00", fee: "$25.00", cost: "$85.00", keeps: "$915.00", keepsPct: "91.5%", hot: false },
-  ];
-  const stats = [
-    { value: "87%", label: "of transactions sit below $300", sub: "Where the total cost stays between 7.5% and 17.5%" },
-    { value: "16.6%", label: "blended cost across all transactions", sub: "The retailer keeps 83.4% of incremental value" },
-    { value: "22.5%", label: "maximum possible cost — only at $300+", sub: "20% discount + 2.5% fee, capped at $60" },
-  ];
-
   return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-5">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Transaction Mix — Why the Tiers Work</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              The Biggest Win Sits <span className="text-blue-600">Below $300</span>
-            </h2>
-            <p className="text-slate-500 mt-1 text-sm max-w-4xl">
-              Airport retail baskets cluster in the lower tiers — exactly where the DutyCredit discount is smallest. The high-discount baskets are the smallest share of volume, so the blended cost of the whole programme stays well below the headline rate.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto mb-5">
-            <table className="w-full min-w-[700px] border-collapse text-sm">
-              <thead>
-                <tr className="bg-slate-800 text-white">
-                  <th className="text-left px-3 py-2.5 rounded-tl-xl font-semibold">Basket</th>
-                  <th className="text-center px-3 py-2.5 font-semibold">Share of transactions</th>
-                  <th className="text-center px-3 py-2.5 font-semibold">Traveller discount</th>
-                  <th className="text-center px-3 py-2.5 font-semibold">Traveller saves</th>
-                  <th className="text-center px-3 py-2.5 font-semibold">DutyBoost fee (2.5%)</th>
-                  <th className="text-center px-3 py-2.5 font-semibold">Total cost to retailer</th>
-                  <th className="text-right px-3 py-2.5 rounded-tr-xl font-semibold">Retailer keeps</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r, i) => (
-                  <tr key={r.basket} className={`border-b border-slate-100 ${r.hot ? "bg-blue-50" : i % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
-                    <td className="px-3 py-2.5 font-bold text-slate-800">{r.basket}</td>
-                    <td className="px-3 py-2.5 text-center font-semibold text-blue-700">{r.share}</td>
-                    <td className="px-3 py-2.5 text-center text-slate-600">{r.disc}</td>
-                    <td className="px-3 py-2.5 text-center text-slate-600">{r.saves}</td>
-                    <td className="px-3 py-2.5 text-center text-slate-600">{r.fee}</td>
-                    <td className="px-3 py-2.5 text-center font-semibold text-red-600">{r.cost}</td>
-                    <td className="px-3 py-2.5 text-right font-semibold text-green-700">
-                      {r.keeps} <span className="text-slate-400 font-normal">({r.keepsPct})</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-green-50 border border-green-200 rounded-xl px-4 py-2.5 mb-4 flex items-start gap-2">
-            <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-            <p className="text-green-800 text-sm">
-              <span className="font-semibold">Everything above $1,000 stays with the retailer.</span> The DutyCredit is capped at $60 and the platform fee at $25 per transaction — so as the basket grows, the retailer's share grows with it.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            {stats.map((s) => (
-              <div key={s.value} className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white text-center">
-                <div className="text-3xl font-bold mb-1">{s.value}</div>
-                <div className="text-sm font-semibold text-blue-50">{s.label}</div>
-                <div className="text-xs text-blue-100/80 mt-1">{s.sub}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-slate-200 pt-3">
-            <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">Basis &amp; Sources</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1.5 text-xs text-slate-500">
-              <p>
-                <span className="font-semibold text-slate-600">Tier mix calibrated to the published average transaction value of $70–$140 in European travel retail.</span>{" "}
-                <a href={MARKETUS_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">market.us, Travel Retail Market 2026</a>
-              </p>
-              <p>
-                Average retail spend per passenger of €10.55 in 2025, against €10.13bn of European travel retail sales — spending per head is small.{" "}
-                <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">ETRC</a>
-              </p>
-              <p>
-                Average spend per passenger of $15.50 in 2024, down from $24.30 in 2020 — transaction values are small and falling.{" "}
-                <a href={KEARNEY_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Kearney, Travel Retail 2025</a>
-              </p>
-              <p>
-                ~70% of all airport retail purchases are impulse-driven — small, unplanned baskets dominate transaction count.{" "}
-                <a href={ACI_RETAIL_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">ACI Asia-Pacific Travel Retail Study</a>
-              </p>
-              <p>
-                27% Caribbean purchase rate (≈51% global average) — the conversion headroom the programme targets.{" "}
-                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a>
-              </p>
-              <p className="text-slate-400">
-                Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data. $300+ shown at an average $400 basket; discount capped at $60 and platform fee capped at $25 per transaction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
+    <TierMixSlide
+      currency="$"
+      purchaseNote="27% Caribbean purchase rate (≈51% global average) — the conversion headroom the programme targets"
+    />
   );
 }
 
