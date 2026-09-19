@@ -754,7 +754,7 @@ function SlideGetStarted() {
         <div className="relative z-10 text-center">
           <div className="flex justify-center mb-3">
             <div className="bg-white rounded-2xl px-6 py-2 shadow-xl border border-slate-200">
-              <DutyBoostLogo height={36} linkTo="/retailer-showcase" />
+              <DutyBoostLogo height={42} linkTo="/retailer-showcase" />
             </div>
           </div>
           <div className="mb-3">
@@ -764,22 +764,22 @@ function SlideGetStarted() {
               <span className="text-blue-600">Start Earning. Switch Off Anytime.</span>
             </h2>
           </div>
-          <p className="text-slate-600 text-sm max-w-3xl mx-auto leading-relaxed mb-4">
+          <p className="text-slate-600 text-base max-w-3xl mx-auto leading-relaxed mb-4">
             DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-4">
             {cards.map((card) => (
-              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-left">
-                <div className="text-blue-700 font-bold text-xs mb-1">{card.title}</div>
-                <div className="text-slate-600 text-[11px] leading-snug">{card.desc}</div>
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left">
+                <div className="text-blue-700 font-bold text-sm mb-1">{card.title}</div>
+                <div className="text-slate-600 text-xs leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
           <div className="flex flex-col items-center gap-1.5">
-            <p className="text-blue-600 text-sm md:text-base font-bold">
+            <p className="text-blue-600 text-base md:text-lg font-bold">
               No setup fee. No subscription. No implementation. Flip the switch — earn. Flip it off — stop.
             </p>
-            <p className="text-slate-700 text-xs md:text-sm font-semibold">
+            <p className="text-slate-700 text-sm md:text-base font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
             </p>
           </div>
@@ -805,7 +805,7 @@ function SlideThankYou() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center text-center">
           <div className="bg-white rounded-2xl px-6 py-2.5 shadow-2xl border border-slate-200 mb-4">
-            <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
+            <DutyBoostLogo height={46} linkTo="/retailer-showcase" />
           </div>
           <div className="mb-3">
             <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">Thank You</span>
@@ -814,23 +814,23 @@ function SlideThankYou() {
               <span className="text-blue-600">Start Earning Incremental Revenue.</span>
             </h2>
           </div>
-          <p className="text-slate-600 text-sm max-w-3xl leading-relaxed mb-4">
+          <p className="text-slate-600 text-base max-w-3xl leading-relaxed mb-4">
             DutyBoost connects what already exists — your stores, your POS, and 625K travellers who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl w-full mb-4">
             {cards.map((card) => (
-              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-left">
-                <card.Icon className="w-6 h-6 text-blue-600 mb-1.5" />
-                <div className="text-blue-700 font-bold text-xs mb-1">{card.title}</div>
-                <div className="text-slate-600 text-[11px] leading-snug">{card.desc}</div>
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left">
+                <card.Icon className="w-7 h-7 text-blue-600 mb-1.5" />
+                <div className="text-blue-700 font-bold text-sm mb-1">{card.title}</div>
+                <div className="text-slate-600 text-xs leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white max-w-2xl">
-            <p className="font-bold text-sm md:text-base leading-snug mb-1">
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white max-w-2xl">
+            <p className="font-bold text-base md:text-lg leading-snug mb-1">
               Ready to turn 625K non-purchasing travellers into incremental sales?
             </p>
-            <p className="text-blue-50 text-xs">
+            <p className="text-blue-50 text-sm">
               Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.
             </p>
           </div>

@@ -39,7 +39,7 @@ export function SlideTierMix({
     { value: "22.5%", label: `maximum possible cost — only at ${c}300+`, sub: `20% discount + 2.5% fee, capped at ${c}60` },
   ];
 
-  const cell = dense ? "px-2.5 py-1.5" : "px-3 py-2.5";
+  const cell = dense ? "px-2.5 py-2" : "px-3 py-2.5";
 
   return (
     <div className="w-full flex flex-col overflow-y-auto bg-white text-[#0a0f1e]">
@@ -48,10 +48,10 @@ export function SlideTierMix({
         <div className="relative z-10">
           <div className={dense ? "mb-3" : "mb-5"}>
             <span className={`text-blue-600 font-semibold uppercase tracking-widest ${dense ? "text-xs" : "text-sm"}`}>Transaction Mix — Why the Tiers Work</span>
-            <h2 className={`font-heading font-bold text-[#0a0f1e] ${dense ? "text-lg md:text-2xl mt-1.5" : "text-xl md:text-3xl mt-2"}`}>
+            <h2 className={`font-heading font-bold text-[#0a0f1e] ${dense ? "text-xl md:text-2xl mt-1.5" : "text-xl md:text-3xl mt-2"}`}>
               The Biggest Win Sits <span className="text-blue-600">Below {c}300</span>
             </h2>
-            <p className={`text-slate-500 mt-1 max-w-4xl ${dense ? "text-xs" : "text-sm"}`}>
+            <p className={`text-slate-500 mt-1 max-w-4xl ${dense ? "text-[13px]" : "text-sm"}`}>
               Airport retail baskets cluster in the lower tiers — exactly where the DutyCredit discount is smallest. The high-discount baskets are the smallest share of volume, so the blended cost of the whole programme stays well below the headline rate.
             </p>
           </div>
@@ -89,24 +89,24 @@ export function SlideTierMix({
 
           <div className={`bg-green-50 border border-green-200 rounded-xl flex items-start gap-2 ${dense ? "px-3 py-2 mb-3" : "px-4 py-2.5 mb-4"}`}>
             <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-            <p className={`text-green-800 ${dense ? "text-xs" : "text-sm"}`}>
+            <p className={`text-green-800 ${dense ? "text-[13px]" : "text-sm"}`}>
               <span className="font-semibold">Everything above {c}1,000 stays with the retailer.</span> The DutyCredit is capped at {c}60 and the platform fee at {c}25 per transaction — so as the basket grows, the retailer's share grows with it.
             </p>
           </div>
 
           <div className={`grid grid-cols-1 md:grid-cols-3 ${dense ? "gap-2.5 mb-3" : "gap-4 mb-4"}`}>
             {stats.map((s) => (
-              <div key={s.value} className={`bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl text-white text-center ${dense ? "p-3" : "p-5"}`}>
-                <div className={`font-bold mb-1 ${dense ? "text-xl" : "text-3xl"}`}>{s.value}</div>
-                <div className={`font-semibold text-blue-50 ${dense ? "text-xs" : "text-sm"}`}>{s.label}</div>
-                <div className={`text-blue-100/80 mt-1 ${dense ? "text-[10px] leading-snug" : "text-xs"}`}>{s.sub}</div>
+              <div key={s.value} className={`bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl text-white text-center ${dense ? "p-3.5" : "p-5"}`}>
+                <div className={`font-bold mb-1 ${dense ? "text-2xl" : "text-3xl"}`}>{s.value}</div>
+                <div className={`font-semibold text-blue-50 ${dense ? "text-sm" : "text-sm"}`}>{s.label}</div>
+                <div className={`text-blue-100/80 mt-1 ${dense ? "text-[11px] leading-snug" : "text-xs"}`}>{s.sub}</div>
               </div>
             ))}
           </div>
 
           {dense ? (
             <div className="border-t border-slate-200 pt-2">
-              <p className="text-slate-500 text-[10px] leading-relaxed">
+              <p className="text-slate-500 text-[11px] leading-relaxed">
                 <span className="font-semibold uppercase tracking-wide text-slate-600">Basis &amp; Sources: </span>
                 Tier mix calibrated to the published average transaction value of {c}70–{c}140 in travel retail (
                 <a href={MARKETUS_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>market.us, Travel Retail Market 2026</a>); average retail spend per passenger of €10.55 in 2025 (
