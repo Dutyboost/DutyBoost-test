@@ -511,6 +511,7 @@ function SlideTierMix() {
   return (
     <TierMixSlide
       currency="$"
+      dense
       purchaseNote="27% Caribbean purchase rate (≈51% global average) — the conversion headroom the programme targets"
     />
   );
@@ -737,46 +738,48 @@ function SlideFlywheel() {
 
 // SLIDE 13: Get Started (Retailer-Specific)
 function SlideGetStarted() {
+  const cards = [
+    { title: "A New Feature in Your POS", desc: "DutyBoost appears as a toggle in your existing POS dashboard. No development, no integration, no project plan." },
+    { title: "Earning From Day One", desc: "Once switched on, pre-activated travellers can redeem DutyCredits at your store immediately." },
+    { title: "Switch Off Anytime", desc: "Don't like the results? Flip it off. No lock-in, no cancellation fees, no commitments." },
+    { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. Your checkout flow stays the same." },
+  ];
+
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-5 md:px-12 md:py-5 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
-          <div className="flex justify-center mb-4 lg:mb-6">
-            <div className="bg-white rounded-2xl px-6 py-3 shadow-xl border border-slate-200">
-              <DutyBoostLogo height={40} linkTo="/retailer-showcase" />
+          <div className="flex justify-center mb-3">
+            <div className="bg-white rounded-2xl px-6 py-2 shadow-xl border border-slate-200">
+              <DutyBoostLogo height={36} linkTo="/retailer-showcase" />
             </div>
           </div>
-          <div className="mb-4 lg:mb-6">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Value Realized Quickly</span>
-            <h2 className="text-xl md:text-4xl lg:text-4xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
+          <div className="mb-3">
+            <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">Value Realized Quickly</span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-1.5 leading-tight">
               Switch It On.<br />
               <span className="text-blue-600">Start Earning. Switch Off Anytime.</span>
             </h2>
           </div>
-          <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed mb-4 lg:mb-6">
+          <p className="text-slate-600 text-sm max-w-3xl mx-auto leading-relaxed mb-4">
             DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-4 lg:mb-6">
-            {[
-              { title: "A New Feature in Your POS", desc: "DutyBoost appears as a toggle in your existing POS dashboard. No development, no integration, no project plan — just flip the switch." },
-              { title: "Earning From Day One", desc: "Once switched on, pre-activated travellers can redeem DutyCredits at your store immediately. No waiting period." },
-              { title: "Switch Off Anytime", desc: "Don't like the results? Flip it off. No lock-in, no cancellation fees, no commitments. You stay in control." },
-              { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. Your checkout flow stays exactly the same." },
-            ].map((card, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:p-5 text-left">
-                <div className="text-blue-700 font-bold lg:text-base mb-1.5">{card.title}</div>
-                <div className="text-slate-600 text-xs lg:text-sm leading-relaxed">{card.desc}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-4">
+            {cards.map((card) => (
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-left">
+                <div className="text-blue-700 font-bold text-xs mb-1">{card.title}</div>
+                <div className="text-slate-600 text-[11px] leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-blue-600 text-base lg:text-xl font-bold">
+          <div className="flex flex-col items-center gap-1.5">
+            <p className="text-blue-600 text-sm md:text-base font-bold">
               No setup fee. No subscription. No implementation. Flip the switch — earn. Flip it off — stop.
             </p>
-            <p className="text-slate-700 text-sm lg:text-base font-semibold">
+            <p className="text-slate-700 text-xs md:text-sm font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
             </p>
           </div>
@@ -788,48 +791,50 @@ function SlideGetStarted() {
 
 // SLIDE 14: Thank You / Join DutyBoost
 function SlideThankYou() {
+  const cards = [
+    { Icon: Store, title: "Activate in Your POS", desc: "Flip the DutyBoost switch in your existing POS dashboard — no integration required." },
+    { Icon: CheckCircle, title: "Earn From Day One", desc: "Pre-activated travellers redeem DutyCredits at your store immediately." },
+    { Icon: ArrowRight, title: "Switch Off Anytime", desc: "No lock-in, no commitments — you stay in control, always." },
+  ];
+
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-5 md:px-12 md:py-5 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center text-center">
-          <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl border border-slate-200 mb-6">
-            <DutyBoostLogo height={48} linkTo="/retailer-showcase" />
+          <div className="bg-white rounded-2xl px-6 py-2.5 shadow-2xl border border-slate-200 mb-4">
+            <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
           </div>
-          <div className="mb-4">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Thank You</span>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
+          <div className="mb-3">
+            <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">Thank You</span>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-1.5 leading-tight">
               Join DutyBoost.<br />
               <span className="text-blue-600">Start Earning Incremental Revenue.</span>
             </h2>
           </div>
-          <p className="text-slate-600 text-sm md:text-base lg:text-lg max-w-3xl leading-relaxed mb-6">
+          <p className="text-slate-600 text-sm max-w-3xl leading-relaxed mb-4">
             DutyBoost connects what already exists — your stores, your POS, and 625K travellers who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl w-full mb-6">
-            {[
-              { Icon: Store, title: "Activate in Your POS", desc: "Flip the DutyBoost switch in your existing POS dashboard — no integration required." },
-              { Icon: CheckCircle, title: "Earn From Day One", desc: "Pre-activated travellers redeem DutyCredits at your store immediately." },
-              { Icon: ArrowRight, title: "Switch Off Anytime", desc: "No lock-in, no commitments — you stay in control, always." },
-            ].map((card, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-left">
-                <card.Icon className="w-8 h-8 text-blue-600 mb-2" />
-                <div className="text-blue-700 font-bold text-sm mb-1.5">{card.title}</div>
-                <div className="text-slate-600 text-xs leading-relaxed">{card.desc}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl w-full mb-4">
+            {cards.map((card) => (
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-left">
+                <card.Icon className="w-6 h-6 text-blue-600 mb-1.5" />
+                <div className="text-blue-700 font-bold text-xs mb-1">{card.title}</div>
+                <div className="text-slate-600 text-[11px] leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white max-w-2xl">
-            <p className="font-bold text-base lg:text-lg leading-snug mb-2">
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white max-w-2xl">
+            <p className="font-bold text-sm md:text-base leading-snug mb-1">
               Ready to turn 625K non-purchasing travellers into incremental sales?
             </p>
-            <p className="text-blue-50 text-sm">
+            <p className="text-blue-50 text-xs">
               Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.
             </p>
           </div>
-          <div className="mt-6 text-slate-500 text-xs">
+          <div className="mt-4 text-slate-500 text-[10px]">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
