@@ -31,7 +31,6 @@ const SLIDES = [
   { id: "model", type: "model" },
   { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
-  { id: "incremental", type: "incremental" },
   { id: "integrate", type: "integrate" },
   { id: "flywheel", type: "flywheel" },
   { id: "getStarted", type: "getStarted" },
@@ -48,7 +47,6 @@ const SLIDE_LABELS = {
   model: "Business Model",
   tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
-  incremental: "Incremental Revenue",
   integrate: "POS Integration",
   flywheel: "Growth Flywheel",
   getStarted: "Get Started",
@@ -585,73 +583,6 @@ function SlideTransaction() {
   );
 }
 
-// SLIDE 10: Incremental Revenue (Retailer-Specific)
-function SlideIncremental() {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
-        <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Your Incremental Revenue</span>
-          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            What DutyBoost Can Bring <span className="text-blue-600">to Your Stores</span>
-          </h2>
-          <p className="text-slate-500 mt-1 text-sm">Sint Maarten has 855,994 air arrivals — 73% (625K) never purchase. If just 1% more of the non-purchasing travellers you reach convert through a DutyBoost-validated transaction, here is the incremental revenue from travellers who otherwise would not have bought.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-          {[
-            { size: "Single Store", reach: "~10% of 625K = ~62.5K travellers", conv: "+1% = ~625 txns", gross: "$62.5K", net: "$54.7K", color: "blue" },
-            { size: "Multi-Store Group", reach: "~30% of 625K = ~187.5K travellers", conv: "+1% = ~1.9K txns", gross: "$187.5K", net: "$164K", color: "indigo" },
-            { size: "Airport-Wide Retailer", reach: "100% of 625K travellers", conv: "+1% = ~6.3K txns", gross: "$625K", net: "$547K", color: "violet" },
-          ].map((s) => (
-            <div key={s.size} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
-              <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-1`}>{s.size}</div>
-              <div className="text-slate-500 text-sm mb-3">{s.reach}</div>
-              <div className={`text-2xl md:text-3xl font-bold text-${s.color}-700 mb-1`}>{s.gross}</div>
-              <div className={`text-${s.color}-600 text-sm font-medium mb-2`}>incremental retail value</div>
-              <div className="text-slate-600 text-xs border-t border-slate-200 pt-2">retailer net (87.5%): <span className="font-semibold text-slate-800">{s.net}</span></div>
-              <div className="text-slate-500 text-xs mt-1">{s.conv} @ $100 avg basket</div>
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="bg-slate-800 text-white rounded-2xl p-5">
-            <h3 className="font-bold mb-3">It Scales With Conversion</h3>
-            <div className="space-y-2 text-sm">
-              {[
-                { pp: "+0.5% conversion", mult: "½× the figures above" },
-                { pp: "+1% conversion", mult: "the figures above" },
-                { pp: "+2% conversion", mult: "2× the figures above" },
-                { pp: "+5% conversion", mult: "5× the figures above" },
-              ].map((row, i) => (
-                <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 1 ? "bg-blue-800/50 font-semibold" : ""}`}>
-                  <span className="text-blue-300">{row.pp}</span>
-                  <span className="text-slate-300">{row.mult}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-5">
-            <h3 className="font-bold text-green-900 mb-3">Why This Is Pure Upside</h3>
-            <ul className="space-y-2 text-sm">
-              {[
-                "100% incremental — from the 73% of travellers who currently never buy",
-                "Zero upfront cost — pay only the 2.5% fee on validated sales",
-                "No change to your existing POS, pricing or merchandising",
-                "Attributed & reported transparently per transaction",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-green-800">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
 // SLIDE 11: POS Integration (Retailer-Specific)
 function SlideIntegrate() {
   return (
@@ -914,7 +845,6 @@ const SLIDE_COMPONENTS = {
   model: SlideModel,
   tierMix: SlideTierMix,
   transaction: SlideTransaction,
-  incremental: SlideIncremental,
   integrate: SlideIntegrate,
   flywheel: SlideFlywheel,
   getStarted: SlideGetStarted,
