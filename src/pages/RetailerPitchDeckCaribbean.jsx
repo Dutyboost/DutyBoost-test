@@ -511,7 +511,8 @@ function SlideTierMix() {
     { basket: "$100", share: "30%", disc: "10%", saves: "$10.00", fee: "$2.50", cost: "$12.50", keeps: "$87.50", keepsPct: "87.5%", hot: true },
     { basket: "$200", share: "15%", disc: "15%", saves: "$30.00", fee: "$5.00", cost: "$35.00", keeps: "$165.00", keepsPct: "82.5%", hot: false },
     { basket: "$300", share: "9%", disc: "20%", saves: "$60.00", fee: "$7.50", cost: "$67.50", keeps: "$232.50", keepsPct: "77.5%", hot: false },
-    { basket: "$300+", share: "4%", disc: "20% capped", saves: "$60.00", fee: "$10.00", cost: "$70.00", keeps: "$330.00", keepsPct: "82.5%", hot: false },
+    { basket: "$300+", share: "3%", disc: "20% capped", saves: "$60.00", fee: "$10.00", cost: "$70.00", keeps: "$330.00", keepsPct: "82.5%", hot: false },
+    { basket: "$1,000", share: "1%", disc: "20% capped", saves: "$60.00", fee: "$25.00", cost: "$85.00", keeps: "$915.00", keepsPct: "91.5%", hot: false },
   ];
   const stats = [
     { value: "87%", label: "of transactions sit below $300", sub: "Where the total cost stays between 7.5% and 17.5%" },
@@ -565,6 +566,13 @@ function SlideTierMix() {
             </table>
           </div>
 
+          <div className="bg-green-50 border border-green-200 rounded-xl px-4 py-2.5 mb-4 flex items-start gap-2">
+            <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+            <p className="text-green-800 text-sm">
+              <span className="font-semibold">Everything above $1,000 stays with the retailer.</span> The DutyCredit is capped at $60 and the platform fee at $25 per transaction — so as the basket grows, the retailer's share grows with it.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             {stats.map((s) => (
               <div key={s.value} className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white text-center">
@@ -604,7 +612,7 @@ function SlideTierMix() {
                   className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a>
               </p>
               <p className="text-slate-400">
-                Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data. $300+ shown at an average $400 basket; discount capped at $60.
+                Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data. $300+ shown at an average $400 basket; discount capped at $60 and platform fee capped at $25 per transaction.
               </p>
             </div>
           </div>
