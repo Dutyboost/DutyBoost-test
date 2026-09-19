@@ -450,7 +450,7 @@ export async function exportInvestorPitchPptx() {
     const s = pptx.addSlide();
     lightSlide(s);
     s.addText("ONE TRANSACTION — FIVE BENEFICIARIES", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("€100 Original Qualifying Retail Value", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+    s.addText("€100 Original Qualifying Retail Value Example", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     const beneficiaries = [
       { party: "Traveller", value: "€10.00", sub: "DutyCredit saving (10%)", color: GREEN },
