@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
+import SlideAcquisitionCost from "@/components/retailer-pitch-caribbean/SlideAcquisitionCost";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -28,6 +29,7 @@ const SLIDES = [
   { id: "solution", type: "solution" },
   { id: "market", type: "market" },
   { id: "conversion", type: "conversion" },
+  { id: "acquisition", type: "acquisition" },
   { id: "model", type: "model" },
   { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
@@ -44,6 +46,7 @@ const SLIDE_LABELS = {
   solution: "The Solution",
   market: "Sint Maarten Market",
   conversion: "Conversion Opportunity",
+  acquisition: "Customer Acquisition — On Us",
   model: "Business Model",
   tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
@@ -842,6 +845,7 @@ const SLIDE_COMPONENTS = {
   solution: SlideSolution,
   market: SlideMarket,
   conversion: SlideConversion,
+  acquisition: SlideAcquisitionCost,
   model: SlideModel,
   tierMix: SlideTierMix,
   transaction: SlideTransaction,
