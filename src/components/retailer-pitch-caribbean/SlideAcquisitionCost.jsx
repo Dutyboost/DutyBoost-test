@@ -20,11 +20,11 @@ function GridBg() {
 
 // Sint Maarten source markets — St. Maarten Tourism Bureau visitor arrivals by air.
 const SOURCE_MARKETS = [
-  { flag: "🇺🇸", name: "United States", visitors: "300K" },
+  { flag: "🇺🇸", name: "USA", visitors: "300K" },
   { flag: "🇫🇷", name: "France", visitors: "120K" },
   { flag: "🇳🇱", name: "Netherlands", visitors: "70K" },
   { flag: "🇨🇦", name: "Canada", visitors: "45K" },
-  { flag: "🇬🇧", name: "United Kingdom", visitors: "30K" },
+  { flag: "🇬🇧", name: "UK", visitors: "30K" },
 ];
 
 const CHANNELS = [
