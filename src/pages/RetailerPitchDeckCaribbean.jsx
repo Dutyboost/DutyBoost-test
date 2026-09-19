@@ -15,6 +15,10 @@ const M1NDSET_LINK = "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-stat
 const CTO_LINK = "https://www.onecaribbean.org/caribbean-tourism-shows-resilient-growth-amid-global-headwinds-in-2025/";
 const AVOLTA_LINK = "https://www.avoltaworld.com/sites/default/files/document/2026-05/Avolta_Q1%202026%20Presentation.pdf?utm_source=chatgpt.com";
 const ACI_LINK = "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-holds-asia-climbs-strong-demand-while-asia-pacific-growth-reshape-the-rankings/?utm_source=chatgpt.com";
+const ETRC_LINK = "https://etrc.org/publications/";
+const KEARNEY_LINK = "https://www.kearney.com/about/kearney-in-the-media/press/travel-retails-future-flight-path-turning-heightened-volatility-into-tomorrows-market-edge";
+const ACI_RETAIL_LINK = "https://www.aci-asiapac.aero/media-centre/news/airport-travel-retail-witnesses-a-fundamental-shift-as-younger-travelers-emerge-as-the-new-big-spenders";
+const MARKETUS_LINK = "https://market.us/report/global-travel-retail-market/";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -571,9 +575,39 @@ function SlideTierMix() {
             ))}
           </div>
 
-          <p className="text-slate-400 text-xs">
-            Transaction mix illustrates a typical 2025 airport retail basket distribution and can be replaced with your own POS data. $300+ shown at an average $400 basket; discount capped at $60. Costs are per transaction.
-          </p>
+          <div className="border-t border-slate-200 pt-3">
+            <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">Basis &amp; Sources</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1.5 text-xs text-slate-500">
+              <p>
+                <span className="font-semibold text-slate-600">Tier mix calibrated to the published average transaction value of $70–$140 in European travel retail.</span>{" "}
+                <a href={MARKETUS_LINK} target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">market.us, Travel Retail Market 2026</a>
+              </p>
+              <p>
+                Average retail spend per passenger of €10.55 in 2025, against €10.13bn of European travel retail sales — spending per head is small.{" "}
+                <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">ETRC</a>
+              </p>
+              <p>
+                Average spend per passenger of $15.50 in 2024, down from $24.30 in 2020 — transaction values are small and falling.{" "}
+                <a href={KEARNEY_LINK} target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">Kearney, Travel Retail 2025</a>
+              </p>
+              <p>
+                ~70% of all airport retail purchases are impulse-driven — small, unplanned baskets dominate transaction count.{" "}
+                <a href={ACI_RETAIL_LINK} target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">ACI Asia-Pacific Travel Retail Study</a>
+              </p>
+              <p>
+                27% Caribbean purchase rate (≈51% global average) — the conversion headroom the programme targets.{" "}
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">m1nd-set</a>
+              </p>
+              <p className="text-slate-400">
+                Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data. $300+ shown at an average $400 basket; discount capped at $60.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </SlideWrapper>
