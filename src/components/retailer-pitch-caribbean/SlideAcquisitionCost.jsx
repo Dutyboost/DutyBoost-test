@@ -100,7 +100,7 @@ export default function SlideAcquisitionCost() {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col justify-center">
               <h3 className="font-bold text-slate-800 text-sm md:text-base mb-2">The Curiosity Funnel</h3>
               <div className="space-y-1.5">
                 {FUNNEL.map((step, i) => (
@@ -115,7 +115,7 @@ export default function SlideAcquisitionCost() {
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="flex flex-col gap-3 h-full">
               <div className="bg-slate-800 text-white rounded-2xl p-4">
                 <h3 className="font-bold text-white text-sm md:text-base mb-2">Who Carries the Acquisition Cost?</h3>
                 <div className="space-y-2">
@@ -134,8 +134,8 @@ export default function SlideAcquisitionCost() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-3.5 text-white">
-                <p className="font-bold text-sm leading-snug">
+              <div className="flex-1 flex items-center justify-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white">
+                <p className="font-bold text-base leading-snug">
                   The acquisition cost is on us. You pay only the 2.5% platform fee on validated transactions — never on your existing sales.
                 </p>
               </div>
