@@ -120,14 +120,14 @@ export default function SlideAcquisitionCost() {
                 <h3 className="font-bold text-white text-sm md:text-base mb-2">Who Carries the Acquisition Cost?</h3>
                 <div className="space-y-2">
                   <div className="bg-red-900/30 border border-red-500/30 rounded-lg p-2.5">
-                    <p className="text-red-300 text-[11px] font-bold uppercase tracking-wide mb-0.5">Traditional Retail</p>
-                    <p className="text-slate-300 text-xs leading-snug">
+                    <p className="text-red-300 text-xs font-bold uppercase tracking-wide mb-1">Traditional Retail</p>
+                    <p className="text-slate-300 text-sm leading-snug">
                       Retailer funds ads, promotions and loyalty upfront — and pays whether the traveller buys or not.
                     </p>
                   </div>
                   <div className="bg-green-900/30 border border-green-500/30 rounded-lg p-2.5">
-                    <p className="text-green-300 text-[11px] font-bold uppercase tracking-wide mb-0.5">With DutyBoost</p>
-                    <p className="text-slate-300 text-xs leading-snug">
+                    <p className="text-green-300 text-xs font-bold uppercase tracking-wide mb-1">With DutyBoost</p>
+                    <p className="text-slate-300 text-sm leading-snug">
                       Acquisition is funded and executed by DutyBoost in the traveller's home country. The retailer pays $0 until a validated sale.
                     </p>
                   </div>
