@@ -40,6 +40,12 @@ module.exports = {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        terminal: {
+          navy: 'hsl(var(--terminal-navy))',
+          orange: 'hsl(var(--terminal-orange))',
+          amber: 'hsl(var(--terminal-amber))',
+          floor: 'hsl(var(--terminal-floor))',
+        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
