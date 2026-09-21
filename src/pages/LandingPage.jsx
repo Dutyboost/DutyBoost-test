@@ -18,6 +18,7 @@ import CarRentalIcon from "../components/CarRentalIcon";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 import TravellerJourneyOval from "../components/TravellerJourneyOval";
+import LiveInterfaceSection from "../components/live/LiveInterfaceSection";
 
 export default function LandingPage() {
   const { t, i18n } = useTranslation();
@@ -134,6 +135,9 @@ export default function LandingPage() {
           <p className="text-base sm:text-xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
         </div>
       </section>
+
+      {/* Live network interface */}
+      <LiveInterfaceSection />
 
       {/* Stakeholders */}
       <section id="how-it-works" className="py-2 sm:py-4 px-4 sm:px-6">
