@@ -19,7 +19,7 @@ export const SCENES = [
     active: ["travelers", "agencies"],
     cast: ["travelers", "agencies", "platform"],
     image:
-      "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/7cd1e970c_generated_image.png",
+      "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/fab2930d4_generated_image.png",
     Overlay: OverlayHome,
   },
   {
@@ -32,7 +32,7 @@ export const SCENES = [
     active: ["airports", "posPartner"],
     cast: ["travelers", "airports", "posPartner"],
     image:
-      "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/b0175297d_generated_image.png",
+      "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/e96492112_generated_image.png",
     Overlay: OverlayAirport,
   },
   {
@@ -45,7 +45,7 @@ export const SCENES = [
     active: ["retailers", "wholesale", "corporate"],
     cast: ["retailers", "wholesale", "corporate", "platform"],
     image:
-      "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9e1865d36_generated_image.png",
+      "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/da01eae32_generated_image.png",
     Overlay: OverlayTill,
   },
 ];
