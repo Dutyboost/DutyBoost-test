@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import { Cpu, Building2, PlaneTakeoff, Package, ShieldX, Rocket } from "lucide-react";
 import TravelAgencyIcon from "./TravelAgencyIcon";
 import AirportRetailerIcon from "./AirportRetailerIcon";
+import TravelerIcon from "./TravelerIcon";
 import HotelIcon from "./HotelIcon";
 import CarRentalIcon from "./CarRentalIcon";
-import { PEOPLE } from "@/data/roleAvatars";
 
 // 7 stakeholders orbit the central Traveller's Transaction.
 // DutyBoost is intentionally excluded from the oval layout.
 const NODES = [
-  { key: 'pos', personKey: 'posPartner', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/pos-partner", extraIcons: [] },
-  { key: 'retailers', personKey: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", link: "/retailer-showcase", extraIcons: [] },
-  { key: 'airports', personKey: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [] },
-  { key: 'wholesale', personKey: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", link: "/wholesale-showcase", extraIcons: [] },
-  { key: 'corporate', personKey: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },
-  { key: 'travel', personKey: 'agencies', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started?from=agency", extraIcons: [HotelIcon, CarRentalIcon] },
+  { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/pos-partner", extraIcons: [] },
+  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", link: "/retailer-showcase", extraIcons: [] },
+  { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [] },
+  { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", link: "/wholesale-showcase", extraIcons: [] },
+  { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },
+  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started?from=agency", extraIcons: [HotelIcon, CarRentalIcon] },
 ];
 
 export default function TravellerJourneyOval() {
@@ -83,11 +83,7 @@ export default function TravellerJourneyOval() {
           {/* Central hub — The Traveller's Transaction (clickable to hub showcase) */}
           <Link to="/travellers-transaction" className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full shadow-xl border-4 border-white transition-transform hover:scale-[1.03] cursor-pointer"
             style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "320px", height: "320px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
-            <img
-              src={PEOPLE.travelers.avatar}
-              alt={PEOPLE.travelers.person}
-              className="w-20 h-20 rounded-full object-cover ring-4 ring-white/30 mb-3"
-            />
+            <TravelerIcon className="w-12 h-12 text-white mb-3" />
             <p className="font-heading font-bold text-white text-xl leading-tight px-6">{t('oval.hub_title')}</p>
             <p className="text-white/80 text-sm mt-2 leading-snug px-6">{t('oval.hub_subtitle')}</p>
           </Link>
@@ -98,18 +94,10 @@ export default function TravellerJourneyOval() {
             const rad = (angle * Math.PI) / 180;
             const x = 50 + (440 / 10) * Math.cos(rad);
             const y = 50 + (250 / 6.4) * Math.sin(rad);
-            const person = PEOPLE[node.personKey];
             return (
               <div key={node.key} className="absolute z-10"
                 style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}>
-                <Link to={node.link} className={`relative flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow`} style={{ width: "170px" }}>
-                  {person && (
-                    <img
-                      src={person.avatar}
-                      alt={person.person}
-                      className="absolute -top-3 -left-3 w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-md"
-                    />
-                  )}
+                <Link to={node.link} className={`flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow`} style={{ width: "170px" }}>
                   <div className="flex items-center gap-1">
                     <div className="w-12 h-12 rounded-lg bg-white/80 flex items-center justify-center">
                       <node.Icon className={`w-7 h-7 ${node.fg}`} />
@@ -121,9 +109,6 @@ export default function TravellerJourneyOval() {
                     ))}
                   </div>
                   <span className="text-xs font-bold leading-tight text-center whitespace-nowrap">{t(`oval.nodes.${node.key}`)}</span>
-                  {person && (
-                    <span className="text-[10px] text-muted-foreground leading-none whitespace-nowrap">{person.person}</span>
-                  )}
                 </Link>
               </div>
             );

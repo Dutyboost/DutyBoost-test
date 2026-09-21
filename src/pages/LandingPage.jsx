@@ -18,10 +18,6 @@ import CarRentalIcon from "../components/CarRentalIcon";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 import TravellerJourneyOval from "../components/TravellerJourneyOval";
-import LiveInterfaceSection from "../components/live/LiveInterfaceSection";
-import StakeholderEnvironmentCard from "../components/terminal/StakeholderEnvironmentCard";
-import { getPerson } from "@/data/roleAvatars";
-import { ENVIRONMENTS } from "@/data/stakeholderEnvironments";
 
 export default function LandingPage() {
   const { t, i18n } = useTranslation();
@@ -116,36 +112,34 @@ export default function LandingPage() {
         )}
       </nav>
 
-      {/* Hero — terminal wayfinding */}
-      <section className="relative overflow-hidden bg-terminal-navy">
-        <img
-          src={ENVIRONMENTS.airports.image}
-          alt="Airport departures hall"
-          className="absolute inset-0 w-full h-full object-cover opacity-45"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-terminal-navy via-terminal-navy/90 to-terminal-navy/40" />
-        <div className="absolute inset-x-0 top-0 h-1 bg-terminal-orange" />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight max-w-4xl">
+      {/* Hero */}
+      <section className="relative overflow-hidden pt-4 pb-2 px-4 sm:px-6">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
+        <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center space-y-2.5">
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold tracking-tight leading-tight"
+            style={{
+              backgroundImage: "linear-gradient(90deg, hsl(220 30% 12%) 0%, hsl(220 30% 22%) 42%, hsl(220 100% 56%) 62%, hsl(29 100% 50%) 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
             {t('hero.title_1')}
           </h1>
-          <div className="mt-6 sm:mt-8 max-w-3xl border-l-4 border-terminal-orange bg-terminal-navy/80 backdrop-blur-sm">
-            <p className="px-4 py-2.5 text-sm sm:text-base text-white/85 leading-snug border-b border-white/10" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
-            <p className="px-4 py-2.5 text-sm sm:text-base text-white/85 leading-snug border-b border-white/10" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
-            <p className="px-4 py-2.5 text-sm sm:text-base text-white/85 leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
-          </div>
+          <p className="text-base sm:text-xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_1') }} />
+          <p className="text-base sm:text-xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_2') }} />
+          <p className="text-base sm:text-xl text-muted-foreground leading-snug" dangerouslySetInnerHTML={{ __html: t('hero.subtitle_3') }} />
         </div>
       </section>
-
-      {/* Live network interface */}
-      <LiveInterfaceSection />
 
       {/* Stakeholders */}
       <section id="how-it-works" className="py-2 sm:py-4 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-5 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-terminal-navy uppercase tracking-wide">{t('ecosystem.title')}</h2>
-            <div className="w-16 h-1 bg-terminal-orange mx-auto" />
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -208,20 +202,42 @@ export default function LandingPage() {
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'wholesale' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
               const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'wholesale' ? '/wholesale-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
-              const person = getPerson(s.key);
 
-              return (
-                <StakeholderEnvironmentCard
-                  key={s.key}
-                  envKey={s.key}
-                  Icon={Icon}
-                  AdditionalIcons={AdditionalIcons}
-                  title={title}
-                  person={person}
-                  description={description}
-                  benefits={benefits}
-                  link={isClickable ? cardLink : null}
-                />
+              const cardContent = (
+                <>
+                  <div className={`flex items-center gap-2 mb-2`}>
+                    <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center`}>
+                      <Icon className={`w-5 h-5 ${s.iconColor}`} />
+                    </div>
+                    {AdditionalIcons.map((AdIcon, idx) => (
+                      <div key={idx} className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center`}>
+                        <AdIcon className={`w-5 h-5 ${s.iconColor}`} />
+                      </div>
+                    ))}
+                  </div>
+                  <h3 className="font-heading font-bold text-sm whitespace-nowrap mb-1">{title}</h3>
+                  <p className="text-muted-foreground text-xs leading-snug mb-2">{description}</p>
+                  <ul className="space-y-1">
+                    {benefits.map((b) => (
+                      <li key={b} className="flex items-center gap-1.5 text-[11px] leading-snug">
+                        <div className={`w-1 h-1 rounded-full bg-gradient-to-r ${s.color} shrink-0`} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              );
+
+              const cardClasses = `bg-card rounded-xl border border-border p-3 sm:p-4 transition-shadow ${isClickable ? 'hover:shadow-lg cursor-pointer' : 'hover:shadow-lg'}`;
+
+              return isClickable ? (
+                <Link key={s.key} to={cardLink} className={cardClasses}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={s.key} className={cardClasses}>
+                  {cardContent}
+                </div>
               );
             })}
           </div>
@@ -235,17 +251,14 @@ export default function LandingPage() {
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="relative overflow-hidden rounded-sm bg-terminal-navy border-t-4 border-terminal-orange px-6 sm:px-12 py-10 text-center shadow-2xl">
-            <img
-              src={ENVIRONMENTS.airports.image}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-20"
-            />
-            <div className="relative space-y-5">
-              <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white uppercase tracking-wide">{t('cta.title')}</h2>
-              <p className="text-white/75 text-base sm:text-lg leading-relaxed mx-auto max-w-xl">{t('cta.description')}</p>
+          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-3xl p-12 text-primary-foreground shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+            <div className="relative space-y-6">
+              <h2 className="text-4xl font-heading font-bold">{t('cta.title')}</h2>
+              <p className="text-primary-foreground/80 text-lg sm:text-xl leading-relaxed mx-auto">{t('cta.description')}</p>
               <Link to="/get-started" className="block w-full sm:inline-block sm:w-auto mt-2">
-                <Button size="lg" className="bg-terminal-orange text-white hover:bg-terminal-orange/90 gap-2 px-6 sm:px-8 text-base w-full sm:w-auto whitespace-normal h-auto py-3 leading-snug">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 px-6 sm:px-8 text-base w-full sm:w-auto whitespace-normal h-auto py-3 leading-snug">
                   {t('cta.button')} <ArrowRight className="w-4 h-4 shrink-0" />
                 </Button>
               </Link>
