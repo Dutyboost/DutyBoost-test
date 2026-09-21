@@ -19,6 +19,8 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 import TravellerJourneyOval from "../components/TravellerJourneyOval";
 import LiveInterfaceSection from "../components/live/LiveInterfaceSection";
+import RoleAvatar from "../components/avatars/RoleAvatar";
+import { getPerson } from "@/data/roleAvatars";
 
 export default function LandingPage() {
   const { t, i18n } = useTranslation();
@@ -206,9 +208,11 @@ export default function LandingPage() {
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'wholesale' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
               const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'wholesale' ? '/wholesale-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const person = getPerson(s.key);
+
               const cardContent = (
                 <>
-                  <div className={`flex items-center gap-2 mb-2`}>
+                  <div className="flex items-center gap-2 mb-2">
                     <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center`}>
                       <Icon className={`w-5 h-5 ${s.iconColor}`} />
                     </div>
@@ -217,8 +221,14 @@ export default function LandingPage() {
                         <AdIcon className={`w-5 h-5 ${s.iconColor}`} />
                       </div>
                     ))}
+                    {person && <RoleAvatar person={person} size={38} className="ml-auto" />}
                   </div>
-                  <h3 className="font-heading font-bold text-sm whitespace-nowrap mb-1">{title}</h3>
+                  <h3 className="font-heading font-bold text-sm whitespace-nowrap mb-0.5">{title}</h3>
+                  {person && (
+                    <p className="text-[10px] font-semibold text-primary mb-1 truncate">
+                      {person.person} · {person.personRole}
+                    </p>
+                  )}
                   <p className="text-muted-foreground text-xs leading-snug mb-2">{description}</p>
                   <ul className="space-y-1">
                     {benefits.map((b) => (

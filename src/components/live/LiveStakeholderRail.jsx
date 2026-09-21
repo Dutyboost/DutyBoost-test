@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { STAKEHOLDERS } from "./liveData";
+import RoleAvatar from "../avatars/RoleAvatar";
 
 export default function LiveStakeholderRail({ metrics, active }) {
   return (
@@ -20,21 +21,23 @@ export default function LiveStakeholderRail({ metrics, active }) {
               }`}
             >
               <div className="flex items-center gap-2">
-                <s.Icon className={`w-4 h-4 ${s.color} shrink-0`} />
-                <p className="text-[11px] font-semibold text-slate-200 truncate">{s.label}</p>
-                {isActive && (
-                  <span className="ml-auto h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse shrink-0" />
-                )}
+                <RoleAvatar person={s.person} size={32} active={isActive} />
+                <div className="min-w-0">
+                  <p className="text-[11px] font-bold text-white truncate">{s.person.person}</p>
+                  <p className="text-[10px] text-slate-400 truncate">{s.person.personRole}</p>
+                </div>
               </div>
-              <motion.p
-                key={metrics[s.key]}
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="font-heading font-bold text-white text-sm tabular-nums mt-1"
-              >
-                {(s.prefix || "") + metrics[s.key].toLocaleString()}
-              </motion.p>
+              <div className="flex items-baseline gap-1.5 mt-2">
+                <motion.span
+                  key={metrics[s.key]}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="font-heading font-bold text-white text-sm tabular-nums"
+                >
+                  {(s.prefix || "") + metrics[s.key].toLocaleString()}
+                </motion.span>
+              </div>
               <p className="text-[10px] text-slate-500 truncate">{s.metric}</p>
             </div>
           );

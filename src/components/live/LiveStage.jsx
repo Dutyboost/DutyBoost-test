@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import { SCENES, SCENE_MS } from "./liveData";
+import { PEOPLE } from "@/data/roleAvatars";
 
 export default function LiveStage({ scene, setScene, paused, setPaused }) {
   const current = SCENES[scene];
@@ -43,6 +44,26 @@ export default function LiveStage({ scene, setScene, paused, setPaused }) {
 
       {/* Caption + step controls */}
       <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+        <div className="flex flex-wrap items-center gap-1.5 mb-2">
+          {current.cast.map((key) => {
+            const p = PEOPLE[key];
+            if (!p) return null;
+            return (
+              <div
+                key={key}
+                className="flex items-center gap-1.5 rounded-full bg-slate-950/70 backdrop-blur border border-white/10 pl-0.5 pr-2.5 py-0.5"
+              >
+                <img src={p.avatar} alt={p.person} className="w-6 h-6 rounded-full object-cover" />
+                <span className="text-[10px] font-bold text-white whitespace-nowrap">
+                  {p.person}
+                </span>
+                <span className="text-[10px] text-slate-400 whitespace-nowrap hidden sm:inline">
+                  · {p.personRole}
+                </span>
+              </div>
+            );
+          })}
+        </div>
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
