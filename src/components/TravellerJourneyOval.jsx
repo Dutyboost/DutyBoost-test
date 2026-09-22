@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { Cpu, Building2, PlaneTakeoff, Package, ShieldX, Rocket } from "lucide-react";
 import TravelAgencyIcon from "./TravelAgencyIcon";
 import AirportRetailerIcon from "./AirportRetailerIcon";
-import TravelerIcon from "./TravelerIcon";
 import HotelIcon from "./HotelIcon";
 import CarRentalIcon from "./CarRentalIcon";
+import StakeholderNodeCard from "./StakeholderNodeCard";
+import TravellerTransactionHub from "./TravellerTransactionHub";
 
-// 7 stakeholders orbit the central Traveller's Transaction.
+// 6 stakeholders orbit the central Traveller's Transaction.
 // DutyBoost is intentionally excluded from the oval layout.
 const NODES = [
   { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/pos-partner", extraIcons: [] },
@@ -60,8 +60,18 @@ export default function TravellerJourneyOval() {
           </div>
         </div>
 
-        {/* Oval diagram */}
-        <div className="relative mx-auto w-full" style={{ maxWidth: "1000px", height: "640px" }}>
+        {/* Mobile: hub on top, stakeholders in a grid — nothing overlaps */}
+        <div className="md:hidden space-y-4">
+          <TravellerTransactionHub compact />
+          <div className="grid grid-cols-2 gap-3">
+            {NODES.map((node) => (
+              <StakeholderNodeCard key={node.key} node={node} />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop / tablet: oval diagram */}
+        <div className="hidden md:block relative mx-auto w-full" style={{ maxWidth: "1000px", height: "640px" }}>
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 640" style={{ pointerEvents: "none", zIndex: 0 }}>
             {/* Oval track */}
             <ellipse cx="500" cy="320" rx="440" ry="250" fill="none" stroke="hsl(220 15% 90%)" strokeWidth="2" strokeDasharray="6 5" />
@@ -81,12 +91,7 @@ export default function TravellerJourneyOval() {
           </svg>
 
           {/* Central hub — The Traveller's Transaction (clickable to hub showcase) */}
-          <Link to="/travellers-transaction" className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full shadow-xl border-4 border-white transition-transform hover:scale-[1.03] cursor-pointer"
-            style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "320px", height: "320px", background: "linear-gradient(135deg, hsl(220 100% 56%), hsl(243 75% 60%))" }}>
-            <TravelerIcon className="w-12 h-12 text-white mb-3" />
-            <p className="font-heading font-bold text-white text-xl leading-tight px-6">{t('oval.hub_title')}</p>
-            <p className="text-white/80 text-sm mt-2 leading-snug px-6">{t('oval.hub_subtitle')}</p>
-          </Link>
+          <TravellerTransactionHub />
 
           {/* Stakeholder nodes positioned on the oval — clickable to showcase pages */}
           {NODES.map((node, i) => {
@@ -96,20 +101,8 @@ export default function TravellerJourneyOval() {
             const y = 50 + (250 / 6.4) * Math.sin(rad);
             return (
               <div key={node.key} className="absolute z-10"
-                style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}>
-                <Link to={node.link} className={`flex flex-col items-center gap-2 ${node.bg} border ${node.border} rounded-2xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow`} style={{ width: "170px" }}>
-                  <div className="flex items-center gap-1">
-                    <div className="w-12 h-12 rounded-lg bg-white/80 flex items-center justify-center">
-                      <node.Icon className={`w-7 h-7 ${node.fg}`} />
-                    </div>
-                    {node.extraIcons.map((AdIcon, idx) => (
-                      <div key={idx} className="w-12 h-12 rounded-lg bg-white/80 flex items-center justify-center">
-                        <AdIcon className={`w-7 h-7 ${node.fg}`} />
-                      </div>
-                    ))}
-                  </div>
-                  <span className="text-xs font-bold leading-tight text-center whitespace-nowrap">{t(`oval.nodes.${node.key}`)}</span>
-                </Link>
+                style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)", width: "170px" }}>
+                <StakeholderNodeCard node={node} />
               </div>
             );
           })}
