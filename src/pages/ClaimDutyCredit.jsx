@@ -18,7 +18,6 @@ import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
 import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
 import { buildParticipatingStores } from "../data/participatingStores";
-import DemoBadge from "../components/DemoBadge";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -375,13 +374,6 @@ export default function ClaimDutyCredit() {
                 </div>
               )}
 
-              {airport && !storesLoading && !airportLive && (
-                <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
-                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                  <span>{tr('airport_not_live_note')}</span>
-                </div>
-              )}
-
               <Button
                 onClick={handleClaim}
                 disabled={!airport || !airline || !bookingRef || !departureDate || !flightNumber || !flightNumberValid || !bookingRefValid || (isPartnerFlow && !travelerEmail)}
@@ -448,9 +440,6 @@ export default function ClaimDutyCredit() {
         {/* ── SUCCESS STEP ── */}
         {step === 'success' && generated && (
           <div className="space-y-6 print:space-y-3">
-            <div className="flex justify-center print:hidden">
-              <DemoBadge large />
-            </div>
             <div className="text-center space-y-2">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium">
                 <CheckCircle2 className="w-4 h-4" />
