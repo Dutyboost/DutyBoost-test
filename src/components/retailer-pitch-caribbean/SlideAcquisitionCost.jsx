@@ -18,13 +18,18 @@ function GridBg() {
   );
 }
 
-// Sint Maarten source markets — St. Maarten Tourism Bureau visitor arrivals by air.
+const SXM_LINK = "https://www.sintmaartengov.org/news/pages/Passenger-Arrivals-and-Cruise-Arrivals-Show-Growth-in-2025.aspx";
+
+// Sint Maarten 2025 air passenger arrivals by source market (SXM Gov).
+// USA, France and Netherlands are published directly; Canada, Other EU and
+// Regional/LatAm are derived from the release's regional totals.
 const SOURCE_MARKETS = [
-  { flag: "🇺🇸", name: "USA", visitors: "300K" },
-  { flag: "🇫🇷", name: "France", visitors: "120K" },
-  { flag: "🇳🇱", name: "Netherlands", visitors: "70K" },
-  { flag: "🇨🇦", name: "Canada", visitors: "45K" },
-  { flag: "🇬🇧", name: "UK", visitors: "30K" },
+  { flag: "🇺🇸", name: "USA", arrivals: "462,038", share: "53.9%" },
+  { flag: "🇫🇷", name: "France", arrivals: "87,952", share: "10.3%" },
+  { flag: "🇳🇱", name: "Netherlands", arrivals: "85,741", share: "10.0%" },
+  { flag: "🇨🇦", name: "Canada", arrivals: "79,577", share: "9.3%" },
+  { flag: "🌎", name: "Regional/LatAm", arrivals: "93,200", share: "10.9%" },
+  { flag: "🇪🇺", name: "Other EU", arrivals: "47,486", share: "5.5%" },
 ];
 
 const CHANNELS = [
@@ -67,17 +72,22 @@ export default function SlideAcquisitionCost() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
                 <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1">Where We Acquire Them — SXM Source Markets</h3>
                 <p className="text-slate-500 text-xs leading-snug mb-2">
-                  Over 565,000 of Sint Maarten's 855,994 annual air arrivals come from these 5 source markets — a subset of total passenger traffic, not the full total. SXM has no domestic flights — 100% of passengers are international.
+                  <span className="font-bold text-blue-600">715,308 of Sint Maarten's 855,994 air arrivals (83.6%)</span> come from our four primary source markets — USA, France, Netherlands and Canada. SXM has no domestic flights — 100% of passengers are international.
                 </p>
-                <div className="grid grid-cols-5 gap-1.5">
+                <div className="grid grid-cols-3 gap-1.5">
                   {SOURCE_MARKETS.map((m) => (
-                    <div key={m.name} className="bg-white border border-slate-200 rounded-lg px-1 py-2.5 text-center">
-                      <p className="text-xl leading-none mb-1">{m.flag}</p>
+                    <div key={m.name} className="bg-white border border-slate-200 rounded-lg px-1.5 py-2 text-center">
+                      <p className="text-base leading-none mb-1">{m.flag}</p>
                       <p className="text-[11px] font-semibold text-slate-700 leading-tight">{m.name}</p>
-                      <p className="text-xs text-blue-600 font-semibold mt-0.5">{m.visitors}</p>
+                      <p className="text-xs text-blue-600 font-bold mt-0.5">{m.arrivals}</p>
+                      <p className="text-[10px] text-slate-400 leading-tight">{m.share} of arrivals</p>
                     </div>
                   ))}
                 </div>
+                <p className="text-slate-400 text-[10px] mt-2 leading-snug">
+                  2025 air passenger arrivals, all passengers. Canada, Other EU and Regional/LatAm derived from regional totals —{" "}
+                  <a href={SXM_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:text-blue-500">SXM Gov</a>
+                </p>
               </div>
 
               <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4">

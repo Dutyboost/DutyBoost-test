@@ -205,7 +205,7 @@ function SlideProblem() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                 <div className="text-3xl md:text-5xl font-bold text-blue-600 mb-2">855,994</div>
                 <div className="text-slate-800 font-semibold">Sint Maarten air passenger arrivals in 2025</div>
-                <div className="text-slate-500 text-sm mt-1">53.9% from North America | 25.8% from EU — share of all air passengers{" "}
+                <div className="text-slate-500 text-sm mt-1">53.9% from the USA | 25.8% from the EU — share of all air passengers{" "}
                   <a href={SXM_LINK} target="_blank" rel="noopener noreferrer"
                     className="text-blue-600 font-bold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(SXM Gov)</a>
                 </div>
@@ -266,7 +266,7 @@ function SlideMarket() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {[
-            { label: "Sint Maarten Air Arrivals", value: "855,994", sub: "All air passengers — 53.9% North America | 25.8% EU (SXM Gov, 2025)", color: "blue", subLink: SXM_LINK },
+            { label: "Sint Maarten Air Arrivals", value: "855,994", sub: "All air passengers — USA 53.9% | EU 25.8% (SXM Gov, 2025)", color: "blue", subLink: SXM_LINK },
             { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "indigo", subLink: CMI_LINK },
             { label: "Sint Maarten DF&TR Share", value: "$67M", sub: "2.45% of Caribbean market (est.)", color: "violet", subLink: CMI_LINK },
           ].map((m) => (
