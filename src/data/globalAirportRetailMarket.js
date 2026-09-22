@@ -79,9 +79,9 @@ export const GLOBAL_MARKET_STATS = [
 // Top 5 global source markets for international travel (UNWTO 2023 outbound trips).
 export const GLOBAL_SOURCE_MARKETS = [
   { flag: "🇩🇪", name: "Germany", visitors: "220M" },
-  { flag: "🇺🇸", name: "United States", visitors: "186M" },
+  { flag: "🇺🇸", name: "USA", visitors: "186M" },
   { flag: "🇨🇳", name: "China", visitors: "174M" },
-  { flag: "🇬🇧", name: "United Kingdom", visitors: "172M" },
+  { flag: "🇬🇧", name: "UK", visitors: "172M" },
   { flag: "🇫🇷", name: "France", visitors: "120M" },
 ];
 
