@@ -18,6 +18,10 @@
       "type": "string",
       "title": "Category"
     },
+    "departure_hall": {
+      "type": "string",
+      "title": "Departure Hall / Terminal / Zone"
+    },
     "source_url": {
       "type": "string",
       "title": "Source URL (official airport directory)"

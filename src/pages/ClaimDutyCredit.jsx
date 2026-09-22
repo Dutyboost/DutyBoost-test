@@ -9,7 +9,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
   Search, MapPin, Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
-  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet, Store
+  ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet
 } from "lucide-react";
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
 import { getAirlineFormat } from "../data/airlineFormats";
@@ -17,6 +17,7 @@ import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
 import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
 import { buildParticipatingStores } from "../data/participatingStores";
+import ParticipatingStores from "../components/claim-duty-credit/ParticipatingStores";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -41,6 +42,8 @@ export default function ClaimDutyCredit() {
   const [walletLoading, setWalletLoading] = useState(false);
   const [airportCode, setAirportCode] = useState('');
   const [airportCountry, setAirportCountry] = useState('');
+  const [airportName, setAirportName] = useState('');
+  const [airportCity, setAirportCity] = useState('');
   const [participatingStores, setParticipatingStores] = useState([]);
   const [storesLoading, setStoresLoading] = useState(false);
   const [airportLive, setAirportLive] = useState(false);
@@ -104,8 +107,7 @@ export default function ClaimDutyCredit() {
         return ap === code || ap.startsWith(code + ' ') || ap.startsWith(code + '-') || ap.includes(code + ' —') || ap.includes(code + ' -');
       });
       setAirportLive(dbMatches.length > 0);
-      const researchedStores = researched.map(r => ({ store_name: r.store_name }));
-      setParticipatingStores(buildParticipatingStores(code, airportObj.city, [...researchedStores, ...dbMatches]));
+      setParticipatingStores(buildParticipatingStores(code, airportObj.city, [...researched, ...dbMatches]));
     } catch {
       setAirportLive(false);
       setParticipatingStores(buildParticipatingStores(airportObj.code, airportObj.city, []));
@@ -122,6 +124,8 @@ export default function ClaimDutyCredit() {
         setAirport(`${found.code} — ${found.city}`);
         setAirportCode(found.code);
         setAirportCountry(found.country);
+        setAirportName(found.name);
+        setAirportCity(found.city);
         fetchStoresForAirport(found);
       }
     }
@@ -132,6 +136,8 @@ export default function ClaimDutyCredit() {
     setAirport(`${a.code} — ${a.city}`);
     setAirportCode(a.code);
     setAirportCountry(a.country);
+    setAirportName(a.name);
+    setAirportCity(a.city);
     setAirportQuery('');
     setAirportOpen(false);
     fetchStoresForAirport(a);
@@ -506,28 +512,12 @@ export default function ClaimDutyCredit() {
             </div>
 
             {/* Participating stores at this airport — only shown when real store data exists */}
-            {(storesLoading || participatingStores.length > 0) && (
-            <div className="bg-card rounded-2xl border border-border p-6 space-y-3 print:p-3 print:space-y-1">
-              <p className="text-sm font-semibold flex items-center gap-2">
-                <ShoppingBag className="w-4 h-4 text-primary" />
-                {tr('stores_title')}
-              </p>
-              {storesLoading ? (
-                <div className="flex items-center gap-2 text-sm text-muted-foreground py-2">
-                  <Loader2 className="w-4 h-4 animate-spin" /> {tr('generating')}
-                </div>
-              ) : participatingStores.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                  {participatingStores.map((s, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm py-1.5 px-2.5 rounded-lg bg-muted/40">
-                      <Store className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                      <span className="font-medium truncate">{s.name}</span>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-            )}
+            <ParticipatingStores
+              stores={participatingStores}
+              loading={storesLoading}
+              airportName={airportName}
+              airportCity={airportCity}
+            />
 
             <div className="flex flex-col sm:flex-row gap-3 print:hidden">
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">

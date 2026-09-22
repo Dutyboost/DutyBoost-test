@@ -14,28 +14,36 @@ const AIRPORT_SPECIFIC_STORES = {
  * Order of precedence: verified airport-specific stores, then real retailers
  * registered in the database for that airport. Airports with neither show an
  * empty list.
+ *
+ * Each entry is { name, category, departure_hall }. Sources that carry no
+ * location (the hand-verified name lists) are enriched from a later source
+ * that does, so the same shop is never listed twice with less detail.
  */
 export function buildParticipatingStores(airportCode, airportCity, dbStores = []) {
-  const seen = new Set();
-  const result = [];
+  const byName = new Map();
 
-  // Verified airport-specific stores
+  const add = (name, category, departureHall) => {
+    const key = name.toLowerCase();
+    const existing = byName.get(key);
+    if (!existing) {
+      byName.set(key, {
+        name,
+        category: category || '',
+        departure_hall: departureHall || '',
+      });
+      return;
+    }
+    if (!existing.category && category) existing.category = category;
+    if (!existing.departure_hall && departureHall) existing.departure_hall = departureHall;
+  };
+
   const specific = AIRPORT_SPECIFIC_STORES[(airportCode || '').toUpperCase()] || [];
-  specific.forEach(name => {
-    if (!seen.has(name.toLowerCase())) {
-      seen.add(name.toLowerCase());
-      result.push({ name });
-    }
-  });
+  specific.forEach((name) => add(name, '', ''));
 
-  // Retailers registered in the database for this airport
-  (dbStores || []).forEach(s => {
+  (dbStores || []).forEach((s) => {
     const name = s.store_name || s.name;
-    if (name && !seen.has(name.toLowerCase())) {
-      seen.add(name.toLowerCase());
-      result.push({ name });
-    }
+    if (name) add(name, s.category, s.departure_hall);
   });
 
-  return result;
+  return [...byName.values()];
 }
