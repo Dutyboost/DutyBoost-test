@@ -41,7 +41,7 @@ export default function SlideAcquisitionGlobal() {
           <div className="mb-4">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Customer Acquisition — On Us</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              We Take On the Acquisition Cost. <span className="text-blue-600">You Take the Sale.</span>
+              We Take On the Acquisition Cost. <span className="text-blue-600">Retailers Take the Sale.</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               DutyBoost funds and runs the Curiosity Campaign in the traveller's home country — before they ever reach the terminal.
