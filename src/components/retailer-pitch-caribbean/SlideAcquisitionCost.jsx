@@ -144,8 +144,8 @@ export default function SlideAcquisitionCost() {
                 </div>
               </div>
 
-              <div className="flex-1 flex items-center justify-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-4 text-white">
-                <p className="font-bold text-base leading-snug">
+              <div className="flex-1 flex items-center justify-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
+                <p className="font-bold text-lg md:text-xl leading-snug">
                   The acquisition cost is on us. You pay only the 2.5% platform fee on validated transactions — never on your existing sales.
                 </p>
               </div>
