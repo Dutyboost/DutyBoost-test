@@ -11,6 +11,7 @@ import { EUROPEAN_AIRPORTS_EXTRA } from "./europeanAirportsExtra";
 import { AMERICAS_AIRPORTS_EXTRA } from "./americasAirportsExtra";
 import { ASIAN_AIRPORTS_EXTRA } from "./asianAirportsExtra";
 import { OCEANIA_AIRPORTS_EXTRA } from "./oceaniaAirportsExtra";
+import { ADDITIONAL_AIRPORTS } from "./additionalAirports";
 
 // Ensure European airports also carry a region tag
 EUROPEAN_AIRPORTS.forEach(a => {
@@ -29,6 +30,7 @@ const ALL_AIRPORTS = [
   ...ASIAN_AIRPORTS_EXTRA,
   ...OCEANIA_AIRPORTS,
   ...OCEANIA_AIRPORTS_EXTRA,
+  ...ADDITIONAL_AIRPORTS,
 ];
 
 // Deduplicate by IATA code — keep the first occurrence (higher-priority dataset)
