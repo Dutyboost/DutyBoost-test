@@ -40,12 +40,14 @@ function researchPrompt(airport) {
     '- If the official site has no shop directory, or you cannot reach it, return an empty stores array and an empty source_url.',
     '- A generic phrase such as "Duty Free" may only be listed if that is genuinely the outlet name.',
     '- Listing every outlet is the priority. Never leave an outlet out, and never shorten the list, for any reason.',
+    '- Retail and travel retail only. Exclude every food and beverage outlet: restaurants, cafés, coffee shops, bars, bakeries, delis, snack and grab-and-go counters, and any outlet whose main business is food or drink.',
+    '- Duty free, fashion, jewellery and watches, beauty, electronics, souvenirs and gifts, pharmacy, books and news, convenience and travel essentials stores all belong in the list.',
     '',
     'Then annotate each outlet with `hall`: the departure hall, terminal, pier, level or zone the official page places that outlet in, using the airport\'s own wording (for example "Departure Hall 2", "Terminal 1, Airside", "Pier F", "Level 1").',
     'The hall is a bonus annotation only: if the official page does not state a location for an outlet, set hall to an empty string and still include the outlet. Never guess or infer a hall.',
     '',
     'Return source_url (the exact official page you read the shops from) and stores as an array of { name, category, hall }.',
-    'category must be one of: Duty Free, Fashion, Jewellery & Watches, Beauty & Cosmetics, Electronics, Souvenirs & Gifts, Food & Beverage, Convenience, Pharmacy, Books & News, Other.',
+    'category must be one of: Duty Free, Fashion, Jewellery & Watches, Beauty & Cosmetics, Electronics, Souvenirs & Gifts, Travel Essentials, Convenience, Pharmacy, Books & News, Other.',
   ].join('\n');
 }
 

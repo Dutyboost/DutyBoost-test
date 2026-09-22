@@ -73,8 +73,6 @@ export const AIRPORT_STORES = {
   // Source: guanacasteairport.com/en/stores
   LIR: [
     "Duty Free",
-    "24/7 Grab & Go",
-    "Blue Zones",
     "BrittShop Costa Rica",
     "Casa Tica",
     "Emprende 506",
@@ -111,9 +109,7 @@ export const AIRPORT_STORES = {
     "Bruna",
     "Books & Magazines",
     "Bloem",
-    "Chocolate House",
     "Drugstore",
-    "Coco & Sebas",
   ],
 };
 
