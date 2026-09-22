@@ -88,20 +88,24 @@ export default function ClaimDutyCredit() {
     return fmtMoney(eur, currency, decimals);
   };
 
-  // Fetch participating stores for the selected airport from the database,
-  // supplemented by a curated brand pool so every airport shows 5–20 stores.
+  // Fetch participating stores for the selected airport: shops researched from the
+  // airport's own official directory, plus retailers registered in the database.
   const fetchStoresForAirport = async (airportObj) => {
     if (!airportObj) return;
     setStoresLoading(true);
     try {
-      const all = await base44.entities.Retailer.list(200);
       const code = airportObj.code.toUpperCase();
+      const [all, researched] = await Promise.all([
+        base44.entities.Retailer.list(200).catch(() => []),
+        base44.entities.AirportStore.filter({ airport_code: code }, 'store_name', 200).catch(() => []),
+      ]);
       const dbMatches = all.filter(r => {
         const ap = (r.airport || '').toUpperCase();
         return ap === code || ap.startsWith(code + ' ') || ap.startsWith(code + '-') || ap.includes(code + ' —') || ap.includes(code + ' -');
       });
       setAirportLive(dbMatches.length > 0);
-      setParticipatingStores(buildParticipatingStores(code, airportObj.city, dbMatches));
+      const researchedStores = researched.map(r => ({ store_name: r.store_name }));
+      setParticipatingStores(buildParticipatingStores(code, airportObj.city, [...researchedStores, ...dbMatches]));
     } catch {
       setAirportLive(false);
       setParticipatingStores(buildParticipatingStores(airportObj.code, airportObj.city, []));
