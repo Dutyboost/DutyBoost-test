@@ -105,7 +105,6 @@ export const AIRPORT_STORES = {
     "Victoria's Secret",
     "Donsje",
     "MY Jewellery",
-    "Albert Heijn",
     "Bruna",
     "Books & Magazines",
     "Bloem",
