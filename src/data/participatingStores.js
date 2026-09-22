@@ -11,6 +11,8 @@ const AIRPORT_SPECIFIC_STORES = {
 
 // DutyBoost is retail and travel retail only — no food and beverage.
 const FNB_CATEGORY = /food|beverage|drink|restaurant|cafe|café|coffee|bar\b|snack|bakery|deli|bistro|grill|kitchen|grocery|supermarket|eatery/i;
+// ...and outlet names that are unmistakably food or drink brands.
+const FNB_NAME = /haribo|lolly|dulce|gourmet|nespresso|starbucks|caf[eé]|coffee|bistro|restaurant|grill|bakery|snack|deli\b|ice cream|gelato|pizza|burger|supermarket|grocery/i;
 
 /**
  * Build the participating-store list for an airport.
@@ -47,6 +49,7 @@ export function buildParticipatingStores(airportCode, airportCity, dbStores = []
     const name = s.store_name || s.name;
     if (!name) return;
     if (s.category && FNB_CATEGORY.test(s.category)) return;
+    if (FNB_NAME.test(name)) return;
     add(name, s.category, s.departure_hall);
   });
 
