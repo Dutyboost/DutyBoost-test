@@ -24,6 +24,7 @@ export default function ClaimDutyCredit() {
   const refCode = urlParams.get('ref') || '';
   const campaign = urlParams.get('utm_campaign') || '';
   const preselectedAirport = urlParams.get('airport') || '';
+  const preselectedDate = urlParams.get('date') || '';
 
   const [step, setStep] = useState('claim'); // 'claim' | 'details' | 'generating' | 'success' | 'exists'
   const [airport, setAirport] = useState(preselectedAirport || '');
@@ -33,7 +34,7 @@ export default function ClaimDutyCredit() {
   const [flightNumber, setFlightNumber] = useState('');
   const [bookingRef, setBookingRef] = useState('');
   const [airline, setAirline] = useState('');
-  const [departureDate, setDepartureDate] = useState('');
+  const [departureDate, setDepartureDate] = useState(preselectedDate || '');
   const [generated, setGenerated] = useState(null);
   const [error, setError] = useState('');
   const [walletPlatform, setWalletPlatform] = useState('unknown');

@@ -184,7 +184,7 @@ export default function EligibilityShowcase() {
                   <p className="text-2xl font-heading font-bold text-green-700">{tr('eligible_title')}</p>
                   <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('eligible_desc', { airport, date: new Date(departureDate).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" }) }) }} />
                 </div>
-                <Link to="/claim-duty-credit">
+                <Link to={`/claim-duty-credit?airport=${encodeURIComponent(airport.split(" — ")[0])}&date=${encodeURIComponent(departureDate)}`}>
                   <Button size="lg" className="w-full h-auto min-h-14 py-4 px-4 text-sm sm:text-base gap-2 whitespace-normal text-center leading-snug">
                     <Gift className="w-5 h-5 shrink-0" />
                     <span className="min-w-0">{tr('btn_generate')}</span>
