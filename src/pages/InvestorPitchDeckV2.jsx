@@ -16,6 +16,7 @@ import SlideSxmPos from "@/components/investor/v2/SlideSxmPos";
 import SlideSxmWholesale from "@/components/investor/v2/SlideSxmWholesale";
 import SlideSxmRetailer from "@/components/investor/v2/SlideSxmRetailer";
 import SlideSxmOpportunity from "@/components/investor/v2/SlideSxmOpportunity";
+import SlideAcquisitionGlobal from "@/components/investor/v2/SlideAcquisitionGlobal";
 import SlideClosing from "@/components/investor/v2/SlideClosing";
 
 const SLIDES = [
@@ -30,6 +31,7 @@ const SLIDES = [
   { id: "stakeholderSecondary", type: "stakeholderSecondary" },
   { id: "model", type: "model" },
   { id: "revenueDip", type: "revenueDip" },
+  { id: "acquisitionGlobal", type: "acquisitionGlobal" },
   { id: "sxmMarket", type: "sxmMarket" },
   { id: "sxmPos", type: "sxmPos" },
   { id: "sxmWholesale", type: "sxmWholesale" },
@@ -52,6 +54,7 @@ const SLIDE_COMPONENTS = {
   stakeholderSecondary: SlideStakeholderSecondary,
   model: SlideModel,
   revenueDip: SlideRevenueDipV2,
+  acquisitionGlobal: SlideAcquisitionGlobal,
   sxmMarket: SlideSxmMarket,
   sxmPos: SlideSxmPos,
   sxmWholesale: SlideSxmWholesale,
@@ -74,6 +77,7 @@ const SLIDE_LABELS = {
   stakeholderSecondary: "Secondary: Wholesale",
   model: "Business Model",
   revenueDip: "Revenue Dip & Corporate Activation",
+  acquisitionGlobal: "Customer Acquisition — On Us",
   sxmMarket: "Sint Maarten Market",
   sxmPos: "SXM: POS — Wagos & Antek",
   sxmWholesale: "SXM: Wholesale — Divico & ILTT",
