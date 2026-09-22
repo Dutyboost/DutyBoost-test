@@ -67,7 +67,7 @@ export default function SlideAcquisitionCost() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
                 <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1">Where We Acquire Them — SXM Source Markets</h3>
                 <p className="text-slate-500 text-xs leading-snug mb-2">
-                  Over 565,000 annual visitors arrive by air from these 5 source markets. SXM has no domestic flights — 100% of passengers are international.
+                  Over 565,000 of Sint Maarten's 855,994 annual air arrivals come from these 5 source markets — a subset of total passenger traffic, not the full total. SXM has no domestic flights — 100% of passengers are international.
                 </p>
                 <div className="grid grid-cols-5 gap-1.5">
                   {SOURCE_MARKETS.map((m) => (
