@@ -111,15 +111,15 @@ export default function SlideAcquisitionCost() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col justify-center">
-              <h3 className="font-bold text-slate-800 text-sm md:text-base mb-2">The Curiosity Funnel</h3>
-              <div className="space-y-1.5">
+              <h3 className="font-bold text-slate-800 text-base md:text-lg mb-3">The Curiosity Funnel</h3>
+              <div className="space-y-2.5">
                 {FUNNEL.map((step, i) => (
                   <Fragment key={step}>
-                    <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0">{i + 1}</span>
-                      <span className="text-xs md:text-sm text-slate-700 leading-snug">{step}</span>
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">{i + 1}</span>
+                      <span className="text-sm md:text-base text-slate-700 leading-snug">{step}</span>
                     </div>
-                    {i < FUNNEL.length - 1 && <div className="pl-[9px] text-slate-300 text-xs leading-none">↓</div>}
+                    {i < FUNNEL.length - 1 && <div className="pl-[11px] text-slate-300 text-sm leading-none">↓</div>}
                   </Fragment>
                 ))}
               </div>
