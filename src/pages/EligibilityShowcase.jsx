@@ -169,9 +169,9 @@ export default function EligibilityShowcase() {
                   onClick={handleCheck}
                   disabled={!airport || !departureDate}
                   size="lg"
-                  className="w-full min-h-14 py-4 text-base gap-2 whitespace-normal text-center leading-snug"
+                  className="w-full h-auto min-h-14 py-4 px-4 text-sm sm:text-base gap-2 whitespace-normal text-center leading-snug"
                 >
-                  <Wand2 className="w-5 h-5" />
+                  <Wand2 className="w-5 h-5 shrink-0" />
                   {tr('btn_check')}
                 </Button>
               </div>
@@ -185,10 +185,10 @@ export default function EligibilityShowcase() {
                   <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('eligible_desc', { airport, date: new Date(departureDate).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" }) }) }} />
                 </div>
                 <Link to="/claim-duty-credit">
-                  <Button size="lg" className="w-full min-h-14 py-4 text-base gap-2 whitespace-normal text-center leading-snug">
-                    <Gift className="w-5 h-5" />
-                    {tr('btn_generate')}
-                    <ArrowRight className="w-4 h-4" />
+                  <Button size="lg" className="w-full h-auto min-h-14 py-4 px-4 text-sm sm:text-base gap-2 whitespace-normal text-center leading-snug">
+                    <Gift className="w-5 h-5 shrink-0" />
+                    <span className="min-w-0">{tr('btn_generate')}</span>
+                    <ArrowRight className="w-4 h-4 shrink-0" />
                   </Button>
                 </Link>
                 <button onClick={reset} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -205,9 +205,9 @@ export default function EligibilityShowcase() {
                   <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('not_eligible_desc', { airport }) }} />
                 </div>
                 <Link to="/claim-duty-credit">
-                  <Button size="lg" variant="outline" className="w-full min-h-14 py-4 text-base gap-2 whitespace-normal text-center leading-snug">
+                  <Button size="lg" variant="outline" className="w-full h-auto min-h-14 py-4 px-4 text-sm sm:text-base gap-2 whitespace-normal text-center leading-snug">
                     {tr('not_eligible_btn')}
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 shrink-0" />
                   </Button>
                 </Link>
                 <button onClick={reset} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
