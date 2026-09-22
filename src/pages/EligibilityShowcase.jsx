@@ -84,7 +84,7 @@ export default function EligibilityShowcase() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={45} /></Link>
+          <DutyBoostLogo height={45} linkTo={null} />
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
           </div>
@@ -222,7 +222,7 @@ export default function EligibilityShowcase() {
       {/* Footer */}
       <footer className="border-t border-border py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <Link to="/"><DutyBoostLogo height={40} /></Link>
+          <DutyBoostLogo height={40} linkTo={null} />
           <p>{tr('footer', { year: new Date().getFullYear() })}</p>
         </div>
       </footer>

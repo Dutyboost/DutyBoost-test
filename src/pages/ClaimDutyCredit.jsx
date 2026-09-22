@@ -1,5 +1,4 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -201,7 +200,7 @@ export default function ClaimDutyCredit() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link to="/"><DutyBoostLogo height={45} /></Link>
+          <DutyBoostLogo height={45} linkTo={null} />
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
           </div>
@@ -571,11 +570,13 @@ export default function ClaimDutyCredit() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/" className="flex-1">
-                <Button variant="outline" className="w-full gap-2">
-                  {tr('btn_home')} <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                className="flex-1 gap-2"
+                onClick={() => { setStep('claim'); setGenerated(null); setError(''); }}
+              >
+                {tr('btn_check_another')} <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           </div>
         )}
@@ -584,7 +585,7 @@ export default function ClaimDutyCredit() {
       {/* Footer */}
       <footer className="border-t border-border py-8 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <Link to="/"><DutyBoostLogo height={40} /></Link>
+          <DutyBoostLogo height={40} linkTo={null} />
           <p dangerouslySetInnerHTML={{ __html: tr('footer', { year: new Date().getFullYear() }) }} />
         </div>
       </footer>
