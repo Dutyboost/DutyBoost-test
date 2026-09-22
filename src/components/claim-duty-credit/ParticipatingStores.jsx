@@ -43,16 +43,12 @@ export default function ParticipatingStores({ stores, loading, airportName, airp
                 <Store className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
                 <span className="min-w-0 flex-1">
                   <span className="block text-sm font-medium truncate">{store.name}</span>
-                  <span className="flex items-center gap-1 text-xs text-muted-foreground truncate">
-                    {store.departure_hall ? (
-                      <>
-                        <MapPin className="w-3 h-3 shrink-0" />
-                        {store.departure_hall}
-                      </>
-                    ) : (
-                      tr('stores_hall_unknown')
-                    )}
-                  </span>
+                  {store.departure_hall && (
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground truncate">
+                      <MapPin className="w-3 h-3 shrink-0" />
+                      {store.departure_hall}
+                    </span>
+                  )}
                   <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-primary">
                     <Navigation className="w-3 h-3" />
                     {tr('stores_nav_btn', { place })}
