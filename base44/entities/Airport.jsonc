@@ -17,6 +17,11 @@
     "country": {
       "type": "string",
       "title": "Country"
+    },
+    "stores_researched": {
+      "type": "boolean",
+      "title": "Store Directory Researched",
+      "default": false
     }
   },
   "required": [

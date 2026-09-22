@@ -1,0 +1,31 @@
+{
+  "name": "AirportStore",
+  "type": "object",
+  "properties": {
+    "airport_code": {
+      "type": "string",
+      "title": "Airport IATA Code"
+    },
+    "airport_name": {
+      "type": "string",
+      "title": "Airport Name"
+    },
+    "store_name": {
+      "type": "string",
+      "title": "Store Name"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "source_url": {
+      "type": "string",
+      "title": "Source URL (official airport directory)"
+    }
+  },
+  "required": [
+    "airport_code",
+    "store_name",
+    "source_url"
+  ]
+}
