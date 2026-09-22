@@ -501,7 +501,8 @@ export default function ClaimDutyCredit() {
               </div>
             </div>
 
-            {/* Participating stores at this airport */}
+            {/* Participating stores at this airport — only shown when real store data exists */}
+            {(storesLoading || participatingStores.length > 0) && (
             <div className="bg-card rounded-2xl border border-border p-6 space-y-3 print:p-3 print:space-y-1">
               <p className="text-sm font-semibold flex items-center gap-2">
                 <ShoppingBag className="w-4 h-4 text-primary" />
@@ -522,6 +523,7 @@ export default function ClaimDutyCredit() {
                 </div>
               ) : null}
             </div>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-3 print:hidden">
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">
