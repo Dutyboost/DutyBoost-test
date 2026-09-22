@@ -7,6 +7,12 @@ const UNWTO_LINK = "https://www.unwto.org/";
 const TFWA_LINK = "https://www.tfwa.com/";
 const M1NDSET_LINK = "https://m1nd-set.com/";
 
+// UNWTO figures are outbound trips only — doubled here to count the return leg too.
+const SOURCE_MARKETS = GLOBAL_SOURCE_MARKETS.map((m) => ({
+  ...m,
+  journeys: `${parseInt(m.visitors, 10) * 2}M`,
+}));
+
 const CHANNELS = [
   { icon: Search, name: "Google SEO" },
   { icon: Video, name: "TikTok" },
@@ -47,15 +53,14 @@ export default function SlideAcquisitionGlobal() {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
                 <h3 className="font-bold text-slate-800 text-base mb-1">Where We Acquire Them — Global Source Markets</h3>
                 <p className="text-slate-500 text-xs leading-snug mb-3">
-                  <span className="font-bold text-blue-600">Over 860 million outbound + return journeys a year</span> originate from our five primary source markets. The campaign runs in the traveller's own language, in every major market worldwide.
+                  <span className="font-bold text-blue-600">Over 1.7 billion outbound + return journeys a year</span> originate from our five primary source markets. The campaign runs in the traveller's own language, in every major market worldwide.
                 </p>
                 <div className="grid grid-cols-3 md:grid-cols-5 gap-1.5">
-                  {GLOBAL_SOURCE_MARKETS.map((m) => (
+                  {SOURCE_MARKETS.map((m) => (
                     <div key={m.name} className="bg-white border border-slate-200 rounded-lg px-1.5 py-2 text-center">
                       <p className="text-base leading-none mb-1">{m.flag}</p>
                       <p className="text-[11px] font-semibold text-slate-700 leading-tight">{m.name}</p>
-                      <p className="text-xs text-blue-600 font-bold mt-0.5">{m.visitors}</p>
-                      <p className="text-[10px] text-slate-400 leading-tight">outbound trips</p>
+                      <p className="text-xs text-blue-600 font-bold mt-0.5">{m.journeys}</p>
                     </div>
                   ))}
                 </div>
