@@ -142,7 +142,7 @@ export const RETAIL_AIRPORTS = {
   SAW: A("SAW", "Istanbul Sabiha Gökçen", "Istanbul", "Turkey", 95890),
   JED: A("JED", "Jeddah King Abdulaziz", "Jeddah", "Saudi Arabia", 112329),
   RUH: A("RUH", "Riyadh King Khalid", "Riyadh", "Saudi Arabia", 87945),
-  MUS: A("MUS", "Muscat", "Muscat", "Oman", 27397),
+  MCT: A("MCT", "Muscat", "Muscat", "Oman", 27397),
   CMB: A("CMB", "Colombo Bandaranaike", "Colombo", "Sri Lanka", 21918),
   NBO: A("NBO", "Nairobi Jomo Kenyatta", "Nairobi", "Kenya", 20274),
   DAR: A("DAR", "Dar es Salaam", "Dar es Salaam", "Tanzania", 12000),
