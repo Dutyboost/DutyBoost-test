@@ -1,0 +1,88 @@
+{
+  "name": "ParticipatingPartner",
+  "type": "object",
+  "properties": {
+    "partner_type": {
+      "type": "string",
+      "title": "Partner Type",
+      "enum": [
+        "Travel Partner",
+        "Corporate Partner"
+      ]
+    },
+    "company_name": {
+      "type": "string",
+      "title": "Partner Company Name"
+    },
+    "unit_name": {
+      "type": "string",
+      "title": "Channel / Department"
+    },
+    "unit_detail": {
+      "type": "string",
+      "title": "Market / Cost Centre"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country"
+    },
+    "contact_email": {
+      "type": "string",
+      "title": "Partner Contact Email"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category / Industry"
+    },
+    "revenue_share_pct": {
+      "type": "number",
+      "title": "Platform Fee / Revenue Share (%)",
+      "default": 10
+    },
+    "agreement_ref": {
+      "type": "string",
+      "title": "Order Form / Agreement Reference"
+    },
+    "activated": {
+      "type": "boolean",
+      "title": "Activated (counts towards platform fee)",
+      "default": false
+    },
+    "activated_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Activated Date"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Internal Notes"
+    }
+  },
+  "required": [
+    "partner_type",
+    "company_name",
+    "unit_name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

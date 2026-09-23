@@ -9,9 +9,11 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText, BarChart2, EyeOff } from "lucide-react";
+import { Briefcase, CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText, BarChart2, EyeOff } from "lucide-react";
 import HiddenFeaturesPanel from "../components/HiddenFeaturesPanel";
 import PartnerOnboardingPanel from "../components/onboarding/PartnerOnboardingPanel";
+import PartnerTypePanel from "../components/onboarding/PartnerTypePanel";
+import { PARTNER_TYPES } from "../components/onboarding/partnerTypes";
 import BatchPayoutApproval from "../components/BatchPayoutApproval";
 import AggregationView from "../components/AggregationView";
 import { Link } from "react-router-dom";
@@ -293,7 +295,7 @@ export default function AdminPanel() {
 
       <Tabs defaultValue="applications">
         <div className="flex items-center justify-between mb-4">
-          <TabsList>
+          <TabsList className="flex-wrap h-auto gap-1">
             <TabsTrigger value="aggregation">Aggregation</TabsTrigger>
             <TabsTrigger value="applications">
               Applications
@@ -316,6 +318,12 @@ export default function AdminPanel() {
             </TabsTrigger>
             <TabsTrigger value="onboarding" className="gap-1.5">
               <Store className="w-3.5 h-3.5" /> Retail Partner Onboarding
+            </TabsTrigger>
+            <TabsTrigger value="travel-onboarding" className="gap-1.5">
+              <Plane className="w-3.5 h-3.5" /> Travel Partner Onboarding
+            </TabsTrigger>
+            <TabsTrigger value="corporate-onboarding" className="gap-1.5">
+              <Briefcase className="w-3.5 h-3.5" /> Corporate Partner Onboarding
             </TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
@@ -645,6 +653,12 @@ export default function AdminPanel() {
         </TabsContent>
         <TabsContent value="onboarding" className="mt-4">
           <PartnerOnboardingPanel />
+        </TabsContent>
+        <TabsContent value="travel-onboarding" className="mt-4">
+          <PartnerTypePanel config={PARTNER_TYPES["Travel Partner"]} />
+        </TabsContent>
+        <TabsContent value="corporate-onboarding" className="mt-4">
+          <PartnerTypePanel config={PARTNER_TYPES["Corporate Partner"]} />
         </TabsContent>
         <TabsContent value="hidden-features" className="mt-4">
           <HiddenFeaturesPanel />
