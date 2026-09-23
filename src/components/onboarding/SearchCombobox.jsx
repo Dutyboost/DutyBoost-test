@@ -32,7 +32,9 @@ export default function SearchCombobox({
     const list = q
       ? options.filter((o) => `${o.label} ${o.sub || ""}`.toLowerCase().includes(q))
       : options;
-    return list.slice(0, 10);
+    // Show the whole list, not a teaser — an airport can carry well over a
+    // hundred shops and the team needs to see all of them.
+    return list.slice(0, 300);
   }, [value, options]);
 
   return (
@@ -44,7 +46,7 @@ export default function SearchCombobox({
         placeholder={placeholder}
       />
       {open && (
-        <div className="absolute z-50 mt-1 w-full max-h-60 overflow-y-auto bg-popover border border-border rounded-lg shadow-lg">
+        <div className="absolute z-50 mt-1 w-full max-h-80 overflow-y-auto bg-popover border border-border rounded-lg shadow-lg">
           {matches.length === 0 ? (
             <p className="px-3 py-3 text-xs text-muted-foreground">{emptyText}</p>
           ) : (

@@ -3,7 +3,10 @@ import { AIRPORT_RETAIL_COMPANIES } from "@/data/airportRetailCompanies";
 /**
  * Searchable retailer options: the retailer companies DutyBoost tracks (with
  * their airport footprints) plus retailers already registered in the app.
- * Once an airport is chosen, retailers that operate there are listed first.
+ *
+ * As soon as an airport is chosen the list is narrowed to the retailers that
+ * actually operate there — no unrelated chains in the way. Without an airport
+ * every retailer is offered, so a partner can still be added from scratch.
  */
 export function buildRetailerOptions(airportCode, registeredRetailers = []) {
   const code = (airportCode || "").toUpperCase();
@@ -26,7 +29,14 @@ export function buildRetailerOptions(airportCode, registeredRetailers = []) {
     retailer: r,
   }));
 
-  return [...companies, ...registered]
-    .sort((a, b) => Number(b.servesAirport) - Number(a.servesAirport))
-    .map((o) => ({ ...o, group: o.servesAirport ? `Operates at ${code}` : "All retailers" }));
+  if (code) {
+    return [...companies, ...registered]
+      .filter((o) => o.servesAirport)
+      .map((o) => ({ ...o, group: `Operates at ${code}` }));
+  }
+
+  return [
+    ...companies.map((o) => ({ ...o, group: "Retailer companies" })),
+    ...registered.map((o) => ({ ...o, group: "Registered retailers" })),
+  ];
 }

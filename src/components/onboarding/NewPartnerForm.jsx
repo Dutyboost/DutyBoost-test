@@ -9,9 +9,11 @@ import AirportPicker from "./AirportPicker";
 import SearchCombobox from "./SearchCombobox";
 import StoreRowsEditor, { EMPTY_STORE_ROW } from "./StoreRowsEditor";
 import { buildRetailerOptions } from "./retailerOptions";
+import { POS_PROVIDERS } from "@/data/posProviders";
 
 const EMPTY_AIRPORT = { code: "", name: "", city: "", country: "" };
 const EMPTY_RETAILER = { name: "", email: "", posPartner: "", commissionRate: 10, agreementRef: "" };
+const POS_PROVIDER_OPTIONS = POS_PROVIDERS.map((p) => ({ key: p, label: p }));
 
 /**
  * Internal entry point for a newly signed partner: the airport, the retailer
@@ -193,10 +195,13 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
             />
           </div>
           <div>
-            <Label className="text-xs">POS channel partner</Label>
-            <Input
+            <Label className="text-xs">POS provider</Label>
+            <SearchCombobox
               value={retailer.posPartner}
-              onChange={(e) => setRetailer({ ...retailer, posPartner: e.target.value })}
+              onChange={(v) => setRetailer({ ...retailer, posPartner: v })}
+              options={POS_PROVIDER_OPTIONS}
+              placeholder="Start typing, e.g. NCR…"
+              emptyText="No provider matches — keep typing to add it as new"
               className="mt-1"
             />
           </div>
