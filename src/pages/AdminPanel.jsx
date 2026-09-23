@@ -315,7 +315,7 @@ export default function AdminPanel() {
               Deletions {deletions.length > 0 && <span className="ml-1 bg-destructive text-destructive-foreground text-xs rounded-full px-1.5 py-0.5">{deletions.length}</span>}
             </TabsTrigger>
             <TabsTrigger value="onboarding" className="gap-1.5">
-              <Store className="w-3.5 h-3.5" /> Partner Onboarding
+              <Store className="w-3.5 h-3.5" /> Retail Partner Onboarding
             </TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features

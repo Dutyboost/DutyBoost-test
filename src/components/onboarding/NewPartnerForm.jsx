@@ -157,7 +157,7 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
   return (
     <form onSubmit={handleSubmit} className="bg-card border border-border rounded-xl p-5 space-y-6">
       <div>
-        <h2 className="font-heading font-bold">Add a new partner</h2>
+        <h2 className="font-heading font-bold">Add a new retail partner</h2>
         <p className="text-sm text-muted-foreground">
           Take the details from the signed Order Form. Stores are saved as not live and only become visible to
           travellers once you activate them below.
