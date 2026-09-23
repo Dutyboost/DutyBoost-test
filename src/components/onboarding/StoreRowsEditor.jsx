@@ -4,13 +4,29 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Plus, Trash2 } from "lucide-react";
 import { STORE_CATEGORIES } from "@/data/storeCategories";
+import SearchCombobox from "./SearchCombobox";
 
 export const EMPTY_STORE_ROW = { name: "", category: "Duty Free", departure_hall: "" };
 
-/** Repeatable rows for the stores a retailer wants to add at one airport. */
-export default function StoreRowsEditor({ rows, onChange }) {
+/**
+ * Repeatable rows for the stores a retailer adds at one airport. The store
+ * field suggests the shops already known at that airport; a shop that is not
+ * on file yet can simply be typed in.
+ */
+export default function StoreRowsEditor({ rows, onChange, options = [], placeholder, emptyText }) {
   const update = (index, field, val) =>
     onChange(rows.map((r, i) => (i === index ? { ...r, [field]: val } : r)));
+
+  // Picking a shop we already know about also fills its category and location.
+  const pick = (index, option) => {
+    const s = option.data || {};
+    onChange(rows.map((r, i) => (i === index ? {
+      ...r,
+      name: option.label,
+      category: STORE_CATEGORIES.includes(s.category) ? s.category : r.category,
+      departure_hall: s.departure_hall || r.departure_hall,
+    } : r)));
+  };
 
   return (
     <div className="space-y-2">
@@ -18,10 +34,13 @@ export default function StoreRowsEditor({ rows, onChange }) {
         <div key={i} className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-end">
           <div className="sm:col-span-5">
             <Label className="text-xs">Store name</Label>
-            <Input
+            <SearchCombobox
               value={row.name}
-              onChange={(e) => update(i, "name", e.target.value)}
-              placeholder="e.g. Penha Duty Free"
+              onChange={(v) => update(i, "name", v)}
+              onPick={(o) => pick(i, o)}
+              options={options}
+              placeholder={placeholder}
+              emptyText={emptyText}
               className="mt-1"
             />
           </div>

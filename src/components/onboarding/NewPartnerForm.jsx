@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,24 +6,80 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2, PlusCircle } from "lucide-react";
 import AirportPicker from "./AirportPicker";
+import SearchCombobox from "./SearchCombobox";
 import StoreRowsEditor, { EMPTY_STORE_ROW } from "./StoreRowsEditor";
+import { buildRetailerOptions } from "./retailerOptions";
 
 const EMPTY_AIRPORT = { code: "", name: "", city: "", country: "" };
 const EMPTY_RETAILER = { name: "", email: "", posPartner: "", commissionRate: 10, agreementRef: "" };
 
 /**
  * Internal entry point for a newly signed partner: the airport, the retailer
- * and the stores from the signed Order Form. Everything is saved inactive, so
- * nothing reaches travellers until the team activates it.
+ * and the stores from the signed Order Form. Airports, retailers and stores
+ * are all searchable against what DutyBoost already knows, and anything new
+ * can still be typed in. Everything is saved inactive, so nothing reaches
+ * travellers until the team activates it.
  */
-export default function NewPartnerForm({ airports, onCreated }) {
+export default function NewPartnerForm({ airports, registeredRetailers = [], participating = [], onCreated }) {
   const [airport, setAirport] = useState(EMPTY_AIRPORT);
   const [retailer, setRetailer] = useState(EMPTY_RETAILER);
   const [rows, setRows] = useState([{ ...EMPTY_STORE_ROW }]);
+  const [knownStores, setKnownStores] = useState([]);
   const [saving, setSaving] = useState(false);
 
   const code = airport.code.trim().toUpperCase();
   const filledRows = rows.filter((r) => r.name.trim());
+
+  // Shops already on file at the chosen airport — the verified airport
+  // directory plus stores onboarded before — so the team picks an existing
+  // shop rather than retyping its name.
+  useEffect(() => {
+    if (!code) {
+      setKnownStores([]);
+      return;
+    }
+    let cancelled = false;
+    base44.entities.AirportStore.filter({ airport_code: code }, "store_name", 500)
+      .then((list) => { if (!cancelled) setKnownStores(list || []); })
+      .catch(() => { if (!cancelled) setKnownStores([]); });
+    return () => { cancelled = true; };
+  }, [code]);
+
+  const storeOptions = useMemo(() => {
+    const used = new Set(rows.map((r) => r.name.trim().toLowerCase()).filter(Boolean));
+    const byName = new Map();
+    const add = (name, sub, data, prefix) => {
+      const key = (name || "").trim().toLowerCase();
+      if (!key || used.has(key) || byName.has(key)) return;
+      byName.set(key, { key: `${prefix}-${key}`, label: name, sub, data });
+    };
+
+    knownStores.forEach((s) =>
+      add(s.store_name, [s.category, s.departure_hall].filter(Boolean).join(" · "), s, "directory"));
+    participating
+      .filter((p) => (p.airport_code || "").toUpperCase() === code)
+      .forEach((p) =>
+        add(p.store_name, [p.retailer_name, p.departure_hall].filter(Boolean).join(" · "), p, "onboarded"));
+
+    return [...byName.values()];
+  }, [knownStores, participating, code, rows]);
+
+  const retailerOptions = useMemo(
+    () => buildRetailerOptions(code, registeredRetailers),
+    [code, registeredRetailers]
+  );
+
+  // Choosing an existing retailer also fills its contact details and terms.
+  const pickRetailer = (option) => {
+    const r = option.retailer;
+    setRetailer((prev) => ({
+      ...prev,
+      name: option.label,
+      email: r?.owner_email || prev.email,
+      posPartner: r?.pos_channel_partner || prev.posPartner,
+      commissionRate: r?.pos_channel_commission_rate ?? prev.commissionRate,
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -116,10 +172,13 @@ export default function NewPartnerForm({ airports, onCreated }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <Label className="text-xs">Retailer / company name</Label>
-            <Input
+            <SearchCombobox
               value={retailer.name}
-              onChange={(e) => setRetailer({ ...retailer, name: e.target.value })}
-              placeholder="e.g. Caribbean Duty Free NV"
+              onChange={(v) => setRetailer({ ...retailer, name: v })}
+              onPick={pickRetailer}
+              options={retailerOptions}
+              placeholder="Start typing, e.g. av…"
+              emptyText="No retailer matches — keep typing to add it as new"
               className="mt-1"
             />
           </div>
@@ -166,7 +225,15 @@ export default function NewPartnerForm({ airports, onCreated }) {
 
       <div className="space-y-3 pt-4 border-t border-border">
         <p className="text-sm font-semibold">3. Stores to add at this airport</p>
-        <StoreRowsEditor rows={rows} onChange={setRows} />
+        <StoreRowsEditor
+          rows={rows}
+          onChange={setRows}
+          options={storeOptions}
+          placeholder={code ? `Type or pick a store at ${code}…` : "Select an airport first"}
+          emptyText={code
+            ? `No store on file at ${code} yet — type the name to add it`
+            : "Select an airport first to see its stores"}
+        />
       </div>
 
       <Button type="submit" disabled={saving} className="gap-2">

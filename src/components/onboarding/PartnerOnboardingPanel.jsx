@@ -10,16 +10,19 @@ import ParticipatingStoreList from "./ParticipatingStoreList";
  */
 export default function PartnerOnboardingPanel() {
   const [airports, setAirports] = useState([]);
+  const [retailers, setRetailers] = useState([]);
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const load = async () => {
     try {
-      const [aps, ps] = await Promise.all([
+      const [aps, rs, ps] = await Promise.all([
         base44.entities.Airport.list("code", 5000),
+        base44.entities.Retailer.list("store_name", 500),
         base44.entities.ParticipatingStore.list("-created_date", 2000),
       ]);
       setAirports(aps || []);
+      setRetailers(rs || []);
       setStores(ps || []);
     } finally {
       setLoading(false);
@@ -30,7 +33,12 @@ export default function PartnerOnboardingPanel() {
 
   return (
     <div className="space-y-8">
-      <NewPartnerForm airports={airports} onCreated={load} />
+      <NewPartnerForm
+        airports={airports}
+        registeredRetailers={retailers}
+        participating={stores}
+        onCreated={load}
+      />
       <ParticipatingStoreList stores={stores} loading={loading} onChanged={load} />
     </div>
   );
