@@ -1,0 +1,86 @@
+{
+  "name": "ParticipatingStore",
+  "type": "object",
+  "properties": {
+    "airport_code": {
+      "type": "string",
+      "title": "Airport IATA Code"
+    },
+    "airport_name": {
+      "type": "string",
+      "title": "Airport Name"
+    },
+    "airport_city": {
+      "type": "string",
+      "title": "Airport City"
+    },
+    "airport_country": {
+      "type": "string",
+      "title": "Airport Country"
+    },
+    "retailer_name": {
+      "type": "string",
+      "title": "Retailer (Company)"
+    },
+    "store_name": {
+      "type": "string",
+      "title": "Store Name"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "departure_hall": {
+      "type": "string",
+      "title": "Departure Hall / Terminal / Zone"
+    },
+    "activated": {
+      "type": "boolean",
+      "title": "Activated (live for travellers)",
+      "default": false
+    },
+    "activated_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Activated Date"
+    },
+    "agreement_ref": {
+      "type": "string",
+      "title": "Order Form / Agreement Reference"
+    },
+    "contact_email": {
+      "type": "string",
+      "title": "Retailer Contact Email"
+    },
+    "pos_channel_partner": {
+      "type": "string",
+      "title": "POS Channel Partner"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Internal Notes"
+    }
+  },
+  "required": [
+    "airport_code",
+    "store_name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

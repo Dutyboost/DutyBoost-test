@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, TrendingUp, Users, XCircle, FileText, BarChart2, EyeOff } from "lucide-react";
 import HiddenFeaturesPanel from "../components/HiddenFeaturesPanel";
+import PartnerOnboardingPanel from "../components/onboarding/PartnerOnboardingPanel";
 import BatchPayoutApproval from "../components/BatchPayoutApproval";
 import AggregationView from "../components/AggregationView";
 import { Link } from "react-router-dom";
@@ -312,6 +313,9 @@ export default function AdminPanel() {
             <TabsTrigger value="batch-payouts">Batch Payouts</TabsTrigger>
             <TabsTrigger value="deletions" className="gap-1.5">
               Deletions {deletions.length > 0 && <span className="ml-1 bg-destructive text-destructive-foreground text-xs rounded-full px-1.5 py-0.5">{deletions.length}</span>}
+            </TabsTrigger>
+            <TabsTrigger value="onboarding" className="gap-1.5">
+              <Store className="w-3.5 h-3.5" /> Partner Onboarding
             </TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
@@ -638,6 +642,9 @@ export default function AdminPanel() {
 
         <TabsContent value="batch-payouts" className="mt-4">
           {isAdmin && <BatchPayoutApproval user={user} />}
+        </TabsContent>
+        <TabsContent value="onboarding" className="mt-4">
+          <PartnerOnboardingPanel />
         </TabsContent>
         <TabsContent value="hidden-features" className="mt-4">
           <HiddenFeaturesPanel />

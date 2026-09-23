@@ -16,7 +16,6 @@ import { getAirlineFormat } from "../data/airlineFormats";
 import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
 import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
-import { buildParticipatingStores } from "../data/participatingStores";
 import ParticipatingStores from "../components/claim-duty-credit/ParticipatingStores";
 
 export default function ClaimDutyCredit() {
@@ -91,26 +90,26 @@ export default function ClaimDutyCredit() {
     return fmtMoney(eur, currency, decimals);
   };
 
-  // Fetch participating stores for the selected airport: shops researched from the
-  // airport's own official directory, plus retailers registered in the database.
+  // Participating stores for the selected airport. Only stores our team has
+  // activated for that airport are ever shown to travellers — a store on file
+  // that is not activated yet stays hidden.
   const fetchStoresForAirport = async (airportObj) => {
     if (!airportObj) return;
     setStoresLoading(true);
     try {
       const code = airportObj.code.toUpperCase();
-      const [all, researched] = await Promise.all([
-        base44.entities.Retailer.list(200).catch(() => []),
-        base44.entities.AirportStore.filter({ airport_code: code }, 'store_name', 200).catch(() => []),
-      ]);
-      const dbMatches = all.filter(r => {
-        const ap = (r.airport || '').toUpperCase();
-        return ap === code || ap.startsWith(code + ' ') || ap.startsWith(code + '-') || ap.includes(code + ' —') || ap.includes(code + ' -');
-      });
-      setAirportLive(dbMatches.length > 0);
-      setParticipatingStores(buildParticipatingStores(code, airportObj.city, [...researched, ...dbMatches]));
+      const live = await base44.entities.ParticipatingStore
+        .filter({ airport_code: code, activated: true }, 'store_name', 200)
+        .catch(() => []);
+      setAirportLive(live.length > 0);
+      setParticipatingStores(live.map(s => ({
+        name: s.store_name,
+        category: s.category || '',
+        departure_hall: s.departure_hall || '',
+      })));
     } catch {
       setAirportLive(false);
-      setParticipatingStores(buildParticipatingStores(airportObj.code, airportObj.city, []));
+      setParticipatingStores([]);
     } finally {
       setStoresLoading(false);
     }
@@ -511,7 +510,7 @@ export default function ClaimDutyCredit() {
               </div>
             </div>
 
-            {/* Participating stores at this airport — only shown when real store data exists */}
+            {/* Participating stores at this airport — only stores our team has activated */}
             <ParticipatingStores
               stores={participatingStores}
               loading={storesLoading}
