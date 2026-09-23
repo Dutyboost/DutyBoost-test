@@ -170,6 +170,21 @@ export const ASIAN_AIRPORTS_EXTRA = [
   { name: "King Hussein International Airport", code: "AQJ", city: "Aqaba", country: "Jordan", annual_pax: 350000 },
   // Mongolia
   { name: "Chinggis Khaan International Airport", code: "ULN", city: "Ulaanbaatar", country: "Mongolia", annual_pax: 4000000 },
+  // Cambodia
+  { name: "Phnom Penh International Airport", code: "PNH", city: "Phnom Penh", country: "Cambodia", annual_pax: 2000000 },
+  { name: "Siem Reap-Angkor International Airport", code: "REP", city: "Siem Reap", country: "Cambodia", annual_pax: 1000000 },
+  // Myanmar
+  { name: "Yangon International Airport", code: "RGN", city: "Yangon", country: "Myanmar", annual_pax: 3000000 },
+  // Laos
+  { name: "Wattay International Airport", code: "VTE", city: "Vientiane", country: "Laos", annual_pax: 1000000 },
+  // Brunei
+  { name: "Brunei International Airport", code: "BWN", city: "Bandar Seri Begawan", country: "Brunei", annual_pax: 1500000 },
+  // Macau
+  { name: "Macau International Airport", code: "MFM", city: "Macau", country: "Macau", annual_pax: 2500000 },
+  // Bhutan
+  { name: "Paro International Airport", code: "PBH", city: "Paro", country: "Bhutan", annual_pax: 300000 },
+  // Afghanistan
+  { name: "Kabul International Airport", code: "KBL", city: "Kabul", country: "Afghanistan", annual_pax: 1000000 },
   ];
 
   ASIAN_AIRPORTS_EXTRA.forEach(a => {

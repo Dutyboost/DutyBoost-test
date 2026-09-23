@@ -14,6 +14,8 @@ export const OCEANIA_AIRPORTS_EXTRA = [
   { name: "Coffs Harbour Airport", code: "CFS", city: "Coffs Harbour", country: "Australia", annual_pax: 320000 },
   { name: "Kalgoorlie-Boulder Airport", code: "KGI", city: "Kalgoorlie", country: "Australia", annual_pax: 300000 },
   { name: "Blenheim Woodbourne Airport", code: "BHE", city: "Blenheim", country: "New Zealand", annual_pax: 305000 },
+  // Palau
+  { name: "Roman Tmetuchl International Airport", code: "ROR", city: "Koror", country: "Palau", annual_pax: 200000 },
 ];
 
 OCEANIA_AIRPORTS_EXTRA.forEach(a => {

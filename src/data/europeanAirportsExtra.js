@@ -46,6 +46,8 @@ export const EUROPEAN_AIRPORTS_EXTRA = [
   { name: "London Southend Airport", code: "SEN", city: "Southend", country: "United Kingdom", annual_pax: 1500000 },
   { name: "Exeter Airport", code: "EXT", city: "Exeter", country: "United Kingdom", annual_pax: 900000 },
   { name: "East Midlands Airport", code: "EMA", city: "Nottingham", country: "United Kingdom", annual_pax: 4000000 },
+  // Belarus
+  { name: "Minsk National Airport", code: "MSQ", city: "Minsk", country: "Belarus", annual_pax: 2000000 },
 ];
 
 EUROPEAN_AIRPORTS_EXTRA.forEach(a => {

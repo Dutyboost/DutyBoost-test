@@ -56,6 +56,8 @@ export const AMERICAS_AIRPORTS_EXTRA = [
   { name: "Hermosillo International Airport", code: "HMO", city: "Hermosillo", country: "Mexico", annual_pax: 2500000 },
   { name: "Chihuahua International Airport", code: "CUU", city: "Chihuahua", country: "Mexico", annual_pax: 1500000 },
   { name: "Culiacan International Airport", code: "CUL", city: "Culiacan", country: "Mexico", annual_pax: 2000000 },
+  // Atlantic
+  { name: "L.F. Wade International Airport", code: "BDA", city: "Hamilton", country: "Bermuda", annual_pax: 400000 },
 ];
 
 AMERICAS_AIRPORTS_EXTRA.forEach(a => {
