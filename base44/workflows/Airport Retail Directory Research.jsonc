@@ -13,7 +13,7 @@
       "interval_anchor": null,
       "ends_type": "after_count",
       "ends_on_date": null,
-      "ends_after_count": 80
+      "ends_after_count": 200
     }
   },
   "definition": {
@@ -43,5 +43,5 @@
     ]
   },
   "name": "Airport Retail Directory Research",
-  "description": "Works through the queue of airports awaiting research, 60 per run, reading each operator's official retail directory and storing retail and travel-retail outlets only (food and beverage excluded). Auto-stops after 80 runs."
+  "description": "Works through the queue of airports awaiting research, 60 per run, reading each operator's official retail directory and storing retail and travel-retail outlets only (food and beverage excluded). Auto-stops after 200 runs."
 }
