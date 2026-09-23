@@ -27,7 +27,6 @@ import AccessibilityStatement from './pages/AccessibilityStatement';
 import DataCollectionPolicy from './pages/DataCollectionPolicy';
 import CookieConsentBar from './components/CookieConsentBar';
 
-import DemoDisclaimer from './components/DemoDisclaimer';
 import FAQ from './pages/FAQ';
 import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
 import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
@@ -339,7 +338,6 @@ function App() {
           <AuthenticatedApp />
           <CookieConsentBar />
 
-          <DemoDisclaimer />
           <Toaster />
         </Router>
       </QueryClientProvider>
