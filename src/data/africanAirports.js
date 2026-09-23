@@ -100,6 +100,13 @@ export const AFRICAN_AIRPORTS = [
   { name: "Skukuza Airport", code: "SZK", city: "Skukuza", country: "South Africa", annual_pax: 100000 },
   { name: "Mthatha Airport", code: "UTT", city: "Mthatha", country: "South Africa", annual_pax: 100000 },
   { name: "Margate Airport", code: "MGH", city: "Margate", country: "South Africa", annual_pax: 50000 },
+
+  // Added 2026-09: markets with verified airport retail (duty-free / travel retail in departures)
+  { name: "Amilcar Cabral International Airport", code: "SID", city: "Sal", country: "Cape Verde", annual_pax: 1100000 },
+  { name: "Nelson Mandela International Airport", code: "RAI", city: "Praia", country: "Cape Verde", annual_pax: 600000 },
+  { name: "Aristides Pereira International Airport", code: "BVC", city: "Boa Vista", country: "Cape Verde", annual_pax: 400000 },
+  { name: "Djibouti-Ambouli International Airport", code: "JIB", city: "Djibouti", country: "Djibouti", annual_pax: 400000 },
+  { name: "Nouakchott-Oumtounsy International Airport", code: "NKC", city: "Nouakchott", country: "Mauritania", annual_pax: 800000 },
 ];
 
 AFRICAN_AIRPORTS.forEach(a => {
