@@ -2,7 +2,6 @@ import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Anchor, TrendingUp, DollarSign, Users } from "lucide-react";
 import StatsCard from "../components/StatsCard";
-import DemoBadge from "../components/DemoBadge";
 
 const revenueData = [
   { month: "Jan", revenue: 5100, passengers: 510 },
@@ -30,7 +29,6 @@ const recentPassengers = [
 export default function DemoCruiseDashboard() {
   return (
     <div className="space-y-6">
-      <DemoBadge large />
       <div>
         <h1 className="text-3xl font-heading font-bold">Cruise Line Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track passenger participation and DutyCredit earnings across your fleet</p>

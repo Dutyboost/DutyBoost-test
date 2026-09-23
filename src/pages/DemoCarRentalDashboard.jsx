@@ -2,7 +2,6 @@ import { useState } from "react";
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Car, TrendingUp, DollarSign, Users } from "lucide-react";
 import StatsCard from "../components/StatsCard";
-import DemoBadge from "../components/DemoBadge";
 
 export default function DemoCarRentalDashboard() {
   const [period, setPeriod] = useState("monthly");
@@ -25,7 +24,6 @@ export default function DemoCarRentalDashboard() {
 
   return (
     <div className="space-y-6">
-      <DemoBadge large />
       <div>
         <h1 className="text-3xl font-heading font-bold">Car Rental Partner Demo Dashboard</h1>
         <p className="text-muted-foreground mt-2">Track customer rentals and DutyCredit earnings</p>

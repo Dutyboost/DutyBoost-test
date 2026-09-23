@@ -11,7 +11,6 @@ import RedemptionRateSlider from "./RedemptionRateSlider";
 import { base44 } from "@/api/base44Client";
 import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
-import DemoBadge from "./DemoBadge";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { fmtNum, fmtMoney } from "../utils/formatNumber";
 import { calcSaving } from "@/utils/retailerCalc";
@@ -207,7 +206,6 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             <span className="font-heading font-bold text-foreground">{companyName}</span>
           </div>
         )}
-        <DemoBadge large />
         {/* Tabs */}
          <div className="flex gap-1 border-b border-border overflow-x-auto">
             {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: t('demo.tabs_aggregation'), icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (

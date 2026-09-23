@@ -7,7 +7,6 @@ import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
-import DemoBadge from "../components/DemoBadge";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY, AGENCY_YEARLY } from "../data/demoData";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
@@ -101,7 +100,6 @@ export default function DemoAgencyDashboard() {
       </header>
 
       <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-6">
-        <DemoBadge large />
         {/* Tabs */}
         <div className="flex gap-1 border-b border-border overflow-x-auto">
           {[{ id: "dashboard", label: t('demo.tabs_dashboard'), icon: LayoutDashboard }, { id: "custom", label: "Aggregation", icon: Settings }, { id: "profile", label: t('demo.tabs_profile'), icon: UserCircle }].map(({ id, label, icon: Icon }) => (

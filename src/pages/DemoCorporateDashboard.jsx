@@ -171,7 +171,6 @@ export default function DemoCorporateDashboard() {
           <div className="flex items-center gap-3">
             <DutyBoostLogo height={55} />
             <span className="text-sm font-medium text-muted-foreground border-l border-border pl-3">Corporate Dashboard</span>
-            <Badge className="bg-amber-100 text-amber-700 border-amber-200 text-xs">Demo Mode</Badge>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/business-travel/get-started"><Button size="sm">Get Started</Button></Link>
