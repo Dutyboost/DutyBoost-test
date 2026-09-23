@@ -1,0 +1,47 @@
+{
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "*/5 * * * *",
+      "one_time_date": null,
+      "timezone": "Europe/Amsterdam",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "after_count",
+      "ends_on_date": null,
+      "ends_after_count": 80
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "airport_retail_directory_research",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "research_batch": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "researchAirportStores",
+            "args": {
+              "batch_size": 60
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Research next 60 airports",
+            "description": "Retail outlets only"
+          }
+        }
+      }
+    ]
+  },
+  "name": "Airport Retail Directory Research",
+  "description": "Works through the queue of airports awaiting research, 60 per run, reading each operator's official retail directory and storing retail and travel-retail outlets only (food and beverage excluded). Auto-stops after 80 runs."
+}

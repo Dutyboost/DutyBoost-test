@@ -1,7 +1,8 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.49';
 
-const DEFAULT_BATCH = 6;
-const MAX_BATCH = 10;
+const DEFAULT_BATCH = 60;
+const MAX_BATCH = 60;
+const CONCURRENCY = 8;
 
 const STORE_SCHEMA = {
   type: 'object',
@@ -54,6 +55,44 @@ function researchPrompt(airport) {
   ].join('\n');
 }
 
+async function researchOne(base44, airport) {
+  const result = await base44.asServiceRole.integrations.Core.InvokeLLM({
+    prompt: researchPrompt(airport),
+    add_context_from_internet: true,
+    model: 'gemini_3_8_flash',
+    response_json_schema: STORE_SCHEMA,
+  });
+
+  const sourceUrl = String(result?.source_url || '').trim();
+  const stores = Array.isArray(result?.stores) ? result.stores : [];
+
+  const rows = [];
+  const seen = new Set();
+  for (const s of stores) {
+    const name = String(s?.name || '').trim();
+    if (!name || name.length > 120) continue;
+    const key = name.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push({
+      airport_code: airport.code,
+      airport_name: airport.name,
+      store_name: name,
+      category: String(s?.category || '').trim(),
+      departure_hall: String(s?.hall || '').trim(),
+      source_url: sourceUrl,
+    });
+  }
+
+  if (rows.length && sourceUrl) {
+    await base44.asServiceRole.entities.AirportStore.bulkCreate(rows);
+  }
+
+  // Only reached when the research itself succeeded — failures stay pending for a retry.
+  await base44.asServiceRole.entities.Airport.update(airport.id, { stores_researched: true });
+  return rows.length;
+}
+
 export default async function (req) {
   try {
     const base44 = createClientFromRequest(req);
@@ -94,53 +133,25 @@ export default async function (req) {
 
     let stored = 0;
     const failures = [];
-    const codes = [];
 
-    for (const airport of pending) {
-      codes.push(airport.code);
-      try {
-        const result = await base44.asServiceRole.integrations.Core.InvokeLLM({
-          prompt: researchPrompt(airport),
-          add_context_from_internet: true,
-          model: 'gemini_3_8_flash',
-          response_json_schema: STORE_SCHEMA,
-        });
-
-        const sourceUrl = String(result?.source_url || '').trim();
-        const stores = Array.isArray(result?.stores) ? result.stores : [];
-
-        const rows = [];
-        const seen = new Set();
-        for (const s of stores) {
-          const name = String(s?.name || '').trim();
-          if (!name || name.length > 120) continue;
-          const key = name.toLowerCase();
-          if (seen.has(key)) continue;
-          seen.add(key);
-          rows.push({
-            airport_code: airport.code,
-            airport_name: airport.name,
-            store_name: name,
-            category: String(s?.category || '').trim(),
-            departure_hall: String(s?.hall || '').trim(),
-            source_url: sourceUrl,
-          });
-        }
-
-        if (rows.length && sourceUrl) {
-          await base44.asServiceRole.entities.AirportStore.bulkCreate(rows);
-          stored += rows.length;
-        }
-      } catch (err) {
-        failures.push({ code: airport.code, error: String(err?.message || err) });
-      }
-
-      await base44.asServiceRole.entities.Airport.update(airport.id, { stores_researched: true });
+    // Bounded concurrency: several airports researched at once, a few at a time.
+    for (let i = 0; i < pending.length; i += CONCURRENCY) {
+      const slice = pending.slice(i, i + CONCURRENCY);
+      const results = await Promise.all(
+        slice.map(async (airport) => {
+          try {
+            return await researchOne(base44, airport);
+          } catch (err) {
+            failures.push({ code: airport.code, error: String(err?.message || err) });
+            return 0;
+          }
+        }),
+      );
+      stored += results.reduce((a, b) => a + b, 0);
     }
 
     return Response.json({
       processed: pending.length,
-      codes,
       stores_stored: stored,
       batch_full: pending.length === batchSize,
       failures,
