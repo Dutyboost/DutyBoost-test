@@ -28,11 +28,15 @@ const JOB_TITLES = [
   "Other",
 ];
 
+// Mirrors the six stakeholders of the traveller's transaction ecosystem
+// (see TravellersTransactionShowcase) so the form reflects the same model.
 const PARTNER_TYPES = [
-  "Travel Agency / Tour Operator",
-  "Hotel / Hospitality",
-  "Car Rental",
-  "Airport Retailer",
+  "POS Partners",
+  "Airport Retailers",
+  "Airport Partners",
+  "Wholesale / Suppliers",
+  "Corporate Partners",
+  "Travel Partners",
   "Other",
 ];
 
@@ -73,7 +77,9 @@ export default function RequestDemoPage() {
         email,
         company_name: company,
         website,
-        industry: partnerType.includes("Retailer") ? "Retail" : "Agency",
+        industry: partnerType.includes("Retailer")
+          ? "Retail"
+          : partnerType.includes("POS") ? "POS Channel Partner" : "Agency",
         position: jobTitle,
         phone,
       });
