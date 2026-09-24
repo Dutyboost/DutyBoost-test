@@ -29,14 +29,19 @@ export default function StakeholderRequestForm({ stakeholder }) {
   const Icon = cfg.Icon;
 
   const [form, setForm] = useState({
-    fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", volume: "", posProviders: [], message: "",
+    fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", volume: "", posProviders: [], posOther: "", message: "",
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const posOptions = [...POS_PROVIDERS, r.pos_other];
+  const posValues = form.posProviders.map((p) =>
+    p === r.pos_other && form.posOther.trim() ? `${p}: ${form.posOther.trim()}` : p
+  );
+  const needsPosOther = form.posProviders.includes(r.pos_other) && !form.posOther.trim();
   const isValid =
     form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.volume &&
-    (stakeholder !== "retailer" || form.posProviders.length > 0);
+    (stakeholder !== "retailer" || (form.posProviders.length > 0 && !needsPosOther));
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleSubmit = async (e) => {
@@ -53,7 +58,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
         position: `${form.jobTitle} — ${cfg.positionSuffix}`,
         phone: form.volume,
       };
-      if (stakeholder === "retailer") leadPayload.pos_providers = form.posProviders;
+      if (stakeholder === "retailer") leadPayload.pos_providers = posValues;
       await base44.entities.Lead.create(leadPayload);
       try {
         await base44.integrations.Core.SendEmail({
@@ -70,7 +75,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
                 <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">${r.label_volume}</td><td>${form.volume}</td></tr>
-                ${stakeholder === "retailer" ? `<tr><td style="padding:6px 0; color:#666;">${r.label_pos}</td><td>${form.posProviders.join(", ")}</td></tr>` : ""}
+                ${stakeholder === "retailer" ? `<tr><td style="padding:6px 0; color:#666;">${r.label_pos}</td><td>${posValues.join(", ")}</td></tr>` : ""}
                 <tr><td style="padding:6px 0; color:#666;">Message</td><td>${form.message || "—"}</td></tr>
               </table>
             </div>
@@ -171,16 +176,29 @@ export default function StakeholderRequestForm({ stakeholder }) {
                   </div>
                 </div>
                 {stakeholder === "retailer" && (
-                  <MultiSelectComboBox
-                    label={r.label_pos}
-                    options={POS_PROVIDERS}
-                    value={form.posProviders}
-                    onChange={(v) => set("posProviders", v)}
-                    placeholder={r.placeholder_pos}
-                    searchPlaceholder={r.pos_search}
-                    emptyText={r.pos_empty}
-                    selectedText={r.pos_selected}
-                  />
+                  <>
+                    <MultiSelectComboBox
+                      label={r.label_pos}
+                      options={posOptions}
+                      value={form.posProviders}
+                      onChange={(v) => set("posProviders", v)}
+                      placeholder={r.placeholder_pos}
+                      searchPlaceholder={r.pos_search}
+                      emptyText={r.pos_empty}
+                      selectedText={r.pos_selected}
+                    />
+                    {form.posProviders.includes(r.pos_other) && (
+                      <div className="space-y-1.5">
+                        <Label>{r.label_pos_other} <span className="text-red-500">*</span></Label>
+                        <Input
+                          required
+                          value={form.posOther}
+                          onChange={(e) => set("posOther", e.target.value)}
+                          placeholder={r.placeholder_pos_other}
+                        />
+                      </div>
+                    )}
+                  </>
                 )}
                 <div className="space-y-1.5">
                   <Label>{t('corporaterequest.label_message')} <span className="text-muted-foreground text-xs">{t('corporaterequest.optional')}</span></Label>
