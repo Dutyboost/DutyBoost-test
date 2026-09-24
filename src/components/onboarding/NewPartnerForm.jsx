@@ -9,11 +9,10 @@ import AirportPicker from "./AirportPicker";
 import SearchCombobox from "./SearchCombobox";
 import StoreRowsEditor, { EMPTY_STORE_ROW } from "./StoreRowsEditor";
 import { buildRetailerOptions } from "./retailerOptions";
-import { POS_PROVIDERS } from "@/data/posProviders";
+import { buildPosOptions } from "./posOptions";
 
 const EMPTY_AIRPORT = { code: "", name: "", city: "", country: "" };
 const EMPTY_RETAILER = { name: "", email: "", posPartner: "", commissionRate: 10, agreementRef: "" };
-const POS_PROVIDER_OPTIONS = POS_PROVIDERS.map((p) => ({ key: p, label: p }));
 
 /**
  * Internal entry point for a newly signed partner: the airport, the retailer
@@ -27,6 +26,7 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
   const [retailer, setRetailer] = useState(EMPTY_RETAILER);
   const [rows, setRows] = useState([{ ...EMPTY_STORE_ROW }]);
   const [knownStores, setKnownStores] = useState([]);
+  const [posRows, setPosRows] = useState([]);
   const [saving, setSaving] = useState(false);
 
   const code = airport.code.trim().toUpperCase();
@@ -46,6 +46,18 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
       .catch(() => { if (!cancelled) setKnownStores([]); });
     return () => { cancelled = true; };
   }, [code]);
+
+  // POS systems researched for the retail operators DutyBoost tracks. They are
+  // matched to the chosen airport through each operator's airport footprint.
+  useEffect(() => {
+    let cancelled = false;
+    base44.entities.RetailerPosSystem.list("retailer_name", 500)
+      .then((list) => { if (!cancelled) setPosRows(list || []); })
+      .catch(() => { if (!cancelled) setPosRows([]); });
+    return () => { cancelled = true; };
+  }, []);
+
+  const posOptions = useMemo(() => buildPosOptions(code, posRows), [code, posRows]);
 
   const storeOptions = useMemo(() => {
     const used = new Set(rows.map((r) => r.name.trim().toLowerCase()).filter(Boolean));
@@ -199,7 +211,7 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
             <SearchCombobox
               value={retailer.posPartner}
               onChange={(v) => setRetailer({ ...retailer, posPartner: v })}
-              options={POS_PROVIDER_OPTIONS}
+              options={posOptions}
               placeholder="Start typing, e.g. NCR…"
               emptyText="No provider matches — keep typing to add it as new"
               className="mt-1"

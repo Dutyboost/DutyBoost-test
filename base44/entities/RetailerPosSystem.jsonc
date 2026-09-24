@@ -1,0 +1,21 @@
+{
+  "name": "RetailerPosSystem",
+  "type": "object",
+  "properties": {
+    "retailer_name": {
+      "type": "string",
+      "title": "Retail Operator"
+    },
+    "pos_provider": {
+      "type": "string",
+      "title": "POS Provider / Platform"
+    },
+    "source_url": {
+      "type": "string",
+      "title": "Source URL (case study, press release, tender)"
+    }
+  },
+  "required": [
+    "retailer_name"
+  ]
+}

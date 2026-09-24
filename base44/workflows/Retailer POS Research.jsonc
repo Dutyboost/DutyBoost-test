@@ -1,0 +1,71 @@
+{
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "*/10 * * * *",
+      "one_time_date": null,
+      "timezone": "Europe/Amsterdam",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "after_count",
+      "ends_on_date": null,
+      "ends_after_count": 3
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "retailer_pos_research",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "research_batch": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "researchRetailerPos",
+            "args": {
+              "batch_size": 12,
+              "names": [
+                "Avolta",
+                "Lagard\u00e8re Travel Retail",
+                "Gebr. Heinemann",
+                "DFS Group",
+                "Lotte Duty Free",
+                "Shilla Duty Free",
+                "China Duty Free Group",
+                "Dubai Duty Free",
+                "Qatar Duty Free",
+                "WHSmith Travel",
+                "Aer Rianta International",
+                "Flemingo Travel Retail",
+                "Emirates Leisure Retail",
+                "TAV Airports",
+                "Rimas Colombia",
+                "Travel Retail Sweden",
+                "Intershop",
+                "JAT Retail",
+                "Flemingo India",
+                "DFP World",
+                "ILTT",
+                "Penha Duty Free"
+              ]
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Research next 12 retailers",
+            "description": "POS systems per retail operator"
+          }
+        }
+      }
+    ]
+  },
+  "name": "Retailer POS Research",
+  "description": "Researches the POS systems the tracked airport retail operators run, 12 operators per run, storing only sourced findings. Runs three times and then stops."
+}
