@@ -211,6 +211,7 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
             <SearchCombobox
               value={retailer.posPartner}
               onChange={(v) => setRetailer({ ...retailer, posPartner: v })}
+              onPick={(o) => setRetailer({ ...retailer, posPartner: o.label })}
               options={posOptions}
               placeholder="Start typing, e.g. NCR…"
               emptyText="No provider matches — keep typing to add it as new"
