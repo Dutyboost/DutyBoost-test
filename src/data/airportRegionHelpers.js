@@ -18,7 +18,16 @@ export function regionForCountry(country) {
   if (OCEANIA.includes(country)) return "Oceania";
   const AFRICA = ["Kenya", "Nigeria", "South Africa", "Morocco", "Egypt", "Tanzania", "Ghana", "Zimbabwe", "Tunisia", "Ethiopia"];
   if (AFRICA.includes(country)) return "Africa";
-  const LATAM = ["Mexico", "Brazil", "Argentina", "Chile", "Colombia", "Uruguay", "Ecuador", "Dominican Republic", "Barbados", "Antigua", "Bahamas", "Peru"];
+  const LATAM = [
+    "Mexico", "Brazil", "Argentina", "Chile", "Colombia", "Uruguay", "Ecuador", "Peru",
+    "Dominican Republic", "Barbados", "Antigua", "Bahamas",
+    // Caribbean territories
+    "Cuba", "Jamaica", "Haiti", "Puerto Rico", "US Virgin Islands", "Turks and Caicos",
+    "Aruba", "Curacao", "Bonaire", "Sint Maarten", "Saint Martin", "Saint Barthelemy",
+    "Anguilla", "British Virgin Islands", "Saint Kitts and Nevis", "Dominica",
+    "Guadeloupe", "Martinique", "Trinidad and Tobago", "Grenada", "Saint Lucia",
+    "Saint Vincent and the Grenadines", "French Guiana",
+  ];
   if (LATAM.includes(country)) return "Americas";
   return "Europe";
 }

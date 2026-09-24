@@ -28,6 +28,7 @@ import { AIRPORTS_FULL as DFP_WORLD_AIRPORTS_FULL } from "./demoDataDFPWorld";
 import { AIRPORTS_FULL as SINT_MAARTEN_AIRPORTS_FULL, ILTT_AIRPORTS_FULL, PENHA_AIRPORTS_FULL } from "./demoDataSintMaarten";
 import { A } from "./airportRegionHelpers";
 import { LIGHTWEIGHT_AIRPORTS, LIGHTWEIGHT_COMPANY_DEFS } from "./lightweightRetailers";
+import { CARIBBEAN_AIRPORTS, CARIBBEAN_COMPANY_DEFS } from "./caribbeanRetailers";
 
 // Region resolver + A() helper now live in ./airportRegionHelpers (shared with
 // the lightweight registry in ./lightweightRetailers).
@@ -154,12 +155,21 @@ export const RETAIL_AIRPORTS = {
 
   // ── Lightweight registry airports (see lightweightRetailers.js) ──
   ...LIGHTWEIGHT_AIRPORTS,
+
+  // ── Caribbean registry airports (see caribbeanRetailers.js) ──
+  ...CARIBBEAN_AIRPORTS,
 };
 
 // Build lightweight company entries from the merged airport registry.
 // Each entry resolves airport codes → full airport objects; totals are
 // computed downstream by computeCompanyTotals() from traffic + basket model.
 const LIGHTWEIGHT_COMPANIES = LIGHTWEIGHT_COMPANY_DEFS.map((d) => ({
+  name: d.name,
+  airports: d.codes.map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
+}));
+
+// Caribbean operators, resolved against the same merged registry.
+const CARIBBEAN_COMPANIES = CARIBBEAN_COMPANY_DEFS.map((d) => ({
   name: d.name,
   airports: d.codes.map((c) => RETAIL_AIRPORTS[c]).filter(Boolean),
 }));
@@ -257,6 +267,8 @@ export const AIRPORT_RETAIL_COMPANIES = [
     name: "Penha Duty Free — Sint Maarten",
     airports: PENHA_AIRPORTS_FULL,
   },
+  // ── Caribbean operators (documented footprint per island) ──
+  ...CARIBBEAN_COMPANIES,
   // ── Lightweight operators (traffic-derived totals, no bespoke store data) ──
   ...LIGHTWEIGHT_COMPANIES,
 ];
