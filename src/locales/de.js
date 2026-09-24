@@ -470,7 +470,7 @@ export default {
       retailer: {
         titlePart1: 'Reisende Tage, Wochen',
         titlePart2: 'oder Monate vor dem Abflug aktiviert.',
-        subtitle: "DutyBoost aktiviert Reisende, noch bevor sie ihr Zuhause verlassen — bei der Buchung und erneut vor der Rückreise. Tage oder Wochen bevor sie die Sicherheitskontrolle passieren, verfügen sie bereits über ein personalisiertes Einkaufsguthaben für die Geschäfte dieses Flughafens.\n\nSie kommen an und wissen, wie hoch ihre Prämie ist, was sie wert ist und wo sie einzulösen ist — voraktivierte Käufer auf beiden Reiseetappen, statt Reisender, die an Ihrem Geschäft vorbeigehen.",
+        subtitle: "DutyBoost aktiviert Reisende, noch bevor sie ihr Zuhause verlassen — bei der Buchung und erneut vor der Rückreise. Tage oder Wochen bevor sie die Sicherheitskontrolle passieren, verfügen sie bereits über ein personalisiertes Einkaufsguthaben für die Geschäfte dieses Flughafens. Auch im Transit.\n\nSie kommen an und wissen, wie hoch ihre Prämie ist, was sie wert ist und wo sie einzulösen ist — voraktivierte Käufer auf beiden Reiseetappen, statt Reisender, die an Ihrem Geschäft vorbeigehen.",
         howItWorks: 'So wird es funktionieren',
         step1: 'Voraktivierung — vor dem Abflug',
         step1Desc: 'Im Moment der Buchung stellt DutyBoost dem Reisenden ein personalisiertes Einkaufsguthaben für den Flughafen aus und stellt es per E-Mail zu — lange bevor er sein Zuhause verlässt. Er behält es Tage, Wochen oder Monate bis zum Abflugtag und erhält vor der Rückreise ein zweites Guthaben.',

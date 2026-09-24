@@ -482,7 +482,7 @@ export default {
       retailer: {
         titlePart1: 'Reizigers dagen, weken',
         titlePart2: 'of maanden vóór vertrek al geactiveerd.',
-        subtitle: "DutyBoost activeert reizigers nog voordat ze van huis gaan — bij het boeken en opnieuw vóór de terugreis. Dagen of weken voordat ze door de security gaan, beschikken ze al over een gepersonaliseerd winkeltegoed voor de winkels op die luchthaven.\n\nZe komen aan met kennis van hun beloning, de waarde ervan en waar ze te besteden is — vooraf geactiveerde kopers op beide reisdelen, in plaats van reizigers die langs uw deur lopen.",
+        subtitle: "DutyBoost activeert reizigers nog voordat ze van huis gaan — bij het boeken en opnieuw vóór de terugreis. Dagen of weken voordat ze door de security gaan, beschikken ze al over een gepersonaliseerd winkeltegoed voor de winkels op die luchthaven. Zelfs tijdens de doorreis.\n\nZe komen aan met kennis van hun beloning, de waarde ervan en waar ze te besteden is — vooraf geactiveerde kopers op beide reisdelen, in plaats van reizigers die langs uw deur lopen.",
         howItWorks: 'Hoe het zal werken',
         step1: 'Pre-activatie — vóór vertrek',
         step1Desc: 'Op het moment dat een reis wordt geboekt, verstrekt DutyBoost de reiziger een gepersonaliseerd winkeltegoed voor de luchthaven en bezorgt dit per e-mail — ruim voordat hij van huis gaat. De reiziger houdt het dagen, weken of maanden vóór de vertrekdag vast en ontvangt een tweede tegoed vóór de terugreis.',
