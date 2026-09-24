@@ -11,7 +11,9 @@ import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
+import MultiSelectComboBox from "@/components/survey/MultiSelectComboBox";
 import { STAKEHOLDER_CONFIG, getStakeholderRequestStrings } from "@/lib/i18nStakeholderRequest";
+import { POS_PROVIDERS } from "@/data/posProviders";
 
 /**
  * Shared "Request More Information" form. Each stakeholder gets its own page
@@ -27,12 +29,14 @@ export default function StakeholderRequestForm({ stakeholder }) {
   const Icon = cfg.Icon;
 
   const [form, setForm] = useState({
-    fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", volume: "", message: "",
+    fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", volume: "", posProviders: [], message: "",
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const isValid = form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.volume;
+  const isValid =
+    form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.volume &&
+    (stakeholder !== "retailer" || form.posProviders.length > 0);
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleSubmit = async (e) => {
@@ -40,7 +44,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
     if (!isValid) return;
     setLoading(true);
     try {
-      await base44.entities.Lead.create({
+      const leadPayload = {
         full_name: form.fullName,
         email: form.email,
         company_name: form.company,
@@ -48,7 +52,9 @@ export default function StakeholderRequestForm({ stakeholder }) {
         industry: cfg.industry,
         position: `${form.jobTitle} — ${cfg.positionSuffix}`,
         phone: form.volume,
-      });
+      };
+      if (stakeholder === "retailer") leadPayload.pos_providers = form.posProviders;
+      await base44.entities.Lead.create(leadPayload);
       try {
         await base44.integrations.Core.SendEmail({
           to: "hello@dutyboost.com",
@@ -64,6 +70,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
                 <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">${r.label_volume}</td><td>${form.volume}</td></tr>
+                ${stakeholder === "retailer" ? `<tr><td style="padding:6px 0; color:#666;">${r.label_pos}</td><td>${form.posProviders.join(", ")}</td></tr>` : ""}
                 <tr><td style="padding:6px 0; color:#666;">Message</td><td>${form.message || "—"}</td></tr>
               </table>
             </div>
@@ -163,6 +170,18 @@ export default function StakeholderRequestForm({ stakeholder }) {
                     </Select>
                   </div>
                 </div>
+                {stakeholder === "retailer" && (
+                  <MultiSelectComboBox
+                    label={r.label_pos}
+                    options={POS_PROVIDERS}
+                    value={form.posProviders}
+                    onChange={(v) => set("posProviders", v)}
+                    placeholder={r.placeholder_pos}
+                    searchPlaceholder={r.pos_search}
+                    emptyText={r.pos_empty}
+                    selectedText={r.pos_selected}
+                  />
+                )}
                 <div className="space-y-1.5">
                   <Label>{t('corporaterequest.label_message')} <span className="text-muted-foreground text-xs">{t('corporaterequest.optional')}</span></Label>
                   <textarea

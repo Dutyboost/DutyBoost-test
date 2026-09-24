@@ -43,6 +43,13 @@
         "Manager",
         "Staff"
       ]
+    },
+    "pos_providers": {
+      "type": "array",
+      "title": "POS Providers in Use",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": [

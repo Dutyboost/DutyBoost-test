@@ -13,7 +13,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-export default function MultiSelectComboBox({ label, options, value, onChange, placeholder }) {
+export default function MultiSelectComboBox({
+  label,
+  options,
+  value,
+  onChange,
+  placeholder,
+  searchPlaceholder = "Search...",
+  emptyText = "No results found.",
+  selectedText = "{n} selected",
+}) {
   const [open, setOpen] = useState(false);
   const selected = Array.isArray(value) ? value : [];
 
@@ -40,7 +49,7 @@ export default function MultiSelectComboBox({ label, options, value, onChange, p
             <span className="truncate">
               {selected.length === 0
                 ? <span className="text-muted-foreground">{placeholder || "Select..."}</span>
-                : `${selected.length} selected`}
+                : selectedText.replace("{n}", selected.length)}
             </span>
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
@@ -51,9 +60,9 @@ export default function MultiSelectComboBox({ label, options, value, onChange, p
           style={{ width: "var(--radix-popover-trigger-width)" }}
         >
           <Command>
-            <CommandInput placeholder="Search airport retailer..." />
+            <CommandInput placeholder={searchPlaceholder} />
             <CommandList>
-              <CommandEmpty>No retailer found.</CommandEmpty>
+              <CommandEmpty>{emptyText}</CommandEmpty>
               <CommandGroup>
                 {options.map((o) => (
                   <CommandItem
