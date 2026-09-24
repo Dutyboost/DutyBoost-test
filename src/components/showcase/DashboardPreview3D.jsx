@@ -194,9 +194,9 @@ export default function DashboardPreview3D({ role = "agency" }) {
             {/* KPI row */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {kpis.map((kpi, i) => (
-                <div key={i} className="bg-card rounded-xl border border-border px-2 py-3 sm:px-4 sm:py-4">
+                <div key={i} className="bg-card rounded-xl border border-border px-1.5 py-3 sm:px-4 sm:py-4 overflow-hidden">
                   <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 leading-tight">{kpi.label}</p>
-                  <p className="text-sm sm:text-2xl font-heading font-bold text-foreground break-all leading-tight">{kpi.value}</p>
+                  <p className="text-xs sm:text-2xl font-heading font-bold text-foreground whitespace-nowrap tabular-nums tracking-tight leading-tight">{kpi.value}</p>
                   <div className="flex items-center gap-1 mt-1">
                     <TrendIcon trend={kpi.trend} />
                     <span className="text-[10px] sm:text-xs text-muted-foreground leading-tight">{kpi.sub}</span>
