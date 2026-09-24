@@ -143,6 +143,10 @@ import WholesaleShowcase from './pages/WholesaleShowcase';
 import WholesaleCalculator from './pages/WholesaleCalculator';
 import AirportPartnerRequest from './pages/AirportPartnerRequest';
 import WholesalePartnerRequest from './pages/WholesalePartnerRequest';
+import RetailerRequest from './pages/RetailerRequest';
+import TravelPartnerRequest from './pages/TravelPartnerRequest';
+import AccommodationRequest from './pages/AccommodationRequest';
+import CarRentalRequest from './pages/CarRentalRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
 
@@ -292,6 +296,10 @@ const AuthenticatedApp = () => {
         <Route path="/wholesale-showcase" element={<WholesaleShowcase />} />
         <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
         <Route path="/wholesale-partner-request" element={<WholesalePartnerRequest />} />
+        <Route path="/retailer-request" element={<RetailerRequest />} />
+        <Route path="/travel-partner-request" element={<TravelPartnerRequest />} />
+        <Route path="/accommodation-request" element={<AccommodationRequest />} />
+        <Route path="/car-rental-request" element={<CarRentalRequest />} />
         <Route path="/corporate-partner-request" element={<CorporatePartnerRequest />} />
         <Route path="/roi-calculator-corporate-partner" element={<CorporatePartnerCalculator />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

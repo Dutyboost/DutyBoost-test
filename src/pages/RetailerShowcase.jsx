@@ -98,7 +98,7 @@ export default function RetailerShowcase() {
                 {t('showcase.retailer.ctaDesc')}
               </p>
               <div className="flex justify-center">
-                <Link to="/request-more-information">
+                <Link to="/retailer-request">
                   <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
                     {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
                   </Button>
