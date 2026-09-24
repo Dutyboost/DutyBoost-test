@@ -492,7 +492,7 @@ export default {
         titlePart2: 'o meses antes de la salida.',
         subtitle: "DutyBoost activa a los viajeros antes de que salgan de casa — en el momento en que se reserva un viaje y de nuevo antes del trayecto de vuelta. Días, semanas o incluso meses antes de pasar el control de seguridad del aeropuerto de salida, ya disponen de un crédito de compra personalizado para las tiendas de ese aeropuerto.\n\nLlegan sabiendo cuál es su recompensa, cuánto vale y dónde pueden gastarla — un flujo continuo de compradores pre-activados en ambos trayectos, en lugar de viajeros que quizá pasen de largo por tu puerta.",
         howItWorks: 'Cómo funcionará',
-        step1: 'Pre-activación — meses antes de la salida',
+        step1: 'Pre-activación — antes de la salida',
         step1Desc: 'En el momento en que se reserva un viaje, DutyBoost emite al viajero un crédito de compra personalizado para el aeropuerto y lo envía por correo electrónico — mucho antes de que salga de casa. Lo conserva durante días, semanas o meses hasta el día de la salida, y recibe un segundo crédito antes del trayecto de vuelta.',
         step2: 'El viajero llega pre-activado',
         step2Desc: 'Entra en tu tienda sabiendo ya cuál es su recompensa, cuánto vale y que se acepta aquí. No está explorando — llega con una misión: gastarla contigo, en ambos trayectos.',

@@ -21,7 +21,7 @@ export default {
     titlePart2: 'or months before departure.',
     subtitle: "DutyBoost activates travellers before they leave home — when a trip is booked, and again ahead of the return leg. Days, weeks, or even months before they clear security at the departure airport, they already hold a personalised shopping credit for that airport's shops.\n\nThey arrive knowing their reward, what it is worth, and where it can be spent — a continuous flow of pre-activated shoppers on both legs of the journey, rather than travellers who may simply walk past your door.",
     howItWorks: 'How It Will Work',
-    step1: 'Pre-Activation — Months Before Departure',
+    step1: 'Pre-Activation — Before Departure',
     step1Desc: 'The moment a trip is booked, DutyBoost issues the traveller a personalised airport shopping credit and delivers it by email — long before they leave home. They hold it for days, weeks, or months ahead of the departure day, and receive a second credit before the return leg.',
     step2: 'The Traveller Arrives Pre-Activated',
     step2Desc: 'They walk into your store already knowing their reward, its value, and that it is accepted here. They are not browsing — they arrive with a mission to spend it with you, on both legs of the journey.',
