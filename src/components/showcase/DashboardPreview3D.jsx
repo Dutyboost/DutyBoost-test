@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useTranslation } from "react-i18next";
 import {
   AreaChart, Area, BarChart, Bar,
@@ -148,6 +149,15 @@ export default function DashboardPreview3D({ role = "agency" }) {
 
   const dp = `dashboardPreview.${role}`;
 
+  // Charts must shrink with the viewport: the fixed bar widths and full-width
+  // axes overflowed the plot area on phones, so scale them down there.
+  const isMobile = useIsMobile();
+  const tickFont = isMobile ? 9 : 10;
+  const yAxisWidth = isMobile ? 34 : 60;
+  const xInterval = isMobile ? 1 : 0;
+  const chartHeight = isMobile ? 180 : 200;
+  const barSize = isMobile ? 5 : 14;
+
   const kpis = [
     { label: t(`${dp}.kpi1`), value: chartData.kpiValues[0], sub: t(`${dp}.kpi1Sub`), trend: "up" },
     { label: t(`${dp}.kpi2`), value: chartData.kpiValues[1], sub: t(`${dp}.kpi2Sub`), trend: "up" },
@@ -179,7 +189,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
         >
           <motion.div
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-            className="relative rounded-2xl overflow-hidden shadow-lg border border-border bg-background p-4 space-y-4"
+            className="relative rounded-2xl overflow-hidden shadow-lg border border-border bg-background p-3 sm:p-4 space-y-3 sm:space-y-4"
           >
             {/* KPI row */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
@@ -196,7 +206,7 @@ export default function DashboardPreview3D({ role = "agency" }) {
             </div>
 
             {/* Chart area */}
-            <div className="bg-card rounded-xl border border-border px-5 pt-5 pb-6">
+            <div className="bg-card rounded-xl border border-border px-2.5 sm:px-5 pt-4 sm:pt-5 pb-5 sm:pb-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                 <h3 className="text-sm font-semibold font-heading text-foreground">{t(`${dp}.chartTitle`)}</h3>
                 <div className="flex flex-wrap gap-x-3 gap-y-1">
@@ -209,15 +219,16 @@ export default function DashboardPreview3D({ role = "agency" }) {
                 </div>
               </div>
 
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={chartHeight}>
                 {chartData.chart === "composed" && role === "retailer" ? (
-                  <ComposedChart data={chartData.chartData} margin={{ top: 4, right: 40, bottom: 0, left: 0 }}>
+                  <ComposedChart data={chartData.chartData} margin={{ top: 4, right: isMobile ? 24 : 40, bottom: 0, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: tickFont }} interval={xInterval} axisLine={false} tickLine={false} />
                     <YAxis
                       yAxisId="revenue"
                       orientation="left"
-                      tick={{ fontSize: 10 }}
+                      width={yAxisWidth}
+                      tick={{ fontSize: tickFont }}
                       axisLine={false}
                       tickLine={false}
                       tickFormatter={(v) => v >= 1000000 ? `€${(v / 1000000).toFixed(1).replace(".", ",")}M` : v >= 1000 ? `€${(v / 1000).toFixed(0)}.000` : `€${v}`}
@@ -225,7 +236,8 @@ export default function DashboardPreview3D({ role = "agency" }) {
                     <YAxis
                       yAxisId="redemptions"
                       orientation="right"
-                      tick={{ fontSize: 10 }}
+                      width={yAxisWidth}
+                      tick={{ fontSize: tickFont }}
                       axisLine={false}
                       tickLine={false}
                       tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}.000` : v}
@@ -235,32 +247,33 @@ export default function DashboardPreview3D({ role = "agency" }) {
                     <Line yAxisId="redemptions" type="monotone" dataKey="redemptions" name={series.find(s => s.key === "redemptions")?.label || "Redemptions"} stroke="#fdba74" strokeWidth={2.5} dot={false} />
                   </ComposedChart>
                 ) : chartData.chart === "composed-stacked" ? (
-                  <BarChart data={chartData.chartData} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
+                  <BarChart data={chartData.chartData} margin={{ top: 4, right: isMobile ? 4 : 8, bottom: 0, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: tickFont }} interval={xInterval} axisLine={false} tickLine={false} />
                     <YAxis
-                      tick={{ fontSize: 10 }}
+                      width={yAxisWidth}
+                      tick={{ fontSize: tickFont }}
                       axisLine={false}
                       tickLine={false}
                       tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}.000` : v}
                     />
                     <Tooltip content={<CustomTooltip />} />
-                    <Bar dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={14} />
-                    <Bar dataKey={chartData.barKey2} name={series.find(s => s.key === chartData.barKey2)?.label} fill={chartData.barColor2} radius={[4, 4, 0, 0]} barSize={14} />
-                    <Bar dataKey={chartData.lineKey} name={series.find(s => s.key === chartData.lineKey)?.label} fill={chartData.lineColor} radius={[4, 4, 0, 0]} barSize={14} />
+                    <Bar dataKey={chartData.barKey1} name={series.find(s => s.key === chartData.barKey1)?.label} fill={chartData.barColor1} radius={[4, 4, 0, 0]} barSize={barSize} />
+                    <Bar dataKey={chartData.barKey2} name={series.find(s => s.key === chartData.barKey2)?.label} fill={chartData.barColor2} radius={[4, 4, 0, 0]} barSize={barSize} />
+                    <Bar dataKey={chartData.lineKey} name={series.find(s => s.key === chartData.lineKey)?.label} fill={chartData.lineColor} radius={[4, 4, 0, 0]} barSize={barSize} />
                   </BarChart>
                 ) : chartData.chart === "bar" ? (
-                  <BarChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
+                  <BarChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: isMobile ? -6 : -20 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: tickFont }} interval={xInterval} axisLine={false} tickLine={false} />
+                    <YAxis width={yAxisWidth} tick={{ fontSize: tickFont }} axisLine={false} tickLine={false} />
                     <Tooltip content={<CustomTooltip />} />
                     {series.map((s) => (
                       <Bar key={s.key} dataKey={s.key} name={s.label} fill={s.color} radius={[4, 4, 0, 0]} />
                     ))}
                   </BarChart>
                 ) : (
-                  <AreaChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
+                  <AreaChart data={chartData.chartData} margin={{ top: 4, right: 4, bottom: 0, left: isMobile ? -6 : -20 }}>
                     <defs>
                       {series.map((s) => (
                         <linearGradient key={s.key} id={`grad-${s.key}`} x1="0" y1="0" x2="0" y2="1">
@@ -270,8 +283,8 @@ export default function DashboardPreview3D({ role = "agency" }) {
                       ))}
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: tickFont }} interval={xInterval} axisLine={false} tickLine={false} />
+                    <YAxis width={yAxisWidth} tick={{ fontSize: tickFont }} axisLine={false} tickLine={false} />
                     <Tooltip content={<CustomTooltip />} />
                     {series.map((s) => (
                       <Area
