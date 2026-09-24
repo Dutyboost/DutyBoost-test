@@ -484,7 +484,7 @@ export default {
         step3: 'Scansione e validazione alla cassa',
         step3Desc: "Presenta il suo codice QR univoco alla cassa e il tuo personale lo scansiona tramite il sistema POS integrato. Il credito viene validato in tempo reale — attivo, non scaduto e appartenente a questo viaggiatore. Nessun calcolo manuale. Nessun attrito.",
         step4: 'Sconto applicato, liquidazione mensile',
-        step4Desc: "Lo sconto a scaglioni viene applicato automaticamente al carrello — da 2,50 € per 20 € di spesa fino a 60 € per 300 €+. A fine mese DutyBoost fattura il 2,5% del valore lordo dei riscatti (con un massimo di 25 € per transazione), con tutti i report e la liquidazione gestiti automaticamente.",
+        step4Desc: "Lo sconto a scaglioni viene applicato automaticamente al carrello — da 1 € per 20 € di spesa fino a 60 € per 300 €+. A fine mese DutyBoost fattura il 2,5% del valore lordo dei riscatti (con un massimo di 25 € per transazione), con tutti i report e la liquidazione gestiti automaticamente.",
         ctaTitle: 'Pronto ad accogliere viaggiatori pre-attivati?',
         ctaDesc: 'Registra il tuo interesse e sii tra i primi retailer a ricevere viaggiatori già decisi a spendere.',
         ctaButton: 'Vai al portale del retailer',

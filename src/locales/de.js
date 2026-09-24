@@ -479,7 +479,7 @@ export default {
         step3: 'Scannen und validieren an der Kasse',
         step3Desc: 'Er zeigt seinen eindeutigen QR-Code an der Kasse und Ihr Personal scannt ihn über das integrierte Kassensystem. Das Guthaben wird in Echtzeit validiert — aktiv, nicht abgelaufen und zu diesem Reisenden gehörend. Keine manuellen Berechnungen. Keine Reibung.',
         step4: 'Rabatt angewendet, monatlich abgerechnet',
-        step4Desc: 'Der gestaffelte Rabatt wird automatisch auf seinen Einkauf angewendet — von 2,50 € ab 20 € Einkaufswert bis 60 € ab 300 €+. Zum Monatsende stellt DutyBoost 2,5 % des Brutto-Einlösewerts in Rechnung (maximal 25 € pro Transaktion); sämtliche Berichte und die Abrechnung erfolgen automatisch.',
+        step4Desc: 'Der gestaffelte Rabatt wird automatisch auf seinen Einkauf angewendet — von 1 € ab 20 € Einkaufswert bis 60 € ab 300 €+. Zum Monatsende stellt DutyBoost 2,5 % des Brutto-Einlösewerts in Rechnung (maximal 25 € pro Transaktion); sämtliche Berichte und die Abrechnung erfolgen automatisch.',
         ctaTitle: 'Bereit, voraktivierte Reisende zu empfangen?',
         ctaDesc: 'Registrieren Sie Ihr Interesse und gehören Sie zu den ersten Händlern, die Reisende empfangen, die bereits entschlossen sind zu kaufen.',
         ctaButton: 'Zum Händlerportal',

@@ -499,7 +499,7 @@ export default {
         step3: 'Escanear y validar en caja',
         step3Desc: 'Presenta su código QR único en la caja y tu personal lo escanea mediante el sistema POS integrado. El crédito se valida en tiempo real — activo, no caducado y perteneciente a este viajero. Sin cálculos manuales. Sin fricciones.',
         step4: 'Descuento aplicado, liquidación mensual',
-        step4Desc: 'El descuento escalonado se aplica automáticamente a su compra — desde 2,50 € en compras de 20 € hasta 60 € en compras de 300 €+. A fin de mes, DutyBoost factura el 2,5% del valor bruto de los canjes (con un máximo de 25 € por transacción), con todos los informes y la liquidación gestionados automáticamente.',
+        step4Desc: 'El descuento escalonado se aplica automáticamente a su compra — desde 1 € en compras de 20 € hasta 60 € en compras de 300 €+. A fin de mes, DutyBoost factura el 2,5% del valor bruto de los canjes (con un máximo de 25 € por transacción), con todos los informes y la liquidación gestionados automáticamente.',
         ctaTitle: '¿Listo para recibir viajeros pre-activados?',
         ctaDesc: 'Registra tu interés y sé de los primeros minoristas en recibir viajeros que ya han decidido gastar.',
         ctaButton: 'Ir al portal de minorista',

@@ -479,7 +479,7 @@ export default {
         step3: 'Scan et validation en caisse',
         step3Desc: "Il présente son code QR unique en caisse et votre personnel le scanne via le système de caisse intégré. Le crédit est validé en temps réel — actif, non expiré et appartenant à ce voyageur. Aucun calcul manuel. Aucune friction.",
         step4: 'Remise appliquée, règlement mensuel',
-        step4Desc: "La remise par paliers est appliquée automatiquement à son panier — de 2,50 € dès 20 € d'achat jusqu'à 60 € dès 300 €+. En fin de mois, DutyBoost facture 2,5 % de la valeur brute des utilisations (plafonnée à 25 € par transaction), tous les rapports et les règlements étant traités automatiquement.",
+        step4Desc: "La remise par paliers est appliquée automatiquement à son panier — de 1 € dès 20 € d'achat jusqu'à 60 € dès 300 €+. En fin de mois, DutyBoost facture 2,5 % de la valeur brute des utilisations (plafonnée à 25 € par transaction), tous les rapports et les règlements étant traités automatiquement.",
         ctaTitle: 'Prêt à accueillir des voyageurs pré-activés ?',
         ctaDesc: 'Enregistrez votre intérêt et soyez parmi les premiers détaillants à recevoir des voyageurs déjà décidés à acheter.',
         ctaButton: 'Aller au portail détaillant',

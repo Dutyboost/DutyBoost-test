@@ -28,7 +28,7 @@ export default {
     step3: 'Scan & Validate at the Till',
     step3Desc: 'They present their unique QR code at checkout and your staff scan it via the integrated POS. The credit is validated in real time — active, not expired, and belonging to this traveller. No manual calculations. No friction.',
     step4: 'Discount Applied, Settled Monthly',
-    step4Desc: 'The tiered discount is applied automatically to their basket — from €2.50 at €20 spend up to €60 at €300+. At month-end, DutyBoost invoices 2.5% of gross redemption value (capped at €25 per transaction), with all reporting and settlement handled automatically.',
+    step4Desc: 'The tiered discount is applied automatically to their basket — from €1 at €20 spend up to €60 at €300+. At month-end, DutyBoost invoices 2.5% of gross redemption value (capped at €25 per transaction), with all reporting and settlement handled automatically.',
     ctaTitle: 'Ready to Meet Pre-Activated Travellers?',
     ctaDesc: 'Register your interest and be among the first retailers to receive travellers who arrive already committed to spending.',
     ctaButton: 'Go to Retailer Portal',

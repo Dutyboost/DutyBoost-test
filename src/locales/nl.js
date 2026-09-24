@@ -491,7 +491,7 @@ export default {
         step3: 'Scannen en valideren aan de kassa',
         step3Desc: 'De reiziger toont de unieke QR-code bij de kassa en uw medewerker scant deze via het geïntegreerde kassasysteem. Het tegoed wordt in realtime gevalideerd — actief, niet verlopen en toebehorend aan deze reiziger. Geen handmatige berekeningen. Geen frictie.',
         step4: 'Korting toegepast, maandelijks afgerekend',
-        step4Desc: 'De getrapte korting wordt automatisch op de besteding toegepast — van €2,50 bij €20 besteding tot €60 bij €300+. Aan het einde van de maand factureert DutyBoost 2,5% van de bruto inwisselwaarde (gemaximeerd op €25 per transactie), waarbij alle rapportage en afwikkeling automatisch verlopen.',
+        step4Desc: 'De getrapte korting wordt automatisch op de besteding toegepast — van €1 bij €20 besteding tot €60 bij €300+. Aan het einde van de maand factureert DutyBoost 2,5% van de bruto inwisselwaarde (gemaximeerd op €25 per transactie), waarbij alle rapportage en afwikkeling automatisch verlopen.',
         ctaTitle: 'Klaar om vooraf geactiveerde reizigers te ontvangen?',
         ctaDesc: 'Registreer uw interesse en behoor tot de eerste retailers die reizigers ontvangen die al hebben besloten te besteden.',
         ctaButton: 'Ga naar retailerportal',
