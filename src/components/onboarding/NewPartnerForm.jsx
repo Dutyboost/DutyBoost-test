@@ -9,7 +9,7 @@ import AirportPicker from "./AirportPicker";
 import SearchCombobox from "./SearchCombobox";
 import StoreRowsEditor, { EMPTY_STORE_ROW } from "./StoreRowsEditor";
 import { buildRetailerOptions } from "./retailerOptions";
-import { buildPosOptions } from "./posOptions";
+import { buildPosOptions, retailerPosProviders } from "./posOptions";
 
 const EMPTY_AIRPORT = { code: "", name: "", city: "", country: "" };
 const EMPTY_RETAILER = { name: "", email: "", posPartner: "", commissionRate: 10, agreementRef: "" };
@@ -57,7 +57,17 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
     return () => { cancelled = true; };
   }, []);
 
-  const posOptions = useMemo(() => buildPosOptions(code, posRows), [code, posRows]);
+  const posOptions = useMemo(
+    () => buildPosOptions(code, posRows, retailer.name),
+    [code, posRows, retailer.name]
+  );
+
+  // What we have on record for the retailer being onboarded, so the form can
+  // say plainly when nothing is documented for it.
+  const documentedPos = useMemo(
+    () => retailerPosProviders(retailer.name, posRows),
+    [retailer.name, posRows]
+  );
 
   const storeOptions = useMemo(() => {
     const used = new Set(rows.map((r) => r.name.trim().toLowerCase()).filter(Boolean));
@@ -217,6 +227,11 @@ export default function NewPartnerForm({ airports, registeredRetailers = [], par
               emptyText="No provider matches — keep typing to add it as new"
               className="mt-1"
             />
+            {retailer.name.trim() && documentedPos.length === 0 && (
+              <p className="text-xs text-muted-foreground mt-1">
+                No POS system is publicly documented for {retailer.name.trim()} — enter the provider from the Order Form.
+              </p>
+            )}
           </div>
           <div>
             <Label className="text-xs">POS commission rate (%)</Label>

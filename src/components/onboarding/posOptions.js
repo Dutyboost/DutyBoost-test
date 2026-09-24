@@ -41,45 +41,72 @@ export function operatorsAtAirport(airportCode) {
     .map((c) => c.name);
 }
 
-/**
- * POS provider options for the chosen airport. Providers researched for the
- * operators trading at that airport come first, labelled with those operators;
- * the rest of the market list follows so an unrecorded provider can still be
- * picked (free text always works too).
- */
-export function buildPosOptions(airportCode, posRows = []) {
-  const code = (airportCode || "").toUpperCase();
-  const operators = operatorsAtAirport(code);
+/** POS systems researched for one operator. */
+export function retailerPosProviders(operatorName, posRows = []) {
+  const found = new Map();
+  posRows.forEach((r) => {
+    const provider = (r.pos_provider || "").trim();
+    if (!provider) return;
+    if (!sameOperator(operatorName, r.retailer_name)) return;
+    if (!found.has(provider.toLowerCase())) found.set(provider.toLowerCase(), provider);
+  });
+  return [...found.values()];
+}
 
-  const byProvider = new Map();
-  if (operators.length) {
-    posRows.forEach((r) => {
-      const provider = (r.pos_provider || "").trim();
-      if (!provider) return;
-      const operator = operators.find((o) => sameOperator(o, r.retailer_name));
-      if (!operator) return;
-      const key = provider.toLowerCase();
-      const entry = byProvider.get(key) || { label: provider, operators: [] };
-      const label = shortName(operator);
-      if (!entry.operators.includes(label)) entry.operators.push(label);
-      byProvider.set(key, entry);
-    });
+/**
+ * POS provider options for the retailer being onboarded at the chosen airport.
+ * The selected retailer's own researched systems come first, then the systems
+ * researched for the other operators trading at that airport, then the rest of
+ * the market list so an unrecorded provider can still be picked (free text
+ * always works too).
+ */
+export function buildPosOptions(airportCode, posRows = [], retailerName = "") {
+  const code = (airportCode || "").toUpperCase();
+  const retailer = (retailerName || "").trim();
+
+  const sections = [];
+
+  if (retailer) {
+    const own = retailerPosProviders(retailer, posRows);
+    if (own.length) {
+      sections.push(...own.map((p) => ({
+        key: `retailer-${p}`,
+        label: p,
+        sub: `Used by ${retailer} in its airport stores`,
+        group: "This retailer",
+      })));
+    }
   }
 
-  if (byProvider.size === 0) {
+  const atAirport = new Map();
+  operatorsAtAirport(code)
+    .filter((op) => !(retailer && sameOperator(op, retailer)))
+    .forEach((op) => {
+      retailerPosProviders(op, posRows).forEach((p) => {
+        const key = p.toLowerCase();
+        const entry = atAirport.get(key) || { label: p, operators: [] };
+        entry.operators.push(shortName(op));
+        atAirport.set(key, entry);
+      });
+    });
+
+  if (atAirport.size) {
+    sections.push(...[...atAirport.values()].map((e) => ({
+      key: `airport-${e.label}`,
+      label: e.label,
+      sub: `Reported for ${e.operators.join(", ")}`,
+      group: `Also at ${code}`,
+    })));
+  }
+
+  if (!sections.length) {
     return POS_PROVIDERS.map((p) => ({ key: `pos-${p}`, label: p }));
   }
 
-  const known = [...byProvider.values()].map((e) => ({
-    key: `known-${e.label}`,
-    label: e.label,
-    sub: `Used by ${e.operators.join(", ")} at ${code}`,
-    group: `At ${code}`,
-  }));
-
+  const used = new Set(sections.map((s) => s.label.toLowerCase()));
   const other = POS_PROVIDERS
-    .filter((p) => !byProvider.has(p.toLowerCase()))
+    .filter((p) => !used.has(p.toLowerCase()))
     .map((p) => ({ key: `pos-${p}`, label: p, group: "Other providers" }));
 
-  return [...known, ...other];
+  return [...sections, ...other];
 }
