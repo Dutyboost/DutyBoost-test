@@ -1337,7 +1337,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       retailer: {
         kpi1: 'Panier moyen',
         kpi1Sub: '+12% vs l\'an dernier',
-        kpi2: 'Bons utilisés',
+        kpi2: 'DutyCredits utilisés',
         kpi2Sub: 'Cette année',
         kpi3: 'Revenu net',
         kpi3Sub: 'Après frais DutyBoost',

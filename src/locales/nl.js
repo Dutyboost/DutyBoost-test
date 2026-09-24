@@ -1594,7 +1594,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       retailer: {
         kpi1: 'Gemiddelde basketwaarde',
         kpi1Sub: '+12% t.o.v. vorig jaar',
-        kpi2: 'Ingewisselde vouchers',
+        kpi2: 'Ingewisselde DutyCredits',
         kpi2Sub: 'Dit jaar',
         kpi3: 'Netto-omzet',
         kpi3Sub: 'Na DutyBoost-fee',

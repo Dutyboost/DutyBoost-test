@@ -884,7 +884,7 @@ export default {
       retailer: {
         kpi1: 'Basket Spend (avg)',
         kpi1Sub: '+12% vs last year',
-        kpi2: 'Vouchers Redeemed',
+        kpi2: 'DutyCredits Redeemed',
         kpi2Sub: 'This year',
         kpi3: 'Net Revenue',
         kpi3Sub: 'After DutyBoost fee',

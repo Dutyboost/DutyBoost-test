@@ -1335,7 +1335,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       retailer: {
         kpi1: 'Warenkorbwert (Ø)',
         kpi1Sub: '+12% ggü. Vorjahr',
-        kpi2: 'Eingelöste Gutscheine',
+        kpi2: 'Eingelöste DutyCredits',
         kpi2Sub: 'Dieses Jahr',
         kpi3: 'Nettoumsatz',
         kpi3Sub: 'Nach DutyBoost-Gebühr',

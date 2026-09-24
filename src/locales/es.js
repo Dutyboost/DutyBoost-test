@@ -1567,7 +1567,7 @@ Las Partes declaran que celebran esta Carta de Intención en un espíritu de con
       retailer: {
         kpi1: 'Cesta media',
         kpi1Sub: '+12% vs año anterior',
-        kpi2: 'Vales canjeados',
+        kpi2: 'DutyCredits canjeados',
         kpi2Sub: 'Este año',
         kpi3: 'Ingresos netos',
         kpi3Sub: 'Tras tarifa DutyBoost',

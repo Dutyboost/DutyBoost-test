@@ -1341,7 +1341,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       retailer: {
         kpi1: 'Carrello medio',
         kpi1Sub: '+12% vs anno scorso',
-        kpi2: 'Voucher riscattati',
+        kpi2: 'DutyCredit riscattati',
         kpi2Sub: 'Quest\'anno',
         kpi3: 'Ricavo netto',
         kpi3Sub: 'Dopo commissione DutyBoost',
