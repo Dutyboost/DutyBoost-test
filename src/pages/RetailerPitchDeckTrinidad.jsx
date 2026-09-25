@@ -824,11 +824,13 @@ function SlideThankYou() {
   );
 }
 
+const SlideSolutionUsd = () => <SlideSolution currency="$" />;
+
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
   problem: SlideProblem,
-  solution: SlideSolution,
+  solution: SlideSolutionUsd,
   market: SlideMarket,
   conversion: SlideConversion,
   acquisition: SlideAcquisitionTrinidad,

@@ -6,7 +6,7 @@ import CarRentalIcon from "@/components/CarRentalIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
 
-export function SlideSolution() {
+export function SlideSolution({ currency = "€" }) {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -45,7 +45,7 @@ export function SlideSolution() {
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
-              "Spends €100 → Saves €10",
+              `Spends ${currency}100 → Saves ${currency}10`,
               "POS validates transaction",
               "All participants earn",
             ].map((step, i, arr) => (
@@ -61,7 +61,7 @@ export function SlideSolution() {
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 mb-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center items-start">
               <div className="flex flex-col items-center">
-                <div className="text-2xl font-bold text-blue-600 h-9 flex items-center justify-center whitespace-nowrap">€1 – €60</div>
+                <div className="text-2xl font-bold text-blue-600 h-9 flex items-center justify-center whitespace-nowrap">{currency}1 – {currency}60</div>
                 <div className="text-slate-500 text-sm mt-2">DutyCredit direct traveller value</div>
               </div>
               <div className="flex flex-col items-center">
