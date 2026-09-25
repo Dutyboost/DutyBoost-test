@@ -37,7 +37,12 @@ export default function BusinessCardEditor({ initial, storageKey }) {
   const [data, setData] = useState(() => loadSaved(storageKey, initial));
 
   useEffect(() => {
-    if (storageKey) localStorage.setItem(storageKey, JSON.stringify(data));
+    if (!storageKey) return;
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    } catch {
+      // storage unavailable — card still works for this session
+    }
   }, [data, storageKey]);
 
   const update = (key, value) => setData((d) => ({ ...d, [key]: value }));
