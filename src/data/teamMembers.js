@@ -21,7 +21,7 @@ export const TEAM_MEMBERS = [
     name: "Jaquelin Beliad Perez",
     role: "Co-Founder / Airport Retail & Brand Specialist",
     linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
-    photo: "https://media.base44.app/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
+    photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
     focus: ["Airport Retail", "Brand Strategy", "Store Activation"],
     bio: [
       "Jaquelin Beliad Perez is Co-Founder and Airport Retail & Brand Specialist at DutyBoost. She brings the retail perspective to the platform — how travellers actually behave inside an airport, how stores are merchandised and staffed, and what it takes for a participating retailer to turn an arriving traveller into a purchase.",
@@ -33,7 +33,7 @@ export const TEAM_MEMBERS = [
     name: "Fares Ben Halima",
     role: "Technical Director",
     linkedin: "https://www.linkedin.com/in/fares-ben-halima-36b948158/",
-    photo: "https://media.base44.app/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg",
+    photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/38fa892f5_FaresBenHalima.jpeg",
     focus: ["Platform Architecture", "POS Integration", "Security"],
     bio: [
       "Fares Ben Halima is Technical Director at DutyBoost. He is responsible for the platform's architecture and for the integrations that connect it to the systems partners already operate — most importantly the Enterprise POS layer, where a DutyCredit is validated and a transaction is confirmed.",
@@ -45,7 +45,7 @@ export const TEAM_MEMBERS = [
     name: "Ariunzaya Zorigt",
     role: "Marketing Director",
     linkedin: "https://www.linkedin.com/in/aria-zorigt/",
-    photo: "https://media.base44.app/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg",
+    photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/9ae3deb4b_AriunzayaZorigt.jpeg",
     focus: ["Brand Marketing", "Partner Communications", "Growth"],
     bio: [
       "Ariunzaya Zorigt is Marketing Director at DutyBoost. She leads how the platform is positioned and communicated — to travel and corporate partners, airport retailers, POS providers, airports and wholesale suppliers, as well as to the travellers who ultimately use a DutyCredit.",
