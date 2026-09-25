@@ -39,7 +39,7 @@ export default function CalBanner({ subtitle, className = "" }) {
           </p>
           <div className="h-[3px] w-32 md:w-56 rounded-full mt-1" style={{ background: PURPLE }} />
           <p className="text-[11px] md:text-sm mt-2 max-w-md leading-snug" style={{ color: GREY }}>
-            {subtitle || "Caribbean Airlines Duty Free — Piarco International Airport, Trinidad & Tobago"}
+            {subtitle || "Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport, Tobago"}
           </p>
         </div>
         <div className="relative shrink-0 pt-1">

@@ -38,7 +38,7 @@ const FUNNEL = [
   "Checks if they qualify",
   "Claims their free DutyCredit",
   "Arrives with purchase intent",
-  "Redeems at Caribbean Airlines Duty Free, Piarco",
+  "Redeems at Caribbean Airlines Duty Free — Piarco or Tobago",
 ];
 
 export default function SlideAcquisitionTrinidad() {
@@ -55,7 +55,7 @@ export default function SlideAcquisitionTrinidad() {
               We Take On the Acquisition Cost. <span style={{ color: ACCENT }}>You Take the Sale.</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm md:text-base">
-              DutyBoost funds and runs the Curiosity Campaign across the countries Caribbean Airlines flies from — before the traveller ever reaches Piarco.
+              DutyBoost funds and runs the Curiosity Campaign across the countries Caribbean Airlines flies from — before the traveller ever reaches Trinidad &amp; Tobago.
             </p>
           </div>
 

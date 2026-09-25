@@ -89,7 +89,7 @@ function SlideCover() {
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>
             </h1>
             <p className="text-base md:text-xl text-slate-500 max-w-3xl leading-relaxed">
-              A Presentation for Trinidad &amp; Tobago Airport Retailers — Piarco International Airport
+              A Presentation for Trinidad &amp; Tobago Airport Retailers — Piarco International Airport &amp; A.N.R. Robinson International Airport, Tobago
             </p>
           </div>
 
@@ -197,7 +197,7 @@ function SlideProblem() {
                 <h3 className="text-slate-800 font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
                 <ul className="space-y-3">
                   {[
-                    "Activation starts only after the traveller clears security at Piarco",
+                    "Activation starts only after the traveller clears security at Piarco or Tobago",
                     "Retailers compete for attention through impulse purchasing",
                     "No financial reason for a non-intending buyer to enter a store",
                     "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
@@ -286,9 +286,9 @@ function SlideMarket() {
             <h3 className="font-bold text-slate-700 mb-3">DutyBoost doesn't need to create:</h3>
             <div className="space-y-2">
               {[
-                "Piarco International Airport — it already operates",
+                "Piarco International Airport and A.N.R. Robinson International Airport — both already operate",
                 "Passenger traffic — 1.8M travellers on the Caribbean Airlines network",
-                "Airport Retailers — Caribbean Airlines Duty Free already operates stores",
+                "Airport Retailers — Caribbean Airlines Duty Free already operates stores at both airports",
                 "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
               ].map((item, i) => (
@@ -600,7 +600,7 @@ function SlideIntegrate() {
             <div className="rounded-2xl p-5 lg:p-7" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
               <h3 className="text-white font-bold text-xl lg:text-2xl mb-2">ACTIVATED THROUGH YOUR POS</h3>
               <p className="text-purple-50 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">
-                DutyBoost is enabled by your POS provider as an activation feature — the same system Caribbean Airlines Duty Free already uses for checkout at Piarco. No separate integration required from the retailer.
+                DutyBoost is enabled by your POS provider as an activation feature — the same system Caribbean Airlines Duty Free already uses for checkout at Piarco and at Tobago. No separate integration required from the retailer.
               </p>
               <div className="grid grid-cols-3 gap-3 text-center">
                 {[
@@ -743,7 +743,7 @@ function SlideGetStarted() {
             </h2>
           </div>
           <p className="text-slate-600 text-base max-w-3xl mx-auto leading-relaxed mb-4">
-            DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing at Piarco.
+            DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing at both Piarco and Tobago.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-4">
             {cards.map((card) => (
@@ -786,7 +786,7 @@ function SlideThankYou() {
             <DutyBoostLogo height={46} linkTo="/retailer-showcase" />
           </div>
 
-          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport, Trinidad & Tobago" className="max-w-4xl mb-4" />
+          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport, Tobago" className="max-w-4xl mb-4" />
 
           <div className="mb-3">
             <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Thank You</span>
@@ -796,7 +796,7 @@ function SlideThankYou() {
             </h2>
           </div>
           <p className="text-slate-600 text-base max-w-3xl leading-relaxed mb-4">
-            DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco, your POS, and 1.31M travellers on the Caribbean Airlines network who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
+            DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco and Tobago, your POS, and 1.31M travellers on the Caribbean Airlines network who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl w-full mb-4">
             {cards.map((card) => (
