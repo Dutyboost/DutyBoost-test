@@ -164,10 +164,11 @@ function drawBack(doc, data, icons) {
     const y = 31 + i * 4.8;
     const icon = icons?.[key];
     if (icon) {
-      doc.addImage(icon, "PNG", 8, y - 2.9, ICON_MM, ICON_MM);
+      // centre the icon on the text's optical middle (baseline sits at y)
+      doc.addImage(icon, "PNG", 8, y - 2.5, ICON_MM, ICON_MM);
     } else {
       doc.setFillColor(...ORANGE);
-      doc.rect(8, y - 2.6, 2.6, 2.6, "F");
+      doc.rect(8, y - 2.2, 2.6, 2.6, "F");
     }
     doc.setTextColor(...WHITE);
     doc.text(value, 12.5, y);
