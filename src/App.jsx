@@ -106,6 +106,7 @@ import CircularRevenueFlow from './pages/CircularRevenueFlow';
 import LetterOfIntent from './pages/LetterOfIntent';
 import LetterOfIntentRetailer from './pages/LetterOfIntentRetailer';
 import BrandGuidelines from './pages/BrandGuidelines';
+import BusinessCard from './pages/BusinessCard';
 import ClaimDutyCredit from './pages/ClaimDutyCredit';
 import PosChannelPartner from './pages/PosChannelPartner';
 import PosPartnerCallback from './pages/PosPartnerCallback';
@@ -259,6 +260,7 @@ const AuthenticatedApp = () => {
         <Route path="/letter-of-intent" element={<LetterOfIntent />} />
         <Route path="/letter-of-intent-retailer" element={<LetterOfIntentRetailer />} />
         <Route path="/brand-guidelines" element={<BrandGuidelines />} />
+        <Route path="/business-card" element={<BusinessCard />} />
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
         <Route path="/pos-partner" element={<PosChannelPartner />} />
         <Route path="/pos-partner-one-pager" element={<PosPartnerOnePager />} />

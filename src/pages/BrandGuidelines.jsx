@@ -418,9 +418,14 @@ export default function BrandGuidelines() {
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-heading font-bold text-foreground">Brand Guidelines</h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">DutyBoost design system — colors, typography, spacing, and principles.</p>
-          <Button onClick={handleDownload} disabled={generating} size="lg" className="gap-2 px-8">
-            {generating ? <><Loader2 className="w-4 h-4 animate-spin" /> Generating PDF...</> : <><Download className="w-4 h-4" /> Download PDF</>}
-          </Button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button onClick={handleDownload} disabled={generating} size="lg" className="gap-2 px-8">
+              {generating ? <><Loader2 className="w-4 h-4 animate-spin" /> Generating PDF...</> : <><Download className="w-4 h-4" /> Download PDF</>}
+            </Button>
+            <Button asChild size="lg" variant="outline" className="gap-2 px-8">
+              <Link to="/business-card">Business Card</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Color Palette */}
