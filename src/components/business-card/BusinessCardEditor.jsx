@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Printer, Download } from "lucide-react";
 import { exportBusinessCardPdf } from "@/utils/exportBusinessCardPdf";
@@ -17,12 +17,28 @@ const FIELDS = [
   { key: "website", label: "Website", placeholder: "dutyboost.com" },
 ];
 
-export default function BusinessCardEditor({ initial }) {
-  const [data, setData] = useState({
-    email: "hello@dutyboost.com",
-    website: "dutyboost.com",
-    ...initial,
-  });
+const DEFAULT_DATA = {
+  email: "hello@dutyboost.com",
+  website: "dutyboost.com",
+};
+
+function loadSaved(storageKey, initial) {
+  const base = { ...DEFAULT_DATA, ...initial };
+  if (!storageKey) return base;
+  try {
+    const saved = localStorage.getItem(storageKey);
+    return saved ? { ...base, ...JSON.parse(saved) } : base;
+  } catch {
+    return base;
+  }
+}
+
+export default function BusinessCardEditor({ initial, storageKey }) {
+  const [data, setData] = useState(() => loadSaved(storageKey, initial));
+
+  useEffect(() => {
+    if (storageKey) localStorage.setItem(storageKey, JSON.stringify(data));
+  }, [data, storageKey]);
 
   const update = (key, value) => setData((d) => ({ ...d, [key]: value }));
 
