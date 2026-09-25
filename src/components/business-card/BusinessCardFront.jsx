@@ -26,7 +26,7 @@ export default function BusinessCardFront({ data }) {
       >
         <DutyBoostLogo height={36} linkTo={null} />
 
-        <div>
+        <div className="mt-auto">
           <p className="font-heading font-bold leading-tight" style={{ fontSize: "13pt", color: "#0D1524" }}>
             {data.name || "Your Name"}
           </p>
@@ -34,10 +34,11 @@ export default function BusinessCardFront({ data }) {
             {data.title || "Job Title"}
           </p>
           <div style={{ width: "14mm", height: "0.7mm", background: "#FF7A00", marginTop: "2.4mm" }} />
-          <p style={{ fontSize: "6pt", color: "#6B7590", marginTop: "2mm", letterSpacing: "0.05em", lineHeight: 1.35 }}>
-            THE CIRCULAR REVENUE INFRASTRUCTURE FOR GLOBAL TRAVEL
-          </p>
         </div>
+
+        <p style={{ fontSize: "6pt", color: "#6B7590", marginTop: "4.8mm", letterSpacing: "0.05em", lineHeight: 1.35 }}>
+          THE CIRCULAR REVENUE INFRASTRUCTURE FOR GLOBAL TRAVEL
+        </p>
       </div>
     </div>
   );
