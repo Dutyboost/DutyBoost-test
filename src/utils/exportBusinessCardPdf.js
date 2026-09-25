@@ -33,9 +33,10 @@ function drawFront(doc, data) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.setTextColor(...PRIMARY);
+  const frontMark = doc.getTextWidth("DutyBoost");
   doc.text("DutyBoost", 9, 12);
   doc.setFontSize(4.5);
-  doc.text("TM", 9 + doc.getTextWidth("DutyBoost") + 0.5, 8.6);
+  doc.text("TM", 9 + frontMark + 0.6, 8.6);
 
   // Identity block
   doc.setFontSize(13);
@@ -70,9 +71,10 @@ function drawBack(doc, data) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
   doc.setTextColor(...WHITE);
+  const backMark = doc.getTextWidth("DutyBoost");
   doc.text("DutyBoost", 8, 12);
   doc.setFontSize(4.5);
-  doc.text("TM", 8 + doc.getTextWidth("DutyBoost") + 0.5, 8.6);
+  doc.text("TM", 8 + backMark + 0.6, 8.6);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6.5);
