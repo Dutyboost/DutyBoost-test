@@ -113,6 +113,7 @@ import PosChannelPartner from './pages/PosChannelPartner';
 import PosPartnerCallback from './pages/PosPartnerCallback';
 import PosPartnerOnePager from './pages/PosPartnerOnePager';
 import WhyDutyBoostOnePager from './pages/WhyDutyBoostOnePager';
+import Team from './pages/Team';
 import EligibilityShowcase from './pages/EligibilityShowcase';
 import DutyBoostPresentation from './pages/DutyBoostPresentation';
 import DutyBoostPresentationGlobal from './pages/DutyBoostPresentationGlobal';
@@ -267,6 +268,7 @@ const AuthenticatedApp = () => {
         <Route path="/pos-partner" element={<PosChannelPartner />} />
         <Route path="/pos-partner-one-pager" element={<PosPartnerOnePager />} />
         <Route path="/why-dutyboost" element={<WhyDutyBoostOnePager />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/pos-partner-callback" element={<PosPartnerCallback />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentationGlobal />} />
