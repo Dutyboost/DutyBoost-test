@@ -34,8 +34,8 @@ export default function BusinessCardFront({ data }) {
             {data.title || "Job Title"}
           </p>
           <div style={{ width: "14mm", height: "0.7mm", background: "#FF7A00", marginTop: "2.4mm" }} />
-          <p style={{ fontSize: "6.5pt", color: "#6B7590", marginTop: "2mm", letterSpacing: "0.06em" }}>
-            THE TRAVEL RETAIL CONVERSION LAYER
+          <p style={{ fontSize: "6pt", color: "#6B7590", marginTop: "2mm", letterSpacing: "0.05em", lineHeight: 1.35 }}>
+            THE CIRCULAR REVENUE INFRASTRUCTURE FOR GLOBAL TRAVEL
           </p>
         </div>
       </div>
