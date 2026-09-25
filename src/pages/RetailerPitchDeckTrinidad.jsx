@@ -15,6 +15,7 @@ const CMI_LINK = "https://www.coherentmarketinsights.com/market-insight/caribbea
 const M1NDSET_LINK = "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-state-of-travel-and-tourism-in-the-caribbean";
 const CTO_LINK = "https://www.onecaribbean.org/caribbean-tourism-shows-resilient-growth-amid-global-headwinds-in-2025/";
 const CAL_LINK = "https://www.caribbean-airlines.com/";
+const CSO_LINK = "https://cso.gov.tt/subjects/travel-and-tourism/travel-statistics/";
 const CAL_DF_LINK = "https://dutyfree.caribbean-airlines.com/";
 
 const SLIDES = [
@@ -238,19 +239,20 @@ function SlideMarket() {
         <div className="mb-5">
           <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Trinidad &amp; Tobago Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            1.8M Travellers. 24 Destinations. <span style={{ color: ACCENT }}>$2.72B Regional Market</span>
+            1.8M Travellers. 24 Destinations. <span style={{ color: ACCENT }}>$29M Local Market of $2.72B Regional</span>
           </h2>
           <p className="text-slate-500 mt-2">DutyBoost doesn't need to create the market. It connects what already exists.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-2">
           {[
             { label: "Caribbean Airlines Travellers", value: "1.8M", sub: "Across 24 destinations (Caribbean Airlines, 2025)", color: "#952d8b", link: CAL_LINK },
-            { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9", link: CMI_LINK },
             { label: "Network Destinations", value: "24", sub: "Caribbean, North & South America (Caribbean Airlines)", color: "#3b82f6", link: CAL_DF_LINK },
+            { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9", link: CMI_LINK },
+            { label: "Trinidad & Tobago DF&TR Share", value: "$29M", sub: "1.07% of Caribbean market (est.)", color: "#16a34a", link: CMI_LINK },
           ].map((m) => (
-            <div key={m.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center">
+            <div key={m.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-6 text-center">
               <div className="text-xl md:text-3xl font-bold mb-2" style={{ color: m.color }}>{m.value}</div>
-              <div className="font-semibold text-slate-700 mb-1 text-sm">{m.label}</div>
+              <div className="font-semibold text-slate-700 mb-1 text-xs md:text-sm">{m.label}</div>
               <div className="text-slate-500 text-xs">
                 <a href={m.link} target="_blank" rel="noopener noreferrer"
                   className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>
@@ -260,6 +262,12 @@ function SlideMarket() {
             </div>
           ))}
         </div>
+        <p className="text-slate-400 text-[11px] mb-5 leading-snug">
+          Trinidad &amp; Tobago category values estimated from CMI market data, proportional to Trinidad &amp; Tobago's stopover arrival share of the Caribbean market (373,027 / 35M ≈ 1.07% of $2.72B ≈ $29M total) —{" "}
+          <a href={CSO_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>CSO Trinidad &amp; Tobago</a>
+          {" "}|{" "}
+          <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>CMI</a>
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
             <h3 className="font-bold text-slate-700 mb-4">Caribbean Airlines Duty Free — Assortment at Piarco</h3>
