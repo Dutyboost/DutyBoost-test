@@ -6,7 +6,7 @@ import useAirportDirectory from "./useAirportDirectory";
 import AirportDirectoryStats from "./AirportDirectoryStats";
 import AirportDirectoryTable from "./AirportDirectoryTable";
 import { buildAirportRows, buildStoreRows, downloadCsv } from "./campaignCsv";
-import { normalizeCountry } from "@/data/countryRegions";
+import { countryKey } from "@/data/countryRegions";
 
 export default function AirportDirectorySection() {
   const { loading, airports, storesByCode, storeCount } = useAirportDirectory();
@@ -16,7 +16,7 @@ export default function AirportDirectorySection() {
 
   const stats = useMemo(() => {
     const countries = new Set(
-      airports.map((a) => normalizeCountry(a.country)).filter(Boolean)
+      airports.map((a) => countryKey(a.country)).filter(Boolean)
     );
     const regions = new Set(airports.map((a) => a.region).filter((r) => r && r !== "Other"));
     return {

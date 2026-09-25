@@ -101,3 +101,21 @@ register("Americas", AMERICAS);
 export function regionForAirportCountry(country) {
   return COUNTRY_REGION[normalizeCountry(country)] || "Other";
 }
+
+// The researched data lists some countries under two names (OurAirports vs.
+// common usage), which would otherwise count as two countries. Each variant
+// resolves to a single canonical key.
+const COUNTRY_ALIASES = {
+  czechrepublic: "czechia",
+  turkey: "turkiye",
+  congobrazzaville: "congo",
+  congokinshasa: "drcongo",
+  myanmarburma: "myanmar",
+  turksandcaicosislands: "turksandcaicos",
+};
+
+/** Stable key for counting a country once, whatever spelling the data uses. */
+export function countryKey(country) {
+  const normalized = normalizeCountry(country);
+  return COUNTRY_ALIASES[normalized] || normalized;
+}
