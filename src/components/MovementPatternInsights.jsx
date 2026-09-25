@@ -5,17 +5,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { BarChart, Bar, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from "recharts";
 import { TrendingUp, AlertCircle, Loader2 } from "lucide-react";
 
-const AIRPORTS = {
-  AMS: "Amsterdam Schiphol",
-  RTM: "Rotterdam The Hague",
-  EIN: "Eindhoven Airport",
-  BRU: "Brussels Airport",
-};
-
 export default function MovementPatternInsights() {
   const [loading, setLoading] = useState(true);
   const [patterns, setPatterns] = useState([]);
-  const [selectedAirport, setSelectedAirport] = useState("AMS");
+  const [airportNames, setAirportNames] = useState({});
+  const [selectedAirport, setSelectedAirport] = useState("");
   const [selectedSeason, setSelectedSeason] = useState("All");
 
   const seasons = ["All", "Spring", "Summer", "Fall", "Winter", "Holiday Peak", "Low Season"];
@@ -23,14 +17,24 @@ export default function MovementPatternInsights() {
   useEffect(() => {
     const loadPatterns = async () => {
       try {
-        const data = await base44.entities.TerminalMovementPattern.list('-created_date', 100);
+        const [data, airports] = await Promise.all([
+          base44.entities.TerminalMovementPattern.list('-created_date', 500),
+          base44.entities.Airport.list('code', 5000),
+        ]);
         setPatterns(data || []);
+        setAirportNames(Object.fromEntries((airports || []).map(a => [a.code, a.name])));
+        setSelectedAirport(prev => prev || data?.[0]?.airport || "");
       } finally {
         setLoading(false);
       }
     };
     loadPatterns();
   }, []);
+
+  // Only airports that actually carry recorded data, named from the airport directory
+  const recordedAirports = [...new Set(patterns.map(p => p.airport).filter(Boolean))].sort();
+
+  const airportLabel = (code) => airportNames[code] ? `${code} — ${airportNames[code]}` : code;
 
   const filteredPatterns = patterns.filter(p =>
     p.airport === selectedAirport &&
@@ -90,28 +94,17 @@ export default function MovementPatternInsights() {
     );
   }
 
-  if (filteredPatterns.length === 0) {
-    return (
-      <Card className="p-6">
-        <div className="text-center space-y-2 py-8">
-          <AlertCircle className="w-10 h-10 mx-auto text-muted-foreground opacity-50" />
-          <p className="text-muted-foreground">No movement data yet for {AIRPORTS[selectedAirport]} in {selectedSeason === "All" ? "all seasons" : selectedSeason}.</p>
-        </div>
-      </Card>
-    );
-  }
-
   return (
     <div className="space-y-6">
       {/* Filters */}
       <div className="flex gap-4 flex-wrap">
         <Select value={selectedAirport} onValueChange={setSelectedAirport}>
-          <SelectTrigger className="w-64">
-            <SelectValue />
+          <SelectTrigger className="w-72">
+            <SelectValue placeholder="Select airport" />
           </SelectTrigger>
           <SelectContent>
-            {Object.entries(AIRPORTS).map(([code, name]) => (
-              <SelectItem key={code} value={code}>{code} — {name}</SelectItem>
+            {recordedAirports.map(code => (
+              <SelectItem key={code} value={code}>{airportLabel(code)}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -127,6 +120,19 @@ export default function MovementPatternInsights() {
           </SelectContent>
         </Select>
       </div>
+
+      {filteredPatterns.length === 0 && (
+        <Card className="p-6">
+          <div className="text-center space-y-2 py-8">
+            <AlertCircle className="w-10 h-10 mx-auto text-muted-foreground opacity-50" />
+            <p className="text-muted-foreground">
+              No movement data yet for {selectedAirport ? airportLabel(selectedAirport) : "any airport"} in {selectedSeason === "All" ? "all seasons" : selectedSeason}.
+            </p>
+          </div>
+        </Card>
+      )}
+
+      {filteredPatterns.length > 0 && (<>
 
       {/* Key Insights */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -205,6 +211,7 @@ export default function MovementPatternInsights() {
         <p><strong>{new Set(filteredPatterns.map(p => p.submitted_by_email)).size}</strong> contributors (agencies & retailers)</p>
         <p className="pt-2 text-foreground text-sm font-semibold">This data helps optimize where and when DutyCredits should be promoted.</p>
       </Card>
+      </>)}
     </div>
   );
 }

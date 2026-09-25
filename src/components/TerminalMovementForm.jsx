@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
+import SearchCombobox from "./onboarding/SearchCombobox";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -42,7 +43,9 @@ const SEASONS = [
 ];
 
 export default function TerminalMovementForm({ user }) {
-  const [airport, setAirport] = useState("AMS");
+  const [airports, setAirports] = useState([]);
+  const [airportQuery, setAirportQuery] = useState("");
+  const [airportCode, setAirportCode] = useState("");
   const [terminal, setTerminal] = useState("");
   const [timeWindow, setTimeWindow] = useState("");
   const [season, setSeason] = useState("");
@@ -52,16 +55,37 @@ export default function TerminalMovementForm({ user }) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Set default terminal when airport changes
+  // Every stored airport (4,000+) is selectable
   useEffect(() => {
-    if (TERMINAL_LAYOUTS[airport]) {
-      setTerminal(TERMINAL_LAYOUTS[airport].terminals[0]);
-    }
-  }, [airport]);
+    base44.entities.Airport.list("code", 5000).then(list => setAirports(list || []));
+  }, []);
+
+  const airportOptions = useMemo(() => airports.map(a => ({
+    key: a.code,
+    label: `${a.code} — ${a.name}`,
+    sub: [a.city, a.country].filter(Boolean).join(", "),
+  })), [airports]);
+
+  const knownTerminals = TERMINAL_LAYOUTS[airportCode]?.terminals;
+
+  // Known layouts prefill the zone; any other airport takes a free-text zone
+  useEffect(() => {
+    setTerminal(TERMINAL_LAYOUTS[airportCode]?.terminals[0] || "");
+  }, [airportCode]);
+
+  const resolveAirportCode = () => {
+    if (airportCode) return airportCode;
+    const q = airportQuery.trim().toLowerCase();
+    if (!q) return "";
+    const match = airports.find(a => a.code.toLowerCase() === q)
+      || airports.find(a => `${a.code} — ${a.name}`.toLowerCase() === q)
+      || airports.find(a => a.name.toLowerCase() === q);
+    return match ? match.code : airportQuery.trim();
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!airport || !terminal || !timeWindow || !season || !trafficLevel) {
+    if (!airportQuery.trim() || !terminal || !timeWindow || !season || !trafficLevel) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -69,7 +93,7 @@ export default function TerminalMovementForm({ user }) {
     setLoading(true);
     try {
       await base44.entities.TerminalMovementPattern.create({
-        airport,
+        airport: resolveAirportCode(),
         terminal,
         time_window: timeWindow,
         season,
@@ -82,7 +106,9 @@ export default function TerminalMovementForm({ user }) {
       toast.success("Movement pattern recorded!");
       setSubmitted(true);
       setTimeout(() => {
-        setTerminal(TERMINAL_LAYOUTS[airport]?.terminals[0] || "");
+        setAirportQuery("");
+        setAirportCode("");
+        setTerminal("");
         setTimeWindow("");
         setSeason("");
         setTrafficLevel("");
@@ -112,33 +138,37 @@ export default function TerminalMovementForm({ user }) {
           <Label className="flex items-center gap-2">
             <MapPin className="w-4 h-4" /> Airport <span className="text-red-500">*</span>
           </Label>
-          <Select value={airport} onValueChange={setAirport}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {Object.entries(TERMINAL_LAYOUTS).map(([code, data]) => (
-                <SelectItem key={code} value={code}>
-                  {code} — {data.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SearchCombobox
+            value={airportQuery}
+            onChange={(v) => { setAirportQuery(v); setAirportCode(""); }}
+            onPick={(o) => { setAirportQuery(o.label); setAirportCode(o.key); }}
+            options={airportOptions}
+            placeholder="Search any airport by code, name, city or country"
+            emptyText="No airport matches — check the spelling or pick the closest airport"
+          />
         </div>
 
         {/* Terminal Selection */}
         <div className="space-y-2">
           <Label>Terminal/Zone <span className="text-red-500">*</span></Label>
-          <Select value={terminal} onValueChange={setTerminal}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {TERMINAL_LAYOUTS[airport]?.terminals.map(t => (
-                <SelectItem key={t} value={t}>{t}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {knownTerminals ? (
+            <Select value={terminal} onValueChange={setTerminal}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {knownTerminals.map(t => (
+                  <SelectItem key={t} value={t}>{t}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ) : (
+            <Input
+              value={terminal}
+              onChange={e => setTerminal(e.target.value)}
+              placeholder="e.g. Terminal 2, Pier B, Departures, Gate Lounge"
+            />
+          )}
         </div>
 
         {/* Time Window */}
