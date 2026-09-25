@@ -13,7 +13,6 @@ import RetailerStrategyTab from "../components/RetailerStrategyTab";
 import PartialRefundManager from "../components/PartialRefundManager";
 import AggregationView from "../components/AggregationView";
 import { Button } from "@/components/ui/button";
-import { Compass } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -198,7 +197,6 @@ export default function RetailerDashboard() {
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "custom", label: "Custom Aggregation", icon: BarChartIcon },
     { id: "refunds", label: "Returns & Refunds", icon: RotateCcw },
-    { id: "strategy", label: "Define your Airport Retail strategy", icon: Compass },
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
