@@ -21,7 +21,7 @@ export default function BusinessCardFront({ data }) {
       />
 
       <div
-        className="relative h-full flex flex-col justify-between"
+        className="relative h-full flex flex-col"
         style={{ padding: "6mm 7mm 6mm 9mm" }}
       >
         <DutyBoostLogo height={36} linkTo={null} />
@@ -33,10 +33,11 @@ export default function BusinessCardFront({ data }) {
           <p style={{ fontSize: "8.5pt", color: "#6B7590", marginTop: "0.6mm" }}>
             {data.title || "Job Title"}
           </p>
-          <div style={{ width: "14mm", height: "0.7mm", background: "#FF7A00", marginTop: "2.4mm" }} />
         </div>
 
-        <p style={{ fontSize: "6pt", color: "#6B7590", marginTop: "4.8mm", letterSpacing: "0.05em", lineHeight: 1.35 }}>
+        <div style={{ width: "14mm", height: "0.7mm", background: "#FF7A00", marginTop: "5mm" }} />
+
+        <p style={{ fontSize: "6pt", color: "#6B7590", marginTop: "1mm", letterSpacing: "0.05em", lineHeight: 1.35 }}>
           THE CIRCULAR REVENUE INFRASTRUCTURE FOR GLOBAL TRAVEL
         </p>
       </div>

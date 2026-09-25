@@ -113,15 +113,16 @@ function drawFront(doc, data, logo) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
   doc.setTextColor(...DARK);
-  doc.text(data.name || "Your Name", 9, 32.5);
+  doc.text(data.name || "Your Name", 9, 32);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8.5);
   doc.setTextColor(...GREY);
-  doc.text(data.title || "Job Title", 9, 36.5);
+  doc.text(data.title || "Job Title", 9, 36);
 
+  // Accent stripe sits directly above the slogan, clear of the name block
   doc.setFillColor(...ORANGE);
-  doc.rect(9, 38.5, 14, 0.7, "F");
+  doc.rect(9, 41.6, 14, 0.7, "F");
 
   doc.setFontSize(6);
   doc.setTextColor(...GREY);
