@@ -61,7 +61,7 @@ export default function FooterLinks() {
       <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
       <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
       <Link to="/cookies" className="hover:text-primary transition-colors">{t('footer.cookie_policy', 'Cookie Policy')}</Link>
-      <Link to="/team" className="hover:text-primary transition-colors">Team</Link>
+      <Link to="/team" className="hover:text-primary transition-colors">The People Behind DutyBoost</Link>
       </div>
       <a href="https://www.linkedin.com/company/dutyboost-official/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-80 transition-opacity">
         <LinkedInIcon className="w-5 h-5" />
