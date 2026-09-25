@@ -777,45 +777,45 @@ function SlideThankYou() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-5 md:px-12 md:py-5 relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-12 md:py-4 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #952d8b 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center text-center">
-          <div className="bg-white rounded-2xl px-6 py-2.5 shadow-2xl border border-slate-200 mb-4">
-            <DutyBoostLogo height={46} linkTo="/retailer-showcase" />
+          <div className="bg-white rounded-2xl px-5 py-2 shadow-2xl border border-slate-200 mb-3">
+            <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
           </div>
 
-          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport, Tobago" className="max-w-4xl mb-4" />
+          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport, Tobago" className="max-w-4xl mb-3" />
 
-          <div className="mb-3">
+          <div className="mb-2.5">
             <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Thank You</span>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-1.5 leading-tight">
-              Join DutyBoost.<br />
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1 leading-tight">
+              Join DutyBoost.{" "}
               <span style={{ color: ACCENT }}>Start Earning Incremental Revenue.</span>
             </h2>
           </div>
-          <p className="text-slate-600 text-base max-w-3xl leading-relaxed mb-4">
+          <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
             DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco and Tobago, your POS, and 1.31M travellers on the Caribbean Airlines network who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl w-full mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl w-full mb-3">
             {cards.map((card) => (
-              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left">
-                <card.Icon className="w-7 h-7 mb-1.5" style={{ color: ACCENT }} />
-                <div className="text-purple-700 font-bold text-sm mb-1">{card.title}</div>
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-3 text-left">
+                <card.Icon className="w-6 h-6 mb-1" style={{ color: ACCENT }} />
+                <div className="text-purple-700 font-bold text-sm mb-0.5">{card.title}</div>
                 <div className="text-slate-600 text-xs leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
-          <div className="rounded-2xl p-5 text-white max-w-2xl" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
-            <p className="font-bold text-base md:text-lg leading-snug mb-1">
+          <div className="rounded-2xl px-5 py-3 text-white max-w-2xl" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
+            <p className="font-bold text-sm md:text-base leading-snug mb-0.5">
               Ready to turn 1.31M non-purchasing travellers into incremental sales?
             </p>
-            <p className="text-purple-50 text-sm">
+            <p className="text-purple-50 text-xs">
               Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.
             </p>
           </div>
-          <div className="mt-4 text-slate-500 text-[10px]">
+          <div className="mt-3 text-slate-500 text-[10px]">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
@@ -862,21 +862,21 @@ export default function RetailerPitchDeckTrinidad() {
   const SlideComp = SLIDE_COMPONENTS[slide.type];
 
   return (
-    <div className="min-h-screen bg-[#0f0710] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
-      <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
+    <div className="min-h-screen bg-[#0f0710] flex flex-col items-center justify-start lg:justify-center p-2 py-1.5 overflow-x-hidden">
+      <div className="w-full max-w-[1400px] flex items-center justify-between mb-1.5">
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Trinidad &amp; Tobago Airport Retailer Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
         <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
       </div>
 
-      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
+      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]">
         <SlideComp />
       </div>
 
-      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-3">
+      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mt-2">
         <button onClick={prev} disabled={current === 0}
-          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none">
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none">
           <ChevronLeft size={18} /> Previous
         </button>
         <div className="flex gap-1.5 flex-wrap justify-center max-w-lg">
@@ -889,12 +889,12 @@ export default function RetailerPitchDeckTrinidad() {
           ))}
         </div>
         <button onClick={next} disabled={current === SLIDES.length - 1}
-          className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
           style={{ background: ACCENT }}>
           Next <ChevronRight size={18} />
         </button>
       </div>
-      <div className="mt-1.5 text-slate-500 text-sm">{SLIDE_LABELS[slide.type]}</div>
+      <div className="mt-1 text-slate-500 text-xs">{SLIDE_LABELS[slide.type]}</div>
     </div>
   );
 }
