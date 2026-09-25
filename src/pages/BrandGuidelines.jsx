@@ -423,7 +423,7 @@ export default function BrandGuidelines() {
               {generating ? <><Loader2 className="w-4 h-4 animate-spin" /> Generating PDF...</> : <><Download className="w-4 h-4" /> Download PDF</>}
             </Button>
             <Button asChild size="lg" variant="outline" className="gap-2 px-8">
-              <Link to="/business-card">Business Card</Link>
+              <Link to="/business-card-rael">Business Card</Link>
             </Button>
           </div>
         </div>

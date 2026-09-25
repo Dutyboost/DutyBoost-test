@@ -16,16 +16,12 @@ const FIELDS = [
   { key: "website", label: "Website", placeholder: "dutyboost.com" },
 ];
 
-const INITIAL = {
-  name: "",
-  title: "",
-  email: "hello@dutyboost.com",
-  phone: "",
-  website: "dutyboost.com",
-};
-
-export default function BusinessCard() {
-  const [data, setData] = useState(INITIAL);
+export default function BusinessCardEditor({ initial }) {
+  const [data, setData] = useState({
+    email: "hello@dutyboost.com",
+    website: "dutyboost.com",
+    ...initial,
+  });
 
   const update = (key, value) => setData((d) => ({ ...d, [key]: value }));
 
@@ -67,7 +63,7 @@ export default function BusinessCard() {
                 <Label htmlFor={`bc-${f.key}`} className="text-xs">{f.label}</Label>
                 <Input
                   id={`bc-${f.key}`}
-                  value={data[f.key]}
+                  value={data[f.key] || ""}
                   placeholder={f.placeholder}
                   onChange={(e) => update(f.key, e.target.value)}
                 />
