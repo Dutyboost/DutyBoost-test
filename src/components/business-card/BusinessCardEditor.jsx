@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Printer } from "lucide-react";
+import { Printer, Download } from "lucide-react";
+import { exportBusinessCardPdf } from "@/utils/exportBusinessCardPdf";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -71,6 +72,9 @@ export default function BusinessCardEditor({ initial }) {
             ))}
             <Button onClick={() => window.print()} className="w-full gap-2">
               <Printer className="w-4 h-4" /> Print / PDF
+            </Button>
+            <Button variant="outline" onClick={() => exportBusinessCardPdf(data)} className="w-full gap-2">
+              <Download className="w-4 h-4" /> Download PDF
             </Button>
           </div>
 
