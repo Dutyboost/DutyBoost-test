@@ -218,7 +218,7 @@ export default function RetailerDashboard() {
       </div>
 
       {activeTab === "profile" ? (
-        <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
+        <ProfileTab user={user} onUserUpdate={setUser} showBankDetails={false} invoiceHeading="Invoice History" invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
       ) : activeTab === "custom" ? (
         <AggregationView transactions={filteredTransactions} vouchers={vouchers} period={period === "daily" ? "day" : period === "monthly" ? "month" : period} entityType="retailer" onPeriodChange={setPeriod} />
       ) : activeTab === "implementation" ? (

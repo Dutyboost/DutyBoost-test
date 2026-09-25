@@ -57,7 +57,7 @@ function EditableSection({ title, icon: Icon, fields, onSave }) {
   );
 }
 
-export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
+export default function ProfileTab({ user, onUserUpdate, invoiceComponent, showBankDetails = true, invoiceHeading = "Payout History" }) {
   const [bankForm, setBankForm] = useState({
     bank_account_name: user?.bank_account_name || "",
     bank_iban: user?.bank_iban || "",
@@ -200,6 +200,7 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
         onSave={saveFields}
       />
 
+      {showBankDetails && (
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -247,11 +248,12 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent }) {
           </div>
         )}
       </div>
+      )}
 
       {invoiceComponent && (
         <div>
           <h3 className="font-heading font-semibold text-base mb-3 flex items-center gap-2">
-            <Download className="w-4 h-4 text-primary" /> Payout History
+            <Download className="w-4 h-4 text-primary" /> {invoiceHeading}
           </h3>
           {invoiceComponent}
         </div>
