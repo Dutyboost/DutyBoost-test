@@ -61,6 +61,9 @@ export default function NewPartnerTypeForm({ config, onCreated }) {
           revenue_share_pct: Number(partner.share) || 0,
           agreement_ref: partner.agreementRef.trim(),
           activated: false,
+          ...Object.fromEntries(
+            Object.entries(partner.extras || {}).filter(([, v]) => String(v || "").trim())
+          ),
         }))
       );
 
@@ -129,12 +132,26 @@ export default function NewPartnerTypeForm({ config, onCreated }) {
             <SearchCombobox
               value={partner.category}
               onChange={(v) => setPartner({ ...partner, category: v })}
+              onPick={(o) => setPartner({ ...partner, category: o.label })}
               options={categoryOptions}
               placeholder="Start typing…"
               emptyText="No match — keep typing to use it anyway"
               className="mt-1"
             />
           </div>
+          {(config.extraFields || []).map((field) => (
+            <div key={field.key}>
+              <Label className="text-xs">{field.label}</Label>
+              <Input
+                value={partner.extras[field.key] || ""}
+                onChange={(e) =>
+                  setPartner({ ...partner, extras: { ...partner.extras, [field.key]: e.target.value } })
+                }
+                placeholder={field.placeholder}
+                className="mt-1"
+              />
+            </div>
+          ))}
           <div>
             <Label className="text-xs">Platform fee / revenue share (%)</Label>
             <Input

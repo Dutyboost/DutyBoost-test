@@ -141,6 +141,8 @@ import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
 import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
 import CorporatePartnerRequest from './pages/CorporatePartnerRequest';
 import CorporatePartnerCalculator from './pages/CorporatePartnerCalculator';
+import PartnerDashboard from './pages/PartnerDashboard';
+
 import AirportShowcase from './pages/AirportShowcase';
 import AirportCalculator from './pages/AirportCalculator';
 import WholesaleShowcase from './pages/WholesaleShowcase';
@@ -333,6 +335,10 @@ const AuthenticatedApp = () => {
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
+          <Route path="/pos-partner-dashboard" element={<PartnerDashboard type="pos" />} />
+          <Route path="/airport-partner-dashboard" element={<PartnerDashboard type="airport" />} />
+          <Route path="/corporate-partner-dashboard" element={<PartnerDashboard type="corporate" />} />
+          <Route path="/wholesale-partner-dashboard" element={<PartnerDashboard type="wholesale" />} />
           <Route path="/travel-partner-integration" element={<AgencyIntegrationPage />} />
           <Route path="/scan-redeem" element={<ScanVoucher />} />
           <Route path="/retailer-scan" element={<RetailerScanQR />} />

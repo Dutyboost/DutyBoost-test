@@ -43,6 +43,9 @@ const roleNavItems = {
     { label: "My Store", path: "/retailer-dashboard", icon: Store },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
   ],
+  user: [
+    { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  ],
 };
 
 export default function Layout() {
@@ -64,7 +67,12 @@ export default function Layout() {
   const navItems = roleNavItems[role] || roleNavItems.agency;
 
   const getRoleLabel = (roleValue) => {
-    const roleMap = { agency: "Travel Agency", retailer: "Airport Retailer", admin: "Admin" };
+    const roleMap = {
+      agency: "Travel Agency",
+      retailer: "Airport Retailer",
+      admin: "Admin",
+      user: "Partner",
+    };
     return roleMap[roleValue] || roleValue;
   };
 

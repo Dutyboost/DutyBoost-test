@@ -13,6 +13,7 @@ import { Briefcase, CheckCircle, Clock, CreditCard, Plane, ShieldCheck, Store, T
 import HiddenFeaturesPanel from "../components/HiddenFeaturesPanel";
 import PartnerOnboardingPanel from "../components/onboarding/PartnerOnboardingPanel";
 import PartnerTypePanel from "../components/onboarding/PartnerTypePanel";
+import PartnerDirectoryPanel from "../components/onboarding/PartnerDirectoryPanel";
 import { PARTNER_TYPES } from "../components/onboarding/partnerTypes";
 import BatchPayoutApproval from "../components/BatchPayoutApproval";
 import AggregationView from "../components/AggregationView";
@@ -324,6 +325,18 @@ export default function AdminPanel() {
             </TabsTrigger>
             <TabsTrigger value="corporate-onboarding" className="gap-1.5">
               <Briefcase className="w-3.5 h-3.5" /> Corporate Partner Onboarding
+            </TabsTrigger>
+            <TabsTrigger value="pos-onboarding" className="gap-1.5">
+              <CreditCard className="w-3.5 h-3.5" /> POS Partner Onboarding
+            </TabsTrigger>
+            <TabsTrigger value="airport-onboarding" className="gap-1.5">
+              <Plane className="w-3.5 h-3.5" /> Airport Partner Onboarding
+            </TabsTrigger>
+            <TabsTrigger value="wholesale-onboarding" className="gap-1.5">
+              <Store className="w-3.5 h-3.5" /> Wholesale Partner Onboarding
+            </TabsTrigger>
+            <TabsTrigger value="partner-directory" className="gap-1.5">
+              <Users className="w-3.5 h-3.5" /> Partner Directory
             </TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
@@ -659,6 +672,18 @@ export default function AdminPanel() {
         </TabsContent>
         <TabsContent value="corporate-onboarding" className="mt-4">
           <PartnerTypePanel config={PARTNER_TYPES["Corporate Partner"]} />
+        </TabsContent>
+        <TabsContent value="pos-onboarding" className="mt-4">
+          <PartnerTypePanel config={PARTNER_TYPES["POS Partner"]} />
+        </TabsContent>
+        <TabsContent value="airport-onboarding" className="mt-4">
+          <PartnerTypePanel config={PARTNER_TYPES["Airport Partner"]} />
+        </TabsContent>
+        <TabsContent value="wholesale-onboarding" className="mt-4">
+          <PartnerTypePanel config={PARTNER_TYPES["Wholesale Partner"]} />
+        </TabsContent>
+        <TabsContent value="partner-directory" className="mt-4">
+          <PartnerDirectoryPanel />
         </TabsContent>
         <TabsContent value="hidden-features" className="mt-4">
           <HiddenFeaturesPanel />
