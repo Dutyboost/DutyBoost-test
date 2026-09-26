@@ -27,8 +27,6 @@ const roleNavItems = {
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
     { label: "Airport Retailer Dashboard", path: "/retailer-dashboard", icon: Store },
     { label: "Travel Partner Dashboard", path: "/travel-partner-dashboard", icon: Plane },
-    { label: "Accommodation Dashboard", path: "/demo/hotel", icon: Building2 },
-    { label: "Car Rental Dashboard", path: "/demo/car-rental", icon: Car },
     { label: "POS Partner Dashboard", path: "/pos-partner-dashboard", icon: Code2 },
     { label: "Corporate Partner Dashboard", path: "/corporate-partner-dashboard", icon: Briefcase },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
