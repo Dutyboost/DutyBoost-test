@@ -16,6 +16,7 @@ const EMPTY_PARTNER = {
   category: "",
   share: 10,
   agreementRef: "",
+  extras: {},
 };
 
 /**

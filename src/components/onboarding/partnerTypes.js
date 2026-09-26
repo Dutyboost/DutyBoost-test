@@ -1,8 +1,9 @@
 /**
- * Shared labels for the non-retail partner onboarding flows. Both the travel
- * and corporate partners follow the same shape as the retail one — a partner
- * company plus the units underneath it that get switched live — so the form
- * and the list stay a single pair of components driven by this config.
+ * Shared labels for the partner onboarding flows. Every partner type follows the
+ * same shape — a partner company plus the units underneath it that get switched
+ * live — so the form and the list stay a single pair of components driven by this
+ * config. Type-specific inputs are declared in `extraFields` and stored on the
+ * matching entity fields.
  */
 export const PARTNER_TYPES = {
   "Travel Partner": {
@@ -28,6 +29,7 @@ export const PARTNER_TYPES = {
       "Tour Operator",
       "Other",
     ],
+    extraFields: [],
     listTitle: "Participating travel partner channels",
     listEmpty: "No travel partners yet — add the first one above.",
     searchPlaceholder: "Filter by company, channel or country…",
@@ -56,9 +58,99 @@ export const PARTNER_TYPES = {
       "Public Sector",
       "Other",
     ],
+    extraFields: [],
     listTitle: "Participating corporate departments",
     listEmpty: "No corporate partners yet — add the first one above.",
     searchPlaceholder: "Filter by company, department or country…",
+  },
+  "POS Partner": {
+    value: "POS Partner",
+    addTitle: "Add a new POS partner",
+    addBlurb:
+      "Take the details from the signed Order Form. Each platform is saved as not live and only counts towards the shared platform fee once you activate it below.",
+    companyLabel: "POS vendor / platform provider",
+    companyPlaceholder: "Start typing, e.g. Wagos…",
+    unitLabel: "POS platform / product",
+    unitPlaceholder: "e.g. Retail Suite 4",
+    detailLabel: "Retailers live on this platform",
+    detailPlaceholder: "e.g. 14 airport retailers",
+    categoryLabel: "Platform type",
+    categories: [
+      "Cloud POS",
+      "Legacy / on-premise",
+      "Integrated retail suite",
+      "Payments-led",
+      "Hardware-led",
+      "Other",
+    ],
+    extraFields: [
+      {
+        key: "platform",
+        label: "Platform / product name",
+        placeholder: "e.g. Wagos Retail Suite",
+      },
+    ],
+    listTitle: "Participating POS platforms",
+    listEmpty: "No POS partners yet — add the first one above.",
+    searchPlaceholder: "Filter by vendor, platform or country…",
+  },
+  "Airport Partner": {
+    value: "Airport Partner",
+    addTitle: "Add a new airport partner",
+    addBlurb:
+      "Take the details from the signed Order Form. Each airport is saved as not live and only counts towards the shared platform fee once you activate it below.",
+    companyLabel: "Airport operator / authority",
+    companyPlaceholder: "Start typing, e.g. Royal Schiphol…",
+    unitLabel: "Airport / terminal",
+    unitPlaceholder: "e.g. Amsterdam Schiphol — Terminal 1",
+    detailLabel: "Concession model / retail footprint",
+    detailPlaceholder: "e.g. 42 retail units, 3 terminals",
+    categoryLabel: "Airport type",
+    categories: [
+      "Hub",
+      "Secondary hub",
+      "Regional",
+      "Seasonal / leisure",
+      "Cargo-led",
+      "Other",
+    ],
+    extraFields: [
+      {
+        key: "airport_code",
+        label: "Airport IATA code",
+        placeholder: "e.g. AMS",
+      },
+    ],
+    listTitle: "Participating airports",
+    listEmpty: "No airport partners yet — add the first one above.",
+    searchPlaceholder: "Filter by operator, airport or country…",
+  },
+  "Wholesale Partner": {
+    value: "Wholesale Partner",
+    addTitle: "Add a new wholesale / supplier partner",
+    addBlurb:
+      "Take the details from the signed Order Form. Each brand is saved as not live and only counts towards the shared platform fee once you activate it below.",
+    companyLabel: "Wholesale / supplier company",
+    companyPlaceholder: "Start typing, e.g. Bacardi…",
+    unitLabel: "Brand / product line",
+    unitPlaceholder: "e.g. Premium Rum",
+    detailLabel: "Category range supplied",
+    detailPlaceholder: "e.g. Liquor & Spirits",
+    categoryLabel: "Supplier category",
+    categories: [
+      "Liquor & Spirits",
+      "Tobacco",
+      "Confectionery",
+      "Beauty & Fragrance",
+      "Watches & Jewellery",
+      "Fashion & Accessories",
+      "Electronics",
+      "Other",
+    ],
+    extraFields: [],
+    listTitle: "Participating supplier brands",
+    listEmpty: "No wholesale partners yet — add the first one above.",
+    searchPlaceholder: "Filter by supplier, brand or country…",
   },
 };
 

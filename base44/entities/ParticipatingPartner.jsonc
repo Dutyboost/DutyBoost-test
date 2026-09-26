@@ -7,7 +7,10 @@
       "title": "Partner Type",
       "enum": [
         "Travel Partner",
-        "Corporate Partner"
+        "Corporate Partner",
+        "POS Partner",
+        "Airport Partner",
+        "Wholesale Partner"
       ]
     },
     "company_name": {
@@ -37,6 +40,14 @@
     "category": {
       "type": "string",
       "title": "Category / Industry"
+    },
+    "airport_code": {
+      "type": "string",
+      "title": "Airport IATA Code"
+    },
+    "platform": {
+      "type": "string",
+      "title": "Platform / Product"
     },
     "revenue_share_pct": {
       "type": "number",
