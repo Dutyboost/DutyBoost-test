@@ -172,12 +172,14 @@ export default function PartnerDashboard({ type = "pos" }) {
             showBankDetails
             bankTitle="Bank Details for Incentive Payments"
             bankBlurb="Your monthly share of the platform fee is transferred here."
+            bankKeys={{ name: "partner_bank_account_name", iban: "partner_bank_iban" }}
             invoiceHeading="Monthly Incentive Receipts"
             invoiceComponent={
               <PartnerIncentiveReceipts
                 transactions={scope.transactions}
                 commissionField={config.commissionField}
                 partnerLabel={config.label}
+                bankIban={user?.partner_bank_iban}
                 user={user}
               />
             }

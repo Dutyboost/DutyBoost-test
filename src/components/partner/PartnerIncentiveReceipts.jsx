@@ -23,6 +23,7 @@ export default function PartnerIncentiveReceipts({
   transactions = [],
   commissionField = "platform_revenue",
   partnerLabel = "Partner",
+  bankIban,
   user,
 }) {
   const currentYear = new Date().getFullYear();
@@ -79,7 +80,8 @@ export default function PartnerIncentiveReceipts({
     if (user?.postal_city) { y += 7; doc.text(user.postal_city, 20, y); }
     if (user?.kvk) { y += 7; doc.text(`CoC: ${user.kvk}`, 20, y); }
     if (user?.vat) { y += 7; doc.text(`VAT: ${user.vat}`, 20, y); }
-    if (user?.bank_iban) { y += 7; doc.text(`IBAN: ${user.bank_iban}`, 20, y); }
+    const iban = bankIban || user?.bank_iban;
+    if (iban) { y += 7; doc.text(`IBAN: ${iban}`, 20, y); }
     doc.setTextColor(100);
     y += 7; doc.text(`Issued: ${new Date().toLocaleDateString("nl-NL")}`, 20, y);
 

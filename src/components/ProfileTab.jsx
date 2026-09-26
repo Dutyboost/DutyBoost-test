@@ -65,10 +65,11 @@ export default function ProfileTab({
   invoiceHeading = "Payout History",
   bankTitle = "Bank Details for Payouts",
   bankBlurb = "Your earnings are transferred here monthly.",
+  bankKeys = { name: "bank_account_name", iban: "bank_iban" },
 }) {
   const [bankForm, setBankForm] = useState({
-    bank_account_name: user?.bank_account_name || "",
-    bank_iban: user?.bank_iban || "",
+    bank_account_name: user?.[bankKeys.name] || "",
+    bank_iban: user?.[bankKeys.iban] || "",
   });
   const [bankEditing, setBankEditing] = useState(false);
   const [bankSaving, setBankSaving] = useState(false);
@@ -81,8 +82,8 @@ export default function ProfileTab({
 
   useEffect(() => {
     setBankForm({
-      bank_account_name: user?.bank_account_name || "",
-      bank_iban: user?.bank_iban || "",
+      bank_account_name: user?.[bankKeys.name] || "",
+      bank_iban: user?.[bankKeys.iban] || "",
     });
     setCardForm({
       card_name: user?.card_name || "",
@@ -114,8 +115,12 @@ export default function ProfileTab({
   const handleSaveBank = async (e) => {
     e.preventDefault();
     setBankSaving(true);
-    await base44.auth.updateMe(bankForm);
-    if (onUserUpdate) onUserUpdate({ ...user, ...bankForm });
+    const payload = {
+      [bankKeys.name]: bankForm.bank_account_name,
+      [bankKeys.iban]: bankForm.bank_iban,
+    };
+    await base44.auth.updateMe(payload);
+    if (onUserUpdate) onUserUpdate({ ...user, ...payload });
     setBankSaving(false);
     setBankEditing(false);
     toast.success("Bank details saved!");
@@ -226,10 +231,10 @@ export default function ProfileTab({
             </button>
           )}
         </div>
-        {user?.bank_iban && !bankEditing && (
+        {user?.[bankKeys.iban] && !bankEditing && (
           <div className="flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 rounded-lg px-3 py-2">
             <CheckCircle2 className="w-4 h-4" />
-            Bank details on file: <span className="font-mono font-medium ml-1">{user.bank_iban}</span>
+            Bank details on file: <span className="font-mono font-medium ml-1">{user[bankKeys.iban]}</span>
           </div>
         )}
         {bankEditing ? (
@@ -251,8 +256,8 @@ export default function ProfileTab({
           </form>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">Account Holder</p><p className="text-sm font-medium">{user?.bank_account_name || "—"}</p></div>
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">IBAN</p><p className="font-mono text-sm font-medium">{user?.bank_iban || "—"}</p></div>
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">Account Holder</p><p className="text-sm font-medium">{user?.[bankKeys.name] || "—"}</p></div>
+            <div className="space-y-1"><p className="text-xs text-muted-foreground">IBAN</p><p className="font-mono text-sm font-medium">{user?.[bankKeys.iban] || "—"}</p></div>
           </div>
         )}
       </div>
