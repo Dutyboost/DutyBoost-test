@@ -3,8 +3,10 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Building2, Download, Landmark, CheckCircle2, User, FileText, Pencil, X, Save } from "lucide-react";
 import { toast } from "sonner";
+import { COUNTRIES, usesPostalCode, postalCodeLabel } from "@/data/countryPostalCodes";
 
 const LEGAL_SUFFIXES = ["bv", "nv", "gmbh", "ltd", "limited", "inc", "llc", "plc", "sa", "ag", "srl", "spa", "oy", "ab", "as", "corp", "co"];
 
@@ -42,7 +44,7 @@ function EditableSection({ title, icon: Icon, fields, values, onChange, onRestor
 
   const handleSave = async () => {
     const missing = fields.filter(f => {
-      if (f.readonly) return false;
+      if (f.readonly || f.required === false) return false;
       const v = String(values[f.key] || "").trim();
       if (!v) return true;
       return f.usesDomain && (!v.includes("@") || v.endsWith("@"));
@@ -81,15 +83,26 @@ function EditableSection({ title, icon: Icon, fields, values, onChange, onRestor
         )}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {fields.map(({ key, label, readonly, usesDomain }) => {
-          const empty = editing && !readonly && !String(values[key] || "").trim();
+        {fields.map(({ key, label, readonly, usesDomain, type, required }) => {
+          const empty = editing && !readonly && required !== false && !String(values[key] || "").trim();
           return (
             <div key={key} className="space-y-1.5">
               <Label className="text-xs text-muted-foreground">
-                {label} <span className="text-destructive">*</span>
+                {label}{required !== false && <span className="text-destructive"> *</span>}
               </Label>
               {editing && !readonly ? (
-                usesDomain ? (
+                type === "country" ? (
+                  <Select value={values[key] || ""} onValueChange={v => onChange(key, v)}>
+                    <SelectTrigger className={`h-8 text-sm ${empty ? "border-destructive" : ""}`}>
+                      <SelectValue placeholder="Select country" />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-72">
+                      {COUNTRIES.map(c => (
+                        <SelectItem key={c} value={c} className="text-sm">{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                ) : usesDomain ? (
                   <div className="flex items-center gap-1">
                     <Input
                       value={(values[key] || "").split("@")[0]}
@@ -134,6 +147,10 @@ export default function ProfileTab({
     website: user?.website || "",
     kvk: user?.kvk || "",
     vat: user?.vat || "",
+    address: user?.address || "",
+    city: user?.city || "",
+    country: user?.country || "",
+    postal_code: user?.postal_code || "",
   });
   const [bankForm, setBankForm] = useState({
     bank_account_name: user?.[bankKeys.name] || "",
@@ -215,6 +232,10 @@ export default function ProfileTab({
           { key: "website", label: "Website" },
           { key: "kvk", label: "CoC Number" },
           { key: "vat", label: "VAT Number" },
+          { key: "address", label: "Street + Number" },
+          { key: "city", label: "City" },
+          { key: "country", label: "Country", type: "country" },
+          { key: "postal_code", label: postalCodeLabel(profile.country), required: usesPostalCode(profile.country) },
         ]}
       />
 
