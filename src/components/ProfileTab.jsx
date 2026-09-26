@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Building2, Download, Landmark, CheckCircle2, User, FileText, Pencil, X, Save, CreditCard } from "lucide-react";
+import { Building2, Download, Landmark, CheckCircle2, User, FileText, Pencil, X, Save } from "lucide-react";
 import { toast } from "sonner";
 
 function EditableSection({ title, icon: Icon, fields, onSave }) {
@@ -73,39 +73,12 @@ export default function ProfileTab({
   });
   const [bankEditing, setBankEditing] = useState(false);
   const [bankSaving, setBankSaving] = useState(false);
-  const [cardForm, setCardForm] = useState({
-    card_name: user?.card_name || "",
-  });
-  const [cardEditing, setCardEditing] = useState(false);
-  const [cardSaving, setCardSaving] = useState(false);
-  const [cardData, setCardData] = useState(null);
-
   useEffect(() => {
     setBankForm({
       bank_account_name: user?.[bankKeys.name] || "",
       bank_iban: user?.[bankKeys.iban] || "",
     });
-    setCardForm({
-      card_name: user?.card_name || "",
-    });
-    if (user?.mollie_customer_id) {
-      fetchMollieCard();
-    }
   }, [user]);
-
-  const fetchMollieCard = async () => {
-    try {
-      const res = await base44.functions.invoke('mollieCardManager', {
-        action: 'get_card',
-        mollie_customer_id: user.mollie_customer_id,
-      });
-      if (res.data?.card) {
-        setCardData(res.data.card);
-      }
-    } catch (e) {
-      console.log('Card not found');
-    }
-  };
 
   const saveFields = async (data) => {
     await base44.auth.updateMe(data);
@@ -126,71 +99,8 @@ export default function ProfileTab({
     toast.success("Bank details saved!");
   };
 
-  const handleSaveCard = async (e) => {
-    e.preventDefault();
-    setCardSaving(true);
-    try {
-      await base44.auth.updateMe({
-        card_name: cardForm.card_name,
-      });
-      setCardData(prev => prev ? { ...prev, holder_name: cardForm.card_name } : null);
-      setCardEditing(false);
-      toast.success("Cardholder name saved!");
-    } finally {
-      setCardSaving(false);
-    }
-  };
-
   return (
     <div className="space-y-6 max-w-3xl">
-      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-              <CreditCard className="w-5 h-5 text-blue-600" />
-            </div>
-            <div>
-              <h3 className="font-heading font-semibold">Credit Card</h3>
-              <p className="text-sm text-muted-foreground">Payment method on file.</p>
-            </div>
-          </div>
-          {!cardEditing && (
-            <button onClick={() => setCardEditing(true)} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-              <Pencil className="w-3 h-3" /> Edit
-            </button>
-          )}
-        </div>
-        {cardData && !cardEditing && (
-          <div className="flex items-center gap-2 text-sm text-blue-700 bg-blue-50 rounded-lg px-3 py-2">
-            <CheckCircle2 className="w-4 h-4" />
-            Card ending in <span className="font-mono font-medium ml-1">••••{cardData.last_four}</span>
-          </div>
-        )}
-        {cardEditing ? (
-          <form onSubmit={handleSaveCard} className="space-y-4">
-            <div className="space-y-2">
-              <Label>Cardholder Name</Label>
-              <Input value={cardForm.card_name} onChange={e => setCardForm(f => ({ ...f, card_name: e.target.value }))} required />
-            </div>
-            <p className="text-xs text-muted-foreground">Card details are securely managed by Mollie and cannot be edited here.</p>
-            <div className="flex gap-2">
-              <Button type="submit" disabled={cardSaving} size="sm" className="gap-1"><Save className="w-3 h-3" /> {cardSaving ? "Saving..." : "Save"}</Button>
-              <Button type="button" variant="outline" size="sm" onClick={() => setCardEditing(false)}>Cancel</Button>
-            </div>
-          </form>
-        ) : cardData ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">Cardholder</p><p className="text-sm font-medium">{cardForm.card_name || cardData.holder_name}</p></div>
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">Card Number</p><p className="font-mono text-sm font-medium">••••{cardData.last_four}</p></div>
-            <div className="space-y-1"><p className="text-xs text-muted-foreground">Expiry</p><p className="text-sm font-medium">{cardData.expiry}</p></div>
-          </div>
-        ) : cardForm.card_name ? (
-          <p className="text-sm text-muted-foreground">1 Credit Card on file • {cardForm.card_name}</p>
-        ) : (
-          <p className="text-sm text-muted-foreground">No card on file</p>
-        )}
-        </div>
-
       <EditableSection
         title="User Information"
         icon={User}
