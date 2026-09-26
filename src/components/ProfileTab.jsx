@@ -81,8 +81,9 @@ export default function ProfileTab({
   }, [user]);
 
   const saveFields = async (data) => {
-    await base44.auth.updateMe(data);
-    if (onUserUpdate) onUserUpdate({ ...user, ...data });
+    const payload = Object.fromEntries(Object.entries(data).filter(([, v]) => v !== "" && v != null));
+    await base44.auth.updateMe(payload);
+    if (onUserUpdate) onUserUpdate({ ...user, ...payload });
   };
 
   const handleSaveBank = async (e) => {
@@ -101,6 +102,16 @@ export default function ProfileTab({
 
   return (
     <div className="space-y-6 max-w-3xl">
+      <EditableSection
+        title="User Information"
+        icon={User}
+        fields={[
+          { key: "full_name", label: "Full Name", value: "" },
+          { key: "email", label: "Email", value: "", readonly: true },
+        ]}
+        onSave={saveFields}
+      />
+
       <EditableSection
         title="Company Information"
         icon={Building2}
