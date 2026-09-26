@@ -1,12 +1,13 @@
-import { useMemo } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import RedemptionRateSlider from "./RedemptionRateSlider";
 import { fmtMoney } from "../utils/formatNumber";
 
 export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [], companyName, redemptionRate, onRedemptionRateChange, currency = "EUR" }) {
   const { t } = useTranslation();
+  const [expandedAirport, setExpandedAirport] = useState(null);
   const fmtC = (v) => fmtMoney(Number(v), currency, 2);
   const curLabel = currency === "AWG" ? "Afl." : "€";
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
@@ -78,6 +79,24 @@ export default function AggregationView({ transactions, vouchers, period, custom
       };
     });
   }, [filteredTransactions, period, airports]);
+
+  const storeBreakdownByAirport = useMemo(() => {
+    const map = {};
+    filteredTransactions.forEach((t) => {
+      const airport = t.airport || "Unknown";
+      const store = t.store_name || "Unnamed store";
+      if (!map[airport]) map[airport] = {};
+      if (!map[airport][store]) map[airport][store] = { store, redemptions: 0, revenue: 0 };
+      map[airport][store].redemptions += t.count || 1;
+      map[airport][store].revenue += t.transaction_value || 0;
+    });
+    return Object.fromEntries(
+      Object.entries(map).map(([airport, stores]) => [
+        airport,
+        Object.values(stores).sort((a, b) => b.revenue - a.revenue),
+      ])
+    );
+  }, [filteredTransactions]);
 
   const totalAnnualPax = useMemo(() => airports.reduce((s, a) => s + (a.annual_pax || (a.daily_pax ? a.daily_pax * 365 : 0)), 0), [airports]);
 
@@ -251,7 +270,10 @@ export default function AggregationView({ transactions, vouchers, period, custom
       {/* Detailed table */}
       {airportBreakdown.length > 0 && (
         <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-          <p className="font-semibold">{t('common.airport_performance') || 'Airport Performance Summary'}</p>
+          <div>
+            <p className="font-semibold">{t('common.airport_performance') || 'Airport Performance Summary'}</p>
+            <p className="text-xs text-muted-foreground mt-1">{t('common.drilldown_hint') || 'Click an airport to drill down to its stores.'}</p>
+          </div>
           <div className="overflow-x-auto max-h-96 overflow-y-auto">
             <table className="w-full text-sm">
               <thead>
@@ -263,14 +285,66 @@ export default function AggregationView({ transactions, vouchers, period, custom
                 </tr>
               </thead>
               <tbody>
-                {airportBreakdown.map((ap, i) => (
-                  <tr key={ap.airport} className="border-b border-border last:border-0 hover:bg-muted/30">
-                    <td className="py-2.5 px-3 font-semibold text-foreground">{ap.airportLabel}</td>
-                    <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions.toLocaleString("de-DE")}</td>
-                    <td className="py-2.5 px-3 text-right font-semibold">{fmtC(ap.revenue)}</td>
-                    <td className="py-2.5 px-3 text-right text-muted-foreground">{fmtC(ap.revenue / ap.redemptions)}</td>
-                  </tr>
-                ))}
+                {airportBreakdown.map((ap) => {
+                  const isOpen = expandedAirport === ap.airport;
+                  const stores = storeBreakdownByAirport[ap.airport] || [];
+                  return (
+                    <Fragment key={ap.airport}>
+                      <tr
+                        onClick={() => setExpandedAirport(isOpen ? null : ap.airport)}
+                        className="border-b border-border last:border-0 hover:bg-muted/30 cursor-pointer"
+                      >
+                        <td className="py-2.5 px-3 font-semibold text-foreground">
+                          <span className="inline-flex items-center gap-2">
+                            {isOpen ? (
+                              <ChevronDown className="w-3.5 h-3.5 text-primary" />
+                            ) : (
+                              <ChevronRight className="w-3.5 h-3.5 text-muted-foreground" />
+                            )}
+                            {ap.airportLabel}
+                          </span>
+                        </td>
+                        <td className="py-2.5 px-3 text-right text-blue-500 font-semibold">{ap.redemptions.toLocaleString("de-DE")}</td>
+                        <td className="py-2.5 px-3 text-right font-semibold">{fmtC(ap.revenue)}</td>
+                        <td className="py-2.5 px-3 text-right text-muted-foreground">{fmtC(ap.revenue / ap.redemptions)}</td>
+                      </tr>
+                      {isOpen && (
+                        <tr className="bg-muted/20">
+                          <td colSpan={4} className="px-3 pb-3 pt-1">
+                            {stores.length === 0 ? (
+                              <p className="text-xs text-muted-foreground py-2">
+                                {t('common.no_store_detail') || 'No store-level detail for this airport in the selected period.'}
+                              </p>
+                            ) : (
+                              <div className="rounded-lg border border-border bg-card overflow-hidden">
+                                <table className="w-full text-xs">
+                                  <thead className="bg-muted/50">
+                                    <tr>
+                                      <th className="text-left py-2 px-3 font-medium text-muted-foreground">{t('demo.col_store') || 'Store'}</th>
+                                      <th className="text-right py-2 px-3 font-medium text-muted-foreground">{t('demo.redemptions') || 'Redemptions'}</th>
+                                      <th className="text-right py-2 px-3 font-medium text-muted-foreground">{t('demo.gross_revenue') || 'Gross Revenue'}</th>
+                                      <th className="text-right py-2 px-3 font-medium text-muted-foreground">{t('common.avg_per_sale') || 'Avg per Sale'}</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {stores.map((s) => (
+                                      <tr key={s.store} className="border-t border-border">
+                                        <td className="py-2 px-3 font-medium">{s.store}</td>
+                                        <td className="py-2 px-3 text-right">{s.redemptions.toLocaleString("de-DE")}</td>
+                                        <td className="py-2 px-3 text-right">{fmtC(s.revenue)}</td>
+                                        <td className="py-2 px-3 text-right text-muted-foreground">{fmtC(s.revenue / s.redemptions)}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            )}
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
+                  );
+                })}
                 <tr className="border-t-2 border-border bg-muted/20 font-semibold">
                   <td className="py-2.5 px-3">{t('common.total_label') || 'TOTAL'}</td>
                   <td className="py-2.5 px-3 text-right">{parseInt(aggregatedMetrics.totalRedemptions).toLocaleString("de-DE")}</td>
