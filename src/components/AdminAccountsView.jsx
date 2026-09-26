@@ -457,7 +457,7 @@ export default function AdminAccountsView() {
                 )}
                 {selectedType.fields.includes("kvk") && (
                   <div className="space-y-1.5">
-                    <Label>KVK Number <span className="text-destructive">*</span></Label>
+                    <Label>CoC Number <span className="text-destructive">*</span></Label>
                     <Input value={form.kvk} onChange={e => setForm({...form, kvk: e.target.value})} placeholder="12345678" required />
                   </div>
                 )}

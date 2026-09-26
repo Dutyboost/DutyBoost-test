@@ -57,7 +57,15 @@ function EditableSection({ title, icon: Icon, fields, onSave }) {
   );
 }
 
-export default function ProfileTab({ user, onUserUpdate, invoiceComponent, showBankDetails = true, invoiceHeading = "Payout History" }) {
+export default function ProfileTab({
+  user,
+  onUserUpdate,
+  invoiceComponent,
+  showBankDetails = true,
+  invoiceHeading = "Payout History",
+  bankTitle = "Bank Details for Payouts",
+  bankBlurb = "Your earnings are transferred here monthly.",
+}) {
   const [bankForm, setBankForm] = useState({
     bank_account_name: user?.bank_account_name || "",
     bank_iban: user?.bank_iban || "",
@@ -194,7 +202,7 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent, showB
         fields={[
           { key: "company", label: "Company Name", value: user?.company || "" },
           { key: "website", label: "Website", value: user?.website || "" },
-          { key: "kvk", label: "KVK Number", value: user?.kvk || "" },
+          { key: "kvk", label: "CoC Number", value: user?.kvk || "" },
           { key: "vat", label: "VAT Number", value: user?.vat || "" },
         ]}
         onSave={saveFields}
@@ -208,8 +216,8 @@ export default function ProfileTab({ user, onUserUpdate, invoiceComponent, showB
               <Landmark className="w-5 h-5 text-emerald-600" />
             </div>
             <div>
-              <h3 className="font-heading font-semibold">Bank Details for Payouts</h3>
-              <p className="text-sm text-muted-foreground">Your earnings are transferred here monthly.</p>
+              <h3 className="font-heading font-semibold">{bankTitle}</h3>
+              <p className="text-sm text-muted-foreground">{bankBlurb}</p>
             </div>
           </div>
           {!bankEditing && (

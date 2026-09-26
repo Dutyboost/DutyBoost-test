@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { PARTNER_DASHBOARDS } from "@/lib/partnerDashboards";
 import { buildPartnerMetrics, resolvePartnerScope } from "@/lib/partnerScope";
 import ProfileTab from "@/components/ProfileTab";
+import PartnerIncentiveReceipts from "@/components/partner/PartnerIncentiveReceipts";
 import AggregationView from "@/components/AggregationView";
 import PartnerKpis from "@/components/partner/PartnerKpis";
 import PartnerBreakdownChart from "@/components/partner/PartnerBreakdownChart";
@@ -165,7 +166,22 @@ export default function PartnerDashboard({ type = "pos" }) {
 
       {activeTab === "profile" ? (
         user ? (
-          <ProfileTab user={user} onUserUpdate={setUser} showBankDetails={false} invoiceHeading="Invoice History" />
+          <ProfileTab
+            user={user}
+            onUserUpdate={setUser}
+            showBankDetails
+            bankTitle="Bank Details for Incentive Payments"
+            bankBlurb="Your monthly share of the platform fee is transferred here."
+            invoiceHeading="Monthly Incentive Receipts"
+            invoiceComponent={
+              <PartnerIncentiveReceipts
+                transactions={scope.transactions}
+                commissionField={config.commissionField}
+                partnerLabel={config.label}
+                user={user}
+              />
+            }
+          />
         ) : null
       ) : activeTab === "guide" ? (
         <PartnerGuide guide={config.guide} />

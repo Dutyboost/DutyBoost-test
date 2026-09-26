@@ -60,7 +60,7 @@ const REGION_CONFIG = {
   nl: {
     locale: "nl-NL",
     regKey: "kvk",
-    regLabel: "KVK Number",
+    regLabel: "CoC Number",
     vatLabel: "VAT Number",
     dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
     dutyboostFooter: "DutyBoost B.V. · KvK: 42053181 · IBAN: NL91ABNA0417164300",

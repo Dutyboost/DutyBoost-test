@@ -5,7 +5,6 @@ import {
   Store,
   Users,
   Landmark,
-  Building2,
   ScanLine,
 } from "lucide-react";
 
@@ -48,38 +47,6 @@ export const PARTNER_DASHBOARDS = {
       link: { label: "Open the POS partner one-pager", to: "/pos-partner-one-pager" },
     },
   },
-  airport: {
-    key: "airport",
-    partnerType: "Airport Partner",
-    label: "Airport Partner",
-    title: "Airport Partner Dashboard",
-    blurb:
-      "Retail conversion across your terminals, the participating stores live in your airport, and the revenue the programme generates on your concession floor.",
-    accent: "#0EA5E9",
-    unitHeading: "Your airports",
-    unitBlurb: "Airports you operate under this agreement. Activation is managed by the DutyBoost team.",
-    groupBy: "store_name",
-    groupHeading: "Retail sales by store",
-    scopeNoun: "your airports",
-    commissionField: "platform_revenue",
-    kpis: [
-      { label: "Redemptions at Your Airport", metric: "redemptions", icon: ScanLine },
-      { label: "Gross Retail Sales", metric: "grossVolume", money: true, icon: TrendingUp },
-      { label: "Participating Stores", metric: "storesInScope", icon: Store },
-      { label: "Platform Revenue", metric: "platformFee", money: true, icon: Landmark },
-    ],
-    guide: {
-      title: "Onboarding your retailers",
-      blurb:
-        "How new stores in your terminals go live, and what your commercial team needs to share with DutyBoost.",
-      steps: [
-        { title: "Share the retail directory", desc: "Send the operator and store list per terminal — DutyBoost researches and prepares it." },
-        { title: "Sign the Order Form", desc: "One agreement per operator covers every store under that retailer." },
-        { title: "Stores go live", desc: "Stores are activated one by one, and conversion appears here immediately." },
-      ],
-      link: { label: "Request airport onboarding support", to: "/airport-partner-request" },
-    },
-  },
   corporate: {
     key: "corporate",
     partnerType: "Corporate Partner",
@@ -111,37 +78,6 @@ export const PARTNER_DASHBOARDS = {
       link: { label: "Open the corporate partner showcase", to: "/corporate-partner-showcase" },
     },
   },
-  wholesale: {
-    key: "wholesale",
-    partnerType: "Wholesale Partner",
-    label: "Wholesale / Supplier Partner",
-    title: "Wholesale Partner Dashboard",
-    blurb:
-      "How your product categories perform on the airport retail floor, and the incremental sales DutyCredits drive in the stores that stock them.",
-    accent: "#D97706",
-    unitHeading: "Your brands",
-    unitBlurb: "Brands and product lines under this agreement. Activation is managed by the DutyBoost team.",
-    groupBy: "store_name",
-    groupHeading: "Sales in your categories, by store",
-    scopeNoun: "your categories",
-    commissionField: "platform_revenue",
-    kpis: [
-      { label: "Category Redemptions", metric: "redemptions", icon: ScanLine },
-      { label: "Gross Retail Sales", metric: "grossVolume", money: true, icon: TrendingUp },
-      { label: "Stores in Category", metric: "storesInScope", icon: Store },
-      { label: "Average Basket", metric: "avgBasket", money: true, icon: CreditCard },
-    ],
-    guide: {
-      title: "Getting your brands onto the floor",
-      blurb: "How supplier brands are linked to participating airport stores and what we need from your account team.",
-      steps: [
-        { title: "Share your category range", desc: "Send the brands and categories in scope for the travel retail channel." },
-        { title: "We map the stores", desc: "DutyBoost links the participating stores that stock your categories." },
-        { title: "Track the uplift", desc: "Redemptions and basket value in your categories appear here as they happen." },
-      ],
-      link: { label: "Open the wholesale showcase", to: "/wholesale-showcase" },
-    },
-  },
 };
 
 export const PARTNER_DASHBOARD_LIST = Object.values(PARTNER_DASHBOARDS);
@@ -153,8 +89,20 @@ const TYPE_TO_KEY = {
   "Wholesale Partner": "wholesale",
 };
 
-/** Maps a partner type on record to its dashboard key. Travel partners keep the existing agency dashboard. */
-export const partnerTypeToKey = (partnerType) => TYPE_TO_KEY[partnerType] || null;
+/**
+ * Partner types that share in the platform fee and therefore get their own
+ * dashboard. Travel partners keep the existing agency dashboard; airports and
+ * wholesale partners sit outside the fee sharing programme and get none.
+ */
+const DASHBOARD_TYPES = {
+  "POS Partner": "pos",
+  "Corporate Partner": "corporate",
+};
+
+export const PARTNER_NO_DASHBOARD_TYPES = ["Airport Partner", "Wholesale Partner"];
+
+/** Maps a partner type on record to its dashboard key, or null when it has none. */
+export const partnerTypeToKey = (partnerType) => DASHBOARD_TYPES[partnerType] || null;
 
 /** Resolves the scope key for any partner type — travel falls back to the booking-email link. */
 export const scopeKeyForType = (partnerType) => TYPE_TO_KEY[partnerType] || "travel";

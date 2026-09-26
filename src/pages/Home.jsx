@@ -4,11 +4,12 @@ import AgencyDashboard from "./AgencyDashboard";
 import RetailerDashboard from "./RetailerDashboard";
 import AdminPanel from "./AdminPanel";
 import PartnerDashboard from "./PartnerDashboard";
-import { partnerTypeToKey } from "@/lib/partnerDashboards";
+import PartnerNoDashboard from "@/components/partner/PartnerNoDashboard";
+import { partnerTypeToKey, PARTNER_NO_DASHBOARD_TYPES } from "@/lib/partnerDashboards";
 
 export default function Home() {
   const [user, setUser] = useState(null);
-  const [partnerKey, setPartnerKey] = useState(null);
+  const [partner, setPartner] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,8 +30,10 @@ export default function Home() {
           const records = await base44.entities.ParticipatingPartner
             .filter({ contact_email: userData.email }, "-created_date", 20)
             .catch(() => []);
-          const key = (records || []).map((r) => partnerTypeToKey(r.partner_type)).find(Boolean);
-          if (key) setPartnerKey(key);
+          const record = (records || []).find(
+            (r) => partnerTypeToKey(r.partner_type) || PARTNER_NO_DASHBOARD_TYPES.includes(r.partner_type)
+          );
+          if (record) setPartner({ key: partnerTypeToKey(record.partner_type), type: record.partner_type });
         }
       } catch (error) {
         console.error('Failed to fetch user:', error);
@@ -63,6 +66,7 @@ export default function Home() {
 
   if (role === "admin") return <AdminPanel />;
   if (role === "retailer") return <RetailerDashboard />;
-  if (partnerKey) return <PartnerDashboard type={partnerKey} />;
+  if (partner?.key) return <PartnerDashboard type={partner.key} />;
+  if (partner) return <PartnerNoDashboard partnerType={partner.type} />;
   return <AgencyDashboard />
 }

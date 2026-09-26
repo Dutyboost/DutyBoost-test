@@ -98,7 +98,7 @@ export const PARTNER_TYPES = {
     value: "Airport Partner",
     addTitle: "Add a new airport partner",
     addBlurb:
-      "Take the details from the signed Order Form. Each airport is saved as not live and only counts towards the shared platform fee once you activate it below.",
+      "Take the details from the signed Order Form. Each airport is saved as not live until you activate it below. Airports sit outside the platform fee sharing programme.",
     companyLabel: "Airport operator / authority",
     companyPlaceholder: "Start typing, e.g. Royal Schiphol…",
     unitLabel: "Airport / terminal",
@@ -129,7 +129,7 @@ export const PARTNER_TYPES = {
     value: "Wholesale Partner",
     addTitle: "Add a new wholesale / supplier partner",
     addBlurb:
-      "Take the details from the signed Order Form. Each brand is saved as not live and only counts towards the shared platform fee once you activate it below.",
+      "Take the details from the signed Order Form. Each brand is saved as not live until you activate it below. Wholesale partners sit outside the platform fee sharing programme.",
     companyLabel: "Wholesale / supplier company",
     companyPlaceholder: "Start typing, e.g. Bacardi…",
     unitLabel: "Brand / product line",

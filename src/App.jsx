@@ -336,9 +336,7 @@ const AuthenticatedApp = () => {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
           <Route path="/pos-partner-dashboard" element={<PartnerDashboard type="pos" />} />
-          <Route path="/airport-partner-dashboard" element={<PartnerDashboard type="airport" />} />
           <Route path="/corporate-partner-dashboard" element={<PartnerDashboard type="corporate" />} />
-          <Route path="/wholesale-partner-dashboard" element={<PartnerDashboard type="wholesale" />} />
           <Route path="/travel-partner-integration" element={<AgencyIntegrationPage />} />
           <Route path="/scan-redeem" element={<ScanVoucher />} />
           <Route path="/retailer-scan" element={<RetailerScanQR />} />

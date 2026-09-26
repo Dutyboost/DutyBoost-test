@@ -14,7 +14,7 @@ import {
   BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
 import NotificationPreferences from "../components/NotificationPreferences";
-import AgencyCommissionDownload from "../components/AgencyCommissionDownload";
+import PartnerIncentiveReceipts from "../components/partner/PartnerIncentiveReceipts";
 import AggregationView from "../components/AggregationView";
 
 
@@ -117,7 +117,21 @@ export default function AgencyDashboard() {
       </div>
 
       {activeTab === "profile" ? (
-        <ProfileTab user={user} onUserUpdate={setUser} invoiceComponent={<AgencyCommissionDownload vouchers={vouchers} agencyName={user?.full_name} user={user} />} />
+        <ProfileTab
+          user={user}
+          onUserUpdate={setUser}
+          bankTitle="Bank Details for Incentive Payments"
+          bankBlurb="Your monthly share of the platform fee is transferred here."
+          invoiceHeading="Monthly Incentive Receipts"
+          invoiceComponent={
+            <PartnerIncentiveReceipts
+              transactions={transactions}
+              commissionField="agency_commission"
+              partnerLabel="Travel Partner"
+              user={user}
+            />
+          }
+        />
       ) : activeTab === "custom" ? (
         <AggregationView transactions={filteredTxns} vouchers={filteredVouchers} period={period} entityType="agency" />
       ) : activeTab === "implementation" ? (
