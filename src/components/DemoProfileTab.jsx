@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
-import { Building2, Download, Landmark, User, FileText, CheckCircle2, Pencil, X, Save } from "lucide-react";
+import { Download, Landmark, FileText, CheckCircle2, Pencil, Save } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -290,60 +290,6 @@ function buildAgencyInvoices(t) {
   }));
 }
 
-// ─── Editable section ──────────────────────────────────────────────────────
-
-function EditableSection({ title, icon: Icon, fields, form, onChange, labels }) {
-  const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState({ ...form });
-
-  const handleSave = () => {
-    Object.entries(draft).forEach(([k, v]) => onChange(k, v));
-    setEditing(false);
-    toast.success(labels.savedMsg);
-  };
-
-  const handleCancel = () => {
-    setDraft({ ...form });
-    setEditing(false);
-  };
-
-  return (
-    <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="font-heading font-semibold text-base flex items-center gap-2">
-          <Icon className="w-4 h-4 text-primary" /> {title}
-        </h3>
-        {!editing ? (
-          <button onClick={() => { setDraft({ ...form }); setEditing(true); }} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-            <Pencil className="w-3 h-3" /> {labels.edit}
-          </button>
-        ) : (
-          <div className="flex items-center gap-2">
-            <button onClick={handleCancel} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive transition-colors">
-              <X className="w-3 h-3" /> {labels.cancel}
-            </button>
-            <Button size="sm" onClick={handleSave} className="h-7 text-xs gap-1">
-              <Save className="w-3 h-3" /> {labels.save}
-            </Button>
-          </div>
-        )}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {fields.map(({ key, label, readonly }) => (
-          <div key={key} className="space-y-1.5">
-            <Label className="text-xs text-muted-foreground">{label}</Label>
-            {editing && !readonly ? (
-              <Input value={draft[key] || ""} onChange={e => setDraft(d => ({ ...d, [key]: e.target.value }))} className="h-8 text-sm" />
-            ) : (
-              <p className="text-sm font-medium py-1">{form[key] || "—"}</p>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ─── PDF generators ────────────────────────────────────────────────────────
 
 function downloadPayoutPDF(inv, entity, profile) {
@@ -551,8 +497,6 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
     }
   }, [companyKey, entityType]);
 
-  const updateField = (key, value) => setProfile(p => ({ ...p, [key]: value }));
-
   const invoices = entityType === "retailer" ? buildRetailerInvoices(entity, cfg.locale, t, retailers, currency, rateMultiplier) : buildAgencyInvoices(t);
 
   const [bankEditing, setBankEditing] = useState(false);
@@ -567,35 +511,6 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
 
   return (
     <div className="space-y-6 max-w-3xl">
-      <EditableSection
-        title={cfg.accountInfo}
-        icon={User}
-        labels={cfg}
-        form={{ contactName: profile.contactName, email: profile.email, company: profile.company, phone: profile.phone }}
-        onChange={updateField}
-        fields={[
-          { key: "contactName", label: cfg.contactPerson },
-          { key: "email", label: cfg.email, readonly: region === "nl" },
-          { key: "company", label: cfg.company },
-          { key: "phone", label: cfg.phone },
-        ]}
-      />
-
-      <EditableSection
-        title={cfg.companyBilling}
-        icon={Building2}
-        labels={cfg}
-        form={{ company: profile.company, regNumber: profile.regNumber, address: profile.address, postal_city: profile.postal_city, website: profile.website }}
-        onChange={updateField}
-        fields={[
-          { key: "company", label: cfg.company },
-          { key: "regNumber", label: profile.regLabel || "Registration No." },
-          { key: "address", label: cfg.address },
-          { key: "postal_city", label: cfg.postalCity },
-          { key: "website", label: cfg.website },
-        ]}
-      />
-
       {/* Bank Details — agencies only (retailers pay DutyBoost, no payouts) */}
       {entityType === "agency" && (
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">

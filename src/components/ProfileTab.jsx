@@ -3,59 +3,8 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Building2, Download, Landmark, CheckCircle2, User, FileText, Pencil, X, Save } from "lucide-react";
+import { Download, Landmark, CheckCircle2, Pencil, Save } from "lucide-react";
 import { toast } from "sonner";
-
-function EditableSection({ title, icon: Icon, fields, onSave }) {
-  const [editing, setEditing] = useState(false);
-  const [form, setForm] = useState(() => Object.fromEntries(fields.map(f => [f.key, f.value || ""])));
-  const [saving, setSaving] = useState(false);
-
-  const handleSave = async () => {
-    setSaving(true);
-    await onSave(form);
-    setSaving(false);
-    setEditing(false);
-    toast.success("Saved successfully!");
-  };
-
-  return (
-    <div className="bg-card border border-border rounded-xl p-6 space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="font-heading font-semibold text-base flex items-center gap-2">
-          <Icon className="w-4 h-4 text-primary" /> {title}
-        </h3>
-        {!editing ? (
-          <button onClick={() => setEditing(true)} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-            <Pencil className="w-3 h-3" /> Edit
-          </button>
-        ) : (
-          <div className="flex items-center gap-2">
-            <button onClick={() => { setEditing(false); setForm(Object.fromEntries(fields.map(f => [f.key, f.value || ""]))); }}
-              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive transition-colors">
-              <X className="w-3 h-3" /> Cancel
-            </button>
-            <Button size="sm" onClick={handleSave} disabled={saving} className="h-7 text-xs gap-1">
-              <Save className="w-3 h-3" /> {saving ? "Saving..." : "Save"}
-            </Button>
-          </div>
-        )}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {fields.map(({ key, label, readonly }) => (
-          <div key={key} className="space-y-1.5">
-            <Label className="text-xs text-muted-foreground">{label}</Label>
-            {editing && !readonly ? (
-              <Input value={form[key]} onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))} className="h-8 text-sm" />
-            ) : (
-              <p className="text-sm font-medium py-1">{form[key] || "—"}</p>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function ProfileTab({
   user,
@@ -80,11 +29,6 @@ export default function ProfileTab({
     });
   }, [user]);
 
-  const saveFields = async (data) => {
-    await base44.auth.updateMe(data);
-    if (onUserUpdate) onUserUpdate({ ...user, ...data });
-  };
-
   const handleSaveBank = async (e) => {
     e.preventDefault();
     setBankSaving(true);
@@ -101,28 +45,6 @@ export default function ProfileTab({
 
   return (
     <div className="space-y-6 max-w-3xl">
-      <EditableSection
-        title="User Information"
-        icon={User}
-        fields={[
-          { key: "full_name", label: "Full Name", value: user?.full_name || "" },
-          { key: "email", label: "Email", value: user?.email || "", readonly: true },
-        ]}
-        onSave={saveFields}
-      />
-
-      <EditableSection
-        title="Company Information"
-        icon={Building2}
-        fields={[
-          { key: "company", label: "Company Name", value: user?.company || "" },
-          { key: "website", label: "Website", value: user?.website || "" },
-          { key: "kvk", label: "CoC Number", value: user?.kvk || "" },
-          { key: "vat", label: "VAT Number", value: user?.vat || "" },
-        ]}
-        onSave={saveFields}
-      />
-
       {showBankDetails && (
       <div className="bg-card border border-border rounded-xl p-6 space-y-4">
         <div className="flex items-center justify-between">
