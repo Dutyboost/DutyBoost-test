@@ -108,6 +108,7 @@ export default function ProfileTab({
         fields={[
           { key: "full_name", label: "Full Name", value: "" },
           { key: "email", label: "Email", value: "", readonly: true },
+          { key: "phone", label: "Phone Number", value: user?.phone || "" },
         ]}
         onSave={saveFields}
       />
