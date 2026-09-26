@@ -78,6 +78,37 @@ export const PARTNER_DASHBOARDS = {
       link: { label: "Open the corporate partner showcase", to: "/corporate-partner-showcase" },
     },
   },
+  travel: {
+    key: "travel",
+    partnerType: "Travel Partner",
+    label: "Travel Partner",
+    title: "Travel Partner Dashboard",
+    blurb:
+      "Every DutyCredit your bookings activate, the airport spend they convert, and the commission your channels earn on it.",
+    accent: "#2563EB",
+    unitHeading: "Your booking channels",
+    unitBlurb: "Channels and branches under this agreement. Activation is managed by the DutyBoost team.",
+    groupBy: "airport",
+    groupHeading: "Redemption activity by airport",
+    scopeNoun: "your channels",
+    commissionField: "agency_commission",
+    kpis: [
+      { label: "DutyCredits Activated", metric: "creditsIssued", icon: TicketPercent },
+      { label: "Travellers Reached", metric: "passengers", icon: Users },
+      { label: "Airport Spend Converted", metric: "grossVolume", money: true, icon: TrendingUp },
+      { label: "Commission Earned", metric: "commission", money: true, icon: Landmark },
+    ],
+    guide: {
+      title: "Getting your bookings live",
+      blurb: "How DutyCredits reach the travellers who book with you, and how each redemption is credited back to your channels.",
+      steps: [
+        { title: "Share the booking flow", desc: "Send the confirmation email or booking flow that should carry the DutyCredit block." },
+        { title: "Credits are issued automatically", desc: "Every eligible booking receives a DutyCredit before the traveller reaches the airport." },
+        { title: "Report per channel", desc: "Redemptions, converted spend and commission are split by channel and airport here." },
+      ],
+      link: { label: "Open the travel partner integration guide", to: "/travel-partner-integration-guide" },
+    },
+  },
 };
 
 export const PARTNER_DASHBOARD_LIST = Object.values(PARTNER_DASHBOARDS);
@@ -87,16 +118,18 @@ const TYPE_TO_KEY = {
   "Airport Partner": "airport",
   "Corporate Partner": "corporate",
   "Wholesale Partner": "wholesale",
+  "Travel Partner": "travel",
 };
 
 /**
  * Partner types that share in the platform fee and therefore get their own
- * dashboard. Travel partners keep the existing agency dashboard; airports and
- * wholesale partners sit outside the fee sharing programme and get none.
+ * dashboard. Airports and wholesale partners sit outside the fee sharing
+ * programme and get none.
  */
 const DASHBOARD_TYPES = {
   "POS Partner": "pos",
   "Corporate Partner": "corporate",
+  "Travel Partner": "travel",
 };
 
 export const PARTNER_NO_DASHBOARD_TYPES = ["Airport Partner", "Wholesale Partner"];
