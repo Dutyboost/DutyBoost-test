@@ -369,19 +369,19 @@ function SlideConversion() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="bg-slate-800 text-white rounded-2xl p-6 flex-1">
-              <h3 className="font-bold text-white mb-4">The DutyBoost Proposition for Retailers</h3>
-              <div className="space-y-4">
+            <div className="bg-slate-800 text-white rounded-2xl p-6 flex-1 flex flex-col">
+              <h3 className="font-bold text-white text-lg mb-4">The DutyBoost Proposition for Retailers</h3>
+              <div className="flex-1 flex flex-col justify-center gap-3">
                 {[
                   { from: "Retailers wait for passengers", to: "Passengers arrive with purchase intent" },
                   { from: "Impulse-driven shopping", to: "Pre-activated economic incentive" },
                   { from: "No reason to enter the store", to: "DutyCredit gives a reason to visit" },
                   { from: "73% walk straight to the gate", to: "Pre-activated travellers detour to your store" },
                 ].map((row, i) => (
-                  <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-center text-xs">
-                    <span className="text-red-300 bg-red-900/30 rounded px-2 py-1 text-center">{row.from}</span>
-                    <ArrowRight size={14} className="text-purple-300 flex-shrink-0" />
-                    <span className="text-green-300 bg-green-900/30 rounded px-2 py-1 text-center">{row.to}</span>
+                  <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-stretch text-sm">
+                    <span className="text-red-300 bg-red-900/30 rounded-lg px-3 py-2.5 text-center flex items-center justify-center leading-snug">{row.from}</span>
+                    <ArrowRight size={16} className="text-purple-300 flex-shrink-0 self-center" />
+                    <span className="text-green-300 bg-green-900/30 rounded-lg px-3 py-2.5 text-center flex items-center justify-center leading-snug">{row.to}</span>
                   </div>
                 ))}
               </div>
