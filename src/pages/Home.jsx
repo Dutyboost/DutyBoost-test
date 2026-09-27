@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import AgencyDashboard from "./AgencyDashboard";
 import RetailerDashboard from "./RetailerDashboard";
 import AdminPanel from "./AdminPanel";
 import PartnerDashboard from "./PartnerDashboard";
@@ -68,5 +67,5 @@ export default function Home() {
   if (role === "retailer") return <RetailerDashboard />;
   if (partner?.key) return <PartnerDashboard type={partner.key} />;
   if (partner) return <PartnerNoDashboard partnerType={partner.type} />;
-  return <AgencyDashboard />
+  return <PartnerDashboard type="travel" />
 }

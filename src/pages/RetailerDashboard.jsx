@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProfileTab from "../components/ProfileTab";
 import {
@@ -214,6 +214,16 @@ export default function RetailerDashboard() {
           </button>
         ))}
       </div>
+
+      {retailers.length === 0 && (
+        <div className="flex items-start gap-3 bg-primary/5 border border-primary/20 rounded-xl p-4 text-sm">
+          <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+          <p className="text-muted-foreground">
+            No Airport Retailer record is linked to your account yet. Your DutyBoost partner manager links your
+            company when the agreement is signed — the figures below cover the whole network until then.
+          </p>
+        </div>
+      )}
 
       {activeTab === "profile" ? (
         <ProfileTab user={user} onUserUpdate={setUser} showBankDetails={false} invoiceHeading="Invoice History" invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
