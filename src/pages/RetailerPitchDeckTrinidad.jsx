@@ -8,7 +8,7 @@ import CalBanner from "@/components/retailer-pitch-trinidad/CalBanner";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { TEAM_MEMBERS } from "@/data/teamMembers";
-import { TOTAL_MOVEMENTS, AIRPORT_COUNT, NON_PURCHASING_MOVEMENTS, CONVERSION_ROWS, AATT_LINK } from "@/components/retailer-pitch-trinidad/figures";
+import { TOTAL_MOVEMENTS, AIRPORT_COUNT, NON_PURCHASING_MOVEMENTS, CONVERSION_ROWS, AATT_LINK, ASSORTMENT_SPLIT } from "@/components/retailer-pitch-trinidad/figures";
 
 const ACCENT = "#952d8b";
 
@@ -227,13 +227,6 @@ function SlideProblem() {
 
 // SLIDE 5: Trinidad & Tobago Market
 function SlideMarket() {
-  const categories = [
-    { cat: "Wines & Spirits", note: "Angostura aged rums, premium spirits" },
-    { cat: "Fragrances & Cosmetics", note: "Boss, Burberry, Coach, Armani, Jimmy Choo" },
-    { cat: "Confectionery", note: "Lindor and premium chocolate" },
-    { cat: "Novelty & Souvenirs", note: "Gift and novelty items" },
-  ];
-
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
@@ -271,24 +264,30 @@ function SlideMarket() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-            <h3 className="font-bold text-slate-700 mb-4">Caribbean Airlines Duty Free — Assortment at Piarco</h3>
-            <div className="space-y-2.5">
-              {categories.map((row) => (
-                <div key={row.cat} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: ACCENT }} />
-                  <div>
+            <h3 className="font-bold text-slate-700 mb-1">Caribbean Airlines Duty Free — Combined Assortment Revenue</h3>
+            <p className="text-slate-500 text-xs mb-4">Piarco International Airport &amp; A.N.R. Robinson International Airport, Tobago combined — the same four categories carried at both airports.</p>
+            <div className="space-y-3">
+              {ASSORTMENT_SPLIT.map((row) => (
+                <div key={row.cat}>
+                  <div className="flex items-center justify-between mb-1">
                     <div className="text-slate-700 text-sm font-semibold">{row.cat}</div>
-                    <div className="text-slate-500 text-xs">{row.note}</div>
+                    <div className="text-slate-700 text-sm font-semibold">
+                      {row.value} <span className="text-slate-400 font-normal">({row.share})</span>
+                    </div>
                   </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="h-2 rounded-full" style={{ width: `${row.pct}%`, background: ACCENT }} />
+                  </div>
+                  <div className="text-slate-500 text-xs mt-1">{row.note}</div>
                 </div>
               ))}
             </div>
             <div className="text-slate-400 text-xs mt-3">
-              Categories and brands as listed on{" "}
+              Category split estimated from CMI Caribbean category shares applied to the combined Trinidad &amp; Tobago market of $29M. Categories and brands as listed on{" "}
               <a href={CAL_DF_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>
                 dutyfree.caribbean-airlines.com
               </a>
-              {" "}— pre-order online, pay online, collect in-store at Piarco.
+              {" "}— pre-order online, pay online, collect in-store at Piarco or Tobago. Balance is tobacco, fashion and other categories.
             </div>
           </div>
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
