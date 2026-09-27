@@ -508,18 +508,16 @@ function SlideTransaction() {
         <GridBg />
         <div className="relative z-10">
           <div className="mb-6">
-            <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>One Transaction — Five Beneficiaries</span>
+            <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>One Transaction — Three Beneficiaries</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
               $114 Qualifying Retail Value Example
             </h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+          <div className="grid grid-cols-3 gap-3 mb-6">
             {[
               { party: "Traveller", Icon: TravelerIcon, value: "$11.40", sub: "DutyCredit saving (10%)", bg: "bg-green-50", border: "border-green-200", text: "text-green-600" },
               { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$99.75", sub: "Net before normal costs (87.5%)", bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-600" },
-              { party: "Travel & Corporate Partner", Icon: Briefcase, value: "$0.57", sub: "Ancillary revenue (0.5%)", bg: "bg-yellow-50", border: "border-yellow-200", text: "text-yellow-600" },
-              { party: "POS Partner", Icon: Cpu, value: "$0.29", sub: "Transaction revenue (0.25%)", bg: "bg-indigo-50", border: "border-indigo-200", text: "text-indigo-600" },
-              { party: "DutyBoost", Icon: BarChart3, value: "$1.99", sub: "Infrastructure revenue (1.75%)", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-600" },
+              { party: "DutyBoost", Icon: BarChart3, value: "$2.85", sub: "Platform fee (2.5%)", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-600" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 ${p.text}`} />
@@ -535,17 +533,13 @@ function SlideTransaction() {
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
                 <div className="bg-green-500" style={{ width: "10%" }} />
                 <div className="bg-purple-500" style={{ width: "87.5%" }} />
-                <div className="bg-yellow-500" style={{ width: "0.5%" }} />
-                <div className="bg-indigo-500" style={{ width: "0.25%" }} />
-                <div className="bg-orange-500" style={{ width: "1.75%" }} />
+                <div className="bg-orange-500" style={{ width: "2.5%" }} />
               </div>
               <div className="flex gap-3 mt-2 text-xs flex-wrap">
                 {[
                   { color: "bg-green-500", label: "Traveller 10%" },
                   { color: "bg-purple-500", label: "Retailer 87.5%" },
-                  { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
-                  { color: "bg-indigo-500", label: "POS 0.25%" },
-                  { color: "bg-orange-500", label: "DutyBoost 1.75%" },
+                  { color: "bg-orange-500", label: "DutyBoost 2.5%" },
                 ].map((l) => (
                   <div key={l.label} className="flex items-center gap-1.5">
                     <div className={`w-3 h-3 rounded-sm ${l.color}`} />
