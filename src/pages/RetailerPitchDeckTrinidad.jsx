@@ -336,7 +336,7 @@ function SlideConversion() {
                 <div>
                   <div className="text-3xl md:text-5xl font-bold text-red-600">73%</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchase rate (m1nd-set Caribbean)</div>
-                  <div className="text-slate-400 text-xs mt-1">= {NON_PURCHASING_MOVEMENTS} unreached passenger movements at Piarco and Tobago</div>
+                  <div className="text-slate-400 text-xs mt-1">= {NON_PURCHASING_MOVEMENTS} unreached passenger movements at Piarco and A.N.R. Robinson</div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="text-3xl md:text-5xl font-bold text-green-600">27%</div>
