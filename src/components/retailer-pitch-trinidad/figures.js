@@ -31,6 +31,7 @@ export const ASSORTMENT_SPLIT = [
 // Incremental potential from the 2.19M non-purchasing movements at the two
 // airports: $100 average basket, retailer keeps 87.5% of every qualifying sale.
 export const CONVERSION_ROWS = [
+  { conv: "+0.01 pp", txns: "219", retail: "$21.9K", ret: "$19.2K" },
   { conv: "+0.5 pp", txns: "11.0K", retail: "$1.10M", ret: "$958K" },
   { conv: "+1 pp", txns: "21.9K", retail: "$2.19M", ret: "$1.92M" },
   { conv: "+2 pp", txns: "43.8K", retail: "$4.38M", ret: "$3.83M" },

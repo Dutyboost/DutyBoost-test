@@ -469,12 +469,13 @@ export function SlideConversion() {
               </div>
               <div className="space-y-1.5">
                 {[
+                  { conv: "+0.01 pp", txns: "18K", retail: "€1.8M", db: "€31.5K" },
                   { conv: "+0.5 pp", txns: "900K", retail: "€90M", db: "€1.575M" },
                   { conv: "+1 pp", txns: "1.8M", retail: "€180M", db: "€3.15M" },
                   { conv: "+2 pp", txns: "3.6M", retail: "€360M", db: "€6.30M" },
                   { conv: "+5 pp", txns: "9.0M", retail: "€900M", db: "€15.75M" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 1 ? "bg-blue-200/50 font-semibold" : ""}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 2 ? "bg-blue-200/50 font-semibold" : ""}`}>
                     <span className="text-blue-700">{row.conv}</span>
                     <span className="text-slate-600">{row.txns} txns</span>
                     <span className="text-slate-600">{row.retail}</span>

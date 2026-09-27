@@ -288,6 +288,7 @@ export async function exportInvestorPitchPptx() {
       s.addText(h, { x, y: 4.05, w: 1.32, h: 0.3, fontSize: 9, color: SLATE, align: i === 3 ? "right" : "left", fontFace: "Calibri" });
     });
     const rows = [
+      { conv: "+0.01 pp", txns: "18K", retail: "€1.8M", db: "€31.5K", hl: false },
       { conv: "+0.5 pp", txns: "900K", retail: "€90M", db: "€1.575M", hl: false },
       { conv: "+1 pp", txns: "1.8M", retail: "€180M", db: "€3.15M", hl: true },
       { conv: "+2 pp", txns: "3.6M", retail: "€360M", db: "€6.30M", hl: false },
