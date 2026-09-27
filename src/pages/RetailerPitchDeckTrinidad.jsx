@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Store, CheckCircle, Plane, Package } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
@@ -55,8 +55,52 @@ const SLIDE_LABELS = {
 
 function SlideWrapper({ children }) {
   return (
-    <div className="w-full flex flex-col overflow-y-auto bg-white text-[#0a0f1e]">
+    <div className="w-full flex flex-col bg-white text-[#0a0f1e]">
       {children}
+    </div>
+  );
+}
+
+// Scales a slide down so it always fits the slide frame — no scrolling on desktop.
+function SlideFitter({ slideKey, children }) {
+  const outerRef = useRef(null);
+  const innerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    const fit = () => {
+      const outer = outerRef.current;
+      const inner = innerRef.current;
+      if (!outer || !inner) return;
+      if (window.innerWidth < 1024) {
+        setScale(1);
+        return;
+      }
+      const next = Math.min(
+        1,
+        outer.clientHeight / (inner.scrollHeight || 1),
+        outer.clientWidth / (inner.scrollWidth || 1)
+      );
+      setScale(next);
+    };
+    fit();
+    const timer = setTimeout(fit, 120);
+    window.addEventListener("resize", fit);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", fit);
+    };
+  }, [slideKey]);
+
+  return (
+    <div ref={outerRef} className="w-full h-full overflow-hidden flex">
+      <div
+        ref={innerRef}
+        className="w-full min-h-full flex flex-col justify-center"
+        style={{ transformOrigin: "top center", transform: `scale(${scale})` }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -865,7 +909,7 @@ export default function RetailerPitchDeckTrinidad() {
   const SlideComp = SLIDE_COMPONENTS[slide.type];
 
   return (
-    <div className="min-h-screen bg-[#0f0710] flex flex-col items-center justify-start lg:justify-center p-2 py-1.5 overflow-x-hidden">
+    <div className="min-h-screen lg:h-screen lg:overflow-hidden bg-[#0f0710] flex flex-col items-center justify-start lg:justify-center p-2 py-1.5 overflow-x-hidden">
       <div className="w-full max-w-[1400px] flex items-center justify-between mb-1.5">
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Trinidad &amp; Tobago Airport Retailer Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
@@ -873,8 +917,10 @@ export default function RetailerPitchDeckTrinidad() {
         <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
       </div>
 
-      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]">
-        <SlideComp />
+      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-150px)]">
+        <SlideFitter slideKey={current}>
+          <SlideComp />
+        </SlideFitter>
       </div>
 
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mt-2">
