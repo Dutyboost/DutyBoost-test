@@ -8,6 +8,8 @@ import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
+import { SlideTransactionUsd } from "@/components/shared/SlideTransactionUsd";
+import { EUR_USD_RATE } from "@/lib/eurUsd";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 
 // ── Avolta sources ───────────────────────────────────────────────────────────
@@ -469,13 +471,13 @@ export function SlideModel() {
               </div>
               <div className="space-y-1">
                 {[
-                  { tier: "Entry", range: "$20–$49", disc: "5%–7.5%", save: "$1.00–$3.19" },
-                  { tier: "Boarding", range: "$50–$99", disc: "7.5%–10%", save: "$3.75–$9.41" },
-                  { tier: "Standard", range: "$100–$149", disc: "10%–12.5%", save: "$10.00–$18.25" },
-                  { tier: "Plus", range: "$150–$199", disc: "12.5%–15%", save: "$18.75–$29.04" },
-                  { tier: "Lounge", range: "$200–$249", disc: "15%–17.5%", save: "$30.00–$42.75" },
-                  { tier: "Premium", range: "$250–$299", disc: "17.5%–20%", save: "$43.75–$57.00" },
-                  { tier: "VIP", range: "$300+", disc: "20% capped", save: "Up to $60" },
+                  { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
+                  { tier: "Boarding", range: "$57–$113", disc: "7.5%–10%", save: "$4.28–$10.73" },
+                  { tier: "Standard", range: "$114–$170", disc: "10%–12.5%", save: "$11.40–$20.81" },
+                  { tier: "Plus", range: "$171–$227", disc: "12.5%–15%", save: "$21.38–$33.11" },
+                  { tier: "Lounge", range: "$228–$284", disc: "15%–17.5%", save: "$34.20–$48.74" },
+                  { tier: "Premium", range: "$285–$341", disc: "17.5%–20%", save: "$49.88–$64.98" },
+                  { tier: "VIP", range: "$342+", disc: "20% capped", save: "Up to $68" },
                 ].map((row, i) => (
                   <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
                     <span className="text-blue-300 font-semibold">{row.tier}</span>
@@ -534,77 +536,12 @@ export function SlideModel() {
 
 // SLIDE 8b: Transaction Mix — Tier Economics
 export function SlideTierMix() {
-  return <TierMixSlide currency="$" />;
+  return <TierMixSlide currency="$" rate={EUR_USD_RATE} />;
 }
 
-// SLIDE 9: Transaction Economics — Five Beneficiaries
+// SLIDE 10: Transaction Economics — Three Beneficiaries
 export function SlideTransaction() {
-  const parties = [
-    { party: "Traveller", Icon: TravelerIcon, value: "$10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
-    { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
-    { party: "Travel & Corporate Partner", Icon: Briefcase, value: "$0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
-    { party: "POS Partner", Icon: Cpu, value: "$0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-    { party: "DutyBoost", Icon: BarChart3, value: "$1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
-  ];
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-6">
-            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">$100 Qualifying Retail Value Example</h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
-            {parties.map((p) => (
-              <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
-                <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-600`} />
-                <div className="text-slate-800 font-semibold text-xs sm:text-sm whitespace-nowrap mb-2">{p.party}</div>
-                <div className={`text-2xl font-bold text-${p.color}-600 mb-1`}>{p.value}</div>
-                <div className="text-slate-500 text-xs leading-snug">{p.sub}</div>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = $100.00</div>
-              <div className="flex h-6 rounded-full overflow-hidden gap-px">
-                <div className="bg-green-500" style={{ width: "10%" }} title="Traveller 10%" />
-                <div className="bg-blue-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
-                <div className="bg-yellow-500" style={{ width: "0.5%" }} />
-                <div className="bg-purple-500" style={{ width: "0.25%" }} />
-                <div className="bg-orange-500" style={{ width: "1.75%" }} />
-              </div>
-              <div className="flex gap-3 mt-2 text-xs flex-wrap">
-                {[
-                  { color: "bg-green-500", label: "Traveller 10%" },
-                  { color: "bg-blue-500", label: "Retailer 87.5%" },
-                  { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
-                  { color: "bg-purple-500", label: "POS 0.25%" },
-                  { color: "bg-orange-500", label: "DutyBoost 1.75%" },
-                ].map((l) => (
-                  <div key={l.label} className="flex items-center gap-1.5">
-                    <div className={`w-3 h-3 rounded-sm ${l.color}`} />
-                    <span className="text-slate-600">{l.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-              <div className="flex items-center gap-2 mb-2">
-                <BadgePercent className="w-5 h-5" />
-                <h3 className="font-bold">Performance-Based — 2.5% Platform Fee</h3>
-              </div>
-              <p className="text-blue-50 text-sm leading-relaxed">
-                The entire model is performance-based. DutyBoost charges a 2.5% platform fee, paid <em>only</em> on attributed DutyBoost/DutyCredit-generated revenue — never on organic sales. This fee is shared with the transaction participants, and all customer-acquisition cost is already covered inside that 2.5%.
-              </p>
-              <div className="mt-3 text-blue-100 font-semibold text-sm">Zero upfront cost · Zero risk · Pay only on incremental, attributed revenue.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
+  return <SlideTransactionUsd accent="#2563eb" gradient="linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)" />;
 }
 
 // SLIDE 10: Aruba Revenue Potential — scenario table for AUA

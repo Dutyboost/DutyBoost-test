@@ -9,10 +9,8 @@ export const NON_PURCHASE_RATE = "73%";
 export const PURCHASE_RATE = "27%";
 export const NON_PURCHASING_MOVEMENTS = "2.19M";
 
-// USD presentation of the pricing: euro amounts converted at the rate of
-// 27 Sep 2026 (1 EUR = 1.14 USD).
-export const EUR_USD_RATE = 1.14;
-export const EUR_USD_NOTE = "Amounts shown in USD, converted from EUR at €1 = $1.14 (27 Sep 2026).";
+// USD presentation of the pricing — shared conversion for the USD decks.
+export { EUR_USD_RATE, EUR_USD_NOTE } from "@/lib/eurUsd";
 
 export const AATT_LINK = "https://tntairports.com/";
 export const CSO_LINK = "https://cso.gov.tt/subjects/travel-and-tourism/travel-statistics/";
