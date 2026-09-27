@@ -303,6 +303,9 @@ export async function exportInvestorPitchPptx() {
       s.addText(row.db, { x: 5.14, y, w: 1.36, h: 0.4, fontSize: 11, bold: true, color: "166534", align: "right", fontFace: "Calibri", valign: "middle" });
     });
 
+    // Basis note
+    s.addText("Based on 180M travellers reached in Year 5, an illustrative €100 basket used as the example, and DutyBoost revenue at 1.75% of retail value.", { x: 0.8, y: 7.03, w: 5.85, h: 0.3, fontSize: 8, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
+
     // Proposition
     s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y: 1.8, w: 5.65, h: 3.0, fill: { color: "1E293B" }, line: { color: "334155" }, rectRadius: 0.12 });
     s.addText("The DutyBoost Proposition", { x: 7.05, y: 1.95, w: 5.25, h: 0.4, fontSize: 13, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });

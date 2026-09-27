@@ -380,6 +380,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing travellers, an illustrative $100 basket used as the example, and the supplier reorder value at ~50% of retail price.</p>
               <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder ≈ 50% of retail price, based on duty-free operator gross margins of ~49–55% <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ~49%)</a> <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>.</div>
             </div>
           </div>
