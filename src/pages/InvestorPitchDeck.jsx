@@ -546,7 +546,7 @@ export function SlideModel() {
                   { tier: "Premium", range: "€250–€299", disc: "17.5%–20%", save: "€43.75–€57.00" },
                   { tier: "VIP", range: "€300+", disc: "20% capped", save: "Up to €60" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
                     <span className="text-blue-300 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>
                     <span className="text-yellow-300">{row.disc}</span>
@@ -558,12 +558,13 @@ export function SlideModel() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-              <h3 className="font-bold text-blue-900 mb-3">Platform Fee Allocation (2.5% of Original Retail Value)</h3>
+              <h3 className="font-bold text-blue-900 mb-1">Platform Fee Allocation (2.5% of Original Retail Value)</h3>
+              <p className="text-xs text-slate-500 mb-3">Based on a €20 Entry-tier qualifying sale — total platform fee €0.50 (2.5% of €20).</p>
               <div className="space-y-2">
                 {[
-                  { party: "Travel & Corporate Partner", share: "20% of fee", pct: "0.50%", val: "€0.50", color: "blue", bg: "bg-blue-200" },
-                  { party: "Enterprise POS Partner", share: "10% of fee", pct: "0.25%", val: "€0.25", color: "indigo", bg: "bg-indigo-200" },
-                  { party: "DutyBoost", share: "70% of fee", pct: "1.75%", val: "€1.75", color: "violet", bg: "bg-violet-200" },
+                  { party: "Travel & Corporate Partner", share: "20% of fee", pct: "0.50%", val: "€0.10", color: "blue", bg: "bg-blue-200" },
+                  { party: "Enterprise POS Partner", share: "10% of fee", pct: "0.25%", val: "€0.05", color: "indigo", bg: "bg-indigo-200" },
+                  { party: "DutyBoost", share: "70% of fee", pct: "1.75%", val: "€0.35", color: "violet", bg: "bg-violet-200" },
                 ].map((row) => (
                   <div key={row.party} className="flex items-center gap-3">
                     <div className={`w-2 h-8 rounded-full ${row.bg}`} />
