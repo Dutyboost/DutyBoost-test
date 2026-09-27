@@ -15,12 +15,12 @@ export default function SlidePosToggle() {
             <p className="text-slate-500 mt-2 text-sm">DutyBoost enters at the POS layer as an opt-in feature — no new hardware, no POS overhaul, no disruption to existing operations.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col">
               <div className="flex items-center gap-3 mb-4">
-                <ToggleRight className="w-8 h-8 text-blue-600" />
-                <h3 className="font-bold text-slate-800 text-lg">How the Toggle Works</h3>
+                <ToggleRight className="w-9 h-9 text-blue-600" />
+                <h3 className="font-bold text-slate-800 text-xl">How the Toggle Works</h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex-1 flex flex-col justify-between gap-4">
                 {[
                   { step: "1", title: "POS Provider integrates once", desc: "A single API call adds DutyBoost as a feature to the POS platform" },
                   { step: "2", title: "Each retailer toggles on", desc: "Participating retailers activate DutyBoost with a toggle — no code changes per store" },
@@ -28,10 +28,10 @@ export default function SlidePosToggle() {
                   { step: "4", title: "No hardware, no downtime", desc: "Works with existing POS infrastructure — no new terminals, no new network" },
                 ].map((s) => (
                   <div key={s.step} className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">{s.step}</div>
+                    <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">{s.step}</div>
                     <div>
-                      <div className="text-slate-800 font-semibold text-sm">{s.title}</div>
-                      <div className="text-slate-500 text-xs">{s.desc}</div>
+                      <div className="text-slate-800 font-semibold text-base">{s.title}</div>
+                      <div className="text-slate-500 text-sm leading-relaxed">{s.desc}</div>
                     </div>
                   </div>
                 ))}
