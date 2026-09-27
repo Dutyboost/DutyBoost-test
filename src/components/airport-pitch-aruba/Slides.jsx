@@ -30,13 +30,13 @@ const linkCls = "text-blue-600 font-semibold underline decoration-blue-600/50 ho
 const AUA_PAX = 3; // million passengers (Avolta: "more than three million")
 const CONVERTING_SHARE = 0.27; // m1nd-set / TFWA benchmark
 const NON_PURCHASE_SHARE = 0.73;
-const ILLUSTRATIVE_BASKET = 100; // USD
+const ILLUSTRATIVE_BASKET = 23; // USD (Entry tier)
 const CONCESSION_RATE = 0.15; // Caribbean benchmark (illustrative)
 
 const AUA_CONVERTERS = AUA_PAX * CONVERTING_SHARE; // ≈ 0.81M
 const AUA_NON_PURCHASE = AUA_PAX * NON_PURCHASE_SHARE; // ≈ 2.19M
-const AUA_UPLIFT_1PP = AUA_PAX * 1_000_000 * 0.01 * ILLUSTRATIVE_BASKET; // ≈ $3M per +1pp
-const AUA_CONCESSION_1PP = AUA_UPLIFT_1PP * CONCESSION_RATE; // ≈ $450K per +1pp
+const AUA_UPLIFT_1PP = AUA_PAX * 1_000_000 * 0.01 * ILLUSTRATIVE_BASKET; // ≈ $690K per +1pp
+const AUA_CONCESSION_1PP = AUA_UPLIFT_1PP * CONCESSION_RATE; // ≈ $104K per +1pp
 
 const fmtM = (n) => `$${(n / 1_000_000).toFixed(1)}M`;
 const fmtK = (n) => `$${Math.round(n / 1000).toLocaleString()}K`;
@@ -423,7 +423,7 @@ export function SlideArubaOpportunity() {
               Small Conversion Gains = <span className="text-blue-600">Real Revenue at AUA</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Based on AUA's 3M+ passengers. Each +1pp ≈ 30,000 new purchasing travellers — value shown at the model's $100 illustrative qualifying basket, airport concession at 15%.
+              Based on AUA's 3M+ passengers. Each +1pp ≈ 30,000 new purchasing travellers — value shown at the model's $23 Entry-tier illustrative basket, airport concession at 15%.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-5">
@@ -471,7 +471,7 @@ export function SlideArubaOpportunity() {
                   <span className="font-bold text-blue-700">{fmtM(AUA_UPLIFT_1PP)}</span>
                 </div>
               </div>
-              <div className="text-slate-400 text-xs mt-3">Passengers: <a href={AAA_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>airportaruba.com</a>. Conversion maths grounded in AUA's passenger base and the 73/27 ratio (m1nd-set / TFWA). $ value illustrative, at the model's $100 qualifying basket.</div>
+              <div className="text-slate-400 text-xs mt-3">Passengers: <a href={AAA_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>airportaruba.com</a>. Conversion maths grounded in AUA's passenger base and the 73/27 ratio (m1nd-set / TFWA). $ value illustrative, at the model's $23 Entry-tier basket.</div>
             </div>
           </div>
         </div>
@@ -567,7 +567,7 @@ export function SlideBusinessCase() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Business Case</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              $3M in Incremental Sales <span className="text-blue-600">→ $450K for AUA</span>
+              $690K in Incremental Sales <span className="text-blue-600">→ $104K for AUA</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">An illustrative scenario showing the potential airport concession uplift from a single +1pp of conversion at Aruba Airport.</p>
           </div>
@@ -598,8 +598,8 @@ export function SlideBusinessCase() {
                 </div>
                 <div className="flex justify-center"><ChevronRight className="text-blue-400 w-5 h-5 rotate-90" /></div>
                 <div className="bg-white rounded-lg px-3 py-2 border border-slate-200 flex justify-between">
-                  <span className="text-slate-600">At $100 illustrative basket</span>
-                  <span className="font-semibold text-slate-800">$3M sales</span>
+                  <span className="text-slate-600">At $23 Entry-tier basket</span>
+                  <span className="font-semibold text-slate-800">$690K sales</span>
                 </div>
                 <div className="flex justify-center"><ChevronRight className="text-blue-400 w-5 h-5 rotate-90" /></div>
                 <div className="bg-blue-100 rounded-lg px-3 py-2 border border-blue-300 flex justify-between">

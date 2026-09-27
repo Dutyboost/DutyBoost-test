@@ -366,11 +366,11 @@ function SlideConversion() {
               </div>
               <div className="space-y-1.5">
                 {[
-                  { conv: "+0.01 pp", txns: "63", retail: "$6.3K", sup: "$3.15K" },
-                  { conv: "+0.5 pp", txns: "3.1K", retail: "$313K", sup: "$157K" },
-                  { conv: "+1 pp", txns: "6.3K", retail: "$625K", sup: "$313K" },
-                  { conv: "+2 pp", txns: "12.5K", retail: "$1.25M", sup: "$625K" },
-                  { conv: "+5 pp", txns: "31.3K", retail: "$3.13M", sup: "$1.57M" },
+                  { conv: "+0.01 pp", txns: "63", retail: "$1.4K", sup: "$0.7K" },
+                  { conv: "+0.5 pp", txns: "3.1K", retail: "$71.9K", sup: "$36K" },
+                  { conv: "+1 pp", txns: "6.3K", retail: "$144K", sup: "$72K" },
+                  { conv: "+2 pp", txns: "12.5K", retail: "$288K", sup: "$144K" },
+                  { conv: "+5 pp", txns: "31.3K", retail: "$719K", sup: "$360K" },
                 ].map((row, i) => (
                   <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 2 ? "bg-blue-200/50 font-semibold" : ""}`}>
                     <span className="text-blue-700">{row.conv}</span>
@@ -380,7 +380,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing travellers, an illustrative $100 basket used as the example, and the supplier reorder value at ~50% of retail price.</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing travellers, the $23 Entry-tier minimum basket used as the example, and the supplier reorder value at ~50% of retail price.</p>
               <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder ≈ 50% of retail price, based on duty-free operator gross margins of ~49–55% <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ~49%)</a> <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>.</div>
             </div>
           </div>
@@ -508,16 +508,16 @@ function SlideTransaction() {
           <div className="mb-6">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">One Transaction — The Full Chain Benefits</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              $100 Qualifying Retail Value Example
+              $23 Entry-Tier Qualifying Sale Example
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
             {[
-              { party: "Traveller", Icon: TravelerIcon, value: "$10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
-              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
-              { party: "Travel & Corporate Partner", Icon: TravelAgencyIcon, value: "$0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
-              { party: "POS Partner", Icon: BarChart3, value: "$0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-              { party: "DutyBoost", Icon: Boxes, value: "$1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+              { party: "Traveller", Icon: TravelerIcon, value: "$1.15", sub: "DutyCredit saving (5%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
+              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$21.28", sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
+              { party: "Travel & Corporate Partner", Icon: TravelAgencyIcon, value: "$0.12", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
+              { party: "POS Partner", Icon: BarChart3, value: "$0.06", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
+              { party: "DutyBoost", Icon: Boxes, value: "$0.40", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-600`} />
@@ -529,18 +529,18 @@ function SlideTransaction() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = $100.00</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = $23.00</div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
-                <div className="bg-green-500" style={{ width: "10%" }} title="Traveller 10%" />
-                <div className="bg-blue-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
+                <div className="bg-green-500" style={{ width: "5%" }} title="Traveller 5%" />
+                <div className="bg-blue-500" style={{ width: "92.5%" }} title="Retailer 92.5%" />
                 <div className="bg-yellow-500" style={{ width: "0.5%" }} />
                 <div className="bg-purple-500" style={{ width: "0.25%" }} />
                 <div className="bg-orange-500" style={{ width: "1.75%" }} />
               </div>
               <div className="flex gap-3 mt-2 text-xs flex-wrap">
                 {[
-                  { color: "bg-green-500", label: "Traveller 10%" },
-                  { color: "bg-blue-500", label: "Retailer 87.5%" },
+                  { color: "bg-green-500", label: "Traveller 5%" },
+                  { color: "bg-blue-500", label: "Retailer 92.5%" },
                   { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
                   { color: "bg-purple-500", label: "POS 0.25%" },
                   { color: "bg-orange-500", label: "DutyBoost 1.75%" },
@@ -555,10 +555,10 @@ function SlideTransaction() {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
               <h3 className="font-bold mb-3">Where the Supplier Fits</h3>
               <p className="text-blue-50 text-sm leading-relaxed">
-                The retailer keeps 87.5% of every qualifying sale — and that $87.50 is what flows back up the supply chain as reorder value. Faster sell-through means retailers replenish your products sooner, ordering more volume to keep pace with conversion. Your revenue grows without any change to your pricing, distribution or logistics.
+                The retailer keeps 92.5% of every qualifying sale — and that $21.28 is what flows back up the supply chain as reorder value. Faster sell-through means retailers replenish your products sooner, ordering more volume to keep pace with conversion. Your revenue grows without any change to your pricing, distribution or logistics.
               </p>
               <div className="mt-3 text-blue-100 font-semibold text-sm">
-                The retailer's 87.5% is your reorder signal.
+                The retailer's 92.5% is your reorder signal.
               </div>
             </div>
           </div>
@@ -578,14 +578,14 @@ function SlideCategory() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             Incremental Volume <span className="text-blue-600">by Product Category</span>
           </h2>
-          <p className="text-slate-500 mt-1 text-sm">At a +1% conversion uplift across the 625K non-purchasing Sint Maarten travellers (~6.3K incremental transactions at $100 avg basket), here is the estimated incremental sell-through by category.</p>
+          <p className="text-slate-500 mt-1 text-sm">At a +1% conversion uplift across the 625K non-purchasing Sint Maarten travellers (~6.3K incremental transactions at the $23 Entry-tier basket), here is the estimated incremental sell-through by category.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
           {[
-            { cat: "Fragrances & Cosmetics", share: "34%", incRetail: "$212K", incUnits: "~2,100 units", color: "blue", note: "Highest category share — strongest incremental volume" },
-            { cat: "Wines & Spirits", share: "22%", incRetail: "$138K", incUnits: "~1,400 units", color: "indigo", note: "Premium bottles drive high basket value" },
-            { cat: "Fashion & Accessories", share: "16%", incRetail: "$100K", incUnits: "~1,000 units", color: "violet", note: "Pre-activation lifts considered purchases" },
-            { cat: "Tobacco", share: "10%", incRetail: "$62K", incUnits: "~800 units", color: "purple", note: "Steady demand, fast rotation" },
+            { cat: "Fragrances & Cosmetics", share: "34%", incRetail: "$49K", incUnits: "~480 units", color: "blue", note: "Highest category share — strongest incremental volume" },
+            { cat: "Wines & Spirits", share: "22%", incRetail: "$32K", incUnits: "~310 units", color: "indigo", note: "Premium bottles drive high basket value" },
+            { cat: "Fashion & Accessories", share: "16%", incRetail: "$23K", incUnits: "~230 units", color: "violet", note: "Pre-activation lifts considered purchases" },
+            { cat: "Tobacco", share: "10%", incRetail: "$14K", incUnits: "~140 units", color: "purple", note: "Steady demand, fast rotation" },
           ].map((c) => (
             <div key={c.cat} className={`bg-${c.color}-50 border border-${c.color}-200 rounded-2xl p-5`}>
               <div className="flex items-center justify-between mb-3">

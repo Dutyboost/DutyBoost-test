@@ -577,7 +577,7 @@ export function SlideArubaRevenue() {
                 <div className="text-slate-400 text-xs mb-1">incremental retail value</div>
                 <div className="text-lg font-bold text-slate-700 mb-3">{fmtRevenue(s.retail)}</div>
                 <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{fmtRevenue(s.net)}</div>
-                <div className="text-blue-600 text-xs font-medium">retailer net (87.5%)</div>
+                <div className="text-blue-600 text-xs font-medium">retailer net (92.5%)</div>
               </div>
             ))}
           </div>
@@ -615,7 +615,7 @@ export function SlideArubaRevenue() {
                   <span className="font-bold text-blue-700">{fmtM(AUA_UPLIFT_1PP)}</span>
                 </div>
               </div>
-              <div className="text-slate-400 text-xs mt-3">Passengers: <a href={AAA_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>Aruba Airport Authority</a>. Conversion maths grounded in AUA's passenger base and the 73/27 ratio (m1nd-set / TFWA). $ value illustrative, at the model's $100 qualifying basket.</div>
+              <div className="text-slate-400 text-xs mt-3">Passengers: <a href={AAA_SITE} target="_blank" rel="noopener noreferrer" className={linkCls}>Aruba Airport Authority</a>. Conversion maths grounded in AUA's passenger base and the 73/27 ratio (m1nd-set / TFWA). $ value illustrative, at the model's $23 Entry-tier basket.</div>
             </div>
           </div>
         </div>
