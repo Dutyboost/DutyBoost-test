@@ -789,7 +789,7 @@ function SlideThankYou() {
             <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
           </div>
 
-          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport, Tobago" className="max-w-4xl mb-3" />
+          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport" className="max-w-4xl mb-3" />
 
           <div className="mb-2.5">
             <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Thank You</span>
@@ -799,7 +799,7 @@ function SlideThankYou() {
             </h2>
           </div>
           <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
-            DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco and Tobago, your POS, and {NON_PURCHASING_MOVEMENTS} passenger movements a year across the two airports whose travellers currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
+            DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco and A.N.R. Robinson, your POS, and {NON_PURCHASING_MOVEMENTS} passenger movements a year across the two airports whose travellers currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl w-full mb-3">
             {cards.map((card) => (
