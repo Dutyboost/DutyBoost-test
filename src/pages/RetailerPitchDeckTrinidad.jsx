@@ -389,7 +389,7 @@ function SlideConversion() {
             <div className="rounded-2xl p-5 text-white" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
               <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
               <p className="text-lg font-bold leading-snug">
-                "Is earning $87.50 from an incremental $100 retail sale — without any upfront acquisition cost — more valuable than earning $0 from a traveller who otherwise wouldn't have converted?"
+                "Is earning $21.28 from an incremental $23 retail sale — without any upfront acquisition cost — more valuable than earning $0 from a traveller who otherwise wouldn't have converted?"
               </p>
               <p className="text-sm mt-2 opacity-80">Yes. Every time.</p>
             </div>
