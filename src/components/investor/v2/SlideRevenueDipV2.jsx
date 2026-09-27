@@ -65,7 +65,7 @@ export default function SlideRevenueDipV2() {
                   <h3 className="font-bold text-slate-800 text-sm">Why a 12% Dip Occurs (Q4 2026)</h3>
                 </div>
                 <p className="text-slate-600 text-xs leading-relaxed">
-                  At launch, the first travellers to redeem DutyCredits are frequent buyers — passengers already purchasing at airport retailers. The 10% discount on their existing transactions temporarily reduces retailer revenue by approximately 12% before the non-purchasing segment is fully activated.
+                  At launch, the first travellers to redeem DutyCredits are frequent buyers — passengers already purchasing at airport retailers. The DutyCredit discount on their existing transactions temporarily reduces retailer revenue by approximately 12% before the non-purchasing segment is fully activated.
                 </p>
               </div>
               <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4">

@@ -152,7 +152,7 @@ export async function exportInvestorPitchPptx() {
       "Traveller activates benefit",
       "Arrives with purchase intent",
       "Visits participating retailer",
-      "Spends €100 → Saves €10",
+      "Spends €20 → Saves €1.00",
       "POS validates transaction",
       "All participants earn",
     ];

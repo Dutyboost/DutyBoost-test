@@ -25,7 +25,7 @@ Secure partner authentication
   "dutycredit_token": "••••••",
   "transaction_reference": "••••••",
   "store_id": "••••••",
-  "basket_amount": 100.00,
+  "basket_amount": 23.00,
   "currency": "USD"
 }`;
 
@@ -33,9 +33,9 @@ Secure partner authentication
 
 {
   "status": "approved",
-  "discount_amount": 10.00,
-  "amount_due": 90.00,
-  "pos_commission": 0.25,
+  "discount_amount": 1.15,
+  "amount_due": 21.85,
+  "pos_commission": 0.06,
   "currency": "USD"
 }`;
 

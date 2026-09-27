@@ -7,6 +7,7 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
 
 export function SlideSolution({ currency = "€" }) {
+  const basket = currency === "$" ? { spend: "23", save: "1.15" } : { spend: "20", save: "1.00" };
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -45,7 +46,7 @@ export function SlideSolution({ currency = "€" }) {
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
-              `Spends ${currency}100 → Saves ${currency}10`,
+              `Spends ${currency}${basket.spend} → Saves ${currency}${basket.save}`,
               "POS validates transaction",
               "All participants earn",
             ].map((step, i, arr) => (
