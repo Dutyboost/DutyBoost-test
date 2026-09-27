@@ -357,7 +357,7 @@ function SlideConversion() {
               </div>
               <div className="space-y-1.5">
                 {CONVERSION_ROWS.map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 2 ? "bg-purple-200/50 font-semibold" : ""}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 3 ? "bg-purple-200/50 font-semibold" : ""}`}>
                     <span className="text-purple-700">{row.conv}</span>
                     <span className="text-slate-600">{row.txns} txns</span>
                     <span className="text-slate-600">{row.retail}</span>
