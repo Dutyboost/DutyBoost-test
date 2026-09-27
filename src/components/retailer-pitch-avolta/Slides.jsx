@@ -8,7 +8,7 @@ import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
-import { SlideTransactionUsd } from "@/components/shared/SlideTransactionUsd";
+import SlideTransactionEntryTier from "@/components/shared/SlideTransactionEntryTier";
 import { EUR_USD_RATE } from "@/lib/eurUsd";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 
@@ -40,12 +40,12 @@ const AVOLTA_PAX_REACH = 2500; // million — Avolta published passenger reach
 
 const CONVERTING_SHARE = 0.27;
 const NON_PURCHASE_SHARE = 0.73;
-const RETAILER_NET = 0.875;
+const RETAILER_NET = 0.925;
 
 // Global uplift: +1pp conversion across Avolta network
 const GLOBAL_PAX = AVOLTA_PAX_REACH; // 2,500M
 const GLOBAL_NON_PURCHASE = Math.round(GLOBAL_PAX * NON_PURCHASE_SHARE); // ≈ 1,825M
-const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 100 / 1000; // ≈ $2.5B per +1pp (at $100 basket)
+const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 23 / 1000; // per +1pp (at the $23 Entry-tier basket)
 
 // ── Aruba data (sourced) ─────────────────────────────────────────────────────
 // Avolta: "more than three million" passengers; 8-year duty free extension (Jul 2026).
@@ -53,7 +53,7 @@ const AUA_PAX = 3; // million passengers
 const AUA_CONVERTERS = AUA_PAX * CONVERTING_SHARE; // ≈ 0.81M
 const AUA_NON_PURCHASE = AUA_PAX * NON_PURCHASE_SHARE; // ≈ 2.19M
 const AUA_REVENUE_EST = 30; // ~$30M, Avolta AUA retail revenue estimate
-const ILLUSTRATIVE_BASKET = 100; // USD
+const ILLUSTRATIVE_BASKET = 23; // USD (Entry tier)
 const AUA_UPLIFT_1PP = AUA_PAX * 1_000_000 * 0.01 * ILLUSTRATIVE_BASKET; // ≈ $3M per +1pp
 
 const AUA_STORES = [
@@ -362,14 +362,14 @@ export function SlideGlobalOpportunity() {
               <div className="text-3xl md:text-4xl font-bold text-blue-700">~25M</div>
               <div className="text-slate-600 text-sm mt-1">additional purchasing travellers across the network</div>
               <div className="text-green-600 font-bold text-xl mt-3">{fmtUSDb(GLOBAL_UPLIFT_1PP_B)}</div>
-              <div className="text-slate-600 text-sm">incremental retail value (illustrative, $100 basket)</div>
+              <div className="text-slate-600 text-sm">incremental retail value (illustrative, $23 Entry-tier basket)</div>
               <div className="text-slate-400 text-xs mt-3">1pp = 1% of Avolta's ~2.5B passengers converting at the model's qualifying basket.</div>
             </div>
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
             <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
             <p className="text-lg font-bold leading-snug">
-              "Is earning 87.5% from an incremental qualifying retail sale — without any upfront acquisition cost — more valuable than earning nothing from a passenger who otherwise wouldn't have converted?"
+              "Is earning $21.28 from an incremental $23 retail sale — without any upfront acquisition cost — more valuable than earning nothing from a passenger who otherwise wouldn't have converted?"
             </p>
             <p className="text-sm mt-2 opacity-80">Yes. Every time. And Avolta's 5,100+ outlets make the scale extraordinary.</p>
           </div>
@@ -479,7 +479,7 @@ export function SlideModel() {
                   { tier: "Premium", range: "$285–$341", disc: "17.5%–20%", save: "$49.88–$64.98" },
                   { tier: "VIP", range: "$342+", disc: "20% capped", save: "Up to $68" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
                     <span className="text-blue-300 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>
                     <span className="text-yellow-300">{row.disc}</span>
@@ -490,38 +490,41 @@ export function SlideModel() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-                <h3 className="font-bold text-blue-900 mb-3">Platform Fee Allocation (2.5% of Original Retail Value)</h3>
-                <div className="space-y-2">
+                <h3 className="font-bold text-blue-900 mb-3">The 2.5% Platform Fee — Your Only Cost</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                  A single 2.5% fee on DutyBoost-validated transactions only — never on your existing sales.
+                </p>
+                <div className="space-y-2 text-sm">
                   {[
-                    { party: "Travel & Corporate Partner", share: "20% of fee", pct: "0.50%", val: "$0.50", color: "blue", bg: "bg-blue-200" },
-                    { party: "Enterprise POS Partner", share: "10% of fee", pct: "0.25%", val: "$0.25", color: "indigo", bg: "bg-indigo-200" },
-                    { party: "DutyBoost", share: "70% of fee", pct: "1.75%", val: "$1.75", color: "violet", bg: "bg-violet-200" },
-                  ].map((row) => (
-                    <div key={row.party} className="flex items-center gap-3">
-                      <div className={`w-2 h-8 rounded-full ${row.bg}`} />
-                      <div className="flex-1">
-                        <div className="text-sm font-semibold text-slate-700">{row.party}</div>
-                        <div className="text-xs text-slate-500">{row.share} = {row.pct} of retail value</div>
-                      </div>
-                      <div className={`text-lg font-bold text-${row.color}-700`}>{row.val}</div>
+                    "DutyBoost's sole revenue — the platform fee on each validated transaction",
+                    "Applied only when a DutyCredit redemption is validated through your POS",
+                    "No impact on your shelf prices or non-DutyBoost sales",
+                    "Settled transparently — attributed and reported per transaction",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-                <h3 className="font-bold text-green-900 mb-1">At 30,000 $100 Transactions</h3>
-                <p className="text-xs text-green-700 mb-2">Based on a 1% conversion increase at AUA (~30K new purchasers):</p>
-                <div className="grid grid-cols-1 gap-1.5 text-sm">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
+                <h3 className="font-bold text-green-900 mb-3">The Retailer Economics</h3>
+                <div className="space-y-2.5 text-sm">
                   {[
-                    { party: "Retailers", val: "$2.63M net before costs" },
-                    { party: "Travellers", val: "$300,000 in savings" },
-                    { party: "Travel & Corporate Partners", val: "$15,000 ancillary revenue" },
-                    { party: "POS Partners", val: "$7,500 transaction revenue" },
-                    { party: "DutyBoost", val: "$52,500 infrastructure revenue" },
+                    { metric: "Retailer keeps", val: "92.5% of every qualifying sale (Entry tier)" },
+                    { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
+                    { metric: "Customer acquisition", val: "Handled by Travel & Corporate Partners before arrival" },
+                    { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
+                    { metric: "Pricing impact", val: "None — your shelf prices stay unchanged" },
+                    { metric: "Payment terms", val: "Performance-based — only on validated transactions" },
                   ].map((row) => (
-                    <div key={row.party} className="flex flex-col">
-                      <span className="text-slate-600">{row.party}</span>
-                      <span className="font-semibold text-green-700">{row.val}</span>
+                    <div key={row.metric} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-slate-700 font-semibold">{row.metric}: </span>
+                        <span className="text-slate-600">{row.val}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -541,7 +544,7 @@ export function SlideTierMix() {
 
 // SLIDE 10: Transaction Economics — Three Beneficiaries
 export function SlideTransaction() {
-  return <SlideTransactionUsd accent="#2563eb" gradient="linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)" />;
+  return <SlideTransactionEntryTier />;
 }
 
 // SLIDE 10: Aruba Revenue Potential — scenario table for AUA
@@ -564,7 +567,7 @@ export function SlideArubaRevenue() {
               Incremental Retail Value <span className="text-blue-600">at AUA</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Based on AUA's ~3M passengers. Each +1pp ≈ ~30K new purchasing travellers — value shown at the model's $100 illustrative qualifying basket, retailer net at 87.5%.
+              Based on AUA's ~3M passengers. Each +1pp ≈ ~30K new purchasing travellers — value shown at the model's $23 Entry-tier illustrative qualifying basket, retailer net at 92.5%.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-5">
@@ -584,7 +587,7 @@ export function SlideArubaRevenue() {
               <ul className="space-y-2 text-sm">
                 {[
                   "100% incremental — from AUA travellers who otherwise wouldn't buy",
-                  "Zero upfront cost — pay only the 2.5% fee on validated sales and 10% traveller discount",
+                  "Zero upfront cost — pay only the 2.5% platform fee on validated sales",
                   "No change to existing POS, pricing or merchandising",
                   "Attributed & reported transparently per transaction",
                   "Scales instantly across all 5 Avolta retail stores at AUA",

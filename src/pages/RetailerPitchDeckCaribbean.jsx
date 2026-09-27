@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
-import { SlideTransactionUsd } from "@/components/shared/SlideTransactionUsd";
+import SlideTransactionEntryTier from "@/components/shared/SlideTransactionEntryTier";
 import { EUR_USD_RATE } from "@/lib/eurUsd";
 import SlideAcquisitionCost from "@/components/retailer-pitch-caribbean/SlideAcquisitionCost";
 import HotelIcon from "@/components/HotelIcon";
@@ -93,14 +93,14 @@ function SlideCover() {
               <span className="text-blue-600">Who Otherwise Wouldn't Buy</span>
             </h1>
             <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
-              A Presentation for Sint Maarten Airport Retailers
+              A Presentation for Sint Maarten Airport Retailers — Princess Juliana International Airport (SXM)
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
-              { label: "Sint Maarten", value: "855,994" },
+              { label: "Air Passenger Arrivals a Year", value: "855,994" },
+              { label: "Airports Served", value: "1" },
               { label: "Non-Purchase", value: "73%" },
-              { label: "Market Growth", value: "21.7%" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -254,64 +254,77 @@ function SlideProblem() {
 
 // SLIDE 4: Solution — imported from @/components/shared/SlideSolution
 
-// SLIDE 5: Caribbean Market
+// SLIDE 5: Sint Maarten Market
 function SlideMarket() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-12 py-6">
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
         <div className="mb-5">
-          <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Sint Maarten Market Opportunity</span>
+          <span className="text-sm font-semibold uppercase tracking-widest text-blue-600">Sint Maarten Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            855K Air Arrivals. $67M Local Market. <span className="text-blue-600">$2.72B Regional Market</span>
+            856K Air Arrivals. 1 Airport. <span className="text-blue-600">$67M Local Market of $2.72B Regional</span>
           </h2>
           <p className="text-slate-500 mt-2">DutyBoost doesn't need to create the market. It connects what already exists.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-2">
           {[
-            { label: "Sint Maarten Air Arrivals", value: "855,994", sub: "All air passengers — USA 53.9% | EU 25.8% (SXM Gov, 2025)", color: "blue", subLink: SXM_LINK },
-            { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "indigo", subLink: CMI_LINK },
-            { label: "Sint Maarten DF&TR Share", value: "$67M", sub: "2.45% of Caribbean market (est.)", color: "violet", subLink: CMI_LINK },
+            { label: "Air Passenger Arrivals a Year", value: "855,994", sub: "Princess Juliana International Airport (SXM), 2025", color: "#2563eb", link: SXM_LINK },
+            { label: "Airports Served", value: "1", sub: "Princess Juliana International Airport, Sint Maarten", color: "#3b82f6", link: SXM_LINK },
+            { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#4f46e5", link: CMI_LINK },
+            { label: "Sint Maarten DF&TR Share", value: "$67M", sub: "2.45% of Caribbean market (est.)", color: "#16a34a", link: CMI_LINK },
           ].map((m) => (
-            <div key={m.label} className={`bg-${m.color}-50 border border-${m.color}-200 rounded-2xl p-6 text-center`}>
-              <div className={`text-xl md:text-3xl font-bold text-${m.color}-700 mb-2`}>{m.value}</div>
-              <div className="font-semibold text-slate-700 mb-1 text-sm">{m.label}</div>
+            <div key={m.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-6 text-center">
+              <div className="text-xl md:text-3xl font-bold mb-2" style={{ color: m.color }}>{m.value}</div>
+              <div className="font-semibold text-slate-700 mb-1 text-xs md:text-sm">{m.label}</div>
               <div className="text-slate-500 text-xs">
-                {m.subLink ? (
-                  <a href={m.subLink} target="_blank" rel="noopener noreferrer"
-                    className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
-                    {m.sub}
-                  </a>
-                ) : m.sub}
+                <a href={m.link} target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">
+                  {m.sub}
+                </a>
               </div>
             </div>
           ))}
         </div>
+        <p className="text-slate-400 text-[11px] mb-5 leading-snug">
+          Sint Maarten category values estimated from CMI Caribbean market data, proportional to Sint Maarten's air arrival share of the Caribbean market (855,994 / 35M ≈ 2.45% of $2.72B ≈ $67M total) —{" "}
+          <a href={SXM_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">SXM Gov</a>
+          {" "}|{" "}
+          <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">CMI</a>
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-            <h3 className="font-bold text-slate-700 mb-4">Sint Maarten DF&TR Categories (2026 est.)</h3>
-            <div className="space-y-2">
+            <h3 className="font-bold text-slate-700 mb-1">Sint Maarten DF&TR — Category Assortment Revenue</h3>
+            <p className="text-slate-500 text-xs mb-4">Princess Juliana International Airport (SXM) — the categories carried at the airport, applied to the $67M Sint Maarten DF&TR market.</p>
+            <div className="space-y-3">
               {[
-                { cat: "Fragrances & Cosmetics", val: "$23M", pct: 90 },
-                { cat: "Wines & Spirits", val: "$15M", pct: 59 },
-                { cat: "Fashion & Accessories", val: "$11M", pct: 43 },
-                { cat: "Tobacco", val: "$7M", pct: 27 },
+                { cat: "Fragrances & Cosmetics", value: "$23M", share: "34%", pct: 100, note: "Skincare, fragrance and cosmetics" },
+                { cat: "Wines & Spirits", value: "$15M", share: "22%", pct: 65, note: "Premium spirits and liqueurs" },
+                { cat: "Fashion & Accessories", value: "$11M", share: "16%", pct: 48, note: "Fashion, watches and accessories" },
+                { cat: "Tobacco", value: "$7M", share: "10%", pct: 30, note: "Tobacco and confectionery" },
               ].map((row) => (
-                <div key={row.cat} className="flex items-center gap-3">
-                  <div className="w-32 text-sm text-slate-600">{row.cat}</div>
-                  <div className="flex-1 bg-slate-200 rounded-full h-2">
-                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${row.pct}%` }} />
+                <div key={row.cat}>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-slate-700 text-sm font-semibold">{row.cat}</div>
+                    <div className="text-slate-700 text-sm font-semibold">
+                      {row.value} <span className="text-slate-400 font-normal">({row.share})</span>
+                    </div>
                   </div>
-                  <div className="w-16 text-sm font-semibold text-slate-700 text-right">{row.val}</div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="h-2 rounded-full bg-blue-600" style={{ width: `${row.pct}%` }} />
+                  </div>
+                  <div className="text-slate-500 text-xs mt-1">{row.note}</div>
                 </div>
               ))}
             </div>
-            <div className="text-slate-400 text-xs mt-3">Sint Maarten category values estimated from CMI market share data, proportional to Sint Maarten's air arrival share of the Caribbean market (855,994 / 35M ≈ 2.45% of $2.72B ≈ $67M total)</div>
+            <div className="text-slate-400 text-xs mt-3">
+              Category split estimated from CMI Caribbean category shares applied to the Sint Maarten market of $67M. Balance is other categories outside this assortment.
+            </div>
           </div>
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
             <h3 className="font-bold text-slate-700 mb-3">DutyBoost doesn't need to create:</h3>
             <div className="space-y-2">
               {[
-                "Sint Maarten airport — it already exists",
+                "Princess Juliana International Airport — it already operates",
                 "Passenger traffic — 855,994 air arrivals in 2025",
                 "Airport Retailers — they already operate stores",
                 "Travel & Corporate Partners — they already communicate with travellers",
@@ -374,13 +387,14 @@ function SlideConversion() {
               </div>
               <div className="space-y-1.5">
                 {[
-                  { conv: "+0.01 pp", txns: "63", retail: "$6.3K", ret: "$5.51K" },
-                  { conv: "+0.5 pp", txns: "3.1K", retail: "$313K", ret: "$273K" },
-                  { conv: "+1 pp", txns: "6.3K", retail: "$625K", ret: "$547K" },
-                  { conv: "+2 pp", txns: "12.5K", retail: "$1.25M", ret: "$1.09M" },
-                  { conv: "+5 pp", txns: "31.3K", retail: "$3.13M", ret: "$2.73M" },
+                  { conv: "+0.01 pp", txns: "63", retail: "$1.4K", ret: "$1.3K" },
+                  { conv: "+0.1 pp", txns: "625", retail: "$14.4K", ret: "$13.3K" },
+                  { conv: "+0.5 pp", txns: "3.1K", retail: "$71.9K", ret: "$66.5K" },
+                  { conv: "+1 pp", txns: "6.3K", retail: "$144K", ret: "$133K" },
+                  { conv: "+2 pp", txns: "12.5K", retail: "$288K", ret: "$266K" },
+                  { conv: "+5 pp", txns: "31.3K", retail: "$719K", ret: "$665K" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 2 ? "bg-blue-200/50 font-semibold" : ""}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 3 ? "bg-blue-200/50 font-semibold" : ""}`}>
                     <span className="text-blue-700">{row.conv}</span>
                     <span className="text-slate-600">{row.txns} txns</span>
                     <span className="text-slate-600">{row.retail}</span>
@@ -388,7 +402,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing travellers, 73% non-purchase, an illustrative $100 basket used as the example, and the retailer's 87.5% net share.</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing air arrivals, 73% non-purchase, the $23 Entry-tier minimum basket used as the example, and the retailer's 92.5% net share (5% traveller discount at the Entry tier).</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -412,7 +426,7 @@ function SlideConversion() {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
               <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
               <p className="text-lg font-bold leading-snug">
-                "Is earning $87.50 from an incremental $100 retail sale — without any upfront acquisition cost — more valuable than earning $0 from a traveller who otherwise wouldn't have converted?"
+                "Is earning $21.28 from an incremental $23 retail sale — without any upfront acquisition cost — more valuable than earning $0 from a traveller who otherwise wouldn't have converted?"
               </p>
               <p className="text-sm mt-2 opacity-80">Yes. Every time.</p>
             </div>
@@ -452,7 +466,7 @@ function SlideModel() {
                   { tier: "Premium", range: "$285–$341", disc: "17.5%–20%", save: "$49.88–$64.98" },
                   { tier: "VIP", range: "$342+", disc: "20% capped", save: "Up to $68" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-blue-800/60" : "hover:bg-white/5"}`}>
                     <span className="text-blue-300 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>
                     <span className="text-yellow-300">{row.disc}</span>
@@ -466,11 +480,11 @@ function SlideModel() {
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
               <h3 className="font-bold text-blue-900 mb-3">The 2.5% Platform Fee — Your Only Cost</h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-3">
-                A single fee on DutyBoost-validated transactions only — never on your existing sales.
+                A single 2.5% fee on DutyBoost-validated transactions only — never on your existing sales.
               </p>
               <div className="space-y-2 text-sm">
                 {[
-                  "Funds POS, Travel, Corporate Partner commission & platform infrastructure",
+                  "DutyBoost's sole revenue — the platform fee on each validated transaction",
                   "Applied only when a DutyCredit redemption is validated through your POS",
                   "No impact on your shelf prices or non-DutyBoost sales",
                   "Settled transparently — attributed and reported per transaction",
@@ -486,7 +500,7 @@ function SlideModel() {
               <h3 className="font-bold text-green-900 mb-3">The Retailer Economics</h3>
               <div className="space-y-2.5 text-sm">
                 {[
-                  { metric: "Retailer keeps", val: "87.5% of every qualifying sale" },
+                  { metric: "Retailer keeps", val: "92.5% of every qualifying sale (Entry tier)" },
                   { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
                   { metric: "Customer acquisition", val: "Handled by Travel & Corporate Partners before arrival" },
                   { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
@@ -524,7 +538,7 @@ function SlideTierMix() {
 
 // SLIDE 10: Transaction Economics
 function SlideTransaction() {
-  return <SlideTransactionUsd accent="#2563eb" gradient="linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)" />;
+  return <SlideTransactionEntryTier />;
 }
 
 // SLIDE 11: POS Integration (Retailer-Specific)
