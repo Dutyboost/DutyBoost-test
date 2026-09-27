@@ -509,14 +509,14 @@ function SlideTransaction() {
           <div className="mb-6">
             <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>One Transaction — Three Beneficiaries</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              $114 Qualifying Retail Value Example
+              $23 Entry-Tier Qualifying Sale Example
             </h2>
           </div>
           <div className="grid grid-cols-3 gap-3 mb-6">
             {[
-              { party: "Traveller", Icon: TravelerIcon, value: "$11.40", sub: "DutyCredit saving (10%)", bg: "bg-green-50", border: "border-green-200", text: "text-green-600" },
-              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$99.75", sub: "Net before normal costs (87.5%)", bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-600" },
-              { party: "DutyBoost", Icon: BarChart3, value: "$2.85", sub: "Platform fee (2.5%)", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-600" },
+              { party: "Traveller", Icon: TravelerIcon, value: "$1.15", sub: "DutyCredit saving (5%)", bg: "bg-green-50", border: "border-green-200", text: "text-green-600" },
+              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$21.28", sub: "Net before normal costs (92.5%)", bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-600" },
+              { party: "DutyBoost", Icon: BarChart3, value: "$0.58", sub: "Platform fee (2.5%)", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-600" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 ${p.text}`} />
@@ -528,16 +528,16 @@ function SlideTransaction() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = $114.00</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = $23.00</div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
-                <div className="bg-green-500" style={{ width: "10%" }} />
-                <div className="bg-purple-500" style={{ width: "87.5%" }} />
+                <div className="bg-green-500" style={{ width: "5%" }} />
+                <div className="bg-purple-500" style={{ width: "92.5%" }} />
                 <div className="bg-orange-500" style={{ width: "2.5%" }} />
               </div>
               <div className="flex gap-3 mt-2 text-xs flex-wrap">
                 {[
-                  { color: "bg-green-500", label: "Traveller 10%" },
-                  { color: "bg-purple-500", label: "Retailer 87.5%" },
+                  { color: "bg-green-500", label: "Traveller 5%" },
+                  { color: "bg-purple-500", label: "Retailer 92.5%" },
                   { color: "bg-orange-500", label: "DutyBoost 2.5%" },
                 ].map((l) => (
                   <div key={l.label} className="flex items-center gap-1.5">
