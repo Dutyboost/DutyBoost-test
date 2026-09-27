@@ -8,7 +8,7 @@ import CalBanner from "@/components/retailer-pitch-trinidad/CalBanner";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { TEAM_MEMBERS } from "@/data/teamMembers";
-import { TOTAL_MOVEMENTS, AIRPORT_COUNT, NON_PURCHASING_MOVEMENTS, CONVERSION_ROWS, AATT_LINK, ASSORTMENT_SPLIT, EUR_USD_RATE, EUR_USD_NOTE } from "@/components/retailer-pitch-trinidad/figures";
+import { TOTAL_MOVEMENTS, AIRPORT_COUNT, NON_PURCHASING_MOVEMENTS, CONVERSION_ROWS, AATT_LINK, ASSORTMENT_SPLIT, EUR_USD_RATE } from "@/components/retailer-pitch-trinidad/figures";
 
 const ACCENT = "#952d8b";
 
@@ -437,7 +437,6 @@ function SlideModel() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 px-2 leading-snug">{EUR_USD_NOTE}</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -547,7 +546,6 @@ function SlideTransaction() {
                   </div>
                 ))}
               </div>
-              <div className="text-slate-400 text-[10px] mt-1.5">{EUR_USD_NOTE}</div>
             </div>
             <div className="rounded-2xl p-5 text-white" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
               <h3 className="font-bold mb-3">Integrate Once. Deploy Repeatedly.</h3>

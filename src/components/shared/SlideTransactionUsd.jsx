@@ -1,7 +1,6 @@
 import { BarChart3 } from "lucide-react";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
-import { EUR_USD_NOTE } from "@/lib/eurUsd";
 
 // Transaction economics — one transaction, three beneficiaries.
 // Shared by the USD pitch decks: identical to the Trinidad & Tobago deck.
@@ -61,7 +60,6 @@ export function SlideTransactionUsd({
                   </div>
                 ))}
               </div>
-              <div className="text-slate-400 text-[10px] mt-1.5">{EUR_USD_NOTE}</div>
             </div>
             <div className="rounded-2xl p-5 text-white" style={{ background: gradient }}>
               <h3 className="font-bold mb-3">Integrate Once. Deploy Repeatedly.</h3>
