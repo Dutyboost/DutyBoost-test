@@ -1,10 +1,23 @@
 import { Fragment } from "react";
 import { Search, Video, Camera, Play, MessageCircle, Users } from "lucide-react";
-import { CAL_DESTINATIONS, flagUrl } from "./destinations";
 import { TOTAL_MOVEMENTS, AATT_LINK } from "./figures";
 
 const ACCENT = "#952d8b";
 const CAL_LINK = "https://www.caribbean-airlines.com/";
+
+// Trinidad & Tobago source markets — every traveller movement across the two
+// airports, whether a visitor flying in or a Trinidad & Tobago resident flying
+// out and returning home. Estimated and scaled to the combined 3M passenger
+// movements (arrivals + departures) at Piarco International Airport and
+// A.N.R. Robinson International Airport, Tobago (AATT).
+const SOURCE_MARKETS = [
+  { flag: "🇹🇹", name: "Trinidad & Tobago", movements: "1,050,000", share: "35.0%" },
+  { flag: "🇺🇸", name: "USA", movements: "690,000", share: "23.0%" },
+  { flag: "🌴", name: "Caribbean", movements: "420,000", share: "14.0%" },
+  { flag: "🇨🇦", name: "Canada", movements: "330,000", share: "11.0%" },
+  { flag: "🇬🇧", name: "United Kingdom", movements: "300,000", share: "10.0%" },
+  { flag: "🌎", name: "South America & Other", movements: "210,000", share: "7.0%" },
+];
 
 function SlideWrapper({ children }) {
   return (
@@ -63,21 +76,22 @@ export default function SlideAcquisitionTrinidad() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             <div className="space-y-3">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1">Where We Acquire Them — The Source Markets Into Trinidad &amp; Tobago</h3>
+                <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1">Where We Acquire Them — Trinidad &amp; Tobago Source Markets</h3>
                 <p className="text-slate-500 text-xs leading-snug mb-2">
-                  <span className="font-bold" style={{ color: ACCENT }}>{TOTAL_MOVEMENTS} passenger movements a year</span> across Piarco International Airport and A.N.R. Robinson International Airport, Tobago — arriving from{" "}
-                  <span className="font-semibold text-slate-700">{CAL_DESTINATIONS.length} source markets</span> across the Caribbean, North America and South America, plus Trinidad &amp; Tobago's own domestic traffic.
+                  All <span className="font-bold" style={{ color: ACCENT }}>{TOTAL_MOVEMENTS} passenger movements a year</span> across Piarco International Airport and A.N.R. Robinson International Airport, Tobago. Every traveller is counted — whether a visitor flying in or a Trinidad &amp; Tobago resident flying out and returning home.
                 </p>
-                <div className="flex flex-wrap gap-1">
-                  {CAL_DESTINATIONS.map((d, i) => (
-                    <span key={`${d.name}-${i}`} className="flex items-center gap-1 bg-white border border-slate-200 rounded-full pl-1 pr-1.5 py-0.5">
-                      <img src={flagUrl(d.flag)} alt="" className="h-2.5 w-auto rounded-[1px]" loading="lazy" />
-                      <span className="text-[9px] font-medium text-slate-600 leading-none">{d.name}</span>
-                    </span>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {SOURCE_MARKETS.map((m) => (
+                    <div key={m.name} className="bg-white border border-slate-200 rounded-lg px-1.5 py-2 text-center">
+                      <p className="text-base leading-none mb-1">{m.flag}</p>
+                      <p className="text-[11px] font-semibold text-slate-700 leading-tight">{m.name}</p>
+                      <p className="text-xs font-bold mt-0.5" style={{ color: ACCENT }}>{m.movements}</p>
+                      <p className="text-[10px] text-slate-400 leading-tight">{m.share} of movements</p>
+                    </div>
                   ))}
                 </div>
                 <p className="text-slate-400 text-[10px] mt-2 leading-snug">
-                  Passenger movements across the two airports, 2025 —{" "}
+                  {TOTAL_MOVEMENTS} passenger movements across the two airports, 2025 — source-market split estimated and scaled to the combined total.{" "}
                   <a href={AATT_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>Airports Authority of Trinidad and Tobago</a>
                 </p>
               </div>
