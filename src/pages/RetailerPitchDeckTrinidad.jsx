@@ -365,7 +365,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on ~3M passenger movements a year across Piarco and A.N.R. Robinson, 73% non-purchase, $100 average basket and the retailer's 87.5% net share.</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on ~3M passenger movements a year across Piarco and A.N.R. Robinson, 73% non-purchase, an illustrative $100 basket used as the example, and the retailer's 87.5% net share.</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
