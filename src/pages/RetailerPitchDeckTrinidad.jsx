@@ -557,6 +557,11 @@ function SlideTransaction() {
               </div>
             </div>
           </div>
+          <div className="mt-5 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <p className="text-slate-700 text-sm leading-relaxed">
+              <span className="font-bold">Customer acquisition cost happens after the sale — not before.</span> The retailer spends nothing to acquire the traveller: each DutyCredit redemption is validated through the POS and settled only once the sale is made, so every transaction is fully traceable and attributable.
+            </p>
+          </div>
         </div>
       </div>
     </SlideWrapper>
