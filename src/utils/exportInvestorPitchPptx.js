@@ -304,7 +304,7 @@ export async function exportInvestorPitchPptx() {
     });
 
     // Basis note
-    s.addText("Based on 180M travellers reached in Year 5, an illustrative €100 basket used as the example, and DutyBoost revenue at 1.75% of retail value.", { x: 0.8, y: 7.03, w: 5.85, h: 0.3, fontSize: 8, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
+    s.addText("Based on 180M travellers reached in Year 5, the €20 Entry-tier minimum basket used as the example, and DutyBoost revenue at 1.75% of retail value.", { x: 0.8, y: 7.03, w: 5.85, h: 0.3, fontSize: 8, color: SLATE, align: "left", fontFace: "Calibri", valign: "top" });
 
     // Proposition
     s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y: 1.8, w: 5.65, h: 3.0, fill: { color: "1E293B" }, line: { color: "334155" }, rectRadius: 0.12 });
@@ -327,7 +327,7 @@ export async function exportInvestorPitchPptx() {
     // Core insight
     s.addShape(pptx.ShapeType.roundRect, { x: 6.85, y: 4.95, w: 5.65, h: 2.05, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.12 });
     s.addText("The Core Insight", { x: 7.05, y: 5.05, w: 5.25, h: 0.35, fontSize: 11, bold: true, color: "BFDBFE", align: "left", fontFace: "Calibri" });
-    s.addText("\"Is earning €87.50 from an incremental €100 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a traveller who otherwise wouldn't have converted?\"", { x: 7.05, y: 5.4, w: 5.25, h: 1.2, fontSize: 11.5, bold: true, color: WHITE, align: "left", fontFace: "Calibri", valign: "top" });
+    s.addText("\"Is earning €18.50 from an incremental €20 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a traveller who otherwise wouldn't have converted?\"", { x: 7.05, y: 5.4, w: 5.25, h: 1.2, fontSize: 11.5, bold: true, color: WHITE, align: "left", fontFace: "Calibri", valign: "top" });
     s.addText("Yes. Every time.", { x: 7.05, y: 6.6, w: 5.25, h: 0.35, fontSize: 11, color: "DBEAFE", align: "left", fontFace: "Calibri" });
   }
 
@@ -434,13 +434,13 @@ export async function exportInvestorPitchPptx() {
 
     // At 1M transactions
     s.addShape(pptx.ShapeType.roundRect, { x: 7.5, y: 5.2, w: 5.0, h: 1.8, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 }, rectRadius: 0.12 });
-    s.addText("At 1 Million €100 Transactions:", { x: 7.7, y: 5.3, w: 4.6, h: 0.35, fontSize: 12, bold: true, color: "14532D", align: "left", fontFace: "Calibri" });
+    s.addText("At 1 Million €20 Transactions:", { x: 7.7, y: 5.3, w: 4.6, h: 0.35, fontSize: 12, bold: true, color: "14532D", align: "left", fontFace: "Calibri" });
     const impact = [
-      { party: "Travellers", val: "€10M in savings" },
-      { party: "Travel & Corporate Partners", val: "€500,000 ancillary revenue" },
-      { party: "POS Partners", val: "€250,000 transaction revenue" },
-      { party: "DutyBoost", val: "€1.75M infrastructure revenue" },
-      { party: "Retailers", val: "€87.5M net before costs" },
+      { party: "Travellers", val: "€1M in savings" },
+      { party: "Travel & Corporate Partners", val: "€100,000 ancillary revenue" },
+      { party: "POS Partners", val: "€50,000 transaction revenue" },
+      { party: "DutyBoost", val: "€350,000 infrastructure revenue" },
+      { party: "Retailers", val: "€18.5M net before costs" },
     ];
     impact.forEach((row, i) => {
       const y = 5.65 + i * 0.27;
@@ -454,14 +454,14 @@ export async function exportInvestorPitchPptx() {
     const s = pptx.addSlide();
     lightSlide(s);
     s.addText("ONE TRANSACTION — FIVE BENEFICIARIES", { x: 0.8, y: 0.4, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "left", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("€100 Qualifying Retail Value Example", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
+    s.addText("€20 Entry-Tier Qualifying Sale Example", { x: 0.8, y: 0.85, w: 11.7, h: 0.7, fontSize: 26, bold: true, color: DARK, align: "left", fontFace: "Calibri" });
 
     const beneficiaries = [
-      { party: "Traveller", value: "€10.00", sub: "DutyCredit saving (10%)", color: GREEN },
-      { party: "Airport Retailer", value: "€87.50", sub: "Net before normal costs (87.5%)", color: "60A5FA" },
-      { party: "Travel & Corporate Partner", value: "€0.50", sub: "Ancillary revenue (0.5%)", color: YELLOW },
-      { party: "POS Partner", value: "€0.25", sub: "Transaction revenue (0.25%)", color: PURPLE },
-      { party: "DutyBoost", value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: ORANGE },
+      { party: "Traveller", value: "€1.00", sub: "DutyCredit saving (5%)", color: GREEN },
+      { party: "Airport Retailer", value: "€18.50", sub: "Net before normal costs (92.5%)", color: "60A5FA" },
+      { party: "Travel & Corporate Partner", value: "€0.10", sub: "Ancillary revenue (0.5%)", color: YELLOW },
+      { party: "POS Partner", value: "€0.05", sub: "Transaction revenue (0.25%)", color: PURPLE },
+      { party: "DutyBoost", value: "€0.35", sub: "Infrastructure revenue (1.75%)", color: ORANGE },
     ];
     beneficiaries.forEach((p, i) => {
       const x = 0.8 + i * 2.4;
@@ -473,10 +473,10 @@ export async function exportInvestorPitchPptx() {
 
     // Distribution bar
     s.addShape(pptx.ShapeType.roundRect, { x: 0.8, y: 4.6, w: 5.85, h: 2.4, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
-    s.addText("Total = €100.00", { x: 1.0, y: 4.7, w: 5.45, h: 0.3, fontSize: 10, bold: true, color: "94A3B8", align: "left", fontFace: "Calibri", charSpacing: 1 });
+    s.addText("Total = €20.00", { x: 1.0, y: 4.7, w: 5.45, h: 0.3, fontSize: 10, bold: true, color: "94A3B8", align: "left", fontFace: "Calibri", charSpacing: 1 });
     const dist = [
-      { pct: 10, color: GREEN, lbl: "Traveller 10%" },
-      { pct: 87.5, color: BLUE, lbl: "Retailer 87.5%" },
+      { pct: 5, color: GREEN, lbl: "Traveller 5%" },
+      { pct: 92.5, color: BLUE, lbl: "Retailer 92.5%" },
       { pct: 0.5, color: YELLOW, lbl: "Partner 0.5%" },
       { pct: 0.25, color: PURPLE, lbl: "POS 0.25%" },
       { pct: 1.75, color: ORANGE, lbl: "DutyBoost 1.75%" },

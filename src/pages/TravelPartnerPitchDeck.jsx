@@ -288,7 +288,7 @@ function SlideEconomics() {
           <div className="mb-5">
             <span className="text-emerald-400 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-white mt-2">
-              €100 Airport Basket — <span className="text-emerald-400">Where Your Commission Comes From</span>
+              €20 Entry-Tier Airport Basket — <span className="text-emerald-400">Where Your Commission Comes From</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -296,11 +296,11 @@ function SlideEconomics() {
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mb-4">
                 <div className="space-y-2">
                   {[
-                    { label: "Original qualifying retail value", val: "€100.00", style: "text-white font-bold text-lg" },
-                    { label: "Traveller DutyCredit saving", val: "€10.00", style: "text-orange-300" },
-                    { label: "Traveller actually pays", val: "€90.00", style: "text-blue-300" },
-                    { label: "DutyBoost platform fee (2.5%)", val: "€2.50", style: "text-slate-400" },
-                    { label: "  → Travel Partner commission (20% of fee)", val: "€0.50", style: "text-emerald-300" },
+                    { label: "Original qualifying retail value", val: "€20.00", style: "text-white font-bold text-lg" },
+                    { label: "Traveller DutyCredit saving (5%)", val: "€1.00", style: "text-orange-300" },
+                    { label: "Traveller actually pays", val: "€19.00", style: "text-blue-300" },
+                    { label: "DutyBoost platform fee (2.5%)", val: "€0.50", style: "text-slate-400" },
+                    { label: "  → Travel Partner commission (20% of fee)", val: "€0.10", style: "text-emerald-300" },
                   ].map((row, i) => (
                     <div key={i} className={`flex justify-between items-center py-1 border-b border-white/5 ${i === 0 ? "pb-2 mb-1" : ""}`}>
                       <span className={`text-sm ${row.label.startsWith("  ") ? "pl-4 text-slate-500" : "text-slate-300"}`}>{row.label.trim()}</span>
@@ -309,20 +309,20 @@ function SlideEconomics() {
                   ))}
                   <div className="flex justify-between items-center py-2 mt-1 bg-green-900/40 rounded-xl px-3">
                     <span className="text-green-300 font-bold text-sm">Airport Retailer net before normal costs</span>
-                    <span className="text-green-300 font-bold text-xl">€87.50</span>
+                    <span className="text-green-300 font-bold text-xl">€18.50</span>
                   </div>
                 </div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Platform fee distribution on €2.50</div>
+                <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Platform fee distribution on €0.50</div>
                 <div className="flex h-5 rounded-full overflow-hidden gap-px">
                   <div className="bg-emerald-500" style={{ width: "20%" }} title="Travel Partner 20%" />
                   <div className="bg-blue-500" style={{ width: "80%" }} title="DutyBoost 80%" />
                 </div>
                 <div className="flex gap-3 mt-2 flex-wrap text-xs">
                   {[
-                    { color: "bg-emerald-500", label: "Travel Partner 20% (€0.50)" },
-                    { color: "bg-blue-500", label: "DutyBoost 80% (€2.00)" },
+                    { color: "bg-emerald-500", label: "Travel Partner 20% (€0.10)" },
+                    { color: "bg-blue-500", label: "DutyBoost 80% (€0.40)" },
                   ].map((l) => (
                     <div key={l.label} className="flex items-center gap-1">
                       <div className={`w-3 h-3 rounded-sm ${l.color}`} />
@@ -336,7 +336,7 @@ function SlideEconomics() {
               <div className="bg-gradient-to-br from-emerald-900/50 to-green-900/50 border border-emerald-500/30 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-3">The Core Question</h3>
                 <p className="text-emerald-200 text-base leading-relaxed font-semibold">
-                  “Is earning €0.50 on every €100 your travellers spend at airports — with zero cost, zero effort and zero liability — a meaningful new revenue line from bookings you already make?”
+                  “Is earning €0.10 on every €20 your travellers spend at airports — with zero cost, zero effort and zero liability — a meaningful new revenue line from bookings you already make?”
                 </p>
                 <p className="text-emerald-400 font-bold text-lg mt-3">Yes — and it grows with your volume.</p>
               </div>

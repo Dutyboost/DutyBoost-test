@@ -87,16 +87,16 @@ export function SlideCaribbeanMarket() {
           <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Caribbean Market — Wagos Territory</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              A <span className="text-violet-600">$108M</span> Network Duty-Free Market
+              A <span className="text-violet-600">$24.8M</span> Network Duty-Free Market
             </h2>
             <p className="text-slate-500 mt-1 text-sm">Wagos serves airport retailers across Trinidad &amp; Tobago, Grenada, the Cayman Islands, and Guyana — a multi-island network with combined passenger volumes exceeding 4 million annually.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
             <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 text-center">
               <DollarSign className="w-8 h-8 text-violet-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">$108M</div>
+              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">$24.8M</div>
               <div className="text-slate-600 font-semibold text-sm">Network DF Revenue</div>
-              <div className="text-slate-500 text-xs mt-1">4 airports · 27% conversion · $100 basket</div>
+              <div className="text-slate-500 text-xs mt-1">4 airports · 27% conversion · $23 basket</div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
               <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
@@ -122,10 +122,10 @@ export function SlideCaribbeanMarket() {
               <h3 className="font-bold text-slate-700 mb-4">Network DF Revenue Growth (2026–2033)</h3>
               <div className="space-y-2">
                 {[
-                  { year: "2026", val: "$108M", pct: 25 },
-                  { year: "2028", val: "$160M", pct: 37 },
-                  { year: "2030", val: "$237M", pct: 55 },
-                  { year: "2033", val: "$429M", pct: 100 },
+                  { year: "2026", val: "$24.8M", pct: 25 },
+                  { year: "2028", val: "$36.8M", pct: 37 },
+                  { year: "2030", val: "$54.5M", pct: 55 },
+                  { year: "2033", val: "$98.6M", pct: 100 },
                 ].map((row) => (
                   <div key={row.year} className="flex items-center gap-3">
                     <div className="w-12 text-sm text-slate-600">{row.year}</div>
@@ -137,7 +137,7 @@ export function SlideCaribbeanMarket() {
                 ))}
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                Network revenue derived from 4M passengers × 27% conversion × $100 basket. Growth projected at <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">21.7% Caribbean CAGR (CMI)</a>.
+                Network revenue derived from 4M passengers × 27% conversion × $23 Entry-tier basket. Growth projected at <a href={CMI_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">21.7% Caribbean CAGR (CMI)</a>.
               </div>
             </div>
             <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-6 text-white">
@@ -281,7 +281,7 @@ export function SlideWagosOpportunity() {
                 <div className="space-y-2.5 text-sm">
                   {[
                     { metric: "Commission rate", val: "10% of the 2.5% platform fee = 0.25% of every validated basket" },
-                    { metric: "Per $100 basket", val: "$0.25 — on transactions Wagos already processes" },
+                    { metric: "Per $23 basket", val: "$0.06 — on transactions Wagos already processes" },
                     { metric: "Upfront cost", val: "$0 — no setup fee, no subscription, no licence" },
                     { metric: "On non-converters", val: "$0 — purely performance-based, zero risk" },
                     { metric: "Territory", val: "Trinidad & Tobago, Grenada, Cayman Islands, Guyana" },
@@ -456,15 +456,15 @@ export function SlideWagosRevenue() {
               What Wagos Earns <span className="text-violet-600">Across the Network</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Wagos earns 0.25% of every validated DutyCredit basket across all Wagos-supported airport retailers. With 4M+ annual passengers and 2.9M non-purchasing travellers across four airports, here is the network-wide commission potential at a $100 average basket.
+              Wagos earns 0.25% of every validated DutyCredit basket across all Wagos-supported airport retailers. With 4M+ annual passengers and 2.9M non-purchasing travellers across four airports, here is the network-wide commission potential at the $23 Entry-tier basket.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
             {[
-              { conv: "+0.5% conversion", txns: "14,500", gross: "$1.45M", wagos: "$3,625", color: "violet" },
-              { conv: "+1% conversion", txns: "29,000", gross: "$2.9M", wagos: "$7,250", color: "indigo" },
-              { conv: "+2% conversion", txns: "58,000", gross: "$5.8M", wagos: "$14,500", color: "blue" },
-              { conv: "+5% conversion", txns: "145,000", gross: "$14.5M", wagos: "$36,250", color: "purple" },
+              { conv: "+0.5% conversion", txns: "14,500", gross: "$333,500", wagos: "$834", color: "violet" },
+              { conv: "+1% conversion", txns: "29,000", gross: "$667,000", wagos: "$1,668", color: "indigo" },
+              { conv: "+2% conversion", txns: "58,000", gross: "$1,334,000", wagos: "$3,335", color: "blue" },
+              { conv: "+5% conversion", txns: "145,000", gross: "$3,335,000", wagos: "$8,338", color: "purple" },
             ].map((s) => (
               <div key={s.conv} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
                 <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-2`}>{s.conv}</div>
@@ -481,10 +481,10 @@ export function SlideWagosRevenue() {
               <h3 className="font-bold mb-3">Per-Airport Breakdown at +1% Conversion</h3>
               <div className="space-y-2 text-sm">
                 {[
-                  { apt: "POS — Piarco (Trinidad)", non: "1.9M", txns: "13,770", wagos: "$3,443" },
-                  { apt: "GCM — Owen Roberts (Cayman)", non: "518K", txns: "3,627", wagos: "$907" },
-                  { apt: "GEO — Cheddi Jagan (Guyana)", non: "710K", txns: "5,170", wagos: "$1,293" },
-                  { apt: "GND — Maurice Bishop (Grenada)", non: "365K", txns: "2,555", wagos: "$639" },
+                  { apt: "POS — Piarco (Trinidad)", non: "1.9M", txns: "13,770", wagos: "$792" },
+                  { apt: "GCM — Owen Roberts (Cayman)", non: "518K", txns: "3,627", wagos: "$209" },
+                  { apt: "GEO — Cheddi Jagan (Guyana)", non: "710K", txns: "5,170", wagos: "$297" },
+                  { apt: "GND — Maurice Bishop (Grenada)", non: "365K", txns: "2,555", wagos: "$147" },
                 ].map((row, i) => (
                   <div key={i} className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-white/5">
                     <div>
@@ -496,10 +496,10 @@ export function SlideWagosRevenue() {
                 ))}
                 <div className="flex justify-between items-center py-2 px-3 rounded-lg bg-violet-700/60 font-semibold mt-2">
                   <span className="text-white text-sm">Network Total</span>
-                  <span className="text-green-400 text-sm font-bold">$7,250/year</span>
+                  <span className="text-green-400 text-sm font-bold">$1,445/year</span>
                 </div>
               </div>
-              <div className="text-slate-400 text-xs mt-3">Based on 73% non-purchase rate, $100 average basket, 0.25% commission.</div>
+              <div className="text-slate-400 text-xs mt-3">Based on 73% non-purchase rate, $23 Entry-tier basket, 0.25% commission.</div>
             </div>
             <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 rounded-2xl p-5">
               <h3 className="font-bold text-violet-900 mb-3">Why This Is Pure Upside for Wagos</h3>

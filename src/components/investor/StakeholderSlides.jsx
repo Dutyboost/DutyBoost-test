@@ -75,7 +75,7 @@ export function SlideStakeholderRetailers() {
       name="Airport Retailers"
       subtitle="The retail endpoint where DutyCredit is redeemed and incremental sales are captured."
       pros={[
-        "Incremental revenue from travellers who otherwise wouldn't buy — 87.5% net per qualifying transaction",
+        "Incremental revenue from travellers who otherwise wouldn't buy — 92.5% net per qualifying transaction",
         "No upfront cost — performance-based participation",
         "Faster stock rotation and inventory turnover",
         "Pre-activated travellers arrive with purchase intent instead of walking past",
@@ -107,7 +107,7 @@ export function SlideStakeholderTravelPartners() {
       ]}
       cons={[
         "Requires integration to distribute DutyCredits through booking confirmations",
-        "Revenue per transaction is modest (€0.50 per €100) — requires scale to be material",
+        "Revenue per transaction is modest (€0.10 per €20) — requires scale to be material",
         "Adoption depends on retailer and POS coverage at destination airports",
         "Traveller activation depends on upstream partner participation",
       ]}
@@ -132,7 +132,7 @@ export function SlideStakeholderPosProviders() {
       cons={[
         "Technical integration effort required upfront",
         "Must handle DutyCredit validation, discount application, and settlement reporting",
-        "Revenue per transaction is small (€0.25 per €100) — requires transaction volume",
+        "Revenue per transaction is small (€0.05 per €20) — requires transaction volume",
         "Depends on retailer adoption and upstream traveller activation",
       ]}
     />

@@ -28,9 +28,9 @@ export default function SlideSxmRetailer() {
               <ul className="space-y-2.5">
                 {[
                   "Discussed the performance-based model — zero upfront cost",
-                  "Reviewed the DutyCredit tier structure and 87.5% retailer net (at $100 baseline basket)",
+                  "Reviewed the DutyCredit tier structure and 92.5% retailer net (at the $23 Entry-tier basket)",
                   "Confirmed interest in pre-activated travellers arriving with purchase intent",
-                  "10% discount on qualifying transactions only — no impact on existing sales",
+                  "5% discount on qualifying transactions only — no impact on existing sales",
                   "Toggle-on approach: Dutch Delight activates DutyBoost via POS toggle",
                   "First-mover advantage: attracts pre-activated travellers ahead of competitors",
                 ].map((pt, i) => (
@@ -50,7 +50,7 @@ export default function SlideSxmRetailer() {
                     { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
                     { metric: "Customer acquisition", val: "Handled by DutyBoost until Travel & Corporate Partners are activated" },
                     { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
-                    { metric: "Retailer keeps", val: "87.5% of every qualifying sale (at $100 baseline basket)" },
+                    { metric: "Retailer keeps", val: "92.5% of every qualifying sale (at the $23 Entry-tier basket)" },
                     { metric: "Payment terms", val: "Performance-based — only on validated transactions" },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start gap-2">
@@ -69,7 +69,7 @@ export default function SlideSxmRetailer() {
                   <h3 className="font-bold">The Core Question for Retailers</h3>
                 </div>
                 <p className="text-lg font-bold leading-snug">
-                  "Using a $100 baseline basket as an example — is earning $87.50 from an incremental sale, without any upfront acquisition cost, more valuable than earning $0 from a traveller who otherwise wouldn't have converted?"
+                  "Using a $23 Entry-tier basket as an example — is earning $21.28 from an incremental sale, without any upfront acquisition cost, more valuable than earning $0 from a traveller who otherwise wouldn't have converted?"
                 </p>
                 <p className="text-sm mt-2 opacity-80">Yes. Every time.</p>
               </div>

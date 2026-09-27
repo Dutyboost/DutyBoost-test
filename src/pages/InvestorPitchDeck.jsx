@@ -483,7 +483,7 @@ export function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on 180M travellers reached in Year 5, an illustrative €100 basket used as the example, and DutyBoost revenue at 1.75% of retail value.</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on 180M travellers reached in Year 5, the €20 Entry-tier minimum basket used as the example, and DutyBoost revenue at 1.75% of retail value.</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -507,7 +507,7 @@ export function SlideConversion() {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
               <div className="text-sm font-semibold opacity-80 mb-1">The Core Insight</div>
               <p className="text-lg font-bold leading-snug">
-                "Is earning €87.50 from an incremental €100 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a traveller who otherwise wouldn't have converted?"
+                "Is earning €18.50 from an incremental €20 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a traveller who otherwise wouldn't have converted?"
               </p>
               <p className="text-sm mt-2 opacity-80">Yes. Every time.</p>
             </div>
@@ -577,14 +577,14 @@ export function SlideModel() {
               </div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-green-900 mb-2">At 1 Million €100 Transactions:</h3>
+              <h3 className="font-bold text-green-900 mb-2">At 1 Million €20 Transactions:</h3>
               <div className="grid grid-cols-1 gap-1.5 text-sm">
                 {[
-                  { party: "Travellers", val: "€10M in savings" },
-                  { party: "Travel & Corporate Partners", val: "€500,000 ancillary revenue" },
-                  { party: "POS Partners", val: "€250,000 transaction revenue" },
-                  { party: "DutyBoost", val: "€1.75M infrastructure revenue" },
-                  { party: "Retailers", val: "€87.5M net before costs" },
+                  { party: "Travellers", val: "€1M in savings" },
+                  { party: "Travel & Corporate Partners", val: "€100,000 ancillary revenue" },
+                  { party: "POS Partners", val: "€50,000 transaction revenue" },
+                  { party: "DutyBoost", val: "€350,000 infrastructure revenue" },
+                  { party: "Retailers", val: "€18.5M net before costs" },
                 ].map((row) => (
                   <div key={row.party} className="flex flex-col">
                     <span className="text-slate-600">{row.party}</span>
@@ -614,16 +614,16 @@ export function SlideTransaction() {
           <div className="mb-6">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              €100 Qualifying Retail Value Example
+              €20 Entry-Tier Qualifying Sale Example
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
             {[
-              { party: "Traveller", Icon: TravelerIcon, value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
-              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
-              { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
-              { party: "POS Partner", Icon: Cpu, value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-              { party: "DutyBoost", Icon: BarChart3, value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+              { party: "Traveller", Icon: TravelerIcon, value: "€1.00", sub: "DutyCredit saving (5%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
+              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€18.50", sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
+              { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.10", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
+              { party: "POS Partner", Icon: Cpu, value: "€0.05", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
+              { party: "DutyBoost", Icon: BarChart3, value: "€0.35", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-600`} />
@@ -635,18 +635,18 @@ export function SlideTransaction() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = €100.00</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = €20.00</div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
-                <div className="bg-green-500" style={{ width: "10%" }} title="Traveller 10%" />
-                <div className="bg-blue-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
+                <div className="bg-green-500" style={{ width: "5%" }} title="Traveller 5%" />
+                <div className="bg-blue-500" style={{ width: "92.5%" }} title="Retailer 92.5%" />
                 <div className="bg-yellow-500" style={{ width: "0.5%" }} />
                 <div className="bg-purple-500" style={{ width: "0.25%" }} />
                 <div className="bg-orange-500" style={{ width: "1.75%" }} />
               </div>
               <div className="flex gap-3 mt-2 text-xs flex-wrap">
                 {[
-                  { color: "bg-green-500", label: "Traveller 10%" },
-                  { color: "bg-blue-500", label: "Retailer 87.5%" },
+                  { color: "bg-green-500", label: "Traveller 5%" },
+                  { color: "bg-blue-500", label: "Retailer 92.5%" },
                   { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
                   { color: "bg-purple-500", label: "POS 0.25%" },
                   { color: "bg-orange-500", label: "DutyBoost 1.75%" },

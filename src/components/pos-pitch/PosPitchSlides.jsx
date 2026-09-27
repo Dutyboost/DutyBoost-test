@@ -31,6 +31,40 @@ const ACI_LINK = "https://aci.aero/2026/07/15/worlds-busiest-airports-atlanta-ho
 const M1NDSET_LINK = "https://m1nd-set.com/";
 const TFWA_LINK = "https://www.tfwa.com/";
 
+// Pricing model per display currency — Entry-tier minimum basket, 5% traveller discount,
+// 92.5% retailer net, 2.5% platform fee (10% of it to the POS provider).
+const MODEL = {
+  "$": {
+    label: "23", basket: "23.00", saving: "1.15", pays: "21.85", fee: "0.58", boostFee: "0.52",
+    partner: "0.12", pos: "0.06", boost: "0.40", retailer: "21.28",
+    m1: "1.15M", m2: "115,000", m3: "57,500", m4: "402,500", m5: "21.28M",
+    tiers: [
+      { tier: "Entry", range: "$23-$56", disc: "5%-7.5%", save: "$1.14-$3.64" },
+      { tier: "Boarding", range: "$57-$113", disc: "7.5%-10%", save: "$4.28-$10.73" },
+      { tier: "Standard", range: "$114-$170", disc: "10%-12.5%", save: "$11.40-$20.81" },
+      { tier: "Plus", range: "$171-$227", disc: "12.5%-15%", save: "$21.38-$33.11" },
+      { tier: "Lounge", range: "$228-$284", disc: "15%-17.5%", save: "$34.20-$48.74" },
+      { tier: "Premium", range: "$285-$341", disc: "17.5%-20%", save: "$49.88-$64.98" },
+      { tier: "VIP", range: "$342+", disc: "20% capped", save: "Up to $68" },
+    ],
+  },
+  "€": {
+    label: "20", basket: "20.00", saving: "1.00", pays: "19.00", fee: "0.50", boostFee: "0.45",
+    partner: "0.10", pos: "0.05", boost: "0.35", retailer: "18.50",
+    m1: "1M", m2: "100,000", m3: "50,000", m4: "350,000", m5: "18.5M",
+    tiers: [
+      { tier: "Entry", range: "€20-€49", disc: "5%-7.5%", save: "€1.00-€3.19" },
+      { tier: "Boarding", range: "€50-€99", disc: "7.5%-10%", save: "€3.75-€9.41" },
+      { tier: "Standard", range: "€100-€149", disc: "10%-12.5%", save: "€10.00-€18.25" },
+      { tier: "Plus", range: "€150-€199", disc: "12.5%-15%", save: "€18.75-€29.04" },
+      { tier: "Lounge", range: "€200-€249", disc: "15%-17.5%", save: "€30.00-€42.75" },
+      { tier: "Premium", range: "€250-€299", disc: "17.5%-20%", save: "€43.75-€57.00" },
+      { tier: "VIP", range: "€300+", disc: "20% capped", save: "Up to €60" },
+    ],
+  },
+};
+const model = (currency) => MODEL[currency] || MODEL["$"];
+
 // SLIDE 1: Cover
 export function SlideCover({ currency = "€" }) {
   return (
@@ -405,6 +439,7 @@ export function SlidePosToggle({ currency = "€" }) {
 
 // SLIDE 6: Technical POS Integration
 export function SlideTechnicalIntegration({ currency = "€" }) {
+  const m = model(currency);
   const request = `POST /v1/dutycredits/redeem
 Secure partner authentication
 
@@ -412,7 +447,7 @@ Secure partner authentication
   "dutycredit_token": "••••••",
   "transaction_reference": "••••••",
   "store_id": "••••••",
-  "basket_amount": 23.00,
+  "basket_amount": ${m.basket},
   "currency": "${currency === "€" ? "EUR" : "USD"}"
 }`;
 
@@ -420,9 +455,9 @@ Secure partner authentication
 
 {
   "status": "approved",
-  "discount_amount": 1.15,
-  "amount_due": 21.85,
-  "pos_commission": 0.06,
+  "discount_amount": ${m.saving},
+  "amount_due": ${m.pays},
+  "pos_commission": ${m.pos},
   "currency": "${currency === "€" ? "EUR" : "USD"}"
 }`;
 
@@ -516,12 +551,13 @@ Secure partner authentication
 
 // SLIDE 7: One Transaction — Five Beneficiaries
 export function SlideEcosystem({ currency = "€" }) {
+  const m = model(currency);
   const parties = [
-    { party: "Traveller", Icon: TravelerIcon, value: `${currency}1.15`, sub: `DutyCredit saving (5%)`, color: "green", bg: "bg-green-50", border: "border-green-200" },
-    { party: "Airport Retailer", Icon: AirportRetailerIcon, value: `${currency}21.28`, sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
-    { party: "Travel & Corporate Partner", Icon: Briefcase, value: `${currency}0.12`, sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
-    { party: "POS Partner", Icon: Cpu, value: `${currency}0.06`, sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-    { party: "DutyBoost", Icon: BarChart3, value: `${currency}0.40`, sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+    { party: "Traveller", Icon: TravelerIcon, value: `${currency}${m.saving}`, sub: `DutyCredit saving (5%)`, color: "green", bg: "bg-green-50", border: "border-green-200" },
+    { party: "Airport Retailer", Icon: AirportRetailerIcon, value: `${currency}${m.retailer}`, sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
+    { party: "Travel & Corporate Partner", Icon: Briefcase, value: `${currency}${m.partner}`, sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
+    { party: "POS Partner", Icon: Cpu, value: `${currency}${m.pos}`, sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
+    { party: "DutyBoost", Icon: BarChart3, value: `${currency}${m.boost}`, sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
   ];
   return (
     <SlideWrapper>
@@ -531,7 +567,7 @@ export function SlideEcosystem({ currency = "€" }) {
           <div className="mb-6">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              {currency}23 Entry-Tier Qualifying Sale Example
+              {currency}{m.label} Entry-Tier Qualifying Sale Example
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
@@ -546,7 +582,7 @@ export function SlideEcosystem({ currency = "€" }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = {currency}23.00</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = {currency}{m.basket}</div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
                 <div className="bg-green-500" style={{ width: "5%" }} title="Traveller 5%" />
                 <div className="bg-blue-500" style={{ width: "92.5%" }} title="Retailer 92.5%" />
@@ -587,6 +623,7 @@ export function SlideEcosystem({ currency = "€" }) {
 
 // SLIDE 8: Business Model
 export function SlideModel({ currency = "€" }) {
+  const m = model(currency);
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -607,15 +644,7 @@ export function SlideModel({ currency = "€" }) {
                   <span>Tier</span><span>Basket</span><span>Discount</span><span className="sm:text-right">Traveller Saves</span>
                 </div>
                 <div className="space-y-1">
-                  {[
-                    { tier: "Entry", range: `${currency}23-${currency}56`, disc: "5%-7.5%", save: `${currency}1.14-${currency}3.64` },
-                    { tier: "Boarding", range: `${currency}57-${currency}113`, disc: "7.5%-10%", save: `${currency}4.28-${currency}10.73` },
-                    { tier: "Standard", range: `${currency}114-${currency}170`, disc: "10%-12.5%", save: `${currency}11.40-${currency}20.81` },
-                    { tier: "Plus", range: `${currency}171-${currency}227`, disc: "12.5%-15%", save: `${currency}21.38-${currency}33.11` },
-                    { tier: "Lounge", range: `${currency}228-${currency}284`, disc: "15%-17.5%", save: `${currency}34.20-${currency}48.74` },
-                    { tier: "Premium", range: `${currency}285-${currency}341`, disc: "17.5%-20%", save: `${currency}49.88-${currency}64.98` },
-                    { tier: "VIP", range: `${currency}342+`, disc: "20% capped", save: `Up to ${currency}68` },
-                  ].map((row, i) => (
+                  {m.tiers.map((row, i) => (
                     <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-violet-700/80" : "hover:bg-white/5"}`}>
                       <span className="text-violet-300 font-semibold">{row.tier}</span>
                       <span className="text-slate-300">{row.range}</span>
@@ -647,14 +676,14 @@ export function SlideModel({ currency = "€" }) {
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
-                <h3 className="font-bold text-green-900 mb-2">At 1 Million {currency}23 Transactions:</h3>
+                <h3 className="font-bold text-green-900 mb-2">At 1 Million {currency}{m.label} Transactions:</h3>
                 <div className="grid grid-cols-1 gap-1.5 text-sm">
                   {[
-                    { party: "Travellers", val: `${currency}1.15M in savings` },
-                    { party: "Travel & Corporate Partners", val: `${currency}115,000 ancillary revenue` },
-                    { party: "POS Partners", val: `${currency}57,500 transaction revenue` },
-                    { party: "DutyBoost", val: `${currency}402,500 infrastructure revenue` },
-                    { party: "Retailers", val: `${currency}21.28M net before costs` },
+                    { party: "Travellers", val: `${currency}${m.m1} in savings` },
+                    { party: "Travel & Corporate Partners", val: `${currency}${m.m2} ancillary revenue` },
+                    { party: "POS Partners", val: `${currency}${m.m3} transaction revenue` },
+                    { party: "DutyBoost", val: `${currency}${m.m4} infrastructure revenue` },
+                    { party: "Retailers", val: `${currency}${m.m5} net before costs` },
                   ].map((row) => (
                     <div key={row.party} className="flex flex-col">
                       <span className="text-slate-600">{row.party}</span>
@@ -673,6 +702,7 @@ export function SlideModel({ currency = "€" }) {
 
 // SLIDE 9: Transaction Economics
 export function SlideEconomics({ currency = "€" }) {
+  const m = model(currency);
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
@@ -681,7 +711,7 @@ export function SlideEconomics({ currency = "€" }) {
           <div className="mb-5">
             <span className="text-violet-600 text-sm font-semibold uppercase tracking-widest">Transaction Economics</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              {currency}23 Entry-Tier Validated Basket — <span className="text-violet-600">Your 0.25% Share</span>
+              {currency}{m.label} Entry-Tier Validated Basket — <span className="text-violet-600">Your 0.25% Share</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -689,11 +719,11 @@ export function SlideEconomics({ currency = "€" }) {
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-4">
                 <div className="space-y-2">
                   {[
-                    { label: "Original qualifying retail value", val: `${currency}23.00`, style: "text-slate-900 font-bold text-lg" },
-                    { label: "Traveller DutyCredit saving (5%)", val: `${currency}1.15`, style: "text-orange-600" },
-                    { label: "Traveller actually pays", val: `${currency}21.85`, style: "text-blue-600" },
-                    { label: "DutyBoost platform fee (2.5%)", val: `${currency}0.58`, style: "text-slate-500" },
-                    { label: "  → POS provider share (10% of fee)", val: `${currency}0.06`, style: "text-violet-600" },
+                    { label: "Original qualifying retail value", val: `${currency}${m.basket}`, style: "text-slate-900 font-bold text-lg" },
+                    { label: "Traveller DutyCredit saving (5%)", val: `${currency}${m.saving}`, style: "text-orange-600" },
+                    { label: "Traveller actually pays", val: `${currency}${m.pays}`, style: "text-blue-600" },
+                    { label: "DutyBoost platform fee (2.5%)", val: `${currency}${m.fee}`, style: "text-slate-500" },
+                    { label: "  → POS provider share (10% of fee)", val: `${currency}${m.pos}`, style: "text-violet-600" },
                   ].map((row, i) => (
                     <div key={i} className={`flex justify-between items-center py-1 border-b border-slate-100 ${i === 0 ? "pb-2 mb-1" : ""}`}>
                       <span className={`text-sm ${row.label.startsWith("  ") ? "pl-4 text-slate-500" : "text-slate-700"}`}>{row.label.trim()}</span>
@@ -702,20 +732,20 @@ export function SlideEconomics({ currency = "€" }) {
                   ))}
                   <div className="flex justify-between items-center py-2 mt-1 bg-green-50 border border-green-200 rounded-xl px-3">
                     <span className="text-green-700 font-bold text-sm">Airport Retailer net before normal costs</span>
-                    <span className="text-green-700 font-bold text-xl">{currency}21.28</span>
+                    <span className="text-green-700 font-bold text-xl">{currency}{m.retailer}</span>
                   </div>
                 </div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Platform fee distribution on {currency}0.58</div>
+                <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Platform fee distribution on {currency}{m.fee}</div>
                 <div className="flex h-5 rounded-full overflow-hidden gap-px">
                   <div className="bg-violet-500" style={{ width: "10%" }} title="POS Provider 10%" />
                   <div className="bg-blue-500" style={{ width: "90%" }} title="DutyBoost 90%" />
                 </div>
                 <div className="flex gap-3 mt-2 flex-wrap text-xs">
                   {[
-                    { color: "bg-violet-500", label: `POS Provider 10% (${currency}0.06)` },
-                    { color: "bg-blue-500", label: `DutyBoost 90% (${currency}0.52)` },
+                    { color: "bg-violet-500", label: `POS Provider 10% (${currency}${m.pos})` },
+                    { color: "bg-blue-500", label: `DutyBoost 90% (${currency}${m.boostFee})` },
                   ].map((l) => (
                     <div key={l.label} className="flex items-center gap-1">
                       <div className={`w-3 h-3 rounded-sm ${l.color}`} />
@@ -750,7 +780,7 @@ export function SlideEconomics({ currency = "€" }) {
                     </div>
                   ))}
                 </div>
-                <p className="text-slate-500 text-xs mt-3">The {currency}23 Entry-tier basket is illustrative — your 0.25% commission applies to every validated DutyCredit redemption, whatever its size. And no matter where that DutyCredit originated — distributed by a Travel or Corporate Partner, or generated by the traveller directly through the DutyBoost platform — the POS provider is the one stakeholder that always earns, because every redemption is validated through the transaction you already process. Paid only on validated DutyBoost transactions; no cost on ordinary transactions or non-converting travellers.</p>
+                <p className="text-slate-500 text-xs mt-3">The {currency}{m.label} Entry-tier basket is illustrative — your 0.25% commission applies to every validated DutyCredit redemption, whatever its size. And no matter where that DutyCredit originated — distributed by a Travel or Corporate Partner, or generated by the traveller directly through the DutyBoost platform — the POS provider is the one stakeholder that always earns, because every redemption is validated through the transaction you already process. Paid only on validated DutyBoost transactions; no cost on ordinary transactions or non-converting travellers.</p>
               </div>
             </div>
           </div>

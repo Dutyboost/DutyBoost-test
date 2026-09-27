@@ -275,7 +275,7 @@ export function SlideAntekOpportunity() {
                 <div className="space-y-2.5 text-sm">
                   {[
                     { metric: "Commission rate", val: "10% of the 2.5% platform fee = 0.25% of every validated basket" },
-                    { metric: "Per $100 basket", val: "$0.25 — on transactions you already process" },
+                    { metric: "Per $23 basket", val: "$0.06 — on transactions you already process" },
                     { metric: "Upfront cost", val: "$0 — no setup fee, no subscription, no licence" },
                     { metric: "On non-converters", val: "$0 — purely performance-based, zero risk" },
                   ].map((row) => (
@@ -413,15 +413,15 @@ export function SlideAntekRevenue() {
               What Antek Earns <span className="text-violet-600">at SXM</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Antek earns 0.25% of every validated DutyCredit basket across all Antek-supported retailers at SXM. At 855,994 annual arrivals and 625K non-purchasing travellers, here is the airport-wide commission potential at a $100 average basket — across multiple conversion scenarios.
+              Antek earns 0.25% of every validated DutyCredit basket across all Antek-supported retailers at SXM. At 855,994 annual arrivals and 625K non-purchasing travellers, here is the airport-wide commission potential at the $23 Entry-tier basket — across multiple conversion scenarios.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
             {[
-              { conv: "+0.5% conversion", txns: "3,125", gross: "$312,500", antek: "$781", color: "violet" },
-              { conv: "+1% conversion", txns: "6,250", gross: "$625,000", antek: "$1,563", color: "indigo" },
-              { conv: "+2% conversion", txns: "12,500", gross: "$1,250,000", antek: "$3,125", color: "blue" },
-              { conv: "+5% conversion", txns: "31,250", gross: "$3,125,000", antek: "$7,813", color: "purple" },
+              { conv: "+0.5% conversion", txns: "3,125", gross: "$71,875", antek: "$180", color: "violet" },
+              { conv: "+1% conversion", txns: "6,250", gross: "$143,750", antek: "$359", color: "indigo" },
+              { conv: "+2% conversion", txns: "12,500", gross: "$287,500", antek: "$719", color: "blue" },
+              { conv: "+5% conversion", txns: "31,250", gross: "$718,750", antek: "$1,797", color: "purple" },
             ].map((s) => (
               <div key={s.conv} className={`bg-${s.color}-50 border border-${s.color}-200 rounded-2xl p-5 text-center`}>
                 <div className={`text-xs font-semibold text-${s.color}-600 uppercase tracking-wide mb-2`}>{s.conv}</div>

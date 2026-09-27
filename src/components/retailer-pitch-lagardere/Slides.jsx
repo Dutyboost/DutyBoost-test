@@ -33,7 +33,7 @@ const linkCls = "text-blue-600 font-semibold underline decoration-blue-600/50 ho
 const LTR_REVENUE_BASE = 6133; // €M (2025)
 const CONVERTING_SHARE = 0.27;
 const NON_PURCHASE_SHARE = 0.73;
-const RETAILER_NET = 0.875;
+const RETAILER_NET = 0.925;
 // +1pp conversion uplift = (1 / 27) of the converting revenue base
 const UPLIFT_1PP = LTR_REVENUE_BASE * (0.01 / CONVERTING_SHARE); // ≈ €227M
 const headroom = LTR_REVENUE_BASE * (NON_PURCHASE_SHARE / CONVERTING_SHARE); // ≈ €16.6B
@@ -63,8 +63,8 @@ const LTR_NON_PURCHASE_EST = Math.round(LTR_PAX_EXPOSED_EST * NON_PURCHASE_SHARE
 const SCHIPHOL_PAX = 68.8; // million passengers (ACI 2024/2025)
 const SCHIPHOL_CONVERTERS = SCHIPHOL_PAX * CONVERTING_SHARE; // ≈ 18.6M
 const SCHIPHOL_NON_PURCHASE = SCHIPHOL_PAX * NON_PURCHASE_SHARE; // ≈ 50.2M
-const ILLUSTRATIVE_BASKET = 100; // € — consistent with the model (slides 8-9)
-const SCHIPHOL_UPLIFT_1PP = SCHIPHOL_PAX * 0.01 * ILLUSTRATIVE_BASKET; // ≈ €68.8M per +1pp
+const ILLUSTRATIVE_BASKET = 20; // € — Entry-tier minimum basket, consistent with the model (slides 8-9)
+const SCHIPHOL_UPLIFT_1PP = SCHIPHOL_PAX * 0.01 * ILLUSTRATIVE_BASKET; // ≈ €13.8M per +1pp
 
 // SLIDE 1: Cover — Lagardère
 export function SlideCoverLagardere() {
@@ -373,7 +373,7 @@ export function SlideSolution() {
               "Traveller activates benefit",
               "Arrives with purchase intent",
               "Visits participating retailer",
-              "Spends €100 → Saves €10",
+              "Spends €20 → Saves €1.00",
               "POS validates transaction",
               "All participants earn",
             ].map((step, i, arr) => (
@@ -457,14 +457,14 @@ export function SlideLagardereOpportunity() {
               <div className="text-3xl md:text-4xl font-bold text-blue-700">~{(SCHIPHOL_PAX * 0.01 * 1000).toFixed(0)}K</div>
               <div className="text-slate-600 text-sm mt-1">additional purchasing travellers at Schiphol</div>
               <div className="text-green-600 font-bold text-xl mt-3">{fmtM(SCHIPHOL_UPLIFT_1PP)}</div>
-              <div className="text-slate-600 text-sm">incremental retail value (illustrative, €100 basket)</div>
+              <div className="text-slate-600 text-sm">incremental retail value (illustrative, €20 Entry-tier basket)</div>
               <div className="text-slate-400 text-xs mt-3">1pp = 1% of Schiphol's 68.8M passengers converting at the model's qualifying basket.</div>
             </div>
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
             <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
             <p className="text-lg font-bold leading-snug">
-              "Is earning €87.50 from an incremental €100 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a Schiphol traveller who otherwise wouldn't have converted?"
+              "Is earning €18.50 from an incremental €20 retail sale — without any upfront acquisition cost — more valuable than earning €0 from a Schiphol traveller who otherwise wouldn't have converted?"
             </p>
             <p className="text-sm mt-2 opacity-80">Yes. Every time. And Schiphol's 20+ duty-free stores make the scale extraordinary.</p>
           </div>
@@ -581,14 +581,14 @@ export function SlideModel() {
                 </div>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-                <h3 className="font-bold text-green-900 mb-2">At 1 Million €100 Transactions:</h3>
+                <h3 className="font-bold text-green-900 mb-2">At 1 Million €20 Transactions:</h3>
                 <div className="grid grid-cols-1 gap-1.5 text-sm">
                   {[
-                    { party: "Retailers", val: "€87.5M net before costs" },
-                    { party: "Travellers", val: "€10M in savings" },
-                    { party: "Travel & Corporate Partners", val: "€500,000 ancillary revenue" },
-                    { party: "POS Partners", val: "€250,000 transaction revenue" },
-                    { party: "DutyBoost", val: "€1.75M infrastructure revenue" },
+                    { party: "Retailers", val: "€18.5M net before costs" },
+                    { party: "Travellers", val: "€1M in savings" },
+                    { party: "Travel & Corporate Partners", val: "€100,000 ancillary revenue" },
+                    { party: "POS Partners", val: "€50,000 transaction revenue" },
+                    { party: "DutyBoost", val: "€350,000 infrastructure revenue" },
                   ].map((row) => (
                     <div key={row.party} className="flex flex-col">
                       <span className="text-slate-600">{row.party}</span>
@@ -613,11 +613,11 @@ export function SlideTierMix() {
 // SLIDE 9: Transaction Economics — Five Beneficiaries
 export function SlideTransaction() {
   const parties = [
-    { party: "Traveller", Icon: TravelerIcon, value: "€10.00", sub: "DutyCredit saving (10%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
-    { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€87.50", sub: "Net before normal costs (87.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
-    { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.50", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
-    { party: "POS Partner", Icon: Cpu, value: "€0.25", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-    { party: "DutyBoost", Icon: BarChart3, value: "€1.75", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+    { party: "Traveller", Icon: TravelerIcon, value: "€1.00", sub: "DutyCredit saving (5%)", color: "green", bg: "bg-green-50", border: "border-green-200" },
+    { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€18.50", sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
+    { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.10", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
+    { party: "POS Partner", Icon: Cpu, value: "€0.05", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
+    { party: "DutyBoost", Icon: BarChart3, value: "€0.35", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
   ];
   return (
     <SlideWrapper>
@@ -626,7 +626,7 @@ export function SlideTransaction() {
         <div className="relative z-10">
           <div className="mb-6">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">One Transaction — Five Beneficiaries</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">€100 Qualifying Retail Value Example</h2>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">€20 Entry-Tier Qualifying Sale Example</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
             {parties.map((p) => (
@@ -640,18 +640,18 @@ export function SlideTransaction() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = €100.00</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = €20.00</div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
-                <div className="bg-green-500" style={{ width: "10%" }} title="Traveller 10%" />
-                <div className="bg-blue-500" style={{ width: "87.5%" }} title="Retailer 87.5%" />
+                <div className="bg-green-500" style={{ width: "5%" }} title="Traveller 5%" />
+                <div className="bg-blue-500" style={{ width: "92.5%" }} title="Retailer 92.5%" />
                 <div className="bg-yellow-500" style={{ width: "0.5%" }} />
                 <div className="bg-purple-500" style={{ width: "0.25%" }} />
                 <div className="bg-orange-500" style={{ width: "1.75%" }} />
               </div>
               <div className="flex gap-3 mt-2 text-xs flex-wrap">
                 {[
-                  { color: "bg-green-500", label: "Traveller 10%" },
-                  { color: "bg-blue-500", label: "Retailer 87.5%" },
+                  { color: "bg-green-500", label: "Traveller 5%" },
+                  { color: "bg-blue-500", label: "Retailer 92.5%" },
                   { color: "bg-yellow-500", label: "Travel & Corporate Partner 0.5%" },
                   { color: "bg-purple-500", label: "POS 0.25%" },
                   { color: "bg-orange-500", label: "DutyBoost 1.75%" },
@@ -700,7 +700,7 @@ export function SlideLagardereRevenue() {
               Incremental Retail Value <span className="text-blue-600">at Schiphol</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Based on Schiphol's ~68.8M passengers. Each +1pp ≈ ~688K new purchasing travellers — value shown at the model's €100 illustrative qualifying basket, retailer net at 87.5%.
+              Based on Schiphol's ~68.8M passengers. Each +1pp ≈ ~688K new purchasing travellers — value shown at the model's €20 Entry-tier illustrative basket, retailer net at 92.5%.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-5">
@@ -710,7 +710,7 @@ export function SlideLagardereRevenue() {
                 <div className="text-slate-400 text-xs mb-1">incremental retail value</div>
                 <div className="text-lg font-bold text-slate-700 mb-3">{fmtM(s.retail)}</div>
                 <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{fmtM(s.net)}</div>
-                <div className="text-blue-600 text-xs font-medium">retailer net (87.5%)</div>
+                <div className="text-blue-600 text-xs font-medium">retailer net (92.5%)</div>
               </div>
             ))}
           </div>
@@ -748,7 +748,7 @@ export function SlideLagardereRevenue() {
                   <span className="font-bold text-blue-700">{fmtM(SCHIPHOL_UPLIFT_1PP)}</span>
                 </div>
               </div>
-              <div className="text-slate-400 text-xs mt-3">Passengers: ACI World. Conversion maths grounded in Schiphol's passenger base and the 73/27 ratio (m1nd-set / TFWA). € value illustrative, at the model's €100 qualifying basket.</div>
+              <div className="text-slate-400 text-xs mt-3">Passengers: ACI World. Conversion maths grounded in Schiphol's passenger base and the 73/27 ratio (m1nd-set / TFWA). € value illustrative, at the model's €20 Entry-tier basket.</div>
             </div>
           </div>
         </div>
