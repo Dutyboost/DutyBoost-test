@@ -8,6 +8,7 @@ import CalBanner from "@/components/retailer-pitch-trinidad/CalBanner";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { TEAM_MEMBERS } from "@/data/teamMembers";
+import { TOTAL_MOVEMENTS, AIRPORT_COUNT, NON_PURCHASING_MOVEMENTS, CONVERSION_ROWS, AATT_LINK } from "@/components/retailer-pitch-trinidad/figures";
 
 const ACCENT = "#952d8b";
 
@@ -96,8 +97,8 @@ function SlideCover() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 w-full max-w-3xl">
             {[
-              { label: "Caribbean Airlines Travellers", value: "1.8M" },
-              { label: "Network Destinations", value: "24" },
+              { label: "Passenger Movements a Year", value: TOTAL_MOVEMENTS },
+              { label: "Airports Served", value: AIRPORT_COUNT },
               { label: "Non-Purchase", value: "73%" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
@@ -177,11 +178,11 @@ function SlideProblem() {
                 </div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <div className="text-3xl md:text-5xl font-bold mb-2" style={{ color: ACCENT }}>1.8M</div>
-                <div className="text-slate-800 font-semibold">Travellers on the Caribbean Airlines network each year</div>
-                <div className="text-slate-500 text-sm mt-1">Serving Trinidad &amp; Tobago across 24 destinations in the Caribbean, North America and South America{" "}
-                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer"
-                    className="font-bold underline decoration-current/50" style={{ color: ACCENT }}>(Caribbean Airlines)</a>
+                <div className="text-3xl md:text-5xl font-bold mb-2" style={{ color: ACCENT }}>{TOTAL_MOVEMENTS}</div>
+                <div className="text-slate-800 font-semibold">Passenger movements a year across Trinidad &amp; Tobago's two airports</div>
+                <div className="text-slate-500 text-sm mt-1">Piarco International Airport and A.N.R. Robinson International Airport, Tobago — arrivals and departures combined{" "}
+                  <a href={AATT_LINK} target="_blank" rel="noopener noreferrer"
+                    className="font-bold underline decoration-current/50" style={{ color: ACCENT }}>(AATT)</a>
                 </div>
               </div>
               <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
@@ -190,7 +191,7 @@ function SlideProblem() {
                   className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>
                   Caribbean non-purchase rate (m1nd-set)
                 </a>
-                <div className="text-slate-500 text-sm mt-1">27% purchase rate | 73% non-purchase across the Caribbean — 1.31M travellers on this network alone</div>
+                <div className="text-slate-500 text-sm mt-1">27% purchase rate | 73% non-purchase across the Caribbean — {NON_PURCHASING_MOVEMENTS} passenger movements at Piarco and Tobago alone</div>
               </div>
             </div>
             <div className="flex flex-col gap-4 justify-center">
@@ -239,14 +240,14 @@ function SlideMarket() {
         <div className="mb-5">
           <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Trinidad &amp; Tobago Market Opportunity</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            1.8M Travellers. 24 Destinations. <span style={{ color: ACCENT }}>$29M Local Market of $2.72B Regional</span>
+            3M Passenger Movements. 2 Airports. <span style={{ color: ACCENT }}>$29M Local Market of $2.72B Regional</span>
           </h2>
           <p className="text-slate-500 mt-2">DutyBoost doesn't need to create the market. It connects what already exists.</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-2">
           {[
-            { label: "Caribbean Airlines Travellers", value: "1.8M", sub: "Across 24 destinations (Caribbean Airlines, 2025)", color: "#952d8b", link: CAL_LINK },
-            { label: "Network Destinations", value: "24", sub: "Caribbean, North & South America (Caribbean Airlines)", color: "#3b82f6", link: CAL_DF_LINK },
+            { label: "Passenger Movements a Year", value: TOTAL_MOVEMENTS, sub: "Piarco & A.N.R. Robinson combined (AATT)", color: "#952d8b", link: AATT_LINK },
+            { label: "Airports Served", value: AIRPORT_COUNT, sub: "Piarco International & A.N.R. Robinson, Tobago", color: "#3b82f6", link: AATT_LINK },
             { label: "Caribbean DF&TR Market", value: "$2.72B", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9", link: CMI_LINK },
             { label: "Trinidad & Tobago DF&TR Share", value: "$29M", sub: "1.07% of Caribbean market (est.)", color: "#16a34a", link: CMI_LINK },
           ].map((m) => (
@@ -295,7 +296,7 @@ function SlideMarket() {
             <div className="space-y-2">
               {[
                 "Piarco International Airport and A.N.R. Robinson International Airport — both already operate",
-                "Passenger traffic — 1.8M travellers on the Caribbean Airlines network",
+                "Passenger traffic — ~3M passenger movements a year across Piarco and A.N.R. Robinson",
                 "Airport Retailers — Caribbean Airlines Duty Free already operates stores at both airports",
                 "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
@@ -336,7 +337,7 @@ function SlideConversion() {
                 <div>
                   <div className="text-3xl md:text-5xl font-bold text-red-600">73%</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchase rate (m1nd-set Caribbean)</div>
-                  <div className="text-slate-400 text-xs mt-1">= 1.31M unreached travellers on this network</div>
+                  <div className="text-slate-400 text-xs mt-1">= {NON_PURCHASING_MOVEMENTS} unreached passenger movements at Piarco and Tobago</div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="text-3xl md:text-5xl font-bold text-green-600">27%</div>
@@ -351,17 +352,12 @@ function SlideConversion() {
               </div>
             </div>
             <div className="bg-purple-50 border border-purple-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-purple-800 mb-3">Non-Purchasing Traveller Incremental Potential (1.31M):</h3>
+              <h3 className="font-bold text-purple-800 mb-3">Non-Purchasing Traveller Incremental Potential ({NON_PURCHASING_MOVEMENTS}):</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
                 <span>Conversion</span><span>Transactions</span><span>Retail Value</span><span className="sm:text-right">Retailer Net</span>
               </div>
               <div className="space-y-1.5">
-                {[
-                  { conv: "+0.5 pp", txns: "6.6K", retail: "$657K", ret: "$575K" },
-                  { conv: "+1 pp", txns: "13.1K", retail: "$1.31M", ret: "$1.15M" },
-                  { conv: "+2 pp", txns: "26.3K", retail: "$2.63M", ret: "$2.30M" },
-                  { conv: "+5 pp", txns: "65.7K", retail: "$6.57M", ret: "$5.75M" },
-                ].map((row, i) => (
+                {CONVERSION_ROWS.map((row, i) => (
                   <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 1 ? "bg-purple-200/50 font-semibold" : ""}`}>
                     <span className="text-purple-700">{row.conv}</span>
                     <span className="text-slate-600">{row.txns} txns</span>
@@ -370,7 +366,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on 1.8M network travellers, 73% non-purchase, $100 average basket and the retailer's 87.5% net share.</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on ~3M passenger movements a year across Piarco and A.N.R. Robinson, 73% non-purchase, $100 average basket and the retailer's 87.5% net share.</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -804,7 +800,7 @@ function SlideThankYou() {
             </h2>
           </div>
           <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
-            DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco and Tobago, your POS, and 1.31M travellers on the Caribbean Airlines network who currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
+            DutyBoost connects what already exists — Caribbean Airlines Duty Free at Piarco and Tobago, your POS, and {NON_PURCHASING_MOVEMENTS} passenger movements a year across the two airports whose travellers currently walk straight to the gate. With zero upfront cost and a single POS activation, you can start capturing revenue from non-purchasing travellers today.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl w-full mb-3">
             {cards.map((card) => (
@@ -817,7 +813,7 @@ function SlideThankYou() {
           </div>
           <div className="rounded-2xl px-5 py-3 text-white max-w-2xl" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
             <p className="font-bold text-sm md:text-base leading-snug mb-0.5">
-              Ready to turn 1.31M non-purchasing travellers into incremental sales?
+              Ready to turn {NON_PURCHASING_MOVEMENTS} non-purchasing passenger movements into incremental sales?
             </p>
             <p className="text-purple-50 text-xs">
               Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.

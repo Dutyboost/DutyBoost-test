@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Search, Video, Camera, Play, MessageCircle, Users } from "lucide-react";
 import { CAL_DESTINATIONS, flagUrl } from "./destinations";
+import { TOTAL_MOVEMENTS, AATT_LINK } from "./figures";
 
 const ACCENT = "#952d8b";
 const CAL_LINK = "https://www.caribbean-airlines.com/";
@@ -55,17 +56,17 @@ export default function SlideAcquisitionTrinidad() {
               We Take On the Acquisition Cost. <span style={{ color: ACCENT }}>You Take the Sale.</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm md:text-base">
-              DutyBoost funds and runs the Curiosity Campaign across the countries Caribbean Airlines flies from — before the traveller ever reaches Trinidad &amp; Tobago.
+              DutyBoost funds and runs the Curiosity Campaign across the source markets travellers fly from — before they ever reach Trinidad &amp; Tobago.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             <div className="space-y-3">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1">Where We Acquire Them — The Caribbean Airlines Network</h3>
+                <h3 className="font-bold text-slate-800 text-sm md:text-base mb-1">Where We Acquire Them — The Source Markets Into Trinidad &amp; Tobago</h3>
                 <p className="text-slate-500 text-xs leading-snug mb-2">
-                  <span className="font-bold" style={{ color: ACCENT }}>1.8 million travellers</span> move across the Caribbean Airlines network each year, from{" "}
-                  <span className="font-semibold text-slate-700">{CAL_DESTINATIONS.length} destinations</span> across the Caribbean, North America and South America — including Trinidad & Tobago itself.
+                  <span className="font-bold" style={{ color: ACCENT }}>{TOTAL_MOVEMENTS} passenger movements a year</span> across Piarco International Airport and A.N.R. Robinson International Airport, Tobago — arriving from{" "}
+                  <span className="font-semibold text-slate-700">{CAL_DESTINATIONS.length} source markets</span> across the Caribbean, North America and South America, plus Trinidad &amp; Tobago's own domestic traffic.
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {CAL_DESTINATIONS.map((d, i) => (
@@ -76,8 +77,8 @@ export default function SlideAcquisitionTrinidad() {
                   ))}
                 </div>
                 <p className="text-slate-400 text-[10px] mt-2 leading-snug">
-                  Caribbean Airlines network, 2025 —{" "}
-                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>Caribbean Airlines</a>
+                  Passenger movements across the two airports, 2025 —{" "}
+                  <a href={AATT_LINK} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-current/50" style={{ color: ACCENT }}>Airports Authority of Trinidad and Tobago</a>
                 </p>
               </div>
 
