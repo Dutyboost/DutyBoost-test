@@ -29,13 +29,13 @@ export const ASSORTMENT_SPLIT = [
 ];
 
 // Incremental potential from the 2.19M non-purchasing movements at the two
-// airports: $23 Entry-tier minimum basket, retailer keeps 87.5% of every
-// qualifying sale.
+// airports: $23 Entry-tier minimum basket, retailer keeps 92.5% of every
+// qualifying sale (5% traveller discount at the Entry tier).
 export const CONVERSION_ROWS = [
-  { conv: "+0.01 pp", txns: "219", retail: "$5.0K", ret: "$4.4K" },
-  { conv: "+0.1 pp", txns: "2.19K", retail: "$50.4K", ret: "$44.1K" },
-  { conv: "+0.5 pp", txns: "11.0K", retail: "$252K", ret: "$220K" },
-  { conv: "+1 pp", txns: "21.9K", retail: "$504K", ret: "$441K" },
-  { conv: "+2 pp", txns: "43.8K", retail: "$1.01M", ret: "$881K" },
-  { conv: "+5 pp", txns: "109.5K", retail: "$2.52M", ret: "$2.20M" },
+  { conv: "+0.01 pp", txns: "219", retail: "$5.0K", ret: "$4.7K" },
+  { conv: "+0.1 pp", txns: "2.19K", retail: "$50.4K", ret: "$46.6K" },
+  { conv: "+0.5 pp", txns: "11.0K", retail: "$252K", ret: "$233K" },
+  { conv: "+1 pp", txns: "21.9K", retail: "$504K", ret: "$466K" },
+  { conv: "+2 pp", txns: "43.8K", retail: "$1.01M", ret: "$932K" },
+  { conv: "+5 pp", txns: "109.5K", retail: "$2.52M", ret: "$2.33M" },
 ];
