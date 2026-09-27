@@ -52,7 +52,7 @@ const FUNNEL = [
   "Checks if they qualify",
   "Claims their free DutyCredit",
   "Arrives with purchase intent",
-  "Redeems at Caribbean Airlines Duty Free — Piarco or Tobago",
+  "Redeems at Caribbean Airlines Duty Free",
 ];
 
 export default function SlideAcquisitionTrinidad() {
