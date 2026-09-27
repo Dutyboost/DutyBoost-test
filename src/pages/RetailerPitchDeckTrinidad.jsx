@@ -429,7 +429,7 @@ function SlideModel() {
                   { tier: "Premium", range: "$285–$341", disc: "17.5%–20%", save: "$49.88–$64.98" },
                   { tier: "VIP", range: "$342+", disc: "20% capped", save: "Up to $68" },
                 ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 2 ? "bg-purple-800/60" : "hover:bg-white/5"}`}>
+                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-purple-800/60" : "hover:bg-white/5"}`}>
                     <span className="text-purple-300 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>
                     <span className="text-yellow-300">{row.disc}</span>
@@ -443,11 +443,11 @@ function SlideModel() {
             <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5">
               <h3 className="font-bold text-purple-900 mb-3">The 2.5% Platform Fee — Your Only Cost</h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-3">
-                A single fee on DutyBoost-validated transactions only — never on your existing sales.
+                A single 2.5% fee on DutyBoost-validated transactions only — never on your existing sales.
               </p>
               <div className="space-y-2 text-sm">
                 {[
-                  "Funds POS, Travel, Corporate Partner commission & platform infrastructure",
+                  "DutyBoost's sole revenue — the platform fee on each validated transaction",
                   "Applied only when a DutyCredit redemption is validated through your POS",
                   "No impact on your shelf prices or non-DutyBoost sales",
                   "Settled transparently — attributed and reported per transaction",
@@ -463,7 +463,7 @@ function SlideModel() {
               <h3 className="font-bold text-green-900 mb-3">The Retailer Economics</h3>
               <div className="space-y-2.5 text-sm">
                 {[
-                  { metric: "Retailer keeps", val: "87.5% of every qualifying sale" },
+                  { metric: "Retailer keeps", val: "92.5% of every qualifying sale (Entry tier)" },
                   { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
                   { metric: "Customer acquisition", val: "Handled by Travel & Corporate Partners before arrival" },
                   { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
