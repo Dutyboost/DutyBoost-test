@@ -155,6 +155,7 @@ import AccommodationRequest from './pages/AccommodationRequest';
 import CarRentalRequest from './pages/CarRentalRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
+import AcquisitionCostSlide from './pages/AcquisitionCostSlide';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -301,6 +302,7 @@ const AuthenticatedApp = () => {
         <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
         <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
         <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
+        <Route path="/acquisition-cost-slide" element={<AcquisitionCostSlide />} />
         <Route path="/airport-showcase" element={<AirportShowcase />} />
         <Route path="/airport-calculator" element={<AirportCalculator />} />
         <Route path="/airport-partner-request" element={<AirportPartnerRequest />} />
