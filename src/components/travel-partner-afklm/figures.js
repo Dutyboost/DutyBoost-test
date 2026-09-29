@@ -6,7 +6,10 @@
 // published traffic reporting (Q3 2025 year-to-date + Q4 2025).
 
 export const GROUP_PASSENGERS = "102.8M";
+// Network airlines = Air France + KLM (76.8M); Transavia carries the remainder.
 export const NETWORK_PASSENGERS = "76.8M";
+export const AF_PASSENGERS = "42.3M";
+export const KLM_PASSENGERS = "34.5M";
 export const TRANSAVIA_PASSENGERS = "26.0M";
 export const DESTINATIONS = "320";
 export const COUNTRIES = "100";
@@ -27,13 +30,6 @@ export const IFE_BY_CARRIER = [
 export const TOTAL_POINTS = "509";
 export const AF_DESTINATIONS = "~170";
 export const KLM_DESTINATIONS = "160+";
-// Hub airport totals — ALL airlines, not Air France-KLM passengers. These are the
-// airports' own FY2025 traffic figures (Paris Aéroport / Royal Schiphol Group) and
-// must never be added to the group passenger count: CDG + AMS (140.8M) counts every
-// carrier at both airports, whereas GROUP_PASSENGERS (102.8M) counts only AF-KLM
-// group passengers worldwide. Source: airport traffic releases, FY2025.
-export const CDG_PASSENGERS = "72.0M";
-export const AMS_PASSENGERS = "68.8M";
 export const LOAD_FACTOR = "87.2%";
 
 export const GLOBAL_PAX_MOVEMENTS = "9.8B";

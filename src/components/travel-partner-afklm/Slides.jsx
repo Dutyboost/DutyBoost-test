@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, Globe, Plane, MapPin, CheckCircle2, Building2,
+  ArrowRight, Plane, MapPin, CheckCircle2, Building2,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
@@ -75,13 +75,15 @@ export function SlideCover() {
 
 /* -------------------------------------------------------------- NETWORK */
 export function SlideNetwork() {
+  const carriers = [
+    { val: F.AF_PASSENGERS, label: "Air France", sub: `${F.AF_DESTINATIONS} destinations · hubbed at Paris-CDG and Paris-Orly` },
+    { val: F.KLM_PASSENGERS, label: "KLM", sub: `${F.KLM_DESTINATIONS} destinations · hubbed at Amsterdam Schiphol` },
+    { val: F.TRANSAVIA_PASSENGERS, label: "Transavia", sub: "Leisure carrier · France and the Netherlands" },
+  ];
   const stats = [
-    { val: F.GROUP_PASSENGERS, label: "Passengers carried in 2025", sub: "Up 5.0% year-on-year" },
     { val: F.DESTINATIONS, label: "Destinations worldwide", sub: `Across ${F.COUNTRIES} countries` },
-    { val: F.AF_DESTINATIONS, label: "Air France destinations", sub: "85 long-haul · 84 short & medium-haul" },
-    { val: F.KLM_DESTINATIONS, label: "KLM destinations", sub: "Of a 300+ destination partner network" },
-    { val: F.CDG_PASSENGERS, label: "Paris-Charles de Gaulle airport", sub: "Total passengers, all airlines — Air France's hub" },
-    { val: F.AMS_PASSENGERS, label: "Amsterdam Schiphol airport", sub: "Total passengers, all airlines — KLM's hub" },
+    { val: F.FLEET, label: "Aircraft in the group fleet", sub: "Air France, KLM and Transavia" },
+    { val: F.LOAD_FACTOR, label: "Group load factor", sub: "2025 average" },
   ];
   return (
     <SlideWrapper>
@@ -95,8 +97,9 @@ export function SlideNetwork() {
             Every one of these travellers passes through an airport — before departure, in transit and on arrival.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-5">
-          {stats.map((s) => (
+        <div className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-2">Passengers carried in 2025 — by airline</div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+          {carriers.map((s) => (
             <div key={s.label} className="bg-green-50 border border-green-200 rounded-2xl p-5">
               <div className={`text-3xl font-bold ${ACCENT} mb-1`}>{s.val}</div>
               <div className="text-[#052e16] font-semibold text-sm">{s.label}</div>
@@ -104,23 +107,29 @@ export function SlideNetwork() {
             </div>
           ))}
         </div>
-        <p className="text-slate-500 text-xs mb-5 -mt-2">
-          Hub figures are each airport's total annual passengers, all airlines — Air France-KLM itself carried {F.GROUP_PASSENGERS} group passengers in 2025
-          ({F.NETWORK_PASSENGERS} network airlines + {F.TRANSAVIA_PASSENGERS} Transavia). Hub totals and the two airline destination counts overlap, so none of them are additive.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            { icon: <Plane className="w-6 h-6 text-green-600" />, title: "Air France", desc: "Hubbed at Paris-Charles de Gaulle and Paris-Orly, serving nearly 170 destinations in 73 countries." },
-            { icon: <Plane className="w-6 h-6 text-green-600" />, title: "KLM", desc: "Hubbed at Amsterdam Schiphol, with more than 160 destinations of its own and a 300+ destination partner network." },
-            { icon: <Globe className="w-6 h-6 text-green-600" />, title: "Transavia", desc: `${F.TRANSAVIA_PASSENGERS} leisure passengers a year across France and the Netherlands — all airport-bound.` },
-          ].map((c) => (
-            <div key={c.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="mb-2">{c.icon}</div>
-              <div className="font-bold text-[#052e16] mb-1">{c.title}</div>
-              <div className="text-slate-600 text-sm leading-relaxed">{c.desc}</div>
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-green-50 border border-green-200 rounded-2xl px-5 py-3 mb-5 text-center">
+          <span className="font-bold text-[#052e16]">{F.AF_PASSENGERS} Air France</span>
+          <span className="font-bold text-green-600">+</span>
+          <span className="font-bold text-[#052e16]">{F.KLM_PASSENGERS} KLM</span>
+          <span className="font-bold text-green-600">+</span>
+          <span className="font-bold text-[#052e16]">{F.TRANSAVIA_PASSENGERS} Transavia</span>
+          <span className="font-bold text-green-600">=</span>
+          <span className="font-bold text-green-700 text-lg">{F.GROUP_PASSENGERS} passengers carried in 2025</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-5">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <div className="text-2xl font-bold text-[#052e16] mb-1">{s.val}</div>
+              <div className="text-slate-600 font-semibold text-sm">{s.label}</div>
+              <div className="text-slate-500 text-xs mt-1">{s.sub}</div>
             </div>
           ))}
         </div>
+        <p className="text-slate-400 text-xs">
+          Air France-KLM Group full-year 2025 results (published 19 February 2026). Air France and KLM together form the group's network airlines
+          ({F.NETWORK_PASSENGERS} passengers); Transavia carries the remaining {F.TRANSAVIA_PASSENGERS}. Airline destination counts overlap on codeshare
+          routes, so they are not additive.
+        </p>
       </div>
     </SlideWrapper>
   );
