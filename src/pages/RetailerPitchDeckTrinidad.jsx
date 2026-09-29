@@ -80,19 +80,15 @@ function SlideCover() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #952d8b 0%, transparent 70%)" }} />
         <div className="relative z-10 w-full max-w-5xl flex flex-col items-center gap-4">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-slate-200">
-              <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-              <CaribbeanDutyFreeLogo height={70} />
-            </div>
+          <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-slate-200">
+            <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
           </div>
 
           <PositioningLine hero size="xl" className="max-w-4xl" />
 
           <div>
             <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-3">
+              <CaribbeanDutyFreeLogo height={150} className="mx-auto mb-3 mt-3 lg:mt-4" />
               Incremental Revenue From Travellers<br />
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>
             </h1>
