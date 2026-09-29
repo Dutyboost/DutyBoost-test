@@ -7,11 +7,14 @@ const HERO_GRADIENT = {
   color: "transparent",
 };
 
-export default function PositioningLine({ dark = false, hero = false, className = "" }) {
+export default function PositioningLine({ dark = false, hero = false, size = "base", className = "" }) {
   if (hero) {
+    const sizeCls = size === "xl"
+      ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+      : "text-lg sm:text-xl md:text-2xl";
     return (
       <p
-        className={`text-lg sm:text-xl md:text-2xl font-heading font-bold tracking-tight leading-tight ${className}`}
+        className={`${sizeCls} font-heading font-bold tracking-tight leading-tight ${className}`}
         style={HERO_GRADIENT}
       >
         {POSITIONING}
