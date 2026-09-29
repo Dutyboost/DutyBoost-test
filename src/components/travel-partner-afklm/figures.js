@@ -11,6 +11,20 @@ export const TRANSAVIA_PASSENGERS = "26.1M";
 export const DESTINATIONS = "320";
 export const COUNTRIES = "100";
 export const FLEET = "596";
+
+// In-flight points. Every long-haul aircraft in the group fleet carries seatback
+// in-flight entertainment (Air France 120, KLM 69 = 189). The European fleets
+// (Air France A220/A320 family, KLM 737/A321neo, Transavia's 140 aircraft) and the
+// regional Embraer fleets have no seatback screens, so they are not counted as points.
+// Source: Air France-KLM Group fleet, 31 December 2025.
+export const IFE_AIRCRAFT = "189";
+export const IFE_BY_CARRIER = [
+  { carrier: "Air France", aircraft: "120", note: "A330 · A350 · 777 · 787" },
+  { carrier: "KLM", aircraft: "69", note: "A330 · 777 · 787" },
+  { carrier: "Transavia", aircraft: "0", note: "No seatback screens" },
+];
+// Destination points (320) + in-flight points (189).
+export const TOTAL_POINTS = "509";
 export const AF_DESTINATIONS = "~170";
 export const KLM_DESTINATIONS = "160+";
 export const CDG_PASSENGERS = "72.0M";
@@ -138,6 +152,7 @@ export function fmtCount(v) {
 
 export const SOURCES = [
   { label: "Air France-KLM Group — profile & network", url: "https://www.airfranceklm.com/en/group" },
+  { label: "Air France-KLM Group — fleet (31 December 2025)", url: "https://www.airfranceklm.com/en/group/fleet" },
   { label: "Air France-KLM — Full Year 2025 results", url: "https://www.globenewswire.com/news-release/2026/02/19/3240786/0/en/full-year-2025.html" },
   { label: "Air France-KLM — Q3 2025 traffic & regional split", url: "https://www.airfranceklm.com/sites/default/files/2025-11/q3-2025-afklm-results-press-release.pdf" },
   { label: "Air France — Winter 2024-25 network (169 destinations)", url: "https://corporate.airfrance.com/en/news/winter-2024-2025-air-france-serve-nearly-170-destinations-73-countries" },

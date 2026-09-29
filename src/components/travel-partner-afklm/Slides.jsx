@@ -341,7 +341,7 @@ export function SlideJourney() {
     {
       icon: <Plane className="w-8 h-8 text-green-600" />,
       title: "2. In flight",
-      desc: "The DutyCredit sits in the booking confirmation and boarding pass — a reminder of the saving waiting at the destination, issued at zero cost to the airline.",
+      desc: `The DutyCredit sits in the booking confirmation and boarding pass — and on the seatback screen of every long-haul aircraft, making each of the group's ${F.IFE_AIRCRAFT} widebodies an in-flight point. Issued at zero cost to the airline.`,
     },
     {
       icon: <MapPin className="w-8 h-8 text-orange-600" />,
@@ -610,10 +610,14 @@ export function SlideClosing() {
             </div>
           </div>
           <span className={`${ACCENT_DARK} text-sm font-semibold uppercase tracking-widest`}>Next Steps</span>
-          <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-2 mb-4 leading-tight">
+          <h2 className="text-xl md:text-4xl font-heading font-bold text-white mt-2 mb-3 leading-tight">
             {F.GROUP_PASSENGERS} Passengers.<br />
-            <span className={ACCENT_DARK}>{F.DESTINATIONS} Redemption Points.</span>
+            <span className={ACCENT_DARK}>{F.TOTAL_POINTS} Redemption Points.</span>
           </h2>
+          <p className="text-green-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed mb-3">
+            {F.DESTINATIONS} destination points across the network — plus {F.IFE_AIRCRAFT} in-flight points, one on the
+            seatback screen of every Air France and KLM long-haul aircraft.
+          </p>
           <p className="text-slate-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed mb-6">
             DutyBoost is designed to deliver measurable added value to your booking flow in a very short time — no lengthy
             rollout, no upfront investment, no operational disruption. Once live, every validated redemption at a participating
