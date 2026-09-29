@@ -5,6 +5,7 @@ import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import SlideAcquisitionTrinidad from "@/components/retailer-pitch-trinidad/SlideAcquisitionTrinidad";
+import CaribbeanDutyFreeLogo from "@/components/retailer-pitch-trinidad/CaribbeanDutyFreeLogo";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { TEAM_MEMBERS } from "@/data/teamMembers";
@@ -79,8 +80,13 @@ function SlideCover() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, #952d8b 0%, transparent 70%)" }} />
         <div className="relative z-10 w-full max-w-5xl flex flex-col items-center gap-4">
-          <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-slate-200">
-            <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-slate-200">
+              <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+              <CaribbeanDutyFreeLogo height={70} />
+            </div>
           </div>
 
           <PositioningLine hero size="xl" className="max-w-4xl" />
