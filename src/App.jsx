@@ -129,6 +129,7 @@ import RetailerPitchDeckLagardere from './pages/RetailerPitchDeckLagardere';
 import RetailerPitchDeckAvolta from './pages/RetailerPitchDeckAvolta';
 import RetailerPitchDeckCaribbean from './pages/RetailerPitchDeckCaribbean';
 import RetailerPitchDeckTrinidad from './pages/RetailerPitchDeckTrinidad';
+import RetailerPitchDeckMartinique from './pages/RetailerPitchDeckMartinique';
 import RetailerSupplierPitchDeckSxm from './pages/RetailerSupplierPitchDeckSxm';
 import AirportPitchDeck from './pages/AirportPitchDeck';
 import AirportPitchDeckAruba from './pages/AirportPitchDeckAruba';
@@ -289,6 +290,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-pitch-sxm" element={<RetailerPitchDeckCaribbean />} />
         <Route path="/retailer-pitch-trinidad-tobago" element={<RetailerPitchDeckTrinidad />} />
         <Route path="/retailer-pitch-trinidad" element={<Navigate to="/retailer-pitch-trinidad-tobago" replace />} />
+        <Route path="/retailer-pitch-martinique" element={<RetailerPitchDeckMartinique />} />
         <Route path="/retailer-supplier-pitch-sxm" element={<RetailerSupplierPitchDeckSxm />} />
         <Route path="/airport-pitch" element={<AirportPitchDeck />} />
         <Route path="/airport-pitch-aruba" element={<AirportPitchDeckAruba />} />
