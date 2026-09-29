@@ -1,7 +1,7 @@
 import {
   Cpu, BarChart3, Link2, Briefcase, CheckCircle,
   Plane, Package, Globe, TrendingUp, Building2, DollarSign, MapPin, BadgePercent,
-  Search, Code2, ShieldCheck, Rocket, XCircle, Clock, Store,
+  Search, Code2, ShieldCheck, Rocket, XCircle, Clock, Store, ArrowRight,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
@@ -934,6 +934,13 @@ export function SlideClosingAvolta() {
             ))}
           </div>
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-600 tracking-tight">THANK YOU</h2>
+          <a
+            href="/retailer-request"
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-white font-semibold text-base shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
+          >
+            Book a Partnership Call
+            <ArrowRight className="w-4 h-4" />
+          </a>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>

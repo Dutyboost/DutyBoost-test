@@ -790,6 +790,13 @@ function SlideThankYou() {
               Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.
             </p>
           </div>
+          <Link
+            to="/retailer-request"
+            className="mt-5 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-white font-semibold text-sm md:text-base shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
+          >
+            Book a Partnership Call
+            <ArrowRight className="w-4 h-4" />
+          </Link>
           <div className="mt-4 text-slate-500 text-[10px]">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
