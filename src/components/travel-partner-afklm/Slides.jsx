@@ -504,7 +504,7 @@ export function SlideScale() {
               <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">{F.fmtEur(r.partner)}</div>
               <div className="text-green-600 text-xs font-medium mb-3">annual Air France-KLM share</div>
               <div className="border-t border-green-200 pt-2 space-y-1 text-xs text-slate-500">
-                <div>{F.fmtCount(r.txns)} new transactions</div>
+                <div>{F.fmtCount(r.txns)} transactions</div>
                 <div>{F.fmtEur(r.retail)} airport retail</div>
               </div>
             </div>
