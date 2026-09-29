@@ -31,7 +31,15 @@ const VERTICAL_CONFIG = {
   },
 };
 
-export default function TravelPartnerSelector({ vertical, selectedPartner, onSelect, t }) {
+export default function TravelPartnerSelector({
+  vertical,
+  selectedPartner,
+  onSelect,
+  t,
+  dataset = TRAVEL_PARTNERS,
+  continents = PARTNER_CONTINENTS,
+  config = VERTICAL_CONFIG,
+}) {
   const [query, setQuery] = useState("");
   const [continent, setContinent] = useState("all");
   const [isOpen, setIsOpen] = useState(false);
@@ -54,10 +62,10 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
 
   // Memoized base list — only recomputes when vertical or continent changes
   const baseList = useMemo(
-    () => TRAVEL_PARTNERS.filter(
+    () => dataset.filter(
       (p) => p.vertical === vertical && (continent === "all" || p.continent === continent)
     ),
-    [vertical, continent]
+    [vertical, continent, dataset]
   );
 
   // Pre-built lowercase search index — avoids calling .toLowerCase() on every field of every entry per keystroke
@@ -207,7 +215,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
           <h3 className="font-bold text-slate-900 text-base">{t('calculator.partner_select_title')}</h3>
           <p className="text-slate-600 text-sm mt-0.5">{t('calculator.partner_select_desc')}</p>
         </div>
-        {(() => { const VIcon = VERTICAL_CONFIG[vertical].Icon || Plane; return <VIcon className="w-6 h-6 text-slate-400" />; })()}
+        {(() => { const VIcon = config[vertical].Icon || Plane; return <VIcon className="w-6 h-6 text-slate-400" />; })()}
       </div>
 
       {/* Continent filter pills */}
@@ -218,7 +226,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
         >
           {t('calculator.partner_all_continents') || "All"}
         </button>
-        {PARTNER_CONTINENTS.map((c) => (
+        {continents.map((c) => (
           <button
             key={c}
             onClick={() => { setContinent(c); setHighlightIndex(0); }}
@@ -249,7 +257,7 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
             }}
             onFocus={() => setIsOpen(true)}
             onKeyDown={handleKeyDown}
-            placeholder={VERTICAL_CONFIG[vertical].placeholder}
+            placeholder={config[vertical].placeholder}
             className="w-full pl-10 pr-10 py-3.5 text-sm font-medium text-slate-900 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:border-blue-500 focus:bg-white transition-colors"
           />
           {selectedPartner && (
@@ -309,10 +317,10 @@ export default function TravelPartnerSelector({ vertical, selectedPartner, onSel
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-blue-700">
-                    {webSearching ? t('calculator.partner_web_searching') : VERTICAL_CONFIG[vertical].searchHeading}
+                    {webSearching ? t('calculator.partner_web_searching') : config[vertical].searchHeading}
                   </p>
                   <p className="text-xs text-slate-500">
-                    {webSearching ? t('calculator.partner_web_searching_desc') : VERTICAL_CONFIG[vertical].searchDesc}
+                    {webSearching ? t('calculator.partner_web_searching_desc') : config[vertical].searchDesc}
                   </p>
 
                 </div>

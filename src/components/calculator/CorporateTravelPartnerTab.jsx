@@ -8,6 +8,7 @@ import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import ConversionRateInput from "@/components/calculator/ConversionRateInput";
+import CorporateTravelPlatformSelector from "@/components/CorporateTravelPlatformSelector";
 
 // ── Corporate Travel Partner calculator ────────────────────────────────────────
 // Same model and look & feel as the Travel Partner calculator (RetailerCalculator.jsx
@@ -85,6 +86,15 @@ export default function CorporateTravelPartnerTab({ t }) {
     accommodation: DEFAULT_CONVERSION,
     car: DEFAULT_CONVERSION,
   }));
+  const [selectedPlatforms, setSelectedPlatforms] = useState({ flight: null, accommodation: null, car: null });
+
+  // Picking a platform fills in that vertical's monthly volume; the volume stays editable.
+  const handlePlatformSelect = (key, platform) => {
+    setSelectedPlatforms((prev) => ({ ...prev, [key]: platform }));
+    if (platform) {
+      setBookings((prev) => ({ ...prev, [key]: Math.max(0, Math.round(platform.monthly_bookings || 0)) }));
+    }
+  };
 
   const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);
 
@@ -166,6 +176,14 @@ export default function CorporateTravelPartnerTab({ t }) {
             </span>
             <span className="text-xs text-slate-400 ml-auto">{t("calculator.commission_note")}</span>
           </div>
+
+          {/* Platform selector — pick your company to prefill the volume */}
+          <CorporateTravelPlatformSelector
+            vertical={v.key}
+            selectedPartner={selectedPlatforms[v.key]}
+            onSelect={(platform) => handlePlatformSelect(v.key, platform)}
+            t={t}
+          />
 
           {/* Bookings per month */}
           <div className="space-y-2">
