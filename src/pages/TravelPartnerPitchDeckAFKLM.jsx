@@ -91,7 +91,7 @@ export default function TravelPartnerPitchDeckAFKLM() {
         <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
       </div>
 
-      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">
+      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-120px)]">
         <SlideComp />
       </div>
 

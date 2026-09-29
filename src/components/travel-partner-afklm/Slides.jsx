@@ -37,22 +37,22 @@ export function SlideCover() {
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
           style={{ background: "radial-gradient(circle, #22C55E 0%, transparent 70%)" }} />
-        <div className="relative z-10 flex flex-col items-center gap-6 lg:gap-10">
-          <div className="bg-white border border-slate-200 rounded-2xl px-8 py-4 shadow-lg">
-            <DutyBoostLogo height={50} linkTo={null} />
+        <div className="relative z-10 flex flex-col items-center gap-3 lg:gap-5">
+          <div className="bg-white border border-slate-200 rounded-2xl px-6 py-3 shadow-lg">
+            <DutyBoostLogo height={44} linkTo={null} />
           </div>
           <div>
-            <PositioningLine hero size="xl" className="max-w-4xl mb-3" />
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-[#052e16] leading-tight mb-4">
-              <AirFranceKLMLogo height={200} className="mx-auto mb-4 mt-6 lg:mt-10" />
+            <PositioningLine hero size="xl" className="max-w-4xl mb-2" />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[#052e16] leading-tight mb-3">
+              <AirFranceKLMLogo height={150} className="mx-auto mb-3 mt-3 lg:mt-4" />
               <span className="text-green-600">A Travel Partner Presentation</span>
             </h1>
-            <p className="text-lg lg:text-xl text-slate-600 max-w-3xl leading-relaxed">
+            <p className="text-base lg:text-lg text-slate-600 max-w-3xl leading-relaxed">
               Turn {F.GROUP_PASSENGERS} passengers a year into a new, performance-based revenue stream — across {F.TOTAL_POINTS} redemption points in the air and on the ground,
               at zero cost to Air France-KLM and zero cost to your travellers.
             </p>
           </div>
-          <div className="flex flex-wrap items-start justify-center gap-x-8 sm:gap-x-14 lg:gap-x-20 gap-y-4 mt-2 w-full max-w-xl lg:max-w-5xl">
+          <div className="flex flex-wrap items-start justify-center gap-x-8 sm:gap-x-14 lg:gap-x-20 gap-y-2 mt-1 w-full max-w-xl lg:max-w-5xl">
             {[
               { label: "Passengers carried (2025)", value: F.GROUP_PASSENGERS },
               { label: "Destinations", value: F.DESTINATIONS },
@@ -65,7 +65,7 @@ export function SlideCover() {
               </div>
             ))}
           </div>
-          <div className="mt-2 text-xs text-slate-500 border border-slate-200 bg-slate-50 rounded px-4 py-2">
+          <div className="mt-1 text-xs text-slate-500 border border-slate-200 bg-slate-50 rounded px-4 py-1.5">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
