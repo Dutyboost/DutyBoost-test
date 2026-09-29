@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Store, CheckCircle, Plane, Package } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
+import CalBanner from "@/components/retailer-pitch-trinidad/CalBanner";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import SlideAcquisitionTrinidad from "@/components/retailer-pitch-trinidad/SlideAcquisitionTrinidad";
@@ -83,9 +84,10 @@ function SlideCover() {
             <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
           </div>
 
-          <PositioningLine header />
+          <CalBanner />
 
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-3">
               Incremental Revenue From Travellers<br />
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>
@@ -789,7 +791,7 @@ function SlideThankYou() {
             <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
           </div>
 
-          <PositioningLine header className="mb-3" />
+          <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport" className="max-w-4xl mb-3" />
 
           <div className="mb-2.5">
             <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Thank You</span>
