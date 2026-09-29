@@ -1,5 +1,5 @@
-import StakeholderRequestForm from "@/components/request/StakeholderRequestForm";
+import RetailerPosConfirmation from "@/components/request/RetailerPosConfirmation";
 
 export default function RetailerRequest() {
-  return <StakeholderRequestForm stakeholder="retailer" />;
+  return <RetailerPosConfirmation />;
 }

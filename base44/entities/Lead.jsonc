@@ -50,6 +50,38 @@
       "items": {
         "type": "string"
       }
+    },
+    "pos_contact_name": {
+      "type": "string",
+      "title": "POS / IT Contact Name"
+    },
+    "pos_contact_email": {
+      "type": "string",
+      "title": "POS / IT Contact Email"
+    },
+    "pos_contact_phone": {
+      "type": "string",
+      "title": "POS / IT Contact Telephone"
+    },
+    "si_company_name": {
+      "type": "string",
+      "title": "System Integrator Company"
+    },
+    "si_contact_name": {
+      "type": "string",
+      "title": "System Integrator Contact Name"
+    },
+    "si_contact_email": {
+      "type": "string",
+      "title": "System Integrator Contact Email"
+    },
+    "si_contact_phone": {
+      "type": "string",
+      "title": "System Integrator Contact Telephone"
+    },
+    "submission_authorisation": {
+      "type": "string",
+      "title": "Submission Authorisation"
     }
   },
   "required": [
