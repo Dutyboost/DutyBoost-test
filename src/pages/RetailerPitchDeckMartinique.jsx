@@ -812,10 +812,10 @@ function SlideThankYou() {
           </div>
           <div className="rounded-2xl px-5 py-3 text-white max-w-2xl" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
             <p className="font-bold text-sm md:text-base leading-snug mb-0.5">
-              Ready to turn {NON_PURCHASING_MOVEMENTS} non-purchasing passenger movements into incremental sales?
+              Ready to turn a percentage of the {NON_PURCHASING_MOVEMENTS} non-purchasing passenger movements into incremental sales?
             </p>
             <p className="text-purple-50 text-xs">
-              Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.
+              Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated and attributable transactions.
             </p>
           </div>
           <div className="mt-3 text-slate-500 text-[10px]">
