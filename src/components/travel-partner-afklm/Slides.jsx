@@ -351,7 +351,7 @@ export function SlideJourney() {
     {
       icon: <Plane className="w-8 h-8 text-blue-600 -scale-x-100" />,
       title: "4. And all over again on the way back",
-      desc: "A fresh DutyCredit is issued on the return booking — redeemed in the departure hall at the destination, then again on landing at Paris-Charles de Gaulle or Amsterdam Schiphol.",
+      desc: "A fresh DutyCredit is issued on the return booking and carried in the confirmation and boarding pass — then redeemed in the departure hall at the destination, and again on landing at Paris-Charles de Gaulle or Amsterdam Schiphol.",
     },
   ];
   return (
@@ -363,7 +363,7 @@ export function SlideJourney() {
             One DutyCredit, <span className={ACCENT}>Every Leg of the Journey</span>
           </h2>
           <p className="text-slate-500 mt-1 text-sm">
-            The outbound leg repeats in reverse on the way home — twice the airport retail moments, at no extra cost to the airline.
+            The outbound leg repeats in reverse on the way home — hub, in flight and landing all over again, at no extra cost to the airline.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-6">
