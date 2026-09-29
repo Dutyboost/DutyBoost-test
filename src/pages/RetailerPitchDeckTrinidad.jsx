@@ -91,7 +91,7 @@ function SlideCover() {
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>
             </h1>
             <p className="text-base md:text-xl text-slate-500 max-w-3xl leading-relaxed">
-              A Presentation for Trinidad &amp; Tobago Airport Retailers — Piarco International Airport &amp; A.N.R. Robinson International Airport, Tobago
+              A Presentation for Trinidad &amp; Tobago Airport Retailers — Piarco International Airport &amp; A.N.R. Robinson International Airport.
             </p>
           </div>
 
