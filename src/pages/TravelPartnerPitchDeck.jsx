@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, BarChart3, Plug, ShieldCheck, Globe, Wallet, Gift } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
 import HotelIcon from "@/components/HotelIcon";
@@ -62,6 +63,7 @@ function SlideCover() {
             <DutyBoostLogo height={50} linkTo="/get-started?from=agency" />
           </div>
           <div>
+            <PositioningLine dark className="mb-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
               Earn From Every Booking.<br />
               <span className="text-emerald-400">Never Pay. Only Earn.</span>

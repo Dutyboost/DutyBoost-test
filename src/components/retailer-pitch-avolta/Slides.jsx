@@ -4,6 +4,7 @@ import {
   Search, Code2, ShieldCheck, Rocket, XCircle, Clock, Store,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { SlideWrapper, GridBg } from "@/components/investor/v2/Shared";
@@ -83,6 +84,7 @@ export function SlideCoverAvolta() {
             <DutyBoostLogo height={50} linkTo="/retailer-showcase" />
           </div>
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Incremental Revenue From Travellers<br />
               <span className="text-blue-600">Who Otherwise Wouldn't Buy</span>

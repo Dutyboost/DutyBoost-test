@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, Plug, Wallet, Gift, ShieldCheck, Globe, BarChart3 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -50,6 +51,7 @@ function SlideCover({ t }) {
             <DutyBoostLogo height={50} linkTo="/get-started" />
           </div>
           <div>
+            <PositioningLine dark className="mb-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
               {s.title1}<br />
               <span className="text-indigo-400">{s.title2}</span>

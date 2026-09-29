@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Store, CheckCircle, Plane, Package } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import SlideAcquisitionTrinidad from "@/components/retailer-pitch-trinidad/SlideAcquisitionTrinidad";
@@ -86,6 +87,7 @@ function SlideCover() {
           <CalBanner />
 
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-3">
               Incremental Revenue From Travellers<br />
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>

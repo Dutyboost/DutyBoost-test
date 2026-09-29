@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 export { SlideSolution };
 import { ChevronRight, ToggleRight, Plug, Shield, Zap, Cpu, CheckCircle, ShieldCheck, RefreshCw, Lock, Globe, TrendingUp, Building2, Users, Euro, Briefcase, BarChart3, Link2, Plane, Package } from "lucide-react";
@@ -78,6 +79,7 @@ export function SlideCover({ currency = "€" }) {
             <DutyBoostLogo height={50} linkTo="/pos-partner" />
           </div>
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               One Integration.<br />
               <span className="text-violet-600">Recurring Revenue. Zero Risk.</span>

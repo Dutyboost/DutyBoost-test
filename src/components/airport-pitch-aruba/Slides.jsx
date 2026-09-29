@@ -5,6 +5,7 @@ import {
   XCircle, Plane, RefreshCw, Store, Cpu, Search, Code2, ShieldCheck, Rocket, Clock,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import TravelerIcon from "@/components/TravelerIcon";
@@ -72,6 +73,7 @@ export function SlideCover() {
             <DutyBoostLogo height={50} linkTo="/airport-showcase" />
           </div>
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Incremental Non-Aeronautical<br />
               <span className="text-blue-600">Revenue for Aruba Airport</span>

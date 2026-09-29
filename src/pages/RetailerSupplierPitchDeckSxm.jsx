@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Package, TrendingUp, RefreshCw, ShoppingCart, DollarSign, CheckCircle, BarChart3, Boxes, Store, Factory } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import HotelIcon from "@/components/HotelIcon";
@@ -79,6 +80,7 @@ function SlideCover() {
             <DutyBoostLogo height={50} linkTo="/" />
           </div>
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Incremental Sales Through<br />
               <span className="text-blue-600">Airport Retail Activation</span>

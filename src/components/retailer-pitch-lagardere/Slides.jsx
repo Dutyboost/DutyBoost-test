@@ -6,6 +6,7 @@ import {
   Search, Code2, ShieldCheck, Rocket, XCircle, Clock,
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -79,6 +80,7 @@ export function SlideCoverLagardere() {
             <DutyBoostLogo height={50} linkTo="/retailer-showcase" />
           </div>
           <div>
+            <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Incremental Revenue From Travellers<br />
               <span className="text-blue-600">Who Otherwise Wouldn't Buy</span>
