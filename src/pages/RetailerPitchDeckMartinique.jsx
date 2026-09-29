@@ -89,7 +89,7 @@ function SlideCover() {
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>
             </h1>
             <p className="text-base md:text-xl text-slate-500 max-w-3xl leading-relaxed">
-              A Presentation for Avolta — Martinique Duty Free at Martinique Aimé Césaire International Airport (FDF).
+              A Presentation for Avolta — Martinique Duty Free at Aimé Césaire International Airport (FDF).
             </p>
           </div>
 
