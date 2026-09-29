@@ -7,6 +7,7 @@ import {
 } from "@/components/travel-partner-afklm/Slides";
 import SlideDestinationTotals from "@/components/travel-partner-afklm/SlideDestinationTotals";
 import SlideSources from "@/components/travel-partner-afklm/SlideSources";
+import SlideThankYou from "@/components/travel-partner-afklm/SlideThankYou";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -23,6 +24,7 @@ const SLIDES = [
   { id: "integrate", type: "integrate" },
   { id: "closing", type: "closing" },
   { id: "sources", type: "sources" },
+  { id: "thankyou", type: "thankyou" },
 ];
 
 const SLIDE_LABELS = {
@@ -40,6 +42,7 @@ const SLIDE_LABELS = {
   integrate: "Integration Simplicity",
   closing: "Next Steps",
   sources: "Sources & Assumptions",
+  thankyou: "Thank You",
 };
 
 const SLIDE_COMPONENTS = {
@@ -57,6 +60,7 @@ const SLIDE_COMPONENTS = {
   integrate: SlideIntegrate,
   closing: SlideClosing,
   sources: SlideSources,
+  thankyou: SlideThankYou,
 };
 
 export default function TravelPartnerPitchDeckAFKLM() {
