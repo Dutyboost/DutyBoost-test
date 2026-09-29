@@ -375,7 +375,7 @@ export default {
     getstarted: {
       title_partner: 'For Travel Partners',
       subtitle_partner: 'Choose your sector below to see how DutyBoost turns every booking into incremental revenue.',
-      title: 'DutyBoost: The Circular Commercial Revenue Infrastructure for Global Travel',
+      title: 'DutyBoost: A Performance-based Customer Acquisition Infrastructure for Global Travel',
       subtitle_default: 'Choose your role below to get started.',
       agencies: 'Flight Partners',
       pos_partners: 'POS Partners',

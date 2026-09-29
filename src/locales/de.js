@@ -152,7 +152,7 @@ export default {
     getstarted: {
       title_partner: 'Für Reisepartner',
       subtitle_partner: 'Wählen Sie unten Ihren Bereich, um zu sehen, wie DutyBoost jede Buchung in zusätzliche, zirkuläre Einnahmen verwandelt.',
-      title: 'DutyBoost: Die zirkuläre kommerzielle Einnahmeinfrastruktur für weltweites Reisen',
+      title: 'DutyBoost: Eine leistungsbasierte Kundenakquisitions-Infrastruktur für weltweites Reisen',
       subtitle_default: 'Wählen Sie unten Ihre Rolle, um zu starten.',
       agencies: 'Für Flug Partner',
       pos_partners: 'Für POS Partner',

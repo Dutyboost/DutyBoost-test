@@ -11,6 +11,7 @@ import { ArrowRight, CheckCircle2, Plane } from "lucide-react";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
+import CountrySelect from "@/components/request/CountrySelect";
 import { getAirportRequestStrings } from "@/lib/i18nAirportRequest";
 
 export default function AirportPartnerRequest() {
@@ -135,10 +136,14 @@ export default function AirportPartnerRequest() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <Label>{r.label_country} <span className="text-red-500">*</span></Label>
-                    <Select value={form.country} onValueChange={(v) => set("country", v)}>
-                      <SelectTrigger><SelectValue placeholder={t('corporaterequest.placeholder_country')} /></SelectTrigger>
-                      <SelectContent>{COUNTRIES.map((co) => <SelectItem key={co} value={co}>{co}</SelectItem>)}</SelectContent>
-                    </Select>
+                    <CountrySelect
+                      value={form.country}
+                      onChange={(v) => set("country", v)}
+                      options={COUNTRIES}
+                      placeholder={t('corporaterequest.placeholder_country')}
+                      searchPlaceholder={t('corporaterequest.country_search')}
+                      emptyText={t('corporaterequest.country_no_match')}
+                    />
                   </div>
                   <div className="space-y-1.5">
                     <Label>{r.label_airport} <span className="text-red-500">*</span></Label>

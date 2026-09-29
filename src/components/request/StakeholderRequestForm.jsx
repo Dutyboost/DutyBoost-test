@@ -12,6 +12,7 @@ import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 import MultiSelectComboBox from "@/components/survey/MultiSelectComboBox";
+import CountrySelect from "@/components/request/CountrySelect";
 import { STAKEHOLDER_CONFIG, getStakeholderRequestStrings } from "@/lib/i18nStakeholderRequest";
 import { POS_PROVIDERS } from "@/data/posProviders";
 
@@ -157,10 +158,14 @@ export default function StakeholderRequestForm({ stakeholder }) {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <Label>{t('corporaterequest.label_country')} <span className="text-red-500">*</span></Label>
-                    <Select value={form.country} onValueChange={(v) => set("country", v)}>
-                      <SelectTrigger><SelectValue placeholder={t('corporaterequest.placeholder_country')} /></SelectTrigger>
-                      <SelectContent>{COUNTRIES.map((co) => <SelectItem key={co} value={co}>{co}</SelectItem>)}</SelectContent>
-                    </Select>
+                    <CountrySelect
+                      value={form.country}
+                      onChange={(v) => set("country", v)}
+                      options={COUNTRIES}
+                      placeholder={t('corporaterequest.placeholder_country')}
+                      searchPlaceholder={t('corporaterequest.country_search')}
+                      emptyText={t('corporaterequest.country_no_match')}
+                    />
                   </div>
                   <div className="space-y-1.5">
                     <Label>{r.label_volume} <span className="text-red-500">*</span></Label>
