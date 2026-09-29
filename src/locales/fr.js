@@ -20,7 +20,7 @@ export default {
       integration_partnerships: 'Pour les Partenaires d\'Intégration POS',
     },
     hero: {
-      title_1: "L'Infrastructure de Revenus Circulaires pour le Voyage Mondial",
+      title_1: "L'infrastructure d'acquisition de clients basée sur la performance pour le voyage mondial",
       title_2: '',
       subtitle_1: "Connecter les fournisseurs POS, les détaillants d'aéroport, les aéroports, les voyageurs, les partenaires de voyage, les partenaires corporate et les fournisseurs de gros/détail à travers un écosystème commercial partagé basé sur la performance",
       subtitle_2: '',
@@ -29,11 +29,11 @@ export default {
     },
     ecosystem: {
       title: 'Un écosystème commercial, huit gagnants',
-      subtitle: 'Une infrastructure partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — le Travel Retail Circular Revenue Ecosystem.',
+      subtitle: 'Une infrastructure partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — l\'infrastructure d\'acquisition de clients basée sur la performance pour le voyage mondial.',
       platform_fee_note: "Chaque remboursement alimente tout l'écosystème. Une seule commission basée sur la performance est automatiquement partagée entre le partenaire de voyage, le partenaire POS et DutyBoost—créant de la valeur pour tous, sans coût supplémentaire pour le détaillant aéroportuaire.",
     },
     oval: {
-      badge: "L'Infrastructure de Revenus Circulaires pour le Voyage Mondial",
+      badge: "L'infrastructure d'acquisition de clients basée sur la performance pour le voyage mondial",
       title: "Chaque Partenaire Gravite autour du <span class=\"text-primary\">Voyage du Voyageur</span>",
       subtitle: "Une transaction validée relie chaque participant — chacun gagnant au même moment du voyageur.",
       actual_title: "Situation Actuelle",
@@ -113,7 +113,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: "L'Infrastructure de Revenus Circulaires pour le Voyage Mondial",
+        description: "L'infrastructure d'acquisition de clients basée sur la performance pour le voyage mondial",
         b1: "Une seule couche unifie partenaires de voyage, détaillants aéroportuaires, prestataires POS, voyageurs de loisir et d'affaires.",
         b2: 'Chaque rachat validé rémunère toute la chaîne — voyageur, partenaire, détaillant et corporate — automatiquement et en toute transparence.',
         b3: 'Rapprochement automatisé, gestion des remboursements partiels et règlement mensuel maintiennent les revenus fluides sur les six côtés.',
@@ -121,8 +121,8 @@ export default {
     },
     cta: {
       title: 'Un voyageur. Un voyage. Des revenus pour tous.',
-      description: "The Circular Commercial Revenue Infrastructure for Global Travel transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant fournisseurs POS d'entreprise, détaillants aéroportuaires, aéroports, voyageurs, partenaires de voyage, partenaires corporate et fournisseurs de gros/détail dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
-      button: "Rejoignez aujourd'hui The Circular Commercial Revenue Infrastructure for Global Travel !",
+      description: "L'infrastructure d'acquisition de clients basée sur la performance pour le voyage mondial transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant fournisseurs POS d'entreprise, détaillants aéroportuaires, aéroports, voyageurs, partenaires de voyage, partenaires corporate et fournisseurs de gros/détail dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
+      button: "Rejoignez aujourd'hui l'infrastructure d'acquisition de clients basée sur la performance pour le voyage mondial !",
     },
     wecallyou: {
       modal_title: 'Nous vous appelons',
@@ -151,8 +151,8 @@ export default {
     },
     getstarted: {
       title_partner: 'Pour les partenaires de voyage',
-      subtitle_partner: 'Choisissez votre secteur ci-dessous pour voir comment DutyBoost transforme chaque réservation en revenus circulaires et incrémentaux.',
-      title: 'DutyBoost : L\'infrastructure commerciale de revenus circulaires pour les voyages mondiaux',
+      subtitle_partner: 'Choisissez votre secteur ci-dessous pour voir comment DutyBoost transforme chaque réservation en revenus incrémentaux.',
+      title: 'DutyBoost : L\'infrastructure d\'acquisition de clients basée sur la performance pour le voyage mondial',
       subtitle_default: 'Choisissez votre rôle ci-dessous pour commencer.',
       agencies: 'Partenaires vols',
       pos_partners: 'Partenaires POS',
@@ -830,7 +830,7 @@ export default {
       partner_web_loading_note: "Cela utilise 1 crédit d'intégration par recherche. Les volumes annuels publiés sont des estimations.",
       partner_web_not_found: "Impossible de trouver cette entreprise ou ses données de volume public. Essayez un autre nom ou terme de recherche.",
       partner_web_error: "La recherche web a échoué. Veuillez réessayer ou saisir le volume manuellement.",
-      retailer_cta_desc: "Les partenaires de voyage pré-activent les acheteurs avant qu'ils n'atteignent votre magasin — transformant le trafic de passage en clients prêts à acheter. Faites partie de l'Écosystème de Revenus Circulaires où les détaillants augmentent les ventes, les voyageurs utilisent les récompenses reçues des partenaires de voyage et les partenaires de voyage génèrent des revenus passifs — le tout via une plateforme intelligente.",
+      retailer_cta_desc: "Les partenaires de voyage pré-activent les acheteurs avant qu'ils n'atteignent votre magasin — transformant le trafic de passage en clients prêts à acheter. Faites partie de l'infrastructure d'acquisition de clients basée sur la performance où les détaillants augmentent les ventes, les voyageurs utilisent les récompenses reçues des partenaires de voyage et les partenaires de voyage génèrent des revenus passifs — le tout via une plateforme intelligente.",
       partner_cta_desc: "Jusqu'à présent, les revenus que les voyageurs dépensaient dans les boutiques d'aéroport ne vous revenaient jamais. Avec DutyBoost, chaque réservation que vous émettez débloque un nouveau flux de revenus — gagnez une commission passive chaque fois que vos voyageurs utilisent leurs DutyCredits auprès des détaillants d'aéroport, sans aucun coût pour vous. Renforcez la fidélité et monétisez les voyages d'une manière qui n'était tout simplement pas possible auparavant.",
     },
     entCalc: {
@@ -985,7 +985,7 @@ export default {
       how_step2: '<strong>2. Nous Utilisons Votre Signature :</strong> Votre signature renforce la position de négociation de DutyBoost avec les détaillants aéroportuaires, leur montrant que les partenaires de voyage s\'engagent dans le partenariat.',
       how_step3: '<strong>3. Les Détaillants Aéroportuaires Rejoignent :</strong> Avec votre signature comme preuve d\'engagement, les détaillants aéroportuaires gagnent confiance dans le modèle et acceptent de participer.',
       how_step4: '<strong>4. Vous Commencez à Gagner :</strong> Vos voyageurs reçoivent des DutyCredits dans leurs emails de confirmation — un avantage de fidélité qui renforce la fidélité à la marque. Vous gagnez 20% des frais de plateforme DutyBoost de 2,5% (jusqu\'à €5 par utilisation) payés par les détaillants aéroportuaires sur chaque transaction.',
-      description_1: 'Chez DutyBoost, nous construisons un <strong>écosystème de revenus circulaire</strong> où tout le monde gagne. Vous, en tant que partenaire de voyage, apportez les voyageurs. DutyBoost les connecte aux détaillants aéroportuaires. Ensemble, nous générons de nouveaux revenus pour toutes les parties.',
+      description_1: 'Chez DutyBoost, nous construisons une <strong>infrastructure d\'acquisition de clients basée sur la performance</strong> où tout le monde gagne. Vous, en tant que partenaire de voyage, apportez les voyageurs. DutyBoost les connecte aux détaillants aéroportuaires. Ensemble, nous générons de nouveaux revenus pour toutes les parties.',
       description_2: 'Qu\'est-ce que DutyBoost ? Une "<strong>Travel Retail Conversion Layer</strong>" qui crée de la valeur commerciale nouvelle sur la base des flux de voyageurs existants. Nous transformons vos passagers en acheteurs à forte intention en aéroport — et vous gagnez sur chaque transaction.',
       what_we_ask: 'Ce que nous vous demandons en ce moment :',
       from_you: 'Signez cette Lettre d\'Intention pour formaliser notre intention mutuelle d\'explorer cette collaboration et d\'engager des discussions de bonne foi sur la façon dont DutyBoost peut créer de la valeur pour vos voyageurs et votre organisation.',
@@ -1156,7 +1156,7 @@ Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esp
       how_step2: '<strong>2. Nous Construisons le Réseau Ensemble :</strong> Votre participation montre aux partenaires de voyage que les détaillants aéroportuaires sont prêts. Cela leur donne la confiance pour commencer à émettre des DutyCredits à leurs voyageurs.',
       how_step3: '<strong>3. Les Voyageurs Arrivent Pré-Activés :</strong> Les clients qui ont réservé des vols, des hôtels ou des locations de voiture reçoivent un DutyCredit dans leur email de confirmation — des semaines avant de voyager. Ils arrivent dans votre boutique déjà prêts à le dépenser.',
       how_step4: '<strong>4. Vous Gagnez des Revenus Supplémentaires :</strong> Chaque remboursement DutyCredit est une vente qualifiée que vous n\'auriez pas eu autrement. Vous payez des frais de service de 2,5% (max €25) uniquement sur les remboursements confirmés — zéro coût initial, zéro risque.',
-      description_1: 'Chez DutyBoost, nous construisons un <strong>écosystème de revenus circulaire</strong> où tout le monde gagne. Les partenaires de voyage amènent les voyageurs. DutyBoost les connecte aux détaillants aéroportuaires — votre boutique. Ensemble, nous générons de nouveaux revenus incrémentaux pour toutes les parties.',
+      description_1: 'Chez DutyBoost, nous construisons une <strong>infrastructure d\'acquisition de clients basée sur la performance</strong> où tout le monde gagne. Les partenaires de voyage amènent les voyageurs. DutyBoost les connecte aux détaillants aéroportuaires — votre boutique. Ensemble, nous générons de nouveaux revenus incrémentaux pour toutes les parties.',
       description_2: 'Qu\'est-ce que DutyBoost ? Une "<strong>Travel Retail Conversion Layer</strong>" qui crée une nouvelle valeur commerciale basée sur les flux de voyageurs existants. Nous transformons les passagers pré-activés en acheteurs à forte intention — et les envoyons directement dans votre boutique.',
       what_we_ask: 'Ce que nous vous demandons en ce moment :',
       from_you: 'Signez cette Lettre d\'Intention pour formaliser votre intention de participer au réseau de détaillants DutyBoost en tant qu\'opérateur de vente au détail aéroportuaire et d\'engager des discussions de bonne foi sur la façon dont DutyBoost peut générer des revenus incrémentaux sur l\'ensemble de vos emplacements de marque.',

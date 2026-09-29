@@ -141,7 +141,7 @@ Deno.serve(async (req) => {
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px 16px;">
                 <div style="text-align: center; margin-bottom: 32px;">
                   <div style="font-size: 22px; font-weight: 800; color: #1e40af;">DutyBoost</div>
-                  <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">The Circular Revenue Infrastructure for Global Travel</div>
+                  <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">The Performance-based Customer Acquisition Infrastructure for Global Travel</div>
                 </div>
 
                 <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px;">

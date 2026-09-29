@@ -13,7 +13,7 @@ export default {
   how_step3: '<strong>3. Airport Retailers Join:</strong> With your signature as proof of commitment, airport retailers gain confidence in the model and agree to participate.',
   how_step4: '<strong>4. You Start Earning:</strong> Your travellers receive DutyCredits in their confirmation emails — a loyalty perk that strengthens brand loyalty. You earn 20% of the 2.5% DutyBoost platform fee (up to €5 per redemption) paid by airport retailers on every transaction.',
   header_text: 'How It Works — Creating Value Together',
-  description_1: 'At DutyBoost, we\'re building a <strong>circular revenue ecosystem</strong> where everyone wins. You as a travel partner bring the travellers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.',
+  description_1: 'At DutyBoost, we\'re building a <strong>performance-based customer acquisition infrastructure</strong> in which everyone wins. You as a travel partner bring the travellers. DutyBoost connects them with airport retailers. Together, we generate new revenue for all parties involved.',
   description_2: 'What is DutyBoost? A "<strong>Travel Retail Conversion Layer</strong>" that creates new commercial value based on existing traveller flows. We turn your passengers into high-intent airport shoppers—and you earn from every transaction.',
   what_we_ask: 'What we\'re asking from you right now:',
   from_you: 'Sign this Letter of Intent to formalize our mutual intention to explore this collaboration and engage in good-faith discussions about how DutyBoost can create value for your travellers and your organisation.',

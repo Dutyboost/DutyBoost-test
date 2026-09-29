@@ -126,7 +126,7 @@ function drawFront(doc, data, logo) {
 
   doc.setFontSize(6);
   doc.setTextColor(...GREY);
-  const tagline = doc.splitTextToSize("THE CIRCULAR REVENUE INFRASTRUCTURE FOR GLOBAL TRAVEL", W - 16);
+  const tagline = doc.splitTextToSize("THE PERFORMANCE-BASED CUSTOMER ACQUISITION INFRASTRUCTURE FOR GLOBAL TRAVEL", W - 16);
   doc.text(tagline, 9, 46, { charSpace: 0.1, lineHeightFactor: 1.35 });
 }
 

@@ -19,7 +19,7 @@ export default {
       integration_partnerships: 'Voor POS Integratiepartners',
     },
     hero: {
-       title_1: "De Circulaire Inkomsteninfrastructuur voor Wereldwijd Reizen",
+       title_1: "De prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen",
        title_2: '',
        subtitle_1: "POS-aanbieders, luchthavenretailers, luchthavens, reizigers, reispartners, corporate partners en groothandel/retail leveranciers verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
        subtitle_2: '',
@@ -28,11 +28,11 @@ export default {
      },
     ecosystem: {
       title: 'Eén Commercieel ecosysteem, acht winnaars',
-      subtitle: 'Een gedeelde infrastructuur die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — het Travel Retail Circular Revenue Ecosystem.',
+      subtitle: 'Een gedeelde infrastructuur die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — de prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen.',
       platform_fee_note: 'Elke inwisseling drijft het hele ecosysteem. Eén prestatiegebonden fee wordt automatisch gedeeld tussen de reispartner, POS-partner en DutyBoost—waarde creërend voor iedereen, zonder extra kosten voor de luchthavenretailer.',
     },
     oval: {
-      badge: 'De Circulaire Omzetinfrastructuur voor Wereldwijd Reizen',
+      badge: 'De prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen',
       title: 'Elke Stakeholder Draait om de <span class="text-primary">Reizigersreis</span>',
       subtitle: 'Eén gevalideerde transactie verbindt elke deelnemer — iedereen verdient aan hetzelfde reizigersmoment.',
       actual_title: 'Werkelijke Situatie',
@@ -112,7 +112,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: 'De Circulaire Omzetinfrastructuur voor Wereldwijd Reizen',
+        description: 'De prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen',
         b1: 'Eén laag verbindt reispartners, luchthavenretailers, POS-aanbieders, vrijetijds- en zakelijke reizigers naadloos.',
         b2: 'Elke gevalideerde inwisseling betaalt de hele keten — reiziger, partner, retailer en corporate — automatisch en transparant.',
         b3: 'Geautomatiseerde afstemming, gedeeltelijke terugbetalingen en maandelijkse afwikkeling houden de omzet schoon stromend over alle zes kanten.',
@@ -120,8 +120,8 @@ export default {
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'The Circular Commercial Revenue Infrastructure for Global Travel transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door enterprise POS-providers, luchthavenretailers, luchthavens, reizigers, reispartners, corporate partners en groothandel/retail leveranciers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
-       button: "Sluit u vandaag aan bij The Circular Commercial Revenue Infrastructure for Global Travel!",
+       description: 'De prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door enterprise POS-providers, luchthavenretailers, luchthavens, reizigers, reispartners, corporate partners en groothandel/retail leveranciers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
+       button: "Sluit u vandaag aan bij de prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen!",
 
      },
     footer: {
@@ -267,8 +267,8 @@ export default {
     },
     getstarted: {
       title_partner: 'Voor Reispartners',
-      subtitle_partner: 'Kies hieronder uw sector om te zien hoe DutyBoost elke boeking omzet in incrementele, circulaire inkomsten.',
-      title: 'DutyBoost: De Circulaire Commerciële Inkomsten Infrastructuur voor Wereldwijd Reizen',
+      subtitle_partner: 'Kies hieronder uw sector om te zien hoe DutyBoost elke boeking omzet in incrementele inkomsten.',
+      title: 'DutyBoost: De prestatiegerichte klantacquisitie-infrastructuur voor wereldwijd reizen',
       subtitle_default: 'Kies hieronder uw rol om te beginnen.',
       agencies: 'Vluchtpartners',
       pos_partners: 'Voor POS Partners',

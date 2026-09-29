@@ -662,7 +662,7 @@ function SlideFlywheel() {
             <div className="relative flex items-center justify-center" style={{ height: "340px" }}>
               <div className="absolute inset-0 rounded-full border-2 border-purple-200" />
               <div className="border-2 border-purple-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10" style={{ background: ACCENT }}>
-                <div className="text-white text-xs font-bold leading-tight px-2">Circular Revenue Infrastructure</div>
+                <div className="text-white text-xs font-bold leading-tight px-2">Performance-Based Customer Acquisition Infrastructure</div>
               </div>
               {steps.slice(0, 11).map((step, i) => {
                 const angle = (i / 11) * 360 - 90;
