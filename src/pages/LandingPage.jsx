@@ -177,10 +177,10 @@ export default function LandingPage() {
               }
 
               if (s.key === 'corporate') {
-                title = 'Corporate Partners';
+                title = 'Corporate Travel Partners';
                 description = corporateOne.subtitle;
                 benefits = [
-                  'Earn 0.5% on every validated airport basket — paid monthly.',
+                  'Earn 20% on every validated airport basket — paid monthly.',
                   'Zero cost, zero risk: you only earn, never pay.',
                   'One snippet activates every business trip — no system change.',
                 ];
