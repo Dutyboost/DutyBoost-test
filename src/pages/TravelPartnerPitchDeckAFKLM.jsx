@@ -5,6 +5,7 @@ import {
   SlideLongHaul, SlideShortHaul, SlideJourney, SlideEconomics,
   SlideScale, SlideIntegrate, SlideClosing, SlideSolution,
 } from "@/components/travel-partner-afklm/Slides";
+import SlideDestinationTotals from "@/components/travel-partner-afklm/SlideDestinationTotals";
 import SlideSources from "@/components/travel-partner-afklm/SlideSources";
 
 const SLIDES = [
@@ -14,6 +15,7 @@ const SLIDES = [
   { id: "regions", type: "regions" },
   { id: "longhaul", type: "longhaul" },
   { id: "shorthaul", type: "shorthaul" },
+  { id: "totals", type: "totals" },
   { id: "journey", type: "journey" },
   { id: "solution", type: "solution" },
   { id: "economics", type: "economics" },
@@ -30,6 +32,7 @@ const SLIDE_LABELS = {
   regions: "Destinations by Region",
   longhaul: "Long-Haul Destinations",
   shorthaul: "Europe & Short-Haul Destinations",
+  totals: "Total Potential",
   journey: "Across the Journey",
   solution: "The Solution",
   economics: "Transaction Economics",
@@ -46,6 +49,7 @@ const SLIDE_COMPONENTS = {
   regions: SlideRegions,
   longhaul: SlideLongHaul,
   shorthaul: SlideShortHaul,
+  totals: SlideDestinationTotals,
   journey: SlideJourney,
   solution: SlideSolution,
   economics: SlideEconomics,
