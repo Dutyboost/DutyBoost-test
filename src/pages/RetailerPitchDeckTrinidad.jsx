@@ -84,7 +84,7 @@ function SlideCover() {
             <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
           </div>
 
-          <PositioningLine />
+          <PositioningLine hero />
 
           <CalBanner />
 
@@ -792,7 +792,7 @@ function SlideThankYou() {
             <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
           </div>
 
-          <PositioningLine className="mb-3" />
+          <PositioningLine hero className="mb-3" />
 
           <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport" className="max-w-4xl mb-3" />
 
