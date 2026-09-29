@@ -6,7 +6,6 @@ import {
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/travel-partner-afklm/SlideSolutionGreen";
-import AirFranceKLMLogo from "@/components/travel-partner-afklm/AirFranceKLMLogo";
 import * as F from "./figures";
 
 const ACCENT = "text-green-600";
@@ -38,16 +37,13 @@ export function SlideCover() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
           style={{ background: "radial-gradient(circle, #22C55E 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-6 lg:gap-10">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <div className="bg-white border border-slate-200 rounded-2xl px-8 py-4 shadow-lg">
-              <DutyBoostLogo height={50} linkTo={null} />
-            </div>
-            <span className="text-slate-300 text-2xl font-light">×</span>
-            <AirFranceKLMLogo height={38} />
+          <div className="bg-white border border-slate-200 rounded-2xl px-8 py-4 shadow-lg">
+            <DutyBoostLogo height={50} linkTo={null} />
           </div>
           <div>
             <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-[#052e16] leading-tight mb-4">
+              Air France-KLM<br />
               <span className="text-green-600">A Travel Partner Presentation</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 max-w-3xl leading-relaxed">

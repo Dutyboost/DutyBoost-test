@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
-import AirFranceKLMLogo from "@/components/travel-partner-afklm/AirFranceKLMLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import * as F from "./figures";
 
@@ -22,12 +21,8 @@ export default function SlideThankYou() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
           style={{ background: "radial-gradient(circle, #22C55E 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-5 lg:gap-7 w-full">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <div className="bg-white border border-slate-200 rounded-2xl px-8 py-4 shadow-lg">
-              <DutyBoostLogo height={48} linkTo={null} />
-            </div>
-            <span className="text-slate-300 text-2xl font-light">×</span>
-            <AirFranceKLMLogo height={36} />
+          <div className="bg-white border border-slate-200 rounded-2xl px-8 py-4 shadow-lg">
+            <DutyBoostLogo height={48} linkTo={null} />
           </div>
           <div>
             <span className="text-green-600 text-sm font-semibold uppercase tracking-widest">Thank You</span>
