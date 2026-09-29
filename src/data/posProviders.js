@@ -25,6 +25,7 @@ export const POS_PROVIDERS = [
   "Maitre'D",
   "MicroBiz",
   "Microsoft Dynamics 365 Commerce",
+  "NCR CounterPoint",
   "NCR Voyix",
   "NetPOS",
   "NoblyPOS",
