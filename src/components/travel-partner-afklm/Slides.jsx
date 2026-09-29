@@ -80,8 +80,8 @@ export function SlideNetwork() {
     { val: F.DESTINATIONS, label: "Destinations worldwide", sub: `Across ${F.COUNTRIES} countries` },
     { val: F.AF_DESTINATIONS, label: "Air France destinations", sub: "85 long-haul · 84 short & medium-haul" },
     { val: F.KLM_DESTINATIONS, label: "KLM destinations", sub: "Of a 300+ destination partner network" },
-    { val: F.CDG_PASSENGERS, label: "Paris-Charles de Gaulle 2025", sub: "Primary Air France hub" },
-    { val: F.AMS_PASSENGERS, label: "Amsterdam Schiphol 2025", sub: "Primary KLM hub" },
+    { val: F.CDG_PASSENGERS, label: "Paris-Charles de Gaulle airport", sub: "Total passengers, all airlines — Air France's hub" },
+    { val: F.AMS_PASSENGERS, label: "Amsterdam Schiphol airport", sub: "Total passengers, all airlines — KLM's hub" },
   ];
   return (
     <SlideWrapper>
@@ -104,6 +104,10 @@ export function SlideNetwork() {
             </div>
           ))}
         </div>
+        <p className="text-slate-500 text-xs mb-5 -mt-2">
+          Hub figures are each airport's total annual passengers, all airlines — Air France-KLM itself carried {F.GROUP_PASSENGERS} group passengers in 2025
+          ({F.NETWORK_PASSENGERS} network airlines + {F.TRANSAVIA_PASSENGERS} Transavia). Hub totals and the two airline destination counts overlap, so none of them are additive.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             { icon: <Plane className="w-6 h-6 text-green-600" />, title: "Air France", desc: "Hubbed at Paris-Charles de Gaulle and Paris-Orly, serving nearly 170 destinations in 73 countries." },

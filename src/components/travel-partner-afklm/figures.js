@@ -7,7 +7,7 @@
 
 export const GROUP_PASSENGERS = "102.8M";
 export const NETWORK_PASSENGERS = "76.8M";
-export const TRANSAVIA_PASSENGERS = "26.1M";
+export const TRANSAVIA_PASSENGERS = "26.0M";
 export const DESTINATIONS = "320";
 export const COUNTRIES = "100";
 export const FLEET = "596";
@@ -27,6 +27,11 @@ export const IFE_BY_CARRIER = [
 export const TOTAL_POINTS = "509";
 export const AF_DESTINATIONS = "~170";
 export const KLM_DESTINATIONS = "160+";
+// Hub airport totals — ALL airlines, not Air France-KLM passengers. These are the
+// airports' own FY2025 traffic figures (Paris Aéroport / Royal Schiphol Group) and
+// must never be added to the group passenger count: CDG + AMS (140.8M) counts every
+// carrier at both airports, whereas GROUP_PASSENGERS (102.8M) counts only AF-KLM
+// group passengers worldwide. Source: airport traffic releases, FY2025.
 export const CDG_PASSENGERS = "72.0M";
 export const AMS_PASSENGERS = "68.8M";
 export const LOAD_FACTOR = "87.2%";
@@ -39,7 +44,7 @@ export const NON_PURCHASE_SHARE = "90%";
 // group's up-to-320-destination network; passenger figures are FY2025 network
 // airline passengers carried.
 export const REGIONS = [
-  { region: "Europe — short & medium-haul", dest: "~140", pax: "49.5M", share: 64 },
+  { region: "Europe — short & medium-haul", dest: "~145", pax: "49.7M", share: 65 },
   { region: "North America", dest: "~25", pax: "9.9M", share: 13 },
   { region: "Asia & Middle East", dest: "~50", pax: "6.2M", share: 8 },
   { region: "Africa", dest: "~55", pax: "3.9M", share: 5 },
