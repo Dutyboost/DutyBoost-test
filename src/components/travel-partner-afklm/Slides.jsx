@@ -42,7 +42,7 @@ export function SlideCover() {
             <DutyBoostLogo height={50} linkTo={null} />
           </div>
           <div>
-            <PositioningLine className="mb-3" />
+            <PositioningLine hero size="xl" className="max-w-4xl mb-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-[#052e16] leading-tight mb-4">
               <AirFranceKLMLogo height={200} className="mx-auto mb-4 mt-6 lg:mt-10" />
               <span className="text-green-600">A Travel Partner Presentation</span>
