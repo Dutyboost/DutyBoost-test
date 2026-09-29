@@ -104,7 +104,7 @@ const resources = {
       cta: {
         badge: "Ready to launch?",
         title: "Where Travel Meets Reward — For Everyone.",
-        subtitle: "Join DutyBoost and become part of <b>The Performance-based Customer Acquisition Infrastructure for Global Travel</b> — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
+        subtitle: "Join DutyBoost and become part of <b>a Performance-based Customer Acquisition Infrastructure for Global Travel</b> — where every booking earns a DutyCredit that converts travelers into airport shoppers.",
         description: "By connecting travel agencies directly with airport retailers, DutyBoost pre-activates buying intent in leisure travelers before they reach the gate — turning every booking into a high-conversion retail opportunity.",
         button: "Access the Platform",
       },
@@ -141,7 +141,7 @@ const resources = {
         title: "Get Started",
         subtitle_agency: "Turn every booking into a loyalty asset — zero effort.",
         subtitle_retailer: "Join DutyBoost and start growing your airport revenue.",
-        subtitle_default: "Join DutyBoost — The Performance-based Customer Acquisition Infrastructure for Global Travel.",
+        subtitle_default: "Join DutyBoost — a Performance-based Customer Acquisition Infrastructure for Global Travel.",
         agencies_description: "Increase customer loyalty and boost spending by offering exclusive airport shopping rewards. Differentiate your offerings and get a new revenue stream.",
         travelers_description: "Maximize your airport shopping experience with personalized rewards. Enjoy exclusive discounts through your travel bookings all year long.",
         retailers_description: "Get pre-qualified customers and increase transaction value through DutyBoost's targeted reward programs. Grow your revenue while building customer loyalty.",

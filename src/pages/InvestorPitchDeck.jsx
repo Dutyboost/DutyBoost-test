@@ -115,7 +115,7 @@ export function SlideCover() {
           </div>
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
-              The Performance-based Customer Acquisition<br />
+              A Performance-based Customer Acquisition<br />
               <span className="text-blue-600">Infrastructure for Global Travel</span>
             </h1>
             <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">

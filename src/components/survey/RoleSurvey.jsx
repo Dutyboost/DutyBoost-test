@@ -22,7 +22,7 @@ function DutyBoostPdfDownload({ surveyType = "unknown", screen = "thank_you" }) 
     <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-3 text-center max-w-md mx-auto w-full">
       <p className="text-sm font-semibold text-foreground">Want to understand what DutyBoost is?</p>
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Download our one-page overview — The Performance-based Customer Acquisition Infrastructure for Global Travel.
+        Download our one-page overview — a Performance-based Customer Acquisition Infrastructure for Global Travel.
       </p>
       <a
         href={PDF_URL}

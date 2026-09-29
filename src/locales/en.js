@@ -25,7 +25,7 @@ export default {
       integration_partnerships: 'For POS Integration Partners',
     },
     hero: {
-      title_1: 'The Performance-based Customer Acquisition Infrastructure for Global Travel',
+      title_1: 'A Performance-based Customer Acquisition Infrastructure for Global Travel',
       title_2: '',
       subtitle_1: "Connecting POS Providers, Airport Retailers, Airports, Travellers, Travel Partners, Corporate Partners, and Wholesale/Retail Suppliers through a shared performance-based commercial ecosystem",
       subtitle_2: "",
@@ -38,7 +38,7 @@ export default {
       platform_fee_note: 'Every redemption powers the entire ecosystem. A single performance-based fee is automatically shared between the transaction participants and DutyBoost—creating value for everyone at no additional upfront cost to the airport retailer.',
     },
     oval: {
-      badge: 'The Performance-based Customer Acquisition Infrastructure for Global Travel',
+      badge: 'A Performance-based Customer Acquisition Infrastructure for Global Travel',
       title: 'Every Stakeholder Orbits the <span class="text-primary">Traveller Journey</span>',
       subtitle: 'One validated transaction connects every participant — each earning from the same traveller moment.',
       actual_title: 'Actual Situation',
@@ -118,7 +118,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: 'The Performance-based Customer Acquisition Infrastructure for Global Travel',
+        description: 'A Performance-based Customer Acquisition Infrastructure for Global Travel',
         b1: 'One layer unifies travel partners, airport retailers, POS providers, leisure and corporate travellers seamlessly.',
         b2: 'Every validated redemption pays the whole chain — traveller, partner, retailer, and corporate — automatically and transparently.',
         b3: 'Automated reconciliation, partial-refund handling, and monthly settlement keep revenue flowing cleanly across all six sides.',
@@ -126,8 +126,8 @@ export default {
     },
     cta: {
       title: 'One Traveller. One Journey. Revenue for Everyone.',
-      description: "The Performance-based Customer Acquisition Infrastructure for Global Travel transforms every traveller's journey into a new source of measurable incremental revenue. Connecting enterprise POS providers, airport retailers, airports, travellers, travel partners, corporate partners and wholesale/retail suppliers in one shared ecosystem, DutyBoost creates new value with no upfront costs for all participants through a 100% performance-based pricing model.",
-      button: 'Join The Performance-based Customer Acquisition Infrastructure for Global Travel Today!',
+      description: "A Performance-based Customer Acquisition Infrastructure for Global Travel transforms every traveller's journey into a new source of measurable incremental revenue. Connecting enterprise POS providers, airport retailers, airports, travellers, travel partners, corporate partners and wholesale/retail suppliers in one shared ecosystem, DutyBoost creates new value with no upfront costs for all participants through a 100% performance-based pricing model.",
+      button: 'Join a Performance-based Customer Acquisition Infrastructure for Global Travel Today!',
     },
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
