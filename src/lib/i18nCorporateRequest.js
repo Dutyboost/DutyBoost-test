@@ -5,6 +5,8 @@
  * Audience: corporate travel platforms (TMCs, booking tools, corporate travel
  * management platforms) — not the employer.
  */
+import { DUTY_FREE_COUNTRIES } from "@/data/dutyFreeCountries";
+
 export const corporateRequestStrings = {
   en: {
     subtitle: "Tell us about your booking volume and we'll prepare a tailored revenue estimate for your platform.",
@@ -39,8 +41,8 @@ export const corporateRequestStrings = {
       'Other',
     ],
     countries: [
-      'Netherlands', 'Germany', 'France', 'United Kingdom', 'Belgium', 'Spain', 'Italy',
-      'Switzerland', 'Austria', 'Nordics', 'Other Europe', 'United States', 'Other',
+      ...DUTY_FREE_COUNTRIES,
+      'Other',
     ],
     trip_volumes: [
       'Under 10,000 bookings/year',
@@ -83,8 +85,8 @@ export const corporateRequestStrings = {
       'Overig',
     ],
     countries: [
-      'Nederland', 'Duitsland', 'Frankrijk', 'Verenigd Koninkrijk', 'België', 'Spanje', 'Italië',
-      'Zwitserland', 'Oostenrijk', 'Scandinavië', 'Overig Europa', 'Verenigde Staten', 'Overig',
+      ...DUTY_FREE_COUNTRIES,
+      'Overig',
     ],
     trip_volumes: [
       'Minder dan 10.000 boekingen/jaar',
@@ -127,8 +129,8 @@ export const corporateRequestStrings = {
       'Autre',
     ],
     countries: [
-      'Pays-Bas', 'Allemagne', 'France', 'Royaume-Uni', 'Belgique', 'Espagne', 'Italie',
-      'Suisse', 'Autriche', 'Pays nordiques', 'Autre Europe', 'États-Unis', 'Autre',
+      ...DUTY_FREE_COUNTRIES,
+      'Autre',
     ],
     trip_volumes: [
       'Moins de 10 000 réservations/an',
@@ -171,8 +173,8 @@ export const corporateRequestStrings = {
       'Sonstige',
     ],
     countries: [
-      'Niederlande', 'Deutschland', 'Frankreich', 'Vereinigtes Königreich', 'Belgien', 'Spanien', 'Italien',
-      'Schweiz', 'Österreich', 'Skandinavien', 'Anderes Europa', 'Vereinigte Staaten', 'Sonstige',
+      ...DUTY_FREE_COUNTRIES,
+      'Sonstige',
     ],
     trip_volumes: [
       'Unter 10.000 Buchungen/Jahr',
@@ -215,8 +217,8 @@ export const corporateRequestStrings = {
       'Otro',
     ],
     countries: [
-      'Países Bajos', 'Alemania', 'Francia', 'Reino Unido', 'Bélgica', 'España', 'Italia',
-      'Suiza', 'Austria', 'Países nórdicos', 'Otro de Europa', 'Estados Unidos', 'Otro',
+      ...DUTY_FREE_COUNTRIES,
+      'Otro',
     ],
     trip_volumes: [
       'Menos de 10.000 reservas/año',
@@ -259,8 +261,8 @@ export const corporateRequestStrings = {
       'Altro',
     ],
     countries: [
-      'Paesi Bassi', 'Germania', 'Francia', 'Regno Unito', 'Belgio', 'Spagna', 'Italia',
-      'Svizzera', 'Austria', 'Paesi nordici', 'Altra Europa', 'Stati Uniti', 'Altro',
+      ...DUTY_FREE_COUNTRIES,
+      'Altro',
     ],
     trip_volumes: [
       'Meno di 10.000 prenotazioni/anno',
