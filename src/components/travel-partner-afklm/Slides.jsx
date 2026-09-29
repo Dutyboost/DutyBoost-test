@@ -47,14 +47,15 @@ export function SlideCover() {
               <span className="text-green-400">A Travel Partner Presentation</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-300 max-w-3xl leading-relaxed">
-              Turn {F.GROUP_PASSENGERS} passengers a year into a new, performance-based revenue stream —
+              Turn {F.GROUP_PASSENGERS} passengers a year into a new, performance-based revenue stream — across {F.TOTAL_POINTS} redemption points in the air and on the ground,
               at zero cost to Air France-KLM and zero cost to your travellers.
             </p>
           </div>
-          <div className="flex flex-wrap items-start justify-center gap-x-8 sm:gap-x-14 lg:gap-x-20 gap-y-4 mt-2 w-full max-w-xl lg:max-w-4xl">
+          <div className="flex flex-wrap items-start justify-center gap-x-8 sm:gap-x-14 lg:gap-x-20 gap-y-4 mt-2 w-full max-w-xl lg:max-w-5xl">
             {[
               { label: "Passengers carried (2025)", value: F.GROUP_PASSENGERS },
               { label: "Destinations", value: F.DESTINATIONS },
+              { label: "In-flight points", value: F.IFE_AIRCRAFT },
               { label: "Cost to Air France-KLM", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center">
