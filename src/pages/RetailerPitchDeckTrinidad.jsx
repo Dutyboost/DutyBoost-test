@@ -84,10 +84,11 @@ function SlideCover() {
             <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
           </div>
 
+          <PositioningLine />
+
           <CalBanner />
 
           <div>
-            <PositioningLine className="mb-3" />
             <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-3">
               Incremental Revenue From Travellers<br />
               <span style={{ color: ACCENT }}>Who Otherwise Wouldn't Buy</span>
@@ -790,6 +791,8 @@ function SlideThankYou() {
           <div className="bg-white rounded-2xl px-5 py-2 shadow-2xl border border-slate-200 mb-3">
             <DutyBoostLogo height={38} linkTo="/retailer-showcase" />
           </div>
+
+          <PositioningLine className="mb-3" />
 
           <CalBanner subtitle="Caribbean Airlines Duty Free — Piarco International Airport & A.N.R. Robinson International Airport" className="max-w-4xl mb-3" />
 
