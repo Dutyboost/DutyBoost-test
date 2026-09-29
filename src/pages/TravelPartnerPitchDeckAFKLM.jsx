@@ -5,6 +5,7 @@ import {
   SlideLongHaul, SlideShortHaul, SlideJourney, SlideEconomics,
   SlideScale, SlideIntegrate, SlideClosing, SlideSolution,
 } from "@/components/travel-partner-afklm/Slides";
+import SlideSources from "@/components/travel-partner-afklm/SlideSources";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -19,6 +20,7 @@ const SLIDES = [
   { id: "scale", type: "scale" },
   { id: "integrate", type: "integrate" },
   { id: "closing", type: "closing" },
+  { id: "sources", type: "sources" },
 ];
 
 const SLIDE_LABELS = {
@@ -34,6 +36,7 @@ const SLIDE_LABELS = {
   scale: "Network-Wide Value",
   integrate: "Integration Simplicity",
   closing: "Next Steps",
+  sources: "Sources & Assumptions",
 };
 
 const SLIDE_COMPONENTS = {
@@ -49,6 +52,7 @@ const SLIDE_COMPONENTS = {
   scale: SlideScale,
   integrate: SlideIntegrate,
   closing: SlideClosing,
+  sources: SlideSources,
 };
 
 export default function TravelPartnerPitchDeckAFKLM() {

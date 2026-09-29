@@ -34,7 +34,7 @@ export const LOAD_FACTOR = "87.2%";
 
 export const GLOBAL_PAX_MOVEMENTS = "9.8B";
 export const GLOBAL_DUTY_FREE = "€68.2B";
-export const NON_PURCHASE_SHARE = "90%";
+export const NON_PURCHASE_SHARE = "73%";
 
 // Network coverage by region. Destination counts are indicative across the
 // group's up-to-320-destination network; passenger figures are FY2025 network
@@ -111,11 +111,13 @@ export const SHORT_HAUL = [
   { name: "Porto", region: "Southern Europe", pax: 260000 },
 ];
 
-// Conversion model. 90% of travellers leave an airport without buying; DutyBoost
-// converts a share of those non-purchasing travellers into paying customers at a
+// Conversion model. 73% of travellers leave an airport without buying (27%
+// penetration benchmark — m1nd-set / TFWA, consistent with the Avolta network
+// figure of ~2.5B passengers exposed at 27% penetration); DutyBoost converts a
+// share of those non-purchasing travellers into paying customers at a
 // participating store. Figures use the €20 Entry-tier minimum basket (traveller
 // saves 5% = €1.00, platform fee 2.5% = €0.50, partner share 20% of the fee).
-export const NON_PURCHASE_RATE = 0.9;
+export const NON_PURCHASE_RATE = 0.73;
 export const ENTRY_BASKET = 20;
 export const PARTNER_SHARE_OF_BASKET = 0.005; // 0.5% of basket = 20% of the 2.5% fee
 export const RETAILER_KEEP_RATE = 0.925;
@@ -133,7 +135,7 @@ export function uplift(pax, pp) {
   };
 }
 
-// Group-wide scenarios, all 102.8M group passengers at 90% non-purchasing.
+// Group-wide scenarios, all 102.8M group passengers at 73% non-purchasing.
 export const SCALE_ROWS = [0.5, 1, 2, 5].map((pp) => ({
   pp: `+${pp} pp`,
   ...uplift(102844000, pp),
@@ -159,4 +161,8 @@ export const SOURCES = [
   { label: "Air France — Winter 2024-25 network (169 destinations)", url: "https://corporate.airfrance.com/en/news/winter-2024-2025-air-france-serve-nearly-170-destinations-73-countries" },
   { label: "Paris-Charles de Gaulle — 2025 traffic & route statistics", url: "https://en.wikipedia.org/wiki/Charles_de_Gaulle_Airport" },
   { label: "Amsterdam Schiphol — 2025 traffic & route statistics", url: "https://en.wikipedia.org/wiki/Amsterdam_Airport_Schiphol" },
+  { label: "m1nd-set — traveller purchase penetration benchmark (27% purchase / 73% non-purchase)", url: "https://m1nd-set.com/" },
+  { label: "TFWA — duty-free & travel retail conversion research", url: "https://www.tfwa.com/" },
+  { label: "ACI World — global airport passenger traffic", url: "https://aci.aero/" },
+  { label: "Mordor Intelligence — duty-free & travel retail market size", url: "https://www.mordorintelligence.com/industry-reports/duty-free-and-travel-retail-market" },
 ];
