@@ -5,15 +5,15 @@ import {
 } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
-import { SlideSolution } from "@/components/shared/SlideSolution";
+import { SlideSolution } from "@/components/travel-partner-afklm/SlideSolutionGreen";
 import * as F from "./figures";
 
-const ACCENT = "text-blue-600";
-const ACCENT_DARK = "text-blue-400";
+const ACCENT = "text-green-600";
+const ACCENT_DARK = "text-green-400";
 
 function SlideWrapper({ children, dark = false }) {
   return (
-    <div className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${dark ? "bg-[#0a1f44] text-white" : "bg-white text-[#0a1f44]"}`}>
+    <div className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${dark ? "bg-[#052e16] text-white" : "bg-white text-[#052e16]"}`}>
       {children}
     </div>
   );
@@ -22,7 +22,7 @@ function SlideWrapper({ children, dark = false }) {
 function GridBg() {
   return (
     <div className="absolute inset-0 opacity-[0.06]" style={{
-      backgroundImage: "linear-gradient(rgba(31,107,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(31,107,255,0.6) 1px, transparent 1px)",
+      backgroundImage: "linear-gradient(rgba(34,197,94,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.6) 1px, transparent 1px)",
       backgroundSize: "40px 40px",
     }} />
   );
@@ -35,7 +35,7 @@ export function SlideCover() {
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #1F6BFF 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #22C55E 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-6 lg:gap-10">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
             <DutyBoostLogo height={50} linkTo={null} />
@@ -44,7 +44,7 @@ export function SlideCover() {
             <PositioningLine dark className="mb-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
               Air France-KLM<br />
-              <span className="text-blue-400">A Travel Partner Presentation</span>
+              <span className="text-green-400">A Travel Partner Presentation</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-300 max-w-3xl leading-relaxed">
               Turn {F.GROUP_PASSENGERS} passengers a year into a new, performance-based revenue stream —
@@ -58,7 +58,7 @@ export function SlideCover() {
               { label: "Cost to Air France-KLM", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center">
-                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-blue-400 whitespace-nowrap">{s.value}</div>
+                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-green-400 whitespace-nowrap">{s.value}</div>
                 <div className="text-xs sm:text-sm lg:text-base text-slate-400 mt-1 whitespace-nowrap">{s.label}</div>
               </div>
             ))}
@@ -96,22 +96,22 @@ export function SlideNetwork() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-5">
           {stats.map((s) => (
-            <div key={s.label} className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+            <div key={s.label} className="bg-green-50 border border-green-200 rounded-2xl p-5">
               <div className={`text-3xl font-bold ${ACCENT} mb-1`}>{s.val}</div>
-              <div className="text-[#0a1f44] font-semibold text-sm">{s.label}</div>
+              <div className="text-[#052e16] font-semibold text-sm">{s.label}</div>
               <div className="text-slate-500 text-xs mt-1">{s.sub}</div>
             </div>
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { icon: <Plane className="w-6 h-6 text-blue-600" />, title: "Air France", desc: "Hubbed at Paris-Charles de Gaulle and Paris-Orly, serving nearly 170 destinations in 73 countries." },
-            { icon: <Plane className="w-6 h-6 text-blue-600" />, title: "KLM", desc: "Hubbed at Amsterdam Schiphol, with more than 160 destinations of its own and a 300+ destination partner network." },
-            { icon: <Globe className="w-6 h-6 text-blue-600" />, title: "Transavia", desc: `${F.TRANSAVIA_PASSENGERS} leisure passengers a year across France and the Netherlands — all airport-bound.` },
+            { icon: <Plane className="w-6 h-6 text-green-600" />, title: "Air France", desc: "Hubbed at Paris-Charles de Gaulle and Paris-Orly, serving nearly 170 destinations in 73 countries." },
+            { icon: <Plane className="w-6 h-6 text-green-600" />, title: "KLM", desc: "Hubbed at Amsterdam Schiphol, with more than 160 destinations of its own and a 300+ destination partner network." },
+            { icon: <Globe className="w-6 h-6 text-green-600" />, title: "Transavia", desc: `${F.TRANSAVIA_PASSENGERS} leisure passengers a year across France and the Netherlands — all airport-bound.` },
           ].map((c) => (
             <div key={c.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
               <div className="mb-2">{c.icon}</div>
-              <div className="font-bold text-[#0a1f44] mb-1">{c.title}</div>
+              <div className="font-bold text-[#052e16] mb-1">{c.title}</div>
               <div className="text-slate-600 text-sm leading-relaxed">{c.desc}</div>
             </div>
           ))}
@@ -147,7 +147,7 @@ export function SlideOpportunity() {
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-br from-blue-900/50 to-indigo-900/40 border border-blue-500/30 rounded-2xl p-6 mb-4">
+          <div className="bg-gradient-to-br from-green-900/50 to-green-900/40 border border-green-500/30 rounded-2xl p-6 mb-4">
             <h3 className="text-white font-bold text-lg mb-3">The Airline Position</h3>
             <p className="text-slate-300 text-sm md:text-base leading-relaxed">
               An airline carries the traveller to the airport, into the terminal and on to the destination — but the
@@ -202,31 +202,31 @@ export function SlideRegions() {
             <tbody>
               {F.REGIONS.map((r) => (
                 <tr key={r.region} className="border-t border-slate-200">
-                  <td className="px-4 py-2.5 font-medium text-[#0a1f44]">{r.region}</td>
+                  <td className="px-4 py-2.5 font-medium text-[#052e16]">{r.region}</td>
                   <td className="px-4 py-2.5 text-right text-slate-600">{r.dest}</td>
-                  <td className="px-4 py-2.5 text-right font-semibold text-blue-700">{r.pax}</td>
+                  <td className="px-4 py-2.5 text-right font-semibold text-green-700">{r.pax}</td>
                   <td className="px-4 py-2.5 text-right text-slate-500">{r.share}%</td>
                 </tr>
               ))}
-              <tr className="border-t-2 border-slate-300 bg-blue-50">
-                <td className="px-4 py-3 font-bold text-[#0a1f44]">Network airlines total</td>
-                <td className="px-4 py-3 text-right font-bold text-[#0a1f44]">~{F.DESTINATIONS}</td>
-                <td className="px-4 py-3 text-right font-bold text-blue-700">{F.NETWORK_PASSENGERS}</td>
-                <td className="px-4 py-3 text-right font-bold text-[#0a1f44]">100%</td>
+              <tr className="border-t-2 border-slate-300 bg-green-50">
+                <td className="px-4 py-3 font-bold text-[#052e16]">Network airlines total</td>
+                <td className="px-4 py-3 text-right font-bold text-[#052e16]">~{F.DESTINATIONS}</td>
+                <td className="px-4 py-3 text-right font-bold text-green-700">{F.NETWORK_PASSENGERS}</td>
+                <td className="px-4 py-3 text-right font-bold text-[#052e16]">100%</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-            <h3 className="font-bold text-[#0a1f44] mb-2">What this means for DutyBoost</h3>
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
+            <h3 className="font-bold text-[#052e16] mb-2">What this means for DutyBoost</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               Every region is a market where the airline already delivers the traveller to a participating airport.
               The wider the network, the more redemption points a single DutyCredit has — and the more each booking is worth.
             </p>
           </div>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-            <h3 className="font-bold text-[#0a1f44] mb-2">Where the value concentrates</h3>
+            <h3 className="font-bold text-[#052e16] mb-2">Where the value concentrates</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               Short- and medium-haul carries the highest passenger volume, while long-haul carries the highest basket
               value. Together they cover both frequency and spend — the two inputs that drive redemption.
@@ -249,7 +249,7 @@ function DestinationTable({ rows, pp, setPp }) {
             key={v}
             onClick={() => setPp(v)}
             className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-colors ${
-              pp === v ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              pp === v ? "bg-green-600 text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
             }`}
           >
             +{v} pp
@@ -274,11 +274,11 @@ function DestinationTable({ rows, pp, setPp }) {
               const u = F.uplift(d.pax, pp);
               return (
                 <tr key={d.name} className="border-t border-slate-200">
-                  <td className="px-3 py-2 font-medium text-[#0a1f44] whitespace-nowrap">{d.name}</td>
+                  <td className="px-3 py-2 font-medium text-[#052e16] whitespace-nowrap">{d.name}</td>
                   <td className="px-3 py-2 text-slate-500 hidden md:table-cell whitespace-nowrap">{d.region}</td>
                   <td className="px-3 py-2 text-right text-slate-600">{d.pax.toLocaleString("en-US")}</td>
                   <td className="px-3 py-2 text-right text-slate-500">{F.fmtCount(u.nonPurchasing)}</td>
-                  <td className="px-3 py-2 text-right font-semibold text-blue-700">{F.fmtCount(u.txns)}</td>
+                  <td className="px-3 py-2 text-right font-semibold text-green-700">{F.fmtCount(u.txns)}</td>
                   <td className="px-3 py-2 text-right text-slate-600">{F.fmtEur(u.retail)}</td>
                   <td className="px-3 py-2 text-right font-semibold text-orange-600">{F.fmtEur(u.partner)}</td>
                 </tr>
@@ -334,12 +334,12 @@ export function SlideShortHaul() {
 export function SlideJourney() {
   const stages = [
     {
-      icon: <Building2 className="w-8 h-8 text-blue-600" />,
+      icon: <Building2 className="w-8 h-8 text-green-600" />,
       title: "1. At your hub",
       desc: "Departing travellers pass through the terminal at Paris-Charles de Gaulle or Amsterdam Schiphol with a DutyCredit already on their phone.",
     },
     {
-      icon: <Plane className="w-8 h-8 text-blue-600" />,
+      icon: <Plane className="w-8 h-8 text-green-600" />,
       title: "2. In flight",
       desc: "The DutyCredit sits in the booking confirmation and boarding pass — a reminder of the saving waiting at the destination, issued at zero cost to the airline.",
     },
@@ -349,7 +349,7 @@ export function SlideJourney() {
       desc: "On arrival, the same DutyCredit is redeemed at a participating store — turning every destination you fly to into a potential redemption point.",
     },
     {
-      icon: <Plane className="w-8 h-8 text-blue-600 -scale-x-100" />,
+      icon: <Plane className="w-8 h-8 text-green-600 -scale-x-100" />,
       title: "4. And all over again on the way back",
       desc: "A fresh DutyCredit is issued on the return booking and carried in the confirmation and boarding pass — then redeemed in the departure hall at the destination, and again on landing at Paris-Charles de Gaulle or Amsterdam Schiphol.",
     },
@@ -370,14 +370,14 @@ export function SlideJourney() {
           {stages.map((s) => (
             <div key={s.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
               <div className="mb-3">{s.icon}</div>
-              <div className="font-bold text-[#0a1f44] mb-2">{s.title}</div>
+              <div className="font-bold text-[#052e16] mb-2">{s.title}</div>
               <div className="text-slate-600 text-sm leading-relaxed">{s.desc}</div>
             </div>
           ))}
         </div>
         <div className="bg-slate-800 text-white rounded-2xl p-5">
           <p className="text-slate-200 text-sm md:text-base leading-relaxed">
-            The DutyCredit is <span className="text-blue-300 font-semibold">single-use and infinitely renewable</span> — a traveller
+            The DutyCredit is <span className="text-green-300 font-semibold">single-use and infinitely renewable</span> — a traveller
             can hold one for the departure hall, another for the destination, and another for the return leg. Both legs of every
             journey, in both directions, become a new opportunity, with no additional cost or liability for Air France-KLM.
           </p>
@@ -406,40 +406,40 @@ export function SlideEconomics() {
                 {[
                   { label: "Original qualifying retail value", val: "€20.00", style: "text-white font-bold text-lg" },
                   { label: "Traveller DutyCredit saving (5%)", val: "€1.00", style: "text-orange-300" },
-                  { label: "Traveller actually pays", val: "€19.00", style: "text-blue-300" },
+                  { label: "Traveller actually pays", val: "€19.00", style: "text-green-300" },
                   { label: "DutyBoost platform fee (2.5%)", val: "€0.50", style: "text-slate-400" },
-                  { label: "→ Air France-KLM share (20% of fee)", val: "€0.10", style: "text-blue-300" },
+                  { label: "→ Air France-KLM share (20% of fee)", val: "€0.10", style: "text-green-300" },
                 ].map((row) => (
                   <div key={row.label} className="flex justify-between items-center py-1.5 border-b border-white/5">
                     <span className="text-sm text-slate-300">{row.label}</span>
                     <span className={`text-sm font-semibold ${row.style}`}>{row.val}</span>
                   </div>
                 ))}
-                <div className="flex justify-between items-center py-2 mt-2 bg-blue-900/40 rounded-xl px-3">
-                  <span className="text-blue-200 font-bold text-sm">Airport retailer net before normal costs</span>
-                  <span className="text-blue-200 font-bold text-xl">€18.50</span>
+                <div className="flex justify-between items-center py-2 mt-2 bg-green-900/40 rounded-xl px-3">
+                  <span className="text-green-200 font-bold text-sm">Airport retailer net before normal costs</span>
+                  <span className="text-green-200 font-bold text-xl">€18.50</span>
                 </div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
                 <div className="text-slate-400 text-xs uppercase tracking-wide mb-2">Platform fee distribution on €0.50</div>
                 <div className="flex h-5 rounded-full overflow-hidden gap-px">
-                  <div className="bg-blue-500" style={{ width: "20%" }} />
+                  <div className="bg-green-500" style={{ width: "20%" }} />
                   <div className="bg-slate-600" style={{ width: "80%" }} />
                 </div>
                 <div className="flex gap-3 mt-2 flex-wrap text-xs">
-                  <div className="flex items-center gap-1"><div className="w-3 h-3 rounded-sm bg-blue-500" /><span className="text-slate-400">Air France-KLM 20% (€0.10)</span></div>
+                  <div className="flex items-center gap-1"><div className="w-3 h-3 rounded-sm bg-green-500" /><span className="text-slate-400">Air France-KLM 20% (€0.10)</span></div>
                   <div className="flex items-center gap-1"><div className="w-3 h-3 rounded-sm bg-slate-600" /><span className="text-slate-400">DutyBoost 80% (€0.40)</span></div>
                 </div>
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="bg-gradient-to-br from-blue-900/60 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-green-900/60 to-green-900/50 border border-green-500/30 rounded-2xl p-6">
                 <h3 className="text-white font-bold text-lg mb-3">The Core Question</h3>
-                <p className="text-blue-100 text-base leading-relaxed font-semibold">
+                <p className="text-green-100 text-base leading-relaxed font-semibold">
                   “Is earning a share of every €20 your passengers spend at airports — with zero cost, zero effort and zero
                   liability — a meaningful new revenue line from bookings you already make?”
                 </p>
-                <p className="text-blue-300 font-bold text-lg mt-3">Yes — and it scales with your network.</p>
+                <p className="text-green-300 font-bold text-lg mt-3">Yes — and it scales with your network.</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
                 <h3 className="text-white font-semibold mb-3">Why the economics work for Air France-KLM</h3>
@@ -453,7 +453,7 @@ export function SlideEconomics() {
                       <div className="text-slate-300 text-sm">{row.item}</div>
                       <div className="text-slate-500 text-xs">{row.sub}</div>
                     </div>
-                    <span className="font-bold text-blue-300 whitespace-nowrap ml-3">{row.val}</span>
+                    <span className="font-bold text-green-300 whitespace-nowrap ml-3">{row.val}</span>
                   </div>
                 ))}
                 <p className="text-slate-400 text-xs mt-3">
@@ -485,11 +485,11 @@ export function SlideScale() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
           {F.SCALE_ROWS.map((r) => (
-            <div key={r.pp} className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
-              <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-1">{r.pp} uplift</div>
-              <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">{F.fmtEur(r.partner)}</div>
-              <div className="text-blue-600 text-xs font-medium mb-3">annual Air France-KLM share</div>
-              <div className="border-t border-blue-200 pt-2 space-y-1 text-xs text-slate-500">
+            <div key={r.pp} className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
+              <div className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">{r.pp} uplift</div>
+              <div className="text-2xl md:text-3xl font-bold text-green-700 mb-1">{F.fmtEur(r.partner)}</div>
+              <div className="text-green-600 text-xs font-medium mb-3">annual Air France-KLM share</div>
+              <div className="border-t border-green-200 pt-2 space-y-1 text-xs text-slate-500">
                 <div>{F.fmtCount(r.txns)} new transactions</div>
                 <div>{F.fmtEur(r.retail)} airport retail</div>
               </div>
@@ -507,7 +507,7 @@ export function SlideScale() {
               ].map((row) => (
                 <div key={row.b} className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-white/5">
                   <span className="text-slate-300">{row.b}</span>
-                  <span className="text-blue-300 font-semibold whitespace-nowrap ml-3">{row.m}</span>
+                  <span className="text-green-300 font-semibold whitespace-nowrap ml-3">{row.m}</span>
                 </div>
               ))}
             </div>
@@ -515,8 +515,8 @@ export function SlideScale() {
               Partner share is 0.5% of the qualifying basket (20% of DutyBoost's 2.5% fee), capped per transaction.
             </p>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-5">
-            <h3 className="font-bold text-[#0a1f44] mb-3">Why this is pure upside</h3>
+          <div className="bg-gradient-to-br from-green-50 to-green-50 border border-green-200 rounded-2xl p-5">
+            <h3 className="font-bold text-[#052e16] mb-3">Why this is pure upside</h3>
             <ul className="space-y-2 text-sm">
               {[
                 "100% passive — earned from bookings you already make",
@@ -526,7 +526,7 @@ export function SlideScale() {
                 "One integration across flights, hotels and car rental",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">{item}</span>
                 </li>
               ))}
@@ -563,23 +563,23 @@ export function SlideIntegrate() {
                   "Reusable across markets — lower marginal onboarding cost",
                 ].map((t) => (
                   <div key={t} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                     <span className="text-slate-300 text-sm">{t}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-900/60 to-indigo-900/50 border border-blue-500/30 rounded-2xl p-6">
+            <div className="bg-gradient-to-br from-green-900/60 to-green-900/50 border border-green-500/30 rounded-2xl p-6">
               <h3 className="text-white font-bold text-xl mb-2">ONE SNIPPET</h3>
-              <p className="text-blue-100 text-sm leading-relaxed mb-5">
+              <p className="text-green-100 text-sm leading-relaxed mb-5">
                 A single snippet in your booking flow issues a DutyCredit to every traveller — turning every booking type
                 into a passive, redemption-linked commission stream.
               </p>
               <div className="grid grid-cols-3 gap-3 text-center">
                 {[
-                  { icon: <Plane className="w-7 h-7 text-blue-300 mx-auto" />, label: "Flights" },
-                  { icon: <Building2 className="w-7 h-7 text-blue-300 mx-auto" />, label: "Hotels" },
-                  { icon: <MapPin className="w-7 h-7 text-blue-300 mx-auto" />, label: "Car Rental" },
+                  { icon: <Plane className="w-7 h-7 text-green-300 mx-auto" />, label: "Flights" },
+                  { icon: <Building2 className="w-7 h-7 text-green-300 mx-auto" />, label: "Hotels" },
+                  { icon: <MapPin className="w-7 h-7 text-green-300 mx-auto" />, label: "Car Rental" },
                 ].map((s) => (
                   <div key={s.label} className="bg-white/5 rounded-xl p-3">
                     <div className="flex justify-center">{s.icon}</div>
@@ -602,7 +602,7 @@ export function SlideClosing() {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-8 relative">
         <GridBg />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #1F6BFF 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #22C55E 0%, transparent 70%)" }} />
         <div className="relative z-10 text-center">
           <div className="flex justify-center mb-5">
             <div className="bg-white rounded-2xl px-6 py-3 shadow-xl">
@@ -627,18 +627,18 @@ export function SlideClosing() {
               { title: "A stronger loyalty story", desc: "A genuine, retailer-funded discount at every airport you fly to — a tangible perk for every passenger." },
             ].map((c) => (
               <div key={c.title} className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                <div className="text-blue-300 font-bold mb-1.5">{c.title}</div>
+                <div className="text-green-300 font-bold mb-1.5">{c.title}</div>
                 <div className="text-slate-400 text-sm leading-relaxed">{c.desc}</div>
               </div>
             ))}
           </div>
           <div className="flex flex-col items-center gap-3">
-            <p className="text-blue-300 text-base md:text-lg font-bold">
+            <p className="text-green-300 text-base md:text-lg font-bold">
               No setup fee. No subscription. No risk. Only passive income — connected.
             </p>
             <Link
               to="/travel-partner-request"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors"
             >
               Book a Partnership Call <ArrowRight className="w-4 h-4" />
             </Link>

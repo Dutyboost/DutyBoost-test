@@ -70,7 +70,7 @@ export default function TravelPartnerPitchDeckAFKLM() {
   const SlideComp = SLIDE_COMPONENTS[slide.type];
 
   return (
-    <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
+    <div className="min-h-screen bg-[#031a10] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
       <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Air France-KLM Travel Partner Presentation 2026
@@ -98,7 +98,7 @@ export default function TravelPartnerPitchDeckAFKLM() {
               onClick={() => setCurrent(i)}
               title={SLIDE_LABELS[s.type]}
               className={`text-xs px-3 py-1 rounded-lg transition-all font-medium ${
-                i === current ? "bg-blue-600 text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
+                i === current ? "bg-green-600 text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
               }`}
             >
               {i + 1}
@@ -108,7 +108,7 @@ export default function TravelPartnerPitchDeckAFKLM() {
         <button
           onClick={next}
           disabled={current === SLIDES.length - 1}
-          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-green-600 text-white hover:bg-green-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
         >
           Next <ChevronRight size={18} />
         </button>
