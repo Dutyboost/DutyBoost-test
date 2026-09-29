@@ -348,6 +348,11 @@ export function SlideJourney() {
       title: "3. Where they land",
       desc: "On arrival, the same DutyCredit is redeemed at a participating store — turning every destination you fly to into a potential redemption point.",
     },
+    {
+      icon: <Plane className="w-8 h-8 text-blue-600 -scale-x-100" />,
+      title: "4. And all over again on the way back",
+      desc: "A fresh DutyCredit is issued on the return booking — redeemed in the departure hall at the destination, then again on landing at Paris-Charles de Gaulle or Amsterdam Schiphol.",
+    },
   ];
   return (
     <SlideWrapper>
@@ -355,10 +360,13 @@ export function SlideJourney() {
         <div className="mb-6">
           <span className={`${ACCENT} text-sm font-semibold uppercase tracking-widest`}>Across the Journey</span>
           <h2 className="text-xl md:text-3xl font-heading font-bold mt-2">
-            One DutyCredit, <span className={ACCENT}>Three Moments of Value</span>
+            One DutyCredit, <span className={ACCENT}>Every Leg of the Journey</span>
           </h2>
+          <p className="text-slate-500 mt-1 text-sm">
+            The outbound leg repeats in reverse on the way home — twice the airport retail moments, at no extra cost to the airline.
+          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-6">
           {stages.map((s) => (
             <div key={s.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
               <div className="mb-3">{s.icon}</div>
@@ -370,8 +378,8 @@ export function SlideJourney() {
         <div className="bg-slate-800 text-white rounded-2xl p-5">
           <p className="text-slate-200 text-sm md:text-base leading-relaxed">
             The DutyCredit is <span className="text-blue-300 font-semibold">single-use and infinitely renewable</span> — a traveller
-            can hold one for the departure hall, another for the destination, and another for the return leg. Every leg of every
-            journey becomes a new opportunity, with no additional cost or liability for Air France-KLM.
+            can hold one for the departure hall, another for the destination, and another for the return leg. Both legs of every
+            journey, in both directions, become a new opportunity, with no additional cost or liability for Air France-KLM.
           </p>
         </div>
       </div>
