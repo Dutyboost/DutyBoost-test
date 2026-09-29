@@ -5,7 +5,7 @@ export default function AirFranceKLMLogo({ height = 48, className = "" }) {
     <img
       src={LOGO_URL}
       alt="Air France-KLM"
-      className={`bg-white ${className}`}
+      className={className}
       style={{ height: `${height}px`, width: "auto", display: "block" }}
     />
   );

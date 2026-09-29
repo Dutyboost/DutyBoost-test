@@ -44,7 +44,7 @@ export function SlideCover() {
           <div>
             <PositioningLine className="mb-3" />
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-[#052e16] leading-tight mb-4">
-              <AirFranceKLMLogo height={60} className="mx-auto mb-4" />
+              <AirFranceKLMLogo height={100} className="mx-auto mb-4" />
               <span className="text-green-600">A Travel Partner Presentation</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 max-w-3xl leading-relaxed">
