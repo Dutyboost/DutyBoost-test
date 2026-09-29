@@ -99,11 +99,6 @@ export default function StakeholderRequestForm({ stakeholder }) {
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to={cfg.backTo}>
-              <Button variant="outline" size="sm" className="gap-1.5">
-                <ArrowLeft className="w-4 h-4 shrink-0" /> {t('common.back')}
-              </Button>
-            </Link>
             <LanguageSwitcher />
           </div>
         </div>
