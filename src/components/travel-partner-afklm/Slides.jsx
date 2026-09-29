@@ -9,11 +9,11 @@ import { SlideSolution } from "@/components/travel-partner-afklm/SlideSolutionGr
 import * as F from "./figures";
 
 const ACCENT = "text-green-600";
-const ACCENT_DARK = "text-green-400";
+const ACCENT_DARK = "text-green-600";
 
-function SlideWrapper({ children, dark = false }) {
+function SlideWrapper({ children }) {
   return (
-    <div className={`w-full flex flex-col overflow-y-auto lg:overflow-hidden ${dark ? "bg-[#052e16] text-white" : "bg-white text-[#052e16]"}`}>
+    <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-white text-[#052e16]">
       {children}
     </div>
   );
@@ -31,22 +31,22 @@ function GridBg() {
 /* ---------------------------------------------------------------- COVER */
 export function SlideCover() {
   return (
-    <SlideWrapper dark>
+    <SlideWrapper>
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         <GridBg />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07]"
           style={{ background: "radial-gradient(circle, #22C55E 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-6 lg:gap-10">
-          <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl">
+          <div className="bg-white border border-slate-200 rounded-2xl px-8 py-4 shadow-lg">
             <DutyBoostLogo height={50} linkTo={null} />
           </div>
           <div>
-            <PositioningLine dark className="mb-3" />
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
+            <PositioningLine className="mb-3" />
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-[#052e16] leading-tight mb-4">
               Air France-KLM<br />
-              <span className="text-green-400">A Travel Partner Presentation</span>
+              <span className="text-green-600">A Travel Partner Presentation</span>
             </h1>
-            <p className="text-lg lg:text-xl text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-lg lg:text-xl text-slate-600 max-w-3xl leading-relaxed">
               Turn {F.GROUP_PASSENGERS} passengers a year into a new, performance-based revenue stream — across {F.TOTAL_POINTS} redemption points in the air and on the ground,
               at zero cost to Air France-KLM and zero cost to your travellers.
             </p>
@@ -59,12 +59,12 @@ export function SlideCover() {
               { label: "Cost to Air France-KLM", value: "€0" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center">
-                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-green-400 whitespace-nowrap">{s.value}</div>
-                <div className="text-xs sm:text-sm lg:text-base text-slate-400 mt-1 whitespace-nowrap">{s.label}</div>
+                <div className="text-xl sm:text-3xl lg:text-5xl font-bold text-green-600 whitespace-nowrap">{s.value}</div>
+                <div className="text-xs sm:text-sm lg:text-base text-slate-500 mt-1 whitespace-nowrap">{s.label}</div>
               </div>
             ))}
           </div>
-          <div className="mt-2 text-xs text-slate-500 border border-slate-700 rounded px-4 py-2">
+          <div className="mt-2 text-xs text-slate-500 border border-slate-200 bg-slate-50 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
