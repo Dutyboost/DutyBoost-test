@@ -57,8 +57,9 @@ export default function RetailerPosConfirmation() {
   const isValid =
     form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.volume &&
     form.posProviders.length > 0 && !needsPosOther &&
-    form.siCompany && form.siContactName && form.siContactEmail &&
-    form.posContactName && form.posContactEmail && form.authorised && form.confirmed;
+    form.siCompany && form.siContactName && form.siContactEmail && form.siContactPhone &&
+    form.posContactName && form.posContactEmail && form.posContactPhone &&
+    form.message.trim() && form.authorised && form.confirmed;
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleDownload = async (e) => {
@@ -269,8 +270,8 @@ export default function RetailerPosConfirmation() {
                       <Input required type="email" value={form.posContactEmail} onChange={(e) => set("posContactEmail", e.target.value)} placeholder="jane@company.com" />
                     </div>
                     <div className="space-y-1.5">
-                      <Label>{s.label_pos_contact_phone} <span className="text-muted-foreground text-xs">{t("corporaterequest.optional")}</span></Label>
-                      <Input type="tel" value={form.posContactPhone} onChange={(e) => set("posContactPhone", e.target.value)} placeholder="+31 20 123 4567" />
+                      <Label>{s.label_pos_contact_phone}<Required /></Label>
+                      <Input required type="tel" value={form.posContactPhone} onChange={(e) => set("posContactPhone", e.target.value)} placeholder="+31 20 123 4567" />
                     </div>
                   </div>
                 </div>
@@ -292,8 +293,8 @@ export default function RetailerPosConfirmation() {
                       <Input required type="email" value={form.siContactEmail} onChange={(e) => set("siContactEmail", e.target.value)} placeholder="john@integrator.com" />
                     </div>
                     <div className="space-y-1.5">
-                      <Label>{s.label_si_contact_phone} <span className="text-muted-foreground text-xs">{t("corporaterequest.optional")}</span></Label>
-                      <Input type="tel" value={form.siContactPhone} onChange={(e) => set("siContactPhone", e.target.value)} placeholder="+31 20 123 4567" />
+                      <Label>{s.label_si_contact_phone}<Required /></Label>
+                      <Input required type="tel" value={form.siContactPhone} onChange={(e) => set("siContactPhone", e.target.value)} placeholder="+31 20 123 4567" />
                     </div>
                   </div>
                 </div>
@@ -328,11 +329,12 @@ export default function RetailerPosConfirmation() {
                   </label>
                 </div>
 
-                {/* Optional message */}
+                {/* Message */}
                 <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
                   <div className="space-y-1.5">
-                    <Label>{t("corporaterequest.label_message")} <span className="text-muted-foreground text-xs">{t("corporaterequest.optional")}</span></Label>
+                    <Label>{t("corporaterequest.label_message")}<Required /></Label>
                     <textarea
+                      required
                       className="w-full min-h-[80px] rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
                       placeholder={t("corporaterequest.placeholder_message")}
                       value={form.message}
