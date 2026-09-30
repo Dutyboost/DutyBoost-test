@@ -152,6 +152,7 @@ import WholesaleCalculator from './pages/WholesaleCalculator';
 import AirportPartnerRequest from './pages/AirportPartnerRequest';
 import WholesalePartnerRequest from './pages/WholesalePartnerRequest';
 import RetailerRequest from './pages/RetailerRequest';
+import RetailerConfirmation from './pages/RetailerConfirmation';
 import TravelPartnerRequest from './pages/TravelPartnerRequest';
 import AccommodationRequest from './pages/AccommodationRequest';
 import CarRentalRequest from './pages/CarRentalRequest';
@@ -312,6 +313,7 @@ const AuthenticatedApp = () => {
         <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
         <Route path="/wholesale-partner-request" element={<WholesalePartnerRequest />} />
         <Route path="/retailer-request" element={<RetailerRequest />} />
+        <Route path="/retailer-confirmation" element={<RetailerConfirmation />} />
         <Route path="/travel-partner-request" element={<TravelPartnerRequest />} />
         <Route path="/accommodation-request" element={<AccommodationRequest />} />
         <Route path="/car-rental-request" element={<CarRentalRequest />} />

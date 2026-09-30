@@ -935,7 +935,7 @@ export function SlideClosingAvolta() {
           </div>
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-600 tracking-tight">THANK YOU</h2>
           <a
-            href="/retailer-request"
+            href="/retailer-confirmation"
             className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-white font-semibold text-base shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
           >
             Book a Partnership Call

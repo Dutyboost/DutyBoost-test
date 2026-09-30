@@ -821,7 +821,7 @@ function SlideThankYou() {
             </p>
           </div>
           <a
-            href="/retailer-request"
+            href="/retailer-confirmation"
             className="mt-4 inline-flex items-center gap-2 rounded-full px-6 py-3 text-white font-semibold text-sm shadow-lg hover:opacity-90 transition-opacity"
             style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}
           >

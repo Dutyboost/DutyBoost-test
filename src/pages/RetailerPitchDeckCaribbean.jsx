@@ -791,7 +791,7 @@ function SlideThankYou() {
             </p>
           </div>
           <Link
-            to="/retailer-request"
+            to="/retailer-confirmation"
             className="mt-5 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-white font-semibold text-sm md:text-base shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
           >
             Book a Partnership Call
