@@ -938,7 +938,7 @@ export function SlideClosingAvolta() {
             href="/retailer-confirmation"
             className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-white font-semibold text-base shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
           >
-            Book a Partnership Call
+            Confirm your POS Integration Interest
             <ArrowRight className="w-4 h-4" />
           </a>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
