@@ -381,6 +381,9 @@ export default function LOITab() {
                     ["Representative", loi.partner_representative_name],
                     ["Title", loi.partner_representative_title],
                     ["Email", loi.partner_email],
+                    ["System Integrator", loi.system_integrator_company],
+                    ["SI Contact", loi.system_integrator_contact],
+                    ["SI Email", loi.system_integrator_email],
                     ["Signed Date", loi.signed_date ? new Date(loi.signed_date).toLocaleString() : "—"],
                   ].filter(([, v]) => v).map(([label, value]) => (
                     <div key={label}>

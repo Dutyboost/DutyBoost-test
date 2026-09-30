@@ -23,7 +23,7 @@ const EMPTY = {
   posProviders: [], posOther: "",
   posContactName: "", posContactEmail: "", posContactPhone: "",
   siCompany: "", siContactName: "", siContactEmail: "", siContactPhone: "",
-  submissionMode: "authorise", confirmed: false, message: "",
+  authorised: false, confirmed: false, message: "",
 };
 
 function Required() {
@@ -58,7 +58,7 @@ export default function RetailerPosConfirmation() {
     form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.volume &&
     form.posProviders.length > 0 && !needsPosOther &&
     form.siCompany && form.siContactName && form.siContactEmail &&
-    form.posContactName && form.posContactEmail && form.confirmed;
+    form.posContactName && form.posContactEmail && form.authorised && form.confirmed;
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleDownload = async (e) => {
@@ -88,32 +88,51 @@ export default function RetailerPosConfirmation() {
         si_contact_name: form.siContactName,
         si_contact_email: form.siContactEmail,
         si_contact_phone: form.siContactPhone,
-        submission_authorisation: form.submissionMode === "self" ? "Retailer submits directly" : "DutyBoost submits on retailer's behalf",
+        submission_authorisation: "Retailer authorises the system integrator to carry out the DutyBoost integration",
+      });
+      // Filed in the DutyBoost admin as a Letter of Intent
+      await base44.entities.LetterOfIntent.create({
+        partner_company_name: form.company,
+        partner_street: "",
+        partner_postal_code: "",
+        partner_city: "",
+        partner_country: form.country,
+        partner_registration_number: "",
+        partner_vat: "",
+        partner_representative_name: form.fullName,
+        partner_representative_title: form.jobTitle,
+        partner_website: form.website,
+        partner_email: form.email,
+        partner_type: "Airport Retailer",
+        language: i18n.language || "en",
+        signed: true,
+        signed_date: new Date().toISOString(),
+        status: "pending",
+        system_integrator_company: form.siCompany,
+        system_integrator_contact: `${form.siContactName}${form.siContactPhone ? " — " + form.siContactPhone : ""}`,
+        system_integrator_email: form.siContactEmail,
       });
       try {
-        await base44.integrations.Core.SendEmail({
-          to: "hello@dutyboost.com",
-          subject: `${cfg.emailSubject} — POS integration confirmation — ${form.company}`,
-          body: `
-            <div style="font-family: sans-serif; max-width: 560px;">
-              <h2>${r.badge} — POS Integration Confirmation of Interest</h2>
-              <table style="width:100%; border-collapse:collapse;">
-                <tr><td style="padding:6px 0; color:#666;">Name</td><td><strong>${form.fullName}</strong></td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Title</td><td>${form.jobTitle}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Email</td><td><strong>${form.email}</strong></td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Company</td><td><strong>${form.company}</strong></td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">${r.label_volume}</td><td>${form.volume}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">${r.label_pos}</td><td>${posValues.join(", ")}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">POS contact</td><td>${form.posContactName} — ${form.posContactEmail} — ${form.posContactPhone || "—"}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">System integrator</td><td>${form.siCompany} — ${form.siContactName} — ${form.siContactEmail} — ${form.siContactPhone || "—"}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Authorisation</td><td>${form.submissionMode === "self" ? s.consent_self : s.consent_authorise}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Message</td><td>${form.message || "—"}</td></tr>
-              </table>
-            </div>
-          `,
-        });
+        const summary = `
+          <div style="font-family: sans-serif; max-width: 560px;">
+            <h2>DutyBoost — POS Integration Confirmation of Interest</h2>
+            <p><strong>${form.company}</strong> (${form.website}, ${form.country}) confirms its interest in integrating DutyBoost in its POS environment and authorises the system integrator named below to carry out the integration so that DutyCredits can be redeemed.</p>
+            <h3>Retailer</h3>
+            <p>${form.fullName} — ${form.jobTitle}<br/>${form.email}<br/>${r.label_volume}: ${form.volume}</p>
+            <h3>Internal POS / IT contact</h3>
+            <p>${form.posContactName}<br/>${form.posContactEmail}<br/>${form.posContactPhone || "—"}</p>
+            <h3>System integrator</h3>
+            <p>${form.siCompany}<br/>${form.siContactName}<br/>${form.siContactEmail}<br/>${form.siContactPhone || "—"}</p>
+            <h3>${r.label_pos}</h3>
+            <p>${posValues.join(", ")}</p>
+            ${form.message ? `<h3>Message</h3><p>${form.message}</p>` : ""}
+          </div>
+        `;
+        const subject = `DutyBoost POS integration — ${form.company} confirmation of interest`;
+        await Promise.all([
+          base44.integrations.Core.SendEmail({ to: form.siContactEmail, subject, body: summary }),
+          base44.integrations.Core.SendEmail({ to: "hello@dutyboost.com", subject: `${subject} (copy)`, body: summary }),
+        ]);
       } catch {
         // Email failure is non-blocking
       }
@@ -283,28 +302,19 @@ export default function RetailerPosConfirmation() {
                 <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
                   <h3 className="font-heading font-semibold">{s.sec_consent}</h3>
                   <p className="text-sm text-muted-foreground">{s.consent_intro}</p>
-                  <div className="space-y-2">
-                    {[
-                      { key: "authorise", text: s.consent_authorise },
-                      { key: "self", text: s.consent_self },
-                    ].map((opt) => (
-                      <label
-                        key={opt.key}
-                        className={`flex items-start gap-3 rounded-xl border p-3 cursor-pointer transition-colors ${
-                          form.submissionMode === opt.key ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="submissionMode"
-                          className="mt-1 accent-primary"
-                          checked={form.submissionMode === opt.key}
-                          onChange={() => set("submissionMode", opt.key)}
-                        />
-                        <span className="text-sm text-foreground">{opt.text}</span>
-                      </label>
-                    ))}
-                  </div>
+                  <label
+                    className={`flex items-start gap-3 rounded-xl border p-3 cursor-pointer transition-colors ${
+                      form.authorised ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      className="mt-0.5 accent-primary"
+                      checked={form.authorised}
+                      onChange={(e) => set("authorised", e.target.checked)}
+                    />
+                    <span className="text-sm text-foreground">{s.consent_authorise}</span>
+                  </label>
                   <label className="flex items-start gap-3 cursor-pointer pt-1">
                     <input
                       type="checkbox"

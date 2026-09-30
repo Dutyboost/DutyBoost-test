@@ -166,7 +166,7 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
   y += 3;
 
   y = heading(pdf, y, T.auth_heading);
-  y = paragraph(pdf, y, form.submissionMode === "self" ? T.auth_self : T.auth_authorise, { size: 10 });
+  y = paragraph(pdf, y, T.auth_authorise, { size: 10 });
   y += 4;
 
   y = heading(pdf, y, T.sign_heading);

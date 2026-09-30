@@ -56,8 +56,21 @@
         "Car Rental",
         "Tour Operator",
         "OTA",
+        "Airport Retailer",
         "Other"
       ]
+    },
+    "system_integrator_company": {
+      "type": "string",
+      "title": "System Integrator Company"
+    },
+    "system_integrator_contact": {
+      "type": "string",
+      "title": "System Integrator Contact"
+    },
+    "system_integrator_email": {
+      "type": "string",
+      "title": "System Integrator Email"
     },
     "language": {
       "type": "string",
