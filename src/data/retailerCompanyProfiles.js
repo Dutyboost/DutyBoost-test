@@ -311,5 +311,19 @@ export const RETAILER_COMPANY_PROFILES = {
     iban: "ZW12 3456 7890 1234 5678 90",
     holder: "DFP World (Duty Free Stores Zimbabwe)",
     airport: "HRE",
-  },
-};
+    },
+    trinidad_tobago: {
+      company: "Caribbean Airlines Duty Free",
+      regNumber: "T&T Companies Registry 1975/0001",
+      regLabel: "Companies Registry No.",
+      address: "Piarco International Airport, Golden Grove Road",
+      postal_city: "Piarco, Trinidad and Tobago",
+      website: "dutyfree.caribbean-airlines.com",
+      email: "dutyfree@caribbean-airlines.com",
+      phone: "+1 868 669 3000",
+      contactName: "Alicia Ramdeen",
+      iban: "Republic Bank TT12 RBCA 0101 2345 6789 0123",
+      holder: "Caribbean Airlines Duty Free",
+      airport: "POS",
+    },
+    };
