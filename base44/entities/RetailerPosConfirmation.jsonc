@@ -1,0 +1,106 @@
+{
+  "name": "RetailerPosConfirmation",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "title": "Contact Full Name"
+    },
+    "email": {
+      "type": "string",
+      "title": "Work Email"
+    },
+    "job_title": {
+      "type": "string",
+      "title": "Job Title"
+    },
+    "company_name": {
+      "type": "string",
+      "title": "Retailer Company"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country"
+    },
+    "stores_volume": {
+      "type": "string",
+      "title": "Stores / Traveller Volume"
+    },
+    "pos_providers": {
+      "type": "array",
+      "title": "POS Providers in Use",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pos_contact_name": {
+      "type": "string",
+      "title": "Internal POS / IT Contact Name"
+    },
+    "pos_contact_email": {
+      "type": "string",
+      "title": "Internal POS / IT Contact Email"
+    },
+    "pos_contact_phone": {
+      "type": "string",
+      "title": "Internal POS / IT Contact Telephone"
+    },
+    "si_company_name": {
+      "type": "string",
+      "title": "System Integrator Company"
+    },
+    "si_contact_name": {
+      "type": "string",
+      "title": "System Integrator Contact Name"
+    },
+    "si_contact_email": {
+      "type": "string",
+      "title": "System Integrator Contact Email"
+    },
+    "si_contact_phone": {
+      "type": "string",
+      "title": "System Integrator Contact Telephone"
+    },
+    "submission_authorisation": {
+      "type": "string",
+      "title": "Submission Authorisation"
+    },
+    "message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "default": "en"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "company_name",
+    "country"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

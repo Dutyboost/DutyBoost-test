@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import LeadsTab from "../components/LeadsTab";
-import LOITab from "../components/LOITab";
+import RetailerPosConfirmationsTab from "../components/RetailerPosConfirmationsTab";
 import { base44 } from "@/api/base44Client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -2119,12 +2119,12 @@ export default function SurveyDashboard() {
               <Phone className="w-3.5 h-3.5" /> Leads
             </button>
             <button
-              onClick={() => setActiveTab("loi")}
+              onClick={() => setActiveTab("pos-confirmations")}
               className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
-                activeTab === "loi" ? "bg-indigo-600 text-white shadow" : "text-slate-400 hover:text-white"
+                activeTab === "pos-confirmations" ? "bg-emerald-600 text-white shadow" : "text-slate-400 hover:text-white"
               }`}
             >
-              <FileText className="w-3.5 h-3.5" /> Signed LOIs
+              <FileText className="w-3.5 h-3.5" /> Retailer POS Confirmations
             </button>
             <button
               onClick={() => setActiveTab("traffic")}
@@ -2151,8 +2151,8 @@ export default function SurveyDashboard() {
           <CorporatePartnerDashboard responses={corporateResponses} />
         ) : activeTab === "leads" ? (
           <LeadsTab />
-        ) : activeTab === "loi" ? (
-          <LOITab />
+        ) : activeTab === "pos-confirmations" ? (
+          <RetailerPosConfirmationsTab />
         ) : activeTab === "traffic" ? (
           <TrafficDashboard />
         ) : activeTab === "benchmark" ? (
