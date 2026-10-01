@@ -541,8 +541,6 @@ function downloadInvoicePDF(inv, entity, profile, cfg, currency = "EUR") {
   doc.setFontSize(9);
   doc.setTextColor(150);
   doc.line(20, ty, 190, ty);
-  doc.text(cfg.footer2, 20, ty + 7);
-  doc.text(cfg.dutyboostFooter, 20, ty + 14);
 
   // Add logo only on first page, centered
   doc.setPage(1);
