@@ -130,10 +130,32 @@ export default function RetailerDashboard() {
     setAirports(acc.airports);
     setRetailers(acc.stores);
     setTransactions(acc.transactions);
-    setVouchers(acc.vouchers);
     setAddedStores([]);
     setDemoAirport("");
     setDemoStoreId("all");
+
+    // DutyCredits are never pre-filled in the demo: only the real ones generated
+    // for these airports (the claim flow stores "<CODE> — <city>") are listed.
+    setVouchers([]);
+    const codes = acc.airports.map(a => a.code);
+    // A generated DutyCredit carries "<CODE> — <city>"; store it under the airport code.
+    const normalize = v => {
+      const code = codes.find(c => (v?.airport || "").toUpperCase().startsWith(c));
+      return code ? { ...v, airport: code } : null;
+    };
+    let cancelled = false;
+    let unsubscribe = () => {};
+    try {
+      base44.entities.Voucher.filter({ status: "active" }, "-created_date", 100)
+        .then(live => { if (!cancelled) setVouchers(live.map(normalize).filter(Boolean)); });
+      unsubscribe = base44.entities.Voucher.subscribe(event => {
+        const credit = event.type === "create" ? normalize(event.data) : null;
+        if (credit) setVouchers(prev => [credit, ...prev.filter(v => v.id !== credit.id)]);
+      });
+    } catch (e) {
+      // Public demo — no live DutyCredits to load
+    }
+    return () => { cancelled = true; unsubscribe(); };
   }, [demoMode, companySlug]);
 
   useEffect(() => {
@@ -155,7 +177,9 @@ export default function RetailerDashboard() {
     );
   }, [demoMode, transactions, scopeAirport, selectedStore]);
   const scopedVouchers = useMemo(
-    () => (demoMode && scopeAirport ? vouchers.filter(v => v.airport === scopeAirport) : vouchers),
+    () => (demoMode && scopeAirport
+      ? vouchers.filter(v => (v.airport || "").toUpperCase().startsWith(scopeAirport.toUpperCase()))
+      : vouchers),
     [demoMode, vouchers, scopeAirport]
   );
 
@@ -492,10 +516,9 @@ export default function RetailerDashboard() {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
          <StatsCard title="My Stores" value={listedStores.length} icon={Store} />
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
-         <StatsCard title="Active DutyCredits" value={scopedVouchers.length} icon={TicketPercent} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
         <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
