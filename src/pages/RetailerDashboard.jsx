@@ -40,6 +40,10 @@ export default function RetailerDashboard() {
   const { company: companySlug } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  // A demo link (a company in the URL, or ?demo=1) always shows the representative
+  // data set — including while signed in, so the demo looks the same in the editor
+  // preview as it does on the published public link.
+  const demoRequested = Boolean(companySlug) || searchParams.get("demo") === "1";
   const { i18n } = useTranslation();
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
@@ -92,6 +96,12 @@ export default function RetailerDashboard() {
 
   useEffect(() => {
     const initLoad = async () => {
+      if (demoRequested) {
+        // Demo link — never load live records, even when signed in
+        try { setUser(await base44.auth.me()); } catch (err) { setUser(null); }
+        setDemoMode(true);
+        return;
+      }
       try {
         const currentUser = await base44.auth.me();
         setUser(currentUser);
@@ -106,7 +116,7 @@ export default function RetailerDashboard() {
       }
     };
     initLoad();
-  }, []);
+  }, [demoRequested]);
 
   // Public (shared) link: fill the dashboard from the selected company's data set
   useEffect(() => {
