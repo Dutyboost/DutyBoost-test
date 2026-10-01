@@ -30,7 +30,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
   );
 
   const aggregatedMetrics = useMemo(() => {
-    let totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);
+    let totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count ?? 1), 0);
     let grossRevenue = filteredTransactions.reduce((sum, t) => sum + (t.transaction_value || 0), 0);
     let totalSavings = filteredTransactions.reduce((sum, t) => sum + (t.total_savings || 0), 0);
     let totalCommission = filteredTransactions.reduce((sum, t) => sum + (t.total_commission || 0), 0);
@@ -77,7 +77,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
         breakdown[airport] = { airport, redemptions: 0, revenue: 0 };
         airportOrder.push(airport);
       }
-      breakdown[airport].redemptions += t.count || 1;
+      breakdown[airport].redemptions += t.count ?? 1;
       breakdown[airport].revenue += t.transaction_value || 0;
     });
     
@@ -103,7 +103,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       const store = t.store_name || "Unnamed store";
       if (!map[airport]) map[airport] = {};
       if (!map[airport][store]) map[airport][store] = { store, redemptions: 0, revenue: 0 };
-      map[airport][store].redemptions += t.count || 1;
+      map[airport][store].redemptions += t.count ?? 1;
       map[airport][store].revenue += t.transaction_value || 0;
     });
     return Object.fromEntries(

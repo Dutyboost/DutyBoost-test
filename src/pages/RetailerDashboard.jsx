@@ -252,7 +252,7 @@ export default function RetailerDashboard() {
   );
 
   const totalRedemptions = useMemo(() =>
-    filteredTransactions.reduce((s, t) => s + (t.count || 1), 0),
+    filteredTransactions.reduce((s, t) => s + (t.count ?? 1), 0),
     [filteredTransactions]
   );
 
