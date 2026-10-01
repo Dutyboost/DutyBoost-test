@@ -519,6 +519,25 @@ function downloadInvoicePDF(inv, entity, profile, cfg, currency = "EUR") {
   doc.text(inv.status, 135, ty);
   ty += 12;
 
+  // Payment details (bank transfer)
+  if (ty > 250) { doc.addPage(); ty = 20; }
+  doc.setFontSize(10);
+  doc.setFont(undefined, "bold");
+  doc.setTextColor(31, 111, 255);
+  doc.text("Payment Details — Bank Transfer (EUR)", 20, ty);
+  doc.setFont(undefined, "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(60);
+  ty += 6;
+  doc.text("Recipient: DutyBoost   ·   Currency accepted: EUR", 20, ty);
+  ty += 5;
+  doc.text("IBAN: NL61 REVO 7598 7409 68   ·   BIC: REVONL22", 20, ty);
+  ty += 5;
+  doc.text("Recipient address: Dek 32, FLEVOLAND, 1319BB, ALMERE, Netherlands", 20, ty);
+  ty += 5;
+  doc.text("Bank: Revolut Bank UAB, Barbara Strozzilaan 201, 1083 HN, Amsterdam, Netherlands", 20, ty);
+  ty += 10;
+
   doc.setFontSize(9);
   doc.setTextColor(150);
   doc.line(20, ty, 190, ty);
