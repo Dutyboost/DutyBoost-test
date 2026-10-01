@@ -18,6 +18,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import DemoRetailerDashboardView from "../components/DemoRetailerDashboardView";
+import { RETAILERS as DEMO_RETAILERS, AIRPORTS as DEMO_AIRPORTS, MONTHLY_DATA as DEMO_MONTHLY_DATA, DAILY_DATA as DEMO_DAILY_DATA, YEARLY_DATA as DEMO_YEARLY_DATA } from "../data/demoDataLagardere";
 
 export default function RetailerDashboard() {
   const [retailers, setRetailers] = useState([]);
@@ -30,6 +32,7 @@ export default function RetailerDashboard() {
   const [overdueInvoice, setOverdueInvoice] = useState(null);
   const [feedback, setFeedback] = useState([]);
   const [user, setUser] = useState(null);
+  const [demoMode, setDemoMode] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
@@ -82,9 +85,12 @@ export default function RetailerDashboard() {
         setUser(currentUser);
         if (currentUser) {
           loadData();
+        } else {
+          setDemoMode(true);
         }
       } catch (err) {
-        console.error("Auth check failed:", err);
+        // Not signed in — show the demo dashboard instead of the live account
+        setDemoMode(true);
       }
     };
     initLoad();
@@ -157,6 +163,21 @@ export default function RetailerDashboard() {
     storeRevMap[t.store_name] = (storeRevMap[t.store_name] || 0) + (t.transaction_value || 0);
   });
   const storeData = Object.entries(storeRevMap).map(([store, revenue]) => ({ store, revenue: Math.round(revenue) }));
+
+  if (demoMode) {
+    return (
+      <DemoRetailerDashboardView
+        AIRPORTS={DEMO_AIRPORTS}
+        RETAILERS={DEMO_RETAILERS}
+        MONTHLY_DATA={DEMO_MONTHLY_DATA}
+        DAILY_DATA={DEMO_DAILY_DATA}
+        YEARLY_DATA={DEMO_YEARLY_DATA}
+        defaultAirport="AMS"
+        region="nl"
+        companyKey="lagardere"
+      />
+    );
+  }
 
   if (overdueInvoice) {
     return (

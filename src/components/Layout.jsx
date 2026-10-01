@@ -52,16 +52,41 @@ export default function Layout() {
   const location = useLocation();
   const [user, setUser] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [authReady, setAuthReady] = useState(false);
+  const [demoMode, setDemoMode] = useState(false);
 
   useEffect(() => {
+    // Paths that can be viewed without a login, so the dashboard can be
+    // demonstrated to a prospective retailer straight from a shared link.
+    const demoPaths = ["/retailer-dashboard"];
+    const isDemoPath = demoPaths.includes(window.location.pathname);
     base44.auth.me()
       .then(u => {
-        if (!u) { window.location.replace('/login'); return; }
+        if (!u) {
+          if (isDemoPath) { setDemoMode(true); setAuthReady(true); return; }
+          window.location.replace('/login');
+          return;
+        }
         if (!u.role) { window.location.replace('/get-started'); return; }
         setUser(u);
+        setAuthReady(true);
       })
-      .catch(() => { window.location.replace('/login'); });
+      .catch(() => {
+        if (isDemoPath) { setDemoMode(true); setAuthReady(true); return; }
+        window.location.replace('/login');
+      });
   }, []);
+
+  if (!authReady) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-background">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  // Demo view: full-screen, without the signed-in navigation shell
+  if (demoMode) return <Outlet />;
 
   const role = user?.role || "agency";
   const navItems = roleNavItems[role] || roleNavItems.agency;
