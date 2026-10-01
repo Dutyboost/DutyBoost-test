@@ -13,8 +13,21 @@ export default function AggregationView({ transactions, vouchers, period, custom
   // Minimum DutyCredit value — a market price point, not an FX conversion: €20 in Europe, $23 in USD markets.
   const minDcValue = currency === "EUR" ? 20 : 23;
   const fmtDc = (v) => fmtCurrencyNative(v, currency, 0);
+  // The Estimated Redemption Rate slider scales the volume shown: the 0.01% floor is
+  // the recorded baseline, so every figure moves with the slider.
+  const rateMultiplier = (redemptionRate ?? 0.01) / 0.01;
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
-  const filteredTransactions = transactions;
+  const filteredTransactions = useMemo(
+    () => (rateMultiplier === 1 ? transactions : transactions.map(t => ({
+      ...t,
+      count: Math.round((t.count || 1) * rateMultiplier),
+      transaction_value: (t.transaction_value || 0) * rateMultiplier,
+      total_savings: (t.total_savings || 0) * rateMultiplier,
+      total_commission: (t.total_commission || 0) * rateMultiplier,
+      platform_revenue: (t.platform_revenue || 0) * rateMultiplier,
+    }))),
+    [transactions, rateMultiplier]
+  );
 
   const aggregatedMetrics = useMemo(() => {
     let totalRedemptions = filteredTransactions.reduce((sum, t) => sum + (t.count || 1), 0);

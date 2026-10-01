@@ -52,7 +52,7 @@ export default function RetailerDashboard() {
   // Demo only: which airport and store the figures are shown for
   const [demoAirport, setDemoAirport] = useState("");
   const [demoStoreId, setDemoStoreId] = useState("all");
-  const [redemptionRate, setRedemptionRate] = useState(15);
+  const [redemptionRate, setRedemptionRate] = useState(0.01);
 
   const loadData = async () => {
     const u = await base44.auth.me();
