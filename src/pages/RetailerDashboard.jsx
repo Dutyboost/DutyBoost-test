@@ -27,6 +27,9 @@ import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
 export default function RetailerDashboard() {
   const [retailers, setRetailers] = useState([]);
+  // Demo only: stores added in this session via "Add Store" — the seeded demo stores
+  // stay in the dropdown but are not listed as the visitor's own stores.
+  const [addedStores, setAddedStores] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [vouchers, setVouchers] = useState([]);
   const [airports, setAirports] = useState([]);
@@ -128,6 +131,7 @@ export default function RetailerDashboard() {
     setRetailers(acc.stores);
     setTransactions(acc.transactions);
     setVouchers(acc.vouchers);
+    setAddedStores([]);
     setDemoAirport("");
     setDemoStoreId("all");
   }, [demoMode, companySlug]);
@@ -159,7 +163,9 @@ export default function RetailerDashboard() {
     e.preventDefault();
     if (demoMode) {
       // Shared demo — the store is added for this session only
-      setRetailers(prev => [{ id: `demo-${Date.now()}`, ...form, accepts_vouchers: true }, ...prev]);
+      const newStore = { id: `demo-${Date.now()}`, ...form, accepts_vouchers: true };
+      setRetailers(prev => [newStore, ...prev]);
+      setAddedStores(prev => [newStore, ...prev]);
       toast.success("Store added (demo)");
       setDialogOpen(false);
       setForm({ store_name: "", airport: "", category: "Retail", description: "" });
@@ -176,6 +182,7 @@ export default function RetailerDashboard() {
   const handleDeleteStore = async (store) => {
     if (demoMode) {
       setRetailers(prev => prev.filter(r => r.id !== store.id));
+      setAddedStores(prev => prev.filter(r => r.id !== store.id));
       return;
     }
     await base44.entities.Retailer.delete(store.id);
@@ -300,6 +307,8 @@ export default function RetailerDashboard() {
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
+  // The listed stores are the visitor's own: in the demo only the ones added via "Add Store".
+  const listedStores = demoMode ? addedStores : retailers;
   const currency = demoAccount?.company.currency || "EUR";
   const money = (value, decimals = 0) => fmtMoney(value, currency, decimals);
 
@@ -484,7 +493,7 @@ export default function RetailerDashboard() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-         <StatsCard title="My Stores" value={retailers.length} icon={Store} />
+         <StatsCard title="My Stores" value={listedStores.length} icon={Store} />
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
          <StatsCard title="Active DutyCredits" value={scopedVouchers.length} icon={TicketPercent} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
@@ -494,14 +503,14 @@ export default function RetailerDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
           <h2 className="font-heading font-semibold text-lg mb-4">My Stores</h2>
-          {retailers.length === 0 ? (
+          {listedStores.length === 0 ? (
             <div className="bg-card rounded-xl border border-border p-8 text-center text-muted-foreground">
               <Store className="w-10 h-10 mx-auto mb-3 opacity-40" />
               <p className="text-sm">No stores yet. Add your first store!</p>
             </div>
           ) : (
             <div className="space-y-3">
-              {retailers.map(r => (
+              {listedStores.map(r => (
                 <div key={r.id} className="bg-card rounded-xl border border-border p-4 flex items-center justify-between">
                   <div>
                     <p className="font-medium">{r.store_name}</p>
