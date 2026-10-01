@@ -126,13 +126,19 @@ export function buildDemoAccount(slug) {
       const value = Math.round(r.avg_sale * (0.7 + ((si + i) % 6) * 0.1) * 100) / 100;
       const d = new Date();
       d.setDate(d.getDate() - Math.floor((i / PER_STORE) * WINDOW_DAYS));
+      const saving = calcSaving(value);
+      const platformFee = Math.min(Math.round(value * 0.025 * 100) / 100, 25);
       return {
         id: `demo-${r.id}-${i}`,
         store_name: r.name,
         airport: r.airport,
         transaction_value: value,
-        discount_amount: calcSaving(value),
-        platform_revenue: Math.min(Math.round(value * 0.025 * 100) / 100, 25),
+        discount_amount: saving,
+        platform_revenue: platformFee,
+        // Per-transaction aggregate figures used by the Custom Aggregation view
+        count: 1,
+        total_savings: saving,
+        total_commission: platformFee,
         refund_status: "none",
         refunded_amount: 0,
         date: d.toISOString().split("T")[0],
@@ -165,6 +171,7 @@ export function buildDemoAccount(slug) {
     stores,
     transactions,
     vouchers,
-    airports: company.airports.map((a) => ({ id: a.code, code: a.code, name: a.name })),
+    // Full airport records — the aggregation view needs country and passenger volume.
+    airports: company.airports.map((a) => ({ ...a, id: a.code, code: a.code })),
   };
 }

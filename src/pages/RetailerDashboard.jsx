@@ -20,7 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import DemoProfileTab from "../components/DemoProfileTab";
-import DemoPill from "../components/DemoPill";
+import DemoDashboardBar from "../components/DemoDashboardBar";
 import { buildDemoAccount, RETAILER_DASHBOARD_COMPANIES, DEFAULT_RETAILER_COMPANY } from "../data/retailerDashboardCompanies";
 import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
@@ -45,6 +45,10 @@ export default function RetailerDashboard() {
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
   const [customEnd, setCustomEnd] = useState(() => new Date().toISOString().split("T")[0]);
+  // Demo only: which airport and store the figures are shown for
+  const [demoAirport, setDemoAirport] = useState("");
+  const [demoStoreId, setDemoStoreId] = useState("all");
+  const [redemptionRate, setRedemptionRate] = useState(15);
 
   const loadData = async () => {
     const u = await base44.auth.me();
@@ -113,12 +117,32 @@ export default function RetailerDashboard() {
     setRetailers(acc.stores);
     setTransactions(acc.transactions);
     setVouchers(acc.vouchers);
+    setDemoAirport("");
+    setDemoStoreId("all");
   }, [demoMode, companySlug]);
 
   useEffect(() => {
     const lang = searchParams.get("lang");
     if (lang) i18n.changeLanguage(lang);
   }, [searchParams, i18n]);
+
+  // Demo only: the selected airport or store scopes the figures shown.
+  const selectedStore = useMemo(
+    () => retailers.find(r => r.id === demoStoreId) || null,
+    [retailers, demoStoreId]
+  );
+  const scopeAirport = selectedStore?.airport || demoAirport;
+  const scopedTransactions = useMemo(() => {
+    if (!demoMode || !scopeAirport) return transactions;
+    return transactions.filter(t =>
+      t.airport === scopeAirport &&
+      (!selectedStore || t.store_name === selectedStore.store_name)
+    );
+  }, [demoMode, transactions, scopeAirport, selectedStore]);
+  const scopedVouchers = useMemo(
+    () => (demoMode && scopeAirport ? vouchers.filter(v => v.airport === scopeAirport) : vouchers),
+    [demoMode, vouchers, scopeAirport]
+  );
 
   const handleCreateStore = async (e) => {
     e.preventDefault();
@@ -150,22 +174,29 @@ export default function RetailerDashboard() {
 
   const { startDate, endDate } = useMemo(() => {
     const now = new Date();
-    if (period === "daily") {
-      const s = new Date(now); s.setDate(s.getDate() - 7);
-      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
-    }
-    if (period === "monthly") {
-      const s = new Date(now); s.setDate(s.getDate() - 30);
-      return { startDate: s.toISOString().split("T")[0], endDate: now.toISOString().split("T")[0] };
-    }
+    const today = now.toISOString().split("T")[0];
+    const back = (days) => {
+      const s = new Date(now); s.setDate(s.getDate() - days);
+      return s.toISOString().split("T")[0];
+    };
+    if (period === "daily") return { startDate: back(7), endDate: today };
+    if (period === "monthly") return { startDate: back(30), endDate: today };
+    if (period === "yearly") return { startDate: back(365), endDate: today };
     return { startDate: customStart, endDate: customEnd };
   }, [period, customStart, customEnd]);
 
-  const filteredTransactions = useMemo(() =>
-    transactions.filter(t => {
-      const d = t.date || (t.created_date || "").split("T")[0];
-      return d >= startDate && d <= endDate;
-    }),
+  const inPeriod = (t) => {
+    const d = t.date || (t.created_date || "").split("T")[0];
+    return d >= startDate && d <= endDate;
+  };
+
+  const filteredTransactions = useMemo(
+    () => scopedTransactions.filter(inPeriod),
+    [scopedTransactions, startDate, endDate]
+  );
+  // Custom Aggregation always covers the whole network, not just the selected store
+  const networkTransactions = useMemo(
+    () => transactions.filter(inPeriod),
     [transactions, startDate, endDate]
   );
 
@@ -176,7 +207,7 @@ export default function RetailerDashboard() {
 
   const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const dutyBoostFee = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
-  const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
+  const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : period === "yearly" ? 365 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
   const revenuePerDay = totalRevenue / periodDays;
 
   // Transaction volume for selected period
@@ -255,30 +286,19 @@ export default function RetailerDashboard() {
   return (
     <div className={demoMode ? "max-w-7xl mx-auto p-6 md:p-8 space-y-6" : "space-y-6"}>
       {demoMode && demoAccount && (
-        <div className="flex items-center justify-between gap-4 flex-wrap bg-card border border-border rounded-xl px-5 py-4">
-          <div className="flex items-center gap-3">
-            <Store className="w-5 h-5 text-orange-500 shrink-0" />
-            <div>
-              <p className="font-heading font-bold">{demoAccount.company.label}</p>
-              <p className="text-xs text-muted-foreground">Airport Retailer Dashboard</p>
-            </div>
-            <DemoPill />
-          </div>
-          <div className="flex items-center gap-4">
-            <select
-              className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background max-w-[260px]"
-              value={companySlug || DEFAULT_RETAILER_COMPANY}
-              onChange={e => navigate(`/retailer-dashboard/${e.target.value}`)}
-            >
-              {Object.entries(RETAILER_DASHBOARD_COMPANIES).map(([slug, c]) => (
-                <option key={slug} value={slug}>{c.label}</option>
-              ))}
-            </select>
-            {demoAccount.company.logoUrl && (
-              <img src={demoAccount.company.logoUrl} alt={demoAccount.company.label} className="h-[75px] w-auto object-contain shrink-0" />
-            )}
-          </div>
-        </div>
+        <DemoDashboardBar
+          companies={RETAILER_DASHBOARD_COMPANIES}
+          companySlug={companySlug || DEFAULT_RETAILER_COMPANY}
+          company={demoAccount.company}
+          onCompanyChange={slug => navigate(`/retailer-dashboard/${slug}`)}
+          airports={airports}
+          stores={retailers}
+          airport={demoAirport}
+          onAirportChange={value => { setDemoAirport(value); setDemoStoreId("all"); }}
+          storeId={demoStoreId}
+          onStoreChange={setDemoStoreId}
+          logoUrl={demoAccount.company.logoUrl}
+        />
       )}
 
       {/* Tab bar */}
@@ -317,7 +337,21 @@ export default function RetailerDashboard() {
           <ProfileTab user={user} onUserUpdate={setUser} showBankDetails={false} invoiceHeading="Invoice History" invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
         )
       ) : activeTab === "custom" ? (
-        <AggregationView transactions={filteredTransactions} vouchers={vouchers} period={period === "daily" ? "day" : period === "monthly" ? "month" : period} entityType="retailer" onPeriodChange={setPeriod} />
+        <AggregationView
+          transactions={networkTransactions}
+          vouchers={vouchers}
+          period={period}
+          customStart={customStart}
+          customEnd={customEnd}
+          entityType="retailer"
+          airports={airports}
+          currency={currency}
+          onPeriodChange={setPeriod}
+          onCustomStartChange={setCustomStart}
+          onCustomEndChange={setCustomEnd}
+          redemptionRate={redemptionRate}
+          onRedemptionRateChange={setRedemptionRate}
+        />
       ) : activeTab === "implementation" ? (
         <div className="max-w-2xl space-y-8 py-4">
           <div className="space-y-2">
@@ -358,11 +392,16 @@ export default function RetailerDashboard() {
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
         <span className="text-sm text-muted-foreground font-medium">Period:</span>
-        {["daily", "monthly", "custom"].map(p => (
-          <button key={p} onClick={() => setPeriod(p)}
+        {[
+          { key: "daily", label: "Last 7 days" },
+          { key: "monthly", label: "Last 30 days" },
+          { key: "yearly", label: "Last 12 months" },
+          { key: "custom", label: "Custom" },
+        ].map(({ key, label }) => (
+          <button key={key} onClick={() => setPeriod(key)}
             className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-              period === p ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
-            }`}>{p === "daily" ? "Last 7 days" : p === "monthly" ? "Last 30 days" : "Custom"}
+              period === key ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+            }`}>{label}
           </button>
         ))}
         {period === "custom" && (
@@ -424,7 +463,7 @@ export default function RetailerDashboard() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
          <StatsCard title="My Stores" value={retailers.length} icon={Store} />
-         <StatsCard title="Active DutyCredits" value={vouchers.length} icon={TicketPercent} />
+         <StatsCard title="Active DutyCredits" value={scopedVouchers.length} icon={TicketPercent} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
         <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
@@ -456,14 +495,14 @@ export default function RetailerDashboard() {
 
         <div>
           <h2 className="font-heading font-semibold text-lg mb-4">Active DutyCredits at My Airports</h2>
-          {vouchers.length === 0 ? (
+          {scopedVouchers.length === 0 ? (
             <div className="bg-card rounded-xl border border-border p-8 text-center text-muted-foreground">
               <TicketPercent className="w-10 h-10 mx-auto mb-3 opacity-40" />
               <p className="text-sm">No active DutyCredits in your area.</p>
             </div>
           ) : (
             <div className="space-y-3">
-              {vouchers.map(v => (
+              {scopedVouchers.map(v => (
                 <div key={v.id} className="bg-card rounded-xl border border-border p-4 flex items-center justify-between">
                   <div>
                     <p className="font-mono text-sm font-medium">{v.voucher_code}</p>
@@ -479,7 +518,7 @@ export default function RetailerDashboard() {
 
       {/* Charts */}
       <div className="bg-card rounded-xl border border-border p-6">
-        <h2 className="font-heading font-semibold mb-4">Transaction Volume — {period === "daily" ? "Last 7 days" : period === "monthly" ? "Last 30 days" : `${customStart} – ${customEnd}`}</h2>
+        <h2 className="font-heading font-semibold mb-4">Transaction Volume — {period === "daily" ? "Last 7 days" : period === "monthly" ? "Last 30 days" : period === "yearly" ? "Last 12 months" : `${customStart} – ${customEnd}`}</h2>
         <ResponsiveContainer width="100%" height={240}>
           <LineChart data={dailyData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -556,7 +595,7 @@ export default function RetailerDashboard() {
         );
       })()}
 
-      <RedemptionHeatmap vouchers={vouchers} />
+      <RedemptionHeatmap vouchers={scopedVouchers} />
       </> )}
     </div>
   );
