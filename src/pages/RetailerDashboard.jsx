@@ -13,6 +13,7 @@ import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import RetailerStrategyTab from "../components/RetailerStrategyTab";
 import PartialRefundManager from "../components/PartialRefundManager";
 import AggregationView from "../components/AggregationView";
+import RedemptionRateSlider from "../components/RedemptionRateSlider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -200,10 +201,19 @@ export default function RetailerDashboard() {
     return d >= startDate && d <= endDate;
   };
 
-  const filteredTransactions = useMemo(
-    () => scopedTransactions.filter(inPeriod),
-    [scopedTransactions, startDate, endDate]
-  );
+  // The Estimated Redemption Rate slider scales the figures shown: the 0.01% floor is
+  // the recorded baseline, so every figure on the dashboard moves with the slider.
+  const rateMultiplier = redemptionRate / 0.01;
+  const filteredTransactions = useMemo(() => {
+    const inPeriodTx = scopedTransactions.filter(inPeriod);
+    if (rateMultiplier === 1) return inPeriodTx;
+    return inPeriodTx.map(t => ({
+      ...t,
+      count: Math.round((t.count || 1) * rateMultiplier),
+      transaction_value: (t.transaction_value || 0) * rateMultiplier,
+      platform_revenue: (t.platform_revenue || 0) * rateMultiplier,
+    }));
+  }, [scopedTransactions, startDate, endDate, rateMultiplier]);
   // Custom Aggregation always covers the whole network, not just the selected store
   const networkTransactions = useMemo(
     () => transactions.filter(inPeriod),
@@ -424,6 +434,8 @@ export default function RetailerDashboard() {
           </div>
         )}
       </div>
+
+      <RedemptionRateSlider rate={redemptionRate} onChange={setRedemptionRate} />
 
       <div className="flex items-center justify-between">
         <div>
