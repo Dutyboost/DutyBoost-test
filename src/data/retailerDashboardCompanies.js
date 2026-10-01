@@ -141,13 +141,18 @@ export function buildDemoAccount(slug) {
     })
   );
 
+  // Minimum DutyCredit value for the company's market: €20 in Europe, $23 in USD markets.
+  // Credit amounts are already expressed in the company's currency (not EUR base).
+  const minCredit = company.currency === "EUR" ? 20 : 23;
+  const CREDIT_TIERS = [1, 1.25, 1.5, 2];
+
   const vouchers = Array.from({ length: 12 }, (_, i) => {
     const expiry = new Date();
     expiry.setDate(expiry.getDate() + 14 + i);
     return {
       id: `demo-voucher-${i}`,
       voucher_code: `DC-${stores[i % stores.length].airport}-${4200 + i}`,
-      discount_percentage: 10 + (i % 4) * 5,
+      discount_percentage: Math.round(minCredit * CREDIT_TIERS[i % 4]),
       expiration_date: expiry.toISOString().split("T")[0],
       status: "active",
       airport: stores[i % stores.length].airport,

@@ -46,6 +46,24 @@ export function fmtMoney(eur, currency = "EUR", decimals = 0) {
 }
 
 /**
+ * Currency-aware formatter for amounts already expressed in that currency
+ * (no EUR conversion). Use for market price points such as the minimum
+ * DutyCredit value — €20 in Europe, $23 in USD markets.
+ */
+export function fmtCurrencyNative(value, currency = "EUR", decimals = 0) {
+  const n = Number(value) || 0;
+  if (currency === "AWG") return `Afl. ${fmtNum(n, decimals)}`;
+  if (currency === "USD") {
+    return `$ ${n.toLocaleString("en-US", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  }
+  if (currency === "GBP") return `£ ${fmtNum(n, decimals)}`;
+  return fmtEur(n, decimals);
+}
+
+/**
  * Compact abbreviation: B (billion, EN) / MM (billion, ES-NL) / M (million).
  * Examples (lang="en"):  1200000000 → "1.2B", 437300000 → "437.3M"
  * Examples (lang="es"):  1200000000 → "1,2 MM", 437300000 → "437,3 M"

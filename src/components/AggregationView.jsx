@@ -3,14 +3,16 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import RedemptionRateSlider from "./RedemptionRateSlider";
-import { fmtMoney } from "../utils/formatNumber";
+import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
 export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [], companyName, redemptionRate, onRedemptionRateChange, currency = "EUR" }) {
   const { t } = useTranslation();
   const [expandedAirport, setExpandedAirport] = useState(null);
   const fmtC = (v) => fmtMoney(Number(v), currency, 2);
   const curLabel = currency === "AWG" ? "Afl." : "€";
+  // Minimum DutyCredit value — a market price point, not an FX conversion: €20 in Europe, $23 in USD markets.
   const minDcValue = currency === "EUR" ? 20 : 23;
+  const fmtDc = (v) => fmtCurrencyNative(v, currency, 0);
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
   const filteredTransactions = transactions;
 
@@ -181,7 +183,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <p className="text-xs text-muted-foreground font-medium">{t('demo.min_dc_value')}</p>
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
-          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtC(minDcValue)}</p>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtDc(minDcValue)}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
@@ -199,9 +201,9 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <Sparkles className="w-4 h-4 text-indigo-500" />
           </div>
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">
-            {fmtC(minDcValue)}
+            {fmtDc(minDcValue)}
             <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-            <span className="text-indigo-600">{fmtC(minDcValue * (1 + (redemptionRate || 0.01) / 100))}</span>
+            <span className="text-indigo-600">{fmtDc(minDcValue * (1 + (redemptionRate || 0.01) / 100))}</span>
           </p>
         </div>
       </div>

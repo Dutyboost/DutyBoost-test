@@ -22,7 +22,7 @@ import { toast } from "sonner";
 import DemoProfileTab from "../components/DemoProfileTab";
 import DemoPill from "../components/DemoPill";
 import { buildDemoAccount, RETAILER_DASHBOARD_COMPANIES, DEFAULT_RETAILER_COMPANY } from "../data/retailerDashboardCompanies";
-import { fmtMoney } from "../utils/formatNumber";
+import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
 export default function RetailerDashboard() {
   const [retailers, setRetailers] = useState([]);
@@ -467,7 +467,7 @@ export default function RetailerDashboard() {
                 <div key={v.id} className="bg-card rounded-xl border border-border p-4 flex items-center justify-between">
                   <div>
                     <p className="font-mono text-sm font-medium">{v.voucher_code}</p>
-                    <p className="text-sm text-muted-foreground">€{v.discount_percentage} DutyCredit · Expires {v.expiration_date}</p>
+                    <p className="text-sm text-muted-foreground">{fmtCurrencyNative(v.discount_percentage, currency, 0)} DutyCredit · Expires {v.expiration_date}</p>
                   </div>
                   <span className="text-xs px-2 py-1 rounded-full" style={{background:'#00C48C22',color:'#00A876'}}>{v.status}</span>
                 </div>
