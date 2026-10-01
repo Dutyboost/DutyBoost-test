@@ -94,7 +94,7 @@ export const RETAILERS = AIRPORTS_FULL.flatMap(airport => {
       avg_sale: basket,
       revenue,
       contact_person: "John Doe",
-      email: "john.doe@example.com",
+      email: "john.doe@caribbean-airlines.com",
       company: "Caribbean Airlines Duty Free",
       phone: "+1 868 669 3000",
     };

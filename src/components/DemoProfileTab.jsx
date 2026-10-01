@@ -561,11 +561,11 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
     : companyProfile;
 
   // Demo account information always shows a neutral placeholder contact
-  const [profile, setProfile] = useState({ ...initialProfile, contactName: "John Doe", email: "john.doe@example.com", phone: initialProfile.phone || entity?.phone });
+  const [profile, setProfile] = useState({ ...initialProfile, contactName: "John Doe", email: initialProfile.email || "john.doe@example.com", phone: initialProfile.phone || entity?.phone });
 
   useEffect(() => {
     if (entityType === "retailer" && companyProfile) {
-      setProfile({ ...companyProfile, contactName: "John Doe", email: "john.doe@example.com", phone: companyProfile.phone || entity?.phone });
+      setProfile({ ...companyProfile, contactName: "John Doe", email: companyProfile.email || "john.doe@example.com", phone: companyProfile.phone || entity?.phone });
     }
   }, [companyKey, entityType]);
 

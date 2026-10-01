@@ -319,7 +319,7 @@ export const RETAILER_COMPANY_PROFILES = {
       address: "Piarco International Airport, Golden Grove Road",
       postal_city: "Piarco, Trinidad and Tobago",
       website: "dutyfree.caribbean-airlines.com",
-      email: "john.doe@example.com",
+      email: "john.doe@caribbean-airlines.com",
       phone: "+1 868 669 3000",
       contactName: "John Doe",
       iban: "Republic Bank TT12 RBCA 0101 2345 6789 0123",
