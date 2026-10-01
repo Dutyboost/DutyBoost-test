@@ -4,7 +4,7 @@ import { Percent } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const MIN_RATE = 0.01;
-const MAX_RATE = 5;
+const MAX_RATE = 15;
 
 export default function RedemptionRateSlider({ rate, onChange }) {
   const { t } = useTranslation();
@@ -58,7 +58,7 @@ export default function RedemptionRateSlider({ rate, onChange }) {
       />
       <div className="flex justify-between text-[10px] text-slate-400 mt-1">
         <span>0.01%</span>
-        <span>5.00%</span>
+        <span>15.00%</span>
       </div>
     </div>
   );

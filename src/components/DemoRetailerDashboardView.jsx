@@ -213,7 +213,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
                 setActiveTab(id);
                 if (id === "custom") {
                   setPeriod("yearly");
-                  setRedemptionRate(5);
+                  setRedemptionRate(15);
                 }
               }}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
