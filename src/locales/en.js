@@ -238,6 +238,7 @@ export default {
       total_redemptions: 'Total Redemptions',
       gross_revenue: 'Gross Revenue',
       avg_sale: 'Avg. Sale Value',
+      min_dc_value: 'Min. DC Value',
       platform_fee: 'Platform Fee',
       redemption_rate: 'Redemption Rate',
       of_issued: 'of DutyCredits issued',

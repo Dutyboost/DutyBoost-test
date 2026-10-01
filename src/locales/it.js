@@ -372,6 +372,7 @@ export default {
       total_redemptions: 'Riscatti totali',
       net_revenue: 'Ricavo netto',
       avg_sale: 'Valore di vendita medio',
+      min_dc_value: 'Valore min. DC',
       platform_fee: 'Commissione piattaforma',
       daily_rd: 'Riscatti e ricavi giornalieri',
       monthly_rd: 'Riscatti e ricavi mensili',

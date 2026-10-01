@@ -51,6 +51,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
   const rateMultiplier = redemptionRate / 0.01;
   const cur = (v, d = 0) => fmtMoney(v, currency, d);
   const curLabel = currency === "AWG" ? "Afl." : currency === "USD" ? "$" : "€";
+  const minDcValue = currency === "EUR" ? 20 : 23;
 
   const airportRetailers = RETAILERS.filter(r => r.airport === selectedAirport);
   const selectedAirportInfo = AIRPORTS.find(a => a.code === selectedAirport);
@@ -305,7 +306,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           {[
             { label: t('demo.total_redemptions'), value: fmtNum(periodRedemptions), icon: ScanLine, color: "text-blue-500" },
             { label: t('demo.net_revenue'), value: cur(periodNetRevenue, 0), icon: Euro, color: "text-orange-500" },
-            { label: t('demo.avg_sale'), value: cur(periodAvg, 2), icon: TrendingUp, color: "text-emerald-500" },
+            { label: t('demo.min_dc_value'), value: cur(minDcValue, 2), icon: TrendingUp, color: "text-emerald-500" },
             { label: t('demo.platform_fee'), value: cur(periodFee, 0), icon: Store, color: "text-purple-500" },
           ].map(({ label, value, icon: Icon, color }) => (
             <div key={label} className="bg-card border border-border rounded-xl p-5 space-y-3">

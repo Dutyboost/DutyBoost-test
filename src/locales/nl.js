@@ -192,6 +192,7 @@ export default {
       total_redemptions: 'Totaal inwisselingen',
       gross_revenue: 'Bruto-omzet',
       avg_sale: 'Gem. verkoopwaarde',
+      min_dc_value: 'Min. DC-waarde',
       platform_fee: 'Platformkosten',
       redemption_rate: 'Inwisselingspercentage',
       of_issued: 'van uitgegeven DutyCredits',

@@ -349,6 +349,7 @@ export default {
       total_redemptions: 'Einlösungen gesamt',
       net_revenue: 'Nettoumsatz',
       avg_sale: 'Ø Verkaufswert',
+      min_dc_value: 'Min. DC-Wert',
       platform_fee: 'Plattformgebühr',
       daily_rd: 'Tägliche Einlösungen & Umsatz',
       monthly_rd: 'Monatliche Einlösungen & Umsatz',

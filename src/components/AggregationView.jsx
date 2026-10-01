@@ -10,6 +10,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
   const [expandedAirport, setExpandedAirport] = useState(null);
   const fmtC = (v) => fmtMoney(Number(v), currency, 2);
   const curLabel = currency === "AWG" ? "Afl." : "€";
+  const minDcValue = currency === "EUR" ? 20 : 23;
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
   const filteredTransactions = transactions;
 
@@ -177,10 +178,10 @@ export default function AggregationView({ transactions, vouchers, period, custom
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <div className="flex items-center justify-between">
-            <p className="text-xs text-muted-foreground font-medium">{t('demo.avg_sale_label') || 'Avg. Sales per DutyCredit'}</p>
+            <p className="text-xs text-muted-foreground font-medium">{t('demo.min_dc_value')}</p>
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
-          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtC(aggregatedMetrics.avgSalesPerCredit)}</p>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtC(minDcValue)}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">

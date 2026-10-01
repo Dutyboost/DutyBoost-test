@@ -349,6 +349,7 @@ export default {
       total_redemptions: 'Total des échanges',
       net_revenue: 'Revenu net',
       avg_sale: 'Valeur de vente moy.',
+      min_dc_value: 'Valeur min. DC',
       platform_fee: 'Frais de plateforme',
       daily_rd: 'Échanges & revenus quotidiens',
       monthly_rd: 'Échanges & revenus mensuels',

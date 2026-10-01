@@ -184,6 +184,7 @@ export default {
        to: 'hasta',
        total_redemptions: 'Canjes Totales',
        avg_sale: 'Venta Promedio',
+       min_dc_value: 'Valor mín. DC',
        scan_desc: 'Escanea códigos QR de DutyCredit para procesar canjes de clientes.',
        open_scan: 'Abrir Escáner',
        performance_custom: 'Rendimiento Personalizado',
