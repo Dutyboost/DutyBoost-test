@@ -307,7 +307,7 @@ export default {
       download: 'Scarica',
       sign_in: 'Accedi',
       request_more_info: 'Richiedi più informazioni',
-      custom_aggregation: 'Aggregazione Personalizzata — Tutti i negozi al dettaglio di tutti gli aeroporti',
+      custom_aggregation: 'Aggregazione — Tutti i negozi al dettaglio di tutti gli aeroporti',
       aggregation_desc: 'Metriche combinate per tutte le tue sedi retail.',
       total_redeemable: 'Totale DutyCredit Riscattabili per i Tuoi Aeroporti',
       avg_discount: 'Sconto Medio Applicato',

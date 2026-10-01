@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info, ScanLine } from "lucide-react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ProfileTab from "../components/ProfileTab";
@@ -200,8 +200,8 @@ export default function RetailerDashboard() {
     [transactions, startDate, endDate]
   );
 
-  const totalPassengers = useMemo(() =>
-    filteredTransactions.length,
+  const totalRedemptions = useMemo(() =>
+    filteredTransactions.reduce((s, t) => s + (t.count || 1), 0),
     [filteredTransactions]
   );
 
@@ -274,7 +274,7 @@ export default function RetailerDashboard() {
 
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { id: "custom", label: "Custom Aggregation", icon: BarChartIcon },
+    { id: "custom", label: "Aggregation", icon: BarChartIcon },
     ...(demoMode ? [] : [{ id: "refunds", label: "Returns & Refunds", icon: RotateCcw }]),
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
@@ -461,8 +461,9 @@ export default function RetailerDashboard() {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
          <StatsCard title="My Stores" value={retailers.length} icon={Store} />
+         <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
          <StatsCard title="Active DutyCredits" value={scopedVouchers.length} icon={TicketPercent} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
         <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />

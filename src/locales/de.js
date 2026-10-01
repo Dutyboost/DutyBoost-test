@@ -284,7 +284,7 @@ export default {
       download: 'Herunterladen',
       sign_in: 'Anmelden',
       request_more_info: 'Mehr Informationen anfordern',
-      custom_aggregation: 'Benutzerdefinierte Aggregation — Alle Einzelhandelsgeschäfte aller Flughäfen',
+      custom_aggregation: 'Aggregation — Alle Einzelhandelsgeschäfte aller Flughäfen',
       aggregation_desc: 'Kombinierte Metriken über alle Ihre Einzelhandelsstandorte.',
       total_redeemable: 'Gesamte Einlösbare DutyCredits für Ihre Flughäfen',
       avg_discount: 'Durchschnittlich Gewährter Rabatt',

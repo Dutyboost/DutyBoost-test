@@ -111,7 +111,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       {/* Aggregation metrics header */}
        <div>
         <h2 className="text-xl font-heading font-bold mb-2">
-          {t('common.custom_aggregation') || 'Custom Aggregation — All Retail Stores of all Airports'}
+          {t('common.custom_aggregation') || 'Aggregation — All Retail Stores of all Airports'}
         </h2>
         <p className="text-muted-foreground text-sm mb-4">{t('common.aggregation_desc') || 'Combined metrics across all your retail locations.'}</p>
         
