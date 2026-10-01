@@ -317,16 +317,16 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               <p className="text-2xl font-heading font-bold">{value}</p>
             </div>
           ))}
-          {/* DutyBoost Potential tile — Avg Sale with +0.01% uplift */}
+          {/* DutyBoost Potential tile — Min. DC Value with uplift */}
           <div className="bg-card border border-border rounded-xl p-5 space-y-3">
             <div className="flex items-center justify-between">
               <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential')}</p>
               <Sparkles className="w-4 h-4 text-indigo-500" />
             </div>
             <p className="text-lg md:text-2xl font-heading font-bold">
-              {cur(periodAvg, 2)}
+              {cur(minDcValue, 2)}
               <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-              <span className="text-indigo-600">{cur(periodAvg * (1 + redemptionRate / 100), 2)}</span>
+              <span className="text-indigo-600">{cur(minDcValue * (1 + redemptionRate / 100), 2)}</span>
             </p>
           </div>
         </div>

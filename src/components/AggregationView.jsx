@@ -192,16 +192,16 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtC(aggregatedMetrics.platformFee)}</p>
         </div>
 
-        {/* DutyBoost Potential tile — Avg Sale with +0.01% uplift */}
+        {/* DutyBoost Potential tile — Min. DC Value with uplift */}
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-xs text-muted-foreground font-medium">{t('demo.dutyboost_potential')}</p>
             <Sparkles className="w-4 h-4 text-indigo-500" />
           </div>
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">
-            {fmtC(aggregatedMetrics.avgSalesPerCredit)}
+            {fmtC(minDcValue)}
             <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-            <span className="text-indigo-600">{fmtC(parseFloat(aggregatedMetrics.avgSalesPerCredit) * (1 + (redemptionRate || 0.01) / 100))}</span>
+            <span className="text-indigo-600">{fmtC(minDcValue * (1 + (redemptionRate || 0.01) / 100))}</span>
           </p>
         </div>
       </div>
