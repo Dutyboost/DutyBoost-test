@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import DemoPill from "@/components/DemoPill";
 import {
   BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
@@ -182,7 +183,10 @@ export default function DemoCorporateDashboard() {
         {/* Header */}
         <div className="flex items-start justify-between flex-wrap gap-4">
           <div>
-            <h1 className="text-2xl font-heading font-bold">Corporate F&B Dashboard</h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl font-heading font-bold">Corporate F&B Dashboard</h1>
+              <DemoPill />
+            </div>
             <p className="text-muted-foreground mt-1">Acme Corp — real-time F&B budget management, cost center tracking, and policy-compliant airport spending.</p>
           </div>
           <Badge className="bg-amber-50 text-amber-700 border-amber-200 px-3 py-1.5 text-sm">Sample data only</Badge>

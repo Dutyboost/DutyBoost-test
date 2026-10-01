@@ -11,6 +11,7 @@ import RedemptionRateSlider from "./RedemptionRateSlider";
 import { base44 } from "@/api/base44Client";
 import { RETAILER_COMPANY_PROFILES } from "@/data/retailerCompanyProfiles";
 import DutyBoostLogo from "./DutyBoostLogo";
+import DemoPill from "./DemoPill";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { fmtNum, fmtMoney } from "../utils/formatNumber";
 import { calcSaving } from "@/utils/retailerCalc";
@@ -205,6 +206,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
           <div className="flex items-center gap-2 text-sm">
             <Store className="w-4 h-4 text-orange-500" />
             <span className="font-heading font-bold text-foreground">{companyName}</span>
+            <DemoPill />
           </div>
         )}
         {/* Tabs */}

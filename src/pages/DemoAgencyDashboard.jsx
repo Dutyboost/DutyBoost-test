@@ -7,6 +7,7 @@ import AggregationView from "../components/AggregationView";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
+import DemoPill from "../components/DemoPill";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { TRAVEL_AGENCIES, AIRPORTS, AGENCY_MONTHLY, AGENCY_DAILY, AGENCY_YEARLY } from "../data/demoData";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
@@ -134,7 +135,10 @@ export default function DemoAgencyDashboard() {
         ) : (<>
         {/* Welcome */}
         <div>
-          <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — {t('demo.agency_dashboard')}</h1>
+          <div className="flex items-center gap-2 flex-wrap">
+            <h1 className="text-2xl font-heading font-bold">{selectedAgency.name} — {t('demo.agency_dashboard')}</h1>
+            <DemoPill />
+          </div>
           <p className="text-muted-foreground text-sm mt-1">{t('demo.your_performance')} · {selectedAgency.city}</p>
         </div>
 
