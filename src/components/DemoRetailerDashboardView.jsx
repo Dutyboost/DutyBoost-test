@@ -23,7 +23,7 @@ function calcPlatformFee(basket) {
   return Math.min(Math.round(basket * 0.025 * 100) / 100, 25);
 }
 
-export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey, storeCount, currency = "EUR" }) {
+export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, defaultAirport, region = "nl", companyKey, storeCount, currency = "EUR", logoUrl }) {
   const { t, i18n } = useTranslation();
   const companyName = companyKey ? RETAILER_COMPANY_PROFILES[companyKey]?.company : null;
   const [, setLanguage] = useState(i18n.language);
@@ -262,7 +262,14 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
             </p>
           </div>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">{t('demo.active_partner')}</span>
+          <span className="flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">
+            {logoUrl && (
+              <span className="flex items-center bg-white rounded-full px-2 py-0.5">
+                <img src={logoUrl} alt={companyName || "Partner logo"} className="h-4 w-auto object-contain" />
+              </span>
+            )}
+            {t('demo.active_partner')}
+          </span>
         </div>
 
         {/* Period selector */}

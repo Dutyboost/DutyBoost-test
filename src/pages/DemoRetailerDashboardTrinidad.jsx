@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import DemoRetailerDashboardView from "../components/DemoRetailerDashboardView";
 import { RETAILERS, AIRPORTS, MONTHLY_DATA, DAILY_DATA, YEARLY_DATA, STORE_COUNT } from "../data/demoDataTrinidadDashboard";
+import { CARIBBEAN_DUTY_FREE_LOGO_URL } from "../components/retailer-pitch-trinidad/CaribbeanDutyFreeLogo";
 
 export default function DemoRetailerDashboardTrinidad() {
   const { i18n } = useTranslation();
@@ -29,6 +30,7 @@ export default function DemoRetailerDashboardTrinidad() {
       region="americas"
       companyKey="trinidad_tobago"
       currency="USD"
+      logoUrl={CARIBBEAN_DUTY_FREE_LOGO_URL}
     />
   );
 }
