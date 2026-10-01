@@ -126,6 +126,25 @@ export default function RetailerInvoiceDownload({ transactions, retailers, user 
     doc.setFont(undefined, "normal");
     doc.setFontSize(10);
 
+    // Payment details (bank transfer)
+    y += 14;
+    if (y > 250) { doc.addPage(); y = 20; }
+    doc.setFontSize(10);
+    doc.setFont(undefined, "bold");
+    doc.setTextColor(31, 111, 255);
+    doc.text("Payment Details — Bank Transfer (EUR)", 20, y);
+    doc.setFont(undefined, "normal");
+    doc.setFontSize(9);
+    doc.setTextColor(60);
+    y += 6;
+    doc.text("Recipient: DutyBoost   ·   Currency accepted: EUR", 20, y);
+    y += 5;
+    doc.text("IBAN: NL61 REVO 7598 7409 68   ·   BIC: REVONL22", 20, y);
+    y += 5;
+    doc.text("Recipient address: Dek 32, FLEVOLAND, 1319BB, ALMERE, Netherlands", 20, y);
+    y += 5;
+    doc.text("Bank: Revolut Bank UAB, Barbara Strozzilaan 201, 1083 HN, Amsterdam, Netherlands", 20, y);
+
     // Footer note
     y += 14;
     doc.setFontSize(8);

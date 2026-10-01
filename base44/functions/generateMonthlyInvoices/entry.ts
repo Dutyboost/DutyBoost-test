@@ -110,6 +110,7 @@ Deno.serve(async (req) => {
 
       // Send invoice email
       const invoiceEmail = ownerEmail;
+      const paymentReference = `INV-${prevMonthStr}-${ownerEmail.split('@')[0].toUpperCase()}`;
       if (postmarkToken && invoiceEmail) {
         const payNowButton = paymentLinkUrl
           ? `<div style="text-align: center; margin: 28px 0;">
@@ -122,7 +123,7 @@ Deno.serve(async (req) => {
                <p style="margin: 0 0 8px; font-weight: 600; color: #1e40af; font-size: 14px;">Payment Details</p>
                <p style="margin: 0; color: #1e40af; font-size: 13px; line-height: 1.7;">
                  Please contact <a href="mailto:hello@dutyboost.com">hello@dutyboost.com</a> to arrange payment.<br/>
-                    Reference: <strong>INV-${prevMonthStr}-${ownerEmail.split('@')[0].toUpperCase()}</strong>
+                    Reference: <strong>${paymentReference}</strong>
                </p>
              </div>`;
 
@@ -180,6 +181,21 @@ Deno.serve(async (req) => {
                   </table>
 
                   ${payNowButton}
+
+                  <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 0 0 24px;">
+                    <p style="margin: 0 0 12px; font-weight: 600; color: #1e40af; font-size: 14px;">Payment details — bank transfer (EUR)</p>
+                    <table style="border-collapse: collapse; font-size: 13px; color: #374151; line-height: 1.8;">
+                      <tr><td style="padding-right: 16px; color: #6b7280;">Recipient</td><td style="font-weight: 600;">DutyBoost</td></tr>
+                      <tr><td style="padding-right: 16px; color: #6b7280;">Currency accepted</td><td>EUR</td></tr>
+                      <tr><td style="padding-right: 16px; color: #6b7280;">IBAN</td><td style="font-family: monospace; font-weight: 600;">NL61 REVO 7598 7409 68</td></tr>
+                      <tr><td style="padding-right: 16px; color: #6b7280;">BIC</td><td style="font-family: monospace; font-weight: 600;">REVONL22</td></tr>
+                      <tr><td style="padding-right: 16px; color: #6b7280;">Payment reference</td><td style="font-weight: 600;">${paymentReference}</td></tr>
+                    </table>
+                    <p style="margin: 12px 0 0; font-size: 12px; color: #6b7280; line-height: 1.7;">
+                      Recipient address: Dek 32, FLEVOLAND, 1319BB, ALMERE, Netherlands<br/>
+                      Bank: Revolut Bank UAB, Barbara Strozzilaan 201, 1083 HN, Amsterdam, Netherlands
+                    </p>
+                  </div>
 
                   <p style="margin: 0; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 16px;">
                     DutyBoost B.V. · Amsterdam, The Netherlands · KVK: 94891234 · VAT: NL866038978B01 · hello@dutyboost.com<br/>
