@@ -58,7 +58,12 @@ export default function Layout() {
   useEffect(() => {
     // Paths that can be viewed without a login, so the dashboard can be
     // demonstrated to a prospective retailer straight from a shared link.
-    const demoPaths = ["/retailer-dashboard"];
+    const demoPaths = [
+      "/retailer-dashboard",
+      "/travel-partner-dashboard",
+      "/pos-partner-dashboard",
+      "/corporate-partner-dashboard",
+    ];
     const isDemoPath = demoPaths.includes(window.location.pathname);
     base44.auth.me()
       .then(u => {

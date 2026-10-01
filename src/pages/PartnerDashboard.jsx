@@ -11,6 +11,8 @@ import PartnerUnitsCard from "@/components/partner/PartnerUnitsCard";
 import PartnerBenchmarks from "@/components/partner/PartnerBenchmarks";
 import PartnerGuide from "@/components/partner/PartnerGuide";
 import PartnerPeriodPicker from "@/components/partner/PartnerPeriodPicker";
+import DemoAgencyDashboard from "./DemoAgencyDashboard";
+import { demoPartnerUnits, demoPartnerTransactions, demoPartnerVouchers } from "@/data/demoPartnerDashboardData";
 import { LayoutDashboard, BarChart2, Scale, Store, BookOpen, UserCircle, Loader2, Info } from "lucide-react";
 
 const day = (v) => (v || "").slice(0, 10);
@@ -32,6 +34,8 @@ export default function PartnerDashboard({ type = "pos" }) {
   const [vouchers, setVouchers] = useState([]);
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(true);
+  // Set when the dashboard is opened through a shared public link (no login)
+  const [publicView, setPublicView] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => {
@@ -45,8 +49,16 @@ export default function PartnerDashboard({ type = "pos" }) {
     const load = async () => {
       setLoading(true);
       try {
-        const u = await base44.auth.me();
+        const u = await base44.auth.me().catch(() => null);
         setUser(u);
+        if (!u) {
+          // Public demo link: show representative activity, never live records
+          setPublicView(true);
+          setPartners(demoPartnerUnits(type));
+          setTransactions(demoPartnerTransactions());
+          setVouchers(demoPartnerVouchers());
+          return;
+        }
         const [p, t, v, s] = await Promise.all([
           base44.entities.ParticipatingPartner.filter({ partner_type: config.partnerType }, "-created_date", 2000),
           base44.entities.Transaction.list("-created_date", 500),
@@ -62,11 +74,14 @@ export default function PartnerDashboard({ type = "pos" }) {
       }
     };
     load();
-  }, [config.partnerType]);
+  }, [config.partnerType, type]);
 
   const myUnits = useMemo(
-    () => partners.filter((p) => p.contact_email && user?.email && p.contact_email.toLowerCase() === user.email.toLowerCase()),
-    [partners, user]
+    () =>
+      publicView
+        ? partners
+        : partners.filter((p) => p.contact_email && user?.email && p.contact_email.toLowerCase() === user.email.toLowerCase()),
+    [partners, user, publicView]
   );
 
   const { startDate, endDate } = useMemo(() => {
@@ -125,8 +140,11 @@ export default function PartnerDashboard({ type = "pos" }) {
     { id: "benchmarks", label: "Benchmarks", icon: Scale },
     { id: "units", label: config.unitHeading, icon: Store },
     { id: "guide", label: "Guide", icon: BookOpen },
-    { id: "profile", label: "Profile", icon: UserCircle },
+    ...(publicView ? [] : [{ id: "profile", label: "Profile", icon: UserCircle }]),
   ];
+
+  // Public demo link for travel partners — their own dashboard, on its own
+  if (publicView && type === "travel") return <DemoAgencyDashboard />;
 
   if (loading) {
     return (
