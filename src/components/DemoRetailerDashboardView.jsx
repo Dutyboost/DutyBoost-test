@@ -263,7 +263,7 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
             </p>
           </div>
           {logoUrl && (
-            <img src={logoUrl} alt={companyName || "Partner logo"} className="h-[60px] w-auto object-contain shrink-0" />
+            <img src={logoUrl} alt={companyName || "Partner logo"} className="h-[75px] w-auto object-contain shrink-0" />
           )}
         </div>
 
