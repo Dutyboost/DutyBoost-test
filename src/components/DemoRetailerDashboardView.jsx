@@ -262,14 +262,9 @@ export default function DemoRetailerDashboardView({ AIRPORTS, RETAILERS, MONTHLY
               {AIRPORTS.find(a => a.code === selectedAirport)?.name} · {selectedRetailer.category}
             </p>
           </div>
-          <span className="flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">
-            {logoUrl && (
-              <span className="flex items-center bg-white rounded-full px-2 py-0.5">
-                <img src={logoUrl} alt={companyName || "Partner logo"} className="h-4 w-auto object-contain" />
-              </span>
-            )}
-            {t('demo.active_partner')}
-          </span>
+          {logoUrl && (
+            <img src={logoUrl} alt={companyName || "Partner logo"} className="h-10 w-auto object-contain shrink-0" />
+          )}
         </div>
 
         {/* Period selector */}
