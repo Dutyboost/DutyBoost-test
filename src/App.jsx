@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -38,13 +38,6 @@ import SelectUserType from './pages/SelectUserType';
 import DemoLanding from './pages/DemoLanding';
 import LeadsAdmin from './pages/LeadsAdmin';
 import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
-import DemoRetailerDashboard from './pages/DemoRetailerDashboard';
-import DemoRetailerDashboardHeinemann from './pages/DemoRetailerDashboardHeinemann';
-import DemoRetailerDashboardAvolta from './pages/DemoRetailerDashboardAvolta';
-import DemoRetailerDashboardAvoltaAruba from './pages/DemoRetailerDashboardAvoltaAruba';
-import DemoRetailerDashboardDFPWorld from './pages/DemoRetailerDashboardDFPWorld';
-import DemoRetailerDashboardSintMaarten from './pages/DemoRetailerDashboardSintMaarten';
-import DemoRetailerDashboardTrinidad from './pages/DemoRetailerDashboardTrinidad';
 import DemoAdminDashboard from './pages/DemoAdminDashboard';
 import RetailerScanQR from './pages/RetailerScanQR';
 import BusinessTravel from './pages/BusinessTravel';
@@ -160,6 +153,13 @@ import CarRentalRequest from './pages/CarRentalRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
 
+// Every retailer demo link now opens the one Airport Retailer Dashboard,
+// with the company taken from the URL extension.
+const RetailerDashboardLink = ({ company }) => {
+  const { search } = useLocation();
+  return <Navigate to={`/retailer-dashboard/${company}${search}`} replace />;
+};
+
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
   const isAdmin = user?.role === 'admin';
@@ -211,15 +211,15 @@ const AuthenticatedApp = () => {
 
         <Route path="/demo" element={<DemoLanding />} />
         <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
-        <Route path="/demo/retailer" element={<Navigate to="/demo/retailer-lagardere" replace />} />
-        <Route path="/demo/retailer-lagardere" element={<DemoRetailerDashboard />} />
-        <Route path="/demo/retailer-heinemann" element={<DemoRetailerDashboardHeinemann />} />
-        <Route path="/demo/retailer-avolta" element={<DemoRetailerDashboardAvolta />} />
-        <Route path="/demo/retailer-avolta-aruba" element={<DemoRetailerDashboardAvoltaAruba />} />
-        <Route path="/demo/retailer-dfp-world" element={<DemoRetailerDashboardDFPWorld />} />
-        <Route path="/demo/retailer-sint-maarten" element={<DemoRetailerDashboardSintMaarten />} />
-        <Route path="/demo/retailer-trinidad-tobago" element={<DemoRetailerDashboardTrinidad />} />
-        <Route path="/demo/retailer-trinidad" element={<Navigate to="/demo/retailer-trinidad-tobago" replace />} />
+        <Route path="/demo/retailer" element={<RetailerDashboardLink company="lagardere" />} />
+        <Route path="/demo/retailer-lagardere" element={<RetailerDashboardLink company="lagardere" />} />
+        <Route path="/demo/retailer-heinemann" element={<RetailerDashboardLink company="heinemann" />} />
+        <Route path="/demo/retailer-avolta" element={<RetailerDashboardLink company="avolta" />} />
+        <Route path="/demo/retailer-avolta-aruba" element={<RetailerDashboardLink company="avolta-aruba" />} />
+        <Route path="/demo/retailer-dfp-world" element={<RetailerDashboardLink company="dfp-world" />} />
+        <Route path="/demo/retailer-sint-maarten" element={<RetailerDashboardLink company="sint-maarten" />} />
+        <Route path="/demo/retailer-trinidad-tobago" element={<RetailerDashboardLink company="trinidad-tobago" />} />
+        <Route path="/demo/retailer-trinidad" element={<RetailerDashboardLink company="trinidad-tobago" />} />
         <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
         <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
         <Route path="/demo/cruise" element={<DemoCruiseDashboard />} />
@@ -344,6 +344,7 @@ const AuthenticatedApp = () => {
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
+          <Route path="/retailer-dashboard/:company" element={<RetailerDashboard />} />
           <Route path="/pos-partner-dashboard" element={<PartnerDashboard type="pos" />} />
           <Route path="/corporate-partner-dashboard" element={<PartnerDashboard type="corporate" />} />
           <Route path="/travel-partner-dashboard" element={<PartnerDashboard type="travel" />} />

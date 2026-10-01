@@ -64,7 +64,9 @@ export default function Layout() {
       "/pos-partner-dashboard",
       "/corporate-partner-dashboard",
     ];
-    const isDemoPath = demoPaths.includes(window.location.pathname);
+    const isDemoPath = demoPaths.some(
+      (p) => window.location.pathname === p || window.location.pathname.startsWith(`${p}/`)
+    );
     base44.auth.me()
       .then(u => {
         if (!u) {

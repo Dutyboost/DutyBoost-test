@@ -155,7 +155,7 @@ export default function PartnerDashboard({ type = "pos" }) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className={publicView ? "max-w-7xl mx-auto p-6 md:p-8 space-y-6" : "space-y-6"}>
       <div className="flex gap-1 border-b border-border overflow-x-auto">
         {tabs.map(({ id, label, icon: Icon }) => (
           <button

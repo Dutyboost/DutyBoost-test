@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
 import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ProfileTab from "../components/ProfileTab";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
@@ -18,8 +19,10 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import DemoRetailerDashboardView from "../components/DemoRetailerDashboardView";
-import { RETAILERS as DEMO_RETAILERS, AIRPORTS as DEMO_AIRPORTS, MONTHLY_DATA as DEMO_MONTHLY_DATA, DAILY_DATA as DEMO_DAILY_DATA, YEARLY_DATA as DEMO_YEARLY_DATA } from "../data/demoDataLagardere";
+import DemoProfileTab from "../components/DemoProfileTab";
+import DemoPill from "../components/DemoPill";
+import { buildDemoAccount, RETAILER_DASHBOARD_COMPANIES, DEFAULT_RETAILER_COMPANY } from "../data/retailerDashboardCompanies";
+import { fmtMoney } from "../utils/formatNumber";
 
 export default function RetailerDashboard() {
   const [retailers, setRetailers] = useState([]);
@@ -33,6 +36,11 @@ export default function RetailerDashboard() {
   const [feedback, setFeedback] = useState([]);
   const [user, setUser] = useState(null);
   const [demoMode, setDemoMode] = useState(false);
+  const [demoAccount, setDemoAccount] = useState(null);
+  const { company: companySlug } = useParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { i18n } = useTranslation();
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
@@ -96,13 +104,47 @@ export default function RetailerDashboard() {
     initLoad();
   }, []);
 
+  // Public (shared) link: fill the dashboard from the selected company's data set
+  useEffect(() => {
+    if (!demoMode) return;
+    const acc = buildDemoAccount(companySlug);
+    setDemoAccount(acc);
+    setAirports(acc.airports);
+    setRetailers(acc.stores);
+    setTransactions(acc.transactions);
+    setVouchers(acc.vouchers);
+  }, [demoMode, companySlug]);
+
+  useEffect(() => {
+    const lang = searchParams.get("lang");
+    if (lang) i18n.changeLanguage(lang);
+  }, [searchParams, i18n]);
+
   const handleCreateStore = async (e) => {
     e.preventDefault();
+    if (demoMode) {
+      // Shared demo — the store is added for this session only
+      setRetailers(prev => [{ id: `demo-${Date.now()}`, ...form, accepts_vouchers: true }, ...prev]);
+      toast.success("Store added (demo)");
+      setDialogOpen(false);
+      setForm({ store_name: "", airport: "", category: "Retail", description: "" });
+      return;
+    }
     const user = await base44.auth.me();
     await base44.entities.Retailer.create({ ...form, owner_email: user.email, accepts_vouchers: true });
     toast.success("Store created!");
     setDialogOpen(false);
     setForm({ store_name: "", airport: "", category: "Retail", description: "" });
+    loadData();
+  };
+
+  const handleDeleteStore = async (store) => {
+    if (demoMode) {
+      setRetailers(prev => prev.filter(r => r.id !== store.id));
+      return;
+    }
+    await base44.entities.Retailer.delete(store.id);
+    toast.success("Store removed");
     loadData();
   };
 
@@ -164,21 +206,6 @@ export default function RetailerDashboard() {
   });
   const storeData = Object.entries(storeRevMap).map(([store, revenue]) => ({ store, revenue: Math.round(revenue) }));
 
-  if (demoMode) {
-    return (
-      <DemoRetailerDashboardView
-        AIRPORTS={DEMO_AIRPORTS}
-        RETAILERS={DEMO_RETAILERS}
-        MONTHLY_DATA={DEMO_MONTHLY_DATA}
-        DAILY_DATA={DEMO_DAILY_DATA}
-        YEARLY_DATA={DEMO_YEARLY_DATA}
-        defaultAirport="AMS"
-        region="nl"
-        companyKey="lagardere"
-      />
-    );
-  }
-
   if (overdueInvoice) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
@@ -217,13 +244,43 @@ export default function RetailerDashboard() {
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "custom", label: "Custom Aggregation", icon: BarChartIcon },
-    { id: "refunds", label: "Returns & Refunds", icon: RotateCcw },
+    ...(demoMode ? [] : [{ id: "refunds", label: "Returns & Refunds", icon: RotateCcw }]),
     { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
+  const currency = demoAccount?.company.currency || "EUR";
+  const money = (value, decimals = 0) => fmtMoney(value, currency, decimals);
+
   return (
-    <div className="space-y-6">
+    <div className={demoMode ? "max-w-7xl mx-auto p-6 md:p-8 space-y-6" : "space-y-6"}>
+      {demoMode && demoAccount && (
+        <div className="flex items-center justify-between gap-4 flex-wrap bg-card border border-border rounded-xl px-5 py-4">
+          <div className="flex items-center gap-3">
+            <Store className="w-5 h-5 text-orange-500 shrink-0" />
+            <div>
+              <p className="font-heading font-bold">{demoAccount.company.label}</p>
+              <p className="text-xs text-muted-foreground">Airport Retailer Dashboard</p>
+            </div>
+            <DemoPill />
+          </div>
+          <div className="flex items-center gap-4">
+            <select
+              className="text-sm border border-input rounded-lg px-3 py-1.5 bg-background max-w-[260px]"
+              value={companySlug || DEFAULT_RETAILER_COMPANY}
+              onChange={e => navigate(`/retailer-dashboard/${e.target.value}`)}
+            >
+              {Object.entries(RETAILER_DASHBOARD_COMPANIES).map(([slug, c]) => (
+                <option key={slug} value={slug}>{c.label}</option>
+              ))}
+            </select>
+            {demoAccount.company.logoUrl && (
+              <img src={demoAccount.company.logoUrl} alt={demoAccount.company.label} className="h-[75px] w-auto object-contain shrink-0" />
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Tab bar */}
       <div className="flex gap-1 border-b border-border">
         {tabs.map(({ id, label, icon: Icon }) => (
@@ -236,7 +293,7 @@ export default function RetailerDashboard() {
         ))}
       </div>
 
-      {retailers.length === 0 && (
+      {!demoMode && retailers.length === 0 && (
         <div className="flex items-start gap-3 bg-primary/5 border border-primary/20 rounded-xl p-4 text-sm">
           <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
           <p className="text-muted-foreground">
@@ -247,7 +304,18 @@ export default function RetailerDashboard() {
       )}
 
       {activeTab === "profile" ? (
-        <ProfileTab user={user} onUserUpdate={setUser} showBankDetails={false} invoiceHeading="Invoice History" invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
+        demoMode && demoAccount ? (
+          <DemoProfileTab
+            entity={demoAccount.retailers[0]}
+            entityType="retailer"
+            region={demoAccount.company.region}
+            retailers={demoAccount.retailers}
+            companyKey={demoAccount.company.companyKey}
+            currency={demoAccount.company.currency}
+          />
+        ) : (
+          <ProfileTab user={user} onUserUpdate={setUser} showBankDetails={false} invoiceHeading="Invoice History" invoiceComponent={<RetailerInvoiceDownload transactions={transactions} retailers={retailers} user={user} />} />
+        )
       ) : activeTab === "custom" ? (
         <AggregationView transactions={filteredTransactions} vouchers={vouchers} period={period === "daily" ? "day" : period === "monthly" ? "month" : period} entityType="retailer" onPeriodChange={setPeriod} />
       ) : activeTab === "implementation" ? (
@@ -357,8 +425,8 @@ export default function RetailerDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
          <StatsCard title="My Stores" value={retailers.length} icon={Store} />
          <StatsCard title="Active DutyCredits" value={vouchers.length} icon={TicketPercent} />
-        <StatsCard title="Revenue Generated" value={`€ ${totalRevenue.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} icon={CreditCard} />
-        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={`€ ${dutyBoostFee.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} subtitle={`Avg €${revenuePerDay.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/day`} icon={TrendingUp} />
+        <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
+        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -377,11 +445,7 @@ export default function RetailerDashboard() {
                     <p className="font-medium">{r.store_name}</p>
                     <p className="text-sm text-muted-foreground">{r.airport} · {r.category}</p>
                   </div>
-                  <Button variant="ghost" size="icon" onClick={async () => {
-                    await base44.entities.Retailer.delete(r.id);
-                    toast.success("Store removed");
-                    loadData();
-                  }}>
+                  <Button variant="ghost" size="icon" onClick={() => handleDeleteStore(r)}>
                     <Trash2 className="w-4 h-4 text-destructive" />
                   </Button>
                 </div>
@@ -421,7 +485,7 @@ export default function RetailerDashboard() {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="date" tick={{ fontSize: 11 }} tickLine={false} />
             <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-            <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [`€ ${v.toLocaleString("nl-NL")}`, n]} />
+            <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [money(v), n]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={false} name="Volume (€)" />
             <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={false} name="DutyBoost Fee (€)" />
@@ -437,7 +501,7 @@ export default function RetailerDashboard() {
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis dataKey="store" tick={{ fontSize: 11 }} tickLine={false} />
               <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
-              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [`€ ${v.toLocaleString("nl-NL")}`, "Revenue"]} />
+              <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [money(v), "Revenue"]} />
               <Bar dataKey="revenue" fill="#1F6FFF" radius={[4, 4, 0, 0]} name="Revenue (€)" />
             </BarChart>
           </ResponsiveContainer>
