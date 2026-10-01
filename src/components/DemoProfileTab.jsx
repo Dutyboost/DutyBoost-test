@@ -560,11 +560,12 @@ export default function DemoProfileTab({ entity, entityType = "agency", region =
     ? AGENCY_PROFILES[entity?.id] || AGENCY_PROFILES.default
     : companyProfile;
 
-  const [profile, setProfile] = useState({ ...initialProfile, contactName: initialProfile.contactName || entity?.contact_person || "Demo User", email: initialProfile.email || entity?.email || "demo@dutyboost.com", phone: initialProfile.phone || entity?.phone });
+  // Demo account information always shows a neutral placeholder contact
+  const [profile, setProfile] = useState({ ...initialProfile, contactName: "John Doe", email: "john.doe@example.com", phone: initialProfile.phone || entity?.phone });
 
   useEffect(() => {
     if (entityType === "retailer" && companyProfile) {
-      setProfile({ ...companyProfile, contactName: companyProfile.contactName || entity?.contact_person || "Demo User", email: companyProfile.email || entity?.email || "demo@dutyboost.com", phone: companyProfile.phone || entity?.phone });
+      setProfile({ ...companyProfile, contactName: "John Doe", email: "john.doe@example.com", phone: companyProfile.phone || entity?.phone });
     }
   }, [companyKey, entityType]);
 
