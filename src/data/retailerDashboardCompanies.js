@@ -104,8 +104,10 @@ function pickStores(retailers, limit = 12) {
   return out;
 }
 
-const PER_STORE = 25;
-const WINDOW_DAYS = 30;
+// A full year of activity per store (≈24 redemptions a month), so that the
+// dashboard's Daily / Monthly / Yearly / Custom views each show their own total.
+const PER_STORE = 288;
+const WINDOW_DAYS = 365;
 
 /** Builds the dashboard data set for one company (used only when nobody is signed in). */
 export function buildDemoAccount(slug) {
