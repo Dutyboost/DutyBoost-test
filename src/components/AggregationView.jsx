@@ -13,9 +13,9 @@ export default function AggregationView({ transactions, vouchers, period, custom
   // Minimum DutyCredit value — a market price point, not an FX conversion: €20 in Europe, $23 in USD markets.
   const minDcValue = currency === "EUR" ? 20 : 23;
   const fmtDc = (v) => fmtCurrencyNative(v, currency, 0);
-  // The Estimated Redemption Rate slider scales the volume shown: the 0.01% floor is
-  // the recorded baseline, so every figure moves with the slider.
-  const rateMultiplier = (redemptionRate ?? 0.01) / 0.01;
+  // The Estimated Redemption Rate slider scales the volume shown: 0% shows nothing,
+  // and every figure rises from there as the slider moves.
+  const rateMultiplier = (redemptionRate ?? 0) / 0.01;
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
   const filteredTransactions = useMemo(
     () => (rateMultiplier === 1 ? transactions : transactions.map(t => ({
@@ -216,7 +216,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">
             {fmtDc(minDcValue)}
             <span className="text-muted-foreground text-sm font-normal mx-1">→</span>
-            <span className="text-indigo-600">{fmtDc(minDcValue * (1 + (redemptionRate || 0.01) / 100))}</span>
+            <span className="text-indigo-600">{fmtDc(minDcValue * (1 + (redemptionRate ?? 0) / 100))}</span>
           </p>
         </div>
       </div>

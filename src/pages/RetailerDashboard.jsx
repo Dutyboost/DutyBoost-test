@@ -56,7 +56,7 @@ export default function RetailerDashboard() {
   // Demo only: which airport and store the figures are shown for
   const [demoAirport, setDemoAirport] = useState("");
   const [demoStoreId, setDemoStoreId] = useState("all");
-  const [redemptionRate, setRedemptionRate] = useState(0.01);
+  const [redemptionRate, setRedemptionRate] = useState(0);
 
   const loadData = async () => {
     const u = await base44.auth.me();
@@ -232,8 +232,8 @@ export default function RetailerDashboard() {
     return d >= startDate && d <= endDate;
   };
 
-  // The Estimated Redemption Rate slider scales the figures shown: the 0.01% floor is
-  // the recorded baseline, so every figure on the dashboard moves with the slider.
+  // The Estimated Redemption Rate slider scales the figures shown: 0% shows nothing,
+  // and every figure on the dashboard rises from there as the slider moves.
   const rateMultiplier = redemptionRate / 0.01;
   const filteredTransactions = useMemo(() => {
     const inPeriodTx = scopedTransactions.filter(inPeriod);

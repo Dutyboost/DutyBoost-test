@@ -3,7 +3,7 @@ import { Slider } from "@/components/ui/slider";
 import { Percent } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const MIN_RATE = 0.01;
+const MIN_RATE = 0;
 const MAX_RATE = 15;
 
 export default function RedemptionRateSlider({ rate, onChange }) {
@@ -57,7 +57,7 @@ export default function RedemptionRateSlider({ rate, onChange }) {
         className="w-full"
       />
       <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-        <span>0.01%</span>
+        <span>0%</span>
         <span>15.00%</span>
       </div>
     </div>
