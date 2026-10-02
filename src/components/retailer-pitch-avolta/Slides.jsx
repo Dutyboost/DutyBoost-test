@@ -286,7 +286,7 @@ export function SlideFacts() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 className="text-slate-800 font-semibold text-sm mb-3">Traditional Airport Retail Failure Points</h3>
+              <h3 className="text-slate-800 font-semibold text-sm mb-3">Traditional Airport Retail Challenges</h3>
               <ul className="space-y-2">
                 {[
                   "Activation starts only after the traveller clears security",

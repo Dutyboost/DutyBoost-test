@@ -198,7 +198,7 @@ function SlideProblem() {
             </div>
             <div className="flex flex-col gap-4 justify-center">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                <h3 className="text-slate-800 font-semibold text-lg mb-4">Traditional Airport Retail Failure Points</h3>
+                <h3 className="text-slate-800 font-semibold text-lg mb-4">Traditional Airport Retail Challenges</h3>
                 <ul className="space-y-3">
                   {[
                     "Activation starts only after the traveller clears security at Piarco or Tobago",

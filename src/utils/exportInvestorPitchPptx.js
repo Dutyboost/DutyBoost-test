@@ -117,7 +117,7 @@ export async function exportInvestorPitchPptx() {
       "73% of passengers walk straight to the gate",
     ];
     s.addShape(pptx.ShapeType.roundRect, { x: 6.7, y: 2.4, w: 5.8, h: 2.95, fill: { color: PANEL }, line: { color: PANEL_BORDER, width: 1 }, rectRadius: 0.12 });
-    s.addText("Traditional Airport Retail Failure Points", { x: 6.9, y: 2.55, w: 5.4, h: 0.4, fontSize: 14, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
+    s.addText("Traditional Airport Retail Challenges", { x: 6.9, y: 2.55, w: 5.4, h: 0.4, fontSize: 14, bold: true, color: WHITE, align: "left", fontFace: "Calibri" });
     failures.forEach((f, i) => {
       s.addText("•", { x: 6.9, y: 3.0 + i * 0.45, w: 0.3, h: 0.35, fontSize: 12, color: RED, align: "left", fontFace: "Calibri" });
       s.addText(f, { x: 7.2, y: 3.0 + i * 0.45, w: 5.1, h: 0.35, fontSize: 10.5, color: "CBD5E1", align: "left", fontFace: "Calibri", valign: "middle" });
