@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info, ScanLine } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info, ScanLine, LineChart as LineChartIcon } from "lucide-react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ProfileTab from "../components/ProfileTab";
@@ -347,6 +347,8 @@ export default function RetailerDashboard() {
   const listedStores = retailers;
   const currency = demoAccount?.company.currency || "EUR";
   const money = (value, decimals = 0) => fmtMoney(value, currency, decimals);
+  // Minimum DutyCredit value — a market price point, not an FX conversion: €20 in Europe, $23 in USD markets.
+  const minDcValue = currency === "EUR" ? 20 : 23;
 
   return (
     <div className={demoMode ? "max-w-7xl mx-auto p-6 md:p-8 space-y-6" : "space-y-6"}>
@@ -530,9 +532,10 @@ export default function RetailerDashboard() {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
          <StatsCard title="My Stores" value={listedStores.length} icon={Store} />
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
+        <StatsCard title="Min. DC Value" value={fmtCurrencyNative(minDcValue, currency, 0)} icon={LineChartIcon} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
         <StatsCard title="Platform Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
