@@ -123,10 +123,15 @@ export function buildDemoAccount(slug) {
     category: r.category,
   }));
 
+  // Minimum DutyCredit value for the company's market: €20 in Europe, $23 in USD
+  // markets. Every redemption is a qualifying sale worth at least this value, so
+  // Revenue Generated always equals Total Redemptions × this value.
+  const minCredit = company.currency === "EUR" ? 20 : 23;
+  const perRedemptionSaving = calcSaving(minCredit);
+
   const transactions = retailers.flatMap((r, si) => {
-    // Each store's daily revenue and redemption pace follow its own weight in the
-    // network, so no two stores — and no two airports — show the same figures.
-    const dailyRevenue = (r.revenue || r.avg_sale * (r.redemptions || 24)) / 30;
+    // Redemption pace follows each store's own weight in the network, so no two
+    // stores — and no two airports — show the same figures.
     const dailyRedemptions = Math.max(1, (r.redemptions || 24) / 30);
     return Array.from({ length: WINDOW_DAYS }, (_, i) => {
       const d = new Date();
@@ -136,8 +141,8 @@ export function buildDemoAccount(slug) {
       const weekday = [0.9, 0.95, 1.0, 1.05, 1.15, 1.25, 1.1][d.getDay()];
       const wave = 0.75 + 0.5 * Math.abs(Math.sin((i + si * 13) / 5.7));
       const count = Math.max(1, Math.round(dailyRedemptions * weekday * wave));
-      const value = Math.round(dailyRevenue * weekday * wave * 100) / 100;
-      const saving = calcSaving(value);
+      const value = Math.round(count * minCredit * 100) / 100;
+      const saving = Math.round(perRedemptionSaving * count * 100) / 100;
       const platformFee = Math.min(Math.round(value * 0.025 * 100) / 100, 25);
       return {
         id: `demo-${r.id}-${i}`,
@@ -158,9 +163,6 @@ export function buildDemoAccount(slug) {
     });
   });
 
-  // Minimum DutyCredit value for the company's market: €20 in Europe, $23 in USD markets.
-  // Credit amounts are already expressed in the company's currency (not EUR base).
-  const minCredit = company.currency === "EUR" ? 20 : 23;
   const CREDIT_TIERS = [1, 1.25, 1.5, 2];
 
   const vouchers = Array.from({ length: 12 }, (_, i) => {
