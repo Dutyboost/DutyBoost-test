@@ -96,6 +96,26 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
     .slice(0, 6)
     .toUpperCase()}`;
 
+  // The retailer's signature is captured in the form, so the downloaded document
+  // already carries the signature and the date it was given.
+  let signature = null;
+  if (form.signature) {
+    try {
+      const img = await new Promise((resolve, reject) => {
+        const i = new Image();
+        i.onload = () => resolve(i);
+        i.onerror = reject;
+        i.src = form.signature;
+      });
+      signature = { dataUrl: form.signature, aspect: (img.naturalWidth || 1) / (img.naturalHeight || 1) };
+    } catch {
+      signature = null;
+    }
+  }
+  const signedDate = form.signedDate
+    ? new Date(form.signedDate).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
+    : "";
+
   let y = 18;
   const logo = await loadLogo();
   if (logo) {
@@ -171,17 +191,31 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
   y += 4;
 
   y = heading(pdf, y, T.sign_heading);
-  y = keepOnPage(pdf, y, 34);
+  y = keepOnPage(pdf, y, 42);
+  // Signature image sits directly above the signature line.
+  if (signature) {
+    let sw = 62;
+    let sh = sw / signature.aspect;
+    if (sh > 16) { sh = 16; sw = sh * signature.aspect; }
+    pdf.addImage(signature.dataUrl, "PNG", M, y, sw, sh);
+  }
+  // Date the retailer signed, written above the date line.
+  if (signedDate) {
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(10);
+    pdf.setTextColor(...NAVY);
+    pdf.text(signedDate, M + 90, y + 13);
+  }
   pdf.setDrawColor(...LINE);
   pdf.setLineWidth(0.3);
-  pdf.line(M, y + 12, M + 80, y + 12);
-  pdf.line(M + 90, y + 12, M + CW, y + 12);
+  pdf.line(M, y + 18, M + 80, y + 18);
+  pdf.line(M + 90, y + 18, M + CW, y + 18);
   pdf.setFont("helvetica", "normal");
   pdf.setFontSize(8.5);
   pdf.setTextColor(...MUTED);
-  pdf.text(T.sign_line, M, y + 16);
-  pdf.text(T.sign_date, M + 90, y + 16);
-  y += 24;
+  pdf.text(T.sign_line, M, y + 22);
+  pdf.text(T.sign_date, M + 90, y + 22);
+  y += 30;
   y = row(pdf, y, T.sign_name, form.fullName);
   y = row(pdf, y, T.sign_position, form.jobTitle);
 

@@ -13,6 +13,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 import MultiSelectComboBox from "@/components/survey/MultiSelectComboBox";
 import CountrySelect from "@/components/request/CountrySelect";
+import SignaturePad from "@/components/request/SignaturePad";
 import { STAKEHOLDER_CONFIG, getStakeholderRequestStrings } from "@/lib/i18nStakeholderRequest";
 import { getRetailerConfirmationStrings } from "@/lib/i18nRetailerConfirmation";
 import { POS_PROVIDERS } from "@/data/posProviders";
@@ -24,6 +25,7 @@ const EMPTY = {
   posContactName: "", posContactEmail: "", posContactPhone: "",
   siCompany: "", siContactName: "", siContactEmail: "", siContactPhone: "",
   authorised: false, confirmed: false, message: "",
+  signature: "", signedDate: new Date().toISOString().split("T")[0],
 };
 
 function Required() {
@@ -59,7 +61,7 @@ export default function RetailerPosConfirmation() {
     form.posProviders.length > 0 && !needsPosOther &&
     form.siCompany && form.siContactName && form.siContactEmail && form.siContactPhone &&
     form.posContactName && form.posContactEmail && form.posContactPhone &&
-    form.authorised && form.confirmed;
+    form.authorised && form.confirmed && form.signature && form.signedDate;
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleDownload = (e) => {
@@ -303,6 +305,29 @@ export default function RetailerPosConfirmation() {
                       {s.consent_confirm.replace("{company}", form.company || t("corporaterequest.placeholder_company"))}
                     </span>
                   </label>
+                </div>
+
+                {/* Signature & date */}
+                <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
+                  <h3 className="font-heading font-semibold">{s.sec_signature}</h3>
+                  <div className="space-y-1.5">
+                    <Label>{s.label_signed_date}<Required /></Label>
+                    <Input
+                      required
+                      autoComplete="off"
+                      type="date"
+                      name="db-signed-date"
+                      value={form.signedDate}
+                      onChange={(e) => set("signedDate", e.target.value)}
+                    />
+                  </div>
+                  <SignaturePad
+                    label={`${s.label_signature} *`}
+                    value={form.signature}
+                    onChange={(v) => set("signature", v)}
+                    clearLabel={s.sign_clear}
+                    hint={s.sign_hint}
+                  />
                 </div>
 
                 {/* Message */}
