@@ -506,8 +506,12 @@ export default function RetailerDashboard() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label>Description</Label>
-                <Input value={form.description} onChange={e => setForm({...form, description: e.target.value})} />
+                <Label>Description (optional)</Label>
+                <Input
+                  value={form.description}
+                  onChange={e => setForm({...form, description: e.target.value})}
+                  placeholder="e.g. Fashion & accessories — Terminal 1, departures"
+                />
               </div>
               <Button type="submit" className="w-full">Create Store</Button>
             </form>
