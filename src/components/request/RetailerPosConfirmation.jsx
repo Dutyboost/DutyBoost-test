@@ -14,6 +14,7 @@ import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
 import MultiSelectComboBox from "@/components/survey/MultiSelectComboBox";
 import CountrySelect from "@/components/request/CountrySelect";
 import SignaturePad from "@/components/request/SignaturePad";
+import RetailerPosTerms from "@/components/request/RetailerPosTerms";
 import { STAKEHOLDER_CONFIG, getStakeholderRequestStrings } from "@/lib/i18nStakeholderRequest";
 import { getRetailerConfirmationStrings } from "@/lib/i18nRetailerConfirmation";
 import { POS_PROVIDERS } from "@/data/posProviders";
@@ -24,7 +25,7 @@ const EMPTY = {
   posProviders: [], posOther: "",
   posContactName: "", posContactEmail: "", posContactPhone: "",
   siCompany: "", siContactName: "", siContactEmail: "", siContactPhone: "",
-  authorised: false, confirmed: false,
+  authorised: false, confirmed: false, termsAccepted: false,
   signature: "", signedDate: new Date().toISOString().split("T")[0],
 };
 
@@ -61,13 +62,13 @@ export default function RetailerPosConfirmation() {
     form.posProviders.length > 0 && !needsPosOther &&
     form.siCompany && form.siContactName && form.siContactEmail && form.siContactPhone &&
     form.posContactName && form.posContactEmail && form.posContactPhone &&
-    form.authorised && form.confirmed && form.signature && form.signedDate;
+    form.authorised && form.confirmed && form.termsAccepted && form.signature && form.signedDate;
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleDownload = (e) => {
     e.preventDefault();
     if (!isValid) return;
-    downloadRetailerPosConfirmation({ strings: s.doc, form, posValues });
+    downloadRetailerPosConfirmation({ strings: s, form, posValues });
   };
 
   const handleSubmit = async (e) => {
@@ -113,7 +114,7 @@ export default function RetailerPosConfirmation() {
         submission_authorisation: "Retailer authorises the system integrator to carry out the DutyBoost integration",
         language: i18n.language || "en",
       });
-      downloadRetailerPosConfirmation({ strings: s.doc, form, posValues });
+      downloadRetailerPosConfirmation({ strings: s, form, posValues });
       setSubmitted(true);
     } finally {
       setLoading(false);
@@ -305,6 +306,13 @@ export default function RetailerPosConfirmation() {
                     </span>
                   </label>
                 </div>
+
+                {/* Terms & conditions — this authorisation only */}
+                <RetailerPosTerms
+                  strings={s}
+                  checked={form.termsAccepted}
+                  onChange={(v) => set("termsAccepted", v)}
+                />
 
                 {/* Signature & date */}
                 <div className="bg-card border border-border rounded-2xl p-6 space-y-4">

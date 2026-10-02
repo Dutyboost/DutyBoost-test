@@ -88,7 +88,8 @@ function paragraph(pdf, y, text, { size = 10, bold = false, color = BODY } = {})
 }
 
 export async function downloadRetailerPosConfirmation({ strings, form, posValues }) {
-  const T = strings;
+  const TT = strings;
+  const T = strings.doc;
   const pdf = new jsPDF({ unit: "mm", format: "a4" });
   const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
   const reference = `DB-POS-${new Date().getFullYear()}-${String(form.company || "")
@@ -189,6 +190,16 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
   y = heading(pdf, y, T.auth_heading);
   y = paragraph(pdf, y, T.auth_authorise, { size: 10 });
   y += 4;
+
+  // Terms & conditions — these govern this authorisation document only.
+  y = heading(pdf, y, TT.sec_terms);
+  y = paragraph(pdf, y, TT.terms_scope, { size: 8.5 });
+  y += 1;
+  TT.terms_clauses.forEach((c, i) => {
+    y = paragraph(pdf, y, `${i + 1}. ${c.title}`, { size: 8.5, bold: true, color: NAVY });
+    y = paragraph(pdf, y, c.body, { size: 8.5 });
+  });
+  y += 3;
 
   y = heading(pdf, y, T.sign_heading);
   y = keepOnPage(pdf, y, 42);
