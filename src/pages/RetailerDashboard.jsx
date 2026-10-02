@@ -27,9 +27,6 @@ import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
 export default function RetailerDashboard() {
   const [retailers, setRetailers] = useState([]);
-  // Demo only: stores added in this session via "Add Store" — the seeded demo stores
-  // stay in the dropdown but are not listed as the visitor's own stores.
-  const [addedStores, setAddedStores] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [vouchers, setVouchers] = useState([]);
   const [airports, setAirports] = useState([]);
@@ -130,7 +127,6 @@ export default function RetailerDashboard() {
     setAirports(acc.airports);
     setRetailers(acc.stores);
     setTransactions(acc.transactions);
-    setAddedStores([]);
     setDemoAirport("");
     setDemoStoreId("all");
 
@@ -189,7 +185,6 @@ export default function RetailerDashboard() {
       // Shared demo — the store is added for this session only
       const newStore = { id: `demo-${Date.now()}`, ...form, accepts_vouchers: true };
       setRetailers(prev => [newStore, ...prev]);
-      setAddedStores(prev => [newStore, ...prev]);
       toast.success("Store added (demo)");
       setDialogOpen(false);
       setForm({ store_name: "", airport: "", category: "Duty Free", description: "" });
@@ -206,7 +201,6 @@ export default function RetailerDashboard() {
   const handleDeleteStore = async (store) => {
     if (demoMode) {
       setRetailers(prev => prev.filter(r => r.id !== store.id));
-      setAddedStores(prev => prev.filter(r => r.id !== store.id));
       return;
     }
     await base44.entities.Retailer.delete(store.id);
@@ -331,8 +325,8 @@ export default function RetailerDashboard() {
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
-  // The listed stores are the visitor's own: in the demo only the ones added via "Add Store".
-  const listedStores = demoMode ? addedStores : retailers;
+  // The demo lists all stores of the selected company by default.
+  const listedStores = retailers;
   const currency = demoAccount?.company.currency || "EUR";
   const money = (value, decimals = 0) => fmtMoney(value, currency, decimals);
 
