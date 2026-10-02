@@ -76,13 +76,24 @@ function flattenGradientText(root) {
 
 async function waitForAssets(root) {
   const images = Array.from(root.querySelectorAll("img"));
+  // The export host sits far off-screen, where a lazy image is never fetched and
+  // would block the export forever — ask for every image eagerly, and never wait
+  // longer than a few seconds for any single one.
+  images.forEach((img) => {
+    img.loading = "eager";
+  });
   await Promise.all(
     images.map((img) =>
       img.complete
         ? Promise.resolve()
         : new Promise((resolve) => {
-            img.addEventListener("load", resolve, { once: true });
-            img.addEventListener("error", resolve, { once: true });
+            const done = () => {
+              clearTimeout(timer);
+              resolve();
+            };
+            const timer = setTimeout(done, 3000);
+            img.addEventListener("load", done, { once: true });
+            img.addEventListener("error", done, { once: true });
           })
     )
   );
