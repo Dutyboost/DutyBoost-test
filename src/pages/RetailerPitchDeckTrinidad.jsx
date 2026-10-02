@@ -204,7 +204,6 @@ function SlideProblem() {
                     "Activation starts only after the traveller clears security at Piarco or Tobago",
                     "Retailers compete for attention through impulse purchasing",
                     "No financial reason for a non-intending buyer to enter a store",
-                    "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
                     "73% of passengers walk straight to the gate",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">

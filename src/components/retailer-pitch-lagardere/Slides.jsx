@@ -312,7 +312,6 @@ export function SlideFacts() {
                   {[
                     "Activation starts only after the traveller clears security",
                     "No financial reason for a non-intending buyer to enter a store",
-                    "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
                     "73% of LTR-exposed passengers walk straight to the gate",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">

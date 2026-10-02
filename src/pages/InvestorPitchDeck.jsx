@@ -269,7 +269,6 @@ export function SlideProblem() {
                   {[
                     "Activation starts only after the traveller clears security",
                     "Retailers compete for attention through impulse purchasing",
-                    "Travel & Corporate Partners hold the early relationship — but get zero retail participation",
                     "No financial reason for a non-intending buyer to enter a store",
                     "73% of passengers walk straight to the gate",
                   ].map((item, i) => (
