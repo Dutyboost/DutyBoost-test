@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BookOpen, ArrowRight, QrCode, ShieldCheck, Monitor, BarChart as BarChartIcon, RotateCcw, Info, ScanLine, LineChart as LineChartIcon, Coins, Wallet } from "lucide-react";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BarChart as BarChartIcon, RotateCcw, Info, ScanLine, LineChart as LineChartIcon, Coins, Wallet } from "lucide-react";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ProfileTab from "../components/ProfileTab";
 import {
@@ -352,7 +352,6 @@ export default function RetailerDashboard() {
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "custom", label: "Aggregation", icon: BarChartIcon },
     ...(demoMode ? [] : [{ id: "refunds", label: "Returns & Refunds", icon: RotateCcw }]),
-    { id: "implementation", label: "Implementation Guide", icon: BookOpen },
     { id: "profile", label: "Profile & Billing", icon: UserCircle },
   ];
 
@@ -433,38 +432,6 @@ export default function RetailerDashboard() {
           redemptionRate={redemptionRate}
           onRedemptionRateChange={setRedemptionRate}
         />
-      ) : activeTab === "implementation" ? (
-        <div className="max-w-2xl space-y-8 py-4">
-          <div className="space-y-2">
-            <h1 className="text-2xl font-heading font-bold">Implementation Guide</h1>
-            <p className="text-muted-foreground">Everything your technical team needs to integrate DutyBoost into your POS system — so that DutyCredit vouchers can be validated and redeemed at your till automatically.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { icon: QrCode, title: 'Two API calls', desc: 'Validate on scan, then confirm redemption at checkout. Simple and reliable.' },
-              { icon: Monitor, title: '1–2 day setup', desc: 'Works with any POS system. Full code examples in JS and Python.' },
-              { icon: ShieldCheck, title: 'Monthly invoicing', desc: 'Transactions are logged automatically. You receive one invoice per month for platform fees.' },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-card border border-border rounded-xl p-4 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center"><Icon className="w-4 h-4 text-primary" /></div>
-                <p className="font-semibold text-sm">{title}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4">
-            <p className="text-sm text-muted-foreground">The full guide covers: three integration options (API / tablet / manual), validate & redeem API reference, full POS code examples, offline fallback handling, billing & reconciliation, webhook setup, and a testing checklist.</p>
-            <Link to="/retailer-integration-guide">
-              <button className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">
-                Open Full Implementation Guide <ArrowRight className="w-4 h-4" />
-              </button>
-            </Link>
-          </div>
-          <div className="bg-card border border-border rounded-xl p-4 text-sm">
-            <p className="font-semibold mb-1">Need help?</p>
-            <p className="text-muted-foreground">Contact our integration team at <a href="mailto:integrations@dutyboost.com" className="text-primary underline">integrations@dutyboost.com</a> — we can assist with POS setup, provide sandbox credentials, or connect you with your POS vendor's developer.</p>
-          </div>
-        </div>
       ) : activeTab === "refunds" ? (
         <PartialRefundManager transactions={transactions} onRefundProcessed={loadData} />
       ) : activeTab === "strategy" ? (

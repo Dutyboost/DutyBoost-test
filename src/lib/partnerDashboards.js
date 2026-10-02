@@ -35,17 +35,6 @@ export const PARTNER_DASHBOARDS = {
       { label: "Channel Commission", metric: "commission", money: true, icon: Landmark },
       { label: "Average Basket", metric: "avgBasket", money: true, icon: CreditCard },
     ],
-    guide: {
-      title: "Implementation Guide",
-      blurb:
-        "Everything your product team needs to embed DutyCredit validation and redemption inside your POS platform.",
-      steps: [
-        { title: "Two API calls", desc: "Validate the DutyCredit on scan, then confirm the redemption at checkout." },
-        { title: "1–2 day setup", desc: "Works with any POS stack. Code examples in JavaScript and Python." },
-        { title: "Automatic reporting", desc: "Every redemption is logged for you — one monthly commission statement per platform." },
-      ],
-      link: { label: "Open the POS partner one-pager", to: "/pos-partner-one-pager" },
-    },
   },
   corporate: {
     key: "corporate",
@@ -67,16 +56,6 @@ export const PARTNER_DASHBOARDS = {
       { label: "Airport Spend Converted", metric: "grossVolume", money: true, icon: TrendingUp },
       { label: "Traveller Savings", metric: "savings", money: true, icon: Landmark },
     ],
-    guide: {
-      title: "Rolling out to your travellers",
-      blurb: "How DutyCredits reach your travellers and how departments report on the spend they convert.",
-      steps: [
-        { title: "Share the traveller list", desc: "Send the booking email or corporate travel policy in scope for the programme." },
-        { title: "Credits are issued automatically", desc: "Each eligible booking receives a DutyCredit before the traveller reaches the airport." },
-        { title: "Report per department", desc: "Spend, savings and redemption rates are split by department and airport here." },
-      ],
-      link: { label: "Open the corporate partner showcase", to: "/corporate-partner-showcase" },
-    },
   },
   travel: {
     key: "travel",
@@ -98,16 +77,6 @@ export const PARTNER_DASHBOARDS = {
       { label: "Airport Spend Converted", metric: "grossVolume", money: true, icon: TrendingUp },
       { label: "Commission Earned", metric: "commission", money: true, icon: Landmark },
     ],
-    guide: {
-      title: "Getting your bookings live",
-      blurb: "How DutyCredits reach the travellers who book with you, and how each redemption is credited back to your channels.",
-      steps: [
-        { title: "Share the booking flow", desc: "Send the confirmation email or booking flow that should carry the DutyCredit block." },
-        { title: "Credits are issued automatically", desc: "Every eligible booking receives a DutyCredit before the traveller reaches the airport." },
-        { title: "Report per channel", desc: "Redemptions, converted spend and commission are split by channel and airport here." },
-      ],
-      link: { label: "Open the travel partner integration guide", to: "/travel-partner-integration-guide" },
-    },
   },
 };
 

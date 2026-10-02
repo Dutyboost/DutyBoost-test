@@ -9,11 +9,10 @@ import PartnerKpis from "@/components/partner/PartnerKpis";
 import PartnerBreakdownChart from "@/components/partner/PartnerBreakdownChart";
 import PartnerUnitsCard from "@/components/partner/PartnerUnitsCard";
 import PartnerBenchmarks from "@/components/partner/PartnerBenchmarks";
-import PartnerGuide from "@/components/partner/PartnerGuide";
 import PartnerPeriodPicker from "@/components/partner/PartnerPeriodPicker";
 import DemoAgencyDashboard from "./DemoAgencyDashboard";
 import { demoPartnerUnits, demoPartnerTransactions, demoPartnerVouchers } from "@/data/demoPartnerDashboardData";
-import { LayoutDashboard, BarChart2, Scale, Store, BookOpen, UserCircle, Loader2, Info } from "lucide-react";
+import { LayoutDashboard, BarChart2, Scale, Store, UserCircle, Loader2, Info } from "lucide-react";
 
 const day = (v) => (v || "").slice(0, 10);
 const inPeriod = (v, start, end) => {
@@ -139,7 +138,6 @@ export default function PartnerDashboard({ type = "pos" }) {
     { id: "aggregation", label: "Aggregations", icon: BarChart2 },
     { id: "benchmarks", label: "Benchmarks", icon: Scale },
     { id: "units", label: config.unitHeading, icon: Store },
-    { id: "guide", label: "Guide", icon: BookOpen },
     ...(publicView ? [] : [{ id: "profile", label: "Profile", icon: UserCircle }]),
   ];
 
@@ -203,8 +201,6 @@ export default function PartnerDashboard({ type = "pos" }) {
             }
           />
         ) : null
-      ) : activeTab === "guide" ? (
-        <PartnerGuide guide={config.guide} />
       ) : activeTab === "units" ? (
         <PartnerUnitsCard units={myUnits} heading={config.unitHeading} blurb={config.unitBlurb} />
       ) : activeTab === "aggregation" ? (
