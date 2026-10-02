@@ -12,6 +12,7 @@ const BODY = [51, 65, 85];
 const MUTED = [100, 116, 139];
 const LINE = [226, 232, 240];
 const ORANGE = [255, 122, 0];
+const LOGO_BLUE = [1, 76, 253]; // the DutyBoost logo's own blue (#014CFD)
 
 const M = 18; // page margin (mm)
 const PAGE_W = 210;
@@ -151,7 +152,7 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
     pdf.addImage(logo.dataUrl, "PNG", M, y, lh * logo.aspect, lh);
     pdf.setFont("helvetica", "bold");
     pdf.setFontSize(5);
-    pdf.setTextColor(...ORANGE);
+    pdf.setTextColor(...LOGO_BLUE);
     pdf.text("TM", M + lh * logo.aspect + 0.6, y + 2.6);
   } else {
     pdf.setFont("helvetica", "bold");

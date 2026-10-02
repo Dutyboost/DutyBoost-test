@@ -11,6 +11,7 @@ const BODY = [51, 65, 85];
 const MUTED = [100, 116, 139];
 const LINE = [226, 232, 240];
 const ORANGE = [255, 122, 0];
+const LOGO_BLUE = [1, 76, 253]; // the DutyBoost logo's own blue (#014CFD)
 
 const M = 18; // page margin (mm)
 const PAGE_W = 210;
@@ -130,7 +131,7 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
   }
   pdf.setFont("helvetica", "bold");
   pdf.setFontSize(5);
-  pdf.setTextColor(...ORANGE);
+  pdf.setTextColor(...LOGO_BLUE);
   pdf.text("TM", M + (logo ? 9 * logo.aspect + 0.6 : 30), y + 2.6);
 
   pdf.setFont("helvetica", "normal");
