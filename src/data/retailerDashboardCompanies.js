@@ -128,6 +128,9 @@ export function buildDemoAccount(slug) {
   // Revenue Generated always equals Total Redemptions × this value.
   const minCredit = company.currency === "EUR" ? 20 : 23;
   const perRedemptionSaving = calcSaving(minCredit);
+  // DutyCredit tiers above the minimum, so the dashboard can show what travellers
+  // actually redeemed — higher than the Min. DC Value.
+  const CREDIT_TIERS = [1, 1.25, 1.5, 2];
 
   const transactions = retailers.flatMap((r, si) => {
     // Redemption pace follows each store's own weight in the network, so no two
@@ -144,11 +147,15 @@ export function buildDemoAccount(slug) {
       const value = Math.round(count * minCredit * 100) / 100;
       const saving = Math.round(perRedemptionSaving * count * 100) / 100;
       const platformFee = Math.min(Math.round(value * 0.025 * 100) / 100, 25);
+      // What travellers actually redeemed — the DutyCredit tier applied, above the minimum.
+      const tier = CREDIT_TIERS[(i + si) % CREDIT_TIERS.length];
+      const creditValue = Math.round(count * minCredit * tier * 100) / 100;
       return {
         id: `demo-${r.id}-${i}`,
         store_name: r.name,
         airport: r.airport,
         transaction_value: value,
+        credit_value: creditValue,
         discount_amount: saving,
         platform_revenue: platformFee,
         // Per-transaction aggregate figures used by the Custom Aggregation view
@@ -162,8 +169,6 @@ export function buildDemoAccount(slug) {
       };
     });
   });
-
-  const CREDIT_TIERS = [1, 1.25, 1.5, 2];
 
   const vouchers = Array.from({ length: 12 }, (_, i) => {
     const expiry = new Date();

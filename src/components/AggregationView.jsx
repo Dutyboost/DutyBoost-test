@@ -1,6 +1,6 @@
 import { Fragment, useMemo, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight, Coins, Wallet } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import RedemptionRateSlider from "./RedemptionRateSlider";
 import { DEFAULT_PERIOD_OPTIONS } from "../data/dashboardPeriods";
@@ -26,6 +26,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       total_savings: (t.total_savings || 0) * rateMultiplier,
       total_commission: (t.total_commission || 0) * rateMultiplier,
       platform_revenue: (t.platform_revenue || 0) * rateMultiplier,
+      credit_value: (t.credit_value ?? t.transaction_value ?? 0) * rateMultiplier,
     }))),
     [transactions, rateMultiplier]
   );
@@ -44,8 +45,15 @@ export default function AggregationView({ transactions, vouchers, period, custom
     const avgDiscountPct = avgSalesPerCredit > 0 ? (avgDiscountEur / avgSalesPerCredit * 100) : 0;
     const netRevenue = grossRevenue - totalSavings - platformFee;
 
+    // Total value of DutyCredits actually redeemed in the period, and the average
+    // value per redemption.
+    const actualDcValue = filteredTransactions.reduce((sum, t) => sum + (t.credit_value ?? t.transaction_value ?? 0), 0);
+    const averageDcValue = totalRedemptions > 0 ? actualDcValue / totalRedemptions : 0;
+
     return {
       totalRedemptions,
+      actualDcValue,
+      averageDcValue,
       grossRevenue: grossRevenue.toFixed(2),
       platformFee: platformFee.toFixed(2),
       avgSalesPerCredit: avgSalesPerCredit.toFixed(2),
@@ -162,7 +170,7 @@ export default function AggregationView({ transactions, vouchers, period, custom
       )}
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {/* Yearly passengers + redemption rate */}
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
           <div className="flex items-center justify-between">
@@ -193,6 +201,22 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtDc(minDcValue)}</p>
+        </div>
+
+        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-muted-foreground font-medium">Average DC Value</p>
+            <Coins className="w-4 h-4 text-teal-500" />
+          </div>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtDc(aggregatedMetrics.averageDcValue)}</p>
+        </div>
+
+        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-muted-foreground font-medium">Actual DC Value</p>
+            <Wallet className="w-4 h-4 text-amber-500" />
+          </div>
+          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtC(aggregatedMetrics.actualDcValue)}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
