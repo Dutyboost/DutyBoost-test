@@ -127,7 +127,9 @@ export function buildDemoAccount(slug) {
     Array.from({ length: PER_STORE }, (_, i) => {
       const value = Math.round(r.avg_sale * (0.7 + ((si + i) % 6) * 0.1) * 100) / 100;
       const d = new Date();
-      d.setDate(d.getDate() - Math.floor((i / PER_STORE) * WINDOW_DAYS));
+      // Each store's activity is offset by one day, so every day of the year carries
+      // transactions somewhere in the network — no whole days without activity.
+      d.setDate(d.getDate() - (Math.floor((i / PER_STORE) * WINDOW_DAYS) + si));
       const saving = calcSaving(value);
       const platformFee = Math.min(Math.round(value * 0.025 * 100) / 100, 25);
       return {
