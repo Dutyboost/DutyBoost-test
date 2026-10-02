@@ -41,6 +41,39 @@ async function inlineSvgImages(root) {
   );
 }
 
+// Gradient-filled text (background-clip: text) is painted as a plain gradient block
+// with invisible text, so during the capture the gradient is dropped and the words
+// are drawn in the deck's black instead.
+function flattenGradientText(root) {
+  const restored = [];
+  root.querySelectorAll("*").forEach((el) => {
+    const clip = el.style.backgroundClip || el.style.webkitBackgroundClip;
+    if (clip !== "text") return;
+    restored.push({
+      el,
+      backgroundImage: el.style.backgroundImage,
+      backgroundClip: el.style.backgroundClip,
+      webkitBackgroundClip: el.style.webkitBackgroundClip,
+      color: el.style.color,
+      webkitTextFillColor: el.style.webkitTextFillColor,
+    });
+    el.style.backgroundImage = "none";
+    el.style.backgroundClip = "border-box";
+    el.style.webkitBackgroundClip = "border-box";
+    el.style.color = "#0a0f1e";
+    el.style.webkitTextFillColor = "#0a0f1e";
+  });
+  return () => {
+    restored.forEach(({ el, ...styles }) => {
+      el.style.backgroundImage = styles.backgroundImage;
+      el.style.backgroundClip = styles.backgroundClip;
+      el.style.webkitBackgroundClip = styles.webkitBackgroundClip;
+      el.style.color = styles.color;
+      el.style.webkitTextFillColor = styles.webkitTextFillColor;
+    });
+  };
+}
+
 async function waitForAssets(root) {
   const images = Array.from(root.querySelectorAll("img"));
   await Promise.all(
@@ -67,6 +100,7 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
 
     await inlineSvgImages(node);
     await waitForAssets(node);
+    const restoreGradientText = flattenGradientText(node);
 
     const canvas = await html2canvas(node, {
       backgroundColor: "#ffffff",
@@ -79,6 +113,8 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
       windowWidth: width,
       windowHeight: height,
     });
+
+    restoreGradientText();
 
     if (i > 0) pdf.addPage([width, height], "landscape");
     pdf.addImage(canvas.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, width, height);
