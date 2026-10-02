@@ -9,7 +9,6 @@ import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
 } from "recharts";
 import RetailerInvoiceDownload from "../components/RetailerInvoiceDownload";
-import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import RetailerStrategyTab from "../components/RetailerStrategyTab";
 import PartialRefundManager from "../components/PartialRefundManager";
 import AggregationView from "../components/AggregationView";
@@ -650,7 +649,6 @@ export default function RetailerDashboard() {
         );
       })()}
 
-      <RedemptionHeatmap vouchers={scopedVouchers} />
       </> )}
     </div>
   );
