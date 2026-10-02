@@ -457,7 +457,9 @@ export default function RetailerDashboard() {
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-heading font-bold tracking-tight">Airport Retailer Dashboard</h1>
+          <h1 className="text-2xl font-heading font-bold tracking-tight">
+            Airport Retailer Dashboard{selectedStore ? ` — ${selectedStore.store_name}` : ""}
+          </h1>
           <p className="text-muted-foreground mt-1">Manage your stores and view DutyCredit activity.</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
