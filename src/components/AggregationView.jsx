@@ -18,16 +18,23 @@ export default function AggregationView({ transactions, vouchers, period, custom
   // and every figure rises from there as the slider moves.
   const rateMultiplier = (redemptionRate ?? 0) / 0.01;
   // Transactions are pre-scaled by the parent for the selected period (incl. custom date range)
+  // Values are rebuilt from the redemption count that is actually shown, so every total
+  // ties back exactly to Total Redemptions, with no rounding drift as the slider moves.
   const filteredTransactions = useMemo(
-    () => (rateMultiplier === 1 ? transactions : transactions.map(t => ({
-      ...t,
-      count: Math.round((t.count || 1) * rateMultiplier),
-      transaction_value: (t.transaction_value || 0) * rateMultiplier,
-      total_savings: (t.total_savings || 0) * rateMultiplier,
-      total_commission: (t.total_commission || 0) * rateMultiplier,
-      platform_revenue: (t.platform_revenue || 0) * rateMultiplier,
-      credit_value: (t.credit_value ?? t.transaction_value ?? 0) * rateMultiplier,
-    }))),
+    () => transactions.map(t => {
+      const baseCount = t.count || 1;
+      const count = rateMultiplier === 1 ? baseCount : Math.round(baseCount * rateMultiplier);
+      const perRedemption = (v) => (v || 0) / baseCount;
+      return {
+        ...t,
+        count,
+        transaction_value: count * perRedemption(t.transaction_value),
+        total_savings: count * perRedemption(t.total_savings),
+        total_commission: count * perRedemption(t.total_commission),
+        platform_revenue: count * perRedemption(t.platform_revenue),
+        credit_value: count * perRedemption(t.credit_value ?? t.transaction_value),
+      };
+    }),
     [transactions, rateMultiplier]
   );
 
