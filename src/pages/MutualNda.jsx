@@ -8,20 +8,25 @@ import { downloadMutualNdaPdf } from "@/utils/exportMutualNdaPdf";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import CountrySelect from "@/components/request/CountrySelect";
+import { COUNTRIES, usesPostalCode, postalCodeLabel } from "@/data/countryPostalCodes";
 
 const today = () => new Date().toISOString().slice(0, 10);
 
+// No example text in the fields — a placeholder that fits one country is wrong for the rest.
+// The postal code field only appears for countries that actually use one, and takes that
+// country's own name for it (Postcode, ZIP Code, Eircode, …).
 const FIELDS = [
-  { key: "party_company_name", label: "Company Name", placeholder: "Acme Retail Group B.V.", required: true },
-  { key: "party_registration_number", label: "Chamber of Commerce / Registration Number", placeholder: "12345678", required: false },
-  { key: "party_street", label: "Street + Number", placeholder: "Keizersgracht 100", required: false },
-  { key: "party_postal_code", label: "Postal Code", placeholder: "1015 CJ", required: false },
-  { key: "party_city", label: "City", placeholder: "Amsterdam", required: false },
-  { key: "party_country", label: "Country", placeholder: "Netherlands", required: true },
-  { key: "party_representative_name", label: "Representative Full Name", placeholder: "Jane Doe", required: true },
-  { key: "party_representative_title", label: "Representative Title", placeholder: "Chief Commercial Officer", required: false },
-  { key: "party_email", label: "Representative Email", placeholder: "jane.doe@company.com", required: true, type: "email" },
-  { key: "party_website", label: "Company Website", placeholder: "www.company.com", required: false },
+  { key: "party_company_name", label: "Company Name", required: true },
+  { key: "party_registration_number", label: "Chamber of Commerce / Registration Number", required: false },
+  { key: "party_street", label: "Street + Number", required: false, wide: true },
+  { key: "party_city", label: "City", required: false },
+  { key: "party_country", label: "Country", required: true, type: "country" },
+  { key: "party_postal_code", label: "Postal Code", required: false, type: "postal" },
+  { key: "party_representative_name", label: "Representative Full Name", required: true },
+  { key: "party_representative_title", label: "Representative Title", required: false },
+  { key: "party_email", label: "Representative Email", required: true, type: "email" },
+  { key: "party_website", label: "Company Website", required: false },
   { key: "effective_date", label: "Effective Date", required: false, type: "date" },
 ];
 
@@ -60,7 +65,12 @@ export default function MutualNda() {
   const [downloading, setDownloading] = useState(false);
 
   const handleChange = (key, value) => {
-    setForm(f => ({ ...f, [key]: value }));
+    setForm(f => {
+      const next = { ...f, [key]: value };
+      // A country without postal codes leaves no stale postal code behind
+      if (key === "party_country" && !usesPostalCode(value)) next.party_postal_code = "";
+      return next;
+    });
     if (errors[key]) setErrors(e => ({ ...e, [key]: false }));
   };
 
@@ -187,27 +197,47 @@ export default function MutualNda() {
           <div className="bg-card border border-border rounded-2xl p-6 space-y-5">
             <h2 className="font-heading font-semibold text-lg text-foreground">Counterparty Details</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {FIELDS.map(field => (
-                <div key={field.key} className={field.key === "party_street" ? "md:col-span-2" : ""}>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">
-                    {field.label}
-                    {field.required && <span className="text-destructive ml-1">*</span>}
-                  </label>
-                  <Input
-                    type={field.type || "text"}
-                    placeholder={field.placeholder}
-                    value={form[field.key]}
-                    onChange={e => handleChange(field.key, e.target.value)}
-                    autoComplete="off"
-                    className={errors[field.key] ? "border-destructive" : ""}
-                  />
-                  {errors[field.key] && (
-                    <p className="text-xs text-destructive mt-1">
-                      {field.key === "party_email" ? "Please enter a valid email address." : "This field is required."}
-                    </p>
-                  )}
-                </div>
-              ))}
+              {FIELDS.map(field => {
+                if (field.type === "postal" && !usesPostalCode(form.party_country)) return null;
+
+                const label = field.type === "postal" ? postalCodeLabel(form.party_country) : field.label;
+                const inputType = field.type === "email" || field.type === "date" ? field.type : "text";
+                const error = errors[field.key] && (
+                  <p className="text-xs text-destructive mt-1">
+                    {field.key === "party_email" ? "Please enter a valid email address." : "This field is required."}
+                  </p>
+                );
+
+                return (
+                  <div key={field.key} className={field.wide ? "md:col-span-2" : ""}>
+                    <label className="block text-sm font-medium text-foreground mb-1.5">
+                      {label}
+                      {field.required && <span className="text-destructive ml-1">*</span>}
+                    </label>
+                    {field.type === "country" ? (
+                      <div className={errors[field.key] ? "rounded-md ring-1 ring-destructive" : ""}>
+                        <CountrySelect
+                          value={form.party_country}
+                          onChange={value => handleChange("party_country", value)}
+                          options={COUNTRIES}
+                          placeholder="Select country"
+                          searchPlaceholder="Search country…"
+                          emptyText="No country found."
+                        />
+                      </div>
+                    ) : (
+                      <Input
+                        type={inputType}
+                        value={form[field.key]}
+                        onChange={e => handleChange(field.key, e.target.value)}
+                        autoComplete="off"
+                        className={errors[field.key] ? "border-destructive" : ""}
+                      />
+                    )}
+                    {error}
+                  </div>
+                );
+              })}
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-foreground mb-1.5">Purpose of the Discussions</label>
                 <textarea
