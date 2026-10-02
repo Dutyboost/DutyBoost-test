@@ -327,6 +327,9 @@ export default function RetailerPosConfirmation() {
                     onChange={(v) => set("signature", v)}
                     clearLabel={s.sign_clear}
                     hint={s.sign_hint}
+                    drawLabel={s.sign_draw}
+                    typeLabel={s.sign_type}
+                    typePlaceholder={s.sign_type_placeholder}
                   />
                 </div>
 

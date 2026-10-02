@@ -1,24 +1,38 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Label } from "@/components/ui/label";
-import { Eraser } from "lucide-react";
+import { Eraser, PenLine, Type } from "lucide-react";
 
 const W = 600;
 const H = 180;
+const SIGNATURE_FONT = "'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive";
 
 /**
- * Lightweight canvas signature pad — no external library. Draws with mouse,
- * touch or stylus and reports a trimmed PNG data URL so the signature can be
- * placed directly on the downloaded PDF.
+ * Lightweight canvas signature pad — no external library. The signer can either
+ * draw with mouse, touch or stylus, or type their name (rendered in a handwriting
+ * font). Both produce a trimmed PNG data URL so the signature can be placed
+ * directly on the downloaded PDF.
  */
-export default function SignaturePad({ label, value, onChange, clearLabel = "Clear", hint }) {
+export default function SignaturePad({
+  label,
+  value,
+  onChange,
+  clearLabel = "Clear",
+  hint,
+  drawLabel = "Draw",
+  typeLabel = "Type",
+  typePlaceholder = "Type your full name",
+}) {
   const canvasRef = useRef(null);
   const drawing = useRef(false);
   const last = useRef({ x: 0, y: 0 });
+  const [mode, setMode] = useState("draw");
+  const [typed, setTyped] = useState("");
+
+  const ctx2d = () => canvasRef.current?.getContext("2d") || null;
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = ctx2d();
+    if (!ctx) return;
     ctx.lineWidth = 2.4;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
@@ -43,7 +57,7 @@ export default function SignaturePad({ label, value, onChange, clearLabel = "Cle
   const move = (e) => {
     if (!drawing.current) return;
     e.preventDefault();
-    const ctx = canvasRef.current.getContext("2d");
+    const ctx = ctx2d();
     const p = pos(e);
     ctx.beginPath();
     ctx.moveTo(last.current.x, last.current.y);
@@ -84,6 +98,43 @@ export default function SignaturePad({ label, value, onChange, clearLabel = "Cle
     return out.toDataURL("image/png");
   };
 
+  // Render the typed name in a handwriting font, scaled to fit the pad.
+  const drawTyped = (text) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#0A1F44";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const name = (text || "").trim();
+    if (!name) {
+      onChange?.("");
+      return;
+    }
+    let size = 92;
+    ctx.font = `${size}px ${SIGNATURE_FONT}`;
+    while (ctx.measureText(name).width > W - 60 && size > 24) {
+      size -= 4;
+      ctx.font = `${size}px ${SIGNATURE_FONT}`;
+    }
+    ctx.fillText(name, W / 2, H / 2);
+    onChange?.(exportTrimmed());
+  };
+
+  // Redraw the typed name once the handwriting font is available.
+  useEffect(() => {
+    if (mode !== "type") return;
+    const redraw = () => drawTyped(typed);
+    if (document.fonts?.ready) document.fonts.ready.then(redraw);
+    else redraw();
+  }, [mode]);
+
+  const handleTyped = (e) => {
+    setTyped(e.target.value);
+    drawTyped(e.target.value);
+  };
+
   const end = () => {
     if (!drawing.current) return;
     drawing.current = false;
@@ -93,36 +144,81 @@ export default function SignaturePad({ label, value, onChange, clearLabel = "Cle
   const clear = () => {
     const canvas = canvasRef.current;
     canvas.getContext("2d").clearRect(0, 0, W, H);
+    setTyped("");
     onChange?.("");
+  };
+
+  const switchMode = (next) => {
+    if (next === mode) return;
+    setMode(next);
+    const canvas = canvasRef.current;
+    canvas.getContext("2d").clearRect(0, 0, W, H);
+    onChange?.("");
+    if (next === "type") setTyped("");
   };
 
   return (
     <div className="space-y-1.5">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
         <Label>{label}</Label>
-        <button
-          type="button"
-          onClick={clear}
-          className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <Eraser className="w-3.5 h-3.5" /> {clearLabel}
-        </button>
+        <div className="flex items-center gap-1">
+          <div className="inline-flex rounded-md border border-input overflow-hidden">
+            <button
+              type="button"
+              onClick={() => switchMode("draw")}
+              className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 transition-colors ${
+                mode === "draw" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <PenLine className="w-3.5 h-3.5" /> {drawLabel}
+            </button>
+            <button
+              type="button"
+              onClick={() => switchMode("type")}
+              className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 transition-colors ${
+                mode === "type" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Type className="w-3.5 h-3.5" /> {typeLabel}
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={clear}
+            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors px-1"
+          >
+            <Eraser className="w-3.5 h-3.5" /> {clearLabel}
+          </button>
+        </div>
       </div>
+
+      {mode === "type" && (
+        <input
+          type="text"
+          value={typed}
+          onChange={handleTyped}
+          placeholder={typePlaceholder}
+          autoComplete="off"
+          className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+        />
+      )}
+
       <canvas
         ref={canvasRef}
         width={W}
         height={H}
-        onPointerDown={start}
-        onPointerMove={move}
-        onPointerUp={end}
-        onPointerLeave={end}
-        onPointerCancel={end}
-        className="w-full h-32 touch-none rounded-md border border-input bg-white cursor-crosshair"
+        onPointerDown={mode === "draw" ? start : undefined}
+        onPointerMove={mode === "draw" ? move : undefined}
+        onPointerUp={mode === "draw" ? end : undefined}
+        onPointerLeave={mode === "draw" ? end : undefined}
+        onPointerCancel={mode === "draw" ? end : undefined}
+        className={`w-full h-32 rounded-md border border-input bg-white ${
+          mode === "draw" ? "touch-none cursor-crosshair" : "cursor-default"
+        }`}
       />
-      {hint && <p className="text-xs text-muted-foreground">{hint}</p>}
-      {value ? (
-        <p className="text-xs text-emerald-600">Signature captured.</p>
-      ) : null}
+
+      {mode === "draw" && hint && <p className="text-xs text-muted-foreground">{hint}</p>}
+      {value ? <p className="text-xs text-emerald-600">Signature captured.</p> : null}
     </div>
   );
 }
