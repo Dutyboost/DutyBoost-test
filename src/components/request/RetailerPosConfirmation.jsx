@@ -43,7 +43,7 @@ export default function RetailerPosConfirmation() {
   const cfg = STAKEHOLDER_CONFIG.retailer;
   const r = getStakeholderRequestStrings("retailer", i18n.language);
   const s = getRetailerConfirmationStrings(i18n.language);
-  const JOB_TITLES = t("corporaterequest.job_titles", { returnObjects: true });
+  const JOB_TITLES = s.job_titles;
   const COUNTRIES = t("corporaterequest.countries", { returnObjects: true });
   const Icon = cfg.Icon;
 
