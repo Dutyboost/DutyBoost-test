@@ -70,7 +70,7 @@ export default function PitchDeckPdfButton({ slides, components, filename, width
               <div
                 key={slide.id || slide.type}
                 data-deck-slide
-                style={{ width: `${width}px`, height: `${height}px`, overflow: "hidden", background: "#ffffff" }}
+                style={{ width: `${width}px`, height: `${height}px`, overflow: "hidden", background: "#ffffff", display: "flex" }}
               >
                 <SlideComp />
               </div>
