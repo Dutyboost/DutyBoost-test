@@ -382,10 +382,10 @@ export default function RetailerDashboard() {
       )}
 
       {/* Tab bar */}
-      <div className="flex gap-1 border-b border-border">
+      <div className="flex gap-1 border-b border-border overflow-x-auto">
         {tabs.map(({ id, label, icon: Icon }) => (
           <button key={id} onClick={() => setActiveTab(id)}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all ${
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-all shrink-0 whitespace-nowrap ${
               activeTab === id ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"
             }`}>
             <Icon className="w-4 h-4" /> {label}
@@ -493,14 +493,14 @@ export default function RetailerDashboard() {
 
       <RedemptionRateSlider rate={redemptionRate} onChange={setRedemptionRate} />
 
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-2xl font-heading font-bold tracking-tight">Airport Retailer Dashboard</h1>
           <p className="text-muted-foreground mt-1">Manage your stores and view DutyCredit activity.</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="gap-2"><Plus className="w-4 h-4" /> Add Store</Button>
+            <Button className="gap-2 w-full sm:w-auto"><Plus className="w-4 h-4" /> Add Store</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader><DialogTitle>Add New Store</DialogTitle></DialogHeader>
@@ -581,7 +581,7 @@ export default function RetailerDashboard() {
                     <p className="font-medium">{r.store_name}</p>
                     <p className="text-sm text-muted-foreground">{r.airport} · {r.category}</p>
                   </div>
-                  <Button variant="ghost" size="icon" onClick={() => handleDeleteStore(r)}>
+                  <Button variant="ghost" size="icon" className="shrink-0" onClick={() => handleDeleteStore(r)}>
                     <Trash2 className="w-4 h-4 text-destructive" />
                   </Button>
                 </div>

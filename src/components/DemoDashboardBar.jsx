@@ -18,7 +18,7 @@ export default function DemoDashboardBar({
   onStoreChange,
   logoUrl,
 }) {
-  const selectClass = "text-sm border border-input rounded-lg px-3 py-1.5 bg-background max-w-[250px]";
+  const selectClass = "text-sm border border-input rounded-lg px-3 py-1.5 bg-background w-full sm:w-auto sm:max-w-[250px]";
   const countries = [...new Set(airports.map(a => a.country).filter(Boolean))];
   // Stores are listed per airport, so a store can be picked straight from the network view.
   const storeGroups = airports
@@ -28,16 +28,16 @@ export default function DemoDashboardBar({
   const handleAirport = (value) => onAirportChange(value === "all" ? "" : value);
 
   return (
-    <div className="flex items-center justify-between gap-4 flex-wrap bg-card border border-border rounded-xl px-5 py-4">
-      <div className="flex items-center gap-3">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between bg-card border border-border rounded-xl px-4 sm:px-5 py-4">
+      <div className="flex items-center gap-3 min-w-0">
         <Store className="w-5 h-5 text-orange-500 shrink-0" />
-        <div>
-          <p className="font-heading font-bold">{company.label}</p>
+        <div className="min-w-0">
+          <p className="font-heading font-bold break-words">{company.label}</p>
           <p className="text-xs text-muted-foreground">Airport Retailer Dashboard</p>
         </div>
         <DemoPill />
       </div>
-      <div className="flex items-center gap-3 flex-wrap">
+      <div className="grid grid-cols-1 gap-3 sm:flex sm:items-center sm:flex-wrap">
         <select className={selectClass} value={companySlug} onChange={e => onCompanyChange(e.target.value)}>
           {Object.entries(companies).map(([slug, c]) => (
             <option key={slug} value={slug}>{c.label}</option>
@@ -69,7 +69,7 @@ export default function DemoDashboardBar({
         </select>
 
         {logoUrl && (
-          <img src={logoUrl} alt={company.label} className="h-[75px] w-auto object-contain shrink-0" />
+          <img src={logoUrl} alt={company.label} className="h-[44px] sm:h-[75px] w-auto object-contain shrink-0 justify-self-start" />
         )}
       </div>
     </div>
