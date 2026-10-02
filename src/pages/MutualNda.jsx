@@ -23,7 +23,7 @@ const FIELDS = [
   { key: "party_street", label: "Street + Number", required: true, wide: true },
   { key: "party_city", label: "City", required: true },
   { key: "party_country", label: "Country", required: true, type: "country" },
-  { key: "party_postal_code", label: "Postal Code", required: true, type: "postal" },
+  { key: "party_postal_code", label: "Postal Code", type: "postal" },
   { key: "party_representative_name", label: "Representative Full Name", required: true },
   { key: "party_representative_title", label: "Representative Title", required: true },
   { key: "party_email", label: "Representative Email", required: true, type: "email" },
