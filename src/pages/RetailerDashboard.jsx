@@ -247,6 +247,22 @@ export default function RetailerDashboard() {
     [transactions, startDate, endDate]
   );
 
+  // Daily transaction counts over the last 30 days — independent of the period selector,
+  // so partners can always see the recent day-to-day fluctuation.
+  const last30DaysData = useMemo(() => {
+    const days = Array.from({ length: 30 }, (_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() - (29 - i));
+      return d.toISOString().split("T")[0];
+    });
+    const byDay = {};
+    scopedTransactions.forEach(t => {
+      const day = t.date || (t.created_date || "").split("T")[0];
+      byDay[day] = (byDay[day] || 0) + (t.count || 1) * rateMultiplier;
+    });
+    return days.map(d => ({ date: d.slice(5), count: Math.round(byDay[d] || 0) }));
+  }, [scopedTransactions, rateMultiplier]);
+
   const totalRedemptions = useMemo(() =>
     filteredTransactions.reduce((s, t) => s + (t.count ?? 1), 0),
     [filteredTransactions]
@@ -585,6 +601,20 @@ export default function RetailerDashboard() {
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={dailyData.length === 1} name="Volume (€)" />
             <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={dailyData.length === 1} name="DutyBoost Fee (€)" />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Total transactions per day — last 30 days */}
+      <div className="bg-card rounded-xl border border-border p-6">
+        <h2 className="font-heading font-semibold mb-4">Total Transactions per Day — Last 30 Days</h2>
+        <ResponsiveContainer width="100%" height={240}>
+          <LineChart data={last30DaysData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+            <XAxis dataKey="date" tick={{ fontSize: 11 }} tickLine={false} />
+            <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
+            <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={v => [v, "Transactions"]} />
+            <Line type="monotone" dataKey="count" stroke="#10B981" strokeWidth={2} dot={last30DaysData.length === 1} name="Transactions" />
           </LineChart>
         </ResponsiveContainer>
       </div>
