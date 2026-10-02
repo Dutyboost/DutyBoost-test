@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { base44 } from "@/api/base44Client";
 import StatsCard from "../components/StatsCard";
-import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BarChart as BarChartIcon, RotateCcw, Info, ScanLine, LineChart as LineChartIcon, Coins, Wallet } from "lucide-react";
+import { Store, TicketPercent, CreditCard, TrendingUp, Plus, Trash2, AlertTriangle, Calendar, Star, LayoutDashboard, UserCircle, BarChart as BarChartIcon, RotateCcw, Info, ScanLine, LineChart as LineChartIcon } from "lucide-react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ProfileTab from "../components/ProfileTab";
@@ -276,11 +276,6 @@ export default function RetailerDashboard() {
     [filteredTransactions]
   );
 
-  // Total value of DutyCredits actually redeemed in the period, and the average
-  // value per redemption.
-  const actualDcValue = filteredTransactions.reduce((s, t) => s + (t.credit_value ?? t.transaction_value ?? 0), 0);
-  const averageDcValue = totalRedemptions > 0 ? actualDcValue / totalRedemptions : 0;
-
   const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const dutyBoostFee = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
   const periodDays = period === "daily" ? 1 : period === "weekly" ? 7 : period === "monthly" ? 30 : period === "yearly" ? 365 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
@@ -516,13 +511,6 @@ export default function RetailerDashboard() {
          <StatsCard title="My Stores" value={listedStores.length} icon={Store} />
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
         <StatsCard title="Min. DC Value" value={fmtCurrencyNative(minDcValue, currency, 0)} icon={LineChartIcon} />
-        <StatsCard title="Average DC Value" value={fmtCurrencyNative(averageDcValue, currency, 0)} icon={Coins} />
-        <StatsCard
-          title="Actual DC Value"
-          value={money(actualDcValue, 2)}
-          icon={Wallet}
-          hint={`Total value of the DutyCredits redeemed in this period: Total Redemptions × the average credit value of ${fmtCurrencyNative(averageDcValue, currency, 0)}.`}
-        />
         <StatsCard
           title="Revenue Generated"
           value={money(totalRevenue, 2)}
