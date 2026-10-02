@@ -24,7 +24,7 @@ const EMPTY = {
   posProviders: [], posOther: "",
   posContactName: "", posContactEmail: "", posContactPhone: "",
   siCompany: "", siContactName: "", siContactEmail: "", siContactPhone: "",
-  authorised: false, confirmed: false, message: "",
+  authorised: false, confirmed: false,
   signature: "", signedDate: new Date().toISOString().split("T")[0],
 };
 
@@ -111,7 +111,6 @@ export default function RetailerPosConfirmation() {
         si_contact_email: form.siContactEmail,
         si_contact_phone: form.siContactPhone,
         submission_authorisation: "Retailer authorises the system integrator to carry out the DutyBoost integration",
-        message: form.message,
         language: i18n.language || "en",
       });
       downloadRetailerPosConfirmation({ strings: s.doc, form, posValues });
@@ -331,19 +330,6 @@ export default function RetailerPosConfirmation() {
                     typeLabel={s.sign_type}
                     typePlaceholder={s.sign_type_placeholder}
                   />
-                </div>
-
-                {/* Message */}
-                <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                  <div className="space-y-1.5">
-                    <Label>{t("corporaterequest.label_message")}</Label>
-                    <textarea
-                      className="w-full min-h-[80px] rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring resize-none"
-                      placeholder={t("corporaterequest.placeholder_message")}
-                      value={form.message}
-                      onChange={(e) => set("message", e.target.value)}
-                    />
-                  </div>
                 </div>
 
                 <Button type="submit" size="lg" className={`w-full gap-2 ${cfg.buttonClass}`} disabled={!isValid || loading}>
