@@ -102,11 +102,11 @@ export default function SlideAcquisitionTrinidad() {
                 <div className="bg-white border border-purple-200 rounded-lg px-2 py-1.5 text-center mb-2">
                   <p className="text-xs text-slate-600 italic">"What is a DutyCredit and how do I know if I qualify?"</p>
                 </div>
-                <div className="flex flex-wrap gap-1.5 justify-center">
+                <div className="flex flex-wrap justify-center">
                   {CHANNELS.map(({ icon: Icon, name }) => (
-                    <div key={name} className="flex items-center gap-1 px-2 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-700">
-                      <Icon className="w-3.5 h-3.5" style={{ color: ACCENT }} />
-                      {name}
+                    <div key={name} className="inline-flex items-center whitespace-nowrap px-2 py-1 m-[3px] bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-700 leading-none">
+                      <Icon className="w-3.5 h-3.5 mr-1 flex-shrink-0" style={{ color: ACCENT }} />
+                      <span>{name}</span>
                     </div>
                   ))}
                 </div>
@@ -121,8 +121,8 @@ export default function SlideAcquisitionTrinidad() {
               <div className="space-y-2.5">
                 {FUNNEL.map((step, i) => (
                   <Fragment key={step}>
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-6 h-6 rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0" style={{ background: ACCENT }}>{i + 1}</span>
+                    <div className="flex items-center">
+                      <span className="w-6 h-6 rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 leading-none mr-2.5" style={{ background: ACCENT }}>{i + 1}</span>
                       <span className="text-sm md:text-base text-slate-700 leading-snug">{step}</span>
                     </div>
                     {i < FUNNEL.length - 1 && <div className="pl-[11px] text-slate-300 text-sm leading-none">↓</div>}
