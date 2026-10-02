@@ -534,7 +534,7 @@ export default function RetailerDashboard() {
          <StatsCard title="My Stores" value={listedStores.length} icon={Store} />
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
-        <StatsCard title="DutyBoost Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
+        <StatsCard title="Platform Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -588,7 +588,7 @@ export default function RetailerDashboard() {
       {/* Charts */}
       <div className="bg-card rounded-xl border border-border p-6">
         <h2 className="font-heading font-semibold mb-4">
-          Transaction Revenue — {period === "custom"
+          Transaction Revenue and Platform Fee — {period === "custom"
             ? `${customStart} – ${customEnd}`
             : t(PERIOD_OPTIONS.find(o => o.value === period)?.labelKey)}
         </h2>
@@ -600,7 +600,7 @@ export default function RetailerDashboard() {
             <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [money(v), n]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={dailyData.length === 1} name="Revenue (€)" />
-            <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={dailyData.length === 1} name="DutyBoost Fee (€)" />
+            <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={dailyData.length === 1} name="Platform Fee (€)" />
           </LineChart>
         </ResponsiveContainer>
       </div>
