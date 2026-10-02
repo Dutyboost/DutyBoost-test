@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle2, FileText, ChevronDown, ChevronUp, Loader2 } from "lucide-react";
+import { CheckCircle2, FileText, ChevronDown, ChevronUp, Loader2, Download } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import MutualNdaDocument from "@/components/MutualNdaDocument";
+import { downloadMutualNdaPdf } from "@/utils/exportMutualNdaPdf";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -56,6 +57,7 @@ export default function MutualNda() {
   const [ndaOpen, setNdaOpen] = useState(false);
   const [signature, setSignature] = useState("");
   const [dbSignature, setDbSignature] = useState("");
+  const [downloading, setDownloading] = useState(false);
 
   const handleChange = (key, value) => {
     setForm(f => ({ ...f, [key]: value }));
@@ -100,6 +102,15 @@ export default function MutualNda() {
     setSubmitted(true);
   };
 
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await downloadMutualNdaPdf({ party: form, counterpartySignature: signature, dutyboostSignature: dbSignature });
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   if (submitted) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-6">
@@ -109,13 +120,30 @@ export default function MutualNda() {
               <CheckCircle2 className="w-8 h-8 text-green-600" />
             </div>
           </div>
-          <div>
-            <h1 className="text-2xl font-heading font-bold text-foreground mb-2">Mutual NDA Submitted</h1>
+          <div className="space-y-2">
+            <h1 className="text-2xl font-heading font-bold text-foreground">Thank you</h1>
             <p className="text-muted-foreground">
               Thank you, {form.party_representative_name?.split(" ")[0] || "there"}. The signed Mutual Non-Disclosure
               Agreement has been received on behalf of {form.party_company_name}. A countersigned copy will be emailed
               to {form.party_email} within 24 hours.
             </p>
+          </div>
+          <div className="bg-card border border-border rounded-2xl p-6 space-y-3">
+            <p className="text-sm font-medium text-foreground">Your executed copy</p>
+            <p className="text-sm text-muted-foreground">
+              Download the agreement with both signatures as submitted.
+            </p>
+            <Button onClick={handleDownload} disabled={downloading} className="w-full h-12 text-base font-semibold">
+              {downloading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin" /> Preparing PDF…
+                </span>
+              ) : (
+                <span className="flex items-center justify-center gap-2">
+                  <Download className="w-4 h-4" /> Download PDF
+                </span>
+              )}
+            </Button>
           </div>
           <Link to="/" className="inline-block">
             <Button variant="outline">← Back to Home</Button>
