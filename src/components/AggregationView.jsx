@@ -1,6 +1,6 @@
 import { Fragment, useMemo, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight, Coins, Wallet } from "lucide-react";
+import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import RedemptionRateSlider from "./RedemptionRateSlider";
 import { DEFAULT_PERIOD_OPTIONS } from "../data/dashboardPeriods";
@@ -208,22 +208,6 @@ export default function AggregationView({ transactions, vouchers, period, custom
             <TrendingUp className="w-4 h-4 text-emerald-500" />
           </div>
           <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtDc(minDcValue)}</p>
-        </div>
-
-        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
-          <div className="flex items-center justify-between">
-            <p className="text-xs text-muted-foreground font-medium">Average DC Value</p>
-            <Coins className="w-4 h-4 text-teal-500" />
-          </div>
-          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtDc(aggregatedMetrics.averageDcValue)}</p>
-        </div>
-
-        <div className="bg-card border border-border rounded-xl p-5 space-y-3">
-          <div className="flex items-center justify-between">
-            <p className="text-xs text-muted-foreground font-medium">Actual DC Value</p>
-            <Wallet className="w-4 h-4 text-amber-500" />
-          </div>
-          <p className="text-sm md:text-base font-heading font-bold whitespace-nowrap">{fmtC(aggregatedMetrics.actualDcValue)}</p>
         </div>
 
         <div className="bg-card border border-border rounded-xl p-5 space-y-3">
