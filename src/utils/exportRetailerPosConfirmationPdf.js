@@ -136,9 +136,12 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
 
   y = paragraph(pdf, y, T.intro, { size: 9.5 });
 
-  // Addressee + meta — the retailer (From) is addressing this authorisation to DutyBoost (To)
+  // Addressee + meta — the retailer (From) grants the system integrator (To) permission
+  // to integrate DutyBoost in its POS environment.
   y += 2;
-  y = row(pdf, y, T.to, "DutyBoost");
+  y = row(pdf, y, T.to, `${form.siContactName || "—"}, ${form.siCompany || "—"}`);
+  if (form.siContactEmail) y = row(pdf, y, T.l_email, form.siContactEmail);
+  if (form.siContactPhone) y = row(pdf, y, T.l_phone, form.siContactPhone);
   y = row(pdf, y, T.from, `${form.company || "—"}`);
   y = row(pdf, y, T.date, today);
   y = row(pdf, y, "Ref.", reference);
