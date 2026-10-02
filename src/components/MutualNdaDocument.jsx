@@ -1,3 +1,5 @@
+import SignaturePad from "@/components/request/SignaturePad";
+
 const fmtDate = (value) => {
   if (!value) return "[EFFECTIVE DATE]";
   const d = new Date(value);
@@ -41,7 +43,7 @@ function LetteredList({ items }) {
   );
 }
 
-export default function MutualNdaDocument({ party, signature }) {
+export default function MutualNdaDocument({ party, signatures = {}, onSignatureChange }) {
   const company = party.party_company_name || "[COUNTERPARTY COMPANY NAME]";
   const reg = party.party_registration_number || "[REGISTRATION NUMBER]";
   const jurisdiction = party.party_country || "[JURISDICTION]";
@@ -426,21 +428,24 @@ export default function MutualNdaDocument({ party, signature }) {
             <p className="font-semibold">{company}</p>
             <p>Name: {representative}</p>
             <p>Title: {representativeTitle}</p>
-            {signature ? (
-              <div>
-                <p>Signature:</p>
-                <img src={signature} alt="Signature" className="h-12 mt-1" />
-              </div>
-            ) : (
-              <p>Signature: ______________________</p>
-            )}
+            <SignaturePad
+              label="Signature"
+              value={signatures.counterparty || ""}
+              onChange={(v) => onSignatureChange?.("counterparty", v)}
+              hint="Draw your signature, or switch to Type."
+            />
             <p>Date: {date}</p>
           </div>
           <div className="space-y-1">
             <p className="font-semibold">{DUTYBOOST.legal_name}</p>
             <p>Name: {DUTYBOOST.representative}</p>
             <p>Title: {DUTYBOOST.representative_title}</p>
-            <p>Signature: ______________________</p>
+            <SignaturePad
+              label="Signature"
+              value={signatures.dutyboost || ""}
+              onChange={(v) => onSignatureChange?.("dutyboost", v)}
+              hint="Draw the signature, or switch to Type."
+            />
             <p>Date: {date}</p>
           </div>
         </div>

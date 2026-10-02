@@ -4,7 +4,6 @@ import { CheckCircle2, FileText, ChevronDown, ChevronUp, Loader2 } from "lucide-
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import MutualNdaDocument from "@/components/MutualNdaDocument";
-import SignaturePad from "@/components/request/SignaturePad";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -27,6 +26,14 @@ const FIELDS = [
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const uploadSignature = async (dataUrl, filename) => {
+  if (!dataUrl) return "";
+  const blob = await (await fetch(dataUrl)).blob();
+  const file = new File([blob], filename, { type: "image/png" });
+  const { file_uri } = await base44.integrations.Core.UploadPrivateFile({ file });
+  return file_uri;
+};
+
 export default function MutualNda() {
   const [form, setForm] = useState({
     party_company_name: "",
@@ -48,6 +55,7 @@ export default function MutualNda() {
   const [errors, setErrors] = useState({});
   const [ndaOpen, setNdaOpen] = useState(false);
   const [signature, setSignature] = useState("");
+  const [dbSignature, setDbSignature] = useState("");
 
   const handleChange = (key, value) => {
     setForm(f => ({ ...f, [key]: value }));
@@ -62,7 +70,10 @@ export default function MutualNda() {
     if (form.party_email?.trim() && !EMAIL_RE.test(form.party_email.trim())) {
       next.party_email = true;
     }
-    if (!signature) next.signature = true;
+    if (!signature) {
+      next.signature = true;
+      setNdaOpen(true);
+    }
     if (!accepted) next.accepted = true;
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -73,16 +84,12 @@ export default function MutualNda() {
     if (!validate()) return;
     setSubmitting(true);
     const website = form.party_website?.trim();
-    let signatureUri = "";
-    if (signature) {
-      const blob = await (await fetch(signature)).blob();
-      const file = new File([blob], `mutual-nda-signature-${Date.now()}.png`, { type: "image/png" });
-      const uploaded = await base44.integrations.Core.UploadPrivateFile({ file });
-      signatureUri = uploaded.file_uri;
-    }
+    const signatureUri = await uploadSignature(signature, `mutual-nda-signature-${Date.now()}.png`);
+    const dutyboostSignatureUri = await uploadSignature(dbSignature, `mutual-nda-signature-dutyboost-${Date.now()}.png`);
     await base44.entities.MutualNda.create({
       ...form,
       signature_file_uri: signatureUri,
+      dutyboost_signature_file_uri: dutyboostSignatureUri,
       party_website: website && !website.startsWith("http") ? `https://${website}` : website,
       signed: true,
       signed_date: new Date().toISOString(),
@@ -201,26 +208,13 @@ export default function MutualNda() {
             </button>
             {ndaOpen && (
               <div className="border-t border-border px-6 py-5 max-h-[560px] overflow-y-auto bg-muted/20">
-                <MutualNdaDocument party={form} signature={signature} />
+                <MutualNdaDocument
+                  party={form}
+                  signatures={{ counterparty: signature, dutyboost: dbSignature }}
+                  onSignatureChange={(key, value) => (key === "counterparty" ? setSignature(value) : setDbSignature(value))}
+                />
               </div>
             )}
-          </div>
-
-          <div className={`bg-card border rounded-2xl p-6 space-y-4 ${errors.signature ? "border-destructive" : "border-border"}`}>
-            <div>
-              <h2 className="font-heading font-semibold text-lg text-foreground">Signature</h2>
-              <p className="text-sm text-muted-foreground mt-1">
-                Draw your signature or type your full name. It will appear on the agreement for{" "}
-                {form.party_company_name || "your company"}.
-              </p>
-            </div>
-            <SignaturePad
-              label="Authorised signatory"
-              value={signature}
-              onChange={setSignature}
-              hint="Draw your signature using your mouse, finger or stylus."
-            />
-            {errors.signature && <p className="text-xs text-destructive">A signature is required.</p>}
           </div>
 
           <div className={`bg-card border rounded-2xl p-6 space-y-3 ${errors.accepted ? "border-destructive" : "border-border"}`}>
@@ -250,6 +244,9 @@ export default function MutualNda() {
               </span>
             </label>
             {errors.accepted && <p className="text-xs text-destructive">Acceptance is required.</p>}
+            {errors.signature && (
+              <p className="text-xs text-destructive">Please sign in the agreement&rsquo;s signature block above.</p>
+            )}
           </div>
 
           <Button type="submit" disabled={submitting} className="w-full h-12 text-base font-semibold">

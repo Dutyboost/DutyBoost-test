@@ -62,7 +62,11 @@
     },
     "signature_file_uri": {
       "type": "string",
-      "title": "Signature File (private)"
+      "title": "Counterparty Signature File (private)"
+    },
+    "dutyboost_signature_file_uri": {
+      "type": "string",
+      "title": "DutyBoost Signature File (private)"
     },
     "status": {
       "type": "string",
