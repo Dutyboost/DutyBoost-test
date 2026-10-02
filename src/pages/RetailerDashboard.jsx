@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import DemoProfileTab from "../components/DemoProfileTab";
 import DemoDashboardBar from "../components/DemoDashboardBar";
 import { buildDemoAccount, RETAILER_DASHBOARD_COMPANIES, DEFAULT_RETAILER_COMPANY } from "../data/retailerDashboardCompanies";
+import { STORE_CATEGORIES } from "../data/storeCategories";
 import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
 export default function RetailerDashboard() {
@@ -33,7 +34,7 @@ export default function RetailerDashboard() {
   const [vouchers, setVouchers] = useState([]);
   const [airports, setAirports] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [form, setForm] = useState({ store_name: "", airport: "", category: "Retail", description: "" });
+  const [form, setForm] = useState({ store_name: "", airport: "", category: "Duty Free", description: "" });
 
   const [overdueInvoice, setOverdueInvoice] = useState(null);
   const [feedback, setFeedback] = useState([]);
@@ -191,14 +192,14 @@ export default function RetailerDashboard() {
       setAddedStores(prev => [newStore, ...prev]);
       toast.success("Store added (demo)");
       setDialogOpen(false);
-      setForm({ store_name: "", airport: "", category: "Retail", description: "" });
+      setForm({ store_name: "", airport: "", category: "Duty Free", description: "" });
       return;
     }
     const user = await base44.auth.me();
     await base44.entities.Retailer.create({ ...form, owner_email: user.email, accepts_vouchers: true });
     toast.success("Store created!");
     setDialogOpen(false);
-    setForm({ store_name: "", airport: "", category: "Retail", description: "" });
+    setForm({ store_name: "", airport: "", category: "Duty Free", description: "" });
     loadData();
   };
 
@@ -501,7 +502,9 @@ export default function RetailerDashboard() {
                 <Select value={form.category} onValueChange={v => setForm({...form, category: v})}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Retail">Retail</SelectItem>
+                    {STORE_CATEGORIES.map(c => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>

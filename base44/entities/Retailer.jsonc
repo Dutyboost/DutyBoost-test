@@ -14,7 +14,18 @@
       "type": "string",
       "title": "Category",
       "enum": [
-        "Retail"
+        "Retail",
+        "Duty Free",
+        "Fashion",
+        "Jewellery & Watches",
+        "Beauty & Cosmetics",
+        "Electronics",
+        "Souvenirs & Gifts",
+        "Travel Essentials",
+        "Convenience",
+        "Pharmacy",
+        "Books & News",
+        "Other"
       ]
     },
     "description": {
