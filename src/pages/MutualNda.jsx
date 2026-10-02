@@ -18,16 +18,16 @@ const today = () => new Date().toISOString().slice(0, 10);
 // country's own name for it (Postcode, ZIP Code, Eircode, …).
 const FIELDS = [
   { key: "party_company_name", label: "Company Name", required: true },
-  { key: "party_registration_number", label: "Chamber of Commerce / Registration Number", required: false },
-  { key: "party_street", label: "Street + Number", required: false, wide: true },
-  { key: "party_city", label: "City", required: false },
+  { key: "party_registration_number", label: "Chamber of Commerce / Registration Number", required: true },
+  { key: "party_street", label: "Street + Number", required: true, wide: true },
+  { key: "party_city", label: "City", required: true },
   { key: "party_country", label: "Country", required: true, type: "country" },
-  { key: "party_postal_code", label: "Postal Code", required: false, type: "postal" },
+  { key: "party_postal_code", label: "Postal Code", required: true, type: "postal" },
   { key: "party_representative_name", label: "Representative Full Name", required: true },
-  { key: "party_representative_title", label: "Representative Title", required: false },
+  { key: "party_representative_title", label: "Representative Title", required: true },
   { key: "party_email", label: "Representative Email", required: true, type: "email" },
-  { key: "party_website", label: "Company Website", required: false },
-  { key: "effective_date", label: "Effective Date", required: false, type: "date" },
+  { key: "party_website", label: "Company Website", required: true },
+  { key: "effective_date", label: "Effective Date", required: true, type: "date" },
 ];
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,9 +76,13 @@ export default function MutualNda() {
 
   const validate = () => {
     const next = {};
-    FIELDS.filter(f => f.required).forEach(f => {
-      if (!form[f.key]?.trim()) next[f.key] = true;
-    });
+    FIELDS.filter(f => f.required)
+      // The postal code is only asked for where the country uses one
+      .filter(f => !(f.key === "party_postal_code" && !usesPostalCode(form.party_country)))
+      .forEach(f => {
+        if (!form[f.key]?.trim()) next[f.key] = true;
+      });
+    if (!form.purpose?.trim()) next.purpose = true;
     if (form.party_email?.trim() && !EMAIL_RE.test(form.party_email.trim())) {
       next.party_email = true;
     }
@@ -239,14 +243,18 @@ export default function MutualNda() {
                 );
               })}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-foreground mb-1.5">Purpose of the Discussions</label>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  Purpose of the Discussions
+                  <span className="text-destructive ml-1">*</span>
+                </label>
                 <textarea
                   rows={3}
                   placeholder="e.g. evaluating a potential commercial collaboration between the parties"
                   value={form.purpose}
                   onChange={e => handleChange("purpose", e.target.value)}
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  className={`w-full rounded-md border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${errors.purpose ? "border-destructive" : "border-input"}`}
                 />
+                {errors.purpose && <p className="text-xs text-destructive mt-1">This field is required.</p>}
               </div>
             </div>
           </div>
