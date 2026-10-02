@@ -3,8 +3,8 @@ export default function StatsCard({ title, value, subtitle, icon: Icon, trend })
     <div className="bg-card rounded-xl border border-border p-5 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between">
         <div className="space-y-1">
-          <p className="text-sm text-muted-foreground font-medium">{title}</p>
-          <p className="text-2xl font-heading font-bold tracking-tight">{value}</p>
+          <p className="text-sm text-muted-foreground font-medium whitespace-nowrap">{title}</p>
+          <p className="text-2xl font-heading font-bold tracking-tight whitespace-nowrap">{value}</p>
           {subtitle && (
             <p className="text-xs text-muted-foreground">{subtitle}</p>
           )}
