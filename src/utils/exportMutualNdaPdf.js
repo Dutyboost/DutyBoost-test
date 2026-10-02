@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import { base44 } from "@/api/base44Client";
 import { NDA_DUTYBOOST, ndaSections, fillNdaText } from "@/data/mutualNdaSections";
 
 // A4 portrait copy of the Mutual Non-Disclosure Agreement, carrying the party
@@ -53,7 +54,27 @@ async function loadLogo() {
   }
 }
 
-async function loadSignature(dataUrl) {
+// A signature is either a data URL (just captured in the form) or a private file
+// URI (an already stored record), which is read back through a signed URL.
+async function resolveSignature(value) {
+  if (!value) return null;
+  if (String(value).startsWith("data:")) return value;
+  try {
+    const { signed_url } = await base44.integrations.Core.CreateFileSignedUrl({ file_uri: value });
+    const blob = await (await fetch(signed_url)).blob();
+    return await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function loadSignature(value) {
+  const dataUrl = await resolveSignature(value);
   if (!dataUrl) return null;
   try {
     const img = await new Promise((resolve, reject) => {

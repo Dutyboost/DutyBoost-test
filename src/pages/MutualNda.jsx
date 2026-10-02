@@ -124,8 +124,8 @@ export default function MutualNda() {
             <h1 className="text-2xl font-heading font-bold text-foreground">Thank you</h1>
             <p className="text-muted-foreground">
               Thank you, {form.party_representative_name?.split(" ")[0] || "there"}. The signed Mutual Non-Disclosure
-              Agreement has been received on behalf of {form.party_company_name}. A countersigned copy will be emailed
-              to {form.party_email} within 24 hours.
+              Agreement has been received on behalf of {form.party_company_name}. Download your copy below to keep it
+              for your records.
             </p>
           </div>
           <div className="bg-card border border-border rounded-2xl p-6 space-y-3">

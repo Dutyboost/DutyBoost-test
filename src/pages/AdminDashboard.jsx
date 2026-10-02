@@ -5,10 +5,11 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
-import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users, Contact, X } from "lucide-react";
+import { BarChart2, TrendingUp, MapPin, CreditCard, Percent, Calendar, LayoutDashboard, Users, Contact, X, FileText } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import LeadsAdmin from "./LeadsAdmin";
 import AdminAccountsView from "../components/AdminAccountsView";
+import SignedNdaTab from "../components/SignedNdaTab";
 import RedemptionHeatmap from "../components/RedemptionHeatmap";
 import StatsCard from "../components/StatsCard";
 
@@ -201,6 +202,7 @@ export default function AdminDashboard() {
     { id: "dashboard", label: "Analytics", icon: LayoutDashboard },
     { id: "accounts", label: "All Accounts", icon: Users },
     { id: "leads", label: "Leads", icon: Contact },
+    { id: "nda", label: "Signed NDA", icon: FileText },
   ];
 
   return (
@@ -217,7 +219,7 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      {activeTab === "accounts" ? <AdminAccountsView /> : activeTab === "leads" ? <LeadsAdmin /> : (<>
+      {activeTab === "accounts" ? <AdminAccountsView /> : activeTab === "leads" ? <LeadsAdmin /> : activeTab === "nda" ? <SignedNdaTab /> : (<>
       <div>
          <h1 className="text-2xl font-heading font-bold tracking-tight flex items-center gap-2">
           <BarChart2 className="w-6 h-6 text-primary" /> Analytics Dashboard
