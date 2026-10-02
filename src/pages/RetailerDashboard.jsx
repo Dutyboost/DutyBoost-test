@@ -537,7 +537,7 @@ export default function RetailerDashboard() {
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
         <StatsCard title="Min. DC Value" value={fmtCurrencyNative(minDcValue, currency, 0)} icon={LineChartIcon} />
         <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
-        <StatsCard title="Platform Fee (2.5%, max €25)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
+        <StatsCard title="Platform Fee (2.5%)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
