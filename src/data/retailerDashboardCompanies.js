@@ -104,9 +104,9 @@ function pickStores(retailers, limit = 12) {
   return out;
 }
 
-// A full year of activity per store (≈24 redemptions a month), so that the
-// dashboard's Daily / Monthly / Yearly / Custom views each show their own total.
-const PER_STORE = 288;
+// One row per store per day, so every store and airport carries activity in every
+// period (Daily / Weekly / Monthly / Yearly / Custom) — never a store or airport
+// that comes up empty.
 const WINDOW_DAYS = 365;
 
 /** Builds the dashboard data set for one company (used only when nobody is signed in). */
@@ -123,13 +123,20 @@ export function buildDemoAccount(slug) {
     category: r.category,
   }));
 
-  const transactions = retailers.flatMap((r, si) =>
-    Array.from({ length: PER_STORE }, (_, i) => {
-      const value = Math.round(r.avg_sale * (0.7 + ((si + i) % 6) * 0.1) * 100) / 100;
+  const transactions = retailers.flatMap((r, si) => {
+    // Each store's daily revenue and redemption pace follow its own weight in the
+    // network, so no two stores — and no two airports — show the same figures.
+    const dailyRevenue = (r.revenue || r.avg_sale * (r.redemptions || 24)) / 30;
+    const dailyRedemptions = Math.max(1, (r.redemptions || 24) / 30);
+    return Array.from({ length: WINDOW_DAYS }, (_, i) => {
       const d = new Date();
-      // Each store's activity is offset by one day, so every day of the year carries
-      // transactions somewhere in the network — no whole days without activity.
-      d.setDate(d.getDate() - (Math.floor((i / PER_STORE) * WINDOW_DAYS) + si));
+      d.setDate(d.getDate() - (WINDOW_DAYS - 1 - i));
+      // Weekday rhythm plus a store-specific wave: day-to-day fluctuation that
+      // differs per store and airport.
+      const weekday = [0.9, 0.95, 1.0, 1.05, 1.15, 1.25, 1.1][d.getDay()];
+      const wave = 0.75 + 0.5 * Math.abs(Math.sin((i + si * 13) / 5.7));
+      const count = Math.max(1, Math.round(dailyRedemptions * weekday * wave));
+      const value = Math.round(dailyRevenue * weekday * wave * 100) / 100;
       const saving = calcSaving(value);
       const platformFee = Math.min(Math.round(value * 0.025 * 100) / 100, 25);
       return {
@@ -140,7 +147,7 @@ export function buildDemoAccount(slug) {
         discount_amount: saving,
         platform_revenue: platformFee,
         // Per-transaction aggregate figures used by the Custom Aggregation view
-        count: 1,
+        count,
         total_savings: saving,
         total_commission: platformFee,
         refund_status: "none",
@@ -148,8 +155,8 @@ export function buildDemoAccount(slug) {
         date: d.toISOString().split("T")[0],
         created_date: d.toISOString(),
       };
-    })
-  );
+    });
+  });
 
   // Minimum DutyCredit value for the company's market: €20 in Europe, $23 in USD markets.
   // Credit amounts are already expressed in the company's currency (not EUR base).
