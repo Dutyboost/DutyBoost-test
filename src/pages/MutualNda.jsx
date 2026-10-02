@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle2, FileText, ChevronDown, ChevronUp, Loader2, Download } from "lucide-react";
+import { CheckCircle2, FileText, ChevronDown, ChevronUp, Loader2, Download, FileDown } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import MutualNdaDocument from "@/components/MutualNdaDocument";
 import { downloadMutualNdaPdf } from "@/utils/exportMutualNdaPdf";
+import { downloadMutualNdaDocx } from "@/utils/exportMutualNdaDocx";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -62,6 +63,7 @@ export default function MutualNda() {
   const [signature, setSignature] = useState("");
   const [dbSignature, setDbSignature] = useState("");
   const [downloading, setDownloading] = useState(false);
+  const [downloadingWord, setDownloadingWord] = useState(false);
 
   const handleChange = (key, value) => {
     setForm(f => {
@@ -120,6 +122,15 @@ export default function MutualNda() {
       await downloadMutualNdaPdf({ party: form, counterpartySignature: signature, dutyboostSignature: dbSignature });
     } finally {
       setDownloading(false);
+    }
+  };
+
+  const handleDownloadWord = async () => {
+    setDownloadingWord(true);
+    try {
+      await downloadMutualNdaDocx({ party: form });
+    } finally {
+      setDownloadingWord(false);
     }
   };
 
@@ -242,6 +253,24 @@ export default function MutualNda() {
               })}
             </div>
           </div>
+
+          <button
+            type="button"
+            onClick={handleDownloadWord}
+            disabled={downloadingWord}
+            className="w-full flex items-center justify-between px-6 py-4 bg-card border border-border rounded-2xl hover:bg-muted/40 transition-colors disabled:opacity-70"
+          >
+            <div className="flex items-center gap-3">
+              <FileDown className="w-5 h-5 text-primary" />
+              <span className="font-semibold text-foreground">Download Word (.docx)</span>
+              <Badge variant="outline" className="text-xs">For legal review</Badge>
+            </div>
+            {downloadingWord ? (
+              <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+            ) : (
+              <Download className="w-4 h-4 text-muted-foreground" />
+            )}
+          </button>
 
           <div className="bg-card border border-border rounded-2xl overflow-hidden">
             <button
