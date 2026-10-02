@@ -99,6 +99,7 @@ import MagicLinkLogin from './pages/MagicLinkLogin';
 import CircularRevenueFlow from './pages/CircularRevenueFlow';
 import LetterOfIntent from './pages/LetterOfIntent';
 import LetterOfIntentRetailer from './pages/LetterOfIntentRetailer';
+import MutualNda from './pages/MutualNda';
 import BrandGuidelines from './pages/BrandGuidelines';
 import BusinessCardRael from './pages/BusinessCardRael';
 import BusinessCardJaquelin from './pages/BusinessCardJaquelin';
@@ -270,6 +271,7 @@ const AuthenticatedApp = () => {
         <Route path="/circular-revenue-flow/:lang" element={<CircularRevenueFlow />} />
         <Route path="/letter-of-intent" element={<LetterOfIntent />} />
         <Route path="/letter-of-intent-retailer" element={<LetterOfIntentRetailer />} />
+        <Route path="/mutual-nda" element={<MutualNda />} />
         <Route path="/brand-guidelines" element={<BrandGuidelines />} />
         <Route path="/business-card-rael" element={<BusinessCardRael />} />
         <Route path="/business-card-jaquelin" element={<BusinessCardJaquelin />} />
