@@ -197,7 +197,7 @@ export default function MutualNda() {
 
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="bg-card border border-border rounded-2xl p-6 space-y-5">
-            <h2 className="font-heading font-semibold text-lg text-foreground">Counterparty Details</h2>
+            <h2 className="font-heading font-semibold text-lg text-foreground">Your Company Details</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {FIELDS.map(field => {
                 if (field.type === "postal" && !usesPostalCode(form.party_country)) return null;
