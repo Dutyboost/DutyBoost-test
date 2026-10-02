@@ -550,8 +550,18 @@ export default function RetailerDashboard() {
          <StatsCard title="Total Redemptions" value={totalRedemptions.toLocaleString("de-DE")} icon={ScanLine} />
         <StatsCard title="Min. DC Value" value={fmtCurrencyNative(minDcValue, currency, 0)} icon={LineChartIcon} />
         <StatsCard title="Average DC Value" value={fmtCurrencyNative(averageDcValue, currency, 0)} icon={Coins} />
-        <StatsCard title="Actual DC Value" value={money(actualDcValue, 2)} icon={Wallet} />
-        <StatsCard title="Revenue Generated" value={money(totalRevenue, 2)} icon={CreditCard} />
+        <StatsCard
+          title="Actual DC Value"
+          value={money(actualDcValue, 2)}
+          icon={Wallet}
+          hint={`Total value of the DutyCredits redeemed in this period: Total Redemptions × the average credit value of ${fmtCurrencyNative(averageDcValue, currency, 0)}.`}
+        />
+        <StatsCard
+          title="Revenue Generated"
+          value={money(totalRevenue, 2)}
+          icon={CreditCard}
+          hint={`Qualifying sales driven by DutyBoost in this period: Total Redemptions × the Min. DC Value of ${fmtCurrencyNative(minDcValue, currency, 0)}.`}
+        />
         <StatsCard title="Platform Fee (2.5%)" value={money(dutyBoostFee, 2)} subtitle={`Avg ${money(revenuePerDay, 2)}/day`} icon={TrendingUp} />
       </div>
 

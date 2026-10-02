@@ -1,9 +1,25 @@
-export default function StatsCard({ title, value, subtitle, icon: Icon, trend }) {
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
+export default function StatsCard({ title, value, subtitle, icon: Icon, trend, hint }) {
   return (
     <div className="bg-card rounded-xl border border-border p-5 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between">
         <div className="space-y-1">
-          <p className="text-sm text-muted-foreground font-medium whitespace-nowrap">{title}</p>
+          <div className="flex items-center gap-1.5">
+            <p className="text-sm text-muted-foreground font-medium whitespace-nowrap">{title}</p>
+            {hint && (
+              <TooltipProvider delayDuration={100}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="w-4 h-4 rounded-full bg-muted text-muted-foreground text-[10px] font-bold flex items-center justify-center cursor-help shrink-0">
+                      !
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-[230px] text-xs">{hint}</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+          </div>
           <p className="text-2xl font-heading font-bold tracking-tight whitespace-nowrap">{value}</p>
           {subtitle && (
             <p className="text-xs text-muted-foreground">{subtitle}</p>
