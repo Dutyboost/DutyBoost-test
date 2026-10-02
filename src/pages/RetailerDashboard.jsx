@@ -23,6 +23,7 @@ import DemoProfileTab from "../components/DemoProfileTab";
 import DemoDashboardBar from "../components/DemoDashboardBar";
 import { buildDemoAccount, RETAILER_DASHBOARD_COMPANIES, DEFAULT_RETAILER_COMPANY } from "../data/retailerDashboardCompanies";
 import { STORE_CATEGORIES } from "../data/storeCategories";
+import { PERIOD_OPTIONS } from "../data/dashboardPeriods";
 import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
 export default function RetailerDashboard() {
@@ -45,7 +46,7 @@ export default function RetailerDashboard() {
   // data set — including while signed in, so the demo looks the same in the editor
   // preview as it does on the published public link.
   const demoRequested = Boolean(companySlug) || searchParams.get("demo") === "1";
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeTab, setActiveTab] = useState("dashboard");
   const [period, setPeriod] = useState("monthly");
   const [customStart, setCustomStart] = useState(() => { const d = new Date(); d.setDate(d.getDate() - 30); return d.toISOString().split("T")[0]; });
@@ -215,7 +216,8 @@ export default function RetailerDashboard() {
       const s = new Date(now); s.setDate(s.getDate() - days);
       return s.toISOString().split("T")[0];
     };
-    if (period === "daily") return { startDate: back(7), endDate: today };
+    if (period === "daily") return { startDate: today, endDate: today };
+    if (period === "weekly") return { startDate: back(7), endDate: today };
     if (period === "monthly") return { startDate: back(30), endDate: today };
     if (period === "yearly") return { startDate: back(365), endDate: today };
     return { startDate: customStart, endDate: customEnd };
@@ -252,7 +254,7 @@ export default function RetailerDashboard() {
 
   const totalRevenue = filteredTransactions.reduce((s, t) => s + (t.transaction_value || 0), 0);
   const dutyBoostFee = filteredTransactions.reduce((s, t) => s + (t.platform_revenue || 0), 0);
-  const periodDays = period === "daily" ? 7 : period === "monthly" ? 30 : period === "yearly" ? 365 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
+  const periodDays = period === "daily" ? 1 : period === "weekly" ? 7 : period === "monthly" ? 30 : period === "yearly" ? 365 : Math.max(1, Math.round((new Date(customEnd) - new Date(customStart)) / 86400000));
   const revenuePerDay = totalRevenue / periodDays;
 
   // Transaction volume for selected period
@@ -393,6 +395,7 @@ export default function RetailerDashboard() {
           entityType="retailer"
           airports={airports}
           currency={currency}
+          periodOptions={PERIOD_OPTIONS}
           onPeriodChange={setPeriod}
           onCustomStartChange={setCustomStart}
           onCustomEndChange={setCustomEnd}
@@ -438,17 +441,12 @@ export default function RetailerDashboard() {
       ) : (<>
       <div className="flex items-center gap-2 flex-wrap mb-2">
         <Calendar className="w-4 h-4 text-muted-foreground" />
-        <span className="text-sm text-muted-foreground font-medium">Period:</span>
-        {[
-          { key: "daily", label: "Last 7 days" },
-          { key: "monthly", label: "Last 30 days" },
-          { key: "yearly", label: "Last 12 months" },
-          { key: "custom", label: "Custom" },
-        ].map(({ key, label }) => (
-          <button key={key} onClick={() => setPeriod(key)}
+        <span className="text-sm text-muted-foreground font-medium">{t('demo.period')}</span>
+        {PERIOD_OPTIONS.map(({ value, labelKey }) => (
+          <button key={value} onClick={() => setPeriod(value)}
             className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-              period === key ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
-            }`}>{label}
+              period === value ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+            }`}>{t(labelKey)}
           </button>
         ))}
         {period === "custom" && (
@@ -573,7 +571,11 @@ export default function RetailerDashboard() {
 
       {/* Charts */}
       <div className="bg-card rounded-xl border border-border p-6">
-        <h2 className="font-heading font-semibold mb-4">Transaction Volume — {period === "daily" ? "Last 7 days" : period === "monthly" ? "Last 30 days" : period === "yearly" ? "Last 12 months" : `${customStart} – ${customEnd}`}</h2>
+        <h2 className="font-heading font-semibold mb-4">
+          Transaction Volume — {period === "custom"
+            ? `${customStart} – ${customEnd}`
+            : t(PERIOD_OPTIONS.find(o => o.value === period)?.labelKey)}
+        </h2>
         <ResponsiveContainer width="100%" height={240}>
           <LineChart data={dailyData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -581,8 +583,8 @@ export default function RetailerDashboard() {
             <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
             <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [money(v), n]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
-            <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={false} name="Volume (€)" />
-            <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={false} name="DutyBoost Fee (€)" />
+            <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={dailyData.length === 1} name="Volume (€)" />
+            <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={dailyData.length === 1} name="DutyBoost Fee (€)" />
           </LineChart>
         </ResponsiveContainer>
       </div>

@@ -3,9 +3,10 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { TrendingUp, Euro, Store, ScanLine, Calendar, Info, Sparkles, Users, ChevronDown, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import RedemptionRateSlider from "./RedemptionRateSlider";
+import { DEFAULT_PERIOD_OPTIONS } from "../data/dashboardPeriods";
 import { fmtMoney, fmtCurrencyNative } from "../utils/formatNumber";
 
-export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [], companyName, redemptionRate, onRedemptionRateChange, currency = "EUR" }) {
+export default function AggregationView({ transactions, vouchers, period, customStart, customEnd, entityType = "retailer", onPeriodChange, onCustomStartChange, onCustomEndChange, airports = [], companyName, redemptionRate, onRedemptionRateChange, currency = "EUR", periodOptions = DEFAULT_PERIOD_OPTIONS }) {
   const { t } = useTranslation();
   const [expandedAirport, setExpandedAirport] = useState(null);
   const fmtC = (v) => fmtMoney(Number(v), currency, 2);
@@ -132,20 +133,15 @@ export default function AggregationView({ transactions, vouchers, period, custom
         <div className="flex items-center gap-2 flex-wrap mt-4">
           <Calendar className="w-4 h-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground font-medium">{t('demo.period') || 'Period'}</span>
-          {[
-            { v: "daily", l: t('demo.daily') },
-            { v: "monthly", l: t('demo.monthly') },
-            { v: "yearly", l: t('demo.yearly') },
-            { v: "custom", l: t('demo.custom') },
-          ].map(({ v, l }) => (
+          {periodOptions.map(({ value, labelKey }) => (
             <button
-              key={v}
-              onClick={() => onPeriodChange(v)}
+              key={value}
+              onClick={() => onPeriodChange(value)}
               className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
-                period === v ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
+                period === value ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
               }`}
             >
-              {l}
+              {t(labelKey)}
             </button>
           ))}
           {period === "custom" && (
