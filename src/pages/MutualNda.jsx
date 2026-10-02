@@ -52,7 +52,6 @@ export default function MutualNda() {
     party_representative_title: "",
     party_email: "",
     party_website: "",
-    purpose: "",
     effective_date: today(),
   });
   const [accepted, setAccepted] = useState(false);
@@ -82,7 +81,6 @@ export default function MutualNda() {
       .forEach(f => {
         if (!form[f.key]?.trim()) next[f.key] = true;
       });
-    if (!form.purpose?.trim()) next.purpose = true;
     if (form.party_email?.trim() && !EMAIL_RE.test(form.party_email.trim())) {
       next.party_email = true;
     }
@@ -242,20 +240,6 @@ export default function MutualNda() {
                   </div>
                 );
               })}
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Purpose of the Discussions
-                  <span className="text-destructive ml-1">*</span>
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="e.g. evaluating a potential commercial collaboration between the parties"
-                  value={form.purpose}
-                  onChange={e => handleChange("purpose", e.target.value)}
-                  className={`w-full rounded-md border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${errors.purpose ? "border-destructive" : "border-input"}`}
-                />
-                {errors.purpose && <p className="text-xs text-destructive mt-1">This field is required.</p>}
-              </div>
             </div>
           </div>
 
