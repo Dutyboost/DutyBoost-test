@@ -41,7 +41,7 @@ function LetteredList({ items }) {
   );
 }
 
-export default function MutualNdaDocument({ party }) {
+export default function MutualNdaDocument({ party, signature }) {
   const company = party.party_company_name || "[COUNTERPARTY COMPANY NAME]";
   const reg = party.party_registration_number || "[REGISTRATION NUMBER]";
   const jurisdiction = party.party_country || "[JURISDICTION]";
@@ -426,7 +426,14 @@ export default function MutualNdaDocument({ party }) {
             <p className="font-semibold">{company}</p>
             <p>Name: {representative}</p>
             <p>Title: {representativeTitle}</p>
-            <p>Signature: ______________________</p>
+            {signature ? (
+              <div>
+                <p>Signature:</p>
+                <img src={signature} alt="Signature" className="h-12 mt-1" />
+              </div>
+            ) : (
+              <p>Signature: ______________________</p>
+            )}
             <p>Date: {date}</p>
           </div>
           <div className="space-y-1">

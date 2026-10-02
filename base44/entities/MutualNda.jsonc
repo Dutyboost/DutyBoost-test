@@ -60,6 +60,10 @@
       "type": "string",
       "title": "Signed Date"
     },
+    "signature_file_uri": {
+      "type": "string",
+      "title": "Signature File (private)"
+    },
     "status": {
       "type": "string",
       "title": "Status",
