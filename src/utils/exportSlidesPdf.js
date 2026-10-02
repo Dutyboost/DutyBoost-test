@@ -100,6 +100,47 @@ async function waitForAssets(root) {
   if (document.fonts?.ready) await document.fonts.ready;
 }
 
+// html2canvas does not honour flex-grow or align-items: stretch, so a slide's growing,
+// vertically-centred wrapper collapses to its content height — the slide then reads as
+// top-aligned in the PDF. Every growing / stretched flex item's real, browser-measured
+// height is pinned onto the capture clone, so the page matches what is on screen.
+function lockFlexHeights(root) {
+  const heights = new Map();
+  let index = 0;
+  root.querySelectorAll("*").forEach((el) => {
+    const parent = el.parentElement;
+    if (!parent) return;
+    const parentStyle = getComputedStyle(parent);
+    if (parentStyle.display !== "flex" && parentStyle.display !== "inline-flex") return;
+
+    const grows = parseFloat(getComputedStyle(el).flexGrow || "0") > 0;
+    const stretchedInRow =
+      parentStyle.flexDirection.startsWith("row") && parentStyle.alignItems.startsWith("stretch");
+    if (!grows && !stretchedInRow) return;
+
+    const height = el.offsetHeight;
+    if (height <= 0) return;
+    const id = String(index++);
+    el.setAttribute("data-flex-lock", id);
+    heights.set(id, height);
+  });
+  return {
+    heights,
+    release: () => root.querySelectorAll("[data-flex-lock]").forEach((el) => el.removeAttribute("data-flex-lock")),
+  };
+}
+
+function applyFlexLocks(clonedDoc, { heights }) {
+  clonedDoc.querySelectorAll("[data-flex-lock]").forEach((el) => {
+    const height = heights.get(el.getAttribute("data-flex-lock"));
+    if (!height) return;
+    el.style.height = `${height}px`;
+    el.style.flexGrow = "0";
+    el.style.flexShrink = "0";
+    el.style.flexBasis = "auto";
+  });
+}
+
 export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, height = 788, onProgress } = {}) {
   if (!nodes.length) return;
 
@@ -112,6 +153,7 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
     await inlineSvgImages(node);
     await waitForAssets(node);
     const restoreGradientText = flattenGradientText(node);
+    const flexLocks = lockFlexHeights(node);
 
     const canvas = await html2canvas(node, {
       backgroundColor: "#ffffff",
@@ -123,8 +165,10 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
       height,
       windowWidth: width,
       windowHeight: height,
+      onclone: (clonedDoc) => applyFlexLocks(clonedDoc, flexLocks),
     });
 
+    flexLocks.release();
     restoreGradientText();
 
     if (i > 0) pdf.addPage([width, height], "landscape");
