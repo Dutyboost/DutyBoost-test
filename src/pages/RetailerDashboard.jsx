@@ -588,7 +588,7 @@ export default function RetailerDashboard() {
       {/* Charts */}
       <div className="bg-card rounded-xl border border-border p-6">
         <h2 className="font-heading font-semibold mb-4">
-          Transaction Volume — {period === "custom"
+          Transaction Revenue — {period === "custom"
             ? `${customStart} – ${customEnd}`
             : t(PERIOD_OPTIONS.find(o => o.value === period)?.labelKey)}
         </h2>
@@ -599,7 +599,7 @@ export default function RetailerDashboard() {
             <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} />
             <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }} formatter={(v, n) => [money(v), n]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
-            <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={dailyData.length === 1} name="Volume (€)" />
+            <Line type="monotone" dataKey="volume" stroke="#1F6FFF" strokeWidth={2} dot={dailyData.length === 1} name="Revenue (€)" />
             <Line type="monotone" dataKey="fee" stroke="#FF7A00" strokeWidth={2} dot={dailyData.length === 1} name="DutyBoost Fee (€)" />
           </LineChart>
         </ResponsiveContainer>
