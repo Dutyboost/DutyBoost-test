@@ -254,24 +254,6 @@ export default function MutualNda() {
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={handleDownloadWord}
-            disabled={downloadingWord}
-            className="w-full flex items-center justify-between px-6 py-4 bg-card border border-border rounded-2xl hover:bg-muted/40 transition-colors disabled:opacity-70"
-          >
-            <div className="flex items-center gap-3">
-              <FileDown className="w-5 h-5 text-primary" />
-              <span className="font-semibold text-foreground">Download Word (.docx)</span>
-              <Badge variant="outline" className="text-xs">For legal review</Badge>
-            </div>
-            {downloadingWord ? (
-              <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
-            ) : (
-              <Download className="w-4 h-4 text-muted-foreground" />
-            )}
-          </button>
-
           <div className="bg-card border border-border rounded-2xl overflow-hidden">
             <button
               type="button"
@@ -295,6 +277,24 @@ export default function MutualNda() {
               </div>
             )}
           </div>
+
+          <button
+            type="button"
+            onClick={handleDownloadWord}
+            disabled={downloadingWord}
+            className="w-full flex items-center justify-between px-6 py-4 bg-card border border-border rounded-2xl hover:bg-muted/40 transition-colors disabled:opacity-70"
+          >
+            <div className="flex items-center gap-3">
+              <FileDown className="w-5 h-5 text-primary" />
+              <span className="font-semibold text-foreground">Download Word (.docx)</span>
+              <Badge variant="outline" className="text-xs">For legal review</Badge>
+            </div>
+            {downloadingWord ? (
+              <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+            ) : (
+              <Download className="w-4 h-4 text-muted-foreground" />
+            )}
+          </button>
 
           <div className={`bg-card border rounded-2xl p-6 space-y-3 ${errors.accepted ? "border-destructive" : "border-border"}`}>
             <h2 className="font-heading font-semibold text-lg text-foreground">Acceptance</h2>
