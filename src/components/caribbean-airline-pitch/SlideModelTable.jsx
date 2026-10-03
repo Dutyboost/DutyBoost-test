@@ -33,24 +33,24 @@ export default function SlideModelTable() {
     <SlideShell
       eyebrow="The Triple-Sided Model"
       title={<>Three Positions. <span style={{ color: RETAIL }}>One Commercial Loop.</span></>}
-      subtitle="Caribbean Airlines participates on both sides of the same transaction."
+      subtitle="Caribbean Airlines participates on three sides of the same transaction."
     >
       <div className="space-y-3">
-        <div className="grid grid-cols-12 gap-3 px-4 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+        <div className="hidden md:grid grid-cols-12 gap-3 px-4 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
           <span className="col-span-3">Caribbean Airlines position</span>
           <span className="col-span-6">How DutyBoost creates value</span>
           <span className="col-span-3">Economics</span>
         </div>
         {ROWS.map((r) => (
-          <div key={r.position} className="grid grid-cols-12 gap-3 items-center bg-slate-50 border border-slate-200 rounded-2xl p-4">
-            <div className="col-span-3 flex items-center gap-3">
+          <div key={r.position} className="md:grid md:grid-cols-12 md:gap-3 md:items-center bg-slate-50 border border-slate-200 rounded-2xl p-4">
+            <div className="md:col-span-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${r.color}1a` }}>
                 <r.Icon className="w-5 h-5" style={{ color: r.color }} />
               </div>
               <span className="font-heading font-bold text-[#0a0f1e] text-sm">{r.position}</span>
             </div>
-            <p className="col-span-6 text-slate-600 text-sm leading-snug">{r.value}</p>
-            <div className="col-span-3">
+            <p className="md:col-span-6 text-slate-600 text-sm leading-snug mt-3 md:mt-0">{r.value}</p>
+            <div className="md:col-span-3 mt-3 md:mt-0">
               <div className="font-bold text-sm" style={{ color: r.color }}>{r.economics}</div>
               <div className="text-slate-500 text-xs leading-snug mt-0.5">{r.economicsNote}</div>
             </div>
