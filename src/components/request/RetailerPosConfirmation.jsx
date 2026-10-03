@@ -19,6 +19,7 @@ import { STAKEHOLDER_CONFIG, getStakeholderRequestStrings } from "@/lib/i18nStak
 import { getRetailerConfirmationStrings } from "@/lib/i18nRetailerConfirmation";
 import { POS_PROVIDERS } from "@/data/posProviders";
 import { downloadRetailerPosConfirmation } from "@/utils/exportRetailerPosConfirmationPdf";
+import DutyBoostContactCard from "@/components/request/DutyBoostContactCard";
 
 const EMPTY = {
   fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", volume: "",
@@ -276,6 +277,9 @@ export default function RetailerPosConfirmation() {
                     </div>
                   </div>
                 </div>
+
+                {/* DutyBoost contact — how the system integrator reaches us */}
+                <DutyBoostContactCard heading={s.sec_contact} intro={s.contact_intro} />
 
                 {/* Authorisation */}
                 <div className="bg-card border border-border rounded-2xl p-6 space-y-4">

@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import { DUTYBOOST_CONTACT } from "@/lib/dutyBoostContact";
 
 // A4 portrait confirmation document: the retailer's statement of interest in
 // integrating DutyBoost with its POS environment, addressed to the system
@@ -183,6 +184,13 @@ export async function downloadRetailerPosConfirmation({ strings, form, posValues
   y = row(pdf, y, T.l_si_contact, form.siContactName);
   y = row(pdf, y, T.l_email, form.siContactEmail);
   y = row(pdf, y, T.l_phone, form.siContactPhone);
+  y += 5;
+
+  // The system integrator's route to DutyBoost for the technical integration.
+  y = heading(pdf, y, TT.sec_contact);
+  y = paragraph(pdf, y, TT.contact_intro, { size: 9 });
+  y = row(pdf, y, T.l_email, DUTYBOOST_CONTACT.email);
+  y = row(pdf, y, T.l_phone, DUTYBOOST_CONTACT.phone);
   y += 5;
 
   y = paragraph(pdf, y, T.statement, { size: 10, bold: true, color: NAVY });
