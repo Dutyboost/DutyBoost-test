@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { exportSlideNodesToPdf } from "@/utils/exportSlidesPdf";
-import { exportSlideNodesToPptx } from "@/utils/exportSlidesPptx";
+import { exportSlideNodesToPptx } from "@/utils/domToPptx";
 
-// Renders the deck's slides off-screen at presentation size, captures each one and saves
-// them as a PDF or a PowerPoint that mirrors the on-screen deck. Every deck page shares
-// this control: pass its SLIDES list, its slide-component map and the file name (without
-// extension). Use tone="light" on decks with a light page background.
+// Renders the deck's slides off-screen at presentation size and saves them as a PDF (an
+// exact visual copy) or a PowerPoint (native shapes, text boxes and pictures, so every
+// slide stays editable). Every deck page shares this control: pass its SLIDES list, its
+// slide-component map and the file name (without extension). Use tone="light" on decks
+// with a light page background.
 
 const FORMATS = {
   pdf: { label: "PDF", run: exportSlideNodesToPdf },
