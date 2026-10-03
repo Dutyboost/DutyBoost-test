@@ -168,11 +168,11 @@ export default function RetailerPosConfirmation() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <Label>{t("corporaterequest.label_full_name")}<Required /></Label>
-                      <Input required autoComplete="off" name="db-retailer-contact-name" placeholder="Jane Smith" value={form.fullName} onChange={(e) => set("fullName", e.target.value)} />
+                      <Input required autoComplete="off" name="db-retailer-contact-name" value={form.fullName} onChange={(e) => set("fullName", e.target.value)} />
                     </div>
                     <div className="space-y-1.5">
                       <Label>{t("corporaterequest.label_work_email")}<Required /></Label>
-                      <Input required autoComplete="off" name="db-retailer-contact-email" type="email" placeholder="jane@company.com" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                      <Input required autoComplete="off" name="db-retailer-contact-email" type="email" value={form.email} onChange={(e) => set("email", e.target.value)} />
                     </div>
                   </div>
                   <div className="space-y-1.5">
@@ -185,11 +185,11 @@ export default function RetailerPosConfirmation() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <Label>{t("corporaterequest.label_company")}<Required /></Label>
-                      <Input required autoComplete="off" name="db-retailer-company" placeholder={t("corporaterequest.placeholder_company")} value={form.company} onChange={(e) => set("company", e.target.value)} />
+                      <Input required autoComplete="off" name="db-retailer-company" value={form.company} onChange={(e) => set("company", e.target.value)} />
                     </div>
                     <div className="space-y-1.5">
                       <Label>{t("corporaterequest.label_website")}<Required /></Label>
-                      <Input required autoComplete="off" name="db-retailer-website" placeholder="https://yourcompany.com" value={form.website} onChange={(e) => set("website", e.target.value)} />
+                      <Input required autoComplete="off" name="db-retailer-website" value={form.website} onChange={(e) => set("website", e.target.value)} />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -230,7 +230,7 @@ export default function RetailerPosConfirmation() {
                   {form.posProviders.includes(r.pos_other) && (
                     <div className="space-y-1.5">
                       <Label>{r.label_pos_other}<Required /></Label>
-                      <Input required autoComplete="off" name="db-pos-other" value={form.posOther} onChange={(e) => set("posOther", e.target.value)} placeholder={r.placeholder_pos_other} />
+                      <Input required autoComplete="off" name="db-pos-other" value={form.posOther} onChange={(e) => set("posOther", e.target.value)} />
                     </div>
                   )}
                 </div>
@@ -240,16 +240,16 @@ export default function RetailerPosConfirmation() {
                   <h3 className="font-heading font-semibold">{s.sec_pos_contact}</h3>
                   <div className="space-y-1.5">
                     <Label>{s.label_pos_contact_name}<Required /></Label>
-                    <Input required autoComplete="off" name="db-pos-contact-name" value={form.posContactName} onChange={(e) => set("posContactName", e.target.value)} placeholder="Jane Smith" />
+                    <Input required autoComplete="off" name="db-pos-contact-name" value={form.posContactName} onChange={(e) => set("posContactName", e.target.value)} />
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <Label>{s.label_pos_contact_email}<Required /></Label>
-                      <Input required autoComplete="off" name="db-pos-contact-email" type="email" value={form.posContactEmail} onChange={(e) => set("posContactEmail", e.target.value)} placeholder="jane@company.com" />
+                      <Input required autoComplete="off" name="db-pos-contact-email" type="email" value={form.posContactEmail} onChange={(e) => set("posContactEmail", e.target.value)} />
                     </div>
                     <div className="space-y-1.5">
                       <Label>{s.label_pos_contact_phone}<Required /></Label>
-                      <Input required autoComplete="off" name="db-pos-contact-phone" type="tel" value={form.posContactPhone} onChange={(e) => set("posContactPhone", e.target.value)} placeholder="+31 20 123 4567" />
+                      <Input required autoComplete="off" name="db-pos-contact-phone" type="tel" value={form.posContactPhone} onChange={(e) => set("posContactPhone", e.target.value)} />
                     </div>
                   </div>
                 </div>
@@ -259,20 +259,20 @@ export default function RetailerPosConfirmation() {
                   <h3 className="font-heading font-semibold">{s.sec_si}</h3>
                   <div className="space-y-1.5">
                     <Label>{s.label_si_company}<Required /></Label>
-                    <Input required autoComplete="off" name="db-si-company" value={form.siCompany} onChange={(e) => set("siCompany", e.target.value)} placeholder={s.ph_si_company} />
+                    <Input required autoComplete="off" name="db-si-company" value={form.siCompany} onChange={(e) => set("siCompany", e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
                     <Label>{s.label_si_contact_name}<Required /></Label>
-                    <Input required autoComplete="off" name="db-si-contact-name" value={form.siContactName} onChange={(e) => set("siContactName", e.target.value)} placeholder="John Doe" />
+                    <Input required autoComplete="off" name="db-si-contact-name" value={form.siContactName} onChange={(e) => set("siContactName", e.target.value)} />
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <Label>{s.label_si_contact_email}<Required /></Label>
-                      <Input required autoComplete="off" name="db-si-contact-email" type="email" value={form.siContactEmail} onChange={(e) => set("siContactEmail", e.target.value)} placeholder="john@integrator.com" />
+                      <Input required autoComplete="off" name="db-si-contact-email" type="email" value={form.siContactEmail} onChange={(e) => set("siContactEmail", e.target.value)} />
                     </div>
                     <div className="space-y-1.5">
                       <Label>{s.label_si_contact_phone}<Required /></Label>
-                      <Input required autoComplete="off" name="db-si-contact-phone" type="tel" value={form.siContactPhone} onChange={(e) => set("siContactPhone", e.target.value)} placeholder="+31 20 123 4567" />
+                      <Input required autoComplete="off" name="db-si-contact-phone" type="tel" value={form.siContactPhone} onChange={(e) => set("siContactPhone", e.target.value)} />
                     </div>
                   </div>
                 </div>
