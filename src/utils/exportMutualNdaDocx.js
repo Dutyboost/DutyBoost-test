@@ -1,5 +1,6 @@
 import { Document, Packer, Paragraph, TextRun, AlignmentType } from "docx";
-import { NDA_DUTYBOOST, ndaSections, fillNdaText } from "@/data/mutualNdaSections";
+import { NDA_DUTYBOOST, getNdaSections, fillNdaText } from "@/data/mutualNdaSections";
+import { getMutualNdaStrings, ndaLocale } from "@/lib/i18nMutualNda";
 
 // An editable Word copy of the Mutual Non-Disclosure Agreement, built from the same
 // clause text the on-screen preview and the PDF use — so the legal team can mark it up.
@@ -16,7 +17,11 @@ const paragraph = (text, { bold = false, size = 20, color = BODY, align, spacing
     children: [new TextRun({ text, bold, size, color })],
   });
 
-export async function downloadMutualNdaDocx({ party }) {
+export async function downloadMutualNdaDocx({ party, language = "en" }) {
+  const s = getMutualNdaStrings(language);
+  const sections = getNdaSections(language);
+  const locale = ndaLocale(language);
+
   const company = party.party_company_name || "[COUNTERPARTY COMPANY NAME]";
   const reg = party.party_registration_number || "[REGISTRATION NUMBER]";
   const jurisdiction = party.party_country || "[JURISDICTION]";
@@ -32,41 +37,44 @@ export async function downloadMutualNdaDocx({ party }) {
   const representative = party.party_representative_name || "[REPRESENTATIVE NAME]";
   const representativeTitle = party.party_representative_title || "[TITLE]";
   const effectiveDate = party.effective_date
-    ? new Date(party.effective_date).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
+    ? new Date(party.effective_date).toLocaleDateString(locale, { day: "2-digit", month: "long", year: "numeric" })
     : "[EFFECTIVE DATE]";
 
   const children = [
-    paragraph("Mutual Non-Disclosure Agreement", {
+    paragraph(s.doc_title, {
       bold: true,
       size: 36,
       color: NAVY,
       align: AlignmentType.CENTER,
       spacing: 80,
     }),
-    paragraph("For legal review", {
+    paragraph(s.for_legal_review, {
       size: 20,
       color: MUTED,
       align: AlignmentType.CENTER,
       spacing: 280,
     }),
 
+    paragraph(s.doc_intro.replace("{date}", effectiveDate)),
     paragraph(
-      `This Mutual Non-Disclosure Agreement (the "Agreement") is entered into as of ${effectiveDate} (the "Effective Date") by and between:`,
+      s.doc_party1
+        .replace("{legal}", NDA_DUTYBOOST.legal_name)
+        .replace("{jurisdiction}", NDA_DUTYBOOST.jurisdiction)
+        .replace("{reg}", NDA_DUTYBOOST.registration)
+        .replace("{address}", NDA_DUTYBOOST.address),
     ),
+    paragraph(s.doc_and),
     paragraph(
-      `(1) ${NDA_DUTYBOOST.legal_name}, a company incorporated under the laws of ${NDA_DUTYBOOST.jurisdiction} ("DutyBoost"); registered under the Chamber of Commerce (KvK): ${NDA_DUTYBOOST.registration}, with its registered office at ${NDA_DUTYBOOST.address};`,
+      s.doc_party2
+        .replace("{company}", company)
+        .replace("{jurisdiction}", jurisdiction)
+        .replace("{reg}", reg)
+        .replace("{address}", address),
     ),
-    paragraph("and"),
-    paragraph(
-      `(2) ${company}, a company incorporated under the laws of ${jurisdiction}, registered under number ${reg}, with its registered office at ${address} (the "Counterparty").`,
-    ),
-    paragraph(
-      `DutyBoost and ${company} are each referred to individually as a "Party" and together as the "Parties".`,
-      { spacing: 260 },
-    ),
+    paragraph(s.doc_parties.replace("{company}", company), { spacing: 260 }),
   ];
 
-  ndaSections.forEach((section) => {
+  sections.forEach((section) => {
     children.push(
       paragraph(`${section.number}. ${section.title}`, { bold: true, size: 22, color: NAVY, spacing: 120 }),
     );
@@ -85,21 +93,19 @@ export async function downloadMutualNdaDocx({ party }) {
   });
 
   children.push(
-    paragraph("SIGNATURES", { bold: true, size: 22, color: NAVY, spacing: 120 }),
-    paragraph(
-      "The Parties confirm that they have read, understood and agreed to the terms of this Agreement and have caused this Agreement to be executed by their duly authorised representatives.",
-    ),
+    paragraph(s.sig_heading, { bold: true, size: 22, color: NAVY, spacing: 120 }),
+    paragraph(s.sig_intro),
     paragraph("", { spacing: 160 }),
     paragraph(company, { bold: true, size: 20, color: NAVY, spacing: 60 }),
-    paragraph(`Name: ${representative}`, { spacing: 40 }),
-    paragraph(`Title: ${representativeTitle}`, { spacing: 40 }),
-    paragraph("Signature: ______________________________", { spacing: 40 }),
-    paragraph(`Date: ${effectiveDate}`, { spacing: 320 }),
+    paragraph(`${s.sig_name}: ${representative}`, { spacing: 40 }),
+    paragraph(`${s.sig_title}: ${representativeTitle}`, { spacing: 40 }),
+    paragraph(`${s.sig_signature}: ______________________________`, { spacing: 40 }),
+    paragraph(`${s.sig_date}: ${effectiveDate}`, { spacing: 320 }),
     paragraph(NDA_DUTYBOOST.legal_name, { bold: true, size: 20, color: NAVY, spacing: 60 }),
-    paragraph(`Name: ${NDA_DUTYBOOST.representative}`, { spacing: 40 }),
-    paragraph(`Title: ${NDA_DUTYBOOST.representative_title}`, { spacing: 40 }),
-    paragraph("Signature: ______________________________", { spacing: 40 }),
-    paragraph(`Date: ${effectiveDate}`, { spacing: 40 }),
+    paragraph(`${s.sig_name}: ${NDA_DUTYBOOST.representative}`, { spacing: 40 }),
+    paragraph(`${s.sig_title}: ${NDA_DUTYBOOST.representative_title}`, { spacing: 40 }),
+    paragraph(`${s.sig_signature}: ______________________________`, { spacing: 40 }),
+    paragraph(`${s.sig_date}: ${effectiveDate}`, { spacing: 40 }),
   );
 
   const doc = new Document({ sections: [{ children }] });

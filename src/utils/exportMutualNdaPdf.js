@@ -1,6 +1,7 @@
 import { jsPDF } from "jspdf";
 import { base44 } from "@/api/base44Client";
-import { NDA_DUTYBOOST, ndaSections, fillNdaText } from "@/data/mutualNdaSections";
+import { NDA_DUTYBOOST, getNdaSections, fillNdaText } from "@/data/mutualNdaSections";
+import { getMutualNdaStrings, ndaLocale } from "@/lib/i18nMutualNda";
 
 // A4 portrait copy of the Mutual Non-Disclosure Agreement, carrying the party
 // details, the full clause text and both signatures as given in the form.
@@ -119,8 +120,11 @@ function listItem(pdf, y, label, text) {
   return y + lines.length * 5 + 1;
 }
 
-export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyboostSignature }) {
+export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyboostSignature, language = "en" }) {
   const pdf = new jsPDF({ unit: "mm", format: "a4" });
+  const s = getMutualNdaStrings(language);
+  const sections = getNdaSections(language);
+  const locale = ndaLocale(language);
 
   const company = party.party_company_name || "[COUNTERPARTY COMPANY NAME]";
   const reg = party.party_registration_number || "[REGISTRATION NUMBER]";
@@ -134,9 +138,9 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
   const representative = party.party_representative_name || "[REPRESENTATIVE NAME]";
   const representativeTitle = party.party_representative_title || "[TITLE]";
   const effectiveDate = party.effective_date
-    ? new Date(party.effective_date).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
+    ? new Date(party.effective_date).toLocaleDateString(locale, { day: "2-digit", month: "long", year: "numeric" })
     : "";
-  const today = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
+  const today = new Date().toLocaleDateString(locale, { day: "2-digit", month: "long", year: "numeric" });
   const reference = `DB-NDA-${new Date().getFullYear()}-${String(company).replace(/[^a-zA-Z0-9]/g, "").slice(0, 6).toUpperCase()}`;
 
   const [logo, sign1, sign2] = await Promise.all([
@@ -174,29 +178,45 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
   pdf.setFont("helvetica", "bold");
   pdf.setFontSize(18);
   pdf.setTextColor(...NAVY);
-  pdf.text("Mutual Non-Disclosure Agreement", M, y);
+  pdf.text(s.doc_title, M, y);
   y += 7;
   pdf.setFont("helvetica", "normal");
   pdf.setFontSize(10.5);
   pdf.setTextColor(...MUTED);
-  pdf.text("Executed copy", M, y);
+  pdf.text(s.executed_copy, M, y);
   y += 9;
 
   pdf.setFont("helvetica", "normal");
   pdf.setFontSize(8.5);
   pdf.setTextColor(...MUTED);
-  pdf.text(`Ref. ${reference}`, M + CW, y - 9, { align: "right" });
+  pdf.text(s.ref_label.replace("{ref}", reference), M + CW, y - 9, { align: "right" });
 
   // Parties
-  y = paragraph(pdf, y, `This Mutual Non-Disclosure Agreement (the "Agreement") is entered into as of ${effectiveDate} (the "Effective Date") by and between:`);
-  y = paragraph(pdf, y, `(1) ${NDA_DUTYBOOST.legal_name}, a company incorporated under the laws of ${NDA_DUTYBOOST.jurisdiction} ("DutyBoost"); registered under the Chamber of Commerce (KvK): ${NDA_DUTYBOOST.registration}, with its registered office at ${NDA_DUTYBOOST.address};`);
-  y = paragraph(pdf, y, "and");
-  y = paragraph(pdf, y, `(2) ${company}, a company incorporated under the laws of ${jurisdiction}, registered under number ${reg}, with its registered office at ${address} (the "Counterparty").`);
-  y = paragraph(pdf, y, `DutyBoost and ${company} are each referred to individually as a "Party" and together as the "Parties".`);
+  y = paragraph(pdf, y, s.doc_intro.replace("{date}", effectiveDate));
+  y = paragraph(
+    pdf,
+    y,
+    s.doc_party1
+      .replace("{legal}", NDA_DUTYBOOST.legal_name)
+      .replace("{jurisdiction}", NDA_DUTYBOOST.jurisdiction)
+      .replace("{reg}", NDA_DUTYBOOST.registration)
+      .replace("{address}", NDA_DUTYBOOST.address),
+  );
+  y = paragraph(pdf, y, s.doc_and);
+  y = paragraph(
+    pdf,
+    y,
+    s.doc_party2
+      .replace("{company}", company)
+      .replace("{jurisdiction}", jurisdiction)
+      .replace("{reg}", reg)
+      .replace("{address}", address),
+  );
+  y = paragraph(pdf, y, s.doc_parties.replace("{company}", company));
   y += 4;
 
   // Clauses
-  ndaSections.forEach((section) => {
+  sections.forEach((section) => {
     y = paragraph(pdf, y, `${section.number}. ${section.title}`.toUpperCase(), { size: 9.5, bold: true, color: NAVY });
     section.blocks.forEach((block) => {
       if (block.list) {
@@ -212,8 +232,8 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
 
   // Signatures
   y = keepOnPage(pdf, y, 62);
-  y = paragraph(pdf, y, "SIGNATURES", { size: 9.5, bold: true, color: NAVY });
-  y = paragraph(pdf, y, "The Parties confirm that they have read, understood and agreed to the terms of this Agreement and have caused this Agreement to be executed by their duly authorised representatives.");
+  y = paragraph(pdf, y, s.sig_heading.toUpperCase(), { size: 9.5, bold: true, color: NAVY });
+  y = paragraph(pdf, y, s.sig_intro);
   y += 4;
 
   const columns = [
@@ -231,8 +251,8 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(9);
     pdf.setTextColor(...BODY);
-    pdf.text(pdf.splitTextToSize(clean(`Name: ${name}`), 84), x, top + 10);
-    pdf.text(pdf.splitTextToSize(clean(`Title: ${title}`), 84), x, top + 15);
+    pdf.text(pdf.splitTextToSize(clean(`${s.sig_name}: ${name}`), 84), x, top + 10);
+    pdf.text(pdf.splitTextToSize(clean(`${s.sig_title}: ${title}`), 84), x, top + 15);
 
     // Signature image sits directly above its line.
     if (signature) {
@@ -247,8 +267,8 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
     pdf.line(x, top + 34, x + 84, top + 34);
     pdf.setFontSize(8);
     pdf.setTextColor(...MUTED);
-    pdf.text("Signature", x, top + 38);
-    pdf.text(`Date: ${effectiveDate}`, x, top + 45);
+    pdf.text(s.sig_signature, x, top + 38);
+    pdf.text(`${s.sig_date}: ${effectiveDate}`, x, top + 45);
   });
 
   // Footer
@@ -258,7 +278,7 @@ export async function downloadMutualNdaPdf({ party, counterpartySignature, dutyb
   pdf.setFontSize(7.5);
   pdf.setTextColor(...MUTED);
   pdf.text(`${NDA_DUTYBOOST.email} · ${NDA_DUTYBOOST.address} · KvK ${NDA_DUTYBOOST.registration}`, M, PAGE_H - 11);
-  pdf.text(`Signed ${today}`, M + CW, PAGE_H - 11, { align: "right" });
+  pdf.text(s.signed_on.replace("{date}", today), M + CW, PAGE_H - 11, { align: "right" });
 
   const safeCompany = String(company || "Counterparty").replace(/[^a-zA-Z0-9]+/g, "-");
   pdf.save(`DutyBoost-Mutual-NDA-${safeCompany}.pdf`);

@@ -29,6 +29,7 @@ export default function SignedNdaTab() {
         party: record,
         counterpartySignature: record.signature_file_uri,
         dutyboostSignature: record.dutyboost_signature_file_uri,
+        language: record.language,
       });
     } finally {
       setDownloadingId(null);

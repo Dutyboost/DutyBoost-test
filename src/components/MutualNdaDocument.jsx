@@ -1,14 +1,17 @@
 import SignaturePad from "@/components/request/SignaturePad";
-import { NDA_DUTYBOOST, ndaSections, fillNdaText } from "@/data/mutualNdaSections";
+import { NDA_DUTYBOOST, getNdaSections, fillNdaText } from "@/data/mutualNdaSections";
+import { getMutualNdaStrings, ndaLocale } from "@/lib/i18nMutualNda";
 
-const fmtDate = (value) => {
+const fmtDate = (value, locale) => {
   if (!value) return "[EFFECTIVE DATE]";
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "[EFFECTIVE DATE]";
-  return d.toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
+  return d.toLocaleDateString(locale, { day: "2-digit", month: "long", year: "numeric" });
 };
 
-export default function MutualNdaDocument({ party, signatures = {}, onSignatureChange }) {
+export default function MutualNdaDocument({ party, signatures = {}, onSignatureChange, language = "en" }) {
+  const s = getMutualNdaStrings(language);
+  const sections = getNdaSections(language);
   const company = party.party_company_name || "[COUNTERPARTY COMPANY NAME]";
   const reg = party.party_registration_number || "[REGISTRATION NUMBER]";
   const jurisdiction = party.party_country || "[JURISDICTION]";
@@ -21,40 +24,37 @@ export default function MutualNdaDocument({ party, signatures = {}, onSignatureC
   const address = addressParts.join(", ") || "[ADDRESS]";
   const representative = party.party_representative_name || "[REPRESENTATIVE NAME]";
   const representativeTitle = party.party_representative_title || "[TITLE]";
-  const date = fmtDate(party.effective_date);
+  const date = fmtDate(party.effective_date, ndaLocale(language));
 
   return (
     <div className="space-y-5 text-[13px] text-foreground leading-relaxed">
       <h3 className="text-center font-heading font-bold text-base uppercase tracking-wide">
-        Mutual Non-Disclosure Agreement
+        {s.doc_title}
       </h3>
 
-      <p>
-        This Mutual Non-Disclosure Agreement (the &ldquo;Agreement&rdquo;) is entered into as of <strong>{date}</strong>{" "}
-        (the &ldquo;Effective Date&rdquo;) by and between:
-      </p>
+      <p>{s.doc_intro.replace("{date}", date)}</p>
 
       <p>
-        <strong>(1) {NDA_DUTYBOOST.legal_name}</strong>, a company incorporated under the laws of {NDA_DUTYBOOST.jurisdiction}{" "}
-        (&ldquo;DutyBoost&rdquo;); registered under the Chamber of Commerce (KvK): {NDA_DUTYBOOST.registration}, with its
-        registered office at {NDA_DUTYBOOST.address};
+        {s.doc_party1
+          .replace("{legal}", NDA_DUTYBOOST.legal_name)
+          .replace("{jurisdiction}", NDA_DUTYBOOST.jurisdiction)
+          .replace("{reg}", NDA_DUTYBOOST.registration)
+          .replace("{address}", NDA_DUTYBOOST.address)}
       </p>
+
+      <p>{s.doc_and}</p>
 
       <p>
-        and
+        {s.doc_party2
+          .replace("{company}", company)
+          .replace("{jurisdiction}", jurisdiction)
+          .replace("{reg}", reg)
+          .replace("{address}", address)}
       </p>
 
-      <p>
-        <strong>(2) {company}</strong>, a company incorporated under the laws of {jurisdiction}, registered under number{" "}
-        {reg}, with its registered office at {address} (the &ldquo;Counterparty&rdquo;).
-      </p>
+      <p>{s.doc_parties.replace("{company}", company)}</p>
 
-      <p>
-        DutyBoost and {company} are each referred to individually as a &ldquo;Party&rdquo; and together as the
-        &ldquo;Parties&rdquo;.
-      </p>
-
-      {ndaSections.map((section) => (
+      {sections.map((section) => (
         <div key={section.number} className="space-y-1.5">
           <p className="font-semibold uppercase tracking-wide text-[13px]">
             {section.number}. {section.title}
@@ -77,36 +77,33 @@ export default function MutualNdaDocument({ party, signatures = {}, onSignatureC
       ))}
 
       <div className="pt-2 space-y-3">
-        <p className="font-semibold uppercase tracking-wide text-[13px]">Signatures</p>
-        <p>
-          The Parties confirm that they have read, understood and agreed to the terms of this Agreement and have caused
-          this Agreement to be executed by their duly authorised representatives.
-        </p>
+        <p className="font-semibold uppercase tracking-wide text-[13px]">{s.sig_heading}</p>
+        <p>{s.sig_intro}</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
           <div className="space-y-1">
             <p className="font-semibold">{company}</p>
-            <p>Name: {representative}</p>
-            <p>Title: {representativeTitle}</p>
+            <p>{s.sig_name}: {representative}</p>
+            <p>{s.sig_title}: {representativeTitle}</p>
             <SignaturePad
-              label="Signature"
+              label={s.sig_signature}
               value={signatures.counterparty || ""}
               onChange={(v) => onSignatureChange?.("counterparty", v)}
-              hint="Draw your signature, or switch to Type."
+              hint={s.sig_hint_counterparty}
             />
-            <p>Date: {date}</p>
+            <p>{s.sig_date}: {date}</p>
           </div>
           <div className="space-y-1">
             <p className="font-semibold">{NDA_DUTYBOOST.legal_name}</p>
-            <p>Name: {NDA_DUTYBOOST.representative}</p>
-            <p>Title: {NDA_DUTYBOOST.representative_title}</p>
+            <p>{s.sig_name}: {NDA_DUTYBOOST.representative}</p>
+            <p>{s.sig_title}: {NDA_DUTYBOOST.representative_title}</p>
             <SignaturePad
-              label="Signature"
+              label={s.sig_signature}
               value={signatures.dutyboost || ""}
               onChange={(v) => onSignatureChange?.("dutyboost", v)}
-              hint="Draw the signature, or switch to Type."
+              hint={s.sig_hint_dutyboost}
             />
-            <p>Date: {date}</p>
+            <p>{s.sig_date}: {date}</p>
           </div>
         </div>
       </div>

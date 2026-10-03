@@ -1,5 +1,12 @@
-// The Mutual NDA's legal text lives here once, so the on-screen agreement and the
-// downloaded PDF always carry exactly the same wording.
+// The Mutual NDA's legal text lives here once, so the on-screen agreement, the PDF
+// and the Word document always carry exactly the same wording. Every language has
+// its own clause file with the same shape.
+
+import { ndaSections as nl } from "./mutualNdaSectionsNl";
+import { ndaSections as fr } from "./mutualNdaSectionsFr";
+import { ndaSections as de } from "./mutualNdaSectionsDe";
+import { ndaSections as es } from "./mutualNdaSectionsEs";
+import { ndaSections as it } from "./mutualNdaSectionsIt";
 
 export const NDA_DUTYBOOST = {
   legal_name: "DutyBoost B.V.",
@@ -289,3 +296,7 @@ export const ndaSections = [
     ],
   },
 ];
+
+// The clause text for the chosen language, falling back to English.
+export const getNdaSections = (lang) =>
+  ({ en: ndaSections, nl, fr, de, es, it }[(lang || "en").slice(0, 2).toLowerCase()] || ndaSections);
