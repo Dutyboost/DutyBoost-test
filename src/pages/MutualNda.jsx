@@ -203,6 +203,7 @@ export default function MutualNda() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl mx-auto space-y-3 text-left">
             <p className="text-sm text-blue-800 leading-relaxed">{s.intro_1}</p>
             <p className="text-sm text-blue-800 leading-relaxed">{s.intro_2}</p>
+            <p className="text-sm text-blue-800 leading-relaxed">{s.intro_4}</p>
           </div>
           <p className="text-muted-foreground max-w-xl mx-auto">{s.intro_3}</p>
         </div>

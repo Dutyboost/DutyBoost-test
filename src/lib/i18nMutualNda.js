@@ -6,7 +6,8 @@ export const mutualNdaStrings = {
   en: {
     title: "Mutual Non-Disclosure Agreement",
     intro_1: "Before exchanging commercial, technical or partner information, the parties formalise their mutual confidentiality commitments in a single agreement that protects both sides equally.",
-    intro_2: "Complete the details below, review the live preview of the agreement, and confirm acceptance. A countersigned copy is issued for your records.",
+    intro_2: "Complete the details below, review the live preview of the agreement, and confirm acceptance.",
+    intro_4: "Your Legal department can download the Word (.docx) version to revise the agreement before online submission.",
     intro_3: "All information you provide is treated as confidential and used solely for the purpose of preparing this agreement.",
     sec_details: "Your Company Details",
     f_company: "Company Name",
@@ -65,7 +66,8 @@ export const mutualNdaStrings = {
   nl: {
     title: "Wederzijdse geheimhoudingsovereenkomst",
     intro_1: "Voordat commerciële, technische of partnerinformatie wordt uitgewisseld, leggen de partijen hun wederzijdse geheimhoudingsverplichtingen vast in één overeenkomst die beide partijen gelijk beschermt.",
-    intro_2: "Vul de onderstaande gegevens in, bekijk de live preview van de overeenkomst en bevestig de aanvaarding. U ontvangt een medeondertekend exemplaar voor uw administratie.",
+    intro_2: "Vul de onderstaande gegevens in, bekijk de live preview van de overeenkomst en bevestig de aanvaarding.",
+    intro_4: "Uw juridische afdeling kan de Word-versie (.docx) downloaden om de overeenkomst te herzien voordat deze online wordt ingediend.",
     intro_3: "Alle informatie die u verstrekt, wordt vertrouwelijk behandeld en uitsluitend gebruikt voor het opstellen van deze overeenkomst.",
     sec_details: "Uw bedrijfsgegevens",
     f_company: "Bedrijfsnaam",
@@ -124,7 +126,8 @@ export const mutualNdaStrings = {
   fr: {
     title: "Accord de confidentialité mutuel",
     intro_1: "Avant d'échanger des informations commerciales, techniques ou de partenariat, les parties formalisent leurs engagements mutuels de confidentialité dans un accord unique qui protège les deux parties de manière égale.",
-    intro_2: "Complétez les informations ci-dessous, consultez l'aperçu en direct de l'accord et confirmez votre acceptation. Une copie contresignée vous est délivrée pour vos archives.",
+    intro_2: "Complétez les informations ci-dessous, consultez l'aperçu en direct de l'accord et confirmez votre acceptation.",
+    intro_4: "Votre service juridique peut télécharger la version Word (.docx) pour réviser l'accord avant l'envoi en ligne.",
     intro_3: "Toutes les informations que vous fournissez sont traitées de manière confidentielle et utilisées uniquement pour préparer cet accord.",
     sec_details: "Vos informations d'entreprise",
     f_company: "Nom de la société",
@@ -183,7 +186,8 @@ export const mutualNdaStrings = {
   de: {
     title: "Gegenseitige Geheimhaltungsvereinbarung",
     intro_1: "Bevor kommerzielle, technische oder Partnerinformationen ausgetauscht werden, formalisieren die Parteien ihre gegenseitigen Vertraulichkeitsverpflichtungen in einer einzigen Vereinbarung, die beide Seiten gleichermaßen schützt.",
-    intro_2: "Füllen Sie die Angaben unten aus, prüfen Sie die Live-Vorschau der Vereinbarung und bestätigen Sie die Annahme. Eine gegengezeichnete Ausfertigung wird für Ihre Unterlagen ausgestellt.",
+    intro_2: "Füllen Sie die Angaben unten aus, prüfen Sie die Live-Vorschau der Vereinbarung und bestätigen Sie die Annahme.",
+    intro_4: "Ihre Rechtsabteilung kann die Word-Version (.docx) herunterladen, um die Vereinbarung vor der Online-Übermittlung zu prüfen.",
     intro_3: "Alle von Ihnen bereitgestellten Informationen werden vertraulich behandelt und ausschließlich zur Erstellung dieser Vereinbarung verwendet.",
     sec_details: "Ihre Unternehmensangaben",
     f_company: "Firmenname",
@@ -242,7 +246,8 @@ export const mutualNdaStrings = {
   es: {
     title: "Acuerdo mutuo de confidencialidad",
     intro_1: "Antes de intercambiar información comercial, técnica o de partners, las partes formalizan sus compromisos mutuos de confidencialidad en un único acuerdo que protege a ambas partes por igual.",
-    intro_2: "Complete los datos siguientes, revise la vista previa en directo del acuerdo y confirme su aceptación. Se emite una copia refrendada para sus registros.",
+    intro_2: "Complete los datos siguientes, revise la vista previa en directo del acuerdo y confirme su aceptación.",
+    intro_4: "Su departamento jurídico puede descargar la versión Word (.docx) para revisar el acuerdo antes del envío en línea.",
     intro_3: "Toda la información que facilite se trata como confidencial y se utiliza únicamente para preparar este acuerdo.",
     sec_details: "Datos de su empresa",
     f_company: "Nombre de la empresa",
@@ -301,7 +306,8 @@ export const mutualNdaStrings = {
   it: {
     title: "Accordo di riservatezza reciproco",
     intro_1: "Prima di scambiare informazioni commerciali, tecniche o di partnership, le parti formalizzano i propri impegni reciproci di riservatezza in un unico accordo che protegge entrambe le parti in modo paritario.",
-    intro_2: "Compila i dati riportati di seguito, consulta l'anteprima live dell'accordo e conferma l'accettazione. Ti viene rilasciata una copia controfirmata per i tuoi archivi.",
+    intro_2: "Compila i dati riportati di seguito, consulta l'anteprima live dell'accordo e conferma l'accettazione.",
+    intro_4: "Il reparto legale può scaricare la versione Word (.docx) per rivedere l'accordo prima dell'invio online.",
     intro_3: "Tutte le informazioni che fornisci sono trattate come riservate e utilizzate esclusivamente per predisporre il presente accordo.",
     sec_details: "Dati della tua azienda",
     f_company: "Ragione sociale",
