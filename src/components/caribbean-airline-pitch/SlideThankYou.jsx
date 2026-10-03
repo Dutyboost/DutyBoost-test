@@ -1,7 +1,7 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import CaribbeanDutyFreeLogo from "@/components/retailer-pitch-trinidad/CaribbeanDutyFreeLogo";
-import { Plane, Store, Cpu, ArrowRight } from "lucide-react";
+import { Plane, Store, Cpu } from "lucide-react";
 import { ACCENT, CalLogo, GridBg, PARTNER, POS, RETAIL, SlideWrapper } from "./Shared";
 
 export default function SlideThankYou() {
@@ -55,15 +55,6 @@ export default function SlideThankYou() {
               that traveller into a purchase.
             </p>
           </div>
-
-          <a
-            href="/retailer-confirmation"
-            className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-white font-semibold text-sm shadow-lg hover:opacity-90 transition-opacity"
-            style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}
-          >
-            Confirm your interest
-            <ArrowRight className="w-4 h-4" />
-          </a>
 
           <div className="mt-3 text-slate-500 text-[10px]">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
