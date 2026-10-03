@@ -35,7 +35,7 @@ export default function SlideWhyItMatters() {
           Caribbean Airlines can earn from bringing the traveller into the ecosystem, while Caribbean Duty Free earns from converting that
           traveller into a purchase.
         </p>
-        <p className="text-white/80 text-sm mt-3">That is the double-sided value of DutyBoost for Caribbean Airlines.</p>
+        <p className="text-white/80 text-sm mt-3">That is the triple-sided value of DutyBoost for Caribbean Airlines.</p>
       </div>
     </SlideShell>
   );

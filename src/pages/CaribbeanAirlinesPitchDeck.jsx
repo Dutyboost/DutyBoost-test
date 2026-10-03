@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import SlideCover from "@/components/caribbean-airline-pitch/SlideCover";
-import SlideDoubleSided from "@/components/caribbean-airline-pitch/SlideDoubleSided";
+import SlideTripleSided from "@/components/caribbean-airline-pitch/SlideTripleSided";
 import SlideTravelPartner from "@/components/caribbean-airline-pitch/SlideTravelPartner";
 import SlideRetailer from "@/components/caribbean-airline-pitch/SlideRetailer";
 import SlidePosIntegration from "@/components/caribbean-airline-pitch/SlidePosIntegration";
@@ -16,7 +16,7 @@ import { ACCENT } from "@/components/caribbean-airline-pitch/Shared";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
-  { id: "doubleSided", type: "doubleSided" },
+  { id: "tripleSided", type: "tripleSided" },
   { id: "travelPartner", type: "travelPartner" },
   { id: "retailer", type: "retailer" },
   { id: "pos", type: "pos" },
@@ -30,13 +30,13 @@ const SLIDES = [
 
 const SLIDE_LABELS = {
   cover: "Cover",
-  doubleSided: "The Opportunity",
+  tripleSided: "The Opportunity",
   travelPartner: "Position 1 — Travel Partner",
   retailer: "Position 2 — Retailer",
   pos: "Position 3 — POS Integration",
-  model: "The Double-Sided Model",
+  model: "The Triple-Sided Model",
   loop: "The Commercial Loop",
-  economics: "Double-Sided Economics",
+  economics: "Triple-Sided Economics",
   why: "Why This Matters",
   getStarted: "Get Started",
   thankYou: "Thank You",
@@ -44,7 +44,7 @@ const SLIDE_LABELS = {
 
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
-  doubleSided: SlideDoubleSided,
+  tripleSided: SlideTripleSided,
   travelPartner: SlideTravelPartner,
   retailer: SlideRetailer,
   pos: SlidePosIntegration,

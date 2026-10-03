@@ -31,7 +31,7 @@ const ROWS = [
 export default function SlideModelTable() {
   return (
     <SlideShell
-      eyebrow="The Double-Sided Model"
+      eyebrow="The Triple-Sided Model"
       title={<>Three Positions. <span style={{ color: RETAIL }}>One Commercial Loop.</span></>}
       subtitle="Caribbean Airlines participates on both sides of the same transaction."
     >

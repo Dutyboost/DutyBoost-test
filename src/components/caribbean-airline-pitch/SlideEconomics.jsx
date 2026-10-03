@@ -13,7 +13,7 @@ const LINES = [
 export default function SlideEconomics() {
   return (
     <SlideShell
-      eyebrow="Double-Sided Economics"
+      eyebrow="Triple-Sided Economics"
       title={<>One $23 Sale, <span style={{ color: RETAIL }}>Both Positions at Once</span></>}
       subtitle="Caribbean Airlines pays the platform fee as Retailer and earns its share back as Travel Partner."
     >

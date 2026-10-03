@@ -1,6 +1,6 @@
 // Shared look and feel for the Caribbean Airlines × DutyBoost deck.
-// Caribbean Airlines purple carries the deck chrome; the two revenue positions
-// get their own colours so the double-sided story reads at a glance.
+// Caribbean Airlines purple carries the deck chrome; the three positions
+// get their own colours so the triple-sided story reads at a glance.
 
 export const ACCENT = "#952d8b"; // Caribbean Airlines purple — deck accent
 export const PARTNER = "#0e7490"; // Travel Partner position

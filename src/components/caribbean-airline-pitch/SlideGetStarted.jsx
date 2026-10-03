@@ -67,7 +67,7 @@ export default function SlideGetStarted() {
       </div>
 
       <div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold" style={{ color: RETAIL }}>
-        Two positions. One traveller. One transaction. <ArrowRight className="w-4 h-4" />
+        Three positions. One traveller. One transaction. <ArrowRight className="w-4 h-4" />
       </div>
     </SlideShell>
   );

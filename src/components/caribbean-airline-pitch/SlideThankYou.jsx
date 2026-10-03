@@ -35,7 +35,7 @@ export default function SlideThankYou() {
           <div className="mb-3">
             <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Thank You</span>
             <h2 className="text-xl md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1 leading-tight">
-              One Ecosystem. <span style={{ color: RETAIL }}>Two Revenue Positions.</span>
+              One Ecosystem. <span style={{ color: RETAIL }}>Three Revenue Positions.</span>
             </h2>
           </div>
 

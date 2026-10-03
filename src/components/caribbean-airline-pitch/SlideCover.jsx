@@ -28,7 +28,7 @@ export default function SlideCover() {
           <div>
             <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-2">
               One Ecosystem.<br />
-              <span style={{ color: ACCENT }}>Two Revenue Positions.</span>
+              <span style={{ color: ACCENT }}>Three Revenue Positions.</span>
             </h1>
             <p className="text-base md:text-xl text-slate-500 max-w-3xl leading-relaxed">
               A Presentation for Caribbean Airlines — Travel Partner &amp; Retailer
@@ -37,7 +37,7 @@ export default function SlideCover() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 w-full max-w-3xl">
             {[
-              { label: "Revenue Positions", value: "2" },
+              { label: "Revenue Positions", value: "3" },
               { label: "Travel Partner Share", value: "0.5%" },
               { label: "Retailer Platform Fee", value: "2.5%" },
               { label: "Upfront Cost", value: "$0" },
