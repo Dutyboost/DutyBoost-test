@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import SlideCover from "@/components/caribbean-airline-pitch/SlideCover";
 import SlideTripleSided from "@/components/caribbean-airline-pitch/SlideTripleSided";
 import SlideTravelPartner from "@/components/caribbean-airline-pitch/SlideTravelPartner";
@@ -81,14 +80,7 @@ export default function CaribbeanAirlinesPitchDeck() {
           DutyBoost — Caribbean Airlines Presentation 2026{" "}
           <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="flex items-center gap-3">
-          <PitchDeckDownloadButtons
-            slides={SLIDES}
-            components={SLIDE_COMPONENTS}
-            filename="DutyBoost-Caribbean-Airlines-Presentation"
-          />
-          <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
-        </div>
+        <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
       </div>
 
       <div
