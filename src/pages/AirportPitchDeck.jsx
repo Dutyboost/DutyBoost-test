@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, Fragment } from "react";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight, Building2, TrendingUp, DollarSign, Percent, CheckCircle, XCircle, BarChart3, Layers, Plane, RefreshCw, ShoppingCart, Store, Megaphone, Smartphone, MapPin, Award, Mail, Monitor } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
@@ -979,7 +980,14 @@ export default function AirportPitchDeck() {
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Airport Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Airport-Presentation"
+          />
+          <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        </div>
       </div>
 
       <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]">

@@ -7,7 +7,7 @@ import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import SlideAcquisitionTrinidad from "@/components/retailer-pitch-trinidad/SlideAcquisitionTrinidad";
 import CaribbeanDutyFreeLogo from "@/components/retailer-pitch-trinidad/CaribbeanDutyFreeLogo";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
-import PitchDeckPdfButton from "@/components/pitch/PitchDeckPdfButton";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import TravelerIcon from "@/components/TravelerIcon";
 import { TEAM_MEMBERS } from "@/data/teamMembers";
 import { TOTAL_MOVEMENTS, AIRPORT_COUNT, NON_PURCHASING_MOVEMENTS, CONVERSION_ROWS, AATT_LINK, ASSORTMENT_SPLIT, EUR_USD_RATE } from "@/components/retailer-pitch-trinidad/figures";
@@ -881,10 +881,10 @@ export default function RetailerPitchDeckTrinidad() {
           DutyBoost — Trinidad &amp; Tobago Airport Retailer Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
         <div className="flex items-center gap-3">
-          <PitchDeckPdfButton
+          <PitchDeckDownloadButtons
             slides={SLIDES}
             components={SLIDE_COMPONENTS}
-            filename="DutyBoost-Trinidad-and-Tobago-Retailer-Presentation.pdf"
+            filename="DutyBoost-Trinidad-and-Tobago-Retailer-Presentation"
           />
           <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
         </div>

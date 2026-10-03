@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import { ChevronLeft, ChevronRight, ArrowRight, Cpu, BarChart3, Link2, Briefcase, Store, CheckCircle, Plane, Package } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
@@ -875,7 +876,14 @@ export default function RetailerPitchDeckMartinique() {
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Avolta Martinique Airport Retailer Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Martinique-Retailer-Presentation"
+          />
+          <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        </div>
       </div>
 
       <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]">

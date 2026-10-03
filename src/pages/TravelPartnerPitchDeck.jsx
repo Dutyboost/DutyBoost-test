@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, BarChart3, Plug, ShieldCheck, Globe, Wallet, Gift } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
@@ -615,7 +616,14 @@ export default function TravelPartnerPitchDeck() {
         <div className="text-white text-sm font-semibold opacity-60">
           DutyBoost — Travel Partner Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Travel-Partner-Presentation"
+          />
+          <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        </div>
       </div>
 
       {/* Slide */}

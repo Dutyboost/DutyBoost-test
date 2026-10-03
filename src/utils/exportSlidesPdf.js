@@ -141,21 +141,16 @@ function applyFlexLocks(clonedDoc, { heights }) {
   });
 }
 
-export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, height = 788, onProgress } = {}) {
-  if (!nodes.length) return;
+// Captures one rendered slide exactly as it appears on screen. Shared by the PDF and
+// the PowerPoint exporters, so both mirror the deck.
+export async function captureSlide(node, { width = 1400, height = 788 } = {}) {
+  await inlineSvgImages(node);
+  await waitForAssets(node);
+  const restoreGradientText = flattenGradientText(node);
+  const flexLocks = lockFlexHeights(node);
 
-  const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [width, height], compress: true });
-
-  for (let i = 0; i < nodes.length; i += 1) {
-    const node = nodes[i];
-    onProgress?.(i + 1, nodes.length);
-
-    await inlineSvgImages(node);
-    await waitForAssets(node);
-    const restoreGradientText = flattenGradientText(node);
-    const flexLocks = lockFlexHeights(node);
-
-    const canvas = await html2canvas(node, {
+  try {
+    return await html2canvas(node, {
       backgroundColor: "#ffffff",
       scale: 2,
       useCORS: true,
@@ -167,9 +162,21 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
       windowHeight: height,
       onclone: (clonedDoc) => applyFlexLocks(clonedDoc, flexLocks),
     });
-
+  } finally {
     flexLocks.release();
     restoreGradientText();
+  }
+}
+
+export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, height = 788, onProgress } = {}) {
+  if (!nodes.length) return;
+
+  const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [width, height], compress: true });
+
+  for (let i = 0; i < nodes.length; i += 1) {
+    onProgress?.(i + 1, nodes.length);
+
+    const canvas = await captureSlide(nodes[i], { width, height });
 
     if (i > 0) pdf.addPage([width, height], "landscape");
     pdf.addImage(canvas.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, width, height);
