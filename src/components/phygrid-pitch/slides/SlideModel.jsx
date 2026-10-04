@@ -1,6 +1,7 @@
-import { CheckCircle, Percent, Wallet } from "lucide-react";
+import { CheckCircle, Percent } from "lucide-react";
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
-import { ESTATE_ANNUAL, MODEL, PRE_ACTIVATION, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
+import { MODEL } from "@/components/phygrid-pitch/model";
+import EstateCalculator from "@/components/phygrid-pitch/slides/EstateCalculator";
 
 const TIERS = [
   { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
@@ -29,7 +30,7 @@ export default function SlideModel() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6">
               <h3 className="font-bold text-white text-lg mb-3 sm:mb-4">The DutyCredit Tier Structure</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-500 mb-1 px-2">
@@ -80,36 +81,10 @@ export default function SlideModel() {
                 </div>
               </div>
 
-              <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
-                <div className="flex items-center gap-2 mb-3">
-                  <Wallet className="w-5 h-5 text-green-600" />
-                  <h3 className="font-bold text-green-900">Full Global Estate, Per Year</h3>
-                  <span className="text-green-700 text-xs font-semibold ml-auto">
-                    {ESTATE_ANNUAL.stores.toLocaleString("en-US")} stores
-                  </span>
-                </div>
-                <div className="space-y-2.5 text-sm">
-                  {[
-                    { metric: "Travel moments through the estate", val: numShort(ESTATE_ANNUAL.travellers) },
-                    { metric: `Pre-activated with a DutyCredit (${(PRE_ACTIVATION * 100).toFixed(1)}% of travellers)`, val: numShort(ESTATE_ANNUAL.activated) },
-                    { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% redeem)`, val: numShort(ESTATE_ANNUAL.baskets) },
-                    { metric: "Incremental retail value", val: usdShort(ESTATE_ANNUAL.gross), money: true },
-                    { metric: "Retailer net", val: `${usdShort(ESTATE_ANNUAL.retailerNet)} (${Math.round((ESTATE_ANNUAL.retailerNet / ESTATE_ANNUAL.gross) * 100)}%)`, money: true },
-                    { metric: "POS provider commission", val: usd2(ESTATE_ANNUAL.pos), money: true },
-                  ].map((row) => (
-                    <div key={row.metric} className="flex items-start justify-between gap-3">
-                      <span className="text-slate-600">{row.metric}</span>
-                      <span className={`font-semibold text-right ${row.money ? "text-green-700" : "text-slate-800"}`}>{row.val}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="text-slate-400 text-xs mt-3">
-                  Illustrative model: the global airport retail estate — {ESTATE_ANNUAL.stores.toLocaleString("en-US")}{" "}
-                  stores, one year. {(PRE_ACTIVATION * 100).toFixed(1)}% of the {numShort(ESTATE_ANNUAL.travellers)} travellers are
-                  pre-activated, {Math.round(MODEL.conversion * 100)}% redeeming a blended ${MODEL.basket} basket.
-                  Volumes are counts; values in USD. Full tier basis on the transaction-mix slide.
-                </div>
-              </div>
+            </div>
+
+            <div className="md:col-span-2">
+              <EstateCalculator />
             </div>
           </div>
         </div>
