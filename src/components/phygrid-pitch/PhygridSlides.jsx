@@ -18,6 +18,10 @@ const M = {
   retailer: "18.50",
 };
 
+// Market-data sources, consistent with the other DutyBoost decks.
+const TFWA_LINK = "https://www.tfwa.com/";
+const M1NDSET_LINK = "https://m1nd-set.com/";
+
 const card = "bg-white/[0.04] border border-white/10 rounded-2xl";
 const kicker = "text-[#00E5FF] text-sm font-semibold uppercase tracking-widest";
 
@@ -71,9 +75,9 @@ export function SlideCover() {
 // SLIDE 2 — The commercial opportunity
 export function SlideOpportunity() {
   const sources = [
+    { Icon: Users, title: "Direct Travellers", desc: "Travellers generate their own DutyCredits on the DutyBoost platform ahead of departure." },
     { Icon: Plane, title: "Travel Partners", desc: "Airlines, OTAs, hotels and car rental companies distribute DutyCredits with their booking confirmations." },
     { Icon: Briefcase, title: "Corporate Travel", desc: "DutyCredits embedded in corporate travel and expense programmes, redeemed by business travellers." },
-    { Icon: Users, title: "Direct Travellers", desc: "Travellers generate their own DutyCredits on the DutyBoost platform ahead of departure." },
   ];
 
   return (
@@ -102,13 +106,23 @@ export function SlideOpportunity() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { value: "€37.1B", label: "Airport duty-free & travel retail market" },
-              { value: "73%", label: "Of airport passengers currently leave without purchasing" },
+              { value: "€37.1B", label: "Airport duty-free & travel retail market", source: "TFWA 2025", href: TFWA_LINK },
+              { value: "73%", label: "Of airport passengers currently leave without purchasing", source: "m1nd-set / TFWA", href: M1NDSET_LINK },
               { value: "10%", label: "Of every DutyBoost platform fee earned by Phygrid" },
             ].map((s) => (
               <div key={s.label} className={`${card} p-5 text-center`}>
                 <div className="text-2xl font-bold text-[#00E5FF]">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1 leading-snug">{s.label}</div>
+                {s.href && (
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-[11px] text-[#00E5FF]/80 underline decoration-[#00E5FF]/40 hover:text-[#00E5FF] hover:decoration-[#00E5FF] transition-colors mt-1.5"
+                  >
+                    Source: {s.source}
+                  </a>
+                )}
               </div>
             ))}
           </div>
