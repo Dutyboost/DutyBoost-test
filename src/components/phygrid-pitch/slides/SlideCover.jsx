@@ -1,6 +1,6 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
-import { SlideWrapper, GridBg, Glow, PhygridMark } from "@/components/phygrid-pitch/Shared";
+import { SlideWrapper, GridBg, Glow } from "@/components/phygrid-pitch/Shared";
 
 export default function SlideCover() {
   return (
@@ -9,19 +9,17 @@ export default function SlideCover() {
         <GridBg />
         <Glow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px]" />
         <div className="relative z-10 flex flex-col items-center gap-7 w-full">
-          <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-white/20">
-            <DutyBoostLogo height={40} linkTo={null} />
+          <div className="bg-white rounded-2xl px-8 py-4 shadow-sm border border-slate-200">
+            <DutyBoostLogo height={50} linkTo={null} />
           </div>
 
-          <PhygridMark className="text-3xl md:text-4xl" />
-
           <div>
-            <PositioningLine className="mb-3" dark />
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+            <PositioningLine className="mb-3" />
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Airport Stores.<br />
-              <span className="text-[#00E5FF]">A New Revenue Line for Phygrid.</span>
+              <span className="text-blue-600">A New Revenue Line for Phygrid.</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 max-w-3xl leading-relaxed mx-auto">
+            <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed mx-auto">
               DutyBoost converts airport travellers into purchasers inside airport stores — turning the days before departure into measurable retail revenue at the till.
             </p>
           </div>
@@ -33,13 +31,13 @@ export default function SlideCover() {
               { label: "Purchases driven per month", value: "35M+" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-xl sm:text-3xl font-bold text-[#00E5FF]">{s.value}</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1 leading-snug">{s.label}</div>
+                <div className="text-xl sm:text-3xl font-bold text-blue-600">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1 leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-1 text-xs text-slate-500 border border-white/10 rounded px-4 py-2">
+          <div className="mt-1 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             PREPARED FOR PHYGRID — 9 OCTOBER 2026 | CONFIDENTIAL
           </div>
         </div>

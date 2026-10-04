@@ -33,18 +33,18 @@ export default function SlideOpportunity() {
         <div className="relative z-10">
           <SlideHeader
             eyebrow="The Opportunity"
-            title={<>73% of Travellers Leave Airport Stores <span className="text-[#00E5FF]">Without Buying</span></>}
+            title={<>73% of Travellers Leave Airport Stores <span className="text-blue-600">Without Buying</span></>}
             subtitle="DutyBoost activates airport shoppers before they reach the terminal. Every DutyCredit is redeemed inside a participating store — and every redemption is validated at the POS layer Phygrid already provides."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
             {sources.map((s) => (
               <div key={s.title} className={`${CARD} p-5`}>
-                <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center mb-3">
-                  <s.Icon className="w-5 h-5 text-[#00E5FF]" />
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center mb-3">
+                  <s.Icon className="w-5 h-5 text-blue-600" />
                 </div>
-                <div className="text-white font-semibold text-sm md:text-base">{s.title}</div>
-                <div className="text-slate-400 text-xs md:text-sm mt-1 leading-relaxed">{s.desc}</div>
+                <div className="text-[#0a0f1e] font-semibold text-sm md:text-base">{s.title}</div>
+                <div className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed">{s.desc}</div>
               </div>
             ))}
           </div>
@@ -52,14 +52,14 @@ export default function SlideOpportunity() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {stats.map((s) => (
               <div key={s.label} className={`${CARD} p-5 text-center`}>
-                <div className="text-2xl font-bold text-[#00E5FF]">{s.value}</div>
-                <div className="text-slate-400 text-xs mt-1 leading-snug">{s.label}</div>
+                <div className="text-2xl font-bold text-blue-600">{s.value}</div>
+                <div className="text-slate-500 text-xs mt-1 leading-snug">{s.label}</div>
                 {s.href && (
                   <a
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block text-[11px] text-[#00E5FF]/80 underline decoration-[#00E5FF]/40 hover:text-[#00E5FF] hover:decoration-[#00E5FF] transition-colors mt-1.5"
+                    className="inline-block text-[11px] text-blue-600 underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors mt-1.5"
                   >
                     Source: {s.source}
                   </a>
@@ -68,10 +68,10 @@ export default function SlideOpportunity() {
             ))}
           </div>
 
-          <div className="mt-5 rounded-2xl p-5 bg-gradient-to-r from-[#00E5FF]/15 to-transparent border border-[#00E5FF]/30 flex items-start gap-3">
-            <TrendingUp className="w-5 h-5 text-[#00E5FF] flex-shrink-0 mt-0.5" />
-            <p className="text-slate-200 text-sm md:text-base leading-relaxed">
-              <span className="font-bold text-white">Whichever source the DutyCredit comes from, the redemption lands in a participating store and is validated at the POS</span> — putting Phygrid in a position to earn on every one.
+          <div className="mt-5 rounded-2xl p-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 flex items-start gap-3">
+            <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+            <p className="text-slate-700 text-sm md:text-base leading-relaxed">
+              <span className="font-bold text-[#0a0f1e]">Whichever source the DutyCredit comes from, the redemption lands in a participating store and is validated at the POS</span> — putting Phygrid in a position to earn on every one.
             </p>
           </div>
         </div>
