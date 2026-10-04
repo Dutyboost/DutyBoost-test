@@ -1,6 +1,7 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow, SlideHeader, PhygridMark, CYAN } from "@/components/phygrid-pitch/Shared";
+import SlideAvolta from "@/components/phygrid-pitch/SlideAvolta";
 import {
   Plug, ToggleRight, Cpu, CheckCircle2, Zap, ShieldCheck, Plane, Briefcase,
   TrendingUp, Euro, BarChart3, ArrowRight, Store, Users, Globe, Rocket,
@@ -619,6 +620,7 @@ export const SLIDES = [
   { id: "commercialValue", type: "commercialValue" },
   { id: "economics", type: "economics" },
   { id: "scale", type: "scale" },
+  { id: "avolta", type: "avolta" },
   { id: "fit", type: "fit" },
   { id: "simplicity", type: "simplicity" },
   { id: "nextSteps", type: "nextSteps" },
@@ -631,6 +633,7 @@ export const SLIDE_LABELS = {
   commercialValue: "Commercial Value",
   economics: "Transaction Economics",
   scale: "Revenue at Scale",
+  avolta: "The Avolta Opportunity",
   fit: "The Fit",
   simplicity: "Integration",
   nextSteps: "Next Steps",
@@ -646,6 +649,7 @@ export function getSlideComponent(type) {
     commercialValue: () => <SlideCommercialValue />,
     economics: () => <SlideEconomics />,
     scale: () => <SlideScale />,
+    avolta: () => <SlideAvolta />,
     nextSteps: () => <SlideNextSteps />,
     closing: () => <SlideClosing />,
   };
