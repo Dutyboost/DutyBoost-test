@@ -26,9 +26,9 @@ export default function SlideCover() {
 
           <div className="grid grid-cols-3 gap-3 sm:gap-8 mt-2 w-full max-w-2xl">
             {[
-              { label: "Countries with live deployments", value: "50+" },
-              { label: "Data points per month", value: "1.5B+" },
-              { label: "Purchases driven per month", value: "35M+" },
+              { label: "Outlets in the world's largest travel retail estate", value: "5,100+" },
+              { label: "Travellers passing through these locations each year", value: "2.5B" },
+              { label: "Countries and 6 continents covered by that estate", value: "70" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <div className="text-xl sm:text-3xl font-bold text-blue-600">{s.value}</div>
@@ -36,6 +36,18 @@ export default function SlideCover() {
               </div>
             ))}
           </div>
+
+          <p className="text-[11px] text-slate-400 -mt-3">
+            Scale of the addressable estate, based on the world's largest travel retailer —{" "}
+            <a
+              href="https://www.avoltaworld.com/en/investors"
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-slate-500"
+            >
+              Avolta Annual Report 2024
+            </a>
+          </p>
 
           <div className="mt-1 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             PREPARED FOR PHYGRID — 9 OCTOBER 2026 | CONFIDENTIAL
