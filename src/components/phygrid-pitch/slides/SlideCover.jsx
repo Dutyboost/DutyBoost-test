@@ -20,8 +20,7 @@ export default function SlideCover() {
               <span className="text-blue-600">Into Paying Customers.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed mx-auto">
-              For Phygrid — one activation turns your POS into a revenue stream: a share of every incremental
-              sale, in every store, across every retailer on your estate.
+              For Phygrid — One Activation - turning your POS into an ancillary revenue stream:
             </p>
           </div>
 
