@@ -19,7 +19,9 @@ const M = {
 };
 
 // Market-data sources, consistent with the other DutyBoost decks.
-const TFWA_LINK = "https://www.tfwa.com/";
+// €37.1B is a DutyBoost estimate: the airport & airline channel share (~56.6%)
+// applied to the published global travel retail market value.
+const MARKET_LINK = "https://www.grandviewresearch.com/industry-analysis/travel-retail-market";
 // m1nd-set B1S data published by DFNI: footfall 42%, conversion 63% → purchase rate 27%,
 // i.e. 73% of international passengers do not purchase.
 const NON_PURCHASE_LINK = "https://www.dfnionline.com/latest-news/m1nd-set-reveals-travel-retail-trends-for-european-travellers-24-07-2025/";
@@ -108,7 +110,7 @@ export function SlideOpportunity() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { value: "€37.1B", label: "Airport duty-free & travel retail market", source: "TFWA 2025", href: TFWA_LINK },
+              { value: "€37.1B", label: "Airport duty-free & travel retail market", source: "DutyBoost estimate — Grand View Research", href: MARKET_LINK },
               { value: "73%", label: "Of airport passengers currently leave without purchasing", source: "m1nd-set (via DFNI)", href: NON_PURCHASE_LINK },
               { value: "10%", label: "Of every DutyBoost platform fee earned by Phygrid" },
             ].map((s) => (
