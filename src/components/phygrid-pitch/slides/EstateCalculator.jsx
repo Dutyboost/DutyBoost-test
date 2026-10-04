@@ -5,12 +5,12 @@ import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/mode
 const FIELDS = [
   { key: "stores", label: "Stores in the network", step: 1 },
   { key: "perStore", label: "Travel moments / store / yr", step: 1000 },
-  { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
+  { key: "preActivated", label: "Pre-activated travellers", step: 1000 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
 ];
 
-const DEFAULTS = { stores: 1000, perStore: 250000, activation: 0.1, redemption: 30, basket: 135 };
+const DEFAULTS = { stores: 1000, perStore: 250000, preActivated: 250000, redemption: 30, basket: 135 };
 
 export default function EstateCalculator() {
   const [f, setF] = useState(DEFAULTS);
@@ -18,7 +18,7 @@ export default function EstateCalculator() {
   const n = (key) => (f[key] === "" ? 0 : Number(f[key]));
 
   const travellers = n("stores") * n("perStore");
-  const activated = travellers * (n("activation") / 100);
+  const activated = n("preActivated");
   const baskets = activated * (n("redemption") / 100);
   const gross = baskets * n("basket");
   const saving = gross * MODEL.discount;
@@ -28,7 +28,7 @@ export default function EstateCalculator() {
 
   const ROWS = [
     { label: "Travel moments through the network", val: numShort(travellers) },
-    { label: `Pre-activated (${n("activation")}% of travellers)`, val: numShort(Math.round(activated)) },
+    { label: `Pre-activated (${travellers ? +((activated / travellers) * 100).toFixed(2) : 0}% of travellers)`, val: numShort(Math.round(activated)) },
     { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
     { label: "Incremental retail value", val: usdShort(gross), money: true },
     { label: `Retailer net (${gross ? Math.round((retailerNet / gross) * 100) : 0}%)`, val: usdShort(retailerNet), money: true },
