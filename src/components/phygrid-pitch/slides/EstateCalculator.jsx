@@ -3,7 +3,7 @@ import { Wallet } from "lucide-react";
 import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
 
 const FIELDS = [
-  { key: "stores", label: "Stores in the network", step: 1 },
+  { key: "stores", label: "Airport Stores in the network", step: 1 },
   { key: "perStore", label: "Travel moments / store / yr", step: 1000 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
