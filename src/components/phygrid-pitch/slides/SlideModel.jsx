@@ -1,6 +1,6 @@
 import { CheckCircle, Percent, Wallet } from "lucide-react";
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
-import { ESTATE_ANNUAL, MODEL, usd, usdShort, numShort } from "@/components/phygrid-pitch/model";
+import { ESTATE_ANNUAL, MODEL, PURCHASE_SHARE, PRE_ACTIVATION, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
 
 const TIERS = [
   { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
@@ -91,11 +91,12 @@ export default function SlideModel() {
                 <div className="space-y-2.5 text-sm">
                   {[
                     { metric: "Travellers through the estate", val: numShort(ESTATE_ANNUAL.travellers) },
-                    { metric: `Travellers activated (${Math.round(MODEL.activation * 100)}% of footfall)`, val: numShort(ESTATE_ANNUAL.activated) },
-                    { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% convert)`, val: numShort(ESTATE_ANNUAL.baskets) },
+                    { metric: `Purchasing travellers (${Math.round(PURCHASE_SHARE * 100)}% convert)`, val: numShort(ESTATE_ANNUAL.purchasing) },
+                    { metric: `Pre-activated with a DutyCredit (${(PRE_ACTIVATION * 100).toFixed(1)}%)`, val: numShort(ESTATE_ANNUAL.activated) },
+                    { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% redeem)`, val: numShort(ESTATE_ANNUAL.baskets) },
                     { metric: "Incremental retail value", val: usdShort(ESTATE_ANNUAL.gross), money: true },
                     { metric: "Retailer net", val: `${usdShort(ESTATE_ANNUAL.retailerNet)} (${Math.round((ESTATE_ANNUAL.retailerNet / ESTATE_ANNUAL.gross) * 100)}%)`, money: true },
-                    { metric: "POS provider commission", val: usd(ESTATE_ANNUAL.pos), money: true },
+                    { metric: "POS provider commission", val: usd2(ESTATE_ANNUAL.pos), money: true },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start justify-between gap-3">
                       <span className="text-slate-600">{row.metric}</span>
@@ -104,9 +105,10 @@ export default function SlideModel() {
                   ))}
                 </div>
                 <div className="text-slate-400 text-xs mt-3">
-                  Illustrative model: Avolta's full {ESTATE_ANNUAL.stores.toLocaleString("en-US")}-store estate, one year
-                  — {usd(ESTATE_ANNUAL.pos / ESTATE_ANNUAL.stores)} per store. Volumes are counts; values in USD on a
-                  blended basket of ${MODEL.basket}. Full tier basis on the transaction-mix slide.
+                  Illustrative model: Avolta's full {ESTATE_ANNUAL.stores.toLocaleString("en-US")}-store estate, one
+                  year. {numShort(ESTATE_ANNUAL.purchasing)} purchasing travellers, {(PRE_ACTIVATION * 100).toFixed(1)}%
+                  pre-activated, {Math.round(MODEL.conversion * 100)}% redeeming a blended ${MODEL.basket} basket.
+                  Volumes are counts; values in USD. Full tier basis on the transaction-mix slide.
                 </div>
               </div>
             </div>

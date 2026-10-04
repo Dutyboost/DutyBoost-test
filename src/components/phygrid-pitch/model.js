@@ -73,12 +73,17 @@ export const PER_STORE = {
 };
 
 // ── DutyBoost model — the full Avolta estate, one year (USD) ─────────────────
-// Scales the per-store model across Avolta's 5,100 outlets, so the POS
-// provider sees the whole-network potential of a single integration.
+// Basis: 2.5B travellers reach the estate; 27% of them purchase; DutyBoost
+// pre-activates 0.1% of those purchasing travellers with a DutyCredit; 30% of
+// the pre-activated travellers redeem an incremental basket.
 export const ESTATE_STORES = 5100;
+export const ESTATE_TRAVELLERS = NETWORK_PAX_M * 1e6; // 2.5B
+export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE); // 675M
+export const PRE_ACTIVATION = 0.001;
 export const ESTATE_ANNUAL = (() => {
-  const travellers = MODEL.travellers * ESTATE_STORES;
-  const activated = Math.round(travellers * MODEL.activation);
+  const travellers = ESTATE_TRAVELLERS;
+  const purchasing = ESTATE_PURCHASING;
+  const activated = Math.round(purchasing * PRE_ACTIVATION);
   const baskets = Math.round(activated * MODEL.conversion);
   const gross = baskets * MODEL.basket;
   const travellerSaving = gross * MODEL.discount;
@@ -87,6 +92,7 @@ export const ESTATE_ANNUAL = (() => {
   return {
     stores: ESTATE_STORES,
     travellers,
+    purchasing,
     activated,
     baskets,
     gross,
@@ -113,9 +119,9 @@ export const usd2 = (n) =>
   `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 export const numShort = (n) =>
   n >= 1_000_000_000
-    ? `${(n / 1_000_000_000).toFixed(2)}B`
+    ? `${+(n / 1_000_000_000).toFixed(2)}B`
     : n >= 1_000_000
-      ? `${(n / 1_000_000).toFixed(2)}M`
+      ? `${+(n / 1_000_000).toFixed(2)}M`
       : n.toLocaleString("en-US");
 export const usdShort = (n) =>
   n >= 1_000_000_000
