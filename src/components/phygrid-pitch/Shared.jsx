@@ -3,6 +3,9 @@
 
 export const CYAN = "#00E5FF";
 
+// Shared surface for every card in the deck.
+export const CARD = "bg-white/[0.04] border border-white/10 rounded-2xl";
+
 export function SlideWrapper({ children }) {
   return (
     <div className="w-full flex flex-col overflow-y-auto lg:overflow-hidden bg-[#0a0b0d] text-white">
