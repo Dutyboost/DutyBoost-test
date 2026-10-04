@@ -2,7 +2,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow, SlideHeader, PhygridMark, CYAN } from "@/components/phygrid-pitch/Shared";
 import {
-  Plug, ToggleRight, Cpu, CheckCircle2, Zap, ShieldCheck, RefreshCw, Lock,
+  Plug, ToggleRight, Cpu, CheckCircle2, Zap, ShieldCheck, Plane, Briefcase,
   TrendingUp, Euro, BarChart3, ArrowRight, Store, Users, Globe, Rocket,
 } from "lucide-react";
 
@@ -68,7 +68,64 @@ export function SlideCover() {
   );
 }
 
-// SLIDE 2 — Why this fits Phygrid
+// SLIDE 2 — The commercial opportunity
+export function SlideOpportunity() {
+  const sources = [
+    { Icon: Plane, title: "Travel Partners", desc: "Airlines, OTAs, hotels and car rental companies distribute DutyCredits with their booking confirmations." },
+    { Icon: Briefcase, title: "Corporate Travel", desc: "DutyCredits embedded in corporate travel and expense programmes, redeemed by business travellers." },
+    { Icon: Users, title: "Direct Travellers", desc: "Travellers generate their own DutyCredits on the DutyBoost platform ahead of departure." },
+  ];
+
+  return (
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
+        <GridBg />
+        <Glow className="top-0 left-0 w-[420px] h-[420px]" />
+        <div className="relative z-10">
+          <SlideHeader
+            eyebrow="The Commercial Opportunity"
+            title={<>Every DutyCredit Redeemed Through Phygrid <span className="text-[#00E5FF]">Is a Commission Earned</span></>}
+            subtitle="DutyBoost creates a new, recurring revenue line for Phygrid — earned on transactions Phygrid already processes, with no up-front cost and no operational risk."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            {sources.map((s) => (
+              <div key={s.title} className={`${card} p-5`}>
+                <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center mb-3">
+                  <s.Icon className="w-5 h-5 text-[#00E5FF]" />
+                </div>
+                <div className="text-white font-semibold text-sm md:text-base">{s.title}</div>
+                <div className="text-slate-400 text-xs md:text-sm mt-1 leading-relaxed">{s.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { value: "€37.1B", label: "Airport duty-free & travel retail market" },
+              { value: "73%", label: "Of airport passengers currently leave without purchasing" },
+              { value: "10%", label: "Of every DutyBoost platform fee earned by Phygrid" },
+            ].map((s) => (
+              <div key={s.label} className={`${card} p-5 text-center`}>
+                <div className="text-2xl font-bold text-[#00E5FF]">{s.value}</div>
+                <div className="text-slate-400 text-xs mt-1 leading-snug">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 rounded-2xl p-5 bg-gradient-to-r from-[#00E5FF]/15 to-transparent border border-[#00E5FF]/30 flex items-start gap-3">
+            <TrendingUp className="w-5 h-5 text-[#00E5FF] flex-shrink-0 mt-0.5" />
+            <p className="text-slate-200 text-sm md:text-base leading-relaxed">
+              <span className="font-bold text-white">Whichever source the DutyCredit comes from, the redemption is validated at the POS</span> — making Phygrid the participant that earns on every one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </SlideWrapper>
+  );
+}
+
+// SLIDE 3 — Why this fits Phygrid
 export function SlideFit() {
   const points = [
     { Icon: Plug, title: "You already sit at the transaction layer", desc: "Phygrid connects in-store devices to POS and enterprise systems — the exact point where an incremental sale is validated." },
@@ -210,102 +267,7 @@ export function SlideSimplicity() {
   );
 }
 
-// SLIDE 4 — The integration itself
-export function SlideTechnical() {
-  const request = `POST /v1/dutycredits/redeem
-Secure partner authentication
-
-{
-  "dutycredit_token": "••••••",
-  "transaction_reference": "••••••",
-  "store_id": "••••••",
-  "basket_amount": ${M.basket},
-  "currency": "EUR"
-}`;
-
-  const response = `HTTP/1.1 200 OK
-
-{
-  "status": "approved",
-  "discount_amount": ${M.saving},
-  "amount_due": ${M.pays},
-  "pos_commission": ${M.pos},
-  "currency": "EUR"
-}`;
-
-  const features = [
-    { Icon: ShieldCheck, title: "Secure authentication", desc: "Partner-specific credentials over encrypted HTTPS" },
-    { Icon: RefreshCw, title: "Duplicate protection", desc: "Idempotent processing prevents double redemption" },
-    { Icon: Lock, title: "No PCI burden", desc: "DutyBoost never touches card data — it sits beside the payment flow" },
-  ];
-
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <SlideHeader
-            eyebrow="Technical Integration"
-            title={<>The Integration, <span className="text-[#00E5FF]">In One Call</span></>}
-            subtitle="Validate. Discount. Earn. One request, one response — a single HTTPS call at checkout. DutyBoost confirms the DutyCredit, returns the discount to apply, and credits the commission to every participant."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-5 h-5 rounded-full bg-[#00E5FF] flex items-center justify-center text-[#0a0b0d] text-[10px] font-bold">1</div>
-                <span className="text-[#00E5FF] font-semibold text-sm">POS sends the transaction essentials</span>
-              </div>
-              <div className="bg-black/60 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
-                <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-                  </div>
-                  <span className="text-slate-400 text-xs font-mono ml-1">illustrative request</span>
-                </div>
-                <pre className="p-3 text-[10px] md:text-[11px] lg:text-xs leading-relaxed text-slate-200 overflow-x-auto font-mono whitespace-pre">{request}</pre>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">2</div>
-                <span className="text-green-400 font-semibold text-sm">DutyBoost returns the checkout result</span>
-              </div>
-              <div className="bg-black/60 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
-                <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-                  </div>
-                  <span className="text-slate-400 text-xs font-mono ml-1">illustrative response</span>
-                </div>
-                <pre className="p-3 text-[10px] md:text-[11px] lg:text-xs leading-relaxed text-slate-200 overflow-x-auto font-mono whitespace-pre">{response}</pre>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-            {features.map((f) => (
-              <div key={f.title} className={`${card} p-4 flex items-start gap-3`}>
-                <f.Icon className="w-5 h-5 text-[#00E5FF] flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="text-white font-semibold text-sm">{f.title}</div>
-                  <div className="text-slate-400 text-xs mt-0.5 leading-relaxed">{f.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
-// SLIDE 5 — Commercial value: the 10% share
+// SLIDE 4 — Commercial value: the 10% share
 export function SlideCommercialValue() {
   return (
     <SlideWrapper>
@@ -635,24 +597,24 @@ export function SlideClosing() {
 
 export const SLIDES = [
   { id: "cover", type: "cover" },
-  { id: "fit", type: "fit" },
-  { id: "simplicity", type: "simplicity" },
-  { id: "technical", type: "technical" },
+  { id: "opportunity", type: "opportunity" },
   { id: "commercialValue", type: "commercialValue" },
   { id: "economics", type: "economics" },
   { id: "scale", type: "scale" },
+  { id: "fit", type: "fit" },
+  { id: "simplicity", type: "simplicity" },
   { id: "nextSteps", type: "nextSteps" },
   { id: "closing", type: "closing" },
 ];
 
 export const SLIDE_LABELS = {
   cover: "Cover",
-  fit: "The Fit",
-  simplicity: "Integration Simplicity",
-  technical: "Technical Integration",
+  opportunity: "The Opportunity",
   commercialValue: "Commercial Value",
   economics: "Transaction Economics",
   scale: "Revenue at Scale",
+  fit: "The Fit",
+  simplicity: "Integration",
   nextSteps: "Next Steps",
   closing: "Thank You",
 };
@@ -660,9 +622,9 @@ export const SLIDE_LABELS = {
 export function getSlideComponent(type) {
   const map = {
     cover: () => <SlideCover />,
+    opportunity: () => <SlideOpportunity />,
     fit: () => <SlideFit />,
     simplicity: () => <SlideSimplicity />,
-    technical: () => <SlideTechnical />,
     commercialValue: () => <SlideCommercialValue />,
     economics: () => <SlideEconomics />,
     scale: () => <SlideScale />,
