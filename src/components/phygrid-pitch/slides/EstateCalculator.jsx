@@ -10,7 +10,7 @@ const FIELDS = [
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
 ];
 
-const DEFAULTS = { stores: 1000, perStore: 250000, activation: 0.1, redemption: 30, basket: 135 };
+const DEFAULTS = { stores: 0, perStore: 0, activation: 0, redemption: 0, basket: 0 };
 
 export default function EstateCalculator() {
   const [f, setF] = useState(DEFAULTS);
