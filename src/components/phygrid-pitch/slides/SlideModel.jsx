@@ -87,22 +87,22 @@ export default function SlideModel() {
                 </div>
                 <div className="space-y-2.5 text-sm">
                   {[
-                    { metric: "Travellers through the store", val: usd(PER_STORE.travellers) },
-                    { metric: "Travellers activated", val: `${usd(PER_STORE.activated)} (${Math.round(MODEL.activation * 100)}%)` },
-                    { metric: "Incremental baskets", val: `${usd(PER_STORE.baskets)} (${Math.round(MODEL.conversion * 100)}% convert)` },
-                    { metric: "Incremental retail value", val: usd(PER_STORE.gross) },
-                    { metric: "Retailer net", val: `${usd(PER_STORE.retailerNet)} (${Math.round((PER_STORE.retailerNet / PER_STORE.gross) * 100)}%)` },
-                    { metric: "POS provider commission", val: usd2(PER_STORE.pos) },
+                    { metric: "Travellers through the store", val: PER_STORE.travellers.toLocaleString("en-US") },
+                    { metric: `Travellers activated (${Math.round(MODEL.activation * 100)}% of footfall)`, val: PER_STORE.activated.toLocaleString("en-US") },
+                    { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% convert)`, val: PER_STORE.baskets.toLocaleString("en-US") },
+                    { metric: "Incremental retail value", val: usd(PER_STORE.gross), money: true },
+                    { metric: "Retailer net", val: `${usd(PER_STORE.retailerNet)} (${Math.round((PER_STORE.retailerNet / PER_STORE.gross) * 100)}%)`, money: true },
+                    { metric: "POS provider commission", val: usd2(PER_STORE.pos), money: true },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start justify-between gap-3">
                       <span className="text-slate-600">{row.metric}</span>
-                      <span className="text-slate-800 font-semibold text-right">{row.val}</span>
+                      <span className={`font-semibold text-right ${row.money ? "text-green-700" : "text-slate-800"}`}>{row.val}</span>
                     </div>
                   ))}
                 </div>
                 <div className="text-slate-400 text-xs mt-3">
-                  Illustrative model: one participating store, one year, blended basket of ${MODEL.basket}. Full
-                  tier basis on the transaction-mix slide.
+                  Illustrative model: one participating store, one year. Volumes are traveller and basket counts;
+                  values are in USD on a blended basket of ${MODEL.basket}. Full tier basis on the transaction-mix slide.
                 </div>
               </div>
             </div>
