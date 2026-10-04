@@ -4,25 +4,22 @@ import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/mode
 
 const FIELDS = [
   { key: "airports", label: "Airports with POS presence", step: 1 },
-  { key: "stores", label: "Stores per airport", step: 1 },
-  { key: "controlled", label: "Stores controlled per airport", step: 1 },
+  { key: "controlled", label: "Stores controlled across all airports", step: 1 },
   { key: "perStore", label: "Travellers entering store / day", step: 100 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
 ];
 
-const DEFAULTS = { airports: "", stores: "", controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
+const DEFAULTS = { airports: "", controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
 
 export default function EstateCalculator() {
   const [f, setF] = useState(DEFAULTS);
   const set = (key, value) => setF((p) => ({ ...p, [key]: value }));
   const n = (key) => (f[key] === "" ? 0 : Number(f[key]));
 
-  // The POS provider only earns on the stores it actually controls; until that
-  // number is entered, each airport's full store count stands in for it.
-  const modelledStoresPerAirport = n("controlled") || n("stores");
-  const modelledStores = n("airports") * modelledStoresPerAirport;
+  // Total stores the POS provider controls across its whole airport presence.
+  const modelledStores = n("controlled");
   const travellers = modelledStores * n("perStore");
   const activated = travellers * (n("activation") / 100);
   const baskets = activated * (n("redemption") / 100);
@@ -33,7 +30,7 @@ export default function EstateCalculator() {
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
-    { label: n("controlled") ? "Stores modelled (POS-controlled)" : "Stores modelled (all airports)", val: numShort(modelledStores) },
+    { label: "Stores controlled (modelled)", val: numShort(modelledStores) },
     { label: "Travellers through those stores", val: numShort(travellers) },
     { label: `Pre-activated (${n("activation")}% of travellers)`, val: numShort(Math.round(activated)) },
     { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
@@ -52,7 +49,7 @@ export default function EstateCalculator() {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-3">
         {FIELDS.map((field) => (
           <label key={field.key} className="block">
             <span className="block text-[11px] font-semibold text-green-900/70 mb-1 leading-tight">
