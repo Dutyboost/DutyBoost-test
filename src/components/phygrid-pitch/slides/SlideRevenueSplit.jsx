@@ -24,8 +24,8 @@ export default function SlideRevenueSplit() {
         <div className="relative z-10">
           <SlideHeader
             eyebrow="The Revenue Split"
-            title={<>Phygrid Earns <span className="text-[#00E5FF]">10% of the Platform Fee</span> on Every Validated Basket</>}
-            subtitle="DutyBoost charges a 2.5% platform fee on each validated DutyCredit basket and shares 10% of it with the POS provider that validates the transaction. No setup fee, no licence, no subscription — revenue only when a sale actually happens."
+            title={<>A Proposed <span className="text-[#00E5FF]">10% Share of the Platform Fee</span> on Every Validated Basket</>}
+            subtitle="DutyBoost charges a 2.5% platform fee on each validated DutyCredit basket and would share 10% of it with the POS provider that validates the transaction. No setup fee, no licence, no subscription — revenue only when a sale actually happens."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">

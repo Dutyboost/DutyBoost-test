@@ -73,7 +73,7 @@ export default function SlideConversion() {
               <div className="mt-3 flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF] flex-shrink-0 mt-0.5" />
                 <span className="text-slate-400 text-[11px]">
-                  The 2.5% platform fee is charged only on a completed, POS-validated sale. Phygrid receives 10% of it.
+                  The 2.5% platform fee is charged only on a completed, POS-validated sale. Phygrid would receive 10% of it.
                 </span>
               </div>
             </div>

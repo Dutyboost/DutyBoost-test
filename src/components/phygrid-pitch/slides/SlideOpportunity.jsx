@@ -71,7 +71,7 @@ export default function SlideOpportunity() {
           <div className="mt-5 rounded-2xl p-5 bg-gradient-to-r from-[#00E5FF]/15 to-transparent border border-[#00E5FF]/30 flex items-start gap-3">
             <TrendingUp className="w-5 h-5 text-[#00E5FF] flex-shrink-0 mt-0.5" />
             <p className="text-slate-200 text-sm md:text-base leading-relaxed">
-              <span className="font-bold text-white">Whichever source the DutyCredit comes from, the redemption lands in a participating store and is validated at the POS</span> — making Phygrid the participant that earns on every one.
+              <span className="font-bold text-white">Whichever source the DutyCredit comes from, the redemption lands in a participating store and is validated at the POS</span> — putting Phygrid in a position to earn on every one.
             </p>
           </div>
         </div>
