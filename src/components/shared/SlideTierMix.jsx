@@ -31,18 +31,39 @@ export function SlideTierMix({
     const whole = Number.isInteger(Number(v.toFixed(2)));
     return `${c}${v.toLocaleString("en-US", whole ? { maximumFractionDigits: 0 } : { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   };
-  const fmtMoney = (eur) =>
-    `${c}${(eur * rate).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   const rateNote = rate !== 1 ? ` Amounts converted from EUR at €1 = ${c}${rate}.` : "";
 
+  // Rows are held in EUR; the displayed basket is a whole amount in the display
+  // currency, and every figure in the row is calculated from that basket.
+  const money = (v) =>
+    `${c}${v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const units = (v) => `${c}${v.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+  const round2 = (n) => Math.round(n * 100) / 100;
+
   const rows = [
-    { basket: 20, share: "42%", disc: "5%", saves: 1.00, fee: 0.50, cost: 1.50, keeps: 18.50, keepsPct: "92.5%", hot: true },
-    { basket: 100, share: "30%", disc: "10%", saves: 10.00, fee: 2.50, cost: 12.50, keeps: 87.50, keepsPct: "87.5%", hot: true },
-    { basket: 200, share: "15%", disc: "15%", saves: 30.00, fee: 5.00, cost: 35.00, keeps: 165.00, keepsPct: "82.5%", hot: false },
-    { basket: 300, share: "9%", disc: "20%", saves: 60.00, fee: 7.50, cost: 67.50, keeps: 232.50, keepsPct: "77.5%", hot: false },
-    { basket: 400, label: 300, plus: true, share: "3%", disc: "20% capped", saves: 60.00, fee: 10.00, cost: 70.00, keeps: 330.00, keepsPct: "82.5%", hot: false },
-    { basket: 1000, share: "1%", disc: "20% capped", saves: 60.00, fee: 25.00, cost: 85.00, keeps: 915.00, keepsPct: "91.5%", hot: false },
-  ];
+    { basket: 20, share: "42%", disc: "5%", discPct: 0.05, hot: true },
+    { basket: 100, share: "30%", disc: "10%", discPct: 0.10, hot: true },
+    { basket: 200, share: "15%", disc: "15%", discPct: 0.15, hot: false },
+    { basket: 300, share: "9%", disc: "20%", discPct: 0.20, hot: false },
+    { basket: 400, label: 300, plus: true, share: "3%", disc: "20% capped", discPct: 0.20, capped: true, hot: false },
+    { basket: 1000, share: "1%", disc: "20% capped", discPct: 0.20, capped: true, hot: false },
+  ].map((r) => {
+    const basket = Math.round(r.basket * rate);
+    const saves = r.capped ? Math.min(round2(basket * r.discPct), round2(60 * rate)) : round2(basket * r.discPct);
+    const fee = r.capped ? Math.min(round2(basket * 0.025), round2(25 * rate)) : round2(basket * 0.025);
+    const cost = round2(saves + fee);
+    const keeps = round2(basket - cost);
+    return {
+      ...r,
+      basket,
+      label: r.label != null ? Math.round(r.label * rate) : null,
+      saves,
+      fee,
+      cost,
+      keeps,
+      keepsPct: `${((keeps / basket) * 100).toFixed(1)}%`,
+    };
+  });
 
   const stats = [
     { value: "87%", label: `of transactions sit below ${fmtInt(300)}`, sub: "Where the total cost stays between 7.5% and 17.5%" },
@@ -83,14 +104,14 @@ export function SlideTierMix({
               <tbody>
                 {rows.map((r, i) => (
                   <tr key={`${r.basket}${r.plus ? "+" : ""}`} className={`border-b border-slate-100 ${r.hot ? "bg-blue-50" : i % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
-                    <td className={`font-bold text-slate-800 ${cell}`}>{fmtInt(r.label ?? r.basket)}{r.plus ? "+" : ""}</td>
+                    <td className={`font-bold text-slate-800 ${cell}`}>{units(r.label ?? r.basket)}{r.plus ? "+" : ""}</td>
                     <td className={`text-center font-semibold text-blue-700 ${cell}`}>{r.share}</td>
                     <td className={`text-center text-slate-600 ${cell}`}>{r.disc}</td>
-                    <td className={`text-center text-slate-600 ${cell}`}>{fmtMoney(r.saves)}</td>
-                    <td className={`text-center text-slate-600 ${cell}`}>{fmtMoney(r.fee)}</td>
-                    <td className={`text-center font-semibold text-red-600 ${cell}`}>{fmtMoney(r.cost)}</td>
+                    <td className={`text-center text-slate-600 ${cell}`}>{money(r.saves)}</td>
+                    <td className={`text-center text-slate-600 ${cell}`}>{money(r.fee)}</td>
+                    <td className={`text-center font-semibold text-red-600 ${cell}`}>{money(r.cost)}</td>
                     <td className={`text-right font-semibold text-green-700 ${cell}`}>
-                      {fmtMoney(r.keeps)} <span className="text-slate-400 font-normal">({r.keepsPct})</span>
+                      {money(r.keeps)} <span className="text-slate-400 font-normal">({r.keepsPct})</span>
                     </td>
                   </tr>
                 ))}
