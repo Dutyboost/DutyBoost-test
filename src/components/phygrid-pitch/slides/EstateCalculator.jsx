@@ -3,7 +3,6 @@ import { Wallet } from "lucide-react";
 import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
 
 const FIELDS = [
-  { key: "airports", label: "Airports with POS presence", step: 1 },
   { key: "controlled", label: "Stores controlled across all airports", step: 1 },
   { key: "perStore", label: "Travellers entering store / day", step: 100 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
@@ -11,7 +10,7 @@ const FIELDS = [
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
 ];
 
-const DEFAULTS = { airports: "", controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
+const DEFAULTS = { controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
 
 export default function EstateCalculator() {
   const [f, setF] = useState(DEFAULTS);
@@ -49,7 +48,7 @@ export default function EstateCalculator() {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
         {FIELDS.map((field) => (
           <label key={field.key} className="block">
             <span className="block text-[11px] font-semibold text-green-900/70 mb-1 leading-tight">
