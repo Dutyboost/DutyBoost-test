@@ -90,7 +90,7 @@ export default function SlideModel() {
                 </div>
                 <div className="space-y-2.5 text-sm">
                   {[
-                    { metric: "Travellers through the estate", val: numShort(ESTATE_ANNUAL.travellers) },
+                    { metric: "Travel moments through the estate", val: numShort(ESTATE_ANNUAL.travellers) },
                     { metric: `Pre-activated with a DutyCredit (${(PRE_ACTIVATION * 100).toFixed(1)}% of travellers)`, val: numShort(ESTATE_ANNUAL.activated) },
                     { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% redeem)`, val: numShort(ESTATE_ANNUAL.baskets) },
                     { metric: "Incremental retail value", val: usdShort(ESTATE_ANNUAL.gross), money: true },

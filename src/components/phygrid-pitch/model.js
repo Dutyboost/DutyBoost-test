@@ -3,7 +3,7 @@
 //
 // The addressable estate is the GLOBAL airport retail landscape rather than any
 // single operator: ~4,000 commercial airports with terminal retail, ±45,000
-// stores, and ~4.8B air travellers a year (ACI World, 2024).
+// stores, and ~9.8B annual travel moments (ACI World, 2025).
 
 // ── Sources ──────────────────────────────────────────────────────────────────
 export const ACI_TRAFFIC_LINK = "https://aci.aero/data-centre/annual-traffic-data/";
@@ -20,14 +20,14 @@ export const linkCls =
 export const GLOBAL = {
   stores: "±45,000",
   airports: "~4,000",
-  travellers: "~4.8B",
+  moments: "~9.8B",
   market: "€60B",
 };
 
 export const PURCHASE_SHARE = 0.27;
 export const NON_PURCHASE_SHARE = 0.73;
 
-const GLOBAL_PAX_M = 4800; // million air travellers a year
+const GLOBAL_PAX_M = 9800; // million annual travel moments (passenger movements)
 export const GLOBAL_NON_PURCHASE_M = Math.round(GLOBAL_PAX_M * NON_PURCHASE_SHARE); // ~3,504M
 export const GLOBAL_CONVERTING_M = GLOBAL_PAX_M - GLOBAL_NON_PURCHASE_M; // ~1,296M
 export const UPLIFT_1PP_TRAVELLERS_M = Math.round(GLOBAL_PAX_M * 0.01); // ~48M
@@ -65,11 +65,11 @@ export const PER_STORE = {
 };
 
 // ── DutyBoost model — the global airport retail estate, one year (USD) ───────
-// Basis: ~4.8B travellers reach the estate; DutyBoost pre-activates 0.1% of
+// Basis: ~9.8B travel moments reach the estate; DutyBoost pre-activates 0.1% of
 // them with a DutyCredit; 30% of the pre-activated travellers redeem an
 // incremental basket. 27% of travellers purchase (context only).
 export const ESTATE_STORES = 45000;
-export const ESTATE_TRAVELLERS = GLOBAL_PAX_M * 1e6; // 4.8B
+export const ESTATE_TRAVELLERS = GLOBAL_PAX_M * 1e6; // 9.8B
 export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE); // 1.3B
 export const PRE_ACTIVATION = 0.001;
 export const ESTATE_ANNUAL = (() => {

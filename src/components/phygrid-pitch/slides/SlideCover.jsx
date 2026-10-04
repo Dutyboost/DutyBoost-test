@@ -26,7 +26,7 @@ export default function SlideCover() {
 
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-2 w-full max-w-3xl">
             {[
-              { label: "Travellers passing through the global airport estate each year", value: "4.8B" },
+              { label: "Global travel moments through the airport retail estate each year", value: "9.8B" },
               { label: "Of travellers leave the airport without making a purchase", value: "73%" },
               { label: "Upfront cost — performance-based only", value: "$0" },
             ].map((s) => (
