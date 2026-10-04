@@ -1,6 +1,6 @@
 import { CheckCircle, Percent, Wallet } from "lucide-react";
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
-import { ESTATE_ANNUAL, MODEL, PURCHASE_SHARE, PRE_ACTIVATION, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
+import { ESTATE_ANNUAL, MODEL, PRE_ACTIVATION, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
 
 const TIERS = [
   { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
@@ -96,7 +96,6 @@ export default function SlideModel() {
                     { metric: "Incremental retail value", val: usdShort(ESTATE_ANNUAL.gross), money: true },
                     { metric: "Retailer net", val: `${usdShort(ESTATE_ANNUAL.retailerNet)} (${Math.round((ESTATE_ANNUAL.retailerNet / ESTATE_ANNUAL.gross) * 100)}%)`, money: true },
                     { metric: "POS provider commission", val: usd2(ESTATE_ANNUAL.pos), money: true },
-                    { metric: `Purchasing travellers (${Math.round(PURCHASE_SHARE * 100)}% convert, context)`, val: numShort(ESTATE_ANNUAL.purchasing) },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start justify-between gap-3">
                       <span className="text-slate-600">{row.metric}</span>
