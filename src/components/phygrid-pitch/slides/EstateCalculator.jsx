@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Wallet } from "lucide-react";
 import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
-import AirportStorePicker from "@/components/phygrid-pitch/slides/AirportStorePicker";
 
 const FIELDS = [
-  { key: "stores", label: "Stores at this airport", step: 1 },
-  { key: "controlled", label: "Stores controlled by POS provider", step: 1 },
+  { key: "airports", label: "Airports with POS presence", step: 1 },
+  { key: "stores", label: "Stores per airport", step: 1 },
+  { key: "controlled", label: "Stores controlled per airport", step: 1 },
   { key: "perStore", label: "Travellers entering store / day", step: 100 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
 ];
 
-const DEFAULTS = { stores: "", controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
+const DEFAULTS = { airports: "", stores: "", controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
 
 export default function EstateCalculator() {
   const [f, setF] = useState(DEFAULTS);
@@ -20,8 +20,9 @@ export default function EstateCalculator() {
   const n = (key) => (f[key] === "" ? 0 : Number(f[key]));
 
   // The POS provider only earns on the stores it actually controls; until that
-  // number is entered, the airport's full store count stands in for it.
-  const modelledStores = n("controlled") || n("stores");
+  // number is entered, each airport's full store count stands in for it.
+  const modelledStoresPerAirport = n("controlled") || n("stores");
+  const modelledStores = n("airports") * modelledStoresPerAirport;
   const travellers = modelledStores * n("perStore");
   const activated = travellers * (n("activation") / 100);
   const baskets = activated * (n("redemption") / 100);
@@ -32,7 +33,7 @@ export default function EstateCalculator() {
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
-    { label: n("controlled") ? "Stores modelled (POS provider)" : "Stores modelled (airport total)", val: numShort(modelledStores) },
+    { label: n("controlled") ? "Stores modelled (POS-controlled)" : "Stores modelled (all airports)", val: numShort(modelledStores) },
     { label: "Travellers through those stores", val: numShort(travellers) },
     { label: `Pre-activated (${n("activation")}% of travellers)`, val: numShort(Math.round(activated)) },
     { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
@@ -47,15 +48,11 @@ export default function EstateCalculator() {
         <Wallet className="w-5 h-5 text-green-600" />
         <h3 className="font-bold text-green-900">Airport Revenue Potential, Per Day</h3>
         <span className="text-green-700 text-xs font-semibold ml-auto">
-          Enter the figures for one airport — the model recalculates
+          Enter the figures for your estate — the model recalculates
         </span>
       </div>
 
-      <AirportStorePicker
-        onSelect={(a) => set("stores", String(a.stores))}
-      />
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 mb-3">
         {FIELDS.map((field) => (
           <label key={field.key} className="block">
             <span className="block text-[11px] font-semibold text-green-900/70 mb-1 leading-tight">
