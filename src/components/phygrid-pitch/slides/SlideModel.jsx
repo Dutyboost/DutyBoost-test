@@ -1,6 +1,6 @@
 import { CheckCircle, Percent, Wallet } from "lucide-react";
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
-import { PER_STORE, MODEL, usd2, usd } from "@/components/phygrid-pitch/model";
+import { ESTATE_ANNUAL, MODEL, usd, usdShort, numShort } from "@/components/phygrid-pitch/model";
 
 const TIERS = [
   { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
@@ -83,16 +83,19 @@ export default function SlideModel() {
               <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-3">
                   <Wallet className="w-5 h-5 text-green-600" />
-                  <h3 className="font-bold text-green-900">Per Store, Per Year</h3>
+                  <h3 className="font-bold text-green-900">Full Avolta Estate, Per Year</h3>
+                  <span className="text-green-700 text-xs font-semibold ml-auto">
+                    {ESTATE_ANNUAL.stores.toLocaleString("en-US")} stores
+                  </span>
                 </div>
                 <div className="space-y-2.5 text-sm">
                   {[
-                    { metric: "Travellers through the store", val: PER_STORE.travellers.toLocaleString("en-US") },
-                    { metric: `Travellers activated (${Math.round(MODEL.activation * 100)}% of footfall)`, val: PER_STORE.activated.toLocaleString("en-US") },
-                    { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% convert)`, val: PER_STORE.baskets.toLocaleString("en-US") },
-                    { metric: "Incremental retail value", val: usd(PER_STORE.gross), money: true },
-                    { metric: "Retailer net", val: `${usd(PER_STORE.retailerNet)} (${Math.round((PER_STORE.retailerNet / PER_STORE.gross) * 100)}%)`, money: true },
-                    { metric: "POS provider commission", val: usd2(PER_STORE.pos), money: true },
+                    { metric: "Travellers through the estate", val: numShort(ESTATE_ANNUAL.travellers) },
+                    { metric: `Travellers activated (${Math.round(MODEL.activation * 100)}% of footfall)`, val: numShort(ESTATE_ANNUAL.activated) },
+                    { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% convert)`, val: numShort(ESTATE_ANNUAL.baskets) },
+                    { metric: "Incremental retail value", val: usdShort(ESTATE_ANNUAL.gross), money: true },
+                    { metric: "Retailer net", val: `${usdShort(ESTATE_ANNUAL.retailerNet)} (${Math.round((ESTATE_ANNUAL.retailerNet / ESTATE_ANNUAL.gross) * 100)}%)`, money: true },
+                    { metric: "POS provider commission", val: usd(ESTATE_ANNUAL.pos), money: true },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start justify-between gap-3">
                       <span className="text-slate-600">{row.metric}</span>
@@ -101,8 +104,9 @@ export default function SlideModel() {
                   ))}
                 </div>
                 <div className="text-slate-400 text-xs mt-3">
-                  Illustrative model: one participating store, one year. Volumes are traveller and basket counts;
-                  values are in USD on a blended basket of ${MODEL.basket}. Full tier basis on the transaction-mix slide.
+                  Illustrative model: Avolta's full {ESTATE_ANNUAL.stores.toLocaleString("en-US")}-store estate, one year
+                  — {usd(ESTATE_ANNUAL.pos / ESTATE_ANNUAL.stores)} per store. Volumes are counts; values in USD on a
+                  blended basket of ${MODEL.basket}. Full tier basis on the transaction-mix slide.
                 </div>
               </div>
             </div>
