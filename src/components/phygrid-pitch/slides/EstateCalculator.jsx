@@ -38,7 +38,7 @@ export default function EstateCalculator() {
     { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
     { label: "Incremental retail value", val: usdShort(gross), money: true },
     { label: `Retailer net (${gross ? Math.round((retailerNet / gross) * 100) : 0}%)`, val: usdShort(retailerNet), money: true },
-    { label: "Phygrid commission", val: usd2(pos), money: true },
+    { label: "POS commission", val: usd2(pos), money: true },
   ];
 
   return (
