@@ -1,7 +1,6 @@
 import SlideCover from "@/components/phygrid-pitch/slides/SlideCover";
 import SlideTeam from "@/components/phygrid-pitch/slides/SlideTeam";
 import SlideFacts from "@/components/phygrid-pitch/slides/SlideFacts";
-import SlideMarket from "@/components/phygrid-pitch/slides/SlideMarket";
 import SlideConversion from "@/components/phygrid-pitch/slides/SlideConversion";
 import SlideAcquisition from "@/components/phygrid-pitch/slides/SlideAcquisition";
 import SlideModel from "@/components/phygrid-pitch/slides/SlideModel";
@@ -31,7 +30,6 @@ export const SLIDES = [
   { id: "team", type: "team" },
   { id: "facts", type: "facts" },
   { id: "solution", type: "solution" },
-  { id: "market", type: "market" },
   { id: "conversion", type: "conversion" },
   { id: "acquisition", type: "acquisition" },
   { id: "model", type: "model" },
@@ -50,7 +48,6 @@ export const SLIDE_LABELS = {
   team: "Our Team",
   facts: "The Facts — The Estate — The Gap",
   solution: "The Solution",
-  market: "The Estate at a Glance",
   conversion: "Conversion Opportunity",
   acquisition: "Customer Acquisition — On Us",
   model: "Business Model",
@@ -70,7 +67,6 @@ export function getSlideComponent(type) {
     team: SlideTeam,
     facts: SlideFacts,
     solution: SlideSolutionUsd,
-    market: SlideMarket,
     conversion: SlideConversion,
     acquisition: SlideAcquisition,
     model: SlideModel,
@@ -91,7 +87,6 @@ export const SLIDE_COMPONENTS = {
   team: SlideTeam,
   facts: SlideFacts,
   solution: SlideSolutionUsd,
-  market: SlideMarket,
   conversion: SlideConversion,
   acquisition: SlideAcquisition,
   model: SlideModel,
