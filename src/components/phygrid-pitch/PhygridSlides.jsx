@@ -29,13 +29,11 @@ export function SlideCover() {
         <GridBg />
         <Glow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px]" />
         <div className="relative z-10 flex flex-col items-center gap-7 w-full">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <PhygridMark className="text-2xl md:text-3xl" />
-            <span className="text-slate-600 text-2xl font-light">×</span>
-            <div className="bg-white rounded-xl px-5 py-2.5 shadow-lg">
-              <DutyBoostLogo height={34} linkTo={null} />
-            </div>
+          <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-white/20">
+            <DutyBoostLogo height={40} linkTo={null} />
           </div>
+
+          <PhygridMark className="text-3xl md:text-4xl" />
 
           <div>
             <PositioningLine className="mb-3" dark />
@@ -586,13 +584,11 @@ export function SlideClosing() {
         <GridBg />
         <Glow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px]" />
         <div className="relative z-10 flex flex-col items-center gap-7 w-full">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <PhygridMark className="text-2xl" />
-            <span className="text-slate-600 text-2xl font-light">×</span>
-            <div className="bg-white rounded-xl px-5 py-2.5 shadow-lg">
-              <DutyBoostLogo height={32} linkTo={null} />
-            </div>
+          <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-white/20">
+            <DutyBoostLogo height={38} linkTo={null} />
           </div>
+
+          <PhygridMark className="text-2xl md:text-3xl" />
 
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
