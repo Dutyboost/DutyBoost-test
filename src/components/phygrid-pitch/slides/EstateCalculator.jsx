@@ -3,7 +3,7 @@ import { Wallet } from "lucide-react";
 import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
 
 const FIELDS = [
-  { key: "stores", label: "Airport Stores in the network", step: 1 },
+  { key: "stores", label: "Stores at this airport", step: 1 },
   { key: "perStore", label: "Travel moments / store / yr", step: 1000 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
@@ -27,7 +27,7 @@ export default function EstateCalculator() {
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
-    { label: "Travel moments through the network", val: numShort(travellers) },
+    { label: "Travel moments through this airport", val: numShort(travellers) },
     { label: `Pre-activated (${n("activation")}% of travellers)`, val: numShort(Math.round(activated)) },
     { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
     { label: "Incremental retail value", val: usdShort(gross), money: true },
@@ -39,9 +39,9 @@ export default function EstateCalculator() {
     <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <Wallet className="w-5 h-5 text-green-600" />
-        <h3 className="font-bold text-green-900">Airport Retail Network, Per Year</h3>
+        <h3 className="font-bold text-green-900">Airport Revenue Potential, Per Year</h3>
         <span className="text-green-700 text-xs font-semibold ml-auto">
-          Enter your figures — the model recalculates
+          Enter the figures for one airport — the model recalculates
         </span>
       </div>
 
