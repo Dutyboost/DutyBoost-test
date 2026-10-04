@@ -4,7 +4,7 @@ import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/mode
 
 const FIELDS = [
   { key: "stores", label: "Stores at this airport", step: 1 },
-  { key: "perStore", label: "Travel moments / store / yr", step: 1000 },
+  { key: "perStore", label: "Travellers / store / yr", step: 1000 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
@@ -27,7 +27,7 @@ export default function EstateCalculator() {
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
-    { label: "Travel moments through this airport", val: numShort(travellers) },
+    { label: "Travellers through this airport", val: numShort(travellers) },
     { label: `Pre-activated (${n("activation")}% of travellers)`, val: numShort(Math.round(activated)) },
     { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
     { label: "Incremental retail value", val: usdShort(gross), money: true },
