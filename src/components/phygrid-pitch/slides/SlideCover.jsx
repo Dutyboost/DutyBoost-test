@@ -16,11 +16,11 @@ export default function SlideCover() {
           <div>
             <PositioningLine hero size="xl" className="max-w-4xl mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
-              Airport Stores.<br />
-              <span className="text-blue-600">A New Revenue Line for Phygrid.</span>
+              Convert Airport Travellers<br />
+              <span className="text-blue-600">Into Paying Customers.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed mx-auto">
-              DutyBoost converts airport travellers into purchasers inside airport stores — turning the days before departure into measurable retail revenue at the till.
+              Activate travellers before departure and route them into participating stores — Phygrid earns on every completed sale, with no upfront cost.
             </p>
           </div>
 
