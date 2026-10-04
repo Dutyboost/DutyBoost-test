@@ -1,56 +1,96 @@
+import { ArrowRight, Cpu, TrendingUp, Store } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
+import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow } from "@/components/phygrid-pitch/Shared";
-import { RATIO, eur, PER_STORE } from "@/components/phygrid-pitch/model";
-import { Store, ArrowRight } from "lucide-react";
+import { ESTATE, PER_STORE, usdShort } from "@/components/phygrid-pitch/model";
+
+const CARDS = [
+  {
+    Icon: Cpu,
+    title: "One Activation",
+    desc: "Flip the DutyBoost switch in your POS dashboard — no integration programme required.",
+  },
+  {
+    Icon: TrendingUp,
+    title: "Commission Per Sale",
+    desc: "Earn a share of the platform fee on every validated transaction across your estate.",
+  },
+  {
+    Icon: Store,
+    title: "A Better Retailer Offer",
+    desc: "Bring your retailers incremental revenue they cannot create alone, at zero cost to them.",
+  },
+];
 
 export default function SlideClosing() {
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
+      <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-12 md:py-4 relative">
         <GridBg />
-        <Glow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px]" />
-        <div className="relative z-10 flex flex-col items-center gap-7 w-full">
-          <div className="bg-white rounded-2xl px-8 py-4 shadow-sm border border-slate-200">
-            <DutyBoostLogo height={50} linkTo={null} />
+        <Glow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]" />
+        <div className="relative z-10 flex flex-col items-center text-center">
+          <div className="bg-white rounded-2xl px-5 py-2 shadow-2xl border border-slate-200 mb-3">
+            <DutyBoostLogo height={38} linkTo={null} />
           </div>
 
-          <div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
-              Airport Stores,<br />
-              <span className="text-blue-600">Now a Measurable Revenue Contributor</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed mx-auto">
-              One integration turns the POS layer Phygrid already runs inside those stores into incremental retail revenue for the retailer — and a performance-based income line for Phygrid.
-            </p>
+          <PositioningLine hero size="xl" className="max-w-4xl mb-3" />
+
+          <div className="mb-2.5">
+            <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">Thank You</span>
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1 leading-tight">
+              Activate DutyBoost.{" "}
+              <span className="text-blue-600">Turn the 73% Into Your Estate's Revenue.</span>
+            </h2>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 sm:gap-8 w-full max-w-2xl">
-            {[
-              { label: "Per store, incremental sales", value: eur(PER_STORE.gross) },
-              { label: "Retailer vs Phygrid, per transaction", value: `€${RATIO} : €1` },
-              { label: "Phygrid's share of the platform fee", value: "10%" },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-lg sm:text-2xl font-bold text-blue-600">{s.value}</div>
-                <div className="text-xs sm:text-sm text-slate-500 mt-1 leading-snug">{s.label}</div>
+          <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
+            The estate is already there — 5,100+ outlets, ~2.5B travellers, and 73% of them leaving without a
+            purchase. DutyBoost activates those travellers before they reach the airport and settles every
+            transaction through the POS you already run. One activation, no upfront cost, and a commission on
+            every incremental sale.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl w-full mb-3">
+            {CARDS.map((card) => (
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-3 text-left">
+                <card.Icon className="w-6 h-6 mb-1 text-blue-600" />
+                <div className="text-blue-700 font-bold text-sm mb-0.5">{card.title}</div>
+                <div className="text-slate-600 text-xs leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col items-center gap-1.5">
-            <p className="text-blue-600 text-base lg:text-xl font-bold">
-              No setup fee. No subscription. No risk. Only incremental revenue.
+          <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-3 w-full max-w-2xl">
+            {[
+              { label: "Stores (illustrative estate)", value: ESTATE[1].toLocaleString("en-US") },
+              { label: "POS commission per year", value: usdShort(PER_STORE.pos * ESTATE[1]) },
+              { label: "Upfront cost", value: "$0" },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="text-base sm:text-2xl font-bold text-blue-600">{s.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl px-5 py-3 text-white max-w-2xl bg-gradient-to-br from-blue-600 to-indigo-700">
+            <p className="font-bold text-sm md:text-base leading-snug mb-0.5">
+              Ready to put DutyBoost in front of every retailer running your POS?
             </p>
-            <p className="text-slate-700 text-sm lg:text-base font-semibold flex items-center gap-2">
-              <Store className="w-4 h-4 text-blue-600" />
-              Every store Phygrid connects is another {eur(PER_STORE.gross)} opportunity.
-              <ArrowRight className="w-4 h-4 text-blue-600" />
+            <p className="text-blue-50 text-xs">
+              Performance-based. Zero upfront cost. One API call, and the whole estate is live.
             </p>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-600 tracking-tight">THANK YOU</h2>
+          <a
+            href="/pos-partner-callback"
+            className="mt-4 inline-flex items-center gap-2 rounded-full px-6 py-3 text-white font-semibold text-sm shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
+          >
+            Confirm your POS Integration Interest
+            <ArrowRight className="w-4 h-4" />
+          </a>
 
-          <div className="mt-1 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
+          <div className="mt-3 text-slate-500 text-[10px]">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>

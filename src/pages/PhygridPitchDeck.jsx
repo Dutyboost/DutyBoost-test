@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { SLIDES, SLIDE_LABELS, getSlideComponent } from "@/components/phygrid-pitch/PhygridSlides";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
+import {
+  SLIDES,
+  SLIDE_LABELS,
+  SLIDE_COMPONENTS,
+  getSlideComponent,
+} from "@/components/phygrid-pitch/PhygridSlides";
 
 export default function PhygridPitchDeck() {
   const [current, setCurrent] = useState(0);
@@ -21,26 +27,36 @@ export default function PhygridPitchDeck() {
   const SlideComp = getSlideComponent(slide.type);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
-      {/* Header */}
-      <div className="w-full max-w-[1400px] flex items-center justify-between mb-2">
-        <div className="text-slate-700 text-sm font-semibold">
-          DutyBoost — Phygrid Presentation 2026 <span className="text-xs text-slate-400 ml-2 hidden sm:inline">CONFIDENTIAL</span>
+    <div className="min-h-screen bg-[#050a14] flex flex-col items-center justify-start lg:justify-center p-3 py-2 overflow-x-hidden">
+      <div className="w-full max-w-[1400px] flex items-center justify-between mb-2 gap-3">
+        <div className="text-white text-sm font-semibold opacity-60">
+          DutyBoost — Phygrid Presentation 2026{" "}
+          <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Phygrid-POS-Presentation"
+          />
+          <div className="text-slate-400 text-sm">
+            {current + 1} / {SLIDES.length}
+          </div>
+        </div>
       </div>
 
-      {/* Slide */}
-      <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-lg border border-slate-200 min-h-[58vh] lg:h-[calc(100vh-150px)]">
+      <div
+        ref={slideAreaRef}
+        className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]"
+      >
         <SlideComp />
       </div>
 
-      {/* Controls */}
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-3">
         <button
           onClick={prev}
           disabled={current === 0}
-          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
+          className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-base font-semibold cursor-pointer select-none"
         >
           <ChevronLeft size={18} /> Previous
         </button>
@@ -51,7 +67,9 @@ export default function PhygridPitchDeck() {
               onClick={() => setCurrent(i)}
               title={SLIDE_LABELS[s.type]}
               className={`text-xs px-3 py-1 rounded-lg transition-all font-medium ${
-                i === current ? "bg-blue-600 text-white" : "bg-white border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                i === current
+                  ? "bg-blue-600 text-white"
+                  : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
               }`}
             >
               {i + 1}
@@ -67,7 +85,6 @@ export default function PhygridPitchDeck() {
         </button>
       </div>
       <div className="mt-1.5 text-slate-500 text-sm">{SLIDE_LABELS[slide.type]}</div>
-
     </div>
   );
 }

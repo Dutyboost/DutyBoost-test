@@ -1,6 +1,7 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow } from "@/components/phygrid-pitch/Shared";
+import { AVOLTA_FY2025, AVOLTA_SITE, linkCls } from "@/components/phygrid-pitch/model";
 
 export default function SlideCover() {
   return (
@@ -8,7 +9,7 @@ export default function SlideCover() {
       <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 text-center relative">
         <GridBg />
         <Glow className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px]" />
-        <div className="relative z-10 flex flex-col items-center gap-7 w-full">
+        <div className="relative z-10 flex flex-col items-center gap-6 w-full">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-sm border border-slate-200">
             <DutyBoostLogo height={50} linkTo={null} />
           </div>
@@ -20,7 +21,8 @@ export default function SlideCover() {
               <span className="text-blue-600">Into Paying Customers.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed mx-auto">
-              Activate travellers before departure and route them into participating stores — Phygrid earns on every completed sale, with no upfront cost.
+              A Presentation for Phygrid — one activation in your POS, and every retailer on your estate
+              becomes a place a pre-activated traveller can spend.
             </p>
           </div>
 
@@ -40,18 +42,17 @@ export default function SlideCover() {
 
           <p className="text-[11px] text-slate-400 -mt-3">
             Scale of the addressable estate, based on the world's largest travel retailer —{" "}
-            <a
-              href="https://www.avoltaworld.com/en/investors"
-              target="_blank"
-              rel="noreferrer"
-              className="underline hover:text-slate-500"
-            >
-              Avolta Annual Report 2024
+            <a href={AVOLTA_FY2025} target="_blank" rel="noreferrer" className={linkCls}>
+              Avolta FY 2025 results
+            </a>{" "}
+            ·{" "}
+            <a href={AVOLTA_SITE} target="_blank" rel="noreferrer" className={linkCls}>
+              avoltaworld.com
             </a>
           </p>
 
           <div className="mt-1 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
-            PREPARED FOR PHYGRID — 9 OCTOBER 2026 | CONFIDENTIAL
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
       </div>

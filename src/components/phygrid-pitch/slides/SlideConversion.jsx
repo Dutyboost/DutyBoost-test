@@ -1,89 +1,113 @@
-import { SlideWrapper, GridBg, Glow, SlideHeader, CARD } from "@/components/phygrid-pitch/Shared";
-import { PER_STORE, RATIO, eur } from "@/components/phygrid-pitch/model";
-import { Users, TrendingUp, ShoppingCart, Euro, Store, ArrowRight, CheckCircle2 } from "lucide-react";
+import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
+import {
+  AVOLTA_Q1_2026,
+  M1NDSET_LINK,
+  TFWA_LINK,
+  NETWORK_NON_PURCHASE_M,
+  NETWORK_CONVERTING_M,
+  UPLIFT_1PP_TRAVELLERS_M,
+  UPLIFT_1PP_VALUE,
+  usdShort,
+  linkCls,
+} from "@/components/phygrid-pitch/model";
 
 export default function SlideConversion() {
-  const chain = [
-    { Icon: Users, label: "Travellers through the store, per year", value: PER_STORE.travellers.toLocaleString("en-GB") },
-    { Icon: TrendingUp, label: "Activated by DutyBoost before departure (2%)", value: PER_STORE.activated.toLocaleString("en-GB") },
-    { Icon: ShoppingCart, label: "Convert into an incremental purchase (30%)", value: PER_STORE.baskets.toLocaleString("en-GB") },
-    { Icon: Euro, label: "Average basket", value: eur(100) },
-  ];
-
-  const split = [
-    { party: "Traveller saves", value: eur(PER_STORE.travellerSaving), tone: "text-amber-600" },
-    { party: "Store nets", value: eur(PER_STORE.retailerNet), tone: "text-[#0a0f1e]" },
-    { party: "Phygrid earns", value: eur(PER_STORE.phygrid), tone: "text-blue-600" },
-    { party: "DutyBoost earns", value: eur(PER_STORE.dutyboost), tone: "text-slate-500" },
-  ];
-
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
-        <Glow className="top-0 left-1/3 w-[420px] h-[420px]" />
         <div className="relative z-10">
-          <SlideHeader
-            eyebrow="One Store, One Year"
-            title={<>Converting Even 2% of Travellers <span className="text-blue-600">Generates {eur(PER_STORE.gross)} in Sales</span></>}
-            subtitle="This is a single store inside Phygrid's network. DutyBoost does not need a large share of footfall — a small activation rate compounds into material retail value, and every basket carries Phygrid's share."
-          />
+          <div className="mb-5">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">
+              Conversion Opportunity
+            </span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              Small Conversion Gains = <span className="text-blue-600">Enormous Value Across the Estate</span>
+            </h2>
+            <p className="text-slate-500 mt-1 text-sm">
+              The estate's ~2.5B passengers represent the largest conversion headroom in travel retail. Roughly
+              73% never purchase — DutyBoost activates them before arrival.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-            <div className={`${CARD} p-5`}>
-              <div className="flex items-center gap-2 mb-4">
-                <Store className="w-5 h-5 text-blue-600" />
-                <h3 className="font-bold text-[#0a0f1e] text-sm md:text-base">The Conversion Path</h3>
-              </div>
-              <div className="space-y-2">
-                {chain.map((c) => (
-                  <div key={c.label} className="flex items-center justify-between gap-3 py-1.5 border-b border-slate-200 last:border-0">
-                    <span className="flex items-center gap-2 text-slate-600 text-xs md:text-sm">
-                      <c.Icon className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                      {c.label}
-                    </span>
-                    <span className="text-[#0a0f1e] font-semibold text-sm whitespace-nowrap">{c.value}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+              <div className="flex items-center gap-4">
+                <div>
+                  <div className="text-3xl md:text-5xl font-bold text-red-600">
+                    ~{NETWORK_NON_PURCHASE_M / 1000}B
                   </div>
-                ))}
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing passengers</div>
+                  <div className="text-slate-400 text-xs mt-1">73% of the estate's ~2.5B reach</div>
+                </div>
+                <div className="flex-1 text-right">
+                  <div className="text-3xl md:text-5xl font-bold text-green-600">
+                    ~{NETWORK_CONVERTING_M}M
+                  </div>
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Today's converting base</div>
+                  <div className="text-slate-400 text-xs mt-1">the ~27% who currently buy</div>
+                </div>
               </div>
-              <div className="mt-4 flex items-center justify-between rounded-xl px-4 py-3 bg-blue-50 border border-blue-200">
-                <span className="text-blue-700 text-xs md:text-sm font-semibold">Incremental retail sales in the store</span>
-                <span className="text-blue-700 font-bold text-lg">{eur(PER_STORE.gross)}</span>
+              <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
+                Passenger reach:{" "}
+                <a href={AVOLTA_Q1_2026} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                  Avolta Q1 2026 Presentation
+                </a>
+                . 73/27 ratio:{" "}
+                <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                  m1nd-set
+                </a>{" "}
+                /{" "}
+                <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                  TFWA
+                </a>
+                .
               </div>
-              <p className="text-slate-500 text-[11px] mt-2">
-                Sales that would not otherwise happen — not a redistribution of existing trade.
-              </p>
             </div>
 
-            <div className={`${CARD} p-5`}>
-              <h3 className="font-bold text-[#0a0f1e] text-sm md:text-base mb-4">The Same Store, Split Four Ways</h3>
-              <div className="space-y-3">
-                {split.map((r) => (
-                  <div key={r.party} className="flex items-center justify-between py-1.5 border-b border-slate-200 last:border-0">
-                    <span className="text-slate-600 text-xs md:text-sm">{r.party}</span>
-                    <span className={`font-bold text-sm md:text-base ${r.tone}`}>{r.value}</span>
-                  </div>
-                ))}
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+              <h3 className="font-bold text-blue-800 mb-2">Each +1pp of Conversion</h3>
+              <div className="text-3xl md:text-4xl font-bold text-blue-700">
+                ~{UPLIFT_1PP_TRAVELLERS_M}M
               </div>
-              <div className="mt-4 rounded-xl px-4 py-3 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">
-                <p className="text-slate-700 text-xs md:text-sm leading-relaxed">
-                  The retailer earns <span className="font-bold text-blue-700">€{RATIO} for every €1 Phygrid earns</span> on these transactions. Phygrid's income is the smallest line in the equation — and the one that is pure margin.
-                </p>
+              <div className="text-slate-600 text-sm mt-1">
+                additional purchasing travellers across the estate
               </div>
-              <div className="mt-3 flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-500 text-[11px]">
-                  The 2.5% platform fee is charged only on a completed, POS-validated sale. Phygrid would receive 10% of it.
-                </span>
+              <div className="text-green-600 font-bold text-xl mt-3">{usdShort(UPLIFT_1PP_VALUE)}</div>
+              <div className="text-slate-600 text-sm">
+                incremental retail value (illustrative, $23 Entry-tier basket)
+              </div>
+              <div className="text-slate-400 text-xs mt-3">
+                1pp = 1% of the estate's ~2.5B passengers converting at the model's qualifying basket.
               </div>
             </div>
           </div>
 
-          <div className={`${CARD} px-5 py-3 flex items-start gap-3`}>
-            <ArrowRight className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-            <p className="text-slate-500 text-[11px] md:text-xs leading-relaxed">
-              Illustrative model, not a forecast: 250,000 travellers per store per year, 2% activated by DutyBoost, 30% of those converting into a purchase, €100 average basket, 5% DutyCredit saving.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 className="font-bold text-slate-800 mb-3">What the POS Provider Brings to the Table</h3>
+              <ul className="space-y-2 text-sm">
+                {[
+                  "The checkout layer where every redemption is validated",
+                  "Reach into the retailer base — one integration, many merchants",
+                  "The transaction data that makes each sale attributable",
+                  "No need to acquire a single traveller: DutyBoost does that",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                    <span className="text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
+              <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
+              <p className="text-lg font-bold leading-snug">
+                "Is a commission on every incremental sale across your estate — earned without a single store-level
+                project — more valuable than earning nothing from the 73% who never convert?"
+              </p>
+              <p className="text-sm mt-2 opacity-80">Yes. Every time.</p>
+            </div>
           </div>
         </div>
       </div>

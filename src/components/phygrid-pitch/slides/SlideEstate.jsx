@@ -1,86 +1,108 @@
-import { SlideWrapper, GridBg, Glow, SlideHeader, CARD } from "@/components/phygrid-pitch/Shared";
-import { PER_STORE, ESTATE, ACTIVATION_SENSITIVITY, RATIO, perStoreAt, eur, millions } from "@/components/phygrid-pitch/model";
-import { Store, TrendingUp, CheckCircle2 } from "lucide-react";
+import { CheckCircle, TrendingUp } from "lucide-react";
+import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
+import { PER_STORE, ESTATE, MODEL, perStoreAt, usd, usd2, usdShort } from "@/components/phygrid-pitch/model";
+
+const SENSITIVITY = [0.01, 0.02, 0.05];
 
 export default function SlideEstate() {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
-        <Glow className="top-0 left-0 w-[420px] h-[420px]" />
         <div className="relative z-10">
-          <SlideHeader
-            eyebrow="Across the Store Estate"
-            title={<>The Same Store Economics, <span className="text-blue-600">Multiplied Across Phygrid's Footprint</span></>}
-            subtitle="Every store Phygrid already connects becomes an independent revenue unit. Store counts below are illustrative of the estate — the economics per store are the ones shown on the previous slides."
-          />
+          <div className="mb-5">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">
+              Across the Store Estate
+            </span>
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+              {usd2(PER_STORE.pos)} Per Store. <span className="text-blue-600">Multiplied by Your Whole Estate.</span>
+            </h2>
+            <p className="text-slate-500 mt-1 text-sm">
+              The commission is identical in every store, because the work is done once. Scale is the only
+              variable — and it is the one a POS provider already owns.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-            {ESTATE.map((t) => (
-              <div key={t} className={`${CARD} p-5 text-center`}>
-                <div className="flex items-center justify-center gap-2 text-blue-600 text-xs font-semibold uppercase tracking-widest mb-3">
-                  <Store className="w-4 h-4" />
-                  {t} stores
+            {ESTATE.map((stores, i) => (
+              <div
+                key={stores}
+                className={`bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center ${
+                  i === 1 ? "ring-2 ring-blue-500" : ""
+                }`}
+              >
+                <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
+                  {stores.toLocaleString("en-US")} stores
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-[#0a0f1e] mb-1">{millions(PER_STORE.retailerNet * t)}</div>
-                <div className="text-slate-500 text-xs mb-3">net retail revenue to the retailer</div>
-                <div className="border-t border-slate-200 pt-3">
-                  <div className="text-blue-600 font-bold text-lg">{eur(PER_STORE.phygrid * t)}</div>
-                  <div className="text-slate-500 text-xs">annual Phygrid commission</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-700 mb-1">
+                  {usdShort(PER_STORE.pos * stores)}
+                </div>
+                <div className="text-blue-600 text-sm font-medium">POS provider commission per year</div>
+                <div className="text-slate-500 text-xs mt-3">
+                  {usdShort(PER_STORE.gross * stores)} incremental retail value across the estate
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className={`${CARD} p-5`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="w-5 h-5 text-blue-600" />
-                <h3 className="text-[#0a0f1e] font-bold text-sm md:text-base">What Drives the Number</h3>
+                <h3 className="font-bold text-slate-800">Activation Is the Lever, Not Price</h3>
               </div>
-              <div className="space-y-1.5 text-sm">
-                {ACTIVATION_SENSITIVITY.map((rate) => {
-                  const s = perStoreAt(rate);
-                  const isBase = rate === 0.02;
+              <p className="text-slate-600 text-sm mb-3">
+                The commercial terms never change. What moves the number is how many travellers are activated
+                before they reach the airport — and that is DutyBoost's job, not yours.
+              </p>
+              <div className="space-y-2 text-sm">
+                {SENSITIVITY.map((a) => {
+                  const r = perStoreAt(a);
                   return (
                     <div
-                      key={rate}
-                      className={`flex items-center justify-between py-2 px-3 rounded-lg ${isBase ? "bg-blue-50 border border-blue-200" : ""}`}
+                      key={a}
+                      className={`flex items-center justify-between py-1.5 px-3 rounded-lg border ${
+                        a === MODEL.activation
+                          ? "bg-blue-100 border-blue-200 font-semibold"
+                          : "bg-white border-slate-100"
+                      }`}
                     >
-                      <span className={isBase ? "text-blue-700 font-semibold" : "text-slate-600"}>
-                        {rate * 100}% activation
-                        <span className="text-slate-400 text-xs ml-2">{s.baskets.toLocaleString("en-GB")} baskets</span>
-                      </span>
-                      <span className={`${isBase ? "text-blue-700 font-bold" : "text-slate-700"} whitespace-nowrap`}>
-                        {eur(s.phygrid)} <span className="text-slate-400 text-xs">/ store</span>
-                      </span>
+                      <span className="text-slate-600">At {Math.round(a * 100)}% activation</span>
+                      <span className="text-slate-700">{r.baskets.toLocaleString("en-US")} baskets</span>
+                      <span className="text-blue-700 font-bold">{usd2(r.pos)} / store</span>
                     </div>
                   );
                 })}
               </div>
-              <p className="text-slate-500 text-[11px] mt-3">
-                Phygrid's commission per store scales directly with the activation rate — at zero cost and zero risk.
-              </p>
             </div>
 
-            <div className={`${CARD} p-5`}>
-              <h3 className="text-[#0a0f1e] font-bold text-sm md:text-base mb-3">The Ratio That Does Not Move</h3>
-              <div className="rounded-xl px-4 py-4 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 mb-3">
-                <div className="text-3xl font-bold text-blue-700 mb-1">€{RATIO} : €1</div>
-                <div className="text-slate-600 text-xs md:text-sm">Retailer net revenue vs Phygrid's commission, on the same transactions.</div>
+            <div className="flex flex-col gap-4">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
+                <h3 className="font-bold text-green-900 mb-3">Why This Is Pure Upside for Phygrid</h3>
+                <div className="space-y-2 text-sm">
+                  {[
+                    "100% incremental — earned on sales that would not otherwise exist",
+                    "Zero upfront cost — no build, no licence, no store-level project",
+                    "No change to the checkout, pricing or inventory logic you already run",
+                    "Attributed and reported per transaction, automatically",
+                    "Every store added to your estate compounds the same revenue",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <ul className="space-y-2">
-                {[
-                  "100% incremental — earned on sales that otherwise would not happen",
-                  "Zero up-front cost — no setup fee, no subscription, no licence",
-                  "Performance-based — nothing is charged unless a sale completes",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-600 text-xs md:text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
+                <p className="font-bold leading-snug">
+                  The retailer earns {usd(PER_STORE.retailerNet)} a year for every {usd2(PER_STORE.pos)} you earn.
+                </p>
+                <p className="text-blue-100 text-sm mt-2">
+                  Same transactions, same checkout, no argument about who benefits — the value is created, not
+                  redistributed.
+                </p>
+              </div>
             </div>
           </div>
         </div>
