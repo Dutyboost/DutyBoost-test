@@ -1,4 +1,4 @@
-import { ArrowRight, Cpu, TrendingUp, Store } from "lucide-react";
+import { Cpu, TrendingUp, Store } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow } from "@/components/phygrid-pitch/Shared";
@@ -82,15 +82,7 @@ export default function SlideClosing() {
             </p>
           </div>
 
-          <a
-            href="/pos-partner-callback"
-            className="mt-4 inline-flex items-center gap-2 rounded-full px-6 py-3 text-white font-semibold text-sm shadow-lg bg-gradient-to-br from-blue-600 to-indigo-700 hover:opacity-90 transition-opacity"
-          >
-            Confirm your POS Integration Interest
-            <ArrowRight className="w-4 h-4" />
-          </a>
-
-          <div className="mt-3 text-slate-500 text-[10px]">
+          <div className="mt-4 text-slate-500 text-[10px]">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
           </div>
         </div>
