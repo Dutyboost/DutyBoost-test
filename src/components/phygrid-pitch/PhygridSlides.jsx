@@ -445,9 +445,9 @@ export function SlideEconomics() {
 // SLIDE 7 — Revenue at scale
 export function SlideScale() {
   const tiers = [
-    { size: "Pilot", stores: "50 stores", net: "€18,000" },
-    { size: "Regional", stores: "500 stores", net: "€180,000" },
-    { size: "Enterprise", stores: "2,000 stores", net: "€720,000" },
+    { size: "Pilot", stores: "50 stores", net: "€30,000" },
+    { size: "Regional", stores: "500 stores", net: "€300,000" },
+    { size: "Enterprise", stores: "2,000 stores", net: "€1,200,000" },
   ];
 
   return (
@@ -458,7 +458,7 @@ export function SlideScale() {
           <SlideHeader
             eyebrow="Revenue at Scale"
             title={<>What DutyBoost Brings <span className="text-[#00E5FF]">to Phygrid's Store Network</span></>}
-            subtitle="Estimated annual POS-provider commission (0.25% of every validated basket) at an 80% DutyCredit redemption rate, blended across corporate, travel-partner and direct sources — assuming 3,000 DutyCredits issued per store per year and a €60 average basket."
+            subtitle="Estimated annual POS-provider commission (0.25% of every validated basket) at an 80% DutyCredit redemption rate, blended across corporate, travel-partner and direct sources — assuming 3,000 DutyCredits issued per store per year and a €100 average basket."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
@@ -468,7 +468,7 @@ export function SlideScale() {
                 <div className="text-slate-400 text-sm mb-3">{t.stores}</div>
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">{t.net}</div>
                 <div className="text-[#00E5FF] text-sm font-medium mb-2">annual Phygrid commission</div>
-                <div className="text-slate-500 text-xs border-t border-white/10 pt-2">80% redemption · 3,000 credits/store @ €60</div>
+                <div className="text-slate-500 text-xs border-t border-white/10 pt-2">80% redemption · 3,000 credits/store @ €100</div>
               </div>
             ))}
           </div>
