@@ -73,9 +73,9 @@ export const PER_STORE = {
 };
 
 // ── DutyBoost model — the full Avolta estate, one year (USD) ─────────────────
-// Basis: 2.5B travellers reach the estate; 27% of them purchase; DutyBoost
-// pre-activates 0.1% of those purchasing travellers with a DutyCredit; 30% of
-// the pre-activated travellers redeem an incremental basket.
+// Basis: 2.5B travellers reach the estate; DutyBoost pre-activates 0.1% of the
+// total 2.5B travellers with a DutyCredit; 30% of the pre-activated travellers
+// redeem an incremental basket. 27% of travellers purchase (context only).
 export const ESTATE_STORES = 5100;
 export const ESTATE_TRAVELLERS = NETWORK_PAX_M * 1e6; // 2.5B
 export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE); // 675M
@@ -83,7 +83,7 @@ export const PRE_ACTIVATION = 0.001;
 export const ESTATE_ANNUAL = (() => {
   const travellers = ESTATE_TRAVELLERS;
   const purchasing = ESTATE_PURCHASING;
-  const activated = Math.round(purchasing * PRE_ACTIVATION);
+  const activated = Math.round(travellers * PRE_ACTIVATION);
   const baskets = Math.round(activated * MODEL.conversion);
   const gross = baskets * MODEL.basket;
   const travellerSaving = gross * MODEL.discount;

@@ -91,12 +91,12 @@ export default function SlideModel() {
                 <div className="space-y-2.5 text-sm">
                   {[
                     { metric: "Travellers through the estate", val: numShort(ESTATE_ANNUAL.travellers) },
-                    { metric: `Purchasing travellers (${Math.round(PURCHASE_SHARE * 100)}% convert)`, val: numShort(ESTATE_ANNUAL.purchasing) },
-                    { metric: `Pre-activated with a DutyCredit (${(PRE_ACTIVATION * 100).toFixed(1)}%)`, val: numShort(ESTATE_ANNUAL.activated) },
+                    { metric: `Pre-activated with a DutyCredit (${(PRE_ACTIVATION * 100).toFixed(1)}% of travellers)`, val: numShort(ESTATE_ANNUAL.activated) },
                     { metric: `Incremental baskets (${Math.round(MODEL.conversion * 100)}% redeem)`, val: numShort(ESTATE_ANNUAL.baskets) },
                     { metric: "Incremental retail value", val: usdShort(ESTATE_ANNUAL.gross), money: true },
                     { metric: "Retailer net", val: `${usdShort(ESTATE_ANNUAL.retailerNet)} (${Math.round((ESTATE_ANNUAL.retailerNet / ESTATE_ANNUAL.gross) * 100)}%)`, money: true },
                     { metric: "POS provider commission", val: usd2(ESTATE_ANNUAL.pos), money: true },
+                    { metric: `Purchasing travellers (${Math.round(PURCHASE_SHARE * 100)}% convert, context)`, val: numShort(ESTATE_ANNUAL.purchasing) },
                   ].map((row) => (
                     <div key={row.metric} className="flex items-start justify-between gap-3">
                       <span className="text-slate-600">{row.metric}</span>
@@ -106,7 +106,7 @@ export default function SlideModel() {
                 </div>
                 <div className="text-slate-400 text-xs mt-3">
                   Illustrative model: Avolta's full {ESTATE_ANNUAL.stores.toLocaleString("en-US")}-store estate, one
-                  year. {numShort(ESTATE_ANNUAL.purchasing)} purchasing travellers, {(PRE_ACTIVATION * 100).toFixed(1)}%
+                  year. {(PRE_ACTIVATION * 100).toFixed(1)}% of the {numShort(ESTATE_ANNUAL.travellers)} travellers are
                   pre-activated, {Math.round(MODEL.conversion * 100)}% redeeming a blended ${MODEL.basket} basket.
                   Volumes are counts; values in USD. Full tier basis on the transaction-mix slide.
                 </div>
