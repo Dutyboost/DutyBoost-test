@@ -4,7 +4,7 @@ import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/mode
 
 const FIELDS = [
   { key: "stores", label: "Stores at this airport", step: 1 },
-  { key: "perStore", label: "Travellers / store / yr", step: 1000 },
+  { key: "perStore", label: "Travellers entering store / yr", step: 1000 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
