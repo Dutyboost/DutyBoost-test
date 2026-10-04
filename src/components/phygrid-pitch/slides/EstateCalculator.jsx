@@ -39,7 +39,7 @@ export default function EstateCalculator() {
     <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <Wallet className="w-5 h-5 text-green-600" />
-        <h3 className="font-bold text-green-900">Phygrid's Airport Retail Network, Per Year</h3>
+        <h3 className="font-bold text-green-900">Airport Retail Network, Per Year</h3>
         <span className="text-green-700 text-xs font-semibold ml-auto">
           Enter your figures — the model recalculates
         </span>
