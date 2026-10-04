@@ -14,7 +14,7 @@ export default function SlideCover() {
           </div>
 
           <div>
-            <PositioningLine className="mb-3" />
+            <PositioningLine hero size="xl" className="max-w-4xl mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               Airport Stores.<br />
               <span className="text-blue-600">A New Revenue Line for Phygrid.</span>
