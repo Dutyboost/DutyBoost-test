@@ -16,7 +16,7 @@ export default function SlideCover() {
           <div>
             <PositioningLine hero size="xl" className="max-w-4xl mb-3" />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
-              Convert Airport Travellers<br />
+              Converting Airport Travellers<br />
               <span className="text-blue-600">Into Paying Customers.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-3xl leading-relaxed mx-auto">
@@ -24,11 +24,12 @@ export default function SlideCover() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 sm:gap-8 mt-2 w-full max-w-2xl">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 mt-2 w-full max-w-3xl">
             {[
               { label: "Outlets in the world's largest travel retail estate", value: "5,100+" },
               { label: "Travellers passing through these locations each year", value: "2.5B" },
               { label: "Countries and 6 continents covered by that estate", value: "70" },
+              { label: "Of international travellers leave the airport without purchasing", value: "73%" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <div className="text-xl sm:text-3xl font-bold text-blue-600">{s.value}</div>
