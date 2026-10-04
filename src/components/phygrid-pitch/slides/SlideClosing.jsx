@@ -44,7 +44,7 @@ export default function SlideClosing() {
           </div>
 
           <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
-            The estate is already there — 5,100+ outlets, ~2.5B travellers, and 73% of them leaving without a
+            The estate is already there — ±45,000 stores, ~4.8B travellers, and 73% of them leaving without a
             purchase. DutyBoost pre-activates those travellers before they reach the airport and settles every
             transaction through your POS. One integration, no upfront cost, and a commission on every incremental
             sale.

@@ -83,7 +83,7 @@ export default function SlideModel() {
               <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-3">
                   <Wallet className="w-5 h-5 text-green-600" />
-                  <h3 className="font-bold text-green-900">Full Avolta Estate, Per Year</h3>
+                  <h3 className="font-bold text-green-900">Full Global Estate, Per Year</h3>
                   <span className="text-green-700 text-xs font-semibold ml-auto">
                     {ESTATE_ANNUAL.stores.toLocaleString("en-US")} stores
                   </span>
@@ -104,8 +104,8 @@ export default function SlideModel() {
                   ))}
                 </div>
                 <div className="text-slate-400 text-xs mt-3">
-                  Illustrative model: Avolta's full {ESTATE_ANNUAL.stores.toLocaleString("en-US")}-store estate, one
-                  year. {(PRE_ACTIVATION * 100).toFixed(1)}% of the {numShort(ESTATE_ANNUAL.travellers)} travellers are
+                  Illustrative model: the global airport retail estate — {ESTATE_ANNUAL.stores.toLocaleString("en-US")}{" "}
+                  stores, one year. {(PRE_ACTIVATION * 100).toFixed(1)}% of the {numShort(ESTATE_ANNUAL.travellers)} travellers are
                   pre-activated, {Math.round(MODEL.conversion * 100)}% redeeming a blended ${MODEL.basket} basket.
                   Volumes are counts; values in USD. Full tier basis on the transaction-mix slide.
                 </div>

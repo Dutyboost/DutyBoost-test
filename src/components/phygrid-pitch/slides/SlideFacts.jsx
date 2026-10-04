@@ -1,9 +1,10 @@
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
 import {
-  AVOLTA_Q1_2026,
+  ACI_TRAFFIC_LINK,
   M1NDSET_LINK,
   TFWA_LINK,
-  NETWORK_NON_PURCHASE_M,
+  GLOBAL_NON_PURCHASE_M,
+  numShort,
   linkCls,
 } from "@/components/phygrid-pitch/model";
 
@@ -22,7 +23,7 @@ export default function SlideFacts() {
               <span className="text-blue-600">Never Make a Purchase</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              The scale of the estate every airport POS provider sits inside. Penetration benchmarks:{" "}
+              The scale of the global airport retail estate every POS provider sits inside. Penetration benchmarks:{" "}
               <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
                 m1nd-set
               </a>{" "}
@@ -36,12 +37,12 @@ export default function SlideFacts() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~2.5B</div>
-              <div className="text-slate-800 font-semibold">Passengers through the estate each year</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~4.8B</div>
+              <div className="text-slate-800 font-semibold">Travellers through the global estate each year</div>
               <div className="text-slate-500 text-sm mt-1">
-                Across 5,100+ outlets in 350+ airports and 70+ countries{" "}
-                <a href={AVOLTA_Q1_2026} target="_blank" rel="noopener noreferrer" className={linkCls}>
-                  (Avolta Q1 2026)
+                Across ±45,000 stores in ~4,000 commercial airports worldwide{" "}
+                <a href={ACI_TRAFFIC_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                  (ACI World)
                 </a>
               </div>
             </div>
@@ -57,10 +58,10 @@ export default function SlideFacts() {
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
-                ~{NETWORK_NON_PURCHASE_M / 1000}B
+                ~{numShort(GLOBAL_NON_PURCHASE_M * 1e6)}
               </div>
-              <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
-              <div className="text-slate-500 text-sm mt-1">73% of the estate's annual traffic</div>
+              <div className="text-slate-800 font-semibold">Non-purchasing travellers</div>
+              <div className="text-slate-500 text-sm mt-1">73% of the global estate's annual traffic</div>
             </div>
           </div>
 

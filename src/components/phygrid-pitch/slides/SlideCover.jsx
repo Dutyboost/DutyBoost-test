@@ -26,9 +26,9 @@ export default function SlideCover() {
 
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-2 w-full max-w-3xl">
             {[
-              { label: "Outlets in the world's largest travel retail estate", value: "5,100+" },
-              { label: "Travellers passing through these locations each year", value: "2.5B" },
-              { label: "Of international travellers leave the airport without purchasing", value: "73%" },
+              { label: "Travellers passing through the global airport estate each year", value: "4.8B" },
+              { label: "Of travellers leave the airport without making a purchase", value: "73%" },
+              { label: "Upfront cost — performance-based only", value: "$0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <div className="text-xl sm:text-3xl font-bold text-blue-600">{s.value}</div>

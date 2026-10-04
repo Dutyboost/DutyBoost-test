@@ -1,12 +1,13 @@
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
 import {
-  AVOLTA_Q1_2026,
+  ACI_TRAFFIC_LINK,
   M1NDSET_LINK,
   TFWA_LINK,
-  NETWORK_NON_PURCHASE_M,
-  NETWORK_CONVERTING_M,
+  GLOBAL_NON_PURCHASE_M,
+  GLOBAL_CONVERTING_M,
   UPLIFT_1PP_TRAVELLERS_M,
   UPLIFT_1PP_VALUE,
+  numShort,
   usdShort,
   linkCls,
 } from "@/components/phygrid-pitch/model";
@@ -25,8 +26,8 @@ export default function SlideConversion() {
               Small Conversion Gains = <span className="text-blue-600">Enormous Value Across the Estate</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              The estate's ~2.5B passengers represent the largest conversion headroom in travel retail. Roughly
-              73% never purchase — DutyBoost activates them before arrival.
+              The global estate's ~4.8B travellers represent the largest conversion headroom in travel retail.
+              Roughly 73% never purchase — DutyBoost activates them before arrival.
             </p>
           </div>
 
@@ -35,23 +36,23 @@ export default function SlideConversion() {
               <div className="flex items-center gap-4">
                 <div>
                   <div className="text-3xl md:text-5xl font-bold text-red-600">
-                    ~{NETWORK_NON_PURCHASE_M / 1000}B
+                    ~{numShort(GLOBAL_NON_PURCHASE_M * 1e6)}
                   </div>
-                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing passengers</div>
-                  <div className="text-slate-400 text-xs mt-1">73% of the estate's ~2.5B reach</div>
+                  <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing travellers</div>
+                  <div className="text-slate-400 text-xs mt-1">73% of the global estate's ~4.8B reach</div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="text-3xl md:text-5xl font-bold text-green-600">
-                    ~{NETWORK_CONVERTING_M}M
+                    ~{numShort(GLOBAL_CONVERTING_M * 1e6)}
                   </div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Today's converting base</div>
                   <div className="text-slate-400 text-xs mt-1">the ~27% who currently buy</div>
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
-                Passenger reach:{" "}
-                <a href={AVOLTA_Q1_2026} target="_blank" rel="noopener noreferrer" className={linkCls}>
-                  Avolta Q1 2026 Presentation
+                Traveller reach:{" "}
+                <a href={ACI_TRAFFIC_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                  ACI World
                 </a>
                 . 73/27 ratio:{" "}
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
@@ -78,7 +79,7 @@ export default function SlideConversion() {
                 incremental retail value (illustrative, $23 Entry-tier basket)
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                1pp = 1% of the estate's ~2.5B passengers converting at the model's qualifying basket.
+                1pp = 1% of the global estate's ~4.8B travellers converting at the model's qualifying basket.
               </div>
             </div>
           </div>
