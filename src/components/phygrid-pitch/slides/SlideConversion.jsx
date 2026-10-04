@@ -5,8 +5,8 @@ import {
   TFWA_LINK,
   GLOBAL_NON_PURCHASE_M,
   GLOBAL_CONVERTING_M,
-  UPLIFT_1PP_TRAVELLERS_M,
-  UPLIFT_1PP_VALUE,
+  UPLIFT_01PP_TRAVELLERS_M,
+  UPLIFT_01PP_VALUE,
   numShort,
   usdShort,
   linkCls,
@@ -67,19 +67,19 @@ export default function SlideConversion() {
             </div>
 
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
-              <h3 className="font-bold text-blue-800 mb-2">Each +1pp of Conversion</h3>
+              <h3 className="font-bold text-blue-800 mb-2">Each +0.1pp of Conversion</h3>
               <div className="text-3xl md:text-4xl font-bold text-blue-700">
-                ~{UPLIFT_1PP_TRAVELLERS_M}M
+                ~{UPLIFT_01PP_TRAVELLERS_M}M
               </div>
               <div className="text-slate-600 text-sm mt-1">
                 additional purchasing travellers across the estate
               </div>
-              <div className="text-green-600 font-bold text-xl mt-3">{usdShort(UPLIFT_1PP_VALUE)}</div>
+              <div className="text-green-600 font-bold text-xl mt-3">{usdShort(UPLIFT_01PP_VALUE)}</div>
               <div className="text-slate-600 text-sm">
                 incremental retail value (illustrative, $23 Entry-tier basket)
               </div>
               <div className="text-slate-400 text-xs mt-3">
-                1pp = 1% of the global estate's ~9.8B travel moments converting at the model's qualifying basket.
+                0.1pp = 0.1% of the global estate's ~9.8B travel moments converting at the model's qualifying basket.
               </div>
             </div>
           </div>

@@ -30,9 +30,9 @@ export const NON_PURCHASE_SHARE = 0.73;
 const GLOBAL_PAX_M = 9800; // million annual travel moments (passenger movements)
 export const GLOBAL_NON_PURCHASE_M = Math.round(GLOBAL_PAX_M * NON_PURCHASE_SHARE); // ~3,504M
 export const GLOBAL_CONVERTING_M = GLOBAL_PAX_M - GLOBAL_NON_PURCHASE_M; // ~1,296M
-export const UPLIFT_1PP_TRAVELLERS_M = Math.round(GLOBAL_PAX_M * 0.01); // ~48M
+export const UPLIFT_01PP_TRAVELLERS_M = Math.round(GLOBAL_PAX_M * 0.001); // ~10M
 export const ENTRY_BASKET = 23;
-export const UPLIFT_1PP_VALUE = GLOBAL_PAX_M * 0.01 * ENTRY_BASKET * 1e6; // ≈ $1.10B
+export const UPLIFT_01PP_VALUE = GLOBAL_PAX_M * 0.001 * ENTRY_BASKET * 1e6; // ≈ $225M
 
 // ── DutyBoost model — one participating store, one year (USD) ────────────────
 export const MODEL = {
