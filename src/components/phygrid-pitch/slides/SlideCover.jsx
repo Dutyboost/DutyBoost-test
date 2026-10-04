@@ -1,7 +1,6 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow } from "@/components/phygrid-pitch/Shared";
-import { AVOLTA_FY2025, AVOLTA_SITE, linkCls } from "@/components/phygrid-pitch/model";
 
 export default function SlideCover() {
   return (
@@ -38,17 +37,6 @@ export default function SlideCover() {
               </div>
             ))}
           </div>
-
-          <p className="text-[11px] text-slate-400 -mt-3">
-            Scale of the addressable estate, based on the world's largest travel retailer —{" "}
-            <a href={AVOLTA_FY2025} target="_blank" rel="noreferrer" className={linkCls}>
-              Avolta FY 2025 results
-            </a>{" "}
-            ·{" "}
-            <a href={AVOLTA_SITE} target="_blank" rel="noreferrer" className={linkCls}>
-              avoltaworld.com
-            </a>
-          </p>
 
           <div className="mt-1 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
             CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
