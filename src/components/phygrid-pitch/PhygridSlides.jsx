@@ -593,7 +593,7 @@ export function SlideClosing() {
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
               Your POS Layer,<br />
-              <span className="text-[#00E5FF]">Now a Revenue Stream</span>
+              <span className="text-[#00E5FF]">Now a New Ancillary Revenue Stream</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 max-w-3xl leading-relaxed mx-auto">
               One integration. A performance-based income line that grows with every retailer Phygrid connects.
