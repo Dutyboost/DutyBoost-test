@@ -6,7 +6,7 @@ import AirportStorePicker from "@/components/phygrid-pitch/slides/AirportStorePi
 const FIELDS = [
   { key: "stores", label: "Stores at this airport", step: 1 },
   { key: "controlled", label: "Stores controlled by POS provider", step: 1 },
-  { key: "perStore", label: "Travellers entering store / yr", step: 1000 },
+  { key: "perStore", label: "Travellers entering store / day", step: 100 },
   { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1 },
   { key: "redemption", label: "Redemption", suffix: "%", step: 1 },
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
@@ -45,7 +45,7 @@ export default function EstateCalculator() {
     <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <Wallet className="w-5 h-5 text-green-600" />
-        <h3 className="font-bold text-green-900">Airport Revenue Potential, Per Year</h3>
+        <h3 className="font-bold text-green-900">Airport Revenue Potential, Per Day</h3>
         <span className="text-green-700 text-xs font-semibold ml-auto">
           Enter the figures for one airport — the model recalculates
         </span>
@@ -99,7 +99,7 @@ export default function EstateCalculator() {
       </div>
 
       <div className="text-slate-400 text-xs mt-3">
-        Illustrative model, one year. A 2.5% platform fee on validated transactions only, of which POS earns{" "}
+        Illustrative model, one day. A 2.5% platform fee on validated transactions only, of which POS earns{" "}
         {Math.round(MODEL.posShare * 100)}%. Volumes are counts; values in USD. Full tier basis on the
         transaction-mix slide.
       </div>
