@@ -99,7 +99,7 @@ export default function EstateCalculator() {
       </div>
 
       <div className="text-slate-400 text-xs mt-3">
-        Illustrative model, one year. A 2.5% platform fee on validated transactions only, of which Phygrid earns{" "}
+        Illustrative model, one year. A 2.5% platform fee on validated transactions only, of which POS earns{" "}
         {Math.round(MODEL.posShare * 100)}%. Volumes are counts; values in USD. Full tier basis on the
         transaction-mix slide.
       </div>
