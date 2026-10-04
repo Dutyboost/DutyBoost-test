@@ -4,7 +4,7 @@ import { Plug, ToggleRight, CheckCircle2, Zap, ShieldCheck } from "lucide-react"
 export default function SlideSimplicity() {
   const steps = [
     { step: "1", title: "One endpoint", desc: "Phygrid adds a single DutyBoost API call to its existing POS integration — one HTTPS request at checkout." },
-    { step: "2", title: "Stores toggle on", desc: "Each participating Avolta store activates DutyBoost from a toggle. No per-store development, no code changes." },
+    { step: "2", title: "Stores toggle on", desc: "Each participating store activates DutyBoost from a toggle. No per-store development, no code changes." },
     { step: "3", title: "No hardware, no downtime", desc: "Works with the terminals, networks and POS stack already in place. Nothing is replaced or migrated." },
     { step: "4", title: "Toggle off anytime", desc: "If a store opts out, the feature simply switches off — zero residual impact on the operation." },
   ];
@@ -24,7 +24,7 @@ export default function SlideSimplicity() {
           <SlideHeader
             eyebrow="Integration Simplicity"
             title={<>Non-Invasive. <span className="text-[#00E5FF]">Toggle-Only. One Call.</span></>}
-            subtitle="DutyBoost enters at the POS layer as an opt-in feature. Integrate once, then deploy across every Avolta store, airport and market Phygrid serves — without touching the core platform."
+            subtitle="DutyBoost enters at the POS layer as an opt-in feature. Integrate once, then deploy across every store, airport and market Phygrid serves — without touching the core platform."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -70,7 +70,7 @@ export default function SlideSimplicity() {
                   <h3 className="font-bold">Integrate Once. Deploy Repeatedly.</h3>
                 </div>
                 <p className="text-[#0a0b0d]/80 text-sm leading-relaxed">
-                  A single integration enables DutyBoost across every Avolta store in Phygrid's estate — fundamentally better scaling economics than per-retailer work.
+                  A single integration enables DutyBoost across every store in Phygrid's network — fundamentally better scaling economics than per-retailer work.
                 </p>
                 <div className="mt-3 flex items-center gap-2 text-[#0a0b0d] text-sm font-semibold">
                   <Plug className="w-4 h-4" />

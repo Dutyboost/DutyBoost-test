@@ -25,7 +25,7 @@ export const SLIDE_LABELS = {
   opportunity: "The Opportunity",
   conversion: "One Store, One Year",
   split: "The Revenue Split",
-  estate: "Across the Avolta Estate",
+  estate: "Across the Store Estate",
   footprint: "Growing Phygrid's Footprint",
   simplicity: "Integration",
   nextSteps: "Next Steps",

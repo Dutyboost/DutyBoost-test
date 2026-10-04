@@ -1,6 +1,6 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import { SlideWrapper, GridBg, Glow, PhygridMark } from "@/components/phygrid-pitch/Shared";
-import { RATIO, eur, millions, PER_STORE } from "@/components/phygrid-pitch/model";
+import { RATIO, eur, PER_STORE } from "@/components/phygrid-pitch/model";
 import { Store, ArrowRight } from "lucide-react";
 
 export default function SlideClosing() {
@@ -18,18 +18,18 @@ export default function SlideClosing() {
 
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
-              Avolta's Stores,<br />
+              Airport Stores,<br />
               <span className="text-[#00E5FF]">Now a Measurable Revenue Contributor</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 max-w-3xl leading-relaxed mx-auto">
-              One integration turns the POS layer Phygrid already runs inside Avolta stores into incremental retail revenue for Avolta — and a performance-based income line for Phygrid.
+              One integration turns the POS layer Phygrid already runs inside those stores into incremental retail revenue for the retailer — and a performance-based income line for Phygrid.
             </p>
           </div>
 
           <div className="grid grid-cols-3 gap-3 sm:gap-8 w-full max-w-2xl">
             {[
               { label: "Per store, incremental sales", value: eur(PER_STORE.gross) },
-              { label: "Avolta vs Phygrid, per transaction", value: `€${RATIO} : €1` },
+              { label: "Retailer vs Phygrid, per transaction", value: `€${RATIO} : €1` },
               { label: "Phygrid's share of the platform fee", value: "10%" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -45,7 +45,7 @@ export default function SlideClosing() {
             </p>
             <p className="text-slate-300 text-sm lg:text-base font-semibold flex items-center gap-2">
               <Store className="w-4 h-4 text-[#00E5FF]" />
-              Every Avolta store Phygrid connects is another {millions(PER_STORE.gross)} opportunity.
+              Every store Phygrid connects is another {eur(PER_STORE.gross)} opportunity.
               <ArrowRight className="w-4 h-4 text-[#00E5FF]" />
             </p>
           </div>

@@ -6,7 +6,7 @@ export default function SlideFootprint() {
   const points = [
     {
       Icon: Users,
-      title: "You already sit inside Avolta's stores",
+      title: "You already sit inside the stores",
       desc: "Phygrid connects in-store devices to POS and enterprise systems — the exact point where an incremental sale is validated.",
     },
     {
@@ -16,13 +16,13 @@ export default function SlideFootprint() {
     },
     {
       Icon: Euro,
-      title: "Avolta gains far more than Phygrid earns",
-      desc: `On identical transactions Avolta nets €${RATIO} for every €1 Phygrid earns — a ratio that makes DutyBoost an easy yes inside the Avolta relationship.`,
+      title: "The retailer gains far more than Phygrid earns",
+      desc: `On identical transactions the retailer nets €${RATIO} for every €1 Phygrid earns — a ratio that makes DutyBoost an easy yes inside the retailer relationship.`,
     },
     {
       Icon: Receipt,
       title: "Documented, per transaction",
-      desc: "Every validated basket is attributed and reported, so the incremental revenue DutyBoost creates inside Avolta stores is measurable, not anecdotal.",
+      desc: "Every validated basket is attributed and reported, so the incremental revenue DutyBoost creates inside those stores is measurable, not anecdotal.",
     },
   ];
 
@@ -34,8 +34,8 @@ export default function SlideFootprint() {
         <div className="relative z-10">
           <SlideHeader
             eyebrow="The Commercial Argument"
-            title={<>Proven Value per Store Is <span className="text-[#00E5FF]">What Grows Phygrid's Footprint with Avolta</span></>}
-            subtitle="Phygrid does not have to argue for a bigger role in the Avolta estate on capability alone. DutyBoost supplies the numbers: measured incremental retail revenue inside Avolta stores, delivered through the POS layer Phygrid already runs."
+            title={<>Proven Value per Store Is <span className="text-[#00E5FF]">What Grows Phygrid's Footprint</span></>}
+            subtitle="Phygrid does not have to argue for a bigger role in the store estate on capability alone. DutyBoost supplies the numbers: measured incremental retail revenue inside those stores, delivered through the POS layer Phygrid already runs."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -56,11 +56,11 @@ export default function SlideFootprint() {
             <Maximize2 className="w-6 h-6 text-[#00E5FF] flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-slate-200 text-sm md:text-base leading-relaxed">
-                <span className="font-bold text-white">Every store that proves {eur(PER_STORE.gross)} in DutyBoost-driven sales becomes the case for the next deployment.</span> Phygrid's commission is the smallest line in the equation — the real return is the commercial leverage it buys: additional Avolta stores, renewals and expanded scope.
+                <span className="font-bold text-white">Every store that proves {eur(PER_STORE.gross)} in DutyBoost-driven sales becomes the case for the next deployment.</span> Phygrid's commission is the smallest line in the equation — the real return is the commercial leverage it buys: additional stores, renewals and expanded scope.
               </p>
               <div className="mt-3 flex items-center gap-2 text-[#00E5FF] text-xs md:text-sm font-semibold">
                 <Landmark className="w-4 h-4 flex-shrink-0" />
-                Phygrid arrives at the Avolta table with evidence, not a proposal.
+                Phygrid arrives at the table with evidence, not a proposal.
                 <ArrowRight className="w-4 h-4 flex-shrink-0" />
               </div>
             </div>

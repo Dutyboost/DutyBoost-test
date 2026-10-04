@@ -1,5 +1,5 @@
 import { SlideWrapper, GridBg, Glow, SlideHeader, CARD } from "@/components/phygrid-pitch/Shared";
-import { PER_STORE, RATIO, eur, millions } from "@/components/phygrid-pitch/model";
+import { PER_STORE, RATIO, eur } from "@/components/phygrid-pitch/model";
 import { Users, TrendingUp, ShoppingCart, Euro, Store, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function SlideConversion() {
@@ -12,7 +12,7 @@ export default function SlideConversion() {
 
   const split = [
     { party: "Traveller saves", value: eur(PER_STORE.travellerSaving), tone: "text-amber-400" },
-    { party: "Avolta store nets", value: eur(PER_STORE.avoltaNet), tone: "text-white" },
+    { party: "Store nets", value: eur(PER_STORE.retailerNet), tone: "text-white" },
     { party: "Phygrid earns", value: eur(PER_STORE.phygrid), tone: "text-[#00E5FF]" },
     { party: "DutyBoost earns", value: eur(PER_STORE.dutyboost), tone: "text-slate-400" },
   ];
@@ -25,8 +25,8 @@ export default function SlideConversion() {
         <div className="relative z-10">
           <SlideHeader
             eyebrow="One Store, One Year"
-            title={<>Converting Even 2% of Avolta's Travellers <span className="text-[#00E5FF]">Generates {millions(PER_STORE.gross)} in Sales</span></>}
-            subtitle="This is a single Avolta-operated store inside Phygrid's estate. DutyBoost does not need a large share of footfall — a small activation rate compounds into material retail value, and every basket carries Phygrid's share."
+            title={<>Converting Even 2% of Travellers <span className="text-[#00E5FF]">Generates {eur(PER_STORE.gross)} in Sales</span></>}
+            subtitle="This is a single store inside Phygrid's network. DutyBoost does not need a large share of footfall — a small activation rate compounds into material retail value, and every basket carries Phygrid's share."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
@@ -67,7 +67,7 @@ export default function SlideConversion() {
               </div>
               <div className="mt-4 rounded-xl px-4 py-3 bg-gradient-to-br from-[#00E5FF]/15 to-transparent border border-[#00E5FF]/30">
                 <p className="text-slate-200 text-xs md:text-sm leading-relaxed">
-                  Avolta earns <span className="font-bold text-[#00E5FF]">€{RATIO} for every €1 Phygrid earns</span> on these transactions. Phygrid's income is the smallest line in the equation — and the one that is pure margin.
+                  The retailer earns <span className="font-bold text-[#00E5FF]">€{RATIO} for every €1 Phygrid earns</span> on these transactions. Phygrid's income is the smallest line in the equation — and the one that is pure margin.
                 </p>
               </div>
               <div className="mt-3 flex items-start gap-2">

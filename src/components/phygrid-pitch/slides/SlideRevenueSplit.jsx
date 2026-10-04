@@ -42,8 +42,8 @@ export default function SlideRevenueSplit() {
                   </div>
                 ))}
                 <div className="flex items-center justify-between rounded-xl px-4 py-2.5 mt-2 bg-white/5 border border-white/10">
-                  <span className="text-slate-200 font-bold text-xs md:text-sm">Avolta store nets before normal costs</span>
-                  <span className="text-white font-bold text-lg">{eur2(PER_STORE.avoltaNet / PER_STORE.baskets)}</span>
+                  <span className="text-slate-200 font-bold text-xs md:text-sm">Store nets before normal costs</span>
+                  <span className="text-white font-bold text-lg">{eur2(PER_STORE.retailerNet / PER_STORE.baskets)}</span>
                 </div>
               </div>
             </div>

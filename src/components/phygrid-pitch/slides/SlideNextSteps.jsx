@@ -3,10 +3,10 @@ import { Rocket } from "lucide-react";
 
 export default function SlideNextSteps() {
   const steps = [
-    { step: "01", title: "Technical discovery", desc: "A 45-minute session with Phygrid's engineering team to map the checkout flow inside Avolta stores and confirm the integration point." },
+    { step: "01", title: "Technical discovery", desc: "A 45-minute session with Phygrid's engineering team to map the checkout flow inside participating stores and confirm the integration point." },
     { step: "02", title: "Sandbox access", desc: "DutyBoost provides test credentials and documentation so Phygrid can validate the call in a non-production environment." },
-    { step: "03", title: "Pilot with one Avolta store", desc: "Go live in a single store to measure validation volume, basket lift and commission flow against the model in this deck." },
-    { step: "04", title: "Commercial agreement", desc: "Formalise the 10% platform-fee share and scale the toggle across the Avolta estate." },
+    { step: "03", title: "Pilot with one store", desc: "Go live in a single store to measure validation volume, basket lift and commission flow against the model in this deck." },
+    { step: "04", title: "Commercial agreement", desc: "Formalise the 10% platform-fee share and scale the toggle across the store estate." },
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function SlideNextSteps() {
           <SlideHeader
             eyebrow="Next Steps"
             title={<>From Meeting <span className="text-[#00E5FF]">to Live Transaction</span></>}
-            subtitle="A low-risk path with no commitment until a pilot proves the numbers inside Phygrid's own environment and Avolta's own stores."
+            subtitle="A low-risk path with no commitment until a pilot proves the numbers inside Phygrid's own environment and the retailer's own stores."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">

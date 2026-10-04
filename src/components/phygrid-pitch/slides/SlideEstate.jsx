@@ -10,9 +10,9 @@ export default function SlideEstate() {
         <Glow className="top-0 left-0 w-[420px] h-[420px]" />
         <div className="relative z-10">
           <SlideHeader
-            eyebrow="Across the Avolta Estate"
+            eyebrow="Across the Store Estate"
             title={<>The Same Store Economics, <span className="text-[#00E5FF]">Multiplied Across Phygrid's Footprint</span></>}
-            subtitle="Every Avolta-operated store Phygrid already connects becomes an independent revenue unit. Store counts below are illustrative of the estate — the economics per store are the ones shown on the previous slides."
+            subtitle="Every store Phygrid already connects becomes an independent revenue unit. Store counts below are illustrative of the estate — the economics per store are the ones shown on the previous slides."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
@@ -22,8 +22,8 @@ export default function SlideEstate() {
                   <Store className="w-4 h-4" />
                   {t} stores
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{millions(PER_STORE.avoltaNet * t)}</div>
-                <div className="text-slate-400 text-xs mb-3">net retail revenue to Avolta</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{millions(PER_STORE.retailerNet * t)}</div>
+                <div className="text-slate-400 text-xs mb-3">net retail revenue to the retailer</div>
                 <div className="border-t border-white/10 pt-3">
                   <div className="text-[#00E5FF] font-bold text-lg">{eur(PER_STORE.phygrid * t)}</div>
                   <div className="text-slate-500 text-xs">annual Phygrid commission</div>
@@ -67,7 +67,7 @@ export default function SlideEstate() {
               <h3 className="text-white font-bold text-sm md:text-base mb-3">The Ratio That Does Not Move</h3>
               <div className="rounded-xl px-4 py-4 bg-gradient-to-br from-[#00E5FF]/15 to-transparent border border-[#00E5FF]/30 mb-3">
                 <div className="text-3xl font-bold text-[#00E5FF] mb-1">€{RATIO} : €1</div>
-                <div className="text-slate-300 text-xs md:text-sm">Avolta's net revenue vs Phygrid's commission, on the same transactions.</div>
+                <div className="text-slate-300 text-xs md:text-sm">Retailer net revenue vs Phygrid's commission, on the same transactions.</div>
               </div>
               <ul className="space-y-2">
                 {[

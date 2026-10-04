@@ -7,7 +7,7 @@ export const MARKET_LINK = "https://www.grandviewresearch.com/industry-analysis/
 export const NON_PURCHASE_LINK =
   "https://www.dfnionline.com/latest-news/m1nd-set-reveals-travel-retail-trends-for-european-travellers-24-07-2025/";
 
-// Illustrative model: one Avolta-operated store, one year.
+// Illustrative model: one participating store, one year.
 export const MODEL = {
   travellers: 250000,
   activation: 0.02,
@@ -37,11 +37,11 @@ export const PER_STORE = {
   fee,
   phygrid,
   dutyboost,
-  avoltaNet: travellerPays - fee,
+  retailerNet: travellerPays - fee,
 };
 
-// Avolta earns this much for every €1 Phygrid earns, on the same transactions.
-export const RATIO = Math.round(PER_STORE.avoltaNet / PER_STORE.phygrid);
+// The retailer earns this much for every €1 Phygrid earns, on the same transactions.
+export const RATIO = Math.round(PER_STORE.retailerNet / PER_STORE.phygrid);
 
 export const ESTATE = [100, 250, 500];
 

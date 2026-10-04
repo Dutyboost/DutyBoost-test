@@ -18,11 +18,11 @@ export default function SlideCover() {
           <div>
             <PositioningLine className="mb-3" dark />
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
-              Avolta's Stores.<br />
+              Airport Stores.<br />
               <span className="text-[#00E5FF]">A New Revenue Line for Phygrid.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 max-w-3xl leading-relaxed mx-auto">
-              DutyBoost converts airport travellers into purchasers inside Avolta-operated stores — and shares its platform fee with Phygrid on every validated sale.
+              DutyBoost converts airport travellers into purchasers inside airport stores — and shares its platform fee with Phygrid on every validated sale.
             </p>
           </div>
 
