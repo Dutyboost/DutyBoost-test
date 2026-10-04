@@ -45,9 +45,9 @@ export default function SlideClosing() {
 
           <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
             The estate is already there — 5,100+ outlets, ~2.5B travellers, and 73% of them leaving without a
-            purchase. DutyBoost activates those travellers before they reach the airport and settles every
-            transaction through the POS you already run. One activation, no upfront cost, and a commission on
-            every incremental sale.
+            purchase. DutyBoost pre-activates those travellers before they reach the airport and settles every
+            transaction through your POS. One integration, no upfront cost, and a commission on every incremental
+            sale.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl w-full mb-3">
