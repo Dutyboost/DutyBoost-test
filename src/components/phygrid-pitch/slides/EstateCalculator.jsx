@@ -30,11 +30,11 @@ export default function EstateCalculator() {
 
   const ROWS = [
     { label: "Stores controlled (modelled)", val: numShort(modelledStores) },
-    { label: "Travellers through those stores", val: numShort(travellers) },
-    { label: `Pre-activated (${n("activation")}% of travellers)`, val: numShort(Math.round(activated)) },
-    { label: `Incremental baskets (${n("redemption")}% redeem)`, val: numShort(Math.round(baskets)) },
-    { label: "Incremental retail value", val: usdShort(gross), money: true },
-    { label: `Retailer net (${gross ? Math.round((retailerNet / gross) * 100) : 0}%)`, val: usdShort(retailerNet), money: true },
+    { label: "Travellers through those stores / day", val: numShort(travellers) },
+    { label: `Pre-activated (${n("activation")}% of travellers) / day`, val: numShort(Math.round(activated)) },
+    { label: `Incremental baskets (${n("redemption")}% redeem) / day`, val: numShort(Math.round(baskets)) },
+    { label: "Incremental retail value / day", val: usdShort(gross), money: true },
+    { label: `Retailer net (${gross ? Math.round((retailerNet / gross) * 100) : 0}%) / day`, val: usdShort(retailerNet), money: true },
     { label: "POS commission / day", val: usd2(pos), money: true },
     { label: "POS commission / Yr", val: usd2(pos * 365), money: true },
   ];
