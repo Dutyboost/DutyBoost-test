@@ -51,15 +51,15 @@ export default function SlideAirlines() {
         </table>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 mt-4">
         {c.kpis.map((k, i) => (
           <div
             key={k.label}
-            className={`rounded-2xl p-4 ${i === 0 ? "bg-red-50 border border-red-200" : "bg-slate-50 border border-slate-200"}`}
+            className={`rounded-2xl p-4 ${i < 2 ? "bg-red-50 border border-red-200" : "bg-slate-50 border border-slate-200"}`}
           >
             <div
-              className="text-2xl font-bold"
-              style={i === 0 ? { color: AIRLINE } : { color: "#0a0f1e" }}
+              className="text-xl md:text-2xl font-bold"
+              style={i < 2 ? { color: AIRLINE } : { color: "#0a0f1e" }}
             >
               {k.value}
             </div>

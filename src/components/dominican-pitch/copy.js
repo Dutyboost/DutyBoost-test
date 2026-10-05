@@ -126,7 +126,7 @@ export const COPY = {
     },
     airlines: {
       eyebrow: "The Carriers",
-      title: "Six Carriers,",
+      title: "Six National Carriers,",
       titleAccent: (pax) => `±${pax} Passengers in 2025`,
       subtitle:
         "The carriers are how DutyBoost reaches the traveller before the airport — a DutyCredit attached to a booking, weeks ahead of departure. These are the numbers on the Dominican side of the network.",
@@ -160,8 +160,9 @@ export const COPY = {
           "Caribbean network including Haiti, Antigua, Barbados, British Virgin Islands, Dominica, Guadeloupe, St. Kitts, St. Lucia, St. Vincent, Sint Maarten, Turks & Caicos and the USA",
       },
       kpis: [
-        { value: "±50,400", label: "passenger movements a day across the country's major airports — the market the carriers feed" },
-        { value: "6", label: "carriers active on the Dominican market, from a network carrier to executive charter" },
+        { value: "±4,160", label: "passenger movements a day carried by the national carriers — the local traffic DutyBoost turns into retail spend" },
+        { value: "±46,240", label: "passenger movements a day carried by international carriers into the same three airports — the inbound traffic DutyBoost converts for them" },
+        { value: "6", label: "national carriers active on the Dominican market, from a network carrier to executive charter" },
         { value: "26", label: "countries reached non-stop from Punta Cana alone — every one of them a DutyBoost market" },
       ],
       footnote:
@@ -631,7 +632,7 @@ export const COPY = {
     },
     airlines: {
       eyebrow: "Las aerolíneas",
-      title: "Seis aerolíneas,",
+      title: "Seis aerolíneas nacionales,",
       titleAccent: (pax) => `±${pax} pasajeros en 2025`,
       subtitle:
         "Las aerolíneas son la vía por la que DutyBoost llega al viajero antes del aeropuerto — un DutyCredit asociado a la reserva, semanas antes de la salida. Estas son las cifras del lado dominicano de la red.",
@@ -665,8 +666,9 @@ export const COPY = {
           "Red caribeña que incluye Haití, Antigua, Barbados, Islas Vírgenes Británicas, Dominica, Guadalupe, San Cristóbal, Santa Lucía, San Vicente, San Martín, Turcas y Caicos y EE. UU.",
       },
       kpis: [
-        { value: "±50,400", label: "movimientos de pasajeros al día por los principales aeropuertos del país — el mercado al que sirven las aerolíneas" },
-        { value: "6", label: "aerolíneas activas en el mercado dominicano, desde una red principal hasta el chárter ejecutivo" },
+        { value: "±4,160", label: "movimientos de pasajeros al día transportados por las aerolíneas nacionales — el tráfico local que DutyBoost convierte en gasto minorista" },
+        { value: "±46,240", label: "movimientos de pasajeros al día transportados por aerolíneas internacionales a los mismos tres aeropuertos — el tráfico entrante que DutyBoost convierte para ellas" },
+        { value: "6", label: "aerolíneas nacionales activas en el mercado dominicano, desde una red principal hasta el chárter ejecutivo" },
         { value: "26", label: "países conectados sin escalas solo desde Punta Cana — todos ellos mercados de DutyBoost" },
       ],
       footnote:
