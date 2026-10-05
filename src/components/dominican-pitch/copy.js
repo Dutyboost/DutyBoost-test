@@ -46,7 +46,7 @@ export const COPY = {
       title: "The Caribbean's Busiest Air Market —",
       titleAccent: "and Its Largest Conversion Gap",
       subtitle:
-        "The Dominican Republic already moves more international passengers than any of its neighbours. What it does not yet do is convert them, at the point of departure, into retail spend.",
+        "The Dominican Republic already moves more international passengers than any of its neighbours. What it does not yet do is convert them, at the point of departure and on arrival, into retail spend.",
       stats: [
         {
           label:
@@ -81,9 +81,9 @@ export const COPY = {
     gateways: {
       eyebrow: "The Three Gateways",
       title: "Three Airports,",
-      titleAccent: "One Departure Hall Story",
+      titleAccent: "One Arrival and Departure Story",
       subtitle:
-        "Every DutyCredit is redeemed in a departure hall. These are the three doors the Dominican Republic gives its travellers — and the three places the model earns.",
+        "Every DutyCredit is redeemed inside the terminal — on the way out or on arrival. These are the three doors the Dominican Republic gives its travellers, and the three places the model earns.",
       passengersLabel: "passengers 2025",
       airports: {
         PUJ: {
@@ -169,13 +169,13 @@ export const COPY = {
           body: "The concourse competes with downtown and with the destination itself, on price alone. There is no reason to buy here rather than there.",
         },
         {
-          title: "No second chance",
-          body: "The departure hall is the last commercial moment of the trip. Once the traveller is airside and boarding, the spend is gone — for good.",
+          title: "One window, and it closes",
+          body: "The terminal is the only place airport retail can convert a traveller — on the way out or on arrival. Outside that window, the spend is decided elsewhere and leaves with them.",
         },
       ],
       fixTitle: "DutyBoost moves the decision forward",
       fixBody:
-        "A DutyCredit is attached to the traveller's booking by the carrier, weeks before departure. The traveller lands in the Dominican Republic already holding a benefit that only works in the airport's departure hall — which changes what they plan to buy, and when they arrive to buy it.",
+        "A DutyCredit is attached to the traveller's booking by the carrier, weeks before departure. The traveller lands in the Dominican Republic already holding a benefit that only works inside the airport terminal — outbound or on arrival — which changes what they plan to buy, and when they arrive to buy it.",
       fixBody2:
         "The retailer pays nothing to be part of it, nothing for the technology, and nothing until a sale is validated. The traveller pays nothing: the benefit is a discount, not a fee.",
       statValue: "22%",
@@ -197,7 +197,7 @@ export const COPY = {
         {
           step: "02",
           title: "Pre-activation",
-          body: "Weeks before departure the traveller knows the benefit exists, and that it is only redeemable in the departure hall.",
+          body: "Weeks before departure the traveller knows the benefit exists, and that it is redeemable only inside the airport terminal — outbound or on arrival.",
         },
         {
           step: "03",
@@ -327,7 +327,7 @@ export const COPY = {
       ],
       cardTitle: (net) => `${net} net, from travellers who would have bought nothing.`,
       cardBody:
-        "The comparison is not against the retailer's current sales — those stay exactly as they are. It is against the empty space in the departure hall that the model converts.",
+        "The comparison is not against the retailer's current sales — those stay exactly as they are. It is against the empty space in the terminal, on departure and on arrival, that the model converts.",
       multiplierTitle: "And the multiplier",
       multiplierBody:
         "The same store, replicated across the retail groups already trading at Punta Cana, Las Américas and La Isabela, is how a per-store illustration becomes a national figure — without a single new concession or square metre of new retail space.",
@@ -377,7 +377,7 @@ export const COPY = {
       pillars: [
         {
           title: "Spend retained on Dominican soil",
-          body: "Every basket redeemed in a departure hall is spend captured at the last moment of the trip, instead of leaving with the traveller.",
+          body: "Every basket redeemed in the terminal is spend captured while the traveller is on Dominican soil — on the way out or on arrival — instead of leaving with them.",
         },
         {
           title: "A digitally recorded sales channel",
@@ -432,7 +432,7 @@ export const COPY = {
       closingTitle: (amount) =>
         `${amount} a year, on transactions that would not otherwise have happened.`,
       closingBody:
-        "The value is created in the departure hall, not redistributed from anyone in it.",
+        "The value is created in the terminal, on departure and on arrival, not redistributed from anyone in it.",
     },
     nextSteps: {
       eyebrow: "Next Steps",
@@ -527,7 +527,7 @@ export const COPY = {
       title: "El mercado aéreo más activo del Caribe —",
       titleAccent: "y su mayor brecha de conversión",
       subtitle:
-        "La República Dominicana ya mueve más pasajeros internacionales que cualquiera de sus vecinos. Lo que aún no hace es convertirlos, en el punto de salida, en gasto minorista.",
+        "La República Dominicana ya mueve más pasajeros internacionales que cualquiera de sus vecinos. Lo que aún no hace es convertirlos, en el punto de salida y de llegada, en gasto minorista.",
       stats: [
         {
           label:
@@ -562,9 +562,9 @@ export const COPY = {
     gateways: {
       eyebrow: "Las tres puertas",
       title: "Tres aeropuertos,",
-      titleAccent: "una misma historia en la sala de embarque",
+      titleAccent: "una misma historia de salida y llegada",
       subtitle:
-        "Cada DutyCredit se canjea en una sala de embarque. Estas son las tres puertas que la República Dominicana ofrece a sus viajeros — y los tres lugares donde el modelo genera valor.",
+        "Cada DutyCredit se canjea dentro de la terminal — a la salida o a la llegada. Estas son las tres puertas que la República Dominicana ofrece a sus viajeros, y los tres lugares donde el modelo genera valor.",
       passengersLabel: "pasajeros 2025",
       airports: {
         PUJ: {
@@ -650,13 +650,13 @@ export const COPY = {
           body: "La zona comercial compite con el centro de la ciudad y con el propio destino únicamente por precio. No hay motivo para comprar aquí y no allí.",
         },
         {
-          title: "Ninguna segunda oportunidad",
-          body: "La sala de embarque es el último momento comercial del viaje. Cuando el viajero ya está embarcando, el gasto se ha perdido — para siempre.",
+          title: "Una sola ventana, y se cierra",
+          body: "La terminal es el único lugar donde el comercio aeroportuario puede convertir a un viajero — a la salida o a la llegada. Fuera de esa ventana, el gasto se decide en otro lugar y se va con él.",
         },
       ],
       fixTitle: "DutyBoost adelanta la decisión",
       fixBody:
-        "La aerolínea asocia un DutyCredit a la reserva del viajero, semanas antes de la salida. El viajero llega a la República Dominicana con un beneficio que solo funciona en la sala de embarque del aeropuerto — lo que cambia lo que piensa comprar y cuándo llega a comprarlo.",
+        "La aerolínea asocia un DutyCredit a la reserva del viajero, semanas antes de la salida. El viajero llega a la República Dominicana con un beneficio que solo funciona dentro de la terminal del aeropuerto — a la salida o a la llegada — lo que cambia lo que piensa comprar y cuándo llega a comprarlo.",
       fixBody2:
         "El minorista no paga nada por participar, nada por la tecnología y nada hasta que se valida una venta. El viajero no paga nada: el beneficio es un descuento, no una comisión.",
       statValue: "22%",
@@ -678,7 +678,7 @@ export const COPY = {
         {
           step: "02",
           title: "Preactivación",
-          body: "Semanas antes de la salida, el viajero sabe que el beneficio existe y que solo puede canjearse en la sala de embarque.",
+          body: "Semanas antes de la salida, el viajero sabe que el beneficio existe y que solo puede canjearse dentro de la terminal del aeropuerto — a la salida o a la llegada.",
         },
         {
           step: "03",
@@ -808,7 +808,7 @@ export const COPY = {
       ],
       cardTitle: (net) => `${net} netos, de viajeros que no habrían comprado nada.`,
       cardBody:
-        "La comparación no es con las ventas actuales del minorista — esas se mantienen exactamente igual. Es con el espacio vacío de la sala de embarque que el modelo convierte.",
+        "La comparación no es con las ventas actuales del minorista — esas se mantienen exactamente igual. Es con el espacio vacío de la terminal, a la salida y a la llegada, que el modelo convierte.",
       multiplierTitle: "Y el efecto multiplicador",
       multiplierBody:
         "La misma tienda, replicada en los grupos minoristas que ya operan en Punta Cana, Las Américas y La Isabela, es la forma en que una ilustración por tienda se convierte en una cifra nacional — sin una sola concesión nueva ni un metro cuadrado más de superficie comercial.",
@@ -858,7 +858,7 @@ export const COPY = {
       pillars: [
         {
           title: "Gasto retenido en suelo dominicano",
-          body: "Cada cesta canjeada en una sala de embarque es gasto capturado en el último momento del viaje, en lugar de irse con el viajero.",
+          body: "Cada cesta canjeada en la terminal es gasto capturado mientras el viajero está en suelo dominicano — a la salida o a la llegada — en lugar de irse con él.",
         },
         {
           title: "Un canal de ventas registrado digitalmente",
@@ -913,7 +913,7 @@ export const COPY = {
       closingTitle: (amount) =>
         `${amount} al año, en transacciones que de otro modo no habrían ocurrido.`,
       closingBody:
-        "El valor se crea en la sala de embarque, no se redistribuye entre quienes están en ella.",
+        "El valor se crea en la terminal, a la salida y a la llegada, no se redistribuye entre quienes están en ella.",
     },
     nextSteps: {
       eyebrow: "Próximos pasos",
