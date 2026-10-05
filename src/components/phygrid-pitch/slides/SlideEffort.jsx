@@ -57,7 +57,7 @@ export default function SlideEffort() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Integration Effort</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              What We'd Ask Phygrid <span className="text-blue-600">to Do</span>
+              What Needs to Be Done <span className="text-blue-600">for This to Work</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               A single API call — one request, one response. Not a platform migration, and no replacement of the
