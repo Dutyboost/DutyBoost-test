@@ -1,6 +1,5 @@
-import { Plane, TrendingUp, Users } from "lucide-react";
+import { Plane, Users, TrendingUp } from "lucide-react";
 import { ACCENT, RETAIL, SlideShell } from "./Shared";
-import ConcourseSplit from "./illustrations/ConcourseSplit";
 import { CARRIER_PER_DAY, MARKET, SOURCES, num } from "./figures";
 import { useDeckLang } from "./LanguageContext";
 
@@ -25,37 +24,13 @@ export default function SlideOpportunity() {
       }
       subtitle={c.subtitle}
     >
-      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-          <span className="text-sm font-semibold text-slate-700">{c.barTitle}</span>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-2 text-xs font-semibold text-blue-800">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: ACCENT }} />
-              {c.purchase}
-            </span>
-            <span className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-              <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-              {c.nonPurchase}
-            </span>
-          </div>
-        </div>
-
-        <ConcourseSplit purchaseShare={MARKET.purchaseShare} className="w-full h-auto" />
-
-        <p className="text-slate-500 text-sm mt-2 leading-relaxed">{c.barBody}</p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
         {STATS.map((s) => (
-          <div key={s.value} className="bg-white border border-slate-200 rounded-2xl px-4 py-3">
-            <div className="flex items-center gap-2">
-              <s.Icon className="w-5 h-5 shrink-0" style={{ color: ACCENT }} />
-              <span className="text-xl md:text-2xl font-bold text-[#0a0f1e] leading-none">
-                {s.value}
-              </span>
-            </div>
-            <p className="text-slate-600 text-xs mt-2 leading-snug">{s.label}</p>
-            <p className="text-slate-400 text-[10px] mt-1.5">
+          <div key={s.value} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+            <s.Icon className="w-7 h-7 mb-3" style={{ color: ACCENT }} />
+            <div className="text-2xl md:text-3xl font-bold text-[#0a0f1e]">{s.value}</div>
+            <p className="text-slate-600 text-sm mt-2 leading-relaxed">{s.label}</p>
+            <p className="text-slate-400 text-xs mt-3">
               {s.source ? (
                 <a
                   href={s.source}
@@ -73,9 +48,28 @@ export default function SlideOpportunity() {
         ))}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 bg-blue-50 border border-blue-200 rounded-2xl px-4 py-3">
-        <span className="font-bold text-blue-900 text-sm">{c.missingTitle}</span>
-        <span className="text-slate-600 text-sm">{c.missingBody2}</span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+          <div className="flex items-center justify-between text-sm font-semibold mb-2">
+            <span className="text-slate-700">{c.barTitle}</span>
+            <span className="text-slate-400">{c.barNote}</span>
+          </div>
+          <div className="flex h-7 rounded-full overflow-hidden">
+            <div className="bg-green-500" style={{ width: `${MARKET.purchaseShare * 100}%` }} />
+            <div className="bg-slate-300" style={{ width: `${MARKET.nonPurchaseShare * 100}%` }} />
+          </div>
+          <div className="flex justify-between text-xs mt-2">
+            <span className="text-green-700 font-semibold">{c.purchase}</span>
+            <span className="text-slate-500 font-semibold">{c.nonPurchase}</span>
+          </div>
+          <p className="text-slate-500 text-sm mt-3 leading-relaxed">{c.barBody}</p>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+          <h3 className="font-bold text-blue-900 mb-2">{c.missingTitle}</h3>
+          <p className="text-slate-600 text-sm leading-relaxed">{c.missingBody}</p>
+          <p className="text-slate-500 text-sm mt-3 leading-relaxed">{c.missingBody2}</p>
+        </div>
       </div>
 
       <p className="text-slate-400 text-xs mt-3">{c.footnote}</p>
