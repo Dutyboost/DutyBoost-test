@@ -49,7 +49,7 @@ export default function RetailerCalculator() {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
         {FIELDS.map((field) => (
           <label key={field.key} className="block">
-            <span className="block text-[11px] font-semibold text-green-900/70 mb-1 leading-tight">
+            <span className="block text-[11px] font-semibold text-green-900/70 mb-1 leading-tight min-h-[1.8rem]">
               {field.label}
             </span>
             <span className="relative block">
