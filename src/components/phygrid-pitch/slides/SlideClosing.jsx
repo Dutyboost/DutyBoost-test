@@ -14,7 +14,7 @@ const CARDS = [
   {
     Icon: Cpu,
     title: "One Integration",
-    desc: "One integration on the POS side — retailers then flip the DutyBoost switch on in their own POS dashboard. Seamless for them.",
+    desc: "One integration on the POS side — retailers then flip the DutyBoost switch on in their own POS dashboard.",
   },
   {
     Icon: TrendingUp,
