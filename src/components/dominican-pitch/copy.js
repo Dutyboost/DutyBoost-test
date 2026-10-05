@@ -601,6 +601,8 @@ export const COPY = {
           "Revenue is created only when a qualifying transaction is validated through the Enterprise POS of the Retailer.",
         tiersTitle: "The DutyCredit Tier Structure",
         tierHeaders: ["Tier", "Basket", "Discount", "Traveller Saves"],
+        tiersNote: (basketCap, discountCap) =>
+          `Qualifying spend is capped at ${basketCap} and the traveller discount at ${discountCap} — spend above the cap stays with the retailer.`,
         feeTitle: "The 2.5% Platform Fee — Your Only Cost",
         feeBody:
           "A single 2.5% fee on DutyBoost-validated transactions only — never on your existing sales.",
@@ -1426,6 +1428,8 @@ export const COPY = {
           "Los ingresos se crean solo cuando se valida una transacción computable a través del POS empresarial del minorista.",
         tiersTitle: "La estructura de niveles del DutyCredit",
         tierHeaders: ["Nivel", "Cesta", "Descuento", "Ahorra el pasajero"],
+        tiersNote: (basketCap, discountCap) =>
+          `El gasto computable tiene un tope de ${basketCap} y el descuento al pasajero de ${discountCap} — lo que supera el tope se queda en el minorista.`,
         feeTitle: "La comisión del 2.5% — su único coste",
         feeBody:
           "Una única comisión del 2.5% solo sobre transacciones validadas por DutyBoost — nunca sobre sus ventas existentes.",
