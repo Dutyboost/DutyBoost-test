@@ -13,8 +13,8 @@ import {
 const CARDS = [
   {
     Icon: Cpu,
-    title: "One Activation",
-    desc: "Flip the DutyBoost switch in your POS dashboard — no integration programme required.",
+    title: "One Integration",
+    desc: "One integration on the POS side — retailers then flip the DutyBoost switch on in their own POS dashboard. Seamless for them.",
   },
   {
     Icon: TrendingUp,
