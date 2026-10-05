@@ -472,7 +472,7 @@ export const COPY = {
           { title: "Flight Booking", desc: "DutyCredit distributed with airline confirmation" },
           { title: "Hotel / OTA", desc: "DutyCredit distributed with booking confirmation" },
           { title: "Car Rental", desc: "DutyCredit distributed with rental confirmation" },
-          { title: "Corporate Travel", desc: "DutyCredit embedded in T&E and corporate booking flows" },
+          { title: "Corporate Travel Platforms", desc: "DutyCredit distributed through corporate booking platforms such as SAP Concur and TravelPerk" },
         ],
         steps: [
           "Partners distribute DutyCredit",
@@ -1266,7 +1266,7 @@ export const COPY = {
           { title: "Reserva de vuelo", desc: "DutyCredit distribuido con la confirmación de la aerolínea" },
           { title: "Hotel / OTA", desc: "DutyCredit distribuido con la confirmación de la reserva" },
           { title: "Alquiler de coches", desc: "DutyCredit distribuido con la confirmación del alquiler" },
-          { title: "Viaje corporativo", desc: "DutyCredit integrado en los flujos de gastos y reservas corporativas" },
+          { title: "Plataformas de viaje corporativo", desc: "DutyCredit distribuido a través de plataformas de reserva corporativa como SAP Concur y TravelPerk" },
         ],
         steps: [
           "Los socios distribuyen el DutyCredit",
