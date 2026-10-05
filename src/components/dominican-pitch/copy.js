@@ -230,11 +230,18 @@ export const COPY = {
       titleAccent: "Zero Upfront Cost",
       subtitle: (basketCap, discountCap) =>
         `The same model in every market DutyBoost operates, with no market-specific levy. Qualifying spend is capped at ${basketCap} and the traveller discount at ${discountCap}.`,
-      terms: [
-        { value: "2%", label: "Pre-activation", note: "of carried passengers, as the modelled default" },
-        { value: "30%", label: "Redemption", note: "of pre-activated travellers redeem a basket" },
-        { value: "2.5%", label: "Platform fee", note: "paid by the retailer, on validated sales only" },
-        { value: "0.5%", label: "Carrier share", note: "returned to the carrier on the same sale" },
+      tiersTitle: "The DutyCredit Tier Structure",
+      tierHeaders: { tier: "Tier", basket: "Basket", discount: "Discount", saves: "Traveller saves" },
+      tiersNote: (basketCap, discountCap) =>
+        `Qualifying spend is capped at ${basketCap} and the traveller discount at ${discountCap} — spend above the cap stays with the retailer.`,
+      feeTitle: (feePct) => `The ${feePct}% Platform Fee — Your Only Cost`,
+      feeBody: (feePct, keepPct) =>
+        `A single ${feePct}% fee on DutyBoost-validated transactions only — never on the retailer's existing sales. At the Entry tier the retailer keeps ${keepPct}% of every qualifying sale.`,
+      feePoints: [
+        "Applied only when a DutyCredit redemption is validated at the POS",
+        "No impact on shelf prices or on sales outside the programme",
+        "Attributed and reported per transaction, automatically",
+        "No setup, subscription or integration fees — ever",
       ],
       darkBody:
         "There is no fee for the airport, no fee for the carrier, no fee for the traveller and no fee for the retailer — the whole model is funded from the incremental margin on transactions that would not otherwise have taken place.",
@@ -293,6 +300,9 @@ export const COPY = {
       netCostLabel: "Net cost to the airport retailer",
       netCostBody: (feePct) =>
         `of a validated sale — nothing on the 78% of travellers who do not buy, and nothing at all until the transaction happens. There is no licence, no subscription and no integration fee.`,
+      acqTitle: "Customer acquisition cost happens after the sale — not before.",
+      acqBody:
+        "The retailer spends nothing to acquire the traveller: each DutyCredit redemption is validated at the POS and settled only once the sale is made, so every transaction is traceable and attributable.",
       bullets: [
         "The retailer keeps the balance of the sale, above the cap",
         "The carrier earns on every validated sale it pre-activated",
@@ -705,11 +715,18 @@ export const COPY = {
       titleAccent: "coste inicial cero",
       subtitle: (basketCap, discountCap) =>
         `El mismo modelo en todos los mercados donde opera DutyBoost, sin tasas específicas por país. El gasto computable tiene un tope de ${basketCap} y el descuento al viajero de ${discountCap}.`,
-      terms: [
-        { value: "2%", label: "Preactivación", note: "de los pasajeros transportados, como valor modelado por defecto" },
-        { value: "30%", label: "Canje", note: "de los viajeros preactivados canjea una cesta" },
-        { value: "2.5%", label: "Comisión de plataforma", note: "la paga el minorista, solo sobre ventas validadas" },
-        { value: "0.5%", label: "Parte de la aerolínea", note: "se le devuelve sobre esa misma venta" },
+      tiersTitle: "La estructura de niveles del DutyCredit",
+      tierHeaders: { tier: "Nivel", basket: "Cesta", discount: "Descuento", saves: "Ahorra el viajero" },
+      tiersNote: (basketCap, discountCap) =>
+        `El gasto computable tiene un tope de ${basketCap} y el descuento al viajero de ${discountCap} — lo que supera el tope se queda en el minorista.`,
+      feeTitle: (feePct) => `La comisión del ${feePct}% — su único coste`,
+      feeBody: (feePct, keepPct) =>
+        `Una única comisión del ${feePct}% solo sobre transacciones validadas por DutyBoost — nunca sobre las ventas existentes del minorista. En el nivel Entry, el minorista se queda con el ${keepPct}% de cada venta computable.`,
+      feePoints: [
+        "Se aplica solo cuando se valida un canje de DutyCredit en el POS",
+        "Sin impacto en los precios de estantería ni en las ventas ajenas al programa",
+        "Atribuida y reportada por transacción, automáticamente",
+        "Sin cuotas de alta, suscripción ni integración — nunca",
       ],
       darkBody:
         "No hay comisión para el aeropuerto, ni para la aerolínea, ni para el viajero, ni para el minorista — todo el modelo se financia con el margen incremental de transacciones que de otro modo no habrían ocurrido.",
@@ -768,6 +785,9 @@ export const COPY = {
       netCostLabel: "Coste neto para el minorista aeroportuario",
       netCostBody: () =>
         "de una venta validada — nada sobre el 78% de viajeros que no compra, y nada en absoluto hasta que ocurre la transacción. Sin licencia, sin suscripción y sin coste de integración.",
+      acqTitle: "El coste de adquisición ocurre después de la venta — no antes.",
+      acqBody:
+        "El minorista no gasta nada en captar al viajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es trazable y atribuible.",
       bullets: [
         "El minorista se queda con el resto de la venta, por encima del tope",
         "La aerolínea gana en cada venta validada que preactivó",

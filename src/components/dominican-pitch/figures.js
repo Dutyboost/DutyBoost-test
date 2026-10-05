@@ -97,3 +97,14 @@ export const numShort = (n) =>
       : `${Math.round(n)}`;
 
 export const num = (n) => Math.round(n).toLocaleString("en-US");
+
+// The tier table as shown on the model slide — built from TIERS so the table and
+// the calculator can never disagree.
+export const TIER_ROWS = TIERS.map((t) => ({
+  tier: t.tier,
+  range: t.max ? `$${t.min}–$${t.max}` : `$${t.min}+`,
+  disc: t.max ? `${t.discMin * 100}%–${t.discMax * 100}%` : `${t.discMin * 100}% capped`,
+  save: t.max
+    ? `${usd2(t.min * t.discMin)}–${usd2(Math.min(t.max * t.discMax, DISCOUNT_CAP))}`
+    : `Up to ${usd2(DISCOUNT_CAP)}`,
+}));

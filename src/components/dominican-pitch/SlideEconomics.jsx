@@ -187,6 +187,12 @@ export default function SlideEconomics() {
           </div>
         </div>
       </div>
+
+      <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+        <p className="text-slate-700 text-sm leading-relaxed">
+          <span className="font-bold">{c.acqTitle}</span> {c.acqBody}
+        </p>
+      </div>
     </SlideShell>
   );
 }

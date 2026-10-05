@@ -25,7 +25,7 @@ export default function SlideNetwork() {
       subtitle={c.subtitle(num(CARRIER_PER_DAY))}
     >
       <div
-        className="rounded-2xl p-6 text-white text-center mb-4 max-w-3xl mx-auto"
+        className="rounded-2xl p-6 text-white text-center mb-4 max-w-3xl mx-auto ring-2 ring-offset-2 ring-[#002d62]"
         style={{ background: `linear-gradient(135deg, ${RETAIL} 0%, ${AIRLINE} 100%)` }}
       >
         <div className="text-xs font-semibold uppercase tracking-widest opacity-80 mb-2">
