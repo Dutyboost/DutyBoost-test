@@ -499,9 +499,9 @@ export const COPY = {
         subtitle: "DutyBoost doesn't need to create the market. It connects what already exists — the 11.6M visitors of 2025 cross the country's terminals twice.",
         kpis: [
           { value: "18.4M", label: "Passenger movements a year", sub: "Punta Cana, Las Américas and Santiago — arrivals and departures. 11.6M visitors in 2025, 8.9M by air", color: "#952d8b" },
-          { value: "3", label: "Airports served", sub: "PUJ, SDQ and STI — the country's major gateways", color: "#3b82f6" },
-          { value: "$2.72B", label: "Caribbean DF&TR market", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "13.4M", label: "Non-purchasing movements a year", sub: "73% of passengers, at the Caribbean benchmark", color: "#16a34a" },
+          { value: "$2.72B", label: "Caribbean DF&TR market", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9" },
+          { value: "$680M", label: "Dominican Republic share of that market", sub: "±25% — the country's share of Caribbean stayover arrivals: 8.9M air arrivals of 35M", color: "#3b82f6" },
         ],
         categoriesTitle: "Caribbean DF&TR — Category Mix",
         categoriesNote:
@@ -1293,9 +1293,9 @@ export const COPY = {
         subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe — los 11.6M de visitantes de 2025 cruzan las terminales del país dos veces.",
         kpis: [
           { value: "18.4M", label: "Movimientos de pasajeros al año", sub: "Punta Cana, Las Américas y Santiago — llegadas y salidas. 11.6M de visitantes en 2025, 8.9M por vía aérea", color: "#952d8b" },
-          { value: "3", label: "Aeropuertos", sub: "PUJ, SDQ y STI — las principales puertas del país", color: "#3b82f6" },
-          { value: "$2.72B", label: "Mercado duty free y travel retail del Caribe", sub: "CAGR del 21.7% 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "13.4M", label: "Movimientos sin compra al año", sub: "El 73% de los pasajeros, según la referencia del Caribe", color: "#16a34a" },
+          { value: "$2.72B", label: "Mercado duty free y travel retail del Caribe", sub: "CAGR del 21.7% 2026-2033 (CMI)", color: "#6d28d9" },
+          { value: "$680M", label: "Cuota de la República Dominicana en ese mercado", sub: "±25% — la cuota del país en las llegadas de estancia del Caribe: 8.9M de llegadas aéreas de 35M", color: "#3b82f6" },
         ],
         categoriesTitle: "Duty free y travel retail del Caribe — mezcla de categorías",
         categoriesNote:
