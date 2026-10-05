@@ -335,7 +335,7 @@ export const COPY = {
       title: "Incremental Volume,",
       titleAccent: "Not a Discount on Existing Sales",
       subtitle:
-        "A single mid-sized store inside one Dominican gateway, at the standard model assumptions: 250,000 travellers through the door a year, a 2% pre-activation rate, 30% redemption and a $135 blended basket.",
+        "A single mid-sized store inside one Dominican gateway, at the standard model assumptions: 250,000 travellers through the door a year, a 2% pre-activation rate, 30% redemption and a $35 blended basket.",
       kpis: [
         { label: "incremental baskets a year, in one store" },
         { label: "incremental retail value a year" },
@@ -364,7 +364,7 @@ export const COPY = {
       title: "Ancillary Revenue",
       titleAccent: "on Passengers Already Booked",
       subtitle:
-        "Each carrier is modelled on its own 2025 Dominican traffic, at the standard 2% pre-activation, 30% redemption and $135 blended basket. The share credited is 0.5% of each validated sale.",
+        "Each carrier is modelled on its own 2025 Dominican traffic, at the standard 2% pre-activation, 30% redemption and $35 blended basket. The share credited is 0.5% of each validated sale.",
       headers: {
         carrier: "Carrier",
         passengers: "2025 passengers to/from the DR",
@@ -841,7 +841,7 @@ export const COPY = {
       title: "Volumen incremental,",
       titleAccent: "no un descuento sobre las ventas actuales",
       subtitle:
-        "Una sola tienda mediana dentro de una puerta dominicana, con las hipótesis estándar del modelo: 250,000 viajeros al año por la puerta, una preactivación del 2%, un canje del 30% y una cesta media de $135.",
+        "Una sola tienda mediana dentro de una puerta dominicana, con las hipótesis estándar del modelo: 250,000 viajeros al año por la puerta, una preactivación del 2%, un canje del 30% y una cesta media de $35.",
       kpis: [
         { label: "cestas incrementales al año, en una sola tienda" },
         { label: "valor minorista incremental al año" },
@@ -870,7 +870,7 @@ export const COPY = {
       title: "Ingresos complementarios",
       titleAccent: "sobre pasajeros ya reservados",
       subtitle:
-        "Cada aerolínea se modela con su propio tráfico dominicano de 2025, con la preactivación estándar del 2%, un canje del 30% y una cesta media de $135. La parte abonada es el 0.5% de cada venta validada.",
+        "Cada aerolínea se modela con su propio tráfico dominicano de 2025, con la preactivación estándar del 2%, un canje del 30% y una cesta media de $35. La parte abonada es el 0.5% de cada venta validada.",
       headers: {
         carrier: "Aerolínea",
         passengers: "Pasajeros 2025 hacia/desde RD",

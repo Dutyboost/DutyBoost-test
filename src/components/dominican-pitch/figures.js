@@ -45,7 +45,7 @@ export const MARKET = {
 export const MODEL = {
   activation: 0.02, // share of passengers pre-activated with a DutyCredit
   redemption: 0.3, // share of pre-activated travellers who redeem
-  basket: 135, // blended basket across the tier mix (USD)
+  basket: 35, // blended basket across the tier mix (USD)
   platformFee: 0.025, // paid by the retailer on validated transactions
   partnerRebate: 0.2, // share of the platform fee returned to the carrier
 };
@@ -76,7 +76,7 @@ export const discountFor = (basket) => {
 };
 
 // Per-store illustration for a store inside one of the three gateways.
-export const PER_STORE = { travellers: 250000, activation: 0.02, redemption: 0.3, basket: 135 };
+export const PER_STORE = { travellers: 250000, activation: 0.02, redemption: 0.3, basket: 35 };
 
 export const usd = (n) => `$${Math.round(n).toLocaleString("en-US")}`;
 
