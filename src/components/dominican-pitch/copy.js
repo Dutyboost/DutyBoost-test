@@ -657,7 +657,7 @@ export const COPY = {
           "Tier mix calibrated to the published average transaction value of $70–$140 in travel retail (market.us, Travel Retail Market 2026); average retail spend per passenger of €10.55 in 2025 (ETRC) and $15.50 in 2024, down from $24.30 in 2020 (Kearney, Travel Retail 2025); ±70% of airport retail purchases are impulse-driven (ACI Asia-Pacific); 27% Caribbean purchase rate — the conversion headroom the programme targets (m1nd-set). Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data.",
       },
       revenueCalculator: {
-        title: "Your Incremental Revenue Potential, Per Day",
+        title: "Incremental Revenue Potential, Per Day",
         hint: "Enter your own figures — the model recalculates",
         fields: {
           stores: "Stores you operate in the Dominican Republic",
@@ -1484,7 +1484,7 @@ export const COPY = {
           "Mezcla de niveles calibrada con el valor medio de transacción publicado de $70–$140 en travel retail (market.us, Travel Retail Market 2026); gasto medio por pasajero de €10.55 en 2025 (ETRC) y $15.50 en 2024, frente a $24.30 en 2020 (Kearney, Travel Retail 2025); ±70% de las compras en aeropuertos son por impulso (ACI Asia-Pacific); 27% de tasa de compra en el Caribe — el margen de conversión que persigue el programa (m1nd-set). La mezcla de niveles es ilustrativa de una distribución de cestas de 2025 y puede sustituirse por sus propios datos de POS.",
       },
       revenueCalculator: {
-        title: "Su potencial de ingresos incrementales, por día",
+        title: "Potencial de ingresos incrementales, por día",
         hint: "Introduzca sus propias cifras — el modelo se recalcula",
         fields: {
           stores: "Tiendas que opera en la República Dominicana",
