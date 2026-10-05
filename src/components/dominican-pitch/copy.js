@@ -32,7 +32,7 @@ export const COPY = {
       title: "The Dominican Republic.",
       titleAccent: "Three Gateways. One Ecosystem.",
       subtitle:
-        "A presentation for the Embassy of the Dominican Republic to the Dutch Kingdom — on behalf of the country's airport retailers, its carriers and its travelling public.",
+        "For the Embassy of the Dominican Republic to the Dutch Kingdom — on behalf of the country's airport retailers, its carriers and its travelling public.",
       parties: { retailers: "Retailers", airlines: "Airlines", government: "Government" },
       stats: {
         gateways: "Gateway airports",
@@ -46,21 +46,18 @@ export const COPY = {
       title: "The Caribbean's Busiest Air Market —",
       titleAccent: "and Its Largest Conversion Gap",
       subtitle:
-        "The Dominican Republic already moves more international passengers than any of its neighbours. What it does not yet do is convert them, at the point of departure and on arrival, into retail spend.",
+        "More international passengers than any of its neighbours. The traffic is already inside the terminal — the purchase is not.",
       stats: [
         {
-          label:
-            "passengers through Dominican international airports in 2025, arrivals and departures",
+          label: "passengers a year through Dominican airports",
           sourceLabel: "Dominican airport operators, 2025",
         },
         {
-          label:
-            "passengers a day carried by the six Dominican and Caribbean carriers we can measure",
+          label: "carrier passengers a day, to and from the DR",
           sourceLabel: "Carrier traffic to and from the DR, 2025",
         },
         {
-          label:
-            "passenger growth at Punta Cana in 2025 — the fastest-growing major gateway in the region",
+          label: "passenger growth at Punta Cana in 2025",
           sourceLabel: "Punta Cana International Airport",
         },
       ],
@@ -69,12 +66,9 @@ export const COPY = {
       purchase: "22% purchase",
       nonPurchase: "78% leave without buying",
       barBody:
-        "Across the three gateways that is roughly 16 million passenger movements a year, of which the large majority passes through the retail concourse without a single transaction.",
+        "Across the three gateways: ±16 million passenger movements a year, and a concourse the large majority walks through without a single transaction.",
       missingTitle: "The missing step is not retail space",
-      missingBody:
-        "The Dominican Republic has the terminals, the concessionaires, the brands and the traffic. What it lacks is a reason for a traveller to arrive at the airport already intending to buy — the step DutyBoost supplies by pre-activating travellers before they fly, through the carriers that already carry them.",
-      missingBody2:
-        "No new terminals, no new concessions, no public spending. The same travellers, given a reason to shop, at the moment they are already in the building.",
+      missingBody2: "No new terminals, no new concessions, no public spending.",
       footnote:
         "Carrier figures are 2025 passenger numbers to and from the Dominican Republic: 1,279,906 (Arajet), 150,000+ (SKYhigh Dominicana), 50,000+ (Air Century), ±28,237 (RED Air) and under 10,000 (Panorama Jets). Sunrise Airways Dominicana publishes no full-year 2025 figure.",
     },
@@ -513,7 +507,7 @@ export const COPY = {
       title: "República Dominicana.",
       titleAccent: "Tres puertas. Un ecosistema.",
       subtitle:
-        "Una presentación para la Embajada de la República Dominicana ante el Reino de los Países Bajos — en nombre de los minoristas aeroportuarios, las aerolíneas y los viajeros del país.",
+        "Para la Embajada de la República Dominicana ante el Reino de los Países Bajos — en nombre de los minoristas aeroportuarios, las aerolíneas y los viajeros del país.",
       parties: { retailers: "Minoristas", airlines: "Aerolíneas", government: "Gobierno" },
       stats: {
         gateways: "Aeropuertos principales",
@@ -527,21 +521,18 @@ export const COPY = {
       title: "El mercado aéreo más activo del Caribe —",
       titleAccent: "y su mayor brecha de conversión",
       subtitle:
-        "La República Dominicana ya mueve más pasajeros internacionales que cualquiera de sus vecinos. Lo que aún no hace es convertirlos, en el punto de salida y de llegada, en gasto minorista.",
+        "Más pasajeros internacionales que cualquiera de sus vecinos. El tráfico ya está dentro de la terminal — la compra, no.",
       stats: [
         {
-          label:
-            "pasajeros por los aeropuertos internacionales dominicanos en 2025, llegadas y salidas",
+          label: "pasajeros al año por los aeropuertos dominicanos",
           sourceLabel: "Operadores aeroportuarios dominicanos, 2025",
         },
         {
-          label:
-            "pasajeros al día transportados por las seis aerolíneas dominicanas y caribeñas que podemos medir",
+          label: "pasajeros de aerolíneas al día, hacia y desde RD",
           sourceLabel: "Tráfico de aerolíneas hacia y desde RD, 2025",
         },
         {
-          label:
-            "crecimiento de pasajeros en Punta Cana en 2025 — la puerta principal de más rápido crecimiento de la región",
+          label: "crecimiento de pasajeros en Punta Cana en 2025",
           sourceLabel: "Aeropuerto Internacional de Punta Cana",
         },
       ],
@@ -550,12 +541,9 @@ export const COPY = {
       purchase: "22% compra",
       nonPurchase: "78% se va sin comprar",
       barBody:
-        "En las tres puertas eso equivale a unos 16 millones de movimientos de pasajeros al año, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
+        "En las tres puertas: ±16 millones de movimientos de pasajeros al año, y una zona comercial que la gran mayoría atraviesa sin una sola transacción.",
       missingTitle: "Lo que falta no es espacio comercial",
-      missingBody:
-        "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el viajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los viajeros antes de volar, a través de las aerolíneas que ya los transportan.",
-      missingBody2:
-        "Sin nuevas terminales, sin nuevas concesiones y sin gasto público. Los mismos viajeros, con un motivo para comprar, en el momento en que ya están en el edificio.",
+      missingBody2: "Sin nuevas terminales, sin nuevas concesiones y sin gasto público.",
       footnote:
         "Las cifras de las aerolíneas corresponden a pasajeros de 2025 hacia y desde la República Dominicana: 1,279,906 (Arajet), 150,000+ (SKYhigh Dominicana), 50,000+ (Air Century), ±28,237 (RED Air) y menos de 10,000 (Panorama Jets). Sunrise Airways Dominicana no publica una cifra anual completa de 2025.",
     },
