@@ -1,10 +1,10 @@
 // Shared look and feel for the Dominican Republic × DutyBoost deck.
-// The Dominican flag carries the deck chrome — blue for retail, red for the
-// carriers — with a third colour for the public-interest story.
+// The Dominican flag carries the deck chrome — blue for retail, red as the
+// second flag colour — with a third colour for the public-interest story.
 
 export const ACCENT = "#952d8b"; // deck chrome — Trinidad deck accent
 export const RETAIL = "#002d62"; // Dominican flag blue — airport retailers
-export const AIRLINE = "#ce1126"; // Dominican flag red — carriers
+export const AIRLINE = "#ce1126"; // Dominican flag red — second deck colour
 export const GOV = "#0f766e"; // Dominican Government
 export const POS = "#b45309"; // POS integration
 

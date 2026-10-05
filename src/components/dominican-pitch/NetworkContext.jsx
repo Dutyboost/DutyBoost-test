@@ -48,7 +48,6 @@ export function computeNetwork(inputs) {
     baskets: passengersDay * activation * redemption,
     gross: passengersDay * activation * redemption * basket,
     fee: passengersDay * activation * redemption * basket * MODEL.platformFee,
-    rebate: passengersDay * activation * redemption * basket * MODEL.platformFee * MODEL.partnerRebate,
   };
   day.travellerSaving = day.gross * discount;
   day.retailerNet = day.gross - day.travellerSaving - day.fee;
@@ -57,7 +56,6 @@ export function computeNetwork(inputs) {
   Object.keys(day).forEach((k) => {
     year[k] = day[k] * 365;
   });
-  year.groupNet = year.retailerNet + year.rebate;
 
   return { passengersDay, activation, redemption, basket, discount, day, year };
 }
@@ -71,19 +69,7 @@ export function atActivation(inputs, rate) {
   const baskets = passengers * rate * redemption;
   const gross = baskets * basket;
   const fee = gross * MODEL.platformFee;
-  const rebate = fee * MODEL.partnerRebate;
   const retailerNet = gross - gross * discountFor(basket) - fee;
 
-  return { baskets, gross, fee, rebate, retailerNet, groupNet: retailerNet + rebate };
-}
-
-// Annual carrier-side earnings at a given traffic level — used on the airlines
-// slide, where each carrier is modelled on its own passenger numbers.
-export function carrierEarnings(passengers, inputs) {
-  if (!passengers) return null;
-  const redemption = readInput(inputs, "redemption", DEFAULT_REDEMPTION) / 100;
-  const basket = readInput(inputs, "basket", DEFAULT_BASKET);
-  const baskets = passengers * MODEL.activation * redemption;
-  const gross = baskets * basket;
-  return { baskets, gross, rebate: gross * MODEL.platformFee * MODEL.partnerRebate };
+  return { baskets, gross, fee, retailerNet };
 }

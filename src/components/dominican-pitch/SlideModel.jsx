@@ -78,11 +78,7 @@ export default function SlideModel() {
       </div>
 
       <p className="text-slate-400 text-xs mt-3">
-        {c.footnote(
-          Math.round(MODEL.platformFee * 1000) / 10,
-          Math.round(MODEL.partnerRebate * 100),
-          Math.round(MODEL.partnerRebate * MODEL.platformFee * 1000) / 10
-        )}
+        {c.footnote(Math.round(MODEL.platformFee * 1000) / 10)}
       </p>
     </SlideShell>
   );

@@ -1,10 +1,9 @@
-import { BarChart3, Plane, Store, Check, User } from "lucide-react";
-import { AIRLINE, RETAIL, SlideShell } from "./Shared";
+import { BarChart3, Store, Check, User } from "lucide-react";
+import { ACCENT, AIRLINE, RETAIL, SlideShell } from "./Shared";
 import {
   MODEL,
   BASKET_CAP,
   DISCOUNT_CAP,
-  NET_PLATFORM_RATE,
   tierFor,
   discountFor,
   usd,
@@ -33,11 +32,9 @@ export default function SlideEconomics() {
 
   const travellerSaves = Math.min(round2(qualifying * discount), DISCOUNT_CAP);
   const fee = round2(qualifying * MODEL.platformFee);
-  const carrierShare = round2(fee * MODEL.partnerRebate);
   const retailerKeeps = round2(qualifying - travellerSaves - fee);
 
   const feePct = Math.round(MODEL.platformFee * 1000) / 10;
-  const netPct = Math.round(NET_PLATFORM_RATE * 1000) / 10;
 
   const PARTIES = [
     {
@@ -75,23 +72,12 @@ export default function SlideEconomics() {
       text: "text-orange-600",
       color: "bg-orange-500",
     },
-    {
-      party: c.parties.carrier,
-      Icon: Plane,
-      value: usd2(carrierShare),
-      raw: carrierShare,
-      sub: c.subs.carrierShare(Math.round(MODEL.partnerRebate * 100)),
-      bg: "bg-red-50",
-      border: "border-red-200",
-      text: "text-red-700",
-      color: "bg-red-600",
-    },
   ];
 
   const BULLETS = [
     { Icon: Store, color: RETAIL, text: c.bullets[0] },
-    { Icon: Plane, color: AIRLINE, text: c.bullets[1] },
-    { Icon: Check, color: "#16a34a", text: c.bullets[2](netPct) },
+    { Icon: Check, color: "#16a34a", text: c.bullets[1] },
+    { Icon: BarChart3, color: ACCENT, text: c.bullets[2](feePct) },
   ];
 
   return (
@@ -105,7 +91,7 @@ export default function SlideEconomics() {
       }
       subtitle={c.subtitle(usd(BASKET_CAP))}
     >
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
         {PARTIES.map((p) => (
           <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
             <p.Icon className={`w-8 h-8 mx-auto mb-2 ${p.text}`} />
@@ -139,20 +125,6 @@ export default function SlideEconomics() {
                 </span>
               </div>
             ))}
-          </div>
-
-          <div className="mt-4 rounded-xl px-4 py-3" style={{ background: `${AIRLINE}14` }}>
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-sm font-semibold" style={{ color: AIRLINE }}>
-                {c.carrierEarned}
-              </span>
-              <span className="font-bold text-lg" style={{ color: AIRLINE }}>
-                {usd2(carrierShare)}
-              </span>
-            </div>
-            <p className="text-slate-600 text-xs mt-1 leading-snug">
-              {c.carrierNote(usd2(fee), usd2(carrierShare), feePct)}
-            </p>
           </div>
 
           {aboveCap > 0 && (

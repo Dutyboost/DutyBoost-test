@@ -3,13 +3,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import SlideCover from "@/components/dominican-pitch/SlideCover";
 import SlideTeam from "@/components/dominican-pitch/SlideTeam";
 import SlideOpportunity from "@/components/dominican-pitch/SlideOpportunity";
-import SlideAirlines from "@/components/dominican-pitch/SlideAirlines";
 import SlideGap from "@/components/dominican-pitch/SlideGap";
 import SlideHowItWorks from "@/components/dominican-pitch/SlideHowItWorks";
 import SlideModel from "@/components/dominican-pitch/SlideModel";
 import SlideEconomics from "@/components/dominican-pitch/SlideEconomics";
 import SlideRetailers from "@/components/dominican-pitch/SlideRetailers";
-import SlideAirlinesValue from "@/components/dominican-pitch/SlideAirlinesValue";
 import SlideGovernment from "@/components/dominican-pitch/SlideGovernment";
 import SlideNetwork from "@/components/dominican-pitch/SlideNetwork";
 import SlideNextSteps from "@/components/dominican-pitch/SlideNextSteps";
@@ -24,13 +22,11 @@ const SLIDES = [
   { id: "cover", type: "cover" },
   { id: "team", type: "team" },
   { id: "opportunity", type: "opportunity" },
-  { id: "airlines", type: "airlines" },
   { id: "gap", type: "gap" },
   { id: "how", type: "how" },
   { id: "model", type: "model" },
   { id: "economics", type: "economics" },
   { id: "retailers", type: "retailers" },
-  { id: "airlinesValue", type: "airlinesValue" },
   { id: "government", type: "government" },
   { id: "network", type: "network" },
   { id: "nextSteps", type: "nextSteps" },
@@ -41,13 +37,11 @@ const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
   opportunity: SlideOpportunity,
-  airlines: SlideAirlines,
   gap: SlideGap,
   how: SlideHowItWorks,
   model: SlideModel,
   economics: SlideEconomics,
   retailers: SlideRetailers,
-  airlinesValue: SlideAirlinesValue,
   government: SlideGovernment,
   network: SlideNetwork,
   nextSteps: SlideNextSteps,

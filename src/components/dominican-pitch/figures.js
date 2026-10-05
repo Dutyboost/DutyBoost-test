@@ -15,20 +15,6 @@ export const AIRPORTS = [
   { code: "JBQ", name: "La Isabela International", city: "Santo Domingo", passengers: "42K" },
 ];
 
-// Carriers flying to and from the Dominican Republic in 2025.
-export const AIRLINES = [
-  { name: "Arajet", passengers: 1279906 },
-  { name: "SKYhigh Dominicana", passengers: 150000, plus: true },
-  { name: "Air Century", passengers: 50000, plus: true },
-  { name: "RED Air", passengers: 28237, approx: true },
-  { name: "Panorama Jets", passengers: 10000, under: true },
-  { name: "Sunrise Airways Dominicana", passengers: null },
-];
-
-// Measurable carrier traffic to and from the DR in 2025.
-export const CARRIER_PASSENGERS = 1518143;
-export const CARRIERS_MEASURED = 5;
-
 // The country's major airports — the market the whole deck is modelled on.
 // PUJ ±11.0M + SDQ ±5.2M + STI ±2.2M in 2025 = ±18.4M passenger movements a year.
 export const AIRPORT_PER_DAY = 50400;
@@ -47,13 +33,10 @@ export const MODEL = {
   redemption: 0.3, // share of pre-activated travellers who redeem
   basket: 35, // blended basket across the tier mix (USD)
   platformFee: 0.025, // paid by the retailer on validated transactions
-  partnerRebate: 0.2, // share of the platform fee returned to the carrier
 };
 
 export const BASKET_CAP = 1000;
 export const DISCOUNT_CAP = 60;
-export const PARTNER_RATE = MODEL.platformFee * MODEL.partnerRebate;
-export const NET_PLATFORM_RATE = MODEL.platformFee - PARTNER_RATE;
 
 export const TIERS = [
   { tier: "Entry", min: 23, max: 56, discMin: 0.05, discMax: 0.075 },

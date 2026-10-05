@@ -34,7 +34,6 @@ export default function NetworkCalculator() {
   const gross = baskets * basket;
   const saving = gross * discountFor(basket);
   const fee = gross * MODEL.platformFee;
-  const rebate = fee * MODEL.partnerRebate;
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
@@ -43,9 +42,8 @@ export default function NetworkCalculator() {
     { label: c.rows.baskets(redemption), val: numShort(baskets) },
     { label: c.rows.gross, val: usdShort(gross), money: true },
     { label: c.rows.retailerNet, val: usdShort(retailerNet), money: true },
-    { label: c.rows.carrierShare, val: usd2(rebate), money: true },
     { label: c.rows.fee(Math.round(MODEL.platformFee * 1000) / 10), val: usd2(fee) },
-    { label: c.rows.combined, val: usdShort((retailerNet + rebate) * 365), money: true },
+    { label: c.rows.combined, val: usdShort(retailerNet * 365), money: true },
   ];
 
   return (
@@ -89,7 +87,7 @@ export default function NetworkCalculator() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
         {ROWS.map((row) => (
           <div key={row.label} className="bg-white/70 border border-blue-200 rounded-xl px-2.5 py-2">
             <div className={`font-bold text-sm ${row.money ? "text-blue-700" : "text-slate-800"}`}>

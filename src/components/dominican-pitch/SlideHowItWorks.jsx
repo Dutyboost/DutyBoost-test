@@ -1,8 +1,8 @@
-import { Plane, Ticket, ShoppingBag, QrCode, BadgeCheck } from "lucide-react";
-import { ACCENT, AIRLINE, RETAIL, SlideShell } from "./Shared";
+import { Ticket, Sparkles, ShoppingBag, QrCode, BadgeCheck } from "lucide-react";
+import { ACCENT, RETAIL, SlideShell } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
 
-const ICONS = [Ticket, Plane, ShoppingBag, QrCode, BadgeCheck];
+const ICONS = [Ticket, Sparkles, ShoppingBag, QrCode, BadgeCheck];
 
 export default function SlideHowItWorks() {
   const { t } = useDeckLang();
@@ -35,27 +35,15 @@ export default function SlideHowItWorks() {
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        <div className="rounded-2xl p-5" style={{ background: `${RETAIL}0f` }}>
-          <h3 className="font-bold mb-2" style={{ color: RETAIL }}>
-            {c.retailerTitle}
-          </h3>
-          <ul className="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
-            {c.retailerPoints.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-2xl p-5" style={{ background: `${AIRLINE}0f` }}>
-          <h3 className="font-bold mb-2" style={{ color: AIRLINE }}>
-            {c.carrierTitle}
-          </h3>
-          <ul className="text-slate-600 text-sm space-y-1.5 list-disc pl-4">
-            {c.carrierPoints.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
-        </div>
+      <div className="rounded-2xl p-5 mt-4" style={{ background: `${RETAIL}0f` }}>
+        <h3 className="font-bold mb-3" style={{ color: RETAIL }}>
+          {c.retailerTitle}
+        </h3>
+        <ul className="text-slate-600 text-sm grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 list-disc pl-4">
+          {c.retailerPoints.map((p) => (
+            <li key={p}>{p}</li>
+          ))}
+        </ul>
       </div>
     </SlideShell>
   );

@@ -17,13 +17,11 @@ export const COPY = {
       team: "Our Team",
       opportunity: "The Opportunity",
       gateways: "The Three Gateways",
-      airlines: "The Carriers",
       gap: "The Conversion Gap",
       how: "How It Works",
       model: "The Commercial Model",
       economics: "The Economics of One Sale",
       retailers: "Value to Airport Retailers",
-      airlinesValue: "Value to the Carriers",
       government: "Value to the Dominican Government",
       network: "Across the Three Gateways",
       nextSteps: "Next Steps",
@@ -33,8 +31,8 @@ export const COPY = {
       title: "The Dominican Republic.",
       titleAccent: "Three Gateways. One Ecosystem.",
       subtitle:
-        "A presentation for the Embassy of the Dominican Republic to the Dutch Kingdom — on behalf of the country's airport retailers, its carriers and its travelling public.",
-      parties: { retailers: "Retailers", airlines: "Airlines", government: "Government" },
+        "A presentation for the Embassy of the Dominican Republic to the Dutch Kingdom — on behalf of the country's airport retailers and the travellers already passing through its terminals.",
+      parties: { retailers: "Retailers", government: "Government" },
       stats: {
         gateways: "Gateway airports",
         passengers: "Airport passengers, 2025",
@@ -86,11 +84,11 @@ export const COPY = {
         "Across those airports that is roughly 18.4 million passenger movements a year, of which the large majority passes through the retail concourse without a single transaction.",
       missingTitle: "The missing step is not retail space",
       missingBody:
-        "The Dominican Republic has the terminals, the concessionaires, the brands and the traffic. What it lacks is a reason for a traveller to arrive at the airport already intending to buy — the step DutyBoost supplies by pre-activating travellers before they fly, through the carriers that already carry them.",
+        "The Dominican Republic has the terminals, the concessionaires, the brands and the traffic. What it lacks is a reason for a traveller to arrive at the airport already intending to buy — the step DutyBoost supplies by pre-activating travellers before they fly, through the travel partners they already book with.",
       missingBody2:
         "No new terminals, no new concessions, no public spending. The same travellers, given a reason to shop, at the moment they are already in the building.",
       footnote:
-        "Carrier figures are 2025 passenger numbers to and from the Dominican Republic: 1,279,906 (Arajet), 150,000+ (SKYhigh Dominicana), 50,000+ (Air Century), ±28,237 (RED Air) and under 10,000 (Panorama Jets). Sunrise Airways Dominicana publishes no full-year 2025 figure.",
+        "Airport figures: ±18.4 million passenger movements in 2025 across the country's major airports — Punta Cana (±11.0M), Las Américas (±5.2M) and La Isabela (42K) — per the Dominican airport operators.",
     },
     gateways: {
       eyebrow: "The Three Gateways",
@@ -124,50 +122,6 @@ export const COPY = {
       footnote:
         "Punta Cana: more than 11 million passenger movements in 2025 (+9.9% year on year), 35,092 flights, 81 international airports in 26 countries. Las Américas: the country's second-busiest airport. La Isabela: 42 thousand passengers in 2025, dedicated to private and executive aviation.",
     },
-    airlines: {
-      eyebrow: "The Carriers",
-      title: "Six National Carriers,",
-      titleAccent: (pax) => `±${pax} Passengers in 2025`,
-      subtitle:
-        "The carriers are how DutyBoost reaches the traveller before the airport — a DutyCredit attached to a booking, weeks ahead of departure. These are the numbers on the Dominican side of the network.",
-      headers: {
-        carrier: "Carrier",
-        passengers: "2025 passengers to/from the DR",
-        perDay: "Approx. per day",
-        destinations: "Main international destinations",
-      },
-      notPublished: "Not published",
-      under: "under ",
-      approx: "±",
-      perDay: {
-        Arajet: "3,507 / day",
-        "SKYhigh Dominicana": "410+ / day",
-        "Air Century": "137+ / day",
-        "RED Air": "77 / day",
-        "Panorama Jets": "under 27 / day",
-        "Sunrise Airways Dominicana": "not published",
-      },
-      destinations: {
-        Arajet:
-          "Canada, USA, Mexico, Colombia, Ecuador, Peru, Chile, Argentina, Brazil, Aruba, Curaçao, Jamaica, Puerto Rico, St. Maarten and more",
-        "SKYhigh Dominicana":
-          "Antigua, Anguilla, Bonaire, Curaçao, Guadeloupe, Martinique, Guyana, St. Kitts, St. Thomas, Cuba, Venezuela and more",
-        "Air Century": "Aruba, Curaçao, Cuba, Sint Maarten, Bonaire",
-        "RED Air":
-          "Curaçao, with Miami and other services depending on the operating arrangement",
-        "Panorama Jets": "Primarily charter and corporate operations",
-        "Sunrise Airways Dominicana":
-          "Caribbean network including Haiti, Antigua, Barbados, British Virgin Islands, Dominica, Guadeloupe, St. Kitts, St. Lucia, St. Vincent, Sint Maarten, Turks & Caicos and the USA",
-      },
-      kpis: [
-        { value: "±4,160", label: "passenger movements a day carried by the national carriers — the local traffic DutyBoost turns into retail spend" },
-        { value: "±46,240", label: "passenger movements a day carried by international carriers into the same three airports — the inbound traffic DutyBoost converts for them" },
-        { value: "6", label: "national carriers active on the Dominican market, from a network carrier to executive charter" },
-        { value: "26", label: "countries reached non-stop from Punta Cana alone — every one of them a DutyBoost market" },
-      ],
-      footnote:
-        "Arajet carried ±2.8 million passengers network-wide in 2025, of which 1,279,906 to and from the Dominican Republic. Sunrise Airways Dominicana operates a Caribbean and US network with no reliable full-year 2025 figure published, so it is excluded from the totals above.",
-    },
     gap: {
       eyebrow: "The Conversion Gap",
       title: "The Traveller Is Already in the Building.",
@@ -190,7 +144,7 @@ export const COPY = {
       ],
       fixTitle: "DutyBoost moves the decision forward",
       fixBody:
-        "A DutyCredit is attached to the traveller's booking by the carrier, weeks before departure. The traveller lands in the Dominican Republic already holding a benefit that only works inside the airport terminal — outbound or on arrival — which changes what they plan to buy, and when they arrive to buy it.",
+        "A DutyCredit is attached to the traveller's booking weeks before departure. The traveller lands in the Dominican Republic already holding a benefit that only works inside the airport terminal — outbound or on arrival — which changes what they plan to buy, and when they arrive to buy it.",
       fixBody2:
         "The retailer pays nothing to be part of it, nothing for the technology, and nothing until a sale is validated. The traveller pays nothing: the benefit is a discount, not a fee.",
       statValue: "22%",
@@ -207,7 +161,7 @@ export const COPY = {
         {
           step: "01",
           title: "Booking",
-          body: "The carrier attaches a DutyCredit to the traveller's booking. No change to the fare, no change to the itinerary.",
+          body: "A DutyCredit is attached to the traveller's booking. No change to the fare, no change to the itinerary.",
         },
         {
           step: "02",
@@ -227,7 +181,7 @@ export const COPY = {
         {
           step: "05",
           title: "Settlement",
-          body: "Only validated transactions carry the platform fee, and the carrier's share is credited automatically.",
+          body: "Only validated transactions carry the platform fee — nothing is charged on sales outside the programme.",
         },
       ],
       retailerTitle: "For the retailer",
@@ -236,13 +190,6 @@ export const COPY = {
         "No upfront cost, no licence, no subscription",
         "The fee applies only to sales that actually happen",
         "Qualifying spend is capped, so margin is never at risk on a large basket",
-      ],
-      carrierTitle: "For the carrier",
-      carrierPoints: [
-        "A new revenue line on traffic the carrier already flies",
-        "A welcome benefit that costs nothing and differentiates the booking",
-        "No integration project — DutyBoost does the work",
-        "Works at every airport where retail partners are live",
       ],
     },
     model: {
@@ -265,10 +212,10 @@ export const COPY = {
         "No setup, subscription or integration fees — ever",
       ],
       darkBody:
-        "There is no fee for the airport, no fee for the carrier, no fee for the traveller and no fee for the retailer — the whole model is funded from the incremental margin on transactions that would not otherwise have taken place.",
+        "There is no fee for the airport, no fee for the traveller and no fee for the retailer — the whole model is funded from the incremental margin on transactions that would not otherwise have taken place.",
       darkLead: "Nobody pays and nobody earns anything until a sale is validated.",
-      footnote: (feePct, rebatePct, partnerRate) =>
-        `Platform fee ${feePct}% of qualifying spend; carrier share ${rebatePct}% of that fee (${partnerRate}% of the sale). Illustrative model, USD.`,
+      footnote: (feePct) =>
+        `Platform fee ${feePct}% of qualifying spend, on validated transactions only. Illustrative model, USD.`,
     },
     calculator: {
       title: "The Model Across the Three Gateways, Per Day",
@@ -285,35 +232,29 @@ export const COPY = {
         baskets: (pct) => `Baskets redeemed (${pct}%) / day`,
         gross: "Incremental retail value / day",
         retailerNet: "Airport retail net / day",
-        carrierShare: "Carrier share / day",
         fee: (pct) => `Platform fee (${pct}%) / day`,
-        combined: "Combined net / Yr",
+        combined: "Airport retail net / Yr",
       },
       note: "Illustrative model, one day, across the country's major airports. Blank fields use the figures shown as placeholders. Volumes are counts; values in USD.",
     },
     economics: {
       eyebrow: "The Economics of One Sale",
       title: (amount, tier) => `A ${amount} ${tier}-Tier Basket,`,
-      titleAccent: "Shared Across Four Parties",
+      titleAccent: "Shared Across Three Parties",
       subtitle: (basketCap) =>
         `Every validated sale divides at the moment of checkout. The sale follows the blended basket entered on the model slide, with qualifying spend capped at ${basketCap}.`,
       parties: {
         traveller: "Traveller",
         retailer: "Airport retailer",
         platform: "DutyBoost",
-        carrier: "Partner carrier",
       },
       subs: {
         savingPct: (pct) => `DutyCredit saving (${pct}%)`,
         savingCapped: (cap) => `DutyCredit saving (capped at ${cap})`,
         retailerNet: (pct) => `Retailer net (${pct})`,
         fee: (pct) => `Platform fee (${pct}%)`,
-        carrierShare: (pct) => `Carrier share (${pct}% of the fee)`,
       },
       total: "Total =",
-      carrierEarned: "Earned by the carrier",
-      carrierNote: (fee, share, pct) =>
-        `Of the ${fee} platform fee, ${share} is credited to the carrier that brought the traveller. The airport retailer's true cost of the platform is ${fee} — ${pct}% of a sale it would not otherwise have made.`,
       capNote: (basket, above, cap) =>
         `${basket} basket — the ${above} above the ${cap} cap stays with the retailer.`,
       capFootnote: (discountCap, feeCap) =>
@@ -326,8 +267,8 @@ export const COPY = {
         "The retailer spends nothing to acquire the traveller: each DutyCredit redemption is validated at the POS and settled only once the sale is made, so every transaction is traceable and attributable.",
       bullets: [
         "The retailer keeps the balance of the sale, above the cap",
-        "The carrier earns on every validated sale it pre-activated",
-        (pct) => `Net platform margin is ${pct}% of the sale after the carrier's share`,
+        "Every transaction is incremental — none of it is taken from existing sales",
+        (pct) => `The platform earns ${pct}% of a sale that would not otherwise have happened`,
       ],
     },
     retailers: {
@@ -357,36 +298,7 @@ export const COPY = {
       multiplierBody:
         "The same store, replicated across the retail groups already trading at Punta Cana, Las Américas and La Isabela, is how a per-store illustration becomes a national figure — without a single new concession or square metre of new retail space.",
       footnote:
-        "Illustrative per-store model in USD, at standard DutyBoost terms. Actual results depend on the store's traffic, its category mix and the carrier coverage of its catchment.",
-    },
-    airlinesValue: {
-      eyebrow: "Value to the Carriers",
-      title: "Ancillary Revenue",
-      titleAccent: "on Passengers Already Booked",
-      subtitle:
-        "Each carrier is modelled on its own 2025 Dominican traffic, at the standard 2% pre-activation, 30% redemption and $35 blended basket. The share credited is 0.5% of each validated sale.",
-      headers: {
-        carrier: "Carrier",
-        passengers: "2025 passengers to/from the DR",
-        baskets: "Baskets pre-activated",
-        gross: "Retail value created",
-        share: "Carrier share / year",
-      },
-      cardTitle: "Small per carrier, structural for the market",
-      cardBody:
-        "On its own Dominican traffic, a single carrier's share looks modest — which is exactly the point. It costs the carrier nothing, requires nothing of its operations, and grows automatically as more retail partners come live at the three gateways.",
-      cardBody2:
-        "For a carrier such as Arajet, already flying 1,279,906 passengers to and from the country, it is a revenue line that appears without a single change to the network.",
-      askedTitle: "What the carrier is asked to do",
-      points: [
-        "A new revenue line on traffic the carrier already flies — no new route, no new aircraft, no new cost",
-        "A welcome benefit for every passenger, at zero cost to the carrier and zero cost to the traveller",
-        "Differentiation on the booking page: a reason to choose this carrier into the Dominican Republic",
-        "No integration project — DutyBoost does the work and the carrier's share is credited automatically",
-        "Portable across the network: it works at every airport where retail partners are live, not only in the DR",
-      ],
-      footnote:
-        "Illustrative, USD, at standard DutyBoost terms and the assumptions entered on the model slide. Carrier figures are 2025 passengers to and from the Dominican Republic. Sunrise Airways Dominicana is excluded for want of a published full-year figure.",
+        "Illustrative per-store model in USD, at standard DutyBoost terms. Actual results depend on the store's traffic, its category mix and the categories it trades in.",
     },
     government: {
       eyebrow: "Value to the Dominican Government",
@@ -432,11 +344,10 @@ export const COPY = {
         `The scenario entered on the model slide, applied to ${perDay}+ passenger movements a day and 365 days of the year.`,
       combinedLabel: "Combined net, one year",
       combinedBody:
-        "Airport retail net plus the share credited to the carriers that brought the travellers",
+        "Airport retail net across the country's major airports, after the traveller discount and the platform fee",
       combinedLines: {
         gross: (v) => `${v} incremental retail value`,
         fee: (v) => `${v} platform fee, on validated sales`,
-        rebate: (v) => `${v} credited to the carriers`,
       },
       leverTitle: "Activation is the only lever that matters",
       leverBody:
@@ -449,9 +360,8 @@ export const COPY = {
       upsideTitle: "Why this is upside, not a transfer",
       upsidePoints: [
         "Every transaction is incremental — none of it cannibalises existing sales",
-        "No upfront cost for the airports, the retailers, the carriers or the state",
+        "No upfront cost for the airports, the retailers or the state",
         "The retailer keeps the balance of every sale above the qualifying cap",
-        "The carriers earn on the traffic they already carry",
         "The state gains the activity, the data and the tax base — and spends nothing",
       ],
       closingTitle: (amount) =>
@@ -464,7 +374,7 @@ export const COPY = {
       title: "Five Steps.",
       titleAccent: "The First One Is This Room.",
       subtitle:
-        "No decision is required from the Dominican Republic today beyond interest. Everything that follows is a private commercial conversation between DutyBoost and the parties in the market.",
+        "No decision is required from the Dominican Republic today beyond interest. Everything that follows is a private commercial conversation between DutyBoost and the retail groups in the market.",
       steps: [
         {
           when: "Today",
@@ -474,17 +384,17 @@ export const COPY = {
         {
           when: "Weeks 1–4",
           title: "Introductions",
-          body: "The Embassy opens doors to the operators of the three gateways, the retail concessionaires and the six carriers.",
+          body: "The Embassy opens doors to the operators of the three gateways and the retail concessionaires trading in them.",
         },
         {
           when: "Weeks 4–8",
           title: "A convening session in Santo Domingo",
-          body: "One room, one agenda: operators, retailers and carriers hear the model together, at the Embassy's invitation.",
+          body: "One room, one agenda: the operators and the retail concessionaires hear the model together, at the Embassy's invitation.",
         },
         {
           when: "Months 3–6",
           title: "A single-gateway pilot",
-          body: "One airport, one retail group, one carrier. Ninety days, no upfront cost, no system replaced.",
+          body: "One airport, one retail group, one store. Ninety days, no upfront cost, no system replaced.",
         },
         {
           when: "Months 6–12",
@@ -496,16 +406,16 @@ export const COPY = {
       asks: [
         "An endorsement of the model as a private-sector opportunity for the country",
         "Introductions to the three airport operators and the retail concessionaires",
-        "Introductions to the six carriers active on the Dominican market",
+        "Introductions to the duty-free and brand groups supplying the concourse",
         "Support for one convening session in Santo Domingo",
       ],
       nobodyTitle: "What we ask of nobody",
       nobodyBody:
-        "No public money, no legislation, no change to airport concessions and no cost to the travelling public. DutyBoost brings the technology, the carrier relationships and the operating model. The Dominican Republic brings what it already has: the busiest air market in the Caribbean, three world-class gateways, and an embassy willing to open the first door.",
+        "No public money, no legislation, no change to airport concessions and no cost to the travelling public. DutyBoost brings the technology, the retailer relationships and the operating model. The Dominican Republic brings what it already has: the busiest air market in the Caribbean, three world-class gateways, and an embassy willing to open the first door.",
     },
     thankYou: {
       title: "Thank you.",
-      parties: ["Airport retailers", "Carriers", "The Dominican Republic"],
+      parties: ["Airport retailers"],
     },
   },
 
@@ -523,13 +433,11 @@ export const COPY = {
       team: "Nuestro equipo",
       opportunity: "La oportunidad",
       gateways: "Las tres puertas",
-      airlines: "Las aerolíneas",
       gap: "La brecha de conversión",
       how: "Cómo funciona",
       model: "El modelo comercial",
       economics: "La economía de una venta",
       retailers: "Valor para los minoristas",
-      airlinesValue: "Valor para las aerolíneas",
       government: "Valor para el Gobierno",
       network: "En las tres puertas",
       nextSteps: "Próximos pasos",
@@ -539,8 +447,8 @@ export const COPY = {
       title: "República Dominicana.",
       titleAccent: "Tres puertas. Un ecosistema.",
       subtitle:
-        "Una presentación para la Embajada de la República Dominicana ante el Reino de los Países Bajos — en nombre de los minoristas aeroportuarios, las aerolíneas y los viajeros del país.",
-      parties: { retailers: "Minoristas", airlines: "Aerolíneas", government: "Gobierno" },
+        "Una presentación para la Embajada de la República Dominicana ante el Reino de los Países Bajos — en nombre de los minoristas aeroportuarios y de los viajeros que ya pasan por sus terminales.",
+      parties: { retailers: "Minoristas", government: "Gobierno" },
       stats: {
         gateways: "Aeropuertos principales",
         passengers: "Pasajeros aeroportuarios, 2025",
@@ -592,11 +500,11 @@ export const COPY = {
         "En esos aeropuertos eso equivale a unos 18.4 millones de movimientos de pasajeros al año, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
       missingTitle: "Lo que falta no es espacio comercial",
       missingBody:
-        "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el viajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los viajeros antes de volar, a través de las aerolíneas que ya los transportan.",
+        "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el viajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los viajeros antes de volar, a través de los socios de viaje con los que ya reservan.",
       missingBody2:
         "Sin nuevas terminales, sin nuevas concesiones y sin gasto público. Los mismos viajeros, con un motivo para comprar, en el momento en que ya están en el edificio.",
       footnote:
-        "Las cifras de las aerolíneas corresponden a pasajeros de 2025 hacia y desde la República Dominicana: 1,279,906 (Arajet), 150,000+ (SKYhigh Dominicana), 50,000+ (Air Century), ±28,237 (RED Air) y menos de 10,000 (Panorama Jets). Sunrise Airways Dominicana no publica una cifra anual completa de 2025.",
+        "Cifras aeroportuarias: ±18.4 millones de movimientos de pasajeros en 2025 en los principales aeropuertos del país — Punta Cana (±11.0M), Las Américas (±5.2M) y La Isabela (42K) — según los operadores aeroportuarios dominicanos.",
     },
     gateways: {
       eyebrow: "Las tres puertas",
@@ -630,50 +538,6 @@ export const COPY = {
       footnote:
         "Punta Cana: más de 11 millones de movimientos de pasajeros en 2025 (+9.9% interanual), 35,092 vuelos, 81 aeropuertos internacionales en 26 países. Las Américas: el segundo aeropuerto más activo del país. La Isabela: 42 mil pasajeros en 2025, dedicado a la aviación privada y ejecutiva.",
     },
-    airlines: {
-      eyebrow: "Las aerolíneas",
-      title: "Seis aerolíneas nacionales,",
-      titleAccent: (pax) => `±${pax} pasajeros en 2025`,
-      subtitle:
-        "Las aerolíneas son la vía por la que DutyBoost llega al viajero antes del aeropuerto — un DutyCredit asociado a la reserva, semanas antes de la salida. Estas son las cifras del lado dominicano de la red.",
-      headers: {
-        carrier: "Aerolínea",
-        passengers: "Pasajeros 2025 hacia/desde RD",
-        perDay: "Aprox. por día",
-        destinations: "Principales destinos internacionales",
-      },
-      notPublished: "No publicado",
-      under: "menos de ",
-      approx: "±",
-      perDay: {
-        Arajet: "3,507 / día",
-        "SKYhigh Dominicana": "410+ / día",
-        "Air Century": "137+ / día",
-        "RED Air": "77 / día",
-        "Panorama Jets": "menos de 27 / día",
-        "Sunrise Airways Dominicana": "no publicado",
-      },
-      destinations: {
-        Arajet:
-          "Canadá, EE. UU., México, Colombia, Ecuador, Perú, Chile, Argentina, Brasil, Aruba, Curazao, Jamaica, Puerto Rico, San Martín y más",
-        "SKYhigh Dominicana":
-          "Antigua, Anguila, Bonaire, Curazao, Guadalupe, Martinica, Guyana, San Cristóbal, Santo Tomás, Cuba, Venezuela y más",
-        "Air Century": "Aruba, Curazao, Cuba, San Martín, Bonaire",
-        "RED Air":
-          "Curazao, con Miami y otros servicios según el acuerdo operativo",
-        "Panorama Jets": "Principalmente operaciones chárter y corporativas",
-        "Sunrise Airways Dominicana":
-          "Red caribeña que incluye Haití, Antigua, Barbados, Islas Vírgenes Británicas, Dominica, Guadalupe, San Cristóbal, Santa Lucía, San Vicente, San Martín, Turcas y Caicos y EE. UU.",
-      },
-      kpis: [
-        { value: "±4,160", label: "movimientos de pasajeros al día transportados por las aerolíneas nacionales — el tráfico local que DutyBoost convierte en gasto minorista" },
-        { value: "±46,240", label: "movimientos de pasajeros al día transportados por aerolíneas internacionales a los mismos tres aeropuertos — el tráfico entrante que DutyBoost convierte para ellas" },
-        { value: "6", label: "aerolíneas nacionales activas en el mercado dominicano, desde una red principal hasta el chárter ejecutivo" },
-        { value: "26", label: "países conectados sin escalas solo desde Punta Cana — todos ellos mercados de DutyBoost" },
-      ],
-      footnote:
-        "Arajet transportó ±2.8 millones de pasajeros en toda su red en 2025, de los cuales 1,279,906 hacia y desde la República Dominicana. Sunrise Airways Dominicana opera una red caribeña y estadounidense sin una cifra anual fiable publicada para 2025, por lo que queda excluida de los totales anteriores.",
-    },
     gap: {
       eyebrow: "La brecha de conversión",
       title: "El viajero ya está en el edificio.",
@@ -696,7 +560,7 @@ export const COPY = {
       ],
       fixTitle: "DutyBoost adelanta la decisión",
       fixBody:
-        "La aerolínea asocia un DutyCredit a la reserva del viajero, semanas antes de la salida. El viajero llega a la República Dominicana con un beneficio que solo funciona dentro de la terminal del aeropuerto — a la salida o a la llegada — lo que cambia lo que piensa comprar y cuándo llega a comprarlo.",
+        "Un DutyCredit se asocia a la reserva del viajero semanas antes de la salida. El viajero llega a la República Dominicana con un beneficio que solo funciona dentro de la terminal del aeropuerto — a la salida o a la llegada — lo que cambia lo que piensa comprar y cuándo llega a comprarlo.",
       fixBody2:
         "El minorista no paga nada por participar, nada por la tecnología y nada hasta que se valida una venta. El viajero no paga nada: el beneficio es un descuento, no una comisión.",
       statValue: "22%",
@@ -713,7 +577,7 @@ export const COPY = {
         {
           step: "01",
           title: "Reserva",
-          body: "La aerolínea asocia un DutyCredit a la reserva del viajero. Sin cambios en la tarifa ni en el itinerario.",
+          body: "Un DutyCredit se asocia a la reserva del viajero. Sin cambios en la tarifa ni en el itinerario.",
         },
         {
           step: "02",
@@ -733,7 +597,7 @@ export const COPY = {
         {
           step: "05",
           title: "Liquidación",
-          body: "Solo las transacciones validadas soportan la comisión de plataforma, y la parte de la aerolínea se abona automáticamente.",
+          body: "Solo las transacciones validadas soportan la comisión de plataforma — nada se cobra sobre ventas ajenas al programa.",
         },
       ],
       retailerTitle: "Para el minorista",
@@ -742,13 +606,6 @@ export const COPY = {
         "Sin coste inicial, sin licencia, sin suscripción",
         "La comisión se aplica solo a las ventas que realmente ocurren",
         "El gasto computable tiene tope, así que el margen nunca peligra en una cesta grande",
-      ],
-      carrierTitle: "Para la aerolínea",
-      carrierPoints: [
-        "Una nueva línea de ingresos sobre tráfico que ya opera",
-        "Un beneficio de bienvenida que no cuesta nada y diferencia la reserva",
-        "Sin proyecto de integración — DutyBoost hace el trabajo",
-        "Funciona en todos los aeropuertos donde hay minoristas activos",
       ],
     },
     model: {
@@ -771,10 +628,10 @@ export const COPY = {
         "Sin cuotas de alta, suscripción ni integración — nunca",
       ],
       darkBody:
-        "No hay comisión para el aeropuerto, ni para la aerolínea, ni para el viajero, ni para el minorista — todo el modelo se financia con el margen incremental de transacciones que de otro modo no habrían ocurrido.",
+        "No hay comisión para el aeropuerto, ni para el viajero, ni para el minorista — todo el modelo se financia con el margen incremental de transacciones que de otro modo no habrían ocurrido.",
       darkLead: "Nadie paga ni nadie gana nada hasta que se valida una venta.",
-      footnote: (feePct, rebatePct, partnerRate) =>
-        `Comisión de plataforma del ${feePct}% del gasto computable; parte de la aerolínea del ${rebatePct}% de esa comisión (${partnerRate}% de la venta). Modelo ilustrativo, USD.`,
+      footnote: (feePct) =>
+        `Comisión de plataforma del ${feePct}% del gasto computable, solo sobre transacciones validadas. Modelo ilustrativo, USD.`,
     },
     calculator: {
       title: "El modelo en las tres puertas, por día",
@@ -791,35 +648,29 @@ export const COPY = {
         baskets: (pct) => `Cestas canjeadas (${pct}%) / día`,
         gross: "Valor minorista incremental / día",
         retailerNet: "Neto del minorista / día",
-        carrierShare: "Parte de la aerolínea / día",
         fee: (pct) => `Comisión de plataforma (${pct}%) / día`,
-        combined: "Neto combinado / año",
+        combined: "Neto del minorista / año",
       },
       note: "Modelo ilustrativo, un día, en los principales aeropuertos del país. Los campos vacíos usan las cifras mostradas como referencia. Los volúmenes son recuentos; los valores, en USD.",
     },
     economics: {
       eyebrow: "La economía de una venta",
       title: (amount, tier) => `Una cesta de ${amount} (nivel ${tier}),`,
-      titleAccent: "repartida entre cuatro partes",
+      titleAccent: "repartida entre tres partes",
       subtitle: (basketCap) =>
         `Cada venta validada se reparte en el momento de la caja. La venta sigue la cesta media introducida en la diapositiva del modelo, con el gasto computable limitado a ${basketCap}.`,
       parties: {
         traveller: "Viajero",
         retailer: "Minorista aeroportuario",
         platform: "DutyBoost",
-        carrier: "Aerolínea socia",
       },
       subs: {
         savingPct: (pct) => `Ahorro DutyCredit (${pct}%)`,
         savingCapped: (cap) => `Ahorro DutyCredit (tope de ${cap})`,
         retailerNet: (pct) => `Neto del minorista (${pct})`,
         fee: (pct) => `Comisión de plataforma (${pct}%)`,
-        carrierShare: (pct) => `Parte de la aerolínea (${pct}% de la comisión)`,
       },
       total: "Total =",
-      carrierEarned: "Ganado por la aerolínea",
-      carrierNote: (fee, share, pct) =>
-        `De la comisión de ${fee}, ${share} se abona a la aerolínea que trajo al viajero. El coste real de la plataforma para el minorista aeroportuario es ${fee} — el ${pct}% de una venta que de otro modo no habría existido.`,
       capNote: (basket, above, cap) =>
         `Cesta de ${basket} — los ${above} que superan el tope de ${cap} se quedan en el minorista.`,
       capFootnote: (discountCap, feeCap) =>
@@ -832,8 +683,8 @@ export const COPY = {
         "El minorista no gasta nada en captar al viajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es trazable y atribuible.",
       bullets: [
         "El minorista se queda con el resto de la venta, por encima del tope",
-        "La aerolínea gana en cada venta validada que preactivó",
-        (pct) => `El margen neto de la plataforma es el ${pct}% de la venta tras la parte de la aerolínea`,
+        "Cada transacción es incremental — ninguna se toma de las ventas existentes",
+        (pct) => `La plataforma gana el ${pct}% de una venta que de otro modo no habría ocurrido`,
       ],
     },
     retailers: {
@@ -863,36 +714,7 @@ export const COPY = {
       multiplierBody:
         "La misma tienda, replicada en los grupos minoristas que ya operan en Punta Cana, Las Américas y La Isabela, es la forma en que una ilustración por tienda se convierte en una cifra nacional — sin una sola concesión nueva ni un metro cuadrado más de superficie comercial.",
       footnote:
-        "Modelo ilustrativo por tienda en USD, con condiciones estándar de DutyBoost. Los resultados reales dependen del tráfico de la tienda, su mezcla de categorías y la cobertura de aerolíneas de su zona de influencia.",
-    },
-    airlinesValue: {
-      eyebrow: "Valor para las aerolíneas",
-      title: "Ingresos complementarios",
-      titleAccent: "sobre pasajeros ya reservados",
-      subtitle:
-        "Cada aerolínea se modela con su propio tráfico dominicano de 2025, con la preactivación estándar del 2%, un canje del 30% y una cesta media de $35. La parte abonada es el 0.5% de cada venta validada.",
-      headers: {
-        carrier: "Aerolínea",
-        passengers: "Pasajeros 2025 hacia/desde RD",
-        baskets: "Cestas preactivadas",
-        gross: "Valor minorista creado",
-        share: "Parte de la aerolínea / año",
-      },
-      cardTitle: "Pequeño por aerolínea, estructural para el mercado",
-      cardBody:
-        "Sobre su propio tráfico dominicano, la parte de una sola aerolínea parece modesta — y ahí está precisamente el punto. No le cuesta nada, no exige nada a su operación y crece automáticamente a medida que más minoristas se activan en las tres puertas.",
-      cardBody2:
-        "Para una aerolínea como Arajet, que ya vuela 1,279,906 pasajeros hacia y desde el país, es una línea de ingresos que aparece sin un solo cambio en su red.",
-      askedTitle: "Qué se le pide a la aerolínea",
-      points: [
-        "Una nueva línea de ingresos sobre tráfico que ya opera — sin nueva ruta, sin nuevo avión y sin nuevo coste",
-        "Un beneficio de bienvenida para cada pasajero, sin coste para la aerolínea ni para el viajero",
-        "Diferenciación en la página de reserva: un motivo para elegir esta aerolínea hacia la República Dominicana",
-        "Sin proyecto de integración — DutyBoost hace el trabajo y la parte de la aerolínea se abona automáticamente",
-        "Portable en toda la red: funciona en cada aeropuerto con minoristas activos, no solo en RD",
-      ],
-      footnote:
-        "Ilustrativo, en USD, con condiciones estándar de DutyBoost y las hipótesis introducidas en la diapositiva del modelo. Las cifras de las aerolíneas son pasajeros de 2025 hacia y desde la República Dominicana. Sunrise Airways Dominicana queda excluida por no publicar una cifra anual completa.",
+        "Modelo ilustrativo por tienda en USD, con condiciones estándar de DutyBoost. Los resultados reales dependen del tráfico de la tienda, su mezcla de categorías y las categorías que comercializa.",
     },
     government: {
       eyebrow: "Valor para el Gobierno dominicano",
@@ -938,11 +760,10 @@ export const COPY = {
         `El escenario introducido en la diapositiva del modelo, aplicado a más de ${perDay} movimientos de pasajeros al día y 365 días del año.`,
       combinedLabel: "Neto combinado, un año",
       combinedBody:
-        "Neto del minorista aeroportuario más la parte abonada a las aerolíneas que trajeron a los viajeros",
+        "Neto del minorista aeroportuario en los principales aeropuertos del país, tras el descuento al viajero y la comisión de plataforma",
       combinedLines: {
         gross: (v) => `${v} de valor minorista incremental`,
         fee: (v) => `${v} de comisión de plataforma, sobre ventas validadas`,
-        rebate: (v) => `${v} abonados a las aerolíneas`,
       },
       leverTitle: "La activación es la única palanca que importa",
       leverBody:
@@ -955,9 +776,8 @@ export const COPY = {
       upsideTitle: "Por qué es valor añadido, no una transferencia",
       upsidePoints: [
         "Cada transacción es incremental — ninguna canibaliza las ventas existentes",
-        "Sin coste inicial para los aeropuertos, los minoristas, las aerolíneas ni el Estado",
+        "Sin coste inicial para los aeropuertos, los minoristas ni el Estado",
         "El minorista se queda con el resto de cada venta por encima del tope",
-        "Las aerolíneas ganan sobre el tráfico que ya transportan",
         "El Estado gana la actividad, los datos y la base imponible — y no gasta nada",
       ],
       closingTitle: (amount) =>
@@ -970,7 +790,7 @@ export const COPY = {
       title: "Cinco pasos.",
       titleAccent: "El primero es esta sala.",
       subtitle:
-        "Hoy no se requiere ninguna decisión de la República Dominicana más allá del interés. Todo lo que sigue es una conversación comercial privada entre DutyBoost y las partes del mercado.",
+        "Hoy no se requiere ninguna decisión de la República Dominicana más allá del interés. Todo lo que sigue es una conversación comercial privada entre DutyBoost y los grupos minoristas del mercado.",
       steps: [
         {
           when: "Hoy",
@@ -980,17 +800,17 @@ export const COPY = {
         {
           when: "Semanas 1–4",
           title: "Presentaciones",
-          body: "La Embajada abre puertas a los operadores de las tres puertas, a los concesionarios minoristas y a las seis aerolíneas.",
+          body: "La Embajada abre puertas a los operadores de las tres puertas y a los concesionarios minoristas que operan en ellas.",
         },
         {
           when: "Semanas 4–8",
           title: "Una sesión de encuentro en Santo Domingo",
-          body: "Una sala, una agenda: operadores, minoristas y aerolíneas conocen el modelo juntos, por invitación de la Embajada.",
+          body: "Una sala, una agenda: los operadores y los concesionarios minoristas conocen el modelo juntos, por invitación de la Embajada.",
         },
         {
           when: "Meses 3–6",
           title: "Un piloto en una sola puerta",
-          body: "Un aeropuerto, un grupo minorista, una aerolínea. Noventa días, sin coste inicial y sin sustituir ningún sistema.",
+          body: "Un aeropuerto, un grupo minorista, una tienda. Noventa días, sin coste inicial y sin sustituir ningún sistema.",
         },
         {
           when: "Meses 6–12",
@@ -1002,16 +822,16 @@ export const COPY = {
       asks: [
         "Un respaldo al modelo como oportunidad de sector privado para el país",
         "Presentaciones con los tres operadores aeroportuarios y los concesionarios minoristas",
-        "Presentaciones con las seis aerolíneas activas en el mercado dominicano",
+        "Presentaciones con los grupos de duty-free y las marcas que abastecen la zona comercial",
         "Apoyo para una sesión de encuentro en Santo Domingo",
       ],
       nobodyTitle: "Qué no pedimos a nadie",
       nobodyBody:
-        "Ni dinero público, ni legislación, ni cambios en las concesiones aeroportuarias, ni coste alguno para el viajero. DutyBoost aporta la tecnología, las relaciones con las aerolíneas y el modelo operativo. La República Dominicana aporta lo que ya tiene: el mercado aéreo más activo del Caribe, tres puertas de primer nivel y una embajada dispuesta a abrir la primera puerta.",
+        "Ni dinero público, ni legislación, ni cambios en las concesiones aeroportuarias, ni coste alguno para el viajero. DutyBoost aporta la tecnología, las relaciones con los minoristas y el modelo operativo. La República Dominicana aporta lo que ya tiene: el mercado aéreo más activo del Caribe, tres puertas de primer nivel y una embajada dispuesta a abrir la primera puerta.",
     },
     thankYou: {
       title: "Gracias.",
-      parties: ["Minoristas aeroportuarios", "Aerolíneas", "República Dominicana"],
+      parties: ["Minoristas aeroportuarios"],
     },
   },
 };

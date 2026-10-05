@@ -19,7 +19,7 @@ export default function SlideNetwork() {
       eyebrowColor={RETAIL}
       title={
         <>
-          {c.title(usdShort(year.groupNet))} <span style={{ color: RETAIL }}>{c.titleAccent}</span>
+          {c.title(usdShort(year.retailerNet))} <span style={{ color: RETAIL }}>{c.titleAccent}</span>
         </>
       }
       subtitle={c.subtitle(num(AIRPORT_PER_DAY))}
@@ -31,12 +31,11 @@ export default function SlideNetwork() {
         <div className="text-xs font-semibold uppercase tracking-widest opacity-80 mb-2">
           {c.combinedLabel}
         </div>
-        <div className="text-4xl md:text-5xl font-bold mb-1">{usdShort(year.groupNet)}</div>
+        <div className="text-4xl md:text-5xl font-bold mb-1">{usdShort(year.retailerNet)}</div>
         <p className="text-white/85 text-sm">{c.combinedBody}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 text-xs">
           <div className="text-white/80">{c.combinedLines.gross(usdShort(year.gross))}</div>
           <div className="text-white/80">{c.combinedLines.fee(usdShort(year.fee))}</div>
-          <div className="text-white/80">{c.combinedLines.rebate(usdShort(year.rebate))}</div>
         </div>
       </div>
 
@@ -61,7 +60,7 @@ export default function SlideNetwork() {
                   <span className="text-slate-600">{c.atActivation(Math.round(rate * 100))}</span>
                   <span className="text-slate-700">{c.baskets(numShort(r.baskets))}</span>
                   <span className="font-bold" style={{ color: RETAIL }}>
-                    {c.perYear(usdShort(r.groupNet))}
+                    {c.perYear(usdShort(r.retailerNet))}
                   </span>
                 </div>
               );
@@ -83,7 +82,7 @@ export default function SlideNetwork() {
             </div>
           </div>
           <div className="bg-slate-800 text-white rounded-2xl p-5">
-            <p className="font-bold leading-snug">{c.closingTitle(usd(year.groupNet))}</p>
+            <p className="font-bold leading-snug">{c.closingTitle(usd(year.retailerNet))}</p>
             <p className="text-slate-300 text-sm mt-2">{c.closingBody}</p>
           </div>
         </div>

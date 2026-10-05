@@ -1,6 +1,6 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
-import { ACCENT, AIRLINE, GridBg, RETAIL, SlideWrapper } from "./Shared";
+import { ACCENT, GridBg, RETAIL, SlideWrapper } from "./Shared";
 import { AIRPORT_PER_DAY, MARKET, num } from "./figures";
 import { useDeckLang } from "./LanguageContext";
 
@@ -9,7 +9,6 @@ export default function SlideCover() {
 
   const FLAG = [
     { color: RETAIL, label: t.cover.parties.retailers },
-    { color: AIRLINE, label: t.cover.parties.airlines },
     { color: "#ffffff", label: t.cover.parties.government, border: true },
   ];
 
