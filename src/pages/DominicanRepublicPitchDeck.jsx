@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SlideCover from "@/components/dominican-pitch/SlideCover";
+import SlideTeam from "@/components/dominican-pitch/SlideTeam";
 import SlideOpportunity from "@/components/dominican-pitch/SlideOpportunity";
 import SlideGateways from "@/components/dominican-pitch/SlideGateways";
 import SlideAirlines from "@/components/dominican-pitch/SlideAirlines";
@@ -22,6 +23,7 @@ import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButton
 
 const SLIDES = [
   { id: "cover", type: "cover" },
+  { id: "team", type: "team" },
   { id: "opportunity", type: "opportunity" },
   { id: "gateways", type: "gateways" },
   { id: "airlines", type: "airlines" },
@@ -39,6 +41,7 @@ const SLIDES = [
 
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
+  team: SlideTeam,
   opportunity: SlideOpportunity,
   gateways: SlideGateways,
   airlines: SlideAirlines,

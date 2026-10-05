@@ -14,6 +14,7 @@ export const COPY = {
     positioning: "A Performance-based Customer Acquisition Infrastructure for Global Travel",
     labels: {
       cover: "Cover",
+      team: "Our Team",
       opportunity: "The Opportunity",
       gateways: "The Three Gateways",
       airlines: "The Carriers",
@@ -39,6 +40,19 @@ export const COPY = {
         passengers: "Airport passengers, 2025",
         perDay: "Passenger movements / day",
         cost: "Upfront cost",
+      },
+    },
+    team: {
+      eyebrow: "Our Team",
+      title: "The People Behind",
+      titleAccent: "DutyBoost",
+      subtitle:
+        "DutyBoost brings together commercial strategy, software sales, airport retail, technology, product development, marketing, design and acquisition expertise — the capabilities to execute, launch and scale globally.",
+      roles: {
+        "Raël Martis Ozuna": "Co-Founder / Chief Commercial Officer",
+        "Jaquelin Beliad Perez": "Co-Founder / Airport Retail & Brand Specialist",
+        "Fares Ben Halima": "Technical Director",
+        "Ariunzaya Zorigt": "Marketing Director",
       },
     },
     opportunity: {
@@ -505,6 +519,7 @@ export const COPY = {
     positioning: "Infraestructura de adquisición de clientes basada en rendimiento para el viaje global",
     labels: {
       cover: "Portada",
+      team: "Nuestro equipo",
       opportunity: "La oportunidad",
       gateways: "Las tres puertas",
       airlines: "Las aerolíneas",
@@ -530,6 +545,19 @@ export const COPY = {
         passengers: "Pasajeros aeroportuarios, 2025",
         perDay: "Movimientos de pasajeros / día",
         cost: "Coste inicial",
+      },
+    },
+    team: {
+      eyebrow: "Nuestro equipo",
+      title: "Las personas detrás de",
+      titleAccent: "DutyBoost",
+      subtitle:
+        "DutyBoost reúne estrategia comercial, ventas de software, comercio minorista aeroportuario, tecnología, desarrollo de producto, marketing, diseño y experiencia en adquisición — la capacidad de ejecutar, lanzar y escalar globalmente.",
+      roles: {
+        "Raël Martis Ozuna": "Cofundador / Director Comercial",
+        "Jaquelin Beliad Perez": "Cofundadora / Especialista en Retail Aeroportuario y Marca",
+        "Fares Ben Halima": "Director Técnico",
+        "Ariunzaya Zorigt": "Directora de Marketing",
       },
     },
     opportunity: {
