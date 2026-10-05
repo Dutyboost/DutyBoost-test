@@ -4,7 +4,6 @@ import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import TravelerIcon from "@/components/TravelerIcon";
 import { MODEL } from "@/components/phygrid-pitch/model";
 import { useEstateInputs, DEFAULT_BASKET } from "@/components/phygrid-pitch/EstateContext";
-import { EUR_USD_RATE } from "@/lib/eurUsd";
 
 // Tier bands exactly as shown on the business-model slide (USD). The discount
 // rises across each band, so any blended basket — from the $23 minimum up to
@@ -19,10 +18,11 @@ const TIERS = [
   { tier: "VIP", min: 342, max: null, discMin: 0.2, discMax: 0.2 },
 ];
 
-// Both caps are set in EUR (€60 discount, €25 platform fee) and converted at
-// the deck's USD presentation rate.
-const DISCOUNT_CAP = Math.round(60 * EUR_USD_RATE * 100) / 100;
-const FEE_CAP = Math.round(25 * EUR_USD_RATE * 100) / 100;
+// Qualifying spend is capped at $1,000 — anything above that stays with the
+// retailer — and the traveller discount at $60. The 2.5% platform fee therefore
+// tops out at $25 on a $1,000 basket.
+const BASKET_CAP = 1000;
+const DISCOUNT_CAP = 60;
 
 const round2 = (n) => Math.round(n * 100) / 100;
 const money = (n) =>
@@ -48,16 +48,18 @@ export default function SlideTransaction() {
   const typed =
     inputs.basket === "" || inputs.basket == null ? DEFAULT_BASKET : Number(inputs.basket);
   const basket = Math.max(0, Math.round(typed || 0));
+  const qualifying = Math.min(basket, BASKET_CAP);
+  const aboveCap = basket - qualifying;
 
-  const tier = tierFor(basket).tier;
-  const discount = discountFor(basket);
-  const discountCapped = round2(basket * discount) > DISCOUNT_CAP;
+  const tier = tierFor(qualifying).tier;
+  const discount = discountFor(qualifying);
+  const discountCapped = round2(qualifying * discount) > DISCOUNT_CAP;
 
-  const travellerSaves = Math.min(round2(basket * discount), DISCOUNT_CAP);
-  const fee = Math.min(round2(basket * MODEL.platformFee), FEE_CAP);
+  const travellerSaves = Math.min(round2(qualifying * discount), DISCOUNT_CAP);
+  const fee = round2(qualifying * MODEL.platformFee);
   const posCommission = round2(fee * MODEL.posShare);
   const dutyboost = round2(fee - posCommission);
-  const retailerKeeps = round2(basket - travellerSaves - fee);
+  const retailerKeeps = round2(qualifying - travellerSaves - fee);
 
   const PARTIES = [
     {
@@ -78,7 +80,7 @@ export default function SlideTransaction() {
       Icon: AirportRetailerIcon,
       value: money(retailerKeeps),
       raw: retailerKeeps,
-      sub: `Net before normal costs (${share(retailerKeeps, basket)})`,
+      sub: `Net before normal costs (${share(retailerKeeps, qualifying)})`,
       bg: "bg-blue-50",
       border: "border-blue-200",
       text: "text-blue-600",
@@ -118,12 +120,12 @@ export default function SlideTransaction() {
               One Transaction — Four Beneficiaries
             </span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              {whole(basket)} {tier}-Tier Qualifying Sale
+              {whole(qualifying)} {tier}-Tier Qualifying Sale
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               Every validated sale is split at the moment of checkout — including the POS provider's share, which
               is settled automatically with no invoice and no reconciliation. The sale follows the blended basket
-              entered on the business-model slide.
+              entered on the business-model slide, with qualifying spend capped at {whole(BASKET_CAP)}.
             </p>
           </div>
 
@@ -141,14 +143,14 @@ export default function SlideTransaction() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
               <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">
-                Total = {money(basket)}
+                Total = {money(qualifying)}
               </div>
               <div className="flex h-6 rounded-full overflow-hidden gap-px">
                 {PARTIES.map((p) => (
                   <div
                     key={p.party}
                     className={p.color}
-                    style={{ width: `${basket ? (p.raw / basket) * 100 : 0}%` }}
+                    style={{ width: `${qualifying ? (p.raw / qualifying) * 100 : 0}%` }}
                   />
                 ))}
               </div>
@@ -157,14 +159,21 @@ export default function SlideTransaction() {
                   <div key={p.party} className="flex items-center gap-1.5">
                     <div className={`w-3 h-3 rounded-sm ${p.color}`} />
                     <span className="text-slate-600">
-                      {p.party === "POS Provider" ? "POS provider" : p.party} {share(p.raw, basket)}
+                      {p.party === "POS Provider" ? "POS provider" : p.party} {share(p.raw, qualifying)}
                     </span>
                   </div>
                 ))}
               </div>
+              {aboveCap > 0 && (
+                <div className="text-slate-600 text-xs mt-3 font-semibold">
+                  {money(basket)} basket — the {money(aboveCap)} above the {whole(BASKET_CAP)} cap stays with the
+                  retailer.
+                </div>
+              )}
               <div className="text-slate-400 text-xs mt-3">
-                The traveller discount rises with the basket and is capped at €60 ({money(DISCOUNT_CAP)}); the
-                platform fee is capped at €25 ({money(FEE_CAP)}) per transaction. The{" "}
+                Qualifying spend is capped at {whole(BASKET_CAP)} and the traveller discount at{" "}
+                {money(DISCOUNT_CAP)}, so the {Math.round(MODEL.platformFee * 1000) / 10}% platform fee tops out at{" "}
+                {money(BASKET_CAP * MODEL.platformFee)} per transaction. The{" "}
                 {Math.round(MODEL.posShare * 100)}% POS share applies to the platform fee, not the basket.
               </div>
             </div>
