@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import SlideCover from "@/components/dominican-pitch/SlideCover";
 import SlideTeam from "@/components/dominican-pitch/SlideTeam";
 import SlideOpportunity from "@/components/dominican-pitch/SlideOpportunity";
-import SlideGateways from "@/components/dominican-pitch/SlideGateways";
 import SlideAirlines from "@/components/dominican-pitch/SlideAirlines";
 import SlideGap from "@/components/dominican-pitch/SlideGap";
 import SlideHowItWorks from "@/components/dominican-pitch/SlideHowItWorks";
@@ -25,7 +24,6 @@ const SLIDES = [
   { id: "cover", type: "cover" },
   { id: "team", type: "team" },
   { id: "opportunity", type: "opportunity" },
-  { id: "gateways", type: "gateways" },
   { id: "airlines", type: "airlines" },
   { id: "gap", type: "gap" },
   { id: "how", type: "how" },
@@ -43,7 +41,6 @@ const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
   opportunity: SlideOpportunity,
-  gateways: SlideGateways,
   airlines: SlideAirlines,
   gap: SlideGap,
   how: SlideHowItWorks,
