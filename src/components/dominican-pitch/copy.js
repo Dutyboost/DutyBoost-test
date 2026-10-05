@@ -330,13 +330,13 @@ export const COPY = {
         },
         {
           title: "A Caribbean-built platform, headquartered here",
-          body: "The Dominican Republic becomes the regional reference market for a Dutch-Caribbean technology company, with the platform revenue earned and taxed locally.",
+          body: "The Dominican Republic becomes another Caribbean market where a Dutch-Caribbean technology company operates, with the platform revenue earned and taxed locally.",
         },
       ],
       darkLead:
         "Nothing in this proposal asks the Dominican state to spend, legislate or guarantee anything.",
       darkBody:
-        "It asks the country to allow a private, self-funding mechanism to operate inside its existing airports — and to be the first market in the Caribbean where it does.",
+        "It asks the country to allow a private, self-funding mechanism to operate inside its existing airports, alongside the Caribbean markets where it is already running.",
       footnote:
         "Figures are illustrative, in USD, at the assumptions entered on the model slide and standard DutyBoost terms. Tax treatment of platform revenue and of retail sales follows existing Dominican law; DutyBoost introduces no new levy and no cost to the traveller.",
     },
@@ -398,12 +398,12 @@ export const COPY = {
         {
           when: "Months 3–6",
           title: "A single-gateway pilot",
-          body: "One airport, one retail group, one store. Ninety days, no upfront cost, no system replaced.",
+          body: "One airport, one retail group, one store. The POS provider in use at that airport integrates DutyBoost so its stores can redeem DutyCredits. Ninety days, no upfront cost, no system replaced.",
         },
         {
           when: "Months 6–12",
           title: "National rollout",
-          body: "Punta Cana, Las Américas and La Isabela live, and the Dominican Republic as the Caribbean template.",
+          body: "Punta Cana, Las Américas and Santiago live, with the retail groups trading in all three.",
         },
       ],
       askTitle: "What we ask of the Embassy",
@@ -654,16 +654,46 @@ export const COPY = {
         basis:
           "Tier mix calibrated to the published average transaction value of $70–$140 in travel retail (market.us, Travel Retail Market 2026); average retail spend per passenger of €10.55 in 2025 (ETRC) and $15.50 in 2024, down from $24.30 in 2020 (Kearney, Travel Retail 2025); ±70% of airport retail purchases are impulse-driven (ACI Asia-Pacific); 27% Caribbean purchase rate — the conversion headroom the programme targets (m1nd-set). Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data.",
       },
+      revenueCalculator: {
+        title: "Your Incremental Revenue Potential, Per Day",
+        hint: "Enter your own figures — the model recalculates",
+        fields: {
+          stores: "Stores you operate in the Dominican Republic",
+          travellers: "Travellers entering store / day",
+          activation: "Pre-activation",
+          redemption: "Redemption",
+          basket: "Blended basket",
+        },
+        rows: {
+          stores: "Stores in the model",
+          travellers: "Travellers through those stores / day",
+          activated: (pct) => `Pre-activated (${pct}% of travellers) / day`,
+          baskets: (pct) => `Incremental baskets (${pct}% redeem) / day`,
+          gross: "Incremental retail value / day",
+          net: (pct) => `Retailer net (${pct}%) / day`,
+          fee: (pct) => `Platform fee (${pct}%) / day`,
+          netYear: "Retailer net / Yr",
+        },
+        note:
+          "Illustrative model, one day, at the figures entered above. A 2.5% platform fee on validated transactions only — the retailer keeps the rest of the sale. Volumes are counts; values in USD.",
+      },
       transaction: {
         eyebrow: "One Transaction — Three Beneficiaries",
-        title: "$23 Entry-Tier Qualifying Sale Example",
-        parties: [
-          { party: "Traveller", value: "$1.15", sub: "DutyCredit saving (5%)" },
-          { party: "Airport Retailer", value: "$21.28", sub: "Net before normal costs (92.5%)" },
-          { party: "DutyBoost", value: "$0.58", sub: "Platform fee (2.5%)" },
-        ],
-        total: "Total = $23.00",
-        legend: ["Traveller 5%", "Retailer 92.5%", "DutyBoost 2.5%"],
+        title: (amount, tier) => `${amount} ${tier}-Tier Qualifying Sale`,
+        subtitle: (cap) =>
+          `Every validated sale divides at the moment of checkout. The sale follows the blended basket entered on the business-model slide, with qualifying spend capped at ${cap}.`,
+        parties: { traveller: "Traveller", retailer: "Airport Retailer", platform: "DutyBoost" },
+        subs: {
+          savingPct: (pct) => `DutyCredit saving (${pct}%)`,
+          savingCapped: (cap) => `DutyCredit saving (capped at ${cap})`,
+          retailerNet: (pct) => `Net before normal costs (${pct})`,
+          fee: (pct) => `Platform fee (${pct}%)`,
+        },
+        total: (value) => `Total = ${value}`,
+        capNote: (basket, above, cap) =>
+          `${basket} basket — the ${above} above the ${cap} cap stays with the retailer.`,
+        capFootnote: (discountCap, feeCap) =>
+          `The traveller discount is capped at ${discountCap} and the platform fee at ${feeCap} per transaction, so a large basket never exposes the retailer's margin.`,
         integrateTitle: "Integrate Once. Deploy Repeatedly.",
         integrateBody:
           "A single Enterprise POS integration can enable DutyBoost across multiple retailers, stores, airports and geographic markets — creating fundamentally better scaling economics than building individual integrations per retailer.",
@@ -692,7 +722,7 @@ export const COPY = {
         baskets: (v) => `${v} baskets / store`,
         perStoreShort: (v) => `${v} / store`,
         sensitivityNote:
-          "Per store, per year, at the travellers-a-year rate you entered and the redemption and basket values of the standard model.",
+          "Per store, per year, at the travellers, redemption and basket figures entered on the business-model slide.",
         upsideTitle: "Why This Is Pure Upside for the Retailer",
         upside: [
           "100% incremental — earned on sales that would not otherwise exist",
@@ -790,7 +820,8 @@ export const COPY = {
           { title: "Earn From Day One", desc: "Pre-activated travellers redeem DutyCredits at your store immediately." },
           { title: "Switch Off Anytime", desc: "No lock-in, no commitments — you stay in control, always." },
         ],
-        closingTitle: "Ready to turn 13.4M non-purchasing travellers into incremental sales?",
+        closingTitle:
+          "Ready to turn just 1% of the 13.4M non-purchasing passenger movements into incremental sales?",
         closingBody: "Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.",
         cta: "Confirm your POS Integration Interest",
       },
@@ -1124,13 +1155,13 @@ export const COPY = {
         },
         {
           title: "Una plataforma construida en el Caribe, con sede aquí",
-          body: "La República Dominicana se convierte en el mercado de referencia regional de una empresa tecnológica neerlandesa-caribeña, con los ingresos de plataforma generados y gravados localmente.",
+          body: "La República Dominicana se convierte en otro mercado caribeño donde opera una empresa tecnológica neerlandesa-caribeña, con los ingresos de plataforma generados y gravados localmente.",
         },
       ],
       darkLead:
         "Nada en esta propuesta pide al Estado dominicano gastar, legislar ni avalar nada.",
       darkBody:
-        "Pide al país permitir que un mecanismo privado y autofinanciado opere dentro de sus aeropuertos actuales — y ser el primer mercado del Caribe donde lo haga.",
+        "Pide al país permitir que un mecanismo privado y autofinanciado opere dentro de sus aeropuertos actuales, junto a los mercados del Caribe donde ya está en marcha.",
       footnote:
         "Las cifras son ilustrativas, en USD, con las hipótesis introducidas en la diapositiva del modelo y condiciones estándar de DutyBoost. El tratamiento fiscal de los ingresos de plataforma y de las ventas minoristas se rige por la legislación dominicana vigente; DutyBoost no introduce ningún gravamen nuevo ni coste para el pasajero.",
     },
@@ -1192,12 +1223,12 @@ export const COPY = {
         {
           when: "Meses 3–6",
           title: "Un piloto en una sola puerta",
-          body: "Un aeropuerto, un grupo minorista, una tienda. Noventa días, sin coste inicial y sin sustituir ningún sistema.",
+          body: "Un aeropuerto, un grupo minorista, una tienda. El proveedor de POS de ese aeropuerto integra DutyBoost para que sus tiendas puedan canjear DutyCredits. Noventa días, sin coste inicial y sin sustituir ningún sistema.",
         },
         {
           when: "Meses 6–12",
           title: "Despliegue nacional",
-          body: "Punta Cana, Las Américas y La Isabela activos, y la República Dominicana como modelo para el Caribe.",
+          body: "Punta Cana, Las Américas y Santiago activos, con los grupos minoristas que operan en los tres.",
         },
       ],
       askTitle: "Qué pedimos a la Embajada",
@@ -1448,16 +1479,46 @@ export const COPY = {
         basis:
           "Mezcla de niveles calibrada con el valor medio de transacción publicado de $70–$140 en travel retail (market.us, Travel Retail Market 2026); gasto medio por pasajero de €10.55 en 2025 (ETRC) y $15.50 en 2024, frente a $24.30 en 2020 (Kearney, Travel Retail 2025); ±70% de las compras en aeropuertos son por impulso (ACI Asia-Pacific); 27% de tasa de compra en el Caribe — el margen de conversión que persigue el programa (m1nd-set). La mezcla de niveles es ilustrativa de una distribución de cestas de 2025 y puede sustituirse por sus propios datos de POS.",
       },
+      revenueCalculator: {
+        title: "Su potencial de ingresos incrementales, por día",
+        hint: "Introduzca sus propias cifras — el modelo se recalcula",
+        fields: {
+          stores: "Tiendas que opera en la República Dominicana",
+          travellers: "Pasajeros que entran en la tienda / día",
+          activation: "Preactivación",
+          redemption: "Canje",
+          basket: "Cesta media",
+        },
+        rows: {
+          stores: "Tiendas en el modelo",
+          travellers: "Pasajeros por esas tiendas / día",
+          activated: (pct) => `Preactivados (${pct}% de los pasajeros) / día`,
+          baskets: (pct) => `Cestas incrementales (${pct}% canjea) / día`,
+          gross: "Valor minorista incremental / día",
+          net: (pct) => `Neto del minorista (${pct}%) / día`,
+          fee: (pct) => `Comisión de plataforma (${pct}%) / día`,
+          netYear: "Neto del minorista / año",
+        },
+        note:
+          "Modelo ilustrativo, un día, con las cifras introducidas arriba. Comisión de plataforma del 2.5% solo sobre transacciones validadas — el minorista conserva el resto de la venta. Los volúmenes son recuentos; los valores, en USD.",
+      },
       transaction: {
         eyebrow: "Una transacción — tres beneficiarios",
-        title: "Ejemplo de venta computable de $23 del nivel Entry",
-        parties: [
-          { party: "Pasajero", value: "$1.15", sub: "Ahorro DutyCredit (5%)" },
-          { party: "Minorista aeroportuario", value: "$21.28", sub: "Neto antes de costes normales (92.5%)" },
-          { party: "DutyBoost", value: "$0.58", sub: "Comisión de plataforma (2.5%)" },
-        ],
-        total: "Total = $23.00",
-        legend: ["Pasajero 5%", "Minorista 92.5%", "DutyBoost 2.5%"],
+        title: (amount, tier) => `Venta computable de ${amount} del nivel ${tier}`,
+        subtitle: (cap) =>
+          `Cada venta validada se reparte en el momento de la caja. La venta sigue la cesta media introducida en la diapositiva del modelo comercial, con el gasto computable limitado a ${cap}.`,
+        parties: { traveller: "Pasajero", retailer: "Minorista aeroportuario", platform: "DutyBoost" },
+        subs: {
+          savingPct: (pct) => `Ahorro DutyCredit (${pct}%)`,
+          savingCapped: (cap) => `Ahorro DutyCredit (tope de ${cap})`,
+          retailerNet: (pct) => `Neto antes de costes normales (${pct})`,
+          fee: (pct) => `Comisión de plataforma (${pct}%)`,
+        },
+        total: (value) => `Total = ${value}`,
+        capNote: (basket, above, cap) =>
+          `Cesta de ${basket} — los ${above} que superan el tope de ${cap} se quedan en el minorista.`,
+        capFootnote: (discountCap, feeCap) =>
+          `El descuento al pasajero tiene un tope de ${discountCap} y la comisión de plataforma de ${feeCap} por transacción, de modo que una cesta grande nunca pone en riesgo el margen del minorista.`,
         integrateTitle: "Integrar una vez. Desplegar repetidamente.",
         integrateBody:
           "Una sola integración con el POS empresarial puede activar DutyBoost en varios minoristas, tiendas, aeropuertos y mercados geográficos — creando una economía de escala muy superior a la de integraciones individuales por minorista.",
@@ -1486,7 +1547,7 @@ export const COPY = {
         baskets: (v) => `${v} cestas / tienda`,
         perStoreShort: (v) => `${v} / tienda`,
         sensitivityNote:
-          "Por tienda y año, con el número de pasajeros al año introducido y los valores de canje y cesta del modelo estándar.",
+          "Por tienda y año, con las cifras de pasajeros, canje y cesta introducidas en la diapositiva del modelo comercial.",
         upsideTitle: "Por qué esto es puro beneficio para el minorista",
         upside: [
           "100% incremental — ganado en ventas que de otro modo no existirían",
@@ -1584,7 +1645,8 @@ export const COPY = {
           { title: "Gane desde el primer día", desc: "Los pasajeros preactivados canjean DutyCredits en su tienda de inmediato." },
           { title: "Desactive cuando quiera", desc: "Sin permanencia ni compromisos — usted mantiene el control, siempre." },
         ],
-        closingTitle: "¿Listo para convertir 13.4M de pasajeros que no compran en ventas incrementales?",
+        closingTitle:
+          "¿Listo para convertir apenas el 1% de los 13.4M de movimientos de pasajeros que no compran en ventas incrementales?",
         closingBody: "Basado en rendimiento. Coste inicial cero. Solo paga la comisión de plataforma del 2.5% sobre ventas validadas.",
         cta: "Confirmar su interés en la integración con el POS",
       },

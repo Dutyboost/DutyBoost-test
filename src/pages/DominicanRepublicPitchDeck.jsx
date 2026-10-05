@@ -18,6 +18,7 @@ import SlideThankYouRetail from "@/components/dominican-pitch/retailer/SlideThan
 import SlideGovernment from "@/components/dominican-pitch/SlideGovernment";
 import SlideNextSteps from "@/components/dominican-pitch/SlideNextSteps";
 import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
+import { RetailerRevenueProvider } from "@/components/dominican-pitch/retailer/RetailerRevenueContext";
 import { LanguageProvider, useDeckLang } from "@/components/dominican-pitch/LanguageContext";
 import LanguageToggle from "@/components/dominican-pitch/LanguageToggle";
 import { ACCENT } from "@/components/dominican-pitch/Shared";
@@ -107,7 +108,9 @@ function DominicanDeck() {
         className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]"
       >
         <NetworkProvider>
-          <SlideComp />
+          <RetailerRevenueProvider>
+            <SlideComp />
+          </RetailerRevenueProvider>
         </NetworkProvider>
       </div>
 

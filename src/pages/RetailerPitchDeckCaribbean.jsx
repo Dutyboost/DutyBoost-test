@@ -784,7 +784,7 @@ function SlideThankYou() {
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white max-w-2xl">
             <p className="font-bold text-base md:text-lg leading-snug mb-1">
-              Ready to turn 625K non-purchasing travellers into incremental sales?
+              Ready to turn a percentage of the 625K non-purchasing travellers into incremental sales?
             </p>
             <p className="text-blue-50 text-sm">
               Performance-based. Zero upfront cost. You pay only the 2.5% platform fee on validated sales.

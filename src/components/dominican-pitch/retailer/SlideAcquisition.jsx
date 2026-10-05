@@ -105,10 +105,10 @@ export default function SlideAcquisition() {
               </div>
 
               <div
-                className="flex-1 flex items-center justify-center text-center rounded-2xl p-5 text-white"
+                className="flex-1 flex items-center justify-center text-center rounded-2xl p-6 text-white"
                 style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #6b1f66 100%)` }}
               >
-                <p className="font-bold text-lg md:text-xl leading-snug">{c.closing}</p>
+                <p className="font-bold text-xl md:text-2xl lg:text-3xl leading-tight">{c.closing}</p>
               </div>
             </div>
           </div>

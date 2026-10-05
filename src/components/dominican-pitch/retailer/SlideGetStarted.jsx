@@ -17,29 +17,29 @@ export default function SlideGetStarted() {
         <div className="relative z-10 text-center">
           <div className="flex justify-center mb-3">
             <div className="bg-white rounded-2xl px-6 py-2 shadow-xl border border-slate-200">
-              <DutyBoostLogo height={42} linkTo="/retailer-showcase" />
+              <DutyBoostLogo height={56} linkTo="/retailer-showcase" />
             </div>
           </div>
           <div className="mb-3">
             <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>{c.eyebrow}</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-1.5 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-1.5 leading-tight">
               {c.title}
               <br />
               <span style={{ color: ACCENT }}>{c.titleAccent}</span>
             </h2>
           </div>
-          <p className="text-slate-600 text-base max-w-3xl mx-auto leading-relaxed mb-4">{c.subtitle}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-4">
+          <p className="text-slate-600 text-lg max-w-4xl mx-auto leading-relaxed mb-6">{c.subtitle}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-6">
             {c.cards.map((card) => (
-              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left">
-                <div className="font-bold text-sm mb-1" style={{ color: ACCENT }}>{card.title}</div>
-                <div className="text-slate-600 text-xs leading-snug">{card.desc}</div>
+              <div key={card.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-left">
+                <div className="font-bold text-base mb-1.5" style={{ color: ACCENT }}>{card.title}</div>
+                <div className="text-slate-600 text-sm leading-snug">{card.desc}</div>
               </div>
             ))}
           </div>
-          <div className="flex flex-col items-center gap-1.5">
-            <p className="text-base md:text-lg font-bold" style={{ color: ACCENT }}>{c.footer1}</p>
-            <p className="text-slate-700 text-sm md:text-base font-semibold">{c.footer2}</p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-lg md:text-2xl font-bold" style={{ color: ACCENT }}>{c.footer1}</p>
+            <p className="text-slate-700 text-base md:text-lg font-semibold">{c.footer2}</p>
           </div>
         </div>
       </div>

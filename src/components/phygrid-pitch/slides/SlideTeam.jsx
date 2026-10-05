@@ -13,13 +13,13 @@ export default function SlideTeam() {
               The People Behind <span className="text-blue-600">DutyBoost</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
             {TEAM_MEMBERS.map((m) => (
               <div
                 key={m.name}
                 className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 text-center flex flex-col items-center shadow-sm"
               >
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-blue-100 mb-3 flex-shrink-0">
+                <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-blue-100 mb-4 flex-shrink-0">
                   <img src={m.photo} alt={m.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <a

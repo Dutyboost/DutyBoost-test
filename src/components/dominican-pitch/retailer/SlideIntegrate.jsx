@@ -20,27 +20,27 @@ export default function SlideIntegrate() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 lg:p-7">
-              <h3 className="text-[#0a0f1e] font-bold lg:text-lg mb-4">{c.dashboardTitle}</h3>
-              <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 lg:p-9 flex flex-col justify-center">
+              <h3 className="text-[#0a0f1e] font-bold text-lg lg:text-2xl mb-5">{c.dashboardTitle}</h3>
+              <div className="space-y-4">
                 {c.dashboardPoints.map((text) => (
                   <div key={text} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-600 text-sm">{text}</span>
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-600 text-base lg:text-lg leading-snug">{text}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-2xl p-5 lg:p-7 text-white" style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #6b1f66 100%)` }}>
-              <h3 className="font-bold text-xl lg:text-2xl mb-2">{c.activatedTitle}</h3>
-              <p className="text-white/85 text-sm lg:text-base leading-relaxed mb-3 lg:mb-5">{c.activatedBody}</p>
+            <div className="rounded-2xl p-6 lg:p-9 text-white flex flex-col justify-center" style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #6b1f66 100%)` }}>
+              <h3 className="font-bold text-2xl lg:text-3xl mb-3">{c.activatedTitle}</h3>
+              <p className="text-white/85 text-base lg:text-lg leading-relaxed mb-4 lg:mb-6">{c.activatedBody}</p>
               <div className="grid grid-cols-3 gap-3 text-center">
                 {c.stats.map((s) => (
-                  <div key={s.label} className="bg-white/10 rounded-xl p-3">
-                    <div className="text-white font-bold">{s.val}</div>
-                    <div className="text-white/70 text-xs mt-1">{s.label}</div>
+                  <div key={s.label} className="bg-white/10 rounded-xl p-4">
+                    <div className="text-white font-bold text-lg lg:text-xl">{s.val}</div>
+                    <div className="text-white/70 text-sm mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>

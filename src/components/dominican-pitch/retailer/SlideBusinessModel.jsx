@@ -1,7 +1,8 @@
 import { CheckCircle } from "lucide-react";
-import { TIER_ROWS } from "../figures";
+import { TIER_ROWS, BASKET_CAP, DISCOUNT_CAP, usd } from "../figures";
 import { ACCENT, GridBg, SlideWrapper } from "../Shared";
 import { useDeckLang } from "../LanguageContext";
+import RetailerCalculator from "./RetailerCalculator";
 
 export default function SlideBusinessModel() {
   const { t } = useDeckLang();
@@ -21,16 +22,16 @@ export default function SlideBusinessModel() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6">
-              <h3 className="font-bold text-white text-lg mb-3 sm:mb-4">{c.tiersTitle}</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
+            <div className="bg-slate-800 text-white rounded-2xl p-5 sm:p-7 flex flex-col">
+              <h3 className="font-bold text-white text-xl sm:text-2xl mb-4 sm:mb-5">{c.tiersTitle}</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1.5 px-2">
                 {c.tierHeaders.map((h) => <span key={h}>{h}</span>)}
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 {TIER_ROWS.map((row, i) => (
                   <div
                     key={row.tier}
-                    className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-white/10" : "hover:bg-white/5"}`}
+                    className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-2.5 px-2 rounded-lg text-sm ${i === 0 ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <span className="text-slate-200 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>
@@ -39,6 +40,7 @@ export default function SlideBusinessModel() {
                   </div>
                 ))}
               </div>
+              <p className="text-slate-400 text-xs mt-4 leading-snug">{c.tiersNote(usd(BASKET_CAP), usd(DISCOUNT_CAP))}</p>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -70,6 +72,10 @@ export default function SlideBusinessModel() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="mt-4">
+            <RetailerCalculator />
           </div>
         </div>
       </div>

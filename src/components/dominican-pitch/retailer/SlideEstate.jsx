@@ -1,31 +1,18 @@
-import { useState } from "react";
 import { CheckCircle, TrendingUp } from "lucide-react";
-import { discountFor, MODEL, PER_STORE, usd, usdShort, numShort } from "../figures";
+import { usd, usdShort, numShort } from "../figures";
 import { ACCENT, GridBg, SlideWrapper } from "../Shared";
+import { useRetailerRevenue, computeRetailerRevenue, perStoreAtActivation } from "./RetailerRevenueContext";
 import { useDeckLang } from "../LanguageContext";
 
 const SENSITIVITY = [0.01, 0.02, 0.05];
-
-function compute(travellers, activation, basket) {
-  const baskets = travellers * activation * MODEL.redemption;
-  const gross = baskets * basket;
-  const saving = gross * discountFor(basket);
-  const fee = gross * MODEL.platformFee;
-  return { baskets, gross, saving, fee, net: gross - saving - fee };
-}
 
 export default function SlideEstate() {
   const { t } = useDeckLang();
   const c = t.retail.estate;
 
-  const [stores, setStores] = useState(5);
-  const [travellers, setTravellers] = useState(PER_STORE.travellers);
-  const [activation, setActivation] = useState(2);
-
-  const per = compute(travellers, activation / 100, MODEL.basket);
-  const estateNet = per.net * stores;
-
-  const input = "w-full rounded-lg border border-slate-300 px-2 py-1.5 text-sm text-slate-800 focus:outline-none focus:border-slate-500";
+  // Everything here comes from the calculator on the business-model slide.
+  const { inputs } = useRetailerRevenue();
+  const { stores, activation, perStore, estate } = computeRetailerRevenue(inputs);
 
   return (
     <SlideWrapper>
@@ -40,30 +27,15 @@ export default function SlideEstate() {
             <p className="text-slate-500 mt-1 text-sm md:text-base">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 max-w-3xl">
-            <div>
-              <label className="text-xs text-slate-500">{c.storesLabel}</label>
-              <input type="number" min="1" value={stores} onChange={(e) => setStores(Math.max(1, Number(e.target.value)))} className={input} />
-            </div>
-            <div>
-              <label className="text-xs text-slate-500">{c.travellersLabel}</label>
-              <input type="number" min="0" step="10000" value={travellers} onChange={(e) => setTravellers(Number(e.target.value))} className={input} />
-            </div>
-            <div>
-              <label className="text-xs text-slate-500">{c.activationLabel} (%)</label>
-              <input type="number" min="0" max="100" step="0.5" value={activation} onChange={(e) => setActivation(Number(e.target.value))} className={input} />
-            </div>
-          </div>
-
           <div className="rounded-2xl p-5 text-center mb-4 max-w-3xl mx-auto" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
             <div className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: ACCENT }}>
-              {numShort(stores)} × {usd(per.net)} — {c.perStore}
+              {numShort(stores)} × {usd(perStore.retailerNet)} — {c.perStore}
             </div>
-            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: ACCENT }}>{usdShort(estateNet)}</div>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: ACCENT }}>{usdShort(estate.retailerNet)}</div>
             <div className="text-sm font-medium" style={{ color: ACCENT }}>{c.estateLabel}</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
-              <div className="text-slate-500 text-xs">{usdShort(per.gross * stores)} {c.grossLabel}</div>
-              <div className="text-slate-500 text-xs">{usdShort(per.saving * stores)} {c.savingLabel}</div>
+              <div className="text-slate-500 text-xs">{usdShort(estate.gross)} {c.grossLabel}</div>
+              <div className="text-slate-500 text-xs">{usdShort(estate.travellerSaving)} {c.savingLabel}</div>
             </div>
           </div>
 
@@ -76,8 +48,8 @@ export default function SlideEstate() {
               <p className="text-slate-600 text-sm mb-3">{c.leverBody}</p>
               <div className="space-y-2 text-sm">
                 {SENSITIVITY.map((a) => {
-                  const r = compute(travellers, a, MODEL.basket);
-                  const isCurrent = Math.round(a * 100) === Math.round(activation);
+                  const r = perStoreAtActivation(inputs, a);
+                  const isCurrent = Math.round(a * 100) === Math.round(activation * 100);
                   return (
                     <div
                       key={a}
@@ -88,7 +60,7 @@ export default function SlideEstate() {
                     >
                       <span className="text-slate-600">{c.atActivation(Math.round(a * 100))}</span>
                       <span className="text-slate-700">{c.baskets(numShort(r.baskets))}</span>
-                      <span className="font-bold" style={{ color: ACCENT }}>{c.perStoreShort(usd(r.net))}</span>
+                      <span className="font-bold" style={{ color: ACCENT }}>{c.perStoreShort(usd(r.retailerNet))}</span>
                     </div>
                   );
                 })}
@@ -109,7 +81,7 @@ export default function SlideEstate() {
                 </div>
               </div>
               <div className="rounded-2xl p-5 text-white" style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #6b1f66 100%)` }}>
-                <p className="font-bold leading-snug">{usd(per.net)} {c.closingTitle}</p>
+                <p className="font-bold leading-snug">{usd(perStore.retailerNet)} {c.closingTitle}</p>
                 <p className="text-white/80 text-sm mt-2">{c.closingBody}</p>
               </div>
             </div>

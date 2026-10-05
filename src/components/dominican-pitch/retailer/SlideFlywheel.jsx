@@ -23,13 +23,13 @@ export default function SlideFlywheel() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-            <div className="relative flex items-center justify-center" style={{ height: "340px" }}>
+            <div className="relative flex items-center justify-center" style={{ height: "430px" }}>
               <div className="absolute inset-0 rounded-full border-2" style={{ borderColor: `${ACCENT}33` }} />
               <div
-                className="rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10"
+                className="rounded-full w-36 h-36 flex flex-col items-center justify-center text-center z-10"
                 style={{ background: ACCENT }}
               >
-                <div className="text-white text-xs font-bold leading-tight px-2">
+                <div className="text-white text-sm font-bold leading-tight px-3">
                   Performance-Based Customer Acquisition Infrastructure
                 </div>
               </div>
@@ -43,9 +43,9 @@ export default function SlideFlywheel() {
                   <div
                     key={step}
                     className="absolute bg-white border rounded-lg px-2 py-1 text-center"
-                    style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)", maxWidth: "90px", borderColor: `${ACCENT}33` }}
+                    style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)", maxWidth: "110px", borderColor: `${ACCENT}33` }}
                   >
-                    <div className="text-xs font-semibold leading-tight" style={{ color: ACCENT }}>{step}</div>
+                    <div className="text-sm font-semibold leading-tight" style={{ color: ACCENT }}>{step}</div>
                   </div>
                 );
               })}
@@ -54,13 +54,13 @@ export default function SlideFlywheel() {
 
             <div className="space-y-4">
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                <h3 className="text-slate-800 font-bold mb-3">{c.networkTitle}</h3>
-                <div className="space-y-2.5 text-sm">
+                <h3 className="text-slate-800 font-bold text-lg mb-4">{c.networkTitle}</h3>
+                <div className="space-y-3 text-base">
                   {c.networkRows.map((row, i) => {
                     const Icon = ICONS[i];
                     return (
-                      <div key={row.party} className="flex items-start gap-2">
-                        <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ACCENT }} />
+                      <div key={row.party} className="flex items-start gap-2.5">
+                        <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: ACCENT }} />
                         <div>
                           <span className="font-semibold" style={{ color: ACCENT }}>{row.party} </span>
                           <span className="text-slate-600">{row.effect}</span>
@@ -71,8 +71,8 @@ export default function SlideFlywheel() {
                 </div>
               </div>
               <div className="rounded-2xl p-5 text-white" style={{ background: `linear-gradient(135deg, ${ACCENT} 0%, #6b1f66 100%)` }}>
-                <p className="font-bold text-lg leading-snug">{c.quote}</p>
-                <p className="text-white/80 text-sm mt-2">{c.quoteSub}</p>
+                <p className="font-bold text-xl lg:text-2xl leading-snug">{c.quote}</p>
+                <p className="text-white/80 text-base mt-2">{c.quoteSub}</p>
               </div>
             </div>
           </div>

@@ -827,7 +827,7 @@ function SlideThankYou() {
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white max-w-2xl">
             <p className="font-bold text-base lg:text-lg leading-snug mb-2">
-              Ready to turn 625K non-purchasing travellers into incremental supplier volume?
+              Ready to turn a percentage of the 625K non-purchasing travellers into incremental supplier volume?
             </p>
             <p className="text-blue-50 text-sm">
               Performance-based. Zero upfront cost. More passengers converted → more products sold → faster stock rotation → more orders → more revenue for you.
