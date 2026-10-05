@@ -53,7 +53,7 @@ export default function SlideClosing() {
             The estate is already there — ±45,000 stores, ~9.8B annual travel moments, and 73% of them leaving
             without a purchase. DutyBoost pre-activates those travellers before they reach the airport and settles every
             transaction through your POS. One integration, no upfront cost, and a commission on every incremental
-            sale.
+            sale, <strong>PERPETUALLY!</strong>
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl w-full mb-3">
