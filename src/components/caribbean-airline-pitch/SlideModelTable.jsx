@@ -1,5 +1,6 @@
 import { Plane, Store, Cpu } from "lucide-react";
 import { PARTNER, POS, RETAIL, SlideShell } from "./Shared";
+import DealCalculator from "./DealCalculator";
 
 const ROWS = [
   {
@@ -33,7 +34,7 @@ export default function SlideModelTable() {
     <SlideShell
       eyebrow="The Triple-Sided Model"
       title={<>Three Positions. <span style={{ color: RETAIL }}>One Commercial Loop.</span></>}
-      subtitle="Caribbean Airlines participates on three sides of the same transaction."
+      subtitle="Caribbean Airlines participates on three sides of the same transaction — enter your own figures and every slide recalculates."
     >
       <div className="space-y-3">
         <div className="hidden md:grid grid-cols-12 gap-3 px-4 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
@@ -58,11 +59,15 @@ export default function SlideModelTable() {
         ))}
       </div>
 
-      <div className="mt-5 bg-slate-800 text-white rounded-2xl p-5">
+      <div className="mt-4 bg-slate-800 text-white rounded-2xl p-5">
         <p className="text-sm leading-relaxed">
           <span className="font-bold">The airline earns as a Travel Partner while the retailer earns as a Retailer</span> — and POS
           integration then opens the retail business to the entire DutyBoost traveller network.
         </p>
+      </div>
+
+      <div className="mt-4">
+        <DealCalculator />
       </div>
     </SlideShell>
   );

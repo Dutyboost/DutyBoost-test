@@ -6,6 +6,8 @@ import SlideTravelPartner from "@/components/caribbean-airline-pitch/SlideTravel
 import SlideRetailer from "@/components/caribbean-airline-pitch/SlideRetailer";
 import SlidePosIntegration from "@/components/caribbean-airline-pitch/SlidePosIntegration";
 import SlideModelTable from "@/components/caribbean-airline-pitch/SlideModelTable";
+import SlideNetworkDeal from "@/components/caribbean-airline-pitch/SlideNetworkDeal";
+import { DealProvider } from "@/components/caribbean-airline-pitch/DealContext";
 import SlideCommercialLoop from "@/components/caribbean-airline-pitch/SlideCommercialLoop";
 import SlideEconomics from "@/components/caribbean-airline-pitch/SlideEconomics";
 import SlideWhyItMatters from "@/components/caribbean-airline-pitch/SlideWhyItMatters";
@@ -22,6 +24,7 @@ const SLIDES = [
   { id: "model", type: "model" },
   { id: "loop", type: "loop" },
   { id: "economics", type: "economics" },
+  { id: "network", type: "network" },
   { id: "why", type: "why" },
   { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
@@ -36,6 +39,7 @@ const SLIDE_LABELS = {
   model: "The Triple-Sided Model",
   loop: "The Commercial Loop",
   economics: "Triple-Sided Economics",
+  network: "Across the Network",
   why: "Why This Matters",
   getStarted: "Get Started",
   thankYou: "Thank You",
@@ -50,6 +54,7 @@ const SLIDE_COMPONENTS = {
   model: SlideModelTable,
   loop: SlideCommercialLoop,
   economics: SlideEconomics,
+  network: SlideNetworkDeal,
   why: SlideWhyItMatters,
   getStarted: SlideGetStarted,
   thankYou: SlideThankYou,
@@ -87,7 +92,9 @@ export default function CaribbeanAirlinesPitchDeck() {
         ref={slideAreaRef}
         className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]"
       >
-        <SlideComp />
+        <DealProvider>
+          <SlideComp />
+        </DealProvider>
       </div>
 
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mt-2">
