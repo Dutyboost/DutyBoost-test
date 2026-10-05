@@ -2,16 +2,21 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SlideCover from "@/components/dominican-pitch/SlideCover";
 import SlideTeam from "@/components/dominican-pitch/SlideTeam";
-import SlideOpportunity from "@/components/dominican-pitch/SlideOpportunity";
-import SlideGap from "@/components/dominican-pitch/SlideGap";
-import SlideHowItWorks from "@/components/dominican-pitch/SlideHowItWorks";
-import SlideModel from "@/components/dominican-pitch/SlideModel";
-import SlideEconomics from "@/components/dominican-pitch/SlideEconomics";
-import SlideRetailers from "@/components/dominican-pitch/SlideRetailers";
+import SlideProblem from "@/components/dominican-pitch/retailer/SlideProblem";
+import SlideSolution from "@/components/dominican-pitch/retailer/SlideSolution";
+import SlideMarket from "@/components/dominican-pitch/retailer/SlideMarket";
+import SlideConversion from "@/components/dominican-pitch/retailer/SlideConversion";
+import SlideAcquisition from "@/components/dominican-pitch/retailer/SlideAcquisition";
+import SlideBusinessModel from "@/components/dominican-pitch/retailer/SlideBusinessModel";
+import SlideTierMix from "@/components/dominican-pitch/retailer/SlideTierMix";
+import SlideTransaction from "@/components/dominican-pitch/retailer/SlideTransaction";
+import SlideEstate from "@/components/dominican-pitch/retailer/SlideEstate";
+import SlideIntegrate from "@/components/dominican-pitch/retailer/SlideIntegrate";
+import SlideFlywheel from "@/components/dominican-pitch/retailer/SlideFlywheel";
+import SlideGetStarted from "@/components/dominican-pitch/retailer/SlideGetStarted";
+import SlideThankYouRetail from "@/components/dominican-pitch/retailer/SlideThankYouRetail";
 import SlideGovernment from "@/components/dominican-pitch/SlideGovernment";
-import SlideNetwork from "@/components/dominican-pitch/SlideNetwork";
 import SlideNextSteps from "@/components/dominican-pitch/SlideNextSteps";
-import SlideThankYou from "@/components/dominican-pitch/SlideThankYou";
 import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
 import { LanguageProvider, useDeckLang } from "@/components/dominican-pitch/LanguageContext";
 import LanguageToggle from "@/components/dominican-pitch/LanguageToggle";
@@ -21,31 +26,41 @@ import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButton
 const SLIDES = [
   { id: "cover", type: "cover" },
   { id: "team", type: "team" },
-  { id: "opportunity", type: "opportunity" },
-  { id: "gap", type: "gap" },
-  { id: "how", type: "how" },
-  { id: "model", type: "model" },
-  { id: "economics", type: "economics" },
-  { id: "retailers", type: "retailers" },
-  { id: "government", type: "government" },
-  { id: "network", type: "network" },
-  { id: "nextSteps", type: "nextSteps" },
+  { id: "problem", type: "problem" },
+  { id: "solution", type: "solution" },
+  { id: "market", type: "market" },
+  { id: "conversion", type: "conversion" },
+  { id: "acquisition", type: "acquisition" },
+  { id: "businessModel", type: "businessModel" },
+  { id: "tierMix", type: "tierMix" },
+  { id: "transaction", type: "transaction" },
+  { id: "estate", type: "estate" },
+  { id: "integrate", type: "integrate" },
+  { id: "flywheel", type: "flywheel" },
+  { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
+  { id: "government", type: "government" },
+  { id: "nextSteps", type: "nextSteps" },
 ];
 
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   team: SlideTeam,
-  opportunity: SlideOpportunity,
-  gap: SlideGap,
-  how: SlideHowItWorks,
-  model: SlideModel,
-  economics: SlideEconomics,
-  retailers: SlideRetailers,
+  problem: SlideProblem,
+  solution: SlideSolution,
+  market: SlideMarket,
+  conversion: SlideConversion,
+  acquisition: SlideAcquisition,
+  businessModel: SlideBusinessModel,
+  tierMix: SlideTierMix,
+  transaction: SlideTransaction,
+  estate: SlideEstate,
+  integrate: SlideIntegrate,
+  flywheel: SlideFlywheel,
+  getStarted: SlideGetStarted,
+  thankYou: SlideThankYouRetail,
   government: SlideGovernment,
-  network: SlideNetwork,
   nextSteps: SlideNextSteps,
-  thankYou: SlideThankYou,
 };
 
 function DominicanDeck() {

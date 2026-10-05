@@ -1,16 +1,13 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
-import { ACCENT, GridBg, RETAIL, SlideWrapper } from "./Shared";
-import { AIRPORT_PER_DAY, MARKET, num } from "./figures";
+import { ACCENT, GridBg, SlideWrapper } from "./Shared";
+import { MARKET } from "./figures";
 import { useDeckLang } from "./LanguageContext";
 
 export default function SlideCover() {
   const { t } = useDeckLang();
-
-  const FLAG = [
-    { color: RETAIL, label: t.cover.parties.retailers },
-    { color: "#ffffff", label: t.cover.parties.government, border: true },
-  ];
+  const c = t.retailCover;
+  const s = c.stats;
 
   return (
     <SlideWrapper>
@@ -20,48 +17,32 @@ export default function SlideCover() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[620px] rounded-full opacity-10"
           style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
         />
-        <div className="relative z-10 w-full max-w-5xl flex flex-col items-center gap-3">
+        <div className="relative z-10 w-full max-w-5xl flex flex-col items-center gap-4">
           <div className="bg-white rounded-2xl px-6 py-3 shadow-2xl border border-slate-200">
-            <DutyBoostLogo height={42} linkTo="/retailer-showcase" />
+            <DutyBoostLogo height={44} linkTo="/retailer-showcase" />
           </div>
 
           <PositioningLine hero size="xl" className="max-w-4xl" text={t.positioning} />
 
           <div>
-            <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-2">
-              {t.cover.title}
+            <h1 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] leading-tight mb-3">
+              {c.title}
               <br />
-              <span style={{ color: ACCENT }}>{t.cover.titleAccent}</span>
+              <span style={{ color: ACCENT }}>{c.titleAccent}</span>
             </h1>
-            <p className="text-base md:text-xl text-slate-500 max-w-3xl leading-relaxed">
-              {t.cover.subtitle}
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3 sm:gap-5">
-            {FLAG.map((f) => (
-              <div key={f.label} className="flex items-center gap-2">
-                <span
-                  className={`w-4 h-4 rounded-full ${f.border ? "border border-slate-300" : ""}`}
-                  style={{ background: f.color }}
-                />
-                <span className="text-xs sm:text-sm font-semibold text-slate-600">{f.label}</span>
-              </div>
-            ))}
+            <p className="text-base md:text-xl text-slate-500 max-w-3xl leading-relaxed">{c.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 w-full max-w-3xl">
             {[
-              { label: t.cover.stats.gateways, value: MARKET.gateways },
-              { label: t.cover.stats.passengers, value: MARKET.drPassengers },
-              { label: t.cover.stats.perDay, value: `${num(AIRPORT_PER_DAY)}+` },
-              { label: t.cover.stats.cost, value: "$0" },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-xl sm:text-3xl font-bold" style={{ color: ACCENT }}>
-                  {s.value}
-                </div>
-                <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.label}</div>
+              { label: s.movements, value: MARKET.drPassengers },
+              { label: s.airports, value: MARKET.gateways },
+              { label: s.nonPurchase, value: "73%" },
+              { label: s.cost, value: "$0" },
+            ].map((x) => (
+              <div key={x.label} className="text-center">
+                <div className="text-xl sm:text-3xl font-bold" style={{ color: ACCENT }}>{x.value}</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1">{x.label}</div>
               </div>
             ))}
           </div>
