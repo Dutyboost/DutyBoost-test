@@ -313,7 +313,7 @@ export const COPY = {
       kpis: [
         "incremental retail value created a year, at the modelled scenario — activity that does not exist today",
         "platform revenue earned by the operating entity in the country, as a taxable base",
-        "airport passengers already passing through the country's major airports each year — the market this reaches",
+        "two-way passenger movements through the country's major airports each year — the 11.6M visitors of 2025, counted in and out",
       ],
       pillars: [
         {
@@ -446,7 +446,7 @@ export const COPY = {
         c2: {
           value: "18.4M",
           label: "Passenger movements a year across the Dominican Republic's major airports",
-          note: "Punta Cana, Las Américas and Santiago — arrivals and departures combined",
+          note: "Punta Cana, Las Américas and Santiago — arrivals and departures combined | the 11.6M visitors of 2025 (8.9M by air) cross the terminal twice",
         },
         c3: {
           value: "73%",
@@ -496,9 +496,9 @@ export const COPY = {
         eyebrow: "Dominican Republic Market Opportunity",
         title: "18.4M Passenger Movements. 3 Airports.",
         titleAccent: "The Busiest Air Market in the Caribbean.",
-        subtitle: "DutyBoost doesn't need to create the market. It connects what already exists.",
+        subtitle: "DutyBoost doesn't need to create the market. It connects what already exists — the 11.6M visitors of 2025 cross the country's terminals twice.",
         kpis: [
-          { value: "18.4M", label: "Passenger movements a year", sub: "Punta Cana, Las Américas and Santiago combined", color: "#952d8b" },
+          { value: "18.4M", label: "Passenger movements a year", sub: "Punta Cana, Las Américas and Santiago — arrivals and departures. 11.6M visitors in 2025, 8.9M by air", color: "#952d8b" },
           { value: "3", label: "Airports served", sub: "PUJ, SDQ and STI — the country's major gateways", color: "#3b82f6" },
           { value: "$2.72B", label: "Caribbean DF&TR market", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "13.4M", label: "Non-purchasing movements a year", sub: "73% of passengers, at the Caribbean benchmark", color: "#16a34a" },
@@ -515,7 +515,7 @@ export const COPY = {
         createTitle: "DutyBoost doesn't need to create:",
         createItems: [
           "Punta Cana, Las Américas and Santiago — all already operate",
-          "Passenger traffic — ±18.4M passenger movements a year",
+          "Passenger traffic — 11.6M visitors in 2025, ±18.4M two-way passenger movements",
           "Airport Retailers — they already operate the concourse stores",
           "Travel & Corporate Partners — they already communicate with travellers",
           "Enterprise POS — already processes transactions",
@@ -556,7 +556,7 @@ export const COPY = {
           "DutyBoost funds and runs the Curiosity Campaign across the source markets travellers fly from — before they ever reach the Dominican Republic.",
         marketsTitle: "Where We Acquire Them — Dominican Source Markets",
         marketsBody:
-          "All 18.4M passenger movements a year across the three gateways. Every traveller is counted — whether a visitor flying in or a Dominican resident flying out and returning home.",
+          "The 11.6M visitors of 2025 (8.9M by air) and ±18.4M two-way passenger movements across the three gateways. Every traveller is counted — whether a visitor flying in or a Dominican resident flying out and returning home.",
         markets: [
           { flag: "🇺🇸", name: "USA", movements: "7.7M", share: "42%" },
           { flag: "🇨🇦", name: "Canada", movements: "3.7M", share: "20%" },
@@ -1107,7 +1107,7 @@ export const COPY = {
       kpis: [
         "valor minorista incremental creado al año, en el escenario modelado — actividad que hoy no existe",
         "ingresos de plataforma ganados por la entidad operadora en el país, como base imponible",
-        "pasajeros aeroportuarios que ya pasan cada año por los principales aeropuertos del país — el mercado al que llega",
+        "movimientos de pasajeros en ambos sentidos en los principales aeropuertos del país cada año — los 11.6M de visitantes de 2025, contados a la llegada y a la salida",
       ],
       pillars: [
         {
@@ -1240,7 +1240,7 @@ export const COPY = {
         c2: {
           value: "18.4M",
           label: "Movimientos de pasajeros al año en los principales aeropuertos del país",
-          note: "Punta Cana, Las Américas y Santiago — llegadas y salidas combinadas",
+          note: "Punta Cana, Las Américas y Santiago — llegadas y salidas combinadas | los 11.6M de visitantes de 2025 (8.9M por vía aérea) cruzan la terminal dos veces",
         },
         c3: {
           value: "73%",
@@ -1290,9 +1290,9 @@ export const COPY = {
         eyebrow: "Oportunidad del mercado dominicano",
         title: "18.4M de movimientos de pasajeros. 3 aeropuertos.",
         titleAccent: "El mercado aéreo más activo del Caribe.",
-        subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe.",
+        subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe — los 11.6M de visitantes de 2025 cruzan las terminales del país dos veces.",
         kpis: [
-          { value: "18.4M", label: "Movimientos de pasajeros al año", sub: "Punta Cana, Las Américas y Santiago combinados", color: "#952d8b" },
+          { value: "18.4M", label: "Movimientos de pasajeros al año", sub: "Punta Cana, Las Américas y Santiago — llegadas y salidas. 11.6M de visitantes en 2025, 8.9M por vía aérea", color: "#952d8b" },
           { value: "3", label: "Aeropuertos", sub: "PUJ, SDQ y STI — las principales puertas del país", color: "#3b82f6" },
           { value: "$2.72B", label: "Mercado duty free y travel retail del Caribe", sub: "CAGR del 21.7% 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "13.4M", label: "Movimientos sin compra al año", sub: "El 73% de los pasajeros, según la referencia del Caribe", color: "#16a34a" },
@@ -1309,7 +1309,7 @@ export const COPY = {
         createTitle: "DutyBoost no necesita crear:",
         createItems: [
           "Punta Cana, Las Américas y Santiago — ya operan",
-          "Tráfico de pasajeros — ±18.4M de movimientos al año",
+          "Tráfico de pasajeros — 11.6M de visitantes en 2025, ±18.4M de movimientos en ambos sentidos",
           "Minoristas aeroportuarios — ya operan las tiendas de la zona comercial",
           "Socios de viaje y corporativos — ya se comunican con los viajeros",
           "POS empresarial — ya procesa transacciones",
@@ -1350,7 +1350,7 @@ export const COPY = {
           "DutyBoost financia y ejecuta la Campaña de Curiosidad en los mercados emisores desde los que vuelan los viajeros — antes de que lleguen a la República Dominicana.",
         marketsTitle: "Dónde los captamos — mercados emisores dominicanos",
         marketsBody:
-          "Los 18.4M de movimientos de pasajeros al año en las tres puertas. Se cuenta a cada viajero — ya sea un visitante que llega o un residente dominicano que sale y regresa a casa.",
+          "Los 11.6M de visitantes de 2025 (8.9M por vía aérea) y los ±18.4M de movimientos de pasajeros en ambos sentidos en las tres puertas. Se cuenta a cada viajero — ya sea un visitante que llega o un residente dominicano que sale y regresa a casa.",
         markets: [
           { flag: "🇺🇸", name: "EE. UU.", movements: "7.7M", share: "42%" },
           { flag: "🇨🇦", name: "Canadá", movements: "3.7M", share: "20%" },
