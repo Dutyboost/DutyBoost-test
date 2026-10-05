@@ -21,7 +21,7 @@ const SlideTierMixUsd = () => (
     currency="$"
     rate={EUR_USD_RATE}
     dense
-    purchaseNote="27% purchase rate across travel retail — the conversion headroom the programme targets"
+    purchaseNote="22% global purchase rate in 2026 — the conversion headroom the programme targets"
   />
 );
 

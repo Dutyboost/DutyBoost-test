@@ -19,7 +19,7 @@ export default function SlideFacts() {
               The Facts — The Estate — The Gap
             </span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              73% of Airport Passengers<br />
+              78% of Airport Passengers<br />
               <span className="text-blue-600">Never Make a Purchase</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
@@ -47,7 +47,7 @@ export default function SlideFacts() {
               </div>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">27%</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">22%</div>
               <div className="text-slate-800 font-semibold">Penetration rate</div>
               <div className="text-slate-500 text-sm mt-1">
                 The share who convert to a purchase{" "}
@@ -61,7 +61,7 @@ export default function SlideFacts() {
                 ±{numShort(GLOBAL_NON_PURCHASE_M * 1e6)}
               </div>
               <div className="text-slate-800 font-semibold">Non-purchasing travel moments</div>
-              <div className="text-slate-500 text-sm mt-1">73% of the global estate's annual traffic</div>
+              <div className="text-slate-500 text-sm mt-1">78% of the global estate's annual traffic</div>
             </div>
           </div>
 
@@ -74,7 +74,7 @@ export default function SlideFacts() {
                 {[
                   "Activation starts only after the traveller clears security",
                   "No financial reason for a non-intending buyer to enter a store",
-                  "73% of passengers walk straight to the gate",
+                  "78% of passengers walk straight to the gate",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
@@ -86,7 +86,7 @@ export default function SlideFacts() {
             <div className="flex flex-col gap-4">
               <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
                 <p className="text-blue-700 text-sm leading-relaxed italic">
-                  "Large passenger flows do not automatically become retail customers. The 73% is conversion
+                  "Large passenger flows do not automatically become retail customers. The 78% is conversion
                   headroom — not a permanent ceiling."
                 </p>
               </div>

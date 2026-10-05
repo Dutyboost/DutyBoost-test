@@ -27,7 +27,7 @@ export default function SlideConversion() {
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               The global estate's ±9.8B annual travel moments represent the largest conversion headroom in travel
-              retail. Roughly 73% never purchase — DutyBoost activates them before arrival.
+              retail. Roughly 78% never purchase — DutyBoost activates them before arrival.
             </p>
           </div>
 
@@ -39,14 +39,14 @@ export default function SlideConversion() {
                     ±{numShort(GLOBAL_NON_PURCHASE_M * 1e6)}
                   </div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing travel moments</div>
-                  <div className="text-slate-400 text-xs mt-1">73% of the global estate's ±9.8B reach</div>
+                  <div className="text-slate-400 text-xs mt-1">78% of the global estate's ±9.8B reach</div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="text-3xl md:text-5xl font-bold text-green-600">
                     ±{numShort(GLOBAL_CONVERTING_M * 1e6)}
                   </div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Today's converting base</div>
-                  <div className="text-slate-400 text-xs mt-1">the ±27% who currently buy</div>
+                  <div className="text-slate-400 text-xs mt-1">the ±22% who currently buy</div>
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
@@ -54,7 +54,7 @@ export default function SlideConversion() {
                 <a href={ACI_TRAFFIC_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
                   ACI World
                 </a>
-                . 73/27 ratio:{" "}
+                . 78/22 ratio:{" "}
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
                   m1nd-set
                 </a>{" "}
@@ -105,7 +105,7 @@ export default function SlideConversion() {
               <div className="text-sm font-semibold opacity-80 mb-1">The Core Question</div>
               <p className="text-lg font-bold leading-snug">
                 "Is a commission on every incremental sale across your estate — earned without a single store-level
-                project — more valuable than earning nothing from the 73% who never convert?"
+                project — more valuable than earning nothing from the 78% who never convert?"
               </p>
               <p className="text-sm mt-2 opacity-80">Yes. Every time.</p>
             </div>

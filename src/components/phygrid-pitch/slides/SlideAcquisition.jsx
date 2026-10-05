@@ -52,7 +52,7 @@ export default function SlideAcquisition() {
                   { from: "Retailers wait for passengers", to: "Passengers arrive with purchase intent" },
                   { from: "Impulse-driven shopping", to: "Pre-activated economic incentive" },
                   { from: "No reason to enter the store", to: "A DutyCredit gives a reason to visit" },
-                  { from: "73% walk straight to the gate", to: "Pre-activated travellers detour to the store" },
+                  { from: "78% walk straight to the gate", to: "Pre-activated travellers detour to the store" },
                 ].map((row, i) => (
                   <div key={i} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-stretch text-sm">
                     <span className="text-red-300 bg-red-900/30 rounded-lg px-3 py-2.5 text-center flex items-center justify-center leading-snug">

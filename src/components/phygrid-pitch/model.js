@@ -10,7 +10,7 @@ export const ACI_TRAFFIC_LINK =
   "https://aci.aero/2026/09/23/global-airport-passenger-traffic-reaches-record-9-8-billion-in-2025-airports-council-international-world-reports/";
 export const GENERATION_RESEARCH_LINK = "https://www.generationresearch.com/";
 export const M1NDSET_LINK =
-  "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-state-of-travel-and-tourism-in-the-caribbean";
+  "https://www.gtrmag.com/blog/m1nd-set-reveals-10-year-analysis-of-the-evolution-of-the-global-duty-free-shopper";
 export const TFWA_LINK = "https://www.tfwa.com/membership/tfwa-research-podcasts-100017198";
 export const ACI_RETAIL_LINK =
   "https://www.aci-asiapac.aero/media-centre/news/airport-travel-retail-witnesses-a-fundamental-shift-as-younger-travelers-emerge-as-the-new-big-spenders";
@@ -26,12 +26,12 @@ export const GLOBAL = {
   market: "€60B",
 };
 
-export const PURCHASE_SHARE = 0.27;
-export const NON_PURCHASE_SHARE = 0.73;
+export const PURCHASE_SHARE = 0.22;
+export const NON_PURCHASE_SHARE = 0.78;
 
 const GLOBAL_PAX_M = 9800; // million annual travel moments (passenger movements)
-export const GLOBAL_NON_PURCHASE_M = Math.round(GLOBAL_PAX_M * NON_PURCHASE_SHARE); // ~3,504M
-export const GLOBAL_CONVERTING_M = GLOBAL_PAX_M - GLOBAL_NON_PURCHASE_M; // ~1,296M
+export const GLOBAL_NON_PURCHASE_M = Math.round(GLOBAL_PAX_M * NON_PURCHASE_SHARE); // ~7,644M
+export const GLOBAL_CONVERTING_M = GLOBAL_PAX_M - GLOBAL_NON_PURCHASE_M; // ~2,156M
 export const UPLIFT_01PP_TRAVELLERS_M = Math.round(GLOBAL_PAX_M * 0.001); // ~10M
 export const ENTRY_BASKET = 23;
 export const UPLIFT_01PP_VALUE = GLOBAL_PAX_M * 0.001 * ENTRY_BASKET * 1e6; // ≈ $225M
@@ -69,10 +69,10 @@ export const PER_STORE = {
 // ── DutyBoost model — the global airport retail estate, one year (USD) ───────
 // Basis: ~9.8B travel moments reach the estate; DutyBoost pre-activates 0.1% of
 // them with a DutyCredit; 30% of the pre-activated travellers redeem an
-// incremental basket. 27% of travellers purchase (context only).
+// incremental basket. 22% of travellers purchase (context only).
 export const ESTATE_STORES = 45000;
 export const ESTATE_TRAVELLERS = GLOBAL_PAX_M * 1e6; // 9.8B
-export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE); // 1.3B
+export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE); // 2.2B
 export const PRE_ACTIVATION = 0.001;
 export const ESTATE_ANNUAL = (() => {
   const travellers = ESTATE_TRAVELLERS;

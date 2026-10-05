@@ -45,12 +45,12 @@ export default function SlideClosing() {
             <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">Thank You</span>
             <h2 className="text-xl md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1 leading-tight">
               Activate DutyBoost.{" "}
-              <span className="text-blue-600">Turn the 73% Into Your Estate's Revenue.</span>
+              <span className="text-blue-600">Turn the 78% Into Your Estate's Revenue.</span>
             </h2>
           </div>
 
           <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
-            The estate is already there — ±45,000 stores, ±9.8B annual travel moments, and 73% of them leaving
+            The estate is already there — ±45,000 stores, ±9.8B annual travel moments, and 78% of them leaving
             without a purchase. DutyBoost pre-activates those travellers before they reach the airport and settles every
             transaction through your POS. One integration, no upfront cost, and a commission on every incremental
             sale, <strong>PERPETUALLY!</strong>
