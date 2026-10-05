@@ -2,7 +2,7 @@
 // The Dominican flag carries the deck chrome — blue for retail, red for the
 // carriers — with a third colour for the public-interest story.
 
-export const ACCENT = "#1d4ed8"; // deck chrome
+export const ACCENT = "#952d8b"; // deck chrome — Trinidad deck accent
 export const RETAIL = "#002d62"; // Dominican flag blue — airport retailers
 export const AIRLINE = "#ce1126"; // Dominican flag red — carriers
 export const GOV = "#0f766e"; // Dominican Government
@@ -16,7 +16,7 @@ export function SlideWrapper({ children }) {
   );
 }
 
-export function GridBg({ rgb = "29,78,216" }) {
+export function GridBg({ rgb = "149,45,139" }) {
   return (
     <div
       className="absolute inset-0 opacity-[0.04] pointer-events-none"
