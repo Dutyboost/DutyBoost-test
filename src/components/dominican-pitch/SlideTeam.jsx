@@ -15,7 +15,6 @@ export default function SlideTeam() {
           {c.title} <span style={{ color: ACCENT }}>{c.titleAccent}</span>
         </>
       }
-      subtitle={c.subtitle}
     >
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
         {TEAM_MEMBERS.map((m) => (
@@ -43,6 +42,10 @@ export default function SlideTeam() {
           </div>
         ))}
       </div>
+
+      <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-5xl mx-auto text-center mt-6">
+        {c.subtitle}
+      </p>
     </SlideShell>
   );
 }
