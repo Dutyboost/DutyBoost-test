@@ -66,8 +66,8 @@ export default function RetailerCalculator() {
   ];
 
   return (
-    <div className="rounded-2xl p-4 sm:p-5" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
-      <div className="flex flex-wrap items-center gap-2 mb-3">
+    <div className="rounded-2xl p-3 sm:p-4" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
+      <div className="flex flex-wrap items-center gap-2 mb-2">
         <Wallet className="w-5 h-5" style={{ color: ACCENT }} />
         <h3 className="font-bold" style={{ color: ACCENT }}>
           {c.title}
@@ -77,7 +77,7 @@ export default function RetailerCalculator() {
         </span>
       </div>
 
-      <div className="flex flex-wrap items-center gap-1.5 mb-2">
+      <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
         <span className="text-[11px] font-semibold text-slate-500 mr-1">{c.airport.label}</span>
         {AIRPORT_OPTIONS.map((a) => {
           const isActive = selectedAirport?.code === a.code;
@@ -86,7 +86,7 @@ export default function RetailerCalculator() {
               key={a.code}
               type="button"
               onClick={() => chooseAirport(a)}
-              className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border transition-colors ${
+              className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border transition-colors ${
                 isActive ? "text-white" : "bg-white text-slate-600 border-slate-300 hover:border-slate-400"
               }`}
               style={isActive ? { background: ACCENT, borderColor: ACCENT } : undefined}
@@ -113,9 +113,9 @@ export default function RetailerCalculator() {
           </a>
         </div>
       )}
-      <div className="text-[10px] text-slate-400 mb-3">{c.airport.note}</div>
+      <div className="text-[10px] text-slate-400 mb-2">{c.airport.note}</div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-2">
         {FIELDS.map((field) => (
           <label key={field.key} className="flex flex-col">
             <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">
@@ -147,9 +147,9 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-1.5">
         {ROWS.map((row) => (
-          <div key={row.label} className="bg-white/70 border border-slate-200 rounded-xl px-2.5 py-2">
+          <div key={row.label} className="bg-white/70 border border-slate-200 rounded-xl px-2 py-1.5">
             <div
               className={`font-bold text-sm ${row.money ? "" : "text-slate-800"}`}
               style={row.money ? { color: ACCENT } : undefined}
@@ -161,7 +161,7 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="text-slate-400 text-xs mt-3">{c.note}</div>
+      <div className="text-slate-400 text-[10px] mt-2">{c.note}</div>
     </div>
   );
 }
