@@ -155,6 +155,7 @@ import TravelPartnerRequest from './pages/TravelPartnerRequest';
 import AccommodationRequest from './pages/AccommodationRequest';
 import CarRentalRequest from './pages/CarRentalRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
+import PitchPipeline from './pages/PitchPipeline';
 import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
 
 // Every retailer demo link now opens the one Airport Retailer Dashboard,
@@ -362,6 +363,7 @@ const AuthenticatedApp = () => {
           <Route path="/leads-admin" element={<LeadsAdmin />} />
           <Route path="/DutyBoost-Dashboard" element={<SurveyDashboard />} />
           <Route path="/airport-retailers-campaign-list" element={<AirportRetailersCampaignList />} />
+          <Route path="/pitch-pipeline" element={<PitchPipeline />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Route>
