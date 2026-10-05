@@ -127,6 +127,7 @@ import RetailerPitchDeckTrinidad from './pages/RetailerPitchDeckTrinidad';
 import RetailerPitchDeckMartinique from './pages/RetailerPitchDeckMartinique';
 import RetailerSupplierPitchDeckSxm from './pages/RetailerSupplierPitchDeckSxm';
 import CaribbeanAirlinesPitchDeck from './pages/CaribbeanAirlinesPitchDeck';
+import DominicanRepublicPitchDeck from './pages/DominicanRepublicPitchDeck';
 import AirportPitchDeck from './pages/AirportPitchDeck';
 import AirportPitchDeckAruba from './pages/AirportPitchDeckAruba';
 import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
@@ -302,6 +303,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-pitch-martinique" element={<RetailerPitchDeckMartinique />} />
         <Route path="/retailer-supplier-pitch-sxm" element={<RetailerSupplierPitchDeckSxm />} />
         <Route path="/caribbean-airlines-revenue-pitch" element={<CaribbeanAirlinesPitchDeck />} />
+        <Route path="/dominican-republic-pitch" element={<DominicanRepublicPitchDeck />} />
         <Route path="/airport-pitch" element={<AirportPitchDeck />} />
         <Route path="/airport-pitch-aruba" element={<AirportPitchDeckAruba />} />
         <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
