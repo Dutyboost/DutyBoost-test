@@ -54,20 +54,20 @@ export default function SlideMarket() {
             </div>
           </div>
 
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-            <h3 className="font-bold text-slate-700 mb-3">{c.createTitle}</h3>
-            <div className="space-y-2">
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex flex-col">
+            <h3 className="font-bold text-slate-700 text-lg mb-4">{c.createTitle}</h3>
+            <div className="flex-1 flex flex-col justify-evenly gap-3">
               {c.createItems.map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-green-100 border border-green-300 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-green-600" strokeWidth={3} />
+                <div key={item} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-100 border border-green-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-4 h-4 text-green-600" strokeWidth={3} />
                   </div>
-                  <span className="text-slate-600 text-sm">{item}</span>
+                  <span className="text-slate-700 text-base leading-snug">{item}</span>
                 </div>
               ))}
             </div>
-            <div className="mt-4 bg-green-100 border border-green-300 rounded-xl p-3">
-              <p className="text-green-800 text-sm font-semibold">{c.createFooter}</p>
+            <div className="mt-4 bg-green-100 border border-green-300 rounded-xl p-4">
+              <p className="text-green-800 text-base font-semibold leading-snug">{c.createFooter}</p>
             </div>
           </div>
         </div>
