@@ -83,7 +83,7 @@ export default function SlideAcquisition() {
                   Acquisition cost is settled after the sale — never before it.
                 </p>
                 <p className="text-blue-100 text-sm mt-2">
-                  DutyBoost is paid out of the transaction it created. If no sale happens, nobody pays anything.
+                  DutyBoost is paid out of the transaction it created. If no sale happens, nobody pays and nobody earns anything.
                 </p>
               </div>
             </div>
