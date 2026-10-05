@@ -37,10 +37,10 @@ export default function SlideFacts() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~9.8B</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">±9.8B</div>
               <div className="text-slate-800 font-semibold">Travel moments through the global estate each year</div>
               <div className="text-slate-500 text-sm mt-1">
-                Across ±45,000 stores in ~4,000 commercial airports worldwide{" "}
+                Across ±45,000 stores in ±4,000 commercial airports worldwide{" "}
                 <a href={ACI_TRAFFIC_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>
                   (ACI World)
                 </a>
@@ -58,7 +58,7 @@ export default function SlideFacts() {
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
-                ~{numShort(GLOBAL_NON_PURCHASE_M * 1e6)}
+                ±{numShort(GLOBAL_NON_PURCHASE_M * 1e6)}
               </div>
               <div className="text-slate-800 font-semibold">Non-purchasing travel moments</div>
               <div className="text-slate-500 text-sm mt-1">73% of the global estate's annual traffic</div>

@@ -50,7 +50,7 @@ export default function SlideClosing() {
           </div>
 
           <p className="text-slate-600 text-sm max-w-3xl leading-snug mb-3">
-            The estate is already there — ±45,000 stores, ~9.8B annual travel moments, and 73% of them leaving
+            The estate is already there — ±45,000 stores, ±9.8B annual travel moments, and 73% of them leaving
             without a purchase. DutyBoost pre-activates those travellers before they reach the airport and settles every
             transaction through your POS. One integration, no upfront cost, and a commission on every incremental
             sale, <strong>PERPETUALLY!</strong>
@@ -68,7 +68,7 @@ export default function SlideClosing() {
 
           <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-3 w-full max-w-2xl">
             {[
-              { label: "Non-purchasing travel moments", value: `~${numShort(GLOBAL_NON_PURCHASE_M * 1e6)}` },
+              { label: "Non-purchasing travel moments", value: `±${numShort(GLOBAL_NON_PURCHASE_M * 1e6)}` },
               { label: "Value of +0.1pp conversion", value: usdShort(UPLIFT_01PP_VALUE) },
               {
                 label: "POS commission on that uplift",

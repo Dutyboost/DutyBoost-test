@@ -297,7 +297,7 @@ function SlideMarket() {
             <div className="space-y-2">
               {[
                 "Piarco International Airport and A.N.R. Robinson International Airport — both already operate",
-                "Passenger traffic — ~3M passenger movements a year across Piarco and A.N.R. Robinson",
+                "Passenger traffic — ±3M passenger movements a year across Piarco and A.N.R. Robinson",
                 "Airport Retailers — Caribbean Airlines Duty Free already operates stores at both airports",
                 "Travel & Corporate Partners — they already communicate with travellers",
                 "Enterprise POS — already processes transactions",
@@ -367,7 +367,7 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on ~3M passenger movements a year across Piarco and A.N.R. Robinson, 73% non-purchase, the $23 Entry-tier minimum basket used as the example, and the retailer's 92.5% net share (5% traveller discount at the Entry tier).</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on ±3M passenger movements a year across Piarco and A.N.R. Robinson, 73% non-purchase, the $23 Entry-tier minimum basket used as the example, and the retailer's 92.5% net share (5% traveller discount at the Entry tier).</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">

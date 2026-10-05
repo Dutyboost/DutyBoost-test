@@ -143,7 +143,7 @@ export function SlideTierMix({
                 Tier mix calibrated to the published average transaction value of {fmtInt(70)}–{fmtInt(140)} in travel retail (
                 <a href={MARKETUS_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>market.us, Travel Retail Market 2026</a>); average retail spend per passenger of €10.55 in 2025 (
                 <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>ETRC</a>) and $15.50 in 2024, down from $24.30 in 2020 (
-                <a href={KEARNEY_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>Kearney, Travel Retail 2025</a>); ~70% of airport retail purchases are impulse-driven (
+                <a href={KEARNEY_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>Kearney, Travel Retail 2025</a>); ±70% of airport retail purchases are impulse-driven (
                 <a href={ACI_RETAIL_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI Asia-Pacific</a>); {purchaseNote} (
                 <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a>). Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data. {fmtInt(300)}+ shown at an average {fmtInt(400)} basket; discount capped at {fmtInt(60)} and platform fee capped at {fmtInt(25)} per transaction.{rateNote}
               </p>
@@ -165,7 +165,7 @@ export function SlideTierMix({
                   <a href={KEARNEY_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>Kearney, Travel Retail 2025</a>
                 </p>
                 <p>
-                  ~70% of all airport retail purchases are impulse-driven — small, unplanned baskets dominate transaction count.{" "}
+                  ±70% of all airport retail purchases are impulse-driven — small, unplanned baskets dominate transaction count.{" "}
                   <a href={ACI_RETAIL_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>ACI Asia-Pacific Travel Retail Study</a>
                 </p>
                 <p>

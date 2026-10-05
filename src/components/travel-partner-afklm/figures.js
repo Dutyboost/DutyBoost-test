@@ -28,7 +28,7 @@ export const IFE_BY_CARRIER = [
 ];
 // Destination points (320) + in-flight points (189).
 export const TOTAL_POINTS = "509";
-export const AF_DESTINATIONS = "~170";
+export const AF_DESTINATIONS = "±170";
 export const KLM_DESTINATIONS = "160+";
 export const LOAD_FACTOR = "87.2%";
 
@@ -40,12 +40,12 @@ export const NON_PURCHASE_SHARE = "73%";
 // group's up-to-320-destination network; passenger figures are FY2025 network
 // airline passengers carried.
 export const REGIONS = [
-  { region: "Europe — short & medium-haul", dest: "~145", pax: "49.7M", share: 65 },
-  { region: "North America", dest: "~25", pax: "9.9M", share: 13 },
-  { region: "Asia & Middle East", dest: "~50", pax: "6.2M", share: 8 },
-  { region: "Africa", dest: "~55", pax: "3.9M", share: 5 },
-  { region: "Latin America", dest: "~20", pax: "3.7M", share: 5 },
-  { region: "Caribbean & Indian Ocean", dest: "~25", pax: "3.4M", share: 4 },
+  { region: "Europe — short & medium-haul", dest: "±145", pax: "49.7M", share: 65 },
+  { region: "North America", dest: "±25", pax: "9.9M", share: 13 },
+  { region: "Asia & Middle East", dest: "±50", pax: "6.2M", share: 8 },
+  { region: "Africa", dest: "±55", pax: "3.9M", share: 5 },
+  { region: "Latin America", dest: "±20", pax: "3.7M", share: 5 },
+  { region: "Caribbean & Indian Ocean", dest: "±25", pax: "3.4M", share: 4 },
 ];
 
 // Long-haul destinations — annual AF-KLM passengers carried (both directions),
@@ -113,7 +113,7 @@ export const SHORT_HAUL = [
 
 // Conversion model. 73% of travellers leave an airport without buying (27%
 // penetration benchmark — m1nd-set / TFWA, consistent with the Avolta network
-// figure of ~2.5B passengers exposed at 27% penetration); DutyBoost converts a
+// figure of ±2.5B passengers exposed at 27% penetration); DutyBoost converts a
 // share of those non-purchasing travellers into paying customers at a
 // participating store. Figures use the €20 Entry-tier minimum basket (traveller
 // saves 5% = €1.00, platform fee 2.5% = €0.50, partner share 20% of the fee).

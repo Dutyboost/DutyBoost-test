@@ -266,7 +266,7 @@ export function SlideFacts() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">±{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B</div>
               <div className="text-slate-800 font-semibold">Passengers exposed to LTR network (2025, est.)</div>
               <div className="text-slate-500 text-sm mt-1">290+ airport network (est.)</div>
             </div>
@@ -278,7 +278,7 @@ export function SlideFacts() {
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{(LTR_NON_PURCHASE_EST / 1000).toFixed(1)}B</div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">±{(LTR_NON_PURCHASE_EST / 1000).toFixed(1)}B</div>
               <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
               <div className="text-slate-500 text-sm mt-1">73% of LTR network traffic (est.)</div>
             </div>
@@ -297,7 +297,7 @@ export function SlideFacts() {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-slate-400 w-5 flex-shrink-0">3.</span>
-                  <span>LTR's <span className="font-semibold text-slate-800">290+ airports</span> × 7.1M ≈ <span className="font-bold text-blue-700">~{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B exposed</span></span>
+                  <span>LTR's <span className="font-semibold text-slate-800">290+ airports</span> × 7.1M ≈ <span className="font-bold text-blue-700">±{(LTR_PAX_EXPOSED_EST / 1000).toFixed(1)}B exposed</span></span>
                 </div>
               </div>
               <div className="text-slate-400 text-xs mt-3">
@@ -430,21 +430,21 @@ export function SlideLagardereOpportunity() {
               Small Conversion Gains = <span className="text-blue-600">Enormous Value at Schiphol</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Schiphol's ~68.8M passengers flow through LTR's exclusive Duty Free JV. ~73% never purchase — DutyBoost activates them before arrival.
+              Schiphol's ±68.8M passengers flow through LTR's exclusive Duty Free JV. ±73% never purchase — DutyBoost activates them before arrival.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <div className="flex items-center gap-4">
                 <div>
-                  <div className="text-3xl md:text-5xl font-bold text-red-600">~{SCHIPHOL_NON_PURCHASE.toFixed(1)}M</div>
+                  <div className="text-3xl md:text-5xl font-bold text-red-600">±{SCHIPHOL_NON_PURCHASE.toFixed(1)}M</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing passengers</div>
                   <div className="text-slate-400 text-xs mt-1">73% of Schiphol's 68.8M pax</div>
                 </div>
                 <div className="flex-1 text-right">
-                  <div className="text-3xl md:text-5xl font-bold text-green-600">~{SCHIPHOL_CONVERTERS.toFixed(1)}M</div>
+                  <div className="text-3xl md:text-5xl font-bold text-green-600">±{SCHIPHOL_CONVERTERS.toFixed(1)}M</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Today's converting base</div>
-                  <div className="text-slate-400 text-xs mt-1">the ~27% who currently buy</div>
+                  <div className="text-slate-400 text-xs mt-1">the ±27% who currently buy</div>
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
@@ -455,7 +455,7 @@ export function SlideLagardereOpportunity() {
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
               <h3 className="font-bold text-blue-800 mb-2">Each +1pp of Conversion</h3>
-              <div className="text-3xl md:text-4xl font-bold text-blue-700">~{(SCHIPHOL_PAX * 0.01 * 1000).toFixed(0)}K</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-700">±{(SCHIPHOL_PAX * 0.01 * 1000).toFixed(0)}K</div>
               <div className="text-slate-600 text-sm mt-1">additional purchasing travellers at Schiphol</div>
               <div className="text-green-600 font-bold text-xl mt-3">{fmtM(SCHIPHOL_UPLIFT_1PP)}</div>
               <div className="text-slate-600 text-sm">incremental retail value (illustrative, €20 Entry-tier basket)</div>
@@ -701,7 +701,7 @@ export function SlideLagardereRevenue() {
               Incremental Retail Value <span className="text-blue-600">at Schiphol</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Based on Schiphol's ~68.8M passengers. Each +1pp ≈ ~688K new purchasing travellers — value shown at the model's €20 Entry-tier illustrative basket, retailer net at 92.5%.
+              Based on Schiphol's ±68.8M passengers. Each +1pp ≈ ±688K new purchasing travellers — value shown at the model's €20 Entry-tier illustrative basket, retailer net at 92.5%.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-5">
@@ -737,15 +737,15 @@ export function SlideLagardereRevenue() {
               <h3 className="font-bold text-blue-900 mb-3">The Headroom Behind These Numbers</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-white border border-slate-100">
-                  <span className="text-slate-600">Schiphol converting base (~27% of 68.8M)</span>
-                  <span className="font-bold text-blue-700">~{SCHIPHOL_CONVERTERS.toFixed(1)}M</span>
+                  <span className="text-slate-600">Schiphol converting base (±27% of 68.8M)</span>
+                  <span className="font-bold text-blue-700">±{SCHIPHOL_CONVERTERS.toFixed(1)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-red-50 border border-red-100">
                   <span className="text-slate-600">Non-purchasing headroom (73%)</span>
-                  <span className="font-bold text-red-600">~{SCHIPHOL_NON_PURCHASE.toFixed(1)}M</span>
+                  <span className="font-bold text-red-600">±{SCHIPHOL_NON_PURCHASE.toFixed(1)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-blue-100 border border-blue-200 font-semibold">
-                  <span className="text-slate-700">Each +1pp brings ~688K new converters</span>
+                  <span className="text-slate-700">Each +1pp brings ±688K new converters</span>
                   <span className="font-bold text-blue-700">{fmtM(SCHIPHOL_UPLIFT_1PP)}</span>
                 </div>
               </div>

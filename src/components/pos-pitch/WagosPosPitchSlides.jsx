@@ -325,7 +325,7 @@ export function SlideWagosNetwork() {
       island: "Trinidad & Tobago",
       airport: "Piarco International Airport",
       code: "POS",
-      passengers: "~1.9M intl.",
+      passengers: "±1.9M intl.",
       retailers: [
         { name: "Caribbean Airlines Duty Free", url: CAL_DUTYFREE_LINK, note: "Confirmed Wagos client" },
         { name: "Dufry Duty Free", url: null, note: null },
@@ -339,7 +339,7 @@ export function SlideWagosNetwork() {
       island: "Cayman Islands",
       airport: "Owen Roberts International Airport",
       code: "GCM",
-      passengers: "~1.4M movements",
+      passengers: "±1.4M movements",
       retailers: [
         { name: "Kirk Freeport", url: KIRKFREEPORT_LINK, note: "Premier DF retailer" },
         { name: "Jacques Scott Duty Free", url: JACQUESSCOTT_LINK, note: "Liquor & spirits" },
@@ -351,7 +351,7 @@ export function SlideWagosNetwork() {
       island: "Guyana",
       airport: "Cheddi Jagan International Airport",
       code: "GEO",
-      passengers: "~973K (2025)",
+      passengers: "±973K (2025)",
       retailers: [
         { name: "Simextra Duty Free", url: SIMEXTRA_LINK, note: "Arrival & Departure" },
         { name: "T.WEE Duty Free", url: null, note: null },
@@ -364,7 +364,7 @@ export function SlideWagosNetwork() {
       island: "Grenada",
       airport: "Maurice Bishop International Airport",
       code: "GND",
-      passengers: "~500K est.",
+      passengers: "±500K est.",
       retailers: [
         { name: "Grenada Duty Free", url: GRENADA_DF_LINK, note: null },
         { name: "Rouge Duty-Free", url: null, note: null },

@@ -85,7 +85,7 @@ export function SlideCover() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
               { label: "Annual Passengers", value: "3M+" },
-              { label: "Non-Purchasing", value: "~73%" },
+              { label: "Non-Purchasing", value: "±73%" },
               { label: "Duty-Free Operator", value: "Avolta" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
@@ -156,7 +156,7 @@ export function SlideProblem() {
           <div className="mb-5">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">The Facts — Queen Beatrix International Airport — The Gap</span>
             <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              3M+ Passengers. <span className="text-blue-600">~73% Never Buy.</span>
+              3M+ Passengers. <span className="text-blue-600">±73% Never Buy.</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               Passenger data from{" "}
@@ -182,7 +182,7 @@ export function SlideProblem() {
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~{AUA_NON_PURCHASE.toFixed(2)}M</div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">±{AUA_NON_PURCHASE.toFixed(2)}M</div>
               <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
               <div className="text-slate-500 text-sm mt-1">73% of AUA's 3M+ annual traffic</div>
             </div>
@@ -216,7 +216,7 @@ export function SlideProblem() {
                   {[
                     "Activation starts only after the traveller clears security",
                     "No financial reason for a non-intending buyer to enter a store",
-                    "~73% of AUA's passengers walk straight to the gate",
+                    "±73% of AUA's passengers walk straight to the gate",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
@@ -460,15 +460,15 @@ export function SlideArubaOpportunity() {
               <h3 className="font-bold text-blue-900 mb-3">The Headroom Behind These Numbers</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-white border border-slate-100">
-                  <span className="text-slate-600">AUA converting base (~27% of 3M)</span>
-                  <span className="font-bold text-blue-700">~{AUA_CONVERTERS.toFixed(2)}M</span>
+                  <span className="text-slate-600">AUA converting base (±27% of 3M)</span>
+                  <span className="font-bold text-blue-700">±{AUA_CONVERTERS.toFixed(2)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-red-50 border border-red-100">
                   <span className="text-slate-600">Non-purchasing headroom (73%)</span>
-                  <span className="font-bold text-red-600">~{AUA_NON_PURCHASE.toFixed(2)}M</span>
+                  <span className="font-bold text-red-600">±{AUA_NON_PURCHASE.toFixed(2)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-blue-100 border border-blue-200 font-semibold">
-                  <span className="text-slate-700">Each +1pp brings ~30K new converters</span>
+                  <span className="text-slate-700">Each +1pp brings ±30K new converters</span>
                   <span className="font-bold text-blue-700">{fmtM(AUA_UPLIFT_1PP)}</span>
                 </div>
               </div>
@@ -595,7 +595,7 @@ export function SlideBusinessCase() {
               <div className="space-y-3 text-sm">
                 <div className="bg-white rounded-lg px-3 py-2 border border-slate-200 flex justify-between">
                   <span className="text-slate-600">DutyBoost activates +1pp of AUA's 3M passengers</span>
-                  <span className="font-semibold text-slate-800">~30K new buyers</span>
+                  <span className="font-semibold text-slate-800">±30K new buyers</span>
                 </div>
                 <div className="flex justify-center"><ChevronRight className="text-blue-400 w-5 h-5 rotate-90" /></div>
                 <div className="bg-white rounded-lg px-3 py-2 border border-slate-200 flex justify-between">
@@ -667,7 +667,7 @@ export function SlidePromotion() {
               <div className="text-slate-500 text-xs mt-1">Every converted traveller grows AUA revenue</div>
             </div>
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">~2.19M</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">±2.19M</div>
               <div className="text-slate-800 font-semibold text-sm">Non-purchasing passengers annually</div>
               <div className="text-slate-500 text-xs mt-1">73% of AUA's 3M+ traffic — pure headroom</div>
             </div>

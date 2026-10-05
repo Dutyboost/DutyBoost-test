@@ -29,8 +29,8 @@ const ZIM_DUTY_FREE_REVENUE = ZIM_TOTAL_PAX * 0.20 * 40;
 const ZIM_CAMPAIGN = {
   marketLabel: "Potential Market — DFP World Zimbabwe (HRE / VFA / BUQ)",
   statPassengers: { val: fmtCompact(ZIM_TOTAL_PAX), label: "Annual passengers" },
-  statDepartures: { val: fmtCompact(ZIM_TOTAL_PAX * 0.97), label: "International flights (~97%)" },
-  statIntl: { val: "~80K", label: "Domestic flights (~3%)" },
+  statDepartures: { val: fmtCompact(ZIM_TOTAL_PAX * 0.97), label: "International flights (±97%)" },
+  statIntl: { val: "±80K", label: "Domestic flights (±3%)" },
   phase1Subtitle: "Over 277,000 overseas visitors to Zimbabwe arrive by air from these 5 source markets",
   countries: [
     { flag: "🇺🇸", name: "United States", visitors: "105K" },

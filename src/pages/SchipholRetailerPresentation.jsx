@@ -187,11 +187,11 @@ export default function SchipholRetailerPresentation() {
           <div className="bg-gradient-to-br from-red-950/40 to-slate-900 border border-red-800/40 rounded-xl p-8 space-y-6">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div className="space-y-2">
-                <p className="text-5xl font-heading font-bold text-red-400">~28%</p>
+                <p className="text-5xl font-heading font-bold text-red-400">±28%</p>
                 <p className="text-slate-400 text-sm">estimated conversion rate at AMS retail (aligned with global airport benchmark)</p>
               </div>
               <div className="space-y-2">
-                <p className="text-5xl font-heading font-bold text-orange-400">~55K</p>
+                <p className="text-5xl font-heading font-bold text-orange-400">±55K</p>
                 <p className="text-slate-400 text-sm">daily retail transactions missed at Schiphol if 72% don&apos;t convert</p>
               </div>
               <div className="space-y-2">
@@ -233,7 +233,7 @@ export default function SchipholRetailerPresentation() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { metric: 'Conversion Rate', before: '~28%', after: '40%+', lift: '+42%', note: 'Schiphol\'s above-average dwell time (58 min) amplifies incentive-driven conversion further than global average.' },
+              { metric: 'Conversion Rate', before: '±28%', after: '40%+', lift: '+42%', note: 'Schiphol\'s above-average dwell time (58 min) amplifies incentive-driven conversion further than global average.' },
               { metric: 'Avg Transaction Value', before: '€68', after: '€85+', lift: '+25%', note: 'Schiphol already has a high average basket. Tiered discounts push it into the Lounge/VIP range.' },
               { metric: 'Daily Revenue (store)', before: '€4,760', after: '€6,800+', lift: '+43%', note: 'Estimated for a store with 250 DutyBoost-enabled visitors/day. Net of DutyBoost fee.' },
             ].map(({ metric, before, after, lift, note }) => (
@@ -260,11 +260,11 @@ export default function SchipholRetailerPresentation() {
           <div className="bg-gradient-to-br from-green-900/20 to-slate-900 border border-green-800/50 rounded-xl p-6">
             <h3 className="font-semibold text-slate-100 mb-4">Annual Impact — Single Schiphol Location</h3>
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-slate-400">Current: ~70 daily conversions × €20 margin</span><span className="text-slate-300 font-semibold">€2,450/day</span></div>
-              <div className="flex justify-between"><span className="text-slate-400">With DutyBoost: ~100 conversions × €32.50 (net of fee)</span><span className="text-green-400 font-semibold">€3,250/day</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">Current: ±70 daily conversions × €20 margin</span><span className="text-slate-300 font-semibold">€2,450/day</span></div>
+              <div className="flex justify-between"><span className="text-slate-400">With DutyBoost: ±100 conversions × €32.50 (net of fee)</span><span className="text-green-400 font-semibold">€3,250/day</span></div>
               <div className="flex justify-between pt-2 border-t border-green-700/30 text-base">
                 <span className="text-slate-100 font-semibold">Annual additional revenue (1 Schiphol location):</span>
-                <span className="text-green-400 font-bold text-xl">~€292,000</span>
+                <span className="text-green-400 font-bold text-xl">±€292,000</span>
               </div>
             </div>
             <p className="text-xs text-slate-500 mt-3">Assumes 250 DutyBoost-enabled visitors/day per location (conservative for AMS scale). Scales with volume.</p>
@@ -393,7 +393,7 @@ export default function SchipholRetailerPresentation() {
                 <div className="flex justify-between"><span className="text-slate-400">250 DutyBoost visitors/day</span></div>
                 <div className="flex justify-between"><span className="text-slate-400">Without DutyBoost (28% conv.):</span><span className="text-slate-300">€2,450/day</span></div>
                 <div className="flex justify-between border-t border-green-700/30 pt-2"><span className="text-slate-100">With DutyBoost (40%+ conv.):</span><span className="text-green-400 font-bold">€3,250+/day</span></div>
-                <div className="text-center pt-2 font-bold text-green-400 text-lg">~€292,000/year per location</div>
+                <div className="text-center pt-2 font-bold text-green-400 text-lg">±€292,000/year per location</div>
               </div>
             </div>
           </div>
@@ -456,7 +456,7 @@ export default function SchipholRetailerPresentation() {
             <span>DutyBoost at Amsterdam Airport Schiphol</span>
           </div>
           <h3 className="text-2xl font-heading font-bold">Ready to unlock Schiphol&apos;s full revenue potential?</h3>
-          <p className="text-slate-300">~€292,000 additional revenue per location per year. Zero setup cost. Join the first AMS retailers.</p>
+          <p className="text-slate-300">±€292,000 additional revenue per location per year. Zero setup cost. Join the first AMS retailers.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="mailto:hello@dutyboost.com">
               <Button className="gap-2 bg-orange-600 hover:bg-orange-700"><Mail className="w-4 h-4" /> hello@dutyboost.com</Button>

@@ -53,7 +53,7 @@ const GLOBAL_UPLIFT_1PP_B = GLOBAL_PAX * 0.01 * 23 / 1000; // per +1pp (at the $
 const AUA_PAX = 3; // million passengers
 const AUA_CONVERTERS = AUA_PAX * CONVERTING_SHARE; // ≈ 0.81M
 const AUA_NON_PURCHASE = AUA_PAX * NON_PURCHASE_SHARE; // ≈ 2.19M
-const AUA_REVENUE_EST = 30; // ~$30M, Avolta AUA retail revenue estimate
+const AUA_REVENUE_EST = 30; // ±$30M, Avolta AUA retail revenue estimate
 const ILLUSTRATIVE_BASKET = 23; // USD (Entry tier)
 const AUA_UPLIFT_1PP = AUA_PAX * 1_000_000 * 0.01 * ILLUSTRATIVE_BASKET; // ≈ $3M per +1pp
 
@@ -96,7 +96,7 @@ export function SlideCoverAvolta() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6 mt-4 w-full">
             {[
               { label: "Global Revenue 2025", value: "$16.82B" },
-              { label: "AUA Revenue (est.)", value: "~$30M" },
+              { label: "AUA Revenue (est.)", value: "±$30M" },
               { label: "AUA Passengers", value: "3M+" },
               { label: "Upfront Cost", value: "$0" },
             ].map((s) => (
@@ -189,7 +189,7 @@ export function SlideAvoltaAtAGlance() {
             </div>
             <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 text-center">
               <Plane className="w-8 h-8 text-violet-600 mx-auto mb-2" />
-              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">~2.5B</div>
+              <div className="text-2xl md:text-3xl font-bold text-violet-700 mb-1">±2.5B</div>
               <div className="text-slate-600 font-semibold text-sm">Passenger Reach</div>
               <div className="text-slate-500 text-xs mt-1">Across 350+ airports</div>
             </div>
@@ -260,14 +260,14 @@ export function SlideFacts() {
               73% of Passengers at Avolta Airports<br /><span className="text-blue-600">Never Make a Purchase</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Avolta's ~2.5B passenger reach and industry conversion benchmarks.{" "}
+              Avolta's ±2.5B passenger reach and industry conversion benchmarks.{" "}
               Penetration: <a href={M1NDSET_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>m1nd-set</a> /{" "}
               <a href={TFWA_LINK} target="_blank" rel="noopener noreferrer" className={linkCls}>TFWA</a>.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">~2.5B</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">±2.5B</div>
               <div className="text-slate-800 font-semibold">Passengers exposed to Avolta network</div>
               <div className="text-slate-500 text-sm mt-1">350+ airports worldwide</div>
             </div>
@@ -279,7 +279,7 @@ export function SlideFacts() {
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">~1.83B</div>
+              <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">±1.83B</div>
               <div className="text-slate-800 font-semibold">Non-purchasing passengers</div>
               <div className="text-slate-500 text-sm mt-1">73% of Avolta network traffic</div>
             </div>
@@ -335,21 +335,21 @@ export function SlideGlobalOpportunity() {
               Small Conversion Gains = <span className="text-blue-600">Enormous Value Across Avolta's Network</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Avolta's ~2.5B passengers represent the largest conversion headroom in travel retail. ~73% never purchase — DutyBoost activates them before arrival.
+              Avolta's ±2.5B passengers represent the largest conversion headroom in travel retail. ±73% never purchase — DutyBoost activates them before arrival.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <div className="flex items-center gap-4">
                 <div>
-                  <div className="text-3xl md:text-5xl font-bold text-red-600">~1.83B</div>
+                  <div className="text-3xl md:text-5xl font-bold text-red-600">±1.83B</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Non-purchasing passengers</div>
-                  <div className="text-slate-400 text-xs mt-1">73% of Avolta's ~2.5B reach</div>
+                  <div className="text-slate-400 text-xs mt-1">73% of Avolta's ±2.5B reach</div>
                 </div>
                 <div className="flex-1 text-right">
-                  <div className="text-3xl md:text-5xl font-bold text-green-600">~675M</div>
+                  <div className="text-3xl md:text-5xl font-bold text-green-600">±675M</div>
                   <div className="text-slate-600 font-semibold text-sm mt-1">Today's converting base</div>
-                  <div className="text-slate-400 text-xs mt-1">the ~27% who currently buy</div>
+                  <div className="text-slate-400 text-xs mt-1">the ±27% who currently buy</div>
                 </div>
               </div>
               <div className="mt-3 pt-3 border-t border-red-200/60 text-slate-500 text-xs">
@@ -360,11 +360,11 @@ export function SlideGlobalOpportunity() {
             </div>
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
               <h3 className="font-bold text-blue-800 mb-2">Each +1pp of Conversion</h3>
-              <div className="text-3xl md:text-4xl font-bold text-blue-700">~25M</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-700">±25M</div>
               <div className="text-slate-600 text-sm mt-1">additional purchasing travellers across the network</div>
               <div className="text-green-600 font-bold text-xl mt-3">{fmtUSDb(GLOBAL_UPLIFT_1PP_B)}</div>
               <div className="text-slate-600 text-sm">incremental retail value (illustrative, $23 Entry-tier basket)</div>
-              <div className="text-slate-400 text-xs mt-3">1pp = 1% of Avolta's ~2.5B passengers converting at the model's qualifying basket.</div>
+              <div className="text-slate-400 text-xs mt-3">1pp = 1% of Avolta's ±2.5B passengers converting at the model's qualifying basket.</div>
             </div>
           </div>
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
@@ -399,9 +399,9 @@ export function SlideArubaFocus() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
             {[
               { val: "3M+", label: "Annual Passengers", note: "Aruba Airport Authority 2025" },
-              { val: "~$30M", label: "Est. Revenue 2025", note: "Avolta AUA retail revenue" },
+              { val: "±$30M", label: "Est. Revenue 2025", note: "Avolta AUA retail revenue" },
               { val: "5", label: "Avolta Retail Stores", note: "At AUA (all retail)" },
-              { val: "~73%", label: "Non-Purchasing", note: "Conversion headroom" },
+              { val: "±73%", label: "Non-Purchasing", note: "Conversion headroom" },
             ].map((s) => (
               <div key={s.label} className="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-center">
                 <div className="text-2xl md:text-3xl font-bold text-blue-700">{s.val}</div>
@@ -568,7 +568,7 @@ export function SlideArubaRevenue() {
               Incremental Retail Value <span className="text-blue-600">at AUA</span>
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
-              Based on AUA's ~3M passengers. Each +1pp ≈ ~30K new purchasing travellers — value shown at the model's $23 Entry-tier illustrative qualifying basket, retailer net at 92.5%.
+              Based on AUA's ±3M passengers. Each +1pp ≈ ±30K new purchasing travellers — value shown at the model's $23 Entry-tier illustrative qualifying basket, retailer net at 92.5%.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-5">
@@ -604,15 +604,15 @@ export function SlideArubaRevenue() {
               <h3 className="font-bold text-blue-900 mb-3">The Headroom Behind These Numbers</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-white border border-slate-100">
-                  <span className="text-slate-600">AUA converting base (~27% of 3M)</span>
-                  <span className="font-bold text-blue-700">~{AUA_CONVERTERS.toFixed(2)}M</span>
+                  <span className="text-slate-600">AUA converting base (±27% of 3M)</span>
+                  <span className="font-bold text-blue-700">±{AUA_CONVERTERS.toFixed(2)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-red-50 border border-red-100">
                   <span className="text-slate-600">Non-purchasing headroom (73%)</span>
-                  <span className="font-bold text-red-600">~{AUA_NON_PURCHASE.toFixed(2)}M</span>
+                  <span className="font-bold text-red-600">±{AUA_NON_PURCHASE.toFixed(2)}M</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 px-3 rounded-lg bg-blue-100 border border-blue-200 font-semibold">
-                  <span className="text-slate-700">Each +1pp brings ~30K new converters</span>
+                  <span className="text-slate-700">Each +1pp brings ±30K new converters</span>
                   <span className="font-bold text-blue-700">{fmtM(AUA_UPLIFT_1PP)}</span>
                 </div>
               </div>

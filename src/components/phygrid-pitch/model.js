@@ -19,8 +19,8 @@ export const linkCls =
 // ── The addressable estate — global airport retail ───────────────────────────
 export const GLOBAL = {
   stores: "±45,000",
-  airports: "~4,000",
-  moments: "~9.8B",
+  airports: "±4,000",
+  moments: "±9.8B",
   market: "€60B",
 };
 

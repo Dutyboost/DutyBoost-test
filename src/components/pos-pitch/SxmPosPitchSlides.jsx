@@ -442,9 +442,9 @@ export function SlideAntekRevenue() {
               <div className="space-y-2 text-sm">
                 {[
                   { islands: "SXM only", factor: "1.0× the figures above" },
-                  { islands: "SXM + 1 neighboring island", factor: "~1.2× estimated" },
-                  { islands: "SXM + 2-3 neighboring islands", factor: "~1.4× estimated" },
-                  { islands: "Full Antek territory (5 islands)", factor: "~1.5× estimated" },
+                  { islands: "SXM + 1 neighboring island", factor: "±1.2× estimated" },
+                  { islands: "SXM + 2-3 neighboring islands", factor: "±1.4× estimated" },
+                  { islands: "Full Antek territory (5 islands)", factor: "±1.5× estimated" },
                 ].map((row, i) => (
                   <div key={i} className={`flex justify-between items-center py-1.5 px-3 rounded-lg ${i === 0 ? "bg-violet-700/60 font-semibold" : ""}`}>
                     <span className="text-violet-300">{row.islands}</span>

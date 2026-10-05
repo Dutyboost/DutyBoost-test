@@ -225,7 +225,7 @@ export function SlideRegions() {
               ))}
               <tr className="border-t-2 border-slate-300 bg-green-50">
                 <td className="px-4 py-3 font-bold text-[#052e16]">Network airlines total</td>
-                <td className="px-4 py-3 text-right font-bold text-[#052e16]">~{F.DESTINATIONS}</td>
+                <td className="px-4 py-3 text-right font-bold text-[#052e16]">±{F.DESTINATIONS}</td>
                 <td className="px-4 py-3 text-right font-bold text-green-700">{F.NETWORK_PASSENGERS}</td>
                 <td className="px-4 py-3 text-right font-bold text-[#052e16]">100%</td>
               </tr>

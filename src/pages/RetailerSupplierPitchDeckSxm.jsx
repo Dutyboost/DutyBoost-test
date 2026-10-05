@@ -383,8 +383,8 @@ function SlideConversion() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing travellers, the $23 Entry-tier minimum basket used as the example, and the supplier reorder value at ~50% of retail price.</p>
-              <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder ≈ 50% of retail price, based on duty-free operator gross margins of ~49–55% <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ~49%)</a> <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>.</div>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug">Based on Sint Maarten's 625K non-purchasing travellers, the $23 Entry-tier minimum basket used as the example, and the supplier reorder value at ±50% of retail price.</p>
+              <div className="text-slate-400 text-xs mt-2 leading-relaxed">*Supplier reorder ≈ 50% of retail price, based on duty-free operator gross margins of ±49–55% <a href={AVOLTA_MARGIN_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(Avolta ±49%)</a> <a href={ETRC_LINK} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline decoration-blue-600/50 hover:decoration-blue-400 hover:text-blue-500 transition-colors">(ETRC)</a>.</div>
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -581,14 +581,14 @@ function SlideCategory() {
           <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
             Incremental Volume <span className="text-blue-600">by Product Category</span>
           </h2>
-          <p className="text-slate-500 mt-1 text-sm">At a +1% conversion uplift across the 625K non-purchasing Sint Maarten travellers (~6.3K incremental transactions at the $23 Entry-tier basket), here is the estimated incremental sell-through by category.</p>
+          <p className="text-slate-500 mt-1 text-sm">At a +1% conversion uplift across the 625K non-purchasing Sint Maarten travellers (±6.3K incremental transactions at the $23 Entry-tier basket), here is the estimated incremental sell-through by category.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
           {[
-            { cat: "Fragrances & Cosmetics", share: "34%", incRetail: "$49K", incUnits: "~480 units", color: "blue", note: "Highest category share — strongest incremental volume" },
-            { cat: "Wines & Spirits", share: "22%", incRetail: "$32K", incUnits: "~310 units", color: "indigo", note: "Premium bottles drive high basket value" },
-            { cat: "Fashion & Accessories", share: "16%", incRetail: "$23K", incUnits: "~230 units", color: "violet", note: "Pre-activation lifts considered purchases" },
-            { cat: "Tobacco", share: "10%", incRetail: "$14K", incUnits: "~140 units", color: "purple", note: "Steady demand, fast rotation" },
+            { cat: "Fragrances & Cosmetics", share: "34%", incRetail: "$49K", incUnits: "±480 units", color: "blue", note: "Highest category share — strongest incremental volume" },
+            { cat: "Wines & Spirits", share: "22%", incRetail: "$32K", incUnits: "±310 units", color: "indigo", note: "Premium bottles drive high basket value" },
+            { cat: "Fashion & Accessories", share: "16%", incRetail: "$23K", incUnits: "±230 units", color: "violet", note: "Pre-activation lifts considered purchases" },
+            { cat: "Tobacco", share: "10%", incRetail: "$14K", incUnits: "±140 units", color: "purple", note: "Steady demand, fast rotation" },
           ].map((c) => (
             <div key={c.cat} className={`bg-${c.color}-50 border border-${c.color}-200 rounded-2xl p-5`}>
               <div className="flex items-center justify-between mb-3">
