@@ -2,6 +2,7 @@ import { Wallet } from "lucide-react";
 import { MODEL, discountFor, usd2, usdShort, numShort } from "../figures";
 import { ACCENT } from "../Shared";
 import { useDeckLang } from "../LanguageContext";
+import { AIRPORT_OPTIONS } from "../airportData";
 import {
   useRetailerRevenue,
   readInput,
@@ -26,7 +27,14 @@ export default function RetailerCalculator() {
 
   // Shared with the transaction and estate slides, so every slide shows the
   // same scenario.
-  const { inputs, set } = useRetailerRevenue();
+  const { inputs, set, setMany } = useRetailerRevenue();
+
+  const selectedAirport = AIRPORT_OPTIONS.find((a) => a.code === inputs.airport) || null;
+
+  // Picking an airport loads its researched store count and traffic, so the
+  // model recalculates from real figures instead of guessed ones.
+  const chooseAirport = (a) =>
+    setMany({ airport: a.code, stores: String(a.stores), travellers: String(a.travellersPerStoreDay) });
 
   const stores = readInput(inputs, "stores", DEFAULT_STORES);
   const travellersDay = readInput(inputs, "travellers", DEFAULT_TRAVELLERS_DAY);
@@ -69,13 +77,51 @@ export default function RetailerCalculator() {
         </span>
       </div>
 
+      <div className="flex flex-wrap items-center gap-1.5 mb-2">
+        <span className="text-[11px] font-semibold text-slate-500 mr-1">{c.airport.label}</span>
+        {AIRPORT_OPTIONS.map((a) => {
+          const isActive = selectedAirport?.code === a.code;
+          return (
+            <button
+              key={a.code}
+              type="button"
+              onClick={() => chooseAirport(a)}
+              className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border transition-colors ${
+                isActive ? "text-white" : "bg-white text-slate-600 border-slate-300 hover:border-slate-400"
+              }`}
+              style={isActive ? { background: ACCENT, borderColor: ACCENT } : undefined}
+            >
+              {a.code === "ALL" ? c.airport.all : a.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {selectedAirport && (
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-slate-500 mb-1">
+          <span>{c.airport.stores(selectedAirport.stores)}</span>
+          <span className="text-slate-300">·</span>
+          <span>{c.airport.pax(`${(selectedAirport.annualPassengers / 1000000).toFixed(1)}M`)}</span>
+          <a
+            href={selectedAirport.source}
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold underline"
+            style={{ color: ACCENT }}
+          >
+            {c.airport.source} ↗
+          </a>
+        </div>
+      )}
+      <div className="text-[10px] text-slate-400 mb-3">{c.airport.note}</div>
+
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
         {FIELDS.map((field) => (
-          <label key={field.key} className="block">
-            <span className="block text-[11px] font-semibold text-slate-500 mb-1 leading-tight min-h-[1.8rem]">
+          <label key={field.key} className="flex flex-col">
+            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">
               {c.fields[field.key]}
             </span>
-            <span className="relative block">
+            <span className="relative block mt-auto">
               {field.prefix && (
                 <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">
                   {field.prefix}

@@ -659,6 +659,14 @@ export const COPY = {
       revenueCalculator: {
         title: "Incremental Revenue Potential, Per Day",
         hint: "Enter your own figures — the model recalculates",
+        airport: {
+          label: "Airport",
+          all: "All airports",
+          stores: (n) => `${n} stores`,
+          pax: (p) => `${p} passengers / yr`,
+          source: "Source",
+          note: "Store counts from each airport's own retail directory; passengers from published traffic. Footfall assumes 30% of daily passenger movements pass through a store.",
+        },
         fields: {
           stores: "Stores you operate in the Dominican Republic",
           travellers: "Travellers entering store / day",
@@ -1486,6 +1494,14 @@ export const COPY = {
       revenueCalculator: {
         title: "Potencial de ingresos incrementales, por día",
         hint: "Introduzca sus propias cifras — el modelo se recalcula",
+        airport: {
+          label: "Aeropuerto",
+          all: "Todos los aeropuertos",
+          stores: (n) => `${n} tiendas`,
+          pax: (p) => `${p} pasajeros / año`,
+          source: "Fuente",
+          note: "El número de tiendas proviene del directorio comercial de cada aeropuerto; los pasajeros, del tráfico publicado. El flujo asume que el 30% de los movimientos diarios de pasajeros pasa por una tienda.",
+        },
         fields: {
           stores: "Tiendas que opera en la República Dominicana",
           travellers: "Pasajeros que entran en la tienda / día",

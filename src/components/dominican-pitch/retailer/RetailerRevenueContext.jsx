@@ -11,6 +11,7 @@ export const DEFAULT_REDEMPTION = Math.round(MODEL.redemption * 100);
 export const DEFAULT_BASKET = MODEL.basket;
 
 export const BLANK_INPUTS = {
+  airport: "",
   stores: "",
   travellers: "",
   activation: "",
@@ -28,6 +29,7 @@ export function RetailerRevenueProvider({ children }) {
     () => ({
       inputs,
       set: (key, v) => setInputs((p) => ({ ...p, [key]: v })),
+      setMany: (patch) => setInputs((p) => ({ ...p, ...patch })),
     }),
     [inputs]
   );
