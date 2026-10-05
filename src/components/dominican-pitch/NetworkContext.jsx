@@ -1,9 +1,9 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { MODEL, discountFor, CARRIER_PER_DAY } from "./figures";
+import { MODEL, discountFor, AIRPORT_PER_DAY } from "./figures";
 
 // Fallbacks for blank calculator fields, so the transaction and network slides
 // always show a meaningful scenario.
-export const DEFAULT_PASSENGERS_DAY = CARRIER_PER_DAY;
+export const DEFAULT_PASSENGERS_DAY = AIRPORT_PER_DAY;
 export const DEFAULT_ACTIVATION = Math.round(MODEL.activation * 100);
 export const DEFAULT_REDEMPTION = Math.round(MODEL.redemption * 100);
 export const DEFAULT_BASKET = MODEL.basket;
@@ -33,8 +33,7 @@ export function useNetworkInputs() {
 export const readInput = (inputs, key, fallback) =>
   inputs[key] === "" || inputs[key] == null ? fallback : Number(inputs[key]);
 
-// Network economics per day and per year, across all carriers flying to and
-// from the Dominican Republic.
+// Network economics per day and per year, across the country's major airports.
 export function computeNetwork(inputs) {
   const passengersDay = readInput(inputs, "passengers", DEFAULT_PASSENGERS_DAY);
   const activation = readInput(inputs, "activation", DEFAULT_ACTIVATION) / 100;

@@ -1,6 +1,6 @@
 import { Plane, Users, TrendingUp } from "lucide-react";
 import { ACCENT, RETAIL, SlideShell } from "./Shared";
-import { CARRIER_PER_DAY, MARKET, SOURCES, num } from "./figures";
+import { AIRPORT_PER_DAY, MARKET, SOURCES, num } from "./figures";
 import { useDeckLang } from "./LanguageContext";
 
 export default function SlideOpportunity() {
@@ -9,7 +9,7 @@ export default function SlideOpportunity() {
 
   const STATS = [
     { Icon: Users, value: MARKET.drPassengers, source: SOURCES.dr },
-    { Icon: Plane, value: `±${num(CARRIER_PER_DAY)}`, source: null },
+    { Icon: Plane, value: `±${num(AIRPORT_PER_DAY)}`, source: null },
     { Icon: TrendingUp, value: "+9.9%", source: SOURCES.puj },
   ].map((s, i) => ({ ...s, ...c.stats[i] }));
 

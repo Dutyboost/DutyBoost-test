@@ -11,7 +11,7 @@ export const SOURCES = {
 // The three gateways.
 export const AIRPORTS = [
   { code: "PUJ", name: "Punta Cana International", city: "Punta Cana", passengers: "11M+" },
-  { code: "SDQ", name: "Las Américas International", city: "Santo Domingo", passengers: "±5.5M" },
+  { code: "SDQ", name: "Las Américas International", city: "Santo Domingo", passengers: "±5.2M" },
   { code: "JBQ", name: "La Isabela International", city: "Santo Domingo", passengers: "42K" },
 ];
 
@@ -27,12 +27,15 @@ export const AIRLINES = [
 
 // Measurable carrier traffic to and from the DR in 2025.
 export const CARRIER_PASSENGERS = 1518143;
-export const CARRIER_PER_DAY = 4150;
 export const CARRIERS_MEASURED = 5;
+
+// The country's major airports — the market the whole deck is modelled on.
+// PUJ ±11.0M + SDQ ±5.2M + STI ±2.2M in 2025 = ±18.4M passenger movements a year.
+export const AIRPORT_PER_DAY = 50400;
 
 // Market context.
 export const MARKET = {
-  drPassengers: "20.3M+",
+  drPassengers: "18.4M",
   gateways: "3",
   purchaseShare: 0.22,
   nonPurchaseShare: 0.78,

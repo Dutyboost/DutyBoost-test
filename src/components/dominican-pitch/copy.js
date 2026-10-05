@@ -37,7 +37,7 @@ export const COPY = {
       stats: {
         gateways: "Gateway airports",
         passengers: "Airport passengers, 2025",
-        perDay: "Carrier passengers / day",
+        perDay: "Passenger movements / day",
         cost: "Upfront cost",
       },
     },
@@ -50,13 +50,13 @@ export const COPY = {
       stats: [
         {
           label:
-            "passengers through Dominican international airports in 2025, arrivals and departures",
+            "passengers through the country's major airports in 2025, arrivals and departures",
           sourceLabel: "Dominican airport operators, 2025",
         },
         {
           label:
-            "passengers a day carried by the six Dominican and Caribbean carriers we can measure",
-          sourceLabel: "Carrier traffic to and from the DR, 2025",
+            "passenger movements a day through the country's major airports",
+          sourceLabel: "Dominican airport operators, 2025",
         },
         {
           label:
@@ -69,7 +69,7 @@ export const COPY = {
       purchase: "22% purchase",
       nonPurchase: "78% leave without buying",
       barBody:
-        "Across the three gateways that is roughly 16 million passenger movements a year, of which the large majority passes through the retail concourse without a single transaction.",
+        "Across those airports that is roughly 18.4 million passenger movements a year, of which the large majority passes through the retail concourse without a single transaction.",
       missingTitle: "The missing step is not retail space",
       missingBody:
         "The Dominican Republic has the terminals, the concessionaires, the brands and the traffic. What it lacks is a reason for a traveller to arrive at the airport already intending to buy — the step DutyBoost supplies by pre-activating travellers before they fly, through the carriers that already carry them.",
@@ -146,7 +146,7 @@ export const COPY = {
           "Caribbean network including Haiti, Antigua, Barbados, British Virgin Islands, Dominica, Guadeloupe, St. Kitts, St. Lucia, St. Vincent, Sint Maarten, Turks & Caicos and the USA",
       },
       kpis: [
-        { value: "±4,150", label: "passengers a day across the five carriers with published 2025 figures" },
+        { value: "±50,400", label: "passenger movements a day across the country's major airports — the market the carriers feed" },
         { value: "6", label: "carriers active on the Dominican market, from a network carrier to executive charter" },
         { value: "26", label: "countries reached non-stop from Punta Cana alone — every one of them a DutyBoost market" },
       ],
@@ -259,13 +259,13 @@ export const COPY = {
       title: "The Model Across the Three Gateways, Per Day",
       hint: "Enter your own figures — every slide recalculates",
       fields: {
-        passengers: "Carrier passengers to/from the DR / day",
+        passengers: "Airport passenger movements / day",
         activation: "Pre-activation",
         redemption: "Redemption",
         basket: "Blended basket",
       },
       rows: {
-        passengers: "Carrier passengers / day",
+        passengers: "Passenger movements / day",
         activated: (pct) => `Pre-activated (${pct}%) / day`,
         baskets: (pct) => `Baskets redeemed (${pct}%) / day`,
         gross: "Incremental retail value / day",
@@ -274,7 +274,7 @@ export const COPY = {
         fee: (pct) => `Platform fee (${pct}%) / day`,
         combined: "Combined net / Yr",
       },
-      note: "Illustrative model, one day, across all carriers flying to and from the Dominican Republic. Blank fields use the figures shown as placeholders. Volumes are counts; values in USD.",
+      note: "Illustrative model, one day, across the country's major airports. Blank fields use the figures shown as placeholders. Volumes are counts; values in USD.",
     },
     economics: {
       eyebrow: "The Economics of One Sale",
@@ -382,7 +382,7 @@ export const COPY = {
       kpis: [
         "incremental retail value created a year, at the modelled scenario — activity that does not exist today",
         "platform revenue earned by the operating entity in the country, as a taxable base",
-        "airport passengers already passing through the three gateways each year — the market this reaches",
+        "airport passengers already passing through the country's major airports each year — the market this reaches",
       ],
       pillars: [
         {
@@ -414,7 +414,7 @@ export const COPY = {
       title: (amount) => `${amount} a Year,`,
       titleAccent: "From Travellers Already Flying In",
       subtitle: (perDay) =>
-        `The scenario entered on the model slide, applied to ${perDay}+ carrier passengers a day and 365 days of the year.`,
+        `The scenario entered on the model slide, applied to ${perDay}+ passenger movements a day and 365 days of the year.`,
       combinedLabel: "Combined net, one year",
       combinedBody:
         "Airport retail net plus the share credited to the carriers that brought the travellers",
@@ -528,7 +528,7 @@ export const COPY = {
       stats: {
         gateways: "Aeropuertos principales",
         passengers: "Pasajeros aeroportuarios, 2025",
-        perDay: "Pasajeros de aerolíneas / día",
+        perDay: "Movimientos de pasajeros / día",
         cost: "Coste inicial",
       },
     },
@@ -541,13 +541,13 @@ export const COPY = {
       stats: [
         {
           label:
-            "pasajeros por los aeropuertos internacionales dominicanos en 2025, llegadas y salidas",
+            "pasajeros por los principales aeropuertos del país en 2025, llegadas y salidas",
           sourceLabel: "Operadores aeroportuarios dominicanos, 2025",
         },
         {
           label:
-            "pasajeros al día transportados por las seis aerolíneas dominicanas y caribeñas que podemos medir",
-          sourceLabel: "Tráfico de aerolíneas hacia y desde RD, 2025",
+            "movimientos de pasajeros al día por los principales aeropuertos del país",
+          sourceLabel: "Operadores aeroportuarios dominicanos, 2025",
         },
         {
           label:
@@ -560,7 +560,7 @@ export const COPY = {
       purchase: "22% compra",
       nonPurchase: "78% se va sin comprar",
       barBody:
-        "En las tres puertas eso equivale a unos 16 millones de movimientos de pasajeros al año, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
+        "En esos aeropuertos eso equivale a unos 18.4 millones de movimientos de pasajeros al año, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
       missingTitle: "Lo que falta no es espacio comercial",
       missingBody:
         "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el viajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los viajeros antes de volar, a través de las aerolíneas que ya los transportan.",
@@ -637,7 +637,7 @@ export const COPY = {
           "Red caribeña que incluye Haití, Antigua, Barbados, Islas Vírgenes Británicas, Dominica, Guadalupe, San Cristóbal, Santa Lucía, San Vicente, San Martín, Turcas y Caicos y EE. UU.",
       },
       kpis: [
-        { value: "±4,150", label: "pasajeros al día en las cinco aerolíneas con cifras publicadas de 2025" },
+        { value: "±50,400", label: "movimientos de pasajeros al día por los principales aeropuertos del país — el mercado al que sirven las aerolíneas" },
         { value: "6", label: "aerolíneas activas en el mercado dominicano, desde una red principal hasta el chárter ejecutivo" },
         { value: "26", label: "países conectados sin escalas solo desde Punta Cana — todos ellos mercados de DutyBoost" },
       ],
@@ -750,13 +750,13 @@ export const COPY = {
       title: "El modelo en las tres puertas, por día",
       hint: "Introduzca sus propias cifras — todas las diapositivas se recalculan",
       fields: {
-        passengers: "Pasajeros de aerolíneas hacia/desde RD / día",
+        passengers: "Movimientos de pasajeros aeroportuarios / día",
         activation: "Preactivación",
         redemption: "Canje",
         basket: "Cesta media",
       },
       rows: {
-        passengers: "Pasajeros de aerolíneas / día",
+        passengers: "Movimientos de pasajeros / día",
         activated: (pct) => `Preactivados (${pct}%) / día`,
         baskets: (pct) => `Cestas canjeadas (${pct}%) / día`,
         gross: "Valor minorista incremental / día",
@@ -765,7 +765,7 @@ export const COPY = {
         fee: (pct) => `Comisión de plataforma (${pct}%) / día`,
         combined: "Neto combinado / año",
       },
-      note: "Modelo ilustrativo, un día, en todas las aerolíneas que vuelan hacia y desde la República Dominicana. Los campos vacíos usan las cifras mostradas como referencia. Los volúmenes son recuentos; los valores, en USD.",
+      note: "Modelo ilustrativo, un día, en los principales aeropuertos del país. Los campos vacíos usan las cifras mostradas como referencia. Los volúmenes son recuentos; los valores, en USD.",
     },
     economics: {
       eyebrow: "La economía de una venta",
@@ -873,7 +873,7 @@ export const COPY = {
       kpis: [
         "valor minorista incremental creado al año, en el escenario modelado — actividad que hoy no existe",
         "ingresos de plataforma ganados por la entidad operadora en el país, como base imponible",
-        "pasajeros aeroportuarios que ya pasan cada año por las tres puertas — el mercado al que llega",
+        "pasajeros aeroportuarios que ya pasan cada año por los principales aeropuertos del país — el mercado al que llega",
       ],
       pillars: [
         {
@@ -905,7 +905,7 @@ export const COPY = {
       title: (amount) => `${amount} al año,`,
       titleAccent: "de viajeros que ya llegan en avión",
       subtitle: (perDay) =>
-        `El escenario introducido en la diapositiva del modelo, aplicado a más de ${perDay} pasajeros de aerolíneas al día y 365 días del año.`,
+        `El escenario introducido en la diapositiva del modelo, aplicado a más de ${perDay} movimientos de pasajeros al día y 365 días del año.`,
       combinedLabel: "Neto combinado, un año",
       combinedBody:
         "Neto del minorista aeroportuario más la parte abonada a las aerolíneas que trajeron a los viajeros",

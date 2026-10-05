@@ -1,6 +1,6 @@
 import { CheckCircle, TrendingUp } from "lucide-react";
 import { AIRLINE, RETAIL, SlideShell } from "./Shared";
-import { CARRIER_PER_DAY, usd, usdShort, numShort, num } from "./figures";
+import { AIRPORT_PER_DAY, usd, usdShort, numShort, num } from "./figures";
 import { useNetworkInputs, computeNetwork, atActivation } from "./NetworkContext";
 import { useDeckLang } from "./LanguageContext";
 
@@ -22,7 +22,7 @@ export default function SlideNetwork() {
           {c.title(usdShort(year.groupNet))} <span style={{ color: RETAIL }}>{c.titleAccent}</span>
         </>
       }
-      subtitle={c.subtitle(num(CARRIER_PER_DAY))}
+      subtitle={c.subtitle(num(AIRPORT_PER_DAY))}
     >
       <div
         className="rounded-2xl p-6 text-white text-center mb-4 max-w-3xl mx-auto ring-2 ring-offset-2 ring-[#002d62]"

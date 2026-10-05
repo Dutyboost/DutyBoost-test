@@ -1,7 +1,7 @@
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { ACCENT, AIRLINE, GridBg, RETAIL, SlideWrapper } from "./Shared";
-import { CARRIER_PER_DAY, MARKET, num } from "./figures";
+import { AIRPORT_PER_DAY, MARKET, num } from "./figures";
 import { useDeckLang } from "./LanguageContext";
 
 export default function SlideCover() {
@@ -55,7 +55,7 @@ export default function SlideCover() {
             {[
               { label: t.cover.stats.gateways, value: MARKET.gateways },
               { label: t.cover.stats.passengers, value: MARKET.drPassengers },
-              { label: t.cover.stats.perDay, value: `${num(CARRIER_PER_DAY)}+` },
+              { label: t.cover.stats.perDay, value: `${num(AIRPORT_PER_DAY)}+` },
               { label: t.cover.stats.cost, value: "$0" },
             ].map((s) => (
               <div key={s.label} className="text-center">
