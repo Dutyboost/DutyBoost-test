@@ -505,12 +505,13 @@ export const COPY = {
         ],
         categoriesTitle: "Caribbean DF&TR — Category Mix",
         categoriesNote:
-          "Regional category shares, the categories carried across the Dominican Republic's airport concourse.",
+          "The Dominican Republic's ±$680M share of the Caribbean DF&TR market, distributed across the categories carried in its airport concourse.",
         categories: [
-          { cat: "Fragrances & Cosmetics", share: "34%", pct: 100, note: "Skincare, fragrance and cosmetics" },
-          { cat: "Wines & Spirits", share: "22%", pct: 65, note: "Premium spirits and liqueurs" },
-          { cat: "Fashion & Accessories", share: "16%", pct: 48, note: "Fashion, watches and accessories" },
-          { cat: "Tobacco", share: "10%", pct: 30, note: "Tobacco and confectionery" },
+          { cat: "Fragrances & Cosmetics", share: "$231M", pct: 100, note: "Skincare, fragrance and cosmetics" },
+          { cat: "Wines & Spirits", share: "$150M", pct: 65, note: "Premium spirits and liqueurs" },
+          { cat: "Fashion & Accessories", share: "$109M", pct: 48, note: "Fashion, watches and accessories" },
+          { cat: "Tobacco", share: "$68M", pct: 30, note: "Tobacco and confectionery" },
+          { cat: "Other categories", share: "$122M", pct: 53, note: "The balance of the market" },
         ],
         createTitle: "DutyBoost doesn't need to create:",
         createItems: [
@@ -1299,12 +1300,13 @@ export const COPY = {
         ],
         categoriesTitle: "Duty free y travel retail del Caribe — mezcla de categorías",
         categoriesNote:
-          "Cuotas de categoría regionales, las categorías que se comercializan en la zona comercial de los aeropuertos dominicanos.",
+          "La cuota de ±$680M de la República Dominicana en el mercado duty free y travel retail del Caribe, distribuida entre las categorías que se comercializan en su zona comercial aeroportuaria.",
         categories: [
-          { cat: "Fragancias y cosmética", share: "34%", pct: 100, note: "Cuidado de la piel, fragancias y cosmética" },
-          { cat: "Vinos y licores", share: "22%", pct: 65, note: "Licores y destilados premium" },
-          { cat: "Moda y accesorios", share: "16%", pct: 48, note: "Moda, relojes y accesorios" },
-          { cat: "Tabaco", share: "10%", pct: 30, note: "Tabaco y confitería" },
+          { cat: "Fragancias y cosmética", share: "$231M", pct: 100, note: "Cuidado de la piel, fragancias y cosmética" },
+          { cat: "Vinos y licores", share: "$150M", pct: 65, note: "Licores y destilados premium" },
+          { cat: "Moda y accesorios", share: "$109M", pct: 48, note: "Moda, relojes y accesorios" },
+          { cat: "Tabaco", share: "$68M", pct: 30, note: "Tabaco y confitería" },
+          { cat: "Otras categorías", share: "$122M", pct: 53, note: "El resto del mercado" },
         ],
         createTitle: "DutyBoost no necesita crear:",
         createItems: [
