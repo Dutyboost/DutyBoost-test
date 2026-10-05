@@ -7,6 +7,7 @@ import {
   SLIDE_COMPONENTS,
   getSlideComponent,
 } from "@/components/phygrid-pitch/PhygridSlides";
+import { EstateProvider } from "@/components/phygrid-pitch/EstateContext";
 
 export default function PhygridPitchDeck() {
   const [current, setCurrent] = useState(0);
@@ -45,12 +46,14 @@ export default function PhygridPitchDeck() {
         </div>
       </div>
 
-      <div
-        ref={slideAreaRef}
-        className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]"
-      >
-        <SlideComp />
-      </div>
+      <EstateProvider>
+        <div
+          ref={slideAreaRef}
+          className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[58vh] lg:h-[calc(100vh-150px)]"
+        >
+          <SlideComp />
+        </div>
+      </EstateProvider>
 
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-3 mt-3">
         <button

@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { Wallet } from "lucide-react";
 import { MODEL, usd2, usdShort, numShort } from "@/components/phygrid-pitch/model";
+import { useEstateInputs } from "@/components/phygrid-pitch/EstateContext";
 
 const FIELDS = [
   { key: "controlled", label: "Stores using POS across all airports", step: 1 },
@@ -10,11 +10,9 @@ const FIELDS = [
   { key: "basket", label: "Blended basket", prefix: "$", step: 1 },
 ];
 
-const DEFAULTS = { controlled: "", perStore: "", activation: "", redemption: "", basket: "" };
-
 export default function EstateCalculator() {
-  const [f, setF] = useState(DEFAULTS);
-  const set = (key, value) => setF((p) => ({ ...p, [key]: value }));
+  // Shared with the estate slide, so both always show the same scenario.
+  const { inputs: f, set } = useEstateInputs();
   const n = (key) => (f[key] === "" ? 0 : Number(f[key]));
 
   // Total stores the POS provider controls across its whole airport presence.
