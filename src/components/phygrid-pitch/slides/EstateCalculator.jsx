@@ -27,7 +27,7 @@ export default function EstateCalculator() {
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
-    { label: "Stores controlled (modelled)", val: numShort(modelledStores) },
+    { label: "Stores controlled by POS", val: numShort(modelledStores) },
     { label: "Travellers through those stores / day", val: numShort(travellers) },
     { label: `Pre-activated (${n("activation")}% of travellers) / day`, val: numShort(Math.round(activated)) },
     { label: `Incremental baskets (${n("redemption")}% redeem) / day`, val: numShort(Math.round(baskets)) },
