@@ -5,6 +5,10 @@ import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideSolution } from "@/components/shared/SlideSolution";
 import { SlideTierMix as TierMixSlide } from "@/components/shared/SlideTierMix";
 import SlideAcquisitionTrinidad from "@/components/retailer-pitch-trinidad/SlideAcquisitionTrinidad";
+import SlideModelRetailer from "@/components/retailer-pitch-trinidad/SlideModelRetailer";
+import SlideTransactionRetailer from "@/components/retailer-pitch-trinidad/SlideTransactionRetailer";
+import SlideEstateRetailer from "@/components/retailer-pitch-trinidad/SlideEstateRetailer";
+import { RevenueProvider } from "@/components/retailer-pitch-trinidad/RevenueContext";
 import CaribbeanDutyFreeLogo from "@/components/retailer-pitch-trinidad/CaribbeanDutyFreeLogo";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
 import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
@@ -32,6 +36,7 @@ const SLIDES = [
   { id: "model", type: "model" },
   { id: "tierMix", type: "tierMix" },
   { id: "transaction", type: "transaction" },
+  { id: "estate", type: "estate" },
   { id: "integrate", type: "integrate" },
   { id: "flywheel", type: "flywheel" },
   { id: "getStarted", type: "getStarted" },
@@ -49,6 +54,7 @@ const SLIDE_LABELS = {
   model: "Business Model",
   tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
+  estate: "Across Your Store Estate",
   integrate: "POS Integration",
   flywheel: "Growth Flywheel",
   getStarted: "Get Started",
@@ -402,93 +408,6 @@ function SlideConversion() {
   );
 }
 
-// SLIDE 7: Business Model
-function SlideModel() {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6">
-        <div className="mb-6">
-          <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>Business Model</span>
-          <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-            Performance-Based. <span style={{ color: ACCENT }}>Zero Upfront Cost.</span>
-          </h2>
-          <p className="text-slate-500 mt-1">Revenue is created only when a qualifying transaction is validated through the Enterprise POS of the Retailer.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-6 mb-4">
-              <h3 className="font-bold text-white text-lg mb-3 sm:mb-4">The DutyCredit Tier Structure</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-500 mb-1 px-2">
-                <span>Tier</span><span>Basket</span><span>Discount</span><span className="sm:text-right">Traveller Saves</span>
-              </div>
-              <div className="space-y-1">
-                {[
-                  { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
-                  { tier: "Boarding", range: "$57–$113", disc: "7.5%–10%", save: "$4.28–$10.73" },
-                  { tier: "Standard", range: "$114–$170", disc: "10%–12.5%", save: "$11.40–$20.81" },
-                  { tier: "Plus", range: "$171–$227", disc: "12.5%–15%", save: "$21.38–$33.11" },
-                  { tier: "Lounge", range: "$228–$284", disc: "15%–17.5%", save: "$34.20–$48.74" },
-                  { tier: "Premium", range: "$285–$341", disc: "17.5%–20%", save: "$49.88–$64.98" },
-                  { tier: "VIP", range: "$342+", disc: "20% capped", save: "Up to $68" },
-                ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-purple-800/60" : "hover:bg-white/5"}`}>
-                    <span className="text-purple-300 font-semibold">{row.tier}</span>
-                    <span className="text-slate-300">{row.range}</span>
-                    <span className="text-yellow-300">{row.disc}</span>
-                    <span className="text-green-300 font-semibold sm:text-right">{row.save}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="bg-purple-50 border border-purple-200 rounded-2xl p-5">
-              <h3 className="font-bold text-purple-900 mb-3">The 2.5% Platform Fee — Your Only Cost</h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-3">
-                A single 2.5% fee on DutyBoost-validated transactions only — never on your existing sales.
-              </p>
-              <div className="space-y-2 text-sm">
-                {[
-                  "DutyBoost's sole revenue — the platform fee on each validated transaction",
-                  "Applied only when a DutyCredit redemption is validated through your POS",
-                  "No impact on your shelf prices or non-DutyBoost sales",
-                  "Settled transparently — attributed and reported per transaction",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: ACCENT }} />
-                    <span className="text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-5">
-              <h3 className="font-bold text-green-900 mb-3">The Retailer Economics</h3>
-              <div className="space-y-2.5 text-sm">
-                {[
-                  { metric: "Retailer keeps", val: "92.5% of every qualifying sale (Entry tier)" },
-                  { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
-                  { metric: "Customer acquisition", val: "Handled by Travel & Corporate Partners before arrival" },
-                  { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
-                  { metric: "Pricing impact", val: "None — your shelf prices stay unchanged" },
-                  { metric: "Payment terms", val: "Performance-based — only on validated transactions" },
-                ].map((row) => (
-                  <div key={row.metric} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-slate-700 font-semibold">{row.metric}: </span>
-                      <span className="text-slate-600">{row.val}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
-  );
-}
-
 // SLIDE 8: Transaction Mix — Why the Tiers Work
 function SlideTierMix() {
   return (
@@ -498,75 +417,6 @@ function SlideTierMix() {
       dense
       purchaseNote="27% Caribbean purchase rate (≈51% global average) — the conversion headroom the programme targets"
     />
-  );
-}
-
-// SLIDE 9: Transaction Economics
-function SlideTransaction() {
-  return (
-    <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
-        <GridBg />
-        <div className="relative z-10">
-          <div className="mb-6">
-            <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>One Transaction — Three Beneficiaries</span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
-              $23 Entry-Tier Qualifying Sale Example
-            </h2>
-          </div>
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            {[
-              { party: "Traveller", Icon: TravelerIcon, value: "$1.15", sub: "DutyCredit saving (5%)", bg: "bg-green-50", border: "border-green-200", text: "text-green-600" },
-              { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$21.28", sub: "Net before normal costs (92.5%)", bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-600" },
-              { party: "DutyBoost", Icon: BarChart3, value: "$0.58", sub: "Platform fee (2.5%)", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-600" },
-            ].map((p) => (
-              <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
-                <p.Icon className={`w-9 h-9 mx-auto mb-2 ${p.text}`} />
-                <div className="text-slate-800 font-semibold text-xs sm:text-sm whitespace-nowrap mb-2">{p.party}</div>
-                <div className={`text-2xl font-bold mb-1 ${p.text}`}>{p.value}</div>
-                <div className="text-slate-500 text-xs leading-snug">{p.sub}</div>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <div className="text-slate-500 text-xs uppercase tracking-wide mb-2">Total = $23.00</div>
-              <div className="flex h-6 rounded-full overflow-hidden gap-px">
-                <div className="bg-green-500" style={{ width: "5%" }} />
-                <div className="bg-purple-500" style={{ width: "92.5%" }} />
-                <div className="bg-orange-500" style={{ width: "2.5%" }} />
-              </div>
-              <div className="flex gap-3 mt-2 text-xs flex-wrap">
-                {[
-                  { color: "bg-green-500", label: "Traveller 5%" },
-                  { color: "bg-purple-500", label: "Retailer 92.5%" },
-                  { color: "bg-orange-500", label: "DutyBoost 2.5%" },
-                ].map((l) => (
-                  <div key={l.label} className="flex items-center gap-1.5">
-                    <div className={`w-3 h-3 rounded-sm ${l.color}`} />
-                    <span className="text-slate-600">{l.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-2xl p-5 text-white" style={{ background: "linear-gradient(135deg, #952d8b 0%, #6b1f66 100%)" }}>
-              <h3 className="font-bold mb-3">Integrate Once. Deploy Repeatedly.</h3>
-              <p className="text-purple-50 text-sm leading-relaxed">
-                A single Enterprise POS integration can enable DutyBoost across multiple retailers, stores, airports and geographic markets — creating fundamentally better scaling economics than building individual integrations per retailer.
-              </p>
-              <div className="mt-3 text-purple-100 font-semibold text-sm">
-                Technology strategy: INTEGRATE ONCE. DEPLOY REPEATEDLY.
-              </div>
-            </div>
-          </div>
-          <div className="mt-5 bg-amber-50 border border-amber-200 rounded-2xl p-4">
-            <p className="text-slate-700 text-sm leading-relaxed">
-              <span className="font-bold">Customer acquisition cost happens after the sale — not before.</span> The retailer spends nothing to acquire the traveller: each DutyCredit redemption is validated through the POS and settled only once the sale is made, so every transaction is fully traceable and attributable.
-            </p>
-          </div>
-        </div>
-      </div>
-    </SlideWrapper>
   );
 }
 
@@ -847,9 +697,10 @@ const SLIDE_COMPONENTS = {
   market: SlideMarket,
   conversion: SlideConversion,
   acquisition: SlideAcquisitionTrinidad,
-  model: SlideModel,
+  model: SlideModelRetailer,
   tierMix: SlideTierMix,
-  transaction: SlideTransaction,
+  transaction: SlideTransactionRetailer,
+  estate: SlideEstateRetailer,
   integrate: SlideIntegrate,
   flywheel: SlideFlywheel,
   getStarted: SlideGetStarted,
@@ -891,7 +742,9 @@ export default function RetailerPitchDeckTrinidad() {
       </div>
 
       <div ref={slideAreaRef} className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]">
-        <SlideComp />
+        <RevenueProvider>
+          <SlideComp />
+        </RevenueProvider>
       </div>
 
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mt-2">
