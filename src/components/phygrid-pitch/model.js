@@ -6,10 +6,12 @@
 // stores, and ~9.8B annual travel moments (ACI World, 2025).
 
 // ── Sources ──────────────────────────────────────────────────────────────────
-export const ACI_TRAFFIC_LINK = "https://aci.aero/data-centre/annual-traffic-data/";
+export const ACI_TRAFFIC_LINK =
+  "https://aci.aero/2026/09/23/global-airport-passenger-traffic-reaches-record-9-8-billion-in-2025-airports-council-international-world-reports/";
 export const GENERATION_RESEARCH_LINK = "https://www.generationresearch.com/";
-export const M1NDSET_LINK = "https://m1nd-set.com/";
-export const TFWA_LINK = "https://www.tfwa.com/";
+export const M1NDSET_LINK =
+  "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-state-of-travel-and-tourism-in-the-caribbean";
+export const TFWA_LINK = "https://www.tfwa.com/membership/tfwa-research-podcasts-100017198";
 export const ACI_RETAIL_LINK =
   "https://www.aci-asiapac.aero/media-centre/news/airport-travel-retail-witnesses-a-fundamental-shift-as-younger-travelers-emerge-as-the-new-big-spenders";
 
