@@ -38,7 +38,7 @@ const LANG_CONTENT = {
   },
   es: {
     headline: <>Una nueva era para el duty-free{" "}<span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">está a punto de comenzar.</span></>,
-    description: "DutyBoost está redefiniendo cómo los viajeros descubren y disfrutan el duty-free — y buscamos los socios adecuados para ser parte de ello desde el primer día.",
+    description: "DutyBoost está redefiniendo cómo los pasajeros descubren y disfrutan el duty-free — y buscamos los socios adecuados para ser parte de ello desde el primer día.",
     meta: "Sé de los primeros en saberlo. Sin spam, nunca.",
     contact: "Solicitar acceso anticipado",
     contactTitle: "Únete a la lista de espera",

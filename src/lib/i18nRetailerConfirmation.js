@@ -280,7 +280,7 @@ export const retailerConfirmationStrings = {
     doc: {
       title: "Confirmación de interés",
       subtitle: "Integración POS de DutyBoost",
-      intro: "Este documento confirma que el minorista indicado a continuación autoriza al integrador de sistemas indicado a continuación a integrar la plataforma de activación de viajeros DutyBoost en su entorno de punto de venta, y recoge los datos de contacto de las partes implicadas.",
+      intro: "Este documento confirma que el minorista indicado a continuación autoriza al integrador de sistemas indicado a continuación a integrar la plataforma de activación de pasajeros DutyBoost en su entorno de punto de venta, y recoge los datos de contacto de las partes implicadas.",
       to: "A",
       from: "De",
       date: "Fecha",

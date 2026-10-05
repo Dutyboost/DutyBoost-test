@@ -77,7 +77,7 @@ export const travelerStrings = {
     tabCredits: "Mis DutyCredits",
     tabStores: "Tiendas",
     tabHistory: "Historial",
-    traveler: "Viajero",
+    traveler: "Pasajero",
     yourCredits: "Mis DutyCredits",
     redeemed: "Canjeado",
     expired: "Expirado",

@@ -829,7 +829,7 @@ export const COPY = {
       title: "República Dominicana.",
       titleAccent: "Tres puertas. Un ecosistema.",
       subtitle:
-        "Una presentación para la Embajada de la República Dominicana ante el Reino de los Países Bajos — en nombre de los minoristas aeroportuarios y de los viajeros que ya pasan por sus terminales.",
+        "Una presentación para la Embajada de la República Dominicana ante el Reino de los Países Bajos — en nombre de los minoristas aeroportuarios y de los pasajeros que ya pasan por sus terminales.",
       parties: { retailers: "Minoristas", government: "Gobierno" },
       stats: {
         gateways: "Aeropuertos principales",
@@ -874,7 +874,7 @@ export const COPY = {
           sourceLabel: "Aeropuerto Internacional de Punta Cana",
         },
       ],
-      barTitle: "Lo que hacen hoy los viajeros",
+      barTitle: "Lo que hacen hoy los pasajeros",
       barNote: "Referencia del sector",
       purchase: "22% compra",
       nonPurchase: "78% se va sin comprar",
@@ -882,9 +882,9 @@ export const COPY = {
         "En esos aeropuertos eso equivale a unos 18.4 millones de movimientos de pasajeros al año, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
       missingTitle: "Lo que falta no es espacio comercial",
       missingBody:
-        "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el viajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los viajeros antes de volar, a través de los socios de viaje con los que ya reservan.",
+        "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el pasajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los pasajeros antes de volar, a través de los socios de viaje con los que ya reservan.",
       missingBody2:
-        "Sin nuevas terminales, sin nuevas concesiones y sin gasto público. Los mismos viajeros, con un motivo para comprar, en el momento en que ya están en el edificio.",
+        "Sin nuevas terminales, sin nuevas concesiones y sin gasto público. Los mismos pasajeros, con un motivo para comprar, en el momento en que ya están en el edificio.",
       footnote:
         "Cifras aeroportuarias: ±18.4 millones de movimientos de pasajeros en 2025 en los principales aeropuertos del país — Punta Cana (±11.0M), Las Américas (±5.2M) y La Isabela (42K) — según los operadores aeroportuarios dominicanos.",
     },
@@ -893,7 +893,7 @@ export const COPY = {
       title: "Tres aeropuertos,",
       titleAccent: "una misma historia de salida y llegada",
       subtitle:
-        "Cada DutyCredit se canjea dentro de la terminal — a la salida o a la llegada. Estas son las tres puertas que la República Dominicana ofrece a sus viajeros, y los tres lugares donde el modelo genera valor.",
+        "Cada DutyCredit se canjea dentro de la terminal — a la salida o a la llegada. Estas son las tres puertas que la República Dominicana ofrece a sus pasajeros, y los tres lugares donde el modelo genera valor.",
       passengersLabel: "pasajeros 2025",
       airports: {
         PUJ: {
@@ -916,20 +916,20 @@ export const COPY = {
       },
       darkTitle: "Dos puertas internacionales concentran el volumen y una concentra el segmento premium.",
       darkBody:
-        "Punta Cana y Las Américas dan escala a DutyBoost; La Isabela aporta el viajero ejecutivo y chárter, que canjea en los mismos mostradores con una cesta media más alta.",
+        "Punta Cana y Las Américas dan escala a DutyBoost; La Isabela aporta el pasajero ejecutivo y chárter, que canjea en los mismos mostradores con una cesta media más alta.",
       footnote:
         "Punta Cana: más de 11 millones de movimientos de pasajeros en 2025 (+9.9% interanual), 35,092 vuelos, 81 aeropuertos internacionales en 26 países. Las Américas: el segundo aeropuerto más activo del país. La Isabela: 42 mil pasajeros en 2025, dedicado a la aviación privada y ejecutiva.",
     },
     gap: {
       eyebrow: "La brecha de conversión",
-      title: "El viajero ya está en el edificio.",
+      title: "El pasajero ya está en el edificio.",
       titleAccent: "La decisión se tomó en otro lugar.",
       subtitle:
-        "El comercio aeroportuario no pierde frente a otras tiendas del aeropuerto. Pierde semanas antes, cuando el viajero decide cuánto le costará el viaje.",
+        "El comercio aeroportuario no pierde frente a otras tiendas del aeropuerto. Pierde semanas antes, cuando el pasajero decide cuánto le costará el viaje.",
       reasons: [
         {
           title: "Ningún motivo para llegar antes",
-          body: "Nada le dice al viajero, antes de volar, que el aeropuerto tiene valor para él. Llega con el tiempo justo para embarcar — y nada más.",
+          body: "Nada le dice al pasajero, antes de volar, que el aeropuerto tiene valor para él. Llega con el tiempo justo para embarcar — y nada más.",
         },
         {
           title: "Ningún beneficio en la caja",
@@ -937,17 +937,17 @@ export const COPY = {
         },
         {
           title: "Una sola ventana, y se cierra",
-          body: "La terminal es el único lugar donde el comercio aeroportuario puede convertir a un viajero — a la salida o a la llegada. Fuera de esa ventana, el gasto se decide en otro lugar y se va con él.",
+          body: "La terminal es el único lugar donde el comercio aeroportuario puede convertir a un pasajero — a la salida o a la llegada. Fuera de esa ventana, el gasto se decide en otro lugar y se va con él.",
         },
       ],
       fixTitle: "DutyBoost adelanta la decisión",
       fixBody:
-        "Un DutyCredit se asocia a la reserva del viajero semanas antes de la salida. El viajero llega a la República Dominicana con un beneficio que solo funciona dentro de la terminal del aeropuerto — a la salida o a la llegada — lo que cambia lo que piensa comprar y cuándo llega a comprarlo.",
+        "Un DutyCredit se asocia a la reserva del pasajero semanas antes de la salida. El pasajero llega a la República Dominicana con un beneficio que solo funciona dentro de la terminal del aeropuerto — a la salida o a la llegada — lo que cambia lo que piensa comprar y cuándo llega a comprarlo.",
       fixBody2:
-        "El minorista no paga nada por participar, nada por la tecnología y nada hasta que se valida una venta. El viajero no paga nada: el beneficio es un descuento, no una comisión.",
+        "El minorista no paga nada por participar, nada por la tecnología y nada hasta que se valida una venta. El pasajero no paga nada: el beneficio es un descuento, no una comisión.",
       statValue: "22%",
       statBody:
-        "de los viajeros compra hoy algo en el comercio aeroportuario. El otro 78% es el mercado al que DutyBoost existe para llegar — y ya está dentro de la terminal.",
+        "de los pasajeros compra hoy algo en el comercio aeroportuario. El otro 78% es el mercado al que DutyBoost existe para llegar — y ya está dentro de la terminal.",
     },
     how: {
       eyebrow: "Cómo funciona",
@@ -959,22 +959,22 @@ export const COPY = {
         {
           step: "01",
           title: "Reserva",
-          body: "Un DutyCredit se asocia a la reserva del viajero. Sin cambios en la tarifa ni en el itinerario.",
+          body: "Un DutyCredit se asocia a la reserva del pasajero. Sin cambios en la tarifa ni en el itinerario.",
         },
         {
           step: "02",
           title: "Preactivación",
-          body: "Semanas antes de la salida, el viajero sabe que el beneficio existe y que solo puede canjearse dentro de la terminal del aeropuerto — a la salida o a la llegada.",
+          body: "Semanas antes de la salida, el pasajero sabe que el beneficio existe y que solo puede canjearse dentro de la terminal del aeropuerto — a la salida o a la llegada.",
         },
         {
           step: "03",
           title: "El aeropuerto",
-          body: "El viajero llega con intención de comprar, recorre la zona comercial y elige la tienda — y no al contrario.",
+          body: "El pasajero llega con intención de comprar, recorre la zona comercial y elige la tienda — y no al contrario.",
         },
         {
           step: "04",
           title: "Canje",
-          body: "Un escaneo de QR en el POS existente. Se aplica el descuento, se registra la venta y el viajero paga la diferencia.",
+          body: "Un escaneo de QR en el POS existente. Se aplica el descuento, se registra la venta y el pasajero paga la diferencia.",
         },
         {
           step: "05",
@@ -995,11 +995,11 @@ export const COPY = {
       title: "Condiciones estándar,",
       titleAccent: "coste inicial cero",
       subtitle: (basketCap, discountCap) =>
-        `El mismo modelo en todos los mercados donde opera DutyBoost, sin tasas específicas por país. El gasto computable tiene un tope de ${basketCap} y el descuento al viajero de ${discountCap}.`,
+        `El mismo modelo en todos los mercados donde opera DutyBoost, sin tasas específicas por país. El gasto computable tiene un tope de ${basketCap} y el descuento al pasajero de ${discountCap}.`,
       tiersTitle: "La estructura de niveles del DutyCredit",
-      tierHeaders: { tier: "Nivel", basket: "Cesta", discount: "Descuento", saves: "Ahorra el viajero" },
+      tierHeaders: { tier: "Nivel", basket: "Cesta", discount: "Descuento", saves: "Ahorra el pasajero" },
       tiersNote: (basketCap, discountCap) =>
-        `El gasto computable tiene un tope de ${basketCap} y el descuento al viajero de ${discountCap} — lo que supera el tope se queda en el minorista.`,
+        `El gasto computable tiene un tope de ${basketCap} y el descuento al pasajero de ${discountCap} — lo que supera el tope se queda en el minorista.`,
       feeTitle: (feePct) => `La comisión del ${feePct}% — su único coste`,
       feeBody: (feePct, keepPct) =>
         `Una única comisión del ${feePct}% solo sobre transacciones validadas por DutyBoost — nunca sobre las ventas existentes del minorista. En el nivel Entry, el minorista se queda con el ${keepPct}% de cada venta computable.`,
@@ -1010,7 +1010,7 @@ export const COPY = {
         "Sin cuotas de alta, suscripción ni integración — nunca",
       ],
       darkBody:
-        "No hay comisión para el aeropuerto, ni para el viajero, ni para el minorista — todo el modelo se financia con el margen incremental de transacciones que de otro modo no habrían ocurrido.",
+        "No hay comisión para el aeropuerto, ni para el pasajero, ni para el minorista — todo el modelo se financia con el margen incremental de transacciones que de otro modo no habrían ocurrido.",
       darkLead: "Nadie paga ni nadie gana nada hasta que se valida una venta.",
       footnote: (feePct) =>
         `Comisión de plataforma del ${feePct}% del gasto computable, solo sobre transacciones validadas. Modelo ilustrativo, USD.`,
@@ -1042,7 +1042,7 @@ export const COPY = {
       subtitle: (basketCap) =>
         `Cada venta validada se reparte en el momento de la caja. La venta sigue la cesta media introducida en la diapositiva del modelo, con el gasto computable limitado a ${basketCap}.`,
       parties: {
-        traveller: "Viajero",
+        traveller: "Pasajero",
         retailer: "Minorista aeroportuario",
         platform: "DutyBoost",
       },
@@ -1056,13 +1056,13 @@ export const COPY = {
       capNote: (basket, above, cap) =>
         `Cesta de ${basket} — los ${above} que superan el tope de ${cap} se quedan en el minorista.`,
       capFootnote: (discountCap, feeCap) =>
-        `El descuento al viajero tiene un tope de ${discountCap} y la comisión de plataforma de ${feeCap} por transacción, de modo que una cesta grande nunca pone en riesgo el margen del minorista.`,
+        `El descuento al pasajero tiene un tope de ${discountCap} y la comisión de plataforma de ${feeCap} por transacción, de modo que una cesta grande nunca pone en riesgo el margen del minorista.`,
       netCostLabel: "Coste neto para el minorista aeroportuario",
       netCostBody: () =>
-        "de una venta validada — nada sobre el 78% de viajeros que no compra, y nada en absoluto hasta que ocurre la transacción. Sin licencia, sin suscripción y sin coste de integración.",
+        "de una venta validada — nada sobre el 78% de pasajeros que no compra, y nada en absoluto hasta que ocurre la transacción. Sin licencia, sin suscripción y sin coste de integración.",
       acqTitle: "El coste de adquisición ocurre después de la venta — no antes.",
       acqBody:
-        "El minorista no gasta nada en captar al viajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es trazable y atribuible.",
+        "El minorista no gasta nada en captar al pasajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es trazable y atribuible.",
       bullets: [
         "El minorista se queda con el resto de la venta, por encima del tope",
         "Cada transacción es incremental — ninguna se toma de las ventas existentes",
@@ -1074,7 +1074,7 @@ export const COPY = {
       title: "Volumen incremental,",
       titleAccent: "no un descuento sobre las ventas actuales",
       subtitle:
-        "Una sola tienda mediana dentro de una puerta dominicana, con las hipótesis estándar del modelo: 250,000 viajeros al año por la puerta, una preactivación del 2%, un canje del 30% y una cesta media de $35.",
+        "Una sola tienda mediana dentro de una puerta dominicana, con las hipótesis estándar del modelo: 250,000 pasajeros al año por la puerta, una preactivación del 2%, un canje del 30% y una cesta media de $35.",
       kpis: [
         { label: "cestas incrementales al año, en una sola tienda" },
         { label: "valor minorista incremental al año" },
@@ -1082,14 +1082,14 @@ export const COPY = {
       ],
       pointsTitle: "Qué se le pide aceptar al minorista",
       points: [
-        "Solo viajeros que de otro modo habrían pasado de largo — el 78%, no el 22%",
+        "Solo pasajeros que de otro modo habrían pasado de largo — el 78%, no el 22%",
         "Sin coste inicial: sin hardware, sin licencia, sin suscripción y sin proyecto por tienda",
         "Se paga solo sobre ventas validadas, al 2.5% de una venta que de otro modo no existiría",
         "Gasto computable con tope de $1,000, así que las cestas grandes nunca quedan expuestas",
         "Una integración en el POS existente — no se sustituye ningún sistema",
         "Funciona con los concesionarios y las marcas que ya operan en la zona comercial",
       ],
-      cardTitle: (net) => `${net} netos, de viajeros que no habrían comprado nada.`,
+      cardTitle: (net) => `${net} netos, de pasajeros que no habrían comprado nada.`,
       cardBody:
         "La comparación no es con las ventas actuales del minorista — esas se mantienen exactamente igual. Es con el espacio vacío de la terminal, a la salida y a la llegada, que el modelo convierte.",
       multiplierTitle: "Y el efecto multiplicador",
@@ -1112,7 +1112,7 @@ export const COPY = {
       pillars: [
         {
           title: "Gasto retenido en suelo dominicano",
-          body: "Cada cesta canjeada en la terminal es gasto capturado mientras el viajero está en suelo dominicano — a la salida o a la llegada — en lugar de irse con él.",
+          body: "Cada cesta canjeada en la terminal es gasto capturado mientras el pasajero está en suelo dominicano — a la salida o a la llegada — en lugar de irse con él.",
         },
         {
           title: "Un canal de ventas registrado digitalmente",
@@ -1120,7 +1120,7 @@ export const COPY = {
         },
         {
           title: "Sin coste para las arcas públicas",
-          body: "El modelo se financia con la transacción, no con el presupuesto. No hay subvención, ni ayuda, ni nuevo gravamen para el viajero ni para el minorista.",
+          body: "El modelo se financia con la transacción, no con el presupuesto. No hay subvención, ni ayuda, ni nuevo gravamen para el pasajero ni para el minorista.",
         },
         {
           title: "Una plataforma construida en el Caribe, con sede aquí",
@@ -1132,24 +1132,24 @@ export const COPY = {
       darkBody:
         "Pide al país permitir que un mecanismo privado y autofinanciado opere dentro de sus aeropuertos actuales — y ser el primer mercado del Caribe donde lo haga.",
       footnote:
-        "Las cifras son ilustrativas, en USD, con las hipótesis introducidas en la diapositiva del modelo y condiciones estándar de DutyBoost. El tratamiento fiscal de los ingresos de plataforma y de las ventas minoristas se rige por la legislación dominicana vigente; DutyBoost no introduce ningún gravamen nuevo ni coste para el viajero.",
+        "Las cifras son ilustrativas, en USD, con las hipótesis introducidas en la diapositiva del modelo y condiciones estándar de DutyBoost. El tratamiento fiscal de los ingresos de plataforma y de las ventas minoristas se rige por la legislación dominicana vigente; DutyBoost no introduce ningún gravamen nuevo ni coste para el pasajero.",
     },
     network: {
       eyebrow: "En las tres puertas",
       title: (amount) => `${amount} al año,`,
-      titleAccent: "de viajeros que ya llegan en avión",
+      titleAccent: "de pasajeros que ya llegan en avión",
       subtitle: (perDay) =>
         `El escenario introducido en la diapositiva del modelo, aplicado a más de ${perDay} movimientos de pasajeros al día y 365 días del año.`,
       combinedLabel: "Neto combinado, un año",
       combinedBody:
-        "Neto del minorista aeroportuario en los principales aeropuertos del país, tras el descuento al viajero y la comisión de plataforma",
+        "Neto del minorista aeroportuario en los principales aeropuertos del país, tras el descuento al pasajero y la comisión de plataforma",
       combinedLines: {
         gross: (v) => `${v} de valor minorista incremental`,
         fee: (v) => `${v} de comisión de plataforma, sobre ventas validadas`,
       },
       leverTitle: "La activación es la única palanca que importa",
       leverBody:
-        "Las condiciones nunca cambian y nada se negocia mercado a mercado. Lo que mueve la cifra es cuántos viajeros llegan ya con un DutyCredit — tarea de DutyBoost, no del país.",
+        "Las condiciones nunca cambian y nada se negocia mercado a mercado. Lo que mueve la cifra es cuántos pasajeros llegan ya con un DutyCredit — tarea de DutyBoost, no del país.",
       atActivation: (pct) => `Con ${pct}% de preactivación`,
       baskets: (v) => `${v} cestas`,
       perYear: (v) => `${v} / año`,
@@ -1209,14 +1209,14 @@ export const COPY = {
       ],
       nobodyTitle: "Qué no pedimos a nadie",
       nobodyBody:
-        "Ni dinero público, ni legislación, ni cambios en las concesiones aeroportuarias, ni coste alguno para el viajero. DutyBoost aporta la tecnología, las relaciones con los minoristas y el modelo operativo. La República Dominicana aporta lo que ya tiene: el mercado aéreo más activo del Caribe, tres puertas de primer nivel y una embajada dispuesta a abrir la primera puerta.",
+        "Ni dinero público, ni legislación, ni cambios en las concesiones aeroportuarias, ni coste alguno para el pasajero. DutyBoost aporta la tecnología, las relaciones con los minoristas y el modelo operativo. La República Dominicana aporta lo que ya tiene: el mercado aéreo más activo del Caribe, tres puertas de primer nivel y una embajada dispuesta a abrir la primera puerta.",
     },
     thankYou: {
       title: "Gracias.",
       parties: ["Minoristas aeroportuarios"],
     },
     retailCover: {
-      title: "Ingresos incrementales de viajeros",
+      title: "Ingresos incrementales de pasajeros",
       titleAccent: "que de otro modo no comprarían",
       subtitle:
         "Una presentación para los minoristas aeroportuarios de la República Dominicana — Punta Cana, Las Américas y Santiago.",
@@ -1259,10 +1259,10 @@ export const COPY = {
       },
       solution: {
         eyebrow: "La solución",
-        title: "Activar al viajero días, semanas",
+        title: "Activar al pasajero días, semanas",
         titleAccent: "o incluso meses antes de llegar al aeropuerto",
         platforms: [
-          { title: "Plataforma DutyBoost", desc: "Los viajeros generan sus propios DutyCredits directamente — sin necesidad de un socio" },
+          { title: "Plataforma DutyBoost", desc: "Los pasajeros generan sus propios DutyCredits directamente — sin necesidad de un socio" },
           { title: "Reserva de vuelo", desc: "DutyCredit distribuido con la confirmación de la aerolínea" },
           { title: "Hotel / OTA", desc: "DutyCredit distribuido con la confirmación de la reserva" },
           { title: "Alquiler de coches", desc: "DutyCredit distribuido con la confirmación del alquiler" },
@@ -1270,7 +1270,7 @@ export const COPY = {
         ],
         steps: [
           "Los socios distribuyen el DutyCredit",
-          "El viajero activa el beneficio",
+          "El pasajero activa el beneficio",
           "Llega con intención de compra",
           "Visita al minorista participante",
           "Gasta $23 → Ahorra $1.15",
@@ -1278,13 +1278,13 @@ export const COPY = {
           "Todos los participantes ganan",
         ],
         stats: [
-          { value: "$1 – $60", label: "Valor directo del DutyCredit para el viajero" },
+          { value: "$1 – $60", label: "Valor directo del DutyCredit para el pasajero" },
           { value: "Basado en rendimiento", label: "Sin coste inicial para ningún socio" },
           { value: "Participantes", label: "Todos se benefician de una sola transacción" },
         ],
         noteTitle: "Un solo uso, infinitamente renovable.",
         note:
-          "Un DutyCredit no puede reutilizarse — pero el viajero puede obtener uno de un socio de viaje o corporativo y generar tantos más como necesite para otras tiendas participantes. Un DutyCredit para cosmética, otro para electrónica, otro en la tienda de regalos para un souvenir. El mismo viajero, distintas tiendas, todos ganan.",
+          "Un DutyCredit no puede reutilizarse — pero el pasajero puede obtener uno de un socio de viaje o corporativo y generar tantos más como necesite para otras tiendas participantes. Un DutyCredit para cosmética, otro para electrónica, otro en la tienda de regalos para un souvenir. El mismo pasajero, distintas tiendas, todos ganan.",
       },
       market: {
         eyebrow: "Oportunidad del mercado dominicano",
@@ -1326,20 +1326,20 @@ export const COPY = {
         purchase: "27%",
         purchaseLabel: "Convierten actualmente",
         source: "Referencia de compra del Caribe (m1nd-set)",
-        tableTitle: "Potencial incremental de los viajeros que no compran (13.4M):",
+        tableTitle: "Potencial incremental de los pasajeros que no compran (13.4M):",
         headers: ["Conversión", "Transacciones", "Valor minorista", "Neto del minorista"],
         tableNote:
-          "Basado en ±18.4M de movimientos de pasajeros al año en las tres puertas, el 73% sin compra, la cesta mínima de $23 del nivel Entry usada como ejemplo y el 92.5% de neto para el minorista (5% de descuento al viajero en el nivel Entry).",
+          "Basado en ±18.4M de movimientos de pasajeros al año en las tres puertas, el 73% sin compra, la cesta mínima de $23 del nivel Entry usada como ejemplo y el 92.5% de neto para el minorista (5% de descuento al pasajero en el nivel Entry).",
         propositionTitle: "La propuesta de DutyBoost para los minoristas",
         propositionRows: [
           { from: "Los minoristas esperan a los pasajeros", to: "Los pasajeros llegan con intención de compra" },
           { from: "Compra por impulso", to: "Incentivo económico preactivado" },
           { from: "Ningún motivo para entrar en la tienda", to: "El DutyCredit da un motivo para visitarla" },
-          { from: "El 73% va directo a la puerta", to: "Los viajeros preactivados se desvían a su tienda" },
+          { from: "El 73% va directo a la puerta", to: "Los pasajeros preactivados se desvían a su tienda" },
         ],
         questionTitle: "La pregunta clave",
         question:
-          '"¿Ganar $21.28 con una venta minorista incremental de $23 — sin ningún coste de adquisición inicial — vale más que ganar $0 con un viajero que de otro modo no habría convertido?"',
+          '"¿Ganar $21.28 con una venta minorista incremental de $23 — sin ningún coste de adquisición inicial — vale más que ganar $0 con un pasajero que de otro modo no habría convertido?"',
         questionAnswer: "Sí. Siempre.",
       },
       acquisition: {
@@ -1347,10 +1347,10 @@ export const COPY = {
         title: "Nosotros asumimos el coste de adquisición.",
         titleAccent: "Usted se queda con la venta.",
         subtitle:
-          "DutyBoost financia y ejecuta la Campaña de Curiosidad en los mercados emisores desde los que vuelan los viajeros — antes de que lleguen a la República Dominicana.",
+          "DutyBoost financia y ejecuta la Campaña de Curiosidad en los mercados emisores desde los que vuelan los pasajeros — antes de que lleguen a la República Dominicana.",
         marketsTitle: "Dónde los captamos — mercados emisores dominicanos",
         marketsBody:
-          "Los 11.6M de visitantes de 2025 (8.9M por vía aérea) y los ±18.4M de movimientos de pasajeros en ambos sentidos en las tres puertas. Se cuenta a cada viajero — ya sea un visitante que llega o un residente dominicano que sale y regresa a casa.",
+          "Los 11.6M de visitantes de 2025 (8.9M por vía aérea) y los ±18.4M de movimientos de pasajeros en ambos sentidos en las tres puertas. Se cuenta a cada pasajero — ya sea un visitante que llega o un residente dominicano que sale y regresa a casa.",
         markets: [
           { flag: "🇺🇸", name: "EE. UU.", movements: "7.7M", share: "42%" },
           { flag: "🇨🇦", name: "Canadá", movements: "3.7M", share: "20%" },
@@ -1366,11 +1366,11 @@ export const COPY = {
         campaignQuestion: '"¿Qué es un DutyCredit y cómo sé si cumplo los requisitos?"',
         channels: ["SEO de Google", "TikTok", "Instagram Reels", "YouTube Shorts", "Reddit", "Grupos de Facebook"],
         campaignNote:
-          "Adquisición de pago y orgánica gestionada por DutyBoost — en el idioma del propio viajero, meses antes de la salida.",
+          "Adquisición de pago y orgánica gestionada por DutyBoost — en el idioma del propio pasajero, meses antes de la salida.",
         funnelTitle: "El embudo de curiosidad",
         funnel: [
           "Campaña de Curiosidad",
-          "El viajero ve el contenido de curiosidad",
+          "El pasajero ve el contenido de curiosidad",
           "Visita DutyBoost.com",
           "Comprueba si cumple los requisitos",
           "Reclama su DutyCredit gratuito",
@@ -1380,10 +1380,10 @@ export const COPY = {
         costTitle: "¿Quién asume el coste de adquisición?",
         traditionalTitle: "Comercio minorista tradicional",
         traditionalBody:
-          "El minorista financia anuncios, promociones y fidelización por adelantado — y paga tanto si el viajero compra como si no.",
+          "El minorista financia anuncios, promociones y fidelización por adelantado — y paga tanto si el pasajero compra como si no.",
         dutyboostTitle: "Con DutyBoost",
         dutyboostBody:
-          "La adquisición la financia y ejecuta DutyBoost en el país de origen del viajero. El minorista paga $0 hasta que hay una venta validada.",
+          "La adquisición la financia y ejecuta DutyBoost en el país de origen del pasajero. El minorista paga $0 hasta que hay una venta validada.",
         closing:
           "El coste de adquisición corre de nuestra cuenta. Usted solo paga la comisión de plataforma del 2.5% sobre transacciones validadas — nunca sobre sus ventas existentes.",
       },
@@ -1394,7 +1394,7 @@ export const COPY = {
         subtitle:
           "Los ingresos se crean solo cuando se valida una transacción computable a través del POS empresarial del minorista.",
         tiersTitle: "La estructura de niveles del DutyCredit",
-        tierHeaders: ["Nivel", "Cesta", "Descuento", "Ahorra el viajero"],
+        tierHeaders: ["Nivel", "Cesta", "Descuento", "Ahorra el pasajero"],
         feeTitle: "La comisión del 2.5% — su único coste",
         feeBody:
           "Una única comisión del 2.5% solo sobre transacciones validadas por DutyBoost — nunca sobre sus ventas existentes.",
@@ -1409,7 +1409,7 @@ export const COPY = {
           { metric: "Se queda el minorista", val: "92.5% de cada venta computable (nivel Entry)" },
           { metric: "Coste inicial", val: "$0 — sin cuotas de alta, suscripción ni integración" },
           { metric: "Adquisición de clientes", val: "A cargo de los socios de viaje y corporativos antes de la llegada" },
-          { metric: "Inversión en marketing", val: "No necesaria — los viajeros llegan preactivados" },
+          { metric: "Inversión en marketing", val: "No necesaria — los pasajeros llegan preactivados" },
           { metric: "Impacto en precios", val: "Ninguno — sus precios de estantería no cambian" },
           { metric: "Condiciones de pago", val: "Basadas en rendimiento — solo sobre transacciones validadas" },
         ],
@@ -1423,8 +1423,8 @@ export const COPY = {
         headers: [
           "Cesta",
           "Cuota de transacciones",
-          "Descuento al viajero",
-          "Ahorra el viajero",
+          "Descuento al pasajero",
+          "Ahorra el pasajero",
           "Comisión DutyBoost (2.5%)",
           "Coste total para el minorista",
           "Se queda el minorista",
@@ -1452,19 +1452,19 @@ export const COPY = {
         eyebrow: "Una transacción — tres beneficiarios",
         title: "Ejemplo de venta computable de $23 del nivel Entry",
         parties: [
-          { party: "Viajero", value: "$1.15", sub: "Ahorro DutyCredit (5%)" },
+          { party: "Pasajero", value: "$1.15", sub: "Ahorro DutyCredit (5%)" },
           { party: "Minorista aeroportuario", value: "$21.28", sub: "Neto antes de costes normales (92.5%)" },
           { party: "DutyBoost", value: "$0.58", sub: "Comisión de plataforma (2.5%)" },
         ],
         total: "Total = $23.00",
-        legend: ["Viajero 5%", "Minorista 92.5%", "DutyBoost 2.5%"],
+        legend: ["Pasajero 5%", "Minorista 92.5%", "DutyBoost 2.5%"],
         integrateTitle: "Integrar una vez. Desplegar repetidamente.",
         integrateBody:
           "Una sola integración con el POS empresarial puede activar DutyBoost en varios minoristas, tiendas, aeropuertos y mercados geográficos — creando una economía de escala muy superior a la de integraciones individuales por minorista.",
         integrateFooter: "Estrategia tecnológica: INTEGRAR UNA VEZ. DESPLEGAR REPETIDAMENTE.",
         cacTitle: "El coste de adquisición ocurre después de la venta — no antes.",
         cacBody:
-          "El minorista no gasta nada en captar al viajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es plenamente trazable y atribuible.",
+          "El minorista no gasta nada en captar al pasajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es plenamente trazable y atribuible.",
       },
       estate: {
         eyebrow: "En todo su parque de tiendas",
@@ -1473,20 +1473,20 @@ export const COPY = {
         subtitle:
           "La economía es idéntica en cada tienda, porque el trabajo de adquisición se hace una sola vez, por DutyBoost. La escala es la única variable — y es la que ya posee.",
         storesLabel: "Tiendas",
-        travellersLabel: "Viajeros al año por tienda",
+        travellersLabel: "Pasajeros al año por tienda",
         activationLabel: "Preactivación",
         perStore: "neto para el minorista al año, por tienda",
         estateLabel: "neto para el minorista al año, en todo su parque",
         grossLabel: "de valor minorista incremental en sus tiendas",
-        savingLabel: "devueltos a los viajeros como ahorro DutyCredit",
+        savingLabel: "devueltos a los pasajeros como ahorro DutyCredit",
         leverTitle: "La activación es la palanca, no el precio",
         leverBody:
-          "Las condiciones comerciales nunca cambian. Lo que mueve la cifra es cuántos viajeros llegan preactivados al aeropuerto — y esa es tarea de DutyBoost, no suya.",
+          "Las condiciones comerciales nunca cambian. Lo que mueve la cifra es cuántos pasajeros llegan preactivados al aeropuerto — y esa es tarea de DutyBoost, no suya.",
         atActivation: (pct) => `Con ${pct}% de activación`,
         baskets: (v) => `${v} cestas / tienda`,
         perStoreShort: (v) => `${v} / tienda`,
         sensitivityNote:
-          "Por tienda y año, con el número de viajeros al año introducido y los valores de canje y cesta del modelo estándar.",
+          "Por tienda y año, con el número de pasajeros al año introducido y los valores de canje y cesta del modelo estándar.",
         upsideTitle: "Por qué esto es puro beneficio para el minorista",
         upside: [
           "100% incremental — ganado en ventas que de otro modo no existirían",
@@ -1527,10 +1527,10 @@ export const COPY = {
         titleAccent: "que se refuerza a sí mismo",
         steps: [
           "Más socios de viaje y corporativos",
-          "Más viajeros alcanzados",
+          "Más pasajeros alcanzados",
           "Más DutyCredits distribuidos",
           "Más DutyCredits autogenerados",
-          "Más incentivos para el viajero",
+          "Más incentivos para el pasajero",
           "Más preactivación antes del aeropuerto",
           "Más visitas a minoristas participantes",
           "Más conversión minorista",
@@ -1546,8 +1546,8 @@ export const COPY = {
         ],
         networkTitle: "Efectos de red por participante",
         networkRows: [
-          { party: "Más socios de viaje y corporativos", effect: "→ Más viajeros alcanzados antes de llegar al aeropuerto" },
-          { party: "Más DutyCredits autogenerados", effect: "→ Los viajeros se activan directamente — sin necesidad de socio" },
+          { party: "Más socios de viaje y corporativos", effect: "→ Más pasajeros alcanzados antes de llegar al aeropuerto" },
+          { party: "Más DutyCredits autogenerados", effect: "→ Los pasajeros se activan directamente — sin necesidad de socio" },
           { party: "Más minoristas", effect: "→ Más oportunidades de canje de DutyCredits" },
           { party: "Más integraciones de POS", effect: "→ Más capacidad de despliegue" },
           { party: "Más transacciones", effect: "→ Evidencia comercial más sólida" },
@@ -1566,7 +1566,7 @@ export const COPY = {
           "DutyBoost aparece como una nueva función en su panel de POS actual — no es un proyecto que implantar. Sin integración, sin despliegue, sin cambios operativos. Usted activa el interruptor y los ingresos incrementales empiezan a fluir.",
         cards: [
           { title: "Una nueva función en su POS", desc: "DutyBoost aparece como un interruptor en su panel de POS. Sin desarrollo, sin integración, sin plan de proyecto." },
-          { title: "Ingresos desde el primer día", desc: "Una vez activado, los viajeros preactivados pueden canjear DutyCredits en su tienda de inmediato." },
+          { title: "Ingresos desde el primer día", desc: "Una vez activado, los pasajeros preactivados pueden canjear DutyCredits en su tienda de inmediato." },
           { title: "Desactívelo cuando quiera", desc: "¿No le convencen los resultados? Apáguelo. Sin permanencia, sin cuotas de cancelación, sin compromisos." },
           { title: "Cero cambios operativos", desc: "Sin hardware nuevo, sin software nuevo, sin formación. Su proceso de caja no cambia." },
         ],
@@ -1578,13 +1578,13 @@ export const COPY = {
         title: "Únase a DutyBoost.",
         titleAccent: "Empiece a ganar ingresos incrementales.",
         body:
-          "DutyBoost conecta lo que ya existe — sus tiendas, su POS y 13.4M de movimientos de pasajeros al año cuyos viajeros hoy se dirigen directamente a la puerta. Con coste inicial cero y una sola activación en el POS, puede empezar a capturar ingresos de viajeros que no compran.",
+          "DutyBoost conecta lo que ya existe — sus tiendas, su POS y 13.4M de movimientos de pasajeros al año cuyos pasajeros hoy se dirigen directamente a la puerta. Con coste inicial cero y una sola activación en el POS, puede empezar a capturar ingresos de pasajeros que no compran.",
         cards: [
           { title: "Active en su POS", desc: "Active DutyBoost en su panel de POS actual — sin necesidad de integración." },
-          { title: "Gane desde el primer día", desc: "Los viajeros preactivados canjean DutyCredits en su tienda de inmediato." },
+          { title: "Gane desde el primer día", desc: "Los pasajeros preactivados canjean DutyCredits en su tienda de inmediato." },
           { title: "Desactive cuando quiera", desc: "Sin permanencia ni compromisos — usted mantiene el control, siempre." },
         ],
-        closingTitle: "¿Listo para convertir 13.4M de viajeros que no compran en ventas incrementales?",
+        closingTitle: "¿Listo para convertir 13.4M de pasajeros que no compran en ventas incrementales?",
         closingBody: "Basado en rendimiento. Coste inicial cero. Solo paga la comisión de plataforma del 2.5% sobre ventas validadas.",
         cta: "Confirmar su interés en la integración con el POS",
       },

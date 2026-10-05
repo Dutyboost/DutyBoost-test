@@ -223,7 +223,7 @@ const content = {
     { h: "9. Contact", p: "Signaler un comportement inapproprié ou une activité suspecte : trust@dutyboost.com · DutyBoost B.V., entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Código de conducta", updated: "Última actualización: agosto de 2026", back: "Volver al inicio", sections: [
-    { h: "1. Nuestro compromiso", p: "DutyBoost opera a Performance-based Customer Acquisition Infrastructure for Global Travel, basado en el principio de que los socios de viaje, los comercios aeroportuarios, los socios POS y los viajeros deben beneficiarse de manera justa y transparente. Nos comprometemos a mantener una plataforma profesional que defienda los estándares éticos de los sectores internacionales del viaje y el comercio minorista aeroportuario." },
+    { h: "1. Nuestro compromiso", p: "DutyBoost opera a Performance-based Customer Acquisition Infrastructure for Global Travel, basado en el principio de que los socios de viaje, los comercios aeroportuarios, los socios POS y los pasajeros deben beneficiarse de manera justa y transparente. Nos comprometemos a mantener una plataforma profesional que defienda los estándares éticos de los sectores internacionales del viaje y el comercio minorista aeroportuario." },
     { h: "2. Comportamiento esperado — Todos los usuarios", list: [
       "Actuar con honestidad y buena fe en todo momento.",
       "Proporcionar datos precisos y verificables — referencias de reserva (PNR), valores de transacción, registros de canje POS y detalles de tienda deben reflejar la realidad.",
@@ -235,7 +235,7 @@ const content = {
       "Enviar solo reservas confirmadas y emitidas, respaldadas por un PNR válido.",
       "No generar DutyCredits para reservas ficticias, canceladas o reembolsadas. Esto constituye fraude.",
       "Notificar a DutyBoost inmediatamente si una reserva vinculada a un DutyCredit se cancela o reembolsa.",
-      "Entregar los DutyCredits a tus viajeros a través de tus propios correos de confirmación y de regreso. DutyBoost no envía correos a los viajeros en tu nombre.",
+      "Entregar los DutyCredits a tus pasajeros a través de tus propios correos de confirmación y de regreso. DutyBoost no envía correos a los pasajeros en tu nombre.",
       "No compartir enlaces DutyCredit con personas no nombradas en la reserva.",
       "Cumplir con la Resolución IATA 890 y los estándares de integridad de datos GDS.",
       "Mantener todas las licencias y acreditaciones requeridas (ej. acreditación IATA o equivalente).",
@@ -247,7 +247,7 @@ const content = {
       "Mantener la información de la tienda actualizada en la plataforma.",
       "Asegurar que el personal esté formado en los procedimientos de escaneo QR DutyCredit.",
       "Notificar a DutyBoost inmediatamente ante problemas técnicos de punto de venta.",
-      "Cooperar plenamente con los procesos de reembolso cuando un viajero tenga derecho.",
+      "Cooperar plenamente con los procesos de reembolso cuando un pasajero tenga derecho.",
     ]},
     { h: "5. Socios POS", list: [
       "Mantener la integridad técnica de tu integración POS para que los códigos QR se validen y los canjes se procesen con precisión y en tiempo real.",
