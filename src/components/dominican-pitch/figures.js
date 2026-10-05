@@ -1,5 +1,5 @@
-// Source figures for the Dominican Republic deck.
-// Traffic is 2025; the commercial model is DutyBoost's standard terms.
+// Figures and model constants for the Dominican Republic deck.
+// All copy — in English and Spanish — lives in copy.js.
 
 export const SOURCES = {
   puj: "https://www.puntacanainternationalairport.com/en/about-us/news-projects/item/aeropuerto-de-punta-cana-marca-un-hito-historico-y-cierra-2025-con-record-consecutivo-de-vuelos-y-pasajeros",
@@ -10,84 +10,22 @@ export const SOURCES = {
 
 // The three gateways.
 export const AIRPORTS = [
-  {
-    code: "PUJ",
-    name: "Punta Cana International",
-    city: "Punta Cana",
-    passengers: "11M+",
-    headline: "The busiest airport in the Caribbean by international traffic",
-    detail: "Connects 81 international airports in 26 countries, with 35,092 flights in 2025.",
-    growth: "+9.9% passengers vs 2024",
-  },
-  {
-    code: "SDQ",
-    name: "Las Américas International",
-    city: "Santo Domingo",
-    passengers: "±5.5M",
-    headline: "The capital's long-haul, business and diaspora gateway",
-    detail: "The country's second-busiest airport and the main gateway into Santo Domingo.",
-    growth: null,
-  },
-  {
-    code: "JBQ",
-    name: "La Isabela International",
-    city: "Santo Domingo",
-    passengers: "42K",
-    headline: "Executive, private and charter aviation",
-    detail: "Dedicated to private and executive flights, minutes from the historic centre.",
-    growth: null,
-  },
+  { code: "PUJ", name: "Punta Cana International", city: "Punta Cana", passengers: "11M+" },
+  { code: "SDQ", name: "Las Américas International", city: "Santo Domingo", passengers: "±5.5M" },
+  { code: "JBQ", name: "La Isabela International", city: "Santo Domingo", passengers: "42K" },
 ];
 
 // Carriers flying to and from the Dominican Republic in 2025.
 export const AIRLINES = [
-  {
-    name: "Arajet",
-    passengers: 1279906,
-    perDay: "3,507 / day",
-    destinations:
-      "Canada, USA, Mexico, Colombia, Ecuador, Peru, Chile, Argentina, Brazil, Aruba, Curaçao, Jamaica, Puerto Rico, St. Maarten and more",
-  },
-  {
-    name: "SKYhigh Dominicana",
-    passengers: 150000,
-    plus: true,
-    perDay: "410+ / day",
-    destinations:
-      "Antigua, Anguilla, Bonaire, Curaçao, Guadeloupe, Martinique, Guyana, St. Kitts, St. Thomas, Cuba, Venezuela and more",
-  },
-  {
-    name: "Air Century",
-    passengers: 50000,
-    plus: true,
-    perDay: "137+ / day",
-    destinations: "Aruba, Curaçao, Cuba, Sint Maarten, Bonaire",
-  },
-  {
-    name: "RED Air",
-    passengers: 28237,
-    approx: true,
-    perDay: "77 / day",
-    destinations: "Curaçao, with Miami and other services depending on the operating arrangement",
-  },
-  {
-    name: "Panorama Jets",
-    passengers: 10000,
-    under: true,
-    perDay: "under 27 / day",
-    destinations: "Primarily charter and corporate operations",
-  },
-  {
-    name: "Sunrise Airways Dominicana",
-    passengers: null,
-    perDay: "not published",
-    destinations:
-      "Caribbean network including Haiti, Antigua, Barbados, British Virgin Islands, Dominica, Guadeloupe, St. Kitts, St. Lucia, St. Vincent, Sint Maarten, Turks & Caicos and the USA",
-  },
+  { name: "Arajet", passengers: 1279906 },
+  { name: "SKYhigh Dominicana", passengers: 150000, plus: true },
+  { name: "Air Century", passengers: 50000, plus: true },
+  { name: "RED Air", passengers: 28237, approx: true },
+  { name: "Panorama Jets", passengers: 10000, under: true },
+  { name: "Sunrise Airways Dominicana", passengers: null },
 ];
 
-// Measurable carrier traffic to and from the DR in 2025 — the addressable base
-// for pre-activation.
+// Measurable carrier traffic to and from the DR in 2025.
 export const CARRIER_PASSENGERS = 1518143;
 export const CARRIER_PER_DAY = 4150;
 export const CARRIERS_MEASURED = 5;
@@ -95,7 +33,6 @@ export const CARRIERS_MEASURED = 5;
 // Market context.
 export const MARKET = {
   drPassengers: "20.3M+",
-  drNote: "passengers through Dominican international airports in 2025, arrivals and departures",
   gateways: "3",
   purchaseShare: 0.22,
   nonPurchaseShare: 0.78,

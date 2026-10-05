@@ -7,7 +7,7 @@ const HERO_GRADIENT = {
   color: "transparent",
 };
 
-export default function PositioningLine({ dark = false, hero = false, size = "base", className = "" }) {
+export default function PositioningLine({ dark = false, hero = false, size = "base", className = "", text = POSITIONING }) {
   if (hero) {
     const sizeCls = size === "xl"
       ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
@@ -17,7 +17,7 @@ export default function PositioningLine({ dark = false, hero = false, size = "ba
         className={`${sizeCls} font-heading font-bold tracking-tight leading-tight ${className}`}
         style={HERO_GRADIENT}
       >
-        {POSITIONING}
+        {text}
       </p>
     );
   }
@@ -26,7 +26,7 @@ export default function PositioningLine({ dark = false, hero = false, size = "ba
     <p
       className={`text-xs md:text-sm font-semibold uppercase tracking-[0.2em] ${dark ? "text-slate-400" : "text-slate-500"} ${className}`}
     >
-      {POSITIONING}
+      {text}
     </p>
   );
 }

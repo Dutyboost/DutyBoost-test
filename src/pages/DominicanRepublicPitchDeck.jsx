@@ -15,6 +15,8 @@ import SlideNetwork from "@/components/dominican-pitch/SlideNetwork";
 import SlideNextSteps from "@/components/dominican-pitch/SlideNextSteps";
 import SlideThankYou from "@/components/dominican-pitch/SlideThankYou";
 import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
+import { LanguageProvider, useDeckLang } from "@/components/dominican-pitch/LanguageContext";
+import LanguageToggle from "@/components/dominican-pitch/LanguageToggle";
 import { ACCENT } from "@/components/dominican-pitch/Shared";
 import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 
@@ -35,23 +37,6 @@ const SLIDES = [
   { id: "thankYou", type: "thankYou" },
 ];
 
-const SLIDE_LABELS = {
-  cover: "Cover",
-  opportunity: "The Opportunity",
-  gateways: "The Three Gateways",
-  airlines: "The Carriers",
-  gap: "The Conversion Gap",
-  how: "How It Works",
-  model: "The Commercial Model",
-  economics: "The Economics of One Sale",
-  retailers: "Value to Airport Retailers",
-  airlinesValue: "Value to the Carriers",
-  government: "Value to the Dominican Government",
-  network: "Across the Three Gateways",
-  nextSteps: "Next Steps",
-  thankYou: "Thank You",
-};
-
 const SLIDE_COMPONENTS = {
   cover: SlideCover,
   opportunity: SlideOpportunity,
@@ -69,7 +54,8 @@ const SLIDE_COMPONENTS = {
   thankYou: SlideThankYou,
 };
 
-export default function DominicanRepublicPitchDeck() {
+function DominicanDeck() {
+  const { t } = useDeckLang();
   const [current, setCurrent] = useState(0);
   const slideAreaRef = useRef(null);
 
@@ -91,10 +77,11 @@ export default function DominicanRepublicPitchDeck() {
     <div className="min-h-screen bg-[#061024] flex flex-col items-center justify-start lg:justify-center p-2 py-1.5 overflow-x-hidden">
       <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mb-1.5">
         <div className="text-white text-sm font-semibold opacity-60">
-          DutyBoost — Dominican Republic Presentation 2026{" "}
-          <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
+          {t.chrome.title}{" "}
+          <span className="text-xs opacity-50 ml-2 hidden sm:inline">{t.chrome.confidential}</span>
         </div>
         <div className="flex items-center gap-3">
+          <LanguageToggle />
           <PitchDeckDownloadButtons
             slides={SLIDES}
             components={SLIDE_COMPONENTS}
@@ -121,14 +108,14 @@ export default function DominicanRepublicPitchDeck() {
           disabled={current === 0}
           className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
         >
-          <ChevronLeft size={18} /> Previous
+          <ChevronLeft size={18} /> {t.chrome.previous}
         </button>
         <div className="flex gap-1.5 flex-wrap justify-center max-w-lg">
           {SLIDES.map((s, i) => (
             <button
               key={s.id}
               onClick={() => setCurrent(i)}
-              title={SLIDE_LABELS[s.type]}
+              title={t.labels[s.type]}
               className={`text-xs px-3 py-1 rounded-lg transition-all font-medium ${
                 i === current ? "text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
               }`}
@@ -144,10 +131,18 @@ export default function DominicanRepublicPitchDeck() {
           className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
           style={{ background: ACCENT }}
         >
-          Next <ChevronRight size={18} />
+          {t.chrome.next} <ChevronRight size={18} />
         </button>
       </div>
-      <div className="mt-1 text-slate-500 text-xs">{SLIDE_LABELS[slide.type]}</div>
+      <div className="mt-1 text-slate-500 text-xs">{t.labels[slide.type]}</div>
     </div>
+  );
+}
+
+export default function DominicanRepublicPitchDeck() {
+  return (
+    <LanguageProvider>
+      <DominicanDeck />
+    </LanguageProvider>
   );
 }

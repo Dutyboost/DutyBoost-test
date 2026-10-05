@@ -8,17 +8,21 @@ import {
   DEFAULT_REDEMPTION,
   DEFAULT_BASKET,
 } from "./NetworkContext";
-
-const FIELDS = [
-  { key: "passengers", label: "Carrier passengers to/from the DR / day", step: 50, fallback: DEFAULT_PASSENGERS_DAY },
-  { key: "activation", label: "Pre-activation", suffix: "%", step: 0.1, fallback: DEFAULT_ACTIVATION },
-  { key: "redemption", label: "Redemption", suffix: "%", step: 1, fallback: DEFAULT_REDEMPTION },
-  { key: "basket", label: "Blended basket", prefix: "$", step: 1, fallback: DEFAULT_BASKET },
-];
+import { useDeckLang } from "./LanguageContext";
 
 export default function NetworkCalculator() {
+  const { t } = useDeckLang();
+  const c = t.calculator;
+
   // Shared with the transaction and network slides, so every slide agrees.
   const { inputs: f, set } = useNetworkInputs();
+
+  const FIELDS = [
+    { key: "passengers", label: c.fields.passengers, step: 50, fallback: DEFAULT_PASSENGERS_DAY },
+    { key: "activation", label: c.fields.activation, suffix: "%", step: 0.1, fallback: DEFAULT_ACTIVATION },
+    { key: "redemption", label: c.fields.redemption, suffix: "%", step: 1, fallback: DEFAULT_REDEMPTION },
+    { key: "basket", label: c.fields.basket, prefix: "$", step: 1, fallback: DEFAULT_BASKET },
+  ];
 
   const passengersDay = readInput(f, "passengers", DEFAULT_PASSENGERS_DAY);
   const activation = readInput(f, "activation", DEFAULT_ACTIVATION);
@@ -34,24 +38,22 @@ export default function NetworkCalculator() {
   const retailerNet = gross - saving - fee;
 
   const ROWS = [
-    { label: "Carrier passengers / day", val: numShort(passengersDay) },
-    { label: `Pre-activated (${activation}%) / day`, val: numShort(activated) },
-    { label: `Baskets redeemed (${redemption}%) / day`, val: numShort(baskets) },
-    { label: "Incremental retail value / day", val: usdShort(gross), money: true },
-    { label: "Airport retail net / day", val: usdShort(retailerNet), money: true },
-    { label: "Carrier share / day", val: usd2(rebate), money: true },
-    { label: `Platform fee (${Math.round(MODEL.platformFee * 1000) / 10}%) / day`, val: usd2(fee) },
-    { label: "Combined net / Yr", val: usdShort((retailerNet + rebate) * 365), money: true },
+    { label: c.rows.passengers, val: numShort(passengersDay) },
+    { label: c.rows.activated(activation), val: numShort(activated) },
+    { label: c.rows.baskets(redemption), val: numShort(baskets) },
+    { label: c.rows.gross, val: usdShort(gross), money: true },
+    { label: c.rows.retailerNet, val: usdShort(retailerNet), money: true },
+    { label: c.rows.carrierShare, val: usd2(rebate), money: true },
+    { label: c.rows.fee(Math.round(MODEL.platformFee * 1000) / 10), val: usd2(fee) },
+    { label: c.rows.combined, val: usdShort((retailerNet + rebate) * 365), money: true },
   ];
 
   return (
     <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <Wallet className="w-5 h-5 text-blue-600" />
-        <h3 className="font-bold text-blue-900">The Model Across the Three Gateways, Per Day</h3>
-        <span className="text-blue-700 text-xs font-semibold ml-auto">
-          Enter your own figures — every slide recalculates
-        </span>
+        <h3 className="font-bold text-blue-900">{c.title}</h3>
+        <span className="text-blue-700 text-xs font-semibold ml-auto">{c.hint}</span>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-3">
@@ -98,10 +100,7 @@ export default function NetworkCalculator() {
         ))}
       </div>
 
-      <div className="text-slate-400 text-xs mt-3">
-        Illustrative model, one day, across all carriers flying to and from the Dominican Republic. Blank fields
-        use the figures shown as placeholders. Volumes are counts; values in USD.
-      </div>
+      <div className="text-slate-400 text-xs mt-3">{c.note}</div>
     </div>
   );
 }
