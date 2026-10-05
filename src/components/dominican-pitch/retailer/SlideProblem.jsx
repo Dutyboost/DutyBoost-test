@@ -33,7 +33,8 @@ export default function SlideProblem() {
                 <div className="text-slate-800 font-semibold">{c.c1.label}</div>
                 <div className="text-slate-500 text-sm mt-1">
                   {c.c1.note}{" "}
-                  <a href={CTO_LINK} target="_blank" rel="noopener noreferrer" style={link}>(CTO)</a>
+                  <a href={CTO_LINK} target="_blank" rel="noopener noreferrer" style={link}>(CTO)</a>{" "}
+                  <a href={SOURCES.drArrivals} target="_blank" rel="noopener noreferrer" style={link}>(DR)</a>
                 </div>
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">

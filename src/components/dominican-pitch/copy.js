@@ -438,7 +438,11 @@ export const COPY = {
         eyebrow: "The Facts",
         title: "73% of Airport Passengers",
         titleAccent: "Never Make a Purchase",
-        c1: { value: "35M", label: "Caribbean stayover arrivals in 2025", note: "+2.5% vs 2024 | +16.7% vs 2019" },
+        c1: {
+          value: "25%",
+          label: "of the Caribbean's 35M stayover arrivals in 2025 landed in the Dominican Republic",
+          note: "±8.9M air arrivals in the Dominican Republic | +3.8% vs 2024",
+        },
         c2: {
           value: "18.4M",
           label: "Passenger movements a year across the Dominican Republic's major airports",
@@ -1228,7 +1232,11 @@ export const COPY = {
         eyebrow: "Los hechos",
         title: "El 73% de los pasajeros de aeropuerto",
         titleAccent: "nunca realiza una compra",
-        c1: { value: "35M", label: "Llegadas de estancia al Caribe en 2025", note: "+2.5% frente a 2024 | +16.7% frente a 2019" },
+        c1: {
+          value: "25%",
+          label: "de las llegadas de estancia del Caribe en 2025 (35M) llegaron a la República Dominicana",
+          note: "±8.9M de llegadas aéreas en la República Dominicana | +3.8% frente a 2024",
+        },
         c2: {
           value: "18.4M",
           label: "Movimientos de pasajeros al año en los principales aeropuertos del país",

@@ -6,6 +6,7 @@ export const SOURCES = {
   jbq: "https://vinci-airports.com/en/our-airports/dominican-republic/la-isabela-airport/",
   sdq: "https://en.wikipedia.org/wiki/Las_Am%C3%A9ricas_International_Airport",
   dr: "https://inmobiliario.do/en/international-airports-handled-more-than-20.3-million-passengers-in-arrivals-and-departures-during-2025/",
+  drArrivals: "https://www.arecoa.com/destinos/2026/01/09/record-historico-de-visitantes-para-rd-con-11-6-millones-en-2025/",
 };
 
 // The three gateways.
