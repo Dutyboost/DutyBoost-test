@@ -10,10 +10,10 @@ export default function SlideBusinessModel() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col justify-center px-5 py-4 md:px-10 md:py-4 relative">
+      <div className="flex-1 flex flex-col px-5 py-4 md:px-10 md:py-4 relative">
         <GridBg />
-        <div className="relative z-10">
-          <div className="mb-3">
+        <div className="relative z-10 flex-1 flex flex-col">
+          <div className="mb-3 shrink-0">
             <span className="text-xs md:text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>{c.eyebrow}</span>
             <h2 className="text-lg md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1.5">
               {c.title} <span style={{ color: ACCENT }}>{c.titleAccent}</span>
@@ -21,13 +21,13 @@ export default function SlideBusinessModel() {
             <p className="text-slate-500 mt-1 text-sm">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 grow shrink-0">
             <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-5 flex flex-col">
-              <h3 className="font-bold text-white text-base md:text-lg mb-3">{c.tiersTitle}</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2">
+              <h3 className="font-bold text-white text-base md:text-lg mb-3 shrink-0">{c.tiersTitle}</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2 shrink-0">
                 {c.tierHeaders.map((h) => <span key={h}>{h}</span>)}
               </div>
-              <div className="space-y-1">
+              <div className="flex-1 flex flex-col justify-between gap-1.5">
                 {TIER_ROWS.map((row, i) => (
                   <div
                     key={row.tier}
@@ -40,14 +40,14 @@ export default function SlideBusinessModel() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-[10px] mt-2 leading-snug">{c.tiersNote(usd(BASKET_CAP), usd(DISCOUNT_CAP))}</p>
+              <p className="text-slate-400 text-[10px] mt-2 leading-snug shrink-0">{c.tiersNote(usd(BASKET_CAP), usd(DISCOUNT_CAP))}</p>
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="rounded-2xl p-4" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
+              <div className="rounded-2xl p-4 grow shrink-0 flex flex-col" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
                 <h3 className="font-bold mb-2" style={{ color: ACCENT }}>{c.feeTitle}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-2">{c.feeBody}</p>
-                <div className="space-y-1.5 text-sm">
+                <div className="space-y-1.5 text-sm mt-auto">
                   {c.feePoints.map((item) => (
                     <div key={item} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: ACCENT }} />
@@ -57,9 +57,9 @@ export default function SlideBusinessModel() {
                 </div>
               </div>
 
-              <div className="bg-green-50 border border-green-200 rounded-2xl p-4">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-4 grow shrink-0 flex flex-col">
                 <h3 className="font-bold text-green-900 mb-2">{c.economicsTitle}</h3>
-                <div className="space-y-1.5 text-sm">
+                <div className="space-y-1.5 text-sm mt-auto">
                   {c.economics.map((row) => (
                     <div key={row.metric} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
@@ -74,7 +74,7 @@ export default function SlideBusinessModel() {
             </div>
           </div>
 
-          <div className="mt-3">
+          <div className="mt-3 shrink-0">
             <RetailerCalculator />
           </div>
         </div>
