@@ -5,7 +5,7 @@ const PHASES = [
   {
     n: "01",
     title: "Discovery & Scope",
-    effort: "~2 days",
+    effort: "Typically 1–3 days",
     Icon: Search,
     points: [
       "Identify the transaction-validation touchpoint in the existing checkout flow",
@@ -16,7 +16,7 @@ const PHASES = [
   {
     n: "02",
     title: "Build & Connect",
-    effort: "~3–5 days",
+    effort: "Typically 1–3 weeks",
     Icon: Code2,
     points: [
       "One API call — send the validated transaction, receive the discount and settlement back",
@@ -27,7 +27,7 @@ const PHASES = [
   {
     n: "03",
     title: "Test & Certify",
-    effort: "~2 days",
+    effort: "Typically 2–5 days",
     Icon: ShieldCheck,
     points: [
       "Sandbox validation against DutyBoost test DutyCredits",
@@ -38,7 +38,7 @@ const PHASES = [
   {
     n: "04",
     title: "Activate & Scale",
-    effort: "Same day",
+    effort: "Same day, once certified",
     Icon: Rocket,
     points: [
       "Switch it on — every store running the POS goes live instantly",
@@ -61,7 +61,9 @@ export default function SlideEffort() {
             </h2>
             <p className="text-slate-500 mt-1 text-sm">
               A single API call — one request, one response. Not a platform migration, and no replacement of the
-              checkout, payment or inventory systems you already run.
+              checkout, payment or inventory systems you already run. The phases below are indicative: the real
+              timeline depends on your POS version, existing middleware and certification process, and is scoped
+              jointly with your engineering team.
             </p>
           </div>
 
@@ -85,6 +87,11 @@ export default function SlideEffort() {
               </div>
             ))}
           </div>
+
+          <p className="text-slate-400 text-xs mb-4">
+            Indicative ranges only — effort varies with the POS version in scope, the systems it has to talk to,
+            and your own testing and certification cycles.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
@@ -110,12 +117,13 @@ export default function SlideEffort() {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
               <div className="flex items-center gap-2 mb-2">
                 <Clock className="w-5 h-5" />
-                <h3 className="font-bold">Total Effort: ~1–2 Weeks, One API Call</h3>
+                <h3 className="font-bold">Typical Effort: One API Call, One Engineering Stream</h3>
               </div>
               <p className="text-blue-50 text-sm leading-relaxed">
-                The whole integration is one API call — one request with the validated transaction, one response
+                The integration itself is one API call — one request with the validated transaction, one response
                 with the discount and the settlement. One engineering stream builds it once; every connected store
-                is then live.
+                is then live. Timelines vary with POS version, architecture and certification requirements, so we
+                scope them together with your technical team rather than commit to a date upfront.
               </p>
               <div className="grid grid-cols-3 gap-3 mt-4 text-center">
                 {[
