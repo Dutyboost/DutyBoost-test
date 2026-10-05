@@ -2,7 +2,13 @@ import { Cpu, TrendingUp, Store } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PositioningLine from "@/components/shared/PositioningLine";
 import { SlideWrapper, GridBg, Glow } from "@/components/phygrid-pitch/Shared";
-import { ESTATE, PER_STORE, usdShort } from "@/components/phygrid-pitch/model";
+import {
+  MODEL,
+  GLOBAL_NON_PURCHASE_M,
+  UPLIFT_01PP_VALUE,
+  numShort,
+  usdShort,
+} from "@/components/phygrid-pitch/model";
 
 const CARDS = [
   {
@@ -62,9 +68,12 @@ export default function SlideClosing() {
 
           <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-3 w-full max-w-2xl">
             {[
-              { label: "Stores (illustrative estate)", value: ESTATE[1].toLocaleString("en-US") },
-              { label: "POS commission per year", value: usdShort(PER_STORE.pos * ESTATE[1]) },
-              { label: "Upfront cost", value: "$0" },
+              { label: "Non-purchasing travel moments", value: `~${numShort(GLOBAL_NON_PURCHASE_M * 1e6)}` },
+              { label: "Value of +0.1pp conversion", value: usdShort(UPLIFT_01PP_VALUE) },
+              {
+                label: "POS commission on that uplift",
+                value: usdShort(UPLIFT_01PP_VALUE * MODEL.platformFee * MODEL.posShare),
+              },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <div className="text-base sm:text-2xl font-bold text-blue-600">{s.value}</div>
