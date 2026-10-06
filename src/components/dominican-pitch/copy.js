@@ -85,7 +85,7 @@ export const COPY = {
       purchase: "22% purchase",
       nonPurchase: "78% leave without buying",
       barBody:
-        "Across those airports that is roughly 18.4 million passenger movements a year, of which the large majority passes through the retail concourse without a single transaction.",
+        "Across those airports that is roughly 18.4 million passenger movements a year — 8.9M visitors arriving by air, 8.9M departing and 600K Dominican residents flying out and returning home — of which the large majority passes through the retail concourse without a single transaction.",
       missingTitle: "The missing step is not retail space",
       missingBody:
         "The Dominican Republic has the terminals, the concessionaires, the brands and the traffic. What it lacks is a reason for a traveller to arrive at the airport already intending to buy — the step DutyBoost supplies by pre-activating travellers before they fly, through the travel partners they already book with.",
@@ -313,7 +313,7 @@ export const COPY = {
       kpis: [
         "incremental retail value created a year, at the modelled scenario — activity that does not exist today",
         "platform revenue earned by the operating entity in the country, as a taxable base",
-        "two-way passenger movements through the country's major airports each year — 8.9M visitors arriving by air, plus Dominican residents flying out and home again",
+        "two-way passenger movements through the country's major airports each year — 8.9M visitors arriving by air, 8.9M departing and 600K Dominican residents flying out and returning home",
       ],
       pillars: [
         {
@@ -446,7 +446,7 @@ export const COPY = {
         c2: {
           value: "18.4M",
           label: "Passenger movements a year across the Dominican Republic's major airports",
-          note: "Punta Cana, Las Américas and Santiago — arrivals and departures combined | visitors arriving by air and Dominican residents flying out and home again, every one a shopper in the terminal",
+          note: "Punta Cana, Las Américas and Santiago — arrivals and departures combined | 8.9M visitors in, 8.9M out and 600K Dominican residents flying out and returning home, every one a shopper in the terminal",
         },
         c3: {
           value: "73%",
@@ -496,9 +496,9 @@ export const COPY = {
         eyebrow: "Dominican Republic Market Opportunity",
         title: "18.4M Passenger Movements. 3 Airports.",
         titleAccent: "The Busiest Air Market in the Caribbean.",
-        subtitle: "DutyBoost doesn't need to create the market. It connects what already exists — 18.4M passenger movements a year through the three gateways: the 8.9M visitors arriving by air and the Dominican residents flying out and returning home. Both spend inside the terminal.",
+        subtitle: "DutyBoost doesn't need to create the market. It connects what already exists — 18.4M passenger movements a year through the three gateways: 8.9M visitors arriving by air, 8.9M departing and 600K Dominican residents flying out and returning home. All of them spend inside the terminal.",
         kpis: [
-          { value: "18.4M", label: "Passenger movements a year", sub: "Punta Cana, Las Américas and Santiago — arrivals and departures, visitors and residents alike. 8.9M visitors arrived by air in 2025", color: "#952d8b" },
+          { value: "18.4M", label: "Passenger movements a year", sub: "Punta Cana, Las Américas and Santiago — 8.9M visitors in, 8.9M out and 600K Dominican residents flying out and returning home", color: "#952d8b" },
           { value: "13.4M", label: "Non-purchasing movements a year", sub: "73% of passengers, at the Caribbean benchmark", color: "#16a34a" },
           { value: "$2.72B", label: "Caribbean DF&TR market", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "$680M", label: "Dominican Republic share of that market", sub: "±25% — the country's share of Caribbean stayover arrivals: 8.9M air arrivals of 35M", color: "#3b82f6" },
@@ -516,7 +516,7 @@ export const COPY = {
         createTitle: "DutyBoost doesn't need to create:",
         createItems: [
           "Punta Cana, Las Américas and Santiago — all already operate",
-          "Passenger traffic — ±18.4M two-way movements a year: 8.9M visitors arriving by air, plus Dominican residents travelling out and back",
+          "Passenger traffic — ±18.4M two-way movements a year: 8.9M visitors arriving, 8.9M departing and 600K Dominican residents flying out and returning home",
           "Airport Retailers — they already operate the concourse stores",
           "Enterprise POS — already processes transactions",
         ],
@@ -556,7 +556,7 @@ export const COPY = {
           "DutyBoost funds and runs the Curiosity Campaign across the source markets travellers fly from — before they ever reach the Dominican Republic.",
         marketsTitle: "Where We Acquire Them — Dominican Source Markets",
         marketsBody:
-          "The 11.6M visitors of 2025 (8.9M by air) and ±18.4M two-way passenger movements across the three gateways. Every traveller is counted — whether a visitor flying in or a Dominican resident flying out and returning home.",
+          "The 11.6M visitors of 2025 (8.9M by air) and ±18.4M two-way passenger movements across the three gateways — 8.9M visitors in, 8.9M out and 600K Dominican residents flying out and returning home. Every traveller is counted, visitor or resident.",
         markets: [
           { flag: "🇺🇸", name: "USA", movements: "7.7M", share: "42%" },
           { flag: "🇨🇦", name: "Canada", movements: "3.7M", share: "20%" },
@@ -920,7 +920,7 @@ export const COPY = {
       purchase: "22% compra",
       nonPurchase: "78% se va sin comprar",
       barBody:
-        "En esos aeropuertos eso equivale a unos 18.4 millones de movimientos de pasajeros al año, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
+        "En esos aeropuertos eso equivale a unos 18.4 millones de movimientos de pasajeros al año — 8.9M de visitantes que llegan por vía aérea, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa —, de los cuales la gran mayoría atraviesa la zona comercial sin una sola transacción.",
       missingTitle: "Lo que falta no es espacio comercial",
       missingBody:
         "La República Dominicana tiene las terminales, los concesionarios, las marcas y el tráfico. Lo que le falta es un motivo para que el pasajero llegue al aeropuerto con la intención de comprar — el paso que DutyBoost aporta al preactivar a los pasajeros antes de volar, a través de los socios de viaje con los que ya reservan.",
@@ -1148,7 +1148,7 @@ export const COPY = {
       kpis: [
         "valor minorista incremental creado al año, en el escenario modelado — actividad que hoy no existe",
         "ingresos de plataforma ganados por la entidad operadora en el país, como base imponible",
-        "movimientos de pasajeros en ambos sentidos en los principales aeropuertos del país cada año — 8.9M de visitantes que llegan por vía aérea, más los residentes dominicanos que salen y regresan a casa",
+        "movimientos de pasajeros en ambos sentidos en los principales aeropuertos del país cada año — 8.9M de visitantes que llegan por vía aérea, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa",
       ],
       pillars: [
         {
@@ -1281,7 +1281,7 @@ export const COPY = {
         c2: {
           value: "18.4M",
           label: "Movimientos de pasajeros al año en los principales aeropuertos del país",
-          note: "Punta Cana, Las Américas y Santiago — llegadas y salidas combinadas | visitantes que llegan por vía aérea y residentes dominicanos que salen y regresan, todos compradores en la terminal",
+          note: "Punta Cana, Las Américas y Santiago — llegadas y salidas combinadas | 8.9M de visitantes que llegan, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa, todos compradores en la terminal",
         },
         c3: {
           value: "73%",
@@ -1331,9 +1331,9 @@ export const COPY = {
         eyebrow: "Oportunidad del mercado dominicano",
         title: "18.4M de movimientos de pasajeros. 3 aeropuertos.",
         titleAccent: "El mercado aéreo más activo del Caribe.",
-        subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe — 18.4M de movimientos de pasajeros al año en las tres puertas: los 8.9M de visitantes que llegan por vía aérea y los residentes dominicanos que salen y regresan a casa. Ambos gastan dentro de la terminal.",
+        subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe — 18.4M de movimientos de pasajeros al año en las tres puertas: 8.9M de visitantes que llegan por vía aérea, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa. Todos gastan dentro de la terminal.",
         kpis: [
-          { value: "18.4M", label: "Movimientos de pasajeros al año", sub: "Punta Cana, Las Américas y Santiago — llegadas y salidas, visitantes y residentes por igual. 8.9M de visitantes llegaron por vía aérea en 2025", color: "#952d8b" },
+          { value: "18.4M", label: "Movimientos de pasajeros al año", sub: "Punta Cana, Las Américas y Santiago — 8.9M de visitantes que llegan, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa", color: "#952d8b" },
           { value: "13.4M", label: "Movimientos sin compra al año", sub: "El 73% de los pasajeros, según la referencia del Caribe", color: "#16a34a" },
           { value: "$2.72B", label: "Mercado duty free y travel retail del Caribe", sub: "CAGR del 21.7% 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "$680M", label: "Cuota de la República Dominicana en ese mercado", sub: "±25% — la cuota del país en las llegadas de estancia del Caribe: 8.9M de llegadas aéreas de 35M", color: "#3b82f6" },
@@ -1351,7 +1351,7 @@ export const COPY = {
         createTitle: "DutyBoost no necesita crear:",
         createItems: [
           "Punta Cana, Las Américas y Santiago — ya operan",
-          "Tráfico de pasajeros — ±18.4M de movimientos en ambos sentidos al año: 8.9M de visitantes que llegan por vía aérea, más los residentes dominicanos que viajan fuera y regresan",
+          "Tráfico de pasajeros — ±18.4M de movimientos en ambos sentidos al año: 8.9M de visitantes que llegan, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa",
           "Minoristas aeroportuarios — ya operan las tiendas de la zona comercial",
           "POS empresarial — ya procesa transacciones",
         ],
@@ -1391,7 +1391,7 @@ export const COPY = {
           "DutyBoost financia y ejecuta la Campaña de Curiosidad en los mercados emisores desde los que vuelan los pasajeros — antes de que lleguen a la República Dominicana.",
         marketsTitle: "Dónde los captamos — mercados emisores dominicanos",
         marketsBody:
-          "Los 11.6M de visitantes de 2025 (8.9M por vía aérea) y los ±18.4M de movimientos de pasajeros en ambos sentidos en las tres puertas. Se cuenta a cada pasajero — ya sea un visitante que llega o un residente dominicano que sale y regresa a casa.",
+          "Los 11.6M de visitantes de 2025 (8.9M por vía aérea) y los ±18.4M de movimientos de pasajeros en ambos sentidos en las tres puertas — 8.9M de visitantes que llegan, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa. Se cuenta a cada pasajero, visitante o residente.",
         markets: [
           { flag: "🇺🇸", name: "EE. UU.", movements: "7.7M", share: "42%" },
           { flag: "🇨🇦", name: "Canadá", movements: "3.7M", share: "20%" },
