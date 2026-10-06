@@ -435,8 +435,16 @@ export const COPY = {
         status: "Live — DutyCredits redeeming at the till",
         partnersTitle: "DutyCredits redeemed at",
         partners: [
-          { name: "Dutch Delight Store", detail: "Duty free — departure hall" },
-          { name: "ILTT Liquor & Tobacco", detail: "Liquor, tobacco & confectionery" },
+          {
+            name: "Dutch Delight Store",
+            detail: "Duty free — departure hall",
+            desc: "The airport's flagship duty-free: fragrances, cosmetics, sunglasses and accessories, with DutyCredits redeemable at every till in the store.",
+          },
+          {
+            name: "ILTT Liquor & Tobacco",
+            detail: "Liquor, tobacco & confectionery",
+            desc: "Premium spirits, liqueurs, tobacco and confectionery — the categories where the DutyCredit drives the highest incremental baskets.",
+          },
         ],
         posTitle: "Implemented at POS level",
         pos: "NCR CounterPoint",
@@ -463,6 +471,8 @@ export const COPY = {
           "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration, no new hardware and no change to the cashier's routine. The discount, the recorded transaction and the settlement all happen inside the POS the Caribbean Duty Free stores already run at Piarco, with every redemption attributed automatically for reporting.",
         rolloutTitle: "Redeeming from 15 October 2026",
         rollout: "Caribbean Duty Free stores at Piarco International Airport",
+        rolloutDesc:
+          "Liquor & spirits, perfumes & fragrances and cigars & cigarettes across the concourse, validated at the till through the same native NCR CounterPoint flow already running in Sint Maarten.",
         stores: ["Liquor & spirits", "Perfumes & fragrances", "Cigars & cigarettes"],
         rolloutNote:
           "The POS layer is live, and the Caribbean Duty Free stores in the concourse are being switched on store by store.",
@@ -1339,8 +1349,16 @@ export const COPY = {
         status: "Activo — DutyCredits canjeándose en la caja",
         partnersTitle: "DutyCredits canjeados en",
         partners: [
-          { name: "Dutch Delight Store", detail: "Duty free — sala de salidas" },
-          { name: "ILTT Liquor & Tobacco", detail: "Licores, tabaco y confitería" },
+          {
+            name: "Dutch Delight Store",
+            detail: "Duty free — sala de salidas",
+            desc: "El duty free insignia del aeropuerto: fragancias, cosmética, gafas de sol y accesorios, con DutyCredits canjeables en todas las cajas de la tienda.",
+          },
+          {
+            name: "ILTT Liquor & Tobacco",
+            detail: "Licores, tabaco y confitería",
+            desc: "Destilados premium, licores, tabaco y confitería — las categorías donde el DutyCredit genera las cestas incrementales más altas.",
+          },
         ],
         posTitle: "Implantado a nivel de POS",
         pos: "NCR CounterPoint",
@@ -1367,6 +1385,8 @@ export const COPY = {
           "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte, ni hardware nuevo ni cambios en la rutina del cajero. El descuento, el registro de la transacción y la liquidación ocurren dentro del POS que las tiendas Caribbean Duty Free ya utilizan en Piarco, con cada canje atribuido automáticamente para el reporting.",
         rolloutTitle: "Canjeando desde el 15 de octubre de 2026",
         rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
+        rolloutDesc:
+          "Licores y destilados, perfumes y fragancias y cigarros y cigarrillos en toda la zona comercial, validados en caja con el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten.",
         stores: ["Licores y destilados", "Perfumes y fragancias", "Cigarros y cigarrillos"],
         rolloutNote:
           "La capa de POS está activa y las tiendas Caribbean Duty Free de la zona comercial se van activando tienda a tienda.",

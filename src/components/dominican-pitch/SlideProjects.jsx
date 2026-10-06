@@ -49,13 +49,14 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
   );
 }
 
-function PartnerRow({ name, detail, icon: Icon = Store }) {
+function PartnerRow({ name, detail, desc, icon: Icon = Store }) {
   return (
     <div className="flex flex-1 items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3.5">
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className="text-lg font-semibold leading-tight">{name}</div>
         {detail && <div className="text-sm text-white/50 mt-1">{detail}</div>}
+        {desc && <div className="text-sm text-white/45 mt-1.5 leading-snug">{desc}</div>}
       </div>
     </div>
   );
@@ -75,7 +76,7 @@ export default function SlideProjects() {
         <div className="flex-1 flex flex-col gap-2">
           <div className="text-sm uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
           {c.sxm.partners.map((p) => (
-            <PartnerRow key={p.name} name={p.name} detail={p.detail} />
+            <PartnerRow key={p.name} name={p.name} detail={p.detail} desc={p.desc} />
           ))}
         </div>
         <div className="flex-1 flex flex-col gap-2">
@@ -99,7 +100,7 @@ export default function SlideProjects() {
         </div>
         <div className="flex-1 flex flex-col gap-2">
           <div className="text-sm uppercase tracking-widest text-white/40">{c.tnt.rolloutTitle}</div>
-          <PartnerRow name={c.tnt.rollout} icon={Wine} />
+          <PartnerRow name={c.tnt.rollout} desc={c.tnt.rolloutDesc} icon={Wine} />
           <div className="flex flex-wrap gap-2">
             {c.tnt.stores.map((s) => (
               <span
