@@ -24,7 +24,7 @@ export const COPY = {
       revenueCalculator: "Revenue Potential — Per Day",
       tierMix: "Transaction Mix — Tier Economics",
       transaction: "Transaction Economics",
-      estate: "Across Your Store Estate",
+      estate: "Across the Retailer's Store Estate",
       integrate: "POS Integration",
       flywheel: "Growth Flywheel",
       getStarted: "Get Started",
@@ -208,7 +208,7 @@ export const COPY = {
       tierHeaders: { tier: "Tier", basket: "Basket", discount: "Discount", saves: "Traveller saves" },
       tiersNote: (basketCap, discountCap) =>
         `Qualifying spend is capped at ${basketCap} and the traveller discount at ${discountCap} — spend above the cap stays with the retailer.`,
-      feeTitle: (feePct) => `The ${feePct}% Platform Fee — Your Only Cost`,
+      feeTitle: (feePct) => `The ${feePct}% Platform Fee — the Retailer's Only Cost`,
       feeBody: (feePct, keepPct) =>
         `A single ${feePct}% fee on DutyBoost-validated transactions only — never on the retailer's existing sales. At the Entry tier the retailer keeps ${keepPct}% of every qualifying sale.`,
       feePoints: [
@@ -618,7 +618,7 @@ export const COPY = {
           { from: "Retailers wait for passengers", to: "Passengers arrive with purchase intent" },
           { from: "Impulse-driven shopping", to: "Pre-activated economic incentive" },
           { from: "No reason to enter the store", to: "DutyCredit gives a reason to visit" },
-          { from: "73% walk straight to the gate", to: "Pre-activated travellers detour to your store" },
+          { from: "73% walk straight to the gate", to: "Pre-activated travellers detour to the store" },
         ],
         questionTitle: "The Core Question",
         question:
@@ -680,13 +680,13 @@ export const COPY = {
         tierHeaders: ["Tier", "Basket", "Discount", "Traveller Saves"],
         tiersNote: (basketCap, discountCap) =>
           `Qualifying spend is capped at ${basketCap} and the traveller discount at ${discountCap} — spend above the cap stays with the retailer.`,
-        feeTitle: "The 2.5% Platform Fee — Your Only Cost",
+        feeTitle: "The 2.5% Platform Fee — the Retailer's Only Cost",
         feeBody:
-          "A single 2.5% fee on DutyBoost-validated transactions only — never on your existing sales.",
+          "A single 2.5% fee on DutyBoost-validated transactions only — never on the retailer's existing sales.",
         feePoints: [
           "DutyBoost's sole revenue — the platform fee on each validated transaction",
-          "Applied only when a DutyCredit redemption is validated through your POS",
-          "No impact on your shelf prices or non-DutyBoost sales",
+          "Applied only when a DutyCredit redemption is validated through the retailer's POS",
+          "No impact on the retailer's shelf prices or non-DutyBoost sales",
           "Settled transparently — attributed and reported per transaction",
         ],
         economicsTitle: "The Retailer Economics",
@@ -695,7 +695,7 @@ export const COPY = {
           { metric: "Upfront cost", val: "$0 — no setup, subscription or integration fees" },
           { metric: "Customer acquisition", val: "Handled by Travel & Corporate Partners before arrival" },
           { metric: "Marketing spend", val: "Not required — travellers arrive pre-activated" },
-          { metric: "Pricing impact", val: "None — your shelf prices stay unchanged" },
+          { metric: "Pricing impact", val: "None — the retailer's shelf prices stay unchanged" },
           { metric: "Payment terms", val: "Performance-based — only on validated transactions" },
         ],
       },
@@ -731,7 +731,7 @@ export const COPY = {
         ],
         basisTitle: "Basis & Sources",
         basis:
-          "Tier mix calibrated to the published average transaction value of $70–$140 in travel retail (market.us, Travel Retail Market 2026); average retail spend per passenger of €10.55 in 2025 (ETRC) and $15.50 in 2024, down from $24.30 in 2020 (Kearney, Travel Retail 2025); ±70% of airport retail purchases are impulse-driven (ACI Asia-Pacific); 27% Caribbean purchase rate — the conversion headroom the programme targets (m1nd-set). Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data.",
+          "Tier mix calibrated to the published average transaction value of $70–$140 in travel retail (market.us, Travel Retail Market 2026); average retail spend per passenger of €10.55 in 2025 (ETRC) and $15.50 in 2024, down from $24.30 in 2020 (Kearney, Travel Retail 2025); ±70% of airport retail purchases are impulse-driven (ACI Asia-Pacific); 27% Caribbean purchase rate — the conversion headroom the programme targets (m1nd-set). Tier mix is illustrative of a 2025 basket distribution and can be replaced with the retailer's own POS data.",
       },
       revenueCalculator: {
         slideEyebrow: "The Retailer Model",
@@ -748,8 +748,8 @@ export const COPY = {
         left: "walk back out without buying",
         convertNote:
           "the group DutyBoost pre-activates — a traveller already inside the store.",
-        title: "Your Scenario",
-        hint: "Enter your own figures — the model recalculates",
+        title: "The Retailer's Scenario",
+        hint: "Enter the retailer's own figures — the model recalculates",
         airport: {
           label: "Airport",
           all: "All airports",
@@ -807,21 +807,21 @@ export const COPY = {
           "The retailer spends nothing to acquire the traveller: each DutyCredit redemption is validated through the POS and settled only once the sale is made, so every transaction is fully traceable and attributable.",
       },
       estate: {
-        eyebrow: "Across Your Store Estate",
+        eyebrow: "Across the Retailer's Store Estate",
         title: "Per Store, Per Year.",
-        titleAccent: "Multiplied by Every Store You Operate.",
+        titleAccent: "Multiplied by Every Store the Retailer Operates.",
         subtitle:
-          "The economics are identical in every store, because the acquisition work is done once, by DutyBoost. Scale is the only variable — and it is the one you already own.",
+          "The economics are identical in every store, because the acquisition work is done once, by DutyBoost. Scale is the only variable — and it is the one the retailer already owns.",
         storesLabel: "Stores",
         travellersLabel: "Travellers a year, per store",
         activationLabel: "Pre-activation",
         perStore: "retailer net per year, per store",
-        estateLabel: "retailer net per year, across your estate",
-        grossLabel: "incremental retail value across your stores",
+        estateLabel: "retailer net per year, across the retailer's estate",
+        grossLabel: "incremental retail value across the retailer's stores",
         savingLabel: "returned to travellers as DutyCredit savings",
         leverTitle: "Activation Is the Lever, Not Price",
         leverBody:
-          "The commercial terms never change. What moves the number is how many travellers are pre-activated before they reach the airport — and that is DutyBoost's job, not yours.",
+          "The commercial terms never change. What moves the number is how many travellers are pre-activated before they reach the airport — and that is DutyBoost's job, not the retailer's.",
         atActivation: (pct) => `At ${pct}% activation`,
         baskets: (v) => `${v} baskets / store`,
         perStoreShort: (v) => `${v} / store`,
@@ -831,9 +831,9 @@ export const COPY = {
         upside: [
           "100% incremental — earned on sales that would not otherwise exist",
           "Zero upfront cost — no build, no licence, no store-level project",
-          "No change to your checkout, pricing or inventory logic",
+          "No change to the retailer's checkout, pricing or inventory logic",
           "Attributed and reported per transaction, automatically",
-          "Every store you add compounds the same revenue",
+          "Every store the retailer adds compounds the same revenue",
         ],
         closingTitle: "a year per store, on transactions that would not have happened.",
         closingBody:
@@ -843,18 +843,18 @@ export const COPY = {
         eyebrow: "Technology Strategy",
         title: "A POS Provider Feature.",
         titleAccent: "Activate, Not Implement.",
-        dashboardTitle: "DutyBoost Appears in Your POS Dashboard",
+        dashboardTitle: "DutyBoost Appears in the Retailer's POS Dashboard",
         dashboardPoints: [
-          "DutyBoost appears as a new feature in your existing POS dashboard",
-          "You flip the switch — no separate integration required from the retailer",
+          "DutyBoost appears as a new feature in the retailer's existing POS dashboard",
+          "The retailer flips the switch — no separate integration required",
           "No replacement of ERP, payment or inventory systems",
           "Once switched on, all connected stores can redeem DutyCredits",
           "Works across all stores, airports and markets on the same POS",
           "Switch it off anytime — no lock-in, no commitments",
         ],
-        activatedTitle: "ACTIVATED THROUGH YOUR POS",
+        activatedTitle: "ACTIVATED THROUGH THE RETAILER'S POS",
         activatedBody:
-          "DutyBoost is enabled by your POS provider as an activation feature — the same system you already use for checkout, inventory and payments. No separate integration required from the retailer.",
+          "DutyBoost is enabled by the retailer's POS provider as an activation feature — the same system the retailer already uses for checkout, inventory and payments. No separate integration required.",
         stats: [
           { val: "1 POS", label: "activation" },
           { val: "Multiple", label: "retailers" },
@@ -903,15 +903,15 @@ export const COPY = {
         title: "Activated.",
         titleAccent: "Start earning. Switch off anytime.",
         subtitle:
-          "DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing.",
+          "DutyBoost appears as a new feature in the retailer's existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. The retailer flips the switch and incremental revenue starts flowing.",
         cards: [
-          { title: "A New Feature in Your POS", desc: "DutyBoost appears as a toggle in your existing POS dashboard. No development, no integration, no project plan." },
-          { title: "Earning From Day One", desc: "Once switched on, pre-activated travellers can redeem DutyCredits at your store immediately." },
-          { title: "Switch Off Anytime", desc: "Don't like the results? Flip it off. No lock-in, no cancellation fees, no commitments." },
-          { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. Your checkout flow stays the same." },
+          { title: "A New Feature in the Retailer's POS", desc: "DutyBoost appears as a toggle in the retailer's existing POS dashboard. No development, no integration, no project plan." },
+          { title: "Earning From Day One", desc: "Once switched on, pre-activated travellers can redeem DutyCredits at the retailer's store immediately." },
+          { title: "Switch Off Anytime", desc: "If the results don't convince, the retailer flips it off. No lock-in, no cancellation fees, no commitments." },
+          { title: "Zero Operational Change", desc: "No new hardware, no new software, no staff training. The retailer's checkout flow stays the same." },
         ],
         footer1: "No setup fee. No subscription. No implementation. Flip the switch — earn. Flip it off — stop.",
-        footer2: "Always performance-based — you pay only the 2.5% platform fee on validated sales.",
+        footer2: "Always performance-based — the retailer pays only the 2.5% platform fee on validated sales.",
       },
       retailThankYou: {
         eyebrow: "Thank You",
@@ -953,7 +953,7 @@ export const COPY = {
       revenueCalculator: "Potencial de ingresos — por día",
       tierMix: "Mezcla de transacciones",
       transaction: "Economía de la transacción",
-      estate: "Su parque de tiendas",
+      estate: "El parque de tiendas del minorista",
       integrate: "Integración con el POS",
       flywheel: "Volante de crecimiento",
       getStarted: "Empezar",
@@ -1137,7 +1137,7 @@ export const COPY = {
       tierHeaders: { tier: "Nivel", basket: "Cesta", discount: "Descuento", saves: "Ahorra el pasajero" },
       tiersNote: (basketCap, discountCap) =>
         `El gasto computable tiene un tope de ${basketCap} y el descuento al pasajero de ${discountCap} — lo que supera el tope se queda en el minorista.`,
-      feeTitle: (feePct) => `La comisión del ${feePct}% — su único coste`,
+      feeTitle: (feePct) => `La comisión del ${feePct}% — el único coste del minorista`,
       feeBody: (feePct, keepPct) =>
         `Una única comisión del ${feePct}% solo sobre transacciones validadas por DutyBoost — nunca sobre las ventas existentes del minorista. En el nivel Entry, el minorista se queda con el ${keepPct}% de cada venta computable.`,
       feePoints: [
@@ -1547,7 +1547,7 @@ export const COPY = {
           { from: "Los minoristas esperan a los pasajeros", to: "Los pasajeros llegan con intención de compra" },
           { from: "Compra por impulso", to: "Incentivo económico preactivado" },
           { from: "Ningún motivo para entrar en la tienda", to: "El DutyCredit da un motivo para visitarla" },
-          { from: "El 73% va directo a la puerta", to: "Los pasajeros preactivados se desvían a su tienda" },
+          { from: "El 73% va directo a la puerta", to: "Los pasajeros preactivados se desvían a la tienda" },
         ],
         questionTitle: "La pregunta clave",
         question:
@@ -1609,12 +1609,12 @@ export const COPY = {
         tierHeaders: ["Nivel", "Cesta", "Descuento", "Ahorra el pasajero"],
         tiersNote: (basketCap, discountCap) =>
           `El gasto computable tiene un tope de ${basketCap} y el descuento al pasajero de ${discountCap} — lo que supera el tope se queda en el minorista.`,
-        feeTitle: "La comisión del 2.5% — su único coste",
+        feeTitle: "La comisión del 2.5% — el único coste del minorista",
         feeBody:
-          "Una única comisión del 2.5% solo sobre transacciones validadas por DutyBoost — nunca sobre sus ventas existentes.",
+          "Una única comisión del 2.5% solo sobre transacciones validadas por DutyBoost — nunca sobre las ventas existentes del minorista.",
         feePoints: [
           "El único ingreso de DutyBoost — la comisión de plataforma de cada transacción validada",
-          "Se aplica solo cuando se valida un canje de DutyCredit en su POS",
+          "Se aplica solo cuando se valida un canje de DutyCredit en el POS del minorista",
           "Sin impacto en los precios de estantería ni en las ventas ajenas al programa",
           "Liquidación transparente — atribuida y reportada por transacción",
         ],
@@ -1624,7 +1624,7 @@ export const COPY = {
           { metric: "Coste inicial", val: "$0 — sin cuotas de alta, suscripción ni integración" },
           { metric: "Adquisición de clientes", val: "A cargo de los socios de viaje y corporativos antes de la llegada" },
           { metric: "Inversión en marketing", val: "No necesaria — los pasajeros llegan preactivados" },
-          { metric: "Impacto en precios", val: "Ninguno — sus precios de estantería no cambian" },
+          { metric: "Impacto en precios", val: "Ninguno — los precios de estantería del minorista no cambian" },
           { metric: "Condiciones de pago", val: "Basadas en rendimiento — solo sobre transacciones validadas" },
         ],
       },
@@ -1660,7 +1660,7 @@ export const COPY = {
         ],
         basisTitle: "Base y fuentes",
         basis:
-          "Mezcla de niveles calibrada con el valor medio de transacción publicado de $70–$140 en travel retail (market.us, Travel Retail Market 2026); gasto medio por pasajero de €10.55 en 2025 (ETRC) y $15.50 en 2024, frente a $24.30 en 2020 (Kearney, Travel Retail 2025); ±70% de las compras en aeropuertos son por impulso (ACI Asia-Pacific); 27% de tasa de compra en el Caribe — el margen de conversión que persigue el programa (m1nd-set). La mezcla de niveles es ilustrativa de una distribución de cestas de 2025 y puede sustituirse por sus propios datos de POS.",
+          "Mezcla de niveles calibrada con el valor medio de transacción publicado de $70–$140 en travel retail (market.us, Travel Retail Market 2026); gasto medio por pasajero de €10.55 en 2025 (ETRC) y $15.50 en 2024, frente a $24.30 en 2020 (Kearney, Travel Retail 2025); ±70% de las compras en aeropuertos son por impulso (ACI Asia-Pacific); 27% de tasa de compra en el Caribe — el margen de conversión que persigue el programa (m1nd-set). La mezcla de niveles es ilustrativa de una distribución de cestas de 2025 y puede sustituirse por los datos de POS del propio minorista.",
       },
       revenueCalculator: {
         slideEyebrow: "El modelo del minorista",
@@ -1677,8 +1677,8 @@ export const COPY = {
         left: "salen sin comprar",
         convertNote:
           "el grupo que DutyBoost preactiva — un pasajero que ya está dentro de la tienda.",
-        title: "Su escenario",
-        hint: "Introduzca sus propias cifras — el modelo se recalcula",
+        title: "El escenario del minorista",
+        hint: "Introduzca las cifras del propio minorista — el modelo se recalcula",
         airport: {
           label: "Aeropuerto",
           all: "Todos los aeropuertos",
@@ -1736,21 +1736,21 @@ export const COPY = {
           "El minorista no gasta nada en captar al pasajero: cada canje de DutyCredit se valida en el POS y se liquida solo cuando la venta se ha producido, de modo que toda transacción es plenamente trazable y atribuible.",
       },
       estate: {
-        eyebrow: "En todo su parque de tiendas",
+        eyebrow: "En todo el parque de tiendas del minorista",
         title: "Por tienda, por año.",
-        titleAccent: "Multiplicado por cada tienda que opera.",
+        titleAccent: "Multiplicado por cada tienda que el minorista opera.",
         subtitle:
-          "La economía es idéntica en cada tienda, porque el trabajo de adquisición se hace una sola vez, por DutyBoost. La escala es la única variable — y es la que ya posee.",
+          "La economía es idéntica en cada tienda, porque el trabajo de adquisición se hace una sola vez, por DutyBoost. La escala es la única variable — y es la que el minorista ya posee.",
         storesLabel: "Tiendas",
         travellersLabel: "Pasajeros al año por tienda",
         activationLabel: "Preactivación",
         perStore: "neto para el minorista al año, por tienda",
-        estateLabel: "neto para el minorista al año, en todo su parque",
-        grossLabel: "de valor minorista incremental en sus tiendas",
+        estateLabel: "neto para el minorista al año, en todo el parque del minorista",
+        grossLabel: "de valor minorista incremental en las tiendas del minorista",
         savingLabel: "devueltos a los pasajeros como ahorro DutyCredit",
         leverTitle: "La activación es la palanca, no el precio",
         leverBody:
-          "Las condiciones comerciales nunca cambian. Lo que mueve la cifra es cuántos pasajeros llegan preactivados al aeropuerto — y esa es tarea de DutyBoost, no suya.",
+          "Las condiciones comerciales nunca cambian. Lo que mueve la cifra es cuántos pasajeros llegan preactivados al aeropuerto — y esa es tarea de DutyBoost, no del minorista.",
         atActivation: (pct) => `Con ${pct}% de activación`,
         baskets: (v) => `${v} cestas / tienda`,
         perStoreShort: (v) => `${v} / tienda`,
@@ -1760,9 +1760,9 @@ export const COPY = {
         upside: [
           "100% incremental — ganado en ventas que de otro modo no existirían",
           "Sin coste inicial — sin desarrollo, sin licencia, sin proyecto por tienda",
-          "Sin cambios en su caja, sus precios ni su inventario",
+          "Sin cambios en la caja, los precios ni el inventario del minorista",
           "Atribuido y reportado por transacción, automáticamente",
-          "Cada tienda que añade multiplica los mismos ingresos",
+          "Cada tienda que el minorista añade multiplica los mismos ingresos",
         ],
         closingTitle: "al año por tienda, en transacciones que no habrían ocurrido.",
         closingBody:
@@ -1772,18 +1772,18 @@ export const COPY = {
         eyebrow: "Estrategia tecnológica",
         title: "Una función del proveedor de POS.",
         titleAccent: "Activar, no implantar.",
-        dashboardTitle: "DutyBoost aparece en su panel de POS",
+        dashboardTitle: "DutyBoost aparece en el panel de POS del minorista",
         dashboardPoints: [
-          "DutyBoost aparece como una nueva función en su panel de POS actual",
-          "Usted activa el interruptor — el minorista no necesita ninguna integración aparte",
+          "DutyBoost aparece como una nueva función en el panel de POS actual del minorista",
+          "El minorista activa el interruptor — no necesita ninguna integración aparte",
           "Sin sustituir ERP, pagos ni sistemas de inventario",
           "Una vez activado, todas las tiendas conectadas pueden canjear DutyCredits",
           "Funciona en todas las tiendas, aeropuertos y mercados con el mismo POS",
           "Desactívelo cuando quiera — sin permanencia ni compromisos",
         ],
-        activatedTitle: "ACTIVADO A TRAVÉS DE SU POS",
+        activatedTitle: "ACTIVADO A TRAVÉS DEL POS DEL MINORISTA",
         activatedBody:
-          "DutyBoost lo habilita su proveedor de POS como una función de activación — el mismo sistema que ya utiliza para caja, inventario y pagos. El minorista no necesita ninguna integración aparte.",
+          "DutyBoost lo habilita el proveedor de POS del minorista como una función de activación — el mismo sistema que el minorista ya utiliza para caja, inventario y pagos. No necesita ninguna integración aparte.",
         stats: [
           { val: "1 POS", label: "activación" },
           { val: "Varios", label: "minoristas" },
@@ -1832,15 +1832,15 @@ export const COPY = {
         title: "Activado.",
         titleAccent: "Empieza a ganar. Desactivar cuando quiera.",
         subtitle:
-          "DutyBoost aparece como una nueva función en su panel de POS actual — no es un proyecto que implantar. Sin integración, sin despliegue, sin cambios operativos. Usted activa el interruptor y los ingresos incrementales empiezan a fluir.",
+          "DutyBoost aparece como una nueva función en el panel de POS actual del minorista — no es un proyecto que implantar. Sin integración, sin despliegue, sin cambios operativos. El minorista activa el interruptor y los ingresos incrementales empiezan a fluir.",
         cards: [
-          { title: "Una nueva función en su POS", desc: "DutyBoost aparece como un interruptor en su panel de POS. Sin desarrollo, sin integración, sin plan de proyecto." },
-          { title: "Ingresos desde el primer día", desc: "Una vez activado, los pasajeros preactivados pueden canjear DutyCredits en su tienda de inmediato." },
-          { title: "Desactívelo cuando quiera", desc: "¿No le convencen los resultados? Apáguelo. Sin permanencia, sin cuotas de cancelación, sin compromisos." },
-          { title: "Cero cambios operativos", desc: "Sin hardware nuevo, sin software nuevo, sin formación. Su proceso de caja no cambia." },
+          { title: "Una nueva función en el POS del minorista", desc: "DutyBoost aparece como un interruptor en el panel de POS del minorista. Sin desarrollo, sin integración, sin plan de proyecto." },
+          { title: "Ingresos desde el primer día", desc: "Una vez activado, los pasajeros preactivados pueden canjear DutyCredits en la tienda del minorista de inmediato." },
+          { title: "Desactivación cuando quiera", desc: "Si los resultados no convencen, el minorista lo apaga. Sin permanencia, sin cuotas de cancelación, sin compromisos." },
+          { title: "Cero cambios operativos", desc: "Sin hardware nuevo, sin software nuevo, sin formación. El proceso de caja del minorista no cambia." },
         ],
         footer1: "Sin cuota de alta. Sin suscripción. Sin implantación. Active — gane. Apague — pare.",
-        footer2: "Siempre basado en rendimiento — solo paga la comisión de plataforma del 2.5% sobre ventas validadas.",
+        footer2: "Siempre basado en rendimiento — el minorista solo paga la comisión de plataforma del 2.5% sobre ventas validadas.",
       },
       retailThankYou: {
         eyebrow: "Gracias",
