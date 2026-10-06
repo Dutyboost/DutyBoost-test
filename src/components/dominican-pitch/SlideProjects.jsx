@@ -41,7 +41,7 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
           {data.status}
         </p>
 
-        <div className="mt-4 flex-1 flex flex-col justify-between gap-3">{data.blocks}</div>
+        <div className="mt-4 flex-1 flex flex-col gap-3">{data.blocks}</div>
 
         <p className="text-sm text-white/45 mt-4 leading-snug">{data.note}</p>
       </div>
@@ -51,7 +51,7 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
 
 function PartnerRow({ name, detail, icon: Icon = Store }) {
   return (
-    <div className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3.5">
+    <div className="flex flex-1 items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3.5">
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className="text-lg font-semibold leading-tight">{name}</div>
@@ -72,12 +72,16 @@ export default function SlideProjects() {
     note: c.sxm.note,
     blocks: (
       <>
-        <div className="text-sm uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
-        {c.sxm.partners.map((p) => (
-          <PartnerRow key={p.name} name={p.name} detail={p.detail} />
-        ))}
-        <div className="text-sm uppercase tracking-widest text-white/40 pt-1">{c.sxm.posTitle}</div>
-        <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} />
+        <div className="flex-1 flex flex-col gap-2">
+          <div className="text-sm uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
+          {c.sxm.partners.map((p) => (
+            <PartnerRow key={p.name} name={p.name} detail={p.detail} />
+          ))}
+        </div>
+        <div className="flex-1 flex flex-col gap-2">
+          <div className="text-sm uppercase tracking-widest text-white/40">{c.sxm.posTitle}</div>
+          <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} />
+        </div>
       </>
     ),
   };
@@ -89,20 +93,24 @@ export default function SlideProjects() {
     note: c.tnt.rolloutNote,
     blocks: (
       <>
-        <div className="text-sm uppercase tracking-widest text-white/40">{c.tnt.posTitle}</div>
-        <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} />
-        <div className="text-sm uppercase tracking-widest text-white/40 pt-1">{c.tnt.rolloutTitle}</div>
-        <PartnerRow name={c.tnt.rollout} icon={Wine} />
-        <div className="flex flex-wrap gap-2">
-          {c.tnt.stores.map((s) => (
-            <span
-              key={s}
-              className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-base font-medium"
-            >
-              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#f0abfc" }} />
-              {s}
-            </span>
-          ))}
+        <div className="flex-1 flex flex-col gap-2">
+          <div className="text-sm uppercase tracking-widest text-white/40">{c.tnt.posTitle}</div>
+          <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} />
+        </div>
+        <div className="flex-1 flex flex-col gap-2">
+          <div className="text-sm uppercase tracking-widest text-white/40">{c.tnt.rolloutTitle}</div>
+          <PartnerRow name={c.tnt.rollout} icon={Wine} />
+          <div className="flex flex-wrap gap-2">
+            {c.tnt.stores.map((s) => (
+              <span
+                key={s}
+                className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-base font-medium"
+              >
+                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#f0abfc" }} />
+                {s}
+              </span>
+            ))}
+          </div>
         </div>
       </>
     ),
