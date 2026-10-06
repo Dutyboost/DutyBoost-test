@@ -73,19 +73,22 @@ export default function RetailerCalculator() {
   ];
 
   return (
-    <div className="rounded-2xl p-3 sm:p-4" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
-      <div className="flex flex-wrap items-center gap-2 mb-2">
-        <Wallet className="w-5 h-5" style={{ color: ACCENT }} />
-        <h3 className="font-bold" style={{ color: ACCENT }}>
+    <div
+      className="w-full h-full flex flex-col rounded-2xl p-4 sm:p-5"
+      style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}
+    >
+      <div className="flex flex-wrap items-center gap-2 mb-3 shrink-0">
+        <Wallet className="w-6 h-6" style={{ color: ACCENT }} />
+        <h3 className="font-bold text-xl" style={{ color: ACCENT }}>
           {c.title}
         </h3>
-        <span className="text-xs font-semibold ml-auto" style={{ color: ACCENT }}>
+        <span className="text-sm font-semibold ml-auto" style={{ color: ACCENT }}>
           {c.hint}
         </span>
       </div>
 
-      <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
-        <span className="text-[11px] font-semibold text-slate-800 mr-1">{c.airport.label}</span>
+      <div className="flex flex-wrap items-center gap-2 mb-2 shrink-0">
+        <span className="text-sm font-semibold text-slate-800 mr-1">{c.airport.label}</span>
         {AIRPORT_OPTIONS.map((a) => {
           const isActive = selectedAirport?.code === a.code;
           return (
@@ -93,7 +96,7 @@ export default function RetailerCalculator() {
               key={a.code}
               type="button"
               onClick={() => chooseAirport(a)}
-              className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border transition-colors ${
+              className={`text-sm font-semibold px-3 py-1 rounded-full border transition-colors ${
                 isActive ? "text-white" : "bg-white text-slate-800 border-slate-300 hover:border-slate-400"
               }`}
               style={isActive ? { background: ACCENT, borderColor: ACCENT } : undefined}
@@ -105,7 +108,7 @@ export default function RetailerCalculator() {
       </div>
 
       {selectedAirport && (
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-slate-800 mb-1">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-slate-800 mb-1 shrink-0">
           <span>{c.airport.stores(selectedAirport.stores)}</span>
           <span className="text-slate-300">·</span>
           <span>{c.airport.pax(`${(selectedAirport.annualPassengers / 1000000).toFixed(1)}M`)}</span>
@@ -126,8 +129,8 @@ export default function RetailerCalculator() {
           </a>
         </div>
       )}
-      <div className="text-[10px] text-slate-800">{c.airport.note}</div>
-      <div className="text-[10px] text-slate-800 mb-2">
+      <div className="text-xs text-slate-800 shrink-0">{c.airport.note}</div>
+      <div className="text-xs text-slate-800 mb-3 shrink-0">
         {c.footfall} —{" "}
         <a
           href={SOURCES.footfall}
@@ -140,15 +143,15 @@ export default function RetailerCalculator() {
         </a>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-3 shrink-0">
         {FIELDS.map((field) => (
           <label key={field.key} className="flex flex-col">
-            <span className="text-[11px] font-semibold text-slate-800 mb-1 leading-tight">
+            <span className="text-sm font-semibold text-slate-800 mb-1.5 leading-tight">
               {c.fields[field.key]}
             </span>
             <span className="relative block mt-auto">
               {field.prefix && (
-                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-slate-800">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-base text-slate-800">
                   {field.prefix}
                 </span>
               )}
@@ -161,12 +164,12 @@ export default function RetailerCalculator() {
                 disabled={!selectedAirport}
                 value={inputs[field.key]}
                 onChange={(e) => set(field.key, e.target.value)}
-                className={`w-full rounded-lg border border-slate-300 bg-white py-1.5 pr-6 text-sm font-semibold text-slate-800 focus:outline-none disabled:bg-slate-100 disabled:text-slate-400 ${
-                  field.prefix ? "pl-5" : "pl-2"
+                className={`w-full rounded-xl border border-slate-300 bg-white py-2.5 pr-8 text-lg font-bold text-slate-800 focus:outline-none disabled:bg-slate-100 disabled:text-slate-400 ${
+                  field.prefix ? "pl-7" : "pl-3"
                 }`}
               />
               {field.suffix && (
-                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-800">
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-base text-slate-800">
                   {field.suffix}
                 </span>
               )}
@@ -175,21 +178,24 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-1.5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1 min-h-0">
         {ROWS.map((row) => (
-          <div key={row.label} className="bg-white/70 border border-slate-200 rounded-xl px-2 py-1.5">
+          <div
+            key={row.label}
+            className="bg-white/70 border border-slate-200 rounded-2xl px-4 py-3 flex flex-col justify-center"
+          >
             <div
-              className={`font-bold text-sm ${row.money ? "" : "text-slate-800"}`}
+              className={`font-bold text-2xl ${row.money ? "" : "text-slate-800"}`}
               style={row.money ? { color: ACCENT } : undefined}
             >
               {row.val}
             </div>
-            <div className="text-[10px] text-slate-800 leading-tight mt-0.5">{row.label}</div>
+            <div className="text-sm text-slate-800 leading-tight mt-1">{row.label}</div>
           </div>
         ))}
       </div>
 
-      <div className="text-slate-800 text-[10px] mt-2">{c.note}</div>
+      <div className="text-slate-800 text-xs mt-3 shrink-0">{c.note}</div>
     </div>
   );
 }
