@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { numShort, usdShort } from "../figures";
 import { ACCENT, GridBg, SlideWrapper } from "../Shared";
+import StoreFunnel from "../StoreFunnel";
 import { useDeckLang } from "../LanguageContext";
 
 const M1NDSET_LINK = "https://www.gtrmag.com/blog/gtr-magazine-looks-at-the-state-of-travel-and-tourism-in-the-caribbean";
@@ -97,6 +98,10 @@ export default function SlideConversion() {
               <p className="text-sm mt-2 opacity-80">{c.questionAnswer}</p>
             </div>
           </div>
+        </div>
+
+        <div className="mt-5">
+          <StoreFunnel />
         </div>
       </div>
     </SlideWrapper>

@@ -33,6 +33,24 @@ export const MARKET = {
   nonPurchaseShare: 0.78,
 };
 
+// ── The in-store funnel — who actually buys once they are inside ─────────────
+// m1nd-set's 10-year B1S analysis (H1 2026): 36% of international travellers
+// enter a duty free store, 63% of those who enter go on to buy, and the
+// remaining 37% walk back out without buying. That last group is the one
+// DutyBoost pre-activates. Source: SOURCES.footfall.
+export const STORE_FUNNEL = { footfall: 0.36, conversion: 0.63 };
+
+// The country's major airports in 2025, as a number.
+export const DR_MOVEMENTS = 18_400_000;
+
+const DR_ENTERING_STORES = DR_MOVEMENTS * STORE_FUNNEL.footfall;
+
+export const DR_STORE_FUNNEL = {
+  enter: Math.round(DR_ENTERING_STORES),
+  buy: Math.round(DR_ENTERING_STORES * STORE_FUNNEL.conversion),
+  leave: Math.round(DR_ENTERING_STORES * (1 - STORE_FUNNEL.conversion)),
+};
+
 // ── The DutyBoost model — standard terms, unchanged by market ────────────────
 export const MODEL = {
   activation: 0.02, // share of passengers pre-activated with a DutyCredit

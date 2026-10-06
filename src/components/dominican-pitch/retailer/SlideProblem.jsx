@@ -1,5 +1,6 @@
 import { SOURCES } from "../figures";
 import { ACCENT, GridBg, SlideWrapper } from "../Shared";
+import StoreFunnel from "../StoreFunnel";
 import { useDeckLang } from "../LanguageContext";
 
 const CTO_LINK = "https://www.onecaribbean.org/caribbean-tourism-shows-resilient-growth-amid-global-headwinds-in-2025/";
@@ -67,6 +68,9 @@ export default function SlideProblem() {
                 <p className="text-sm leading-relaxed italic" style={{ color: ACCENT }}>{c.quote}</p>
               </div>
             </div>
+          </div>
+          <div className="mt-4">
+            <StoreFunnel />
           </div>
         </div>
       </div>

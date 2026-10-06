@@ -1,13 +1,13 @@
 // Researched airport figures for the Dominican Republic deck's revenue calculator.
 // Store counts come from each airport's own retail directory; passenger volumes
 // are the airports' published traffic. Nothing here is estimated by hand.
-import { SOURCES } from "./figures";
+import { SOURCES, STORE_FUNNEL } from "./figures";
 
-// Share of an airport's daily passenger movements that walk into a store.
+// Share of an airport's daily passenger movements that walk into a store —
 // m1nd-set's 10-year B1S analysis (H1 2026) puts duty free footfall at 36% of
 // international travellers, so an airport's total store footfall follows its
 // own traffic. Source: SOURCES.footfall.
-export const STORE_FOOTFALL_SHARE = 0.36;
+export const STORE_FOOTFALL_SHARE = STORE_FUNNEL.footfall;
 
 const AIRPORTS = [
   {

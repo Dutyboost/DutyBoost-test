@@ -434,6 +434,18 @@ export const COPY = {
       },
     },
     retail: {
+      funnel: {
+        title: "Inside the store",
+        source: "m1nd-set B1S 10-year analysis, H1 2026",
+        count: (n) => `±${(n / 1000000).toFixed(1)}M a year`,
+        steps: {
+          enter: "of international travellers enter a duty free store",
+          buy: "of those who enter go on to buy",
+          leave: "walk in and walk out without buying",
+        },
+        target:
+          "That 37% is the group DutyBoost pre-activates — the traveller who already stepped through the door and left empty-handed.",
+      },
       problem: {
         eyebrow: "The Facts",
         title: "73% of Airport Passengers",
@@ -1272,6 +1284,18 @@ export const COPY = {
       },
     },
     retail: {
+      funnel: {
+        title: "Dentro de la tienda",
+        source: "análisis de 10 años B1S de m1nd-set, H1 2026",
+        count: (n) => `±${(n / 1000000).toFixed(1)}M al año`,
+        steps: {
+          enter: "de los pasajeros internacionales entra en una tienda duty free",
+          buy: "de los que entran acaba comprando",
+          leave: "entra y sale sin comprar",
+        },
+        target:
+          "Ese 37% es el grupo que DutyBoost preactiva — el pasajero que ya cruzó la puerta y salió con las manos vacías.",
+      },
       problem: {
         eyebrow: "Los hechos",
         title: "El 73% de los pasajeros de aeropuerto",
