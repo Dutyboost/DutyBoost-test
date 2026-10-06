@@ -1,4 +1,4 @@
-import { Store, Wine, Cpu, BadgeCheck } from "lucide-react";
+import { Store, Wine, Cpu } from "lucide-react";
 import { ACCENT, GridBg, SlideWrapper } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
 import SxmRedemptionCard from "./SxmRedemptionCard";
@@ -137,10 +137,6 @@ export default function SlideProjects() {
             <SxmRedemptionCard />
           </div>
 
-          <div className="mt-2 flex items-start gap-2.5">
-            <BadgeCheck className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: ACCENT }} />
-            <p className="text-sm font-semibold text-slate-700">{c.footer}</p>
-          </div>
         </div>
       </div>
     </SlideWrapper>
