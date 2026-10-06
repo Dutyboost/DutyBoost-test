@@ -1,3 +1,5 @@
+import { MODEL } from "./figures";
+
 // Illustrative DutyCredit activity at Princess Juliana International (SXM).
 // Passenger volume: PJIAE — ±1.77M a year, ±4,836 a day. Pre-activation is
 // entered at the standard 2% planning assumption, with the standard 30%
@@ -33,6 +35,7 @@ export const SXM_SINCE_LAUNCH = {
   days: daysLive,
   redeemed: redeemedSinceLaunch,
   retailValue: redeemedSinceLaunch * SXM_BASKET_AVG,
+  platformFee: redeemedSinceLaunch * SXM_BASKET_AVG * MODEL.platformFee,
 };
 
 // A sample of the premium duty-free baskets redeemed on a single day at SXM,

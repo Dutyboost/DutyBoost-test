@@ -448,6 +448,7 @@ export const COPY = {
         sinceTitle: "Since 25 September 2026",
         revenueLabel: "incremental retail value",
         sinceLine: (n) => `${n} DutyCredits redeemed at the till`,
+        feePill: (pct) => `DutyBoost platform fee (${pct}%)`,
         note:
           "Travellers arrive pre-activated and redeem on the POS the stores already run — no new hardware and no new till procedure.",
       },
@@ -1350,6 +1351,7 @@ export const COPY = {
         sinceTitle: "Desde el 25 de septiembre de 2026",
         revenueLabel: "valor minorista incremental",
         sinceLine: (n) => `${n} DutyCredits canjeados en caja`,
+        feePill: (pct) => `Comisión de plataforma de DutyBoost (${pct}%)`,
         note:
           "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan — sin hardware nuevo ni cambios en el proceso de caja.",
       },

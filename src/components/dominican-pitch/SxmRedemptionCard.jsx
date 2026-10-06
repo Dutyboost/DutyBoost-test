@@ -1,7 +1,7 @@
-import { Ticket } from "lucide-react";
+import { Coins, Ticket } from "lucide-react";
 import { ACCENT } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
-import { num, usd, usdShort } from "./figures";
+import { MODEL, num, usd, usdShort } from "./figures";
 import { SXM_BASKETS, SXM_REDEMPTIONS, SXM_SINCE_LAUNCH } from "./sxmRedemptions";
 
 // The Sint Maarten redemption card: the live market's daily DutyCredit volumes
@@ -66,6 +66,16 @@ export default function SxmRedemptionCard() {
             <div className="text-sm text-white/45 mt-1">
               {c.sinceLine(num(SXM_SINCE_LAUNCH.redeemed))}
             </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <span
+              className="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-widest"
+              style={{ background: `${ACCENT}22`, border: `1px solid ${ACCENT}55`, color: "#f5d0fe" }}
+            >
+              <Coins className="w-3.5 h-3.5" />
+              {c.feePill(MODEL.platformFee * 100)} · {usd(SXM_SINCE_LAUNCH.platformFee)}
+            </span>
           </div>
 
           <div className="text-sm uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
