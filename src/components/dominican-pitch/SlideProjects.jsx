@@ -129,19 +129,6 @@ export default function SlideProjects() {
             <SxmRedemptionCard />
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            {c.stats.map((s) => (
-              <div
-                key={s.label}
-                className="flex items-baseline gap-2 rounded-xl px-3 py-1.5"
-                style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}
-              >
-                <span className="text-xl font-bold" style={{ color: ACCENT }}>{s.value}</span>
-                <span className="text-xs text-slate-600 font-semibold">{s.label}</span>
-              </div>
-            ))}
-          </div>
-
           <div className="mt-2 flex items-start gap-2.5">
             <BadgeCheck className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: ACCENT }} />
             <p className="text-sm font-semibold text-slate-700">{c.footer}</p>
