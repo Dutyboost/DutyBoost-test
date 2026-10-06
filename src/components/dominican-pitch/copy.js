@@ -440,7 +440,8 @@ export const COPY = {
         ],
         posTitle: "Implemented at POS level",
         pos: "NCR CounterPoint",
-        posNote: "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration.",
+        posNote:
+          "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration, no new hardware and no change to the cashier's routine. The discount is applied, the transaction recorded and the sale settled inside the POS the store already runs, and every redemption is attributed automatically for reporting.",
         redemptionsTitle: "DutyCredits redeemed / day",
         redeemedLabel: "avg. redeemed / day",
         preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
@@ -459,7 +460,7 @@ export const COPY = {
         posTitle: "Implemented at POS level",
         pos: "NCR CounterPoint",
         posNote:
-          "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration.",
+          "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration, no new hardware and no change to the cashier's routine. The discount, the recorded transaction and the settlement all happen inside the POS the Caribbean Duty Free stores already run at Piarco, with every redemption attributed automatically for reporting.",
         rolloutTitle: "Redeeming from 15 October 2026",
         rollout: "Caribbean Duty Free stores at Piarco International Airport",
         stores: ["Liquor & spirits", "Perfumes & fragrances", "Cigars & cigarettes"],
@@ -1343,7 +1344,8 @@ export const COPY = {
         ],
         posTitle: "Implantado a nivel de POS",
         pos: "NCR CounterPoint",
-        posNote: "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte.",
+        posNote:
+          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte, ni hardware nuevo ni cambios en la rutina del cajero. El descuento se aplica, la transacción se registra y la venta se liquida dentro del POS que la tienda ya utiliza, y cada canje se atribuye automáticamente para el reporting.",
         redemptionsTitle: "DutyCredits canjeados / día",
         redeemedLabel: "canjeados / día (media)",
         preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
@@ -1362,7 +1364,7 @@ export const COPY = {
         posTitle: "Implantado a nivel de POS",
         pos: "NCR CounterPoint",
         posNote:
-          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte.",
+          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte, ni hardware nuevo ni cambios en la rutina del cajero. El descuento, el registro de la transacción y la liquidación ocurren dentro del POS que las tiendas Caribbean Duty Free ya utilizan en Piarco, con cada canje atribuido automáticamente para el reporting.",
         rolloutTitle: "Canjeando desde el 15 de octubre de 2026",
         rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
         stores: ["Licores y destilados", "Perfumes y fragancias", "Cigarros y cigarrillos"],
