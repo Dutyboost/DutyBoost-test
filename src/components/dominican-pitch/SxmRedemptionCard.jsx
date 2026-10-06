@@ -11,7 +11,7 @@ export default function SxmRedemptionCard() {
   const c = t.projects.sxm;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl p-4 md:p-5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
+    <div className="relative overflow-hidden rounded-2xl p-3.5 md:p-4 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
       <div
         className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
@@ -23,7 +23,7 @@ export default function SxmRedemptionCard() {
               <span className="text-sm font-bold tracking-widest text-white/40">SXM</span>
               <Ticket className="w-4 h-4 text-white/40" />
             </div>
-            <h3 className="font-heading font-bold text-xl md:text-2xl mt-1">{c.country}</h3>
+            <h3 className="font-heading font-bold text-xl md:text-2xl mt-0.5">{c.country}</h3>
             <p className="text-white/50 text-sm">{c.airport}</p>
           </div>
           <span
@@ -35,13 +35,13 @@ export default function SxmRedemptionCard() {
           </span>
         </div>
 
-        <p className="text-base font-semibold mt-3" style={{ color: "#f5d0fe" }}>
+        <p className="text-base font-semibold mt-2" style={{ color: "#f5d0fe" }}>
           {c.status}
         </p>
 
-        <div className="mt-4 flex-1 space-y-3">
+        <div className="mt-2.5 flex-1 space-y-2">
           <div className="text-sm uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
-          <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3">
+          <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
             <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
               {num(SXM_REDEMPTIONS.redeemed)}
             </span>
@@ -55,7 +55,7 @@ export default function SxmRedemptionCard() {
             </div>
           </div>
 
-          <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3">
+          <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
             <div className="text-sm uppercase tracking-widest text-white/40">{c.sinceTitle}</div>
             <div className="mt-1">
               <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
@@ -79,11 +79,11 @@ export default function SxmRedemptionCard() {
           </div>
 
           <div className="text-sm uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             {SXM_BASKETS.map((b) => (
               <div
                 key={b.basket}
-                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-4 py-1.5"
+                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3.5 py-1"
               >
                 <span className="text-base font-bold" style={{ color: "#f5d0fe" }}>
                   {usd(b.basket)}

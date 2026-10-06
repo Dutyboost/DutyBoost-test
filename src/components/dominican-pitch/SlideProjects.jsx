@@ -19,7 +19,7 @@ function StatusPill({ label, isLive = true }) {
 
 function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl p-4 md:p-5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
+    <div className="relative overflow-hidden rounded-2xl p-3.5 md:p-4 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
       <div
         className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
@@ -31,19 +31,19 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
               <span className="text-sm font-bold tracking-widest text-white/40">{code}</span>
               <Icon className="w-4 h-4 text-white/40" />
             </div>
-            <h3 className="font-heading font-bold text-xl md:text-2xl mt-1">{data.country}</h3>
+            <h3 className="font-heading font-bold text-xl md:text-2xl mt-0.5">{data.country}</h3>
             <p className="text-white/50 text-xs">{data.airport}</p>
           </div>
           <StatusPill label={live} isLive={isLive} />
         </div>
 
-        <p className="text-base font-semibold mt-3" style={{ color: "#f5d0fe" }}>
+        <p className="text-base font-semibold mt-2" style={{ color: "#f5d0fe" }}>
           {data.status}
         </p>
 
-        <div className="mt-4 flex-1 flex flex-col gap-3">{data.blocks}</div>
+        <div className="mt-2.5 flex-1 flex flex-col gap-2">{data.blocks}</div>
 
-        <p className="text-sm text-white/45 mt-4 leading-snug">{data.note}</p>
+        <p className="text-sm text-white/45 mt-2 leading-snug">{data.note}</p>
       </div>
     </div>
   );
@@ -51,12 +51,12 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
 
 function PartnerRow({ name, detail, desc, icon: Icon = Store }) {
   return (
-    <div className="flex flex-1 items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3.5">
+    <div className="flex flex-1 items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5">
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className="text-lg font-semibold leading-tight">{name}</div>
-        {detail && <div className="text-sm text-white/50 mt-1">{detail}</div>}
-        {desc && <div className="text-sm text-white/45 mt-1.5 leading-snug">{desc}</div>}
+        {detail && <div className="text-sm text-white/50 mt-0.5">{detail}</div>}
+        {desc && <div className="text-sm text-white/45 mt-1 leading-snug">{desc}</div>}
       </div>
     </div>
   );
@@ -108,20 +108,20 @@ export default function SlideProjects() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-5 py-4 md:px-10 md:py-6 relative">
+      <div className="flex-1 flex flex-col px-5 py-3 md:px-10 md:py-4 relative">
         <GridBg />
         <div className="relative z-10 flex-1 flex flex-col">
-          <div className="mb-3 shrink-0">
+          <div className="mb-2 shrink-0">
             <span className="text-sm md:text-base font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
               {c.eyebrow}
             </span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-1.5">
+            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-1">
               {c.title} <span style={{ color: ACCENT }}>{c.titleAccent}</span>
             </h2>
-            <p className="text-slate-500 mt-1.5 text-sm leading-snug">{c.subtitle}</p>
+            <p className="text-slate-500 mt-1 text-sm leading-snug">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 min-h-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-1 min-h-0">
             <MarketCard code="SXM" data={sxm} icon={Store} live={c.live} />
             <MarketCard code="POS" data={tnt} icon={Cpu} live={c.live} isLive={false} />
             <SxmRedemptionCard />
