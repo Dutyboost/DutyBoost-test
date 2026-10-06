@@ -159,6 +159,21 @@ export const stakeholderRequestStrings = {
       placeholder_pos_other: "Specifica quale sistema...",
       success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per i tuoi negozi.",
     },
+    pt: {
+      badge: "Retalhista Aeroportuário",
+      subtitle: "Fale-nos das suas lojas e aeroportos, e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
+      label_volume: "Número de lojas",
+      placeholder_volume: "Selecione o número de lojas",
+      label_pos: "Fornecedores de POS em uso",
+      placeholder_pos: "Selecione um ou mais fornecedores de POS",
+      pos_search: "Pesquisar fornecedores de POS...",
+      pos_empty: "Nenhum fornecedor de POS encontrado.",
+      pos_selected: "{n} selecionados",
+      pos_other: "Outro",
+      label_pos_other: "Outro fornecedor de POS",
+      placeholder_pos_other: "Indique qual o sistema...",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para as suas lojas.",
+    },
   },
   travelPartner: {
     en: {
@@ -202,6 +217,13 @@ export const stakeholderRequestStrings = {
       label_volume: "Prenotazioni annuali",
       placeholder_volume: "Seleziona il volume di prenotazioni",
       success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per il tuo flusso di prenotazioni.",
+    },
+    pt: {
+      badge: "Parceiro de Viagens",
+      subtitle: "Fale-nos do seu volume de reservas e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
+      label_volume: "Reservas anuais",
+      placeholder_volume: "Selecione o volume de reservas",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para o seu fluxo de reservas.",
     },
   },
   accommodation: {
@@ -247,6 +269,13 @@ export const stakeholderRequestStrings = {
       placeholder_volume: "Seleziona il numero di strutture",
       success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per le tue strutture.",
     },
+    pt: {
+      badge: "Parceiro de Alojamento",
+      subtitle: "Fale-nos das suas unidades e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
+      label_volume: "Unidades",
+      placeholder_volume: "Selecione o número de unidades",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para as suas unidades.",
+    },
   },
   carRental: {
     en: {
@@ -290,6 +319,13 @@ export const stakeholderRequestStrings = {
       label_volume: "Sedi di noleggio",
       placeholder_volume: "Seleziona il numero di sedi",
       success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per le tue sedi.",
+    },
+    pt: {
+      badge: "Parceiro de Aluguer de Automóveis e Transfers",
+      subtitle: "Fale-nos das suas localizações e frota, e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
+      label_volume: "Localizações de aluguer",
+      placeholder_volume: "Selecione o número de localizações",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para as suas localizações.",
     },
   },
 };
