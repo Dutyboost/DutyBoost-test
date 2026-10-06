@@ -452,8 +452,9 @@ export const COPY = {
         pos: "NCR CounterPoint",
         posNote:
           "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration.",
-        rolloutTitle: "Now opening up to",
+        rolloutTitle: "Redeeming from 15 October 2026",
         rollout: "Caribbean Duty Free stores at Piarco International Airport",
+        stores: ["Liquor & spirits", "Perfumes & fragrances", "Cigars & cigarettes"],
         rolloutNote:
           "The POS layer is live, and the Caribbean Duty Free stores in the concourse are being switched on store by store.",
       },
@@ -1347,8 +1348,9 @@ export const COPY = {
         pos: "NCR CounterPoint",
         posNote:
           "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte.",
-        rolloutTitle: "Ahora en apertura para",
+        rolloutTitle: "Canjeando desde el 15 de octubre de 2026",
         rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
+        stores: ["Licores y destilados", "Perfumes y fragancias", "Cigarros y cigarrillos"],
         rolloutNote:
           "La capa de POS está activa y las tiendas Caribbean Duty Free de la zona comercial se van activando tienda a tienda.",
       },

@@ -92,6 +92,17 @@ export default function SlideProjects() {
         <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} />
         <div className="text-xs uppercase tracking-widest text-white/40 pt-1">{c.tnt.rolloutTitle}</div>
         <PartnerRow name={c.tnt.rollout} icon={Wine} />
+        <div className="flex flex-wrap gap-2">
+          {c.tnt.stores.map((s) => (
+            <span
+              key={s}
+              className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-sm font-medium"
+            >
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#f0abfc" }} />
+              {s}
+            </span>
+          ))}
+        </div>
       </>
     ),
   };
