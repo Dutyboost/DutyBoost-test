@@ -760,7 +760,7 @@ export const COPY = {
           note: "Store counts from each airport's own retail directory; passengers from published traffic.",
         },
         fields: {
-          stores: "Stores you operate in the Dominican Republic",
+          stores: "Number of stores",
           travellers: "Travellers entering store / day",
           activation: "Pre-activation",
           redemption: "Redemption",
@@ -1690,7 +1690,7 @@ export const COPY = {
         },
         fields: {
           stores: "Tiendas que opera en la República Dominicana",
-          travellers: "Pasajeros que entran en la tienda / día",
+          travellers: "Pasajeros que entran tiendas / día",
           activation: "Preactivación",
           redemption: "Canje",
           basket: "Cesta media",
