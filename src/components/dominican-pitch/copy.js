@@ -900,8 +900,8 @@ export const COPY = {
       },
       getStarted: {
         eyebrow: "Value Realized Quickly",
-        title: "Switch It On.",
-        titleAccent: "Start Earning. Switch Off Anytime.",
+        title: "Activated.",
+        titleAccent: "Start earning. Switch off anytime.",
         subtitle:
           "DutyBoost appears as a new feature in your existing POS dashboard — not a project to implement. No integration, no rollout, no operational change. You flip the switch and incremental revenue starts flowing.",
         cards: [
@@ -1829,8 +1829,8 @@ export const COPY = {
       },
       getStarted: {
         eyebrow: "Valor realizado con rapidez",
-        title: "Actívelo.",
-        titleAccent: "Empiece a ganar. Desactívelo cuando quiera.",
+        title: "Activado.",
+        titleAccent: "Empieza a ganar. Desactivar cuando quiera.",
         subtitle:
           "DutyBoost aparece como una nueva función en su panel de POS actual — no es un proyecto que implantar. Sin integración, sin despliegue, sin cambios operativos. Usted activa el interruptor y los ingresos incrementales empiezan a fluir.",
         cards: [
