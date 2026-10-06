@@ -29,18 +29,18 @@ export function GridBg({ rgb = "149,45,139" }) {
 }
 
 // Standard slide frame: eyebrow, heading, optional subtitle, then the body.
-export function SlideShell({ eyebrow, eyebrowColor = ACCENT, title, subtitle, children }) {
+export function SlideShell({ eyebrow, eyebrowColor = ACCENT, title, subtitle, children, big = false }) {
   return (
     <SlideWrapper>
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-5">
-            <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: eyebrowColor }}>
+          <div className={big ? "mb-6" : "mb-5"}>
+            <span className={big ? "text-base md:text-lg font-semibold uppercase tracking-widest" : "text-sm font-semibold uppercase tracking-widest"} style={{ color: eyebrowColor }}>
               {eyebrow}
             </span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">{title}</h2>
-            {subtitle && <p className="text-slate-500 mt-1 text-sm md:text-base leading-relaxed">{subtitle}</p>}
+            <h2 className={big ? "text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] mt-2" : "text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2"}>{title}</h2>
+            {subtitle && <p className={big ? "text-slate-500 mt-2 text-lg md:text-xl leading-relaxed" : "text-slate-500 mt-1 text-sm md:text-base leading-relaxed"}>{subtitle}</p>}
           </div>
           {children}
         </div>

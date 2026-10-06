@@ -13,11 +13,11 @@ export default function SlideBusinessModel() {
         <GridBg />
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="mb-3 shrink-0">
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>{c.eyebrow}</span>
-            <h2 className="text-lg md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1.5">
+            <span className="text-sm md:text-base font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>{c.eyebrow}</span>
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-1.5">
               {c.title} <span style={{ color: ACCENT }}>{c.titleAccent}</span>
             </h2>
-            <p className="text-slate-500 mt-1 text-sm">{c.subtitle}</p>
+            <p className="text-slate-500 mt-1 text-base md:text-lg">{c.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
