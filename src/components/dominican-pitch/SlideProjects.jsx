@@ -5,19 +5,19 @@ import SxmRedemptionCard from "./SxmRedemptionCard";
 
 // Live deployment track record: the two Caribbean markets already redeeming
 // DutyCredits, shown to the Dominican Republic as proof of execution.
-function StatusPill({ label }) {
+function StatusPill({ label, isLive = true }) {
   return (
     <span
       className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex-shrink-0"
       style={{ background: "rgba(255,255,255,0.12)", color: "#f5d0fe" }}
     >
-      <span className="w-2 h-2 rounded-full bg-green-400" />
+      <span className={`w-2 h-2 rounded-full ${isLive ? "bg-green-400" : "bg-red-400"}`} />
       {label}
     </span>
   );
 }
 
-function MarketCard({ code, data, icon: Icon, live }) {
+function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
   return (
     <div className="relative overflow-hidden rounded-2xl p-4 md:p-5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
       <div
@@ -34,7 +34,7 @@ function MarketCard({ code, data, icon: Icon, live }) {
             <h3 className="font-heading font-bold text-xl md:text-2xl mt-1">{data.country}</h3>
             <p className="text-white/50 text-xs">{data.airport}</p>
           </div>
-          <StatusPill label={live} />
+          <StatusPill label={live} isLive={isLive} />
         </div>
 
         <p className="text-base font-semibold mt-3" style={{ color: "#f5d0fe" }}>
@@ -125,7 +125,7 @@ export default function SlideProjects() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 min-h-0">
             <MarketCard code="SXM" data={sxm} icon={Store} live={c.live} />
-            <MarketCard code="POS" data={tnt} icon={Cpu} live={c.live} />
+            <MarketCard code="POS" data={tnt} icon={Cpu} live={c.live} isLive={false} />
             <SxmRedemptionCard />
           </div>
 
