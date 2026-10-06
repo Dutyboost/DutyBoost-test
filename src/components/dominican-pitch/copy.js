@@ -441,6 +441,10 @@ export const COPY = {
         posTitle: "Implemented at POS level",
         pos: "NCR CounterPoint",
         posNote: "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration.",
+        redemptionsTitle: "DutyCredits redeemed / day",
+        redeemedLabel: "redeemed / day",
+        preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
+        basketsTitle: "Baskets redeemed",
         note:
           "Travellers arrive pre-activated and redeem on the POS the stores already run — no new hardware and no new till procedure.",
       },
@@ -1336,6 +1340,10 @@ export const COPY = {
         posTitle: "Implantado a nivel de POS",
         pos: "NCR CounterPoint",
         posNote: "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte.",
+        redemptionsTitle: "DutyCredits canjeados / día",
+        redeemedLabel: "canjeados / día",
+        preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
+        basketsTitle: "Cestas canjeadas",
         note:
           "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan — sin hardware nuevo ni cambios en el proceso de caja.",
       },
