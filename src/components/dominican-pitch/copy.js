@@ -668,7 +668,7 @@ export const COPY = {
         dutyboostBody:
           "Acquisition is funded and executed by DutyBoost in the traveller's home country. The retailer pays $0 until a validated sale.",
         closing:
-          "The acquisition cost is on us. You pay only the 2.5% platform fee on validated transactions — never on your existing sales.",
+          "The acquisition cost is on us. The retailer pays only the 2.5% platform fee on validated transactions — never on their existing sales.",
       },
       businessModel: {
         eyebrow: "Business Model",
@@ -1597,7 +1597,7 @@ export const COPY = {
         dutyboostBody:
           "La adquisición la financia y ejecuta DutyBoost en el país de origen del pasajero. El minorista paga $0 hasta que hay una venta validada.",
         closing:
-          "El coste de adquisición corre de nuestra cuenta. Usted solo paga la comisión de plataforma del 2.5% sobre transacciones validadas — nunca sobre sus ventas existentes.",
+          "El coste de adquisición corre de nuestra cuenta. El minorista solo paga la comisión de plataforma del 2.5% sobre transacciones validadas — nunca sobre sus ventas existentes.",
       },
       businessModel: {
         eyebrow: "Modelo de negocio",
