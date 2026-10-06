@@ -1286,7 +1286,7 @@ export const COPY = {
         c3: {
           value: "73%",
           label: "Tasa de no compra del Caribe (m1nd-set)",
-          note: "27% compra | 73% no compra en el Caribe — 13.4M de movimientos de pasajeros sin compra en las tres puertas",
+          note: "27% compra | 73% no compra — 13.4M de movimientos de pasajeros sin compra en las tres puertas",
         },
         challengesTitle: "Retos del comercio aeroportuario tradicional",
         challenges: [
