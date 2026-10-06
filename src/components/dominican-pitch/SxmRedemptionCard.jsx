@@ -83,6 +83,8 @@ export default function SxmRedemptionCard() {
             ))}
           </div>
         </div>
+
+        <p className="text-xs text-white/45 mt-3 leading-snug">{c.averageNote}</p>
       </div>
     </div>
   );

@@ -442,8 +442,10 @@ export const COPY = {
         pos: "NCR CounterPoint",
         posNote: "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration.",
         redemptionsTitle: "DutyCredits redeemed / day",
-        redeemedLabel: "redeemed / day",
+        redeemedLabel: "avg. redeemed / day",
         preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
+        averageNote:
+          "An average, not a fixed figure — one day may bring 35 redemptions, another just 5, another 55.",
         basketsTitle: "Sample of baskets redeemed",
         sinceTitle: "Since 25 September 2026",
         revenueLabel: "incremental retail value",
@@ -1344,8 +1346,10 @@ export const COPY = {
         pos: "NCR CounterPoint",
         posNote: "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte.",
         redemptionsTitle: "DutyCredits canjeados / día",
-        redeemedLabel: "canjeados / día",
+        redeemedLabel: "canjeados / día (media)",
         preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
+        averageNote:
+          "Una media, no una cifra fija — un día pueden ser 35 canjes, otro solo 5 y otro 55.",
         basketsTitle: "Muestra de cestas canjeadas",
         sinceTitle: "Desde el 25 de septiembre de 2026",
         revenueLabel: "valor minorista incremental",
