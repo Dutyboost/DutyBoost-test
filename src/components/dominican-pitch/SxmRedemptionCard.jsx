@@ -16,7 +16,7 @@ export default function SxmRedemptionCard() {
         className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
       />
-      <div className="relative z-10 flex flex-col h-full">
+      <div className="relative z-10 flex flex-col h-full min-h-0">
         <div className="flex items-start justify-between gap-3">
           <div>
             <div className="flex items-center gap-2">
@@ -35,12 +35,12 @@ export default function SxmRedemptionCard() {
           </span>
         </div>
 
-        <p className="text-base font-semibold mt-2" style={{ color: "#f5d0fe" }}>
+        <p className="text-sm font-semibold mt-1.5" style={{ color: "#f5d0fe" }}>
           {c.status}
         </p>
 
-        <div className="mt-2.5 flex-1 space-y-2">
-          <div className="text-sm uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
+        <div className="mt-2 flex-1 min-h-0 space-y-1.5 overflow-hidden">
+          <div className="text-xs uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
           <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
             <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
               {num(SXM_REDEMPTIONS.redeemed)}
@@ -56,7 +56,7 @@ export default function SxmRedemptionCard() {
           </div>
 
           <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-            <div className="text-sm uppercase tracking-widest text-white/40">{c.sinceTitle}</div>
+            <div className="text-xs uppercase tracking-widest text-white/40">{c.sinceTitle}</div>
             <div className="mt-1">
               <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
                 {usdShort(SXM_SINCE_LAUNCH.retailValue)}
@@ -78,12 +78,12 @@ export default function SxmRedemptionCard() {
             </span>
           </div>
 
-          <div className="text-sm uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
+          <div className="text-xs uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
           <div className="space-y-1">
             {SXM_BASKETS.map((b) => (
               <div
                 key={b.basket}
-                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3.5 py-1"
+                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-0.5"
               >
                 <span className="text-base font-bold" style={{ color: "#f5d0fe" }}>
                   {usd(b.basket)}
