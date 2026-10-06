@@ -1689,7 +1689,7 @@ export const COPY = {
           note: "El número de tiendas proviene del directorio comercial de cada aeropuerto; los pasajeros, del tráfico publicado.",
         },
         fields: {
-          stores: "Tiendas que opera en la República Dominicana",
+          stores: "Número de tiendas",
           travellers: "Pasajeros que entran tiendas / día",
           activation: "Preactivación",
           redemption: "Canje",
