@@ -425,7 +425,7 @@ export const COPY = {
     projects: {
       eyebrow: "Ongoing Projects",
       title: "Already Live in the Caribbean.",
-      titleAccent: "Two Markets, Redeeming Today.",
+      titleAccent: "Two Markets, One Redeeming Today.",
       subtitle:
         "DutyBoost is expanding across the Caribbean, and is looking to open more doors in more islands of the region.",
       live: "Live",
@@ -1327,7 +1327,7 @@ export const COPY = {
     projects: {
       eyebrow: "Proyectos en marcha",
       title: "Ya operativos en el Caribe.",
-      titleAccent: "Dos mercados canjeando hoy.",
+      titleAccent: "Dos mercados, uno canjeando hoy.",
       subtitle:
         "DutyBoost se está expandiendo por el Caribe y busca abrir más puertas en más islas de la región.",
       live: "Activo",
