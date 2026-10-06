@@ -41,6 +41,9 @@ export const SXM_SINCE_LAUNCH = {
 // A sample of the premium duty-free baskets redeemed on a single day at SXM,
 // in USD — liquor, spirits, tobacco, fragrances and cosmetics.
 export const SXM_BASKETS = [
+  { basket: 312, store: "Dutch Delight Store" },
+  { basket: 245, store: "ILTT Liquor & Tobacco" },
+  { basket: 186, store: "Dutch Delight Store" },
   { basket: 148, store: "Dutch Delight Store" },
   { basket: 116, store: "ILTT Liquor & Tobacco" },
   { basket: 92, store: "Dutch Delight Store" },
