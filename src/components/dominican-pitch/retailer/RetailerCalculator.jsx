@@ -21,6 +21,16 @@ const FIELDS = [
   { key: "basket", prefix: "$", step: 1 },
 ];
 
+// What a blank field falls back to, shown as its placeholder so the fallback is
+// never a hidden figure.
+const PLACEHOLDERS = {
+  stores: DEFAULT_STORES,
+  travellers: DEFAULT_TRAVELLERS_DAY,
+  activation: DEFAULT_ACTIVATION,
+  redemption: DEFAULT_REDEMPTION,
+  basket: DEFAULT_BASKET,
+};
+
 export default function RetailerCalculator() {
   const { t } = useDeckLang();
   const c = t.retail.revenueCalculator;
@@ -52,19 +62,24 @@ export default function RetailerCalculator() {
   const fee = gross * MODEL.platformFee;
   const retailerNet = gross - saving - fee;
 
+  // Nothing is shown until the retailer enters a figure or picks an airport, so
+  // the model never presents a scenario nobody asked for.
+  const live = Object.values(inputs).some((v) => v !== "" && v != null);
+  const val = (v) => (live ? v : "—");
+
   const ROWS = [
-    { label: c.rows.stores, val: numShort(stores) },
-    { label: c.rows.travellers, val: numShort(travellers) },
-    { label: c.rows.activated(activation), val: numShort(activated) },
-    { label: c.rows.baskets(redemption), val: numShort(baskets) },
-    { label: c.rows.gross, val: usdShort(gross), money: true },
+    { label: c.rows.stores, val: val(numShort(stores)) },
+    { label: c.rows.travellers, val: val(numShort(travellers)) },
+    { label: c.rows.activated(activation), val: val(numShort(activated)) },
+    { label: c.rows.baskets(redemption), val: val(numShort(baskets)) },
+    { label: c.rows.gross, val: val(usdShort(gross)), money: true },
     {
       label: c.rows.net(gross ? Math.round((retailerNet / gross) * 100) : 0),
-      val: usdShort(retailerNet),
+      val: val(usdShort(retailerNet)),
       money: true,
     },
-    { label: c.rows.fee(Math.round(MODEL.platformFee * 1000) / 10), val: usd2(fee) },
-    { label: c.rows.netYear, val: usdShort(retailerNet * 365), money: true },
+    { label: c.rows.fee(Math.round(MODEL.platformFee * 1000) / 10), val: val(usd2(fee)) },
+    { label: c.rows.netYear, val: val(usdShort(retailerNet * 365)), money: true },
   ];
 
   return (
@@ -151,6 +166,7 @@ export default function RetailerCalculator() {
                 type="number"
                 min="0"
                 step={field.step}
+                placeholder={PLACEHOLDERS[field.key]}
                 value={inputs[field.key]}
                 onChange={(e) => set(field.key, e.target.value)}
                 className={`w-full rounded-lg border border-slate-300 bg-white py-1.5 pr-6 text-sm font-semibold text-slate-800 focus:outline-none ${
