@@ -4,8 +4,9 @@
 import { SOURCES } from "./figures";
 
 // Share of an airport's daily passenger movements that walk into a store.
-// m1nd-set puts duty-free store footfall at around 36% of international
-// travellers, so an airport's total store footfall follows its own traffic.
+// m1nd-set's 10-year B1S analysis (H1 2026) puts duty free footfall at 36% of
+// international travellers, so an airport's total store footfall follows its
+// own traffic. Source: SOURCES.footfall.
 export const STORE_FOOTFALL_SHARE = 0.36;
 
 const AIRPORTS = [

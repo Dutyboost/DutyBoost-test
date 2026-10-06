@@ -685,6 +685,8 @@ export const COPY = {
           fee: (pct) => `Platform fee (${pct}%) / day`,
           netYear: "Retailer net / Yr",
         },
+        footfall: "Store footfall rate: 36% of international travellers enter a duty free store",
+        footfallSource: "m1nd-set B1S 10-year analysis, 2026",
         note:
           "Illustrative model, one day, at the figures entered above. A 2.5% platform fee on validated transactions only — the retailer keeps the rest of the sale. Volumes are counts; values in USD.",
       },
@@ -1521,6 +1523,8 @@ export const COPY = {
           fee: (pct) => `Comisión de plataforma (${pct}%) / día`,
           netYear: "Neto del minorista / año",
         },
+        footfall: "Tasa de entrada en tienda: el 36% de los pasajeros internacionales entra en una tienda duty free",
+        footfallSource: "análisis de 10 años B1S de m1nd-set, 2026",
         note:
           "Modelo ilustrativo, un día, con las cifras introducidas arriba. Comisión de plataforma del 2.5% solo sobre transacciones validadas — el minorista conserva el resto de la venta. Los volúmenes son recuentos; los valores, en USD.",
       },

@@ -7,6 +7,11 @@ export const SOURCES = {
   sdq: "https://en.wikipedia.org/wiki/Las_Am%C3%A9ricas_International_Airport",
   dr: "https://inmobiliario.do/en/international-airports-handled-more-than-20.3-million-passengers-in-arrivals-and-departures-during-2025/",
   drArrivals: "https://www.arecoa.com/destinos/2026/01/09/record-historico-de-visitantes-para-rd-con-11-6-millones-en-2025/",
+  // The store-footfall rate the calculator's travellers figure is built on:
+  // m1nd-set's 10-year B1S analysis puts duty free footfall at 36% of
+  // international travellers (H1 2026).
+  footfall:
+    "https://www.trbusiness.com/regional-news/international/m1nd-set-reveals-decade-long-shift-in-duty-free-shopping-behaviour/282698",
 };
 
 // The three gateways.

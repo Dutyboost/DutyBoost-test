@@ -1,5 +1,5 @@
 import { Wallet } from "lucide-react";
-import { MODEL, discountFor, usd2, usdShort, numShort } from "../figures";
+import { MODEL, SOURCES, discountFor, usd2, usdShort, numShort } from "../figures";
 import { ACCENT } from "../Shared";
 import { useDeckLang } from "../LanguageContext";
 import { AIRPORT_OPTIONS } from "../airportData";
@@ -121,7 +121,19 @@ export default function RetailerCalculator() {
           </a>
         </div>
       )}
-      <div className="text-[10px] text-slate-800 mb-2">{c.airport.note}</div>
+      <div className="text-[10px] text-slate-800">{c.airport.note}</div>
+      <div className="text-[10px] text-slate-800 mb-2">
+        {c.footfall} —{" "}
+        <a
+          href={SOURCES.footfall}
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold underline"
+          style={{ color: ACCENT }}
+        >
+          {c.footfallSource} ↗
+        </a>
+      </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-2">
         {FIELDS.map((field) => (
