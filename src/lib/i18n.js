@@ -15,6 +15,7 @@ import fr from '../locales/fr';
 import de from '../locales/de';
 import es from '../locales/es';
 import it from '../locales/it';
+import pt from '../locales/pt';
 
 const resources = {
   en: { translation: { ...en.translation, traveler: travelerStrings.en, claimDutyCredit: claimDutyCreditStrings.en, presentation: presentationStrings.en, eligibility: eligibilityStrings.en, posChannel: posChannelStrings.en, corporaterequest: corporateRequestStrings.en, hubShowcase: hubShowcaseStrings.en } },
@@ -23,6 +24,7 @@ const resources = {
   de: { translation: { ...de.translation, traveler: travelerStrings.de, claimDutyCredit: claimDutyCreditStrings.de, eligibility: eligibilityStrings.de, posChannel: posChannelStrings.de, corporaterequest: corporateRequestStrings.de, hubShowcase: hubShowcaseStrings.de } },
   es: { translation: { ...es.translation, traveler: travelerStrings.es, claimDutyCredit: claimDutyCreditStrings.es, presentation: presentationStrings.es, eligibility: eligibilityStrings.es, posChannel: posChannelStrings.es, corporaterequest: corporateRequestStrings.es, hubShowcase: hubShowcaseStrings.es } },
   it: { translation: { ...it.translation, traveler: travelerStrings.it, claimDutyCredit: claimDutyCreditStrings.it, eligibility: eligibilityStrings.it, posChannel: posChannelStrings.it, corporaterequest: corporateRequestStrings.it, hubShowcase: hubShowcaseStrings.it } },
+  pt: { translation: { ...pt.translation } },
   old_en: {
     translation: {
       nav: {
