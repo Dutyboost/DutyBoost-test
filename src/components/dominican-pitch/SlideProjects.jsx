@@ -41,9 +41,9 @@ function MarketCard({ code, data, icon: Icon, live }) {
           {data.status}
         </p>
 
-        <div className="mt-3 flex-1 space-y-2">{data.blocks}</div>
+        <div className="mt-4 flex flex-1 flex-col justify-between gap-3">{data.blocks}</div>
 
-        <p className="text-xs text-white/45 mt-3 leading-snug">{data.note}</p>
+        <p className="text-xs text-white/45 mt-4 leading-snug">{data.note}</p>
       </div>
     </div>
   );
@@ -51,7 +51,7 @@ function MarketCard({ code, data, icon: Icon, live }) {
 
 function PartnerRow({ name, detail, icon: Icon = Store }) {
   return (
-    <div className="flex items-start gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+    <div className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-2.5">
       <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className="text-base font-semibold leading-tight">{name}</div>
