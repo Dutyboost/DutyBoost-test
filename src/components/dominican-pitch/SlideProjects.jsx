@@ -37,13 +37,13 @@ function MarketCard({ code, data, icon: Icon, live }) {
           <StatusPill label={live} />
         </div>
 
-        <p className="text-sm font-semibold mt-2" style={{ color: "#f5d0fe" }}>
+        <p className="text-base font-semibold mt-3" style={{ color: "#f5d0fe" }}>
           {data.status}
         </p>
 
-        <div className="mt-4 flex flex-1 flex-col justify-between gap-3">{data.blocks}</div>
+        <div className="mt-4 flex-1 space-y-3">{data.blocks}</div>
 
-        <p className="text-xs text-white/45 mt-4 leading-snug">{data.note}</p>
+        <p className="text-sm text-white/45 mt-4 leading-snug">{data.note}</p>
       </div>
     </div>
   );
@@ -51,11 +51,11 @@ function MarketCard({ code, data, icon: Icon, live }) {
 
 function PartnerRow({ name, detail, icon: Icon = Store }) {
   return (
-    <div className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-2.5">
-      <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
+    <div className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3.5">
+      <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
-        <div className="text-base font-semibold leading-tight">{name}</div>
-        {detail && <div className="text-xs text-white/50 mt-0.5">{detail}</div>}
+        <div className="text-lg font-semibold leading-tight">{name}</div>
+        {detail && <div className="text-sm text-white/50 mt-1">{detail}</div>}
       </div>
     </div>
   );
@@ -72,11 +72,11 @@ export default function SlideProjects() {
     note: c.sxm.note,
     blocks: (
       <>
-        <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
+        <div className="text-sm uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
         {c.sxm.partners.map((p) => (
           <PartnerRow key={p.name} name={p.name} detail={p.detail} />
         ))}
-        <div className="text-xs uppercase tracking-widest text-white/40 pt-1">{c.sxm.posTitle}</div>
+        <div className="text-sm uppercase tracking-widest text-white/40 pt-1">{c.sxm.posTitle}</div>
         <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} />
       </>
     ),
@@ -89,15 +89,15 @@ export default function SlideProjects() {
     note: c.tnt.rolloutNote,
     blocks: (
       <>
-        <div className="text-xs uppercase tracking-widest text-white/40">{c.tnt.posTitle}</div>
+        <div className="text-sm uppercase tracking-widest text-white/40">{c.tnt.posTitle}</div>
         <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} />
-        <div className="text-xs uppercase tracking-widest text-white/40 pt-1">{c.tnt.rolloutTitle}</div>
+        <div className="text-sm uppercase tracking-widest text-white/40 pt-1">{c.tnt.rolloutTitle}</div>
         <PartnerRow name={c.tnt.rollout} icon={Wine} />
         <div className="flex flex-wrap gap-2">
           {c.tnt.stores.map((s) => (
             <span
               key={s}
-              className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-sm font-medium"
+              className="flex items-center gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-base font-medium"
             >
               <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#f0abfc" }} />
               {s}
