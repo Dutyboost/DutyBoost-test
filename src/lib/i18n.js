@@ -24,7 +24,7 @@ const resources = {
   de: { translation: { ...de.translation, traveler: travelerStrings.de, claimDutyCredit: claimDutyCreditStrings.de, eligibility: eligibilityStrings.de, posChannel: posChannelStrings.de, corporaterequest: corporateRequestStrings.de, hubShowcase: hubShowcaseStrings.de } },
   es: { translation: { ...es.translation, traveler: travelerStrings.es, claimDutyCredit: claimDutyCreditStrings.es, presentation: presentationStrings.es, eligibility: eligibilityStrings.es, posChannel: posChannelStrings.es, corporaterequest: corporateRequestStrings.es, hubShowcase: hubShowcaseStrings.es } },
   it: { translation: { ...it.translation, traveler: travelerStrings.it, claimDutyCredit: claimDutyCreditStrings.it, eligibility: eligibilityStrings.it, posChannel: posChannelStrings.it, corporaterequest: corporateRequestStrings.it, hubShowcase: hubShowcaseStrings.it } },
-  pt: { translation: { ...pt.translation } },
+  pt: { translation: { ...pt.translation, traveler: travelerStrings.pt, claimDutyCredit: claimDutyCreditStrings.pt, presentation: presentationStrings.pt, eligibility: eligibilityStrings.pt, posChannel: posChannelStrings.pt, corporaterequest: corporateRequestStrings.pt, hubShowcase: hubShowcaseStrings.pt } },
   old_en: {
     translation: {
       nav: {
