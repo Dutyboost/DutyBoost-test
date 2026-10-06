@@ -437,8 +437,8 @@ export const COPY = {
         partners: [
           {
             name: "Dutch Delight Store",
-            detail: "Duty free — departure hall",
-            desc: "The airport's flagship duty-free: fragrances, cosmetics, sunglasses and accessories, with DutyCredits redeemable at every till in the store.",
+            detail: "Souvenirs & gifts — departure hall",
+            desc: "The airport's souvenir and gift store — local keepsakes, gifts and travel mementos, with DutyCredits redeemable at every till in the store.",
           },
           {
             name: "ILTT Liquor & Tobacco",
@@ -1350,8 +1350,8 @@ export const COPY = {
         partners: [
           {
             name: "Dutch Delight Store",
-            detail: "Duty free — sala de salidas",
-            desc: "El duty free insignia del aeropuerto: fragancias, cosmética, gafas de sol y accesorios, con DutyCredits canjeables en todas las cajas de la tienda.",
+            detail: "Souvenirs y regalos — sala de salidas",
+            desc: "La tienda de souvenirs y regalos del aeropuerto — recuerdos locales, regalos y detalles de viaje, con DutyCredits canjeables en todas las cajas de la tienda.",
           },
           {
             name: "ILTT Liquor & Tobacco",

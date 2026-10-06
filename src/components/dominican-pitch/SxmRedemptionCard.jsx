@@ -79,20 +79,16 @@ export default function SxmRedemptionCard() {
           </div>
 
           <div className="text-sm uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
-          <div className="grid grid-cols-2 gap-1.5">
-            {SXM_BASKETS.map((b, i) => (
+          <div className="space-y-1">
+            {SXM_BASKETS.map((b) => (
               <div
                 key={b.basket}
-                className={`flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-1 ${
-                  SXM_BASKETS.length % 2 === 1 && i === SXM_BASKETS.length - 1 ? "col-span-2" : ""
-                }`}
+                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3.5 py-1"
               >
-                <span className="text-base font-bold flex-shrink-0" style={{ color: "#f5d0fe" }}>
+                <span className="text-base font-bold" style={{ color: "#f5d0fe" }}>
                   {usd(b.basket)}
                 </span>
-                <span className="text-xs text-white/40 truncate min-w-0" title={b.store}>
-                  {b.store}
-                </span>
+                <span className="text-xs text-white/40 truncate">{b.store}</span>
               </div>
             ))}
           </div>
