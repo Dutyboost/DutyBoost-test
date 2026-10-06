@@ -20,7 +20,7 @@ export default function SlideProblem() {
             <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
               {c.eyebrow}
             </span>
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1">
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-1">
               {c.title}
               <br />
               <span style={{ color: ACCENT }}>{c.titleAccent}</span>

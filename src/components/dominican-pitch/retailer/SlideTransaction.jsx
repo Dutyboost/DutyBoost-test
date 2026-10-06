@@ -71,11 +71,11 @@ export default function SlideTransaction() {
       <div className="flex-1 flex flex-col justify-center px-5 py-6 md:px-12 md:py-6 relative">
         <GridBg />
         <div className="relative z-10">
-          <div className="mb-6">
+          <div className="mb-4">
             <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
               {c.eyebrow}
             </span>
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2">
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2">
               {c.title(usd(qualifying), tier)}
             </h2>
             <p className="text-slate-500 mt-1 text-sm md:text-base">{c.subtitle(usd(BASKET_CAP))}</p>

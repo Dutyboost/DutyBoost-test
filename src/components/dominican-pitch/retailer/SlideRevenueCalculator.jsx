@@ -43,13 +43,13 @@ export default function SlideRevenueCalculator() {
         <GridBg />
         <div className="relative z-10 flex-1 flex flex-col min-h-0">
           <div className="mb-3 shrink-0">
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
+            <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
               {c.slideEyebrow}
             </span>
-            <h2 className="text-lg md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1.5">
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-1.5">
               {c.slideTitle} <span style={{ color: ACCENT }}>{c.slideTitleAccent}</span>
             </h2>
-            <p className="text-slate-500 mt-1 text-sm">{c.slideSubtitle}</p>
+            <p className="text-slate-500 mt-1 text-base">{c.slideSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 shrink-0">

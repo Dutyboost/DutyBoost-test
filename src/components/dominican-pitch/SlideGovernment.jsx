@@ -21,6 +21,9 @@ export default function SlideGovernment() {
     <SlideShell
       eyebrow={c.eyebrow}
       eyebrowColor={ACCENT}
+      eyebrowClass="text-sm font-semibold uppercase tracking-widest"
+      titleClass="text-2xl md:text-4xl font-heading font-bold text-[#0a0f1e] mt-2"
+      subtitleClass="text-slate-500 mt-1 text-base leading-relaxed"
       title={
         <>
           {c.title} <span style={{ color: ACCENT }}>{c.titleAccent}</span>
