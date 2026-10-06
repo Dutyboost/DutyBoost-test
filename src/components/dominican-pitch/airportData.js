@@ -3,8 +3,11 @@
 // are the airports' published traffic. Nothing here is estimated by hand.
 import { SOURCES } from "./figures";
 
-// No footfall assumption is made: 0% of an airport's daily passenger movements
-// are assumed to enter a store. The retailer enters the store footfall itself.
+// Share of an airport's daily passenger movements assumed to enter each
+// individual store. It is applied per store from the airport's own traffic, so
+// a busier airport always shows busier stores — the store count no longer
+// dilutes the figure.
+export const STORE_ENTRY_SHARE = 0.02;
 
 const AIRPORTS = [
   {
@@ -37,6 +40,9 @@ const AIRPORTS = [
   },
 ];
 
-// Each airport carries only its researched facts — its store count and its
-// published traffic. No store footfall is derived from them.
-export const AIRPORT_OPTIONS = AIRPORTS;
+// Travellers entering a store per day, per store, derived from the airport's
+// own traffic alone.
+export const AIRPORT_OPTIONS = AIRPORTS.map((a) => ({
+  ...a,
+  travellersPerStoreDay: Math.round((a.annualPassengers / 365) * STORE_ENTRY_SHARE),
+}));
