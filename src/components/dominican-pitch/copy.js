@@ -447,8 +447,8 @@ export const COPY = {
             desc: "Premium spirits, liqueurs, tobacco and confectionery — the categories where the DutyCredit drives the highest incremental baskets.",
           },
         ],
-        posTitle: "Implemented at POS level",
-        pos: "NCR CounterPoint (02 September 2026)",
+        posTitle: "Integration at POS level (02 Sept. 2026)",
+        pos: "NCR CounterPoint",
         posNote:
           "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration, no new hardware and no change to the cashier's routine. The discount is applied, the transaction recorded and the sale settled inside the POS the store already runs, and every redemption is attributed automatically for reporting.",
         redemptionsTitle: "DutyCredits redeemed / day",
@@ -471,7 +471,7 @@ export const COPY = {
         posNote:
           "DutyCredit validation is being implemented natively inside NCR CounterPoint — the till will need no separate integration, no new hardware and no change to the cashier's routine. The discount, the recorded transaction and the settlement will run inside the POS the Caribbean Duty Free stores already use at Piarco, with every redemption attributed automatically for reporting.",
         rolloutTitle: "Redeeming from 15 October 2026",
-        rollout: "Caribbean Duty Free stores at Piarco International Airport",
+        rollout: "Caribbean Duty Free stores at Piarco",
         rolloutDesc:
           "Caribbean Duty Free's Piarco stores — liquor & spirits, perfumes & fragrances, and cigars & cigarettes — span the concourse, with DutyCredits to be redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten. No new hardware and no change to the cashier's routine: the discount, the recorded sale and the settlement will all happen inside the POS the stores already use.",
         rolloutNote:
@@ -1361,8 +1361,8 @@ export const COPY = {
             desc: "Destilados premium, licores, tabaco y confitería — las categorías donde el DutyCredit genera las cestas incrementales más altas.",
           },
         ],
-        posTitle: "Implantado a nivel de POS",
-        pos: "NCR CounterPoint (02 de septiembre de 2026)",
+        posTitle: "Integración a nivel de POS (02 sept. 2026)",
+        pos: "NCR CounterPoint",
         posNote:
           "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte, ni hardware nuevo ni cambios en la rutina del cajero. El descuento se aplica, la transacción se registra y la venta se liquida dentro del POS que la tienda ya utiliza, y cada canje se atribuye automáticamente para el reporting.",
         redemptionsTitle: "DutyCredits canjeados / día",
@@ -1385,7 +1385,7 @@ export const COPY = {
         posNote:
           "La validación del DutyCredit se está implantando de forma nativa dentro de NCR CounterPoint — la caja no necesitará ninguna integración aparte, ni hardware nuevo ni cambios en la rutina del cajero. El descuento, el registro de la transacción y la liquidación se ejecutarán dentro del POS que las tiendas Caribbean Duty Free ya utilizan en Piarco, con cada canje atribuido automáticamente para el reporting.",
         rolloutTitle: "Canje a partir del 15 de octubre de 2026",
-        rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
+        rollout: "Tiendas Caribbean Duty Free en Piarco",
         rolloutDesc:
           "Las tiendas de Caribbean Duty Free en Piarco — licores y destilados, perfumes y fragancias y cigarros y cigarrillos — cubren toda la zona comercial, con DutyCredits que se canjearán en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten. Sin hardware nuevo y sin cambios en la rutina del cajero: el descuento, el registro de la venta y la liquidación se ejecutarán dentro del POS que las tiendas ya utilizan.",
         rolloutNote:
