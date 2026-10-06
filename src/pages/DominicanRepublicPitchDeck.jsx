@@ -17,6 +17,7 @@ import SlideGetStarted from "@/components/dominican-pitch/retailer/SlideGetStart
 import SlideThankYouRetail from "@/components/dominican-pitch/retailer/SlideThankYouRetail";
 import SlideGovernment from "@/components/dominican-pitch/SlideGovernment";
 import SlideNextSteps from "@/components/dominican-pitch/SlideNextSteps";
+import SlideProjects from "@/components/dominican-pitch/SlideProjects";
 import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
 import { RetailerRevenueProvider } from "@/components/dominican-pitch/retailer/RetailerRevenueContext";
 import { LanguageProvider, useDeckLang } from "@/components/dominican-pitch/LanguageContext";
@@ -39,6 +40,7 @@ const SLIDES = [
   { id: "flywheel", type: "flywheel" },
   { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
+  { id: "projects", type: "projects" },
   { id: "government", type: "government" },
   { id: "nextSteps", type: "nextSteps" },
 ];
@@ -59,6 +61,7 @@ const SLIDE_COMPONENTS = {
   flywheel: SlideFlywheel,
   getStarted: SlideGetStarted,
   thankYou: SlideThankYouRetail,
+  projects: SlideProjects,
   government: SlideGovernment,
   nextSteps: SlideNextSteps,
 };

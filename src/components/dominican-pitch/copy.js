@@ -30,6 +30,7 @@ export const COPY = {
       government: "Value to the Dominican Government",
       nextSteps: "Next Steps",
       thankYou: "Thank You",
+      projects: "Ongoing Projects",
     },
     cover: {
       title: "The Dominican Republic.",
@@ -420,6 +421,46 @@ export const COPY = {
     thankYou: {
       title: "Thank you.",
       parties: ["Airport retailers"],
+    },
+    projects: {
+      eyebrow: "Ongoing Projects",
+      title: "Already Live in the Caribbean.",
+      titleAccent: "Two Markets, Redeeming Today.",
+      subtitle:
+        "Before the Dominican Republic, the model went live in two Caribbean markets — the same terms, the same single POS activation, and the same DutyCredit redeemed at the till.",
+      live: "Live",
+      sxm: {
+        country: "Sint Maarten",
+        airport: "Princess Juliana International (SXM)",
+        status: "Live — DutyCredits redeeming at the till",
+        partnersTitle: "DutyCredits redeemed at",
+        partners: [
+          { name: "Dutch Delight Store", detail: "Duty free — departure hall" },
+          { name: "ILTT Liquor & Tobacco", detail: "Liquor, tobacco & confectionery" },
+        ],
+        note:
+          "Travellers arrive pre-activated and redeem on the POS the stores already run — no new hardware and no new till procedure.",
+      },
+      tnt: {
+        country: "Trinidad & Tobago",
+        airport: "Piarco International (POS)",
+        status: "Live — NCR CounterPoint",
+        posTitle: "Implemented at POS level",
+        pos: "NCR CounterPoint",
+        posNote:
+          "DutyCredit validation runs natively inside NCR CounterPoint — the till needs no separate integration.",
+        rolloutTitle: "Now opening up to",
+        rollout: "Caribbean Duty Free stores at Piarco International Airport",
+        rolloutNote:
+          "The POS layer is live, and the Caribbean Duty Free stores in the concourse are being switched on store by store.",
+      },
+      stats: [
+        { value: "2", label: "Caribbean markets live" },
+        { value: "3", label: "Retail brands redeeming" },
+        { value: "1", label: "POS platform — NCR CounterPoint" },
+      ],
+      footer: "Same model, same terms, one POS activation — now brought to the Dominican Republic.",
+      footnote: "Deployment status across DutyBoost's Caribbean markets, 2026.",
     },
     retailCover: {
       title: "Incremental Revenue From Travellers",
@@ -880,6 +921,7 @@ export const COPY = {
       government: "Valor para el Gobierno",
       nextSteps: "Próximos pasos",
       thankYou: "Gracias",
+      projects: "Proyectos en marcha",
     },
     cover: {
       title: "República Dominicana.",
@@ -1270,6 +1312,46 @@ export const COPY = {
     thankYou: {
       title: "Gracias.",
       parties: ["Minoristas aeroportuarios"],
+    },
+    projects: {
+      eyebrow: "Proyectos en marcha",
+      title: "Ya operativos en el Caribe.",
+      titleAccent: "Dos mercados canjeando hoy.",
+      subtitle:
+        "Antes de la República Dominicana, el modelo ya está activo en dos mercados del Caribe — las mismas condiciones, una sola activación en el POS y el mismo DutyCredit canjeado en la caja.",
+      live: "Activo",
+      sxm: {
+        country: "Sint Maarten",
+        airport: "Princess Juliana International (SXM)",
+        status: "Activo — DutyCredits canjeándose en la caja",
+        partnersTitle: "DutyCredits canjeados en",
+        partners: [
+          { name: "Dutch Delight Store", detail: "Duty free — sala de salidas" },
+          { name: "ILTT Liquor & Tobacco", detail: "Licores, tabaco y confitería" },
+        ],
+        note:
+          "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan — sin hardware nuevo ni cambios en el proceso de caja.",
+      },
+      tnt: {
+        country: "Trinidad y Tobago",
+        airport: "Piarco International (POS)",
+        status: "Activo — NCR CounterPoint",
+        posTitle: "Implantado a nivel de POS",
+        pos: "NCR CounterPoint",
+        posNote:
+          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la caja no necesita ninguna integración aparte.",
+        rolloutTitle: "Ahora en apertura para",
+        rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
+        rolloutNote:
+          "La capa de POS está activa y las tiendas Caribbean Duty Free de la zona comercial se van activando tienda a tienda.",
+      },
+      stats: [
+        { value: "2", label: "mercados del Caribe activos" },
+        { value: "3", label: "marcas minoristas canjeando" },
+        { value: "1", label: "plataforma de POS — NCR CounterPoint" },
+      ],
+      footer: "El mismo modelo, las mismas condiciones, una sola activación en el POS — ahora en la República Dominicana.",
+      footnote: "Estado de despliegue en los mercados caribeños de DutyBoost, 2026.",
     },
     retailCover: {
       title: "Ingresos incrementales de pasajeros",
