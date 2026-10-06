@@ -37,13 +37,13 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
           <StatusPill label={live} isLive={isLive} />
         </div>
 
-        <p className="text-sm font-semibold mt-1.5" style={{ color: "#f5d0fe" }}>
+        <p className="text-base font-semibold mt-1.5" style={{ color: "#f5d0fe" }}>
           {data.status}
         </p>
 
         <div className="mt-2 flex-1 min-h-0 flex flex-col gap-1.5 overflow-hidden">{data.blocks}</div>
 
-        <p className="text-xs text-white/45 mt-1.5 leading-snug">{data.note}</p>
+        <p className="text-sm text-white/45 mt-1.5 leading-snug">{data.note}</p>
       </div>
     </div>
   );
@@ -55,8 +55,8 @@ function PartnerRow({ name, detail, desc, icon: Icon = Store }) {
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className="text-base font-semibold leading-tight">{name}</div>
-        {detail && <div className="text-xs text-white/50 mt-0.5 leading-snug">{detail}</div>}
-        {desc && <div className="text-xs text-white/45 mt-0.5 leading-snug">{desc}</div>}
+        {detail && <div className="text-sm text-white/50 mt-0.5 leading-snug">{detail}</div>}
+        {desc && <div className="text-sm text-white/45 mt-0.5 leading-snug">{desc}</div>}
       </div>
     </div>
   );
