@@ -124,7 +124,7 @@ export default function SlideProjects() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-1 min-h-0">
             <MarketCard code="SXM" data={sxm} icon={Store} live={c.live} />
             <SxmRedemptionCard />
-            <MarketCard code="POS" data={tnt} icon={Cpu} live={c.live} isLive={false} />
+            <MarketCard code="POS" data={tnt} icon={Cpu} live={c.inProgress} isLive={false} />
           </div>
 
         </div>
