@@ -503,7 +503,7 @@ export const COPY = {
           { value: "$2.72B", label: "Caribbean DF&TR market", sub: "21.7% CAGR 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "$680M", label: "Dominican Republic share of that market", sub: "±25% — the country's share of Caribbean stayover arrivals: 8.9M air arrivals of 35M", color: "#3b82f6" },
         ],
-        categoriesTitle: "Caribbean DF&TR — Category Mix",
+        categoriesTitle: "Dominican DF&TR — Category Mix",
         categoriesNote:
           "The Dominican Republic's ±$680M share of the Caribbean DF&TR market, distributed across the categories carried in its airport concourse.",
         categories: [
@@ -1338,7 +1338,7 @@ export const COPY = {
           { value: "$2.72B", label: "Mercado duty free y travel retail del Caribe", sub: "CAGR del 21.7% 2026-2033 (CMI)", color: "#6d28d9" },
           { value: "$680M", label: "Cuota de la República Dominicana en ese mercado", sub: "±25% — la cuota del país en las llegadas de estancia del Caribe: 8.9M de llegadas aéreas de 35M", color: "#3b82f6" },
         ],
-        categoriesTitle: "Duty free y travel retail del Caribe — mezcla de categorías",
+        categoriesTitle: "Duty free y travel retail de RD — mezcla de categorías",
         categoriesNote:
           "La cuota de ±$680M de la República Dominicana en el mercado duty free y travel retail del Caribe, distribuida entre las categorías que se comercializan en su zona comercial aeroportuaria.",
         categories: [
