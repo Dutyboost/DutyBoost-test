@@ -18,16 +18,18 @@ export const SXM_REDEMPTIONS = {
   redeemed: Math.round(preActivated * SXM_REDEMPTION),
 };
 
-// Live since 25 September 2026 — volumes accumulated since the launch date.
+// Live since 25 September 2026. The reported window runs 25 September →
+// 9 October 2026 — the day before the figures are pulled — so the day count is
+// the span, less the reporting day (15 inclusive days − 1 = 14).
 export const SXM_LAUNCH = "2026-09-25";
+export const SXM_REPORT_END = "2026-10-09";
 
 // Blended basket across the baskets redeemed, in USD.
 export const SXM_BASKET_AVG = 88;
 
 const DAY_MS = 86_400_000;
-const daysLive = Math.max(
-  1,
-  Math.floor((Date.now() - new Date(SXM_LAUNCH).getTime()) / DAY_MS)
+const daysLive = Math.round(
+  (new Date(SXM_REPORT_END).getTime() - new Date(SXM_LAUNCH).getTime()) / DAY_MS
 );
 const redeemedSinceLaunch = SXM_REDEMPTIONS.redeemed * daysLive;
 
