@@ -1,8 +1,7 @@
 import { Store, Wine, Cpu, BadgeCheck } from "lucide-react";
 import { ACCENT, GridBg, SlideWrapper } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
-import { num, usd } from "./figures";
-import { SXM_BASKETS, SXM_REDEMPTIONS } from "./sxmRedemptions";
+import SxmRedemptionCard from "./SxmRedemptionCard";
 
 // Live deployment track record: the two Caribbean markets already redeeming
 // DutyCredits, shown to the Dominican Republic as proof of execution.
@@ -79,39 +78,6 @@ export default function SlideProjects() {
         ))}
         <div className="text-xs uppercase tracking-widest text-white/40 pt-1">{c.sxm.posTitle}</div>
         <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} />
-
-        <div className="pt-1 space-y-2">
-          <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.redemptionsTitle}</div>
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-1.5">
-              <span className="text-lg font-bold" style={{ color: "#f5d0fe" }}>
-                {num(SXM_REDEMPTIONS.redeemed)}
-              </span>
-              <span className="text-xs text-white/50 ml-1.5">{c.sxm.redeemedLabel}</span>
-            </div>
-            <span className="text-xs text-white/45">
-              {c.sxm.preActivatedLine(
-                num(SXM_REDEMPTIONS.preActivated),
-                SXM_REDEMPTIONS.activationPct,
-                num(SXM_REDEMPTIONS.passengers)
-              )}
-            </span>
-          </div>
-          <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.basketsTitle}</div>
-          <div className="grid grid-cols-2 gap-2">
-            {SXM_BASKETS.map((b) => (
-              <div
-                key={b.basket}
-                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5"
-              >
-                <span className="text-sm font-bold" style={{ color: "#f5d0fe" }}>
-                  {usd(b.basket)}
-                </span>
-                <span className="text-[11px] text-white/40 truncate">{b.store}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </>
     ),
   };
@@ -157,9 +123,10 @@ export default function SlideProjects() {
             <p className="text-slate-500 mt-2 text-base leading-relaxed">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 flex-1 min-h-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 flex-1 min-h-0">
             <MarketCard code="SXM" data={sxm} icon={Store} live={c.live} />
             <MarketCard code="POS" data={tnt} icon={Cpu} live={c.live} />
+            <SxmRedemptionCard />
           </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
