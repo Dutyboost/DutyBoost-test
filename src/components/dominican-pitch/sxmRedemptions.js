@@ -43,6 +43,7 @@ export const SXM_SINCE_LAUNCH = {
 // A sample of the baskets redeemed on a single day at SXM, in USD — liquor,
 // spirits, tobacco, souvenirs and gifts.
 export const SXM_BASKETS = [
+  { basket: 315, store: "ILTT Liquor & Tobacco" },
   { basket: 245, store: "ILTT Liquor & Tobacco" },
   { basket: 186, store: "Dutch Delight Store" },
   { basket: 148, store: "Dutch Delight Store" },
