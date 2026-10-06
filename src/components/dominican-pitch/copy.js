@@ -472,7 +472,7 @@ export const COPY = {
         rolloutTitle: "Redeeming from 15 October 2026",
         rollout: "Caribbean Duty Free stores at Piarco International Airport",
         rolloutDesc:
-          "Caribbean Duty Free's Piarco stores span the full concourse, with DutyCredits redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten.",
+          "Caribbean Duty Free's Piarco stores — liquor & spirits, perfumes & fragrances, and cigars & cigarettes — span the concourse, with DutyCredits redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten.",
         rolloutNote:
           "The POS layer is live, and the Caribbean Duty Free stores in the concourse are being switched on store by store.",
       },
@@ -1385,7 +1385,7 @@ export const COPY = {
         rolloutTitle: "Canjeando desde el 15 de octubre de 2026",
         rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
         rolloutDesc:
-          "Las tiendas de Caribbean Duty Free en Piarco cubren toda la zona comercial, con DutyCredits canjeados en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten.",
+          "Las tiendas de Caribbean Duty Free en Piarco — licores y destilados, perfumes y fragancias y cigarros y cigarrillos — cubren toda la zona comercial, con DutyCredits canjeados en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten.",
         rolloutNote:
           "La capa de POS está activa y las tiendas Caribbean Duty Free de la zona comercial se van activando tienda a tienda.",
       },
