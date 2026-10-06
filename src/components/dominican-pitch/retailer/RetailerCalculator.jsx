@@ -78,7 +78,7 @@ export default function RetailerCalculator() {
       </div>
 
       <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
-        <span className="text-[11px] font-semibold text-slate-500 mr-1">{c.airport.label}</span>
+        <span className="text-[11px] font-semibold text-slate-800 mr-1">{c.airport.label}</span>
         {AIRPORT_OPTIONS.map((a) => {
           const isActive = selectedAirport?.code === a.code;
           return (
@@ -87,7 +87,7 @@ export default function RetailerCalculator() {
               type="button"
               onClick={() => chooseAirport(a)}
               className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border transition-colors ${
-                isActive ? "text-white" : "bg-white text-slate-600 border-slate-300 hover:border-slate-400"
+                isActive ? "text-white" : "bg-white text-slate-800 border-slate-300 hover:border-slate-400"
               }`}
               style={isActive ? { background: ACCENT, borderColor: ACCENT } : undefined}
             >
@@ -98,7 +98,7 @@ export default function RetailerCalculator() {
       </div>
 
       {selectedAirport && (
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-slate-500 mb-1">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-slate-800 mb-1">
           <span>{c.airport.stores(selectedAirport.stores)}</span>
           <span className="text-slate-300">·</span>
           <span>{c.airport.pax(`${(selectedAirport.annualPassengers / 1000000).toFixed(1)}M`)}</span>
@@ -119,17 +119,17 @@ export default function RetailerCalculator() {
           </a>
         </div>
       )}
-      <div className="text-[10px] text-slate-400 mb-2">{c.airport.note}</div>
+      <div className="text-[10px] text-slate-800 mb-2">{c.airport.note}</div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-2">
         {FIELDS.map((field) => (
           <label key={field.key} className="flex flex-col">
-            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">
+            <span className="text-[11px] font-semibold text-slate-800 mb-1 leading-tight">
               {c.fields[field.key]}
             </span>
             <span className="relative block mt-auto">
               {field.prefix && (
-                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">
+                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-slate-800">
                   {field.prefix}
                 </span>
               )}
@@ -144,7 +144,7 @@ export default function RetailerCalculator() {
                 }`}
               />
               {field.suffix && (
-                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-800">
                   {field.suffix}
                 </span>
               )}
@@ -162,12 +162,12 @@ export default function RetailerCalculator() {
             >
               {row.val}
             </div>
-            <div className="text-[10px] text-slate-500 leading-tight mt-0.5">{row.label}</div>
+            <div className="text-[10px] text-slate-800 leading-tight mt-0.5">{row.label}</div>
           </div>
         ))}
       </div>
 
-      <div className="text-slate-400 text-[10px] mt-2">{c.note}</div>
+      <div className="text-slate-800 text-[10px] mt-2">{c.note}</div>
     </div>
   );
 }
