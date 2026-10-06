@@ -1,4 +1,5 @@
 import { TEAM_MEMBERS } from "@/data/teamMembers";
+import LinkedInIcon from "@/components/LinkedInIcon";
 import { ACCENT, SlideShell } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
 
@@ -22,12 +23,23 @@ export default function SlideTeam() {
             key={m.name}
             className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-6 text-center flex flex-col items-center"
           >
-            <div
-              className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 mb-4 flex-shrink-0"
-              style={{ borderColor: `${ACCENT}22` }}
+            <a
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${m.name} on LinkedIn`}
+              className="relative mb-4 flex-shrink-0 group"
             >
-              <img src={m.photo} alt={m.name} className="w-full h-full object-cover" loading="lazy" />
-            </div>
+              <div
+                className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4"
+                style={{ borderColor: `${ACCENT}22` }}
+              >
+                <img src={m.photo} alt={m.name} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <span className="absolute bottom-1 right-1 md:bottom-2 md:right-2 bg-white rounded-full p-0.5 shadow-sm opacity-90 group-hover:opacity-100 transition-opacity">
+                <LinkedInIcon className="w-6 h-6 md:w-8 md:h-8" />
+              </span>
+            </a>
             <a
               href={m.linkedin}
               target="_blank"
