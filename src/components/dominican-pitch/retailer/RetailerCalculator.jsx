@@ -102,6 +102,12 @@ export default function RetailerCalculator() {
           <span>{c.airport.stores(selectedAirport.stores)}</span>
           <span className="text-slate-300">·</span>
           <span>{c.airport.pax(`${(selectedAirport.annualPassengers / 1000000).toFixed(1)}M`)}</span>
+          <span className="text-slate-300">·</span>
+          <span>
+            {c.airport.paxDay(
+              Math.round(selectedAirport.annualPassengers / 365).toLocaleString("en-US")
+            )}
+          </span>
           <a
             href={selectedAirport.source}
             target="_blank"
