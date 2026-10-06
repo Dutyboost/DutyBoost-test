@@ -19,7 +19,7 @@ export default {
       integration_partnerships: 'Para Socios de Integración POS',
     },
     hero: {
-       title_1: "La infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales",
+       title_1: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
        title_2: '',
        subtitle_1: "Conectar proveedores POS, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y proveedores mayoristas/minoristas a través de un ecosistema comercial compartido basado en el rendimiento",
    subtitle_2: '',
@@ -28,11 +28,11 @@ export default {
      },
     ecosystem: {
       title: 'Un ecosistema comercial, ocho ganadores',
-      subtitle: 'Una infraestructura compartida que convierte a cada participante en ganador a través de un único sistema operativo comercial — la infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales.',
+      subtitle: 'Una solución compartida que convierte a cada participante en ganador a través de un único sistema operativo comercial — una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global.',
       platform_fee_note: 'Cada canje impulsa todo el ecosistema. Una única comisión basada en el rendimiento se comparte automáticamente entre el socio de viaje, el socio POS y DutyBoost—creando valor para todos, sin coste adicional para el minorista aeroportuario.',
     },
     oval: {
-      badge: 'La infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales',
+      badge: 'Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global',
       title: 'Cada Stakeholder Orbita el <span class="text-primary">Viaje del Pasajero</span>',
       subtitle: 'Una transacción validada conecta a cada participante — cada uno gana del mismo momento del pasajero.',
       actual_title: 'Situación Actual',
@@ -112,7 +112,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: 'La infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales',
+        description: 'Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global',
         b1: 'Una capa unifica socios de viaje, minoristas aeroportuarios, proveedores POS, pasajeros de ocio y corporativos sin fisuras.',
         b2: 'Cada canje validado paga toda la cadena — pasajero, socio, minorista y corporativo — automática y transparentemente.',
         b3: 'Conciliación automatizada, gestión de reembolsos parciales y liquidación mensual mantienen el flujo de ingresos limpio en los seis lados.',
@@ -120,8 +120,8 @@ export default {
     },
     cta: {
        title: 'Un pasajero. Un viaje. Ingresos para todos.',
-       description: 'La infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales transforma el viaje de cada pasajero en una nueva fuente de ingresos incrementales medibles. Conectando a proveedores POS empresariales, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y proveedores mayoristas/minoristas en un único ecosistema compartido, DutyBoost crea nuevo valor sin costes iniciales para todos los participantes mediante un modelo de precios 100% basado en el rendimiento.',
-       button: "¡Únete hoy a la infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales!",
+       description: 'Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global transforma el viaje de cada pasajero en una nueva fuente de ingresos incrementales medibles. Conectando a proveedores POS empresariales, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y proveedores mayoristas/minoristas en un único ecosistema compartido, DutyBoost crea nuevo valor sin costes iniciales para todos los participantes mediante un modelo de precios 100% basado en el rendimiento.',
+       button: "¡Únete hoy a una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global!",
      },
     wecallyou: {
       modal_title: 'Te llamamos',
@@ -285,7 +285,7 @@ export default {
     getstarted: {
       title_partner: 'Para socios de viaje',
       subtitle_partner: 'Elige tu sector a continuación para ver cómo DutyBoost convierte cada reserva en ingresos incrementales.',
-      title: 'DutyBoost: La infraestructura de adquisición de clientes basada en el rendimiento para los viajes globales',
+      title: 'DutyBoost: Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global',
       subtitle_default: 'Elige tu rol a continuación para empezar.',
       agencies: 'Socios de vuelos',
       pos_partners: 'Socios POS',
@@ -1067,7 +1067,7 @@ export default {
       partner_web_loading_note: "Esto usa 1 crédito de integración por búsqueda. Los volúmenes anuales publicados son estimaciones.",
       partner_web_not_found: "No se pudo encontrar esta empresa o sus datos de volumen público. Prueba con otro nombre o término de búsqueda.",
       partner_web_error: "La búsqueda web falló. Inténtalo de nuevo o introduce el volumen manualmente.",
-      retailer_cta_desc: "Los socios de viaje pre-activan a los pasajeros antes de que lleguen a tu tienda — convirtiendo el tráfico de paso en clientes listos para comprar. Sé parte de la infraestructura de adquisición de clientes basada en el rendimiento donde los minoristas aumentan las ventas, los pasajeros canjean las recompensas recibidas de los socios de viaje y los socios de viaje ganan ingresos pasivos — todo a través de una plataforma inteligente.",
+      retailer_cta_desc: "Los socios de viaje pre-activan a los pasajeros antes de que lleguen a tu tienda — convirtiendo el tráfico de paso en clientes listos para comprar. Sé parte de la solución de adquisición de clientes basada en el rendimiento donde los minoristas aumentan las ventas, los pasajeros canjean las recompensas recibidas de los socios de viaje y los socios de viaje ganan ingresos pasivos — todo a través de una plataforma inteligente.",
       partner_cta_desc: "Hasta ahora, los ingresos que los pasajeros gastaban en las tiendas de los aeropuertos nunca volvían a ti. Con DutyBoost, cada reserva que emites desbloquea una nueva fuente de ingresos — gana comisión pasiva cada vez que tus pasajeros canjean DutyCredits en los minoristas del aeropuerto, sin coste para ti. Refuerza la fidelidad y monetiza los viajes de una manera que antes simplemente no era posible.",
     },
     entCalc: {
@@ -1222,7 +1222,7 @@ export default {
       how_step2: '<strong>2. Usamos Tu Firma:</strong> Tu firma fortalece la posición negociadora de DutyBoost con los minoristas aeroportuarios, mostrándoles que los socios de viaje están comprometidos con la asociación.',
       how_step3: '<strong>3. Los Minoristas Aeroportuarios Se Unen:</strong> Con tu firma como prueba de compromiso, los minoristas aeroportuarios ganan confianza en el modelo y aceptan participar.',
       how_step4: '<strong>4. Empiezas a Ganar:</strong> Tus pasajeros reciben DutyCredits en sus correos de confirmación — un beneficio de lealtad que fortalece la fidelidad a la marca. Ganas el 20% de la tarifa de plataforma DutyBoost del 2,5% (hasta €5 por canje) pagada por los minoristas aeroportuarios en cada transacción.',
-      description_1: 'En DutyBoost, estamos construyendo una <strong>infraestructura de adquisición de clientes basada en el rendimiento</strong> donde todos ganan. Tú, como socio de viaje, aportas los pasajeros. DutyBoost los conecta con los minoristas aeroportuarios. Juntos, generamos nuevos ingresos para todas las partes involucradas.',
+      description_1: 'En DutyBoost, estamos construyendo una <strong>solución de adquisición de clientes basada en el rendimiento</strong> donde todos ganan. Tú, como socio de viaje, aportas los pasajeros. DutyBoost los conecta con los minoristas aeroportuarios. Juntos, generamos nuevos ingresos para todas las partes involucradas.',
       description_2: '¿Qué es DutyBoost? Una "<strong>Travel Retail Conversion Layer</strong>" que crea nuevo valor comercial basado en los flujos de pasajeros existentes. Convertimos a tus pasajeros en compradores de alta intención en el aeropuerto — y tú ganas en cada transacción.',
       what_we_ask: 'Lo que te pedimos ahora mismo:',
       from_you: 'Firma esta Carta de Intención para formalizar nuestra intención mutua de explorar esta colaboración y participar en discusiones de buena fe sobre cómo DutyBoost puede crear valor para tus pasajeros y tu organización.',
@@ -1393,7 +1393,7 @@ Las Partes declaran que celebran esta Carta de Intención en un espíritu de con
       how_step2: '<strong>2. Construimos la Red Juntos:</strong> Tu participación demuestra a los socios de viaje que los minoristas aeroportuarios están listos. Eso les da la confianza para empezar a emitir DutyCredits a sus pasajeros.',
       how_step3: '<strong>3. Los Pasajeros Llegan Pre-Activados:</strong> Los clientes que reservaron vuelos, hoteles o alquiler de coches reciben un DutyCredit en su correo de confirmación — semanas antes de volar. Llegan a tu tienda ya planeando gastarlo.',
       how_step4: '<strong>4. Ganas Ingresos Incrementales:</strong> Cada canje de DutyCredit es una venta cualificada que de otro modo no habrías tenido. Pagas una tarifa de servicio del 2,5% (máx €25) solo por canjes confirmados — cero costos iniciales, cero riesgo.',
-      description_1: 'En DutyBoost, estamos construyendo una <strong>infraestructura de adquisición de clientes basada en el rendimiento</strong> donde todos ganan. Los socios de viaje traen a los pasajeros. DutyBoost los conecta con los minoristas aeroportuarios — tu tienda.',
+      description_1: 'En DutyBoost, estamos construyendo una <strong>solución de adquisición de clientes basada en el rendimiento</strong> donde todos ganan. Los socios de viaje traen a los pasajeros. DutyBoost los conecta con los minoristas aeroportuarios — tu tienda.',
       description_2: '¿Qué es DutyBoost? Una "<strong>Travel Retail Conversion Layer</strong>" que crea nuevo valor comercial basado en flujos de pasajeros existentes. Convertimos pasajeros pre-activados en compradores de alta intención — y los enviamos directamente a tu tienda.',
       what_we_ask: 'Lo que te pedimos ahora mismo:',
       from_you: 'Firma esta Carta de Intención para formalizar tu intención de participar en la red de minoristas DutyBoost como operador de retail aeroportuario y entablar discusiones de buena fe sobre cómo DutyBoost puede generar ingresos incrementales en todas tus ubicaciones de marca.',

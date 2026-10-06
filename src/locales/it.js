@@ -19,7 +19,7 @@ export default {
       integration_partnerships: 'Per Partners di Integrazione POS',
     },
     hero: {
-       title_1: "L'infrastruttura di acquisizione clienti basata sulla performance per i viaggi globali",
+       title_1: "Una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi",
        title_2: '',
        subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, gli aeroporti, i viaggiatori, i partner di viaggio, i partner corporate e i fornitori all'ingrosso/dettaglio attraverso un ecosistema commerciale condiviso basato sulle performance",
        subtitle_2: '',
@@ -28,11 +28,11 @@ export default {
      },
     ecosystem: {
       title: 'Un ecosistema commerciale, otto vincitori',
-      subtitle: 'Un\'infrastruttura condivisa che rende ogni partecipante un vincitore tramite un unico sistema operativo commerciale — l\'infrastruttura di acquisizione clienti basata sulla performance per i viaggi globali.',
+      subtitle: 'Una soluzione condivisa che rende ogni partecipante un vincitore tramite un unico sistema operativo commerciale — la soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi.',
       platform_fee_note: "Ogni riscatto alimenta l'intero ecosistema. Una singola commissione basata sulle performance viene condivisa automaticamente tra il partner di viaggio, il partner POS e DutyBoost—creando valore per tutti, senza costi aggiuntivi per il retailer aeroportuale.",
     },
     oval: {
-      badge: "L'infrastruttura di acquisizione clienti basata sulla performance per i viaggi globali",
+      badge: "Una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi",
       title: "Ogni Stakeholder Orbita Attorno al <span class=\"text-primary\">Viaggio del Viaggiatore</span>",
       subtitle: 'Una transazione validata collega ogni partecipante — ciascuno guadagna dallo stesso momento del viaggiatore.',
       actual_title: 'Situazione Attuale',
@@ -120,8 +120,8 @@ export default {
     },
     cta: {
        title: 'Un viaggiatore. Un viaggio. Ricavi per tutti.',
-       description: "L'infrastruttura di acquisizione clienti basata sulla performance per i viaggi globali trasforma il viaggio di ogni viaggiatore in una nuova fonte di entrate incrementali misurabili. Connessione di provider POS aziendali, retailer aeroportuali, aeroporti, viaggiatori, partner di viaggio, partner corporate e fornitori all'ingrosso/dettaglio in un unico ecosistema condiviso, DutyBoost crea nuovo valore senza costi iniziali per tutti i partecipanti tramite un modello di prezzo 100% basato sulle prestazioni.",
-       button: "Unisciti oggi all'infrastruttura di acquisizione clienti basata sulla performance per i viaggi globali!",
+       description: "Una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi trasforma il viaggio di ogni viaggiatore in una nuova fonte di entrate incrementali misurabili. Connessione di provider POS aziendali, retailer aeroportuali, aeroporti, viaggiatori, partner di viaggio, partner corporate e fornitori all'ingrosso/dettaglio in un unico ecosistema condiviso, DutyBoost crea nuovo valore senza costi iniziali per tutti i partecipanti tramite un modello di prezzo 100% basato sulle prestazioni.",
+       button: "Unisciti oggi alla soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi!",
        },
     wecallyou: {
       modal_title: 'Ti chiamiamo',
@@ -175,7 +175,7 @@ export default {
     getstarted: {
       title_partner: 'Per i partner di viaggio',
       subtitle_partner: 'Scegli qui sotto il tuo settore per vedere come DutyBoost trasforma ogni prenotazione in entrate incrementali.',
-      title: 'DutyBoost: L\'infrastruttura di acquisizione clienti basata sulla performance per i viaggi globali',
+      title: 'DutyBoost: una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi',
       subtitle_default: 'Scegli il tuo ruolo qui sotto per iniziare.',
       agencies: 'Partner voli',
       pos_partners: 'Partner POS',

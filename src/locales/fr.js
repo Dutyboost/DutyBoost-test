@@ -20,7 +20,7 @@ export default {
       integration_partnerships: 'Pour les Partenaires d\'Intégration POS',
     },
     hero: {
-      title_1: "La solution d'acquisition de clients basée sur la performance pour le voyage mondial",
+      title_1: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title_2: '',
       subtitle_1: "Connecter les fournisseurs POS, les détaillants d'aéroport, les aéroports, les voyageurs, les partenaires de voyage, les partenaires corporate et les fournisseurs de gros/détail à travers un écosystème commercial partagé basé sur la performance",
       subtitle_2: '',
@@ -29,11 +29,11 @@ export default {
     },
     ecosystem: {
       title: 'Un écosystème commercial, huit gagnants',
-      subtitle: 'Une solution partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — l\'infrastructure d\'acquisition de clients basée sur la performance pour le voyage mondial.',
+      subtitle: 'Une solution partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — la solution d\'acquisition de clients basée sur la performance pour le secteur du voyage mondial.',
       platform_fee_note: "Chaque remboursement alimente tout l'écosystème. Une seule commission basée sur la performance est automatiquement partagée entre le partenaire de voyage, le partenaire POS et DutyBoost—créant de la valeur pour tous, sans coût supplémentaire pour le détaillant aéroportuaire.",
     },
     oval: {
-      badge: "La solution d'acquisition de clients basée sur la performance pour le voyage mondial",
+      badge: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title: "Chaque Partenaire Gravite autour du <span class=\"text-primary\">Voyage du Voyageur</span>",
       subtitle: "Une transaction validée relie chaque participant — chacun gagnant au même moment du voyageur.",
       actual_title: "Situation Actuelle",
@@ -113,7 +113,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: "La solution d'acquisition de clients basée sur la performance pour le voyage mondial",
+        description: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
         b1: "Une seule couche unifie partenaires de voyage, détaillants aéroportuaires, prestataires POS, voyageurs de loisir et d'affaires.",
         b2: 'Chaque rachat validé rémunère toute la chaîne — voyageur, partenaire, détaillant et corporate — automatiquement et en toute transparence.',
         b3: 'Rapprochement automatisé, gestion des remboursements partiels et règlement mensuel maintiennent les revenus fluides sur les six côtés.',
@@ -121,7 +121,7 @@ export default {
     },
     cta: {
       title: 'Un voyageur. Un voyage. Des revenus pour tous.',
-      description: "La solution d'acquisition de clients basée sur la performance pour le voyage mondial transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant fournisseurs POS d'entreprise, détaillants aéroportuaires, aéroports, voyageurs, partenaires de voyage, partenaires corporate et fournisseurs de gros/détail dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
+      description: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant fournisseurs POS d'entreprise, détaillants aéroportuaires, aéroports, voyageurs, partenaires de voyage, partenaires corporate et fournisseurs de gros/détail dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
       button: "Rejoignez aujourd'hui la solution d'acquisition de clients basée sur la performance pour le voyage mondial !",
     },
     wecallyou: {
@@ -152,7 +152,7 @@ export default {
     getstarted: {
       title_partner: 'Pour les partenaires de voyage',
       subtitle_partner: 'Choisissez votre secteur ci-dessous pour voir comment DutyBoost transforme chaque réservation en revenus incrémentaux.',
-      title: 'DutyBoost : L\'infrastructure d\'acquisition de clients basée sur la performance pour le voyage mondial',
+      title: 'DutyBoost : La solution d\'acquisition de clients basée sur la performance pour le secteur du voyage mondial',
       subtitle_default: 'Choisissez votre rôle ci-dessous pour commencer.',
       agencies: 'Partenaires vols',
       pos_partners: 'Partenaires POS',

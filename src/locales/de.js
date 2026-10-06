@@ -20,7 +20,7 @@ export default {
       integration_partnerships: 'Für POS Integrationspartner',
     },
     hero: {
-      title_1: "Die performancebasierte Kundenakquise-Infrastruktur für globales Reisen",
+      title_1: "Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
       subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
       subtitle_2: '',
@@ -29,11 +29,11 @@ export default {
     },
     ecosystem: {
       title: 'Ein kommerzielles Ökosystem, acht Gewinner',
-      subtitle: 'Eine gemeinsame Infrastruktur, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — die performancebasierte Kundenakquise-Infrastruktur für globales Reisen.',
+      subtitle: 'Eine gemeinsame Lösung, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche.',
       platform_fee_note: 'Jede Einlösung treibt das gesamte Ökosystem an. Eine einzige leistungsbasierte Gebühr wird automatisch zwischen dem Reisepartner, dem POS-Partner und DutyBoost geteilt—schafft Wert für alle, ohne zusätzliche Kosten für den Flughafeneinzelhändler.',
     },
     oval: {
-      badge: 'Die performancebasierte Kundenakquise-Infrastruktur für globales Reisen',
+      badge: 'Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche',
       title: 'Jeder Stakeholder kreist um die <span class="text-primary">Reisendenreise</span>',
       subtitle: 'Eine validierte Transaktion verbindet jeden Teilnehmer — jeder verdient am selben Reisendenmoment.',
       actual_title: 'Aktuelle Situation',
@@ -113,7 +113,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: 'Die performancebasierte Kundenakquise-Infrastruktur für globales Reisen',
+        description: 'Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche',
         b1: 'Eine Schicht vereint Reisepartner, Flughafeneinzelhändler, POS-Anbieter, Freizeit- und Geschäftsreisende nahtlos.',
         b2: 'Jede validierte Einlösung zahlt die gesamte Kette — Reisende, Partner, Händler und Corporate — automatisch und transparent.',
         b3: 'Automatisierter Abgleich, Teilrückerstattungen und monatliche Abrechnung halten den Umsatz über alle sechs Seiten sauber fließend.',
@@ -121,8 +121,8 @@ export default {
     },
     cta: {
       title: 'Ein Reisender. Eine Reise. Erlös für alle.',
-      description: 'Die performancebasierte Kundenakquise-Infrastruktur für globales Reisen verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Enterprise-POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
-      button: "Treten Sie heute der performancebasierten Kundenakquise-Infrastruktur für globales Reisen bei!",
+      description: 'Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Enterprise-POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
+      button: "Treten Sie heute der performancebasierten Kundenakquise-Lösung für die globale Reisebranche bei!",
     },
     wecallyou: {
       modal_title: 'Wir rufen Sie an',
@@ -836,7 +836,7 @@ export default {
       partner_web_loading_note: "Dies verbraucht 1 Integrationsguthaben pro Suche. Öffentliche Jahresvolumen sind Schätzungen.",
       partner_web_not_found: "Dieses Unternehmen oder seine öffentlichen Volumendaten konnten nicht gefunden werden. Versuchen Sie einen anderen Namen oder Suchbegriff.",
       partner_web_error: "Websuche fehlgeschlagen. Bitte erneut versuchen oder das Volumen manuell eingeben.",
-      retailer_cta_desc: "Reisepartner aktivieren Käufer, bevor sie Ihr Geschäft erreichen — sie verwandeln vorbeigehenden Verkehr in kaufbereite Kunden. Werden Sie Teil der performancebasierten Kundenakquise-Infrastruktur, in der Einzelhändler den Umsatz steigern, Reisende die von Reisepartnern erhaltenen Belohnungen einlösen und Reisepartner passives Einkommen verdienen — alles über eine intelligente Plattform.",
+      retailer_cta_desc: "Reisepartner aktivieren Käufer, bevor sie Ihr Geschäft erreichen — sie verwandeln vorbeigehenden Verkehr in kaufbereite Kunden. Werden Sie Teil der performancebasierten Kundenakquise-Lösung, in der Einzelhändler den Umsatz steigern, Reisende die von Reisepartnern erhaltenen Belohnungen einlösen und Reisepartner passives Einkommen verdienen — alles über eine intelligente Plattform.",
       partner_cta_desc: "Bis jetzt floss der Umsatz, den Reisende in Flughafengeschäften ausgaben, nie an Sie zurück. Mit DutyBoost erschließt jede Buchung, die Sie ausstellen, eine neue Einnahmequelle — verdienen Sie passive Provision, sobald Ihre Reisenden DutyCredits bei Flughafenhändlern einlösen, ohne Kosten für Sie. Stärken Sie die Kundenbindung und monetarisieren Sie Reisen auf eine Weise, die bisher einfach nicht möglich war.",
     },
     entCalc: {
