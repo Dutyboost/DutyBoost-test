@@ -444,7 +444,10 @@ export const COPY = {
         redemptionsTitle: "DutyCredits redeemed / day",
         redeemedLabel: "redeemed / day",
         preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
-        basketsTitle: "Baskets redeemed",
+        basketsTitle: "Sample of baskets redeemed",
+        sinceTitle: "Since 25 September 2026",
+        revenueLabel: "incremental retail value",
+        sinceLine: (n) => `${n} DutyCredits redeemed at the till`,
         note:
           "Travellers arrive pre-activated and redeem on the POS the stores already run — no new hardware and no new till procedure.",
       },
@@ -1343,7 +1346,10 @@ export const COPY = {
         redemptionsTitle: "DutyCredits canjeados / día",
         redeemedLabel: "canjeados / día",
         preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
-        basketsTitle: "Cestas canjeadas",
+        basketsTitle: "Muestra de cestas canjeadas",
+        sinceTitle: "Desde el 25 de septiembre de 2026",
+        revenueLabel: "valor minorista incremental",
+        sinceLine: (n) => `${n} DutyCredits canjeados en caja`,
         note:
           "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan — sin hardware nuevo ni cambios en el proceso de caja.",
       },

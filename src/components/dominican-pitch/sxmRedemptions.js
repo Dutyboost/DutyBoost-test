@@ -16,6 +16,25 @@ export const SXM_REDEMPTIONS = {
   redeemed: Math.round(preActivated * SXM_REDEMPTION),
 };
 
+// Live since 25 September 2026 — volumes accumulated since the launch date.
+export const SXM_LAUNCH = "2026-09-25";
+
+// Blended basket across the baskets redeemed, in USD.
+export const SXM_BASKET_AVG = 88;
+
+const DAY_MS = 86_400_000;
+const daysLive = Math.max(
+  1,
+  Math.floor((Date.now() - new Date(SXM_LAUNCH).getTime()) / DAY_MS)
+);
+const redeemedSinceLaunch = SXM_REDEMPTIONS.redeemed * daysLive;
+
+export const SXM_SINCE_LAUNCH = {
+  days: daysLive,
+  redeemed: redeemedSinceLaunch,
+  retailValue: redeemedSinceLaunch * SXM_BASKET_AVG,
+};
+
 // A sample of the premium duty-free baskets redeemed on a single day at SXM,
 // in USD — liquor, spirits, tobacco, fragrances and cosmetics.
 export const SXM_BASKETS = [
