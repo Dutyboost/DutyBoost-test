@@ -51,6 +51,8 @@ export function computeRetailerRevenue(inputs) {
   const redemption = readInput(inputs, "redemption", DEFAULT_REDEMPTION) / 100;
   const basket = readInput(inputs, "basket", DEFAULT_BASKET);
 
+  // The figure entered is the airport's total store footfall, so it is already
+  // the traffic through the retailer's stores — the estate, not a per-store count.
   const travellers = travellersDay * 365;
   const activated = travellers * activation;
   const baskets = activated * redemption;
@@ -60,7 +62,7 @@ export function computeRetailerRevenue(inputs) {
   const fee = gross * MODEL.platformFee;
   const retailerNet = gross - travellerSaving - fee;
 
-  const perStore = { travellers, activated, baskets, gross, travellerSaving, fee, retailerNet, discount };
+  const estate = { travellers, activated, baskets, gross, travellerSaving, fee, retailerNet };
 
   return {
     stores,
@@ -68,20 +70,24 @@ export function computeRetailerRevenue(inputs) {
     activation,
     redemption,
     basket,
-    perStore,
-    estate: {
-      baskets: perStore.baskets * stores,
-      gross: perStore.gross * stores,
-      travellerSaving: perStore.travellerSaving * stores,
-      fee: perStore.fee * stores,
-      retailerNet: perStore.retailerNet * stores,
+    perStore: {
+      travellers: travellers / stores,
+      activated: activated / stores,
+      baskets: baskets / stores,
+      gross: gross / stores,
+      travellerSaving: travellerSaving / stores,
+      fee: fee / stores,
+      retailerNet: retailerNet / stores,
+      discount,
     },
+    estate,
   };
 }
 
 // Per-store economics at an arbitrary activation rate, for the sensitivity table.
 export function perStoreAtActivation(inputs, rate) {
-  const travellers = readInput(inputs, "travellers", DEFAULT_TRAVELLERS_DAY) * 365;
+  const stores = readInput(inputs, "stores", DEFAULT_STORES);
+  const travellers = (readInput(inputs, "travellers", DEFAULT_TRAVELLERS_DAY) * 365) / stores;
   const redemption = readInput(inputs, "redemption", DEFAULT_REDEMPTION) / 100;
   const basket = readInput(inputs, "basket", DEFAULT_BASKET);
 
