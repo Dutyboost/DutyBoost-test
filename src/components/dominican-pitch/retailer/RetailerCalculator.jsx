@@ -108,7 +108,7 @@ export default function RetailerCalculator() {
       </div>
 
       {selectedAirport && (
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-slate-800 mb-1 shrink-0">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-base text-slate-800 mb-1 shrink-0">
           <span>{c.airport.stores(selectedAirport.stores)}</span>
           <span className="text-slate-300">·</span>
           <span>{c.airport.pax(`${(selectedAirport.annualPassengers / 1000000).toFixed(1)}M`)}</span>
@@ -129,8 +129,8 @@ export default function RetailerCalculator() {
           </a>
         </div>
       )}
-      <div className="text-xs text-slate-800 shrink-0">{c.airport.note}</div>
-      <div className="text-xs text-slate-800 mb-3 shrink-0">
+      <div className="text-sm text-slate-800 shrink-0">{c.airport.note}</div>
+      <div className="text-sm text-slate-800 mb-3 shrink-0">
         {c.footfall} —{" "}
         <a
           href={SOURCES.footfall}
