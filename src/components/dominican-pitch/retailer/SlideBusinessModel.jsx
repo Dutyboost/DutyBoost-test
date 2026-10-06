@@ -11,7 +11,7 @@ export default function SlideBusinessModel() {
     <SlideWrapper>
       <div className="flex-1 flex flex-col px-5 py-4 md:px-10 md:py-4 relative">
         <GridBg />
-        <div className="relative z-10 flex-1 flex flex-col">
+        <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="mb-3 shrink-0">
             <span className="text-xs md:text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>{c.eyebrow}</span>
             <h2 className="text-lg md:text-2xl font-heading font-bold text-[#0a0f1e] mt-1.5">
@@ -20,7 +20,7 @@ export default function SlideBusinessModel() {
             <p className="text-slate-500 mt-1 text-sm">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 grow shrink-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-slate-800 text-white rounded-2xl p-4 sm:p-5 flex flex-col">
               <h3 className="font-bold text-white text-base md:text-lg mb-3 shrink-0">{c.tiersTitle}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-400 mb-1 px-2 shrink-0">
