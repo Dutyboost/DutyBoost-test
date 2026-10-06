@@ -22,7 +22,6 @@ import { RetailerRevenueProvider } from "@/components/dominican-pitch/retailer/R
 import { LanguageProvider, useDeckLang } from "@/components/dominican-pitch/LanguageContext";
 import LanguageToggle from "@/components/dominican-pitch/LanguageToggle";
 import { ACCENT } from "@/components/dominican-pitch/Shared";
-import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -92,11 +91,6 @@ function DominicanDeck() {
         </div>
         <div className="flex items-center gap-3">
           <LanguageToggle />
-          <PitchDeckDownloadButtons
-            slides={SLIDES}
-            components={SLIDE_COMPONENTS}
-            filename="DutyBoost-Dominican-Republic-2026"
-          />
           <div className="text-slate-400 text-sm">
             {current + 1} / {SLIDES.length}
           </div>
