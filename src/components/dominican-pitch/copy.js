@@ -846,7 +846,7 @@ export const COPY = {
       next: "Siguiente",
       language: "Cambiar idioma",
     },
-    positioning: "Infraestructura de adquisición de clientes basada en rendimiento para el viaje global",
+    positioning: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector Global de Viajes",
     labels: {
       cover: "Portada",
       team: "Nuestro equipo",
