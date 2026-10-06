@@ -427,7 +427,7 @@ export const COPY = {
       title: "Already Live in the Caribbean.",
       titleAccent: "Two Markets, Redeeming Today.",
       subtitle:
-        "The model is already live in two Caribbean markets — the same terms, the same single POS activation, and the same DutyCredit redeemed at the till — and we would like to implement it in the Dominican Republic as well.",
+        "DutyBoost is expanding across the Caribbean — the same terms, the same single POS activation and the same DutyCredit redeemed at the till in every market it enters — and it is looking to engage with the Dominican Republic's innovation agenda as the next step in that regional growth.",
       live: "Live",
       sxm: {
         country: "Sint Maarten",
@@ -462,7 +462,8 @@ export const COPY = {
         { value: "3", label: "Retail brands redeeming" },
         { value: "1", label: "POS platform — NCR CounterPoint" },
       ],
-      footer: "Same model, same terms, one POS activation — now brought to the Dominican Republic.",
+      footer:
+        "Same model, same terms, one POS activation — expanding across the Caribbean, with the Dominican Republic as the next market.",
       footnote: "Deployment status across DutyBoost's Caribbean markets, 2026.",
     },
     retailCover: {
@@ -1321,7 +1322,7 @@ export const COPY = {
       title: "Ya operativos en el Caribe.",
       titleAccent: "Dos mercados canjeando hoy.",
       subtitle:
-        "El modelo ya está activo en dos mercados del Caribe — las mismas condiciones, una sola activación en el POS y el mismo DutyCredit canjeado en la caja — y nos gustaría implantarlo también en la República Dominicana.",
+        "DutyBoost se está expandiendo por el Caribe — las mismas condiciones, una sola activación en el POS y el mismo DutyCredit canjeado en la caja en cada mercado donde entra — y busca sumarse a la agenda de innovación de la República Dominicana como siguiente paso de ese crecimiento regional.",
       live: "Activo",
       sxm: {
         country: "Sint Maarten",
@@ -1356,7 +1357,8 @@ export const COPY = {
         { value: "3", label: "marcas minoristas canjeando" },
         { value: "1", label: "plataforma de POS — NCR CounterPoint" },
       ],
-      footer: "El mismo modelo, las mismas condiciones, una sola activación en el POS — ahora en la República Dominicana.",
+      footer:
+        "El mismo modelo, las mismas condiciones, una sola activación en el POS — expandiéndonos por el Caribe, con la República Dominicana como próximo mercado.",
       footnote: "Estado de despliegue en los mercados caribeños de DutyBoost, 2026.",
     },
     retailCover: {
