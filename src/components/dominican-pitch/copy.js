@@ -666,7 +666,7 @@ export const COPY = {
           pax: (p) => `${p} passengers / yr`,
           paxDay: (p) => `${p} passengers / day`,
           source: "Source",
-          note: "Store counts from each airport's own retail directory; passengers from published traffic. Footfall assumes 2% of the airport's daily passenger movements enter each store.",
+          note: "Store counts from each airport's own retail directory; passengers from published traffic.",
         },
         fields: {
           stores: "Stores you operate in the Dominican Republic",
@@ -1502,7 +1502,7 @@ export const COPY = {
           pax: (p) => `${p} pasajeros / año`,
           paxDay: (p) => `${p} pasajeros / día`,
           source: "Fuente",
-          note: "El número de tiendas proviene del directorio comercial de cada aeropuerto; los pasajeros, del tráfico publicado. El flujo asume que el 2% de los movimientos diarios de pasajeros entra en cada tienda.",
+          note: "El número de tiendas proviene del directorio comercial de cada aeropuerto; los pasajeros, del tráfico publicado.",
         },
         fields: {
           stores: "Tiendas que opera en la República Dominicana",
