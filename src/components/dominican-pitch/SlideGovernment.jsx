@@ -1,7 +1,7 @@
 import { Landmark, ShieldCheck, BarChart3, Globe2, Users2 } from "lucide-react";
 import { ACCENT, SlideShell } from "./Shared";
 import { MARKET, usdShort } from "./figures";
-import { useNetworkInputs, computeNetwork } from "./NetworkContext";
+import { useRetailerRevenue, computeRetailerRevenue } from "./retailer/RetailerRevenueContext";
 import { useDeckLang } from "./LanguageContext";
 
 const ICONS = [Users2, BarChart3, ShieldCheck, Globe2];
@@ -10,10 +10,12 @@ export default function SlideGovernment() {
   const { t } = useDeckLang();
   const c = t.government;
 
-  const { inputs } = useNetworkInputs();
-  const { year } = computeNetwork(inputs);
+  // The same scenario entered on the business-model slide, so the figures shown
+  // to the government are the ones the retailer model actually produces.
+  const { inputs } = useRetailerRevenue();
+  const { estate } = computeRetailerRevenue(inputs);
 
-  const VALUES = [usdShort(year.gross), usdShort(year.fee), MARKET.drPassengers];
+  const VALUES = [usdShort(estate.gross), usdShort(estate.fee), MARKET.drPassengers];
 
   return (
     <SlideShell
