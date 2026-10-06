@@ -444,8 +444,6 @@ export const COPY = {
         redemptionsTitle: "DutyCredits redeemed / day",
         redeemedLabel: "avg. redeemed / day",
         preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
-        averageNote:
-          "An average, not a fixed figure — one day may bring 35 redemptions, another just 5, another 55.",
         basketsTitle: "Sample of baskets redeemed",
         sinceTitle: "Since 25 September 2026",
         revenueLabel: "incremental retail value",
@@ -1348,8 +1346,6 @@ export const COPY = {
         redemptionsTitle: "DutyCredits canjeados / día",
         redeemedLabel: "canjeados / día (media)",
         preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
-        averageNote:
-          "Una media, no una cifra fija — un día pueden ser 35 canjes, otro solo 5 y otro 55.",
         basketsTitle: "Muestra de cestas canjeadas",
         sinceTitle: "Desde el 25 de septiembre de 2026",
         revenueLabel: "valor minorista incremental",
