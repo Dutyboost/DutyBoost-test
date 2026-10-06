@@ -451,7 +451,7 @@ export const COPY = {
         c3: {
           value: "73%",
           label: "Caribbean non-purchase rate (m1nd-set)",
-          note: "27% purchase rate | 73% non-purchase across the Caribbean — 13.4M non-purchasing passenger movements at the three gateways",
+          note: "27% purchase rate | 73% non-purchase — 13.4M non-purchasing passenger movements at the three gateways",
         },
         challengesTitle: "Traditional Airport Retail Challenges",
         challenges: [
