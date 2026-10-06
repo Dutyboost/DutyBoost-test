@@ -1,4 +1,4 @@
-import { Landmark, ShieldCheck, BarChart3, Globe2, Users2 } from "lucide-react";
+import { ShieldCheck, BarChart3, Globe2, Users2 } from "lucide-react";
 import { ACCENT, SlideShell } from "./Shared";
 import { MARKET, usdShort } from "./figures";
 import { useRetailerRevenue, computeRetailerRevenue } from "./retailer/RetailerRevenueContext";
@@ -38,7 +38,6 @@ export default function SlideGovernment() {
             className="rounded-2xl p-5"
             style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}
           >
-            {i === 0 && <Landmark className="w-6 h-6 mb-2" style={{ color: ACCENT }} />}
             <div className="text-3xl font-bold" style={{ color: ACCENT }}>
               {VALUES[i]}
             </div>
