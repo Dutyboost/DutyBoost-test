@@ -31,10 +31,9 @@ export default function RetailerCalculator() {
 
   const selectedAirport = AIRPORT_OPTIONS.find((a) => a.code === inputs.airport) || null;
 
-  // Picking an airport loads its researched store count and traffic, so the
-  // model recalculates from real figures instead of guessed ones.
-  const chooseAirport = (a) =>
-    setMany({ airport: a.code, stores: String(a.stores), travellers: String(a.travellersPerStoreDay) });
+  // Picking an airport loads its researched store count only. Store footfall is
+  // never assumed — the retailer enters its own figure.
+  const chooseAirport = (a) => setMany({ airport: a.code, stores: String(a.stores) });
 
   const stores = readInput(inputs, "stores", DEFAULT_STORES);
   const travellersDay = readInput(inputs, "travellers", DEFAULT_TRAVELLERS_DAY);
