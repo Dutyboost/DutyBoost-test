@@ -627,7 +627,7 @@ export const COPY = {
       acquisition: {
         eyebrow: "Customer Acquisition — On Us",
         title: "We Take On the Acquisition Cost.",
-        titleAccent: "You Take the Sale.",
+        titleAccent: "The Retailer Takes the Sale.",
         subtitle:
           "DutyBoost funds and runs the Curiosity Campaign across the source markets travellers fly from — before they ever reach the Dominican Republic.",
         marketsTitle: "Where We Acquire Them — Dominican Source Markets",
@@ -1541,7 +1541,7 @@ export const COPY = {
       acquisition: {
         eyebrow: "Adquisición de clientes — por nuestra cuenta",
         title: "Nosotros asumimos el coste de adquisición.",
-        titleAccent: "Usted se queda con la venta.",
+        titleAccent: "El minorista se queda con la venta.",
         subtitle:
           "DutyBoost financia y ejecuta la Campaña de Curiosidad en los mercados emisores desde los que vuelan los pasajeros — antes de que lleguen a la República Dominicana.",
         marketsTitle: "Dónde los captamos — mercados emisores dominicanos",
