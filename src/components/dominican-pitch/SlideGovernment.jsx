@@ -1,5 +1,5 @@
 import { Landmark, ShieldCheck, BarChart3, Globe2, Users2 } from "lucide-react";
-import { GOV, SlideShell } from "./Shared";
+import { ACCENT, SlideShell } from "./Shared";
 import { MARKET, usdShort } from "./figures";
 import { useNetworkInputs, computeNetwork } from "./NetworkContext";
 import { useDeckLang } from "./LanguageContext";
@@ -18,19 +18,23 @@ export default function SlideGovernment() {
   return (
     <SlideShell
       eyebrow={c.eyebrow}
-      eyebrowColor={GOV}
+      eyebrowColor={ACCENT}
       title={
         <>
-          {c.title} <span style={{ color: GOV }}>{c.titleAccent}</span>
+          {c.title} <span style={{ color: ACCENT }}>{c.titleAccent}</span>
         </>
       }
       subtitle={c.subtitle}
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
         {c.kpis.map((label, i) => (
-          <div key={label} className="bg-teal-50 border border-teal-200 rounded-2xl p-5">
-            {i === 0 && <Landmark className="w-6 h-6 mb-2" style={{ color: GOV }} />}
-            <div className="text-3xl font-bold" style={{ color: GOV }}>
+          <div
+            key={label}
+            className="rounded-2xl p-5"
+            style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}
+          >
+            {i === 0 && <Landmark className="w-6 h-6 mb-2" style={{ color: ACCENT }} />}
+            <div className="text-3xl font-bold" style={{ color: ACCENT }}>
               {VALUES[i]}
             </div>
             <p className="text-slate-600 text-sm mt-2 leading-snug">{label}</p>
@@ -44,7 +48,7 @@ export default function SlideGovernment() {
           return (
             <div key={p.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
               <div className="flex items-center gap-2 mb-2">
-                <Icon className="w-5 h-5" style={{ color: GOV }} />
+                <Icon className="w-5 h-5" style={{ color: ACCENT }} />
                 <h3 className="font-bold text-[#0a0f1e] text-sm">{p.title}</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed">{p.body}</p>
