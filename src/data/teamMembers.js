@@ -12,7 +12,7 @@ export const TEAM_MEMBERS = [
     photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/58e6f7004_FotoRaelMartis.jpeg",
     focus: ["Commercial Strategy", "Partner Acquisition", "Network Expansion"],
     bio: [
-      "Raël Martis Ozuna is Co-Founder and Chief Commercial Officer of DutyBoost. He leads the commercial direction of the platform — defining how travel partners, airport retailers, POS providers, airports and corporate partners connect to the performance-based customer acquisition infrastructure, and how each participant is commercially rewarded for the value it brings to the ecosystem.",
+      "Raël Martis Ozuna is Co-Founder and Chief Commercial Officer of DutyBoost. He leads the commercial direction of the platform — defining how travel partners, airport retailers, POS providers, airports and corporate partners connect to the performance-based customer acquisition solution, and how each participant is commercially rewarded for the value it brings to the ecosystem.",
       "His work centres on partner acquisition and network development: structuring the commercial agreements that bring new airports, retailers and distribution channels onto the platform, and building the partner relationships that turn a single activation into a scalable, multi-market footprint.",
       "Within DutyBoost he is responsible for the commercial model itself — the performance-based structure that lets every stakeholder participate without upfront cost or risk, and that keeps revenue tied to validated, real transactions rather than promises.",
     ],
@@ -49,7 +49,7 @@ export const TEAM_MEMBERS = [
     focus: ["Brand Marketing", "Partner Communications", "Growth"],
     bio: [
       "Ariunzaya Zorigt is Marketing Director at DutyBoost. She leads how the platform is positioned and communicated — to travel and corporate partners, airport retailers, POS providers, airports and wholesale suppliers, as well as to the travellers who ultimately use a DutyCredit.",
-      "Her work spans the partner-facing side of the business: the materials, presentations and campaigns that explain the performance-based customer acquisition infrastructure and the commercial case for joining it, and that support the team through each stage of partner onboarding.",
+      "Her work spans the partner-facing side of the business: the materials, presentations and campaigns that explain the performance-based customer acquisition solution and the commercial case for joining it, and that support the team through each stage of partner onboarding.",
       "She also drives traveller-side activation and growth — the messaging and campaigns that ensure DutyCredits distributed before a trip are understood, remembered and used at the airport, so the value created for every stakeholder in the ecosystem is realised.",
     ],
   },

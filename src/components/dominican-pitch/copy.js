@@ -11,7 +11,7 @@ export const COPY = {
       next: "Next",
       language: "Change language",
     },
-    positioning: "A Performance-based Customer Acquisition Infrastructure for Global Travel",
+    positioning: "A Performance-based Customer Acquisition Solution for Global Travel",
     labels: {
       cover: "Cover",
       team: "Our Team",

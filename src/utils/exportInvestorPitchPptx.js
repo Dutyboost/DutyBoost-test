@@ -35,7 +35,7 @@ export async function exportInvestorPitchPptx() {
     lightSlide(s);
     s.addImage({ path: LOGO_URL, x: 4.65, y: 1.1, w: 4.0, h: 1.2, sizing: { type: "contain", w: 4.0, h: 1.2 } });
     s.addText("The Circular Commercial Revenue", { x: 0.8, y: 2.6, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
-    s.addText("Infrastructure for Global Travel", { x: 0.8, y: 3.25, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
+    s.addText("Solution for Global Travel", { x: 0.8, y: 3.25, w: 11.7, h: 0.7, fontSize: 30, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
     s.addText("Pre-Revenue Investment Opportunity", { x: 0.8, y: 4.1, w: 11.7, h: 0.5, fontSize: 16, color: SLATE, align: "center", fontFace: "Calibri" });
     const coverStats = [
       { val: "€37.1B", lbl: "Market" },
@@ -438,7 +438,7 @@ export async function exportInvestorPitchPptx() {
       { party: "Travellers", val: "€1M in savings" },
       { party: "Travel & Corporate Partners", val: "€100,000 ancillary revenue" },
       { party: "POS Partners", val: "€50,000 transaction revenue" },
-      { party: "DutyBoost", val: "€350,000 infrastructure revenue" },
+      { party: "DutyBoost", val: "€350,000 platform revenue" },
       { party: "Retailers", val: "€18.5M net before costs" },
     ];
     impact.forEach((row, i) => {
@@ -460,7 +460,7 @@ export async function exportInvestorPitchPptx() {
       { party: "Airport Retailer", value: "€18.50", sub: "Net before normal costs (92.5%)", color: "60A5FA" },
       { party: "Travel & Corporate Partner", value: "€0.10", sub: "Ancillary revenue (0.5%)", color: YELLOW },
       { party: "POS Partner", value: "€0.05", sub: "Transaction revenue (0.25%)", color: PURPLE },
-      { party: "DutyBoost", value: "€0.35", sub: "Infrastructure revenue (1.75%)", color: ORANGE },
+      { party: "DutyBoost", value: "€0.35", sub: "Platform revenue (1.75%)", color: ORANGE },
     ];
     beneficiaries.forEach((p, i) => {
       const x = 0.8 + i * 2.4;
@@ -580,7 +580,7 @@ export async function exportInvestorPitchPptx() {
     const finStats = [
       { val: "710K", lbl: "Annual Break-Even Transactions", sub: "Year 3 forecast: 1.5M (2x break-even)", color: GREEN },
       { val: "€33.69M", lbl: "5-Year Cumulative Revenue", sub: "19.25M validated transactions", color: BLUE },
-      { val: "72.8%", lbl: "Year 5 EBITDA Margin", sub: "Infrastructure platform economics", color: VIOLET },
+      { val: "72.8%", lbl: "Year 5 EBITDA Margin", sub: "Platform economics", color: VIOLET },
     ];
     finStats.forEach((st, i) => {
       const x = 0.8 + i * 3.95;
@@ -748,9 +748,9 @@ export async function exportInvestorPitchPptx() {
     lightSlide(s);
     s.addImage({ path: LOGO_URL, x: 5.65, y: 0.5, w: 2.0, h: 0.6, sizing: { type: "contain", w: 2.0, h: 0.6 } });
     s.addText("THE OPPORTUNITY", { x: 0.8, y: 1.25, w: 11.7, h: 0.35, fontSize: 11, bold: true, color: BLUE, align: "center", fontFace: "Calibri", charSpacing: 3 });
-    s.addText("An Infrastructure Stake in", { x: 0.8, y: 1.65, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
+    s.addText("A Performance-Based Stake in", { x: 0.8, y: 1.65, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: DARK, align: "center", fontFace: "Calibri" });
     s.addText("Global Travel Retail", { x: 0.8, y: 2.15, w: 11.7, h: 0.55, fontSize: 22, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
-    s.addText("DutyBoost is a performance-based revenue infrastructure. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and every participant earns from the same transaction.", { x: 1.5, y: 2.85, w: 10.3, h: 1.0, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("DutyBoost is a performance-based revenue solution. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and every participant earns from the same transaction.", { x: 1.5, y: 2.85, w: 10.3, h: 1.0, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });
     s.addShape(pptx.ShapeType.roundRect, { x: 1.8, y: 3.95, w: 9.7, h: 1.3, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 }, rectRadius: 0.12 });
     s.addText("With an MVP ready for use, a clear integration pathway through Enterprise POS, and a €37.1B market already generating revenue, the remaining work is execution: first integrations, first pilots, first settled transactions.", { x: 2.0, y: 4.05, w: 9.3, h: 1.1, fontSize: 12, color: DARK, align: "center", fontFace: "Calibri", valign: "middle" });
     s.addText("We are raising €200,000 to finance that execution — measurable proof, not premature expansion. For investors seeking exposure to travel retail without the capital intensity of stores, inventory or concessions, DutyBoost offers infrastructure-level economics with a defined path to profitability.", { x: 1.5, y: 5.4, w: 10.3, h: 1.0, fontSize: 12, color: SLATE, align: "center", fontFace: "Calibri" });

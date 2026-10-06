@@ -30,7 +30,7 @@ const FACTS = [
   {
     val: "15M",
     label: "Transactions if just 0.01% of the annual enterprise POS volume flows through DutyCredits",
-    sub: "≈ €1.5B retail value · €26.25M DutyBoost infrastructure revenue",
+    sub: "≈ €1.5B retail value · €26.25M DutyBoost platform revenue",
   },
 ];
 

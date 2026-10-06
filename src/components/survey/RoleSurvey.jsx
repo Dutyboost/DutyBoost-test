@@ -22,7 +22,7 @@ function DutyBoostPdfDownload({ surveyType = "unknown", screen = "thank_you" }) 
     <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-3 text-center max-w-md mx-auto w-full">
       <p className="text-sm font-semibold text-foreground">Want to understand what DutyBoost is?</p>
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Download our one-page overview — a Performance-based Customer Acquisition Infrastructure for Global Travel.
+        Download our one-page overview — a Performance-based Customer Acquisition Solution for Global Travel.
       </p>
       <a
         href={PDF_URL}
@@ -419,8 +419,8 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
                 <p className="text-muted-foreground text-sm">
                   {contactless
                     ? posProviderLabel
-                      ? "We're gathering anonymous feedback to validate that the solution is attractive for all participants of the Circular Commercial Revenue Infrastructure for Global Travel — just share your company name, website and POS provider details."
-                      : "We're gathering anonymous feedback to validate that the solution is attractive for all participants of the Circular Commercial Revenue Infrastructure for Global Travel — just share your company name and website."
+                      ? "We're gathering anonymous feedback to validate that the solution is attractive for all participants of the Circular Commercial Revenue Solution for Global Travel — just share your company name, website and POS provider details."
+                      : "We're gathering anonymous feedback to validate that the solution is attractive for all participants of the Circular Commercial Revenue Solution for Global Travel — just share your company name and website."
                     : requireContactDetails
                     ? "Share your contact details so we can follow up when DutyBoost is ready to share more."
                     : "Share your contact details so we can follow up, or respond anonymously. Either way, your input is valuable."}

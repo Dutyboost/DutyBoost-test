@@ -7,7 +7,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const content = {
   en: { title: "Code of Conduct", updated: "Last updated: August 2026", back: "Back to Home", sections: [
-    { h: "1. Our Commitment", p: "DutyBoost operates a Performance-based Customer Acquisition Infrastructure for Global Travel, built on the principle that Travel Partners, Airport Retailers, POS Partners, and travelers should all benefit fairly and transparently. We are committed to maintaining a trustworthy, professional platform that upholds the ethical standards of the international travel and airport retail industries." },
+    { h: "1. Our Commitment", p: "DutyBoost operates a Performance-based Customer Acquisition Solution for Global Travel, built on the principle that Travel Partners, Airport Retailers, POS Partners, and travelers should all benefit fairly and transparently. We are committed to maintaining a trustworthy, professional platform that upholds the ethical standards of the international travel and airport retail industries." },
     { h: "2. Expected Behaviour — All Users", list: [
       "Act honestly and in good faith when using the platform at all times.",
       "Provide accurate, verifiable data — booking references (PNR), transaction values, POS redemption records, and store details must reflect reality.",
@@ -61,7 +61,7 @@ const content = {
     { h: "9. Contact", p: "Report misconduct or suspicious activity: trust@dutyboost.com · DutyBoost B.V., a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053181, Amsterdam, the Netherlands." },
   ]},
   nl: { title: "Gedragscode", updated: "Laatst bijgewerkt: augustus 2026", back: "Terug naar home", sections: [
-    { h: "1. Onze toewijding", p: "DutyBoost exploiteert a Performance-based Customer Acquisition Infrastructure for Global Travel, gebouwd op het principe dat Reispartners, Luchthavenwinkels, POS-partners en reizigers eerlijk en transparant voordeel moeten halen. Wij zetten ons in voor een betrouwbaar, professioneel platform dat de ethische normen van de internationale reis- en luchthavendetailhandel handhaaft." },
+    { h: "1. Onze toewijding", p: "DutyBoost exploiteert a Performance-based Customer Acquisition Solution for Global Travel, gebouwd op het principe dat Reispartners, Luchthavenwinkels, POS-partners en reizigers eerlijk en transparant voordeel moeten halen. Wij zetten ons in voor een betrouwbaar, professioneel platform dat de ethische normen van de internationale reis- en luchthavendetailhandel handhaaft." },
     { h: "2. Verwacht gedrag — Alle gebruikers", list: [
       "Eerlijk en te goeder trouw handelen bij het gebruik van het platform.",
       "Nauwkeurige, verifieerbare gegevens verstrekken — boekingsreferenties (PNR), transactiewaarden, POS-inwisselrecords en winkelgegevens moeten de werkelijkheid weerspiegelen.",
@@ -115,7 +115,7 @@ const content = {
     { h: "9. Contact", p: "Wangedrag of verdachte activiteiten melden: trust@dutyboost.com · DutyBoost B.V., een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053181, Amsterdam, Nederland." },
   ]},
   de: { title: "Verhaltenskodex", updated: "Zuletzt aktualisiert: August 2026", back: "Zurück zur Startseite", sections: [
-    { h: "1. Unser Engagement", p: "DutyBoost betreibt a Performance-based Customer Acquisition Infrastructure for Global Travel, basierend auf dem Prinzip, dass Reisepartner, Flughafenhändler, POS-Partner und Reisende fair und transparent profitieren sollen. Wir verpflichten uns, eine vertrauenswürdige, professionelle Plattform aufrechtzuerhalten, die den ethischen Standards der internationalen Reise- und Flughafeneinzelhandelsbranche entspricht." },
+    { h: "1. Unser Engagement", p: "DutyBoost betreibt a Performance-based Customer Acquisition Solution for Global Travel, basierend auf dem Prinzip, dass Reisepartner, Flughafenhändler, POS-Partner und Reisende fair und transparent profitieren sollen. Wir verpflichten uns, eine vertrauenswürdige, professionelle Plattform aufrechtzuerhalten, die den ethischen Standards der internationalen Reise- und Flughafeneinzelhandelsbranche entspricht." },
     { h: "2. Erwartetes Verhalten — Alle Nutzer", list: [
       "Ehrlich und in gutem Glauben bei der Nutzung der Plattform handeln.",
       "Genaue, überprüfbare Daten angeben — PNR, Transaktionswerte, POS-Einlösungsdatensätze und Geschäftsdaten müssen der Realität entsprechen.",
@@ -169,7 +169,7 @@ const content = {
     { h: "9. Kontakt", p: "Fehlverhalten oder verdächtige Aktivitäten melden: trust@dutyboost.com · DutyBoost B.V., eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053181, Amsterdam, Niederlande." },
   ]},
   fr: { title: "Code de conduite", updated: "Dernière mise à jour : août 2026", back: "Retour à l'accueil", sections: [
-    { h: "1. Notre engagement", p: "DutyBoost exploite a Performance-based Customer Acquisition Infrastructure for Global Travel, fondé sur le principe que les partenaires de voyage, les détaillants aéroportuaires, les partenaires POS et les voyageurs doivent tous bénéficier équitablement et de manière transparente. Nous nous engageons à maintenir une plateforme professionnelle qui respecte les normes éthiques des secteurs du voyage et du commerce de détail aéroportuaire internationaux." },
+    { h: "1. Notre engagement", p: "DutyBoost exploite a Performance-based Customer Acquisition Solution for Global Travel, fondé sur le principe que les partenaires de voyage, les détaillants aéroportuaires, les partenaires POS et les voyageurs doivent tous bénéficier équitablement et de manière transparente. Nous nous engageons à maintenir une plateforme professionnelle qui respecte les normes éthiques des secteurs du voyage et du commerce de détail aéroportuaire internationaux." },
     { h: "2. Comportement attendu — Tous les utilisateurs", list: [
       "Agir honnêtement et de bonne foi lors de l'utilisation de la plateforme.",
       "Fournir des données précises et vérifiables — références de réservation (PNR), valeurs de transaction, enregistrements d'échange POS et détails du magasin doivent refléter la réalité.",
@@ -223,7 +223,7 @@ const content = {
     { h: "9. Contact", p: "Signaler un comportement inapproprié ou une activité suspecte : trust@dutyboost.com · DutyBoost B.V., entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053181, Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Código de conducta", updated: "Última actualización: agosto de 2026", back: "Volver al inicio", sections: [
-    { h: "1. Nuestro compromiso", p: "DutyBoost opera a Performance-based Customer Acquisition Infrastructure for Global Travel, basado en el principio de que los socios de viaje, los comercios aeroportuarios, los socios POS y los pasajeros deben beneficiarse de manera justa y transparente. Nos comprometemos a mantener una plataforma profesional que defienda los estándares éticos de los sectores internacionales del viaje y el comercio minorista aeroportuario." },
+    { h: "1. Nuestro compromiso", p: "DutyBoost opera a Performance-based Customer Acquisition Solution for Global Travel, basado en el principio de que los socios de viaje, los comercios aeroportuarios, los socios POS y los pasajeros deben beneficiarse de manera justa y transparente. Nos comprometemos a mantener una plataforma profesional que defienda los estándares éticos de los sectores internacionales del viaje y el comercio minorista aeroportuario." },
     { h: "2. Comportamiento esperado — Todos los usuarios", list: [
       "Actuar con honestidad y buena fe en todo momento.",
       "Proporcionar datos precisos y verificables — referencias de reserva (PNR), valores de transacción, registros de canje POS y detalles de tienda deben reflejar la realidad.",
@@ -277,7 +277,7 @@ const content = {
     { h: "9. Contacto", p: "Reportar conductas inapropiadas o actividades sospechosas: trust@dutyboost.com · DutyBoost B.V., entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053181, Ámsterdam, Países Bajos." },
   ]},
   it: { title: "Codice di condotta", updated: "Ultimo aggiornamento: agosto 2026", back: "Torna alla home", sections: [
-    { h: "1. Il nostro impegno", p: "DutyBoost gestisce a Performance-based Customer Acquisition Infrastructure for Global Travel, costruita sul principio che i partner di viaggio, i rivenditori aeroportuali, i partner POS e i viaggiatori debbano beneficiare equamente e in modo trasparente. Ci impegniamo a mantenere una piattaforma professionale che rispetti gli standard etici dei settori internazionali del viaggio e del commercio al dettaglio aeroportuale." },
+    { h: "1. Il nostro impegno", p: "DutyBoost gestisce a Performance-based Customer Acquisition Solution for Global Travel, costruita sul principio che i partner di viaggio, i rivenditori aeroportuali, i partner POS e i viaggiatori debbano beneficiare equamente e in modo trasparente. Ci impegniamo a mantenere una piattaforma professionale che rispetti gli standard etici dei settori internazionali del viaggio e del commercio al dettaglio aeroportuale." },
     { h: "2. Comportamento atteso — Tutti gli utenti", list: [
       "Agire onestamente e in buona fede in ogni momento.",
       "Fornire dati accurati e verificabili — riferimenti di prenotazione (PNR), valori delle transazioni, registrazioni di riscatto POS e dettagli del negozio devono riflettere la realtà.",

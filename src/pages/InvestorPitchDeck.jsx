@@ -116,7 +116,7 @@ export function SlideCover() {
           <div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#0a0f1e] leading-tight mb-4">
               A Performance-based Customer Acquisition<br />
-              <span className="text-blue-600">Infrastructure for Global Travel</span>
+              <span className="text-blue-600">Solution for Global Travel</span>
             </h1>
             <p className="text-xl text-slate-500 max-w-3xl leading-relaxed">
               Pre-Revenue Investment Opportunity
@@ -583,7 +583,7 @@ export function SlideModel() {
                   { party: "Travellers", val: "€1M in savings" },
                   { party: "Travel & Corporate Partners", val: "€100,000 ancillary revenue" },
                   { party: "POS Partners", val: "€50,000 transaction revenue" },
-                  { party: "DutyBoost", val: "€350,000 infrastructure revenue" },
+                  { party: "DutyBoost", val: "€350,000 platform revenue" },
                   { party: "Retailers", val: "€18.5M net before costs" },
                 ].map((row) => (
                   <div key={row.party} className="flex flex-col">
@@ -623,7 +623,7 @@ export function SlideTransaction() {
               { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "€18.50", sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
               { party: "Travel & Corporate Partner", Icon: Briefcase, value: "€0.10", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
               { party: "POS Partner", Icon: Cpu, value: "€0.05", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-              { party: "DutyBoost", Icon: BarChart3, value: "€0.35", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+              { party: "DutyBoost", Icon: BarChart3, value: "€0.35", sub: "Platform revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-600`} />
@@ -717,7 +717,7 @@ export function SlideFlywheel() {
               <div className="absolute inset-0 rounded-full border-2 border-blue-200" />
               {/* Center */}
               <div className="bg-blue-600 border-2 border-blue-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
-                <div className="text-white text-xs font-bold leading-tight px-2">Performance-Based Customer Acquisition Infrastructure</div>
+                <div className="text-white text-xs font-bold leading-tight px-2">Performance-Based Customer Acquisition Solution</div>
               </div>
               {/* Steps around circle */}
               {steps.slice(0, 11).map((step, i) => {
@@ -837,7 +837,7 @@ export function SlideFinancials() {
           <div className="bg-violet-50 border border-violet-200 rounded-xl p-4 text-center">
             <div className="text-2xl font-bold text-violet-700">72.8%</div>
             <div className="text-sm text-violet-600 font-semibold">Year 5 EBITDA Margin</div>
-            <div className="text-xs text-slate-500 mt-1">Infrastructure platform economics</div>
+            <div className="text-xs text-slate-500 mt-1">Platform economics</div>
           </div>
         </div>
       </div>
@@ -1122,12 +1122,12 @@ export function SlideInvitation() {
           <div className="mb-3">
             <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">The Opportunity</span>
             <h2 className="text-lg md:text-3xl font-heading font-bold text-[#0a0f1e] mt-2 leading-tight">
-              An Infrastructure Stake in{" "}
+              A Performance-Based Stake in{" "}
               <span className="text-blue-600">Global Travel Retail</span>
             </h2>
           </div>
           <p className="text-slate-600 text-sm md:text-base max-w-3xl mx-auto leading-snug mb-3">
-            DutyBoost is a performance-based revenue infrastructure. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and every participant earns from the same transaction.
+            DutyBoost is a performance-based revenue solution. It requires no new market creation, no consumer behaviour change, and no upfront cost to any partner. It connects existing participants around one validated transaction — and every participant earns from the same transaction.
           </p>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-3 text-left">
             <p className="text-slate-800 text-sm md:text-base leading-snug">

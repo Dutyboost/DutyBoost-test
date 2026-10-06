@@ -1,4 +1,4 @@
-const POSITIONING = "A Performance-based Customer Acquisition Infrastructure for Global Travel";
+const POSITIONING = "A Performance-based Customer Acquisition Solution for Global Travel";
 
 const HERO_GRADIENT = {
   backgroundImage: "linear-gradient(90deg, hsl(220 30% 12%) 0%, hsl(220 30% 22%) 42%, hsl(220 100% 56%) 62%, hsl(29 100% 50%) 100%)",

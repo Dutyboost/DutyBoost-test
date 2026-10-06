@@ -181,6 +181,6 @@ export default {
   partner_web_loading_note: 'This uses 1 integration credit per search. Publicly reported annual volumes are estimates.',
   partner_web_not_found: 'Could not find this company or its public volume data. Try a different name or search term.',
   partner_web_error: 'Web search failed. Please try again or enter the volume manually.',
-  retailer_cta_desc: 'Travel partners pre-activate shoppers before they reach your store — turning passing traffic into ready-to-buy customers. Be part of the performance-based customer acquisition infrastructure where retailers increase sales, travellers redeem the rewards they received from travel partners, and travel partners earn passive income — all through one intelligent platform.',
+  retailer_cta_desc: 'Travel partners pre-activate shoppers before they reach your store — turning passing traffic into ready-to-buy customers. Be part of the performance-based customer acquisition solution where retailers increase sales, travellers redeem the rewards they received from travel partners, and travel partners earn passive income — all through one intelligent platform.',
   partner_cta_desc: 'Until now, the revenue travellers spent at airport shops never flowed back to you. With DutyBoost, every booking you issue unlocks a new income stream — earn passive commission each time your travellers redeem DutyCredits at airport retailers, at zero cost to you. Boost loyalty and monetise journeys in a way that simply wasn\u2019t possible before.',
 };

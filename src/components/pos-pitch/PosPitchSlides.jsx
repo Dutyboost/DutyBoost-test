@@ -558,7 +558,7 @@ export function SlideEcosystem({ currency = "€" }) {
     { party: "Airport Retailer", Icon: AirportRetailerIcon, value: `${currency}${m.retailer}`, sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
     { party: "Travel & Corporate Partner", Icon: Briefcase, value: `${currency}${m.partner}`, sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
     { party: "POS Partner", Icon: Cpu, value: `${currency}${m.pos}`, sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-    { party: "DutyBoost", Icon: BarChart3, value: `${currency}${m.boost}`, sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+    { party: "DutyBoost", Icon: BarChart3, value: `${currency}${m.boost}`, sub: "Platform revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
   ];
   return (
     <SlideWrapper>
@@ -683,7 +683,7 @@ export function SlideModel({ currency = "€" }) {
                     { party: "Travellers", val: `${currency}${m.m1} in savings` },
                     { party: "Travel & Corporate Partners", val: `${currency}${m.m2} ancillary revenue` },
                     { party: "POS Partners", val: `${currency}${m.m3} transaction revenue` },
-                    { party: "DutyBoost", val: `${currency}${m.m4} infrastructure revenue` },
+                    { party: "DutyBoost", val: `${currency}${m.m4} platform revenue` },
                     { party: "Retailers", val: `${currency}${m.m5} net before costs` },
                   ].map((row) => (
                     <div key={row.party} className="flex flex-col">
@@ -897,7 +897,7 @@ export function SlideFlywheel({ currency = "€" }) {
             <div className="relative flex items-center justify-center" style={{ height: "340px" }}>
               <div className="absolute inset-0 rounded-full border-2 border-violet-200" />
               <div className="bg-violet-600 border-2 border-violet-700 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center z-10">
-                <div className="text-white text-xs font-bold leading-tight px-2">Performance-Based Customer Acquisition Infrastructure</div>
+                <div className="text-white text-xs font-bold leading-tight px-2">Performance-Based Customer Acquisition Solution</div>
               </div>
               {steps.slice(0, 11).map((step, i) => {
                                const angle = (i / 11) * 360 - 90;

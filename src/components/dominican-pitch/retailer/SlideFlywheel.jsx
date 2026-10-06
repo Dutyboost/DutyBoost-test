@@ -30,7 +30,7 @@ export default function SlideFlywheel() {
                 style={{ background: ACCENT }}
               >
                 <div className="text-white text-sm font-bold leading-tight px-3">
-                  Performance-Based Customer Acquisition Infrastructure
+                  Performance-Based Customer Acquisition Solution
                 </div>
               </div>
               {c.steps.slice(0, 11).map((step, i) => {

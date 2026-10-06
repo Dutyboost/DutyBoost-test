@@ -520,7 +520,7 @@ function SlideTransaction() {
               { party: "Airport Retailer", Icon: AirportRetailerIcon, value: "$21.28", sub: "Net before normal costs (92.5%)", color: "blue", bg: "bg-blue-50", border: "border-blue-200" },
               { party: "Travel & Corporate Partner", Icon: TravelAgencyIcon, value: "$0.12", sub: "Ancillary revenue (0.5%)", color: "yellow", bg: "bg-yellow-50", border: "border-yellow-200" },
               { party: "POS Partner", Icon: BarChart3, value: "$0.06", sub: "Transaction revenue (0.25%)", color: "purple", bg: "bg-purple-50", border: "border-purple-200" },
-              { party: "DutyBoost", Icon: Boxes, value: "$0.40", sub: "Infrastructure revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
+              { party: "DutyBoost", Icon: Boxes, value: "$0.40", sub: "Platform revenue (1.75%)", color: "orange", bg: "bg-orange-50", border: "border-orange-200" },
             ].map((p) => (
               <div key={p.party} className={`${p.bg} border ${p.border} rounded-2xl p-4 text-center`}>
                 <p.Icon className={`w-9 h-9 mx-auto mb-2 text-${p.color}-600`} />
