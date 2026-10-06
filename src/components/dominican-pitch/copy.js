@@ -427,7 +427,7 @@ export const COPY = {
       title: "Already Live in the Caribbean.",
       titleAccent: "Two Markets, Redeeming Today.",
       subtitle:
-        "DutyBoost is expanding across the Caribbean — the same terms, the same single POS activation and the same DutyCredit redeemed at the till in every market it enters — and it is looking to engage with the Dominican Republic's innovation agenda as the next step in that regional growth.",
+        "DutyBoost is expanding across the Caribbean — the same terms, the same single POS activation and the same DutyCredit redeemed at the till in every market it enters.",
       live: "Live",
       sxm: {
         country: "Sint Maarten",
@@ -1322,7 +1322,7 @@ export const COPY = {
       title: "Ya operativos en el Caribe.",
       titleAccent: "Dos mercados canjeando hoy.",
       subtitle:
-        "DutyBoost se está expandiendo por el Caribe — las mismas condiciones, una sola activación en el POS y el mismo DutyCredit canjeado en la caja en cada mercado donde entra — y busca sumarse a la agenda de innovación de la República Dominicana como siguiente paso de ese crecimiento regional.",
+        "DutyBoost se está expandiendo por el Caribe — las mismas condiciones, una sola activación en el POS y el mismo DutyCredit canjeado en la caja en cada mercado donde entra.",
       live: "Activo",
       sxm: {
         country: "Sint Maarten",
