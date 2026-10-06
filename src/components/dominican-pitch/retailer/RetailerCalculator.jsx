@@ -21,16 +21,6 @@ const FIELDS = [
   { key: "basket", prefix: "$", step: 1 },
 ];
 
-// What a blank field falls back to, shown as its placeholder so the fallback is
-// never a hidden figure.
-const PLACEHOLDERS = {
-  stores: DEFAULT_STORES,
-  travellers: DEFAULT_TRAVELLERS_DAY,
-  activation: DEFAULT_ACTIVATION,
-  redemption: DEFAULT_REDEMPTION,
-  basket: DEFAULT_BASKET,
-};
-
 export default function RetailerCalculator() {
   const { t } = useDeckLang();
   const c = t.retail.revenueCalculator;
@@ -166,10 +156,12 @@ export default function RetailerCalculator() {
                 type="number"
                 min="0"
                 step={field.step}
-                placeholder={PLACEHOLDERS[field.key]}
+                // Blank until an airport is chosen — the airport sets the
+                // scenario, the retailer then adjusts it.
+                disabled={!selectedAirport}
                 value={inputs[field.key]}
                 onChange={(e) => set(field.key, e.target.value)}
-                className={`w-full rounded-lg border border-slate-300 bg-white py-1.5 pr-6 text-sm font-semibold text-slate-800 focus:outline-none ${
+                className={`w-full rounded-lg border border-slate-300 bg-white py-1.5 pr-6 text-sm font-semibold text-slate-800 focus:outline-none disabled:bg-slate-100 disabled:text-slate-400 ${
                   field.prefix ? "pl-5" : "pl-2"
                 }`}
               />
