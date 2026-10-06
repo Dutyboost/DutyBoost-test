@@ -472,7 +472,7 @@ export const COPY = {
         rolloutTitle: "Redeeming from 15 October 2026",
         rollout: "Caribbean Duty Free stores at Piarco International Airport",
         rolloutDesc:
-          "Caribbean Duty Free's Piarco stores — liquor & spirits, perfumes & fragrances, and cigars & cigarettes — span the concourse, with DutyCredits redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten. No new hardware and no change to the cashier's routine: the discount is applied, the sale recorded and the transaction settled inside the POS the stores already use, with every redemption attributed automatically for reporting. The categories Caribbean Duty Free trades are exactly where the DutyCredit lifts the basket — travellers arrive at Piarco already holding a benefit, and redeem it where they were going to shop anyway.",
+          "Caribbean Duty Free's Piarco stores — liquor & spirits, perfumes & fragrances, and cigars & cigarettes — span the concourse, with DutyCredits redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten. No new hardware and no change to the cashier's routine: the discount, the recorded sale and the settlement all happen inside the POS the stores already use.",
         rolloutNote:
           "The POS layer is live, and the Caribbean Duty Free stores in the concourse are being switched on store by store.",
       },
@@ -1385,7 +1385,7 @@ export const COPY = {
         rolloutTitle: "Canjeando desde el 15 de octubre de 2026",
         rollout: "Tiendas Caribbean Duty Free en el Aeropuerto Internacional de Piarco",
         rolloutDesc:
-          "Las tiendas de Caribbean Duty Free en Piarco — licores y destilados, perfumes y fragancias y cigarros y cigarrillos — cubren toda la zona comercial, con DutyCredits canjeados en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten. Sin hardware nuevo y sin cambios en la rutina del cajero: el descuento se aplica, la venta se registra y la transacción se liquida dentro del POS que las tiendas ya utilizan, con cada canje atribuido automáticamente para el reporting. Las categorías que comercializa Caribbean Duty Free son justo donde el DutyCredit eleva la cesta — los pasajeros llegan a Piarco con un beneficio y lo canjean donde iban a comprar de todos modos.",
+          "Las tiendas de Caribbean Duty Free en Piarco — licores y destilados, perfumes y fragancias y cigarros y cigarrillos — cubren toda la zona comercial, con DutyCredits canjeados en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten. Sin hardware nuevo y sin cambios en la rutina del cajero: el descuento, el registro de la venta y la liquidación ocurren dentro del POS que las tiendas ya utilizan.",
         rolloutNote:
           "La capa de POS está activa y las tiendas Caribbean Duty Free de la zona comercial se van activando tienda a tienda.",
       },
