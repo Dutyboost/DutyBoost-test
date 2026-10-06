@@ -465,7 +465,6 @@ export const COPY = {
       ],
       footer:
         "Same model, same terms, one POS activation — expanding across the Caribbean, with the Dominican Republic as the next market.",
-      footnote: "Deployment status across DutyBoost's Caribbean markets, 2026.",
     },
     retailCover: {
       title: "Incremental Revenue From Travellers",
@@ -1361,7 +1360,6 @@ export const COPY = {
       ],
       footer:
         "El mismo modelo, las mismas condiciones, una sola activación en el POS — expandiéndonos por el Caribe, con la República Dominicana como próximo mercado.",
-      footnote: "Estado de despliegue en los mercados caribeños de DutyBoost, 2026.",
     },
     retailCover: {
       title: "Ingresos incrementales de pasajeros",

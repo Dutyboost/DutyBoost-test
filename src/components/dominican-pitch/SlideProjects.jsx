@@ -142,10 +142,7 @@ export default function SlideProjects() {
 
           <div className="mt-3 flex items-start gap-3">
             <BadgeCheck className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ACCENT }} />
-            <div>
-              <p className="text-base font-semibold text-slate-700">{c.footer}</p>
-              <p className="text-xs text-slate-400 mt-0.5">{c.footnote}</p>
-            </div>
+            <p className="text-base font-semibold text-slate-700">{c.footer}</p>
           </div>
         </div>
       </div>
