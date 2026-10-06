@@ -21,6 +21,7 @@ export const COPY = {
       conversion: "Conversion Opportunity",
       acquisition: "Customer Acquisition — On Us",
       businessModel: "Business Model",
+      revenueCalculator: "Revenue Potential — Per Day",
       tierMix: "Transaction Mix — Tier Economics",
       transaction: "Transaction Economics",
       estate: "Across Your Store Estate",
@@ -733,7 +734,21 @@ export const COPY = {
           "Tier mix calibrated to the published average transaction value of $70–$140 in travel retail (market.us, Travel Retail Market 2026); average retail spend per passenger of €10.55 in 2025 (ETRC) and $15.50 in 2024, down from $24.30 in 2020 (Kearney, Travel Retail 2025); ±70% of airport retail purchases are impulse-driven (ACI Asia-Pacific); 27% Caribbean purchase rate — the conversion headroom the programme targets (m1nd-set). Tier mix is illustrative of a 2025 basket distribution and can be replaced with your own POS data.",
       },
       revenueCalculator: {
-        title: "Incremental Revenue Potential, Per Day",
+        slideEyebrow: "The Retailer Model",
+        slideTitle: "Incremental Revenue Potential,",
+        slideTitleAccent: "Per Day",
+        slideSubtitle:
+          "Enter the retailer's own figures — the model recalculates live, and every following slide reads the same scenario.",
+        footfallTitle: "Where the travellers are",
+        entered: "enter a duty free store",
+        walked: "walk straight to their gates",
+        enterNote: "of every international traveller passing through the concourse",
+        convertTitle: "Of those who enter a store",
+        purchased: "go on to buy",
+        left: "walk back out without buying",
+        convertNote:
+          "the group DutyBoost pre-activates — a traveller already inside the store.",
+        title: "Your Scenario",
         hint: "Enter your own figures — the model recalculates",
         airport: {
           label: "Airport",
@@ -935,6 +950,7 @@ export const COPY = {
       conversion: "Oportunidad de conversión",
       acquisition: "Adquisición de clientes",
       businessModel: "Modelo de negocio",
+      revenueCalculator: "Potencial de ingresos — por día",
       tierMix: "Mezcla de transacciones",
       transaction: "Economía de la transacción",
       estate: "Su parque de tiendas",
@@ -1647,7 +1663,21 @@ export const COPY = {
           "Mezcla de niveles calibrada con el valor medio de transacción publicado de $70–$140 en travel retail (market.us, Travel Retail Market 2026); gasto medio por pasajero de €10.55 en 2025 (ETRC) y $15.50 en 2024, frente a $24.30 en 2020 (Kearney, Travel Retail 2025); ±70% de las compras en aeropuertos son por impulso (ACI Asia-Pacific); 27% de tasa de compra en el Caribe — el margen de conversión que persigue el programa (m1nd-set). La mezcla de niveles es ilustrativa de una distribución de cestas de 2025 y puede sustituirse por sus propios datos de POS.",
       },
       revenueCalculator: {
-        title: "Potencial de ingresos incrementales, por día",
+        slideEyebrow: "El modelo del minorista",
+        slideTitle: "Potencial de ingresos incrementales,",
+        slideTitleAccent: "por día",
+        slideSubtitle:
+          "Introduzca las cifras del propio minorista — el modelo se recalcula en vivo y todas las diapositivas siguientes leen el mismo escenario.",
+        footfallTitle: "Dónde están los pasajeros",
+        entered: "entran en una tienda duty free",
+        walked: "se dirigen directamente a su puerta de embarque",
+        enterNote: "de todos los pasajeros internacionales que pasan por la zona comercial",
+        convertTitle: "De los que entran en una tienda",
+        purchased: "acaban comprando",
+        left: "salen sin comprar",
+        convertNote:
+          "el grupo que DutyBoost preactiva — un pasajero que ya está dentro de la tienda.",
+        title: "Su escenario",
         hint: "Introduzca sus propias cifras — el modelo se recalcula",
         airport: {
           label: "Aeropuerto",

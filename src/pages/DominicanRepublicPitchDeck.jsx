@@ -8,6 +8,7 @@ import SlideMarket from "@/components/dominican-pitch/retailer/SlideMarket";
 import SlideConversion from "@/components/dominican-pitch/retailer/SlideConversion";
 import SlideAcquisition from "@/components/dominican-pitch/retailer/SlideAcquisition";
 import SlideBusinessModel from "@/components/dominican-pitch/retailer/SlideBusinessModel";
+import SlideRevenueCalculator from "@/components/dominican-pitch/retailer/SlideRevenueCalculator";
 import SlideTierMix from "@/components/dominican-pitch/retailer/SlideTierMix";
 import SlideTransaction from "@/components/dominican-pitch/retailer/SlideTransaction";
 import SlideEstate from "@/components/dominican-pitch/retailer/SlideEstate";
@@ -33,6 +34,7 @@ const SLIDES = [
   { id: "conversion", type: "conversion" },
   { id: "acquisition", type: "acquisition" },
   { id: "businessModel", type: "businessModel" },
+  { id: "revenueCalculator", type: "revenueCalculator" },
   { id: "transaction", type: "transaction" },
   { id: "estate", type: "estate" },
   { id: "tierMix", type: "tierMix" },
@@ -54,6 +56,7 @@ const SLIDE_COMPONENTS = {
   conversion: SlideConversion,
   acquisition: SlideAcquisition,
   businessModel: SlideBusinessModel,
+  revenueCalculator: SlideRevenueCalculator,
   tierMix: SlideTierMix,
   transaction: SlideTransaction,
   estate: SlideEstate,

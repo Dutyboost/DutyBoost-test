@@ -2,7 +2,6 @@ import { CheckCircle } from "lucide-react";
 import { TIER_ROWS, BASKET_CAP, DISCOUNT_CAP, usd } from "../figures";
 import { ACCENT, GridBg, SlideWrapper } from "../Shared";
 import { useDeckLang } from "../LanguageContext";
-import RetailerCalculator from "./RetailerCalculator";
 
 export default function SlideBusinessModel() {
   const { t } = useDeckLang();
@@ -72,10 +71,6 @@ export default function SlideBusinessModel() {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="mt-3 shrink-0">
-            <RetailerCalculator />
           </div>
         </div>
       </div>
