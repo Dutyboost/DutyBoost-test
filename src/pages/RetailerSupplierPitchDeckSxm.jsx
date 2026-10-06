@@ -118,7 +118,7 @@ function SlideTeam() {
     {
       name: "Jaquelin Beliad Perez",
       role: "Co-Founder / Airport Retail & Brand Specialist",
-      linkedin: "https://www.linkedin.com/in/maria-jaquelin-m-46b21486/",
+      linkedin: "https://www.linkedin.com/in/jaquelin-b-46b21486/",
       photo: "https://media.base44.com/images/public/69c97dcd1c1950fa88424690/abc1d9aaf_JaquelinBeliadPerez.jpeg",
     },
     {
