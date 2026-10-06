@@ -11,7 +11,7 @@ export default function SxmRedemptionCard() {
   const c = t.projects.sxm;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl p-5 md:p-7 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
+    <div className="relative overflow-hidden rounded-2xl p-4 md:p-5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
       <div
         className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
@@ -23,8 +23,8 @@ export default function SxmRedemptionCard() {
               <span className="text-sm font-bold tracking-widest text-white/40">SXM</span>
               <Ticket className="w-4 h-4 text-white/40" />
             </div>
-            <h3 className="font-heading font-bold text-2xl md:text-3xl mt-1">{c.country}</h3>
-            <p className="text-white/50 text-sm">{c.airport}</p>
+            <h3 className="font-heading font-bold text-xl md:text-2xl mt-1">{c.country}</h3>
+            <p className="text-white/50 text-xs">{c.airport}</p>
           </div>
           <span
             className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex-shrink-0"
@@ -35,17 +35,17 @@ export default function SxmRedemptionCard() {
           </span>
         </div>
 
-        <p className="text-base font-semibold mt-3" style={{ color: "#f5d0fe" }}>
+        <p className="text-sm font-semibold mt-2" style={{ color: "#f5d0fe" }}>
           {c.status}
         </p>
 
-        <div className="mt-4 flex-1 space-y-3">
+        <div className="mt-3 flex-1 space-y-2">
           <div className="text-xs uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
-          <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3">
-            <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
+          <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+            <span className="text-xl font-bold" style={{ color: "#f5d0fe" }}>
               {num(SXM_REDEMPTIONS.redeemed)}
             </span>
-            <span className="text-sm text-white/60 ml-2">{c.redeemedLabel}</span>
+            <span className="text-xs text-white/60 ml-2">{c.redeemedLabel}</span>
             <div className="text-xs text-white/45 mt-1">
               {c.preActivatedLine(
                 num(SXM_REDEMPTIONS.preActivated),
@@ -55,13 +55,13 @@ export default function SxmRedemptionCard() {
             </div>
           </div>
 
-          <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3">
+          <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
             <div className="text-xs uppercase tracking-widest text-white/40">{c.sinceTitle}</div>
             <div className="mt-1">
-              <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
+              <span className="text-xl font-bold" style={{ color: "#f5d0fe" }}>
                 {usdShort(SXM_SINCE_LAUNCH.retailValue)}
               </span>
-              <span className="text-sm text-white/60 ml-2">{c.revenueLabel}</span>
+              <span className="text-xs text-white/60 ml-2">{c.revenueLabel}</span>
             </div>
             <div className="text-xs text-white/45 mt-1">
               {c.sinceLine(num(SXM_SINCE_LAUNCH.redeemed))}
@@ -69,11 +69,11 @@ export default function SxmRedemptionCard() {
           </div>
 
           <div className="text-xs uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             {SXM_BASKETS.map((b) => (
               <div
                 key={b.basket}
-                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5"
+                className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-1"
               >
                 <span className="text-sm font-bold" style={{ color: "#f5d0fe" }}>
                   {usd(b.basket)}
