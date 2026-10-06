@@ -438,6 +438,9 @@ export const COPY = {
           { name: "Dutch Delight Store", detail: "Duty free — departure hall" },
           { name: "ILTT Liquor & Tobacco", detail: "Liquor, tobacco & confectionery" },
         ],
+        posTitle: "Implemented at POS level",
+        pos: "NCR CounterPoint",
+        posNote: "DutyCredit validation runs natively inside NCR CounterPoint — the same platform as Trinidad & Tobago.",
         note:
           "Travellers arrive pre-activated and redeem on the POS the stores already run — no new hardware and no new till procedure.",
       },
@@ -1329,6 +1332,9 @@ export const COPY = {
           { name: "Dutch Delight Store", detail: "Duty free — sala de salidas" },
           { name: "ILTT Liquor & Tobacco", detail: "Licores, tabaco y confitería" },
         ],
+        posTitle: "Implantado a nivel de POS",
+        pos: "NCR CounterPoint",
+        posNote: "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — la misma plataforma que en Trinidad y Tobago.",
         note:
           "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan — sin hardware nuevo ni cambios en el proceso de caja.",
       },

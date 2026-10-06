@@ -75,6 +75,8 @@ export default function SlideProjects() {
         {c.sxm.partners.map((p) => (
           <PartnerRow key={p.name} name={p.name} detail={p.detail} />
         ))}
+        <div className="text-xs uppercase tracking-widest text-white/40 pt-1">{c.sxm.posTitle}</div>
+        <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} />
       </>
     ),
   };
