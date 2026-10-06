@@ -51,4 +51,6 @@ export const SXM_BASKETS = [
   { basket: 74, store: "ILTT Liquor & Tobacco" },
   { basket: 58, store: "Dutch Delight Store" },
   { basket: 41, store: "ILTT Liquor & Tobacco" },
+  { basket: 36, store: "Dutch Delight Store" },
+  { basket: 29, store: "ILTT Liquor & Tobacco" },
 ];
