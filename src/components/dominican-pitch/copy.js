@@ -523,7 +523,7 @@ export const COPY = {
         c2: {
           value: "18.4M",
           label: "Passenger movements a year across the Dominican Republic's major airports",
-          note: "Punta Cana, Las Américas and Santiago — arrivals and departures combined | 8.9M visitors in, 8.9M out and 600K Dominican residents flying out and returning home, every one a shopper in the terminal",
+          note: "Punta Cana, Las Américas and Santiago — arrivals and departures combined | 8.9M visitors in, 8.9M out including 600K Dominican residents flying out and returning home, every one a shopper in the terminal",
         },
         c3: {
           value: "73%",
@@ -1452,7 +1452,7 @@ export const COPY = {
         c2: {
           value: "18.4M",
           label: "Movimientos de pasajeros al año en los principales aeropuertos del país",
-          note: "Punta Cana, Las Américas y Santiago — llegadas y salidas combinadas | 8.9M de visitantes que llegan, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa, todos compradores en la terminal",
+          note: "Punta Cana, Las Américas y Santiago — llegadas y salidas combinadas | 8.9M de visitantes que llegan, 8.9M que salen, incluidos 600K de residentes dominicanos que viajan fuera y regresan a casa, todos compradores en la terminal",
         },
         c3: {
           value: "73%",
