@@ -573,7 +573,7 @@ export const COPY = {
         eyebrow: "Dominican Republic Market Opportunity",
         title: "18.4M Passenger Movements. 3 Airports.",
         titleAccent: "The Busiest Air Market in the Caribbean.",
-        subtitle: "DutyBoost doesn't need to create the market. It connects what already exists — 18.4M passenger movements a year through the three gateways: 8.9M visitors arriving by air, 8.9M departing and 600K Dominican residents flying out and returning home. All of them spend inside the terminal.",
+        subtitle: "DutyBoost doesn't need to create the market. It connects what already exists — 18.4M passenger movements a year through the three gateways: 8.9M visitors arriving by air, 8.9M departing including 600K Dominican residents flying out and returning home. All of them spend inside the terminal.",
         kpis: [
           { value: "18.4M", label: "Passenger movements a year", sub: "Punta Cana, Las Américas and Santiago — 8.9M visitors in, 8.9M out and 600K Dominican residents flying out and returning home", color: "#952d8b" },
           { value: "13.4M", label: "Non-purchasing movements a year", sub: "73% of passengers, at the Caribbean benchmark", color: "#16a34a" },
@@ -1502,7 +1502,7 @@ export const COPY = {
         eyebrow: "Oportunidad del mercado dominicano",
         title: "18.4M de movimientos de pasajeros. 3 aeropuertos.",
         titleAccent: "El mercado aéreo más activo del Caribe.",
-        subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe — 18.4M de movimientos de pasajeros al año en las tres puertas: 8.9M de visitantes que llegan por vía aérea, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa. Todos gastan dentro de la terminal.",
+        subtitle: "DutyBoost no necesita crear el mercado. Conecta lo que ya existe — 18.4M de movimientos de pasajeros al año en las tres puertas: 8.9M de visitantes que llegan por vía aérea, 8.9M que salen, incluidos 600K de residentes dominicanos que viajan fuera y regresan a casa. Todos gastan dentro de la terminal.",
         kpis: [
           { value: "18.4M", label: "Movimientos de pasajeros al año", sub: "Punta Cana, Las Américas y Santiago — 8.9M de visitantes que llegan, 8.9M que salen y 600K de residentes dominicanos que viajan fuera y regresan a casa", color: "#952d8b" },
           { value: "13.4M", label: "Movimientos sin compra al año", sub: "El 73% de los pasajeros, según la referencia del Caribe", color: "#16a34a" },
