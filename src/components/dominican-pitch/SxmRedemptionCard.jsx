@@ -56,7 +56,9 @@ export default function SxmRedemptionCard() {
           </div>
 
           <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-            <div className="text-xs uppercase tracking-widest text-white/40">{c.sinceTitle}</div>
+            <div className="text-xs uppercase tracking-widest text-white/40">
+              {c.sinceTitle(SXM_SINCE_LAUNCH.days)}
+            </div>
             <div className="mt-1">
               <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
                 {usdShort(SXM_SINCE_LAUNCH.retailValue)}
