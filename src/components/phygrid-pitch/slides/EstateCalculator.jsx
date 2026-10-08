@@ -8,7 +8,7 @@ import {
   usdShort,
   numShort,
 } from "@/components/phygrid-pitch/model";
-import { useEstateInputs } from "@/components/phygrid-pitch/EstateContext";
+import { useEstateInputs, BLANK_INPUTS } from "@/components/phygrid-pitch/EstateContext";
 import AirportSearch from "@/components/phygrid-pitch/AirportSearch";
 
 const FIELDS = [
@@ -31,7 +31,12 @@ export default function EstateCalculator() {
   // its daily passengers who walk straight to their gates.
   const chooseAirport = (a) => {
     setAirport(a);
-    setMany({ travellersDay: a ? String(walkedPerDay(a.annual_pax)) : "" });
+    // Clearing the airport clears every field with it — the slide starts empty.
+    if (!a) {
+      setMany({ ...BLANK_INPUTS });
+      return;
+    }
+    setMany({ travellersDay: String(walkedPerDay(a.annual_pax)) });
   };
 
   const stores = n("controlled");
