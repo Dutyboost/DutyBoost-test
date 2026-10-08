@@ -84,30 +84,23 @@ export default function EstateCalculator() {
 
       <div className="shrink-0">
         <AirportSearch selected={airport} onSelect={chooseAirport} />
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-slate-700">
-          {airport ? (
-            <>
-              <span className="font-semibold text-slate-900">{airport.name}</span>
-              <span className="text-slate-300">·</span>
-              <span>
-                {airport.city}, {airport.country}
-              </span>
-              <span className="text-slate-300">·</span>
-              <span>{numShort(airport.annual_pax)} passengers / yr</span>
-              <span className="text-slate-300">·</span>
-              <span>{numShort(Math.round(airport.annual_pax / 365))} passengers / day</span>
-              <span className="text-slate-300">·</span>
-              <span className="font-semibold text-green-700">
-                {numShort(walkedPerDay(airport.annual_pax))} walk to gates / day
-              </span>
-            </>
-          ) : (
-            <span className="text-slate-500">
-              No airport selected — the estate's own average of {NON_PURCHASE_PER_STORE_DAY}{" "}
-              travellers to gates per store per day is used.
+        {airport && (
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-slate-700">
+            <span className="font-semibold text-slate-900">{airport.name}</span>
+            <span className="text-slate-300">·</span>
+            <span>
+              {airport.city}, {airport.country}
             </span>
-          )}
-        </div>
+            <span className="text-slate-300">·</span>
+            <span>{numShort(airport.annual_pax)} passengers / yr</span>
+            <span className="text-slate-300">·</span>
+            <span>{numShort(Math.round(airport.annual_pax / 365))} passengers / day</span>
+            <span className="text-slate-300">·</span>
+            <span className="font-semibold text-green-700">
+              {numShort(walkedPerDay(airport.annual_pax))} walk to gates / day
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 my-4 shrink-0">
