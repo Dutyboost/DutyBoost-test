@@ -56,6 +56,7 @@ export default function SxmRedemptionCard() {
                 num(SXM_REDEMPTIONS.passengers)
               )}
             </div>
+            <div className="text-sm text-white/60 mt-0.5">{c.microCampaign}</div>
           </div>
 
           <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
