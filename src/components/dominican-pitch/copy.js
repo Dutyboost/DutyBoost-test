@@ -428,7 +428,7 @@ export const COPY = {
       title: "Already Live in the Caribbean.",
       titleAccent: "Two Markets, One Redeeming Today.",
       subtitle:
-        "DutyBoost is expanding across the Caribbean, and is looking to open more doors in more islands of the region.",
+        "DutyBoost is expanding across the Caribbean and is opening more doors in the region.",
       live: "Live",
       inProgress: "Integration in progress",
       sxm: {
@@ -451,7 +451,7 @@ export const COPY = {
         posTitle: "Integration at POS level (02 Sept. 2026)",
         pos: "NCR CounterPoint",
         posNote:
-          "DutyCredit validation runs natively inside NCR CounterPoint — no separate integration, no new hardware and no change to the cashier's routine. The discount, the recorded sale and the settlement all run inside the POS the store already uses.",
+          "DutyCredit validation runs natively inside NCR CounterPoint — no separate integration, no new hardware and no change to the cashier's routine.",
         redemptionsTitle: "DutyCredits redeemed / day",
         redeemedLabel: "avg. redeemed / day",
         preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
@@ -463,7 +463,7 @@ export const COPY = {
         sinceLine: (n) => `${n} DutyCredits redeemed at the till`,
         feePill: (pct) => `DutyBoost platform fee (${pct}%)`,
         note:
-          "Travellers arrive pre-activated and redeem on the POS the stores already run — no new hardware and no new till procedure.",
+          "Travellers arrive pre-activated and redeem on the POS the stores already run.",
       },
       tnt: {
         country: "Trinidad & Tobago",
@@ -472,13 +472,13 @@ export const COPY = {
         posTitle: "POS integration in progress",
         pos: "NCR CounterPoint",
         posNote:
-          "DutyCredit validation is being implemented natively inside NCR CounterPoint — no separate integration, no new hardware and no change to the cashier's routine. The discount, the recorded sale and the settlement will run inside the POS the Caribbean Duty Free stores already use at Piarco.",
+          "DutyCredit validation is being implemented natively inside NCR CounterPoint — no separate integration, no new hardware and no change to the cashier's routine.",
         rolloutTitle: "Redeeming from 15 October 2026",
         rollout: "Caribbean Duty Free stores at Piarco",
         rolloutDesc:
           "Caribbean Duty Free's Piarco stores — liquor & spirits, perfumes & fragrances, and cigars & cigarettes — span the concourse, with DutyCredits redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten.",
         rolloutNote:
-          "The POS integration is still in progress — no store can redeem DutyCredits until 15 October 2026, when the Caribbean Duty Free stores in the concourse go live.",
+          "The POS integration is still in progress — the stores go live on 15 October 2026.",
       },
       stats: [
         { value: "2", label: "Caribbean markets live" },
@@ -1359,7 +1359,7 @@ export const COPY = {
       title: "Ya operativos en el Caribe.",
       titleAccent: "Dos mercados, uno canjeando hoy.",
       subtitle:
-        "DutyBoost se está expandiendo por el Caribe y busca abrir más puertas en más islas de la región.",
+        "DutyBoost se expande por el Caribe y abre nuevas puertas en la región.",
       live: "Activo",
       inProgress: "Integración en curso",
       sxm: {
@@ -1382,7 +1382,7 @@ export const COPY = {
         posTitle: "Integración a nivel de POS (02 sept. 2026)",
         pos: "NCR CounterPoint",
         posNote:
-          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — sin integración aparte, sin hardware nuevo y sin cambios en la rutina del cajero. El descuento, el registro de la venta y la liquidación se ejecutan dentro del POS que la tienda ya utiliza.",
+          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — sin integración aparte, sin hardware nuevo y sin cambios en la rutina del cajero.",
         redemptionsTitle: "DutyCredits canjeados / día",
         redeemedLabel: "canjeados / día (media)",
         preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
@@ -1394,7 +1394,7 @@ export const COPY = {
         sinceLine: (n) => `${n} DutyCredits canjeados en caja`,
         feePill: (pct) => `Comisión de plataforma de DutyBoost (${pct}%)`,
         note:
-          "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan — sin hardware nuevo ni cambios en el proceso de caja.",
+          "Los pasajeros llegan preactivados y canjean en el POS que las tiendas ya utilizan.",
       },
       tnt: {
         country: "Trinidad y Tobago",
@@ -1403,13 +1403,13 @@ export const COPY = {
         posTitle: "Integración de POS en curso",
         pos: "NCR CounterPoint",
         posNote:
-          "La validación del DutyCredit se está implantando de forma nativa dentro de NCR CounterPoint — sin integración aparte, sin hardware nuevo y sin cambios en la rutina del cajero. El descuento, el registro de la venta y la liquidación se ejecutarán dentro del POS que las tiendas Caribbean Duty Free ya utilizan en Piarco.",
+          "La validación del DutyCredit se está implantando de forma nativa dentro de NCR CounterPoint — sin integración aparte, sin hardware nuevo y sin cambios en la rutina del cajero.",
         rolloutTitle: "Canje a partir del 15 de octubre de 2026",
         rollout: "Tiendas Caribbean Duty Free en Piarco",
         rolloutDesc:
           "Las tiendas de Caribbean Duty Free en Piarco — licores y destilados, perfumes y fragancias y cigarros y cigarrillos — cubren toda la zona comercial, con DutyCredits canjeables en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten.",
         rolloutNote:
-          "La integración del POS sigue en curso — ninguna tienda podrá canjear DutyCredits hasta el 15 de octubre de 2026, cuando entren en servicio las tiendas Caribbean Duty Free de la zona comercial.",
+          "La integración del POS sigue en curso — las tiendas entran en servicio el 15 de octubre de 2026.",
       },
       stats: [
         { value: "2", label: "mercados del Caribe activos" },

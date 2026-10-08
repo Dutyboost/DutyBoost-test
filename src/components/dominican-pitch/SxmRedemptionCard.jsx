@@ -11,7 +11,7 @@ export default function SxmRedemptionCard({ compact = false }) {
   const c = t.projects.sxm;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl p-3.5 md:p-4 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
+    <div className="relative overflow-hidden rounded-2xl p-3 md:p-3.5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
       <div
         className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
@@ -41,7 +41,7 @@ export default function SxmRedemptionCard({ compact = false }) {
 
         <div className={`mt-2 flex-1 min-h-0 ${compact ? "space-y-1" : "space-y-1.5"} overflow-hidden`}>
           <div className="text-xs uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
-          <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
+          <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-1.5">
             <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
               {num(SXM_REDEMPTIONS.redeemed)}
             </span>
@@ -59,7 +59,7 @@ export default function SxmRedemptionCard({ compact = false }) {
             <div className="text-base text-white/60 mt-0.5">{c.microCampaign}</div>
           </div>
 
-          <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
+          <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-1.5">
             <div className="text-xs uppercase tracking-widest text-white/40">
               {c.sinceTitle(SXM_SINCE_LAUNCH.days)}
             </div>
