@@ -11,6 +11,7 @@ export const DEFAULT_BASKET = MODEL.basket;
 
 export const BLANK_INPUTS = {
   controlled: "",
+  travellersDay: "",
   activation: "",
   redemption: "",
   basket: "",
@@ -26,6 +27,7 @@ export function EstateProvider({ children }) {
     () => ({
       inputs,
       set: (key, v) => setInputs((p) => ({ ...p, [key]: v })),
+      setMany: (patch) => setInputs((p) => ({ ...p, ...patch })),
     }),
     [inputs]
   );
@@ -39,6 +41,15 @@ export function useEstateInputs() {
 const read = (inputs, key, fallback) =>
   inputs[key] === "" || inputs[key] == null ? fallback : Number(inputs[key]);
 
+// Travellers who walk straight to their gates, per store per day. An airport
+// picked from the global database sets the figure from that airport's own
+// traffic; with none selected the estate's own average is used.
+export function travellersPerStoreDay(inputs, stores) {
+  const typed = inputs.travellersDay;
+  if (typed === "" || typed == null) return NON_PURCHASE_PER_STORE_DAY;
+  return Number(typed) / (stores || 1);
+}
+
 // Per-store, per-year economics derived from the calculator inputs.
 export function computeEstate(inputs) {
   const stores = read(inputs, "controlled", DEFAULT_STORES);
@@ -46,8 +57,7 @@ export function computeEstate(inputs) {
   const redemption = read(inputs, "redemption", DEFAULT_REDEMPTION) / 100;
   const basket = read(inputs, "basket", DEFAULT_BASKET);
 
-  // Fixed base: the 78% who walk straight to their gates, per store, per day.
-  const travellers = NON_PURCHASE_PER_STORE_DAY * 365;
+  const travellers = travellersPerStoreDay(inputs, stores) * 365;
   const baskets = travellers * activation * redemption;
   const gross = baskets * basket;
   const pos = gross * MODEL.platformFee * MODEL.posShare;
@@ -77,7 +87,8 @@ export function computeEstate(inputs) {
 
 // Per-store economics at an arbitrary activation rate, for the sensitivity table.
 export function perStoreAtActivation(inputs, rate) {
-  const travellers = NON_PURCHASE_PER_STORE_DAY * 365;
+  const stores = read(inputs, "controlled", DEFAULT_STORES);
+  const travellers = travellersPerStoreDay(inputs, stores) * 365;
   const redemption = read(inputs, "redemption", DEFAULT_REDEMPTION) / 100;
   const basket = read(inputs, "basket", DEFAULT_BASKET);
   const baskets = travellers * rate * redemption;

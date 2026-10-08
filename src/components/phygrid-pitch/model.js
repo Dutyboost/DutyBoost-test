@@ -80,6 +80,11 @@ export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE);
 export const NON_PURCHASE_PER_STORE_DAY = Math.round(
   (ESTATE_TRAVELLERS / ESTATE_STORES / 365) * NON_PURCHASE_SHARE
 );
+// Travellers who walk straight to their gates at one airport, per day — its own
+// published traffic at the 78% non-purchase rate.
+export const walkedPerDay = (annualPax) =>
+  Math.round((annualPax / 365) * NON_PURCHASE_SHARE);
+
 export const PRE_ACTIVATION = 0.001;
 export const ESTATE_ANNUAL = (() => {
   const travellers = ESTATE_TRAVELLERS;
