@@ -73,6 +73,13 @@ export const PER_STORE = {
 export const ESTATE_STORES = 45000;
 export const ESTATE_TRAVELLERS = GLOBAL_PAX_M * 1e6; // 9.8B
 export const ESTATE_PURCHASING = Math.round(ESTATE_TRAVELLERS * PURCHASE_SHARE); // 2.2B
+
+// The 78% who walk straight to their gates — the group DutyBoost exists to
+// activate, and the fixed base of the estate model. Per store, per day, from the
+// estate's own traffic: ±9.8B travel moments ÷ ±45,000 stores at the 78% rate.
+export const NON_PURCHASE_PER_STORE_DAY = Math.round(
+  (ESTATE_TRAVELLERS / ESTATE_STORES / 365) * NON_PURCHASE_SHARE
+);
 export const PRE_ACTIVATION = 0.001;
 export const ESTATE_ANNUAL = (() => {
   const travellers = ESTATE_TRAVELLERS;

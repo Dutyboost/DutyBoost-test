@@ -4,6 +4,7 @@ import SlideFacts from "@/components/phygrid-pitch/slides/SlideFacts";
 import SlideConversion from "@/components/phygrid-pitch/slides/SlideConversion";
 import SlideAcquisition from "@/components/phygrid-pitch/slides/SlideAcquisition";
 import SlideModel from "@/components/phygrid-pitch/slides/SlideModel";
+import SlideRevenueCalculator from "@/components/phygrid-pitch/slides/SlideRevenueCalculator";
 import SlideTransaction from "@/components/phygrid-pitch/slides/SlideTransaction";
 import SlideEstate from "@/components/phygrid-pitch/slides/SlideEstate";
 import SlideIntegrate from "@/components/phygrid-pitch/slides/SlideIntegrate";
@@ -33,6 +34,7 @@ export const SLIDES = [
   { id: "conversion", type: "conversion" },
   { id: "acquisition", type: "acquisition" },
   { id: "model", type: "model" },
+  { id: "revenueCalculator", type: "revenueCalculator" },
   { id: "transaction", type: "transaction" },
   { id: "estate", type: "estate" },
   { id: "tierMix", type: "tierMix" },
@@ -51,6 +53,7 @@ export const SLIDE_LABELS = {
   conversion: "Conversion Opportunity",
   acquisition: "Customer Acquisition — On Us",
   model: "Business Model",
+  revenueCalculator: "Revenue Potential — Per Day",
   tierMix: "Transaction Mix — Tier Economics",
   transaction: "Transaction Economics",
   estate: "Across the Store Estate",
@@ -70,6 +73,7 @@ export function getSlideComponent(type) {
     conversion: SlideConversion,
     acquisition: SlideAcquisition,
     model: SlideModel,
+    revenueCalculator: SlideRevenueCalculator,
     tierMix: SlideTierMixUsd,
     transaction: SlideTransaction,
     estate: SlideEstate,
@@ -90,6 +94,7 @@ export const SLIDE_COMPONENTS = {
   conversion: SlideConversion,
   acquisition: SlideAcquisition,
   model: SlideModel,
+  revenueCalculator: SlideRevenueCalculator,
   tierMix: SlideTierMixUsd,
   transaction: SlideTransaction,
   estate: SlideEstate,

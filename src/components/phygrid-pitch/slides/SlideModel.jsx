@@ -1,7 +1,6 @@
 import { CheckCircle, Percent } from "lucide-react";
 import { SlideWrapper, GridBg } from "@/components/phygrid-pitch/Shared";
 import { MODEL } from "@/components/phygrid-pitch/model";
-import EstateCalculator from "@/components/phygrid-pitch/slides/EstateCalculator";
 
 const TIERS = [
   { tier: "Entry", range: "$23–$56", disc: "5%–7.5%", save: "$1.14–$3.64" },
@@ -83,9 +82,6 @@ export default function SlideModel() {
 
             </div>
 
-            <div className="md:col-span-2">
-              <EstateCalculator />
-            </div>
           </div>
         </div>
       </div>

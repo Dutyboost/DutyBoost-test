@@ -43,7 +43,7 @@ const discountFor = (basket) => {
 
 export default function SlideTransaction() {
   // The qualifying sale is whatever blended basket is entered on the
-  // business-model slide, so both slides always show the same scenario.
+  // revenue-potential slide, so both slides always show the same scenario.
   const { inputs } = useEstateInputs();
   const typed =
     inputs.basket === "" || inputs.basket == null ? DEFAULT_BASKET : Number(inputs.basket);
@@ -125,7 +125,7 @@ export default function SlideTransaction() {
             <p className="text-slate-500 mt-1 text-sm">
               Every validated sale is split at the moment of checkout — including the POS provider's share, which
               is settled automatically with no invoice and no reconciliation. The sale follows the blended basket
-              entered on the business-model slide, with qualifying spend capped at {whole(BASKET_CAP)}.
+              entered on the revenue-potential slide, with qualifying spend capped at {whole(BASKET_CAP)}.
             </p>
           </div>
 
