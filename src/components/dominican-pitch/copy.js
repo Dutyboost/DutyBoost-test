@@ -763,14 +763,14 @@ export const COPY = {
         },
         fields: {
           stores: "Number of stores",
-          travellers: "Travellers walking straight to their gates / day",
+          travellers: "Travellers to gates / day",
           activation: "Pre-activation",
           redemption: "Redemption",
           basket: "Blended basket",
         },
         rows: {
           stores: "Stores in the model",
-          travellers: "Travellers walking straight to their gates / day",
+          travellers: "Travellers to gates / day",
           activated: (pct) => `Pre-activated (${pct}% of travellers) / day`,
           baskets: (pct) => `Incremental baskets (${pct}% redeem) / day`,
           gross: "Incremental retail value / day",
@@ -1694,14 +1694,14 @@ export const COPY = {
         },
         fields: {
           stores: "Número de tiendas",
-          travellers: "Pasajeros que van directos a su puerta / día",
+          travellers: "Pasajeros a puertas / día",
           activation: "Preactivación",
           redemption: "Canje",
           basket: "Cesta media",
         },
         rows: {
           stores: "Tiendas en el modelo",
-          travellers: "Pasajeros que van directos a su puerta / día",
+          travellers: "Pasajeros a puertas / día",
           activated: (pct) => `Preactivados (${pct}% de los pasajeros) / día`,
           baskets: (pct) => `Cestas incrementales (${pct}% canjea) / día`,
           gross: "Valor minorista incremental / día",
