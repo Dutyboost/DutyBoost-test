@@ -71,7 +71,10 @@ const SLIDE_COMPONENTS = {
 
 function DominicanDeck() {
   const { t } = useDeckLang();
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(() => {
+    const n = parseInt(new URLSearchParams(window.location.search).get("slide"), 10);
+    return n >= 1 && n <= SLIDES.length ? n - 1 : 0;
+  });
   const slideAreaRef = useRef(null);
 
   const prev = () => setCurrent((c) => Math.max(0, c - 1));
