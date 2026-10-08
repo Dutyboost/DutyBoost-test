@@ -1,49 +1,37 @@
 import { Store, Wine, Cpu } from "lucide-react";
-import { ACCENT, GridBg } from "./Shared";
+import { ACCENT, GridBg, SlideWrapper } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
 import SxmRedemptionCard from "./SxmRedemptionCard";
+import StatusPill from "./StatusPill";
 
 // Live deployment track record: the two Caribbean markets already redeeming
 // DutyCredits, shown to the Dominican Republic as proof of execution.
-function StatusPill({ label, isLive = true }) {
-  return (
-    <span
-      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex-shrink-0"
-      style={{ background: "rgba(255,255,255,0.12)", color: "#f5d0fe" }}
-    >
-      <span className={`w-2 h-2 rounded-full ${isLive ? "bg-green-400" : "bg-red-400"}`} />
-      {label}
-    </span>
-  );
-}
 
 function MarketCard({ code, data, icon: Icon, live, isLive = true, compact = false }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl p-3 md:p-3.5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col h-full">
+    <div className="relative overflow-hidden rounded-2xl p-3 md:p-3.5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col">
       <div
         className="absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }}
       />
-      <div className="relative z-10 flex flex-col h-full min-h-0">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-bold tracking-widest text-white/40">{code}</span>
-              <Icon className="w-4 h-4 text-white/40" />
-            </div>
-            <h3 className="font-heading font-bold text-xl md:text-2xl mt-0.5">{data.country}</h3>
-            <p className="text-white/50 text-sm">{data.airport}</p>
+      <div className="relative z-10 flex flex-col flex-1">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold tracking-widest text-white/40">{code}</span>
+            <Icon className="w-4 h-4 text-white/40" />
           </div>
           <StatusPill label={live} isLive={isLive} />
         </div>
+        <h3 className="font-heading font-bold text-xl md:text-2xl mt-1">{data.country}</h3>
+        <p className="text-white/50 text-sm">{data.airport}</p>
 
-        <p className={`${compact ? "text-base" : "text-lg"} font-semibold mt-1.5`} style={{ color: "#f5d0fe" }}>
+        <p className={`${compact ? "text-base" : "text-lg"} font-semibold mt-1.5 leading-snug`} style={{ color: "#f5d0fe" }}>
           {data.status}
         </p>
 
-        <div className="mt-2 flex-1 min-h-0 flex flex-col justify-between gap-2 overflow-hidden">{data.blocks}</div>
+        <div className="mt-2 flex flex-col gap-2.5">{data.blocks}</div>
 
-        <p className={`${compact ? "text-sm" : "text-base"} text-white/45 mt-1.5 leading-snug text-center`}>{data.note}</p>
+        <p className={`${compact ? "text-sm" : "text-base"} text-white/45 mt-auto pt-2 leading-snug text-center`}>{data.note}</p>
       </div>
     </div>
   );
@@ -51,13 +39,22 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true, compact = fal
 
 function PartnerRow({ name, detail, desc, icon: Icon = Store, compact = false }) {
   return (
-    <div className="flex items-start gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 overflow-hidden">
+    <div className="flex items-start gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5">
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className={`${compact ? "text-base" : "text-lg"} font-semibold leading-tight`}>{name}</div>
         {detail && <div className="text-sm text-white/50 mt-0.5 leading-snug">{detail}</div>}
         {desc && <div className="text-sm text-white/45 mt-0.5 leading-snug">{desc}</div>}
       </div>
+    </div>
+  );
+}
+
+function Block({ title, children }) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="text-xs uppercase tracking-widest text-white/40">{title}</div>
+      {children}
     </div>
   );
 }
@@ -74,16 +71,14 @@ export default function SlideProjects() {
     note: c.sxm.note,
     blocks: (
       <>
-        <div className="flex flex-col gap-2">
-          <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
+        <Block title={c.sxm.partnersTitle}>
           {c.sxm.partners.map((p) => (
             <PartnerRow key={p.name} name={p.name} detail={p.detail} desc={p.desc} compact={compact} />
           ))}
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.posTitle}</div>
+        </Block>
+        <Block title={c.sxm.posTitle}>
           <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} compact={compact} />
-        </div>
+        </Block>
       </>
     ),
   };
@@ -95,24 +90,22 @@ export default function SlideProjects() {
     note: c.tnt.rolloutNote,
     blocks: (
       <>
-        <div className="flex flex-col gap-2">
-          <div className="text-xs uppercase tracking-widest text-white/40">{c.tnt.posTitle}</div>
+        <Block title={c.tnt.posTitle}>
           <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} compact={compact} />
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="text-xs uppercase tracking-widest text-white/40">{c.tnt.rolloutTitle}</div>
+        </Block>
+        <Block title={c.tnt.rolloutTitle}>
           <PartnerRow name={c.tnt.rollout} desc={c.tnt.rolloutDesc} icon={Wine} compact={compact} />
-        </div>
+        </Block>
       </>
     ),
   };
 
   return (
-    <div className="w-full flex-1 flex flex-col overflow-hidden bg-white text-[#0a0f1e]">
-      <div className="flex-1 flex flex-col px-5 py-2.5 md:px-9 md:py-3 relative overflow-hidden">
+    <SlideWrapper>
+      <div className="flex-1 flex flex-col justify-center px-5 py-3 md:px-9 md:py-4 relative">
         <GridBg />
-        <div className="relative z-10 flex-1 flex flex-col">
-          <div className={`${compact ? "mb-1" : "mb-1.5"} shrink-0`}>
+        <div className="relative z-10">
+          <div className="mb-2">
             <span className="text-sm md:text-base font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
               {c.eyebrow}
             </span>
@@ -122,14 +115,13 @@ export default function SlideProjects() {
             <p className="text-slate-500 mt-1 text-xs md:text-sm leading-snug">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-1 gap-2.5 flex-1 min-h-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
             <MarketCard code="SXM" data={sxm} icon={Store} live={c.live} compact={compact} />
-            <SxmRedemptionCard compact={compact} />
+            <SxmRedemptionCard />
             <MarketCard code="POS" data={tnt} icon={Cpu} live={c.inProgress} isLive={false} compact={compact} />
           </div>
-
         </div>
       </div>
-    </div>
+    </SlideWrapper>
   );
 }
