@@ -43,7 +43,7 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true }) {
 
         <div className="mt-2 flex-1 min-h-0 flex flex-col gap-1.5 overflow-hidden">{data.blocks}</div>
 
-        <p className="text-sm text-white/45 mt-1.5 leading-snug">{data.note}</p>
+        <p className="text-sm text-white/45 mt-1.5 leading-snug text-center">{data.note}</p>
       </div>
     </div>
   );
