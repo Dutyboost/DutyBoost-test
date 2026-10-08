@@ -86,7 +86,7 @@ export default function SxmRedemptionCard({ compact = false }) {
 
           <div className="text-xs uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
           <div className="space-y-1">
-            {SXM_BASKETS.map((b) => (
+            {(compact ? SXM_BASKETS.slice(0, -1) : SXM_BASKETS).map((b) => (
               <div
                 key={b.basket}
                 className="flex items-baseline justify-between gap-2 rounded-lg bg-white/5 border border-white/10 px-3 py-0.5"
