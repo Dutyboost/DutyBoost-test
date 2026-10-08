@@ -53,6 +53,12 @@ export default function SxmRedemptionCard() {
                 num(SXM_REDEMPTIONS.passengers)
               )}
             </div>
+            <div className="text-sm font-semibold mt-0.5" style={{ color: "#f5d0fe" }}>
+              {c.redemptionLine(
+                SXM_REDEMPTIONS.redemptionPct,
+                num(SXM_REDEMPTIONS.preActivated)
+              )}
+            </div>
           </div>
 
           <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
