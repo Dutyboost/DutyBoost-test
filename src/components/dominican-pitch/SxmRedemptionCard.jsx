@@ -46,17 +46,14 @@ export default function SxmRedemptionCard() {
               {num(SXM_REDEMPTIONS.redeemed)}
             </span>
             <span className="text-sm text-white/60 ml-2">{c.redeemedLabel}</span>
+            <span className="text-sm font-bold ml-2" style={{ color: "#f5d0fe" }}>
+              ({SXM_REDEMPTIONS.redemptionPct}%)
+            </span>
             <div className="text-sm text-white/45 mt-1">
               {c.preActivatedLine(
                 num(SXM_REDEMPTIONS.preActivated),
                 SXM_REDEMPTIONS.activationPct,
                 num(SXM_REDEMPTIONS.passengers)
-              )}
-            </div>
-            <div className="text-sm font-semibold mt-0.5" style={{ color: "#f5d0fe" }}>
-              {c.redemptionLine(
-                SXM_REDEMPTIONS.redemptionPct,
-                num(SXM_REDEMPTIONS.preActivated)
               )}
             </div>
           </div>
