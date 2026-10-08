@@ -39,18 +39,18 @@ export const SXM_SINCE_LAUNCH = {
   platformFee: redeemedSinceLaunch * SXM_BASKET_AVG * MODEL.platformFee,
 };
 
-// A sample of the baskets redeemed on a single day at SXM, in USD — liquor,
-// spirits, tobacco, souvenirs and gifts.
+// A sample of the baskets redeemed on a single day at SXM, in USD — labelled
+// by the product category redeemed, not by the store that sold it.
 export const SXM_BASKETS = [
-  { basket: 315, store: "ILTT Liquor & Tobacco" },
-  { basket: 245, store: "ILTT Liquor & Tobacco" },
-  { basket: 186, store: "Dutch Delight Store" },
-  { basket: 148, store: "Dutch Delight Store" },
-  { basket: 116, store: "ILTT Liquor & Tobacco" },
-  { basket: 92, store: "Dutch Delight Store" },
-  { basket: 74, store: "ILTT Liquor & Tobacco" },
-  { basket: 58, store: "Dutch Delight Store" },
-  { basket: 41, store: "ILTT Liquor & Tobacco" },
-  { basket: 36, store: "Dutch Delight Store" },
-  { basket: 29, store: "ILTT Liquor & Tobacco" },
+  { basket: 315, cat: "liquor" },
+  { basket: 245, cat: "liquor" },
+  { basket: 186, cat: "gifts" },
+  { basket: 148, cat: "gifts" },
+  { basket: 116, cat: "liquor" },
+  { basket: 92, cat: "gifts" },
+  { basket: 74, cat: "liquor" },
+  { basket: 58, cat: "gifts" },
+  { basket: 41, cat: "liquor" },
+  { basket: 36, cat: "gifts" },
+  { basket: 29, cat: "liquor" },
 ];

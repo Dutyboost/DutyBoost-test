@@ -90,7 +90,7 @@ export default function SxmRedemptionCard() {
                 <span className="text-base font-bold" style={{ color: "#f5d0fe" }}>
                   {usd(b.basket)}
                 </span>
-                <span className="text-sm text-white/45 truncate">{b.store}</span>
+                <span className="text-sm text-white/45 truncate">{c.basketLabels[b.cat]}</span>
               </div>
             ))}
           </div>
