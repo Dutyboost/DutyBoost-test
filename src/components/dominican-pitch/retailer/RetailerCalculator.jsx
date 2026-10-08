@@ -15,7 +15,9 @@ import {
 
 const FIELDS = [
   { key: "stores", step: 1 },
-  { key: "travellers", step: 100 },
+  // Fixed: the 64% who walk straight to their gates — the group the
+  // pre-activation rate applies to. Set by the airport, never typed.
+  { key: "travellers", fixed: true },
   { key: "activation", suffix: "%", step: 0.1 },
   { key: "redemption", suffix: "%", step: 1 },
   { key: "basket", prefix: "$", step: 1 },
@@ -31,10 +33,10 @@ export default function RetailerCalculator() {
 
   const selectedAirport = AIRPORT_OPTIONS.find((a) => a.code === inputs.airport) || null;
 
-  // Picking an airport loads its researched store count and its store footfall,
-  // so the model recalculates from real figures instead of guessed ones.
+  // Picking an airport loads its researched store count and the travellers who
+  // walk straight to their gates, so the model recalculates from real figures.
   const chooseAirport = (a) =>
-    setMany({ airport: a.code, stores: String(a.stores), travellers: String(a.storeFootfallDay) });
+    setMany({ airport: a.code, stores: String(a.stores), travellers: String(a.walkedDay) });
 
   const stores = readInput(inputs, "stores", DEFAULT_STORES);
   const travellersDay = readInput(inputs, "travellers", DEFAULT_TRAVELLERS_DAY);
@@ -149,6 +151,11 @@ export default function RetailerCalculator() {
             <span className="text-sm font-semibold text-slate-800 mb-1.5 leading-tight">
               {c.fields[field.key]}
             </span>
+            {field.fixed ? (
+              <span className="mt-auto block w-full rounded-xl border border-slate-300 bg-slate-100 px-3 py-2.5 text-lg font-bold text-slate-600">
+                {selectedAirport ? selectedAirport.walkedDay.toLocaleString("en-US") : "—"}
+              </span>
+            ) : (
             <span className="relative block mt-auto">
               {field.prefix && (
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-base text-slate-800">
@@ -174,6 +181,7 @@ export default function RetailerCalculator() {
                 </span>
               )}
             </span>
+            )}
           </label>
         ))}
       </div>

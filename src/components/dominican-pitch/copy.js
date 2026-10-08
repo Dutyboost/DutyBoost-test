@@ -763,14 +763,14 @@ export const COPY = {
         },
         fields: {
           stores: "Number of stores",
-          travellers: "Travellers entering store / day",
+          travellers: "Travellers walking straight to their gates / day",
           activation: "Pre-activation",
           redemption: "Redemption",
           basket: "Blended basket",
         },
         rows: {
           stores: "Stores in the model",
-          travellers: "Travellers through those stores / day",
+          travellers: "Travellers walking straight to their gates / day",
           activated: (pct) => `Pre-activated (${pct}% of travellers) / day`,
           baskets: (pct) => `Incremental baskets (${pct}% redeem) / day`,
           gross: "Incremental retail value / day",
@@ -778,7 +778,7 @@ export const COPY = {
           fee: (pct) => `Platform fee (${pct}%) / day`,
           netYear: "Retailer net / Yr",
         },
-        footfall: "Store footfall rate: 36% of international travellers enter a duty free store",
+        footfall: "Fixed base: the 64% of international travellers who walk straight to their gates without entering a duty free store",
         footfallSource: "m1nd-set B1S 10-year analysis, 2026",
         note:
           "Illustrative model, one day, at the figures entered above. A 2.5% platform fee on validated transactions only — the retailer keeps the rest of the sale. Volumes are counts; values in USD.",
@@ -1694,14 +1694,14 @@ export const COPY = {
         },
         fields: {
           stores: "Número de tiendas",
-          travellers: "Pasajeros que entran tiendas / día",
+          travellers: "Pasajeros que van directos a su puerta / día",
           activation: "Preactivación",
           redemption: "Canje",
           basket: "Cesta media",
         },
         rows: {
           stores: "Tiendas en el modelo",
-          travellers: "Pasajeros por esas tiendas / día",
+          travellers: "Pasajeros que van directos a su puerta / día",
           activated: (pct) => `Preactivados (${pct}% de los pasajeros) / día`,
           baskets: (pct) => `Cestas incrementales (${pct}% canjea) / día`,
           gross: "Valor minorista incremental / día",
@@ -1709,7 +1709,7 @@ export const COPY = {
           fee: (pct) => `Comisión de plataforma (${pct}%) / día`,
           netYear: "Neto del minorista / año",
         },
-        footfall: "Tasa de entrada en tienda: el 36% de los pasajeros internacionales entra en una tienda duty free",
+        footfall: "Base fija: el 64% de los pasajeros internacionales que va directo a su puerta sin entrar en una tienda duty free",
         footfallSource: "análisis de 10 años B1S de m1nd-set, 2026",
         note:
           "Modelo ilustrativo, un día, con las cifras introducidas arriba. Comisión de plataforma del 2.5% solo sobre transacciones validadas — el minorista conserva el resto de la venta. Los volúmenes son recuentos; los valores, en USD.",

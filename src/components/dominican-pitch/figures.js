@@ -40,6 +40,10 @@ export const MARKET = {
 // DutyBoost pre-activates. Source: SOURCES.footfall.
 export const STORE_FUNNEL = { footfall: 0.36, conversion: 0.63 };
 
+// The 64% of travellers who walk straight to their gates without entering a
+// store — the group DutyBoost pre-activates, and the fixed base of the model.
+export const WALKED_SHARE = 1 - STORE_FUNNEL.footfall;
+
 // The country's major airports in 2025, as a number.
 export const DR_MOVEMENTS = 18_400_000;
 

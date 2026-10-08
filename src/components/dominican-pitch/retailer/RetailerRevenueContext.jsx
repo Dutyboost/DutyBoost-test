@@ -1,11 +1,13 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { MODEL, discountFor } from "../figures";
+import { MODEL, discountFor, DR_MOVEMENTS, WALKED_SHARE } from "../figures";
 
 // Fallbacks used when the calculator on the business-model slide is left blank,
 // so the transaction and estate slides always show a sensible scenario (and the
 // PDF/PPTX export never renders zeros).
 export const DEFAULT_STORES = 4;
-export const DEFAULT_TRAVELLERS_DAY = 2000;
+// The blank-calculator fallback is the walk-straight group at all three
+// gateways, so an untouched slide shows the same base the airport buttons load.
+export const DEFAULT_TRAVELLERS_DAY = Math.round((DR_MOVEMENTS / 365) * WALKED_SHARE);
 export const DEFAULT_ACTIVATION = Math.round(MODEL.activation * 100);
 export const DEFAULT_REDEMPTION = Math.round(MODEL.redemption * 100);
 export const DEFAULT_BASKET = MODEL.basket;
