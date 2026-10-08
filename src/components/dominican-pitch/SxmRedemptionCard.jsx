@@ -6,7 +6,7 @@ import { SXM_BASKETS, SXM_REDEMPTIONS, SXM_SINCE_LAUNCH } from "./sxmRedemptions
 
 // The Sint Maarten redemption card: the live market's daily DutyCredit volumes
 // and a sample of the baskets redeemed at the till.
-export default function SxmRedemptionCard() {
+export default function SxmRedemptionCard({ compact = false }) {
   const { t } = useDeckLang();
   const c = t.projects.sxm;
 
@@ -39,10 +39,10 @@ export default function SxmRedemptionCard() {
           {c.status}
         </p>
 
-        <div className="mt-2 flex-1 min-h-0 space-y-1.5 overflow-hidden">
+        <div className={`mt-2 flex-1 min-h-0 ${compact ? "space-y-1" : "space-y-1.5"} overflow-hidden`}>
           <div className="text-xs uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
           <div className="rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-            <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
+            <span className={`${compact ? "text-xl" : "text-2xl"} font-bold`} style={{ color: "#f5d0fe" }}>
               {num(SXM_REDEMPTIONS.redeemed)}
             </span>
             <span className="text-sm text-white/60 ml-2">{c.redeemedLabel}</span>
@@ -64,7 +64,7 @@ export default function SxmRedemptionCard() {
               {c.sinceTitle(SXM_SINCE_LAUNCH.days)}
             </div>
             <div className="mt-1">
-              <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
+              <span className={`${compact ? "text-xl" : "text-2xl"} font-bold`} style={{ color: "#f5d0fe" }}>
                 {usdShort(SXM_SINCE_LAUNCH.retailValue)}
               </span>
               <span className="text-sm text-white/60 ml-2">{c.revenueLabel}</span>
