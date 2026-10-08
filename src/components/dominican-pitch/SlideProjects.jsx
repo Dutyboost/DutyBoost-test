@@ -32,18 +32,18 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true, compact = fal
               <Icon className="w-4 h-4 text-white/40" />
             </div>
             <h3 className="font-heading font-bold text-xl md:text-2xl mt-0.5">{data.country}</h3>
-            <p className="text-white/50 text-xs">{data.airport}</p>
+            <p className="text-white/50 text-sm">{data.airport}</p>
           </div>
           <StatusPill label={live} isLive={isLive} />
         </div>
 
-        <p className={`${compact ? "text-sm" : "text-base"} font-semibold mt-1.5`} style={{ color: "#f5d0fe" }}>
+        <p className={`${compact ? "text-base" : "text-lg"} font-semibold mt-1.5`} style={{ color: "#f5d0fe" }}>
           {data.status}
         </p>
 
         <div className="mt-2 flex-1 min-h-0 flex flex-col gap-1.5 overflow-hidden">{data.blocks}</div>
 
-        <p className={`${compact ? "text-xs" : "text-sm"} text-white/45 mt-1.5 leading-snug text-center`}>{data.note}</p>
+        <p className={`${compact ? "text-sm" : "text-base"} text-white/45 mt-1.5 leading-snug text-center`}>{data.note}</p>
       </div>
     </div>
   );
@@ -54,9 +54,9 @@ function PartnerRow({ name, detail, desc, icon: Icon = Store, compact = false })
     <div className="flex flex-1 items-start gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-2 min-h-0 overflow-hidden">
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
-        <div className={`${compact ? "text-sm" : "text-base"} font-semibold leading-tight`}>{name}</div>
-        {detail && <div className={`${compact ? "text-xs" : "text-sm"} text-white/50 mt-0.5 leading-snug`}>{detail}</div>}
-        {desc && <div className={`${compact ? "text-xs" : "text-sm"} text-white/45 mt-0.5 leading-snug`}>{desc}</div>}
+        <div className={`${compact ? "text-base" : "text-lg"} font-semibold leading-tight`}>{name}</div>
+        {detail && <div className={`${compact ? "text-sm" : "text-base"} text-white/50 mt-0.5 leading-snug`}>{detail}</div>}
+        {desc && <div className={`${compact ? "text-sm" : "text-base"} text-white/45 mt-0.5 leading-snug`}>{desc}</div>}
       </div>
     </div>
   );
