@@ -8,6 +8,7 @@ import SlideAcquisitionTrinidad from "@/components/retailer-pitch-trinidad/Slide
 import SlideModelRetailer from "@/components/retailer-pitch-trinidad/SlideModelRetailer";
 import SlideTransactionRetailer from "@/components/retailer-pitch-trinidad/SlideTransactionRetailer";
 import SlideEstateRetailer from "@/components/retailer-pitch-trinidad/SlideEstateRetailer";
+import SlideAirportCalculator from "@/components/retailer-pitch-trinidad/SlideAirportCalculator";
 import { RevenueProvider } from "@/components/retailer-pitch-trinidad/RevenueContext";
 import CaribbeanDutyFreeLogo from "@/components/retailer-pitch-trinidad/CaribbeanDutyFreeLogo";
 import AirportRetailerIcon from "@/components/AirportRetailerIcon";
@@ -32,6 +33,7 @@ const SLIDES = [
   { id: "solution", type: "solution" },
   { id: "market", type: "market" },
   { id: "conversion", type: "conversion" },
+  { id: "airportModel", type: "airportModel" },
   { id: "acquisition", type: "acquisition" },
   { id: "model", type: "model" },
   { id: "tierMix", type: "tierMix" },
@@ -50,6 +52,7 @@ const SLIDE_LABELS = {
   solution: "The Solution",
   market: "Trinidad & Tobago Market",
   conversion: "Conversion Opportunity",
+  airportModel: "Airport Model — Per Day",
   acquisition: "Customer Acquisition — On Us",
   model: "Business Model",
   tierMix: "Transaction Mix — Tier Economics",
@@ -696,6 +699,7 @@ const SLIDE_COMPONENTS = {
   solution: SlideSolutionUsd,
   market: SlideMarket,
   conversion: SlideConversion,
+  airportModel: SlideAirportCalculator,
   acquisition: SlideAcquisitionTrinidad,
   model: SlideModelRetailer,
   tierMix: SlideTierMix,
