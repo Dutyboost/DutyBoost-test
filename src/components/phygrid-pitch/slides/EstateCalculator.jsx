@@ -12,7 +12,7 @@ import { useEstateInputs, BLANK_INPUTS } from "@/components/phygrid-pitch/Estate
 import AirportSearch from "@/components/phygrid-pitch/AirportSearch";
 
 const FIELDS = [
-  { key: "controlled", label: "Stores using POS across all airports", step: 1 },
+  { key: "controlled", label: "Stores using POS", step: 1 },
   // Set by the airport picked from the global database — never typed. This is
   // the group the pre-activation rate applies to.
   { key: "travellersDay", fixed: true, label: "Travellers to gates / day" },
