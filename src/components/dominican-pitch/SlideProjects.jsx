@@ -41,7 +41,7 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true, compact = fal
           {data.status}
         </p>
 
-        <div className="mt-1.5 flex-1 min-h-0 flex flex-col gap-1.5 overflow-hidden">{data.blocks}</div>
+        <div className="mt-2 flex-1 min-h-0 flex flex-col justify-between gap-2 overflow-hidden">{data.blocks}</div>
 
         <p className={`${compact ? "text-sm" : "text-base"} text-white/45 mt-1.5 leading-snug text-center`}>{data.note}</p>
       </div>
@@ -51,7 +51,7 @@ function MarketCard({ code, data, icon: Icon, live, isLive = true, compact = fal
 
 function PartnerRow({ name, detail, desc, icon: Icon = Store, compact = false }) {
   return (
-    <div className="flex flex-1 items-start gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 min-h-0 overflow-hidden">
+    <div className="flex items-start gap-2.5 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 overflow-hidden">
       <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0abfc" }} />
       <div>
         <div className={`${compact ? "text-base" : "text-lg"} font-semibold leading-tight`}>{name}</div>
@@ -74,13 +74,13 @@ export default function SlideProjects() {
     note: c.sxm.note,
     blocks: (
       <>
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.partnersTitle}</div>
           {c.sxm.partners.map((p) => (
             <PartnerRow key={p.name} name={p.name} detail={p.detail} desc={p.desc} compact={compact} />
           ))}
         </div>
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className="text-xs uppercase tracking-widest text-white/40">{c.sxm.posTitle}</div>
           <PartnerRow name={c.sxm.pos} detail={c.sxm.posNote} icon={Cpu} compact={compact} />
         </div>
@@ -95,11 +95,11 @@ export default function SlideProjects() {
     note: c.tnt.rolloutNote,
     blocks: (
       <>
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className="text-xs uppercase tracking-widest text-white/40">{c.tnt.posTitle}</div>
           <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} compact={compact} />
         </div>
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className="text-xs uppercase tracking-widest text-white/40">{c.tnt.rolloutTitle}</div>
           <PartnerRow name={c.tnt.rollout} desc={c.tnt.rolloutDesc} icon={Wine} compact={compact} />
         </div>
