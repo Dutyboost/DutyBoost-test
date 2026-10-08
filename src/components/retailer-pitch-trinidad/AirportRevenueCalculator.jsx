@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Wallet } from "lucide-react";
 import { MODEL, discountFor, usd2, usdShort, numShort } from "./retailerModel";
 import { TT_OPTIONS, walkedPerDay } from "./airports";
+import { useRevenueInputs } from "./RevenueContext";
 import { ACCENT } from "./Shared";
 
 const FIELDS = [
@@ -19,7 +20,13 @@ const FIELDS = [
 export default function AirportRevenueCalculator() {
   const [airport, setAirport] = useState(null);
   const [values, setValues] = useState({ activation: "", redemption: "", basket: "" });
-  const set = (key, v) => setValues((p) => ({ ...p, [key]: v }));
+  // The transaction and estate slides read the same scenario, so the rates and
+  // the basket typed here are mirrored into the deck's shared inputs.
+  const { set: setShared } = useRevenueInputs();
+  const set = (key, v) => {
+    setValues((p) => ({ ...p, [key]: v }));
+    setShared(key, v);
+  };
   const n = (key) => (values[key] === "" ? 0 : Number(values[key]));
 
   const travellers = airport ? walkedPerDay(airport.annual_pax) : 0;

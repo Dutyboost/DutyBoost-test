@@ -1,7 +1,6 @@
 import { CheckCircle, Percent } from "lucide-react";
 import { SlideWrapper, GridBg, ACCENT } from "./Shared";
 import { MODEL, TIER_ROWS } from "./retailerModel";
-import RetailerCalculator from "./RetailerCalculator";
 
 export default function SlideModelRetailer() {
   return (
@@ -97,10 +96,6 @@ export default function SlideModelRetailer() {
                   ))}
                 </div>
               </div>
-            </div>
-
-            <div className="lg:col-span-2">
-              <RetailerCalculator />
             </div>
           </div>
         </div>

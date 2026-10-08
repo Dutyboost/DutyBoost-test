@@ -9,7 +9,7 @@ const round2 = (n) => Math.round(n * 100) / 100;
 const share = (part, total) => `${round2(total ? (part / total) * 100 : 0)}%`;
 
 export default function SlideTransactionRetailer() {
-  // The qualifying sale is the blended basket entered on the business-model
+  // The qualifying sale is the blended basket entered on the airport model
   // slide, so both slides always show the same scenario.
   const { inputs } = useRevenueInputs();
   const typed = inputs.basket === "" || inputs.basket == null ? DEFAULT_BASKET : Number(inputs.basket);
@@ -77,7 +77,7 @@ export default function SlideTransactionRetailer() {
             </h2>
             <p className="text-slate-500 mt-1 text-sm md:text-base">
               Every validated sale is split at the moment of checkout. The sale follows the blended basket entered
-              on the business-model slide, with qualifying spend capped at {usd(BASKET_CAP)}.
+              on the airport model slide, with qualifying spend capped at {usd(BASKET_CAP)}.
             </p>
           </div>
 

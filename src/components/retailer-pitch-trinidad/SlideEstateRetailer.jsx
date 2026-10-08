@@ -79,8 +79,8 @@ export default function SlideEstateRetailer() {
                 })}
               </div>
               <p className="text-slate-400 text-[10px] mt-2 leading-snug">
-                Per store, per year, at the {numShort(perStore.travellers)} travellers-a-year rate you entered and
-                the redemption and basket values on the business-model slide.
+                Per store, per year, at the {numShort(perStore.travellers)} travellers-a-year rate in the model and
+                the redemption and basket values on the airport model slide.
               </p>
             </div>
 
