@@ -48,7 +48,7 @@ export async function exportInvestorPitchPptx() {
       s.addText(val, { x, y: 4.9, w: 2.9, h: 0.6, fontSize: 24, bold: true, color: BLUE, align: "center", fontFace: "Calibri" });
       s.addText(lbl, { x, y: 5.45, w: 2.9, h: 0.4, fontSize: 11, color: SLATE, align: "center", fontFace: "Calibri" });
     });
-    s.addText("CONFIDENTIAL — 2026  |  Chamber of Commerce: 42053181  |  VAT: NL869492068B01", { x: 1.5, y: 6.4, w: 10.3, h: 0.4, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
+    s.addText("CONFIDENTIAL — 2026  |  Chamber of Commerce: 42053088  |  VAT: NL869492068B01", { x: 1.5, y: 6.4, w: 10.3, h: 0.4, fontSize: 10, color: SLATE, align: "center", fontFace: "Calibri" });
   }
 
   // ============ SLIDE 2: TEAM ============

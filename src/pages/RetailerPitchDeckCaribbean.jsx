@@ -113,7 +113,7 @@ function SlideCover() {
             ))}
           </div>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
-            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053088 | VAT: NL869492068B01
           </div>
         </div>
       </div>
@@ -798,7 +798,7 @@ function SlideThankYou() {
             <ArrowRight className="w-4 h-4" />
           </Link>
           <div className="mt-4 text-slate-500 text-[10px]">
-            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053181 | VAT: NL869492068B01
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053088 | VAT: NL869492068B01
           </div>
         </div>
       </div>

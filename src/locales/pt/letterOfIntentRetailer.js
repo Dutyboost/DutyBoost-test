@@ -59,7 +59,7 @@ export default {
   submit_loi: 'Submeter a Carta de Intenções assinada',
   submitting: 'A enviar...',
   validating: 'A verificar o registo comercial...',
-  storage_info: 'A sua submissão será guardada de forma segura. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+  storage_info: 'A sua submissão será guardada de forma segura. DutyBoost · KvK 42053088 · hello@dutyboost.com',
   success_title: 'Carta de Intenções submetida',
   success_subtitle: 'Obrigado, {name}. A sua Carta de Intenções assinada foi recebida em nome de {company}. Com a sua participação, estamos mais fortes a construir a rede de retalho de aeroporto da DutyBoost. Uma cópia assinada digitalmente ser-lhe-á enviada por email no prazo de 24 horas.',
   error_required: 'Este campo é obrigatório.',
@@ -71,7 +71,7 @@ export default {
 
 Esta Carta de Intenções ("CdI") é celebrada em {date} entre:
 
-DutyBoost, com sede em DEK 32, 1319BB Almere, Países Baixos, registada na Câmara de Comércio neerlandesa com o número 42053181, número de IVA NL869492068B01, legalmente representada por:
+DutyBoost, com sede em DEK 32, 1319BB Almere, Países Baixos, registada na Câmara de Comércio neerlandesa com o número 42053088, número de IVA NL869492068B01, legalmente representada por:
 Jaquelin Beliad Perez – Cofundadora
 Raël Martis – Cofundador
 doravante designada "DutyBoost",

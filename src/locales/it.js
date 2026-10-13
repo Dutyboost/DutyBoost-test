@@ -151,7 +151,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Tutti i diritti riservati.',
-      kvk: 'Camera di Commercio (KvK): 42053181',
+      kvk: 'Camera di Commercio (KvK): 42053088',
       vat: 'P.IVA: NL869492068B01',
     },
     months: {
@@ -456,7 +456,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Tutti i diritti riservati.',
-      kvk: 'Camera di Commercio (KvK): 42053181',
+      kvk: 'Camera di Commercio (KvK): 42053088',
       vat: 'Partita IVA: NL869492068B01',
       cookie_policy: 'Politica sui cookie',
     },
@@ -1038,7 +1038,7 @@ export default {
       submit_loi: 'Invia Lettera di Intenti firmata',
       submitting: 'Invio in corso...',
       validating: 'Verifica numero registro imprese...',
-      storage_info: 'La tua candidatura verrà archiviata in modo sicuro. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      storage_info: 'La tua candidatura verrà archiviata in modo sicuro. DutyBoost · KvK 42053088 · hello@dutyboost.com',
       success_title: 'Lettera di Intenti inviata',
       success_subtitle: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Con il tuo supporto, siamo più forti nel convincere i retailer aeroportuali ad aderire al nostro ecosistema. Una copia firmata digitalmente ti verrà inviata via e-mail entro 24 ore.',
       error_required: 'Questo campo è obbligatorio.',
@@ -1050,7 +1050,7 @@ export default {
 
 La presente Lettera di Intenti ("LI") è stipulata il {date} tra:
 
-DutyBoost, con sede legale a DEK 32, 1319BB Almere, Paesi Bassi, registrata presso la Camera di Commercio olandese con numero 42053181, numero IVA NL869492068B01, legalmente rappresentata da:
+DutyBoost, con sede legale a DEK 32, 1319BB Almere, Paesi Bassi, registrata presso la Camera di Commercio olandese con numero 42053088, numero IVA NL869492068B01, legalmente rappresentata da:
 Jaquelin Beliad Perez – Co-Fondatore
 Raël Martis – Co-Fondatore
 di seguito denominata "DutyBoost",
@@ -1214,7 +1214,7 @@ Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fi
       submit_loi: 'Invia Lettera di Intenti Firmata',
       submitting: 'Invio in corso...',
       validating: 'Verifica numero Camera di Commercio...',
-      storage_info: 'Il tuo invio sarà archiviato in modo sicuro. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      storage_info: 'Il tuo invio sarà archiviato in modo sicuro. DutyBoost · KvK 42053088 · hello@dutyboost.com',
       success_title: 'Lettera di Intenti Inviata',
       success_subtitle: 'Grazie, {name}. La tua Lettera di Intenti firmata è stata ricevuta a nome di {company}. Con la tua partecipazione, siamo più forti nel costruire la rete di retailer aeroportuali di DutyBoost. Una copia firmata digitalmente ti verrà inviata via e-mail entro 24 ore.',
       error_required: 'Questo campo è obbligatorio.',
@@ -1226,7 +1226,7 @@ Le Parti dichiarano che stipulano questa Lettera di Intenti in uno spirito di fi
 
 La presente Lettera di Intenti ("LDI") è stipulata il {date} tra:
 
-DutyBoost, con sede legale in DEK 32, 1319BB Almere, Paesi Bassi, registrata presso la Camera di Commercio olandese con il numero 42053181, partita IVA NL869492068B01, legalmente rappresentata da:
+DutyBoost, con sede legale in DEK 32, 1319BB Almere, Paesi Bassi, registrata presso la Camera di Commercio olandese con il numero 42053088, partita IVA NL869492068B01, legalmente rappresentata da:
 Jaquelin Beliad Perez – Co-Fondatore
 Raël Martis – Co-Fondatore
 di seguito denominata "DutyBoost",
@@ -1477,7 +1477,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       benefit3_title: '⚡ Zero carico operativo',
       benefit3_desc: 'Il QR code DutyCredit viene incorporato direttamente nella tua e-mail di conferma prenotazione — nessun passaggio extra, nessun nuovo strumento, nessun lavoro manuale.',
       cta: 'Pronto a trasformare le tue prenotazioni in fidelizzazione e entrate?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181 | P.IVA: NL869492068B01',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053088 | P.IVA: NL869492068B01',
     },
     flightonepager: {
       badge: 'Programma Partner Voli',
@@ -1501,7 +1501,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       benefit2_title: '💰 Un nuovo flusso di entrate senza sforzo aggiuntivo', benefit2_desc: 'Le commissioni affluiranno automaticamente ad ogni riscatto — nessun team commerciale necessario, nessun lavoro extra, nessuna modifica alle tue operazioni esistenti.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'I DutyCredit verranno incorporati direttamente nelle tue e-mail di conferma prenotazione esistenti. Nessun nuovo strumento. Nessun passaggio extra. Nessuna manutenzione. Una ricompensa che i tuoi viaggiatori apprezzeranno — e un flusso di entrate che guadagnerai.',
       cta: 'Pronto a rendere ogni prenotazione di volo più preziosa — per i tuoi viaggiatori e per te?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053088 | P.IVA: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Programma Partner Alloggio',
@@ -1525,7 +1525,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       benefit2_title: '💰 Due opportunità di commissione per ospite', benefit2_desc: 'A differenza dei partner solo volo che guadagnano su un DutyCredit, i partner alloggio guadagneranno su due per ospite — raddoppiando il potenziale di entrate passive su ogni soggiorno confermato.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'I DutyCredit verranno incorporati direttamente nelle tue e-mail di conferma e check-out esistenti. Nessuna nuova piattaforma. Nessun passaggio extra. Nessuna manutenzione. Due ricompense, zero lavoro.',
       cta: 'Pronto a rendere ogni soggiorno più memorabile — e più redditizio?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053088 | P.IVA: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Programma Partner Noleggio & Transfer',
@@ -1549,7 +1549,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       benefit2_title: '💰 Due opportunità di commissione per cliente', benefit2_desc: 'A differenza dei partner solo volo, i partner noleggio guadagneranno su due DutyCredit per cliente — raddoppiando il potenziale di entrate passive su ogni noleggio confermato.',
       benefit3_title: '⚡ Zero carico operativo', benefit3_desc: 'I DutyCredit verranno incorporati direttamente nelle tue e-mail di conferma e restituzione esistenti. Nessuna nuova piattaforma. Nessun passaggio extra. Nessuna manutenzione. Due ricompense, zero lavoro.',
       cta: 'Pronto a rendere ogni noleggio più prezioso — per i tuoi clienti e per te?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053088 | P.IVA: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Programma Partner TravelStack',
@@ -1607,7 +1607,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       benefit3_title: "⚡ Un'integrazione. Valore permanente.",
       benefit3_desc: 'I DutyCredit vengono incorporati direttamente nelle email di conferma esistenti del partner — nessun nuovo strumento, nessun lavoro manuale, nessuna manutenzione continua.',
       cta: 'Pronto ad attivare DutyBoost su tutto il travel stack?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053181 | P.IVA: NL869492068B01',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Camera di Commercio (KvK): 42053088 | P.IVA: NL869492068B01',
     },
     retaileronepager: {
       headline: 'La nostra missione: trasformare ogni viaggiatore di passaggio in un cliente pagante — automaticamente',
@@ -1647,7 +1647,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       benefit3_title: '⚡ Ricavi incrementali, zero rischio',
       benefit3_desc: 'Pagherai solo quando DutyBoost consegnerà una vendita. Nessun costo iniziale. Profitto incrementale puro sul traffico che hai già.',
       cta: 'Pronto a costruire questo obiettivo insieme?',
-      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053181 | P.IVA: NL869492068B01',
+      legal: 'DutyBoost. Tutti i diritti riservati. 2026. | Registro delle Imprese (KvK): 42053088 | P.IVA: NL869492068B01',
     },
     carrentalsignup: {
       step_info: 'Dati aziendali',

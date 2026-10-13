@@ -331,7 +331,7 @@ export default function AirportRetailerPresentation() {
             <DutyBoostLogo height={100} />
             <div className="text-right">
               <p>© 2026 DutyBoost. All rights reserved.</p>
-              <p className="text-xs mt-0.5">Chamber of Commerce (KvK): 42053181</p>
+              <p className="text-xs mt-0.5">Chamber of Commerce (KvK): 42053088</p>
             </div>
           </div>
           <FooterLinks />

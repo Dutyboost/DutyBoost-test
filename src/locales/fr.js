@@ -433,7 +433,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Tous droits réservés.',
-      kvk: 'Chambre de Commerce (KvK): 42053181',
+      kvk: 'Chambre de Commerce (KvK): 42053088',
       vat: 'N° TVA : NL869492068B01',
       cookie_policy: 'Politique en matière de cookies',
     },
@@ -1033,7 +1033,7 @@ export default {
       submit_loi: 'Soumettre la Lettre d\'Intention signée',
       submitting: 'Envoi en cours...',
       validating: 'Vérification du numéro de registre du commerce...',
-      storage_info: 'Votre soumission sera stockée en toute sécurité. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      storage_info: 'Votre soumission sera stockée en toute sécurité. DutyBoost · KvK 42053088 · hello@dutyboost.com',
       success_title: 'Lettre d\'Intention soumise',
       success_subtitle: 'Merci, {name}. Votre Lettre d\'Intention signée a été reçue au nom de {company}. Avec votre soutien, nous sommes plus forts pour convaincre les détaillants aéroportuaires de rejoindre notre écosystème. Une copie signée numériquement vous sera envoyée par e-mail dans les 24 heures.',
       error_required: 'Ce champ est obligatoire.',
@@ -1045,7 +1045,7 @@ export default {
 
 La présente Lettre d\'Intention (« LOI ») a été conclue le {date} entre :
 
-DutyBoost, ayant son siège social à DEK 32, 1319BB Almere, Pays-Bas, enregistrée auprès de la Chambre de Commerce des Pays-Bas sous le numéro 42053181, numéro TVA NL869492068B01, légalement représentée par :
+DutyBoost, ayant son siège social à DEK 32, 1319BB Almere, Pays-Bas, enregistrée auprès de la Chambre de Commerce des Pays-Bas sous le numéro 42053088, numéro TVA NL869492068B01, légalement représentée par :
 Jaquelin Beliad Perez – Co-Fondateur
 Raël Martis – Co-Fondateur
 ci-après dénommée « DutyBoost »,
@@ -1209,7 +1209,7 @@ Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esp
       submit_loi: 'Soumettre la Lettre d\'Intention signée',
       submitting: 'Envoi en cours...',
       validating: 'Vérification du numéro de registre du commerce...',
-      storage_info: 'Votre soumission sera stockée en toute sécurité. DutyBoost · KvK 42053181 · hello@dutyboost.com',
+      storage_info: 'Votre soumission sera stockée en toute sécurité. DutyBoost · KvK 42053088 · hello@dutyboost.com',
       success_title: 'Lettre d\'Intention soumise',
       success_subtitle: 'Merci, {name}. Votre Lettre d\'Intention signée a été reçue au nom de {company}. Avec votre participation, nous sommes plus forts pour construire le réseau de détaillants aéroportuaires DutyBoost. Une copie signée numériquement vous sera envoyée par e-mail dans les 24 heures.',
       error_required: 'Ce champ est obligatoire.',
@@ -1221,7 +1221,7 @@ Les Parties déclarent qu\'elles concluent cette Lettre d\'Intention dans un esp
 
 La présente Lettre d'Intention ("LOI") a été conclue le {date} entre :
 
-DutyBoost, ayant son siège social à DEK 32, 1319BB Almere, Pays-Bas, enregistrée auprès de la Chambre de Commerce des Pays-Bas sous le numéro 42053181, numéro TVA NL869492068B01, légalement représentée par :
+DutyBoost, ayant son siège social à DEK 32, 1319BB Almere, Pays-Bas, enregistrée auprès de la Chambre de Commerce des Pays-Bas sous le numéro 42053088, numéro TVA NL869492068B01, légalement représentée par :
 Jaquelin Beliad Perez – Co-Fondateur
 Raël Martis – Co-Fondateur
 ci-après dénommée "DutyBoost",
@@ -1473,7 +1473,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       benefit3_title: "⚡ Zéro charge opérationnelle",
       benefit3_desc: "Le QR code DutyCredit est intégré directement dans votre e-mail de confirmation de réservation — aucune étape supplémentaire, aucun nouvel outil, aucun travail manuel.",
       cta: "Prêt à transformer vos réservations en fidélité et revenus ?",
-      legal: "DutyBoost. Tous droits réservés. 2026. | Registre du Commerce (KvK): 42053181 | N° TVA : NL869492068B01",
+      legal: "DutyBoost. Tous droits réservés. 2026. | Registre du Commerce (KvK): 42053088 | N° TVA : NL869492068B01",
     },
     flightonepager: {
       badge: 'Programme Partenaire Vol',
@@ -1497,7 +1497,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       benefit2_title: '💰 Un nouveau flux de revenus sans effort supplémentaire', benefit2_desc: 'Les commissions afflueront automatiquement à chaque utilisation — aucune équipe commerciale nécessaire, aucun travail supplémentaire, aucune modification de vos opérations existantes.',
       benefit3_title: '⚡ Zéro charge opérationnelle', benefit3_desc: 'Les DutyCredits seront intégrés directement dans vos e-mails de confirmation de réservation existants. Aucun nouvel outil. Aucune étape supplémentaire. Aucune maintenance. Une récompense que vos voyageurs apprécieront — et un flux de revenus que vous générerez.',
       cta: 'Prêt à rendre chaque réservation de vol plus précieuse — pour vos voyageurs et pour vous ?',
-      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053181 | N° TVA : NL869492068B01',
+      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053088 | N° TVA : NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Programme Partenaire Hébergement',
@@ -1521,7 +1521,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       benefit2_title: '💰 Deux opportunités de commission par client', benefit2_desc: 'Contrairement aux partenaires vol qui gagnent sur un DutyCredit, les partenaires hébergement en gagneront sur deux par client — doublant le potentiel de revenus passifs sur chaque séjour confirmé.',
       benefit3_title: '⚡ Zéro charge opérationnelle', benefit3_desc: 'Les DutyCredits seront intégrés directement dans votre e-mail de confirmation et de check-out existants. Aucune nouvelle plateforme. Aucune étape supplémentaire. Aucune maintenance. Deux récompenses, zéro travail.',
       cta: 'Prêt à rendre chaque séjour plus mémorable — et plus rentable ?',
-      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053181 | N° TVA : NL869492068B01',
+      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053088 | N° TVA : NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Programme Partenaire Location & Transfert',
@@ -1545,7 +1545,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       benefit2_title: '💰 Deux opportunités de commission par client', benefit2_desc: 'Contrairement aux partenaires vol uniquement, les partenaires location gagneront sur deux DutyCredits par client — doublant le potentiel de revenus passifs sur chaque location confirmée.',
       benefit3_title: '⚡ Zéro charge opérationnelle', benefit3_desc: 'Les DutyCredits seront intégrés directement dans votre e-mail de confirmation et de retour existants. Aucune nouvelle plateforme. Aucune étape supplémentaire. Aucune maintenance. Deux récompenses, zéro travail.',
       cta: 'Prêt à rendre chaque location plus précieuse — pour vos clients et pour vous ?',
-      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053181 | N° TVA : NL869492068B01',
+      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053088 | N° TVA : NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Programme Partenaire TravelStack',
@@ -1603,7 +1603,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       benefit3_title: '⚡ Une intégration. Valeur permanente.',
       benefit3_desc: "Les DutyCredits sont intégrés directement dans les emails de confirmation existants du partenaire — pas de nouveaux outils, pas de travail manuel, pas de maintenance continue.",
       cta: 'Prêt à activer DutyBoost sur tout le travel stack ?',
-      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053181 | N° TVA : NL869492068B01',
+      legal: 'DutyBoost. Tous droits réservés. 2026. | Chambre de Commerce (KvK): 42053088 | N° TVA : NL869492068B01',
     },
     retaileronepager: {
       headline: "Notre mission : transformer chaque voyageur de passage en client payant — automatiquement",
@@ -1643,7 +1643,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       benefit3_title: "⚡ Revenus supplémentaires, zéro risque",
       benefit3_desc: "Vous ne paierez que lorsque DutyBoost livrera une vente. Aucun coût initial. Profit supplémentaire pur sur le trafic que vous aurez déjà.",
       cta: "Prêt à construire cela ensemble ?",
-      legal: "DutyBoost. Tous droits réservés. 2026. | Registre du Commerce (KvK): 42053181 | N° TVA : NL869492068B01",
+      legal: "DutyBoost. Tous droits réservés. 2026. | Registre du Commerce (KvK): 42053088 | N° TVA : NL869492068B01",
     },
     carrentalsignup: {
       step_info: 'Infos entreprise',

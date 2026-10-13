@@ -111,7 +111,7 @@ function generatePDF() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(7);
     doc.setTextColor(...GREY);
-    doc.text("DutyBoost B.V.  |  KvK 42053181  |  hello@dutyboost.com  |  dutyboost.com", W / 2, H - 5, { align: "center" });
+    doc.text("DutyBoost B.V.  |  KvK 42053088  |  hello@dutyboost.com  |  dutyboost.com", W / 2, H - 5, { align: "center" });
     doc.text(`Page ${pageNum}`, W - margin, H - 5, { align: "right" });
   };
 

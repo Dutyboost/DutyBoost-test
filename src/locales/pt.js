@@ -132,7 +132,7 @@ export default {
     footer: {
       tagline: '— A Camada de Conversão do Retalho de Viagens',
       rights: '© 2026 DutyBoost. Todos os direitos reservados.',
-      kvk: 'Registo Comercial (KvK): 42053181',
+      kvk: 'Registo Comercial (KvK): 42053088',
       vat: 'Número de IVA: NL869492068B01',
       cookie_policy: 'Política de Cookies',
     },
@@ -599,7 +599,7 @@ export default {
       benefit3_title: '⚡ Zero esforço operacional',
       benefit3_desc: 'O código QR DutyCredit é integrado diretamente no seu email de confirmação de reserva — sem passos extra, sem novas ferramentas e sem trabalho manual.',
       cta: 'Pronto para transformar as suas reservas em fidelização e receita?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     flightonepager: {
       badge: 'Programa de Parceiros de Voos',
@@ -623,7 +623,7 @@ export default {
       benefit2_title: '💰 Duas oportunidades de comissão por reserva', benefit2_desc: 'A comissão resulta tanto do crédito da reserva como do crédito do lembrete do voo de regresso — duplicando o seu potencial de receita passiva em comparação com uma abordagem de um único ponto de contacto.',
       benefit3_title: '⚡ Zero esforço operacional', benefit3_desc: 'Os DutyCredits são integrados diretamente nos seus atuais emails de confirmação de reserva e de lembrete do voo de regresso. Sem novas ferramentas. Sem passos extra. Sem manutenção. Duas recompensas, zero trabalho.',
       cta: 'Pronto para tornar cada reserva de voo mais valiosa — a dobrar — para os seus viajantes e para si?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Programa de Parceiros de Alojamento',
@@ -647,7 +647,7 @@ export default {
       benefit2_title: '💰 Duas oportunidades de comissão por hóspede', benefit2_desc: 'Ao contrário dos parceiros de voos, que ganham sobre um DutyCredit, os parceiros de alojamento ganharão comissão sobre dois por hóspede — duplicando o potencial de receita passiva em cada estadia confirmada.',
       benefit3_title: '⚡ Zero esforço operacional', benefit3_desc: 'Os DutyCredits serão integrados diretamente nos seus atuais emails de confirmação de reserva e de check-out. Sem nova plataforma. Sem passos extra. Sem manutenção contínua. Duas recompensas, zero trabalho.',
       cta: 'Pronto para tornar cada estadia mais memorável — e mais rentável?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Programa de Parceiros de Aluguer de Automóveis e Transfers',
@@ -671,7 +671,7 @@ export default {
       benefit2_title: '💰 Duas oportunidades de comissão por cliente', benefit2_desc: 'Ao contrário dos parceiros exclusivamente de voos, os parceiros de aluguer de automóveis ganharão comissão sobre dois DutyCredits por cliente — um na reserva e outro na devolução. O dobro do potencial de receita passiva em cada aluguer confirmado.',
       benefit3_title: '⚡ Zero esforço operacional', benefit3_desc: 'Os DutyCredits serão integrados diretamente nos seus atuais emails de confirmação de reserva e de devolução. Sem nova plataforma. Sem passos extra. Sem manutenção contínua. Duas recompensas, zero trabalho.',
       cta: 'Pronto para tornar cada aluguer mais valioso — para os seus clientes e para si?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Programa de Parceiros de Viagens',
@@ -731,7 +731,7 @@ export default {
       benefit3_title: '⚡ Uma integração. Valor permanente.',
       benefit3_desc: 'Os DutyCredits são integrados diretamente nos atuais emails de confirmação do parceiro — sem novas ferramentas, sem trabalho manual e sem manutenção contínua.',
       cta: 'Pronto para ativar a DutyBoost em todos os setores ligados às viagens?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     retaileronepager: {
       headline: 'A nossa missão: transformar cada viajante de passagem num cliente pagante — automaticamente',
@@ -771,7 +771,7 @@ export default {
       benefit3_title: '⚡ Receita incremental, risco zero',
       benefit3_desc: 'Só paga quando a DutyBoost gerar uma venda. Sem custos iniciais. Lucro puramente incremental sobre um tráfego que já tem.',
       cta: 'Pronto para fazer parte da construção disto em conjunto?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     pospartneronepager: {
       badge: 'Programa de Parceiros POS',
@@ -812,7 +812,7 @@ export default {
       benefit3_title: '📈 Crescimento partilhado, risco zero',
       benefit3_desc: 'À medida que a DutyBoost se expande por aeroportos e parceiros de viagens, o volume de resgates nos seus retalhistas cresce automaticamente. Beneficia de um crescimento da plataforma que não financiou — sem obrigação de integrar ninguém.',
       cta: 'Pronto para ampliar a sua solução de POS?',
-      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053181 | IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos os direitos reservados. 2026. | Registo Comercial (KvK): 42053088 | IVA: NL869492068B01',
     },
     calculator,
     entCalc,
