@@ -22,7 +22,7 @@ export default {
     hero: {
       title_1: "Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
-      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
+      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Kreuzfahrtpartner verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

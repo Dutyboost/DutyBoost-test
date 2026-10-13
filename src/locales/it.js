@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "Una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi",
        title_2: '',
-       subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, gli aeroporti, i viaggiatori, i partner di viaggio, i partner corporate e i fornitori all'ingrosso/dettaglio attraverso un ecosistema commerciale condiviso basato sulle performance",
+       subtitle_1: "Collegare i fornitori POS, i dettaglianti aeroportuali, gli aeroporti, i viaggiatori, i partner di viaggio, i partner corporate e i partner crocieristici attraverso un ecosistema commerciale condiviso basato sulle performance",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',

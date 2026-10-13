@@ -27,7 +27,7 @@ export default {
     hero: {
       title_1: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
       title_2: '',
-      subtitle_1: 'Ligando fornecedores de POS, retalhistas de aeroporto, aeroportos, passageiros, parceiros de viagens, parceiros corporativos e fornecedores grossistas/retalhistas através de um ecossistema comercial partilhado baseado no desempenho',
+      subtitle_1: 'Ligando fornecedores de POS, retalhistas de aeroporto, aeroportos, passageiros, parceiros de viagens, parceiros corporativos e parceiros de cruzeiros através de um ecossistema comercial partilhado baseado no desempenho',
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

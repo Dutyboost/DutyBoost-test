@@ -21,7 +21,7 @@ export default {
     hero: {
        title_1: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
        title_2: '',
-       subtitle_1: "Conectando a proveedores POS, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y proveedores mayoristas/minoristas a través de un ecosistema comercial compartido basado en el rendimiento",
+       subtitle_1: "Conectando a proveedores POS, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y socios de cruceros a través de un ecosistema comercial compartido basado en el rendimiento",
    subtitle_2: '',
    subtitle_3: '',
    tagline: '',

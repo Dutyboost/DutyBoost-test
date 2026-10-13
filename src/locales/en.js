@@ -27,7 +27,7 @@ export default {
     hero: {
       title_1: 'A Performance-based Customer Acquisition Solution for Global Travel',
       title_2: '',
-      subtitle_1: "Connecting POS Providers, Airport Retailers, Airports, Travellers, Travel Partners, Corporate Travel Partners, and Wholesale/Retail Suppliers through a shared performance-based commercial ecosystem",
+      subtitle_1: "Connecting POS Providers, Airport Retailers, Airports, Travellers, Travel Partners, Corporate Travel Partners, and Cruise Ship Partners through a shared performance-based commercial ecosystem",
       subtitle_2: "",
       subtitle_3: "",
       tagline: "",
