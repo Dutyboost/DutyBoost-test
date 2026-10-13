@@ -1,6 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import { travelerStrings } from './i18nTraveler';
 import { claimDutyCreditStrings } from './i18nClaimDutyCredit';
 import { presentationStrings } from './i18nPresentation';
@@ -419,16 +418,12 @@ Object.keys(resources).forEach((lng) => {
 delete resources.old_en;
 
 i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
+    // Always start in English; visitors can still switch language manually.
+    lng: 'en',
     fallbackLng: 'en',
-    detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
-      lookupLocalStorage: 'i18nextLng',
-    },
     interpolation: {
       escapeValue: false,
     },
