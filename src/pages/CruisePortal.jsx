@@ -23,7 +23,7 @@ export default function CruisePortal() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <div />
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={150} />
+            <DutyBoostLogo height={55} />
           </button>
           <LanguageSwitcher />
         </div>
