@@ -167,11 +167,11 @@ export default function LandingPage() {
 
               if (s.key === 'cruise') {
                 title = 'Cruise Ship & Port Retail Partners';
-                description = 'DutyBoost turns every port call into measurable retail revenue — passengers receive a DutyCredit at booking, redeem it at partner port retailers, and the cruise line earns commission on every redemption.';
+                description = 'DutyBoost turns every port call into measurable retail revenue — passengers receive a DutyCredit at booking, redeem it at partner port retailers and downtown stores, and the cruise line earns commission on every redemption.';
                 benefits = [
                   '6–8 hours of dwell time per port — hours, not minutes.',
+                  'Redeemable at port retailers and downtown stores.',
                   'Higher basket value: souvenirs, jewellery, spirits.',
-                  'Shore excursion desks as a physical distribution channel.',
                 ];
               }
 
