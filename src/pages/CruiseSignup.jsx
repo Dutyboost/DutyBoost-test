@@ -68,7 +68,7 @@ export default function CruiseSignup() {
     return (
       <div className="min-h-screen bg-background flex flex-col">
         <nav className="border-b border-border px-6 h-16 flex items-center">
-          <Link to="/"><DutyBoostLogo height={150} /></Link>
+          <Link to="/"><DutyBoostLogo height={55} /></Link>
         </nav>
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="w-full max-w-md text-center space-y-6">
@@ -88,7 +88,7 @@ export default function CruiseSignup() {
     <div className="min-h-screen bg-background flex flex-col">
       <nav className="border-b border-border px-6 h-16 flex items-center justify-between">
         <div />
-        <Link to="/"><DutyBoostLogo height={150} /></Link>
+        <Link to="/"><DutyBoostLogo height={55} /></Link>
         <LanguageSwitcher />
       </nav>
 
