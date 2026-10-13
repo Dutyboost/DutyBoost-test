@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Store, ArrowRight, Eye } from "lucide-react";
+import { Store, ArrowRight, Eye, Ship } from "lucide-react";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { useTranslation } from "react-i18next";
 import PageFooter from "../components/PageFooter";
@@ -110,6 +110,19 @@ export default function DemoLanding() {
             </div>
             <div className="flex items-center gap-2 text-primary font-semibold text-sm">
               <Eye className="w-4 h-4" /> {t('demo.view_retailer')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link to="/demo/cruise" className="group p-6 rounded-2xl border-2 border-border bg-card hover:border-primary hover:bg-primary/5 transition-all text-left space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <Ship className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <p className="font-heading font-bold text-xl">Cruise Line Partner Demo</p>
+              <p className="text-muted-foreground text-sm mt-1">Track passenger participation, port call performance and commission earnings across your fleet.</p>
+            </div>
+            <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+              <Eye className="w-4 h-4" /> View demo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 

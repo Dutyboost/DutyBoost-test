@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { Anchor, TrendingUp, DollarSign, Users } from "lucide-react";
+import { Anchor, TrendingUp, DollarSign, Users, MapPin } from "lucide-react";
 import StatsCard from "../components/StatsCard";
+import CruisePortCallMap from "../components/CruisePortCallMap";
+
+const portData = [
+  { port: "Barcelona", country: "Spain", calls: 42, passengers: 118400, redemptions: 2140, revenue: "€182,400" },
+  { port: "Civitavecchia (Rome)", country: "Italy", calls: 36, passengers: 98400, redemptions: 1580, revenue: "€134,700" },
+  { port: "Naples", country: "Italy", calls: 28, passengers: 76200, redemptions: 1205, revenue: "€101,900" },
+  { port: "Dubrovnik", country: "Croatia", calls: 22, passengers: 58900, redemptions: 935, revenue: "€78,600" },
+  { port: "Valletta", country: "Malta", calls: 18, passengers: 47600, redemptions: 780, revenue: "€64,200" },
+  { port: "Piraeus (Athens)", country: "Greece", calls: 14, passengers: 39200, redemptions: 590, revenue: "€48,300" },
+];
 
 const revenueData = [
   { month: "Jan", revenue: 5100, passengers: 510 },
@@ -68,6 +78,44 @@ export default function DemoCruiseDashboard() {
               <Legend />
             </PieChart>
           </ResponsiveContainer>
+        </div>
+      </div>
+
+      <div className="bg-card rounded-xl border border-border p-6">
+        <h2 className="font-heading font-semibold mb-4 flex items-center gap-2">
+          <MapPin className="w-4 h-4 text-cyan-600" /> Port Call Redemption Map
+        </h2>
+        <CruisePortCallMap />
+      </div>
+
+      <div className="bg-card rounded-xl border border-border p-6">
+        <h2 className="font-heading font-semibold mb-4">Performance by Port of Call</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
+                <th className="pb-2 pr-4 font-semibold">Port</th>
+                <th className="pb-2 pr-4 font-semibold">Calls</th>
+                <th className="pb-2 pr-4 font-semibold">Passengers</th>
+                <th className="pb-2 pr-4 font-semibold">Redemptions</th>
+                <th className="pb-2 font-semibold">Retail Revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+              {portData.map((p) => (
+                <tr key={p.port} className="border-b border-border/60 last:border-0">
+                  <td className="py-2.5 pr-4">
+                    <p className="font-medium">{p.port}</p>
+                    <p className="text-xs text-muted-foreground">{p.country}</p>
+                  </td>
+                  <td className="py-2.5 pr-4">{p.calls}</td>
+                  <td className="py-2.5 pr-4">{p.passengers.toLocaleString()}</td>
+                  <td className="py-2.5 pr-4">{p.redemptions.toLocaleString()}</td>
+                  <td className="py-2.5 font-semibold text-primary">{p.revenue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 

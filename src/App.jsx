@@ -259,7 +259,7 @@ const AuthenticatedApp = () => {
         <Route path="/car-rental-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/cruise-showcase" element={<CruiseShowcase />} />
         <Route path="/cruise-portal" element={<CruisePortal />} />
-        <Route path="/cruise-signup" element={<Navigate to="/get-started" replace />} />
+        <Route path="/cruise-signup" element={<CruiseSignup />} />
         <Route path="/train-showcase" element={<TrainShowcase />} />
         <Route path="/train-portal" element={<TrainPortal />} />
         <Route path="/train-signup" element={<Navigate to="/get-started" replace />} />

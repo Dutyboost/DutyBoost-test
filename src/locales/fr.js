@@ -47,7 +47,7 @@ export default {
         retailers: "Détaillants d'Aéroport",
         airports: "Partenaires Aéroports",
         travelers: 'Voyageurs',
-        wholesale: 'Grossiste / Fournisseurs',
+        cruise: 'Partenaires Croisière',
         corporate: 'Corporate Travel Partners',
         travel: 'Partenaires de Voyage',
       },

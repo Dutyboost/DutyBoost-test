@@ -46,7 +46,7 @@ export default {
         retailers: 'Luchthavenwinkels',
         airports: 'Luchthavenpartners',
         travelers: 'Reizigers',
-        wholesale: 'Groothandel / Leveranciers',
+        cruise: 'Cruiseschip Partners',
         corporate: 'Corporate Travel Partners',
         travel: 'Reispartners',
       },

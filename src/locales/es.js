@@ -46,7 +46,7 @@ export default {
         retailers: 'Minoristas de Aeropuerto',
         airports: 'Socios de Aeropuerto',
         travelers: 'Pasajeros',
-        wholesale: 'Mayoristas / Proveedores',
+        cruise: 'Socios de Cruceros',
         corporate: 'Corporate Travel Partners',
         travel: 'Socios de Viaje',
       },

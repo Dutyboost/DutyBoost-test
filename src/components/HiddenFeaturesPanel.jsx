@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Ship, Train, Bus, Store, Users, Building2 } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Package, Train, Bus, Store, Users, Building2 } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -96,85 +96,33 @@ Phase 3 — Expand across routes and airports.`,
     files: [],
   },
   {
-    id: "cruise-ship",
-    icon: Ship,
-    title: "Cruise Ship & Port Retail Integration",
+    id: "wholesale-suppliers",
+    icon: Package,
+    title: "Wholesale / Retail Suppliers",
     status: "hidden",
-    reason: "Strategic future channel — business model validated, not yet built",
-    description: `DutyBoost for cruise ships mirrors the airline model but with a distinct commercial dynamic: passengers are already at a port, they have free time, and they are high-spend travellers. The positioning: "We turn port excursion time into measurable retail revenue."
+    reason: "Channel parked — pages still live at their routes, removed from the home page and partner-type chooser pending go-to-market",
+    description: `The Wholesale / Retail Suppliers channel let brands and suppliers supply DutyBoost-listed products into participating airport retailers. It was promoted as a stakeholder card on the landing page and as a partner type on the Get Started page; both entries have been removed so the channel is no longer promoted publicly. The showcase, calculator and partner request pages still exist and remain reachable by their routes.
 
-JOURNEY MAP:
-• Embarkation / Pre-cruise → Reward is generated at booking confirmation (cruise line app, cabin key card, onboard welcome email)
-• Port stop (excursion window) → Passenger visits a DutyBoost-partnered airport or port retailer with QR voucher
-• Back onboard → Spend confirmation shown on cabin account or loyalty app; eligible for onboard credit on next port
+The supplier proposition: DutyBoost surfaces supplier products to pre-activated travellers at the point of sale — moving stock that would otherwise sit, at no listing cost, and earning the supplier incremental volume.
 
-INTEGRATION POINTS:
-A. Pre-cruise (intent creation): "At your next port stop, you have €X to spend at participating retailers" — delivered via cruise line app or printed shore excursion card.
-B. Port stop (conversion moment): Passenger scans QR at partnered retailer. Spend threshold met. Revenue generated.
-C. Post-port (loyalty loop): Cruise line receives data on port retail conversion. Passenger receives optional onboard credit or loyalty points for next cruise.
-
-BUSINESS MODEL:
-• Cruise lines earn a revenue share on each redemption (same 2.5% commission structure as airlines)
-• Retailers pay only on redemption — no upfront cost
-• DutyBoost takes platform fee from retailer transaction volume
-• Shore excursion desks can be enrolled as distribution points (physical voucher handout + digital)
-
-WHY CRUISE LINES CARE:
-• Average port stop: 6–8 hours per passenger, €80–€200 discretionary spend potential
-• Conversion 15% of 3,000 pax (mid-size ship) = 450 conversions
-• Avg spend €75 = €33,750 gross per port call
-• Commission 2.5% = ~€844 / Cruise line share 20% = ~€169 per port call
-• At 180 port calls/year per ship: ~€30,000 passive revenue per vessel
-• Fleet of 10 ships: ~€300,000 annual incremental revenue
-• Data value: port retail behaviour, category spend, dwell time patterns
-
-AIRPORT CONNECTION:
-• Cruise passengers often fly in 1–2 days before embarkation → DutyBoost airport voucher is generated at flight booking, redeemable at departure airport AND the cruise home port retail zone.
-• Creates a seamless travel retail loop: fly → airport shop → board → port shop — all under one DutyBoost platform.
-
-KEY DIFFERENTIATORS vs. Airline:
-• Longer dwell time per location (hours vs. minutes at airport)
-• Higher average transaction value (souvenirs, jewellery, spirits)
-• Shore excursion desk as physical distribution channel (not only digital)
-• Cabin-level personalisation (cabin number = identity, no app needed)
-
-KEY MESSAGE: Do not say "we help port shops." Say: "We turn every port stop into a measurable retail revenue event for the cruise line."
-
-ROLLOUT:
-Phase 1 — Pilot with one cruise line, one home port, two partnered retailers. Digital voucher via embarkation email.
-Phase 2 — Expand to 3–5 port stops per itinerary with pre-loaded destination vouchers per port.
-Phase 3 — Onboard integration: cabin TV shore excursion screen, loyalty app, physical shore excursion desk cards.
-Phase 4 — Cross-channel: fly-cruise packages where airport DutyBoost voucher and port DutyBoost voucher are unified in one wallet.`,
+The cruise ship channel took this slot on the landing page and the Get Started chooser.`,
     pages: [
-      { label: "Cruise Showcase", path: "/cruise-showcase" },
-      { label: "Cruise Portal", path: "/cruise-portal" },
-      { label: "Cruise Signup", path: "/cruise-signup" },
-      { label: "Demo Cruise Dashboard", path: "/demo/cruise" },
+      { label: "Wholesale Showcase", path: "/wholesale-showcase" },
+      { label: "Wholesale Calculator", path: "/wholesale-calculator" },
+      { label: "Wholesale Partner Request", path: "/wholesale-partner-request" },
     ],
     howToRestore: [
-      "In pages/SelectUserType.jsx: re-add the cruise option (id: 'cruise') back to the options array.",
-      "In pages/LandingPage.jsx: re-add CruiseShipIcon to the AdditionalIcons array for the 'agencies' stakeholder card.",
-      "Create pages/CruiseShowcase.jsx — a public-facing pitch page for cruise line partnerships (mirrors AgencyShowcase/RetailerShowcase structure).",
-      "Create pages/CruisePortal.jsx — a logged-in dashboard for cruise line partners: fleet overview, port call performance, passenger conversion, revenue share.",
-      "Create pages/CruiseSignup.jsx — multi-step onboarding for cruise lines (company info, fleet size, home port, bank details, terms).",
-      "Add 'Cruise Line' as a business_type option in the SignupApplication entity.",
-      "Add a CruiseCredit entity (mirrors FnbDutyCredit) with fields: token_id, cabin_number, ship_name, port_of_call, balance, expiry, status.",
-      "Add a CruiseTransaction entity (mirrors FnbTransaction) for port retail redemptions.",
-      "Create pages/DemoCruiseDashboard.jsx — demo dashboard showing per-ship and per-port analytics.",
-      "Add cruise demo card to pages/DemoLanding.jsx.",
-      "Add cruise routes to App.jsx and a 'For Cruise Lines' entry in the LandingPage nav.",
-      "Create functions/generateCruiseCredit.js — backend function triggered at cruise booking to issue a port retail voucher via email.",
-      "Create components/CruisePortCallMap.jsx — map view of partnered ports with redemption heatmap.",
+      "In pages/LandingPage.jsx: re-add the wholesale stakeholder entry (key: 'wholesale', icon: Package, amber palette) to the stakeholders array.",
+      "In pages/LandingPage.jsx: re-add the getWholesaleStrings import and the if (s.key === 'wholesale') title/description/benefits block.",
+      "In pages/LandingPage.jsx: add 'wholesale' back to the isClickable condition and map it to '/wholesale-showcase' in cardLink.",
+      "In pages/SelectUserType.jsx: re-add the wholesale option (id: 'wholesale', icon: Package, path: '/wholesale-showcase') to the options array.",
+      "In pages/SelectUserType.jsx: add 'wholesale' back to the fromAgency exclusion list if travel-partner visitors should not see it.",
     ],
     files: [
-      "pages/CruiseShowcase.jsx",
-      "pages/CruisePortal.jsx",
-      "pages/CruiseSignup.jsx",
-      "pages/DemoCruiseDashboard.jsx",
-      "components/CruisePortCallMap.jsx",
-      "functions/generateCruiseCredit.js",
-      "entities/CruiseCredit.json",
-      "entities/CruiseTransaction.json",
+      "pages/WholesaleShowcase.jsx",
+      "pages/WholesaleCalculator.jsx",
+      "pages/WholesalePartnerRequest.jsx",
+      "lib/i18nWholesale.js",
     ],
   },
   {

@@ -52,7 +52,7 @@ export default {
         retailers: 'Airport Retailers',
         airports: 'Airport Partners',
         travelers: 'Travellers',
-        wholesale: 'Wholesale / Suppliers',
+        cruise: 'Cruise Ship Partners',
         corporate: 'Corporate Travel Partners',
         travel: 'Travel Partners',
       },

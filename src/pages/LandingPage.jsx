@@ -5,11 +5,11 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Network, PlaneTakeoff, Package
+  ArrowRight, Menu, X, Cpu, Building2, Network, PlaneTakeoff
 } from "lucide-react";
+import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import { getAirportStrings } from "@/lib/i18nAirport";
-import { getWholesaleStrings } from "@/lib/i18nWholesale";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
@@ -72,11 +72,11 @@ export default function LandingPage() {
       iconColor: "text-slate-700",
     },
     {
-      key: 'wholesale',
-      icon: Package,
-      color: "from-amber-400 to-yellow-600",
-      bg: "bg-amber-50",
-      iconColor: "text-amber-600",
+      key: 'cruise',
+      icon: CruiseShipIcon,
+      color: "from-teal-400 to-cyan-600",
+      bg: "bg-teal-50",
+      iconColor: "text-teal-600",
     },
     {
       key: 'dutyboost',
@@ -165,14 +165,13 @@ export default function LandingPage() {
                 ];
               }
 
-              if (s.key === 'wholesale') {
-                const wo = getWholesaleStrings(i18n.language).showcase;
-                title = 'Wholesale / Retail Suppliers';
-                description = wo.subtitle;
+              if (s.key === 'cruise') {
+                title = 'Cruise Ship & Port Retail Partners';
+                description = 'DutyBoost turns every port call into measurable retail revenue — passengers receive a DutyCredit at booking, redeem it at partner port retailers, and the cruise line earns commission on every redemption.';
                 benefits = [
-                  wo.why1_title + ' — no new listing required.',
-                  wo.why2_title + ' — products move, not sit.',
-                  wo.why3_title + ' — incremental volume at no cost.',
+                  '6–8 hours of dwell time per port — hours, not minutes.',
+                  'Higher basket value: souvenirs, jewellery, spirits.',
+                  'Shore excursion desks as a physical distribution channel.',
                 ];
               }
 
@@ -200,8 +199,8 @@ export default function LandingPage() {
                 ];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'wholesale' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'wholesale' ? '/wholesale-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'cruise' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'cruise' ? '/cruise-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>

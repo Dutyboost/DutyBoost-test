@@ -6,7 +6,8 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, Building2, PlaneTakeoff, Package } from "lucide-react";
+import { ArrowRight, Cpu, Building2, PlaneTakeoff } from "lucide-react";
+import CruiseShipIcon from "../components/CruiseShipIcon";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
@@ -89,14 +90,14 @@ export default function SelectUserType() {
       path: "/corporate-partner-showcase",
     },
     {
-      id: "wholesale",
-      title: t('getstarted.wholesale'),
-      descKey: 'getstarted.wholesale_description',
-      icon: Package,
-      color: "from-amber-400 to-yellow-600",
-      bg: "bg-amber-50",
-      iconColor: "text-amber-600",
-      path: "/wholesale-showcase",
+      id: "cruise",
+      title: t('getstarted.cruise'),
+      descKey: 'getstarted.cruise_description',
+      icon: CruiseShipIcon,
+      color: "from-teal-400 to-cyan-600",
+      bg: "bg-teal-50",
+      iconColor: "text-teal-600",
+      path: "/cruise-showcase",
     },
   ];
 
@@ -126,7 +127,7 @@ export default function SelectUserType() {
           </div>
 
           <div className={`grid gap-4 mx-auto sm:grid-cols-2 ${fromAgency ? 'lg:grid-cols-3 max-w-3xl' : 'lg:grid-cols-4 max-w-7xl'}`}>
-            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate' || o.id === 'airports' || o.id === 'wholesale'))).map((option) => {
+            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate' || o.id === 'airports' || o.id === 'cruise'))).map((option) => {
               const Icon = option.icon;
               return (
                 <div

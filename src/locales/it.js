@@ -46,7 +46,7 @@ export default {
         retailers: 'Rivenditori Aeroportuali',
         airports: 'Partner Aeroportuali',
         travelers: 'Viaggiatori',
-        wholesale: 'Grossisti / Fornitori',
+        cruise: 'Partner Crociere',
         corporate: 'Corporate Travel Partners',
         travel: 'Partner di Viaggio',
       },

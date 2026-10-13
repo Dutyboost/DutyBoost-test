@@ -20,7 +20,8 @@
       "enum": [
         "Travel Partner",
         "Airport Retailer",
-        "Train Partner"
+        "Train Partner",
+        "Cruise Ship Partner"
       ]
     },
     "website": {

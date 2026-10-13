@@ -47,7 +47,7 @@ export default {
         retailers: 'Flughafen-Einzelhändler',
         airports: 'Flughafen-Partner',
         travelers: 'Reisende',
-        wholesale: 'Großhandel / Lieferanten',
+        cruise: 'Kreuzfahrt-Partner',
         corporate: 'Corporate Travel Partner',
         travel: 'Reisepartner',
       },
