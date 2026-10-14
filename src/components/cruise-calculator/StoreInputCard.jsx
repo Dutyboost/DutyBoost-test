@@ -19,7 +19,10 @@ const FIELD_CLASS =
 export default function StoreInputCard({ store, result, onChange, onRemove, onDuplicate }) {
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
 
-  const basketDisplay = Math.round((store.basket || 0) * rate);
+  const basketDisplay =
+    store.basket === "" || store.basket === null || store.basket === undefined
+      ? ""
+      : Math.round(store.basket * rate);
   const terminalOptions = terminalsForCountry(store.country);
 
   const pickCountry = (country) => {
@@ -110,7 +113,9 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
               min="0"
               step={1}
               value={basketDisplay}
-              onChange={(e) => onChange(store.id, "basket", Number(e.target.value || 0) / rate)}
+              onChange={(e) =>
+                onChange(store.id, "basket", e.target.value === "" ? "" : Number(e.target.value) / rate)
+              }
               className="w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pl-6 pr-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
             />
           </span>

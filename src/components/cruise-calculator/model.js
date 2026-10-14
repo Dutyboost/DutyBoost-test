@@ -30,17 +30,18 @@ export const discountFor = (basketEur) => {
 };
 
 // One store, exactly as a partner would enter it.
+// A new store starts completely blank — the partner fills in their own figures.
 export const defaultStore = (n, country = "", port = "") => ({
   id: `store-${Date.now()}-${n}`,
-  name: `Store ${n}`,
+  name: "",
   country,
   port,
-  passengersPerCall: 3000,
-  callsPerYear: 120,
-  passRate: 65,
-  activation: 2,
-  redemption: 30,
-  basket: 40,
+  passengersPerCall: "",
+  callsPerYear: "",
+  passRate: "",
+  activation: "",
+  redemption: "",
+  basket: "",
 });
 
 const n = (v) => (v === "" || v === null || v === undefined ? 0 : Number(v));
