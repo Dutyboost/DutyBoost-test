@@ -1,5 +1,8 @@
 import { Copy, Trash2, Store as StoreIcon } from "lucide-react";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
+import SearchCombobox from "@/components/onboarding/SearchCombobox";
+import { COUNTRY_OPTIONS } from "@/data/unCountries";
+import { terminalsForCountry } from "@/data/cruiseTerminals";
 import { numShort } from "./model";
 
 const NUM_FIELDS = [
@@ -10,10 +13,19 @@ const NUM_FIELDS = [
   { key: "redemption", label: "Redemption rate", suffix: "%", step: 1 },
 ];
 
+const FIELD_CLASS =
+  "[&_input]:h-[34px] [&_input]:rounded-lg [&_input]:border-slate-300 [&_input]:bg-white [&_input]:px-2.5 [&_input]:text-sm [&_input]:shadow-none [&_input]:focus-visible:ring-2 [&_input]:focus-visible:ring-teal-500/40";
+
 export default function StoreInputCard({ store, result, onChange, onRemove, onDuplicate }) {
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
 
   const basketDisplay = Math.round((store.basket || 0) * rate);
+  const terminalOptions = terminalsForCountry(store.country);
+
+  const pickCountry = (country) => {
+    onChange(store.id, "country", country);
+    onChange(store.id, "port", "");
+  };
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5">
@@ -26,19 +38,29 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
             value={store.name}
             onChange={(e) => onChange(store.id, "name", e.target.value)}
             placeholder="Store name"
-            className="w-full rounded-lg border border-slate-300 px-2.5 py-1.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+            className="w-full h-[34px] rounded-lg border border-slate-300 px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
           />
-          <input
-            value={store.region}
-            onChange={(e) => onChange(store.id, "region", e.target.value)}
-            placeholder="Island / country / region"
-            className="w-full rounded-lg border border-slate-300 px-2.5 py-1.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+          <SearchCombobox
+            value={store.country}
+            onChange={(v) => onChange(store.id, "country", v)}
+            onPick={(o) => pickCountry(o.label)}
+            options={COUNTRY_OPTIONS}
+            placeholder="Country / island"
+            emptyText="No match in the list — keep typing to enter it as new"
+            className={FIELD_CLASS}
           />
-          <input
+          <SearchCombobox
             value={store.port}
-            onChange={(e) => onChange(store.id, "port", e.target.value)}
-            placeholder="Port / terminal / city"
-            className="w-full rounded-lg border border-slate-300 px-2.5 py-1.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+            onChange={(v) => onChange(store.id, "port", v)}
+            onPick={(o) => onChange(store.id, "port", o.label)}
+            options={terminalOptions}
+            placeholder={store.country ? "Cruise ship terminal" : "Pick a country first"}
+            emptyText={
+              store.country
+                ? "No terminal listed for this country — type yours to add it"
+                : "Pick a country or island to see its cruise ship terminals"
+            }
+            className={FIELD_CLASS}
           />
         </div>
         <div className="flex items-center gap-1">
@@ -70,7 +92,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
                 step={f.step}
                 value={store[f.key]}
                 onChange={(e) => onChange(store.id, f.key, e.target.value)}
-                className={`w-full rounded-lg border border-slate-300 bg-white py-1 pr-7 pl-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40`}
+                className="w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pr-7 pl-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
               />
               {f.suffix && (
                 <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">{f.suffix}</span>
@@ -89,7 +111,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
               step={1}
               value={basketDisplay}
               onChange={(e) => onChange(store.id, "basket", Number(e.target.value || 0) / rate)}
-              className="w-full rounded-lg border border-slate-300 bg-white py-1 pl-6 pr-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+              className="w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pl-6 pr-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
             />
           </span>
         </label>

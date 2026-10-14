@@ -60,8 +60,9 @@ export default function CruiseCalculatorBody() {
         </span>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Your own store calculator</h1>
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">
-          Model one store with your own figures — then add every other store you operate. Group them by island,
-          country or region and the calculator totals each area on its own, and all of them together.
+          Model one store with your own figures — pick your country or island, then your cruise ship terminal from
+          the list. Add every other store you operate and the calculator totals each island or country on its own,
+          and all of them together.
         </p>
       </div>
 

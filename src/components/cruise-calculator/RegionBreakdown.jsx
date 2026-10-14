@@ -8,16 +8,16 @@ export default function RegionBreakdown({ regions }) {
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
       <div className="px-4 sm:px-5 py-3 border-b border-slate-200">
-        <h3 className="font-heading font-bold text-slate-900">By island, country or region</h3>
+        <h3 className="font-heading font-bold text-slate-900">By country or island</h3>
         <p className="text-xs text-slate-500 mt-0.5">
-          Name each store's region above and every area is totalled separately.
+          Pick each store's country above and every island, country or territory is totalled separately.
         </p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="text-[11px] uppercase tracking-wider text-slate-500 bg-slate-50">
-              <th className="text-left font-semibold px-4 sm:px-5 py-2">Region</th>
+              <th className="text-left font-semibold px-4 sm:px-5 py-2">Country / island</th>
               <th className="text-right font-semibold px-3 py-2">Stores</th>
               <th className="text-right font-semibold px-3 py-2">Baskets / yr</th>
               <th className="text-right font-semibold px-3 py-2">Incremental sales / yr</th>

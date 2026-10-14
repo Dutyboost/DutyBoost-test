@@ -30,10 +30,10 @@ export const discountFor = (basketEur) => {
 };
 
 // One store, exactly as a partner would enter it.
-export const defaultStore = (n, region = "", port = "") => ({
+export const defaultStore = (n, country = "", port = "") => ({
   id: `store-${Date.now()}-${n}`,
   name: `Store ${n}`,
-  region,
+  country,
   port,
   passengersPerCall: 3000,
   callsPerYear: 120,
@@ -69,7 +69,7 @@ export const computeStore = (store) => {
     discount,
     fee,
     net,
-    regionLabel: (store.region || "").trim() || "Unassigned",
+    regionLabel: (store.country || "").trim() || "Unassigned",
   };
 };
 
