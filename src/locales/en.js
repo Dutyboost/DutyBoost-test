@@ -97,7 +97,7 @@ export default {
       },
       retailers: {
         title: 'Retail Partners',
-        description: 'Airport retail partners convert passing travellers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.',
+        description: 'Airport and port retail partners convert passing travellers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.',
         b1: 'Higher store conversion',
         b2: 'Real-time QR redemption',
         b3: 'Pay only on results',
@@ -111,7 +111,7 @@ export default {
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Travel partners can reward their customers with exclusive airport shopping credits on every booking — whether operating as a travel agency, airline, accommodation, car rental, or transfer service. A simple integration automatically generates personalised credits delivered to customers by email, providing a meaningful loyalty perk.',
+        description: 'Travel partners can reward their customers with exclusive airport and port shopping credits on every booking — whether operating as a travel agency, airline, cruise line, accommodation, car rental, or transfer service. A simple integration automatically generates personalised credits delivered to customers by email, providing a meaningful loyalty perk.',
         b1: 'Stronger customer loyalty',
         b2: 'Zero operational effort',
         b3: 'New passive revenue stream',

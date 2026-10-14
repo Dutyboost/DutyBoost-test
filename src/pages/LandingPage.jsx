@@ -72,13 +72,6 @@ export default function LandingPage() {
       iconColor: "text-slate-700",
     },
     {
-      key: 'cruise',
-      icon: CruiseShipIcon,
-      color: "from-teal-400 to-cyan-600",
-      bg: "bg-teal-50",
-      iconColor: "text-teal-600",
-    },
-    {
       key: 'dutyboost',
       icon: Network,
       color: "from-primary to-accent",
@@ -165,16 +158,6 @@ export default function LandingPage() {
                 ];
               }
 
-              if (s.key === 'cruise') {
-                title = 'Cruise Ship & Port Retail Partners';
-                description = 'DutyBoost turns every port call into measurable retail revenue — passengers receive a DutyCredit at booking, redeem it at partner port retailers and downtown stores, and the cruise line earns commission on every redemption.';
-                benefits = [
-                  '6–8 hours of dwell time per port — hours, not minutes.',
-                  'Redeemable at port retailers and downtown stores.',
-                  'Higher basket value: souvenirs, jewellery, spirits.',
-                ];
-              }
-
               if (s.key === 'corporate') {
                 title = 'Corporate Travel Partners';
                 description = corporateOne.subtitle;
@@ -186,7 +169,7 @@ export default function LandingPage() {
               }
               
               if (s.key === 'agencies') {
-                         AdditionalIcons = [HotelIcon, CarRentalIcon];
+                         AdditionalIcons = [CruiseShipIcon, HotelIcon, CarRentalIcon];
                        }
 
               if (s.key === 'dutyboost') {
@@ -199,8 +182,8 @@ export default function LandingPage() {
                 ];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'cruise' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'cruise' ? '/cruise-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>
