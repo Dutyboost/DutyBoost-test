@@ -69,9 +69,10 @@ export default function CruiseCalculatorBody() {
       <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
         <Info className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
         <p className="text-xs text-slate-600 leading-relaxed">
-          No retailer directory and no POS integration needed to model a store. DutyBoost pre-activates travellers
-          before they reach you, and the only cost is a {PLATFORM_FEE * 100}% platform fee on DutyBoost-validated
-          transactions. Traveller discounts follow the DutyCredit tiers: {TIERS[0].discMin * 100}%–
+          Modelling a store needs no setup: DutyBoost pre-activates travellers before they reach you, and the only
+          cost is a {PLATFORM_FEE * 100}% platform fee on DutyBoost-validated transactions. To go live, a store that
+          runs a computerised cash register does need a POS integration, so the DutyCredit is validated at the till.
+          Traveller discounts follow the DutyCredit tiers: {TIERS[0].discMin * 100}%–
           {TIERS[TIERS.length - 1].discMax * 100}% depending on the basket, capped at the qualifying spend limit.
         </p>
       </div>
