@@ -20,7 +20,7 @@ export default function CruiseShowcase() {
 
   return (
     <div className="min-h-screen bg-background">
-      <ShowcaseMobileNav calculatorTo="/cruise-partner-calculator" gradient="linear-gradient(to bottom, #2563eb, #06b6d4)" />
+      <ShowcaseMobileNav calculatorTo="/cruise-partner-calculator" gradient="linear-gradient(to bottom, #2dd4bf, #0891b2)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
@@ -39,7 +39,7 @@ export default function CruiseShowcase() {
         <div className="text-center space-y-6 mb-16">
           <h1 className="text-5xl sm:text-6xl font-heading font-bold">
             {t('showcase.cruise.headline').split('&')[0]}&{" "}
-            <span className="text-primary">{t('showcase.cruise.headline').split('& ')[1]}</span>
+            <span className="text-teal-600">{t('showcase.cruise.headline').split('& ')[1]}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('showcase.cruise.subtitle')}
@@ -57,8 +57,8 @@ export default function CruiseShowcase() {
                 const Icon = step.icon;
                 return (
                   <div key={i} className="bg-card border border-border rounded-xl p-6 flex gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-teal-600" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-sm">{step.title}</h3>
@@ -70,13 +70,13 @@ export default function CruiseShowcase() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-12 text-white text-center space-y-6">
+          <div className="bg-gradient-to-r from-teal-400 to-cyan-600 rounded-2xl p-12 text-white text-center space-y-6">
             <h2 className="text-3xl font-heading font-bold">{t('showcase.cruise.ctaTitle')}</h2>
             <p className="text-lg opacity-90 max-w-2xl mx-auto">{t('showcase.cruise.ctaDesc')}</p>
             <div className="flex justify-center">
               <Button
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 gap-2"
+                className="bg-white text-teal-600 hover:bg-teal-50 gap-2"
                 onClick={() => navigate("/cruise-portal")}
               >
                 {t('showcase.cruise.ctaButton')} <ArrowRight className="w-4 h-4" />

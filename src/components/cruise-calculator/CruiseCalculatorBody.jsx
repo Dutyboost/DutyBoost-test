@@ -66,8 +66,8 @@ export default function CruiseCalculatorBody() {
         </p>
       </div>
 
-      <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
-        <Info className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+      <div className="bg-teal-50 border border-teal-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
+        <Info className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
         <p className="text-xs text-slate-600 leading-relaxed">
           DutyBoost pre-activates travellers before they reach you. The only cost is a {PLATFORM_FEE * 100}% platform
           fee on DutyBoost-validated transactions, and traveller discounts follow the DutyCredit tiers:{" "}
@@ -99,7 +99,7 @@ export default function CruiseCalculatorBody() {
 
       {stores.length > 1 && <RegionBreakdown regions={regions} />}
 
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-teal-400 to-cyan-600 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
           <h3 className="font-bold text-white text-lg">Want these numbers validated for your estate?</h3>
           <p className="text-cyan-50 text-sm mt-0.5">
@@ -108,7 +108,7 @@ export default function CruiseCalculatorBody() {
         </div>
         <Link
           to="/cruise-signup"
-          className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors shrink-0"
+          className="inline-flex items-center gap-2 bg-white text-teal-600 font-bold px-6 py-3 rounded-xl hover:bg-teal-50 transition-colors shrink-0"
         >
           Apply as a cruise partner <ArrowRight className="w-4 h-4" />
         </Link>

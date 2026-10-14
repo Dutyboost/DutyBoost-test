@@ -72,12 +72,12 @@ export default function CruiseSignup() {
         </nav>
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="w-full max-w-md text-center space-y-6">
-            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-10 h-10 text-primary" />
+            <div className="w-20 h-20 rounded-full bg-teal-50 flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-10 h-10 text-teal-600" />
             </div>
             <h1 className="text-3xl font-heading font-bold">{t('cruisesignup.success_title')}</h1>
             <p className="text-muted-foreground">{t('cruisesignup.success_desc')}</p>
-            <Link to="/cruise-portal"><Button className="w-full">{t('cruisesignup.success_button')}</Button></Link>
+            <Link to="/cruise-portal"><Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">{t('cruisesignup.success_button')}</Button></Link>
           </div>
         </div>
       </div>
@@ -99,16 +99,16 @@ export default function CruiseSignup() {
               <div key={i} className="flex items-center">
                 <div className="flex flex-col items-center gap-1">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                    i < step ? 'bg-primary text-primary-foreground' :
-                    i === step ? 'bg-primary text-primary-foreground ring-4 ring-primary/20' :
+                    i < step ? 'bg-teal-600 text-white' :
+                    i === step ? 'bg-teal-600 text-white ring-4 ring-teal-500/20' :
                     'bg-muted text-muted-foreground'
                   }`}>
                     {i < step ? <CheckCircle2 className="w-4 h-4" /> : i + 1}
                   </div>
-                  <span className={`text-xs font-medium ${i === step ? 'text-primary' : 'text-muted-foreground'}`}>{label}</span>
+                  <span className={`text-xs font-medium ${i === step ? 'text-teal-600' : 'text-muted-foreground'}`}>{label}</span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div className={`w-16 h-0.5 mb-4 mx-1 ${i < step ? 'bg-primary' : 'bg-border'}`} />
+                  <div className={`w-16 h-0.5 mb-4 mx-1 ${i < step ? 'bg-teal-600' : 'bg-border'}`} />
                 )}
               </div>
             ))}
@@ -146,7 +146,7 @@ export default function CruiseSignup() {
                   <Label>{t('cruisesignup.label_homeport')} <span className="text-red-500">*</span></Label>
                   <Input required placeholder="Miami, FL" value={homePort} onChange={e => setHomePort(e.target.value)} />
                 </div>
-                <Button type="submit" className="w-full gap-2 h-11 text-base" disabled={!isStep0Valid() || loading}>
+                <Button type="submit" className="w-full gap-2 h-11 text-base bg-teal-600 hover:bg-teal-700 text-white" disabled={!isStep0Valid() || loading}>
                   {loading ? t('cruisesignup.saving') : t('cruisesignup.continue')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </form>
@@ -156,8 +156,8 @@ export default function CruiseSignup() {
           {step === 1 && (
             <div className="space-y-6">
               <div className="text-center space-y-2">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
-                  <FileText className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mx-auto">
+                  <FileText className="w-6 h-6 text-teal-600" />
                 </div>
                 <h2 className="text-2xl font-heading font-bold">{t('cruisesignup.review_title')}</h2>
                 <p className="text-sm text-muted-foreground">{t('cruisesignup.review_subtitle')}</p>
@@ -184,10 +184,10 @@ export default function CruiseSignup() {
                 <div className="h-36 overflow-y-auto text-xs text-muted-foreground space-y-2 pr-1 border border-border rounded-lg p-3 bg-muted/30">
                   <p><strong>DutyBoost Cruise Line Partnership Agreement</strong></p>
                   <p>{t('cruisesignup.terms_body')}</p>
-                  <p>{t('cruisesignup.terms_link_text')} <Link to="/terms" target="_blank" className="text-primary underline">Terms of Service</Link> and <Link to="/privacy" target="_blank" className="text-primary underline">Privacy Policy</Link>.</p>
+                  <p>{t('cruisesignup.terms_link_text')} <Link to="/terms" target="_blank" className="text-teal-600 underline">Terms of Service</Link> and <Link to="/privacy" target="_blank" className="text-teal-600 underline">Privacy Policy</Link>.</p>
                 </div>
                 <label className="flex items-start gap-3 cursor-pointer">
-                  <input type="checkbox" checked={termsAccepted} onChange={e => setTermsAccepted(e.target.checked)} className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer" />
+                  <input type="checkbox" checked={termsAccepted} onChange={e => setTermsAccepted(e.target.checked)} className="mt-0.5 h-4 w-4 rounded border-input accent-teal-600 cursor-pointer" />
                   <span className="text-sm text-foreground leading-relaxed">{t('cruisesignup.terms_checkbox')}</span>
                 </label>
               </div>
@@ -196,7 +196,7 @@ export default function CruiseSignup() {
                 <Button variant="outline" className="gap-2" onClick={() => setStep(0)}>
                   <ArrowLeft className="w-4 h-4" /> {t('cruisesignup.back')}
                 </Button>
-                <Button className="gap-2 h-11 flex-1" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
+                <Button className="gap-2 h-11 flex-1 bg-teal-600 hover:bg-teal-700 text-white" disabled={!termsAccepted || loading} onClick={handleFinalSubmit}>
                   {loading ? t('cruisesignup.submitting') : t('cruisesignup.submit')} <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>

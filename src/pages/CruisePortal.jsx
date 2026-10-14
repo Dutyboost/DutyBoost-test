@@ -37,7 +37,7 @@ export default function CruisePortal() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('cruise.portal_subtitle')}
           </p>
-          <Button size="lg" className="gap-2 px-8" onClick={() => navigate("/cruise-signup")}>
+          <Button size="lg" className="gap-2 px-8 bg-teal-600 hover:bg-teal-700 text-white" onClick={() => navigate("/cruise-signup")}>
             {t('cruise.apply')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
@@ -47,8 +47,8 @@ export default function CruisePortal() {
             const Icon = f.icon;
             return (
               <div key={i} className="bg-card border border-border rounded-xl p-6 space-y-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-teal-600" />
                 </div>
                 <h3 className="font-heading font-semibold">{f.title}</h3>
                 <p className="text-sm text-muted-foreground">{f.desc}</p>
@@ -57,12 +57,12 @@ export default function CruisePortal() {
           })}
         </div>
 
-        <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-12 text-white text-center space-y-6">
+        <div className="bg-gradient-to-r from-teal-400 to-cyan-600 rounded-2xl p-12 text-white text-center space-y-6">
           <h2 className="text-3xl font-heading font-bold">{t('showcase.cruise.ctaTitle')}</h2>
           <p className="text-lg opacity-90 max-w-xl mx-auto">{t('showcase.cruise.ctaDesc')}</p>
           <Button
             size="lg"
-            className="bg-white text-blue-600 hover:bg-gray-100 gap-2"
+            className="bg-white text-teal-600 hover:bg-teal-50 gap-2"
             onClick={() => navigate("/cruise-signup")}
           >
             {t('cruise.apply')} <ArrowRight className="w-4 h-4" />
