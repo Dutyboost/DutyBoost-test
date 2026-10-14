@@ -1,0 +1,122 @@
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { Plus, Info, Anchor, ArrowRight } from "lucide-react";
+import DutyBoostLogo from "@/components/DutyBoostLogo";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Button } from "@/components/ui/button";
+import { useCurrency } from "@/components/calculator/CurrencyContext";
+import { getCurrencyInfo } from "@/data/countryCurrencies";
+import StoreInputCard from "./StoreInputCard";
+import RegionBreakdown from "./RegionBreakdown";
+import CruiseTotals from "./CruiseTotals";
+import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
+
+export default function CruiseCalculatorBody() {
+  const { currency, setCurrency } = useCurrency();
+  const [stores, setStores] = useState(() => [defaultStore(1)]);
+
+  const results = useMemo(() => stores.map(computeStore), [stores]);
+  const totals = useMemo(() => computeTotals(results), [results]);
+  const regions = useMemo(() => groupByRegion(results), [results]);
+
+  const handleChange = (id, key, value) =>
+    setStores((prev) => prev.map((s) => (s.id === id ? { ...s, [key]: value } : s)));
+
+  const handleAdd = () => setStores((prev) => [...prev, defaultStore(prev.length + 1)]);
+
+  const handleDuplicate = (id) =>
+    setStores((prev) => {
+      const i = prev.findIndex((s) => s.id === id);
+      if (i < 0) return prev;
+      const copy = { ...prev[i], id: `store-${Date.now()}`, name: `${prev[i].name} (copy)` };
+      return [...prev.slice(0, i + 1), copy, ...prev.slice(i + 1)];
+    });
+
+  const handleRemove = (id) => setStores((prev) => (prev.length > 1 ? prev.filter((s) => s.id !== id) : prev));
+
+  return (
+    <div className="max-w-6xl mx-auto space-y-8">
+      <div className="text-center space-y-2">
+        <div className="flex justify-between items-center mb-2">
+          <div className="w-28" />
+          <DutyBoostLogo height={55} />
+          <div className="flex justify-end gap-2">
+            <select
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+              className="rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+            >
+              {CURRENCIES.map((c) => (
+                <option key={c} value={c}>
+                  {c} — {getCurrencyInfo(c).label}
+                </option>
+              ))}
+            </select>
+            <LanguageSwitcher />
+          </div>
+        </div>
+        <span className="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 border border-teal-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest">
+          <Anchor className="w-3.5 h-3.5" /> Cruise &amp; Port Retail Partners
+        </span>
+        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Your own store calculator</h1>
+        <p className="text-slate-600 text-sm max-w-2xl mx-auto">
+          Model one store with your own figures — then add every other store you operate. Group them by island,
+          country or region and the calculator totals each area on its own, and all of them together.
+        </p>
+      </div>
+
+      <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
+        <Info className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+        <p className="text-xs text-slate-600 leading-relaxed">
+          No retailer directory and no POS integration needed to model a store. DutyBoost pre-activates travellers
+          before they reach you, and the only cost is a {PLATFORM_FEE * 100}% platform fee on DutyBoost-validated
+          transactions. Traveller discounts follow the DutyCredit tiers: {TIERS[0].discMin * 100}%–
+          {TIERS[TIERS.length - 1].discMax * 100}% depending on the basket, capped at the qualifying spend limit.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="font-heading font-bold text-slate-900">Your stores</h2>
+          <Button variant="outline" size="sm" className="gap-1.5" onClick={handleAdd}>
+            <Plus className="w-4 h-4" /> Add store
+          </Button>
+        </div>
+        {results.map((r) => (
+          <StoreInputCard
+            key={r.id}
+            store={r}
+            result={r}
+            onChange={handleChange}
+            onRemove={handleRemove}
+            onDuplicate={handleDuplicate}
+          />
+        ))}
+      </div>
+
+      <CruiseTotals totals={totals} />
+
+      {stores.length > 1 && <RegionBreakdown regions={regions} />}
+
+      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-center sm:text-left">
+          <h3 className="font-bold text-white text-lg">Want these numbers validated for your estate?</h3>
+          <p className="text-cyan-50 text-sm mt-0.5">
+            Send us your store list and we will model the full picture with you.
+          </p>
+        </div>
+        <Link
+          to="/cruise-signup"
+          className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors shrink-0"
+        >
+          Apply as a cruise partner <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
+
+      <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">
+        Illustrative model. Volumes are the partner's own estimates; values are shown in the selected currency and
+        recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.
+      </p>
+    </div>
+  );
+}
