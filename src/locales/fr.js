@@ -46,9 +46,9 @@ export default {
       nodes: {
         pos: 'Partenaires POS',
         retailers: "Détaillants en Terminal",
-        airports: "Partenaires Aéroports",
+        airports: "Partenaires Aéroports et Ports Maritimes",
         travelers: 'Voyageurs',
-        cruise: 'Partenaires Croisière',
+        local: 'Partenaires Détaillants Locaux',
         corporate: 'Corporate Travel Partners',
         travel: 'Partenaires de Voyage',
       },

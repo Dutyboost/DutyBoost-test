@@ -45,9 +45,9 @@ export default {
       nodes: {
         pos: 'Socios POS',
         retailers: 'Minoristas de Terminal',
-        airports: 'Socios de Aeropuerto',
+        airports: 'Socios de Aeropuerto y Puerto Marítimo',
         travelers: 'Pasajeros',
-        cruise: 'Socios de Cruceros',
+        local: 'Socios Minoristas Locales',
         corporate: 'Corporate Travel Partners',
         travel: 'Socios de Viaje',
       },
