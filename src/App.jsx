@@ -147,6 +147,7 @@ import PartnerDashboard from './pages/PartnerDashboard';
 import AirportShowcase from './pages/AirportShowcase';
 import PortsShowcase from './pages/PortsShowcase';
 import PortsCalculator from './pages/PortsCalculator';
+import PortDowntownCalculator from './pages/PortDowntownCalculator';
 import PortsPartnerRequest from './pages/PortsPartnerRequest';
 import PortRetailerShowcase from './pages/PortRetailerShowcase';
 import PortRetailerRequest from './pages/PortRetailerRequest';
@@ -329,7 +330,8 @@ const AuthenticatedApp = () => {
         <Route path="/airport-calculator" element={<AirportCalculator />} />
         <Route path="/airport-partner-request" element={<AirportPartnerRequest />} />
         <Route path="/ports-showcase" element={<PortsShowcase />} />
-        <Route path="/port-downtown-calculator" element={<PortsCalculator />} />
+        <Route path="/ports-calculator" element={<PortsCalculator />} />
+        <Route path="/port-downtown-calculator" element={<PortDowntownCalculator />} />
         <Route path="/ports-partner-request" element={<PortsPartnerRequest />} />
         <Route path="/port-retailer-showcase" element={<PortRetailerShowcase />} />
         <Route path="/port-retailer-request" element={<PortRetailerRequest />} />
