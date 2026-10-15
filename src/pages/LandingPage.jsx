@@ -156,7 +156,7 @@ export default function LandingPage() {
               ];
 
               if (s.key === 'retailers') {
-                AdditionalIcons = [PlaneTakeoff];
+                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon];
                 title = 'Airport & Sea Port Retail Partners';
               }
 
