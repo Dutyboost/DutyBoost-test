@@ -189,7 +189,7 @@ export default {
       retailers_description: 'DutyBoost ti invierà clienti pre-qualificati e aumenterà il valore delle transazioni tramite programmi di incentivi mirati — facendo crescere i tuoi ricavi mentre fidelizzi i clienti.',
       accommodations_description: 'Tramite DutyBoost premierai i tuoi ospiti con crediti shopping esclusivi in aeroporto ad ogni prenotazione e al check-out — dando loro un motivo convincente per sceglierti e guadagnando una commissione su ogni riscatto.',
       car_rentals_description: 'Tramite DutyBoost premierai i tuoi clienti con crediti shopping esclusivi in aeroporto ad ogni prenotazione e alla restituzione del veicolo — differenziando il tuo brand e sbloccando un nuovo flusso di entrate.',
-      cruise_description: 'DutyBoost trasformerà ogni viaggio in un asset di fidelizzazione — generando automaticamente DutyCredit personalizzati per i tuoi passeggeri e facendoti guadagnare commissioni su ogni riscatto.',
+      cruise_description: 'DutyBoost trasformerà ogni viaggio in ricavi a bordo — generando automaticamente DutyCredit personalizzati per i tuoi passeggeri, riscattabili nei negozi delle tue navi. Il ricavo netto di ogni acquisto incrementale resta a te.',
       train_description: 'DutyBoost trasformerà ogni viaggio in treno in un evento retail in stazione — generando DutyCredit per i passeggeri alla prenotazione, riscattabili prima dell\'imbarco, senza costi infrastrutturali.',
       cruise: 'Partner Crociere',
       train: 'Partner Ferroviari',
@@ -658,7 +658,7 @@ export default {
     },
     cruise: {
       portal_title: 'Portale Partner Crociere',
-      portal_subtitle: 'Tutto ciò di cui la tua compagnia di crociera ha bisogno per premiare i passeggeri e guadagnare commissioni nei porti di scalo.',
+      portal_subtitle: 'Tutto ciò di cui la tua compagnia di crociera ha bisogno per premiare i passeggeri e trasformare i negozi a bordo in ricavi incrementali.',
       apply: 'Candidati',
       back: 'Indietro',
     },

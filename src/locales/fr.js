@@ -166,7 +166,7 @@ export default {
       retailers_description: 'DutyBoost vous enverra des clients pré-qualifiés et augmentera la valeur des transactions via des programmes d\'incitations ciblés — développant vos revenus tout en fidélisant vos clients.',
       accommodations_description: 'Grâce à DutyBoost vous récompenserez vos clients avec des crédits shopping exclusifs à l\'aéroport à chaque réservation et au check-out — leur donnant une raison convaincante de vous choisir et vous faisant gagner une commission sur chaque utilisation.',
       car_rentals_description: 'Grâce à DutyBoost vous récompenserez vos clients avec des crédits shopping exclusifs à l\'aéroport à chaque réservation et à la restitution du véhicule — différenciant votre marque et débloquant un nouveau flux de revenus.',
-      cruise_description: 'DutyBoost transformera chaque voyage en actif de fidélisation — générant automatiquement des DutyCredits personnalisés pour vos passagers et vous faisant gagner une commission sur chaque utilisation.',
+      cruise_description: 'DutyBoost transformera chaque voyage en revenus à bord — générant automatiquement des DutyCredits personnalisés pour vos passagers, utilisables dans les boutiques de vos propres navires. Vous conservez le revenu net de chaque achat incrémental.',
       train_description: 'DutyBoost transformera chaque trajet en train en un événement retail en gare — générant des DutyCredits pour les passagers à la réservation, utilisables avant l\'embarquement, sans frais d\'infrastructure.',
       cruise: 'Partenaires Croisières',
       train: 'Partenaires Ferroviaires',
@@ -653,7 +653,7 @@ export default {
     },
     cruise: {
       portal_title: 'Portail Partenaire Croisière',
-      portal_subtitle: 'Tout ce dont votre compagnie de croisière a besoin pour récompenser les passagers et gagner des commissions dans les ports d\'escale.',
+      portal_subtitle: 'Tout ce dont votre compagnie de croisière a besoin pour récompenser les passagers et transformer les boutiques à bord en revenus incrémentaux.',
       apply: 'Candidater',
       back: 'Retour',
     },

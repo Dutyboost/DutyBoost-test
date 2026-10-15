@@ -299,7 +299,7 @@ export default {
       retailers_description: 'DutyBoost te enviará clientes preseleccionados y aumentará el valor de las transacciones a través de programas de incentivos dirigidos — haciendo crecer tus ingresos mientras fidelizas clientes.',
       accommodations_description: 'A través de DutyBoost recompensarás a tus huéspedes con créditos de compra exclusivos en el aeropuerto en cada reserva y al hacer check-out — dándoles una razón convincente para elegirte y ganando comisión en cada canje.',
       car_rentals_description: 'A través de DutyBoost recompensarás a tus clientes con créditos de compra exclusivos en el aeropuerto en cada reserva y al devolver el vehículo — diferenciando tu marca y desbloqueando un nuevo flujo de ingresos.',
-      cruise_description: 'DutyBoost convertirá cada viaje en un activo de fidelización — generando automáticamente DutyCredits personalizados para tus pasajeros y haciéndote ganar comisión en cada canje.',
+      cruise_description: 'DutyBoost convertirá cada viaje en ingresos a bordo — generando automáticamente DutyCredits personalizados para tus pasajeros, canjeables en las tiendas de tus propios barcos. Tú te quedas con los ingresos netos de cada compra incremental.',
       train_description: 'DutyBoost convertirá cada viaje en tren en un evento de retail en la estación — generando DutyCredits para pasajeros al reservar, canjeables antes de embarcar, sin costes de infraestructura.',
       cruise: 'Socios de Cruceros',
       train: 'Socios Ferroviarios',
@@ -673,7 +673,7 @@ export default {
     },
     cruise: {
       portal_title: 'Portal de Socio de Cruceros',
-      portal_subtitle: 'Todo lo que tu línea de cruceros necesita para recompensar a los pasajeros y ganar comisiones en los puertos de escala.',
+      portal_subtitle: 'Todo lo que tu línea de cruceros necesita para recompensar a los pasajeros y convertir las tiendas de a bordo en ingresos incrementales.',
       apply: 'Solicitar adhesión',
       back: 'Volver',
     },

@@ -166,7 +166,7 @@ export default {
       retailers_description: 'DutyBoost wird Ihnen vorqualifizierte Kunden schicken und den Transaktionswert durch gezielte Incentive-Programme steigern — Ihren Umsatz steigern und Kundentreue aufbauen.',
       accommodations_description: 'Über DutyBoost werden Sie Ihre Gäste bei jeder Buchung und beim Check-out mit exklusiven Flughafen-Shopping-Guthaben belohnen — ihnen einen überzeugenden Grund geben, Sie zu wählen, und Ihnen eine Provision auf jede Einlösung verdienen.',
       car_rentals_description: 'Über DutyBoost werden Sie Ihre Kunden bei jeder Buchung und bei der Fahrzeugrückgabe mit exklusiven Flughafen-Shopping-Guthaben belohnen — Ihre Marke differenzieren und einen neuen provisionsbasierten Einnahmestrom erschließen.',
-      cruise_description: 'DutyBoost wird jede Reise in ein Kundenbindungsmittel verwandeln — automatisch personalisierte DutyCredits für Ihre Passagiere generieren und Ihnen Provisionen auf jede Einlösung verdienen.',
+      cruise_description: 'DutyBoost wird jede Reise in Umsatz an Bord verwandeln — automatisch personalisierte DutyCredits für Ihre Passagiere, einlösbar in den Shops auf Ihren eigenen Schiffen. Die Nettoerlöse jedes Zusatzkaufs bleiben bei Ihnen.',
       train_description: 'DutyBoost wird jede Zugfahrt in ein Bahnhofs-Retail-Event verwandeln — DutyCredits für Passagiere bei der Buchung generieren, einlösbar vor dem Einsteigen, ohne Infrastrukturkosten.',
       cruise: 'Kreuzfahrt Partner',
       train: 'Bahn Partner',
@@ -653,7 +653,7 @@ export default {
     },
     cruise: {
       portal_title: 'Kreuzfahrt-Partnerportal',
-      portal_subtitle: 'Alles, was Ihr Kreuzfahrtunternehmen braucht, um Passagiere zu belohnen und Provisionen in Hafenstädten zu verdienen.',
+      portal_subtitle: 'Alles, was Ihr Kreuzfahrtunternehmen braucht, um Passagiere zu belohnen und die Shops an Bord in zusätzlichen Umsatz zu verwandeln.',
       apply: 'Jetzt bewerben',
       back: 'Zurück',
     },

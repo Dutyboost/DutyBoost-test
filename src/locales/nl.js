@@ -288,7 +288,7 @@ export default {
       retailers_description: 'DutyBoost stuurt u voorgeselecteerde klanten en verhoogt de transactiewaarde via gerichte incentiveprogramma\'s — uw omzet laten groeien terwijl u klantloyaliteit opbouwt op uw luchthaven.',
       accommodations_description: 'Via DutyBoost beloont u uw gasten met exclusieve luchthavenwinkelkredieten bij elke boeking én bij uitchecken — waardoor uw gasten een overtuigende reden hebben om voor u te kiezen en u commissie verdient op elke inwisseling.',
       car_rentals_description: 'Via DutyBoost beloont u uw klanten met exclusieve luchthavenwinkelkredieten bij elke boeking én bij teruggave van de auto — waardoor u zich onderscheidt van concurrenten en een nieuwe commissiestroom ontsluit.',
-      cruise_description: 'DutyBoost zal elke reis omzetten in een loyaliteitsmiddel — automatisch gepersonaliseerde DutyCredits genereren voor uw passagiers en commissie verdienen op elke inwisseling bij partner havenretailers.',
+      cruise_description: 'DutyBoost zal elke reis omzetten in omzet aan boord — automatisch gepersonaliseerde DutyCredits voor uw passagiers, te besteden in de shops op uw eigen schepen. De netto-opbrengst van elke extra aankoop blijft bij u.',
       train_description: 'DutyBoost zal elke treinreis omzetten in een stationsretailmoment — DutyCredits genereren voor passagiers bij boeking, inwisselbaar bij stationswinkels voor het instappen, zonder infrastructuurkosten.',
       kvk: 'KvK-nummer (Kamer van Koophandel)',
       vat: 'BTW-nummer',
@@ -665,7 +665,7 @@ export default {
     },
     cruise: {
       portal_title: 'Cruise Partner Portal',
-      portal_subtitle: 'Alles wat uw cruisemaatschappij nodig heeft om passagiers te belonen en commissie te verdienen in havensteden.',
+      portal_subtitle: 'Alles wat uw cruisemaatschappij nodig heeft om passagiers te belonen en de shops aan boord om te zetten in extra omzet.',
       apply: 'Aanmelden',
       back: 'Terug',
     },
