@@ -12,6 +12,7 @@ import RegionBreakdown from "./RegionBreakdown";
 import CruiseTotals from "./CruiseTotals";
 import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
 import { trafficDefaultsFor } from "@/data/cruiseTrafficDefaults";
+import { terminalTrafficFor } from "@/data/cruiseTerminalTraffic";
 import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { CALCULATOR_THEMES, CalculatorThemeProvider } from "./theme";
 
@@ -33,13 +34,19 @@ export default function CruiseCalculatorBody({
   const regions = useMemo(() => groupByRegion(results), [results]);
 
   // Picking a country fills in that market's indicative figures, so a store
-  // owner who does not know the local traffic still sees a full model.
+  // owner who does not know the local traffic still sees a full model. Picking
+  // the terminal then replaces the traffic figures with that port's own, so
+  // two ports in the same country never read the same.
   const handleChange = (id, key, value) =>
     setStores((prev) =>
       prev.map((s) => {
         if (s.id !== id) return s;
         if (key === "country" && prefillByCountry) {
           return { ...s, country: value, port: "", ...trafficDefaultsFor(value) };
+        }
+        if (key === "port" && prefillByCountry) {
+          const traffic = terminalTrafficFor(s.country, value);
+          return { ...s, port: value, ...(traffic || {}) };
         }
         return { ...s, [key]: value };
       })
