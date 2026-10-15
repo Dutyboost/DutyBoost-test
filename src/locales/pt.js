@@ -43,9 +43,9 @@ export default {
       title: 'Todos os Intervenientes Orbitam a <span class="text-primary">Jornada do Viajante</span>',
       subtitle: 'Uma transação validada liga todos os participantes — cada um a ganhar no mesmo momento do viajante.',
       actual_title: 'Situação atual',
-      actual_text: 'Na situação atual, o envolvimento só começa quando o viajante passa a segurança ou embarca. Nessa altura a intenção já está definida — 73% seguem diretamente para a porta de embarque ou para a passadeira.',
+      actual_text: 'Na situação atual, o envolvimento só começa quando o viajante passa a segurança ou embarca. Nessa altura a intenção já está definida — 73% dos viajantes de aeroporto seguem diretamente para a porta de embarque e 60% dos passageiros de cruzeiro não compram.',
       activated_title: 'DutyBoost: ativado antes da chegada',
-      activated_text: 'A DutyBoost envolve os viajantes antes de chegarem ao aeroporto ou ao terminal de cruzeiros, pré-ativando os 73% que atualmente não compram — cada viajante convertido torna-se um cliente incremental, criando valor mensurável em todo o ecossistema de retalho de viagens.',
+      activated_text: 'A DutyBoost envolve os viajantes antes de chegarem ao aeroporto ou ao terminal de cruzeiros, pré-ativando os 73% dos viajantes de aeroporto e os 60% dos passageiros de cruzeiro que atualmente não compram — cada viajante convertido torna-se um cliente incremental, criando valor mensurável em todo o ecossistema de retalho de viagens.',
       hub_title: 'A Transação do Viajante',
       hub_subtitle: 'O passo final que reúne todo o ecossistema.',
       nodes: {
