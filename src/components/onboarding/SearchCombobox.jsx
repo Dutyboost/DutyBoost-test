@@ -7,6 +7,14 @@ import { cn } from "@/lib/utils";
  * an entry fills the field (and anything else the caller needs). Free text is
  * always allowed, so something that is not in the list can still be entered.
  */
+// Accents are folded so a name is found however it is typed — "espana" finds
+// "España", "curacao" finds "Curaçao".
+const fold = (text) =>
+  (text || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
 export default function SearchCombobox({
   value,
   onChange,
@@ -28,9 +36,9 @@ export default function SearchCombobox({
   }, []);
 
   const matches = useMemo(() => {
-    const q = (value || "").trim().toLowerCase();
+    const q = fold(value).trim();
     const list = q
-      ? options.filter((o) => `${o.label} ${o.sub || ""}`.toLowerCase().includes(q))
+      ? options.filter((o) => fold(`${o.label} ${o.sub || ""}`).includes(q))
       : options;
     // Show the whole list, not a teaser — an airport can carry well over a
     // hundred shops and the team needs to see all of them.

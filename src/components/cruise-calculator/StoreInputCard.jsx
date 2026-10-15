@@ -1,8 +1,10 @@
+import { useMemo } from "react";
 import { Copy, Trash2, Store as StoreIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import SearchCombobox from "@/components/onboarding/SearchCombobox";
 import { COUNTRY_OPTIONS } from "@/data/unCountries";
+import { localizeCountry } from "@/data/countryNames";
 import { terminalsForCountry } from "@/data/cruiseTerminals";
 import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { numShort } from "./model";
@@ -30,6 +32,19 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
       ? ""
       : Math.round(store.basket * rate);
   const terminalOptions = terminalsForCountry(store.country);
+  const countryName = localizeCountry(store.country, i18n.language);
+
+  // Countries are offered in the visitor's own language, with the English name
+  // as the sub-line so either spelling finds it. The English name stays the
+  // stored value: the traffic and terminal data is keyed on it.
+  const countryOptions = useMemo(
+    () =>
+      COUNTRY_OPTIONS.map((o) => {
+        const name = localizeCountry(o.label, i18n.language);
+        return name === o.label ? o : { ...o, label: name, sub: o.label, value: o.label };
+      }),
+    [i18n.language]
+  );
 
   const pickCountry = (country) => {
     onChange(store.id, "country", country);
@@ -55,10 +70,10 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
             />
           </label>
           <SearchCombobox
-            value={store.country}
+            value={countryName}
             onChange={(v) => onChange(store.id, "country", v)}
-            onPick={(o) => pickCountry(o.label)}
-            options={COUNTRY_OPTIONS}
+            onPick={(o) => pickCountry(o.value ?? o.label)}
+            options={countryOptions}
             placeholder={s.countryPlaceholder}
             emptyText={s.countryEmpty}
             className={`${FIELD_CLASS} ${th.fieldRing}`}
