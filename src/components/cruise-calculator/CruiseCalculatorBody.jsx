@@ -1,10 +1,9 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Plus, Info, Anchor, ArrowRight } from "lucide-react";
+import { Info, Anchor, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { Button } from "@/components/ui/button";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import { getCurrencyInfo } from "@/data/countryCurrencies";
 import StoreInputCard from "./StoreInputCard";
@@ -51,8 +50,6 @@ export default function CruiseCalculatorBody({
         return { ...s, [key]: value };
       })
     );
-
-  const handleAdd = () => setStores((prev) => [...prev, defaultStore(prev.length + 1)]);
 
   const handleDuplicate = (id) =>
     setStores((prev) => {
@@ -104,12 +101,7 @@ export default function CruiseCalculatorBody({
       </div>
 
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="font-heading font-bold text-slate-900">{s.stores}</h2>
-          <Button variant="outline" size="sm" className="gap-1.5" onClick={handleAdd}>
-            <Plus className="w-4 h-4" /> {s.addStore}
-          </Button>
-        </div>
+        <h2 className="font-heading font-bold text-slate-900">{s.stores}</h2>
         {results.map((r) => (
           <StoreInputCard
             key={r.id}
