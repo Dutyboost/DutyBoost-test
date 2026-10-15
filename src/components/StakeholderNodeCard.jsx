@@ -5,19 +5,21 @@ export default function StakeholderNodeCard({ node }) {
   const { t } = useTranslation();
   const { key, Icon, extraIcons, bg, border, fg, link } = node;
 
+  const iconCount = 1 + extraIcons.length;
+  const iconSize =
+    iconCount >= 4 ? "w-6 h-6 md:w-8 md:h-8"
+    : iconCount >= 2 ? "w-6 h-6 md:w-9 md:h-9"
+    : "w-7 h-7 md:w-11 md:h-11";
+
   return (
     <Link
       to={link}
       className={`flex flex-col items-center gap-2 ${bg} border ${border} rounded-2xl px-2 py-3 shadow-sm hover:shadow-md transition-shadow w-full h-full`}
     >
-      <div className="flex flex-wrap items-center justify-center gap-1">
-        <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-white/80 flex items-center justify-center shrink-0">
-          <Icon className={`w-5 h-5 md:w-7 md:h-7 ${fg}`} />
-        </div>
+      <div className="flex flex-nowrap items-center justify-center gap-1.5">
+        <Icon className={`${iconSize} ${fg} shrink-0`} />
         {extraIcons.map((AdIcon, idx) => (
-          <div key={idx} className="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-white/80 flex items-center justify-center shrink-0">
-            <AdIcon className={`w-5 h-5 md:w-7 md:h-7 ${fg}`} />
-          </div>
+          <AdIcon key={idx} className={`${iconSize} ${fg} shrink-0`} />
         ))}
       </div>
       <span className="text-[11px] md:text-xs font-bold leading-tight text-center whitespace-normal md:whitespace-nowrap">
